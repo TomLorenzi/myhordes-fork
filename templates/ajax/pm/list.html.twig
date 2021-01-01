@@ -95,6 +95,8 @@
                 let editor = document.getElementById('global-pm-forum-editor');
                 if (editor) editor.innerText = '';
 
+                document.getElementById('post-office-mobile-wrapper').classList.add('panel-2');
+
                 $.ajax.background().load( target, elem.getAttribute('x-endpoint'), false, {}, function() {
                     document.getElementById('pm-forum-content-header').innerText = elem.getAttribute('x-title');
                     document.getElementById('pm-forum-actions-container').classList.remove('hidden');

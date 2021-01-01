@@ -2,8 +2,8 @@
 
 {% block ajax_base %}
 
-    <div class="row-flex stretch wrap">
-        <div class="padded cell rw-4 max-height">
+    <div id="post-office-mobile-wrapper" class="row-flex stretch wrap">
+        <div class="padded cell rw-4 rw-lg-6 max-height">
 
             <div class="row-flex vertical stretch full-height">
 
@@ -38,9 +38,10 @@
 
         </div>
 
-        <div class="padded cell rw-8 max-height" style="overflow: auto">
+        <div class="padded cell rw-8 rw-lg-6 max-height" style="overflow: auto">
 
             <div class="row-flex vertical stretch full-height">
+                <div id="pm-mobile-back-button" class="forum-control hide-desktop hide-lg hide-md center pointer" style="font-size: 2em; margin-bottom: 10px;"><i class="fa fa-arrow-circle-left"></i></div>
 
                 <div id="pm-forum-actions-container" class="cell rw-12 grow-0 hidden" style="padding-bottom: 10px;">
                     <div class="forum-control">
@@ -147,6 +148,8 @@
             let typingTimer, doneTypingInterval = 500;
             let searchBox = document.getElementById('pm-users-search');
 
+            document.getElementById('pm-mobile-back-button').addEventListener('click', () => document.getElementById('post-office-mobile-wrapper').classList.remove('panel-2'));
+
             const userSearchHandler = function() {
                 if (searchBox.value.length >= 3)
                     $.ajax.background().load(
@@ -202,6 +205,8 @@
                 document.getElementById('pm-forum-editor-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}';
 
                 document.getElementById('pm-forum-content').innerHTML = '<ul>{{ _self.pm_preview(app.user)|e('js') }}</ul>';
+
+                document.getElementById('post-office-mobile-wrapper').classList.add('panel-2');
 
                 if (editor) $.ajax.background().load( editor, '{{ url('pm_thread_editor_controller') }}', false, {}, function() {
                     document.getElementById('pm-forum-editor-header').innerText = '{{ 'Neue Nachricht'|trans({},'global') }}';

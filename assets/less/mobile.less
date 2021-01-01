@@ -138,6 +138,21 @@
       flex-basis: 100%;
     }
   }
+
+  #post-office-mobile-wrapper {
+    &:not(.panel-2) {
+      margin-left: 0;
+      &>*:first-child { opacity: 1; }
+      &>*:last-child  { opacity: 0; }
+    }
+    &.panel-2 {
+      margin-left: -100%;
+      &>*:first-child { opacity: 0; }
+      &>*:last-child  { opacity: 1; }
+    }
+    &>*:first-child, &>*:last-child  { transition: opacity 0.20s ease-in-out }
+    width: 200%; transition: margin-left 0.25s ease-in-out;
+  }
 }
 
 .postfix(@threshold, @postfix) {
