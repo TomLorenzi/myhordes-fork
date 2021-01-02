@@ -14725,7 +14725,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du bist für das Katapult verantwortlich</source>
-        <target>Du bist für das Katapult verantwortlich</target>
+        <target>You are in charge of the catapult!</target>
       </segment>
     </unit>
     <unit id="hCYUVMS" name="5c5e382">
@@ -14734,7 +14734,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.</source>
-        <target>Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.</target>
+        <target>You have been designated Citizen in charge of the Town Catapult! This nomination was down to the luck of the drawn congratulations! Go to the Catapult area of the town.</target>
       </segment>
     </unit>
     <unit id="bh3ikqp" name="6a59fc2">
@@ -14743,7 +14743,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Sorgfältig verpackt hast du %item% in das Katapult gelegt. Der Gegenstand wurde auf %zone% geschleudert.</source>
-        <target>Sorgfältig verpackt hast du %item% in das Katapult gelegt. Der Gegenstand wurde auf %zone% geschleudert.</target>
+        <target>You carefully wrap, pack and place the %item% in the catapult. The object has been fired to %zone% !</target>
       </segment>
     </unit>
     <unit id="8l_i1Ah" name="Ein neuer Tag bricht an">
@@ -14986,7 +14986,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das Katapult ist ein wirklich mächtiges Instrument, um jeden beliebigen Gegenstand zu einer Zone in der Wüste zu schicken.</source>
-        <target>Das Katapult ist ein wirklich mächtiges Instrument, um jeden beliebigen Gegenstand zu einer Zone in der Wüste zu schicken.</target>
+        <target>The catapult is an extremely powerful tool which allows any object to be sent to any area in the desert.</target>
       </segment>
     </unit>
     <unit id="qavmsbg" name="Praktisch zur Versorgung aus der Ferne.">
@@ -14995,7 +14995,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Praktisch zur Versorgung aus der Ferne.</source>
-        <target>Praktisch zur Versorgung aus der Ferne.</target>
+        <target>Very practical for sending reinforcements from a distance.</target>
       </segment>
     </unit>
     <unit id="L.iYdPu" name="a71fb1a">
@@ -15004,7 +15004,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Denke daran, dass das Katapult manchmal sein Ziel verfehlt und den Gegenstand in eine angrenzende Zone befördert...</source>
-        <target>Denke daran, dass das Katapult manchmal sein Ziel verfehlt und den Gegenstand in eine angrenzende Zone befördert...</target>
+        <target>Be aware that sometimes the catapult misses it's target and sends the objects to a neighbouring square...</target>
       </segment>
     </unit>
     <unit id="vGJYt6I" name="Du wurdest als Verantwortlicher für das Katapult bestimmt!">
@@ -15022,7 +15022,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</source>
-        <target>Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.</target>
+        <target>You can choosen an object (from those present in your inventory) and a set of coordinates.</target>
       </segment>
     </unit>
     <unit id="om1Y5tE" name="6a37406">
@@ -15040,7 +15040,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Aktivierung des Katapults kostet %ap%.</source>
-        <target>Die Aktivierung des Katapults kostet %ap%.</target>
+        <target>Activating the catapult costs %ap%.</target>
       </segment>
     </unit>
     <unit id="NnDz_H4" name="6b04ecf">
@@ -15049,7 +15049,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).</source>
-        <target>Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).</target>
+        <target>Activating the catapult costs %ap% (this cost canbe reduced by building a better catapult) .</target>
       </segment>
     </unit>
     <unit id=".SXRDqM" name="Einen zufälligen Bürger als Katapult-Bediener auslosen">
@@ -15067,7 +15067,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Zu verschickender Gegenstand:</source>
-        <target>Zu verschickender Gegenstand:</target>
+        <target>Object to be sent :</target>
       </segment>
     </unit>
     <unit id="HseCFgo" name="Gegenstand auswählen">
@@ -15076,7 +15076,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Gegenstand auswählen</source>
-        <target>Select object</target>
+        <target>Choose an object</target>
       </segment>
     </unit>
     <unit id="3LNO13M" name="Gegenstand katapultieren">
@@ -15085,7 +15085,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Gegenstand katapultieren</source>
-        <target>Catapult the object</target>
+        <target>Catapult this object!</target>
       </segment>
     </unit>
     <unit id="vKTmXMp" name="Katapultregister">
