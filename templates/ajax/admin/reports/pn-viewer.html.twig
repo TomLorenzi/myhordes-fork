@@ -30,7 +30,7 @@
                     <span>{{ '%num% Meldungen. Klicken, um Benutzer anzuzeigen.'|trans({'%num%': post.adminReports(true)|length},'global') }}</span>
                     <div>
                         {% for report in post.adminReports(true) %}
-                            <span class="pointer" x-ajax-href="{{ path('soul_visit', {id: report.sourceUser.id}) }}">{{ report.sourceUser.name }}</span>
+                            <a target="_blank" href="{{ url('soul_visit', {id: report.sourceUser.id}) }}">{{ report.sourceUser.name }}</a>
                         {% endfor %}
                     </div>
                 </div>
