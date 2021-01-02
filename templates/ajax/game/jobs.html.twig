@@ -57,7 +57,7 @@
             <h5>{{'Zur zeit in der Stadt'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
             <div class="row prof-list">
             {% for elem in prof_count %}
-                <div class="padded cell small center rw-4">
+                <div class="padded cell small center rw-4 rw-lg-6 rw-sm-12">
                     <img alt="{{ elem[1].label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ elem[1].icon ~ '.gif') }}" />
                     {{ elem[1].label|trans({},'game') }} x {{ elem[0] }}
                 </div>
