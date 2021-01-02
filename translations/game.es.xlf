@@ -8118,7 +8118,7 @@
       </notes>
       <segment>
         <source>%attacker% ist %defender% an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</source>
-        <target>¡%attacker% ha atacado y devorado a %defender% sin darle tiempo a reaccionar, sólo un Mutante puede haber hecho algo tan horrible!</target>
+        <target>¡%attacker% ha atacado y devorado a %defender% sin darle tiempo a reaccionar, sólo un Mutante pudo haber hecho algo tan horrible!</target>
       </segment>
     </unit>
     <unit id="Qlh.l61" name="a9b83b9">
@@ -8172,7 +8172,7 @@
       </notes>
       <segment>
         <source>Eine großartige Nacht für einige wohlverdiente Feierlichkeiten. Keine Todesopfer in der Stadt infolge des Angriffs! Eine beträchtliche Horde griff von Osten aus an.</source>
-        <target>Eine großartige Nacht für einige wohlverdiente Feierlichkeiten. Keine Todesopfer in der Stadt infolge des Angriffs! Eine beträchtliche Horde griff von Osten aus an.</target>
+        <target>Esto hay que festejarlo. ¡Ningún muerto en el pueblo y fueron muchísimos atacándonos en el muro este!</target>
       </segment>
     </unit>
     <unit id="86jQjTU" name="225efed">
@@ -8181,7 +8181,7 @@
       </notes>
       <segment>
         <source>Eine friedliche Nacht in der Stadt. Die Horde von %attack% Zombies, die letzte Nacht kam, traf einige Teile der Stadt ziemlich hart, aber es gibt nichts Bemerkenswertes zu berichten.</source>
-        <target>Eine friedliche Nacht in der Stadt. Die Horde von %attack% Zombies, die letzte Nacht kam, traf einige Teile der Stadt ziemlich hart, aber es gibt nichts Bemerkenswertes zu berichten.</target>
+        <target>Anoche, nuestras defensas han resistido bien el violento ataque de los zombies en el portal. ¡Fueron casi %attack% muertos vivientes! No hubo pérdidas.</target>
       </segment>
     </unit>
     <unit id="qOMf2gJ" name="6aeff69">
@@ -8190,7 +8190,7 @@
       </notes>
       <segment>
         <source>Abgesehen davon, gut, dass letzte Nacht niemand starb. Eine Horde von fast %attack% Zombies heulte die ganze Nacht draußen, aber keiner von ihnen schaffte es, unsere Verteidigung zu durchbrechen.</source>
-        <target>Abgesehen davon, gut, dass letzte Nacht niemand starb. Eine Horde von fast %attack% Zombies heulte die ganze Nacht draußen, aber keiner von ihnen schaffte es, unsere Verteidigung zu durchbrechen.</target>
+        <target>Uff, nadie ha muerto. Una turba de %attack% zombies se la ha pasado gritando toda la noche afuera, pero casi ninguno ha logrado burlar nuestras defensas.</target>
       </segment>
     </unit>
     <unit id="gN4H5VR" name="786b2c6">
@@ -8199,7 +8199,7 @@
       </notes>
       <segment>
         <source>Nahrungsmittelknappheit bei der Horde : %attack% Zombies, und nicht einer von ihnen bekam letzte Nacht etwas zu fressen, unsere Abwehr hielt gut stand.</source>
-        <target>Nahrungsmittelknappheit bei der Horde : %attack% Zombies, und nicht einer von ihnen bekam letzte Nacht etwas zu fressen, unsere Abwehr hielt gut stand.</target>
+        <target>¡Esos malditos deben estarse cag* de hambre! Ni uno solo de los %attack% zombies tuvo con qué llenarse la panza, ¡vivan nuestras defensas!</target>
       </segment>
     </unit>
     <unit id="ra16zgk" name="cd7fba2">
@@ -8217,7 +8217,7 @@
       </notes>
       <segment>
         <source>Es sei darauf hingewiesen, dass unsere Verteidigung nicht weit von der großen Südmauer entfernt dem furchterregenden Angriff der Horden letzte Nacht standgehalten hat. Um die %attack% Zombies versuchten alles, aber keine Verluste an Menschenleben während des Angriffs!</source>
-        <target>Es sei darauf hingewiesen, dass unsere Verteidigung nicht weit von der großen Südmauer entfernt dem furchterregenden Angriff der Horden letzte Nacht standgehalten hat. Um die %attack% Zombies versuchten alles, aber keine Verluste an Menschenleben während des Angriffs!</target>
+        <target>Anoche, nuestras defensas han resistido bien el violento ataque de los zombies cerca del muro sur. ¡Fueron casi %attack% muertos vivientes! No hubo pérdidas.</target>
       </segment>
     </unit>
     <unit id="4Z_UnE1" name="6fad503">
@@ -8226,7 +8226,7 @@
       </notes>
       <segment>
         <source>Keine Todesopfer von letzter Nacht zu berichten. Man könnte sogar sagen, dass die Gemeinschaft (endlich) herausgefunden hat, wie sie sich organisieren muss, um nicht ausgelöscht zu werden.</source>
-        <target>Keine Todesopfer von letzter Nacht zu berichten. Man könnte sogar sagen, dass die Gemeinschaft (endlich) herausgefunden hat, wie sie sich organisieren muss, um nicht ausgelöscht zu werden.</target>
+        <target>Ningún muerto a enterrar desde anoche, se puede decir que la comunidad está aprendiendo (por fín) a organizarse.</target>
       </segment>
     </unit>
     <unit id="xxw4YDd" name="e89d97d">
@@ -8235,7 +8235,7 @@
       </notes>
       <segment>
         <source>Keine Todesopfer heute Abend. Alles ist in Ordnung. Ich garantiere Euch jedoch nur, dass die Zombies heute Nacht verhungern werden: Unsere morgigen Chancen sind..., naja, sagen wir, verbesserungswürdig.</source>
-        <target>Keine Todesopfer heute Abend. Alles ist in Ordnung. Ich garantiere Euch jedoch nur, dass die Zombies heute Nacht verhungern werden: Unsere morgigen Chancen sind..., naja, sagen wir, verbesserungswürdig.</target>
+        <target>No hay muertos esta noche. Eso está bien. Pero no dudo que los zombies volverán más hambrientos esta noche, nuestro pellejo está en peligro...</target>
       </segment>
     </unit>
     <unit id="t._G1SL" name="e5253d8">
@@ -8244,7 +8244,7 @@
       </notes>
       <segment>
         <source>Nach dem Angriff sind keine Verluste in den Reihen zu melden (zumindest keine in der Stadt). "Ja, ich denke aber schon, dass wir morgen Nacht alle sterben werden!", so %citizen1%, ein skeptischer Bürger.</source>
-        <target>Nach dem Angriff sind keine Verluste in den Reihen zu melden (zumindest keine in der Stadt). "Ja, ich denke aber schon, dass wir morgen Nacht alle sterben werden!", so %citizen1%, ein skeptischer Bürger.</target>
+        <target>Esta noche, no hay bajas en nuestras filas (o al menos en el pueblo). "Sí, claro... pero mañana, ¿diremos lo mismo?", comentó escéptico el habitante %citizen1%.</target>
       </segment>
     </unit>
     <unit id="i8FSlBg" name="425cdf4">
@@ -8262,7 +8262,7 @@
       </notes>
       <segment>
         <source>Einige Bürger kamen letzte Nacht ins Schwitzen. Eine Welle von etwa %attack% Monstern versuchte, unsere Stadt zu zerstören, wenn auch ohne Erfolg.</source>
-        <target>Einige Bürger kamen letzte Nacht ins Schwitzen. Eine Welle von etwa %attack% Monstern versuchte, unsere Stadt zu zerstören, wenn auch ohne Erfolg.</target>
+        <target>Hablando de cosas serias, muchos no salen de su asombro. Una marea de casi %attack% monstruos ha intentado devastar nuestro pueblo, ¡pero no lo lograron!</target>
       </segment>
     </unit>
     <unit id="_KcsEZD" name="3b11391">
@@ -8271,7 +8271,7 @@
       </notes>
       <segment>
         <source>Die Zombies von gestern Abend hatten nichts außer unseren Fetzen, in die sie ihre Zähne bekommen konnten, und einige Tierkadaver... Unsere Verteidigung hat sich gut gehalten.</source>
-        <target>Die Zombies von gestern Abend hatten nichts außer unseren Fetzen, in die sie ihre Zähne bekommen konnten, und einige Tierkadaver... Unsere Verteidigung hat sich gut gehalten.</target>
+        <target>Los zombies de anoche tuvieron que conformarse con comer nuestra basura y los viejos cadáveres que había por ahí... Las defensas parecen estar funcionando bien.</target>
       </segment>
     </unit>
     <unit id="33A2X4_" name="2c8e055">
@@ -8280,7 +8280,7 @@
       </notes>
       <segment>
         <source>Die Zombies griffen uns eine Zeit lang hart an, aber keiner kam durch... Aber zweifelt nicht eine Sekunde daran, dass sie heute Abend zurückkommen werden, noch hungriger und sicherlich zahlenmäßig größer...</source>
-        <target>Die Zombies griffen uns eine Zeit lang hart an, aber keiner kam durch... Aber zweifelt nicht eine Sekunde daran, dass sie heute Abend zurückkommen werden, noch hungriger und sicherlich zahlenmäßig größer...</target>
+        <target>Los zombies golpearon fuerte y varias veces... Aunque ninguno logró pasar, no bajemos los brazos, volverán esta noche, mucho más hambrientos y numerosos...</target>
       </segment>
     </unit>
     <unit id="nzbV8IO" name="e986527">
@@ -8289,7 +8289,7 @@
       </notes>
       <segment>
         <source>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
-        <target>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</target>
+        <target>Esta mañana, a %citizen1% se le ocurrió correr desnudo en las calles del pueblo para festejar que no hubieron muertos. "Es como si hubiera vuelto a nacer" explicó a sus vecinos.</target>
       </segment>
     </unit>
     <unit id=".ArUqcq" name="ed7befb">
@@ -8307,7 +8307,7 @@
       </notes>
       <segment>
         <source>Wir hatten alles, was wir brauchten nahe dem westlichen Viertel, um die schlurfenden Leichen von gestern Abend fernzuhalten, soviel ist sicher. Null Verluste - abgesehen von ein paar Häusern, die sie getroffen haben.</source>
-        <target>Wir hatten alles, was wir brauchten nahe dem westlichen Viertel, um die schlurfenden Leichen von gestern Abend fernzuhalten, soviel ist sicher. Null Verluste - abgesehen von ein paar Häusern, die sie getroffen haben.</target>
+        <target>sta noche, nos defendimos bien cerca de la muralla del ataque de %attack% zombies especialmente violentos. No tenemos bajas, solo algunas casas sufrieron ligeros daños.</target>
       </segment>
     </unit>
     <unit id="RRW1KXj" name="df3cfa4">
