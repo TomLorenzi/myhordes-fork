@@ -3346,7 +3346,7 @@
       </notes>
       <segment>
         <source>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt..</source>
-        <target>You poured the contents of the {item} in den Brunnen geschüttet. The well was replenished with {well} rations of water..</target>
+        <target>You poured the contents of the {item} into the well. The well was replenished with {well} rations of water..</target>
       </segment>
     </unit>
     <unit id="m2_GRND" name="7d11094">
@@ -3355,7 +3355,7 @@
       </notes>
       <segment>
         <source>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.</source>
-        <target>You poured the contents of the {item} in den Brunnen geschüttet. The well was replenished with {well} rations of water.</target>
+        <target>You poured the contents of the {item} into the well. The well was replenished with {well} rations of water.</target>
       </segment>
     </unit>
     <unit id="T9EFRxo" name="Reparieren mit">
@@ -6352,7 +6352,7 @@
       </notes>
       <segment>
         <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
-        <target><![CDATA[<t-bp_ok>You read the {item} and see that it is a plan for {bp_spawn}.</t-bp_ok><t-bp_parent>{hr}Dafür ist das Bauprojekt {bp_parent} nötig.</t-bp_parent><t-bp_fail>You read the {item} but you do not understand a word of what is written...</t-bp_fail>]]></target>
+        <target><![CDATA[<t-bp_ok>You read the {item} and see that it is a plan for {bp_spawn}.</t-bp_ok><t-bp_parent>{hr}This project requires the {bp_parent} to be build first.</t-bp_parent><t-bp_fail>You read the {item} but you do not understand a word of what is written...</t-bp_fail>]]></target>
       </segment>
     </unit>
     <unit id="V2fAVB5" name="Aufbauen">
@@ -7388,7 +7388,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine &lt;strong&gt;nächste Bewegungsaktion&lt;/strong&gt; wird night in das Register eingetragen, wenn sie &lt;strong&gt;innerhalb von 1 Minute&lt;/strong&gt; erfolgt.</source>
-        <target><![CDATA[Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine <strong>nächste Bewegungsaktion</strong> wird night in das Register eingetragen, wenn sie <strong>innerhalb von 1 Minute</strong> erfolgt.]]></target>
+        <target><![CDATA[You throw your smoke bomb into the area, causing mass confusion!{hr}Your <strong>next move</strong> will not be recorded in the register if carried out <strong>in the next 60 seconds</strong> .]]></target>
       </segment>
     </unit>
     <unit id="gN7yVQC" name="Durchgang in Kraft">

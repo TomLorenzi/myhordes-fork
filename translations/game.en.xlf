@@ -8153,7 +8153,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
-        <target>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</target>
+        <target>%citizen1% spent the whole night howling in their house, to the point that everyone thought that the zombies were making citizen steaks out of him. It turns out that they were just having a massive breakdown. No deaths in town last night.</target>
       </segment>
     </unit>
     <unit id="ZV3brVh" name="7dd2cf8">
@@ -8198,7 +8198,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Nahrungsmittelknappheit bei der Horde : %attack% Zombies, und nicht einer von ihnen bekam letzte Nacht etwas zu fressen, unsere Abwehr hielt gut stand.</source>
-        <target>Furthermore, horde food shortage : %attack% Zzombies, and not one of them got anything to eat last night, our defences held up well.</target>
+        <target>Furthermore, horde food shortage : %attack% Zombies, and not one of them got anything to eat last night, our defences held up well.</target>
       </segment>
     </unit>
     <unit id="ra16zgk" name="cd7fba2">
@@ -8279,7 +8279,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Zombies griffen uns eine Zeit lang hart an, aber keiner kam durch... Aber zweifelt nicht eine Sekunde daran, dass sie heute Abend zurückkommen werden, noch hungriger und sicherlich zahlenmäßig größer...</source>
-        <target>Die Zombies griffen uns eine Zeit lang hart an, aber keiner kam durch... Aber zweifelt nicht eine Sekunde daran, dass sie heute Abend zurückkommen werden, noch hungriger und sicherlich zahlenmäßig größer...</target>
+        <target>The zombies came at us hard for some time, but none got through... However, don't doubt for a second that they'll be back tonight, even hungrier and certainly greater in number...</target>
       </segment>
     </unit>
     <unit id="nzbV8IO" name="e986527">
@@ -11548,7 +11548,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</source>
-        <target><![CDATA[Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um <strong>deine Nerven zu beruhigen</strong> und aus dieser Hölle zu entkommen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...]]></target>
+        <target><![CDATA[If you are gripped by terror, in the desert and surrounded by zombies you can't do anything... You need to find a drug or something else to <strong>calm your nerves</strong> and get out of this hellhole... At least it is still possible to call for help on the forum...]]></target>
       </segment>
     </unit>
     <unit id="0S63eNq" name="Regentanz ausführen">
@@ -11611,7 +11611,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um &lt;strong&gt;deine Nerven zu beruhigen&lt;/strong&gt; und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...</source>
-        <target><![CDATA[Wenn du in der Wüste von Zombies umzingelst wirst, erstarrst du vor Angst und kannst nichts mehr unternehmen... Du musst Drogen oder etwas anderes finden, um <strong>deine Nerven zu beruhigen</strong> und aus dieser Hölle auszubrechen... Wenigstens ist es dir immer noch möglich, im Forum nach Hilfe zu suchen...]]></target>
+        <target><![CDATA[If you are gripped by terror, in the desert and surrounded by zombies you can't do anything... You need to find a drug or something else to <strong>calm your nerves</strong> and get out of this hellhole... At least it is still possible to call for help on the forum...]]></target>
       </segment>
     </unit>
     <unit id="G0BraVl" name="Das Passwort ist falsch.">
@@ -14518,7 +14518,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>%master% hat %item% nach &lt;strong&gt;[%x%/%y%]&lt;/strong&gt; &lt;strong&gt;katapultiert&lt;/strong&gt;!</source>
-        <target><![CDATA[%master% hat %item% nach <strong>[%x%/%y%]</strong> <strong>katapultiert</strong>!]]></target>
+        <target><![CDATA[%master% has <strong>catapulted</strong> %item% into the following sector: <strong>[%x%/%y%]</strong> !]]></target>
       </segment>
     </unit>
     <unit id="QmxirCQ" name="Das Katapult der Stadt hat %item% auf diese Zone geschleudert.">
@@ -14527,7 +14527,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das Katapult der Stadt hat %item% auf diese Zone geschleudert.</source>
-        <target>Das Katapult der Stadt hat %item% auf diese Zone geschleudert.</target>
+        <target>The town's catapult has fired the %item% into this sector!</target>
       </segment>
     </unit>
     <unit id="sjC0QWG" name="Letzte Nacht wurde der %sector% von starken Winden heimgesucht.">
@@ -14887,7 +14887,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Brunnen</source>
-        <target>Der Brunnen</target>
+        <target>The Well</target>
       </segment>
     </unit>
     <unit id="fh_ltq7" name="Die Bank">
@@ -14896,7 +14896,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Bank</source>
-        <target>Die Bank</target>
+        <target>The Bank</target>
       </segment>
     </unit>
     <unit id="WLvQ7GY" name="Mein Zuhause (Truhe)">
@@ -14905,7 +14905,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Mein Zuhause (Truhe)</source>
-        <target>Mein Zuhause (Truhe)</target>
+        <target>My House (Chest)</target>
       </segment>
     </unit>
     <unit id="6PPO5fH" name="Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.">
@@ -14923,7 +14923,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Bürger</source>
-        <target>Die Bürger</target>
+        <target>Citizens</target>
       </segment>
     </unit>
     <unit id="RvCNf5O" name="Aktivität">
@@ -15400,7 +15400,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>[ Es riecht nach Tannenzapfen... ]</source>
-        <target>[ Es riecht nach Tannenzapfen... ]</target>
+        <target>[ I love the smell of fir trees in the morning... ]</target>
       </segment>
     </unit>
     <unit id="b4uaoGt" name="b63e901">
@@ -15436,7 +15436,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Zahlreiche Diebstähle begangen</source>
-        <target>Zahlreiche Diebstähle begangen</target>
+        <target>Theft of multiple objects</target>
       </segment>
     </unit>
     <unit id="dD9OHg_" name="Verbraucht zuviel Wasser">
@@ -15445,7 +15445,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Verbraucht zuviel Wasser</source>
-        <target>Verbraucht zuviel Wasser</target>
+        <target>Excessive water consumption</target>
       </segment>
     </unit>
     <unit id="W43lmes" name="Beleidigendes Verhalten">
@@ -15454,7 +15454,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Beleidigendes Verhalten</source>
-        <target>Beleidigendes Verhalten</target>
+        <target>Insults or behaviour</target>
       </segment>
     </unit>
     <unit id="rnxNxyC" name="Blockiert die Baustelle">
@@ -15463,7 +15463,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Blockiert die Baustelle</source>
-        <target>Blockiert die Baustelle</target>
+        <target>Blockage of construction sites</target>
       </segment>
     </unit>
     <unit id="GTtLJm1" name="Expeditionssaboteur">
@@ -15472,7 +15472,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Expeditionssaboteur</source>
-        <target>Expeditionssaboteur</target>
+        <target>Sabotage of expeditions</target>
       </segment>
     </unit>
     <unit id="qSX7vRE" name="Geht kein Risiko ein">
@@ -15481,7 +15481,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Geht kein Risiko ein</source>
-        <target>Geht kein Risiko ein</target>
+        <target>Never goes outside</target>
       </segment>
     </unit>
     <unit id="Dn0tq6e" name="Handelt zu egoistisch">
@@ -15490,7 +15490,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Handelt zu egoistisch</source>
-        <target>Handelt zu egoistisch</target>
+        <target>Selfish play</target>
       </segment>
     </unit>
     <unit id="g8qlqWr" name="Gemeinschaftsfreak">
@@ -15499,7 +15499,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Gemeinschaftsfreak</source>
-        <target>Gemeinschaftsfreak</target>
+        <target>Community Extremist</target>
       </segment>
     </unit>
     <unit id="SuxYV1H" name="Bringt sich nicht genug ein">
@@ -15508,7 +15508,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Bringt sich nicht genug ein</source>
-        <target>Bringt sich nicht genug ein</target>
+        <target>Minimal participation</target>
       </segment>
     </unit>
     <unit id="NghQlFT" name="Hortet zu viele Gegenstände">
@@ -15517,7 +15517,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hortet zu viele Gegenstände</source>
-        <target>Hortet zu viele Gegenstände</target>
+        <target>keeps too many items for themselves</target>
       </segment>
     </unit>
     <unit id="aCap5cU" name="Aggressiver Mitbürger">
@@ -15526,7 +15526,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Aggressiver Mitbürger</source>
-        <target>Aggressiver Mitbürger</target>
+        <target>Aggressive citizen!</target>
       </segment>
     </unit>
     <unit id="_40Ez0e" name="076e6dc">
@@ -15535,7 +15535,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... &lt;br /&gt;Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das &lt;strong&gt;Wachturmregister&lt;/strong&gt;.&lt;hr /&gt;Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.</source>
-        <target><![CDATA[Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... <br />Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das <strong>Wachturmregister</strong>.<hr />Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.]]></target>
+        <target><![CDATA[From the top of the tower, your study the surrounding desert and try to count the zombies to predict their movements...<br />After a few minutes of intense consideration, your register your observations in the <strong>Watchtower register</strong>.<hr />Using this information and that of other citizens, it should be possible to make a reasonable estimation of the attack...]]></target>
       </segment>
     </unit>
     <unit id="Bhi4A01" name="Du hast am Bauprojekt %plan% mitgeholfen.">
@@ -15643,7 +15643,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du hast %num% anonyme Anzeige(n) erhalten.</source>
-        <target>Du hast %num% anonyme Anzeige(n) erhalten.</target>
+        <target>You have received %num% anonyous complaints.</target>
       </segment>
     </unit>
     <unit id="khbCWBV" name="Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!">
@@ -15652,7 +15652,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!</source>
-        <target>Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!</target>
+        <target>After 8 complaints, you will be shunned!</target>
       </segment>
     </unit>
     <unit id="pFLOI._" name="Grund:">
@@ -15688,7 +15688,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>%citizen% ist ausgegangen...</source>
-        <target>%citizen% ist ausgegangen...</target>
+        <target>%citizen% went out of town...</target>
       </segment>
     </unit>
     <unit id="NLrfO4J" name="1ee9e8e">
@@ -15697,7 +15697,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wähle den &lt;strong&gt;zu stehlenden Gegenstand&lt;/strong&gt; hier oben aus. &lt;strong&gt;Achtung!&lt;/strong&gt; Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.</source>
-        <target><![CDATA[Wähle den <strong>zu stehlenden Gegenstand</strong> hier oben aus. <strong>Achtung!</strong> Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.]]></target>
+        <target><![CDATA[Choose an <strong>object to steal</strong> from the selection below. <strong>Warning!</strong> Your risk being discovered, and having to face the consequences.]]></target>
       </segment>
     </unit>
     <unit id="tVbgO4A" name="Einen Gegenstand stehlen">
@@ -15706,7 +15706,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Einen Gegenstand stehlen</source>
-        <target>Einen Gegenstand stehlen</target>
+        <target>Break in and steal something</target>
       </segment>
     </unit>
     <unit id="Wq3dzPg" name="Einen Gegenstand hinterlassen">
@@ -15715,7 +15715,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Einen Gegenstand hinterlassen</source>
-        <target>Einen Gegenstand hinterlassen</target>
+        <target>Discretely donate an object</target>
       </segment>
     </unit>
     <unit id="o5dw7G5" name="15ac09f">
@@ -15755,9 +15755,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <source>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
                     Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
                     Nichts, was der Mühe wert wäre.</source>
-        <target>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
-                    Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
-                    Nichts, was der Mühe wert wäre.</target>
+        <target>Looking throught the window, you see that %citizen%'s house seems to be bereft of anything interesting. Some rough pettery, more dust than on Dayan's desk and a very dead rat. Nothing worth stealing.</target>
       </segment>
     </unit>
     <unit id="lo3tdoY" name="Was für eine schreckliche Nacht!">
@@ -15766,7 +15764,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Was für eine schreckliche Nacht!</source>
-        <target>Was für eine schreckliche Nacht!</target>
+        <target>A Frightful Night!</target>
       </segment>
     </unit>
     <unit id="pPZiySm" name="778f93b">
@@ -15775,7 +15773,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.</source>
-        <target>Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.</target>
+        <target>You were really sweating last night! You heard them groaning, banging around and yelling outside. Eventually your door gave way and you took refuge under your bed, clutching your remaining possessions, trying not to think about the situation. Then they left... Shaking with fear you eventually came out of your hiding place, grateful that you survived.</target>
       </segment>
     </unit>
     <unit id="_2vb9p1" name="Du wurdest verbannt!">
