@@ -32,7 +32,7 @@
             <div class="row">
                 {% for job in professions %}
                     {# @var job \App\Entity\CitizenProfession #}
-                    <div class="jobs-choice padded cell rw-4 rw-lg-6">
+                    <div class="jobs-choice padded cell rw-4 rw-lg-6 rw-sm-8 ro-sm-2">
                         <div class="text center">
                             <input type="radio" id="jb_{{ job.name }}" name="job" value="{{ job.id }}">
                             <label for="jb_{{ job.name }}">
