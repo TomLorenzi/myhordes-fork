@@ -1900,7 +1900,7 @@
       </notes>
       <segment>
         <source>Die Seite wird von Horden von Zombies belagert!</source>
-        <target>Die Seite wird von Horden von Zombies belagert!</target>
+        <target>¡El sitio está siendo asediado por hordas de zombis!</target>
       </segment>
     </unit>
     <unit id="2gahlEk" name="Spielhilfe:">
@@ -1909,7 +1909,7 @@
       </notes>
       <segment>
         <source>Spielhilfe:</source>
-        <target>Spielhilfe:</target>
+        <target>Guía:</target>
       </segment>
     </unit>
   </file>
