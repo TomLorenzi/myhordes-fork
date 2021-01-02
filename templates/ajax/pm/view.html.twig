@@ -237,6 +237,29 @@
                     document.getElementById('pm-forum-editor-header').innerText = '{{ 'Antworten'|trans({},'global')|e('js') }}';
                 } );
             });
+
+            $.html.addEventListenerAll('[x-pm-action="trash-single"]', 'click', function () {
+
+                const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-trash].selected');
+                if (!selected_thread) return;
+
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                    return;
+
+                $.ajax.easySend(selected_thread.getAttribute('x-trash'), {}, function() {
+                    $.ajax.load( document.getElementById('post-office-content'), '{{ path('pm_view')|e('js') }}' );
+                });
+            });
+
+            $.html.addEventListenerAll('[x-pm-action="unread-single"]', 'click', function () {
+
+                const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-unread].selected');
+                if (!selected_thread) return;
+
+                $.ajax.easySend(selected_thread.getAttribute('x-unread'), {}, function() {
+                    $.html.forEach('#pm-forum-content>ul>li', e => e.classList.add('new'));
+                });
+            });
         })();
 
 

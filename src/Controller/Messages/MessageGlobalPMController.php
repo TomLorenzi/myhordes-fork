@@ -124,10 +124,76 @@ class MessageGlobalPMController extends MessageController
         $messages = $em->getRepository(GlobalPrivateMessage::class)->findBy(['receiverGroup' => $group], ['timestamp' => 'DESC', 'id' => 'DESC']);
         if (!$messages) return new Response('no messages');
 
+        $last = $group_association->getRef2();
+
+        try {
+            $this->entity_manager->persist( $group_association->setRef1( $group->getRef1() )->setRef2( $messages[0]->getId() ) );
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {}
+
         return $this->render( 'ajax/pm/conversation_group.html.twig', $this->addDefaultTwigArgs(null, [
-            'last' => $group_association->getRef2(),
+            'last' => $last,
             'messages' => $messages,
         ] ));
+    }
+
+    /**
+     * @Route("api/pm/conversation/group/delete/{id<\d+>}", name="pm_delete_conv_group")
+     * @param int $id
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function pm_delete_conversation_group(int $id, EntityManagerInterface $em): Response {
+
+        $group = $em->getRepository( UserGroup::class )->find($id);
+        if (!$group || $group->getType() !== UserGroup::GroupMessageGroup) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        /** @var UserGroupAssociation $group_association */
+        $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(), 'associationType' => [
+            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive
+        ], 'association' => $group]);
+        if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $num_of_assocs = $em->getRepository(UserGroupAssociation::class)->count(['association' => $group]);
+
+        $this->entity_manager->remove( $group_association );
+        if ($num_of_assocs < 2) $this->entity_manager->remove( $group );
+
+        try {
+            $em->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/pm/conversation/group/unread/{id<\d+>}", name="pm_unread_conv_group")
+     * @param int $id
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function pm_unread_conversation_group(int $id, EntityManagerInterface $em): Response {
+
+        $group = $em->getRepository( UserGroup::class )->find($id);
+        if (!$group || $group->getType() !== UserGroup::GroupMessageGroup) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        /** @var UserGroupAssociation $group_association */
+        $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(), 'associationType' => [
+            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive
+        ], 'association' => $group]);
+        if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $this->entity_manager->persist( $group_association->setRef1(0)->setRef2(null) );
+
+        try {
+            $em->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
     }
 
     /**

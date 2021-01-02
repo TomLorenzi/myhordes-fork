@@ -580,6 +580,13 @@
         }
       }
 
+      &.new:not(.selected) {
+        &::before {
+          display: block; content: " "; width: 16px; height: 16px; top: calc(50% - 8px); left: 0;
+          background-image: url(../../img/forum/recent.png); position: absolute;
+        }
+      }
+
       &+li { border-top: 1px solid fade(@myhordes-smalltext, 50%); }
       &:not(.selected):hover { background-color: rgba(255,255,255,0.2); box-shadow: 0 0 5px rgba(0,0,0,0.5) }
       b.title {
@@ -633,8 +640,8 @@
         position: relative; list-style: none; display: block; min-height: 30px;
         &+li { margin-top: 20px; }
         div.pm-avatar {
-          position: absolute; top: 0; left: -40px; height: 30px; width: 30px; border-radius: 15px; box-shadow: 0 0 4px black;
-          background: @myhordes-smalltext; font-size: 16px;
+          position: absolute; top: 0; left: -40px; height: 30px; width: 30px; border-radius: 15px;
+          background: @myhordes-smalltext; font-size: 16px; filter: drop-shadow(0 0 4px black);
         }
         div.pm-message {
           &:before {
@@ -649,6 +656,16 @@
             margin-top: 4px; padding-top: 4px; font-size: 0.8em; opacity: 0.6; border-top: 1px solid rgba(0,0,0,0.2);
             text-align: right;
           }
+        }
+
+        &.own div.pm-message {
+          &:before { border-right: 6px solid #65382e; }
+          background-color: #65382e;
+        }
+
+        &.new:not(.own) div.pm-avatar::after {
+          content: " "; position: absolute; width: 20px; height: 20px; border: 1px solid #fe7d00; border-radius: 10px;
+          background: url("../../img/forum/new.png") top center no-repeat, #bd3d00; bottom: -10px; right: -10px;
         }
       }
     }

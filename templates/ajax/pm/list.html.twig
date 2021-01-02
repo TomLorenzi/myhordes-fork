@@ -6,15 +6,22 @@
         {% for entry in entries %}
             {% set endpoint_fetch  = null %}
             {% set endpoint_answer = null %}
+            {% set endpoint_trash  = null %}
+            {% set endpoint_unread = null %}
             {% if entry.obj|instance_of('App\\Entity\\UserGroupAssociation') %}
                 {% set endpoint_fetch  = path('pm_conv_group', {'id': entry.obj.association.id}) %}
                 {% set endpoint_answer = path('pm_post_editor_controller', {'id': entry.obj.association.id}) %}
+                {% set endpoint_trash  = path('pm_delete_conv_group', {'id': entry.obj.association.id}) %}
+                {% set endpoint_unread = path('pm_unread_conv_group', {'id': entry.obj.association.id}) %}
             {% endif %}
 
             <li x-title="{{ entry.title }}"
-                class="{% if entry.closed %}closed{% endif %} {% if entry.system %}system{% endif %}"
-                {% if endpoint_fetch is not null %}x-endpoint="{{ endpoint_fetch }}"{% endif %}
-                {% if endpoint_answer is not null %}x-editor="{{ endpoint_answer }}"{% endif %}>
+                class="{% if entry.closed %}closed{% endif %} {% if entry.system %}system{% endif %} {% if entry.unread > 0 %}new{% endif %}"
+                {% if endpoint_fetch  is not null %}x-endpoint="{{ endpoint_fetch }}"{% endif %}
+                {% if endpoint_answer is not null %}x-editor="{{ endpoint_answer }}"{% endif %}
+                {% if endpoint_trash  is not null %}x-trash="{{ endpoint_trash }}"{% endif %}
+                {% if endpoint_unread is not null %}x-unread="{{ endpoint_unread }}"{% endif %}
+                >
                 <div class="pm-avatar-block">
                     {% if entry.system %}
                         <div class="avatarcrow"></div>
@@ -59,7 +66,7 @@
                         {% endif %}
                     {% endfor %}
                 {% else %}
-                    <span class="author unknown">{{ 'Chat'|trans({},'global') }}</span>
+                    <span class="author unknown"></span>
                 {% endif %}
 
                 <span class="date">
@@ -85,12 +92,19 @@
 
                 $.html.forEach( 'ul.pm-conversation-list>li[x-title][x-endpoint]', ee => ee.classList.remove('selected') );
                 elem.classList.add('selected');
+                elem.classList.remove('new');
 
                 document.getElementById('pm-forum-actions-container').classList.add('hidden');
                 document.getElementById('pm-forum-editor-container').classList.add('hidden');
 
-                if (elem.getAttribute('x-editor')) $.html.forEach('[x-pm-action="answer-single"]', e => e.classList.remove('disabled'))
-                else $.html.forEach('[x-pm-action="answer-single"]', e => e.classList.add('disabled'))
+                if (elem.getAttribute('x-editor')) $.html.forEach('[x-pm-action="answer-single"]', e => e.classList.remove('disabled'));
+                else $.html.forEach('[x-pm-action="answer-single"]', e => e.classList.add('disabled'));
+
+                if (elem.getAttribute('x-trash')) $.html.forEach('[x-pm-action="trash-single"]', e => e.classList.remove('disabled'));
+                else $.html.forEach('[x-pm-action="trash-single"]', e => e.classList.add('disabled'));
+
+                if (elem.getAttribute('x-unread')) $.html.forEach('[x-pm-action="unread-single"]', e => e.classList.remove('disabled'));
+                else $.html.forEach('[x-pm-action="unread-single"]', e => e.classList.add('disabled'));
 
                 let editor = document.getElementById('global-pm-forum-editor');
                 if (editor) editor.innerText = '';

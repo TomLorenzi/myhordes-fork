@@ -30,6 +30,7 @@ class GlobalPrivateMessage
 
     /**
      * @ORM\ManyToOne(targetEntity=UserGroup::class)
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $receiverGroup;
 
