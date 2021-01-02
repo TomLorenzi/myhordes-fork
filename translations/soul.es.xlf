@@ -2236,7 +2236,7 @@
       </notes>
       <segment>
         <source>Animationen verringern</source>
-        <target>Animationen verringern</target>
+        <target>Disminuir animaciones</target>
       </segment>
     </unit>
     <unit id="3mtyKrM" name="9900005">
@@ -2245,7 +2245,7 @@
       </notes>
       <segment>
         <source>Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.&lt;br /&gt;&lt;em&gt;Mit dieser Option senkst du die Qualität der Spielkartenanimationen.&lt;/em&gt;.</source>
-        <target><![CDATA[Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.<br /><em>Mit dieser Option senkst du die Qualität der Spielkartenanimationen.</em>.]]></target>
+        <target><![CDATA[Marca la casilla si notas que el juego se enltentece considerablemente cuando se muestra el mapa.<br /><em>Esta opción reducirá la calidad de las animaciones relacionadas con el mapa.</em>.]]></target> 
       </segment>
     </unit>
     <unit id="uh49WWx" name="cea913a">
