@@ -50,9 +50,10 @@ class ConfMaster
     /**
      * @param Town|Citizen|null $ref
      * @param EventActivationMarker|null $marker
+     * @param \DateTime|null $query_date
      * @return EventConf
      */
-    public function getCurrentEvent( $ref = null, ?EventActivationMarker &$marker = null ): EventConf {
+    public function getCurrentEvent( $ref = null, ?EventActivationMarker &$marker = null, ?\DateTime $query_date = null): EventConf {
         $marker = null;
         if ($ref !== null) {
 
@@ -68,7 +69,7 @@ class ConfMaster
         if ($this->event_conf !== null)
             return $this->event_conf;
 
-        $curDate = new \DateTime();
+        $curDate = $query_date ?? new \DateTime();
 
         foreach($this->events as $id => $conf){
 
@@ -84,7 +85,10 @@ class ConfMaster
                     $begin = (new \DateTime())->setDate((int)$curDate->format('Y'), explode('-', $beginDate)[0], explode('-', $beginDate)[1])->setTime(explode(':', $beginTime)[0], explode(':', $beginTime)[1], 0);
                     $end = (new \DateTime())->setDate((int)$curDate->format('Y'), explode('-', $endDate)[0], explode('-', $endDate)[1])->setTime(explode(':', $endTime)[0], explode(':', $endTime)[1], 0);
 
-                    while ($begin > $end) $end->modify("+1 year");
+                    if ($begin > $end) {
+                        if ($curDate < $end) $begin->modify("-1 year");
+                        else $end->modify("+1 year");
+                    }
 
                     if ($curDate >= $begin && $curDate < $end)
                         return $this->event_conf = $this->getEvent($id);
