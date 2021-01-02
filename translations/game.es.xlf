@@ -7756,7 +7756,7 @@
       </notes>
       <segment>
         <source>Du folgst aktuell %citizen%.</source>
-        <target>Actualmente estás siguiendo al habitante %citizen%.</target>
+        <target>Actualmente estás siguiendo a %citizen%.</target>
       </segment>
     </unit>
     <unit id="tNPDkbr" name="6eb9def">
@@ -8271,7 +8271,7 @@
       </notes>
       <segment>
         <source>Die Zombies von gestern Abend hatten nichts außer unseren Fetzen, in die sie ihre Zähne bekommen konnten, und einige Tierkadaver... Unsere Verteidigung hat sich gut gehalten.</source>
-        <target>Los zombies de anoche tuvieron que conformarse con comer nuestra basura y los viejos cadáveres que había por ahí... Las defensas parecen estar funcionando bien.</target>
+        <target>Los zombis de anoche no tuvieron nada más que nuestras sobras para comer y algunos cadáveres de animales ... Nuestras defensas resistieron bien.</target>
       </segment>
     </unit>
     <unit id="33A2X4_" name="2c8e055">
@@ -8289,7 +8289,7 @@
       </notes>
       <segment>
         <source>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
-        <target>Esta mañana, a %citizen1% se le ocurrió correr desnudo en las calles del pueblo para festejar que no hubieron muertos. "Es como si hubiera vuelto a nacer" explicó a sus vecinos.</target>
+        <target>Esta mañana se vio a %citizen1% corriendo desnudo por las calles, gritando de felicidad. "Quería celebrar un día más de nuestra triste existencia", explicó cuando se le preguntó el por qué de semejante espectáculo.</target>
       </segment>
     </unit>
     <unit id=".ArUqcq" name="ed7befb">
@@ -8298,7 +8298,7 @@
       </notes>
       <segment>
         <source>Wir verabschiedeten uns liebevoll von dem alten Hund, der im Dorf lebte... Das unaufhörliche Bellen, das alle in der Nachbarschaft verärgerte, ist seit dem Angriff von gestern Abend für immer verstummt. Das arme Ding... Die gute Nachricht ist, dass es in der Stadt keine nennenswerten Verluste an Menschenleben gab.</source>
-        <target>Wir verabschiedeten uns liebevoll von dem alten Hund, der im Dorf lebte... Das unaufhörliche Bellen, das alle in der Nachbarschaft verärgerte, ist seit dem Angriff von gestern Abend für immer verstummt. Das arme Ding... Die gute Nachricht ist, dass es in der Stadt keine nennenswerten Verluste an Menschenleben gab.</target>
+        <target>Nos despedimos con cariño de Pepe, el perro viejo que vivía en el pueblo... Los incesantes ladridos que molestaban a todos en el barrio han sido silenciados para siempre desde el ataque de anoche. La mala... La buena noticia es que no ha habido pérdidas significativas en la ciudad.</target>
       </segment>
     </unit>
     <unit id="8lLyo5W" name="78078af">
@@ -13886,7 +13886,7 @@
       </notes>
       <segment>
         <source>Ich bin ein Gott! Ich werde ewig leben!</source>
-        <target>Ich bin ein Gott! Ich werde ewig leben!</target>
+        <target>¡Soy un dios! ¡Viviré por siempre!</target>
       </segment>
     </unit>
     <unit id="NrbBkvY" name="Eine Stadt sie zu knechten!">
@@ -13895,7 +13895,7 @@
       </notes>
       <segment>
         <source>Eine Stadt sie zu knechten!</source>
-        <target>Eine Stadt sie zu knechten!</target>
+        <target>¡Una ciudad para gobernarlos!</target>
       </segment>
     </unit>
     <unit id="9aeJYKv" name="Der unsichtbare Mann">
@@ -13904,7 +13904,7 @@
       </notes>
       <segment>
         <source>Der unsichtbare Mann</source>
-        <target>Der unsichtbare Mann</target>
+        <target>El hombre invisible</target>
       </segment>
     </unit>
     <unit id="p6Yx3lE" name="Ein BMW? Kein Problem!">
@@ -13913,7 +13913,7 @@
       </notes>
       <segment>
         <source>Ein BMW? Kein Problem!</source>
-        <target>Ein BMW? Kein Problem!</target>
+        <target>¿Un BMW? ¡No hay problema!</target>
       </segment>
     </unit>
     <unit id="RtVs3Hp" name="Où est Larchi ?">
@@ -13922,7 +13922,7 @@
       </notes>
       <segment>
         <source>Où est Larchi ?</source>
-        <target>Où est Larchi ?</target>
+        <target>¿Dónde está Larchi?</target>
       </segment>
     </unit>
     <unit id="SGyvnLU" name="Meser (halb Mensch, halb Malteser)">
