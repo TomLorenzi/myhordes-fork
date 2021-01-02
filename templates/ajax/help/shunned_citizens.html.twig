@@ -1,0 +1,47 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Die Verbannten'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Die Verbannten'|trans({},'help')|raw }}</h1>
+<h2>{{ 'Aufstand der Verbannten'|trans({},'help')|raw }}</h2>
+<p>
+{{ 'Die Verbannten können jeden Tag einen Aufstand versuchen.
+<strong>Wenn es ihnen gelingt, einen Umsturz zu organisieren, werden alle freien Bürger verbannt und die Verbannten ziehen in die Stadt ein.</strong>'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Die Regeln lauten wie folgt:'|trans({},'help')|raw }}
+</p>
+<ul>
+<li>{{ 'Jeder Verbannte kann einmal pro Tag auf den Aufstand hinarbeiten.'|trans({},'help')|raw }}</li>
+<li>{{ 'Damit der Aufstand gelingen kann, müssen sich alle Verbannten jeden Tag für ihren Umsturzversuch einsetzen.'|trans({},'help')|raw }}</li>
+<li>{{ 'In der gesamten Lebensdauer einer Stadt kann es höchstens einen Aufstand geben.'|trans({},'help')|raw }}</li>
+</ul>
+<p>
+{{ 'Der Erfolg eines Aufstands bemisst sich unter anderem an folgenden Kriterien: Anzahl der Verbannten, Anzahl der freien Bürger, Anzahl der Überlebenden und das Kräfteverhältnis dieser Gruppen zueinander.'|trans({},'help')|raw }}
+</p>
+<p>
+<em>
+{{ 'Beispiel: Zehn Verbannte brauchen wesentlich kürzer für einen Aufstand als drei. Während bei zehn Verbannten nur ein paar Tage reichen können, benötigen drei dazu ungefähr 20 Tage!'|trans({},'help')|raw }}
+</em>
+</p>
+<p>
+{{ 'Die Vorbereitung eines Aufstandes ist eine langwierige Angelegenheit. Jeder Verbannte muss sich jeden Tag darum bemühen!'|trans({},'help')|raw }}
+</p>
+<h2>{{ 'Strategien der Verbannten'|trans({},'help')|raw }}</h2>
+<p>
+<strong>{{ 'Ein verbannter Stadtbürger kann nicht mehr auf die Ressourcen der Stadt zugreifen und muss sich deswegen etwas anderes einfallen lassen, wenn er überleben möchte.'|trans({},'help')|raw }}</strong>
+</p>
+<p>
+{{ 'Folgende Möglichkeiten stehen ihm offen:'|trans({},'help')|raw }}
+</p>
+<ul>
+<li>
+{{ '<strong>Er kann in den Abfällen der Stadt graben</strong>: Diese Aktion geschieht vor dem Stadtor und erlaubt es manchmal, ein paar Kleinigkeiten minderer Qualität abzustauben...'|trans({},'help')|raw }}
+</li>
+<li>
+{{ '<strong>Seinen Rucksackinhalt verstecken</strong>: In der Außenwelt ist diese Maßnahme ein probates Mittel, um den Inhalt seines Rucksacks vor den anderen Bürgern zu verstecken. Nur die Verbannten können derart versteckte Gegenstände sehen und aufsammeln. Allerdings besteht die geringe Wahrscheinlichkeit, dass normale Bürger diese Verstecke beim Graben finden.'|trans({},'help')|raw }}
+</li>
+</ul>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'chaos'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Das Chaos'|trans({},'help') }}</strong></a>
+{% endblock %}

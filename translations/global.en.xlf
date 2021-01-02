@@ -1931,5 +1931,14 @@
         <target>Die Seite wird von Horden von Zombies belagert!</target>
       </segment>
     </unit>
+    <unit id="2gahlEk" name="Spielhilfe:">
+      <notes>
+        <note category="german">Spielhilfe:</note>
+      </notes>
+      <segment>
+        <source>Spielhilfe:</source>
+        <target>Guide:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

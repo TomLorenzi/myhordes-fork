@@ -826,7 +826,9 @@ class SoulController extends CustomAbstractController
                     break;
                 }
             }
-            if(!$citizensAlive && $nextDeath->getCod()->getRef() != CauseOfDeath::Radiations) {
+            if($citizensAlive || $nextDeath->getCod()->getRef() === CauseOfDeath::Radiations) {
+                $canSeeGazette = true;
+            } else {
                 $canSeeGazette = false;
             }
         }

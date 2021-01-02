@@ -1,0 +1,24 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Zerstörte Stadt'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Zerstörte Stadt'|trans({},'help')|raw }}</h1>
+<p>
+{{ 'Wenn eine Stadt beim Angriff um Mitternacht komplett <strong>verlassen</strong> ist (z.B.: weil alle Bürger in der Außenwelt campen ODER weil alle in der Stadt gestorben sind), gilt sie als <strong>zerstört</strong>. Folgende Regeländerungen treten dann in Kraft:'|trans({},'help')|raw }}
+</p>
+<ul>
+<li>{{ '<strong>Das Stadttor ist irreparabel zerstört</strong>: Die Stadt kann von den Überlebenden nicht mehr  als sicherer Rückzugsort genutzt werden.'|trans({},'help')|raw }}</li>
+<li>{{ 'Alle Gebäude, die sich im Bau befanden, wurden zerstört.'|trans({},'help')|raw }}</li>
+<li>{{ 'Die Wasserreserven des Stadtbrunnens sind stark gesunken.'|trans({},'help')|raw }}</li>
+<li>{{ 'Es können keine "Verbesserungen des Tages" mehr gebaut werden.'|trans({},'help')|raw }}</li>
+<li>{{ 'Alle privaten Behausungen sind zerstört (persönliche Einrichtungen, z.B.: Drogenküche, sind davon aber nicht betroffen).'|trans({},'help')|raw }}</li>
+<li>{{ 'Der <strong>Chaosmodus</strong> wurde aktiviert (dies gilt auch dann, wenn die ansonsten dafür benötigten Bedingungen nicht erfüllt wurden).'|trans({},'help')|raw }}</li>
+<li>{{ 'Der Heißhunger der Ghule nimmt um Mitternacht nicht mehr so stark zu.'|trans({},'help')|raw }}</li>
+</ul>
+<p>
+{{ 'Deine Tage sind gezählt... Wir geben dir folgenden Rat:'|trans({},'help')|raw }}
+<strong>{{ 'Meide diesen verfluchten Ort!'|trans({},'help')|raw }}</strong>
+</p>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'hardcore_towns'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Städte des Pandämoniums'|trans({},'help') }}</strong></a>
+{% endblock %}

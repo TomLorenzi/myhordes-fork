@@ -3346,7 +3346,7 @@
       </notes>
       <segment>
         <source>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt..</source>
-        <target>You poured the contents of the {item} in den Brunnen geschüttet. The well was replenished with {well} rations of water..</target>
+        <target>You poured the contents of the {item} into the well. The well was replenished with {well} rations of water..</target>
       </segment>
     </unit>
     <unit id="m2_GRND" name="7d11094">
@@ -3355,7 +3355,7 @@
       </notes>
       <segment>
         <source>Du hast den Inhalt des {item} in den Brunnen geschüttet. Der Brunnen wurde um {well} Rationen Wasser aufgefüllt.</source>
-        <target>You poured the contents of the {item} in den Brunnen geschüttet. The well was replenished with {well} rations of water.</target>
+        <target>You poured the contents of the {item} into the well. The well was replenished with {well} rations of water.</target>
       </segment>
     </unit>
     <unit id="T9EFRxo" name="Reparieren mit">
@@ -6352,7 +6352,7 @@
       </notes>
       <segment>
         <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
-        <target><![CDATA[<t-bp_ok>You read the {item} and see that it is a plan for {bp_spawn}.</t-bp_ok><t-bp_parent>{hr}Dafür ist das Bauprojekt {bp_parent} nötig.</t-bp_parent><t-bp_fail>You read the {item} but you do not understand a word of what is written...</t-bp_fail>]]></target>
+        <target><![CDATA[<t-bp_ok>You read the {item} and see that it is a plan for {bp_spawn}.</t-bp_ok><t-bp_parent>{hr}This project requires the {bp_parent} to be build first.</t-bp_parent><t-bp_fail>You read the {item} but you do not understand a word of what is written...</t-bp_fail>]]></target>
       </segment>
     </unit>
     <unit id="V2fAVB5" name="Aufbauen">
@@ -7388,7 +7388,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine &lt;strong&gt;nächste Bewegungsaktion&lt;/strong&gt; wird night in das Register eingetragen, wenn sie &lt;strong&gt;innerhalb von 1 Minute&lt;/strong&gt; erfolgt.</source>
-        <target><![CDATA[Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine <strong>nächste Bewegungsaktion</strong> wird night in das Register eingetragen, wenn sie <strong>innerhalb von 1 Minute</strong> erfolgt.]]></target>
+        <target><![CDATA[You throw your smoke bomb into the area, causing mass confusion!{hr}Your <strong>next move</strong> will not be recorded in the register if carried out <strong>in the next 60 seconds</strong> .]]></target>
       </segment>
     </unit>
     <unit id="gN7yVQC" name="Durchgang in Kraft">
@@ -7560,6 +7560,42 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</source>
         <target><![CDATA[<nt-fail>You threw a sandball in {citizen}'s face.</nt-fail><t-fail>There is no one here to throw the sandball...</t-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="L3OUyqa" name="e4855a7">
+      <notes>
+        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</source>
+        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><t-kills>Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!</t-kills>]]></target>
+      </segment>
+    </unit>
+    <unit id="DJF1Mzv" name="c1c5585">
+      <notes>
+        <note category="german">Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-addict&gt;{hr}Du bist jetzt ein Süchtiger!&lt;/t-stat-up-addict&gt;</note>
+      </notes>
+      <segment>
+        <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-addict&gt;{hr}Du bist jetzt ein Süchtiger!&lt;/t-stat-up-addict&gt;</source>
+        <target><![CDATA[Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-addict>{hr}Du bist jetzt ein Süchtiger!</t-stat-up-addict>]]></target>
+      </segment>
+    </unit>
+    <unit id="xLE.Yyk" name="f04baee">
+      <notes>
+        <note category="german">Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-terror&gt;{hr}Du bist vor Angst erstarrt!&lt;/t-stat-up-terror&gt;</note>
+      </notes>
+      <segment>
+        <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-terror&gt;{hr}Du bist vor Angst erstarrt!&lt;/t-stat-up-terror&gt;</source>
+        <target><![CDATA[Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>]]></target>
+      </segment>
+    </unit>
+    <unit id="vpwJA00" name="66cf84d">
+      <notes>
+        <note category="german">Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-infection&gt;{hr}Du bist jetzt infiziert!&lt;/t-stat-up-infection&gt;</note>
+      </notes>
+      <segment>
+        <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-infection&gt;{hr}Du bist jetzt infiziert!&lt;/t-stat-up-infection&gt;</source>
+        <target><![CDATA[Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-infection>{hr}Du bist jetzt infiziert!</t-stat-up-infection>]]></target>
       </segment>
     </unit>
   </file>

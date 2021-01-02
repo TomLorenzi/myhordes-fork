@@ -74,6 +74,7 @@
 {% endblock %}
 
 {% block js %}
+    {{ parent() }}
     <script>
         $.html.addEventListenerAll('#login_button', 'click', function(e) {
             e.preventDefault();
