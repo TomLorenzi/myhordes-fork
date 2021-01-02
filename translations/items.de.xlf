@@ -7570,5 +7570,41 @@
         <target><![CDATA[<nt-fail>Du hast einen Sandball in {citizen}s Gesicht geworfen.</nt-fail><t-fail>Hier ist niemand, auf den du den Sandball werfen könntest...</t-fail>]]></target>
       </segment>
     </unit>
+    <unit id="L3OUyqa" name="e4855a7">
+      <notes>
+        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</source>
+        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><t-kills>Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!</t-kills>]]></target>
+      </segment>
+    </unit>
+    <unit id="DJF1Mzv" name="c1c5585">
+      <notes>
+        <note category="german">Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-addict&gt;{hr}Du bist jetzt ein Süchtiger!&lt;/t-stat-up-addict&gt;</note>
+      </notes>
+      <segment>
+        <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-addict&gt;{hr}Du bist jetzt ein Süchtiger!&lt;/t-stat-up-addict&gt;</source>
+        <target><![CDATA[Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-addict>{hr}Du bist jetzt ein Süchtiger!</t-stat-up-addict>]]></target>
+      </segment>
+    </unit>
+    <unit id="xLE.Yyk" name="f04baee">
+      <notes>
+        <note category="german">Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-terror&gt;{hr}Du bist vor Angst erstarrt!&lt;/t-stat-up-terror&gt;</note>
+      </notes>
+      <segment>
+        <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-terror&gt;{hr}Du bist vor Angst erstarrt!&lt;/t-stat-up-terror&gt;</source>
+        <target><![CDATA[Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>]]></target>
+      </segment>
+    </unit>
+    <unit id="vpwJA00" name="66cf84d">
+      <notes>
+        <note category="german">Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-infection&gt;{hr}Du bist jetzt infiziert!&lt;/t-stat-up-infection&gt;</note>
+      </notes>
+      <segment>
+        <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-infection&gt;{hr}Du bist jetzt infiziert!&lt;/t-stat-up-infection&gt;</source>
+        <target><![CDATA[Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-infection>{hr}Du bist jetzt infiziert!</t-stat-up-infection>]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

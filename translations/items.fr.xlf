@@ -7543,7 +7543,7 @@
         <target><![CDATA[Vous avalez un bonbon de Noël en souriant... mais vous déchantez rapidement. Le bonbon contenait un puissant <strong>poison psychotrope</strong> !<t-stat-up-terror>{hr}Vous êtes maintenant <strong>terrorisé(e)</strong></t-stat-up-terror>]]></target>
       </segment>
     </unit>
-    <unit id="aatKMM7" name="c027020">
+    <unit id="vpwJA00" name="66cf84d">
       <notes>
         <note category="german">Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-infection&gt;{hr}Du bist jetzt infiziert!&lt;/t-stat-up-infection&gt;</note>
       </notes>
