@@ -1288,7 +1288,7 @@ class ActionHandler
                         } else $sandball_target = $target;
 
                         /** @var EventActivationMarker $eam */
-                        $eam = $this->entity_manager->getRepository(EventActivationMarker::class)->findOneBy(['citizen' => $citizen]);
+                        $eam = $this->entity_manager->getRepository(EventActivationMarker::class)->findOneBy(['citizen' => $citizen, 'active' => true]);
                         if (!$eam || $eam->getEvent() !== 'christmas') $sandball_target = null;
 
                         if ($sandball_target !== null) {
