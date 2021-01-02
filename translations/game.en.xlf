@@ -15250,24 +15250,6 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Help</target>
       </segment>
     </unit>
-    <unit id="TIikksZ" name="Wiedergeburt: Privatstadt gründen">
-      <notes>
-        <note category="german">Wiedergeburt: Privatstadt gründen</note>
-      </notes>
-      <segment>
-        <source>Wiedergeburt: Privatstadt gründen</source>
-        <target>Wiedergeburt: Privatstadt gründen</target>
-      </segment>
-    </unit>
-    <unit id="LCh7GiT" name="Wiedergeburt: Wahl der Partie">
-      <notes>
-        <note category="german">Wiedergeburt: Wahl der Partie</note>
-      </notes>
-      <segment>
-        <source>Wiedergeburt: Wahl der Partie</source>
-        <target>Wiedergeburt: Wahl der Partie</target>
-      </segment>
-    </unit>
     <unit id="ViEKCFv" name="Die Zukunft">
       <notes>
         <note category="german">Die Zukunft</note>

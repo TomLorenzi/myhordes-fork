@@ -1065,5 +1065,23 @@
         <target>Vous êtes mort prématurément de soif dans plusieurs de vos dernières villes. Si cela se reproduit dans votre prochaine ville, vous serez banni du jeu pendant quelques temps.</target>
       </segment>
     </unit>
+    <unit id="TIikksZ" name="Wiedergeburt: Privatstadt gründen">
+      <notes>
+        <note category="german">Wiedergeburt: Privatstadt gründen</note>
+      </notes>
+      <segment>
+        <source>Wiedergeburt: Privatstadt gründen</source>
+        <target>Incarnation : Créer une ville privée</target>
+      </segment>
+    </unit>
+    <unit id="LCh7GiT" name="Wiedergeburt: Wahl der Partie">
+      <notes>
+        <note category="german">Wiedergeburt: Wahl der Partie</note>
+      </notes>
+      <segment>
+        <source>Wiedergeburt: Wahl der Partie</source>
+        <target>Incarnation : Choisir une partie</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

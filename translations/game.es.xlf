@@ -15041,24 +15041,6 @@
         <target>Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.</target>
       </segment>
     </unit>
-    <unit id="TIikksZ" name="Wiedergeburt: Privatstadt gründen">
-      <notes>
-        <note category="german">Wiedergeburt: Privatstadt gründen</note>
-      </notes>
-      <segment>
-        <source>Wiedergeburt: Privatstadt gründen</source>
-        <target>Wiedergeburt: Privatstadt gründen</target>
-      </segment>
-    </unit>
-    <unit id="LCh7GiT" name="Wiedergeburt: Wahl der Partie">
-      <notes>
-        <note category="german">Wiedergeburt: Wahl der Partie</note>
-      </notes>
-      <segment>
-        <source>Wiedergeburt: Wahl der Partie</source>
-        <target>Wiedergeburt: Wahl der Partie</target>
-      </segment>
-    </unit>
     <unit id="lUcvZQo" name="Hilfe">
       <notes>
         <note category="german">Hilfe</note>
