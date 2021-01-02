@@ -526,7 +526,10 @@
     transition: transform 0.5s ease; transform: scale(1) translateY(0);
 
     #post-office-button-overlay {
-      position: absolute; top: 9px; right: 12px;
+      position: absolute; top: 12px; right: 12px;
+      &:hover {
+            filter: brightness(140%); -webkit-filter: brightness(140%); -moz-filter: brightness(140%); -o-filter: brightness(140%); -ms-filter: brightness(140%);
+      }
       ul {
         margin: 2px; padding: 0;
         &>li {
