@@ -82,7 +82,7 @@ class AdminAppController extends AdminActionController
     }
 
     /**
-     * @Route("api/admin/apps/register/{id<\d+>}", name="admin_update_ext_app")
+     * @Route("api/admin/apps/register/{id<-?\d+>}", name="admin_update_ext_app")
      * @param int $id
      * @param JSONRequestParser $parser
      * @param RandomGenerator $rand
