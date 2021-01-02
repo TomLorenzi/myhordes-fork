@@ -2200,7 +2200,7 @@
       </notes>
       <segment>
         <source>Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</source>
-        <target>Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</target>
+        <target>The Twinoid server reports that it cannot transfer your profile to MyHordes due to an internal error. This is a common problem if you used special characters in your last words or city comments. Please check your city comments and remove special characters. If there are special characters in your last words, turn to a Crow on Twinoid.</target>
       </segment>
     </unit>
     <unit id="lXmZ79T" name="Tod nicht validiert">
@@ -2209,7 +2209,7 @@
       </notes>
       <segment>
         <source>Tod nicht validiert</source>
-        <target>Tod nicht validiert</target>
+        <target>Death not validated</target>
       </segment>
     </unit>
     <unit id="WLE.7QA" name="Überall ausloggen">
@@ -2218,7 +2218,7 @@
       </notes>
       <segment>
         <source>Überall ausloggen</source>
-        <target>Überall ausloggen</target>
+        <target>Log out anywhere</target>
       </segment>
     </unit>
     <unit id="nvlk12L" name="Auf allen Browsern &amp; Geräten abmelden">
@@ -2227,7 +2227,7 @@
       </notes>
       <segment>
         <source>Auf allen Browsern &amp; Geräten abmelden</source>
-        <target><![CDATA[Auf allen Browsern & Geräten abmelden]]></target>
+        <target><![CDATA[Sign out on all browsers & devices]]></target>
       </segment>
     </unit>
     <unit id="AbYRB3R" name="82c4478">
@@ -2236,7 +2236,7 @@
       </notes>
       <segment>
         <source>Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.</source>
-        <target>Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.</target>
+        <target>With this you can log out of all devices and browsers that you are currently logged in to. This also deactivates the "remember login" function on the affected devices.</target>
       </segment>
     </unit>
     <unit id="uh49WWx" name="cea913a">
@@ -2254,7 +2254,7 @@
       </notes>
       <segment>
         <source>Animationen verringern</source>
-        <target>Animationen verringern</target>
+        <target>Reduce animations</target>
       </segment>
     </unit>
     <unit id="3mtyKrM" name="9900005">
@@ -2263,7 +2263,7 @@
       </notes>
       <segment>
         <source>Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.&lt;br /&gt;&lt;em&gt;Mit dieser Option senkst du die Qualität der Spielkartenanimationen.&lt;/em&gt;.</source>
-        <target><![CDATA[Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.<br /><em>Mit dieser Option senkst du die Qualität der Spielkartenanimationen.</em>.]]></target>
+        <target><![CDATA[Check the box if you notice the game slowing down considerably when the game map is being displayed.<br /><em>This option will reduce the quality of the animations associated with the game map.</em>.]]></target>
       </segment>
     </unit>
     <unit id="JAkgM4Z" name="Kleine Koalitionen">
