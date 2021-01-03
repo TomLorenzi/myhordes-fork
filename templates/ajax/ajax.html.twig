@@ -88,9 +88,9 @@
         {% endif %}
         
         {% if block('title') is defined %}
-        window.document.title = 'MyHordes - {{ block('title')|replace({"\n": "", "\r": "", "\t": "", "'": "\\\'", "&amp;":"&"})|raw }}';
+            window.document.title = 'MyHordes - {{ block('title')|replace({"\n": "", "\r": "", "\t": "", "'": "\\\'", "&amp;":"&"})|raw }}';
         {% else %}
-        window.document.title = 'MyHordes';
+            window.document.title = 'MyHordes';
         {% endif %}
     </script>
 {% endblock %}

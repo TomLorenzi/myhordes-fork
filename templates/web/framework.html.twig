@@ -179,10 +179,14 @@
         $.html.addEventListenerAll('#post-office','click', function(e,elem) {
             if (e.target !== elem) return;
             elem.classList.remove('visible');
+            document.body.style.overflow = null;
         });
         $.html.addEventListenerAll('#post-office-button-overlay>ul>li:last-child','click', function() {
             let post = document.getElementById('post-office');
-            if (post) post.classList.remove('visible');
+            if (post) {
+                post.classList.remove('visible');
+                document.body.style.overflow = null;
+            }
         });
     })();
 

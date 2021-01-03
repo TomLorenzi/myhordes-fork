@@ -27,7 +27,7 @@
             </li>
         {% endfor %}
     </ul>
-{% endblock %}
-{% block js %}
-    {{ parent() }}
+    {% if more %}
+        <div x-endless-endpoint="{{ path('pm_conv_group', {id: gid}) }}" x-last-id="{{ last_message }}" class="pm-endless-more"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Weitere Einträge werden geladen...'|trans({},'global') }}</div>
+    {% endif %}
 {% endblock %}

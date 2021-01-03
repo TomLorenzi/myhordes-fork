@@ -126,7 +126,10 @@ class MessageGlobalPMController extends MessageController
         ], 'association' => $group]);
         if (!$group_association) return new Response('not found');
 
-        $messages = $em->getRepository(GlobalPrivateMessage::class)->findBy(['receiverGroup' => $group], ['timestamp' => 'DESC', 'id' => 'DESC']);
+        $num = max(5,min($p->get('num', 5),30));
+        $last_id = $p->get('last', 0);
+
+        $messages = $em->getRepository(GlobalPrivateMessage::class)->findByGroup($group, $last_id, $num + 1);
         if (!$messages) return new Response('no messages');
 
         $last = $group_association->getRef2();
@@ -136,9 +139,14 @@ class MessageGlobalPMController extends MessageController
             $this->entity_manager->flush();
         } catch (\Exception $e) {}
 
+        $sliced = array_slice($messages, 0, $num);
+
         return $this->render( 'ajax/pm/conversation_group.html.twig', $this->addDefaultTwigArgs(null, [
+            'gid' => $id,
             'last' => $last,
-            'messages' => $messages,
+            'more' => count($messages) > $num,
+            'messages' => $sliced,
+            'last_message' => $sliced[array_key_last($sliced)]->getId()
         ] ));
     }
 

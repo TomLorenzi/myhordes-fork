@@ -158,6 +158,7 @@
             let post = document.getElementById('post-office');
             if (post) {
                 post.classList.add('visible');
+                document.body.style.overflow = 'hidden';
                 document.getElementById('post-office-content').innerText = '';
                 $.ajax.background().load( document.getElementById('post-office-content'),'{{ url('pm_view')|e('js') }}', false )
             }
