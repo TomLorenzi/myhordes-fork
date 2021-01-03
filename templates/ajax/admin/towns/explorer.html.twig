@@ -227,7 +227,7 @@
                             <h5>{{ 'Anzeigen'|trans({}, 'admin') }}</h5>
                             <ul>
                             {% for culprit, complaint in complaints %}
-                                <li>{{  'Gegen %culprit%'|trans({'%culprit%': culprit}, 'admin') }}
+                                <li>{{  'Gegen %culprit%'|trans({'%culprit%': "<strong>" ~ culprit ~ "</strong>"}, 'admin')|raw }}
                                     <ul>
                                     {% for cmp in complaint %}
                                         <li>{{ cmp.autor.user.name }} : {{ cmp.linkedReason.text|trans({}, 'game') }}</li>
