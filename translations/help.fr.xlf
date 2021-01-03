@@ -6489,16 +6489,16 @@ Lies dir bitte die offizielle &lt;span x-ajax-href=%url_support%&gt;Technische S
       <segment>
         <source>&lt;strong&gt;HÄUFIG GESTELLTE FRAGEN:&lt;/strong&gt;
 Lies dir bitte die offizielle &lt;span x-ajax-href=%url_support%&gt;Technische Supportseite von MyHordes&lt;/span&gt; durch!</source>
-        <target><![CDATA[<strong>QUESTIONS COURANTES:</strong> consultez le site officiel de <span x-ajax-href=%url_support%>support technique de Hordes</span> !]]></target>
+        <target><![CDATA[<strong>QUESTIONS COURANTES:</strong> consultez le site officiel de <span x-ajax-href=%url_support%>support technique de MyHordes</span> !]]></target>
       </segment>
     </unit>
     <unit id="sY5VBX2" name="f961dcb">
       <notes>
-        <note category="german">&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href=%url_saloon%&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</note>
+        <note category="german">&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href=%url_forums%&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</note>
       </notes>
       <segment>
-        <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href=%url_saloon%&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
-        <target><![CDATA[<strong>DISCUTER AVEC LES JOUEURS:</strong> vous trouverez souvent la réponse à vos questions directement sur les <span x-ajax-href=%url_saloon%>forums du site</span>, disponibles si vous êtes connecté(e).]]></target>
+        <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href=%url_forums%&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
+        <target><![CDATA[<strong>DISCUTER AVEC LES JOUEURS:</strong> vous trouverez souvent la réponse à vos questions directement sur les <span x-ajax-href=%url_forums%>forums du site</span>, disponibles si vous êtes connecté(e).]]></target>
       </segment>
     </unit>
     <unit id="aa47hQY" name="abed294">
