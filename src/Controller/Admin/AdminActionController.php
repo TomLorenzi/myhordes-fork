@@ -71,7 +71,6 @@ class AdminActionController extends CustomAbstractController
 
     protected function renderLog( ?int $day, $town, $zone = null, ?int $type = null, ?int $max = null ): Response {
         $entries = [];
-        /** @var TownLogEntry $entity */
         foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter($town, $day, null, $zone, $type, $max ) as $idx => $entity) {
                 /** @var LogEntryTemplate $template */
                 $template = $entity->getLogEntryTemplate();
@@ -94,8 +93,6 @@ class AdminActionController extends CustomAbstractController
                     $entries[$idx]['text'] = "null";
                 }             
             }
-
-        // $entries = array($entity->find($id), $entity->find($id)->findRelatedEntity());
 
         return $this->render( 'ajax/admin/towns/log_content.html.twig', [
             'entries' => $entries,

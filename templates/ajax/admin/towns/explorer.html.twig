@@ -223,12 +223,25 @@
                             <br />
                             <button id="givebtn">{{'Vergeben!'|trans({}, 'admin')}}</button>
                         </div>
+                        <div class="padded cell">
+                            <h5>{{ 'Anzeigen'|trans({}, 'admin') }}</h5>
+                            <ul>
+                            {% for culprit, complaint in complaints %}
+                                <li>{{  'Gegen %culprit%'|trans({'%culprit%': culprit}, 'admin') }}
+                                    <ul>
+                                    {% for cmp in complaint %}
+                                        <li>{{ cmp.autor.user.name }} : {{ cmp.linkedReason.text|trans({}, 'game') }}</li>
+                                    {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        </div>
                         <br />
                         {% endif %}
                         <button id="townpm">{{ 'Rundmail als Rabe'|trans({},'admin') }}</button>
                         <input type="hidden" id="pmidrecipient" value="{{ town.id }}">
                         <div id="forum-content">
-
                         </div>
                     </div>
                 </div>
