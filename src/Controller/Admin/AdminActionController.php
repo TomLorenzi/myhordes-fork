@@ -97,7 +97,7 @@ class AdminActionController extends CustomAbstractController
 
         // $entries = array($entity->find($id), $entity->find($id)->findRelatedEntity());
 
-        return $this->render( 'ajax/game/log_content.html.twig', [
+        return $this->render( 'ajax/admin/towns/log_content.html.twig', [
             'entries' => $entries,
             'canHideEntry' => false,
         ] );
