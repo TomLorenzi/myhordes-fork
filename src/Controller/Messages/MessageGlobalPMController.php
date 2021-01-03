@@ -66,9 +66,13 @@ class MessageGlobalPMController extends MessageController
     public function pm_load_list(EntityManagerInterface $em, JSONRequestParser $p): Response {
         $entries = [];
 
-        $group_conv_associations = $em->getRepository(UserGroupAssociation::class)->findBy(['user' => $this->getUser(), 'associationType' => [
+        $skip = $p->get('skip', []);
+        $num = max(5,min(30,$p->get('num', 30)));
+
+        $group_conv_associations = $em->getRepository(UserGroupAssociation::class)->findByUserAssociation($this->getUser(), [
             UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive
-        ]]);
+        ], $skip['g'] ?? [], $num+1);
+
         foreach ($group_conv_associations as $association) {
 
             $last_post_date = new DateTime();
@@ -99,7 +103,8 @@ class MessageGlobalPMController extends MessageController
         usort($entries, fn($a,$b) => $b['date'] <=> $a['date']);
 
         return $this->render( 'ajax/pm/list.html.twig', $this->addDefaultTwigArgs(null, [
-            'entries' => $entries,
+            'more' => count($entries) > $num,
+            'entries' => array_slice($entries,0,$num)
         ] ));
     }
 

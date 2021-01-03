@@ -8,14 +8,18 @@
             {% set endpoint_answer = null %}
             {% set endpoint_trash  = null %}
             {% set endpoint_unread = null %}
+            {% set message_id      = 0 %}
+            {% set message_type    = 'un' %}
             {% if entry.obj|instance_of('App\\Entity\\UserGroupAssociation') %}
                 {% set endpoint_fetch  = path('pm_conv_group', {'id': entry.obj.association.id}) %}
                 {% set endpoint_answer = path('pm_post_editor_controller', {'id': entry.obj.association.id}) %}
                 {% set endpoint_trash  = path('pm_delete_conv_group', {'id': entry.obj.association.id}) %}
                 {% set endpoint_unread = path('pm_unread_conv_group', {'id': entry.obj.association.id}) %}
+                {% set message_id      = entry.obj.id %}
+                {% set message_type    = 'g' %}
             {% endif %}
 
-            <li x-title="{{ entry.title }}"
+            <li x-title="{{ entry.title }}" x-domain="{{ message_type }}" x-identifier="{{ message_id }}"
                 class="{% if entry.closed %}closed{% endif %} {% if entry.system %}system{% endif %} {% if entry.unread > 0 %}new{% endif %}"
                 {% if endpoint_fetch  is not null %}x-endpoint="{{ endpoint_fetch }}"{% endif %}
                 {% if endpoint_answer is not null %}x-editor="{{ endpoint_answer }}"{% endif %}
@@ -81,42 +85,7 @@
             </li>
         {% endfor %}
     </ul>
-{% endblock %}
-{% block js %}
-    <script>
-        (function() {
-            $.html.addEventListenerAll('ul.pm-conversation-list>li[x-title][x-endpoint]', 'click', function(e,elem) {
-                let target = document.getElementById('pm-forum-content');
-                target.innerText = '';
-                document.getElementById('pm-forum-content-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Unterhaltung...'|trans({},'global')|e('js') }}';
-
-                $.html.forEach( 'ul.pm-conversation-list>li[x-title][x-endpoint]', ee => ee.classList.remove('selected') );
-                elem.classList.add('selected');
-                elem.classList.remove('new');
-
-                document.getElementById('pm-forum-actions-container').classList.add('hidden');
-                document.getElementById('pm-forum-editor-container').classList.add('hidden');
-
-                if (elem.getAttribute('x-editor')) $.html.forEach('[x-pm-action="answer-single"]', e => e.classList.remove('disabled'));
-                else $.html.forEach('[x-pm-action="answer-single"]', e => e.classList.add('disabled'));
-
-                if (elem.getAttribute('x-trash')) $.html.forEach('[x-pm-action="trash-single"]', e => e.classList.remove('disabled'));
-                else $.html.forEach('[x-pm-action="trash-single"]', e => e.classList.add('disabled'));
-
-                if (elem.getAttribute('x-unread')) $.html.forEach('[x-pm-action="unread-single"]', e => e.classList.remove('disabled'));
-                else $.html.forEach('[x-pm-action="unread-single"]', e => e.classList.add('disabled'));
-
-                let editor = document.getElementById('global-pm-forum-editor');
-                if (editor) editor.innerText = '';
-
-                document.getElementById('post-office-mobile-wrapper').classList.add('panel-2');
-
-                $.ajax.background().load( target, elem.getAttribute('x-endpoint'), false, {}, function() {
-                    document.getElementById('pm-forum-content-header').innerText = elem.getAttribute('x-title');
-                    document.getElementById('pm-forum-actions-container').classList.remove('hidden');
-                } );
-            });
-        })();
-    </script>
-    {{ parent() }}
+    {% if more %}
+        <div class="pm-endless-more"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Einträge Nachrichten werden geladen...'|trans({},'global') }}</div>
+    {% endif %}
 {% endblock %}
