@@ -182,7 +182,7 @@ class ZoneHandler
                     if ($item_prototype) {
                         // If we get a Chest XL, we earn a picto
                         if ($item_prototype->getName() == 'chest_xl_#00') {
-                            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_chstxl_#00");
+                            $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => "r_chstxl_#00"]);
                             $this->picto_handler->give_picto($current_citizen, $pictoPrototype);
                         }
 

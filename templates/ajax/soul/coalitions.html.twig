@@ -11,7 +11,7 @@
 
     <div class="row">
         <div class="cell rw-12 padded">
-            <a class="small" href="{{ path('help', {'name': 'coalitions'}) }}" target="_blank"><img alt="" src="{{ asset('build/images/assets/img/icons/small_help.gif') }}"> {{ 'Spielhilfe: Kleine Koalitionen'|trans({}, 'soul') }}</a>
+            {{ help_lnk(('Kleine Koalitionen'|trans({}, 'soul')), 'help', {'name':'coalitions'}) }}
         </div>
     </div>
 

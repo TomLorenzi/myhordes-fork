@@ -31,80 +31,6 @@ use Symfony\Component\HttpFoundation\Response;
 class AdminForumController extends AdminActionController
 {
     /**
-     * @Route("jx/admin/forum/{tab}/{opt}", name="admin_reports")
-     * @param PermissionHandler $perm
-     * @param string $opt
-     * @return Response
-     */
-    public function reports(PermissionHandler $perm, string $tab = 'reports', string $opt = ''): Response
-    {
-        $show_all = $opt === 'all';
-
-        $allowed_forums = [];
-
-        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => false]);
-
-        $forum_reports = array_filter($reports, function(AdminReport $r) use (&$allowed_forums, $perm) {
-            if ($r->getPost() === null) return false;
-            $tid = $r->getPost()->getThread()->getForum()->getId();
-            if (isset($allowed_forums[$tid])) return $allowed_forums[$tid];
-            else return $allowed_forums[$tid] = $perm->checkAnyEffectivePermissions($this->getUser(), $r->getPost()->getThread()->getForum(), [ForumUsagePermissions::PermissionReadThreads, ForumUsagePermissions::PermissionModerate]);
-        });
-
-        // Make sure to fetch only unseen reports for posts with at least 2 unseen reports
-        $postsList = [
-            'post' => array_map(function($report) { return $report->getPost(); }, $forum_reports),
-            'reporter' => array_map(function($report) { return $report->getSourceUser(); }, $forum_reports)
-        ];
-
-        $alreadyCountedIndexes = [];
-        $selectedReports = [];
-        foreach ($postsList['post'] as $idx => $post) {
-            if (in_array($idx, $alreadyCountedIndexes))               
-                continue;      
-            $keys = array_keys($postsList['post'], $post);
-            $alreadyCountedIndexes = array_merge($alreadyCountedIndexes, $keys);
-            $reportCount = count($keys);
-            if ($reportCount > ($show_all ? 0 : 1)) {
-                $reporters = [];
-                foreach ($keys as $key){
-                    $reporters[] = $postsList['reporter'][$key];
-                }
-                $selectedReports[] = array('post' => $post, 'count' => $reportCount, 'reporters' => $reporters);
-            }
-        }
-
-        /** @var AdminReport[] $pm_reports */
-        $pm_reports = array_filter($reports, function(AdminReport $r) use (&$allowed_forums, $perm) {
-            if ($r->getPm() === null || $r->getPm()->getOwner() === null || $r->getPm()->getOwner()->getTown()->getForum() === null) return false;
-            $tid = $r->getPm()->getOwner()->getTown()->getForum()->getId();
-            if (isset($allowed_forums[$tid])) return $allowed_forums[$tid];
-            else return $allowed_forums[$tid] = $perm->checkAnyEffectivePermissions($this->getUser(), $r->getPm()->getOwner()->getTown()->getForum(), [ForumUsagePermissions::PermissionModerate]);
-        });
-
-        $pm_cache = [];
-        foreach ($pm_reports as $report)
-            if (!isset($pm_cache[$report->getPm()->getId()]))
-                $pm_cache[$report->getPm()->getId()] = [
-                    'post' => $report->getPm(), 'count' => 1, 'reporters' => [ $report->getSourceUser() ]
-                ];
-            else {
-                $pm_cache[$report->getPm()->getId()]['count']++;
-                $pm_cache[$report->getPm()->getId()]['reporters'][] = $report->getSourceUser();
-            }
-
-        return $this->render( 'ajax/admin/reports/reports.html.twig', [
-            'tab' => $tab,
-
-            'posts' => $selectedReports,
-            'pms' => $pm_cache,
-            'all_shown' => $show_all,
-
-            'snippets' => $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll()
-        ]);      
-    }
-
-    /**
      * @Route("jx/admin/forum/report/pm", name="admin_pm_viewer")
      * @param JSONRequestParser $parser
      * @param PermissionHandler $perm
@@ -260,5 +186,79 @@ class AdminForumController extends AdminActionController
 
             return AjaxResponse::success();
         } else return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+    }
+
+    /**
+     * @Route("jx/admin/forum/{tab}/{opt}", name="admin_reports")
+     * @param PermissionHandler $perm
+     * @param string $opt
+     * @return Response
+     */
+    public function reports(PermissionHandler $perm, string $tab = 'reports', string $opt = ''): Response
+    {
+        $show_all = $opt === 'all';
+
+        $allowed_forums = [];
+
+        $reports = $this->entity_manager->getRepository(AdminReport::class)->findBy(['seen' => false]);
+
+        $forum_reports = array_filter($reports, function(AdminReport $r) use (&$allowed_forums, $perm) {
+            if ($r->getPost() === null) return false;
+            $tid = $r->getPost()->getThread()->getForum()->getId();
+            if (isset($allowed_forums[$tid])) return $allowed_forums[$tid];
+            else return $allowed_forums[$tid] = $perm->checkAnyEffectivePermissions($this->getUser(), $r->getPost()->getThread()->getForum(), [ForumUsagePermissions::PermissionReadThreads, ForumUsagePermissions::PermissionModerate]);
+        });
+
+        // Make sure to fetch only unseen reports for posts with at least 2 unseen reports
+        $postsList = [
+            'post' => array_map(function($report) { return $report->getPost(); }, $forum_reports),
+            'reporter' => array_map(function($report) { return $report->getSourceUser(); }, $forum_reports)
+        ];
+
+        $alreadyCountedIndexes = [];
+        $selectedReports = [];
+        foreach ($postsList['post'] as $idx => $post) {
+            if (in_array($idx, $alreadyCountedIndexes))
+                continue;
+            $keys = array_keys($postsList['post'], $post);
+            $alreadyCountedIndexes = array_merge($alreadyCountedIndexes, $keys);
+            $reportCount = count($keys);
+            if ($reportCount > ($show_all ? 0 : 1)) {
+                $reporters = [];
+                foreach ($keys as $key){
+                    $reporters[] = $postsList['reporter'][$key];
+                }
+                $selectedReports[] = array('post' => $post, 'count' => $reportCount, 'reporters' => $reporters);
+            }
+        }
+
+        /** @var AdminReport[] $pm_reports */
+        $pm_reports = array_filter($reports, function(AdminReport $r) use (&$allowed_forums, $perm) {
+            if ($r->getPm() === null || $r->getPm()->getOwner() === null || $r->getPm()->getOwner()->getTown()->getForum() === null) return false;
+            $tid = $r->getPm()->getOwner()->getTown()->getForum()->getId();
+            if (isset($allowed_forums[$tid])) return $allowed_forums[$tid];
+            else return $allowed_forums[$tid] = $perm->checkAnyEffectivePermissions($this->getUser(), $r->getPm()->getOwner()->getTown()->getForum(), [ForumUsagePermissions::PermissionModerate]);
+        });
+
+        $pm_cache = [];
+        foreach ($pm_reports as $report)
+            if (!isset($pm_cache[$report->getPm()->getId()]))
+                $pm_cache[$report->getPm()->getId()] = [
+                    'post' => $report->getPm(), 'count' => 1, 'reporters' => [ $report->getSourceUser() ]
+                ];
+            else {
+                $pm_cache[$report->getPm()->getId()]['count']++;
+                $pm_cache[$report->getPm()->getId()]['reporters'][] = $report->getSourceUser();
+            }
+
+        return $this->render( 'ajax/admin/reports/reports.html.twig', [
+            'tab' => $tab,
+
+            'posts' => $selectedReports,
+            'pms' => $pm_cache,
+            'all_shown' => $show_all,
+
+            'snippets' => $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll()
+        ]);
     }
 }

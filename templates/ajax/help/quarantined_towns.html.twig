@@ -1,0 +1,31 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Stadt unter Quarantäne'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Stadt unter Quarantäne'|trans({},'help')|raw }}</h1>
+<p>
+<strong>{{ 'Sollte beim nächtlichen Angriff der Zombiehorde ein technischer Fehler auftreten, wird die betroffene Stadt unter Quarantäne gestellt.'|trans({},'help')|raw }}</strong>
+</p>
+<p>
+{{ 'Das bedeutet:'|trans({},'help')|raw }}
+</p>
+<ul>
+<li>{{ 'Der Mitternachtsangriff hat NICHT stattgefunden.'|trans({},'help')|raw }}</li>
+<li>{{ 'Du hast keine neuen %img_ap% bekommen und dein Gesundheitszustand hat sich nicht geändert.'|trans({'%img_ap%' : '<span class="ap"></span>'},'help')|raw }}</li>
+<li>{{ 'Der gestrige Tag ist nicht vorbei, sondern wird heute fortgesetzt.'|trans({},'help')|raw }}</li>
+<li>{{ 'etc...'|trans({},'help')|raw }}</li>
+</ul>
+<div class="critical">
+<p>
+{{ 'Sobald das Problem behoben wurde, wird die Quarantäne aufgehoben.'|trans({},'help')|raw }}
+</p>
+<p>
+<strong>{{ 'Der nicht stattgefundene Angriff findet in diesem Fall wieder regulär um Mitternacht des folgenden Tags statt.'|trans({},'help')|raw }}</strong>
+</p>
+{# <p>
+{{ 'Beachte: Das Stadttor wird vor diesem verschobenen Zombieangriff ausnahmsweise automatisch geschlossen.'|trans({},'help')|raw }}
+</p> #}
+</div>
+<div class="clear"></div>
+<a class="button" x-ajax-href="{{ url('help', {'name': 'i_m_annoyed'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Fehlverhalten melden'|trans({},'help') }}</strong></a>
+{% endblock %}

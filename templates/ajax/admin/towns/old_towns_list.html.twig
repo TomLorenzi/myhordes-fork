@@ -4,10 +4,10 @@
         <div class="cell padded rw-12">
             <ul class="tabs plain">
                 <li class="tab {% if admin_tab =='towns' %}selected{% endif %}">
-                    <div class="tab-link" x-ajax-href="{{ path('admin_town_list') }}"><span class="hide-sm">{{ 'Aktuelle Städte'|trans({}, 'admin') }}</span></div>
+                    <div class="tab-link" x-ajax-href="{{ path('admin_town_list') }}"><span>{{ 'Aktuelle Städte'|trans({}, 'admin') }}</span></div>
                 </li>
                 <li class="tab {% if admin_tab =='old_towns' %}selected{% endif %}">
-                    <div class="tab-link" x-ajax-href="{{ path('admin_old_town_list') }}"><span class="hide-sm">{{ 'Fertige Städte'|trans({}, 'admin') }}</span></div>
+                    <div class="tab-link" x-ajax-href="{{ path('admin_old_town_list') }}"><span>{{ 'Fertige Städte'|trans({}, 'admin') }}</span></div>
                 </li>
             </ul>
             <h5>{{ 'Liste aller Städte'|trans({},'admin') }}</h5>
@@ -75,6 +75,7 @@
 
 {% endblock %}
 {% block js %}
+    {{ parent() }}
     <script>
     </script>
 {% endblock %}

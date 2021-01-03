@@ -25,7 +25,9 @@ use App\Service\RandomGenerator;
 use App\Service\TownHandler;
 use App\Service\TwinoidHandler;
 use App\Service\UserHandler;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -104,6 +106,8 @@ class DebugCommand extends Command
 
             ->addOption('update-events', null, InputOption::VALUE_NONE, 'Will check the current event schedule and process hooks accordingly')
             ->addOption('reapply-twinoid-data', null, InputOption::VALUE_NONE, 'Re-applies the stored twinoid data for all users')
+
+            ->addOption('current-event', null, InputOption::VALUE_OPTIONAL, 'Shows the current event.', false)
         ;
     }
 
@@ -472,6 +476,21 @@ class DebugCommand extends Command
 
         }
 
-        return 1;
+        if (($date = $input->getOption('current-event')) !== false) {
+            $m = null;
+            try {
+                $dateTime = (new DateTime($date ?? 'now'));
+            } catch (Exception $e) {
+                $output->writeln('<error>Invalid date.</error>');
+                return 1;
+            }
+
+
+            $event = $this->conf->getCurrentEvent(null,$m, $dateTime);
+            if ($event->active()) $output->writeln("<comment>{$dateTime->format('c')}:</comment> Current event: <info>{$event->name()}</info>");
+            else $output->writeln("<comment>{$dateTime->format('c')}:</comment> There is <info>no current event</info>.");
+        }
+
+        return 0;
     }
 }

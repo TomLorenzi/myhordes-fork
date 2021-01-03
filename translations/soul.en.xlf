@@ -1861,15 +1861,6 @@
         <target>Your coalition is already full.</target>
       </segment>
     </unit>
-    <unit id="QuFqW4z" name="Spielhilfe: Kleine Koalitionen">
-      <notes>
-        <note category="german">Spielhilfe: Kleine Koalitionen</note>
-      </notes>
-      <segment>
-        <source>Spielhilfe: Kleine Koalitionen</source>
-        <target>Guide: Coalitions</target>
-      </segment>
-    </unit>
     <unit id="GO1ZJcp" name="3e3b0ae">
       <notes>
         <note category="german">Du möchtest schon seit langem &lt;strong&gt;mit deinen Freunden zusammen sterben&lt;/strong&gt;? Du möchtest die gleichen schönen und &lt;strong&gt;entsetzlichen&lt;/strong&gt; Momente mit ihnen erleben? Dann sind die &lt;strong&gt;Kleinen Koalitionen&lt;/strong&gt; genau das richtige für dich! Es handelt sich um kleine Mannschaften von &lt;strong&gt;5&lt;/strong&gt; Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.</note>
@@ -2248,6 +2239,15 @@
         <target>With this you can log out of all devices and browsers that you are currently logged in to. This also deactivates the "remember login" function on the affected devices.</target>
       </segment>
     </unit>
+    <unit id="uh49WWx" name="cea913a">
+      <notes>
+        <note category="german">Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</note>
+      </notes>
+      <segment>
+        <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
+        <target>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</target>
+      </segment>
+    </unit>
     <unit id="2CmSXI_" name="Animationen verringern">
       <notes>
         <note category="german">Animationen verringern</note>
@@ -2266,13 +2266,13 @@
         <target><![CDATA[Check the box if you notice the game slowing down considerably when the game map is being displayed.<br /><em>This option will reduce the quality of the animations associated with the game map.</em>.]]></target>
       </segment>
     </unit>
-    <unit id="uh49WWx" name="cea913a">
+    <unit id="JAkgM4Z" name="Kleine Koalitionen">
       <notes>
-        <note category="german">Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</note>
+        <note category="german">Kleine Koalitionen</note>
       </notes>
       <segment>
-        <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
-        <target>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</target>
+        <source>Kleine Koalitionen</source>
+        <target>Coalitions</target>
       </segment>
     </unit>
   </file>

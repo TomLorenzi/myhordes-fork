@@ -577,15 +577,41 @@ class ExternalXML2Controller extends ExternalController {
                         'cdata_value' => $citizen->getHome()->getDescription()
                     ];
                 } else {
-                    $data['data']['cadavers']['list']['items'][] = [
+                    $cadaver = [
                         'attributes' => [
                             'name' => $citizen->getUser()->getUsername(),
                             'dtype' => $citizen->getCauseOfDeath()->getRef(),
                             'id' => $citizen->getUser()->getId(),
                             'day' => $citizen->getSurvivedDays(),
-                        ],
-                        'cdata_value' => $citizen->getLastWords()
+                        ]
+
                     ];
+                    if($citizen->getDisposed() !== null) {
+                        $type = "unknown";
+                        switch($citizen->getDisposed()){
+                            case Citizen::Thrown:
+                                $type = 'garbage';
+                                break;
+                            case Citizen::Watered:
+                                $type = 'water';
+                                break;
+                            case Citizen::Cooked:
+                                $type = "cook";
+                                break;
+                        }
+                        $cadaver['cleanup'] = [
+                            'attributes' => [
+                                'type' => $type,
+                                'user' => $citizen->getDisposedBy()[0]->getUser()->getName()
+                            ]
+                        ];
+                    }
+                    if($citizen->getLastWords() !== null) {
+                        $cadaver['msg'] = [
+                            'cdata_value' => $citizen->getLastWords()
+                        ];
+                    }
+                    $data['data']['cadavers']['list']['items'][] = $cadaver;
                 }
             }
 

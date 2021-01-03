@@ -267,6 +267,7 @@ class GameFactory
                     ->setZombieStatus( ($x - $ox == 0 && $y - $oy == 0) ? Zone::ZombieStateExact : Zone::ZombieStateUnknown )
                     ->setZombies( 0 )
                     ->setInitialZombies( 0 )
+                    ->setStartZombies( 0 )
                     ->setTag($defaultTag)
                 ;
                 $town->addZone( $zone );
@@ -317,7 +318,7 @@ class GameFactory
 
             if ($zombies_base > 0) {
                 $zombies_base = max(1, mt_rand( floor($zombies_base * 0.8), ceil($zombies_base * 1.2) ) );
-                $zone_list[$i]->setZombies( $zombies_base )->setInitialZombies( $zombies_base );
+                $zone_list[$i]->setZombies( $zombies_base )->setInitialZombies( $zombies_base )->setStartZombies( $zombies_base );
             }
         }
 

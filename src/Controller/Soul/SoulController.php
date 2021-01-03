@@ -99,7 +99,7 @@ class SoulController extends CustomAbstractController
         $sb = $this->user_handler->getShoutbox($user);
         $messages = false;
         if ($sb) {
-            $last_entry = $this->entity_manager->getRepository(ShoutboxEntry::class)->findOneBy(['shoutbox' => $sb], ['timestamp' => 'DESC']);
+            $last_entry = $this->entity_manager->getRepository(ShoutboxEntry::class)->findOneBy(['shoutbox' => $sb], ['timestamp' => 'DESC', 'id' => 'DESC']);
             if ($last_entry) {
                 $marker = $this->entity_manager->getRepository(ShoutboxReadMarker::class)->findOneBy(['user' => $user]);
                 if (!$marker || $last_entry !== $marker->getEntry()) $messages = true;
@@ -826,7 +826,9 @@ class SoulController extends CustomAbstractController
                     break;
                 }
             }
-            if(!$citizensAlive && $nextDeath->getCod()->getRef() != CauseOfDeath::Radiations) {
+            if($citizensAlive || $nextDeath->getCod()->getRef() === CauseOfDeath::Radiations) {
+                $canSeeGazette = true;
+            } else {
                 $canSeeGazette = false;
             }
         }

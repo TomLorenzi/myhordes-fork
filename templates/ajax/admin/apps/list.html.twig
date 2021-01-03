@@ -42,6 +42,7 @@
 
 {% endblock %}
 {% block js %}
+    {{ parent() }}
     <script>
         $.html.addEventListenerAll('[x-app-control][x-toggle-app]', 'click', (e,elem) => {
             $.ajax.easySend( elem.getAttribute('x-app-control'), {on: elem.getAttribute('x-toggle-app') === '1'},
