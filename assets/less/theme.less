@@ -875,34 +875,6 @@ div.game-menu-area {
         }
       }
 
-      &.postbox {
-        position: absolute; right: 10px; top: -30px; font-size: 10px;
-        background-color: rgba(62, 36, 23, .75); border-radius: 6px;
-        color: @myhordes-smalltext; transition: color 0.5s ease-in-out;
-        cursor: pointer;
-        &:hover { color: lighten(@myhordes-smalltext,10%); }
-
-        li {
-          margin: 3px 6px;
-          &:nth-child(2) {
-            @keyframes letter-blinking {
-              0%   {color: @myhordes-smalltext;}
-              48%  {color: @myhordes-smalltext;}
-              50%  {color: #0096f1;}
-              52%  {color: @myhordes-smalltext;}
-              100% {color: @myhordes-smalltext;}
-            }
-            animation: letter-blinking 0.5s infinite linear normal;
-
-          }
-        }
-
-
-
-        &.new-messages li:nth-child(1) { display: none; }
-        &:not(.new-messages) li:not(:nth-child(1)) { display: none; }
-      }
-
       &.clock {
         position: absolute; background: url("../img/background/clock.png"); width: 280px; height: 97px;
         top: -130px; right: 0px;
@@ -1467,6 +1439,24 @@ i.dagger {
     padding: 5px; background-color: #5c2b20; border: 1px solid #f0d79e; outline: 1px solid #5c2b20;
     strong { text-transform: uppercase; color: #f8eacb; }
   }
+}
+
+&.postbox {
+  position: absolute; right: 10px; top: 105px; font-size: 10px;
+  background-color: rgba(62, 36, 23, .75); border-radius: 6px; padding: 3px 5px;
+  color: @myhordes-smalltext; transition: background-color 0.5s ease-in-out;
+  cursor: pointer;
+  &:hover { background-color: lighten(rgba(62, 36, 23, .75),10%); }
+
+  li {
+    margin: 0; list-style: none; display: inline-block; font-weight: bold;
+    &:last-child { margin-left: 4px; }
+  }
+
+  &.new-messages {
+    li:nth-child(1) { display: none; }
+  }
+  &:not(.new-messages) li:not(:nth-child(1)) { display: none; }
 }
 
 .mt-1 {

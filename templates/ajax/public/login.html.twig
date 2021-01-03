@@ -111,10 +111,10 @@
                     function (data) {
                         if (data.require_validation) $.ajax.load(null, '{{ path('public_validate') }}', true);
                         else if ($.client.config.navigationCache.get()) {
-                            $.ajax.load(null, $.client.config.navigationCache.get(), true);
+                            $.ajax.load(null, $.client.config.navigationCache.get(), true, {}, () => $.msg.execute());
                             $.client.config.navigationCache.set(null);
                         }
-                        else $.ajax.load(null, '{{ path('initial_landing') }}', true);
+                        else $.ajax.load(null, '{{ path('initial_landing') }}', true, {}, () => $.msg.execute());
                     }, {'default': '{% trans from 'login' %}Login fehlgeschlagen. Bitte prüfe deine Eingaben.{% endtrans %}'} )
             });
         {% endif %}

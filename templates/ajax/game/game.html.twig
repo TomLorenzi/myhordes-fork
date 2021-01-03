@@ -2,14 +2,6 @@
 
 {% block menu_bar %}
 
-    {% if app.user is not empty %}
-        <ul class="postbox">
-            <li><img src="{{ asset('build/images/icons/small_mail.gif') }}" alt=""></li>
-            <li><img src="{{ asset('build/images/icons/anim_icon_mail.gif') }}" alt=""></li>
-            <li id="postbox-new-msg-counter">2</li>
-        </ul>
-    {% endif %}
-
     {% if clock is defined %}
         <ul class="clock">
             <li>{{ clock.desc }}</li>

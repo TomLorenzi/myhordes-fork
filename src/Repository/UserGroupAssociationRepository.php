@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Entity\UserGroupAssociation;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Exception;
 
 /**
  * @method UserGroupAssociation|null find($id, $lockMode = null, $lockVersion = null)
@@ -40,6 +41,21 @@ class UserGroupAssociationRepository extends ServiceEntityRepository
         if ($limit > 0) $qb->setMaxResults( $limit );
 
         return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * @param User $user
+     * @return int|mixed|string
+     */
+    public function countUnreadPMsByUser( User $user ): int {
+        $qb = $this->createQueryBuilder('u')->select('COUNT(u.id)')->leftJoin('u.association', 'g')
+            ->andWhere('u.user = :user')->setParameter('user', $user)
+            ->andWhere('u.ref1 < g.ref1 OR u.ref1 IS NULL')
+            ->andWhere('u.associationType IN (:assoc)')->setParameter('assoc', [UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive]);
+
+        try {
+            return $qb->getQuery()->getSingleScalarResult();
+        } catch (Exception $e) { return 0; }
     }
 
     // /**

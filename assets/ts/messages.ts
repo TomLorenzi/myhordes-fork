@@ -72,14 +72,15 @@ class PayloadPing extends payload {
     public constructor(args: object) {
         super(args);
         this.newMessages = args['new'] ?? 0;
-        this.connected = args['connected'] ?? false;
-        this.delay = args['connected'] ?? 15000;
+        this.connected = !!args['connected'] ?? false;
+        this.delay = Math.max(5000, args['connected'] ? args['connected'] : 60000 );
     }
 }
 
 export default class MessageAPI {
 
     private nw_ping: networker<PayloadPing> = null;
+    private ping_timeout = null;
 
     public initialized(): boolean {
         return this.nw_ping !== null;
@@ -87,12 +88,24 @@ export default class MessageAPI {
 
     public registerPingEndpoint(endpoint: string) {
         this.nw_ping = new networker<PayloadPing>(endpoint, PayloadPing);
-        this.registerPingCallback((a: PayloadPing) => window.setTimeout(() => {
+        this.registerPingCallback((a: PayloadPing) => this.ping_timeout = window.setTimeout(() => {
             this.nw_ping.execute();
         }, a.delay), true);
     }
 
     public registerPingCallback(callback: callbackTemplate<PayloadPing>, persistent: boolean = false): void {
         this.nw_ping.stack.push(callback, persistent);
+    }
+
+    public execute(): boolean {
+        if (!this.initialized()) return false;
+
+        if (this.ping_timeout) {
+            window.clearTimeout(this.ping_timeout);
+            this.ping_timeout = null;
+        }
+
+        this.nw_ping.execute();
+        return true;
     }
 }

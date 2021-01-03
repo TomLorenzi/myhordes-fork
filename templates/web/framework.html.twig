@@ -44,6 +44,11 @@
 <div id="wrapper">
     <div id="header">
         <div id="header-reload-area"></div>
+        <div class="postbox hidden">
+            <li><img src="{{ asset('build/images/icons/small_mail.gif') }}" alt=""></li>
+            <li><img src="{{ asset('build/images/icons/anim_icon_mail.gif') }}" alt=""></li>
+            <li id="postbox-new-msg-counter">0</li>
+        </div>
         {% if is_granted('ROLE_USER') %}
             <div id="apps">
                 <h1><img src="{{ asset('build/images/icons/small_archive.gif') }}" alt="{{ 'Verzeichnis'|trans({},'global') }}"><span>{{ 'Verzeichnis'|trans({},'global') }}</span></h1>
@@ -180,14 +185,26 @@
             if (e.target !== elem) return;
             elem.classList.remove('visible');
             document.body.style.overflow = null;
+            $.msg.execute();
         });
         $.html.addEventListenerAll('#post-office-button-overlay>ul>li:last-child','click', function() {
             let post = document.getElementById('post-office');
             if (post) {
                 post.classList.remove('visible');
                 document.body.style.overflow = null;
+                $.msg.execute();
             }
         });
+        $.msg.registerPingEndpoint( '{{ path('api_pm_ping') }}' );
+        $.msg.registerPingCallback(data => {
+            if (data.connected) {
+                $.html.forEach('.postbox', e => e.classList.remove('hidden'));
+                document.getElementById('postbox-new-msg-counter').innerText = data.newMessages;
+                if (data.newMessages > 0) $.html.forEach('.postbox', e => e.classList.add('new-messages'));
+                else $.html.forEach('.postbox', e => e.classList.remove('new-messages'));
+            }
+            else $.html.forEach('.postbox', e=>e.classList.add('hidden'));
+        }, true);
     })();
 
 </script>

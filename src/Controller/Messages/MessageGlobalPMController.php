@@ -41,8 +41,13 @@ class MessageGlobalPMController extends MessageController
      * @Route("api/pm/ping", name="api_pm_ping")
      * @return Response
      */
-    public function ping_check_new_message(): Response {
-        return new AjaxResponse(['new' => 0, 'connected' => false]);
+    public function ping_check_new_message(EntityManagerInterface $em): Response {
+        $user = $this->getUser();
+        if (!$user) return new AjaxResponse(['new' => 0, 'connected' => false, 'success' => true]);
+
+        return new AjaxResponse(['new' =>
+            $em->getRepository(UserGroupAssociation::class)->countUnreadPMsByUser($user)
+            , 'connected' => 15000, 'success' => true]);
     }
 
     /**
