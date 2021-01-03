@@ -1,4 +1,9 @@
 {% extends "ajax/ajax.html.twig" %}
+{%block title %}{{'Bürger! Seid auf inoffiziellen Webseiten wachsam!'|trans({}, 'game')}}{% endblock %}
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
 {% block ajax %}
     <div class="row external-app">
         <div class="cell padded header rw-6 ro-3 rw-lg-12 ro-lg-0">
