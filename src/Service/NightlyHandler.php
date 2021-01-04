@@ -219,7 +219,6 @@ class NightlyHandler
         $this->log->info('<info>Updating survival information</info> ...');
         foreach ($town->getCitizens() as $citizen) {
             if (!$citizen->getAlive()) continue;
-            $citizen->setSurvivedDays( $citizen->getTown()->getDay() - 1 );
 
             if (!$citizen->getProfession()->getHeroic())
                 continue;
@@ -291,7 +290,6 @@ class NightlyHandler
 
                 foreach ($citizens as $citizen) {
                     $gazette->setDeaths($gazette->getDeaths() + 1);
-                    $citizen->setSurvivedDays( $citizen->getTown()->getDay() - 1 );
                     $this->kill_wrap($citizen, $cod, true, 0, false, $town->getDay());
                 }
 
@@ -631,7 +629,6 @@ class NightlyHandler
                 $this->kill_wrap($targets[$i], $cod, false, $force);
 				
                 // citizen dies from the attack, citizen validate the new day
-                $targets[$i]->setSurvivedDays($town->getDay() - 1);
                 $gazette->setDeaths($gazette->getDeaths() + 1);
             }
             else {

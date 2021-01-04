@@ -185,7 +185,7 @@ class CitizenHandler
         if (!$citizen->getAlive() || $citizen->getTown()->getChaos()) return false;
 
         $action = false; $kill = false;
-        
+
         $nbComplaint = $this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen, Complaint::SeverityBanish);
 
         $complaintNeeded = 8;

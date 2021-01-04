@@ -543,11 +543,11 @@
     </unit>
     <unit id="l.2Tpic" name="ca64199">
       <notes>
-        <note category="german">Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).</note>
+        <note category="german">Achtung! Der von dir ausgewählte Link, leitet dich auf eine &lt;strong&gt;nicht-offizielle Seite&lt;/strong&gt; weiter (sprich: eine Fan- oder Spielerseite).</note>
       </notes>
       <segment>
-        <source>Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).</source>
-        <target>¡Atención! Este enlace te envía hacia un sitio no-oficial (creado por jugadores).</target>
+        <source>Achtung! Der von dir ausgewählte Link, leitet dich auf eine &lt;strong&gt;nicht-offizielle Seite&lt;/strong&gt; weiter (sprich: eine Fan- oder Spielerseite).</source>
+        <target><![CDATA[¡Atención! Este enlace te envía hacia un <strong>sitio no-oficial</strong> (creado por jugadores).]]></target>
       </segment>
     </unit>
     <unit id="eg7vZTp" name="b187301">

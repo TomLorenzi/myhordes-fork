@@ -13,6 +13,7 @@ use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\RandomGenerator;
 use App\Service\UserFactory;
+use App\Translation\T;
 use Doctrine\ORM\EntityManagerInterface;
 use Imagick;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -41,6 +42,8 @@ class AdminAppController extends AdminActionController
      */
     public function ext_app_edit(int $id): Response
     {
+        T::__("Neue Anwendung registrieren", "admin");
+        T::__("Änderungen an '%appname%' speichern", "admin");
         if (!$this->isGranted('ROLE_ADMIN')) $this->redirect($this->generateUrl('admin_app_view'));
         $app = $this->entity_manager->getRepository(ExternalApp::class)->find($id);
         if ($app === null) return $this->redirect($this->generateUrl('admin_app_view'));
