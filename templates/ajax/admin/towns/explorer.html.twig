@@ -223,19 +223,32 @@
                             <br />
                             <button id="givebtn">{{'Vergeben!'|trans({}, 'admin')}}</button>
                         </div>
+                        <div class="padded cell">
+                            <h5>{{ 'Anzeigen'|trans({}, 'admin') }}</h5>
+                            <ul>
+                            {% for culprit, complaint in complaints %}
+                                <li>{{  'Gegen %culprit%'|trans({'%culprit%': "<strong>" ~ culprit ~ "</strong>"}, 'admin')|raw }}
+                                    <ul>
+                                    {% for cmp in complaint|sort((a,b) => a.autor.user.name <=> b.autor.user.name) %}
+                                        <li>{{ cmp.autor.user.name }} : {{ cmp.linkedReason.text|trans({}, 'game') }}</li>
+                                    {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        </div>
                         <br />
                         {% endif %}
                         <button id="townpm">{{ 'Rundmail als Rabe'|trans({},'admin') }}</button>
                         <input type="hidden" id="pmidrecipient" value="{{ town.id }}">
                         <div id="forum-content">
-
                         </div>
                     </div>
                 </div>
             </div>
 
             <div x-tab-group="admin-town" x-tab-id="register" x-tab-target>
-                {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('admin_newspaper_log_controller') } %}
+                {% embed "ajax/admin/towns/log.html.twig" with {'log_content': log, 'log_source': path('admin_newspaper_log_controller') } %}
                 {% endembed %}
             </div>
 

@@ -185,20 +185,20 @@ class CitizenHandler
         if (!$citizen->getAlive() || $citizen->getTown()->getChaos()) return false;
 
         $action = false; $kill = false;
+
         $nbComplaint = $this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen, Complaint::SeverityBanish);
-        if (!$citizen->getBanished()) {
-            if ($nbComplaint >= 8)
-                $action = true;
-        }
 
-        if ($gallows || $cage) {
-            $complaintNeeded = 8;
-            // If the citizen is already shunned, we need 6 more complains to hang him
-            if($citizen->getBanished())
-                $complaintNeeded += 6;
+        $complaintNeeded = 8;
 
-            if ($nbComplaint >= $complaintNeeded)
-                $action = $kill = true;
+        // If the citizen is already shunned, we need 6 more complains to hang him
+        if($citizen->getBanished())
+            $complaintNeeded = 6;
+
+        if ($nbComplaint >= $complaintNeeded)
+            $action = true;
+
+        if ($action && ($gallows || $cage)) {
+            $kill = true;
         }
 
 
@@ -232,6 +232,12 @@ class CitizenHandler
             $bank = $citizen->getTown()->getBank();
             foreach ($items as $item)
                 if (!$item->getEssential()) $this->inventory_handler->forceMoveItem( $bank, $item );
+
+            // As he is shunned, we remove all the complaints
+            $complaints = $this->entity_manager->getRepository(Complaint::class)->findByCulprit($citizen);
+            foreach ($complaints as $complaint) {
+                $this->entity_manager->remove($complaint);
+            }
         }
 
         if ($kill) {
@@ -253,10 +259,8 @@ class CitizenHandler
             foreach ($rem as $r) $this->entity_manager->remove( $r );
 
         } else if ($action && $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'revenge') && $citizen->getTown()->getDay() >= 3) {
-
             $this->inventory_handler->forceMoveItem( $citizen->getInventory(), $this->item_factory->createItem( 'poison_#00' ));
             $this->inventory_handler->forceMoveItem( $citizen->getInventory(), $this->item_factory->createItem( 'poison_#00' ));
-
         }
 
         return $action;

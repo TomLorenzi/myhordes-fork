@@ -2026,5 +2026,59 @@
         <target>Entrez ici le nom de la ville.</target>
       </segment>
     </unit>
+    <unit id="zLJ.A.A" name="Anzeigen">
+      <notes>
+        <note category="german">Anzeigen</note>
+      </notes>
+      <segment>
+        <source>Anzeigen</source>
+        <target>Plaintes</target>
+      </segment>
+    </unit>
+    <unit id=".iE.xsh" name="Gegen %culprit%">
+      <notes>
+        <note category="german">Gegen %culprit%</note>
+      </notes>
+      <segment>
+        <source>Gegen %culprit%</source>
+        <target>Contre %culprit%</target>
+      </segment>
+    </unit>
+    <unit id="F_ijNEI" name="Neue Anwendung registrieren">
+      <notes>
+        <note category="german">Neue Anwendung registrieren</note>
+      </notes>
+      <segment>
+        <source>Neue Anwendung registrieren</source>
+        <target>Enregistrer une nouvelle app externe</target>
+      </segment>
+    </unit>
+    <unit id="SisP.gu" name="Änderungen an '%appname%' speichern">
+      <notes>
+        <note category="german">Änderungen an '%appname%' speichern</note>
+      </notes>
+      <segment>
+        <source>Änderungen an '%appname%' speichern</source>
+        <target>Enregister les modifications de '%appname%'</target>
+      </segment>
+    </unit>
+    <unit id="I2gx52t" name="Neue Anwendung">
+      <notes>
+        <note category="german">Neue Anwendung</note>
+      </notes>
+      <segment>
+        <source>Neue Anwendung</source>
+        <target>Nouvelle application</target>
+      </segment>
+    </unit>
+    <unit id="GOi00pr" name="Anwendung &quot;%external_app%&quot;">
+      <notes>
+        <note category="german">Anwendung "%external_app%"</note>
+      </notes>
+      <segment>
+        <source>Anwendung "%external_app%"</source>
+        <target>Application "%external_app%"</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

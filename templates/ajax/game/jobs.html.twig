@@ -32,7 +32,7 @@
             <div class="row">
                 {% for job in professions %}
                     {# @var job \App\Entity\CitizenProfession #}
-                    <div class="jobs-choice padded cell rw-4 rw-lg-6">
+                    <div class="jobs-choice padded cell rw-4 rw-lg-6 rw-sm-8 ro-sm-2">
                         <div class="text center">
                             <input type="radio" id="jb_{{ job.name }}" name="job" value="{{ job.id }}">
                             <label for="jb_{{ job.name }}">
@@ -57,7 +57,7 @@
             <h5>{{'Zur zeit in der Stadt'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
             <div class="row prof-list">
             {% for elem in prof_count %}
-                <div class="padded cell small center rw-4">
+                <div class="padded cell small center rw-4 rw-lg-6 rw-sm-12">
                     <img alt="{{ elem[1].label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ elem[1].icon ~ '.gif') }}" />
                     {{ elem[1].label|trans({},'game') }} x {{ elem[0] }}
                 </div>
@@ -78,6 +78,7 @@
     </div>
 {% endblock %}
 {% block js %}
+    {{ parent() }}
     <script>
 
         let selected_profession = 0;

@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Citizen;
+use App\Entity\Complaint;
 use App\Entity\ExpeditionRoute;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
@@ -108,6 +109,14 @@ class AdminTownController extends AdminActionController
             return strcmp($this->translator->trans($a->getLabel(), [], 'items'), $this->translator->trans($b->getLabel(), [], 'items'));
         });
 
+        $complaints = [];
+
+        foreach($town->getCitizens() as $citizen) {
+            $comp = $this->entity_manager->getRepository(Complaint::class)->findBy(['culprit' => $citizen]);
+            if (count($comp) > 0)
+                $complaints[$citizen->getUser()->getName()] = $comp;
+        }
+
         return $this->render( 'ajax/admin/towns/explorer.html.twig', array_merge([
             'town' => $town,
             'conf' => $this->conf->getTownConfiguration( $town ),
@@ -117,7 +126,8 @@ class AdminTownController extends AdminActionController
             'bank' => $this->renderInventoryAsBank( $town->getBank() ),
             'itemPrototypes' => $itemPrototypes,
             'pictoPrototypes' => $pictoProtos,
-            'tab' => $tab
+            'tab' => $tab,
+            'complaints' => $complaints,
         ], $this->get_map_blob($town)));
     }
 

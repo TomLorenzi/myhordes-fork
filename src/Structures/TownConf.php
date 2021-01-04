@@ -67,6 +67,7 @@ class TownConf extends Conf
     const CONF_MODIFIER_SANDBALL_NASTYNESS   = 'modifiers.sandball_nastyness';
     const CONF_MODIFIER_WIND_DISTANCE        = 'modifiers.wind_distance';
     const CONF_MODIFIER_STRICT_PICTOS        = 'modifiers.strict_picto_distribution';
+    const CONF_MODIFIER_RESPAWN_FACTOR       = 'modifiers.massive_respawn_factor';
 
     const CONF_FEATURE_CAMPING         = 'features.camping';
     const CONF_FEATURE_NIGHTMODE       = 'features.nightmode';
