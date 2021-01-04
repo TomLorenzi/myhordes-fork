@@ -4,13 +4,14 @@
     {% set yesterday = date('-1days') %}
     <ul class="pm-conversation-list">
         {% for entry in entries %}
-            {% set endpoint_fetch  = null %}
-            {% set endpoint_answer = null %}
-            {% set endpoint_trash  = null %}
-            {% set endpoint_unread = null %}
-            {% set message_title   = entry.title %}
-            {% set message_id      = 0 %}
-            {% set message_type    = 'un' %}
+            {% set endpoint_fetch   = null %}
+            {% set endpoint_answer  = null %}
+            {% set endpoint_trash   = null %}
+            {% set endpoint_unread  = null %}
+            {% set message_title    = entry.title %}
+            {% set message_id       = 0 %}
+            {% set message_type     = 'un' %}
+            {% set message_show_ava = true %}
             {% if entry.obj|instance_of('App\\Entity\\UserGroupAssociation') %}
                 {% set endpoint_fetch  = path('pm_conv_group', {'id': entry.obj.association.id}) %}
                 {% set endpoint_answer = path('pm_post_editor_controller', {'id': entry.obj.association.id}) %}
@@ -19,11 +20,12 @@
                 {% set message_id      = entry.obj.id %}
                 {% set message_type    = 'g' %}
             {% elseif entry.obj|instance_of('App\\Entity\\Announcement') %}
-                {% set message_title   = 'Ankündigung'|trans({},'global') %}
-                {% set endpoint_fetch  = path('pm_announce', {'id': entry.obj.id}) %}
-                {% set endpoint_unread = path('pm_unread_announce', {'id': entry.obj.id}) %}
-                {% set message_id      = entry.obj.id %}
-                {% set message_type    = 'a' %}
+                {% set message_title    = 'Ankündigung'|trans({},'global') %}
+                {% set endpoint_fetch   = path('pm_announce', {'id': entry.obj.id}) %}
+                {% set endpoint_unread  = path('pm_unread_announce', {'id': entry.obj.id}) %}
+                {% set message_id       = entry.obj.id %}
+                {% set message_type     = 'a' %}
+                {% set message_show_ava = false %}
             {% endif %}
 
             <li x-title="{{ message_title }}" x-domain="{{ message_type }}" x-identifier="{{ message_id }}"
@@ -33,7 +35,8 @@
                     {% if endpoint_trash  is not null %}x-trash="{{ endpoint_trash }}"{% endif %}
                     {% if endpoint_unread is not null %}x-unread="{{ endpoint_unread }}"{% endif %}
             >
-                <div class="pm-avatar-block">
+                {% if message_show_ava %}
+                    <div class="pm-avatar-block">
                     {% if entry.system %}
                         <div class="avatarcrow"></div>
                     {% elseif entry.users|length > 1 %}
@@ -61,6 +64,7 @@
                         {% endif %}
                     {% endif %}
                 </div>
+                {% endif %}
 
                 <b class="title">{{ entry.title }}</b>
 
