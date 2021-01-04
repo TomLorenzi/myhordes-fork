@@ -638,9 +638,10 @@ class ExternalXML2Controller extends ExternalController {
                             'nvt' => intval($zone->getDiscoveryStatus() != Zone::DiscoveryStateCurrent)
                         ]
                     ];
-                    
-                    if($danger > 0) {
-                        $item['attributes']['danger'] = $danger;
+                    if ($zone->getDiscoveryStatus() == Zone::DiscoveryStateCurrent) {
+                        if($danger > 0) {
+                            $item['attributes']['danger'] = $danger;
+                        }
                     }
 
                     if($zone->getTag() !== null && $zone->getTag()->getRef() !== ZoneTag::TagNone) {
