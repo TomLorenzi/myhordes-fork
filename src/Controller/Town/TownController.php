@@ -573,7 +573,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         }
 
         try {
-            // if ($severity !== $severity_before && ($severity === 0 || $severity_before === 0)) $em->persist( $this->log->citizenComplaint( $existing_complaint ) );
+            $em->persist( $this->log->citizenComplaint( $existing_complaint ) );
             $em->persist($culprit);
             $em->persist($existing_complaint);
             $em->flush();
@@ -1156,9 +1156,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         // Notice
         if(!$was_completed) {
             if($building->getAp() < $building->getPrototype()->getAp()){
-                $messages[] = $this->translator->trans("Du hast am Bauprojekt %plan% mitgeholfen.", ["%plan%" => "<span>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</span>"], 'game');
+                $messages[] = $this->translator->trans("Du hast am Bauprojekt %plan% mitgeholfen.", ["%plan%" => "<strong>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</strong>"], 'game');
             } else {
-                $messages[] = $this->translator->trans("Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!", ['%plan%' => "<span>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</span>"], 'game');
+                $messages[] = $this->translator->trans("Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!", ['%plan%' => "<strong>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</strong>"], 'game');
             }
         }
 
@@ -1187,7 +1187,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
         }
 
-        $messages[] = $this->translator->trans("Du hast dafür %count% Aktionspunkt(e) verbraucht.", ['%count%' => "<span>$ap</span>"], "game");
+        $messages[] = $this->translator->trans("Du hast dafür %count% Aktionspunkt(e) verbraucht.", ['%count%' => "<strong>$ap</strong>"], "game");
 
         // Set the activity status
         $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');

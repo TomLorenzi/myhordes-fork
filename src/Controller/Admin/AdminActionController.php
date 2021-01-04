@@ -71,7 +71,7 @@ class AdminActionController extends CustomAbstractController
 
     protected function renderLog( ?int $day, $town, $zone = null, ?int $type = null, ?int $max = null ): Response {
         $entries = [];
-        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter($town, $day, null, $zone, $type, $max ) as $idx => $entity) {
+        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter($town, $day, null, $zone, $type, $max, null ) as $idx => $entity) {
                 /** @var LogEntryTemplate $template */
                 $template = $entity->getLogEntryTemplate();
                 if (!$template)

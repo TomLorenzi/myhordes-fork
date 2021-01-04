@@ -229,7 +229,7 @@
                             {% for culprit, complaint in complaints %}
                                 <li>{{  'Gegen %culprit%'|trans({'%culprit%': "<strong>" ~ culprit ~ "</strong>"}, 'admin')|raw }}
                                     <ul>
-                                    {% for cmp in complaint %}
+                                    {% for cmp in complaint|sort((a,b) => a.autor.user.name <=> b.autor.user.name) %}
                                         <li>{{ cmp.autor.user.name }} : {{ cmp.linkedReason.text|trans({}, 'game') }}</li>
                                     {% endfor %}
                                     </ul>
