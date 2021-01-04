@@ -2,40 +2,85 @@
 {% block ajax %}
     <div class="row">
         <div class="cell rw-12">
-            <div class="row">
-                <div class="cell padded rw-6 rw-sm-12">
-                    <span>{{ "Titel" |trans({}, 'admin') }}</span>
+
+            <ul class="tabs plain" x-tab-group="admin-announcements" x-tab-control x-tab-default="{{ tab }}">
+                <li class="tab" x-tab-id="changelog"><div class="tab-link">{% trans from 'admin' %}Changelogs{% endtrans %}</div></li>
+                <li class="tab" x-tab-id="announcement"><div class="tab-link">{% trans from 'admin' %}Ankündigungen{% endtrans %}</div></li>
+            </ul>
+
+            <div x-tab-group="admin-announcements" x-tab-id="changelog" x-tab-target>
+                <div class="row-table">
+                    <div class="row header">
+                        <div class="cell padded rw-6 rw-sm-12">
+                            <span>{{ "Titel" |trans({}, 'admin') }}</span>
+                        </div>
+                        <div class="cell padded rw-2 rw-sm-12">
+                            <span>{{ "Version" |trans({}, 'admin') }}</span>
+                        </div>
+                        <div class="cell padded rw-2 rw-sm-12">
+                            <span>{{ "Sprache" |trans({}, 'admin') }}</span>
+                        </div>
+                    </div>
+                    {% for new in news %}
+                        <div class="row">
+                            <div class="cell padded rw-6 rw-sm-12">
+                                {{ new.title }}
+                            </div>
+                            <div class="cell padded rw-2 rw-sm-12">
+                                <span>{{ new.version }}</span>
+                            </div>
+                            <div class="cell padded rw-2 rw-sm-12">
+                                <span>{{ new.lang }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
-                <div class="cell padded rw-2 rw-sm-12">
-                    <span>{{ "Version" |trans({}, 'admin') }}</span>
+
+                <div class="row">
+                    <div class="cell padded rw-3">
+                        <button id="new_changelog">
+                            {{'Neue Update'|trans({}, 'admin')}}
+                        </button>
+                    </div>
                 </div>
-                <div class="cell padded rw-2 rw-sm-12">
-                    <span>{{ "Sprache" |trans({}, 'admin') }}</span>
-                </div>
-            </div>
-            {% for new in news %}
-            <div class="row">
-                <div class="cell padded rw-6 rw-sm-12">
-                    {{ new.title }}
-                </div>
-                <div class="cell padded rw-2 rw-sm-12">
-                    <span>{{ new.version }}</span>
-                </div>
-                <div class="cell padded rw-2 rw-sm-12">
-                    <span>{{ new.lang }}</span>
-                </div>
-            </div>
-            {% endfor %}
-            <div class="row">
-                <div class="cell padded rw-3">
-                    <button id="new_changelog" x-ajax-target="#content" class="button">
-                        {{'Neue Update'|trans({}, 'admin')}}
-                    </button>
-                </div>
+
+                <div id="changelog-forum-editor"></div>
             </div>
 
-            <div id="forum-content">
-            
+            <div x-tab-group="admin-announcements" x-tab-id="announcement" x-tab-target>
+                <div class="row-table">
+                    <div class="row header">
+                        <div class="cell padded rw-8 rw-sm-12">
+                            <span>{{ "Titel" |trans({}, 'admin') }}</span>
+                        </div>
+                        <div class="cell padded rw-2 rw-sm-12">
+                            <span>{{ "Sprache" |trans({}, 'admin') }}</span>
+                        </div>
+                    </div>
+                    {% for new in announces %}
+                        <div class="row">
+                            <div class="cell padded rw-8 rw-sm-12">
+                                {{ new.title }}
+                            </div>
+                            <div class="cell padded rw-2 rw-sm-6">
+                                <span>{{ new.lang }}</span>
+                            </div>
+                            <div class="cell padded rw-2 rw-sm-6 right">
+                                <button class="small inline" x-trash-announce="{{ path('admin_changelog_del_announcement', {id: new.id}) }}"><i class="fa fa-trash"></i></button>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="row">
+                    <div class="cell padded rw-3">
+                        <button id="new_announce">
+                            {{'Neue Ankündigung'|trans({}, 'admin')}}
+                        </button>
+                    </div>
+                </div>
+
+                <div id="announcement-forum-editor"></div>
             </div>
         </div>
     </div>
@@ -44,10 +89,27 @@
 {% block js %}
     {{ parent() }}
     <script>
-    let new_changelog = document.getElementById('new_changelog');
-    if(new_changelog) new_changelog.addEventListener('click', function(e) {
-        document.getElementById("forum-content").innerHTML = "";
-        $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('admin_new_changelog_editor_controller') }}', false )
-    });
+        (function() {
+            $.html.addEventListenerAll('#new_changelog' ,'click', function() {
+                let target = document.getElementById("changelog-forum-editor");
+                target.innerHTML = "";
+                $.ajax.no_history().load( target, '{{ path('admin_new_changelog_editor_controller') }}', false )
+            });
+
+            $.html.addEventListenerAll('#new_announce' ,'click', function() {
+                let target = document.getElementById("announcement-forum-editor");
+                target.innerHTML = "";
+                $.ajax.no_history().load( target, '{{ path('admin_new_announcement_editor_controller') }}', false )
+            });
+
+            $.html.addEventListenerAll('button[x-trash-announce]' ,'click', function(e,elem) {
+                if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                    $.ajax.easySend( elem.getAttribute('x-trash-announce'), {},
+                        function () {
+                            $.ajax.load(null, '{{ path('admin_changelogs', {tab: 'announcement'}) }}', true);
+                        } );
+            });
+        })();
+
     </script>
 {% endblock %}

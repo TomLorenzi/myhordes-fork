@@ -34,20 +34,20 @@
                         <input type="text" id="{{ type }}-forum-editor-title" />
                     </div>
                 {% endif %}
-                {% if type == "changelog" %}
-                    <div class="cell rw-4 padded">
-                        <label for="{{ type }}-forum-editor-version">{{ 'Version'|trans({},'global') }}</label>
-                    </div>
-                    <div class="cell rw-8 padded">
-                        <input type="text" id="{{ type }}-forum-editor-version" />
-                    </div>
+                {% if type == "changelog" or type == "announcement" %}
+                    {% if type == "changelog" %}
+                        <div class="cell rw-4 padded">
+                            <label for="{{ type }}-forum-editor-version">{{ 'Version'|trans({},'global') }}</label>
+                        </div>
+                        <div class="cell rw-8 padded">
+                            <input type="text" id="{{ type }}-forum-editor-version" />
+                        </div>
+                    {% endif %}
                     <div class="cell rw-4 padded">
                         <label for="{{ type }}-forum-editor-lang">{{ 'Sprache'|trans({},'global') }}</label>
                     </div>
                     <div class="cell rw-8 padded">
-                        <select id="{{ type }}-forum-editor-lang">
-
-                        </select>
+                        <select id="{{ type }}-forum-editor-lang"></select>
                     </div>
                 {% endif %}
             </div>
@@ -466,9 +466,7 @@
                 node_transfer_source.value = content.substr( 0, s_start ) + tag + content.substr( s_start );
 
                 node_transfer_source.setSelectionRange( s_start + tag.length, s_end + tag.length );
-                //window.setTimeout( function() {
                 node_transfer_source.focus()
-                //}, 10);
                 transfer_to_preview();
             } );
 
@@ -557,6 +555,8 @@
                             {% elseif type == "changelog" %}
                                 target_payload.version = document.getElementById('{{ type }}-forum-editor-version').value;
                                 target_payload.lang = document.getElementById('{{ type }}-forum-editor-lang').value;
+                            {% elseif type == "announcement" %}
+                                target_payload.lang = document.getElementById('{{ type }}-forum-editor-lang').value;
                             {% endif %}
                         {% endif %}
                     {% else %}
@@ -586,6 +586,8 @@
                             $.client.config.editorCache.set('');
                             {% if type != 'global-pm' %}
                                 $.ajax.load( null, data.url, true );
+                            {% elseif type != 'announcement' %}
+                                $.ajax.load( null, data.url, true, {}, ()=>$.msg.execute() );
                             {% else %}
                                 let selected = document.querySelector('.pm-conversation-list>li.selected');
                                 if (selected) selected.click();
@@ -596,16 +598,16 @@
                 });
             }
 
-            {% if type == "changelog" %}
-            let lang_selector = document.getElementById('{{ type }}-forum-editor-lang');
-            if(lang_selector) {
-                for(let prop in window.c.langs) {
-                    let option = document.createElement("option");
-                    option.text = window.c.langs[prop];
-                    option.value = prop;
-                    lang_selector.add(option);
+            {% if type == "changelog" or type == "announcement" %}
+                let lang_selector = document.getElementById('{{ type }}-forum-editor-lang');
+                if(lang_selector) {
+                    for(let prop in window.c.langs) {
+                        let option = document.createElement("option");
+                        option.text = window.c.langs[prop];
+                        option.value = prop;
+                        lang_selector.add(option);
+                    }
                 }
-            }
             {% endif %}
         })();
     </script>

@@ -161,14 +161,14 @@
                     document.getElementById('pm-forum-actions-container').classList.add('hidden');
                     document.getElementById('pm-forum-editor-container').classList.add('hidden');
 
-                    if (elem.getAttribute('x-editor')) $.html.forEach('[x-pm-action="answer-single"]', e => e.classList.remove('disabled'));
-                    else $.html.forEach('[x-pm-action="answer-single"]', e => e.classList.add('disabled'));
+                    if (elem.getAttribute('x-editor')) $.html.forEach('[x-pm-action="answer-single"]', e => e.classList.remove('hidden'));
+                    else $.html.forEach('[x-pm-action="answer-single"]', e => e.classList.add('hidden'));
 
-                    if (elem.getAttribute('x-trash')) $.html.forEach('[x-pm-action="trash-single"]', e => e.classList.remove('disabled'));
-                    else $.html.forEach('[x-pm-action="trash-single"]', e => e.classList.add('disabled'));
+                    if (elem.getAttribute('x-trash')) $.html.forEach('[x-pm-action="trash-single"]', e => e.classList.remove('hidden'));
+                    else $.html.forEach('[x-pm-action="trash-single"]', e => e.classList.add('hidden'));
 
-                    if (elem.getAttribute('x-unread')) $.html.forEach('[x-pm-action="unread-single"]', e => e.classList.remove('disabled'));
-                    else $.html.forEach('[x-pm-action="unread-single"]', e => e.classList.add('disabled'));
+                    if (elem.getAttribute('x-unread')) $.html.forEach('[x-pm-action="unread-single"]', e => e.classList.remove('hidden'));
+                    else $.html.forEach('[x-pm-action="unread-single"]', e => e.classList.add('hidden'));
 
                     let editor = document.getElementById('global-pm-forum-editor');
                     if (editor) editor.innerText = '';

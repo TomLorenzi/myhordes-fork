@@ -14,6 +14,7 @@ use App\Structures\TownConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -38,6 +39,14 @@ class CustomAbstractController extends AbstractController {
         $this->citizen_handler = $ch;
         $this->inventory_handler = $ih;
         $this->translator = $translator;
+    }
+
+    public function getUserLanguage(): string {
+        if ($this->getUser() && $this->getUser()->getLanguage())
+            return $this->getUser()->getLanguage();
+        $l = Request::createFromGlobals()->getLocale();
+        if ($l) $l = explode('_', $l)[0];
+        return in_array($l, ['en','de','es','fr']) ? $l : 'de';
     }
 
     /**

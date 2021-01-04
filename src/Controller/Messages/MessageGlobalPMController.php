@@ -4,6 +4,7 @@ namespace App\Controller\Messages;
 
 use App\Entity\ActionCounter;
 use App\Entity\AdminReport;
+use App\Entity\Announcement;
 use App\Entity\Citizen;
 use App\Entity\Complaint;
 use App\Entity\ForumModerationSnippet;
@@ -39,6 +40,7 @@ class MessageGlobalPMController extends MessageController
 
     /**
      * @Route("api/pm/ping", name="api_pm_ping")
+     * @param EntityManagerInterface $em
      * @return Response
      */
     public function ping_check_new_message(EntityManagerInterface $em): Response {
@@ -46,7 +48,8 @@ class MessageGlobalPMController extends MessageController
         if (!$user) return new AjaxResponse(['new' => 0, 'connected' => false, 'success' => true]);
 
         return new AjaxResponse(['new' =>
-            $em->getRepository(UserGroupAssociation::class)->countUnreadPMsByUser($user)
+            $em->getRepository(UserGroupAssociation::class)->countUnreadPMsByUser($user) +
+            $em->getRepository(Announcement::class)->countUnreadByUser($user, $this->getUserLanguage())
             , 'connected' => 15000, 'success' => true]);
     }
 
@@ -63,27 +66,18 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("jx/pm/list", name="pm_list")
-     * @param EntityManagerInterface $em
-     * @param JSONRequestParser $p
-     * @return Response
+     * @param UserGroupAssociation[] $group_associations
+     * @param array|null $entries
      */
-    public function pm_load_list(EntityManagerInterface $em, JSONRequestParser $p): Response {
-        $entries = [];
+    private function render_group_associations(array $group_associations, ?array &$entries = null): void {
+        if ($entries === null) $entries = [];
 
-        $skip = $p->get('skip', []);
-        $num = max(5,min(30,$p->get('num', 30)));
-
-        $group_conv_associations = $em->getRepository(UserGroupAssociation::class)->findByUserAssociation($this->getUser(), [
-            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive
-        ], $skip['g'] ?? [], $num+1);
-
-        foreach ($group_conv_associations as $association) {
+        foreach ($group_associations as $association) {
 
             $last_post_date = new DateTime();
             $last_post_date->setTimestamp($association->getAssociation()->getRef2());
 
-            $owner_assoc = $em->getRepository(UserGroupAssociation::class)->findOneBy([
+            $owner_assoc = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy([
                 'association' => $association->getAssociation(),
                 'associationLevel' => UserGroupAssociation::GroupAssociationLevelFounder,
             ]);
@@ -97,13 +91,56 @@ class MessageGlobalPMController extends MessageController
                 'count'  => $association->getAssociation()->getRef1(),
                 'unread' => $association->getAssociation()->getRef1() - $association->getRef1(),
                 'owner'  => ($owner_assoc && $owner_assoc->getUser()) ? $owner_assoc->getUser() : null,
-                'users'  => array_map(fn(UserGroupAssociation $a) => $a->getUser(), $em->getRepository(UserGroupAssociation::class)->findBy( [
+                'users'  => array_map(fn(UserGroupAssociation $a) => $a->getUser(), $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
                     'association' => $association->getAssociation(),
                     'associationType' =>  UserGroupAssociation::GroupAssociationTypePrivateMessageMember]
                 ))
             ];
+        }
+    }
+
+    /**
+     * @param Announcement[] $announcements
+     * @param array|null $entries
+     */
+    private function render_announcements( array $announcements, ?array &$entries = null ): void {
+        if ($entries === null) $entries = [];
+
+        foreach ($announcements as $announcement) {
+
+            $entries[] = [
+                'obj'    => $announcement,
+                'date'   => $announcement->getTimestamp(),
+                'system' => false,
+                'title'  => $announcement->getTitle(),
+                'closed' => false,
+                'count'  => 1,
+                'unread' => ($announcement->getTimestamp() < new DateTime('-60days') || $announcement->getReadBy()->contains( $this->getUser() )) ? 0 : 1,
+                'owner'  => $announcement->getSender(),
+                'users'  => [$this->getUser(), $announcement->getSender()]
+            ];
 
         }
+    }
+
+    /**
+     * @Route("jx/pm/list", name="pm_list")
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $p
+     * @return Response
+     */
+    public function pm_load_list(EntityManagerInterface $em, JSONRequestParser $p): Response {
+        $entries = [];
+
+        $skip = $p->get('skip', []);
+        $num = max(5,min(30,$p->get('num', 30)));
+
+        $this->render_group_associations( $em->getRepository(UserGroupAssociation::class)->findByUserAssociation($this->getUser(), [
+            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive
+        ], $skip['g'] ?? [], $num+1), $entries );
+
+        $this->render_announcements( $em->getRepository(Announcement::class)->findByLang($this->getUserLanguage(),
+        $skip['a'] ?? [], $num+1), $entries );
 
         usort($entries, fn($a,$b) => $b['date'] <=> $a['date']);
 
@@ -144,6 +181,8 @@ class MessageGlobalPMController extends MessageController
             $this->entity_manager->flush();
         } catch (\Exception $e) {}
 
+        foreach ($messages as $message) $message->setText( $this->prepareEmotes( $message->getText() ) );
+
         $sliced = array_slice($messages, 0, $num);
 
         return $this->render( 'ajax/pm/conversation_group.html.twig', $this->addDefaultTwigArgs(null, [
@@ -152,6 +191,33 @@ class MessageGlobalPMController extends MessageController
             'more' => count($messages) > $num,
             'messages' => $sliced,
             'last_message' => $sliced[array_key_last($sliced)]->getId()
+        ] ));
+    }
+
+    /**
+     * @Route("jx/pm/conversation/announce/{id<\d+>}", name="pm_announce")
+     * @param int $id
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function pm_announcement(int $id, EntityManagerInterface $em): Response {
+
+        $announce = $em->getRepository( Announcement::class )->find($id);
+        if (!$announce || $announce->getLang() != $this->getUserLanguage()) return new Response('not found');
+
+        $new = !$announce->getReadBy()->contains($this->getUser());
+        if ($new)
+            try {
+                $announce->getReadBy()->add($this->getUser());
+                $this->entity_manager->persist( $announce );
+                $this->entity_manager->flush();
+            } catch (\Exception $e) {}
+
+        $announce->setText( $this->prepareEmotes( $announce->getText() ) );
+
+        return $this->render( 'ajax/pm/announcement.html.twig', $this->addDefaultTwigArgs(null, [
+            'announcement' => $announce,
+            'new' => $new
         ] ));
     }
 
@@ -209,6 +275,32 @@ class MessageGlobalPMController extends MessageController
             $em->flush();
         } catch (\Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/pm/conversation/announce/unread/{id<\d+>}", name="pm_unread_announce")
+     * @param int $id
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function pm_unread_announcement(int $id, EntityManagerInterface $em): Response {
+
+        $announce = $em->getRepository( Announcement::class )->find($id);
+        if (!$announce || $announce->getLang() !== $this->getUserLanguage())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if ($announce->getReadBy()->contains($this->getUser())) {
+            $announce->getReadBy()->removeElement($this->getUser());
+            $this->entity_manager->persist( $announce );
+
+            try {
+                $em->flush();
+            } catch (\Exception $e) {
+                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
         }
 
         return AjaxResponse::success();

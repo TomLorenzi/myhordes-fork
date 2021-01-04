@@ -8,6 +8,7 @@
             {% set endpoint_answer = null %}
             {% set endpoint_trash  = null %}
             {% set endpoint_unread = null %}
+            {% set message_title   = entry.title %}
             {% set message_id      = 0 %}
             {% set message_type    = 'un' %}
             {% if entry.obj|instance_of('App\\Entity\\UserGroupAssociation') %}
@@ -17,15 +18,21 @@
                 {% set endpoint_unread = path('pm_unread_conv_group', {'id': entry.obj.association.id}) %}
                 {% set message_id      = entry.obj.id %}
                 {% set message_type    = 'g' %}
+            {% elseif entry.obj|instance_of('App\\Entity\\Announcement') %}
+                {% set message_title   = 'Ankündigung'|trans({},'global') %}
+                {% set endpoint_fetch  = path('pm_announce', {'id': entry.obj.id}) %}
+                {% set endpoint_unread = path('pm_unread_announce', {'id': entry.obj.id}) %}
+                {% set message_id      = entry.obj.id %}
+                {% set message_type    = 'a' %}
             {% endif %}
 
-            <li x-title="{{ entry.title }}" x-domain="{{ message_type }}" x-identifier="{{ message_id }}"
+            <li x-title="{{ message_title }}" x-domain="{{ message_type }}" x-identifier="{{ message_id }}"
                 class="{% if entry.closed %}closed{% endif %} {% if entry.system %}system{% endif %} {% if entry.unread > 0 %}new{% endif %}"
                 {% if endpoint_fetch  is not null %}x-endpoint="{{ endpoint_fetch }}"{% endif %}
-                {% if endpoint_answer is not null %}x-editor="{{ endpoint_answer }}"{% endif %}
-                {% if endpoint_trash  is not null %}x-trash="{{ endpoint_trash }}"{% endif %}
-                {% if endpoint_unread is not null %}x-unread="{{ endpoint_unread }}"{% endif %}
-                >
+                    {% if endpoint_answer is not null %}x-editor="{{ endpoint_answer }}"{% endif %}
+                    {% if endpoint_trash  is not null %}x-trash="{{ endpoint_trash }}"{% endif %}
+                    {% if endpoint_unread is not null %}x-unread="{{ endpoint_unread }}"{% endif %}
+            >
                 <div class="pm-avatar-block">
                     {% if entry.system %}
                         <div class="avatarcrow"></div>

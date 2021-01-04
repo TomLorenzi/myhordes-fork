@@ -43,6 +43,8 @@ class UserGroupAssociationRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
+
+
     /**
      * @param User $user
      * @return int|mixed|string

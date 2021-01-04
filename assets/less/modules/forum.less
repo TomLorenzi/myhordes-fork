@@ -575,6 +575,11 @@
       &.closed, &.selected { cursor: default; }
       &:not(.closed):not(.selected) { cursor: pointer; }
 
+      &[x-domain="a"] {
+        background-image: url("../../img/forum/announceBgR.png");
+        background-repeat: no-repeat; background-size: contain; background-position: top right;
+      }
+
       &.selected {
         background-color: rgba(0,0,0,0.2); box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
         &::before {
@@ -596,6 +601,7 @@
         font-size: 1.6em; font-weight: bold; display: block; max-width: calc(100% - 50px); overflow: hidden;
         white-space: nowrap; text-overflow: " [...]";
       }
+      &[x-domain="a"] b.title { max-width: calc(100% - 0px); color: @myhordes-smalltext }
       span.author {
         color: @myhordes-smalltext;
         &.crow-note { color: #3e0000; font-weight: bold; font-variant: small-caps; }
@@ -637,13 +643,16 @@
 
   #pm-forum-content {
     ul {
-      padding: 0 0 0 40px;
+
+      &:not(.announcement) { padding: 0 0 0 40px; }
+      &.announcement { padding: 0; }
+
       margin: 10px;
       &>li {
         position: relative; list-style: none; display: block; min-height: 30px;
         &+li { margin-top: 20px; }
         div.pm-avatar {
-          position: absolute; top: 0; left: -40px; height: 30px; width: 30px; border-radius: 15px;
+          position: absolute; height: 30px; width: 30px; border-radius: 15px; top: 0; left: -40px;
           background: @myhordes-smalltext; font-size: 16px; filter: drop-shadow(0 0 4px black);
         }
         div.pm-message {
@@ -651,6 +660,7 @@
             content: " "; position: absolute; height: 0; width: 0; right: 100%; top: 10px;
             border: 6px solid transparent; border-right: 6px solid #4a261e;
           }
+
           padding: 6px; margin: 5px 0 5px 10px; background-color: #4a261e; position: relative; overflow: visible;
           min-height: 30px; filter: drop-shadow(0 0 3px rgba(0,0,0,0.35));
           &>div.pm-message-header { color: @myhordes-smalltext; font-size: 0.7em; }
@@ -658,6 +668,31 @@
           &>div.pm-message-footer {
             margin-top: 4px; padding-top: 4px; font-size: 0.8em; opacity: 0.6; border-top: 1px solid rgba(0,0,0,0.2);
             text-align: right;
+          }
+        }
+
+        div.pm-announce {
+
+          div.pm-avatar { left: 6px; top: 3px; }
+
+          &>div.pm-message-content {
+            &:before {
+              content: " "; position: absolute; height: 0; width: 0; top: 100%; left: 10px;
+              border: 6px solid transparent; border-top: 6px solid #4a261e;
+            }
+            padding: 6px; margin: 5px 0 10px 5px; background-color: #4a261e; position: relative; overflow: visible;
+            min-height: 30px; filter: drop-shadow(0 0 3px rgba(0,0,0,0.35)); text-align: justify; font-size: 1.2em;
+
+            h1 { color: @myhordes-smalltext; margin: 0 0 5px 0; padding: 0 0 5px 0; border-bottom: 1px solid rgba(0,0,0,0.2); }
+
+            &> p { margin: 5px 0 10px 0; font-size: 1.5rem; }
+          }
+
+          &>div.pm-message-footer {
+            margin-top: 4px; padding: 4px 5px 0 50px; min-height: 50px; position: relative;
+            .pm-announcement-sender { font-size: 2em; color: @myhordes-smalltext }
+            .pm-announcement-date { font-size: 0.8em; opacity: 0.6; }
+
           }
         }
 
