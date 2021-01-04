@@ -590,7 +590,6 @@ class NightlyHandler
 
         $this->log->debug("<info>{$attacking}</info> Zombies are attacking <info>" . count($targets) . "</info> citizens!");
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackLazy($town, $attacking) );
-		
 
 		$repartition = array_fill(0, count($targets), 0);
 		for ($i = 0; $i < count($repartition); $i++) {

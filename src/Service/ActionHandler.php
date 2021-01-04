@@ -656,9 +656,7 @@ class ActionHandler
                             $tags[] = "stat-up-{$status->getResult()->getName()}";
                         }
                     }
-
                 }
-
             }
 
             if ($ap = $result->getAp()) {
