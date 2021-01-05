@@ -658,9 +658,9 @@ class CitizenHandler
         $baseChance -= $this->getNightwatchProfessionSurvivalBonus($citizen);
 
         $chances = $baseChance;
-        for($i = 0 ; $i < $citizen->getTown()->getDay() - ($during_attack ? 2 : 1); $i++){
+        for($i = 1 ; $i <= $citizen->getTown()->getDay() - ($during_attack ? 2 : 1); $i++){
             /** @var CitizenWatch|null $previousWatches */
-            $previousWatches = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchOfCitizenForADay($citizen, $i + 1);
+            $previousWatches = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchOfCitizenForADay($citizen, $i);
             if($previousWatches === null || $previousWatches->getSkipped()) {
                 $chances = max($baseChance, $chances - 0.05);
             } else {
