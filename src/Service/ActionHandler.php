@@ -814,6 +814,7 @@ class ActionHandler
                         $ruinZone->setZombies( $ruinZone->getZombies() - $kills );
                         $ruinZone->setKilledZombies( $ruinZone->getKilledZombies() + $kills );
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
+                        $this->entity_manager->persist( $this->log->zombieKill( $citizen, $item ? $item->getPrototype() : null, $kills ) );
                     }
                 }
             }

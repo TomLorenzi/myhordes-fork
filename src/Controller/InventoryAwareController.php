@@ -550,8 +550,8 @@ class InventoryAwareController extends CustomAbstractController
             if ($inv_target->getTown()) $bank_up = false;
 
             $floor_up = null;
-            if ($inv_source->getZone()) $floor_up = true;
-            if ($inv_target->getZone()) $floor_up = false;
+            if ($inv_source->getZone() || $inv_source->getRuinZone() || $inv_source->getRuinZoneRoom() ) $floor_up = true;
+            if ($inv_target->getZone() || $inv_target->getRuinZone() || $inv_target->getRuinZoneRoom() ) $floor_up = false;
 
             $steal_up = null;
             if ($inv_source->getHome() && $inv_source->getHome()->getId() !== $citizen->getHome()->getId()) $steal_up = true;

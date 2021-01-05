@@ -134,11 +134,9 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
      * @return Response
      */
     public function newspaper(): Response {
-        file_put_contents("/tmp/dump.txt", "Newspaper !\n");
         if ($this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getName() === CitizenProfession::DEFAULT)
             return $this->redirect($this->generateUrl('game_landing'));
 
-        file_put_contents("/tmp/dump.txt", "Job is defined !\n");
         $in_town = $this->getActiveCitizen()->getZone() === null;
         $town = $this->getActiveCitizen()->getTown();
         $day = $town->getDay();
