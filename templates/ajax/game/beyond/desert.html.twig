@@ -87,7 +87,7 @@
 
                         </div>
                     {% else %}
-                        {% if hour >= 7 and hour <= 18 %}
+                        {% if not is_night %}
                             {% trans from 'game' %}Die Wüste erstreckt sich, so weit das Auge reicht... Wie viele Männer sind in dieser Weite verloren gegangen? Wer weiß, ob Sie nicht der Nächste sind?{% endtrans %}
                         {% else %}
                             {% trans from 'game' %}Die Wüstennächte sind bitterkalt... Eine dicke Staubwolke umhüllt dich und du hörst schauriges Gekreische in deiner Umgebung. Ab und zu glaubst du eine unförmige Gestalt im Schatten wandeln zu sehen. Vielleicht geht auch nur deine Fantasie mit dir durch...{% endtrans %}

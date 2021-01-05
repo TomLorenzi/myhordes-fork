@@ -180,7 +180,7 @@
             {% else %}
                 {% set css = 'night' %}
             {% endif %}
-            <div class="zone-plane-controls {% if not app.user.disableFx %}retro{% endif %} {{ css }}">
+            <div class="zone-plane-controls {% if not app.user.disableFx %}retro{% endif %} {{ css }} {% if blocked %}blocked{% endif %}">
                 <div class="marker-direction"></div>
                 {% if move %}
                     {% if citizen.escortSettings is null or citizen.escortSettings.leader is null %}

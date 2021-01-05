@@ -108,8 +108,13 @@ div.map_area {
       &.evening{
         background: radial-gradient(transparent 60%, rgba(128, 0, 0, 0.2));
       }
+      
       &.night {
         background: radial-gradient(transparent 60%, rgba(13, 37, 107, 0.5));
+      }
+
+      &.blocked {
+        background-image: url("../../img/map/blood.png");
       }
       &>.scout-sense,&>.scavenger-sense,&>.marker-direction { cursor: default; pointer-events: none; }
       &>.scout-sense-west , &>.scavenger-sense-west  { top: 43%; bottom: 43%; left: 8%; right: 87% }
