@@ -230,153 +230,6 @@ x-message {
     &>#header-reload-area { position: absolute; left: 0; top: 0; height: 135px; width: 375px; cursor: pointer; }
     background: @myhordes-content-header-background; height: @myhordes-content-header-height;
     margin: 0 0 @myhordes-content-header-margin;
-
-    & #modeCommand {
-      position: absolute;
-      top: 10px;
-      margin-left: 50px;
-      font-size: 8pt;
-      line-height: 10pt;
-      width: 110px;
-      height: 14px;
-      background-color: #5c2b20;
-      outline: 1px solid black;
-      border: 1px solid #f0d79e;
-      z-index: 9999;
-
-      & h1 {
-        margin: 0px;
-        padding: 0px;
-        height: 12px;
-        border: 1px solid #ddab76;
-        padding-left: 5px;
-        font-size: 7pt;
-        line-height: 8pt;
-        text-transform: uppercase;
-        letter-spacing: 0pt;
-        background: none;
-        background-color: #5c2b20;
-        color: #f0d79e;
-        cursor: pointer;
-      }
-      
-      & #scrollMenu {
-        display: none;
-      }
-
-      &:hover #scrollMenu {
-        display: block; 
-        position: relative;
-        width: 110px;
-        top:-7px;
-        background-color: #3b3249;
-
-        & ul {
-          margin: 0;
-          padding: 0;
-          float: left;
-          position: relative;
-          top:8px;
-          margin-bottom: 8px;
-          width: 110px;
-          list-style: none;
-          background-color: #3b3249;
-
-          & li.mod-actions {
-            margin: 0 0 .5em;
-            padding: 0;
-            font-size: 1.3rem;
-            color: #ddab76;
-            cursor: pointer;
-
-            img {
-              vertical-align: middle;
-              margin-right: 1em;
-            }
-            span {
-              font-weight: normal;
-            }
-          }
-
-
-        }
-      }
-      
-    }
-
-    & #apps {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      padding-left: 5px;
-      padding-right: 5px;
-      background-color: #5c2b20;
-      outline: 1px solid black;
-      border: 1px solid #f0d79e;
-      z-index: 100;
-
-      &:hover {
-        width: 430px;
-      }
-
-      & h1 {
-        margin: 0;
-        padding: 0;
-        height: auto;
-        font-size: 1.2rem;
-        text-transform: none;
-        font-variant: small-caps;
-        background: none;
-        cursor: help;
-        color: #f0d79e;
-        text-align: left;
-        line-height: 17px;
-        font-family: "Trebuchet MS", "Arial",Verdana, sans-serif;
-        letter-spacing: 1px;
-
-        img {
-          vertical-align: -9%;
-        }
-      }
-
-      & h1 span,
-      & #apps-list {
-        display: none;
-      }
-
-      &:hover h1 {
-        border-bottom: 1px solid #b37c4a;
-        margin-bottom: 5px;
-
-        img {
-          margin-right: 1em;
-        }
-
-        span {
-          display: inline;
-        }
-      }
-
-      &:hover #apps-list {
-        display: block;
-
-        & a { text-decoration: none !important;}
-
-        & p { color: white; font-size: 1.3rem; }
-
-        & ul {
-          padding: 0; position: relative; margin: 0 0 8px; list-style: none;
-
-          & li.app-external {
-            display: inline-block; width: 50%; float: left;
-            margin: 0 0 .5em; padding: 0; font-size: 1.3rem; color: #ddab76; cursor: pointer;
-            img { vertical-align: middle; margin-right: 10px; }
-            span { font-weight: normal; }
-            div.small { margin-left: 26px; font-size: 0.6em; font-variant: small-caps; }
-          }
-        }
-      }
-    }
   }
 
   &>#content {
@@ -478,6 +331,153 @@ x-message {
         font-variant: small-caps;
         font-weight: normal;
       }
+    }
+
+    & #apps {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding-left: 5px;
+      padding-right: 5px;
+      background-color: #5c2b20;
+      outline: 1px solid black;
+      border: 1px solid #f0d79e;
+      z-index: 100;
+
+      &:hover {
+        width: 430px;
+      }
+
+      & h1 {
+        margin: 0;
+        padding: 0;
+        height: auto;
+        font-size: 1.2rem;
+        text-transform: none;
+        font-variant: small-caps;
+        background: none;
+        cursor: help;
+        color: #f0d79e;
+        text-align: left;
+        line-height: 17px;
+        font-family: "Trebuchet MS", "Arial",Verdana, sans-serif;
+        letter-spacing: 1px;
+
+        img {
+          vertical-align: -9%;
+        }
+      }
+
+      & h1 span,
+      & #apps-list {
+        display: none;
+      }
+
+      &:hover h1 {
+        border-bottom: 1px solid #b37c4a;
+        margin-bottom: 5px;
+
+        img {
+          margin-right: 1em;
+        }
+
+        span {
+          display: inline;
+        }
+      }
+
+      &:hover #apps-list {
+        display: block;
+
+        & a { text-decoration: none !important;}
+
+        & p { color: white; font-size: 1.3rem; }
+
+        & ul {
+          padding: 0; position: relative; margin: 0 0 8px; list-style: none;
+
+          & li.app-external {
+            display: inline-block; width: 50%; float: left;
+            margin: 0 0 .5em; padding: 0; font-size: 1.3rem; color: #ddab76; cursor: pointer;
+            img { vertical-align: middle; margin-right: 10px; }
+            span { font-weight: normal; }
+            div.small { margin-left: 26px; font-size: 0.6em; font-variant: small-caps; }
+          }
+        }
+      }
+    }
+
+    & #modeCommand {
+      position: absolute;
+      top: 10px;
+      margin-left: 50px;
+      font-size: 8pt;
+      line-height: 10pt;
+      width: 110px;
+      height: 14px;
+      background-color: #5c2b20;
+      outline: 1px solid black;
+      border: 1px solid #f0d79e;
+      z-index: 9999;
+
+      & h1 {
+        margin: 0px;
+        padding: 0px;
+        height: 12px;
+        border: 1px solid #ddab76;
+        padding-left: 5px;
+        font-size: 7pt;
+        line-height: 8pt;
+        text-transform: uppercase;
+        letter-spacing: 0pt;
+        background: none;
+        background-color: #5c2b20;
+        color: #f0d79e;
+        cursor: pointer;
+      }
+
+      & #scrollMenu {
+        display: none;
+      }
+
+      &:hover #scrollMenu {
+        display: block;
+        position: relative;
+        width: 110px;
+        top:-7px;
+        background-color: #3b3249;
+
+        & ul {
+          margin: 0;
+          padding: 0;
+          float: left;
+          position: relative;
+          top:8px;
+          margin-bottom: 8px;
+          width: 110px;
+          list-style: none;
+          background-color: #3b3249;
+
+          & li.mod-actions {
+            margin: 0 0 .5em;
+            padding: 0;
+            font-size: 1.3rem;
+            color: #ddab76;
+            cursor: pointer;
+
+            img {
+              vertical-align: middle;
+              margin-right: 1em;
+            }
+            span {
+              font-weight: normal;
+            }
+          }
+
+
+        }
+      }
+
     }
   }
 
