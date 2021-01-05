@@ -62,11 +62,11 @@ class AdminActionController extends CustomAbstractController
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null): array
     {
-        $data = $data ?? [];
+        $data = parent::addDefaultTwigArgs($section, $data);
 
         $data["admin_tab"] = $section;
 
-        return parent::addDefaultTwigArgs($section, $data);
+        return $data;
     }
 
     protected function renderLog( ?int $day, $town, $zone = null, ?int $type = null, ?int $max = null ): Response {
@@ -106,11 +106,11 @@ class AdminActionController extends CustomAbstractController
      */
     public function dash(): Response
     {
-        return $this->render( 'ajax/admin/dash.html.twig', [
+        return $this->render( 'ajax/admin/dash.html.twig', $this->addDefaultTwigArgs(null, [
             'actions' => self::getAdminActions(),
             'now' => time(),
             'schedules' => $this->isGranted('ROLE_ADMIN') ? $this->entity_manager->getRepository(AttackSchedule::class)->findByCompletion( false ) : [],
-        ]);
+        ]));
     }
 
     /**

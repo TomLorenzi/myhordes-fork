@@ -11,8 +11,6 @@ use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
-use App\Entity\TwinoidImportPreview;
-use App\Entity\User;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
@@ -22,7 +20,7 @@ use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\NightlyHandler;
 use Doctrine\ORM\EntityManagerInterface;
-use Error;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Routing\Annotation\Route;
@@ -46,6 +44,7 @@ class AdminTownController extends AdminActionController
 
     /**
      * @Route("jx/admin/town/list/old/{page}", name="admin_old_town_list", requirements={"page"="\d+"})
+     * @param int $page The page we're viewing
      * @return Response
      */
     public function old_town_list($page = 1): Response
@@ -60,7 +59,7 @@ class AdminTownController extends AdminActionController
             ->getQuery();
 
         // Get the paginator
-        $paginator = new \Doctrine\ORM\Tools\Pagination\Paginator($query);
+        $paginator = new Paginator($query);
 
         $pageSize = 20;
         $totalItems = count($paginator);
@@ -80,6 +79,7 @@ class AdminTownController extends AdminActionController
     /**
      * @Route("jx/admin/town/{id<\d+>}/{tab?}", name="admin_town_explorer")
      * @param int $id
+     * @param string|null $tab The tab we want to display
      * @return Response
      */
     public function town_explorer(int $id, ?string $tab): Response
@@ -117,23 +117,24 @@ class AdminTownController extends AdminActionController
                 $complaints[$citizen->getUser()->getName()] = $comp;
         }
 
-        return $this->render( 'ajax/admin/towns/explorer.html.twig', array_merge([
+        return $this->render( 'ajax/admin/towns/explorer.html.twig', $this->addDefaultTwigArgs(null, array_merge([
             'town' => $town,
             'conf' => $this->conf->getTownConfiguration( $town ),
             'explorables' => $explorables,
-            'log' => $this->renderLog( -1, $town, false, null, null )->getContent(),
+            'log' => $this->renderLog( -1, $town )->getContent(),
             'day' => $town->getDay(),
             'bank' => $this->renderInventoryAsBank( $town->getBank() ),
             'itemPrototypes' => $itemPrototypes,
             'pictoPrototypes' => $pictoProtos,
             'tab' => $tab,
             'complaints' => $complaints,
-        ], $this->get_map_blob($town)));
+        ], $this->get_map_blob($town))));
     }
 
     /**
      * @Route("jx/admin/town/old/{id<\d+>}/{tab?}", name="admin_old_town_explorer")
      * @param int $id
+     * @param string|null $tab the tab we want to display
      * @return Response
      */
     public function old_town_explorer(int $id, ?string $tab): Response
@@ -156,9 +157,10 @@ class AdminTownController extends AdminActionController
 
     /**
      * @Route("api/admin/town/{id}/do/{action}", name="admin_town_manage", requirements={"id"="\d+"})
-     * @param int $id
-     * @param string $action
+     * @param int $id The ID of the town
+     * @param string $action The action to perform
      * @param NightlyHandler $night
+     * @param GameFactory $gameFactory
      * @return Response
      */
     public function town_manager(int $id, string $action, NightlyHandler $night, GameFactory $gameFactory): Response
@@ -218,8 +220,6 @@ class AdminTownController extends AdminActionController
             if (!isset($zones[$x])) $zones[$x] = [];
             $zones[$x][$y] = $zone;
 
-
-
             if (!isset($zones_attributes[$x])) $zones_attributes[$x] = [];
             $zones_classes[$x][$y] = $this->zone_handler->getZoneClasses(
                 $town,
@@ -252,9 +252,10 @@ class AdminTownController extends AdminActionController
      * @param int $id Town ID
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
+     * @param ItemFactory $itemFactory
      * @return Response
      */
-    public function bank_item_action($id, JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $itemFactory): Response
+    public function bank_item_action(int $id, JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $itemFactory): Response
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if(!$town) {
@@ -285,9 +286,10 @@ class AdminTownController extends AdminActionController
      * @param int $id Town ID
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
+     * @param ItemFactory $itemFactory
      * @return Response
      */
-    public function bank_spawn_item($id, JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $itemFactory): Response
+    public function bank_spawn_item(int $id, JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $itemFactory): Response
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if(!$town) {
@@ -323,9 +325,10 @@ class AdminTownController extends AdminActionController
      * @param int $id Town ID
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
+     * @param ItemFactory $itemFactory
      * @return Response
      */
-    public function citizen_spawn_item($id, JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $itemFactory): Response
+    public function citizen_spawn_item(int $id, JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $itemFactory): Response
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if(!$town) {
@@ -375,7 +378,7 @@ class AdminTownController extends AdminActionController
      * @param JSONRequestParser $parser The Request Parser
      * @return Response
      */
-    public function town_give_picto($id, JSONRequestParser $parser): Response
+    public function town_give_picto(int $id, JSONRequestParser $parser): Response
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         $townRanking = $this->entity_manager->getRepository(TownRankingProxy::class)->find($id);
