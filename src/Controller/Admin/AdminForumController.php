@@ -2,25 +2,16 @@
 
 namespace App\Controller\Admin;
 
-use App\DataFixtures\PermissionFixtures;
 use App\Entity\AdminReport;
-use App\Entity\Citizen;
-use App\Entity\Complaint;
 use App\Entity\ForumModerationSnippet;
 use App\Entity\ForumUsagePermissions;
-use App\Entity\ItemPrototype;
 use App\Entity\PrivateMessage;
-use App\Entity\PrivateMessageThread;
 use App\Entity\User;
-use App\Entity\UserPendingValidation;
 use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\PermissionHandler;
-use App\Service\UserFactory;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
