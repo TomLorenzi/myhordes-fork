@@ -6476,13 +6476,13 @@ Lies dir bitte die offizielle &lt;span x-ajax-href=%url_support%&gt;Technische S
         <target><![CDATA[<strong>FAQ:</strong> consult the official <span x-ajax-href=%url_support%>MyHordes technical support site</span> !]]></target>
       </segment>
     </unit>
-    <unit id="sY5VBX2" name="f961dcb">
+    <unit id="MjcwNAj" name="b29828e">
       <notes>
-        <note category="german">&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href=%url_saloon%&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</note>
+        <note category="german">&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href=%url_forums%&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</note>
       </notes>
       <segment>
-        <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href=%url_saloon%&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
-        <target><![CDATA[<strong>DISCUSS WITH OTHER PLAYERS:</strong> you will often find the answers to your questions directly on the <span x-ajax-href=%url_saloon%>site forums</span>, which are available as long as you are signed in.]]></target>
+        <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href=%url_forums%&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
+        <target><![CDATA[<strong>DISCUSS WITH OTHER PLAYERS:</strong> you will often find the answers to your questions directly on the <span x-ajax-href=%url_forums%>site forums</span>, which are available as long as you are signed in.]]></target>
       </segment>
     </unit>
     <unit id="aa47hQY" name="abed294">
@@ -7016,6 +7016,15 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       <segment>
         <source>Verwendest du Grafiken oder sonstige Inhalte von MyHordes, musst du auf die Quelle sowie die entsprechenden Rechte des Autors / Künstlers verweisten.</source>
         <target>if you use images or other MyHordes content, you must indicate their source, and indicate the applicable rights of the author / artist.</target>
+      </segment>
+    </unit>
+    <unit id="7RdBVY5" name="91b550b">
+      <notes>
+        <note category="german">&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href="%url_forums%"&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href="%url_forums%"&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
+        <target><![CDATA[<strong>MIT ANDEREN SPIELERN REDEN:</strong> Die meisten Spielfragen werden oder wurden meistens schon in den <span x-ajax-href="%url_forums%">Foren</span> beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.]]></target>
       </segment>
     </unit>
   </file>

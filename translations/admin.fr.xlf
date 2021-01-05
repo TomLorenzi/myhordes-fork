@@ -2080,5 +2080,14 @@
         <target>Application "%external_app%"</target>
       </segment>
     </unit>
+    <unit id="OeZ5Hgz" name="Anwendungen">
+      <notes>
+        <note category="german">Anwendungen</note>
+      </notes>
+      <segment>
+        <source>Anwendungen</source>
+        <target>Anwendungen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

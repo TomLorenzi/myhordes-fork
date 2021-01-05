@@ -398,14 +398,8 @@ class NightlyHandler
         // Day already advanced, let's get today's gazette!
         /** @var Gazette $gazette */
         $gazette = $town->findGazette( $town->getDay() );
-
         $gazette->setDoor($town->getDoor());
-
-	    $def  = $this->town_handler->calculate_town_def( $town );
-	    if($town->getDevastated())
-	        $def = 0;
-
-	    $gazette->setDefense($def);
+	    $gazette->setDefense($def = $town->getDevastated() ? 0 : $this->town_handler->calculate_town_def( $town ));
 
         /** @var ZombieEstimation $est */
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
@@ -436,7 +430,7 @@ class NightlyHandler
 
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow) );
 
-        $total_watch_def = $this->town_handler->calculate_watch_def($town);
+        $total_watch_def = $this->town_handler->calculate_watch_def($town, $town->getDay() - 1);
         $zeds_each_watcher = -1;
         if($total_watch_def > $overflow){
             // If we have more watchpoint than the overflow,
@@ -446,30 +440,34 @@ class NightlyHandler
 
         $this->log->debug("There are <info>".count($watchers)."</info> watchers in the town, against <info>$overflow</info> zombies");
 
-        $defWatchers = 0;
-
         $has_shooting_gallery = (bool)$this->town_handler->getBuilding($town, 'small_tourello_#00', true);
         $has_trebuchet        = (bool)$this->town_handler->getBuilding($town, 'small_catapult3_#00', true);
         $has_ikea             = (bool)$this->town_handler->getBuilding($town, 'small_ikea_#00', true);
         $has_armory           = (bool)$this->town_handler->getBuilding($town, 'small_armor_#00', true);
 
         foreach ($watchers as $watcher) {
-            $defBonus = $zeds_each_watcher == -1 ? $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory) : $zeds_each_watcher;
-
-            $defWatchers += $defBonus;
+            $defBonus = $overflow > 0 ? $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory) : 0;
 
             $deathChances = $this->citizen_handler->getDeathChances($watcher->getCitizen(), true);
             $woundOrTerrorChances = $deathChances + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05);
             $ctz = $watcher->getCitizen();
-            if($this->random->chance($deathChances)){
+
+            if ($this->random->chance($deathChances)){
                 $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> is now <info>dead</info> because of the watch");
                 $skip = false;
+
                 // too sad, he died by falling from the edge
                 if($overflow <= 0) {
                     $this->entity_manager->persist($this->logTemplates->citizenDeathOnWatch($watcher->getCitizen(), 0));
                     $skip = true;
                 }
-                $this->kill_wrap($ctz, $cod, false, ($zeds_each_watcher > 0 ? $zeds_each_watcher : 0), $skip);
+
+                // Remove all night watch items
+                foreach ($ctz->getInventory()->getItems() as $item)
+                    if ($item->getPrototype()->getWatchpoint() > 0) $this->inventory_handler->forceRemoveItem( $item );
+
+                $this->kill_wrap($ctz, $cod, false, ceil($overflow / count($watchers)), $skip);
+
             } else if($overflow > 0 && $this->random->chance($woundOrTerrorChances)){
                 if($this->random->chance(0.5)){
                     // Wound
@@ -498,19 +496,18 @@ class NightlyHandler
                         foreach ($r as $rr) $this->entity_manager->remove($rr);
                     }
 
-                $overflow -= $defBonus;
+
             } else {
                 $watcher->setSkipped(true);
                 $this->entity_manager->persist($watcher);
             }
         }
 
+        $overflow = max(0, $overflow - $total_watch_def);
 
         if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_BUILDING_DAMAGE)) {
             // In panda, built buildings get damaged every night
             $damageInflicted = $zombies;
-            //if($overflow > 0)
-            //    $damageInflicted -= $defWatchers;
 
             // Only 10% of the attack is inflicted to buildings
             $damageInflicted = round($damageInflicted * 0.1, 0);

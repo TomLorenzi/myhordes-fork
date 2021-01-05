@@ -541,7 +541,7 @@
         <target>No se ha encontrado ningún pueblo...</target>
       </segment>
     </unit>
-    <unit id="l.2Tpic" name="ca64199">
+    <unit id="W6.HG9v" name="e4ce8ba">
       <notes>
         <note category="german">Achtung! Der von dir ausgewählte Link, leitet dich auf eine &lt;strong&gt;nicht-offizielle Seite&lt;/strong&gt; weiter (sprich: eine Fan- oder Spielerseite).</note>
       </notes>
@@ -1900,7 +1900,7 @@
       </notes>
       <segment>
         <source>Die Seite wird von Horden von Zombies belagert!</source>
-        <target>Die Seite wird von Horden von Zombies belagert!</target>
+        <target>¡El sitio está siendo asediado por hordas de zombis!</target>
       </segment>
     </unit>
     <unit id="2gahlEk" name="Spielhilfe:">
@@ -1909,7 +1909,25 @@
       </notes>
       <segment>
         <source>Spielhilfe:</source>
-        <target>Spielhilfe:</target>
+        <target>Guía:</target>
+      </segment>
+    </unit>
+    <unit id="FuwALIG" name="Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:">
+      <notes>
+        <note category="german">Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:</note>
+      </notes>
+      <segment>
+        <source>Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:</source>
+        <target>Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:</target>
+      </segment>
+    </unit>
+    <unit id="ECkSDC0" name="43e696a">
+      <notes>
+        <note category="german">Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.</note>
+      </notes>
+      <segment>
+        <source>Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.</source>
+        <target>Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.</target>
       </segment>
     </unit>
   </file>
