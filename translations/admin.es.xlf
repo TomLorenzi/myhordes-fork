@@ -2008,5 +2008,68 @@
         <target>Ingresa el nombre del pueblo.</target>
       </segment>
     </unit>
+    <unit id="F_ijNEI" name="Neue Anwendung registrieren">
+      <notes>
+        <note category="german">Neue Anwendung registrieren</note>
+      </notes>
+      <segment>
+        <source>Neue Anwendung registrieren</source>
+        <target>Neue Anwendung registrieren</target>
+      </segment>
+    </unit>
+    <unit id="SisP.gu" name="Änderungen an '%appname%' speichern">
+      <notes>
+        <note category="german">Änderungen an '%appname%' speichern</note>
+      </notes>
+      <segment>
+        <source>Änderungen an '%appname%' speichern</source>
+        <target>Änderungen an '%appname%' speichern</target>
+      </segment>
+    </unit>
+    <unit id="zLJ.A.A" name="Anzeigen">
+      <notes>
+        <note category="german">Anzeigen</note>
+      </notes>
+      <segment>
+        <source>Anzeigen</source>
+        <target>Anzeigen</target>
+      </segment>
+    </unit>
+    <unit id=".iE.xsh" name="Gegen %culprit%">
+      <notes>
+        <note category="german">Gegen %culprit%</note>
+      </notes>
+      <segment>
+        <source>Gegen %culprit%</source>
+        <target>Gegen %culprit%</target>
+      </segment>
+    </unit>
+    <unit id="OeZ5Hgz" name="Anwendungen">
+      <notes>
+        <note category="german">Anwendungen</note>
+      </notes>
+      <segment>
+        <source>Anwendungen</source>
+        <target>Anwendungen</target>
+      </segment>
+    </unit>
+    <unit id="I2gx52t" name="Neue Anwendung">
+      <notes>
+        <note category="german">Neue Anwendung</note>
+      </notes>
+      <segment>
+        <source>Neue Anwendung</source>
+        <target>Neue Anwendung</target>
+      </segment>
+    </unit>
+    <unit id="GOi00pr" name="Anwendung &quot;%external_app%&quot;">
+      <notes>
+        <note category="german">Anwendung "%external_app%"</note>
+      </notes>
+      <segment>
+        <source>Anwendung "%external_app%"</source>
+        <target>Anwendung "%external_app%"</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
