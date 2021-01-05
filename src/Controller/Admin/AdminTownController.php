@@ -117,7 +117,7 @@ class AdminTownController extends AdminActionController
                 $complaints[$citizen->getUser()->getName()] = $comp;
         }
 
-        return $this->render( 'ajax/admin/towns/explorer.html.twig', array_merge([
+        return $this->render( 'ajax/admin/towns/explorer.html.twig', $this->addDefaultTwigArgs(null, array_merge([
             'town' => $town,
             'conf' => $this->conf->getTownConfiguration( $town ),
             'explorables' => $explorables,
@@ -128,7 +128,7 @@ class AdminTownController extends AdminActionController
             'pictoPrototypes' => $pictoProtos,
             'tab' => $tab,
             'complaints' => $complaints,
-        ], $this->get_map_blob($town)));
+        ], $this->get_map_blob($town))));
     }
 
     /**

@@ -2,7 +2,7 @@
 
 {% block ajax_base %}
     {% block header %}
-        {% if is_granted('ROLE_USER') %}
+        {% if is_granted('ROLE_USER') and apps is defined %}
             <div id="apps">
                 <h1><img src="{{ asset('build/images/icons/small_archive.gif') }}" alt="{{ 'Verzeichnis'|trans({},'global') }}"><span>{{ 'Verzeichnis'|trans({},'global') }}</span></h1>
                 <div id="apps-list">
@@ -30,7 +30,7 @@
             </div>
         {% endif %}
     {% endblock %}
-    {% if is_granted('ROLE_CROW') %}
+    {% if is_granted('ROLE_CROW') and adminActions is defined %}
         <div id="modeCommand">
             <h1><span>{{ 'Moderation'|trans({},'global') }}</span></h1>
             <div id="scrollMenu">

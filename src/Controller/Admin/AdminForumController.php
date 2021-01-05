@@ -56,12 +56,12 @@ class AdminForumController extends AdminActionController
 
         $posts = $thread->getMessages();
 
-        return $this->render( 'ajax/admin/reports/pn-viewer.html.twig', [
+        return $this->render( 'ajax/admin/reports/pn-viewer.html.twig', $this->addDefaultTwigArgs(null, [
             'thread' => $thread,
             'posts' => $posts,
             'markedPost' => $pmid,
             'emotes' => []
-        ] );
+        ] ));
     }
 
     /**
@@ -251,7 +251,7 @@ class AdminForumController extends AdminActionController
                 $pm_cache[$report->getPm()->getId()]['reporters'][] = $report->getSourceUser();
             }
 
-        return $this->render( 'ajax/admin/reports/reports.html.twig', [
+        return $this->render( 'ajax/admin/reports/reports.html.twig', $this->addDefaultTwigArgs(null, [
             'tab' => $tab,
 
             'posts' => $selectedReports,
@@ -259,6 +259,6 @@ class AdminForumController extends AdminActionController
             'all_shown' => $show_all,
 
             'snippets' => $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll()
-        ]);
+        ]));
     }
 }

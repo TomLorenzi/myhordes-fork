@@ -29,9 +29,9 @@ class AdminChangelogController extends AdminActionController
     {
         $news = $this->entity_manager->getRepository(Changelog::class)->findAll();
 
-        return $this->render( 'ajax/admin/changelogs/changelogs.html.twig', [
+        return $this->render( 'ajax/admin/changelogs/changelogs.html.twig', $this->addDefaultTwigArgs(null, [
             'news' => $news
-        ]);      
+        ]));
     }
 
     /**

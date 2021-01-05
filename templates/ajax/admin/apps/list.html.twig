@@ -10,7 +10,7 @@
                     <div class="padded cell rw-4">{{ 'Kontakt'|trans({},'admin') }}</div>
                 </div>
 
-                {% for current_app in apps %}
+                {% for current_app in all_apps %}
                     {# @var current_app \App\Entity\ExternalApp #}
                     <div class="row">
                         <div class="padded cell-small rw-1"><img alt="" class="pointer" x-app-control="{{ path('admin_toggle_ext_app', {id: current_app.id}) }}" x-toggle-app="{{ current_app.active ? 0 : 1 }}" src="{{ current_app.active ? asset('build/images/icons/player_online.gif') : asset('build/images/icons/player_offline.gif') }}" /></div>

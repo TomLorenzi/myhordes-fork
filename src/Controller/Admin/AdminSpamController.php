@@ -30,7 +30,7 @@ class AdminSpamController extends AdminActionController
         $n = $this->entity_manager->getRepository(AntiSpamDomains::class)->createQueryBuilder('a')
             ->select('count(a.id)')->getQuery()->getSingleScalarResult();
 
-        return $this->render( 'ajax/admin/spam/domains.html.twig', ['n' => $n]);
+        return $this->render( 'ajax/admin/spam/domains.html.twig', $this->addDefaultTwigArgs(null, ['n' => $n]));
     }
 
     /**

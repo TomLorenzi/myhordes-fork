@@ -32,7 +32,7 @@ class AdminAppController extends AdminActionController
     public function ext_app_view(): Response
     {
         $apps = $this->entity_manager->getRepository(ExternalApp::class)->findAll();
-        return $this->render( 'ajax/admin/apps/list.html.twig', ['apps' => $apps]);
+        return $this->render( 'ajax/admin/apps/list.html.twig', $this->addDefaultTwigArgs(null, ['all_apps' => $apps]));
     }
 
     /**
@@ -47,7 +47,7 @@ class AdminAppController extends AdminActionController
         if (!$this->isGranted('ROLE_ADMIN')) $this->redirect($this->generateUrl('admin_app_view'));
         $app = $this->entity_manager->getRepository(ExternalApp::class)->find($id);
         if ($app === null) return $this->redirect($this->generateUrl('admin_app_view'));
-        return $this->render( 'ajax/admin/apps/edit.html.twig', ['current_app' => $app]);
+        return $this->render( 'ajax/admin/apps/edit.html.twig', $this->addDefaultTwigArgs(null, ['current_app' => $app]));
     }
 
     /**
@@ -57,7 +57,7 @@ class AdminAppController extends AdminActionController
     public function ext_app_new(): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) $this->redirect($this->generateUrl('admin_app_view'));
-        return $this->render( 'ajax/admin/apps/edit.html.twig', ['current_app' => null]);
+        return $this->render( 'ajax/admin/apps/edit.html.twig', $this->addDefaultTwigArgs(null, ['current_app' => null]));
     }
 
     /**
