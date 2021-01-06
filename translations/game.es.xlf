@@ -1309,7 +1309,7 @@
       </notes>
       <segment>
         <source>Eine davon stammt von dir. Du hast %punishment% gefordert.</source>
-        <target>Eine davon stammt von dir. Du hast %punishment% gefordert.</target>
+        <target>Una de las denuncias fue hecha por ti. Pediste que fuese %punishment%</target>
       </segment>
     </unit>
     <unit id="MAnMgpF" name="Anzeige erstatten">
@@ -2120,7 +2120,7 @@
                     benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                     kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                     auffüllen.</source>
-        <target>Estos puntos sirven principalmente para desplazarte en el Ultramundo, el desierto que rodea al pueblo.</target>
+        <target>Para muchas acciones, como explorar el mundo exterior o trabajar en las construcciones, necesitas puntos de acción. Tus puntos de acción se restablecen todas las noches luego del ataque. También puedes recuperarlos usando ciertos items o una vez al día al comer y beber.</target>
       </segment>
     </unit>
     <unit id="bfXTcH6" name="Baupunkte">
@@ -15632,7 +15632,7 @@
       </notes>
       <segment>
         <source>%citizen% ist ausgegangen...</source>
-        <target>%citizen% ist ausgegangen...</target>
+        <target>%citizen% salió del pueblo...</target>
       </segment>
     </unit>
     <unit id="NLrfO4J" name="1ee9e8e">
@@ -15735,9 +15735,7 @@
         <source>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
                     Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
                     Nichts, was der Mühe wert wäre.</source>
-        <target>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
-                    Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
-                    Nichts, was der Mühe wert wäre.</target>
+        <target>Husmeando por la ventana, parece que la casa de %citizen% no contiene ningún objeto interesante. Trapos, mucho polvo y una rata muerta. Nada que valga la pena. </target>
       </segment>
     </unit>
     <unit id="lo3tdoY" name="Was für eine schreckliche Nacht!">
@@ -16471,7 +16469,7 @@
     </unit>
     <unit id="pbNlQwl" name="Architekt (title)">
       <notes>
-        <note category="german">Architekt (title)</note>
+        <note category="german">Architekt</note>
       </notes>
       <segment>
         <source>Architekt (title)</source>

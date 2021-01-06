@@ -1,5 +1,9 @@
 {% extends "ajax/ajax.html.twig" %}
-{% block title %}{{ 'Bürger! Seid auf inoffiziellen Webseiten wachsam!'|trans({}, 'global') }}{% endblock %}
+{%block title %}{{'Bürger! Seid auf inoffiziellen Webseiten wachsam!'|trans({}, 'global')}}{% endblock %}
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
 {% block ajax %}
     <div class="row external-app">
         <div class="cell padded header rw-6 ro-3 rw-lg-12 ro-lg-0">
@@ -22,6 +26,7 @@
                     {% endtrans %}</span> ({% trans from 'global' %}Auch dann nicht, wenn du dazu aufgefordert wirst!{% endtrans %})
                 </li>
                 {% if ex.contact is not empty %}
+
                 <li>
                     {% trans with { '%contact%': '<a href="mailto:' ~ ex.contact ~ '">' ~ ex.contact ~ '</a>' } from 'global' %}
                         Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.

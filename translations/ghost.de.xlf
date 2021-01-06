@@ -1081,5 +1081,23 @@
         <target>Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</target>
       </segment>
     </unit>
+    <unit id="TIikksZ" name="Wiedergeburt: Privatstadt gründen">
+      <notes>
+        <note category="german">Wiedergeburt: Privatstadt gründen</note>
+      </notes>
+      <segment>
+        <source>Wiedergeburt: Privatstadt gründen</source>
+        <target>Wiedergeburt: Privatstadt gründen</target>
+      </segment>
+    </unit>
+    <unit id="LCh7GiT" name="Wiedergeburt: Wahl der Partie">
+      <notes>
+        <note category="german">Wiedergeburt: Wahl der Partie</note>
+      </notes>
+      <segment>
+        <source>Wiedergeburt: Wahl der Partie</source>
+        <target>Wiedergeburt: Wahl der Partie</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
