@@ -332,12 +332,11 @@ class ExternalXML2Controller extends ExternalController {
 
         /** @var User $user */
         /** @var Citizen $citizen */
-        $citizen = $user->getAliveCitizen();
-        if (!$user->getAliveCitizen()) {
+        if (!$user->getActiveCitizen()) {
             $data['error']['attributes'] = ['code' => "not_in_game"];
             $data['status']['attributes'] = ['open' => "1", "msg" => ""];
         } else {
-            $town = $user->getAliveCitizen()->getTown();
+            $town = $user->getActiveCitizen()->getTown();
     
             $data['headers']['game'] = [
                 'attributes' => [
