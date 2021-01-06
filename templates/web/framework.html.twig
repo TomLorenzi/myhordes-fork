@@ -44,7 +44,7 @@
 <div id="wrapper">
     <div id="header">
         <div id="header-reload-area"></div>
-        <div class="postbox hidden">
+        <div id="postbox" class="hidden">
             <div><img src="{{ asset('build/images/icons/small_mail.gif') }}" alt=""></div>
             <div><img src="{{ asset('build/images/icons/anim_icon_mail.gif') }}" alt=""></div>
             <div id="postbox-new-msg-counter">0</div>
@@ -158,12 +158,12 @@
         $.msg.registerPingEndpoint( '{{ path('api_pm_ping') }}' );
         $.msg.registerPingCallback(data => {
             if (data.connected) {
-                $.html.forEach('.postbox', e => e.classList.remove('hidden'));
+                $.html.forEach('#postbox', e => e.classList.remove('hidden'));
                 document.getElementById('postbox-new-msg-counter').innerText = data.newMessages;
-                if (data.newMessages > 0) $.html.forEach('.postbox', e => e.classList.add('new-messages'));
-                else $.html.forEach('.postbox', e => e.classList.remove('new-messages'));
+                if (data.newMessages > 0) $.html.forEach('#postbox', e => e.classList.add('new-messages'));
+                else $.html.forEach('#postbox', e => e.classList.remove('new-messages'));
             }
-            else $.html.forEach('.postbox', e=>e.classList.add('hidden'));
+            else $.html.forEach('#postbox', e=>e.classList.add('hidden'));
         }, true);
     })();
 

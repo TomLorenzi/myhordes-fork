@@ -146,7 +146,7 @@
 {% block js %}
     {{ parent() }}
     <script>
-        $.html.addEventListenerAll('.postbox','click', function() {
+        $.html.addEventListenerAll('#postbox','click', function() {
             let post = document.getElementById('post-office');
             if (post) {
                 post.classList.add('visible');
