@@ -5,7 +5,7 @@
 {% endblock %}
 {% block ajax %}
     <div class="row soul">
-        <div class="cell header rw-10 ro-1 rw-md-12 ro-md-0">
+        <div class="cell header rw-10 ro-1 rw-lg-12 ro-lg-0">
             <div class="tabs">
                 <div class="tab-floater">
                     <div class="tab left inline">
@@ -18,25 +18,25 @@
                     </div>
                     <div class="tab tab-floater">
                         <div class="tab{% if soul_tab == "soul_settings" %} selected{% endif %}">
-                            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('soul_settings') }}"><img src="{{ asset('build/images/item/item_screw.gif') }}" alt="" /><span class="hide-sm"> {% trans from 'soul' %}Einstellungen{% endtrans %}</span></div>
+                            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('soul_settings') }}"><img src="{{ asset('build/images/item/item_screw.gif') }}" alt="" /><span class="hide-md hide-sm"> {% trans from 'soul' %}Einstellungen{% endtrans %}</span></div>
                         </div>
                         <div class="tab{% if soul_tab == "soul_coalitions" %} selected{% endif %}">
-                            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('soul_coalitions') }}"><img id="shell_coa_icon" x-src-default="{{ asset('build/images/icons/escort_on.gif') }}" src="{{ asset(new_message ? 'build/images/icons/anim_icon_mail.gif' : 'build/images/icons/escort_on.gif') }}" alt=""/><span class="hide-sm"> {% trans from 'soul' %}Koalition{% endtrans %}</span></div>
+                            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('soul_coalitions') }}"><img id="shell_coa_icon" x-src-default="{{ asset('build/images/icons/escort_on.gif') }}" src="{{ asset(new_message ? 'build/images/icons/anim_icon_mail.gif' : 'build/images/icons/escort_on.gif') }}" alt=""/><span class="hide-md hide-sm"> {% trans from 'soul' %}Koalition{% endtrans %}</span></div>
                         </div>
                         <div class="tab{% if soul_tab == "soul_rps" %} selected{% endif %}">
-                            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('soul_rps') }}"><img src="{{ asset('build/images/icons/small_rp.gif') }}" alt=""/><span class="hide-sm"> {% trans from 'soul' %}Schriften{% endtrans %}</span></div>
+                            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('soul_rps') }}"><img src="{{ asset('build/images/icons/small_rp.gif') }}" alt=""/><span class="hide-md hide-sm"> {% trans from 'soul' %}Schriften{% endtrans %}</span></div>
                         </div>
                         <div class="tab{% if soul_tab == "soul_future" %} selected{% endif %}">
-                            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('soul_future') }}"><img src="{{ asset('build/images/icons/small_world.gif') }}" alt=""/><span class="hide-sm"> {% trans from 'soul' %}Zukunft{% endtrans %}</span></div>
+                            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('soul_future') }}"><img src="{{ asset('build/images/icons/small_world.gif') }}" alt=""/><span class="hide-md hide-sm"> {% trans from 'soul' %}Zukunft{% endtrans %}</span></div>
                         </div>
                         <div class="tab{% if soul_tab == "soul_season" %} selected{% endif %}">
-                            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('soul_season') }}"><img src="{{ asset('build/images/soul/small_score.gif') }}" alt=""/><span class="hide-sm"> {% trans from 'soul' %}Saison 15{% endtrans %}</span></div>
+                            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('soul_season') }}"><img src="{{ asset('build/images/soul/small_score.gif') }}" alt=""/><span class="hide-md hide-sm"> {% trans from 'soul' %}Saison 15{% endtrans %}</span></div>
                         </div>
                         <div class="tab{% if soul_tab == "soul_news" %} selected{% endif %}">
-                            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('soul_news') }}"><img id="shell_news_icon" x-src-default="{{ asset('build/images/icons/news.gif') }}" src="{{ asset(new_news ? 'build/images/icons/anim_icon_mail.gif' : 'build/images/icons/news.gif') }}" alt=""/><span class="hide-sm"> {% trans from 'soul' %}News{% endtrans %}</span></div>
+                            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('soul_news') }}"><img id="shell_news_icon" x-src-default="{{ asset('build/images/icons/news.gif') }}" src="{{ asset(new_news ? 'build/images/icons/anim_icon_mail.gif' : 'build/images/icons/news.gif') }}" alt=""/><span class="hide-md hide-sm"> {% trans from 'soul' %}News{% endtrans %}</span></div>
                         </div>
                         <div class="tab{% if soul_tab == "soul_me" %} selected{% endif %}">
-                            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('soul_me') }}"><img src="{{ asset('build/images/icons/small_ghost_blue.gif') }}" alt=""/><span class="hide-sm"> {% trans from 'soul' %}Seele{% endtrans %}</span></div>
+                            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('soul_me') }}"><img src="{{ asset('build/images/icons/small_ghost_blue.gif') }}" alt=""/><span class="hide-md hide-sm"> {% trans from 'soul' %}Seele{% endtrans %}</span></div>
                         </div>
                     </div>
                 </div>
