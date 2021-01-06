@@ -469,11 +469,12 @@ class TownHandler
         return $summary->sum();
     }
 
-    public function calculate_watch_def(Town $town){
+    public function calculate_watch_def(Town $town, int $day = 0){
         $total_def = 0;
         $has_counsel = false;
 
-        $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
+        if ($day <= 0) $day = ($town->getDay() - $day);
+        $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town,$day);
 
         $has_shooting_gallery = (bool)$this->getBuilding($town, 'small_tourello_#00', true);
         $has_trebuchet        = (bool)$this->getBuilding($town, 'small_catapult3_#00', true);

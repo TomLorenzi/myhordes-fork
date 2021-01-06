@@ -65,13 +65,9 @@ class WebController extends CustomAbstractController
         ];
         shuffle($devs);
 
-        $apps = $this->entity_manager->getRepository(ExternalApp::class)->findBy(['active' => true]);
-
         return $this->render( 'web/framework.html.twig', [
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
             'devs' => $devs,
-            'apps' => $apps,
-            'adminActions' => AdminActionController::getAdminActions(),
             'ajax_landing' => $ajax_landing
         ] );
     }

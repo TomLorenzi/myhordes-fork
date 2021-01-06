@@ -24,15 +24,16 @@ class TownLogEntryRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param Town $town
-     * @param int|null $day
-     * @param Citizen|boolean|null $citizen
-     * @param Zone|boolean|null $zone
-     * @param int|int[],null $type
-     * @param int|null $max
-     * @return void Returns an array of TownLogEntry objects
+     * @param Town $town The town we are fetching the logs from
+     * @param int|null $day The day we are looking for
+     * @param Citizen|boolean|null $citizen The concerned citizen
+     * @param Zone|boolean|null $zone The concerned zone
+     * @param int|int[]|null $type The specific type
+     * @param int|null $max Maximum entries
+     * @param bool|null $admin_only If we want to show admin_only logs
+     * @return TownLogEntry[] Returns an array of TownLogEntry objects
      */
-    public function findByFilter(Town $town, ?int $day = null, $citizen = null, $zone = null, $type = null, ?int $max = null)
+    public function findByFilter(Town $town, ?int $day = null, $citizen = null, $zone = null, $type = null, ?int $max = null, ?bool $adminOnly = false)
     {
         $q = $this->createQueryBuilder('t')
             ->andWhere('t.town = :town')->setParameter('town', $town);
@@ -55,8 +56,10 @@ class TownLogEntryRepository extends ServiceEntityRepository
 
             $q->andWhere( 't.logEntryTemplate IN (:type)' )->setParameter('type', $applicableEntryTemplates);
         }
+        if ($adminOnly !== null) $q->andWhere('t.adminOnly = :adminOnly')->setParameter('adminOnly', $adminOnly);
 
         if ($max !== null) $q->setMaxResults( $max );
+
 
         return $q
             ->orderBy('t.timestamp', 'DESC')

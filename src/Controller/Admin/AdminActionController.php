@@ -62,17 +62,16 @@ class AdminActionController extends CustomAbstractController
 
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null): array
     {
-        $data = $data ?? [];
+        $data = parent::addDefaultTwigArgs($section, $data);
 
         $data["admin_tab"] = $section;
 
-        return parent::addDefaultTwigArgs($section, $data);
+        return $data;
     }
 
     protected function renderLog( ?int $day, $town, $zone = null, ?int $type = null, ?int $max = null ): Response {
         $entries = [];
-        /** @var TownLogEntry $entity */
-        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter($town, $day, null, $zone, $type, $max ) as $idx => $entity) {
+        foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter($town, $day, null, $zone, $type, $max, null ) as $idx => $entity) {
                 /** @var LogEntryTemplate $template */
                 $template = $entity->getLogEntryTemplate();
                 if (!$template)
@@ -95,9 +94,7 @@ class AdminActionController extends CustomAbstractController
                 }             
             }
 
-        // $entries = array($entity->find($id), $entity->find($id)->findRelatedEntity());
-
-        return $this->render( 'ajax/game/log_content.html.twig', [
+        return $this->render( 'ajax/admin/towns/log_content.html.twig', [
             'entries' => $entries,
             'canHideEntry' => false,
         ] );
@@ -109,11 +106,11 @@ class AdminActionController extends CustomAbstractController
      */
     public function dash(): Response
     {
-        return $this->render( 'ajax/admin/dash.html.twig', [
+        return $this->render( 'ajax/admin/dash.html.twig', $this->addDefaultTwigArgs(null, [
             'actions' => self::getAdminActions(),
             'now' => time(),
             'schedules' => $this->isGranted('ROLE_ADMIN') ? $this->entity_manager->getRepository(AttackSchedule::class)->findByCompletion( false ) : [],
-        ]);
+        ]));
     }
 
     /**

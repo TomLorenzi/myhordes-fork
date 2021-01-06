@@ -1,11 +1,12 @@
 {% extends "ajax/ajax.html.twig" %}
+{% block title %}{% if current_app is null %}{{ 'Neue Anwendung'|trans({}, 'admin') }}{% else %}{{ 'Anwendung "%external_app%"'|trans({'%external_app%': current_app.name}, "admin")|raw }}{% endif %}{% endblock %}
 {% block ajax %}
     {# @var current_app \App\Entity\ExternalApp #}
     <div class="row">
         <div class="padded cell rw-12">
 
             <div class="form">
-                <h5>{{ 'Kartei'|trans({},'admin') }}</h5>
+                <h5>{{ 'Anwendung'|trans({},'admin') }}</h5>
                 <div class="row">
                     <div class="cell padded rw-4 note note-lightest"><label for="app_name">{{ 'Name der Anwendung'|trans({},'admin') }}</label></div>
                     <div class="cell padded rw-4"><input id="app_name" type="text" value="{{ current_app is not null ? current_app.name : '' }}" /></div>

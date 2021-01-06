@@ -2,25 +2,16 @@
 
 namespace App\Controller\Admin;
 
-use App\DataFixtures\PermissionFixtures;
 use App\Entity\AdminReport;
-use App\Entity\Citizen;
-use App\Entity\Complaint;
 use App\Entity\ForumModerationSnippet;
 use App\Entity\ForumUsagePermissions;
-use App\Entity\ItemPrototype;
 use App\Entity\PrivateMessage;
-use App\Entity\PrivateMessageThread;
 use App\Entity\User;
-use App\Entity\UserPendingValidation;
 use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\PermissionHandler;
-use App\Service\UserFactory;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -56,12 +47,12 @@ class AdminForumController extends AdminActionController
 
         $posts = $thread->getMessages();
 
-        return $this->render( 'ajax/admin/reports/pn-viewer.html.twig', [
+        return $this->render( 'ajax/admin/reports/pn-viewer.html.twig', $this->addDefaultTwigArgs(null, [
             'thread' => $thread,
             'posts' => $posts,
             'markedPost' => $pmid,
             'emotes' => []
-        ] );
+        ] ));
     }
 
     /**
@@ -251,7 +242,7 @@ class AdminForumController extends AdminActionController
                 $pm_cache[$report->getPm()->getId()]['reporters'][] = $report->getSourceUser();
             }
 
-        return $this->render( 'ajax/admin/reports/reports.html.twig', [
+        return $this->render( 'ajax/admin/reports/reports.html.twig', $this->addDefaultTwigArgs(null, [
             'tab' => $tab,
 
             'posts' => $selectedReports,
@@ -259,6 +250,6 @@ class AdminForumController extends AdminActionController
             'all_shown' => $show_all,
 
             'snippets' => $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll()
-        ]);
+        ]));
     }
 }

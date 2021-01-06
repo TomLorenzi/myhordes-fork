@@ -1,4 +1,9 @@
 {% extends "ajax/ajax.html.twig" %}
+{%block title %}{{'Bürger! Seid auf inoffiziellen Webseiten wachsam!'|trans({}, 'game')}}{% endblock %}
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
 {% block ajax %}
     <div class="row external-app">
         <div class="cell padded header rw-6 ro-3 rw-lg-12 ro-lg-0">
@@ -11,7 +16,7 @@
                 <span>{{ ex.name }}</span></h4>
             <p>
                 {% trans from 'global' %}
-                    Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).
+                    Achtung! Der von dir ausgewählte Link, leitet dich auf eine <strong>nicht-offizielle Seite</strong> weiter (sprich: eine Fan- oder Spielerseite).
                 {% endtrans %}
             </p>
             <ul>
@@ -29,6 +34,13 @@
                 </li>
                 {% endif %}
             </ul>
+
+            {% if ex.secret is not null %}
+            <p class="secure">
+                <strong>{{'Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:'|trans({}, 'global')}}</strong>
+                {{ 'Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.'|trans({}, 'global') }}
+            </p>
+            {% endif %}
 
             {% if (key is not empty) or ex.linkOnly %}
                 <form action="{{ ex.url }}" method="post" target="_self">

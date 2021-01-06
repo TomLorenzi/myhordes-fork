@@ -230,78 +230,107 @@ x-message {
     &>#header-reload-area { position: absolute; left: 0; top: 0; height: 135px; width: 375px; cursor: pointer; }
     background: @myhordes-content-header-background; height: @myhordes-content-header-height;
     margin: 0 0 @myhordes-content-header-margin;
+  }
 
-    & #modeCommand {
-      position: absolute;
-      top: 10px;
-      margin-left: 50px;
-      font-size: 8pt;
-      line-height: 10pt;
-      width: 110px;
-      height: 14px;
-      background-color: #5c2b20;
-      outline: 1px solid black;
-      border: 1px solid #f0d79e;
-      z-index: 998;
+  &>#content {
+    margin: 0 5px 0 @myhordes-left-padding;
+    &>.row:not(.external-app)>.cell,&>noscript>.row>.cell {
 
-      & h1 {
-        margin: 0px;
-        padding: 0px;
-        height: 12px;
-        border: 1px solid #ddab76;
-        padding-left: 5px;
-        font-size: 7pt;
-        line-height: 8pt;
-        text-transform: uppercase;
-        letter-spacing: 0pt;
-        background: none;
-        background-color: #5c2b20;
-        color: #f0d79e;
-        cursor: pointer;
-      }
-      
-      & #scrollMenu {
-        display: none;
+      &.header>h4:first-child {
+        &+*::before { content: " "; display: block; height: 24px; }
+        position: absolute; left: 0; top: 0; right: 0; background: @myhordes-cell-header-background-color; margin: 0;
+        color: @myhordes-cell-header-text-color; padding: 5px;
+        box-shadow: 0 0 3px black, inset 0 0 3px lighten(@myhordes-cell-header-background-color, 20%);
+        font-variant: small-caps;
       }
 
-      &:hover #scrollMenu {
-        display: block; 
-        position: relative;
-        width: 110px;
-        top:-7px;
-        background-color: #3b3249;
+      &.padded       { padding: 12px + @myhordes-grid-padsize; }
+      &.padded-small { padding: 12px + @myhordes-grid-padsize-small; }
+      &.padded-none, &:not(.padded):not(.padded-small)  { padding: 12px; }
 
-        & ul {
-          margin: 0;
-          padding: 0;
-          float: left;
-          position: relative;
-          top:8px;
-          margin-bottom: 8px;
-          width: 110px;
-          list-style: none;
-          background-color: #3b3249;
-
-          & li.mod-actions {
-            margin: 0 0 .5em;
-            padding: 0;
-            font-size: 1.3rem;
-            color: #ddab76;
-            cursor: pointer;
-
-            img {
-              vertical-align: middle;
-              margin-right: 1em;
-            }
-            span {
-              font-weight: normal;
-            }
-          }
-
-
+      &:not(.fact):not(.quote) {background: @myhordes-panel-border, @myhordes-panel-bg; color: @myhordes-panel-color;}
+      &.fact {
+        color: white;
+        height: 43px;
+        margin-bottom: -25px;
+        z-index: 1;
+        background: url('../img/background/footer_zombie.gif') 0 0 no-repeat;
+        text-align: right;
+        font-size: 1.2rem;
+        text-shadow: 0px 1px 1px black, 0px -1px 1px black, 1px 0px 1px black, -1px 0px 1px black, 1px 1px 1px black, -1px -1px 1px black, -1px 1px 1px black, 1px -1px 1px black;
+        .author {
+          font-weight: bold;
+          color: #fdcb70;
         }
       }
-      
+      &.quote {
+        color: #513c2d;
+        padding: 0 !important;
+        font-size: 1.1rem;
+        width: 200px;
+        background: url('../img/background/flavor_bg.jpg') 0 41px repeat-y;
+        float: right;
+        font-style: italic;
+        font-weight: bold;
+        .quote-head {
+          background: url('../img/background/flavor_header.jpg') left top no-repeat;
+          padding: 12px 8px;
+          min-height: 55px;
+        }
+        .quote-foot {
+          background: url('../img/background/flavor_footer.jpg') left bottom no-repeat;
+        }
+      }
+    }
+
+    &>.row.external-app>.cell {
+      margin-top: 40px; border: 1px solid #773939; outline: 3px solid #5c2b20;
+      background: #5c2b20 none; color: #f0d79e;
+
+      & span.critical {
+        text-transform: uppercase;
+        color: #f86;
+        font-weight: bold;
+        b {
+          color: #f8eacb;
+        }
+      }
+
+      strong {
+        color: white;
+      }
+
+      & p.secure {
+        padding: 5px 5px 5px 24px;
+        font-size: 9pt;
+        color: white;
+        background-color: #696486;
+        background-image: url("../img/icons/lock.gif");
+        background-position: 2px 5px;
+        background-repeat: no-repeat;
+      }
+
+      & h4.title {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-top: 10px;
+        font-weight: bold;
+        text-align: center;
+        color: #afacc1;
+        background-color: #3b3249;
+        font-variant: small-caps;
+        box-shadow: none;
+
+        img {
+          vertical-align: -15%;
+          margin-right: 1em;
+        }
+      }
+
+      & button {
+        font-variant: small-caps;
+        font-weight: normal;
+      }
     }
 
     & #apps {
@@ -377,93 +406,78 @@ x-message {
         }
       }
     }
-  }
 
-  &>#content {
-    margin: 0 5px 0 @myhordes-left-padding;
-    &>.row:not(.external-app)>.cell,&>noscript>.row>.cell {
+    & #modeCommand {
+      position: absolute;
+      top: 10px;
+      margin-left: 50px;
+      font-size: 8pt;
+      line-height: 10pt;
+      width: 110px;
+      height: 14px;
+      background-color: #5c2b20;
+      outline: 1px solid black;
+      border: 1px solid #f0d79e;
+      z-index: 998;
 
-      &.header>h4:first-child {
-        &+*::before { content: " "; display: block; height: 24px; }
-        position: absolute; left: 0; top: 0; right: 0; background: @myhordes-cell-header-background-color; margin: 0;
-        color: @myhordes-cell-header-text-color; padding: 5px;
-        box-shadow: 0 0 3px black, inset 0 0 3px lighten(@myhordes-cell-header-background-color, 20%);
-        font-variant: small-caps;
-      }
-
-      &.padded       { padding: 12px + @myhordes-grid-padsize; }
-      &.padded-small { padding: 12px + @myhordes-grid-padsize-small; }
-      &.padded-none, &:not(.padded):not(.padded-small)  { padding: 12px; }
-
-      &:not(.fact):not(.quote) {background: @myhordes-panel-border, @myhordes-panel-bg; color: @myhordes-panel-color;}
-      &.fact {
-        color: white;
-        height: 43px;
-        margin-bottom: -25px;
-        z-index: 1;
-        background: url('../img/background/footer_zombie.gif') 0 0 no-repeat;
-        text-align: right;
-        font-size: 1.2rem;
-        text-shadow: 0px 1px 1px black, 0px -1px 1px black, 1px 0px 1px black, -1px 0px 1px black, 1px 1px 1px black, -1px -1px 1px black, -1px 1px 1px black, 1px -1px 1px black;
-        .author {
-          font-weight: bold;
-          color: #fdcb70;
-        }
-      }
-      &.quote {
-        color: #513c2d;
-        padding: 0 !important;
-        font-size: 1.1rem;
-        width: 200px;
-        background: url('../img/background/flavor_bg.jpg') 0 41px repeat-y;
-        float: right;
-        font-style: italic;
-        font-weight: bold;
-        .quote-head {
-          background: url('../img/background/flavor_header.jpg') left top no-repeat;
-          padding: 12px 8px;
-          min-height: 55px;
-        }
-        .quote-foot {
-          background: url('../img/background/flavor_footer.jpg') left bottom no-repeat;
-        }
-      }
-    }
-
-    &>.row.external-app>.cell {
-      margin-top: 40px; border: 1px solid #773939; outline: 3px solid #5c2b20;
-      background: #5c2b20 none; color: #f0d79e;
-
-      & span.critical {
+      & h1 {
+        margin: 0px;
+        padding: 0px;
+        height: 12px;
+        border: 1px solid #ddab76;
+        padding-left: 5px;
+        font-size: 7pt;
+        line-height: 8pt;
         text-transform: uppercase;
-        color: #f86;
-        font-weight: bold;
-        b {
-          color: #f8eacb;
-        }
+        letter-spacing: 0pt;
+        background: none;
+        background-color: #5c2b20;
+        color: #f0d79e;
+        cursor: pointer;
       }
 
-      & h4.title {
-        padding-top: 5px;
-        padding-bottom: 5px;
-        margin-top: 10px;
-        font-weight: bold;
-        text-align: center;
-        color: #afacc1;
+      & #scrollMenu {
+        display: none;
+      }
+
+      &:hover #scrollMenu {
+        display: block;
+        position: relative;
+        width: 110px;
+        top:-7px;
         background-color: #3b3249;
-        font-variant: small-caps;
-        box-shadow: none;
 
-        img {
-          vertical-align: -15%;
-          margin-right: 1em;
+        & ul {
+          margin: 0;
+          padding: 0;
+          float: left;
+          position: relative;
+          top:8px;
+          margin-bottom: 8px;
+          width: 110px;
+          list-style: none;
+          background-color: #3b3249;
+
+          & li.mod-actions {
+            margin: 0 0 .5em;
+            padding: 0;
+            font-size: 1.3rem;
+            color: #ddab76;
+            cursor: pointer;
+
+            img {
+              vertical-align: middle;
+              margin-right: 1em;
+            }
+            span {
+              font-weight: normal;
+            }
+          }
+
+
         }
       }
 
-      & button {
-        font-variant: small-caps;
-        font-weight: normal;
-      }
     }
   }
 

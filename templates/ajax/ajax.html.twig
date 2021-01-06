@@ -1,5 +1,48 @@
 {% extends "ajax/ajax_plain.html.twig" %}
+
 {% block ajax_base %}
+    {% block header %}
+        {% if is_granted('ROLE_USER') and apps is defined %}
+            <div id="apps">
+                <h1><img src="{{ asset('build/images/icons/small_archive.gif') }}" alt="{{ 'Verzeichnis'|trans({},'global') }}"><span>{{ 'Verzeichnis'|trans({},'global') }}</span></h1>
+                <div id="apps-list">
+                    <p>{{ 'Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:'|trans({}, 'global') }}</p>
+                    <ul>
+                        {% for ex in apps %}
+                            {# @var ex \App\Entity\ExternalApp #}
+                            {% if not ex.testing or ex.owner == app.user %}
+                                <li class="app-external" data-id="{{ ex.id }}">
+                                    <a target="_blank" href="{{ path('disclaimer', { 'id': ex.id }) }}">
+                                        {% if ex.imageName is not null %}
+                                            <img alt="" src="{{ path('app_web_app_icon', { aid: ex.id, name: ex.imageName, ext: ex.imageFormat }) }}" />
+                                        {% else %}
+                                            <img alt="" src="{{ asset('build/images/apps/null.gif') }}" />
+                                        {% endif %}
+                                        <span>{{ ex.name }}</span></a>
+                                    {% if ex.owner == app.user and not ex.linkOnly %}
+                                        <div class="small"><strong>SK:</strong> {{ ex.secret }}</div>
+                                    {% endif %}
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+    {% endblock %}
+    {% if is_granted('ROLE_CROW') and adminActions is defined %}
+        <div id="modeCommand">
+            <h1><span>{{ 'Moderation'|trans({},'global') }}</span></h1>
+            <div id="scrollMenu">
+                <ul>
+                    {% for adminAction in adminActions %}
+                        {# @var adminAction \App\Entity\AdminAction #}
+                        <a href="{{ path('admin_action', { 'id': adminAction.id }) }}"><span>{{ adminAction.name|trans({},'admin') }}</span></a><br>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endif %}
     <div id="gma" class="game-menu-area">
         <div class="game-bar">
             {% block text_menu_content %}

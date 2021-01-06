@@ -541,13 +541,13 @@
         <target>Es wurde keine Stadt gefunden...</target>
       </segment>
     </unit>
-    <unit id="l.2Tpic" name="ca64199">
+    <unit id="W6.HG9v" name="e4ce8ba">
       <notes>
-        <note category="german">Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).</note>
+        <note category="german">Achtung! Der von dir ausgewählte Link, leitet dich auf eine &lt;strong&gt;nicht-offizielle Seite&lt;/strong&gt; weiter (sprich: eine Fan- oder Spielerseite).</note>
       </notes>
       <segment>
-        <source>Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).</source>
-        <target>Achtung! Der von dir ausgewählte Link, leitet dich auf eine nicht-offizielle Seite weiter (sprich: eine Fan- oder Spielerseite).</target>
+        <source>Achtung! Der von dir ausgewählte Link, leitet dich auf eine &lt;strong&gt;nicht-offizielle Seite&lt;/strong&gt; weiter (sprich: eine Fan- oder Spielerseite).</source>
+        <target><![CDATA[Achtung! Der von dir ausgewählte Link, leitet dich auf eine <strong>nicht-offizielle Seite</strong> weiter (sprich: eine Fan- oder Spielerseite).]]></target>
       </segment>
     </unit>
     <unit id="eg7vZTp" name="b187301">
@@ -1901,6 +1901,24 @@
       <segment>
         <source>Spielhilfe:</source>
         <target>Spielhilfe:</target>
+      </segment>
+    </unit>
+    <unit id="FuwALIG" name="Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:">
+      <notes>
+        <note category="german">Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:</note>
+      </notes>
+      <segment>
+        <source>Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:</source>
+        <target>Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:</target>
+      </segment>
+    </unit>
+    <unit id="ECkSDC0" name="43e696a">
+      <notes>
+        <note category="german">Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.</note>
+      </notes>
+      <segment>
+        <source>Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.</source>
+        <target>Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.</target>
       </segment>
     </unit>
   </file>

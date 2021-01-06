@@ -1039,6 +1039,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $citizen = $this->getActiveCitizen();
         $zone = $citizen->getZone();
 
+        if ($this->citizen_handler->hasStatusEffect( $citizen, 'terror' ))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableTerror );
+
         if ($this->zone_handler->check_cp( $zone ) || $this->get_escape_timeout( $citizen ) > 0)
             return AjaxResponse::error( self::ErrorZoneUnderControl );
 

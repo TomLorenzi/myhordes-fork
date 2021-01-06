@@ -88,6 +88,7 @@ parameters:
         wind_distance: 2
         strict_picto_distribution: false
         sandball_nastyness: 0.1
+        massive_respawn_factor: 1
 
       features:
         camping: true
@@ -139,7 +140,7 @@ parameters:
         wind_distance: -1
         strict_picto_distribution: true
         sandball_nastyness: 0.0
-
+        massive_respawn_factor: 0.5
 
       features:
         shaman: 'none'
