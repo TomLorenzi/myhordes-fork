@@ -3134,7 +3134,7 @@
       </notes>
       <segment>
         <source>Verrat! %citizen% ist gestorben: %cod%.</source>
-        <target>Trahison! %citizen% est décédé : %cod%.</target>
+        <target>%citizen% nous a quitté : %cod%.</target>
       </segment>
     </unit>
     <unit id="EWgulaj" name="98f1530">
@@ -8440,7 +8440,7 @@
       </notes>
       <segment>
         <source>Ein abscheuliches Verbrechen ist geschehen: %attacker% hat %defender% in seinem Haus verschlungen!</source>
-        <target>Un crime odieux s'est produit : %attacker% a dévoré %defender% chez lui !</target>
+        <target><![CDATA[Un crime abominable vient de se produire : %attacker% a été vu(e) en train <span>de dévorer %defender% dans sa maison</span> !]]></target>
       </segment>
     </unit>
     <unit id="8xZcKzq" name="65218d1">
@@ -16517,6 +16517,42 @@
       <segment>
         <source>Architekt (title)</source>
         <target>Maître-architecte</target>
+      </segment>
+    </unit>
+    <unit id="0Kqpu1t" name="gering">
+      <notes>
+        <note category="german">gering</note>
+      </notes>
+      <segment>
+        <source>gering</source>
+        <target>réduites</target>
+      </segment>
+    </unit>
+    <unit id=".CQK_8d" name="hoch">
+      <notes>
+        <note category="german">hoch</note>
+      </notes>
+      <segment>
+        <source>hoch</source>
+        <target>importantes</target>
+      </segment>
+    </unit>
+    <unit id="ssHCx3q" name="1d82f8e">
+      <notes>
+        <note category="german">Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</note>
+      </notes>
+      <segment>
+        <source>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</source>
+        <target>Vos chances d'être repéré(e) si vous dévorez un citoyen en ville sont %chances%...</target>
+      </segment>
+    </unit>
+    <unit id="qD3lUP9" name="dc1e0ac">
+      <notes>
+        <note category="german">Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</note>
+      </notes>
+      <segment>
+        <source>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</source>
+        <target>Ce risque dépend directement du nombre de citoyens sortis dans l'Outre-Monde : moins il y a de citoyens en ville, moins vous avez de chances d'être vu(e).</target>
       </segment>
     </unit>
   </file>

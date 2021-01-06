@@ -303,6 +303,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
         }
 
+        $cc = 0;
+        foreach ($c->getTown()->getCitizens() as $citizen)
+            if ($citizen->getAlive() && !$citizen->getZone() && $citizen->getId() !== $c->getId() && $c->getId() !== $c->getId()) $cc++;
+        $cc = (float)$cc / (float)$c->getTown()->getPopulation(); // Completely arbitrary
+
         $hidden = (bool)($em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($home,
             $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneBy(['name' => 'curtain'])
         )) && $this->citizen_handler->houseIsProtected($c);
@@ -346,6 +351,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'owner' => $c,
             'can_attack' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
             'can_devour' => $this->getActiveCitizen()->hasRole('ghoul'),
+            'caught_chance' => $cc,
             'allow_devour' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
             'allow_devour_corpse' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_corpse'),
             'home' => $home,
@@ -881,6 +887,12 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $citizenInfos[] = $citizenInfo;
         }
 
+        $cc = 0;
+        foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
+            if ($citizen->getAlive() && !$citizen->getZone() && $citizen->getId() !== $this->getActiveCitizen()->getId()) $cc++;
+        $cc = (float)$cc / (float)$this->getActiveCitizen()->getTown()->getPopulation(); // Completely arbitrary
+        file_put_contents("/tmp/dump.txt", $cc);
+
         return $this->render( 'ajax/game/town/citizen.html.twig', $this->addDefaultTwigArgs('citizens', [
             'citizens' => $citizenInfos,
             'me' => $this->getActiveCitizen(),
@@ -888,6 +900,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'prof_count' => $prof_count,
             'death_count' => $death_count,
             'has_omniscience' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
+            'is_ghoul' => $this->getActiveCitizen()->hasRole('ghoul'),
+            'caught_chance' => $cc
         ]) );
     }
 

@@ -427,7 +427,7 @@ class InventoryAwareController extends CustomAbstractController
         }
 
         if ($notes)
-            $this->addFlash('note', implode('<hr />', $notes));
+            $this->addFlash('notice', implode('<hr />', $notes));
 
         $this->entity_manager->persist($aggressor);
         $this->entity_manager->persist($victim);
