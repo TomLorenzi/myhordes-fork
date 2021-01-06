@@ -481,7 +481,7 @@ class ExternalXML2Controller extends ExternalController {
                         'attributes' => [
                             'name' => $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings'),
                             'level' => $building->getLevel(),
-                            'buildingid' => $building->getPrototype()->getId(),
+                            'buildingId' => $building->getPrototype()->getId(),
                         ], 
                         'cdata_value' => $this->translator->trans($building->getPrototype()->getUpgradeTexts()[$building->getLevel() - 1], [], 'buildings')
                     ];
