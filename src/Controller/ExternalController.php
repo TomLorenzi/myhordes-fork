@@ -119,7 +119,9 @@ class ExternalController extends InventoryAwareController {
     * @return Response
     */
     public function api_json($type = ''): Response {
-        
+
+        $data = [];
+
         $APP_KEY = $this->getRequestParam('appkey');
         if($APP_KEY===false) {
             $data = ["error" => "invalid_appkey"];
@@ -333,8 +335,6 @@ class ExternalController extends InventoryAwareController {
                 return $item->getDescription();
             case $key==="cat":
                 return $item->getCategory()->getLabel();
-            //case $key==="parent_category":
-                //return $item->getCategory()->getParent() ? $item->getCategory()->getParent()->getLabel() : false;
             default:
             return false;
         }
@@ -395,6 +395,7 @@ class ExternalController extends InventoryAwareController {
     }
     
     private function getUserData($SURLL_request, $originalUserID): array {
+        /** @var User $user */
         $user= $this->entity_manager->getRepository(User::class)->findOneBy(['id' => $SURLL_request['user']['filters']]);
         if (!$user) {
             return ["error" => "UnknownUser"];
@@ -422,16 +423,16 @@ class ExternalController extends InventoryAwareController {
                     $user_data['isGhost']= ($current_citizen === null);
                 break;
                 case ($current_citizen && $field==="hero"):
-                    $user_data['hero']= $current_citizen->getProfession()->getId()>0 ? true : false;
+                    $user_data['hero']= $current_citizen->getProfession()->getHeroic();
                 break;
                 case ($current_citizen && $field==="dead"):
-                    $user_data['dead']= $current_citizen->getAlive();
+                    $user_data['dead']= !$current_citizen->getAlive();
                 break;
                 case ($current_citizen && $field==="job"):
                     $user_data['job']= $current_citizen->getProfession()->getName();
                 break;
                 case ($current_citizen && $field==="out"):
-                    $user_data['out']= $current_citizen->getWalkingDistance()>0 ? true : false;
+                    $user_data['out']= $current_citizen->getZone() ? true : false;
                 break;
                 case ($current_citizen && $field==="baseDef"):
                     $user_data['baseDef']= $current_citizen->getHome()->getAdditionalDefense();
@@ -440,11 +441,11 @@ class ExternalController extends InventoryAwareController {
                     $user_data['ban']= $current_citizen->getBanished();
                 break;
                 case ($current_citizen && $field==="x"):
-                    $zone = $current_citizen->getZone();
+                    $zone = $current_citizen->getTown()->getChaos() ? null : $current_citizen->getZone();
                     $user_data['x']= $zone ? $zone->getX() : 0;
                 break;
                 case ($current_citizen && $field==="y"):
-                    $zone = $current_citizen->getZone();
+                    $zone = $current_citizen->getTown()->getChaos() ? null : $current_citizen->getZone();
                     $user_data['y']= $zone ? $zone->getY() : 0;
                 break;
                 case ($current_citizen && $field==="map"):
@@ -477,7 +478,7 @@ class ExternalController extends InventoryAwareController {
     }
             
     private function getMapData($SURLL_request, $originalUserID): array {
-        $user= $this->entity_manager->getRepository(User::class)->findOneBy(['id' => $originalUserID]);
+        /** @var Town $town */
         $town= $this->entity_manager->getRepository(Town::class)->findOneBy(['id' => $SURLL_request['map']['filters']]);
         if (!$town) {
             return ["error" => "UnknownMap"];
@@ -508,8 +509,15 @@ class ExternalController extends InventoryAwareController {
                 case $field==="hei":
                     $data['hei']= abs($y_min) + abs($y_max) + 1;
                 break;
-                case $field==="conspiracy": //insurection
+                case $field==="conspiracy":
+                    $data['conspiracy']= $town->getInsurrectionProgress() >= 100;
                 break;
+                case $field==="chaos":
+                    $data['chaos']= $town->getChaos();
+                    break;
+                case $field==="devast":
+                    $data['devast']= $town->getDevastated();
+                    break;
                 case $field==="days":
                     $data['days']= $town->getDay();
                 break;
@@ -560,33 +568,31 @@ class ExternalController extends InventoryAwareController {
                     'remaining_excavation' => $zone->getDigs(),
                     'zombies' => $zone->getZombies(),
                     'is_town' => $zone->getDistance()<1,
-                    'items' => false,
+                    'items' => [],
                     'building' => false
                 ];
                 $item_buffer = [];
                 foreach ($zone->getFloor()->getItems() as $item) {
                     $item_uid = implode('_', [
                         $item->getPrototype()->getIcon(),
-                        $item->getPoison(),
                         $item->getBroken()
                         ]
                     );
                     if(!isset($item_buffer[$item_uid])) {
                         $item_buffer[$item_uid] = [
                             'uid' => $item->getPrototype()->getIcon(),
-                            'poison' => $item->getPoison(),
                             'broken' => $item->getBroken(),
-                            'count' => 1
+                            'count' => $item->getCount()
                         ];
                     } else {
-                        $item_buffer[$item_uid]['count']++;
+                        $item_buffer[$item_uid]['count'] += $item->getCount();
                     }
                 }
                 foreach ($item_buffer as $item) {
-                    if($zone_data['items']===false) {
-                        $zone_data['items'] = [];
-                    } $zone_data['items'][]= $item;
+                    $zone_data['items'][]= $item;
                 }
+
+
                 if($zone->getPrototype()) {
                     $zone_data['building'] = [
                         'name' => $this->translator->trans($zone->getPrototype()->getLabel(), [], "game", $town->getLanguage()),
