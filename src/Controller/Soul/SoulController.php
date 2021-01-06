@@ -3,6 +3,7 @@
 namespace App\Controller\Soul;
 
 use App\Controller\CustomAbstractController;
+use App\Entity\Announcement;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\CitizenRankingProxy;
@@ -92,8 +93,8 @@ class SoulController extends CustomAbstractController
         ]);
 
         $user_invitations = $user_coalition ? [] : $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
-                'user' => $user,
-                'associationType' => UserGroupAssociation::GroupAssociationTypeCoalitionInvitation ]
+            'user' => $user,
+            'associationType' => UserGroupAssociation::GroupAssociationTypeCoalitionInvitation ]
         );
 
         $sb = $this->user_handler->getShoutbox($user);
@@ -108,6 +109,7 @@ class SoulController extends CustomAbstractController
 
         $data["soul_tab"] = $section;
         $data["new_message"] = !empty($user_invitations) || $messages;
+        $data["new_news"] = $this->entity_manager->getRepository(Announcement::class)->countUnreadByUser($user, $this->getUserLanguage()) > 0;
 
         return $data;
     }
@@ -207,13 +209,13 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/news/{id}", name="soul_news")
+     * @Route("jx/soul/future/{id}", name="soul_future")
      * @param Request $request
      * @param UserHandler $userHandler
      * @param int $id
      * @return Response
      */
-    public function soul_news(Request $request, UserHandler $userHandler, int $id = 0): Response
+    public function soul_future(Request $request, UserHandler $userHandler, int $id = 0): Response
     {
         $user = $this->getUser();
 
@@ -232,10 +234,20 @@ class SoulController extends CustomAbstractController
             $this->entity_manager->flush();
         } catch (Exception $e) {}
 
-        return $this->render( 'ajax/soul/news.html.twig', $this->addDefaultTwigArgs("soul_news", [
+        return $this->render( 'ajax/soul/future.html.twig', $this->addDefaultTwigArgs("soul_future", [
             'news' => $news, 'selected' => $selected
         ]) );
     }
+
+    /**
+     * @Route("jx/soul/news", name="soul_news")
+     * @return Response
+     */
+    public function soul_news(): Response
+    {
+        return $this->render( 'ajax/soul/news.html.twig', $this->addDefaultTwigArgs("soul_news", []) );
+    }
+
 
     /**
      * @Route("jx/soul/settings", name="soul_settings")

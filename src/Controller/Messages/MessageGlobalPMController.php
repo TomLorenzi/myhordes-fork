@@ -132,8 +132,8 @@ class MessageGlobalPMController extends MessageController
     public function pm_load_list(EntityManagerInterface $em, JSONRequestParser $p): Response {
         $entries = [];
 
-        $skip = $p->get('skip', []);
-        $num = max(5,min(30,$p->get('num', 30)));
+        $skip = $p->get_array('skip');
+        $num = max(5,min(30,$p->get_num('num', 30)));
 
         $this->render_group_associations( $em->getRepository(UserGroupAssociation::class)->findByUserAssociation($this->getUser(), [
             UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive
@@ -201,7 +201,6 @@ class MessageGlobalPMController extends MessageController
      * @return Response
      */
     public function pm_announcement(int $id, EntityManagerInterface $em): Response {
-
         $announce = $em->getRepository( Announcement::class )->find($id);
         if (!$announce || $announce->getLang() != $this->getUserLanguage()) return new Response('not found');
 
@@ -216,8 +215,46 @@ class MessageGlobalPMController extends MessageController
         $announce->setText( $this->prepareEmotes( $announce->getText() ) );
 
         return $this->render( 'ajax/pm/announcement.html.twig', $this->addDefaultTwigArgs(null, [
-            'announcement' => $announce,
-            'new' => $new
+            'announcements' => [$announce],
+            'new' => $new,
+            'more' => false
+        ] ));
+    }
+
+    /**
+     * @Route("jx/pm/conversation/announce/all", name="pm_announce_all")
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function pm_announcement_all(EntityManagerInterface $em, JSONRequestParser $parser): Response {
+        $skip = $parser->get_array('skip');
+        $num = max(1,min(10,$parser->get_num('num', 5)));
+
+        $announces = $em->getRepository( Announcement::class )->findByLang($this->getUserLanguage(), $skip, $num + 1 );
+
+        $sliced = array_slice($announces, 0, $num);
+
+        $new = false;
+        foreach ($sliced as $announce)
+            if (!$announce->getReadBy()->contains($this->getUser())) {
+                $new = true;
+                $announce->getReadBy()->add($this->getUser());
+                $this->entity_manager->persist($announce);
+            }
+
+        if ($new)
+            try {
+                $this->entity_manager->flush();
+            } catch (\Exception $e) {}
+
+        foreach ($sliced as $announce)
+            $announce->setText( $this->prepareEmotes( $announce->getText() ) );
+
+        return $this->render( 'ajax/pm/announcement.html.twig', $this->addDefaultTwigArgs(null, [
+            'announcements' => $announces,
+            'new' => $new,
+            'more' => count($announces) > $num
         ] ));
     }
 

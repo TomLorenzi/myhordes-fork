@@ -3,29 +3,34 @@
     {% set today = date() %}
     {% set yesterday = date('-1days') %}
     <ul class="group-conversation announcement">
+        {% for announcement in announcements %}
         {# @var announcement App\Entity\Announcement #}
-        <li>
-            <div class="pm-announce">
-                <div class="pm-message-content">
-                    <h1>{{ announcement.title }}</h1>
-                    {{ announcement.text|raw }}
+            <li x-announce-id="{{ announcement.id }}">
+                <div class="pm-announce">
+                    <div class="pm-message-content">
+                        <h1>{{ announcement.title }}</h1>
+                        {{ announcement.text|raw }}
+                    </div>
+                    <div class="pm-message-footer">
+                        {% if (announcement.sender.avatar) %}
+                            <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': announcement.sender.id, 'name': announcement.sender.avatar.filename, 'ext': announcement.sender.avatar.format}) }}) center/cover"></div>
+                        {% else %}
+                            <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ announcement.sender.name|slice(0,2) }}</div></div>
+                        {% endif %}
+                        <span class="pm-announcement-sender"><span class="hide-md">{{ announcement.sender.name }}</span></span>
+                        <span class="pm-announcement-date float-right">{% if announcement.timestamp.format('Ymd') == today|date("Ymd") %}
+                            {{ 'Heute um'|trans({},'global') }} {{ announcement.timestamp|format_datetime('none', 'short') }}
+                        {% elseif announcement.timestamp.format('Ymd') == yesterday|date("Ymd") %}
+                            {{ 'Gestern um'|trans({},'global') }} {{ announcement.timestamp|format_datetime('none', 'short') }}
+                        {% else %}
+                            {{ announcement.timestamp|format_datetime('medium', 'short') }}
+                        {% endif %}</span>
+                    </div>
                 </div>
-                <div class="pm-message-footer">
-                    {% if (announcement.sender.avatar) %}
-                        <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': announcement.sender.id, 'name': announcement.sender.avatar.filename, 'ext': announcement.sender.avatar.format}) }}) center/cover"></div>
-                    {% else %}
-                        <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ announcement.sender.name|slice(0,2) }}</div></div>
-                    {% endif %}
-                    <span class="pm-announcement-sender"><span class="hide-md">{{ announcement.sender.name }}</span></span>
-                    <span class="pm-announcement-date float-right">{% if announcement.timestamp.format('Ymd') == today|date("Ymd") %}
-                        {{ 'Heute um'|trans({},'global') }} {{ announcement.timestamp|format_datetime('none', 'short') }}
-                    {% elseif announcement.timestamp.format('Ymd') == yesterday|date("Ymd") %}
-                        {{ 'Gestern um'|trans({},'global') }} {{ announcement.timestamp|format_datetime('none', 'short') }}
-                    {% else %}
-                        {{ announcement.timestamp|format_datetime('medium', 'short') }}
-                    {% endif %}</span>
-                </div>
-            </div>
-        </li>
+            </li>
+        {% endfor %}
     </ul>
+    {% if more %}
+        <div class="pm-endless-more"><i class="fa fa-plus"></i> {{ 'Weitere Einträge laden'|trans({},'global') }}</div>
+    {% endif %}
 {% endblock %}
