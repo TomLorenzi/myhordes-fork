@@ -489,20 +489,23 @@ class ExternalXML2Controller extends ExternalController {
 
             // Current gazette
             /** @var Gazette $gazette */
-            $gazette = $town->findGazette( $town->getDay() );
-            if ($gazette !== null) {
-                $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette);
-                $text = '';
-                while (count($gazette_logs) > 0) {
-                    $text .= '<p>' . $this->parseGazetteLog(array_shift($gazette_logs)) . '</p>';
+            if ($town->getDay() > 1){
+                $gazette = $town->findGazette( $town->getDay() );
+                if ($gazette !== null) {
+                    $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette);
+                    $text = '';
+                    while (count($gazette_logs) > 0) {
+                        $text .= '<p>' . $this->parseGazetteLog(array_shift($gazette_logs)) . '</p>';
+                    }
+                    $data['data']['city']['news'] = [
+                        'attributes' => [
+                            'z' => $gazette->getAttack(),
+                            'def' => $gazette->getDefense()
+                        ],
+                        'content' => $text
+                    ];
                 }
-                $data['data']['city']['news'] = [
-                    'attributes' => [
-                        'z' => $gazette->getAttack(),
-                        'def' => $gazette->getDefense()
-                    ], 
-                    'content' => $text
-                ];
+
             }
 
             // The town bank
