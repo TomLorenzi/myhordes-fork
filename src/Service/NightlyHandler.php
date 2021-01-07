@@ -826,7 +826,7 @@ class NightlyHandler
                         /** @var Citizen $citizen */
                         if($citizen->getAlive() || $citizen->getZone())
                             continue;
-                        
+
                         if($citizen->getSurvivedDays() < $town->getDay() - 1)
                             continue;
 
