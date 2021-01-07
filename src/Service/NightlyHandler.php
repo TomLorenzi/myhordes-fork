@@ -823,10 +823,11 @@ class NightlyHandler
                     $this->log->debug('Town has lived for 5 days or more, we give the <info>Last Man Standing</info> picto to a lucky citizen that died in town');
                     $citizen_eligible = [];
                     foreach ($town->getCitizens() as $citizen) {
+                        /** @var Citizen $citizen */
                         if($citizen->getAlive() || $citizen->getZone())
                             continue;
-
-                        if($citizen->getSurvivedDays() < $town->getDay())
+                        
+                        if($citizen->getSurvivedDays() < $town->getDay() - 1)
                             continue;
 
                         if($citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack && $citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::Radiations)

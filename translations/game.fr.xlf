@@ -8472,20 +8472,20 @@
     </unit>
     <unit id="oHxefYi" name="6fc4576">
       <notes>
-        <note category="german">%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</note>
+        <note category="german">%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen &lt;strong&gt;massiven Zusammenbruch&lt;/strong&gt; hatten. Letzte Nacht gab es keine Toten in der Stadt.</note>
       </notes>
       <segment>
-        <source>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
-        <target>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</target>
+        <source>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen &lt;strong&gt;massiven Zusammenbruch&lt;/strong&gt; hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
+        <target><![CDATA[%citizen1% a passé toute la nuit à hurler dans sa maison, au point que tout le monde pensait que les zombies se taillaient un steak dessus. Ben non, en fait c'était juste une <strong>grosse crise de nerfs</strong> : aucun mort en ville hier soir.]]></target>
       </segment>
     </unit>
     <unit id="ZV3brVh" name="7dd2cf8">
       <notes>
-        <note category="german">%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</note>
+        <note category="german">%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern &lt;strong&gt;zu erhängen&lt;/strong&gt;. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend &lt;strong&gt;keine Zombies&lt;/strong&gt; in die Stadt geschafft haben.</note>
       </notes>
       <segment>
-        <source>%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</source>
-        <target>%citizen1% et %citizen2% ont été sauvés à la dernière minute lorsqu'ils se sont préparés à se pendre dans leurs maisons hier soir. Commentaire : "Je pensais qu'ils me mangeraient vivant et je ne voulais plus en faire l'expérience". Rétrospectivement, ce fut une mauvaise décision car aucun zombie n'est entré dans la ville la nuit dernière.</target>
+        <source>%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern &lt;strong&gt;zu erhängen&lt;/strong&gt;. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend &lt;strong&gt;keine Zombies&lt;/strong&gt; in die Stadt geschafft haben.</source>
+        <target><![CDATA[on a sauvé de justesse %citizen1% et %citizen2% qui s'apprêtaient à <strong>se pendre</strong> dans leur maison cette nuit : "je pensais qu'on allait se faire bouffer, je voulais pas être en vie pour voir ça". Mauvaise analyse semble-t-il, car <strong>aucun zombie</strong> n'a pu entrer chez nous cette nuit.]]></target>
       </segment>
     </unit>
     <unit id="6iAHRm0" name="ba03d33">
@@ -8539,7 +8539,7 @@
       </notes>
       <segment>
         <source>Es sei darauf hingewiesen, dass unsere Verteidigung nicht weit von der großen Südmauer entfernt dem furchterregenden Angriff der Horden letzte Nacht standgehalten hat. Um die %attack% Zombies versuchten alles, aber keine Verluste an Menschenleben während des Angriffs!</source>
-        <target>Es sei darauf hingewiesen, dass unsere Verteidigung nicht weit von der großen Südmauer entfernt dem furchterregenden Angriff der Horden letzte Nacht standgehalten hat. Um die %attack% Zombies versuchten alles, aber keine Verluste an Menschenleben während des Angriffs!</target>
+        <target>On avait ce qu'il fallait pour tenir pas loin de la muraille sud cette nuit contre les quelques %attack% macchabées de l'attaque, ça ne fait aucun doute. Aucune perte chez nous... Tout au plus quelques maisons sur lesquelles ils ont cogné.</target>
       </segment>
     </unit>
     <unit id="4Z_UnE1" name="6fad503">
@@ -8607,11 +8607,11 @@
     </unit>
     <unit id="nzbV8IO" name="e986527">
       <notes>
-        <note category="german">Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</note>
+        <note category="german">Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem &lt;strong&gt;er splitternackt durch die Straßen rannte&lt;/strong&gt;. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</note>
       </notes>
       <segment>
-        <source>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
-        <target>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</target>
+        <source>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem &lt;strong&gt;er splitternackt durch die Straßen rannte&lt;/strong&gt;. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
+        <target><![CDATA[Ce matin, %citizen1% a tenu à fêter dignement la nuit passée sans un mort <strong>en courant nu comme un ver</strong> dans nos ruelles. "J'avais envie d'accueillir comme il se devait ce jour nouveau" aurait expliqué ce citoyen.]]></target>
       </segment>
     </unit>
     <unit id=".ArUqcq" name="ed7befb">
@@ -8737,7 +8737,7 @@
       </notes>
       <segment>
         <source>Die Zombies fanden gestern Abend an der Nordwand eine Schwäche in unserer Verteidigung... Einige Häuser hielten dem Angriff stand. Andere nicht... ... %deaths% tot. Ende der Geschichte.</source>
-        <target>Les zombies ont trouvé une faiblesse dans notre défense sur le mur nord hier soir ... Certaines maisons ont résisté à l'attaque. D'autres non ... ... %deaths% morts. Fin de l'histoire.</target>
+        <target>Les zombies ont franchi nos murs ce soir en profitant d'une faille au mur nord... Certaines maisons ont tenu le coup. D'autres non...  %deaths% morts. Sans appel.</target>
       </segment>
     </unit>
     <unit id="THY9ZW3" name="99077cf">
@@ -8791,7 +8791,7 @@
       </notes>
       <segment>
         <source>Letzte Nacht haben es %deaths% Bürger nicht rechtzeitig nach Hause geschafft. Einige Teile von ihnen wurden in der Nähe des westlichen Viertels gefunden. Augenzeugen berichten, dass die Anwohner riefen: "Lauf, Forrest, lauf!", bevor sie vor Lachen ausbrachen und in ihr Haus rannten.</source>
-        <target>La nuit dernière, %deaths% citoyens ne sont pas rentrés chez eux à temps. Certaines parties ont été trouvées près du quartier ouest. Des témoins oculaires rapportent que les résidents ont crié "Courez, Forrest, courez!" Avant d'éclater de rire et de courir dans leur maison.</target>
+        <target>Hier soir, %deaths% citoyens n'ont pas rejoint à temps leur maison. Rattrapés par les zombies lors de l'attaque, ils n'auront eu aucune chance. Certains morceaux ont même été retrouvés au mur nord. Quelques témoignages racontent que des résidents aurait crié "Cours, Forrest, cours !" avant d'éclater de rire et de s'enfermer dans leur maison.</target>
       </segment>
     </unit>
     <unit id="anjAe5K" name="0d2c4d5">
