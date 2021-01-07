@@ -2,34 +2,23 @@
 
 namespace App\Controller\Messages;
 
-use App\Entity\ActionCounter;
-use App\Entity\AdminReport;
 use App\Entity\Announcement;
-use App\Entity\Citizen;
-use App\Entity\Complaint;
 use App\Entity\ForumModerationSnippet;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\GlobalPrivateMessage;
-use App\Entity\Item;
-use App\Entity\ItemPrototype;
-use App\Entity\PrivateMessage;
-use App\Entity\PrivateMessageThread;
-use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
 use App\Response\AjaxResponse;
-use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
-use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
+use App\Service\LogTemplateHandler;
 use App\Service\UserHandler;
+use App\Translation\T;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
@@ -49,6 +38,7 @@ class MessageGlobalPMController extends MessageController
 
         return new AjaxResponse(['new' =>
             $em->getRepository(UserGroupAssociation::class)->countUnreadPMsByUser($user) +
+            $em->getRepository(GlobalPrivateMessage::class)->countUnreadDirectPMsByUser($user) +
             $em->getRepository(Announcement::class)->countUnreadByUser($user, $this->getUserLanguage())
             , 'connected' => 15000, 'success' => true]);
     }
@@ -124,6 +114,31 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
+     * @param array|null $entries
+     */
+    private function render_directNotifications( ?array &$entries = null ): void {
+        if ($entries === null) $entries = [];
+
+        $latest_pm = $this->entity_manager->getRepository(GlobalPrivateMessage::class)->getDirectPMsByUser($this->getUser(), 0, 1);
+
+        if ($latest_pm) {
+            $crow = $this->entity_manager->getRepository(User::class)->find(66);
+            $entries[] = [
+                'obj'    => $latest_pm[0],
+                'date'   => $latest_pm[0]->getTimestamp(),
+                'system' => true,
+                'title'  => T::__('Nachrichten des Raben', 'global'),
+                'closed' => false,
+                'count'  => $this->entity_manager->getRepository(GlobalPrivateMessage::class)->count(['receiverUser' => $this->getUser(), 'receiverGroup' => null]),
+                'unread' => $this->entity_manager->getRepository(GlobalPrivateMessage::class)->countUnreadDirectPMsByUser($this->getUser()),
+                'owner'  => $crow,
+                'users'  => [$this->getUser(),$crow]
+            ];
+
+        }
+    }
+
+    /**
      * @Route("jx/pm/list", name="pm_list")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $p
@@ -141,6 +156,8 @@ class MessageGlobalPMController extends MessageController
 
         $this->render_announcements( $em->getRepository(Announcement::class)->findByLang($this->getUserLanguage(),
         $skip['a'] ?? [], $num+1), $entries );
+
+        $this->render_directNotifications($entries);
 
         usort($entries, fn($a,$b) => $b['date'] <=> $a['date']);
 
@@ -193,6 +210,61 @@ class MessageGlobalPMController extends MessageController
             'last_message' => $sliced[array_key_last($sliced)]->getId()
         ] ));
     }
+
+    /**
+     * @Route("jx/pm/conversation/dm", name="pm_dm")
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $p
+     * @return Response
+     */
+    public function pm_direct_messages(EntityManagerInterface $em, LogTemplateHandler $th, JSONRequestParser $p): Response {
+
+        $num = max(5,min($p->get('num', 5),30));
+        $last_id = $p->get('last', 0);
+
+        /** @var GlobalPrivateMessage[] $messages */
+        $messages = $em->getRepository(GlobalPrivateMessage::class)->getDirectPMsByUser($this->getUser(), $last_id, $num + 1);
+        if (!$messages) return new Response('no messages');
+
+        $sliced = array_slice($messages, 0, $num);
+
+        $update = false;
+        $seen_map = [];
+        foreach ($sliced as $message)
+            if (!$message->getSeen()) {
+                $seen_map[] = $message->getId();
+                $message->setSeen($update = true);
+                $em->persist($message);
+            }
+
+        if ($update) try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {}
+
+        foreach ($sliced as $message) {
+            $tx = '';
+            if ($message->getText()) $tx .= $this->prepareEmotes($message->getText());
+
+            if ($message->getTemplate())
+                try {
+                    $tx .= $this->translator->trans(
+                        $message->getTemplate()->getText(), $th->parseTransParams($message->getTemplate()->getVariableTypes(), $message->getData()), 'game'
+                    );
+                }
+                catch (\Exception $e) { $tx .= '_TEMPLATE_ERROR_'; }
+
+            $message->setText($tx);
+            if (in_array($message->getId(),$seen_map)) $message->setSeen(false);
+        }
+
+        return $this->render( 'ajax/pm/dm.html.twig', $this->addDefaultTwigArgs(null, [
+            'last' => $sliced[array_key_last($sliced)]->getId(),
+            'more' => count($messages) > $num,
+            'messages' => $sliced,
+            'last_message' => $sliced[array_key_last($sliced)]->getId()
+        ] ));
+    }
+
 
     /**
      * @Route("jx/pm/conversation/announce/{id<\d+>}", name="pm_announce")
@@ -312,6 +384,45 @@ class MessageGlobalPMController extends MessageController
             $em->flush();
         } catch (\Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/pm/conversation/dm/delete", name="pm_delete_dm")
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function pm_delete_dm(EntityManagerInterface $em): Response {
+
+        foreach ($em->getRepository(GlobalPrivateMessage::class)->getDirectPMsByUser( $this->getUser() ) as $dm)
+            $em->remove($dm);
+
+        try {
+            $em->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/pm/conversation/dm/unread", name="pm_unread_dm")
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function pm_unread_dm(EntityManagerInterface $em): Response {
+        $dm = $em->getRepository(GlobalPrivateMessage::class)->getDirectPMsByUser( $this->getUser(), 0, 1 );
+
+        if ($dm) {
+            $em->persist( $dm[0]->setSeen(false) );
+            try {
+                $em->flush();
+            } catch (\Exception $e) {
+                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
         }
 
         return AjaxResponse::success();

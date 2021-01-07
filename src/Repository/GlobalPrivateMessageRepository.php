@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\GlobalPrivateMessage;
+use App\Entity\User;
 use App\Entity\UserGroup;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -27,7 +28,31 @@ class GlobalPrivateMessageRepository extends ServiceEntityRepository
             ->orderBy('g.timestamp', 'DESC')->orderBy('g.id', 'DESC');
 
         if ($last_id > 0) $qb->andWhere('g.id < :id')->setParameter('id', $last_id);
-        if ($num > 0) $qb ->setMaxResults($num);
+        if ($num > 0) $qb->setMaxResults($num);
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function countUnreadDirectPMsByUser( User $user ): int
+    {
+        try {
+            return $this->createQueryBuilder('g')->select('COUNT(g.id)')
+                ->andWhere('g.receiverUser = :user')->setParameter('user', $user)
+                ->andWhere('g.receiverGroup IS NULL')
+                ->andWhere('g.seen = :seen')->setParameter('seen', false)
+                ->getQuery()->getSingleScalarResult();
+        } catch (\Exception $e) { return 0; }
+    }
+
+    public function getDirectPMsByUser( User $user, int $last_id = 0, int $num = 0 )
+    {
+        $qb = $this->createQueryBuilder('g')
+            ->andWhere('g.receiverUser = :user')->setParameter('user', $user)
+            ->andWhere('g.receiverGroup IS NULL')
+            ->orderBy('g.timestamp', 'DESC')->orderBy('g.id', 'DESC');
+
+        if ($last_id > 0) $qb->andWhere('g.id < :id')->setParameter('id', $last_id);
+        if ($num > 0) $qb->setMaxResults($num);
 
         return $qb->getQuery()->getResult();
     }

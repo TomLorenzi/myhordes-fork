@@ -26,6 +26,12 @@
                 {% set message_id       = entry.obj.id %}
                 {% set message_type     = 'a' %}
                 {% set message_show_ava = false %}
+            {% elseif entry.obj|instance_of('App\\Entity\\GlobalPrivateMessage') %}
+                {% set endpoint_fetch  = path('pm_dm') %}
+                {% set endpoint_trash  = path('pm_delete_dm') %}
+                {% set endpoint_unread = path('pm_unread_dm') %}
+                {% set message_id      = entry.obj.id %}
+                {% set message_type    = 'd' %}
             {% endif %}
 
             <li x-title="{{ message_title }}" x-domain="{{ message_type }}" x-identifier="{{ message_id }}"
@@ -38,7 +44,7 @@
                 {% if message_show_ava %}
                     <div class="pm-avatar-block">
                     {% if entry.system %}
-                        <div class="avatarcrow"></div>
+                        <div class="pm-avatar-crow"></div>
                     {% elseif entry.users|length > 1 %}
                         {% set i = 0 %}
                         {% for message_partner in entry.users %}
@@ -66,10 +72,10 @@
                 </div>
                 {% endif %}
 
-                <b class="title">{{ entry.title }}</b>
+                <b class="title {% if entry.system %}crow-note{% endif %}">{{ entry.title }}</b>
 
                 {% if entry.system %}
-                    <span class="author crow-note">{{ 'Nachricht des Raben'|trans({},'global') }}</span>
+                    <span class="author crow-note">{{ 'Der Rabe'|trans({},'global') }}</span>
                 {% elseif entry.users|length > 2 and entry.owner != app.user %}
                     <span class="author group-desc"><b class="sender">{{ entry.owner.name }}</b>, {{ '%n% Teilnehmer'|trans({'%n%': entry.users|length},'global') }}</span>
                 {% elseif entry.users|length > 2 %}

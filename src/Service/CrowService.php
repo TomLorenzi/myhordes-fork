@@ -5,6 +5,8 @@ namespace App\Service;
 use App\Entity\BankAntiAbuse;
 use App\Entity\Citizen;
 use App\Entity\Forum;
+use App\Entity\GlobalPrivateMessage;
+use App\Entity\LogEntryTemplate;
 use App\Entity\Post;
 use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
@@ -100,5 +102,33 @@ class CrowService {
         $this->em->persist($thread);
         $this->em->persist($post);
 
+    }
+
+    public function createPM_townNegated( User $receiver, string $townName, bool $auto ): GlobalPrivateMessage {
+        $template = $auto
+            ? $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_townNegatedAuto'])
+            : $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_townNegatedAdmin']);
+
+        return (new GlobalPrivateMessage())
+            ->setTemplate( $template )
+            ->setData( [ 'town' => $townName ])
+            ->setTimestamp( new DateTime('now') )
+            ->setReceiverUser( $receiver )
+            ->setSender( $this->getCrowAccount() )
+            ->setSeen( false );
+    }
+
+    public function createPM_townQuarantine( User $receiver, string $townName, bool $on ): GlobalPrivateMessage {
+        $template = $on
+            ? $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_townQuarantineOn'])
+            : $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_townQuarantineOff']);
+
+        return (new GlobalPrivateMessage())
+            ->setTemplate( $template )
+            ->setData( [ 'town' => $townName ])
+            ->setTimestamp( new DateTime('now') )
+            ->setReceiverUser( $receiver )
+            ->setSender( $this->getCrowAccount() )
+            ->setSeen( false );
     }
 }

@@ -40,21 +40,6 @@ class GlobalPrivateMessage
     private $timestamp;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $template;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $intval1;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $intval2;
-
-    /**
      * @ORM\Column(type="json", nullable=true)
      */
     private $data = [];
@@ -63,6 +48,16 @@ class GlobalPrivateMessage
      * @ORM\Column(type="text", nullable=true)
      */
     private $text;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=LogEntryTemplate::class)
+     */
+    private $template;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $seen;
 
     public function getId(): ?int
     {
@@ -117,42 +112,6 @@ class GlobalPrivateMessage
         return $this;
     }
 
-    public function getTemplate(): ?int
-    {
-        return $this->template;
-    }
-
-    public function setTemplate(?int $template): self
-    {
-        $this->template = $template;
-
-        return $this;
-    }
-
-    public function getIntval1(): ?int
-    {
-        return $this->intval1;
-    }
-
-    public function setIntval1(?int $intval1): self
-    {
-        $this->intval1 = $intval1;
-
-        return $this;
-    }
-
-    public function getIntval2(): ?int
-    {
-        return $this->intval2;
-    }
-
-    public function setIntval2(?int $intval2): self
-    {
-        $this->intval2 = $intval2;
-
-        return $this;
-    }
-
     public function getData(): ?array
     {
         return $this->data;
@@ -173,6 +132,30 @@ class GlobalPrivateMessage
     public function setText(?string $text): self
     {
         $this->text = $text;
+
+        return $this;
+    }
+
+    public function getTemplate(): ?LogEntryTemplate
+    {
+        return $this->template;
+    }
+
+    public function setTemplate(?LogEntryTemplate $template): self
+    {
+        $this->template = $template;
+
+        return $this;
+    }
+
+    public function getSeen(): ?bool
+    {
+        return $this->seen;
+    }
+
+    public function setSeen(?bool $seen): self
+    {
+        $this->seen = $seen;
 
         return $this;
     }
