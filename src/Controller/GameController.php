@@ -149,7 +149,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                 break;
             }
 
-        if (!$has_living_citizens)
+        if (!$has_living_citizens && $this->getActiveCitizen()->getCauseOfDeath()->getRef() != CauseOfDeath::Radiations)
             return $this->redirect($this->generateUrl('game_landing'));
 
         /** @var Gazette $gazette */
@@ -239,17 +239,14 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                         $variables['cadaver' . $i] = (array_shift($cadavers))->getId();
                     }
                 }
-                elseif ($requirements == GazetteLogEntry::RequiresAttack) {
-                    $attack = $gazette->getAttack();
-                    $variables['attack'] = $attack < 2000 ? 10 * (round($attack / 10)) : 100 * (round($attack / 100));
-                }
-                elseif ($requirements == GazetteLogEntry::RequiresDefense) {
-                    $defense = $gazette->getDefense();
-                    $variables['defense'] = $defense < 2000 ? 10 * (round($defense / 10)) : 100 * (round($defense / 100));
-                }
-                elseif ($requirements == GazetteLogEntry::RequiresDeaths) {
-                    $variables['deaths'] = $gazette->getDeaths();
-                }
+
+                $attack = $gazette->getAttack();
+
+                $variables['attack'] = $attack < 2000 ? 10 * (round($attack / 10)) : 100 * (round($attack / 100));
+                $variables['deaths'] = $gazette->getDeaths();
+
+                $defense = $gazette->getDefense();
+                $variables['defense'] = $defense < 2000 ? 10 * (round($defense / 10)) : 100 * (round($defense / 100));
 
                 $news = new GazetteLogEntry();
                 $news->setDay($day)->setGazette($gazette)->setLogEntryTemplate($townTemplate)->setVariables($variables);
@@ -457,7 +454,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
             'show_register'  => $show_register,
             'show_town_link'  => $in_town,
             'day' => $town->getDay(),
-            'log' => $show_register ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
+            'log' => $show_register ? $this->renderLog( -1 )->getContent() : "",
             'gazette' => $gazette_info,
             'citizensWithRole' => $citizensWithRole,
             'clock' => [

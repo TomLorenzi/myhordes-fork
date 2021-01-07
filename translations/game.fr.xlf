@@ -8251,7 +8251,7 @@
       </notes>
       <segment>
         <source>%citizen% wurde von %num% Zombies zerfleischt!</source>
-        <target>%citizen% a été mutilé par %num% zombies !</target>
+        <target>%citizen% a été dévoré par %num% zombies !</target>
       </segment>
     </unit>
     <unit id="0OgA2rX" name="0505799">
@@ -15351,7 +15351,7 @@
       </notes>
       <segment>
         <source>Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.</source>
-        <target>Vous avez été désigné(e) comme citoyen officiel responsable de la Catapulte de la ville ! Ceüe nomination s'est déroulée par tirage au sort, félicitations. Rendez-vous dans la section Catapulte de votre ville.</target>
+        <target>Vous avez été désigné(e) comme citoyen officiel responsable de la Catapulte de la ville ! Cette nomination s'est déroulée par tirage au sort, félicitations. Rendez-vous dans la section Catapulte de votre ville.</target>
       </segment>
     </unit>
     <unit id=".SXRDqM" name="Einen zufälligen Bürger als Katapult-Bediener auslosen">
