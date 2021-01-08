@@ -112,7 +112,6 @@ class ExternalXML2Controller extends ExternalController {
 
         if($user instanceof Response)
             return $user;
-
         $endpoints = [];
         if ($this->isSecureRequest()) {
             $endpoints['user'] = $this->generateUrl('api_x2_xml_user', [], UrlGeneratorInterface::ABSOLUTE_URL);
@@ -120,7 +119,7 @@ class ExternalXML2Controller extends ExternalController {
             $endpoints['buildings']= $this->generateUrl('api_x2_xml_buildings', [], UrlGeneratorInterface::ABSOLUTE_URL);
             $endpoints['ruins']= $this->generateUrl('api_x2_xml_ruins', [], UrlGeneratorInterface::ABSOLUTE_URL);
         }
-        if ($user->getAliveCitizen()) $endpoints['town'] = $this->generateUrl("api_x2_xml_town", [], UrlGeneratorInterface::ABSOLUTE_URL);
+        if ($user->getActiveCitizen()) $endpoints['town'] = $this->generateUrl("api_x2_xml_town", [], UrlGeneratorInterface::ABSOLUTE_URL);
 
         $array = [
             "endpoint_list" => $endpoints
@@ -632,6 +631,9 @@ class ExternalXML2Controller extends ExternalController {
                             case Citizen::Cooked:
                                 $type = "cook";
                                 break;
+                            case Citizen::Ghoul:
+                                $type = "ghoul";
+                                break;
                         }
                         $cadaver['cleanup'] = [
                             'attributes' => [
@@ -1026,11 +1028,12 @@ class ExternalXML2Controller extends ExternalController {
         return $_xml->asXML();
     }
 
-    protected function parseGazetteLog(GazetteLogEntry $gazetteLogEntry) {
+    protected function parseGazetteLog(GazetteLogEntry $gazetteLogEntry): string
+    {
         return $this->parseLog($gazetteLogEntry->getLogEntryTemplate(), $gazetteLogEntry->getVariables());
     }
 
-    protected function parseLog(LogEntryTemplate $template, array $variables ): String {
+    protected function parseLog(LogEntryTemplate $template, array $variables ): string {
         $variableTypes = $template->getVariableTypes();
         $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $variables, true);
 

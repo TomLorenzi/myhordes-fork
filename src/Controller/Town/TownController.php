@@ -431,7 +431,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $pictoName = "";
         $message = "";
         switch ($action) {
-            case 1:
+            case Citizen::Thrown:
                 // Thrown outside
                 if ($ac->getAp() < 2 || $this->citizen_handler->isTired( $ac ))
                     return AjaxResponse::error( ErrorHelper::ErrorNoAP );
@@ -441,7 +441,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $c->setDisposed(Citizen::Thrown);
                 $c->addDisposedBy($ac);
                 break;
-            case 2:
+            case Citizen::Watered:
                 // Watered
                 $items = $this->inventory_handler->fetchSpecificItems( $ac->getInventory(), [new ItemRequest('water_#00')] );
                 if (!$items) return AjaxResponse::error(ErrorHelper::ErrorItemsMissing );
@@ -451,7 +451,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $c->setDisposed(Citizen::Watered);
                 $c->addDisposedBy($ac);
                 break;
-            case 3:
+            case Citizen::Cooked:
                 // Cooked
                 $town = $ac->getTown();
                 if (!$th->getBuilding($town, 'item_hmeat_#00', true))

@@ -10357,7 +10357,7 @@
       </notes>
       <segment>
         <source>%citizen% hat mit etwas Wasser † %disposed% "verbrannt".</source>
-        <target>%citizen% s'est débarrassé du corps de † %disposed% "en l'arrosant d'eau".</target>
+        <target>%citizen% s'est débarrassé du corps de † %disposed% en l'arrosant d'eau.</target>
       </segment>
     </unit>
     <unit id="UA1vSp." name="Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!">

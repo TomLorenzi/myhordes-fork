@@ -416,10 +416,11 @@ class InventoryAwareController extends CustomAbstractController
             if ($aggressor->getZone() || !$victim->getHome()->getHoldsBody())
                 return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-            $this->entity_manager->persist( $this->log->citizenDisposal($aggressor, $victim, 4) );
+            $this->entity_manager->persist( $this->log->citizenDisposal($aggressor, $victim, Citizen::Ghoul) );
 
             $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 10) );
             $victim->getHome()->setHoldsBody(false);
+            $victim->setDisposed(Citizen::Ghoul);
             $this->picto_handler->give_picto($aggressor, 'r_cannib_#00');
 
             $notes[] = $this->translator->trans('Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.', [], 'game');
