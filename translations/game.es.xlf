@@ -8307,7 +8307,7 @@
       </notes>
       <segment>
         <source>Wir hatten alles, was wir brauchten nahe dem westlichen Viertel, um die schlurfenden Leichen von gestern Abend fernzuhalten, soviel ist sicher. Null Verluste - abgesehen von ein paar Häusern, die sie getroffen haben.</source>
-        <target>sta noche, nos defendimos bien cerca de la muralla del ataque de %attack% zombies especialmente violentos. No tenemos bajas, solo algunas casas sufrieron ligeros daños.</target>
+        <target>Esta noche, nos defendimos bien cerca de la muralla del ataque de %attack% zombies especialmente violentos. No tenemos bajas, solo algunas casas sufrieron ligeros daños.</target>
       </segment>
     </unit>
     <unit id="RRW1KXj" name="df3cfa4">
@@ -8325,7 +8325,7 @@
       </notes>
       <segment>
         <source>Da gestern Abend rund %attack% Zombies vor den Toren standen, hätten wir das Schlimmste befürchten können, aber kein einziger ist reingekommen: gute Zeiten! Brecht Euch sich aber nicht den Arm, wenn Ihr Euch gegenseitig auf die Schulter klopft!</source>
-        <target>Tuvimos más o menos 3670 zombies en el portal anoche, lo peor pudo suceder, pero muy pocos o ninguno consiguió entrar. ¡Alabadas sean nuestras defensas!</target>
+        <target>Tuvimos más o menos %attack% zombies en el portal anoche, lo peor pudo suceder, pero muy pocos o ninguno consiguió entrar. ¡Alabadas sean nuestras defensas!</target>
       </segment>
     </unit>
     <unit id="DHLa_0B" name="55f668d">
