@@ -150,7 +150,7 @@
                 <h5>{% trans from 'game' %}Was ist mit ihm geschehen?{% endtrans %}</h5>
                 {% if owner.disposed is null %}
                     {{'Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.'|trans({'%citizen%': "<strong>" ~ owner.user.name ~ "</strong>"}, 'game')|raw}}
-                {% elseif owner.disposed is not null and owner.disposedBy|length > 0 %}
+                {% elseif owner.disposed is not null %}
                 <span class="disposal">
                     {% if owner.disposed == constant('App\\Entity\\Citizen::Thrown') %}
                         {{'Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.user.name ~ "</em>"}, 'game')|raw}}
@@ -158,6 +158,8 @@
                         {{'Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.user.name ~ "</em>"}, 'game')|raw}}
                     {% elseif owner.disposed == constant('App\\Entity\\Citizen::Cooked') %}
                         {{'Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.user.name ~ "</em>"}, 'game')|raw}}
+                    {% elseif owner.disposed == constant('App\\Entity\\Citizen::Ghoul') %}
+                        {{ 'Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?'|trans({}, 'game')|raw }}
                     {% endif %}
                 </span>
                 {% else %}
@@ -250,6 +252,7 @@
         </div>
     </div>
 
+    {% if owner.alive %}
     <div class="row">
         <h5>{{ '%citizen%s Register'|trans({'%citizen%': owner.user.name},'game') }}</h5>
         <div class="cell rw-12">
@@ -257,6 +260,7 @@
             {% endembed %}
         </div>
     </div>
+    {% endif %}
 
     <br />
 

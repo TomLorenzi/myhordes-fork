@@ -416,7 +416,7 @@ class InventoryAwareController extends CustomAbstractController
             if ($aggressor->getZone() || !$victim->getHome()->getHoldsBody())
                 return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-            $this->entity_manager->persist( $this->log->citizenDisposal($aggressor, $victim, Citizen::Ghoul) );
+            // $this->entity_manager->persist( $this->log->citizenDisposal($aggressor, $victim, Citizen::Ghoul) );
 
             $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 10) );
             $victim->getHome()->setHoldsBody(false);

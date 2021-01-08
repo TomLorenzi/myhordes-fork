@@ -795,7 +795,10 @@ class ExternalXML2Controller extends ExternalController {
                 'attributes' => [
                     'id' => $item->getId(),
                     'cat' => $cat->getName(),
-                    'img' => str_replace($icon_asset_path, '', $this->asset->getUrl("build/images/item/item_{$item->getIcon()}.gif"))
+                    'img' => str_replace($icon_asset_path, '', $this->asset->getUrl("build/images/item/item_{$item->getIcon()}.gif")),
+                    'deco' => $item->getDeco(),
+                    'heavy' => intval($item->getHeavy()),
+                    'guard' => intval($item->getWatchpoint())
                 ]
             ];
 

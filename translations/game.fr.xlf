@@ -8470,7 +8470,7 @@
         <target>Qu'est-il arrivé au corps? Le corps sans vie a disparu sans laisser de trace ... Il se trouve probablement quelque part devant la ville et pourrit ... Peut-être qu'il viendra vous rendre visite la nuit ?</target>
       </segment>
     </unit>
-    <unit id="oHxefYi" name="6fc4576">
+    <unit id="4v4ATlD" name="3972722">
       <notes>
         <note category="german">%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen &lt;strong&gt;massiven Zusammenbruch&lt;/strong&gt; hatten. Letzte Nacht gab es keine Toten in der Stadt.</note>
       </notes>
@@ -8479,7 +8479,7 @@
         <target><![CDATA[%citizen1% a passé toute la nuit à hurler dans sa maison, au point que tout le monde pensait que les zombies se taillaient un steak dessus. Ben non, en fait c'était juste une <strong>grosse crise de nerfs</strong> : aucun mort en ville hier soir.]]></target>
       </segment>
     </unit>
-    <unit id="ZV3brVh" name="7dd2cf8">
+    <unit id="ycaiqp4" name="6a8fc71">
       <notes>
         <note category="german">%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern &lt;strong&gt;zu erhängen&lt;/strong&gt;. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend &lt;strong&gt;keine Zombies&lt;/strong&gt; in die Stadt geschafft haben.</note>
       </notes>
@@ -8605,7 +8605,7 @@
         <target>Die Zombies griffen uns eine Zeit lang hart an, aber keiner kam durch... Aber zweifelt nicht eine Sekunde daran, dass sie heute Abend zurückkommen werden, noch hungriger und sicherlich zahlenmäßig größer...</target>
       </segment>
     </unit>
-    <unit id="nzbV8IO" name="e986527">
+    <unit id="h8UBn_c" name="d881f0f">
       <notes>
         <note category="german">Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem &lt;strong&gt;er splitternackt durch die Straßen rannte&lt;/strong&gt;. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</note>
       </notes>
@@ -16553,6 +16553,33 @@
       <segment>
         <source>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</source>
         <target>Ce risque dépend directement du nombre de citoyens sortis dans l'Outre-Monde : moins il y a de citoyens en ville, moins vous avez de chances d'être vu(e).</target>
+      </segment>
+    </unit>
+    <unit id=".7eWye." name="Legendärer Dompteur">
+      <notes>
+        <note category="german">Legendärer Dompteur</note>
+      </notes>
+      <segment>
+        <source>Legendärer Dompteur</source>
+        <target>Legendärer Dompteur</target>
+      </segment>
+    </unit>
+    <unit id="CI8PARg" name="f618392">
+      <notes>
+        <note category="german">Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</note>
+      </notes>
+      <segment>
+        <source>Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</source>
+        <target>Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</target>
+      </segment>
+    </unit>
+    <unit id="8yLsMnc" name="1f8ca6f">
+      <notes>
+        <note category="german">Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</note>
+      </notes>
+      <segment>
+        <source>Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
+        <target><![CDATA[Aucune idée. <strong>Le corps a disparu sans laisser de trace...</strong> Peut-être qu'il a été jeté dehors et qu'il se lèvera ce soir pour vous rendre visite dans la nuit.]]></target>
       </segment>
     </unit>
   </file>
