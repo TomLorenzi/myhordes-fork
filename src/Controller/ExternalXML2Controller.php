@@ -20,6 +20,7 @@ use App\Entity\Town;
 use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\Zone;
+use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
 use App\Structures\SimpleXMLExtended;
 use App\Structures\TownConf;
@@ -117,6 +118,7 @@ class ExternalXML2Controller extends ExternalController {
             $endpoints['user'] = $this->generateUrl('api_x2_xml_user', [], UrlGeneratorInterface::ABSOLUTE_URL);
             $endpoints['items']= $this->generateUrl('api_x2_xml_items', [], UrlGeneratorInterface::ABSOLUTE_URL);
             $endpoints['buildings']= $this->generateUrl('api_x2_xml_buildings', [], UrlGeneratorInterface::ABSOLUTE_URL);
+            $endpoints['ruins']= $this->generateUrl('api_x2_xml_ruins', [], UrlGeneratorInterface::ABSOLUTE_URL);
         }
         if ($user->getAliveCitizen()) $endpoints['town'] = $this->generateUrl("api_x2_xml_town", [], UrlGeneratorInterface::ABSOLUTE_URL);
 
@@ -818,7 +820,7 @@ class ExternalXML2Controller extends ExternalController {
      * @param Request $request
      * @return Response
      */
-    public function api_xml_bulidings(Request $request): Response {
+    public function api_xml_buildings(Request $request): Response {
         $user = $this->check_keys(true);
 
         $icon_asset_path = Request::createFromGlobals()->getBasePath() . '/build/images/';
@@ -889,6 +891,85 @@ class ExternalXML2Controller extends ExternalController {
                 $buildingXml['attributes']['parent'] = $building->getParent()->getId();
             }
             $data['data']['buildings']['list']['items'][] = $buildingXml;
+        }
+
+        $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+        $response->headers->set('Content-Type', 'text/xml');
+        return $response;
+    }
+
+    /**
+     * @Route("/api/x/v2/xml/ruins", name="api_x2_xml_ruins", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * Returns the lists of ruins currently used in the game
+     * @param Request $request
+     * @return Response
+     */
+    public function api_xml_ruins(Request $request): Response {
+        $user = $this->check_keys(true);
+
+        $icon_asset_path = Request::createFromGlobals()->getBasePath() . '/build/images/';
+
+        try {
+            $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
+        } catch (Exception $e) {
+            $now = date('Y-m-d H:i:s');
+        }
+
+        if($user instanceof Response)
+            return $user;
+
+        // Try POST data
+        $language = $request->query->get('lang');
+
+        if (trim($language) == '') {
+            $language = $request->request->get('lang');
+        }
+
+        if(!in_array($language, ['en', 'fr', 'de', 'es', 'all'])) {
+            $language = $user->getLanguage() ?? 'de';
+        }
+
+        if($language !== 'all')
+            $this->translator->setLocale($language);
+
+        // Base data.
+        $data = $this->getHeaders($user);
+
+        $ruins = $this->entity_manager->getRepository(ZonePrototype::class)->findAll();
+
+        $data['data'] = [
+            'attributes' => [
+                'cache-date' => $now->format('Y-m-d H:i:s'),
+                'cache-fast' => 0,
+            ],
+            'ruins' => [
+                'list' => [
+                    'name' => 'ruin',
+                    'items' => [
+                    ]
+                ],
+            ],
+        ];
+
+        /** @var ZonePrototype $ruin */
+        foreach ($ruins as $ruin) {
+            $ruinXml = [
+                'attributes' => [
+                    'id' => $ruin->getId(),
+                    'explorable' => intval($ruin->getExplorable())
+                ]
+            ];
+            if ($language !== 'all') {
+                $ruinXml['attributes']['name'] = $this->translator->trans($ruin->getLabel(), [], 'game');
+                $ruinXml['cdata_value'] = $this->translator->trans($ruin->getExplorableDescription() ?? $ruin->getDescription(), [], 'game');
+            } else {
+                foreach ($this->available_langs as $lang) {
+                    $ruinXml['attributes']["name-$lang"] = $this->translator->trans($ruin->getLabel(), [], 'buildings', $lang);
+                    $ruinXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($ruin->getExplorableDescription() ?? $ruin->getDescription(), [], 'buildings', $lang)];
+                }
+            }
+
+            $data['data']['ruins']['list']['items'][] = $ruinXml;
         }
 
         $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
