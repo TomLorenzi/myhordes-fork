@@ -48,6 +48,11 @@ services:
         arguments:
             $translator: '@translator.default'
 
+    # The NightlyHandler should have it's own log channel
+    App\Service\NightlyHandler:
+        tags:
+          - { name: monolog.logger, channel: night }
+
     App\Command\DebugCommand:
         arguments:
             $translator: '@translator.default'

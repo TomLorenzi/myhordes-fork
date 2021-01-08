@@ -248,8 +248,8 @@ class ExternalXMLController extends ExternalController {
                         'hero' => $citizen->getProfession()->getHeroic(),
                         'name' => $citizen->getUser()->getName(),
                         'avatar' => '',
-                        'x' => !is_null($citizen->getZone()) ? $citizen->getZone()->getX() - $x_min : -$x_min,
-                        'y' => !is_null($citizen->getZone()) ? $y_max - $citizen->getZone()->getY() : $y_max,
+                        'x' => $town->getChaos() ? null : (!is_null($citizen->getZone()) ? $citizen->getZone()->getX() - $x_min : -$x_min),
+                        'y' => $town->getChaos() ? null : (!is_null($citizen->getZone()) ? $y_max - $citizen->getZone()->getY() : $y_max),
                         'id' => $citizen->getId(),
                         'ban' => $citizen->getBanished(),
                         'job' => $citizen->getProfession()->getName(),
@@ -258,7 +258,7 @@ class ExternalXMLController extends ExternalController {
                     ],
                 ];
                 $data['hordes']['data']['citizens']['list']['items'][] = $citizen_data;
-                if ($citizen == $user->getActiveCitizen()) {
+                if ($citizen === $user->getActiveCitizen()) {
                     $data['hordes']['headers']['owner'] = [
                         'citizen' => $citizen_data,
                     ];
@@ -274,19 +274,22 @@ class ExternalXMLController extends ExternalController {
                                 'items' => [],
                             ],
                         ];
-                        $inventory = $myzone->getFloor();
-                        foreach ( $inventory->getItems() as $item ) {
-                            $item_data = [
-                                'attributes' => [
-                                    'name' => $item->getPrototype()->getLabel(),
-                                    'count' => $item->getCount(),
-                                    'id' => $item->getPrototype()->getId(),
-                                    'img' => $item->getPrototype()->getIcon(),
-                                    'cat' => $item->getPrototype()->getCategory()->getParent() ? $item->getPrototype()->getCategory()->getParent()->getName() : $item->getPrototype()->getCategory()->getName(),
-                                    'broken' => $item->getBroken(),
-                                ],
-                            ];
-                            $data['hordes']['headers']['owner']['myZone']['list']['items'][] = $item_data;
+
+                        if (!$town->getChaos()) {
+                            $inventory = $myzone->getFloor();
+                            foreach ( $inventory->getItems() as $item ) {
+                                $item_data = [
+                                    'attributes' => [
+                                        'name' => $item->getPrototype()->getLabel(),
+                                        'count' => $item->getCount(),
+                                        'id' => $item->getPrototype()->getId(),
+                                        'img' => $item->getPrototype()->getIcon(),
+                                        'cat' => $item->getPrototype()->getCategory()->getParent() ? $item->getPrototype()->getCategory()->getParent()->getName() : $item->getPrototype()->getCategory()->getName(),
+                                        'broken' => $item->getBroken(),
+                                    ],
+                                ];
+                                $data['hordes']['headers']['owner']['myZone']['list']['items'][] = $item_data;
+                            }
                         }
                     }
                 }

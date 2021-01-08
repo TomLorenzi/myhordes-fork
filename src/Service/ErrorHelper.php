@@ -38,4 +38,5 @@ class ErrorHelper
     const ErrorMustBeHero                = 54;
     const ErrorActionNotAvailableWounded = 55;
     const ErrorActionNotAvailableSP      = 56;
+    const ErrorActionNotAvailableTerror  = 57;
 }

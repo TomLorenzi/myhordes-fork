@@ -716,15 +716,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
             $pump = $th->getBuilding($town, 'small_water_#00', true);
 
-            $limit = 1;
-            if($pump) {
-                if($town->getChaos()) {
-                    $limit = 3;
-                } else if  (!$this->getActiveCitizen()->getBanished()) {
-                    $limit = 2;
-                }
-            }
-
+            $limit = $pump ? ($town->getChaos() ? 3 : 2) : 1;
             if ($direction == 'up') {
                 if ($town->getWell() <= 0) return AjaxResponse::error(self::ErrorWellEmpty);
 
