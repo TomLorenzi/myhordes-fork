@@ -1515,7 +1515,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         $data = $parser->get('data', []);
-        if (!$data || !is_array($data) || count($data) > 32 || count($data) < 2)
+        if (!$data || !is_array($data)  || count($data) < 2)
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         if ($citizen->getExpeditionRoutes()->count() >= 12)
