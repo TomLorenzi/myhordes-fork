@@ -1053,7 +1053,7 @@
       </notes>
       <segment>
         <source>Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.</source>
-        <target>Puisque vous êtes mort prématurément de soif dans plusieurs de vos dernières villes, vous êtes exclu du jeu pendant un certain temps. Vous ne pouvez pas actuellement entrer dans une nouvelle ville.</target>
+        <target>Puisque vous êtes mort prématurément dans plusieurs de vos dernières villes, vous êtes exclu du jeu pendant un certain temps. Vous ne pouvez pas actuellement entrer dans une nouvelle ville.</target>
       </segment>
     </unit>
     <unit id="pOtfy6G" name="5cb7c99">
@@ -1062,7 +1062,7 @@
       </notes>
       <segment>
         <source>Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</source>
-        <target>Vous êtes mort prématurément de soif dans plusieurs de vos dernières villes. Si cela se reproduit dans votre prochaine ville, vous serez banni du jeu pendant quelques temps.</target>
+        <target>Vous n'avez pas été actif durant cette partie et par conséquent avez pénalisé les joueurs de votre ville. Nous vous avertissions maintenant que si cela se reproduit, vous ne pourrez alors plus rejoindre de ville durant plusieurs jours.</target>
       </segment>
     </unit>
     <unit id="TIikksZ" name="Wiedergeburt: Privatstadt gründen">

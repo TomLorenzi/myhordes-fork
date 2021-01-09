@@ -8413,7 +8413,7 @@
       </notes>
       <segment>
         <source>Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem %citizen1% zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von %citizen2% dazu: "Der Anblick war nicht von schlechten Eltern."</source>
-        <target>Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem %citizen1% zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von %citizen2% dazu: "Der Anblick war nicht von schlechten Eltern."</target>
+        <target><![CDATA[Ce matin, %citizen1% a tenu à fêter dignement la nuit passée sans un mort <strong>en courant nu comme un ver</strong> dans nos ruelles. "La vue n'était pas mauvaise." aurait expliqué %citizen2%.]]></target>
       </segment>
     </unit>
     <unit id="Eh4g78_" name="%attacker% hat %defender% gewalttätig angegriffen und verwundet!">
@@ -8476,7 +8476,7 @@
       </notes>
       <segment>
         <source>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
-        <target>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</target>
+        <target><![CDATA[%citizen1% a passé toute la nuit à hurler dans sa maison, au point que tout le monde pensait que les zombies se taillaient un steak dessus. Ben non, en fait c'était juste une <strong>grosse crise de nerfs</strong> : aucun mort en ville hier soir.]]></target>
       </segment>
     </unit>
     <unit id="ZV3brVh" name="7dd2cf8">
@@ -8512,7 +8512,7 @@
       </notes>
       <segment>
         <source>Abgesehen davon, gut, dass letzte Nacht niemand starb. Eine Horde von fast %attack% Zombies heulte die ganze Nacht draußen, aber keiner von ihnen schaffte es, unsere Verteidigung zu durchbrechen.</source>
-        <target>A part ça, c'est bien que personne ne soit mort la nuit dernière. Une horde de presque %attack% zombies a hurlé dehors toute la nuit, mais aucun d'eux n'a réussi à percer nos défenses.</target>
+        <target>C'est bien que personne ne soit mort la nuit dernière. Une horde de presque %attack% zombies a hurlé dehors toute la nuit, mais aucun d'eux n'a réussi à percer nos défenses.</target>
       </segment>
     </unit>
     <unit id="gN4H5VR" name="786b2c6">
@@ -8539,7 +8539,7 @@
       </notes>
       <segment>
         <source>Es sei darauf hingewiesen, dass unsere Verteidigung nicht weit von der großen Südmauer entfernt dem furchterregenden Angriff der Horden letzte Nacht standgehalten hat. Um die %attack% Zombies versuchten alles, aber keine Verluste an Menschenleben während des Angriffs!</source>
-        <target>Es sei darauf hingewiesen, dass unsere Verteidigung nicht weit von der großen Südmauer entfernt dem furchterregenden Angriff der Horden letzte Nacht standgehalten hat. Um die %attack% Zombies versuchten alles, aber keine Verluste an Menschenleben während des Angriffs!</target>
+        <target>Nos défenses ont tenu le choc face à l'assaut terrifiant des Hordes dans la nuit pas loin de la muraille sud. Près de %attack% morts-vivants ! Aucune perte n'est à déplorer lors de cette attaque.</target>
       </segment>
     </unit>
     <unit id="4Z_UnE1" name="6fad503">
@@ -8575,7 +8575,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung an der Ostmauer scheint zufriedenstellend zu sein. Die furchterregenden Kreaturen der Horde wurden in Schach gehalten... dieses Mal!</source>
-        <target>Unsere Verteidigung an der Ostmauer scheint zufriedenstellend zu sein. Die furchterregenden Kreaturen der Horde wurden in Schach gehalten... dieses Mal!</target>
+        <target><![CDATA[Les créatures terrifiantes de la horde ont pu être maintenues <strong>à distance</strong> près de la muraille pour cette fois. Les défenses semblent satisfaisantes.]]></target>
       </segment>
     </unit>
     <unit id="yz3M1Pn" name="11b317a">
@@ -8584,7 +8584,7 @@
       </notes>
       <segment>
         <source>Einige Bürger kamen letzte Nacht ins Schwitzen. Eine Welle von etwa %attack% Monstern versuchte, unsere Stadt zu zerstören, wenn auch ohne Erfolg.</source>
-        <target>Certains citoyens ont commencé à transpirer la nuit dernière. Une vague d'environ %attack% de monstres a tenté de détruire notre ville, mais en vain.</target>
+        <target><![CDATA[Certains ont eu chaud aux fesses cette nuit. Une marée de quasiment %attack% monstres a tenté de réduire notre ville à <strong>néant</strong>, sans succès.]]></target>
       </segment>
     </unit>
     <unit id="_KcsEZD" name="3b11391">
@@ -8602,7 +8602,7 @@
       </notes>
       <segment>
         <source>Die Zombies griffen uns eine Zeit lang hart an, aber keiner kam durch... Aber zweifelt nicht eine Sekunde daran, dass sie heute Abend zurückkommen werden, noch hungriger und sicherlich zahlenmäßig größer...</source>
-        <target>Die Zombies griffen uns eine Zeit lang hart an, aber keiner kam durch... Aber zweifelt nicht eine Sekunde daran, dass sie heute Abend zurückkommen werden, noch hungriger und sicherlich zahlenmäßig größer...</target>
+        <target><![CDATA[Les zombies ont cogné <strong>dur</strong> pendant un bon moment, mais aucun n'est passé... A n'en pas douter, ils reviendront ce soir, encore plus affamés et sûrement plus nombreux...]]></target>
       </segment>
     </unit>
     <unit id="nzbV8IO" name="e986527">
@@ -8611,7 +8611,7 @@
       </notes>
       <segment>
         <source>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
-        <target>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</target>
+        <target><![CDATA[Ce matin, %citizen1% a tenu à fêter dignement la nuit passée sans un mort <strong>en courant nu comme un ver</strong> dans nos ruelles. "J'avais envie d'accueillir comme il se devait ce jour nouveau" aurait expliqué ce citoyen.]]></target>
       </segment>
     </unit>
     <unit id=".ArUqcq" name="ed7befb">
@@ -8638,7 +8638,7 @@
       </notes>
       <segment>
         <source>Ihr hast sie letzte Nacht gehört... die Schreie, das Stöhnen. Um die %attack% Zombies herum griffen an. Diesmal konnten wir uns durchsetzen, aber morgen... morgen wird es noch schlimmer...</source>
-        <target>Ihr hast sie letzte Nacht gehört... die Schreie, das Stöhnen. Um die %attack% Zombies herum griffen an. Diesmal konnten wir uns durchsetzen, aber morgen... morgen wird es noch schlimmer...</target>
+        <target><![CDATA[Vous les avez <strong>entendus</strong> cette nuit... Les cris, les grognements... Pas loin de %attack% zombies. On a réussi à tenir sur ce coup là, mais demain... Demain, ça sera pire encore...]]></target>
       </segment>
     </unit>
     <unit id="PZl940e" name="3a8fd01">
@@ -8665,7 +8665,7 @@
       </notes>
       <segment>
         <source>Alle scheinen sich still und leise über den Tod von %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</source>
-        <target>Alle scheinen sich still und leise über den Tod von %cadaver1% gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. %citizen1% kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</target>
+        <target><![CDATA[Tout le monde semble se <strong>réjouir</strong> en silence de la mort de %cadaver1% cette nuit... Seulement, personne n'explique pourquoi. %citizen1% aurait tout de même commenté : "ouais, l'aura eu ce qu'il méritait !".]]></target>
       </segment>
     </unit>
     <unit id="Mow3Zr1" name="50ae437">
@@ -8755,7 +8755,7 @@
       </notes>
       <segment>
         <source>Eine Handvoll Zombies durchbrach unsere Verteidigungsanlagen in der Nähe des nördlichen Viertels, wir haben keine Ahnung, wie... Wie es das "Glück" wollte, sind %deaths% Bürger tot, aber ihr habt seltsamerweise überlebt. ... Klingt das nicht ein wenig verdächtig?</source>
-        <target>Une poignée de zombies ont percé nos défenses près du quartier nord, nous ne savons pas comment ... Par chance, %deaths% citoyens sont morts, mais vous avez étrangement survécu. ... cela ne semble-t-il pas un peu suspect ?</target>
+        <target>Une poignée de zombies a franchi nos défenses au mur nord, sans que l'on sache comment... Selon un de vos voisins, il s'agirait d'une brèche dans la muraille près de sa maison. Comme par hasard, %deaths% citoyens sont morts mais pas lui. Bien évidemment, après l'attaque, ce citoyen consciencieux a soigneusement rebouché cette brèche... Suspect hein ?</target>
       </segment>
     </unit>
     <unit id="MwOt2NN" name="05e5ac7">
@@ -8773,7 +8773,7 @@
       </notes>
       <segment>
         <source>Wir müssen uns beeilen; unsere Unfähigkeit, zufriedenstellende Verteidigungsanlagen zu errichten, kostete letzte Nacht %deaths% Bürgern das Leben. Zu eurer Information: Gestern Abend wurde die Stadt von %attack% Zombies angegriffen.</source>
-        <target>Nous sommes pressés; notre incapacité à construire des défenses satisfaisantes a coûté la vie à %deaths% citoyens la nuit dernière. Pour votre information : La nuit dernière, la ville a été attaquée par %attack% zombies.</target>
+        <target>Également, il faudrait se bouger un peu; notre incapacité à bâtir des défenses suffisantes a coûté la vie à %deaths% citoyens cette nuit. Pour rappel, les zombies étaient près de %attack% pendant cet assaut. Super.</target>
       </segment>
     </unit>
     <unit id="dXpzNiz" name="ffa5094">
@@ -8818,7 +8818,7 @@
       </notes>
       <segment>
         <source>Mit weit aufgerissenem Maul stürzt du dich auf %citizen%. Unter der Wucht deiner brutalen Schläge und Tritte sackt er ziemlich schnell zusammen.</source>
-        <target>Mit weit aufgerissenem Maul stürzt du dich auf %citizen%. Unter der Wucht deiner brutalen Schläge und Tritte sackt er ziemlich schnell zusammen.</target>
+        <target>Vous vous jetez sans hésiter une seconde sur %citizen%, toutes dents dehors ! Sans lui laisser le temps de réagir, vous l'assénez de violents coups qui lui font rapidement perdre connaissance.</target>
       </segment>
     </unit>
     <unit id="bGpi8xS" name="20f2e47">
@@ -8827,7 +8827,7 @@
       </notes>
       <segment>
         <source>Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!</source>
-        <target>Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!</target>
+        <target>Lorsque vous êtes finalement certain(e) que votre victime ne se relèvera plus, vous finissez votre besogne en la dévorant. Ça, c'est fait.</target>
       </segment>
     </unit>
     <unit id="wzmYlE_" name="Gut gemacht!">
@@ -8845,7 +8845,7 @@
       </notes>
       <segment>
         <source>Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!</source>
-        <target>Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!</target>
+        <target>Votre action a été remarquée ! Les citoyens ont été avertis !</target>
       </segment>
     </unit>
     <unit id="YYOxts0" name="ad6045f">
@@ -8881,7 +8881,7 @@
       </notes>
       <segment>
         <source>Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</source>
-        <target>Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</target>
+        <target>De toute évidence, il n'y a pas de goules en ville, il n'est donc pas nécessaire d'aller frapper les gens. M'Kay?</target>
       </segment>
     </unit>
     <unit id="i2Ptm8n" name="%citizen% ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.">
@@ -15621,7 +15621,7 @@
       </notes>
       <segment>
         <source>Sind wir noch in der Alpha?</source>
-        <target>Sind wir noch in der Alpha?</target>
+        <target>Sommes-nous toujours dans l'alpha?</target>
       </segment>
     </unit>
     <unit id="OA64trN" name="f4f78aa">
@@ -15630,7 +15630,7 @@
       </notes>
       <segment>
         <source>Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</source>
-        <target>Dies ist eine äußerst seltene Belohnung, die den ersten MyHordes-Spielern vorbehalten ist, die das Finale mit großem F erlebt haben.</target>
+        <target>C'est une récompense extrêmement rare réservée aux premiers joueurs de MyHordes ayant vécu la fin avec un grand F.</target>
       </segment>
     </unit>
     <unit id="NLrfO4J" name="1ee9e8e">
@@ -16525,7 +16525,7 @@
       </notes>
       <segment>
         <source>Bürger! Seid auf inoffiziellen Webseiten wachsam!</source>
-        <target>Bürger! Seid auf inoffiziellen Webseiten wachsam!</target>
+        <target>Citoyens ! Hors du site officiel, prudence !</target>
       </segment>
     </unit>
   </file>
