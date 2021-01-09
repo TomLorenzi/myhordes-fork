@@ -21,10 +21,12 @@ use App\Service\TimeKeeperService;
 use App\Service\ZoneHandler;
 use App\Structures\BankItem;
 use App\Translation\T;
+use DirectoryIterator;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
 use Exception;
+use SplFileInfo;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -102,11 +104,29 @@ class AdminActionController extends CustomAbstractController
 
     /**
      * @Route("jx/admin/dash", name="admin_dashboard")
+     * @param ParameterBagInterface $params
      * @return Response
      */
-    public function dash(): Response
+    public function dash(ParameterBagInterface $params): Response
     {
+        $log_files = [];
+        $base_dir = "{$params->get('kernel.project_dir')}/var/log";
+        $log_paths = [$base_dir];
+
+        while (!empty($log_paths)) {
+            $path = array_pop($log_paths);
+            foreach (new DirectoryIterator($path) as $fileInfo) {
+                /** @var SplFileInfo $fileInfo */
+                if ($fileInfo->isDot() || $fileInfo->isLink()) continue;
+                elseif ($fileInfo->isFile() && strtolower($fileInfo->getExtension()) === 'log')
+                    $log_files[] = str_replace(['/','\\'],'::', str_replace("$base_dir/",'', $fileInfo->getRealPath()));
+                elseif ($fileInfo->isDir()) $log_paths[] = $fileInfo->getRealPath();
+            }
+        }
+
+
         return $this->render( 'ajax/admin/dash.html.twig', $this->addDefaultTwigArgs(null, [
+            'logs' => $log_files,
             'actions' => self::getAdminActions(),
             'now' => time(),
             'schedules' => $this->isGranted('ROLE_ADMIN') ? $this->entity_manager->getRepository(AttackSchedule::class)->findByCompletion( false ) : [],
@@ -114,32 +134,43 @@ class AdminActionController extends CustomAbstractController
     }
 
     /**
-     * @Route("admin/log/{a}", name="admin_log", condition="!request.isXmlHttpRequest()")
+     * @Route("admin/log/{a}/{f}", name="admin_log", condition="!request.isXmlHttpRequest()")
      * @param ParameterBagInterface $params
      * @param string $a
+     * @param string $f
      * @return Response
      */
-    public function log(ParameterBagInterface $params, string $a = ''): Response
+    public function log(ParameterBagInterface $params, string $a = '', string $f = ''): Response
     {
+        if (!$this->isGranted('ROLE_ADMIN')) return new Response('', 403);
+
         $dispo = 'attachment';
         if ($a === 'view') $dispo = 'inline';
 
-        return $this->file($params->get('kernel.project_dir') . '/var/log/' . $params->get('kernel.environment') . '.log', 'myhordes.log', $dispo);
+        if (empty($f)) $f = $params->get('kernel.environment');
+        $f = str_replace(['..','::'],['','/'],$f);
+
+        $path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/log/{$f}");
+        if ($path->isFile() && strtolower($path->getExtension()) === 'log') return $this->file($path->getRealPath(), $path->getFilename(), $dispo);
+        else return new Response('', 404);
     }
 
     /**
-     * @Route("api/admin/clearlog", name="api_admin_clear_log")
+     * @Route("api/admin/clearlog/{f}", name="api_admin_clear_log")
      * @param ParameterBagInterface $params
+     * @param string $f
      * @return Response
      */
-    public function clear_log_api(ParameterBagInterface $params): Response
+    public function clear_log_api(ParameterBagInterface $params, string $f = ''): Response
     {
+        if (!$this->isGranted('ROLE_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
-        $f = $params->get('kernel.project_dir') . '/var/log/' . $params->get('kernel.environment') . '.log';
-        if (file_exists( $f )) {
-            $ff = fopen($f, "w+");
-            fclose($ff);
-        }
+        if (empty($f)) $f = $params->get('kernel.environment');
+        $f = str_replace(['..','::'],['','/'],$f);
+
+        $path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/log/{$f}");
+        if ($path->isFile() && strtolower($path->getExtension()) === 'log')
+            unlink($path->getRealPath());
 
         return AjaxResponse::success();
     }
