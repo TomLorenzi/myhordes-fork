@@ -968,7 +968,8 @@ class LogTemplateHandler
             ->setTown( $complaint->getAutor()->getTown() )
             ->setDay( $complaint->getAutor()->getTown()->getDay() )
             ->setCitizen( $complaint->getCulprit() )
-            ->setTimestamp( new DateTime('now') );
+            ->setTimestamp( new DateTime('now') )
+            ->setAdminOnly(true);
     }
 
     public function citizenBanish( Citizen $citizen ): TownLogEntry {

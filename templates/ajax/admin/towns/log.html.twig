@@ -1,0 +1,18 @@
+<div class="log-container">
+    <div class="log" x-log-default-provided="{% if log_content is defined %}1{% else %}0{% endif %}" x-log-source="{{ log_source }}">
+        <div class="log-content">
+            {% if log_content is defined %}
+                {{ log_content|raw }}
+                {% if log_content|length > 255 %}
+                    <div class="log-complete-link">{{ 'Alle Einträge anzeigen'|trans({},'game') }}</div>
+                    <div class="log-spinner hidden"><i class="fa fa-pulse fa-spinner"></i> {{ random(['Akteneinsicht wird beantragt...'|trans({},'game'),'Protokolle werden analysiert...'|trans({},'game'),'Überwachungsapparat wird ausgewertet...'|trans({},'game'),'Belastende Beweise werden übermittelt...'|trans({},'game')]) }}</div>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    {% if day is defined %}
+        <div class="log-day-select">
+            <div><div class="tab" x-page-current="{{ day }}" x-page-min="1" x-page-max="{{ day }}"><div class="control"><i class="fa fa-arrow-left"></i></div><div>{{ 'Tag'|trans({}, 'game') }} <span>{{ day }}</span></div><div class="control"><i class="fa fa-arrow-right"></i></div></div></div>
+        </div>
+    {% endif %}
+</div>

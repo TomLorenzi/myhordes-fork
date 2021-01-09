@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Controller\Admin\AdminActionController;
 use App\Entity\Citizen;
+use App\Entity\ExternalApp;
 use App\Entity\Quote;
 use App\Entity\User;
 use App\Service\CitizenHandler;
@@ -66,6 +68,10 @@ class CustomAbstractController extends AbstractController {
         shuffle($quotes);
 
         $data['quote'] = $quotes[0];
+
+        $data['apps'] = $this->entity_manager->getRepository(ExternalApp::class)->findBy(['active' => true]);
+
+        $data['adminActions'] = AdminActionController::getAdminActions();
 
         if($this->getActiveCitizen() !== null && $this->getActiveCitizen()->getAlive()){
             $is_shaman = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman') || $this->getActiveCitizen()->getProfession()->getName() == 'shaman';

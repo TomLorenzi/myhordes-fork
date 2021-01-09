@@ -14949,24 +14949,6 @@
         <target>quelque part %location% de la ville...</target>
       </segment>
     </unit>
-    <unit id="LCh7GiT" name="Wiedergeburt: Wahl der Partie">
-      <notes>
-        <note category="german">Wiedergeburt: Wahl der Partie</note>
-      </notes>
-      <segment>
-        <source>Wiedergeburt: Wahl der Partie</source>
-        <target>Wiedergeburt: Wahl der Partie</target>
-      </segment>
-    </unit>
-    <unit id="TIikksZ" name="Wiedergeburt: Privatstadt gründen">
-      <notes>
-        <note category="german">Wiedergeburt: Privatstadt gründen</note>
-      </notes>
-      <segment>
-        <source>Wiedergeburt: Privatstadt gründen</source>
-        <target>Wiedergeburt: Privatstadt gründen</target>
-      </segment>
-    </unit>
     <unit id="IIcAXEH" name="Das Leichsblatt, Ausgabe vom %day%. Tag">
       <notes>
         <note category="german">Das Leichsblatt, Ausgabe vom %day%. Tag</note>
@@ -14982,7 +14964,7 @@
       </notes>
       <segment>
         <source>Wiedergeburt: Wähle einen Beruf</source>
-        <target>Wiedergeburt: Wähle einen Beruf</target>
+        <target>Incarnation : Choisir un métier</target>
       </segment>
     </unit>
     <unit id="FvwX8Vo" name="Die Außenwelt">
@@ -16530,11 +16512,20 @@
     </unit>
     <unit id="pbNlQwl" name="Architekt (title)">
       <notes>
-        <note category="german">Architekt (title)</note>
+        <note category="german">Architekt</note>
       </notes>
       <segment>
         <source>Architekt (title)</source>
         <target>Maître-architecte</target>
+      </segment>
+    </unit>
+    <unit id="0oUM0cs" name="Bürger! Seid auf inoffiziellen Webseiten wachsam!">
+      <notes>
+        <note category="german">Bürger! Seid auf inoffiziellen Webseiten wachsam!</note>
+      </notes>
+      <segment>
+        <source>Bürger! Seid auf inoffiziellen Webseiten wachsam!</source>
+        <target>Bürger! Seid auf inoffiziellen Webseiten wachsam!</target>
       </segment>
     </unit>
   </file>

@@ -268,7 +268,7 @@ class ExternalXML2Controller extends ExternalController {
             $data['data'][$node]['list']['items'][] = [
                 'attributes' => [
                     'name' => $pastLife->getTown()->getName(),
-                    'season' => ($pastLife->getTown()->getSeason() && $pastLife->getTown()->getSeason()->getNumber() === 0) ? $pastLife->getTown()->getSeason()->getSubNumber() : $pastLife->getTown()->getSeason()->getNumber(),
+                    'season' => ($pastLife->getTown()->getSeason()) ? ($pastLife->getTown()->getSeason()->getNumber() === 0) ? $pastLife->getTown()->getSeason()->getSubNumber() : $pastLife->getTown()->getSeason()->getNumber() : 0,
                     'score' => $pastLife->getPoints(),
                     'd' => $pastLife->getDay(),
                     'id' => $pastLife->getTown()->getBaseID() !== null ? $pastLife->getTown()->getBaseID() : $pastLife->getTown()->getId(),
@@ -566,8 +566,8 @@ class ExternalXML2Controller extends ExternalController {
                             'hero' => intval($citizen->getProfession()->getHeroic()),
                             'name' => $citizen->getUser()->getUsername(),
                             'avatar' => $citizen->getUser()->getAvatar() !== null ? $citizen->getUser()->getId() . "/" . $citizen->getUser()->getAvatar()->getFilename() . "." . $citizen->getUser()->getAvatar()->getFormat() : '',
-                            'x' => $citizen->getZone() !== null ? $offset['x'] + $citizen->getZone()->getX() : $offset['x'],
-                            'y' => $citizen->getZone() !== null ? $offset['y'] - $citizen->getZone()->getY() : $offset['y'],
+                            'x' => $town->getChaos() ? null : ($citizen->getZone() !== null ? $offset['x'] + $citizen->getZone()->getX() : $offset['x']),
+                            'y' => $town->getChaos() ? null : ($citizen->getZone() !== null ? $offset['y'] - $citizen->getZone()->getY() : $offset['y']),
                             'id' => $citizen->getUser()->getId(),
                             'ban' => intval($citizen->getBanished()),
                             'job' => $citizen->getProfession()->getName(),
@@ -582,7 +582,7 @@ class ExternalXML2Controller extends ExternalController {
                             'name' => $citizen->getUser()->getUsername(),
                             'dtype' => $citizen->getCauseOfDeath()->getRef(),
                             'id' => $citizen->getUser()->getId(),
-                            'day' => $citizen->getSurvivedDays(),
+                            'day' => $citizen->getSurvivedDays() <= 0 ? '1' : $citizen->getSurvivedDays(),
                         ]
 
                     ];
@@ -638,9 +638,10 @@ class ExternalXML2Controller extends ExternalController {
                             'nvt' => intval($zone->getDiscoveryStatus() != Zone::DiscoveryStateCurrent)
                         ]
                     ];
-                    
-                    if($danger > 0) {
-                        $item['attributes']['danger'] = $danger;
+                    if ($zone->getDiscoveryStatus() == Zone::DiscoveryStateCurrent) {
+                        if($danger > 0) {
+                            $item['attributes']['danger'] = $danger;
+                        }
                     }
 
                     if($zone->getTag() !== null && $zone->getTag()->getRef() !== ZoneTag::TagNone) {

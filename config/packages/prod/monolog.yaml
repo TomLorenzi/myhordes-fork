@@ -5,6 +5,17 @@ monolog:
             action_level: error
             handler: nested
             excluded_http_codes: [403, 404, 405]
+            channels: ["!night"]
+        night:
+            type: fingers_crossed
+            action_level: debug
+            handler: rotation_night
+            channels: ["night"]
+        rotation_night:
+            type: rotating_file
+            path: "%kernel.logs_dir%/night/%kernel.environment%.log"
+            level: debug
+            max_files: 14
         nested:
             type: stream
             path: "%kernel.logs_dir%/%kernel.environment%.log"

@@ -278,7 +278,10 @@ class ZoneHandler
         /** @var Zone[] $zones */
         $zones = $town->getZones()->getValues();
         $zone_db = []; $empty_zones = []; $despair_db = [];
+        $killedZombies = 0;
         foreach ($zones as &$zone) {
+            $killedZombies += ($zone->getInitialZombies() - $zone->getZombies());
+
             $despair = max(0,( $zone->getInitialZombies() - $zone->getZombies() - 1 ) / 2);
             if (!isset($zone_db[$zone->getX()])) $zone_db[$zone->getX()] = [];
             $zone_db[$zone->getX()][$zone->getY()] = $zone->getZombies();
@@ -286,6 +289,11 @@ class ZoneHandler
             if ($zone_db[$zone->getX()][$zone->getY()] == 0) $empty_zones[] = $zone;
 
             $zone->setScoutEstimationOffset( mt_rand(-2,2) );
+        }
+
+        $factor = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RESPAWN_FACTOR, 1);
+        if($killedZombies >= $town->getMapSize() * $town->getDay() * $factor) {
+            $mode = self::RespawnModeForce;
         }
 
         // Respawn

@@ -122,6 +122,7 @@ class DeathHandler
 
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
+        $citizen->setSurvivedDays($citizen->getTown()->getDay() - 1);
 
         if ($citizen->getTown()->getDay() <= 3) {
             $cdm = $this->entity_manager->getRepository(ConsecutiveDeathMarker::class)->findOneBy( ['user' => $citizen->getUser()] )

@@ -63,6 +63,11 @@ class TownLogEntry
      */
     private $variables = [];
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $adminOnly = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -172,6 +177,18 @@ class TownLogEntry
     public function setVariables(?array $variables): self
     {
         $this->variables = $variables;
+
+        return $this;
+    }
+
+    public function getAdminOnly(): ?bool
+    {
+        return $this->adminOnly;
+    }
+
+    public function setAdminOnly(bool $adminOnly): self
+    {
+        $this->adminOnly = $adminOnly;
 
         return $this;
     }
