@@ -1136,7 +1136,7 @@ class ExternalXML2Controller extends ExternalController {
 
                     /** @var Item $item */
                     foreach($zone->getFloor()->getItems() as $item) {
-
+                        if ($item->getHidden()) continue;
                         $str = "{$item->getPrototype()->getId()}-" . intval($item->getBroken());
                         if (!isset($headers['headers']['owner']['myZone']['list']['items'][$str])) {
 
