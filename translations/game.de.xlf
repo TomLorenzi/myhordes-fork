@@ -16495,5 +16495,50 @@
         <target>Architekt</target>
       </segment>
     </unit>
+    <unit id="0Kqpu1t" name="gering">
+      <notes>
+        <note category="german">gering</note>
+      </notes>
+      <segment>
+        <source>gering</source>
+        <target>gering</target>
+      </segment>
+    </unit>
+    <unit id=".CQK_8d" name="hoch">
+      <notes>
+        <note category="german">hoch</note>
+      </notes>
+      <segment>
+        <source>hoch</source>
+        <target>hoch</target>
+      </segment>
+    </unit>
+    <unit id="ssHCx3q" name="1d82f8e">
+      <notes>
+        <note category="german">Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</note>
+      </notes>
+      <segment>
+        <source>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</source>
+        <target>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</target>
+      </segment>
+    </unit>
+    <unit id="qD3lUP9" name="dc1e0ac">
+      <notes>
+        <note category="german">Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</note>
+      </notes>
+      <segment>
+        <source>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</source>
+        <target>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</target>
+      </segment>
+    </unit>
+    <unit id="8yLsMnc" name="1f8ca6f">
+      <notes>
+        <note category="german">Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</note>
+      </notes>
+      <segment>
+        <source>Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
+        <target><![CDATA[Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

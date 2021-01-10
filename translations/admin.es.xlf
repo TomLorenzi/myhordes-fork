@@ -2071,5 +2071,14 @@
         <target>Anwendung "%external_app%"</target>
       </segment>
     </unit>
+    <unit id="IeSesrK" name="Log">
+      <notes>
+        <note category="german">Log</note>
+      </notes>
+      <segment>
+        <source>Log</source>
+        <target>Log</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
