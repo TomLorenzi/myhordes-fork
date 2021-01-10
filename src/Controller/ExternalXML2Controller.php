@@ -512,17 +512,33 @@ class ExternalXML2Controller extends ExternalController {
                 $gazette = $town->findGazette( $town->getDay() );
                 if ($gazette !== null) {
                     $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette);
-                    $text = '';
-                    while (count($gazette_logs) > 0) {
-                        $text .= '<p>' . $this->parseGazetteLog(array_shift($gazette_logs)) . '</p>';
-                    }
+
                     $data['data']['city']['news'] = [
                         'attributes' => [
                             'z' => $gazette->getAttack(),
                             'def' => $gazette->getDefense()
-                        ],
-                        'content' => $text
+                        ]
                     ];
+                    if($language !== "all") {
+                        $text = '';
+                        while (count($gazette_logs) > 0) {
+                            $text .= '<p>' . $this->parseGazetteLog(array_shift($gazette_logs)) . '</p>';
+                        }
+                        $data['data']['city']['news']['content'] = [
+                            'cdata_value' => $text
+                        ];
+                    } else {
+                        foreach($this->available_langs as $lang) {
+                            $logs = $gazette_logs;
+                            $text = '';
+                            while (count($logs) > 0) {
+                                $text .= '<p>' . $this->parseGazetteLog(array_shift($logs), $lang) . '</p>';
+                            }
+                            $data['data']['city']['news']["content-$lang"] = [
+                                'cdata_value' => $text
+                            ];
+                        }
+                    }
                 }
 
             }
@@ -635,10 +651,11 @@ class ExternalXML2Controller extends ExternalController {
                                 $type = "ghoul";
                                 break;
                         }
+
                         $cadaver['cleanup'] = [
                             'attributes' => [
                                 'type' => $type,
-                                'user' => $citizen->getDisposedBy()[0]->getUser()->getName()
+                                'user' => $citizen->getDisposedBy()->count() > 0 ? $citizen->getDisposedBy()[0]->getUser()->getName() : ""
                             ]
                         ];
                     }
@@ -1031,17 +1048,23 @@ class ExternalXML2Controller extends ExternalController {
         return $_xml->asXML();
     }
 
-    protected function parseGazetteLog(GazetteLogEntry $gazetteLogEntry): string
+    /**
+     * Returns the text corresponding to the entry
+     * @param GazetteLogEntry $gazetteLogEntry The gazette log entry to parse
+     * @param string|null $lang Lang to translate the text into (null to use the default)
+     * @return string The string corresponding to the GazetteLogEntry
+     */
+    protected function parseGazetteLog(GazetteLogEntry $gazetteLogEntry, string $lang = null): string
     {
-        return $this->parseLog($gazetteLogEntry->getLogEntryTemplate(), $gazetteLogEntry->getVariables());
+        return $this->parseLog($gazetteLogEntry->getLogEntryTemplate(), $gazetteLogEntry->getVariables(), $lang);
     }
 
-    protected function parseLog(LogEntryTemplate $template, array $variables ): string {
+    protected function parseLog(LogEntryTemplate $template, array $variables, string $lang = null): string {
         $variableTypes = $template->getVariableTypes();
-        $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $variables, true);
+        $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $variables);
 
         try {
-            $text = $this->translator->trans($template->getText(), $transParams, 'game');
+            $text = $this->translator->trans($template->getText(), $transParams, 'game', $lang);
         }
         catch (Exception $e) {
             $text = "null";
