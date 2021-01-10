@@ -33,6 +33,7 @@ use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
 use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
+use App\Service\UserHandler;
 use App\Structures\ForumPermissionAccessor;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -1270,7 +1271,7 @@ class MessageController extends CustomAbstractController
      * @param TranslatorInterface $t
      * @return Response
      */
-    public function send_pm_api(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $t): Response {
+    public function send_pm_api(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $t, UserHandler $userHandler): Response {
         $type      = $parser->get('type', "");
         $recipient = $parser->get('recipient', '');
         $title     = $parser->get('title', '');
@@ -1293,9 +1294,11 @@ class MessageController extends CustomAbstractController
 
         $sender = $this->getUser()->getActiveCitizen();
 
-        if($type === "global" && !$sender->getProfession()->getHeroic()){
+        if ($type === "global" && !$sender->getProfession()->getHeroic() && !$userHandler->hasSkill($sender->getUser(), 'writer'))
             return AjaxResponse::error(ErrorHelper::ErrorMustBeHero);
-        }
+
+        if ($type === "global" && $sender->getBanished())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
         $linked_items = array();
 

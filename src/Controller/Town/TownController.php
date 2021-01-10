@@ -349,7 +349,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
-            'can_attack' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
+            'can_attack' => !$this->getActiveCitizen()->getBanished() && !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
             'can_devour' => $this->getActiveCitizen()->hasRole('ghoul'),
             'caught_chance' => $cc,
             'allow_devour' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
@@ -1727,6 +1727,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
         $citizen = $this->getActiveCitizen();
+
+        if ($citizen->getBanished()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
+
         /** @var Citizen $c */
         $c = $this->entity_manager->getRepository(Citizen::class)->find( $id );
         if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId())
