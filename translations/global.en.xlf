@@ -1958,5 +1958,14 @@
         <target>Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.</target>
       </segment>
     </unit>
+    <unit id="mDTAh7E" name="Du bist vor Angst erstarrt...">
+      <notes>
+        <note category="german">Du bist vor Angst erstarrt...</note>
+      </notes>
+      <segment>
+        <source>Du bist vor Angst erstarrt...</source>
+        <target>Du bist vor Angst erstarrt...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
