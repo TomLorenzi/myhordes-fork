@@ -823,10 +823,11 @@ class NightlyHandler
                     $this->log->debug('Town has lived for 5 days or more, we give the <info>Last Man Standing</info> picto to a lucky citizen that died in town');
                     $citizen_eligible = [];
                     foreach ($town->getCitizens() as $citizen) {
+                        /** @var Citizen $citizen */
                         if($citizen->getAlive() || $citizen->getZone())
                             continue;
 
-                        if($citizen->getSurvivedDays() < $town->getDay())
+                        if($citizen->getSurvivedDays() < $town->getDay() - 1)
                             continue;
 
                         if($citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack && $citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::Radiations)
@@ -1235,17 +1236,21 @@ class NightlyHandler
         $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
         $votes = array();
 
+        /** @var CitizenRole $role */
         foreach ($roles as $role) {
-            /** @var CitizenRole $role */
+            $this->log->debug("Processing votes for role {$role->getLabel()}");
+            /** @var SpecialActionPrototype $special_vote */
             $special_vote = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => 'special_vote_' . $role->getName()]);
 
             /** @var Citizen $last_one */
             $last_one = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town);
-            if ($last_one &&
-                ($last_one->getAlive() ||                                                                                                               // Skip vote if the last citizen with this role is still alive
-                    ($last_one->getSurvivedDays() >= ($town->getDay()-1)) ||                                                                            // Skip vote if the last citizen with this role died during the attack
+            if ($last_one) {
+                $this->log->debug("Last citizen to have the {$role->getLabel()} role was {$last_one->getUser()->getUsername()}. His alive status is " . intval($last_one->getAlive()) . ". He survived {$last_one->getSurvivedDays()}. Town is at day {$town->getDay()}");
+                if ($last_one->getAlive() ||                                                                                                            // Skip vote if the last citizen with this role is still alive
+                    ($last_one->getSurvivedDays() >= ($town->getDay()-1) && $last_one->getCauseOfDeath()->getRef() === CauseOfDeath::NightlyAttack) ||  // Skip vote if the last citizen with this role died during the attack
                     ($last_one->getSurvivedDays() >= ($town->getDay()-2) && $last_one->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack)     // Skip vote if the last citizen with this role died the previous day
-                )) continue;
+                ) continue;
+            }
 
             // Getting vote per role per citizen
             $votes[$role->getId()] = array();

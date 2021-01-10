@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Entity\AwardPrototype;
 use App\Entity\Building;
+use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\ExpeditionRoute;
@@ -10,6 +11,8 @@ use App\Entity\ExternalApp;
 use App\Entity\Gazette;
 use App\Entity\GazetteLogEntry;
 use App\Entity\Item;
+use App\Entity\ItemCategory;
+use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
@@ -17,10 +20,8 @@ use App\Entity\Town;
 use App\Entity\TwinoidImport;
 use App\Entity\User;
 use App\Entity\Zone;
+use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
-use App\Service\CitizenHandler;
-use App\Service\TownHandler;
-use App\Service\ZoneHandler;
 use App\Structures\SimpleXMLExtended;
 use App\Structures\TownConf;
 use App\Structures\TownDefenseSummary;
@@ -111,10 +112,14 @@ class ExternalXML2Controller extends ExternalController {
 
         if($user instanceof Response)
             return $user;
-
         $endpoints = [];
-        $endpoints['user'] = $this->generateUrl('api_x2_xml_user', [], UrlGeneratorInterface::ABSOLUTE_URL);
-        if ($user->getAliveCitizen()) $endpoints['town'] = $this->generateUrl("api_x2_xml_town", [], UrlGeneratorInterface::ABSOLUTE_URL);
+        if ($this->isSecureRequest()) {
+            $endpoints['user'] = $this->generateUrl('api_x2_xml_user', [], UrlGeneratorInterface::ABSOLUTE_URL);
+            $endpoints['items']= $this->generateUrl('api_x2_xml_items', [], UrlGeneratorInterface::ABSOLUTE_URL);
+            $endpoints['buildings']= $this->generateUrl('api_x2_xml_buildings', [], UrlGeneratorInterface::ABSOLUTE_URL);
+            $endpoints['ruins']= $this->generateUrl('api_x2_xml_ruins', [], UrlGeneratorInterface::ABSOLUTE_URL);
+        }
+        if ($user->getActiveCitizen()) $endpoints['town'] = $this->generateUrl("api_x2_xml_town", [], UrlGeneratorInterface::ABSOLUTE_URL);
 
         $array = [
             "endpoint_list" => $endpoints
@@ -129,11 +134,10 @@ class ExternalXML2Controller extends ExternalController {
     /**
      * @Route("/api/x/v2/xml/user", name="api_x2_xml_user", defaults={"_format"="xml"}, methods={"GET","POST"})
      * Get the XML content for the soul of a user
-     * @param $zh ZoneHandler
-     * @param $ch CitizenHandler
+     * @param Request $request The current HTTP Request
      * @return Response Return the XML content for the soul of the user
      */
-    public function api_xml_user(ZoneHandler $zh, CitizenHandler $ch, Request $request): Response {
+    public function api_xml_user(Request $request): Response {
         $user = $this->check_keys(true);
 
         $icon_asset_path = Request::createFromGlobals()->getBasePath() . '/build/images/';
@@ -164,10 +168,11 @@ class ExternalXML2Controller extends ExternalController {
         // Base data.
         $data = $this->getHeaders($user);
 
-        /** @var Citizen $citizen */
-        $citizen = $user->getActiveCitizen();
-
         $data['data'] = [
+            'attributes' => [
+                'cache-date' => $now->format('Y-m-d H:i:s'),
+                'cache-fast' => 0,
+            ],
             'rewards' => [
                 'list' => [
                     'name' => 'r', 
@@ -194,7 +199,6 @@ class ExternalXML2Controller extends ExternalController {
             /** @var Picto $picto */
             $node = [
                 'attributes' => [
-                    'name' => $this->translator->trans($picto['label'], [], 'game'),
                     'rare' => intval($picto['rare']),
                     'n' => $picto['c'],
                     'img' => str_replace($icon_asset_path, '', $this->asset->getUrl( "build/images/pictos/{$picto['icon']}.gif")),
@@ -229,7 +233,7 @@ class ExternalXML2Controller extends ExternalController {
                     $nodeTitle['attributes']["name"] = $this->translator->trans($title->getTitle(), [], 'game');
                 } else {
                     foreach ($this->available_langs as $lang) {
-                        $nodeTitle['attributes']["name-$lang"] = $this->translator->trans($title->getTitle(), [], 'game');
+                        $nodeTitle['attributes']["name-$lang"] = $this->translator->trans($title->getTitle(), [], 'game', $lang);
                     }
                 }
                 $node['list']['items'][] = $nodeTitle;
@@ -288,12 +292,11 @@ class ExternalXML2Controller extends ExternalController {
 
     /**
      * @Route("/api/x/v2/xml/town", name="api_x2_xml_town", defaults={"_format"="xml"}, methods={"GET","POST"})
-     * @param $zh ZoneHandler
-     * @param $ch CitizenHandler
-     * @param TownHandler $th
+     * Get the XML content for the town of a user
+     * @param Request $request The current HTTP Request
      * @return Response
      */
-    public function api_xml_town(ZoneHandler $zh, CitizenHandler $ch, TownHandler $th, Request $request): Response {
+    public function api_xml_town(Request $request): Response {
         $user = $this->check_keys(false);
 
         $icon_asset_path = Request::createFromGlobals()->getBasePath() . '/build/images/';
@@ -332,12 +335,11 @@ class ExternalXML2Controller extends ExternalController {
 
         /** @var User $user */
         /** @var Citizen $citizen */
-        $citizen = $user->getAliveCitizen();
-        if (!$user->getAliveCitizen()) {
+        if (!$user->getActiveCitizen()) {
             $data['error']['attributes'] = ['code' => "not_in_game"];
             $data['status']['attributes'] = ['open' => "1", "msg" => ""];
         } else {
-            $town = $user->getAliveCitizen()->getTown();
+            $town = $user->getActiveCitizen()->getTown();
     
             $data['headers']['game'] = [
                 'attributes' => [
@@ -352,7 +354,7 @@ class ExternalXML2Controller extends ExternalController {
 
             /** @var TownDefenseSummary $def */
             $def = new TownDefenseSummary();
-            $th->calculate_town_def($town, $def);
+            $this->town_handler->calculate_town_def($town, $def);
 
             $data['data'] = [
                 'attributes' => [
@@ -386,7 +388,7 @@ class ExternalXML2Controller extends ExternalController {
                             'upgrades' => $def->building_def_vote,
                             'buildings' => $def->building_def_base,
                             'total' => $def->sum(),
-                            'itemsMul' => $th->getBuilding($town, 'item_meca_parts_#00', true) ? (1.0 + 1+$th->getBuilding($town, 'item_meca_parts_#00', true)->getLevel()) * 0.5 : 1.0
+                            'itemsMul' => $this->town_handler->getBuilding($town, 'item_meca_parts_#00', true) ? (1.0 + 1+$this->town_handler->getBuilding($town, 'item_meca_parts_#00', true)->getLevel()) * 0.5 : 1.0
                         ]
                     ]
                 ],
@@ -460,14 +462,21 @@ class ExternalXML2Controller extends ExternalController {
 
                 $buildingXml = [
                     'attributes' => [
-                        'name' => $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings'),
                         'temporary' => intval($building->getPrototype()->getTemp()),
                         'id' => $building->getPrototype()->getId(),
                         'img' => str_replace($icon_asset_path, '', $this->asset->getUrl("build/images/building/{$building->getPrototype()->getIcon()}.gif"))
-                    ], 
-                    'cdata_value' => $this->translator->trans($building->getPrototype()->getDescription(), [], 'buildings')
+                    ]
                 ];
 
+                if ($language !== 'all') {
+                    $buildingXml['attributes']['name'] = $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings');
+                    $buildingXml['cdata_value'] = $this->translator->trans($building->getPrototype()->getDescription(), [], 'buildings');
+                } else {
+                    foreach ($this->available_langs as $lang) {
+                        $buildingXml['attributes']["name-$lang"] = $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings', $lang);
+                        $buildingXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($building->getPrototype()->getDescription(), [], 'buildings', $lang)];
+                    }
+                }
 
                 if($building->getPrototype()->getParent() !== null) {
                     $buildingXml['attributes']['parent'] = $building->getPrototype()->getParent()->getId();
@@ -477,33 +486,45 @@ class ExternalXML2Controller extends ExternalController {
 
                 if($building->getPrototype()->getMaxLevel() > 0 && $building->getLevel() > 0){
                     $data['data']['upgrades']['attributes']['total'] += $building->getLevel();
-                    $data['data']['upgrades']['list']['items'][] = [
+                    $updateXml = [
                         'attributes' => [
-                            'name' => $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings'),
                             'level' => $building->getLevel(),
-                            'buildingid' => $building->getPrototype()->getId(),
-                        ], 
-                        'cdata_value' => $this->translator->trans($building->getPrototype()->getUpgradeTexts()[$building->getLevel() - 1], [], 'buildings')
+                            'buildingId' => $building->getPrototype()->getId(),
+                        ],
                     ];
+
+                    if ($language !== 'all') {
+                        $updateXml['attributes']['name'] = $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings');
+                        $updateXml['cdata_value'] = $this->translator->trans($building->getPrototype()->getUpgradeTexts()[$building->getLevel() - 1], [], 'buildings');
+                    } else {
+                        foreach ($this->available_langs as $lang) {
+                            $updateXml['attributes']["name-$lang"] = $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings', $lang);
+                            $updateXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($building->getPrototype()->getUpgradeTexts()[$building->getLevel() - 1], [], 'buildings', $lang)];
+                        }
+                    }
+                    $data['data']['upgrades']['list']['items'][] = $updateXml;
                 }
             }
 
             // Current gazette
             /** @var Gazette $gazette */
-            $gazette = $town->findGazette( $town->getDay() );
-            if ($gazette !== null) {
-                $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette);
-                $text = '';
-                while (count($gazette_logs) > 0) {
-                    $text .= '<p>' . $this->parseGazetteLog(array_shift($gazette_logs)) . '</p>';
+            if ($town->getDay() > 1){
+                $gazette = $town->findGazette( $town->getDay() );
+                if ($gazette !== null) {
+                    $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette);
+                    $text = '';
+                    while (count($gazette_logs) > 0) {
+                        $text .= '<p>' . $this->parseGazetteLog(array_shift($gazette_logs)) . '</p>';
+                    }
+                    $data['data']['city']['news'] = [
+                        'attributes' => [
+                            'z' => $gazette->getAttack(),
+                            'def' => $gazette->getDefense()
+                        ],
+                        'content' => $text
+                    ];
                 }
-                $data['data']['city']['news'] = [
-                    'attributes' => [
-                        'z' => $gazette->getAttack(),
-                        'def' => $gazette->getDefense()
-                    ], 
-                    'content' => $text
-                ];
+
             }
 
             // The town bank
@@ -513,9 +534,9 @@ class ExternalXML2Controller extends ExternalController {
                 if (!isset($data['data']['bank']['list']['items'][$str])) {
                     $cat = $bankItem->getPrototype()->getCategory();
                     while ($cat->getParent()) $cat = $cat->getParent();
-                    $data['data']['bank']['list']['items'][$str] = [
+
+                    $itemXml = [
                         'attributes' => [
-                            'name' => $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items'),
                             'count' => $bankItem->getCount(),
                             'id' => $bankItem->getPrototype()->getId(),
                             'cat' => $cat->getName(),
@@ -523,6 +544,15 @@ class ExternalXML2Controller extends ExternalController {
                             'broken' => intval($bankItem->getBroken())
                         ]
                     ];
+                    if ($language !== 'all') {
+                        $itemXml['attributes']['name'] = $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items');
+                    } else {
+                        foreach ($this->available_langs as $lang) {
+                            $itemXml['attributes']["name-$lang"] = $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items', $lang);
+                        }
+                    }
+                    $data['data']['bank']['list']['items'][$str] = $itemXml;
+
                 } else $data['data']['bank']['list']['items'][$str]['attributes']['count'] += $bankItem->getCount();
             }
             usort( $data['data']['bank']['list']['items'],
@@ -560,22 +590,25 @@ class ExternalXML2Controller extends ExternalController {
             foreach($town->getCitizens() as $citizen){
                 /** @var Citizen $citizen */
                 if($citizen->getAlive()){
-                    $data['data']['citizens']['list']['items'][] = [
+                    $citizenNode = [
                         'attributes' => [
                             'dead' => '0',
                             'hero' => intval($citizen->getProfession()->getHeroic()),
                             'name' => $citizen->getUser()->getUsername(),
                             'avatar' => $citizen->getUser()->getAvatar() !== null ? $citizen->getUser()->getId() . "/" . $citizen->getUser()->getAvatar()->getFilename() . "." . $citizen->getUser()->getAvatar()->getFormat() : '',
-                            'x' => $town->getChaos() ? null : ($citizen->getZone() !== null ? $offset['x'] + $citizen->getZone()->getX() : $offset['x']),
-                            'y' => $town->getChaos() ? null : ($citizen->getZone() !== null ? $offset['y'] - $citizen->getZone()->getY() : $offset['y']),
                             'id' => $citizen->getUser()->getId(),
                             'ban' => intval($citizen->getBanished()),
-                            'job' => $citizen->getProfession()->getName(),
+                            'job' => $citizen->getProfession()->getName() !== 'none' ? $citizen->getProfession()->getName() : '',
                             'out' => intval($citizen->getZone() !== null),
                             'baseDef' => $citizen->getHome()->getPrototype()->getDefense()
                         ],
                         'cdata_value' => $citizen->getHome()->getDescription()
                     ];
+                    if (!$citizen->getTown()->getChaos()){
+                        $citizenNode['attributes']['x'] = $citizen->getZone() !== null ? $offset['x'] + $citizen->getZone()->getX() : $offset['x'];
+                        $citizenNode['attributes']['y'] = $citizen->getZone() !== null ? $offset['y'] - $citizen->getZone()->getY() : $offset['y'];
+                    }
+                    $data['data']['citizens']['list']['items'][] = $citizenNode;
                 } else {
                     $cadaver = [
                         'attributes' => [
@@ -597,6 +630,9 @@ class ExternalXML2Controller extends ExternalController {
                                 break;
                             case Citizen::Cooked:
                                 $type = "cook";
+                                break;
+                            case Citizen::Ghoul:
+                                $type = "ghoul";
                                 break;
                         }
                         $cadaver['cleanup'] = [
@@ -649,25 +685,33 @@ class ExternalXML2Controller extends ExternalController {
                     }
 
                     if($zone->getPrototype() !== null) {
-                        $item['building'] = [
+                        $zoneXml = [
                             'attributes' => [
-                                'name' => $zone->getBuryCount() > 0 ? $this->translator->trans('Verschüttete Ruine', [], 'game') : $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game'),
                                 'type' => $zone->getBuryCount() > 0 ? -1 : $zone->getPrototype()->getId(),
                                 'dig' => $zone->getBuryCount()
-                            ],
-                            'cdata_value' => $zone->getBuryCount() > 0 ? $this->translator->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $this->translator->trans($zone->getPrototype()->getDescription(), [], 'game')
+                            ]
                         ];
+                        if ($language !== 'all') {
+                            $zoneXml['attributes']['name'] = $zone->getBuryCount() > 0 ? $this->translator->trans('Verschüttete Ruine', [], 'game') : $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game');
+                            $zoneXml['cdata_value'] = $zone->getBuryCount() > 0 ? $this->translator->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $this->translator->trans($zone->getPrototype()->getDescription(), [], 'game');
+                        } else {
+                            foreach ($this->available_langs as $lang) {
+                                $zoneXml['attributes']["name-$lang"] = $zone->getBuryCount() > 0 ? $this->translator->trans('Verschüttete Ruine', [], 'game', $lang) : $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game', $lang);
+                                $zoneXml["value-$lang"] = ['cdata_value'=> $zone->getBuryCount() > 0 ? $this->translator->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $this->translator->trans($zone->getPrototype()->getDescription(), [], 'game', $lang)];
+                            }
+                        }
+                        $item['building'] = $zoneXml;
                     }
 
                     $data['data']['map']['list']['items'][] = $item;
                 }
             }
 
-            $has_zombie_est    = !empty($th->getBuilding($town, 'item_tagger_#00'));
+            $has_zombie_est    = !empty($this->town_handler->getBuilding($town, 'item_tagger_#00'));
             if ($has_zombie_est){
                 // Zombies estimations
                 for ($i = $town->getDay() + 1 ;  $i > 0 ; $i--) {
-                    $quality = $th->get_zombie_estimation_quality( $town, $town->getDay() - $i, $z_today_min, $z_today_max );
+                    $quality = $this->town_handler->get_zombie_estimation_quality( $town, $town->getDay() - $i, $z_today_min, $z_today_max );
                     $watchtrigger = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WT_THRESHOLD, 33);
                     if($watchtrigger >= $quality) continue;
 
@@ -681,6 +725,256 @@ class ExternalXML2Controller extends ExternalController {
                     ];
                 }
             }
+        }
+
+        $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+        $response->headers->set('Content-Type', 'text/xml');
+        return $response;
+    }
+
+    /**
+     * @Route("/api/x/v2/xml/items", name="api_x2_xml_items", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * Returns the lists of items currently used in the game
+     * @param Request $request
+     * @return Response
+     */
+    public function api_xml_items(Request $request): Response {
+        $user = $this->check_keys(true);
+
+        $icon_asset_path = Request::createFromGlobals()->getBasePath() . '/build/images/';
+
+        try {
+            $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
+        } catch (Exception $e) {
+            $now = date('Y-m-d H:i:s');
+        }
+
+        if($user instanceof Response)
+            return $user;
+
+        // Try POST data
+        $language = $request->query->get('lang');
+
+        if (trim($language) == '') {
+            $language = $request->request->get('lang');
+        }
+
+        if(!in_array($language, ['en', 'fr', 'de', 'es', 'all'])) {
+            $language = $user->getLanguage() ?? 'de';
+        }
+
+        if($language !== 'all')
+            $this->translator->setLocale($language);
+
+        // Base data.
+        $data = $this->getHeaders($user);
+
+        $items = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
+
+        $data['data'] = [
+            'attributes' => [
+                'cache-date' => $now->format('Y-m-d H:i:s'),
+                'cache-fast' => 0,
+            ],
+            'items' => [
+                'list' => [
+                    'name' => 'item',
+                    'items' => [
+                    ]
+                ],
+            ],
+        ];
+
+        /** @var ItemPrototype $item */
+        foreach ($items as $item) {
+            /** @var ItemCategory $cat */
+            $cat = $item->getCategory();
+            while ($cat->getParent()) $cat = $cat->getParent();
+
+            $itemXml = [
+                'attributes' => [
+                    'id' => $item->getId(),
+                    'cat' => $cat->getName(),
+                    'img' => str_replace($icon_asset_path, '', $this->asset->getUrl("build/images/item/item_{$item->getIcon()}.gif")),
+                    'deco' => $item->getDeco(),
+                    'heavy' => intval($item->getHeavy()),
+                    'guard' => intval($item->getWatchpoint())
+                ]
+            ];
+
+            if ($language !== 'all') {
+                $itemXml['attributes']['name'] = $this->translator->trans($item->getLabel(), [], 'items');
+                $itemXml['cdata_value'] = $this->translator->trans($item->getDescription(), [], 'items');
+            } else {
+                foreach ($this->available_langs as $lang) {
+                    $itemXml['attributes']["name-$lang"] = $this->translator->trans($item->getLabel(), [], 'items', $lang);
+                    $itemXml["value-$lang"]['cdata_value'] = $this->translator->trans($item->getDescription(), [], 'items', $lang);
+                }
+            }
+            $data['data']['items']['list']['items'][] = $itemXml;
+        }
+
+        $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+        $response->headers->set('Content-Type', 'text/xml');
+        return $response;
+    }
+
+    /**
+     * @Route("/api/x/v2/xml/buildings", name="api_x2_xml_buildings", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * Returns the lists of buildings currently used in the game
+     * @param Request $request
+     * @return Response
+     */
+    public function api_xml_buildings(Request $request): Response {
+        $user = $this->check_keys(true);
+
+        $icon_asset_path = Request::createFromGlobals()->getBasePath() . '/build/images/';
+
+        try {
+            $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
+        } catch (Exception $e) {
+            $now = date('Y-m-d H:i:s');
+        }
+
+        if($user instanceof Response)
+            return $user;
+
+        // Try POST data
+        $language = $request->query->get('lang');
+
+        if (trim($language) == '') {
+            $language = $request->request->get('lang');
+        }
+
+        if(!in_array($language, ['en', 'fr', 'de', 'es', 'all'])) {
+            $language = $user->getLanguage() ?? 'de';
+        }
+
+        if($language !== 'all')
+            $this->translator->setLocale($language);
+
+        // Base data.
+        $data = $this->getHeaders($user);
+
+        $buildings = $this->entity_manager->getRepository(BuildingPrototype::class)->findAll();
+
+        $data['data'] = [
+            'attributes' => [
+                'cache-date' => $now->format('Y-m-d H:i:s'),
+                'cache-fast' => 0,
+            ],
+            'buildings' => [
+                'list' => [
+                    'name' => 'building',
+                    'items' => [
+                    ]
+                ],
+            ],
+        ];
+
+        /** @var BuildingPrototype $building */
+        foreach ($buildings as $building) {
+            $buildingXml = [
+                'attributes' => [
+                    'temporary' => intval($building->getTemp()),
+                    'id' => $building->getId(),
+                    'img' => str_replace($icon_asset_path, '', $this->asset->getUrl("build/images/building/{$building->getIcon()}.gif"))
+                ]
+            ];
+
+            if ($language !== 'all') {
+                $buildingXml['attributes']['name'] = $this->translator->trans($building->getLabel(), [], 'buildings');
+                $buildingXml['cdata_value'] = $this->translator->trans($building->getDescription(), [], 'buildings');
+            } else {
+                foreach ($this->available_langs as $lang) {
+                    $buildingXml['attributes']["name-$lang"] = $this->translator->trans($building->getLabel(), [], 'buildings', $lang);
+                    $buildingXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($building->getDescription(), [], 'buildings', $lang)];
+                }
+            }
+
+            if($building->getParent() !== null) {
+                $buildingXml['attributes']['parent'] = $building->getParent()->getId();
+            }
+            $data['data']['buildings']['list']['items'][] = $buildingXml;
+        }
+
+        $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+        $response->headers->set('Content-Type', 'text/xml');
+        return $response;
+    }
+
+    /**
+     * @Route("/api/x/v2/xml/ruins", name="api_x2_xml_ruins", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * Returns the lists of ruins currently used in the game
+     * @param Request $request
+     * @return Response
+     */
+    public function api_xml_ruins(Request $request): Response {
+        $user = $this->check_keys(true);
+
+        $icon_asset_path = Request::createFromGlobals()->getBasePath() . '/build/images/';
+
+        try {
+            $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
+        } catch (Exception $e) {
+            $now = date('Y-m-d H:i:s');
+        }
+
+        if($user instanceof Response)
+            return $user;
+
+        // Try POST data
+        $language = $request->query->get('lang');
+
+        if (trim($language) == '') {
+            $language = $request->request->get('lang');
+        }
+
+        if(!in_array($language, ['en', 'fr', 'de', 'es', 'all'])) {
+            $language = $user->getLanguage() ?? 'de';
+        }
+
+        if($language !== 'all')
+            $this->translator->setLocale($language);
+
+        // Base data.
+        $data = $this->getHeaders($user);
+
+        $ruins = $this->entity_manager->getRepository(ZonePrototype::class)->findAll();
+
+        $data['data'] = [
+            'attributes' => [
+                'cache-date' => $now->format('Y-m-d H:i:s'),
+                'cache-fast' => 0,
+            ],
+            'ruins' => [
+                'list' => [
+                    'name' => 'ruin',
+                    'items' => [
+                    ]
+                ],
+            ],
+        ];
+
+        /** @var ZonePrototype $ruin */
+        foreach ($ruins as $ruin) {
+            $ruinXml = [
+                'attributes' => [
+                    'id' => $ruin->getId(),
+                    'explorable' => intval($ruin->getExplorable())
+                ]
+            ];
+            if ($language !== 'all') {
+                $ruinXml['attributes']['name'] = $this->translator->trans($ruin->getLabel(), [], 'game');
+                $ruinXml['cdata_value'] = $this->translator->trans($ruin->getExplorableDescription() ?? $ruin->getDescription(), [], 'game');
+            } else {
+                foreach ($this->available_langs as $lang) {
+                    $ruinXml['attributes']["name-$lang"] = $this->translator->trans($ruin->getLabel(), [], 'buildings', $lang);
+                    $ruinXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($ruin->getExplorableDescription() ?? $ruin->getDescription(), [], 'buildings', $lang)];
+                }
+            }
+
+            $data['data']['ruins']['list']['items'][] = $ruinXml;
         }
 
         $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
@@ -737,11 +1031,12 @@ class ExternalXML2Controller extends ExternalController {
         return $_xml->asXML();
     }
 
-    protected function parseGazetteLog(GazetteLogEntry $gazetteLogEntry) {
+    protected function parseGazetteLog(GazetteLogEntry $gazetteLogEntry): string
+    {
         return $this->parseLog($gazetteLogEntry->getLogEntryTemplate(), $gazetteLogEntry->getVariables());
     }
 
-    protected function parseLog(LogEntryTemplate $template, array $variables ): String {
+    protected function parseLog(LogEntryTemplate $template, array $variables ): string {
         $variableTypes = $template->getVariableTypes();
         $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $variables, true);
 
@@ -804,8 +1099,6 @@ class ExternalXML2Controller extends ExternalController {
                             'hero' => $citizen->getProfession()->getHeroic(),
                             'name' => $user->getUsername(),
                             'avatar' => $user->getAvatar() !== null ? $user->getId() . "/" . $user->getAvatar()->getFilename() . "." . $user->getAvatar()->getFormat() : "",
-                            'x' => $offset['x'] + ($citizen->getZone() !== null ? $citizen->getZone()->getX() : 0),
-                            'y' => $offset['y'] - ($citizen->getZone() !== null ? $citizen->getZone()->getY() : 0),
                             'id' => $user->getId(),
                             'ban' => intval($citizen->getBanished()),
                             'job' => $citizen->getProfession()->getName(),
@@ -814,8 +1107,11 @@ class ExternalXML2Controller extends ExternalController {
                         ],
                         "cdata_value" => $citizen->getHome()->getDescription()
                     ],
-                    // "myZone" => []
                 ];
+                if(!$citizen->getTown()->getChaos()){
+                    $headers['headers']['owner']['citizen']['attributes']['x'] = $offset['x'] + ($citizen->getZone() !== null ? $citizen->getZone()->getX() : 0);
+                    $headers['headers']['owner']['citizen']['attributes']['y'] = $offset['y'] - ($citizen->getZone() !== null ? $citizen->getZone()->getY() : 0);
+                }
                 /** @var Zone $zone */
                 $zone = $citizen->getZone();
                 if($zone !== null){

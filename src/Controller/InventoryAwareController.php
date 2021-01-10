@@ -416,10 +416,11 @@ class InventoryAwareController extends CustomAbstractController
             if ($aggressor->getZone() || !$victim->getHome()->getHoldsBody())
                 return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-            $this->entity_manager->persist( $this->log->citizenDisposal($aggressor, $victim, 4) );
+            // $this->entity_manager->persist( $this->log->citizenDisposal($aggressor, $victim, Citizen::Ghoul) );
 
             $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 10) );
             $victim->getHome()->setHoldsBody(false);
+            $victim->setDisposed(Citizen::Ghoul);
             $this->picto_handler->give_picto($aggressor, 'r_cannib_#00');
 
             $notes[] = $this->translator->trans('Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.', [], 'game');
@@ -427,7 +428,7 @@ class InventoryAwareController extends CustomAbstractController
         }
 
         if ($notes)
-            $this->addFlash('note', implode('<hr />', $notes));
+            $this->addFlash('notice', implode('<hr />', $notes));
 
         $this->entity_manager->persist($aggressor);
         $this->entity_manager->persist($victim);
@@ -550,8 +551,8 @@ class InventoryAwareController extends CustomAbstractController
             if ($inv_target->getTown()) $bank_up = false;
 
             $floor_up = null;
-            if ($inv_source->getZone()) $floor_up = true;
-            if ($inv_target->getZone()) $floor_up = false;
+            if ($inv_source->getZone() || $inv_source->getRuinZone() || $inv_source->getRuinZoneRoom() ) $floor_up = true;
+            if ($inv_target->getZone() || $inv_target->getRuinZone() || $inv_target->getRuinZoneRoom() ) $floor_up = false;
 
             $steal_up = null;
             if ($inv_source->getHome() && $inv_source->getHome()->getId() !== $citizen->getHome()->getId()) $steal_up = true;

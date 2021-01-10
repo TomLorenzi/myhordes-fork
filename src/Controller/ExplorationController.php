@@ -2,26 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\ActionCounter;
-use App\Entity\Citizen;
-use App\Entity\CitizenEscortSettings;
-use App\Entity\CitizenRole;
-use App\Entity\CitizenStatus;
-use App\Entity\DigRuinMarker;
-use App\Entity\DigTimer;
-use App\Entity\EscapeTimer;
-use App\Entity\EscortActionGroup;
-use App\Entity\ItemAction;
-use App\Entity\ItemGroup;
-use App\Entity\ItemPrototype;
-use App\Entity\PictoPrototype;
-use App\Entity\Recipe;
-use App\Entity\RuinExplorerStats;
 use App\Entity\RuinZone;
-use App\Entity\ScoutVisit;
-use App\Entity\Town;
-use App\Entity\Zone;
-use App\Entity\ZoneTag;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;

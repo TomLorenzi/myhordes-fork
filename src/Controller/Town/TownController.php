@@ -303,6 +303,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
         }
 
+        $cc = 0;
+        foreach ($c->getTown()->getCitizens() as $citizen)
+            if ($citizen->getAlive() && !$citizen->getZone() && $citizen->getId() !== $c->getId() && $c->getId() !== $c->getId()) $cc++;
+        $cc = (float)$cc / (float)$c->getTown()->getPopulation(); // Completely arbitrary
+
         $hidden = (bool)($em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($home,
             $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneBy(['name' => 'curtain'])
         )) && $this->citizen_handler->houseIsProtected($c);
@@ -346,6 +351,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'owner' => $c,
             'can_attack' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
             'can_devour' => $this->getActiveCitizen()->hasRole('ghoul'),
+            'caught_chance' => $cc,
             'allow_devour' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
             'allow_devour_corpse' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_corpse'),
             'home' => $home,
@@ -425,7 +431,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $pictoName = "";
         $message = "";
         switch ($action) {
-            case 1:
+            case Citizen::Thrown:
                 // Thrown outside
                 if ($ac->getAp() < 2 || $this->citizen_handler->isTired( $ac ))
                     return AjaxResponse::error( ErrorHelper::ErrorNoAP );
@@ -435,7 +441,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $c->setDisposed(Citizen::Thrown);
                 $c->addDisposedBy($ac);
                 break;
-            case 2:
+            case Citizen::Watered:
                 // Watered
                 $items = $this->inventory_handler->fetchSpecificItems( $ac->getInventory(), [new ItemRequest('water_#00')] );
                 if (!$items) return AjaxResponse::error(ErrorHelper::ErrorItemsMissing );
@@ -445,7 +451,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $c->setDisposed(Citizen::Watered);
                 $c->addDisposedBy($ac);
                 break;
-            case 3:
+            case Citizen::Cooked:
                 // Cooked
                 $town = $ac->getTown();
                 if (!$th->getBuilding($town, 'item_hmeat_#00', true))
@@ -873,6 +879,12 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $citizenInfos[] = $citizenInfo;
         }
 
+        $cc = 0;
+        foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
+            if ($citizen->getAlive() && !$citizen->getZone() && $citizen->getId() !== $this->getActiveCitizen()->getId()) $cc++;
+        $cc = (float)$cc / (float)$this->getActiveCitizen()->getTown()->getPopulation(); // Completely arbitrary
+        file_put_contents("/tmp/dump.txt", $cc);
+
         return $this->render( 'ajax/game/town/citizen.html.twig', $this->addDefaultTwigArgs('citizens', [
             'citizens' => $citizenInfos,
             'me' => $this->getActiveCitizen(),
@@ -880,6 +892,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'prof_count' => $prof_count,
             'death_count' => $death_count,
             'has_omniscience' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
+            'is_ghoul' => $this->getActiveCitizen()->hasRole('ghoul'),
+            'caught_chance' => $cc
         ]) );
     }
 
@@ -1493,7 +1507,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         $data = $parser->get('data', []);
-        if (!$data || !is_array($data) || count($data) > 32 || count($data) < 2)
+        if (!$data || !is_array($data)  || count($data) < 2)
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         if ($citizen->getExpeditionRoutes()->count() >= 12)

@@ -16495,14 +16495,5 @@
         <target>Architekt</target>
       </segment>
     </unit>
-    <unit id="0oUM0cs" name="Bürger! Seid auf inoffiziellen Webseiten wachsam!">
-      <notes>
-        <note category="german">Bürger! Seid auf inoffiziellen Webseiten wachsam!</note>
-      </notes>
-      <segment>
-        <source>Bürger! Seid auf inoffiziellen Webseiten wachsam!</source>
-        <target>Bürger! Seid auf inoffiziellen Webseiten wachsam!</target>
-      </segment>
-    </unit>
   </file>
 </xliff>
