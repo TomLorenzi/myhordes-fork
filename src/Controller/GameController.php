@@ -454,7 +454,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
             'show_register'  => $show_register,
             'show_town_link'  => $in_town,
             'day' => $town->getDay(),
-            'log' => $show_register ? $this->renderLog( -1 )->getContent() : "",
+            'log' => $show_register ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'gazette' => $gazette_info,
             'citizensWithRole' => $citizensWithRole,
             'clock' => [
