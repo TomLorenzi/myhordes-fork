@@ -14860,7 +14860,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das Leichsblatt, Ausgabe vom %day%. Tag</source>
-        <target>Das Leichsblatt, Ausgabe vom %day%. Tag</target>
+        <target>The News Corpse, edition of day %day%</target>
       </segment>
     </unit>
     <unit id="Hbo1GZX" name="fe016ab">
@@ -14941,7 +14941,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Bauprojekte der Stadt</source>
-        <target>Bauprojekte der Stadt</target>
+        <target>Construction Sites</target>
       </segment>
     </unit>
     <unit id="r9GesCe" name="d0f1cdc">
@@ -15031,7 +15031,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Unser Katapult wird von dem vom Schicksal auserwählten Bürger %citizen% gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.</source>
-        <target>Unser Katapult wird von dem vom Schicksal auserwählten Bürger %citizen% gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.</target>
+        <target>%citizen% has been randomly selected to be in charge of the catapult. If anything dreadful happens to them, another citizen will be selected.</target>
       </segment>
     </unit>
     <unit id="TV74CjO" name="Die Aktivierung des Katapults kostet %ap%.">
@@ -15301,7 +15301,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die verfluchten Schriften</source>
-        <target>Die verfluchten Schriften</target>
+        <target>Star-crossed scripts</target>
       </segment>
     </unit>
     <unit id="GZZJnSZ" name="Beta-Tester der neuen Zeit">
