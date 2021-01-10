@@ -1173,8 +1173,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         if (!$was_completed && $building->getComplete()) {
             // Remove resources, create a log entry, trigger
-            foreach ($items as $item)
-                $this->inventory_handler->forceRemoveItem( $item, $res[ $item->getPrototype()->getName() ]->getCount() );
+            foreach ($items as $item) if ($res[$item->getPrototype()->getName()]->getCount() > 0) {
+                $cc = $item->getCount();
+                $this->inventory_handler->forceRemoveItem($item, $res[$item->getPrototype()->getName()]->getCount());
+                $res[$item->getPrototype()->getName()]->addCount(-$cc);
+            }
 
             $this->entity_manager->persist( $this->log->constructionsBuildingComplete( $citizen, $building->getPrototype() ) );
             $th->triggerBuildingCompletion( $town, $building );
