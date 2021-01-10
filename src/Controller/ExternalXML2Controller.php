@@ -925,10 +925,14 @@ class ExternalXML2Controller extends ExternalController {
         }
         // Visit all key value pair
         foreach ($array as $k => $v) {
+
+            $name = null;
+            $child = null;
+
             if (is_array($v)) {
                 $name = $node ?? $k;
                 $child = $_xml->addChild($name);
-                
+
                 if (array_key_exists('attributes', $v)) {
                     foreach ($v['attributes'] as $a => $b) {
                         $child->addAttribute($a, $b);
@@ -985,7 +989,7 @@ class ExternalXML2Controller extends ExternalController {
         return $text;
     }
 
-    protected function getHeaders(?User $user = null, string $language = 'de') {
+    protected function getHeaders(?User $user = null, string $language = 'de'): array {
         $base_url = Request::createFromGlobals()->getHost() . Request::createFromGlobals()->getBasePath();
         $icon_path = $base_url . '/build/images/';
 
