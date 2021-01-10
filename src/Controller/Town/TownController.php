@@ -350,7 +350,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
             'can_attack' => !$this->getActiveCitizen()->getBanished() && !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
-            'can_devour' => $this->getActiveCitizen()->hasRole('ghoul'),
+            'can_devour' => !$this->getActiveCitizen()->getBanished() && $this->getActiveCitizen()->hasRole('ghoul'),
             'caught_chance' => $cc,
             'allow_devour' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
             'allow_devour_corpse' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_corpse'),
