@@ -1065,7 +1065,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         /** @var Building|null $building */
         // Get the building the citizen wants to work on; fail if we can't find it
         $building = $this->entity_manager->getRepository(Building::class)->find($id);
-        if (!$building || $building->getTown()->getId() !== $town->getId() || $ap <= 0)
+        if (!$building || $building->getTown()->getId() !== $town->getId() || $ap < 0)
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         // Check if all parent buildings are completed
@@ -1114,7 +1114,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $ap = max(0,min( $ap, $missing_ap ) );
         }
 
-        if (intval($ap) <= 0)
+        if (intval($ap) <= 0 && $was_completed)
             return AjaxResponse::error(TownController::ErrorAlreadyFinished);
 
         // If the citizen has not enough AP, fail
