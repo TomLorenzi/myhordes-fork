@@ -7,16 +7,11 @@ namespace App\Service;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
-use App\Entity\CitizenRole;
 use App\Entity\ConsecutiveDeathMarker;
-use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\Gazette;
-use App\Entity\ItemProperty;
 use App\Entity\PictoPrototype;
 use App\Entity\RuinZone;
-use App\Entity\Soul;
-use App\Entity\SpecialActionPrototype;
 use App\Entity\TownRankingProxy;
 use App\Entity\UserGroup;
 use App\Structures\TownConf;
@@ -124,7 +119,8 @@ class DeathHandler
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
 
-        $survivedDays = $citizen->getTown()->getDay() + ($cod->getRef() === CauseOfDeath::NightlyAttack ? 1 : 0);
+        $survivedDays = max(0, $citizen->getTown()->getDay() - ($citizen->getTown()->getDevastated() ? 0 : 1));
+
         $citizen->setSurvivedDays($survivedDays);
 
         if ($citizen->getTown()->getDay() <= 3) {

@@ -698,9 +698,7 @@ class TownHandler
         /** @var Citizen $last_one */
         $last_one = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town);
         if ($last_one) {
-            if ($last_one->getAlive() ||                                                                                                            // Skip vote if the last citizen with this role is still alive
-                ($last_one->getSurvivedDays() > ($town->getDay() - 1) && $last_one->getCauseOfDeath()->getRef() === CauseOfDeath::NightlyAttack) ||  // Skip vote if the last citizen with this role died during the attack
-                ($last_one->getSurvivedDays() > ($town->getDay() - 2) && $last_one->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack)     // Skip vote if the last citizen with this role died the previous day
+            if ($last_one->getAlive() || ($last_one->getSurvivedDays() >= ($town->getDay() - 1))     // Skip vote if the last citizen with this role died the previous day
             ) return false;
         }
         return true;

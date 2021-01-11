@@ -113,7 +113,7 @@ class Citizen
     /**
      * @ORM\Column(type="integer")
      */
-    private $survivedDays = 1;
+    private $survivedDays = 0;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\CauseOfDeath")

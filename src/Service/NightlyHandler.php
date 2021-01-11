@@ -1254,8 +1254,7 @@ class NightlyHandler
 
             foreach ($citizens as $citizen) {
                 // Removing citizen with 0 votes
-                if(array_key_exists($citizen->getId(), $votes)
-                    && $votes[$citizen->getId()] == 0) {
+                if(array_key_exists($citizen->getId(), $votes) && $votes[$citizen->getId()] == 0) {
                     unset($votes[$citizen->getId()]);
                 }
             }
@@ -1269,11 +1268,13 @@ class NightlyHandler
             }
 
             foreach ($citizens as $citizen) {
+                // Dead citizen cannot vote
                 if(!$citizen->getAlive()) continue;
 
-                $voted = ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($citizen, $role) !== null);
-                if(!$voted) {
-                    // He has not voted, let's give his vote to someone who has votes
+                $voted = $this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($citizen, $role);
+                /** @var CitizenVote $voted */
+                if($voted === null || !$voted->getVotedCitizen()->getAlive()) {
+                    // He has not voted, or the citizen he voted for is now dead, let's give his vote to someone who has votes
                     $vote_for_id = $this->random->pick(array_keys($votes), 1);
 
                     if(isset($votes[$vote_for_id]))
