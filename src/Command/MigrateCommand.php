@@ -326,7 +326,7 @@ class MigrateCommand extends Command
                 $this->entity_manager->persist($new_user);
                 $this->entity_manager->flush();
 
-                $output->writeln('You user account <info>has been created</info>.');
+                $output->writeln('Your user account <info>has been created</info>.');
             }
 
             return 0;
