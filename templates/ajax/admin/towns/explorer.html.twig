@@ -151,6 +151,18 @@
                                             {% endfor %}
                                         </div>
                                     </div>
+                                    <div class="cell rw-1">
+                                        {% if citizen.alive %}
+                                            <input type="checkbox" target='status' id="b-{{citizen.id}}" />
+                                            <div class="tooltip normal">
+                                                <em>{{ 'Status'|trans({},'admin') }}</em><br />
+                                                {% for status in citizen.status %}
+                                                    {# @var \App\Entity\CitizenStatus status #}
+                                                    <img alt="{{ status.label|trans({},'game') }}" src="{{ asset('build/images/status/status_' ~ status.icon ~ '.gif') }}" />
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                    </div>
                                     <div class="cell factor-0 avatar ua-{{ random(0,9) }}" style="flex-basis: 90px; background: url('{{ citizen.user.avatar ? path('app_web_avatar', {'uid': citizen.user.id, 'name': citizen.user.avatar.smallName, 'ext': citizen.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}') center/cover no-repeat;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
                                     <div class="cell factor-0 citizen-{{ citizen.alive ? (citizen.online ? 'online' : 'offline') : 'dead' }}" style="flex-basis: 8px;" x-ajax-href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">&nbsp;</div>
                                     
@@ -222,12 +234,20 @@
                             <input type="number" id="numberPicto" value="1"/>
                             <br />
                             <button id="givebtn">{{'Vergeben!'|trans({}, 'admin')}}</button>
+                            <hr />
+                            <label for="selectStatus">{{'Einen Status auswählen:'|trans({}, 'admin')}}</label>
+                            <select id="selectStatus">
+                                {% for status in citizenStati %}
+                                    <option value="{{status.id}}">{{ status.label|trans({}, 'game') }}</option>
+                                {% endfor %}
+                            </select>
+                            <button id="givestatusbtn">{{'Vergeben'|trans({}, 'admin')}}</button><button id="takestatusbtn">{{'Entfernen'|trans({}, 'admin')}}</button>
                         </div>
                         <div class="padded cell">
                             <h5>{{ 'Anzeigen'|trans({}, 'admin') }}</h5>
                             <ul>
                             {% for culprit, complaint in complaints %}
-                                <li>{{  'Gegen %culprit%'|trans({'%culprit%': "<strong>" ~ culprit ~ "</strong>"}, 'admin')|raw }}
+                                <li>{{ 'Gegen %culprit%'|trans({'%culprit%': "<strong>" ~ culprit ~ "</strong>"}, 'admin')|raw }}
                                     <ul>
                                     {% for cmp in complaint|sort((a,b) => a.autor.user.name <=> b.autor.user.name) %}
                                         <li>{{ cmp.autor.user.name }} : {{ cmp.linkedReason.text|trans({}, 'game') }}</li>
@@ -486,6 +506,46 @@
                     function () {
                         $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "citizens"}) }}', true);
                     }
+                );
+            });
+
+            let givestatusbtn = document.getElementById("givestatusbtn");
+            if (givestatusbtn) givestatusbtn.addEventListener('click', function(){
+                let status = document.getElementById('selectStatus').value;
+
+                let citizens = document.querySelectorAll("input[target='status']:checked");
+
+                let targets = [];
+                citizens.forEach(element => {
+                  targets.push(element.getAttribute('id'));
+                });
+
+                $.ajax.easySend('{{ path('admin_town_give_status', {id: town.id}) }}', {
+                                  status: status, targets: targets.join(',')
+                        },
+                        function () {
+                          $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "citizens"}) }}', true);
+                        }
+                );
+            });
+
+            let takestatusbtn = document.getElementById("takestatusbtn");
+            if (takestatusbtn) takestatusbtn.addEventListener('click', function(){
+                let status = document.getElementById('selectStatus').value;
+
+                let citizens = document.querySelectorAll("input[target='status']:checked");
+
+                let targets = [];
+                citizens.forEach(element => {
+                  targets.push(element.getAttribute('id'));
+                });
+
+                $.ajax.easySend('{{ path('admin_town_take_status', {id: town.id}) }}', {
+                          status: status, targets: targets.join(',')
+                        },
+                        function () {
+                          $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "citizens"}) }}', true);
+                        }
                 );
             });
 
