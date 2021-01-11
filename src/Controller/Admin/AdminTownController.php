@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Citizen;
+use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\Complaint;
 use App\Entity\ExpeditionRoute;
@@ -116,6 +117,11 @@ class AdminTownController extends AdminActionController
           return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
         });
 
+      $citizenRoles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
+      usort($citizenRoles, function($a, $b) {
+        return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
+      });
+
         $complaints = [];
 
         foreach($town->getCitizens() as $citizen) {
@@ -134,6 +140,7 @@ class AdminTownController extends AdminActionController
             'itemPrototypes' => $itemPrototypes,
             'pictoPrototypes' => $pictoProtos,
             'citizenStati' => $citizenStati,
+            'citizenRoles' => $citizenRoles,
             'tab' => $tab,
             'complaints' => $complaints,
         ], $this->get_map_blob($town))));
@@ -499,6 +506,82 @@ class AdminTownController extends AdminActionController
       $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
 
       $citizen->removeStatus($citizenStatus);
+
+      $this->entity_manager->persist($citizen);
+    }
+
+    $this->entity_manager->flush();
+
+    return AjaxResponse::success();
+  }
+
+  /**
+   * @Route("/api/admin/town/{id}/role/give", name="admin_town_give_role", requirements={"id"="\d+"})
+   * @Security("is_granted('ROLE_ADMIN')")
+   * Give status to selected citizens of a town
+   * @param int $id User ID
+   * @param JSONRequestParser $parser The Request Parser
+   * @param CitizenHandler $handler
+   * @return Response
+   */
+  public function town_give_role(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
+  {
+    $town = $this->entity_manager->getRepository(Town::class)->find($id);
+    if(!$town) {
+      return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+    }
+
+    $role_id = $parser->get('role');
+    $targets = $parser->get('targets', "");
+
+    /** @var CitizenRole $citizenRole */
+    $citizenRole = $this->entity_manager->getRepository(CitizenRole::class)->find($role_id);
+
+    $targets = explode(",", $targets);
+    foreach ($targets as $target) {
+      $infos = explode("-", $target);
+      /** @var Citizen $citizen */
+      $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
+
+      $citizen->addRole($citizenRole);
+
+      $this->entity_manager->persist($citizen);
+    }
+
+    $this->entity_manager->flush();
+
+    return AjaxResponse::success();
+  }
+
+  /**
+   * @Route("/api/admin/town/{id}/role/take", name="admin_town_take_role", requirements={"id"="\d+"})
+   * @Security("is_granted('ROLE_ADMIN')")
+   * Give status to selected citizens of a town
+   * @param int $id User ID
+   * @param JSONRequestParser $parser The Request Parser
+   * @param CitizenHandler $handler
+   * @return Response
+   */
+  public function town_take_role(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
+  {
+    $town = $this->entity_manager->getRepository(Town::class)->find($id);
+    if(!$town) {
+      return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+    }
+
+    $role_id = $parser->get('role');
+    $targets = $parser->get('targets', "");
+
+    /** @var CitizenRole $citizenRole */
+    $citizenRole = $this->entity_manager->getRepository(CitizenRole::class)->find($role_id);
+
+    $targets = explode(",", $targets);
+    foreach ($targets as $target) {
+      $infos = explode("-", $target);
+      /** @var Citizen $citizen */
+      $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
+
+      $citizen->removeRole($citizenRole);
 
       $this->entity_manager->persist($citizen);
     }
