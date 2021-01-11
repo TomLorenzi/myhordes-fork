@@ -242,6 +242,14 @@
                                 {% endfor %}
                             </select>
                             <button id="givestatusbtn">{{'Vergeben'|trans({}, 'admin')}}</button><button id="takestatusbtn">{{'Entfernen'|trans({}, 'admin')}}</button>
+                            <hr />
+                            <label for="selectRole">{{'Eine Rolle auswählen:'|trans({}, 'admin')}}</label>
+                            <select id="selectRole">
+                                {% for role in citizenRoles %}
+                                    <option value="{{role.id}}">{{ role.label|trans({}, 'game') }}</option>
+                                {% endfor %}
+                            </select>
+                            <button id="giverolebtn">{{'Vergeben'|trans({}, 'admin')}}</button><button id="takerolebtn">{{'Entfernen'|trans({}, 'admin')}}</button>
                         </div>
                         <div class="padded cell">
                             <h5>{{ 'Anzeigen'|trans({}, 'admin') }}</h5>
@@ -542,6 +550,46 @@
 
                 $.ajax.easySend('{{ path('admin_town_take_status', {id: town.id}) }}', {
                           status: status, targets: targets.join(',')
+                        },
+                        function () {
+                          $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "citizens"}) }}', true);
+                        }
+                );
+            });
+
+            let giverolebtn = document.getElementById("giverolebtn");
+            if (giverolebtn) giverolebtn.addEventListener('click', function(){
+                let role = document.getElementById('selectRole').value;
+
+                let citizens = document.querySelectorAll("input[target='status']:checked");
+
+                let targets = [];
+                citizens.forEach(element => {
+                  targets.push(element.getAttribute('id'));
+                });
+
+                $.ajax.easySend('{{ path('admin_town_give_role', {id: town.id}) }}', {
+                          role: role, targets: targets.join(',')
+                        },
+                        function () {
+                          $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "citizens"}) }}', true);
+                        }
+                );
+            });
+
+            let takerolebtn = document.getElementById("takerolebtn");
+            if (takerolebtn) takerolebtn.addEventListener('click', function(){
+                let role = document.getElementById('selectRole').value;
+
+                let citizens = document.querySelectorAll("input[target='status']:checked");
+
+                let targets = [];
+                citizens.forEach(element => {
+                  targets.push(element.getAttribute('id'));
+                });
+
+                $.ajax.easySend('{{ path('admin_town_take_role', {id: town.id}) }}', {
+                          role: role, targets: targets.join(',')
                         },
                         function () {
                           $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "citizens"}) }}', true);
