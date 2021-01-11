@@ -121,7 +121,7 @@ class AdminTownController extends AdminActionController
             'town' => $town,
             'conf' => $this->conf->getTownConfiguration( $town ),
             'explorables' => $explorables,
-            'log' => $this->renderLog( -1, $town )->getContent(),
+            'log' => $this->renderLog( -1, $town, false )->getContent(),
             'day' => $town->getDay(),
             'bank' => $this->renderInventoryAsBank( $town->getBank() ),
             'itemPrototypes' => $itemPrototypes,

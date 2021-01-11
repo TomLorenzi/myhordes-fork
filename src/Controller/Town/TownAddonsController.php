@@ -45,6 +45,9 @@ class TownAddonsController extends TownController
             return $this->redirect($this->generateUrl('game_newspaper'));
 
         $town = $this->getActiveCitizen()->getTown();
+        if($town->getDevastated())
+            return $this->redirect($this->generateUrl('town_dashboard'));
+
         $buildings = [];
         $max_votes = 0;
         $total_votes = 0;
@@ -74,7 +77,7 @@ class TownAddonsController extends TownController
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
 
-        if ($citizen->getDailyUpgradeVote() || $citizen->getBanished())
+        if ($citizen->getDailyUpgradeVote() || $citizen->getBanished() || $town->getDevastated())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         if (!$parser->has_all(['id'], true))
@@ -380,16 +383,14 @@ class TownAddonsController extends TownController
     /**
      * @Route("api/town/dump/do", name="town_dump_do_controller")
      * @param JSONRequestParser $parser
-     * @param CitizenHandler $ch
-     * @param TownHandler $th
      * @return Response
      */
-    public function dump_do_api(JSONRequestParser $parser, CitizenHandler $ch, TownHandler $th): Response {
+    public function dump_do_api(JSONRequestParser $parser): Response {
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
 
         // Check if citizen is banished or dump is not build
-        if ($citizen->getBanished() || !($dump = $th->getBuilding($town, 'small_trash_#00', true)))
+        if ($citizen->getBanished() || !($dump = $this->town_handler->getBuilding($town, 'small_trash_#00', true)))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         // Get prototype ID
@@ -401,11 +402,11 @@ class TownAddonsController extends TownController
         /** @var ItemPrototype $prototype */
         // Get the item prototype and make sure it is dump-able
         $prototype = $this->entity_manager->getRepository(ItemPrototype::class)->find( $id );
-        if ($prototype === null || !($dump_def = $this->get_dump_def_for( $prototype, $th ))  )
+        if ($prototype === null || !($dump_def = $this->get_dump_def_for( $prototype, $this->town_handler ))  )
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         // Check if dumping is free
-        $free_dumps = $th->getBuilding( $town, 'small_trashclean_#00', true ) !== null;
+        $free_dumps = $this->town_handler->getBuilding( $town, 'small_trashclean_#00', true ) !== null;
 
         // Check if citizen has enough AP
         if (!$free_dumps && $citizen->getAp() < $ap)

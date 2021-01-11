@@ -284,13 +284,19 @@ class CitizenHandler
 
             $citizen->addRole($role);
 
-            if ($role->getName() === 'ghoul') {
-                $this->removeStatus($citizen, 'thirst1');
-                $this->removeStatus($citizen, 'thirst2');
-                $this->removeStatus($citizen, 'infection');
-                $this->removeStatus($citizen, 'tg_meta_wound');
-                $this->removeStatus($citizen, 'tg_meta_winfect');
-                $citizen->setWalkingDistance(0);
+            switch($role->getName()){
+                case "ghoul":
+                    $this->removeStatus($citizen, 'thirst1');
+                    $this->removeStatus($citizen, 'thirst2');
+                    $this->removeStatus($citizen, 'infection');
+                    $this->removeStatus($citizen, 'tg_meta_wound');
+                    $this->removeStatus($citizen, 'tg_meta_winfect');
+                    $citizen->setWalkingDistance(0);
+                    break;
+                case "shaman":
+                    $this->inflictStatus($citizen, "tg_shaman_immune"); // Shaman is immune to red souls
+                    $this->setPM($citizen, false, $this->getMaxPM($citizen)); // We give him his PM
+                    break;
             }
 
             return true;
@@ -343,6 +349,11 @@ class CitizenHandler
         else $citizen->setBp( max(0, $relative ? ($citizen->getBp() + $num) : max(0,$num) ) );
     }
 
+    /**
+     * Returns the maximum PM available for a citizen
+     * @param Citizen $citizen The citizen to look for
+     * @return int Number of maximum PM available for the citizen
+     */
     public function getMaxPM(Citizen $citizen) {
         $isShaman = false;
         foreach ($citizen->getRoles() as $role) {

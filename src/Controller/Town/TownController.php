@@ -882,8 +882,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $cc = 0;
         foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
             if ($citizen->getAlive() && !$citizen->getZone() && $citizen->getId() !== $this->getActiveCitizen()->getId()) $cc++;
-        $cc = (float)$cc / (float)$this->getActiveCitizen()->getTown()->getPopulation(); // Completely arbitrary
-        file_put_contents("/tmp/dump.txt", $cc);
+        $town = $this->getActiveCitizen()->getTown();
+        $cc = (float)$cc / (float)$this->town_handler->get_alive_citizens($town); // Completely arbitrary
 
         return $this->render( 'ajax/game/town/citizen.html.twig', $this->addDefaultTwigArgs('citizens', [
             'citizens' => $citizenInfos,

@@ -793,7 +793,7 @@ class SoulController extends CustomAbstractController
 
 
     /**
-     * @Route("jx/soul/death", name="soul_death")
+     * @Route("jx/soul/welcomeToNowhere", name="soul_death")
      * @return Response
      */
     public function soul_death_page(): Response
