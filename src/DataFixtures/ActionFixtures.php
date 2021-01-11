@@ -430,7 +430,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'toolbox'   => [ 'pile_#00', ['meca_parts_#00', 2], 'rustine_#00', 'tube_#00', 'pharma_#00', ['explo_#00', 2], 'lights_#00' ],
                 'foodbox'   => [ 'food_bag_#00', 'can_#00', 'meat_#00', 'hmeat_#00', ['vegetable_#00', 2] ],
 
-                'phone'  => [ 'deto_#00', 'metal_bad_#00', 'pile_broken_#00', 'electro_#00' ],
+                'phone'  => [ 'what' => ['deto_#00', 'metal_bad_#00', 'pile_broken_#00', 'electro_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
                 'proj'   => [ 'lens_#00' ],
                 'empty_battery' => [ 'what' => ['pile_broken_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
                 'battery' => [ 'what' => ['pile_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
