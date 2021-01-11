@@ -1114,7 +1114,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $ap = max(0,min( $ap, $missing_ap ) );
         }
 
-        if (intval($ap) <= 0)
+        if (intval($ap) <= 0 && $was_completed)
             return AjaxResponse::error(TownController::ErrorAlreadyFinished);
 
         // If the citizen has not enough AP, fail

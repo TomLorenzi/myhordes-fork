@@ -1253,9 +1253,6 @@ class NightlyHandler
                 }
             }
 
-            $this->log->debug("Here is the total votes");
-            print_r($votes);
-
             foreach ($citizens as $citizen) {
                 // Removing citizen with 0 votes
                 if(array_key_exists($citizen->getId(), $votes)
@@ -1263,9 +1260,6 @@ class NightlyHandler
                     unset($votes[$citizen->getId()]);
                 }
             }
-
-            $this->log->debug("Here is the cleaned-up votes");
-            print_r($votes);
 
             if(empty($votes)) {
                 foreach ($citizens as $citizen) {
@@ -1289,9 +1283,6 @@ class NightlyHandler
                         $votes[$vote_for_id] = 1;
                 }
             }
-
-            $this->log->debug("Here is the real roles with non-voting citizens");
-            print_r($votes);
 
             // Let's get the winner
             $citizenWinnerId = 0;
