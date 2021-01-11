@@ -410,7 +410,6 @@ class NightlyHandler
 
         $zombies *= $soulFactor;
         $zombies = round($zombies);
-        $zombies = 1;
 
         $gazette->setAttack($zombies);
 
