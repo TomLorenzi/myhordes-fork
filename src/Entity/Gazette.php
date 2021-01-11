@@ -34,7 +34,6 @@ class Gazette
      */
     private $_log_entries;
 
-
     /**
      * @ORM\Column(type="integer")
      */
@@ -85,9 +84,15 @@ class Gazette
      */
     private $waterlost = 0;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=CitizenRole::class)
+     */
+    private $votes_needed;
+
     public function __construct()
     {
         $this->victims = new ArrayCollection();
+        $this->votes_needed = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -237,6 +242,30 @@ class Gazette
     public function setWaterlost(int $waterlost): self
     {
         $this->waterlost = $waterlost;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CitizenRole[]
+     */
+    public function getVotesNeeded(): Collection
+    {
+        return $this->votes_needed;
+    }
+
+    public function addVotesNeeded(CitizenRole $votesNeeded): self
+    {
+        if (!$this->votes_needed->contains($votesNeeded)) {
+            $this->votes_needed[] = $votesNeeded;
+        }
+
+        return $this;
+    }
+
+    public function removeVotesNeeded(CitizenRole $votesNeeded): self
+    {
+        $this->votes_needed->removeElement($votesNeeded);
 
         return $this;
     }

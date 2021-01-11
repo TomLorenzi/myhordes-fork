@@ -53,9 +53,10 @@ class DeathHandler
     }
 
     /**
+     * Process the death of a citizen
      * @param Citizen $citizen
      * @param CauseOfDeath|int $cod
-     * @param array $remove
+     * @param array|null $remove
      */
     public function kill(Citizen &$citizen, $cod, ?array &$remove = null): void {
         $handle_em = $remove === null;
@@ -122,7 +123,9 @@ class DeathHandler
 
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
-        $citizen->setSurvivedDays($citizen->getTown()->getDay() - 1);
+
+        $survivedDays = $citizen->getTown()->getDay() + ($cod->getRef() === CauseOfDeath::NightlyAttack ? 1 : 0);
+        $citizen->setSurvivedDays($survivedDays);
 
         if ($citizen->getTown()->getDay() <= 3) {
             $cdm = $this->entity_manager->getRepository(ConsecutiveDeathMarker::class)->findOneBy( ['user' => $citizen->getUser()] )
@@ -134,8 +137,13 @@ class DeathHandler
         }
 
         $gazette = $citizen->getTown()->findGazette( ($citizen->getTown()->getDay() + ($cod->getRef() == CauseOfDeath::NightlyAttack ? 0 : 1)) );
+        /** @var Gazette $gazette */
         if($gazette !== null){
             $gazette->addVictim($citizen);
+            foreach ($citizen->getRoles() as $role) {
+                if (!$role->getVotable()) continue;
+                $gazette->addVotesNeeded($role);
+            }
             $this->entity_manager->persist($gazette);
         }
 

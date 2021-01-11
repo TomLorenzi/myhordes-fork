@@ -104,6 +104,7 @@ class NightlyHandler
         $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> dies of <info>{$cod->getLabel()}</info>.");
         $this->death_handler->kill($citizen,$cod,$rr);
 
+
         if (!$skip_log) $this->entity_manager->persist( $this->logTemplates->citizenDeath( $citizen, $zombies, null, $day ) );
         foreach ($rr as $r) $this->cleanup[] = $r;
         if ($skip_reanimation) $this->skip_reanimation[] = $citizen->getId();
@@ -409,6 +410,7 @@ class NightlyHandler
 
         $zombies *= $soulFactor;
         $zombies = round($zombies);
+        $zombies = 1;
 
         $gazette->setAttack($zombies);
 
@@ -1234,7 +1236,6 @@ class NightlyHandler
         $this->log->info( "Processing elections..." );
         $citizens = $town->getCitizens();
         $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
-        $votes = array();
 
         /** @var CitizenRole $role */
         foreach ($roles as $role) {
@@ -1242,37 +1243,34 @@ class NightlyHandler
             /** @var SpecialActionPrototype $special_vote */
             $special_vote = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => 'special_vote_' . $role->getName()]);
 
-            /** @var Citizen $last_one */
-            $last_one = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town);
-            if ($last_one) {
-                $this->log->debug("Last citizen to have the {$role->getLabel()} role was {$last_one->getUser()->getUsername()}. His alive status is " . intval($last_one->getAlive()) . ". He survived {$last_one->getSurvivedDays()}. Town is at day {$town->getDay()}");
-                if ($last_one->getAlive() ||                                                                                                            // Skip vote if the last citizen with this role is still alive
-                    ($last_one->getSurvivedDays() >= ($town->getDay()-1) && $last_one->getCauseOfDeath()->getRef() === CauseOfDeath::NightlyAttack) ||  // Skip vote if the last citizen with this role died during the attack
-                    ($last_one->getSurvivedDays() >= ($town->getDay()-2) && $last_one->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack)     // Skip vote if the last citizen with this role died the previous day
-                ) continue;
-            }
+            if(!$this->town_handler->is_vote_needed($town, $role)) continue;
 
             // Getting vote per role per citizen
-            $votes[$role->getId()] = array();
+            $votes = array();
             foreach ($citizens as $citizen) {
                 if($citizen->getAlive()) {
-                    $votes[$role->getId()][$citizen->getId()] = $this->entity_manager->getRepository(CitizenVote::class)->countCitizenVotesFor($citizen, $role);
+                    $votes[$citizen->getId()] = $this->entity_manager->getRepository(CitizenVote::class)->countCitizenVotesFor($citizen, $role);
                 }
             }
+
+            $this->log->debug("Here is the total votes");
+            print_r($votes);
 
             foreach ($citizens as $citizen) {
                 // Removing citizen with 0 votes
-                if(array_key_exists($role->getId(), $votes)
-                    && array_key_exists($citizen->getId(), $votes[$role->getId()])
-                    && $votes[$role->getId()][$citizen->getId()] == 0) {
-                    unset($votes[$role->getId()][$citizen->getId()]);
+                if(array_key_exists($citizen->getId(), $votes)
+                    && $votes[$citizen->getId()] == 0) {
+                    unset($votes[$citizen->getId()]);
                 }
             }
 
-            if(empty($votes[$role->getId()])) {
+            $this->log->debug("Here is the cleaned-up votes");
+            print_r($votes);
+
+            if(empty($votes)) {
                 foreach ($citizens as $citizen) {
                     if($citizen->getAlive()) {
-                        $votes[$role->getId()][$citizen->getId()] = 0;
+                        $votes[$citizen->getId()] = 0;
                     }
                 }
             }
@@ -1283,20 +1281,23 @@ class NightlyHandler
                 $voted = ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($citizen, $role) !== null);
                 if(!$voted) {
                     // He has not voted, let's give his vote to someone who has votes
-                    $vote_for_id = $this->random->pick(array_keys($votes[$role->getId()]), 1);
+                    $vote_for_id = $this->random->pick(array_keys($votes), 1);
 
-                    if(isset($votes[$role->getId()][$vote_for_id]))
-                        $votes[$role->getId()][$vote_for_id]++;
+                    if(isset($votes[$vote_for_id]))
+                        $votes[$vote_for_id]++;
                     else
-                        $votes[$role->getId()][$vote_for_id] = 1;
+                        $votes[$vote_for_id] = 1;
                 }
             }
+
+            $this->log->debug("Here is the real roles with non-voting citizens");
+            print_r($votes);
 
             // Let's get the winner
             $citizenWinnerId = 0;
             $citizenWinnerCount = 0;
 
-            foreach ($votes[$role->getId()] as $idCitizen => $count) {
+            foreach ($votes as $idCitizen => $count) {
                 if($citizenWinnerCount <= $count) {
                     $citizenWinnerCount = $count;
                     $citizenWinnerId = $idCitizen;
@@ -1305,12 +1306,9 @@ class NightlyHandler
 
             // We give him the related status
             $winningCitizen = $this->entity_manager->getRepository(Citizen::class)->find($citizenWinnerId);
-            $this->log->info( "Citizen <info>{$winningCitizen->getUser()->getUsername()}</info> has been elected as <info>{$role->getLabel()}</info>." );
             if($winningCitizen !== null){
+                $this->log->info( "Citizen <info>{$winningCitizen->getUser()->getUsername()}</info> has been elected as <info>{$role->getLabel()}</info>." );
                 $this->citizen_handler->addRole($winningCitizen, $role);
-                $this->citizen_handler->setPM($winningCitizen, false, $this->citizen_handler->getMaxPM($winningCitizen));
-                if($role->getName() == "shaman")
-                    $this->citizen_handler->inflictStatus($winningCitizen, "tg_shaman_immune"); // Shaman is immune to red souls
                 $this->entity_manager->persist($winningCitizen);
             }
 

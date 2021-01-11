@@ -695,13 +695,14 @@ class TownHandler
             return false;
 
         // Check if the role has already been given
-        foreach ($town->getCitizens() as $citizen)
-            if ($citizen->getRoles()->contains($role)) {
-                if ($citizen->getAlive()) return false;
-                else if ($citizen->getSurvivedDays() >= ($citizen->getTown()->getDay() - 1) && $citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack)
-                    return false;
-            }
-
+        /** @var Citizen $last_one */
+        $last_one = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town);
+        if ($last_one) {
+            if ($last_one->getAlive() ||                                                                                                            // Skip vote if the last citizen with this role is still alive
+                ($last_one->getSurvivedDays() > ($town->getDay() - 1) && $last_one->getCauseOfDeath()->getRef() === CauseOfDeath::NightlyAttack) ||  // Skip vote if the last citizen with this role died during the attack
+                ($last_one->getSurvivedDays() > ($town->getDay() - 2) && $last_one->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack)     // Skip vote if the last citizen with this role died the previous day
+            ) return false;
+        }
         return true;
     }
 }
