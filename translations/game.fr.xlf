@@ -16561,7 +16561,7 @@
       </notes>
       <segment>
         <source>Legendärer Dompteur</source>
-        <target>Legendärer Dompteur</target>
+        <target>Apprivoiseur légendaire</target>
       </segment>
     </unit>
     <unit id="CI8PARg" name="f618392">
@@ -16570,7 +16570,7 @@
       </notes>
       <segment>
         <source>Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</source>
-        <target>Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</target>
+        <target>Victoire en tant qu'Apprivoiseur lors du Choc des Héros !</target>
       </segment>
     </unit>
     <unit id="8yLsMnc" name="1f8ca6f">
@@ -16607,24 +16607,6 @@
       <segment>
         <source>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
         <target>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</target>
-      </segment>
-    </unit>
-    <unit id=".7eWye." name="Legendärer Dompteur">
-      <notes>
-        <note category="german">Legendärer Dompteur</note>
-      </notes>
-      <segment>
-        <source>Legendärer Dompteur</source>
-        <target>Apprivoiseur légendaire</target>
-      </segment>
-    </unit>
-    <unit id="CI8PARg" name="f618392">
-      <notes>
-        <note category="german">Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</note>
-      </notes>
-      <segment>
-        <source>Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</source>
-        <target>Victoire en tant qu'Apprivoiseur lors du Choc des Héros !</target>
       </segment>
     </unit>
     <unit id="HDssmyH" name="Fleisch-Schuldner">
