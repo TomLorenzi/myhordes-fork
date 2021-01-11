@@ -597,10 +597,16 @@ div.hero-help {
 }
 
 div.green-note {
-  .box(@myhordes-green-color); padding: 5px 5px 5px 26px; font-size: 1.2rem; margin: 5px 0; text-align: justify; position: relative;
+  .box(@myhordes-green-color); padding: 5px 5px 5px 5px; font-size: 1.2rem; margin: 5px 0; text-align: justify; position: relative;
   &>p:first-child { margin-top: 0 }
   &>p:last-child { margin-bottom: 0 }
   strong { color: #e2d890; }
+  em { color: #F0D79E }
+}
+
+div.warning-box {
+  border: 1px solid red;
+  outline: 1px solid black;
 }
 
 @myhordes-box-color: #966437;
