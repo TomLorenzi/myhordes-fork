@@ -16,6 +16,10 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  */
 class AffectItemSpawn
 {
+    const DropTargetDefault = 0;
+    const DropTargetRucksack = 1;
+    const DropTargetFloor = 2;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -42,6 +46,11 @@ class AffectItemSpawn
      * @ORM\Column(type="integer")
      */
     private $count;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $spawnTarget = self::DropTargetDefault;
 
     public function getId(): ?int
     {
@@ -92,6 +101,18 @@ class AffectItemSpawn
     public function setCount(int $count): self
     {
         $this->count = $count;
+
+        return $this;
+    }
+
+    public function getSpawnTarget(): ?int
+    {
+        return $this->spawnTarget;
+    }
+
+    public function setSpawnTarget(int $spawnTarget): self
+    {
+        $this->spawnTarget = $spawnTarget;
 
         return $this;
     }

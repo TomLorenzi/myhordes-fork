@@ -432,8 +432,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
                 'phone'  => [ 'deto_#00', 'metal_bad_#00', 'pile_broken_#00', 'electro_#00' ],
                 'proj'   => [ 'lens_#00' ],
-                'empty_battery' => [ 'pile_broken_#00' ],
-                'battery' => [ 'pile_#00' ],
+                'empty_battery' => [ 'what' => ['pile_broken_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
+                'battery' => [ 'what' => ['pile_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
                 'safe'  => [ 'watergun_opt_part_#00', 'big_pgun_part_#00', 'lawn_part_#00', 'chainsaw_part_#00', 'mixergun_part_#00', 'cutcut_#00', 'pilegun_upkit_#00', 'book_gen_letter_#00', 'pocket_belt_#00', 'drug_hero_#00', 'meca_parts_#00' ],
                 'asafe' => [ 'bplan_e_#00' ],
 
@@ -2173,26 +2173,31 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 $out->writeln( "\t\t\t<comment>Create</comment> effect <info>spawn/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             }
 
-            if (count($data) === 1) {
-                $name = is_array($data[0]) ? $data[0][0] : $data[0];
-                $count =  is_array($data[0]) ? $data[0][1] : 1;
+            if (isset($data['where']))
+                $actual_data = $data['what'];
+            else $actual_data = $data['what'] ?? $data;
+            $target = $data['where'] ?? AffectItemSpawn::DropTargetDefault;
+
+            if (count($actual_data) === 1) {
+                $name = is_array($actual_data[0]) ? $actual_data[0][0] : $actual_data[0];
+                $count =  is_array($actual_data[0]) ? $actual_data[0][1] : 1;
                 $prototype = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $name]);
                 if (!$prototype) throw new Exception('Item prototype not found: ' . $name);
-                $result->setPrototype( $prototype )->setCount( $count );
+                $result->setPrototype( $prototype )->setCount( $count )->setSpawnTarget($target);
             } else {
                 $g_name = "efg_{$id}";
                 $group = $manager->getRepository( ItemGroup::class )->findOneBy(['name' => $g_name]);
                 if ($group) $group->getEntries()->clear();
                 else $group = (new ItemGroup())->setName( $g_name );
 
-                foreach ($data as $entry) {
+                foreach ($actual_data as $entry) {
                     [$p,$c] = is_array($entry) ? $entry : [$entry,1];
                     $prototype = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $p]);
                     if (!$prototype) throw new Exception('Item prototype not found: ' . $p);
                     $group->addEntry( (new ItemGroupEntry())->setChance($c)->setPrototype( $prototype ) );
                 }
 
-                $result->setItemGroup( $group )->setCount( 1 );
+                $result->setItemGroup( $group )->setCount( 1 )->setSpawnTarget($target);
                 $manager->persist( $group );
             }
 

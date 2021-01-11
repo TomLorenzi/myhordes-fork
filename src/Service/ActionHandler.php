@@ -5,6 +5,7 @@ namespace App\Service;
 
 
 use App\Entity\ActionCounter;
+use App\Entity\AffectItemSpawn;
 use App\Entity\BuildingPrototype;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
@@ -769,9 +770,17 @@ class ActionHandler
 
                     if ($proto) $tags[] = 'spawned';
 
+                    switch ($item_spawn->getSpawnTarget()) {
+                        case AffectItemSpawn::DropTargetFloor:
+                            $target = [ $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
+                            break;
+                        case AffectItemSpawn::DropTargetRucksack: default:
+                            $target = [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
+                            break;
+                    }
+
                     if ($proto && $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ),
-                            [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ]
-                            , true)) $execute_info_cache['items_spawn'][] = $proto;
+                            $target,true)) $execute_info_cache['items_spawn'][] = $proto;
                 }
             }
 
