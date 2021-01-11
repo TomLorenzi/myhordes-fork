@@ -432,14 +432,7 @@ class NightlyHandler
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow) );
 
         $total_watch_def = $this->town_handler->calculate_watch_def($town, $town->getDay() - 1);
-        $zeds_each_watcher = -1;
-        if($total_watch_def > $overflow){
-            // If we have more watchpoint than the overflow,
-            // we dispatch the zeds
-            $zeds_each_watcher = $overflow / count($town->getCitizenWatches());
-        }
-
-        $this->log->debug("There are <info>".count($watchers)."</info> watchers in the town, against <info>$overflow</info> zombies");
+        $this->log->debug("There are <info>".count($watchers)."</info> watchers (with <info>{$total_watch_def}</info> watch defense) in town, against <info>$overflow</info> zombies.");
 
         $has_shooting_gallery = (bool)$this->town_handler->getBuilding($town, 'small_tourello_#00', true);
         $has_trebuchet        = (bool)$this->town_handler->getBuilding($town, 'small_catapult3_#00', true);
@@ -453,12 +446,12 @@ class NightlyHandler
             $woundOrTerrorChances = $deathChances + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05);
             $ctz = $watcher->getCitizen();
 
-            if ($this->random->chance($deathChances)){
+            if ($this->random->chance($deathChances)) {
                 $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> is now <info>dead</info> because of the watch");
                 $skip = false;
 
                 // too sad, he died by falling from the edge
-                if($overflow <= 0) {
+                if ($overflow <= 0) {
                     $this->entity_manager->persist($this->logTemplates->citizenDeathOnWatch($watcher->getCitizen(), 0));
                     $skip = true;
                 }
