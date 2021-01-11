@@ -1067,73 +1067,75 @@ class NightlyHandler
     private function stage2_building_effects(Town $town) {
         $this->log->info('<info>Processing building functions</info> ...');
 
-        $buildings = []; $max_votes = -1;
-        foreach ($town->getBuildings() as $b) if ($b->getComplete())
-            if ($b->getPrototype()->getMaxLevel() > 0 && $b->getPrototype()->getMaxLevel() > $b->getLevel()) {
-                $v = $b->getDailyUpgradeVotes()->count();
-                $this->log->debug("<info>{$v}</info> citizens voted for <info>{$b->getPrototype()->getLabel()}</info>.");
-                if ($v > $max_votes) {
-                    $buildings = [$b];
-                    $max_votes = $v;
-                } elseif ($v === $max_votes) $buildings[] = $b;
-            }
+        if (!$town->getDevastated()){
+            $buildings = []; $max_votes = -1;
+            foreach ($town->getBuildings() as $b) if ($b->getComplete())
+                if ($b->getPrototype()->getMaxLevel() > 0 && $b->getPrototype()->getMaxLevel() > $b->getLevel()) {
+                    $v = $b->getDailyUpgradeVotes()->count();
+                    $this->log->debug("<info>{$v}</info> citizens voted for <info>{$b->getPrototype()->getLabel()}</info>.");
+                    if ($v > $max_votes) {
+                        $buildings = [$b];
+                        $max_votes = $v;
+                    } elseif ($v === $max_votes) $buildings[] = $b;
+                }
 
-        $spawn_default_blueprint = $this->town_handler->getBuilding($town, 'small_refine_#01', true) !== null;
+            $spawn_default_blueprint = $this->town_handler->getBuilding($town, 'small_refine_#01', true) !== null;
 
-        if (!empty($buildings)) {
-            /** @var Building $target_building */
-            $target_building = $this->random->pick( $buildings );
-            $target_building->setLevel( $target_building->getLevel() + 1 );
-            $this->log->debug("Increasing level of <info>{$target_building->getPrototype()->getLabel()}</info> to Level <info>{$target_building->getLevel()}</info>.");
+            if (!empty($buildings)) {
+                /** @var Building $target_building */
+                $target_building = $this->random->pick( $buildings );
+                $target_building->setLevel( $target_building->getLevel() + 1 );
+                $this->log->debug("Increasing level of <info>{$target_building->getPrototype()->getLabel()}</info> to Level <info>{$target_building->getLevel()}</info>.");
 
-            switch ($target_building->getPrototype()->getName()) {
-                case 'small_gather_#00':
-                    $def_add = [0,13,21,32,33,51];
-                    $target_building->setDefenseBonus( $target_building->getDefenseBonus() + $def_add[ $target_building->getLevel() ] );
-                    $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing variable defense by <info>{$def_add[ $target_building->getLevel() ] }</info>.");
-                    break;
-                case 'small_water_#00':
-                    $water_add = [5,20,20,30,30,40];
-                    $town->setWell( $town->getWell() + $water_add[$target_building->getLevel()] );
-                    $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingWell( $target_building, $water_add[$target_building->getLevel()] ) );
+                switch ($target_building->getPrototype()->getName()) {
+                    case 'small_gather_#00':
+                        $def_add = [0,13,21,32,33,51];
+                        $target_building->setDefenseBonus( $target_building->getDefenseBonus() + $def_add[ $target_building->getLevel() ] );
+                        $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing variable defense by <info>{$def_add[ $target_building->getLevel() ] }</info>.");
+                        break;
+                    case 'small_water_#00':
+                        $water_add = [5,20,20,30,30,40];
+                        $town->setWell( $town->getWell() + $water_add[$target_building->getLevel()] );
+                        $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingWell( $target_building, $water_add[$target_building->getLevel()] ) );
 
-                    $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing well count by <info>{$water_add[ $target_building->getLevel() ] }</info>.");
-                    break;
-                case 'small_refine_#01':
-                    $spawn_default_blueprint = false;
-                    $bps = [
-                        ['bplan_c_#00' => 1],
-                        ['bplan_c_#00' => 4],
-                        ['bplan_c_#00' => 2,'bplan_u_#00' => 2],
-                        ['bplan_u_#00' => 2,'bplan_r_#00' => 2],
-                    ];
-                    $opt_bp = [null,'bplan_c_#00','bplan_r_#00','bplan_e_#00'];
+                        $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing well count by <info>{$water_add[ $target_building->getLevel() ] }</info>.");
+                        break;
+                    case 'small_refine_#01':
+                        $spawn_default_blueprint = false;
+                        $bps = [
+                            ['bplan_c_#00' => 1],
+                            ['bplan_c_#00' => 4],
+                            ['bplan_c_#00' => 2,'bplan_u_#00' => 2],
+                            ['bplan_u_#00' => 2,'bplan_r_#00' => 2],
+                        ];
+                        $opt_bp = [null,'bplan_c_#00','bplan_r_#00','bplan_e_#00'];
 
-                    $plans = [];
-                    foreach ($bps[$target_building->getLevel()] as $id => $count)
-                        for ($i = 0; $i < $count; $i++) $plans[] = $this->item_factory->createItem( $id );
-                    if ( $opt_bp[$target_building->getLevel()] !== null && $this->random->chance( 0.5 ) )
-                        $plans[] = $this->item_factory->createItem( $opt_bp[$target_building->getLevel()] );
+                        $plans = [];
+                        foreach ($bps[$target_building->getLevel()] as $id => $count)
+                            for ($i = 0; $i < $count; $i++) $plans[] = $this->item_factory->createItem( $id );
+                        if ( $opt_bp[$target_building->getLevel()] !== null && $this->random->chance( 0.5 ) )
+                            $plans[] = $this->item_factory->createItem( $opt_bp[$target_building->getLevel()] );
 
-                    $tx = [];
-                    foreach ($plans as $plan) {
-                        $this->inventory_handler->forceMoveItem( $town->getBank(), $plan );
-                        $tx[] = "<info>{$plan->getPrototype()->getLabel()}</info>";
-                    }
+                        $tx = [];
+                        foreach ($plans as $plan) {
+                            $this->inventory_handler->forceMoveItem( $town->getBank(), $plan );
+                            $tx[] = "<info>{$plan->getPrototype()->getLabel()}</info>";
+                        }
 
-                    $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingItems( $target_building, array_map( function(Item $e) { return  array($e->getPrototype()) ;}, $plans ) ));
-                    $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Placing " . implode(', ', $tx) . " in the bank.");
-                    break;
-                case 'item_home_def_#00':
-                    $def_add = [0,30,35,50,65,80];
-                    $target_building->setDefenseBonus( $target_building->getDefenseBonus() + $def_add[ $target_building->getLevel() ] );
-                    $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing variable defense by <info>{$def_add[ $target_building->getLevel() ] }</info>.");
-                    break;
-                case 'item_tube_#00':
-                    $def_mul = [0, 0.8, 1.6, 2.4, 3.2, 4];
-                    $target_building->setDefenseBonus( $target_building->getDefense() * $def_mul[ $target_building->getLevel() ] );
-                    $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing variable defense by <info>{$def_mul[ $target_building->getLevel() ] }</info>.");
-                    break;
+                        $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingItems( $target_building, array_map( function(Item $e) { return  array($e->getPrototype()) ;}, $plans ) ));
+                        $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Placing " . implode(', ', $tx) . " in the bank.");
+                        break;
+                    case 'item_home_def_#00':
+                        $def_add = [0,30,35,50,65,80];
+                        $target_building->setDefenseBonus( $target_building->getDefenseBonus() + $def_add[ $target_building->getLevel() ] );
+                        $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing variable defense by <info>{$def_add[ $target_building->getLevel() ] }</info>.");
+                        break;
+                    case 'item_tube_#00':
+                        $def_mul = [0, 0.8, 1.6, 2.4, 3.2, 4];
+                        $target_building->setDefenseBonus( $target_building->getDefense() * $def_mul[ $target_building->getLevel() ] );
+                        $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing variable defense by <info>{$def_mul[ $target_building->getLevel() ] }</info>.");
+                        break;
+                }
             }
         }
 
