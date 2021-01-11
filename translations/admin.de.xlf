@@ -1690,7 +1690,7 @@
       </notes>
       <segment>
         <source>Nummer des Gegenstandes:</source>
-        <target>Nummer des Gegenstandes:</target>
+        <target>Anzahl des Gegenstandes:</target>
       </segment>
     </unit>
     <unit id="9B3v_rN" name="Vergiftet:">
