@@ -502,7 +502,7 @@
       </notes>
       <segment>
         <source>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</source>
-        <target>En tant qu'exilé, vous ne pouvez retirer aucun objet de la banque.</target>
+        <target>En tant que banni, vous ne pouvez retirer aucun objet de la banque.</target>
       </segment>
     </unit>
     <unit id="2HhqG76" name="Diese Aktion ist ungültig.">
