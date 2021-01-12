@@ -4,52 +4,27 @@ namespace App\Controller\Town;
 
 use App\Controller\InventoryAwareController;
 use App\Controller\TownInterfaceController;
-use App\Entity\ActionCounter;
-use App\Entity\Building;
-use App\Entity\BuildingVote;
-use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenVote;
 use App\Entity\Complaint;
-use App\Entity\ComplaintReason;
-use App\Entity\ExpeditionRoute;
-use App\Entity\ItemProperty;
-use App\Entity\ItemPrototype;
-use App\Entity\LogEntryTemplate;
-use App\Entity\PictoPrototype;
 use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
-use App\Entity\PrivateMessage;
-use App\Entity\SpecialActionPrototype;
-use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\ZombieEstimation;
-use App\Entity\Zone;
-use App\Service\BankAntiAbuseService;
-use App\Service\ConfMaster;
-use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Translation\T;
 use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
 use App\Service\ErrorHelper;
-use App\Service\InventoryHandler;
-use App\Service\ItemFactory;
-use App\Service\JSONRequestParser;
 use App\Service\TownHandler;
-use App\Structures\ItemRequest;
-use App\Structures\CitizenInfo;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Monolog\ErrorHandler;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
@@ -349,8 +324,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
-            'can_attack' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5 && !$this->getActiveCitizen()->getBanished(),
-            'can_devour' => $this->getActiveCitizen()->hasRole('ghoul'),
+            'can_attack' => !$this->getActiveCitizen()->getBanished() && !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
+            'can_devour' => !$this->getActiveCitizen()->getBanished() && $this->getActiveCitizen()->hasRole('ghoul'),
             'caught_chance' => $cc,
             'allow_devour' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
             'allow_devour_corpse' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_corpse'),
@@ -1065,7 +1040,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         /** @var Building|null $building */
         // Get the building the citizen wants to work on; fail if we can't find it
         $building = $this->entity_manager->getRepository(Building::class)->find($id);
-        if (!$building || $building->getTown()->getId() !== $town->getId() || $ap <= 0)
+        if (!$building || $building->getTown()->getId() !== $town->getId() || $ap < 0)
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         // Check if all parent buildings are completed
@@ -1173,8 +1148,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         if (!$was_completed && $building->getComplete()) {
             // Remove resources, create a log entry, trigger
-            foreach ($items as $item)
-                $this->inventory_handler->forceRemoveItem( $item, $res[ $item->getPrototype()->getName() ]->getCount() );
+            foreach ($items as $item) if ($res[$item->getPrototype()->getName()]->getCount() > 0) {
+                $cc = $item->getCount();
+                $this->inventory_handler->forceRemoveItem($item, $res[$item->getPrototype()->getName()]->getCount());
+                $res[$item->getPrototype()->getName()]->addCount(-$cc);
+            }
 
             $this->entity_manager->persist( $this->log->constructionsBuildingComplete( $citizen, $building->getPrototype() ) );
             $th->triggerBuildingCompletion( $town, $building );
@@ -1724,6 +1702,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
         $citizen = $this->getActiveCitizen();
+
+        if ($citizen->getBanished()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
+
         /** @var Citizen $c */
         $c = $this->entity_manager->getRepository(Citizen::class)->find( $id );
         if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId() || $this->getActiveCitizen()->getBanished())

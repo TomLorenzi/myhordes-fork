@@ -413,11 +413,17 @@ class TownAddonsController extends TownController
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         // Check if items are available
-        $items = $this->inventory_handler->fetchSpecificItems( $town->getBank(), [new ItemRequest($prototype->getName(),$ap)] );
+        $items = $this->inventory_handler->fetchSpecificItems( $town->getBank(), [new ItemRequest($prototype->getName(), $ap)] );
         if (!$items) return AjaxResponse::error( ErrorHelper::ErrorItemsMissing );
 
         // Remove items
-        $this->inventory_handler->forceRemoveItem( $items[0], $ap );
+        $n = $ap;
+        while (!empty($items) && $n > 0) {
+            $item = array_pop($items);
+            $c = $item->getCount();
+            $this->inventory_handler->forceRemoveItem( $item, $n );
+            $n -= $c;
+        }
 
         // Reduce AP
         if (!$free_dumps) $citizen->setAp( $citizen->getAp() - $ap );

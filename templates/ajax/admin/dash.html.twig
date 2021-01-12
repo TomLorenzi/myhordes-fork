@@ -36,16 +36,23 @@
                 <h4>{% trans from 'admin' %}Admin Dashboard{% endtrans %}</h4>
                 <br />
                 {% if is_granted('ROLE_CROW') %}
+                    <h5>{{ 'Aktionen'|trans({},'admin') }}</h5>
                     {% for action in actions %}
                         <button x-ajax-href="{{ path('admin_action', {id: action.id}) }}">{{ action.name|trans({},'admin') }}</button>
                     {% endfor %}
                     {% if is_granted('ROLE_ADMIN') %}
+                        <h5>{{ 'Log'|trans({},'admin') }}</h5>
+                        <label><select id="log_select">
+                                {% for log in logs %}
+                                    <option value="{{ log }}" x-clear="{{ path('api_admin_clear_log', {'f': log}) }}" x-view="{{ path('admin_log', {'a': 'view', 'f': log}) }}" x-download="{{ path('admin_log', {'a': 'download', 'f': log}) }}">{{ log|replace({'::': '/'}) }}</option>
+                                {% endfor %}
+                            </select></label>
                         <button class="a-log1">{{ 'Server-Log herunterladen'|trans({},'admin') }}</button>
                         <button class="a-log2">{{ 'Server-Log ansehen'|trans({},'admin') }}</button>
                         <button class="a-log3">{{ 'Server-Log löschen'|trans({},'admin') }}</button>
 
                         <br /><br />
-                        <b>{{ 'Geplante Angriffe'|trans({},'admin') }}</b><br />
+                        <h5>{{ 'Geplante Angriffe'|trans({},'admin') }}</h5><br />
                         {% for schedule in schedules %}
                             <div>
                                 {{ schedule.timestamp|format_datetime('long', 'short') }}
@@ -85,11 +92,21 @@
         });
         $.html.addEventListenerAll('.noa-teaser', 'click', function() { alert('{{ 'Computer sagt nein.'|trans({},'admin')|e('js') }}'); })
         {% if is_granted('ROLE_ADMIN') %}
-            $.html.addEventListenerAll('.a-log1', 'click', function() { window.open('{{ path('admin_log') }}') })
-            $.html.addEventListenerAll('.a-log2', 'click', function() { window.open('{{ path('admin_log', {a: 'view'}) }}') })
-            $.html.addEventListenerAll('.a-log3', 'click', function() {
-                $.ajax.easySend( '{{ path('api_admin_clear_log') }}', {}, function () { $.html.message('notice', 'OK.'); } );
-            })
+        $.html.addEventListenerAll('.a-log1', 'click', function() {
+            const log = document.getElementById('log_select');
+            window.open( log.querySelector('option[value="' + log.value + '"]').getAttribute('x-download') );
+        });
+        $.html.addEventListenerAll('.a-log2', 'click', function() {
+            const log = document.getElementById('log_select');
+            window.open( log.querySelector('option[value="' + log.value + '"]').getAttribute('x-view') );
+        });
+        $.html.addEventListenerAll('.a-log3', 'click', function() {
+            const log = document.getElementById('log_select');
+            $.ajax.easySend( log.querySelector('option[value="' + log.value + '"]').getAttribute('x-clear'), {}, function () {
+                $.html.message('notice', 'OK.');
+                $.ajax.load(null,'{{ path('admin_dashboard') }}');
+            } );
+        })
         {% endif %}
     </script>
 {% endblock %}

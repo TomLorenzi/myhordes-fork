@@ -59,7 +59,7 @@ class ExternalXML2Controller extends ExternalController {
             $user_key = $request->request->get('userkey');
         }
 
-        $data = $this->getHeaders();
+        $data = $this->getHeaders(null, $this->getRequestLanguage($request));
 
         if ($this->time_keeper->isDuringAttack()) {
             $data['error']['attributes'] = ['code' => "horde_attacking"];
@@ -140,8 +140,6 @@ class ExternalXML2Controller extends ExternalController {
     public function api_xml_user(Request $request): Response {
         $user = $this->check_keys(true);
 
-        $icon_asset_path = Request::createFromGlobals()->getBasePath() . '/build/images/';
-
         if($user instanceof Response)
             return $user;
 
@@ -151,22 +149,13 @@ class ExternalXML2Controller extends ExternalController {
             $now = date('Y-m-d H:i:s');
         }
 
-        // Try POST data
-        $language = $request->query->get('lang');
 
-        if (trim($language) == '') {
-            $language = $request->request->get('lang');
-        }
-
-        if(!in_array($language, ['en', 'fr', 'de', 'es', 'all'])) {
-            $language = $user->getLanguage() ?? 'de';
-        }
-
+        $language = $this->getRequestLanguage($request,$user);
         if($language !== 'all')
             $this->translator->setLocale($language);
 
         // Base data.
-        $data = $this->getHeaders($user);
+        $data = $this->getHeaders($user, $language);
 
         $data['data'] = [
             'attributes' => [
@@ -201,7 +190,7 @@ class ExternalXML2Controller extends ExternalController {
                 'attributes' => [
                     'rare' => intval($picto['rare']),
                     'n' => $picto['c'],
-                    'img' => str_replace($icon_asset_path, '', $this->asset->getUrl( "build/images/pictos/{$picto['icon']}.gif")),
+                    'img' => $this->getIconPath($this->asset->getUrl( "build/images/pictos/{$picto['icon']}.gif")),
                 ],
                 'list' => [
                     'name' => 'title',
@@ -299,8 +288,6 @@ class ExternalXML2Controller extends ExternalController {
     public function api_xml_town(Request $request): Response {
         $user = $this->check_keys(false);
 
-        $icon_asset_path = Request::createFromGlobals()->getBasePath() . '/build/images/';
-
         if($user instanceof Response)
             return $user;
 
@@ -310,28 +297,12 @@ class ExternalXML2Controller extends ExternalController {
             $now = date('Y-m-d H:i:s');
         }
 
-        // Try POST data
-        $language = $request->query->get('lang');
-
-        if (trim($language) == '') {
-            // No POST data, we use GET datas
-            $language = $request->request->get('lang');
-        }
-
-        if(trim($language == ''))
-            $language = $request->getLocale();
-
-        if(!in_array($language, ['en', 'fr', 'de', 'es', 'all'])) {
-            // Still no data, we use the user lang, or the deutsch as latest fallback
-            $language = $user->getLanguage() ?? 'de';
-        }
-
-        if($language !== 'all') {
+        $language = $this->getRequestLanguage($request, $user);
+        if ($language !== 'all')
             $this->translator->setLocale($language);
-        }
 
         // Base data.
-        $data = $this->getHeaders($user);
+        $data = $this->getHeaders($user, $language);
 
         /** @var User $user */
         /** @var Citizen $citizen */
@@ -464,7 +435,7 @@ class ExternalXML2Controller extends ExternalController {
                     'attributes' => [
                         'temporary' => intval($building->getPrototype()->getTemp()),
                         'id' => $building->getPrototype()->getId(),
-                        'img' => str_replace($icon_asset_path, '', $this->asset->getUrl("build/images/building/{$building->getPrototype()->getIcon()}.gif"))
+                        'img' => $this->getIconPath($this->asset->getUrl("build/images/building/{$building->getPrototype()->getIcon()}.gif"))
                     ]
                 ];
 
@@ -556,7 +527,7 @@ class ExternalXML2Controller extends ExternalController {
                             'count' => $bankItem->getCount(),
                             'id' => $bankItem->getPrototype()->getId(),
                             'cat' => $cat->getName(),
-                            'img' => str_replace($icon_asset_path, '', $this->asset->getUrl("build/images/item/item_{$bankItem->getPrototype()->getIcon()}.gif")),
+                            'img' => $this->getIconPath($this->asset->getUrl("build/images/item/item_{$bankItem->getPrototype()->getIcon()}.gif")),
                             'broken' => intval($bankItem->getBroken())
                         ]
                     ];
@@ -758,8 +729,6 @@ class ExternalXML2Controller extends ExternalController {
     public function api_xml_items(Request $request): Response {
         $user = $this->check_keys(true);
 
-        $icon_asset_path = Request::createFromGlobals()->getBasePath() . '/build/images/';
-
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
         } catch (Exception $e) {
@@ -769,22 +738,12 @@ class ExternalXML2Controller extends ExternalController {
         if($user instanceof Response)
             return $user;
 
-        // Try POST data
-        $language = $request->query->get('lang');
-
-        if (trim($language) == '') {
-            $language = $request->request->get('lang');
-        }
-
-        if(!in_array($language, ['en', 'fr', 'de', 'es', 'all'])) {
-            $language = $user->getLanguage() ?? 'de';
-        }
-
+        $language = $this->getRequestLanguage($request,$user);
         if($language !== 'all')
             $this->translator->setLocale($language);
 
         // Base data.
-        $data = $this->getHeaders($user);
+        $data = $this->getHeaders($user, $language);
 
         $items = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
 
@@ -812,7 +771,7 @@ class ExternalXML2Controller extends ExternalController {
                 'attributes' => [
                     'id' => $item->getId(),
                     'cat' => $cat->getName(),
-                    'img' => str_replace($icon_asset_path, '', $this->asset->getUrl("build/images/item/item_{$item->getIcon()}.gif")),
+                    'img' => $this->getIconPath($this->asset->getUrl("build/images/item/item_{$item->getIcon()}.gif")),
                     'deco' => $item->getDeco(),
                     'heavy' => intval($item->getHeavy()),
                     'guard' => intval($item->getWatchpoint())
@@ -845,8 +804,6 @@ class ExternalXML2Controller extends ExternalController {
     public function api_xml_buildings(Request $request): Response {
         $user = $this->check_keys(true);
 
-        $icon_asset_path = Request::createFromGlobals()->getBasePath() . '/build/images/';
-
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
         } catch (Exception $e) {
@@ -856,22 +813,12 @@ class ExternalXML2Controller extends ExternalController {
         if($user instanceof Response)
             return $user;
 
-        // Try POST data
-        $language = $request->query->get('lang');
-
-        if (trim($language) == '') {
-            $language = $request->request->get('lang');
-        }
-
-        if(!in_array($language, ['en', 'fr', 'de', 'es', 'all'])) {
-            $language = $user->getLanguage() ?? 'de';
-        }
-
+        $language = $this->getRequestLanguage($request,$user);
         if($language !== 'all')
             $this->translator->setLocale($language);
 
         // Base data.
-        $data = $this->getHeaders($user);
+        $data = $this->getHeaders($user, $language);
 
         $buildings = $this->entity_manager->getRepository(BuildingPrototype::class)->findAll();
 
@@ -895,7 +842,7 @@ class ExternalXML2Controller extends ExternalController {
                 'attributes' => [
                     'temporary' => intval($building->getTemp()),
                     'id' => $building->getId(),
-                    'img' => str_replace($icon_asset_path, '', $this->asset->getUrl("build/images/building/{$building->getIcon()}.gif"))
+                    'img' => $this->getIconPath($this->asset->getUrl("build/images/building/{$building->getIcon()}.gif"))
                 ]
             ];
 
@@ -929,8 +876,6 @@ class ExternalXML2Controller extends ExternalController {
     public function api_xml_ruins(Request $request): Response {
         $user = $this->check_keys(true);
 
-        $icon_asset_path = Request::createFromGlobals()->getBasePath() . '/build/images/';
-
         try {
             $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
         } catch (Exception $e) {
@@ -940,22 +885,12 @@ class ExternalXML2Controller extends ExternalController {
         if($user instanceof Response)
             return $user;
 
-        // Try POST data
-        $language = $request->query->get('lang');
-
-        if (trim($language) == '') {
-            $language = $request->request->get('lang');
-        }
-
-        if(!in_array($language, ['en', 'fr', 'de', 'es', 'all'])) {
-            $language = $user->getLanguage() ?? 'de';
-        }
-
+        $language = $this->getRequestLanguage($request,$user);
         if($language !== 'all')
             $this->translator->setLocale($language);
 
         // Base data.
-        $data = $this->getHeaders($user);
+        $data = $this->getHeaders($user, $language);
 
         $ruins = $this->entity_manager->getRepository(ZonePrototype::class)->findAll();
 
@@ -1007,10 +942,14 @@ class ExternalXML2Controller extends ExternalController {
         }
         // Visit all key value pair
         foreach ($array as $k => $v) {
+
+            $name = null;
+            $child = null;
+
             if (is_array($v)) {
                 $name = $node ?? $k;
                 $child = $_xml->addChild($name);
-                
+
                 if (array_key_exists('attributes', $v)) {
                     foreach ($v['attributes'] as $a => $b) {
                         $child->addAttribute($a, $b);
@@ -1073,20 +1012,9 @@ class ExternalXML2Controller extends ExternalController {
         return $text;
     }
 
-    protected function getHeaders(User $user = null) {
-        $request = $this->container->get('request_stack')->getCurrentRequest();
-        $language = $request->query->get('lang');
-
-        if (trim($language) == '') {
-            $language = $request->request->get('lang');
-        }
-
-        if(empty($language))
-            $language = $request->getLocale() ?? 'de';
-
+    protected function getHeaders(?User $user = null, string $language = 'de'): array {
         $base_url = Request::createFromGlobals()->getHost() . Request::createFromGlobals()->getBasePath();
         $icon_path = $base_url . '/build/images/';
-        $icon_asset_path = Request::createFromGlobals()->getBasePath() . '/build/images/';
 
         $headers = [
             'headers' => [
@@ -1168,7 +1096,7 @@ class ExternalXML2Controller extends ExternalController {
                                     'count' => 1,
                                     'id' => $item->getPrototype()->getId(),
                                     'cat' => $item->getPrototype()->getCategory()->getName(),
-                                    'img' => str_replace($icon_asset_path, '', $this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif")),
+                                    'img' => $this->getIconPath($this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif")),
                                     'broken' => intval($item->getBroken())
                                 ]
                             ];

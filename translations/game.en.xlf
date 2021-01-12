@@ -14860,7 +14860,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das Leichsblatt, Ausgabe vom %day%. Tag</source>
-        <target>Das Leichsblatt, Ausgabe vom %day%. Tag</target>
+        <target>The News Corpse, edition of day %day%</target>
       </segment>
     </unit>
     <unit id="Hbo1GZX" name="fe016ab">
@@ -14941,7 +14941,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Bauprojekte der Stadt</source>
-        <target>Bauprojekte der Stadt</target>
+        <target>Construction Sites</target>
       </segment>
     </unit>
     <unit id="r9GesCe" name="d0f1cdc">
@@ -15031,7 +15031,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Unser Katapult wird von dem vom Schicksal auserwählten Bürger %citizen% gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.</source>
-        <target>Unser Katapult wird von dem vom Schicksal auserwählten Bürger %citizen% gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.</target>
+        <target>%citizen% has been randomly selected to be in charge of the catapult. If anything dreadful happens to them, another citizen will be selected.</target>
       </segment>
     </unit>
     <unit id="TV74CjO" name="Die Aktivierung des Katapults kostet %ap%.">
@@ -15301,7 +15301,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die verfluchten Schriften</source>
-        <target>Die verfluchten Schriften</target>
+        <target>Star-crossed scripts</target>
       </segment>
     </unit>
     <unit id="GZZJnSZ" name="Beta-Tester der neuen Zeit">
@@ -16476,6 +16476,420 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Architekt (title)</source>
         <target>Architekt (title)</target>
+      </segment>
+    </unit>
+    <unit id="0Kqpu1t" name="gering">
+      <notes>
+        <note category="german">gering</note>
+      </notes>
+      <segment>
+        <source>gering</source>
+        <target>gering</target>
+      </segment>
+    </unit>
+    <unit id=".CQK_8d" name="hoch">
+      <notes>
+        <note category="german">hoch</note>
+      </notes>
+      <segment>
+        <source>hoch</source>
+        <target>hoch</target>
+      </segment>
+    </unit>
+    <unit id="ssHCx3q" name="1d82f8e">
+      <notes>
+        <note category="german">Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</note>
+      </notes>
+      <segment>
+        <source>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</source>
+        <target>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</target>
+      </segment>
+    </unit>
+    <unit id="qD3lUP9" name="dc1e0ac">
+      <notes>
+        <note category="german">Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</note>
+      </notes>
+      <segment>
+        <source>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</source>
+        <target>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</target>
+      </segment>
+    </unit>
+    <unit id="8yLsMnc" name="1f8ca6f">
+      <notes>
+        <note category="german">Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</note>
+      </notes>
+      <segment>
+        <source>Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
+        <target><![CDATA[Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?]]></target>
+      </segment>
+    </unit>
+    <unit id=".7eWye." name="Legendärer Dompteur">
+      <notes>
+        <note category="german">Legendärer Dompteur</note>
+      </notes>
+      <segment>
+        <source>Legendärer Dompteur</source>
+        <target>Legendärer Dompteur</target>
+      </segment>
+    </unit>
+    <unit id="CI8PARg" name="f618392">
+      <notes>
+        <note category="german">Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</note>
+      </notes>
+      <segment>
+        <source>Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</source>
+        <target>Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</target>
+      </segment>
+    </unit>
+    <unit id="HDssmyH" name="Fleisch-Schuldner">
+      <notes>
+        <note category="german">Fleisch-Schuldner</note>
+      </notes>
+      <segment>
+        <source>Fleisch-Schuldner</source>
+        <target>Fleisch-Schuldner</target>
+      </segment>
+    </unit>
+    <unit id="tz.x2ip" name="Bruce Campbell">
+      <notes>
+        <note category="german">Bruce Campbell</note>
+      </notes>
+      <segment>
+        <source>Bruce Campbell</source>
+        <target>Bruce Campbell</target>
+      </segment>
+    </unit>
+    <unit id="sf4Lv9y" name="Wasserwaffen-Spezialist">
+      <notes>
+        <note category="german">Wasserwaffen-Spezialist</note>
+      </notes>
+      <segment>
+        <source>Wasserwaffen-Spezialist</source>
+        <target>Wasserwaffen-Spezialist</target>
+      </segment>
+    </unit>
+    <unit id="dNzdcfT" name="Hydraulik-Engineering">
+      <notes>
+        <note category="german">Hydraulik-Engineering</note>
+      </notes>
+      <segment>
+        <source>Hydraulik-Engineering</source>
+        <target>Hydraulik-Engineering</target>
+      </segment>
+    </unit>
+    <unit id="yIV3A4F" name="Abstieg der Atlanteaner">
+      <notes>
+        <note category="german">Abstieg der Atlanteaner</note>
+      </notes>
+      <segment>
+        <source>Abstieg der Atlanteaner</source>
+        <target>Abstieg der Atlanteaner</target>
+      </segment>
+    </unit>
+    <unit id="t059IuV" name="Großer Löcherbuddler">
+      <notes>
+        <note category="german">Großer Löcherbuddler</note>
+      </notes>
+      <segment>
+        <source>Großer Löcherbuddler</source>
+        <target>Großer Löcherbuddler</target>
+      </segment>
+    </unit>
+    <unit id="Qu__dUH" name="Riesenmaulwurf">
+      <notes>
+        <note category="german">Riesenmaulwurf</note>
+      </notes>
+      <segment>
+        <source>Riesenmaulwurf</source>
+        <target>Riesenmaulwurf</target>
+      </segment>
+    </unit>
+    <unit id="GRpQt1m" name="Ich gehe alleine.">
+      <notes>
+        <note category="german">Ich gehe alleine.</note>
+      </notes>
+      <segment>
+        <source>Ich gehe alleine.</source>
+        <target>Ich gehe alleine.</target>
+      </segment>
+    </unit>
+    <unit id="Ypo2q1y" name="Bis zur Unendlichkeit... und noch viel weiter!">
+      <notes>
+        <note category="german">Bis zur Unendlichkeit... und noch viel weiter!</note>
+      </notes>
+      <segment>
+        <source>Bis zur Unendlichkeit... und noch viel weiter!</source>
+        <target>Bis zur Unendlichkeit... und noch viel weiter!</target>
+      </segment>
+    </unit>
+    <unit id="LarIzsY" name="Indiana Jones und die Ruinen der Aussenwelt">
+      <notes>
+        <note category="german">Indiana Jones und die Ruinen der Aussenwelt</note>
+      </notes>
+      <segment>
+        <source>Indiana Jones und die Ruinen der Aussenwelt</source>
+        <target>Indiana Jones und die Ruinen der Aussenwelt</target>
+      </segment>
+    </unit>
+    <unit id="u4jvGVA" name="Begrabener Freiwilliger">
+      <notes>
+        <note category="german">Begrabener Freiwilliger</note>
+      </notes>
+      <segment>
+        <source>Begrabener Freiwilliger</source>
+        <target>Begrabener Freiwilliger</target>
+      </segment>
+    </unit>
+    <unit id="7zruD98" name="Tomb Raider">
+      <notes>
+        <note category="german">Tomb Raider</note>
+      </notes>
+      <segment>
+        <source>Tomb Raider</source>
+        <target>Tomb Raider</target>
+      </segment>
+    </unit>
+    <unit id="Pk4ITzM" name="Labyrinth-Gollum">
+      <notes>
+        <note category="german">Labyrinth-Gollum</note>
+      </notes>
+      <segment>
+        <source>Labyrinth-Gollum</source>
+        <target>Labyrinth-Gollum</target>
+      </segment>
+    </unit>
+    <unit id="sx2ffu." name="Labyrinth-Meister MB">
+      <notes>
+        <note category="german">Labyrinth-Meister MB</note>
+      </notes>
+      <segment>
+        <source>Labyrinth-Meister MB</source>
+        <target>Labyrinth-Meister MB</target>
+      </segment>
+    </unit>
+    <unit id="9fp6bzE" name="Gontran Happiness">
+      <notes>
+        <note category="german">Gontran Happiness</note>
+      </notes>
+      <segment>
+        <source>Gontran Happiness</source>
+        <target>Gontran Happiness</target>
+      </segment>
+    </unit>
+    <unit id="A9.RjsE" name="Lucky 7">
+      <notes>
+        <note category="german">Lucky 7</note>
+      </notes>
+      <segment>
+        <source>Lucky 7</source>
+        <target>Lucky 7</target>
+      </segment>
+    </unit>
+    <unit id="29D05i3" name="Money for Nothing">
+      <notes>
+        <note category="german">Money for Nothing</note>
+      </notes>
+      <segment>
+        <source>Money for Nothing</source>
+        <target>Money for Nothing</target>
+      </segment>
+    </unit>
+    <unit id="jt3aCAC" name="Wilde Bestie">
+      <notes>
+        <note category="german">Wilde Bestie</note>
+      </notes>
+      <segment>
+        <source>Wilde Bestie</source>
+        <target>Wilde Bestie</target>
+      </segment>
+    </unit>
+    <unit id="5eyzono" name="Rambos Großvater">
+      <notes>
+        <note category="german">Rambos Großvater</note>
+      </notes>
+      <segment>
+        <source>Rambos Großvater</source>
+        <target>Rambos Großvater</target>
+      </segment>
+    </unit>
+    <unit id="Z980nNy" name="Absolut keine Angst!">
+      <notes>
+        <note category="german">Absolut keine Angst!</note>
+      </notes>
+      <segment>
+        <source>Absolut keine Angst!</source>
+        <target>Absolut keine Angst!</target>
+      </segment>
+    </unit>
+    <unit id="BpYFjK7" name="Ich habe die Erde umrundet... zweimal!">
+      <notes>
+        <note category="german">Ich habe die Erde umrundet... zweimal!</note>
+      </notes>
+      <segment>
+        <source>Ich habe die Erde umrundet... zweimal!</source>
+        <target>Ich habe die Erde umrundet... zweimal!</target>
+      </segment>
+    </unit>
+    <unit id="Y7BDALO" name="Internet Explorer">
+      <notes>
+        <note category="german">Internet Explorer</note>
+      </notes>
+      <segment>
+        <source>Internet Explorer</source>
+        <target>Internet Explorer</target>
+      </segment>
+    </unit>
+    <unit id="t4AJQxL" name="Ich hab sogar das Klo abgesucht!">
+      <notes>
+        <note category="german">Ich hab sogar das Klo abgesucht!</note>
+      </notes>
+      <segment>
+        <source>Ich hab sogar das Klo abgesucht!</source>
+        <target>Ich hab sogar das Klo abgesucht!</target>
+      </segment>
+    </unit>
+    <unit id="zBZGIfK" name="Sind wir schon da?">
+      <notes>
+        <note category="german">Sind wir schon da?</note>
+      </notes>
+      <segment>
+        <source>Sind wir schon da?</source>
+        <target>Sind wir schon da?</target>
+      </segment>
+    </unit>
+    <unit id="P8a8jTw" name="Stadtallergie">
+      <notes>
+        <note category="german">Stadtallergie</note>
+      </notes>
+      <segment>
+        <source>Stadtallergie</source>
+        <target>Stadtallergie</target>
+      </segment>
+    </unit>
+    <unit id="yVOs1t0" name="Wo ich hinguck, seh ich Gegend.">
+      <notes>
+        <note category="german">Wo ich hinguck, seh ich Gegend.</note>
+      </notes>
+      <segment>
+        <source>Wo ich hinguck, seh ich Gegend.</source>
+        <target>Wo ich hinguck, seh ich Gegend.</target>
+      </segment>
+    </unit>
+    <unit id="z8XQiYT" name="Runaway Michael">
+      <notes>
+        <note category="german">Runaway Michael</note>
+      </notes>
+      <segment>
+        <source>Runaway Michael</source>
+        <target>Runaway Michael</target>
+      </segment>
+    </unit>
+    <unit id="k6l_Uv1" name="Ohne Dach oder Leber">
+      <notes>
+        <note category="german">Ohne Dach oder Leber</note>
+      </notes>
+      <segment>
+        <source>Ohne Dach oder Leber</source>
+        <target>Ohne Dach oder Leber</target>
+      </segment>
+    </unit>
+    <unit id="tri9myN" name="Erinnerungsträger">
+      <notes>
+        <note category="german">Erinnerungsträger</note>
+      </notes>
+      <segment>
+        <source>Erinnerungsträger</source>
+        <target>Erinnerungsträger</target>
+      </segment>
+    </unit>
+    <unit id="W_jOaSL" name="Erinnerungen an die Zivilisation">
+      <notes>
+        <note category="german">Erinnerungen an die Zivilisation</note>
+      </notes>
+      <segment>
+        <source>Erinnerungen an die Zivilisation</source>
+        <target>Erinnerungen an die Zivilisation</target>
+      </segment>
+    </unit>
+    <unit id="yit.avN" name="Ich sehe ein Blauuuuuuues Tal">
+      <notes>
+        <note category="german">Ich sehe ein Blauuuuuuues Tal</note>
+      </notes>
+      <segment>
+        <source>Ich sehe ein Blauuuuuuues Tal</source>
+        <target>Ich sehe ein Blauuuuuuues Tal</target>
+      </segment>
+    </unit>
+    <unit id="SY9JB1d" name="Nackt und Zerfleischt">
+      <notes>
+        <note category="german">Nackt und Zerfleischt</note>
+      </notes>
+      <segment>
+        <source>Nackt und Zerfleischt</source>
+        <target>Nackt und Zerfleischt</target>
+      </segment>
+    </unit>
+    <unit id="ARi3tBG" name="Letzter Überlebender">
+      <notes>
+        <note category="german">Letzter Überlebender</note>
+      </notes>
+      <segment>
+        <source>Letzter Überlebender</source>
+        <target>Letzter Überlebender</target>
+      </segment>
+    </unit>
+    <unit id="fKtbOrq" name="Unzerstörbar">
+      <notes>
+        <note category="german">Unzerstörbar</note>
+      </notes>
+      <segment>
+        <source>Unzerstörbar</source>
+        <target>Unzerstörbar</target>
+      </segment>
+    </unit>
+    <unit id="SdLISLP" name="Allein gegen die Horde">
+      <notes>
+        <note category="german">Allein gegen die Horde</note>
+      </notes>
+      <segment>
+        <source>Allein gegen die Horde</source>
+        <target>Allein gegen die Horde</target>
+      </segment>
+    </unit>
+    <unit id="H5Tt7bI" name="Chuck Norris' Ebenbild">
+      <notes>
+        <note category="german">Chuck Norris' Ebenbild</note>
+      </notes>
+      <segment>
+        <source>Chuck Norris' Ebenbild</source>
+        <target>Chuck Norris' Ebenbild</target>
+      </segment>
+    </unit>
+    <unit id="4v4ATlD" name="3972722">
+      <notes>
+        <note category="german">%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen &lt;strong&gt;massiven Zusammenbruch&lt;/strong&gt; hatten. Letzte Nacht gab es keine Toten in der Stadt.</note>
+      </notes>
+      <segment>
+        <source>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen &lt;strong&gt;massiven Zusammenbruch&lt;/strong&gt; hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
+        <target><![CDATA[%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen <strong>massiven Zusammenbruch</strong> hatten. Letzte Nacht gab es keine Toten in der Stadt.]]></target>
+      </segment>
+    </unit>
+    <unit id="ycaiqp4" name="6a8fc71">
+      <notes>
+        <note category="german">%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern &lt;strong&gt;zu erhängen&lt;/strong&gt;. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend &lt;strong&gt;keine Zombies&lt;/strong&gt; in die Stadt geschafft haben.</note>
+      </notes>
+      <segment>
+        <source>%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern &lt;strong&gt;zu erhängen&lt;/strong&gt;. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend &lt;strong&gt;keine Zombies&lt;/strong&gt; in die Stadt geschafft haben.</source>
+        <target><![CDATA[%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern <strong>zu erhängen</strong>. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend <strong>keine Zombies</strong> in die Stadt geschafft haben.]]></target>
+      </segment>
+    </unit>
+    <unit id="h8UBn_c" name="d881f0f">
+      <notes>
+        <note category="german">Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem &lt;strong&gt;er splitternackt durch die Straßen rannte&lt;/strong&gt;. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</note>
+      </notes>
+      <segment>
+        <source>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem &lt;strong&gt;er splitternackt durch die Straßen rannte&lt;/strong&gt;. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
+        <target><![CDATA[Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem <strong>er splitternackt durch die Straßen rannte</strong>. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.]]></target>
       </segment>
     </unit>
   </file>

@@ -1,5 +1,5 @@
 {% extends "ajax/soul/shell.html.twig" %}
-{% block title %}{{'Ranglisten der Saison'|trans({}, 'game')}}{% endblock %}
+{% block title %}{{'Ranglisten der Saison'|trans({}, 'game')|raw}}{% endblock %}
 {% block menu_text %}
     {{ parent() }}
 {% endblock %}

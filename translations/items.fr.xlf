@@ -6955,7 +6955,7 @@
       </notes>
       <segment>
         <source>&lt;t-fail&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail>{item} ne peut pas transporter d'objets lourds...</t-fail><nt-fail>Vous avez envoyé {item} avec vos objets en ville.</nt-fail>]]></target>
+        <target><![CDATA[<t-fail>{item} ne peut pas transporter d'objets lourds...</t-fail><nt-fail>Vous avez envoyé {item} en direction de la ville avec tout le contenu de votre sac à dos.</nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="brwfS0V" name="Reinigen (Wasser)">
@@ -7153,7 +7153,7 @@
       </notes>
       <segment>
         <source>&lt;t-stat-up-tg_meta_wound&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.&lt;/t-stat-up-tg_meta_wound&gt;&lt;t-kills&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-stat-up-tg_meta_wound>Ce chaton est incroyable, peur de rien, pas même de vous ! Il saute à votre gorge et enfouit délicatement ses griffes au plus profond de votre chair.</t-stat-up-tg_meta_wound><t-kills>Ce chaton est incroyable, peur de rien, même pas de l'odeur infâme des zombies. Plus fort que les lapins Duracell et des Monty Python réunis, il a complètement dégagé la zone.</t-kills>]]></target>
+        <target><![CDATA[<t-stat-up-tg_meta_wound>Ce châton est incroyable, peur de rien, même pas de vous ! Du coup il vous saute à la gorge et trampouille délicatement ses griffes dans les profondeurs de votre chair.</t-stat-up-tg_meta_wound><t-kills>Ce chaton est incroyable, peur de rien, même pas de l'odeur infâme des zombies. Plus fort que les lapins Duracell et des Monty Python réunis, ce chat il vous nettoie la zone.</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="SJ.JIzZ" name="5e75224">
@@ -7270,7 +7270,7 @@
       </notes>
       <segment>
         <source>Abstimmen</source>
-        <target>Abstimmen</target>
+        <target>Voter</target>
       </segment>
     </unit>
     <unit id="Rrf3E_z" name="Vous avez voté pour {citizen} en tant que {role} !">
@@ -7297,7 +7297,7 @@
       </notes>
       <segment>
         <source>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</source>
-        <target>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</target>
+        <target>Ces débris sont ceux d'un objet non-identifiable qui semble avoir été projeté à grande vitesse contre le sol.</target>
       </segment>
     </unit>
     <unit id="aKn4VEo" name="Munitionsgriff">
@@ -7387,7 +7387,7 @@
       </notes>
       <segment>
         <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.</t-kills>]]></target>
+        <target><![CDATA[<t-kill-latest>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ça soulage de supprimer du zombie de temps en temps.</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="Ri.5LgC" name="1376d54">
@@ -7522,7 +7522,7 @@
       </notes>
       <segment>
         <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><t-kills>Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!</t-kills>]]></target>
+        <target><![CDATA[<t-kill-latest>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie en utilisant {item}. Ha ! Ha ! Un peu plus de chair étalée... Ça soulage de supprimer du zombie de temps en temps.</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="DJF1Mzv" name="c1c5585">
