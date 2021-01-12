@@ -2104,7 +2104,7 @@
       </notes>
       <segment>
         <source>Einen Status auswählen:</source>
-        <target>Einen Status auswählen:</target>
+        <target>Attribuer un statut :</target>
       </segment>
     </unit>
     <unit id="R7yBd_O" name="Vergeben">
@@ -2113,7 +2113,7 @@
       </notes>
       <segment>
         <source>Vergeben</source>
-        <target>Vergeben</target>
+        <target>Donner</target>
       </segment>
     </unit>
     <unit id="OCg3Wi1" name="Entfernen">
@@ -2122,7 +2122,52 @@
       </notes>
       <segment>
         <source>Entfernen</source>
-        <target>Entfernen</target>
+        <target>Retirer</target>
+      </segment>
+    </unit>
+    <unit id="pcCL6tz" name="Status vergeben">
+      <notes>
+        <note category="german">Status vergeben</note>
+      </notes>
+      <segment>
+        <source>Status vergeben</source>
+        <target>Attribuer le statut</target>
+      </segment>
+    </unit>
+    <unit id="PLdhbVW" name="Status entfernen">
+      <notes>
+        <note category="german">Status entfernen</note>
+      </notes>
+      <segment>
+        <source>Status entfernen</source>
+        <target>Retirer le statut</target>
+      </segment>
+    </unit>
+    <unit id="YkT2Odb" name="Eine Rolle auswählen:">
+      <notes>
+        <note category="german">Eine Rolle auswählen:</note>
+      </notes>
+      <segment>
+        <source>Eine Rolle auswählen:</source>
+        <target>Attribuer un rôle :</target>
+      </segment>
+    </unit>
+    <unit id="v6OJxnk" name="Rolle vergeben">
+      <notes>
+        <note category="german">Rolle vergeben</note>
+      </notes>
+      <segment>
+        <source>Rolle vergeben</source>
+        <target>Attribuer le rôle</target>
+      </segment>
+    </unit>
+    <unit id="sOLeN_J" name="Rolle entfernen">
+      <notes>
+        <note category="german">Rolle entfernen</note>
+      </notes>
+      <segment>
+        <source>Rolle entfernen</source>
+        <target>Retirer le rôle</target>
       </segment>
     </unit>
   </file>

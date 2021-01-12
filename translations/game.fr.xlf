@@ -15333,7 +15333,7 @@
       </notes>
       <segment>
         <source>Katapult-Bediener</source>
-        <target>Katapult-Bediener</target>
+        <target>Responsable de la catapulte</target>
       </segment>
     </unit>
     <unit id="AISIM8E" name="Du bist für das Katapult verantwortlich">
@@ -16616,7 +16616,7 @@
       <segment>
         <source>(Mit Eskorte)</source>
         <target>(Avec escorte)</target>
-        </segment>
+      </segment>
     </unit>
     <unit id="oHxefYi" name="6fc4576">
       <notes>
