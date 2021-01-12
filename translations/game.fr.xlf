@@ -16600,5 +16600,23 @@
         <target>N'en parlez à personne ou vous seriez abattu(e) aussitôt !</target>
       </segment>
     </unit>
+    <unit id="Goz9BWd" name="(Allein)">
+      <notes>
+        <note category="german">(Allein)</note>
+      </notes>
+      <segment>
+        <source>(Allein)</source>
+        <target>(Seul)</target>
+      </segment>
+    </unit>
+    <unit id="WWzkuFQ" name="(Mit Eskorte)">
+      <notes>
+        <note category="german">(Mit Eskorte)</note>
+      </notes>
+      <segment>
+        <source>(Mit Eskorte)</source>
+        <target>(Avec escorte)</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
