@@ -438,7 +438,7 @@
                                 {% if other_citizen.escortSettings.allowInventoryAccess %}
                                     {% for escort_action in escort_actions[other_citizen.id] %}
                                         {# @var \App\Structures\EscortItemActionSet escort_action #}
-                                        <button {% if not escort_action.hasAvailableActions %}disabled{% endif%} class="small inline" x-escort-meta-group x-escort-meta-action="{{ escort_action.group.id }}" x-citizen="{{ other_citizen.id }}" ><img alt="" src="{{ asset('build/images/actions/' ~ escort_action.group.icon ~ '.gif') }}" style="margin-right: 0px;" /></button>
+                                        <button {% if not escort_action.hasAvailableActions %}disabled{% endif%} class="small inline" x-escort-meta-group x-escort-meta-action="{{ escort_action.group.id }}" x-citizen="{{ other_citizen.id }}" ><img alt="" src="{{ asset('build/images/actions/' ~ escort_action.group.icon ~ '.gif') }}" style="margin-right: 0;" /></button>
                                     {% endfor %}
                                 {% endif %}
                                 {% if zone.x != 0 or zone.y != 0 %}
