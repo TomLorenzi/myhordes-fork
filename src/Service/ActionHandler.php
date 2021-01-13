@@ -954,7 +954,7 @@ class ActionHandler
                         } else if ( $dice[0] === ($dice[1]-1) && $dice[0] === ($dice[2]-2) ) {
                             $ap = true;
                             $cmg .= ' ' . $this->translator->trans('Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!', [], 'items');
-                        } else if ( $dice[0] === 1 && $dice[0] === 2 && $dice[2] === 4 ) {
+                        } else if ( $dice[0] === 1 && $dice[1] === 2 && $dice[2] === 4 ) {
                             $ap = true;
                             $cmg .= ' ' . $this->translator->trans('Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!', [], 'items');
                         } else if ( $dice[0] === $dice[1] || $dice[1] === $dice[2] )

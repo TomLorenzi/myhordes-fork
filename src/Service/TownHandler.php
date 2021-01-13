@@ -6,7 +6,6 @@ namespace App\Service;
 
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
-use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHome;
 use App\Entity\CitizenHomeUpgrade;
@@ -27,7 +26,6 @@ use App\Entity\Zone;
 use App\Structures\EventConf;
 use App\Structures\HomeDefenseSummary;
 use App\Structures\TownDefenseSummary;
-use App\Service\ConfMaster;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 
