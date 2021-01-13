@@ -130,6 +130,8 @@ class DeathHandler
             else $cdm->setNumber(1)->setDeath($cod);
 
             $this->entity_manager->persist($cdm->setTimestamp(new \DateTime()));
+        } elseif ($cdm = $this->entity_manager->getRepository(ConsecutiveDeathMarker::class)->findOneBy( ['user' => $citizen->getUser()] )) {
+            $this->entity_manager->persist($cdm->setNumber(0)->setDeath($cod));
         }
 
         $gazette = $citizen->getTown()->findGazette( ($citizen->getTown()->getDay() + ($cod->getRef() == CauseOfDeath::NightlyAttack ? 0 : 1)) );
