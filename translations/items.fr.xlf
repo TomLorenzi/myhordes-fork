@@ -160,7 +160,7 @@
       </notes>
       <segment>
         <source>Taser</source>
-        <target>Taser</target>
+        <target>Taser d'auto-défense</target>
       </segment>
     </unit>
     <unit id="mhB5NC7" name="Aqua-Splash (leer)">
@@ -997,7 +997,7 @@
       </notes>
       <segment>
         <source>Taser (ohne Strom)</source>
-        <target>Taser</target>
+        <target>Taser d'auto-défense (éteint)</target>
       </segment>
     </unit>
     <unit id="Pv.PdId" name="Elektrischer Bauchmuskeltrainer (ohne Strom)">
@@ -7459,7 +7459,7 @@
       </notes>
       <segment>
         <source>Geschenkpaket</source>
-        <target>Colis postal</target>
+        <target>Colis de Noël</target>
       </segment>
     </unit>
     <unit id="kdGOsHH" name="cfe7609">
