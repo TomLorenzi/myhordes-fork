@@ -1060,7 +1060,9 @@ class NightlyHandler
     private function stage2_building_effects(Town $town) {
         $this->log->info('<info>Processing building functions</info> ...');
 
-        if (!$town->getDevastated()){
+        $spawn_default_blueprint = $this->town_handler->getBuilding($town, 'small_refine_#01', true) !== null;
+
+        if (!$town->getDevastated()) {
             $buildings = []; $max_votes = -1;
             foreach ($town->getBuildings() as $b) if ($b->getComplete())
                 if ($b->getPrototype()->getMaxLevel() > 0 && $b->getPrototype()->getMaxLevel() > $b->getLevel()) {
@@ -1072,7 +1074,6 @@ class NightlyHandler
                     } elseif ($v === $max_votes) $buildings[] = $b;
                 }
 
-            $spawn_default_blueprint = $this->town_handler->getBuilding($town, 'small_refine_#01', true) !== null;
 
             if (!empty($buildings)) {
                 /** @var Building $target_building */
