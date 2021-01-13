@@ -1022,6 +1022,7 @@ class InventoryAwareController extends CustomAbstractController
         $action = ($action_id < 0) ? null : $this->entity_manager->getRepository(ItemAction::class)->find( $action_id );
 
         if ( !$item || !$action || $item->getBroken() ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        if ( $base_citizen !== null && $item->getPoison() ) return AjaxResponse::error( BeyondController::ErrorEscortActionRefused );
         $citizen = $base_citizen ?? $this->getActiveCitizen();
 
         $zone = $citizen->getZone();

@@ -72,6 +72,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     const ErrorEscortLimitHit       = ErrorHelper::BaseBeyondErrors + 11;
     const ErrorEscortFailure        = ErrorHelper::BaseBeyondErrors + 12;
     const ErrorTerrorized           = ErrorHelper::BaseBeyondErrors + 13;
+    const ErrorEscortActionRefused  = ErrorHelper::BaseBeyondErrors + 14;
 
     protected $game_factory;
     protected ZoneHandler $zone_handler;
