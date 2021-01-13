@@ -566,8 +566,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             else if ($existing_complaint->getSeverity() === Complaint::SeverityNone && $severity > Complaint::SeverityNone)
                 $complaint_level = 1;
             
-            if($reason > 0)
+            if( $complaint_level > 0 && $reason > 0 )
                 $existing_complaint->setLinkedReason($complaintReason);
+            else $complaintReason = $existing_complaint->getLinkedReason();
 
             $existing_complaint->setSeverity( $severity );
         }
@@ -579,7 +580,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $em->flush();
 
             if ($complaint_level != 0) {
-                $this->crow->postAsPM( $culprit, '', '', $complaint_level > 0 ? PrivateMessage::TEMPLATE_CROW_COMPLAINT_ON : PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF, $existing_complaint->getId() );
+                $this->crow->postAsPM( $culprit, '', '', $complaint_level > 0 ? PrivateMessage::TEMPLATE_CROW_COMPLAINT_ON : PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF, $complaintReason ? $complaintReason->getId() : 0 );
                 $em->flush();
             }
 
