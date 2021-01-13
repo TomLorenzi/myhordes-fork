@@ -238,6 +238,20 @@ class CitizenHandler
                 }
             }
 
+            $itemsForLog = [];
+            foreach ($items as $item){
+                if(isset($itemsForLog[$item->getPrototype()->getId()])) {
+                    $itemsForLog[$item->getPrototype()->getId()]['count']++;
+                } else {
+                    $itemsForLog[$item->getPrototype()->getId()] = [
+                        'item' => $item->getPrototype(),
+                        'count' => 1
+                    ];
+                }
+            }
+
+            $this->entity_manager->persist($this->log->bankBanRecovery($citizen, $itemsForLog));
+
             // As he is shunned, we remove all the complaints
             $complaints = $this->entity_manager->getRepository(Complaint::class)->findByCulprit($citizen);
             foreach ($complaints as $complaint) {

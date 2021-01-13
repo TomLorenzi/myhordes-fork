@@ -128,7 +128,7 @@ class LogEntryTemplateFixtures extends Fixture
 
         ['text'=>'%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!', 'name'=>'sandballAttackWounded', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassWarning, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'attacker'], ['type'=>"citizen",'name'=>'defender'])],
         ['text'=>'%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!', 'name'=>'sandballAttack', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassWarning, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'attacker'], ['type'=>"citizen",'name'=>'defender'])],
-
+        ['text'=>'Die Stadt hat folgende Gegenstände in Folge der Verbannung von %shunned% zurückerhalten: %list%', 'name'=>'bankBanRecovery', 'type'=>LogEntryTemplate::TypeBank, 'class'=>LogEntryTemplate::ClassNone, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>'citizen','name'=>'shunned'],['type'=>'list','name'=>'list','listType'=>'item'])],
         // Gazette: Fun Texts
         ['text'=>'Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden %citizen1% und %citizen2% dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.',
             'name'=>'gazetteFun_001',

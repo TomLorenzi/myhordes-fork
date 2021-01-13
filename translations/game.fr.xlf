@@ -16969,22 +16969,31 @@
         <target>Égal de Chuck Norris</target>
       </segment>
     </unit>
-    <unit id="5xLwZCN" name="Du hast dich in einen %role% verwandelt!">
+    <unit id="QYDe4ZX" name="350de81">
       <notes>
-        <note category="german">Du hast dich in einen %role% verwandelt!</note>
+        <note category="german">Die Stadt hat folgende Gegenstände in Folge der Verbannung von %shunned% zurückerhalten: %list%</note>
       </notes>
       <segment>
-        <source>Du hast dich in einen %role% verwandelt!</source>
-        <target>Vous vous êtes transformé en %role% !</target>
+        <source>Die Stadt hat folgende Gegenstände in Folge der Verbannung von %shunned% zurückerhalten: %list%</source>
+        <target>La ville a récupéré %list% (bannissement de %shunned%)</target>
       </segment>
     </unit>
-    <unit id="41EQiml" name="Erzähle niemandem davon oder du wirst sofort erschossen!">
+    <unit id="9_rABru" name="Wie man als Ghul spielt">
       <notes>
-        <note category="german">Erzähle niemandem davon oder du wirst sofort erschossen!</note>
+        <note category="german">Wie man als Ghul spielt</note>
       </notes>
       <segment>
-        <source>Erzähle niemandem davon oder du wirst sofort erschossen!</source>
-        <target>N'en parlez à personne ou vous seriez abattu(e) aussitôt !</target>
+        <source>Wie man als Ghul spielt</source>
+        <target>Wie man als Ghul spielt</target>
+      </segment>
+    </unit>
+    <unit id="sZoC__." name="Der Bürger weigert sich, dies zu tun...">
+      <notes>
+        <note category="german">Der Bürger weigert sich, dies zu tun...</note>
+      </notes>
+      <segment>
+        <source>Der Bürger weigert sich, dies zu tun...</source>
+        <target>Der Bürger weigert sich, dies zu tun...</target>
       </segment>
     </unit>
   </file>
