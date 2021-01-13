@@ -502,7 +502,7 @@
       </notes>
       <segment>
         <source>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</source>
-        <target>En tant qu'exilé, vous ne pouvez retirer aucun objet de la banque.</target>
+        <target>En tant que banni, vous ne pouvez retirer aucun objet de la banque.</target>
       </segment>
     </unit>
     <unit id="2HhqG76" name="Diese Aktion ist ungültig.">
@@ -15333,7 +15333,7 @@
       </notes>
       <segment>
         <source>Katapult-Bediener</source>
-        <target>Katapult-Bediener</target>
+        <target>Responsable de la catapulte</target>
       </segment>
     </unit>
     <unit id="AISIM8E" name="Du bist für das Katapult verantwortlich">
@@ -16561,7 +16561,7 @@
       </notes>
       <segment>
         <source>Legendärer Dompteur</source>
-        <target>Legendärer Dompteur</target>
+        <target>Apprivoiseur légendaire</target>
       </segment>
     </unit>
     <unit id="CI8PARg" name="f618392">
@@ -16570,7 +16570,7 @@
       </notes>
       <segment>
         <source>Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</source>
-        <target>Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</target>
+        <target>Victoire en tant qu'Apprivoiseur lors du Choc des Héros !</target>
       </segment>
     </unit>
     <unit id="8yLsMnc" name="1f8ca6f">
@@ -16580,6 +16580,42 @@
       <segment>
         <source>Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
         <target><![CDATA[Aucune idée. <strong>Le corps a disparu sans laisser de trace...</strong> Peut-être qu'il a été jeté dehors et qu'il se lèvera ce soir pour vous rendre visite dans la nuit.]]></target>
+      </segment>
+    </unit>
+    <unit id="5xLwZCN" name="Du hast dich in einen %role% verwandelt!">
+      <notes>
+        <note category="german">Du hast dich in einen %role% verwandelt!</note>
+      </notes>
+      <segment>
+        <source>Du hast dich in einen %role% verwandelt!</source>
+        <target>Vous vous êtes transformé en %role% !</target>
+      </segment>
+    </unit>
+    <unit id="41EQiml" name="Erzähle niemandem davon oder du wirst sofort erschossen!">
+      <notes>
+        <note category="german">Erzähle niemandem davon oder du wirst sofort erschossen!</note>
+      </notes>
+      <segment>
+        <source>Erzähle niemandem davon oder du wirst sofort erschossen!</source>
+        <target>N'en parlez à personne ou vous seriez abattu(e) aussitôt !</target>
+      </segment>
+    </unit>
+    <unit id="Goz9BWd" name="(Allein)">
+      <notes>
+        <note category="german">(Allein)</note>
+      </notes>
+      <segment>
+        <source>(Allein)</source>
+        <target>(Seul)</target>
+      </segment>
+    </unit>
+    <unit id="WWzkuFQ" name="(Mit Eskorte)">
+      <notes>
+        <note category="german">(Mit Eskorte)</note>
+      </notes>
+      <segment>
+        <source>(Mit Eskorte)</source>
+        <target>(Avec escorte)</target>
       </segment>
     </unit>
     <unit id="oHxefYi" name="6fc4576">
@@ -16607,24 +16643,6 @@
       <segment>
         <source>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
         <target>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</target>
-      </segment>
-    </unit>
-    <unit id=".7eWye." name="Legendärer Dompteur">
-      <notes>
-        <note category="german">Legendärer Dompteur</note>
-      </notes>
-      <segment>
-        <source>Legendärer Dompteur</source>
-        <target>Apprivoiseur légendaire</target>
-      </segment>
-    </unit>
-    <unit id="CI8PARg" name="f618392">
-      <notes>
-        <note category="german">Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</note>
-      </notes>
-      <segment>
-        <source>Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</source>
-        <target>Victoire en tant qu'Apprivoiseur lors du Choc des Héros !</target>
       </segment>
     </unit>
     <unit id="HDssmyH" name="Fleisch-Schuldner">
