@@ -201,10 +201,10 @@ class CitizenHandler
             $kill = true;
         }
 
-
         if ($action) {
             if (!$citizen->getBanished() && !$kill) $this->entity_manager->persist( $this->log->citizenBanish( $citizen ) );
             $citizen->setBanished( true );
+
             if ($citizen->hasRole('cata'))
                 $citizen->removeRole($this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => 'cata']));
 
@@ -222,16 +222,21 @@ class CitizenHandler
             /** @var Item[] $items */
             $items = [];
             $impound_prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneBy(['name' => 'impoundable' ]);
-            foreach ( $citizen->getInventory()->getItems() as $item )
-                if ($item->getPrototype()->getProperties()->contains( $impound_prop ))
-                    $items[] = $item;
+            if ($citizen->getZone() === null) // Only citizen banned in town gets their rucksack emptied
+                foreach ( $citizen->getInventory()->getItems() as $item )
+                    if ($item->getPrototype()->getProperties()->contains( $impound_prop ))
+                        $items[] = $item;
+
             foreach ( $citizen->getHome()->getChest()->getItems() as $item )
                 if ($item->getPrototype()->getProperties()->contains( $impound_prop ))
                     $items[] = $item;
 
             $bank = $citizen->getTown()->getBank();
-            foreach ($items as $item)
-                if (!$item->getEssential()) $this->inventory_handler->forceMoveItem( $bank, $item );
+            foreach ($items as $item) {
+                if (!$item->getEssential()) {
+                    $this->inventory_handler->forceMoveItem( $bank, $item );
+                }
+            }
 
             // As he is shunned, we remove all the complaints
             $complaints = $this->entity_manager->getRepository(Complaint::class)->findByCulprit($citizen);
