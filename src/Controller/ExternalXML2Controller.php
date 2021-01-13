@@ -118,6 +118,7 @@ class ExternalXML2Controller extends ExternalController {
             $endpoints['items']= $this->generateUrl('api_x2_xml_items', [], UrlGeneratorInterface::ABSOLUTE_URL);
             $endpoints['buildings']= $this->generateUrl('api_x2_xml_buildings', [], UrlGeneratorInterface::ABSOLUTE_URL);
             $endpoints['ruins']= $this->generateUrl('api_x2_xml_ruins', [], UrlGeneratorInterface::ABSOLUTE_URL);
+            $endpoints['pictos']= $this->generateUrl('api_x2_xml_pictos', [], UrlGeneratorInterface::ABSOLUTE_URL);
         }
         if ($user->getActiveCitizen()) $endpoints['town'] = $this->generateUrl("api_x2_xml_town", [], UrlGeneratorInterface::ABSOLUTE_URL);
 
@@ -921,12 +922,144 @@ class ExternalXML2Controller extends ExternalController {
                 $ruinXml['cdata_value'] = $this->translator->trans($ruin->getExplorableDescription() ?? $ruin->getDescription(), [], 'game');
             } else {
                 foreach ($this->available_langs as $lang) {
-                    $ruinXml['attributes']["name-$lang"] = $this->translator->trans($ruin->getLabel(), [], 'buildings', $lang);
-                    $ruinXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($ruin->getExplorableDescription() ?? $ruin->getDescription(), [], 'buildings', $lang)];
+                    $ruinXml['attributes']["name-$lang"] = $this->translator->trans($ruin->getLabel(), [], 'game', $lang);
+                    $ruinXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($ruin->getExplorableDescription() ?? $ruin->getDescription(), [], 'game', $lang)];
                 }
             }
 
             $data['data']['ruins']['list']['items'][] = $ruinXml;
+        }
+
+        $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+        $response->headers->set('Content-Type', 'text/xml');
+        return $response;
+    }
+
+    /**
+     * @Route("/api/x/v2/xml/pictos", name="api_x2_xml_pictos", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * Returns the lists of pictos currently used in the game
+     * @param Request $request
+     * @return Response
+     */
+    public function api_xml_pictos(Request $request): Response {
+        $user = $this->check_keys(true);
+
+        try {
+            $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
+        } catch (Exception $e) {
+            $now = date('Y-m-d H:i:s');
+        }
+
+        if($user instanceof Response)
+            return $user;
+
+        $language = $this->getRequestLanguage($request,$user);
+        if($language !== 'all')
+            $this->translator->setLocale($language);
+
+        // Base data.
+        $data = $this->getHeaders($user, $language);
+
+        $pictos = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
+
+        $data['data'] = [
+            'attributes' => [
+                'cache-date' => $now->format('Y-m-d H:i:s'),
+                'cache-fast' => 0,
+            ],
+            'pictos' => [
+                'list' => [
+                    'name' => 'picto',
+                    'items' => [
+                    ]
+                ],
+            ],
+        ];
+
+        /** @var PictoPrototype $ruin */
+        foreach ($pictos as $picto) {
+            $pictoXml = [
+                'attributes' => [
+                    'id' => $picto->getId(),
+                ]
+            ];
+            if ($language !== 'all') {
+                $pictoXml['attributes']['name'] = $this->translator->trans($picto->getLabel(), [], 'game');
+                $pictoXml['cdata_value'] = $this->translator->trans($picto->getDescription(), [], 'game');
+            } else {
+                foreach ($this->available_langs as $lang) {
+                    $pictoXml['attributes']["name-$lang"] = $this->translator->trans($picto->getLabel(), [], 'game', $lang);
+                    $pictoXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($picto->getDescription(), [], 'game', $lang)];
+                }
+            }
+
+            $data['data']['pictos']['list']['items'][] = $pictoXml;
+        }
+
+        $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+        $response->headers->set('Content-Type', 'text/xml');
+        return $response;
+    }
+
+    /**
+     * @Route("/api/x/v2/xml/titles", name="api_x2_xml_titles", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * Returns the lists of titles currently used in the game
+     * @param Request $request
+     * @return Response
+     */
+    public function api_xml_titles(Request $request): Response {
+        $user = $this->check_keys(true);
+
+        try {
+            $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
+        } catch (Exception $e) {
+            $now = date('Y-m-d H:i:s');
+        }
+
+        if($user instanceof Response)
+            return $user;
+
+        $language = $this->getRequestLanguage($request,$user);
+        if($language !== 'all')
+            $this->translator->setLocale($language);
+
+        // Base data.
+        $data = $this->getHeaders($user, $language);
+
+        $awards = $this->entity_manager->getRepository(AwardPrototype::class)->findAll();
+
+        $data['data'] = [
+            'attributes' => [
+                'cache-date' => $now->format('Y-m-d H:i:s'),
+                'cache-fast' => 0,
+            ],
+            'titles' => [
+                'list' => [
+                    'name' => 'title',
+                    'items' => [
+                    ]
+                ],
+            ],
+        ];
+
+        /** @var AwardPrototype $ruin */
+        foreach ($awards as $award) {
+            $awardXml = [
+                'attributes' => [
+                    'id' => $award->getId(),
+                    'picto' => $award->getAssociatedPicto()->getId(),
+                    'unlock_quantity' => $award->getUnlockQuantity(),
+                ]
+            ];
+            if ($language !== 'all') {
+                $awardXml['attributes']['name'] = $this->translator->trans($award->getTitle(), [], 'game');
+            } else {
+                foreach ($this->available_langs as $lang) {
+                    $awardXml['attributes']["name-$lang"] = $this->translator->trans($award->getTitle(), [], 'game', $lang);
+                }
+            }
+
+            $data['data']['titles']['list']['items'][] = $awardXml;
         }
 
         $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
