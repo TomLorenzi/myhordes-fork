@@ -14640,7 +14640,7 @@
       </notes>
       <segment>
         <source>Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Bewege dafür den Mauszeiger über das Bauprojekt, das du empfehlen willst und klicke auf den Link &lt;strong&gt;Abstimmen&lt;/strong&gt;, der darüber erscheint.</source>
-        <target><![CDATA[Vous pouvez recommander la construction d'un chantier en particulier aux citoyens. Placez votre curseur sur la ligne du chantier à recommander, puis cliquer sur le lien <strong>Voter</strong> qui apparaît.]]></target>
+        <target><![CDATA[Vous pouvez recommander la construction d'un chantier en particulier aux citoyens. Placez votre curseur sur la ligne du chantier à recommander, puis cliquez sur le lien <strong>Voter</strong> qui apparaît.]]></target>
       </segment>
     </unit>
     <unit id="apc56SN" name="Beruf">
