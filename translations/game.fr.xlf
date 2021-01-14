@@ -16996,5 +16996,14 @@
         <target>Der Bürger weigert sich, dies zu tun...</target>
       </segment>
     </unit>
+    <unit id="uh49WWx" name="cea913a">
+      <notes>
+        <note category="german">Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</note>
+      </notes>
+      <segment>
+        <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
+        <target>Malheureusement, le sable du désert a déjà recouvert jusqu'à l'existence de votre ville... La communauté s'est éteinte..</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

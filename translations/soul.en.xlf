@@ -2239,15 +2239,6 @@
         <target>With this you can log out of all devices and browsers that you are currently logged in to. This also deactivates the "remember login" function on the affected devices.</target>
       </segment>
     </unit>
-    <unit id="uh49WWx" name="cea913a">
-      <notes>
-        <note category="german">Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</note>
-      </notes>
-      <segment>
-        <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
-        <target>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</target>
-      </segment>
-    </unit>
     <unit id="2CmSXI_" name="Animationen verringern">
       <notes>
         <note category="german">Animationen verringern</note>
