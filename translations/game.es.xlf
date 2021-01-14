@@ -5218,7 +5218,7 @@
       </notes>
       <segment>
         <source>Gefahr</source>
-        <target>__Peligro</target>
+        <target>Peligro</target>
       </segment>
     </unit>
     <unit id="S103XG1" name="@citizens Bürger">
