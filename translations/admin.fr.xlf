@@ -1686,7 +1686,7 @@
     </unit>
     <unit id="pkg069a" name="Nummer des Gegenstandes:">
       <notes>
-        <note category="german">Nummer des Gegenstandes:</note>
+        <note category="german">Anzahl des Gegenstandes:</note>
       </notes>
       <segment>
         <source>Nummer des Gegenstandes:</source>
@@ -2086,7 +2086,88 @@
       </notes>
       <segment>
         <source>Anwendungen</source>
-        <target>Anwendungen</target>
+        <target>Applications</target>
+      </segment>
+    </unit>
+    <unit id="IeSesrK" name="Log">
+      <notes>
+        <note category="german">Log</note>
+      </notes>
+      <segment>
+        <source>Log</source>
+        <target>Log</target>
+      </segment>
+    </unit>
+    <unit id="tAQPtd4" name="Einen Status auswählen:">
+      <notes>
+        <note category="german">Einen Status auswählen:</note>
+      </notes>
+      <segment>
+        <source>Einen Status auswählen:</source>
+        <target>Attribuer un statut :</target>
+      </segment>
+    </unit>
+    <unit id="R7yBd_O" name="Vergeben">
+      <notes>
+        <note category="german">Vergeben</note>
+      </notes>
+      <segment>
+        <source>Vergeben</source>
+        <target>Donner</target>
+      </segment>
+    </unit>
+    <unit id="OCg3Wi1" name="Entfernen">
+      <notes>
+        <note category="german">Entfernen</note>
+      </notes>
+      <segment>
+        <source>Entfernen</source>
+        <target>Retirer</target>
+      </segment>
+    </unit>
+    <unit id="pcCL6tz" name="Status vergeben">
+      <notes>
+        <note category="german">Status vergeben</note>
+      </notes>
+      <segment>
+        <source>Status vergeben</source>
+        <target>Attribuer le statut</target>
+      </segment>
+    </unit>
+    <unit id="PLdhbVW" name="Status entfernen">
+      <notes>
+        <note category="german">Status entfernen</note>
+      </notes>
+      <segment>
+        <source>Status entfernen</source>
+        <target>Retirer le statut</target>
+      </segment>
+    </unit>
+    <unit id="YkT2Odb" name="Eine Rolle auswählen:">
+      <notes>
+        <note category="german">Eine Rolle auswählen:</note>
+      </notes>
+      <segment>
+        <source>Eine Rolle auswählen:</source>
+        <target>Attribuer un rôle :</target>
+      </segment>
+    </unit>
+    <unit id="v6OJxnk" name="Rolle vergeben">
+      <notes>
+        <note category="german">Rolle vergeben</note>
+      </notes>
+      <segment>
+        <source>Rolle vergeben</source>
+        <target>Attribuer le rôle</target>
+      </segment>
+    </unit>
+    <unit id="sOLeN_J" name="Rolle entfernen">
+      <notes>
+        <note category="german">Rolle entfernen</note>
+      </notes>
+      <segment>
+        <source>Rolle entfernen</source>
+        <target>Retirer le rôle</target>
       </segment>
     </unit>
   </file>

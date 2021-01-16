@@ -39,7 +39,7 @@ class Town
     private ?int $population = null;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private ?string $wordsOfHeroes = null;
 

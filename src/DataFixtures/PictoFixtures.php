@@ -632,6 +632,12 @@ class PictoFixtures extends Fixture
             'icon' => 'r_ripflash',
             'rare' => true
         ],
+        [
+            'label' => 'Legendärer Dompteur',
+            'description' => 'Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!',
+            'icon' => 'r_tamwin',
+            'rare' => true
+        ],
     ];
 
     private $entityManager;

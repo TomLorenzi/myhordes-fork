@@ -7,16 +7,11 @@ namespace App\Service;
 use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
-use App\Entity\CitizenRole;
 use App\Entity\ConsecutiveDeathMarker;
-use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\Gazette;
-use App\Entity\ItemProperty;
 use App\Entity\PictoPrototype;
 use App\Entity\RuinZone;
-use App\Entity\Soul;
-use App\Entity\SpecialActionPrototype;
 use App\Entity\TownRankingProxy;
 use App\Entity\UserGroup;
 use App\Structures\TownConf;
@@ -53,9 +48,10 @@ class DeathHandler
     }
 
     /**
+     * Process the death of a citizen
      * @param Citizen $citizen
      * @param CauseOfDeath|int $cod
-     * @param array $remove
+     * @param array|null $remove
      */
     public function kill(Citizen &$citizen, $cod, ?array &$remove = null): void {
         $handle_em = $remove === null;
@@ -122,7 +118,10 @@ class DeathHandler
 
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
-        $citizen->setSurvivedDays($citizen->getTown()->getDay() - 1);
+
+        $survivedDays = max(0, $citizen->getTown()->getDay() - ($citizen->getTown()->getDevastated() ? 0 : 1));
+
+        $citizen->setSurvivedDays($survivedDays);
 
         if ($citizen->getTown()->getDay() <= 3) {
             $cdm = $this->entity_manager->getRepository(ConsecutiveDeathMarker::class)->findOneBy( ['user' => $citizen->getUser()] )
@@ -131,11 +130,18 @@ class DeathHandler
             else $cdm->setNumber(1)->setDeath($cod);
 
             $this->entity_manager->persist($cdm->setTimestamp(new \DateTime()));
+        } elseif ($cdm = $this->entity_manager->getRepository(ConsecutiveDeathMarker::class)->findOneBy( ['user' => $citizen->getUser()] )) {
+            $this->entity_manager->persist($cdm->setNumber(0)->setDeath($cod));
         }
 
         $gazette = $citizen->getTown()->findGazette( ($citizen->getTown()->getDay() + ($cod->getRef() == CauseOfDeath::NightlyAttack ? 0 : 1)) );
+        /** @var Gazette $gazette */
         if($gazette !== null){
             $gazette->addVictim($citizen);
+            foreach ($citizen->getRoles() as $role) {
+                if (!$role->getVotable()) continue;
+                $gazette->addVotesNeeded($role);
+            }
             $this->entity_manager->persist($gazette);
         }
 

@@ -62,7 +62,8 @@ class CitizenVoteRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param Citizen $votedCitizen
+     * @param Citizen $citizen The citizen who should have placed a vote
+     * @param CitizenRole $role The role the citizen should have placed a vote for
      * @return CitizenVote[] Returns an array of CitizenVote objects
      */
     public function findOneByCitizenAndRole(Citizen $citizen, CitizenRole $role)

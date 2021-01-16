@@ -430,10 +430,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'toolbox'   => [ 'pile_#00', ['meca_parts_#00', 2], 'rustine_#00', 'tube_#00', 'pharma_#00', ['explo_#00', 2], 'lights_#00' ],
                 'foodbox'   => [ 'food_bag_#00', 'can_#00', 'meat_#00', 'hmeat_#00', ['vegetable_#00', 2] ],
 
-                'phone'  => [ 'deto_#00', 'metal_bad_#00', 'pile_broken_#00', 'electro_#00' ],
+                'phone'  => [ 'what' => ['deto_#00', 'metal_bad_#00', 'pile_broken_#00', 'electro_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
                 'proj'   => [ 'lens_#00' ],
-                'empty_battery' => [ 'pile_broken_#00' ],
-                'battery' => [ 'pile_#00' ],
+                'empty_battery' => [ 'what' => ['pile_broken_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
+                'battery' => [ 'what' => ['pile_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
                 'safe'  => [ 'watergun_opt_part_#00', 'big_pgun_part_#00', 'lawn_part_#00', 'chainsaw_part_#00', 'mixergun_part_#00', 'cutcut_#00', 'pilegun_upkit_#00', 'book_gen_letter_#00', 'pocket_belt_#00', 'drug_hero_#00', 'meca_parts_#00' ],
                 'asafe' => [ 'bplan_e_#00' ],
 
@@ -443,11 +443,12 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'kitchen_fail_food'    => [ 'dish_#00' ],
                 'kitchen_success_food' => [ 'dish_tasty_#00' ],
 
-                'meat_4xs' => [ [ 'meat_#00',  4 ] ],
-                'meat_4x'  => [ [ 'undef_#00', 4 ] ],
-                'meat_2xs' => [ [ 'meat_#00',  2 ] ],
-                'meat_2x'  => [ [ 'undef_#00', 2 ] ],
-                'meat_bmb' => [ [ 'flesh_#00', 2 ] ],
+                'meat_4xs' => [ 'what' => [ 'meat_#00',  4 ], 'where' => AffectItemSpawn::DropTargetFloor],
+                'meat_4x'  => [ 'what' => [ 'undef_#00', 4 ], 'where' => AffectItemSpawn::DropTargetFloor],
+                'meat_2xs' => [ 'what' => [ 'meat_#00',  2 ], 'where' => AffectItemSpawn::DropTargetFloor],
+                'meat_2x'  => [ 'what' => [ 'undef_#00', 2 ], 'where' => AffectItemSpawn::DropTargetFloor],
+                'meat_bmb' => [ 'what' => [ 'flesh_#00', 2 ], 'where' => AffectItemSpawn::DropTargetFloor],
+
                 'potion'   => [ [ 'potion_#00', 1] ],
             ],
 
@@ -458,6 +459,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'bp' => [],
 
             'group' => [
+                'g_break_15' => [[['do_nothing'], 85], [['break_item'], 15]],
                 'g_break_20' => [[['do_nothing'], 80], [['break_item'], 20]],
                 'g_break_25' => [[['do_nothing'], 75], [['break_item'], 25]],
                 'g_break_30' => [[['do_nothing'], 70], [['break_item'], 30]],
@@ -466,10 +468,13 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'g_break_50' => [[['do_nothing'], 50], [['break_item'], 50]],
                 'g_break_60' => [[['do_nothing'], 40], [['break_item'], 60]],
                 'g_break_66' => [[['do_nothing'], 34], [['break_item'], 66]],
+                'g_break_75' => [[['do_nothing'], 25], [['break_item'], 75]],
                 'g_break_80' => [[['do_nothing'], 20], [['break_item'], 80]],
+                'g_break_90' => [[['do_nothing'], 10], [['break_item'], 90]],
 
                 'g_kill_1z_10' => [[['do_nothing_attack'], 90], [['kill_1_zombie'], 10]],
                 'g_kill_1z_20' => [[['do_nothing_attack'], 80], [['kill_1_zombie'], 20]],
+                'g_kill_1z_25' => [[['do_nothing_attack'], 75], [['kill_1_zombie'], 25]],
                 'g_kill_1z_33' => [[['do_nothing_attack'], 67], [['kill_1_zombie'], 33]],
                 'g_kill_1z_50' => [[['do_nothing_attack'], 50], [['kill_1_zombie'], 50]],
                 'g_kill_1z_60' => [[['do_nothing_attack'], 40], [['kill_1_zombie'], 60]],
@@ -689,23 +694,23 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'throw_animal_dog'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'], 95], [['consume_item', ['picto' => ['r_animal_#00']]], 5] ] ], 'kill_1_zombie' ] ],
             'throw_animal_angryc' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside', 'must_have_zombies' ], 'result' => [ 'consume_item', [ 'group' => [ [['inflict_wound'], 1], [[ 'kill_all_zombie'], 2] ] ], ['picto' => ['r_animal_#00']] ], 'message' => '<t-stat-up-tg_meta_wound>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.</t-stat-up-tg_meta_wound><t-kills>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.</t-kills>' ],
 
-            'throw_b_machine_1'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_30'], ['group' => 'g_kill_1z_75'] ] ],
-            'throw_b_bone'          => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_80'], 'kill_1_zombie' ] ],
-            'throw_b_can_opener'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_30'], ['group' => 'g_kill_1z_33'] ] ],
+            'throw_b_machine_1'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_30'], 'kill_1_zombie' ] ],
+            'throw_b_bone'          => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_75'], 'kill_1_zombie' ] ],
+            'throw_b_can_opener'    => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ 'break_item', ['group' => 'g_kill_1z_33'] ] ],
             'throw_b_chair basic'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_30'], ['group' => 'g_kill_1z_85'] ] ],
             'throw_b_torch'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['item' => ['morph' => 'torch_off_#00', 'consume' => false]], 'kill_1_zombie' ] ],
-            'throw_b_chain'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_25'], ['group' => 'g_kill_1z_50'] ] ],
-            'throw_b_staff'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => [[['do_nothing'], 50], [[ [ 'item' => [ 'consume' => false, 'morph' => 'staff2_#00']] ], 50]]], ['group' => 'g_kill_1z_33'] ] ],
-            'throw_b_knife'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_25'], ['group' => 'g_kill_1z_75'] ] ],
-            'throw_b_machine_2'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_30'], ['group' => 'g_kill_1z_75'] ] ],
+            'throw_b_chain'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_30'], ['group' => 'g_kill_1z_50'] ] ],
+            'throw_b_staff'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => [[['do_nothing'], 50], [[ [ 'item' => [ 'consume' => false, 'morph' => 'staff2_#00']] ], 70]]], ['group' => 'g_kill_1z_33'] ] ],
+            'throw_b_knife'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_20'], 'kill_1_zombie' ] ],
+            'throw_b_machine_2'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_30'], 'kill_1_zombie' ] ],
             'throw_b_small_knife'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_50'], ['group' => 'g_kill_1z_33'] ] ],
             'throw_b_cutcut'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_25'], 'kill_2_zombie' ] ],
             'throw_b_machine_3'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_50'], 'kill_1_zombie' ] ], 
             'throw_b_pc'            => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_50'], 'kill_1_zombie' ] ],
-            'throw_b_lawn'          => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_20'], 'kill_2_zombie' ] ],
-            'throw_b_screw'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_66'], ['group' => 'g_kill_1z_20'] ] ],
-            'throw_b_swiss_knife'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_33'], ['group' => 'g_kill_1z_33'] ] ],
-            'throw_b_cutter'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_80'], ['group' => 'g_kill_1z_20'] ] ],
+            'throw_b_lawn'          => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_15'], 'kill_2_zombie' ] ],
+            'throw_b_screw'         => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_50'], ['group' => 'g_kill_1z_25'] ] ],
+            'throw_b_swiss_knife'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_50'], ['group' => 'g_kill_1z_33'] ] ],
+            'throw_b_cutter'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_90'], ['group' => 'g_kill_1z_50'] ] ],
             'throw_b_concrete_wall' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_20'], 'kill_1_zombie' ] ],
             'throw_b_torch_off'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_50'], ['group' => 'g_kill_1z_10'] ] ],
             'throw_b_wrench'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired' ], 'result' => [ ['group' => 'g_break_33'], ['group' => 'g_kill_1z_50'] ] ],
@@ -2173,26 +2178,31 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 $out->writeln( "\t\t\t<comment>Create</comment> effect <info>spawn/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             }
 
-            if (count($data) === 1) {
-                $name = is_array($data[0]) ? $data[0][0] : $data[0];
-                $count =  is_array($data[0]) ? $data[0][1] : 1;
+            if (isset($data['where']))
+                $actual_data = $data['what'];
+            else $actual_data = $data['what'] ?? $data;
+            $target = $data['where'] ?? AffectItemSpawn::DropTargetDefault;
+
+            if (count($actual_data) === 1) {
+                $name = is_array($actual_data[0]) ? $actual_data[0][0] : $actual_data[0];
+                $count =  is_array($actual_data[0]) ? $actual_data[0][1] : 1;
                 $prototype = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $name]);
                 if (!$prototype) throw new Exception('Item prototype not found: ' . $name);
-                $result->setPrototype( $prototype )->setCount( $count );
+                $result->setPrototype( $prototype )->setCount( $count )->setSpawnTarget($target);
             } else {
                 $g_name = "efg_{$id}";
                 $group = $manager->getRepository( ItemGroup::class )->findOneBy(['name' => $g_name]);
                 if ($group) $group->getEntries()->clear();
                 else $group = (new ItemGroup())->setName( $g_name );
 
-                foreach ($data as $entry) {
+                foreach ($actual_data as $entry) {
                     [$p,$c] = is_array($entry) ? $entry : [$entry,1];
                     $prototype = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $p]);
                     if (!$prototype) throw new Exception('Item prototype not found: ' . $p);
                     $group->addEntry( (new ItemGroupEntry())->setChance($c)->setPrototype( $prototype ) );
                 }
 
-                $result->setItemGroup( $group )->setCount( 1 );
+                $result->setItemGroup( $group )->setCount( 1 )->setSpawnTarget($target);
                 $manager->persist( $group );
             }
 

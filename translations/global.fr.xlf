@@ -1953,7 +1953,7 @@
       </notes>
       <segment>
         <source>Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:</source>
-        <target>Ce site bénéficie d'un accès sécurisé à Hordes :</target>
+        <target>Ce site bénéficie d'un accès sécurisé à MyHordes :</target>
       </segment>
     </unit>
     <unit id="ECkSDC0" name="43e696a">
@@ -1962,7 +1962,7 @@
       </notes>
       <segment>
         <source>Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.</source>
-        <target>cela signifie que si vous cliquez sur "Continuer" ci-dessous, il connaîtra automatiquement votre pseudo sur Hordes.fr, sans que vous ayez quoi que ce soit à entrer. </target>
+        <target>cela signifie que si vous cliquez sur "Continuer" ci-dessous, il connaîtra automatiquement votre pseudo sur MyHordes, sans que vous ayez quoi que ce soit à entrer. </target>
       </segment>
     </unit>
     <unit id="0oUM0cs" name="Bürger! Seid auf inoffiziellen Webseiten wachsam!">
@@ -1972,6 +1972,15 @@
       <segment>
         <source>Bürger! Seid auf inoffiziellen Webseiten wachsam!</source>
         <target>Citoyens ! Hors du site officiel, prudence !</target>
+      </segment>
+    </unit>
+    <unit id="mDTAh7E" name="Du bist vor Angst erstarrt...">
+      <notes>
+        <note category="german">Du bist vor Angst erstarrt...</note>
+      </notes>
+      <segment>
+        <source>Du bist vor Angst erstarrt...</source>
+        <target>Du bist vor Angst erstarrt...</target>
       </segment>
     </unit>
   </file>

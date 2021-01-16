@@ -151,7 +151,7 @@
                     <span class="hide-lg hide-md hide-sm">{{ 'Eine Nachricht schreiben'|trans({},'game') }}</span>
                 </div>
             </li>
-            {% if can_send_global_pm or true %}
+            {% if can_send_global_pm %}
                 <li class="tab" x-tab-id="write-to-all" id="new_global_pm_tab">
                     <div class="tab-link">
                         <img src="{{ asset("build/images/icons/star.gif") }}" alt="" />
@@ -276,10 +276,10 @@
                 </div>
             </div>
         </div>
-        {% if can_send_global_pm or true %}
-        <div x-tab-group="home-messages" x-tab-id="write-to-all" x-tab-target>
-            <h5>{% trans from 'game'%}Neue globale Nachricht{% endtrans %}</h5>
-        </div>
+        {% if can_send_global_pm %}
+            <div x-tab-group="home-messages" x-tab-id="write-to-all" x-tab-target>
+                <h5>{% trans from 'game'%}Neue globale Nachricht{% endtrans %}</h5>
+            </div>
         {% endif %}
         <div id="pm-forum-content"></div>
         <div id="global-forum-content"></div>

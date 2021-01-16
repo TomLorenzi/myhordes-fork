@@ -201,10 +201,10 @@ class CitizenHandler
             $kill = true;
         }
 
-
         if ($action) {
             if (!$citizen->getBanished() && !$kill) $this->entity_manager->persist( $this->log->citizenBanish( $citizen ) );
             $citizen->setBanished( true );
+
             if ($citizen->hasRole('cata'))
                 $citizen->removeRole($this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => 'cata']));
 
@@ -222,16 +222,21 @@ class CitizenHandler
             /** @var Item[] $items */
             $items = [];
             $impound_prop = $this->entity_manager->getRepository(ItemProperty::class)->findOneBy(['name' => 'impoundable' ]);
-            foreach ( $citizen->getInventory()->getItems() as $item )
-                if ($item->getPrototype()->getProperties()->contains( $impound_prop ))
-                    $items[] = $item;
+            if ($citizen->getZone() === null) // Only citizen banned in town gets their rucksack emptied
+                foreach ( $citizen->getInventory()->getItems() as $item )
+                    if ($item->getPrototype()->getProperties()->contains( $impound_prop ))
+                        $items[] = $item;
+
             foreach ( $citizen->getHome()->getChest()->getItems() as $item )
                 if ($item->getPrototype()->getProperties()->contains( $impound_prop ))
                     $items[] = $item;
 
             $bank = $citizen->getTown()->getBank();
-            foreach ($items as $item)
-                if (!$item->getEssential()) $this->inventory_handler->forceMoveItem( $bank, $item );
+            foreach ($items as $item) {
+                if (!$item->getEssential()) {
+                    $this->inventory_handler->forceMoveItem( $bank, $item );
+                }
+            }
 
             // As he is shunned, we remove all the complaints
             $complaints = $this->entity_manager->getRepository(Complaint::class)->findByCulprit($citizen);
@@ -284,13 +289,19 @@ class CitizenHandler
 
             $citizen->addRole($role);
 
-            if ($role->getName() === 'ghoul') {
-                $this->removeStatus($citizen, 'thirst1');
-                $this->removeStatus($citizen, 'thirst2');
-                $this->removeStatus($citizen, 'infection');
-                $this->removeStatus($citizen, 'tg_meta_wound');
-                $this->removeStatus($citizen, 'tg_meta_winfect');
-                $citizen->setWalkingDistance(0);
+            switch($role->getName()){
+                case "ghoul":
+                    $this->removeStatus($citizen, 'thirst1');
+                    $this->removeStatus($citizen, 'thirst2');
+                    $this->removeStatus($citizen, 'infection');
+                    $this->removeStatus($citizen, 'tg_meta_wound');
+                    $this->removeStatus($citizen, 'tg_meta_winfect');
+                    $citizen->setWalkingDistance(0);
+                    break;
+                case "shaman":
+                    $this->inflictStatus($citizen, "tg_shaman_immune"); // Shaman is immune to red souls
+                    $this->setPM($citizen, false, $this->getMaxPM($citizen)); // We give him his PM
+                    break;
             }
 
             return true;
@@ -343,6 +354,11 @@ class CitizenHandler
         else $citizen->setBp( max(0, $relative ? ($citizen->getBp() + $num) : max(0,$num) ) );
     }
 
+    /**
+     * Returns the maximum PM available for a citizen
+     * @param Citizen $citizen The citizen to look for
+     * @return int Number of maximum PM available for the citizen
+     */
     public function getMaxPM(Citizen $citizen) {
         $isShaman = false;
         foreach ($citizen->getRoles() as $role) {

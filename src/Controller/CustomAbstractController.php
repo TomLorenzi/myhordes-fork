@@ -103,6 +103,7 @@ class CustomAbstractController extends AbstractController {
             $data['is_shaman_job'] = $this->getActiveCitizen()->getProfession()->getName() == 'shaman';
             $data['is_shaman_role'] = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman');
             $data['hunger'] = $this->getActiveCitizen()->getGhulHunger();
+            $data['is_night'] = $this->getActiveCitizen()->getTown()->isNight();
         }
         return $data;
     }

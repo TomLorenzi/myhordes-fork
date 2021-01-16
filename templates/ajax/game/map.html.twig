@@ -3,7 +3,7 @@
         {% set cellnum = 1+map.map_x1-map.map_x0 %}
         {% set size = 100.0/cellnum %}
 
-        <div class="scroll-plane" x-default-size="{{ cellnum*20 }}" x-current-scroll-level="{{ default_zoom }}" style="min-width: {{ cellnum*20 }}px">
+        <div class="scroll-plane" x-default-size="{{ cellnum*20 }}" x-current-scroll-level="{{ default_zoom }}">
             <div class="svg">
                 <svg viewBox="{{ map.map_x0 }} {{ map.map_y0 }} {{ 1+(map.map_x1-map.map_x0) }} {{ 1+(map.map_y1-map.map_y0) }}" xmlns="http://www.w3.org/2000/svg">
                     <g x-local-id="map-marker-layer"></g>
@@ -171,7 +171,16 @@
                 </div>
             </div>
 
-            <div class="zone-plane-controls {% if not app.user.disableFx %}retro{% endif %}">
+            {% if "now"|date('H') >= 6 and "now"|date('H') < 9 %}
+                {% set css = 'morning' %}
+            {% elseif "now"|date('H') < 18 %}
+                {% set css = 'day' %}
+            {% elseif "now"|date('H') < 20 %}
+                {% set css = 'evening' %}
+            {% else %}
+                {% set css = 'night' %}
+            {% endif %}
+            <div class="zone-plane-controls {% if not app.user.disableFx %}retro{% endif %} {{ css }} {% if blocked %}blocked{% endif %}">
                 <div class="marker-direction"></div>
                 {% if move %}
                     {% if citizen.escortSettings is null or citizen.escortSettings.leader is null %}

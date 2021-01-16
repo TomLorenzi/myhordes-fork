@@ -6,7 +6,6 @@ namespace App\Service;
 
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
-use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
 use App\Entity\CitizenHome;
 use App\Entity\CitizenHomeUpgrade;
@@ -27,7 +26,6 @@ use App\Entity\Zone;
 use App\Structures\EventConf;
 use App\Structures\HomeDefenseSummary;
 use App\Structures\TownDefenseSummary;
-use App\Service\ConfMaster;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -695,13 +693,12 @@ class TownHandler
             return false;
 
         // Check if the role has already been given
-        foreach ($town->getCitizens() as $citizen)
-            if ($citizen->getRoles()->contains($role)) {
-                if ($citizen->getAlive()) return false;
-                else if ($citizen->getSurvivedDays() >= ($citizen->getTown()->getDay() - 1) && $citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack)
-                    return false;
-            }
-
+        /** @var Citizen $last_one */
+        $last_one = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town);
+        if ($last_one) {
+            if ($last_one->getAlive() || ($last_one->getSurvivedDays() >= ($town->getDay() - 1))     // Skip vote if the last citizen with this role died the previous day
+            ) return false;
+        }
         return true;
     }
 }

@@ -421,7 +421,7 @@
       </notes>
       <segment>
         <source>Kleine Karten</source>
-        <target>Villes en Région non éloigné</target>
+        <target>Villes en Région non éloignée</target>
       </segment>
     </unit>
     <unit id="IdXP_LT" name="Zerstörte Stadt">
@@ -7040,7 +7040,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href="%url_forums%"&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
-        <target><![CDATA[<strong>MIT ANDEREN SPIELERN REDEN:</strong> Die meisten Spielfragen werden oder wurden meistens schon in den <span x-ajax-href="%url_forums%">Foren</span> beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.]]></target>
+        <target><![CDATA[<strong>DISCUTER AVEC LES JOUEURS :</strong> vous trouverez souvent la réponse à vos questions directement sur les <span x-ajax-href="%url_forums%">forums du site</span>, disponibles si vous êtes connecté(e).]]></target>
       </segment>
     </unit>
   </file>

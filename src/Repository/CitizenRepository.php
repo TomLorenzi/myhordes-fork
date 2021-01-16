@@ -80,6 +80,7 @@ class CitizenRepository extends ServiceEntityRepository
                 ->andWhere('r = :role')
                 ->setParameter('town', $town)
                 ->setParameter('role', $role)
+                ->addOrderBy('c.alive', 'DESC')
                 ->addOrderBy('c.survivedDays', 'DESC')
                 ->setMaxResults(1)
                 ->getQuery()

@@ -93,6 +93,7 @@ class DebugCommand extends Command
             ->addOption('add-crow', null, InputOption::VALUE_NONE, 'Creates the crow account. Also creates 80 validated users in case there are less than 66 users.')
             ->addOption('add-debug-users', null, InputOption::VALUE_NONE, 'Creates 80 validated users.')
             ->addOption('fill-town', null, InputOption::VALUE_REQUIRED, 'Sends as much debug users as possible to a town.')
+            ->addOption('no-default', null, InputOption::VALUE_NONE, 'When used with --fill-town, disable joining the town without a job')
             ->addOption('force', null, InputOption::VALUE_NONE, 'Will detach debug users when used with fill-town.')
             ->addOption('fill-bank', null, InputOption::VALUE_REQUIRED, 'Places 500 of each item type in the bank of a given town.')
             ->addOption('confirm-deaths', null, InputOption::VALUE_NONE, 'Confirms death of every account having an email ending on @localhost.')
@@ -207,7 +208,12 @@ class DebugCommand extends Command
 
             $force = $input->getOption('force');
 
-            $professions = $this->entity_manager->getRepository( CitizenProfession::class )->findAll();
+            $no_default = $input->getOption("no-default");
+            if($no_default)
+                $professions = $this->entity_manager->getRepository( CitizenProfession::class )->findSelectable();
+            else
+                $professions = $this->entity_manager->getRepository( CitizenProfession::class )->findAll();
+
             for ($i = 0; $i < $town->getPopulation() - $town->getCitizenCount(); $i++) {
                 for ($u = 1; $u <= 80; $u++) {
                     $user_name = 'user_' . str_pad($u, 3, '0', STR_PAD_LEFT);

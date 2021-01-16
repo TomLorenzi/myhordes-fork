@@ -31,7 +31,7 @@
         {% endif %}
     {% endblock %}
 </head>
-<body class="{% if is_granted('ROLE_USER') %}online_body{% else %}offline_body{% endif %} {% if custom_css is defined and custom_css != '' %}{{ custom_css }}{% endif %}">
+<body onclick class="{% if is_granted('ROLE_USER') %}online_body{% else %}offline_body{% endif %} {% if custom_css is defined and custom_css != '' %}{{ custom_css }}{% endif %}">
 <div id="notifications"></div>
 <div id="post-office">
     <div id="post-office-box">
