@@ -5206,7 +5206,7 @@
       </notes>
       <segment>
         <source>Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</source>
-        <target>__Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</target>
+        <target>Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</target>
       </segment>
     </unit>
     <unit id="xyPBCmM" name="Gefahr">
@@ -5215,7 +5215,7 @@
       </notes>
       <segment>
         <source>Gefahr</source>
-        <target>__Gefahr</target>
+        <target>Gefahr</target>
       </segment>
     </unit>
     <unit id="7JtgzHv" name="Tod durch Radioaktivität">

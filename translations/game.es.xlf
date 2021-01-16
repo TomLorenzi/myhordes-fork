@@ -5209,7 +5209,7 @@
       </notes>
       <segment>
         <source>Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</source>
-        <target>__Al final de la noche, se escuchó como la construcción %buildingName% se derrumbaba hasta ser una nube de polvo.</target>
+        <target>Al final de la noche, se escuchó como la construcción %buildingName% se derrumbaba hasta ser una nube de polvo.</target>
       </segment>
     </unit>
     <unit id="xyPBCmM" name="Gefahr">
@@ -5218,7 +5218,7 @@
       </notes>
       <segment>
         <source>Gefahr</source>
-        <target>__Peligro</target>
+        <target>Peligro</target>
       </segment>
     </unit>
     <unit id="S103XG1" name="@citizens Bürger">
