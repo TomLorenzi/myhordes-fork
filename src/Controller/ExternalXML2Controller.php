@@ -675,7 +675,7 @@ class ExternalXML2Controller extends ExternalController {
                     $item['attributes']['tag'] = $zone->getTag()->getRef();
                 }
 
-                if ($zone->getZombieStatus() == Zone::ZombieStateExact) {
+                if ($zone->getZombieStatus() == Zone::ZombieStateExact && $zone->getZombies() > 0) {
                     $item["attributes"]["z"] = $zone->getZombies();
                 }
 
