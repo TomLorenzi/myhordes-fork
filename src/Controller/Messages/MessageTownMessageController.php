@@ -18,6 +18,7 @@ use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
 use App\Service\JSONRequestParser;
+use App\Service\UserHandler;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -40,7 +41,7 @@ class MessageTownMessageController extends MessageController
      * @param TranslatorInterface $t
      * @return Response
      */
-    public function send_pm_api(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $t): Response {
+    public function send_pm_api(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $t, UserHandler $userHandler): Response {
         $type      = $parser->get('type', "");
         $recipient = $parser->get('recipient', '');
         $title     = $parser->get('title', '');
@@ -63,9 +64,11 @@ class MessageTownMessageController extends MessageController
 
         $sender = $this->getUser()->getActiveCitizen();
 
-        if($type === "global" && !$sender->getProfession()->getHeroic()){
+        if ($type === "global" && !$sender->getProfession()->getHeroic() && !$userHandler->hasSkill($sender->getUser(), 'writer'))
             return AjaxResponse::error(ErrorHelper::ErrorMustBeHero);
-        }
+
+        if ($type === "global" && $sender->getBanished())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
         $linked_items = array();
 
