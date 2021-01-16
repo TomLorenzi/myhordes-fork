@@ -584,14 +584,14 @@
                     $.ajax.easySend( target_url, target_payload,
                         function (data) {
                             $.client.config.editorCache.set('');
-                            {% if type != 'global-pm' %}
-                                $.ajax.load( null, data.url, true );
-                            {% elseif type != 'announcement' %}
-                                $.ajax.load( null, data.url, true, {}, ()=>$.msg.execute() );
-                            {% else %}
+                            {% if type == 'global-pm' %}
                                 let selected = document.querySelector('.pm-conversation-list>li.selected');
                                 if (selected) selected.click();
                                 else $.ajax.load( document.getElementById('post-office-content'), data.url );
+                            {% elseif type == 'announcement' %}
+                                $.ajax.load( null, data.url, true, {}, ()=>$.msg.execute() );
+                            {% else %}
+                                $.ajax.load( null, data.url, true );
                             {% endif %}
                         }
                     );

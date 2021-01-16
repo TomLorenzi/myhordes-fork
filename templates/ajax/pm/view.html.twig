@@ -67,9 +67,21 @@
                                         <i class="fa fa-eye-slash"></i> {{ 'Nicht gelesen'|trans({},'global') }}
                                     </div>
                                 </div>
+                                <div class="cell">
+                                    <div x-pm-action="show-users" class="pm-button" id="users-single-button">
+                                        <i class="fa fa-users"></i> {{ 'Teilnehmer'|trans({},'global') }}
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
+                    </div>
+                </div>
+
+                <div id="pm-user-list-container" class="cell rw-12 hidden" style="padding-bottom: 10px">
+                    <div class="forum-note">
+                        <b>{{ 'Teilnehmer'|trans({},'global') }}</b>
+                        <div id="pm-user-list-payload"></div>
                     </div>
                 </div>
 
@@ -160,6 +172,7 @@
 
                     document.getElementById('pm-forum-actions-container').classList.add('hidden');
                     document.getElementById('pm-forum-editor-container').classList.add('hidden');
+                    document.getElementById('pm-user-list-container').classList.add('hidden');
 
                     if (elem.getAttribute('x-editor')) $.html.forEach('[x-pm-action="answer-single"]', e => e.classList.remove('hidden'));
                     else $.html.forEach('[x-pm-action="answer-single"]', e => e.classList.add('hidden'));
@@ -169,6 +182,9 @@
 
                     if (elem.getAttribute('x-unread')) $.html.forEach('[x-pm-action="unread-single"]', e => e.classList.remove('hidden'));
                     else $.html.forEach('[x-pm-action="unread-single"]', e => e.classList.add('hidden'));
+
+                    if (elem.getAttribute('x-userlist')) $.html.forEach('[x-pm-action="show-users"]', e => e.classList.remove('hidden'));
+                    else $.html.forEach('[x-pm-action="show-users"]', e => e.classList.add('hidden'));
 
                     let editor = document.getElementById('global-pm-forum-editor');
                     if (editor) editor.innerText = '';
@@ -353,6 +369,18 @@
                 if (editor) $.ajax.background().load( editor, selected_thread.getAttribute('x-editor'), false, {}, function() {
                     document.getElementById('pm-forum-editor-header').innerText = '{{ 'Antworten'|trans({},'global')|e('js') }}';
                 } );
+            });
+
+            $.html.addEventListenerAll('[x-pm-action="show-users"]', 'click', function () {
+
+                const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-editor].selected');
+                let target = document.getElementById('pm-user-list-payload');
+                if (!target) return;
+
+                target.innerHTML = '<div style="margin: 10px" class="small center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}</div>';
+
+                document.getElementById('pm-user-list-container').classList.remove('hidden');
+                $.ajax.background().load( target, selected_thread.getAttribute('x-userlist'), false );
             });
 
             $.html.addEventListenerAll('[x-pm-action="trash-single"]', 'click', function () {

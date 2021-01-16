@@ -53,7 +53,22 @@ class UserGroupAssociationRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('u')->select('COUNT(u.id)')->leftJoin('u.association', 'g')
             ->andWhere('u.user = :user')->setParameter('user', $user)
             ->andWhere('u.ref1 < g.ref1 OR u.ref1 IS NULL')
-            ->andWhere('u.associationType IN (:assoc)')->setParameter('assoc', [UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive]);
+            ->andWhere('u.associationType = :assoc')->setParameter('assoc', UserGroupAssociation::GroupAssociationTypePrivateMessageMember);
+
+        try {
+            return $qb->getQuery()->getSingleScalarResult();
+        } catch (Exception $e) { return 0; }
+    }
+
+    /**
+     * @param User $user
+     * @return int|mixed|string
+     */
+    public function countUnreadInactivePMsByUser( User $user ): int {
+        $qb = $this->createQueryBuilder('u')->select('COUNT(u.id)')
+            ->andWhere('u.user = :user')->setParameter('user', $user)
+            ->andWhere('u.ref1 < u.ref3 OR u.ref1 IS NULL')
+            ->andWhere('u.associationType = :assoc')->setParameter('assoc', UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive);
 
         try {
             return $qb->getQuery()->getSingleScalarResult();

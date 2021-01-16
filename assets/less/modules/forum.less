@@ -566,14 +566,32 @@
     #post-office-box { transform: scale(0) translateY(1000px) }
   }
 
+  .pm-userbox {
+    background: #65382e; box-shadow: 0 0 4px rgba(0,0,0,0.3); margin: 5px; height: 24px; cursor: default;
+    overflow: hidden;
+    &>.pm-avatar {
+      height: 24px; display: inline-block;
+      &:not(.empty) {width: 24px; }
+    }
+    &>.pm-userbox-name {
+      display: inline-block; padding: 10px; position: relative; top: -8px;
+      &:not(:last-child) { padding-right: 2px; }
+    };
+    &>.pm-userbox-action {
+      display: inline-block; padding: 10px; position: relative; top: -8px; transition: background-color 0.5s ease-in-out;
+      cursor: pointer;
+      &:hover { background-color: rgba(255,255,255,0.2); }
+    };
+  }
+
   #pm-conversation-list>ul {
     padding: 0; margin: 0;
     &>li {
       list-style: none; padding: 8px 8px 8px 15px; transition: background-color 0.5s ease, box-shadow 0.5s ease; position: relative;
       &::before, &::after {content: " "; clear: both;}
 
-      &.closed, &.selected { cursor: default; }
-      &:not(.closed):not(.selected) { cursor: pointer; }
+      &.selected { cursor: default; }
+      &:not(.selected) { cursor: pointer; }
 
       &[x-domain="a"] {
         background-image: url("../../img/forum/announceBgR.png");
@@ -587,6 +605,7 @@
           background-image: url(../../img/forum/selected.png); position: absolute;
         }
       }
+      &.closed>* { filter: grayscale(1) contrast(0.7) brightness(0.8); }
 
       &.new:not(.selected) {
         &::before {
@@ -602,6 +621,7 @@
         &:not(.crow-note) { overflow: hidden; white-space: nowrap; text-overflow: " [...]"; }
         &.crow-note { color: #3e0000; font-weight: bold; font-variant: small-caps; }
       }
+      &.closed b.title::before { display: inline-block; height: 16px; width: 16px; content: " "; background: url(../../img/icons/lock.gif) center no-repeat; }
       &[x-domain="a"] b.title { max-width: calc(100% - 0px); color: @myhordes-smalltext }
       span.author {
         color: @myhordes-smalltext;
@@ -668,7 +688,10 @@
           padding: 6px; margin: 5px 0 5px 10px; background-color: #4a261e; position: relative; overflow: visible;
           min-height: 30px; filter: drop-shadow(0 0 3px rgba(0,0,0,0.35));
           &>div.pm-message-header { color: @myhordes-smalltext; font-size: 0.7em; }
-          &>div.pm-message-content>p { margin: 0; font-size: 1.5rem; }
+          &>div.pm-message-content {
+            font-size: 1.5rem;
+            &>p { margin: 0; }
+          }
           &>div.pm-message-footer {
             margin-top: 4px; padding-top: 4px; font-size: 0.8em; opacity: 0.6; border-top: 1px solid rgba(0,0,0,0.2);
             text-align: right;

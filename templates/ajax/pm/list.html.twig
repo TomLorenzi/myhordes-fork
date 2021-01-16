@@ -8,13 +8,17 @@
             {% set endpoint_answer  = null %}
             {% set endpoint_trash   = null %}
             {% set endpoint_unread  = null %}
+            {% set endpoint_users   = null %}
             {% set message_title    = entry.title %}
             {% set message_id       = 0 %}
             {% set message_type     = 'un' %}
             {% set message_show_ava = true %}
             {% if entry.obj|instance_of('App\\Entity\\UserGroupAssociation') %}
+                {% if not entry.closed %}
+                    {% set endpoint_answer = path('pm_post_editor_controller', {'id': entry.obj.association.id}) %}
+                    {% set endpoint_users  = path('pm_conv_group_users', {'id': entry.obj.association.id}) %}
+                {% endif %}
                 {% set endpoint_fetch  = path('pm_conv_group', {'id': entry.obj.association.id}) %}
-                {% set endpoint_answer = path('pm_post_editor_controller', {'id': entry.obj.association.id}) %}
                 {% set endpoint_trash  = path('pm_delete_conv_group', {'id': entry.obj.association.id}) %}
                 {% set endpoint_unread = path('pm_unread_conv_group', {'id': entry.obj.association.id}) %}
                 {% set message_id      = entry.obj.id %}
@@ -37,9 +41,10 @@
             <li x-title="{{ message_title }}" x-domain="{{ message_type }}" x-identifier="{{ message_id }}"
                 class="{% if entry.closed %}closed{% endif %} {% if entry.system %}system{% endif %} {% if entry.unread > 0 %}new{% endif %}"
                 {% if endpoint_fetch  is not null %}x-endpoint="{{ endpoint_fetch }}"{% endif %}
-                    {% if endpoint_answer is not null %}x-editor="{{ endpoint_answer }}"{% endif %}
-                    {% if endpoint_trash  is not null %}x-trash="{{ endpoint_trash }}"{% endif %}
-                    {% if endpoint_unread is not null %}x-unread="{{ endpoint_unread }}"{% endif %}
+                {% if endpoint_answer is not null %}x-editor="{{ endpoint_answer }}"{% endif %}
+                {% if endpoint_trash  is not null %}x-trash="{{ endpoint_trash }}"{% endif %}
+                {% if endpoint_unread is not null %}x-unread="{{ endpoint_unread }}"{% endif %}
+                {% if endpoint_users  is not null %}x-userlist="{{ endpoint_users }}"{% endif %}
             >
                 {% if message_show_ava %}
                     <div class="pm-avatar-block">
@@ -90,15 +95,17 @@
                     <span class="author unknown"></span>
                 {% endif %}
 
-                <span class="date">
-                        {% if entry.date.format('Ymd') == today|date("Ymd") %}
-                            {{ 'Heute um'|trans({},'global') }} {{ entry.date|format_datetime('none', 'short') }}
-                        {% elseif entry.date.format('Ymd') == yesterday|date("Ymd") %}
-                            {{ 'Gestern um'|trans({},'global') }} {{ entry.date|format_datetime('none', 'short') }}
-                        {% else %}
-                            {{ entry.date|format_datetime('medium', 'short') }}
-                        {% endif %}
-                </span>
+                {% if not entry.closed %}
+                    <span class="date">
+                            {% if entry.date.format('Ymd') == today|date("Ymd") %}
+                                {{ 'Heute um'|trans({},'global') }} {{ entry.date|format_datetime('none', 'short') }}
+                            {% elseif entry.date.format('Ymd') == yesterday|date("Ymd") %}
+                                {{ 'Gestern um'|trans({},'global') }} {{ entry.date|format_datetime('none', 'short') }}
+                            {% else %}
+                                {{ entry.date|format_datetime('medium', 'short') }}
+                            {% endif %}
+                    </span>
+                {% endif %}
             </li>
         {% endfor %}
     </ul>

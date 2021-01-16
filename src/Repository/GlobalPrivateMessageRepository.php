@@ -21,13 +21,14 @@ class GlobalPrivateMessageRepository extends ServiceEntityRepository
         parent::__construct($registry, GlobalPrivateMessage::class);
     }
 
-    public function findByGroup(UserGroup $group, int $last_id = 0, int $num = 0)
+    public function findByGroup(UserGroup $group, int $last_id = 0, int $num = 0, int $not_beyond = 0)
     {
         $qb = $this->createQueryBuilder('g')
             ->andWhere('g.receiverGroup = :group')->setParameter('group', $group)
             ->orderBy('g.timestamp', 'DESC')->orderBy('g.id', 'DESC');
 
-        if ($last_id > 0) $qb->andWhere('g.id < :id')->setParameter('id', $last_id);
+        if ($last_id > 0)    $qb->andWhere('g.id < :lid')->setParameter('lid', $last_id);
+        if ($not_beyond > 0) $qb->andWhere('g.id <= :bid')->setParameter('bid', $not_beyond);
         if ($num > 0) $qb->setMaxResults($num);
 
         return $qb->getQuery()->getResult();

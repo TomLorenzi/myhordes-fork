@@ -65,6 +65,16 @@ class UserGroupAssociation
      */
     private $ref2;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $ref3;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $ref4;
+
 
     public function getId(): ?int
     {
@@ -139,6 +149,30 @@ class UserGroupAssociation
     public function setRef2(?int $ref2): self
     {
         $this->ref2 = $ref2;
+
+        return $this;
+    }
+
+    public function getRef3(): ?int
+    {
+        return $this->ref3;
+    }
+
+    public function setRef3(?int $ref3): self
+    {
+        $this->ref3 = $ref3;
+
+        return $this;
+    }
+
+    public function getRef4(): ?int
+    {
+        return $this->ref4;
+    }
+
+    public function setRef4(?int $ref4): self
+    {
+        $this->ref4 = $ref4;
 
         return $this;
     }
