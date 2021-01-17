@@ -13,7 +13,16 @@
                 {% endif %}
                 <div class="pm-message">
                     <div class="pm-message-header"><i class="fa fa-user"></i> {{ message.sender.name }}</div>
-                    <div class="pm-message-content">{{ message.text|raw }}</div>
+                    <div class="pm-message-content">
+                        {% if message.hidden %}
+                            <div class="crowmsg">{{ 'Der Rabe hat diese Nachricht zerrissen.'|trans({},'game') }}</div>
+                        {% else %}
+                            {{ message.text|raw }}
+                        {% endif %}
+                        {% if message.modMessage %}
+                            <div class="modAnnounce">{{ message.modMessage }}</div>
+                        {% endif %}
+                    </div>
                     <div class="pm-message-footer">
                         {% if message.timestamp.format('Ymd') == today|date("Ymd") %}
                             {{ 'Heute um'|trans({},'global') }} {{ message.timestamp|format_datetime('none', 'short') }}
@@ -21,6 +30,9 @@
                             {{ 'Gestern um'|trans({},'global') }} {{ message.timestamp|format_datetime('none', 'short') }}
                         {% else %}
                             {{ message.timestamp|format_datetime('medium', 'short') }}
+                        {% endif %}
+                        {% if message.sender != app.user %}
+                            &nbsp;<a class="pm-button" x-report-url="{{ path('pm_report_post_controller', {pid: message.id}) }}"><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a>
                         {% endif %}
                     </div>
                 </div>

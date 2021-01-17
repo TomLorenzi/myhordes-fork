@@ -44,6 +44,12 @@ class AdminReport
      */
     private $pm;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=GlobalPrivateMessage::class, inversedBy="adminReports")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $gpm;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +111,18 @@ class AdminReport
     public function setPm(?PrivateMessage $pm): self
     {
         $this->pm = $pm;
+
+        return $this;
+    }
+
+    public function getGpm(): ?GlobalPrivateMessage
+    {
+        return $this->gpm;
+    }
+
+    public function setGpm(?GlobalPrivateMessage $gpm): self
+    {
+        $this->gpm = $gpm;
 
         return $this;
     }

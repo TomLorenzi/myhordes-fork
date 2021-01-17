@@ -26,7 +26,7 @@
                     </div>
                     {% for post in posts %}
                         <div class="row">
-                            <div class="cell padded rw-3 rw-sm-12">
+                            <div class="cell-small padded rw-6 rw-sm-24">
                                 <a href="{{path('forum_jump_view', {pid: post['post'].id})}}" target="_blank">{{ post['post'].thread.forum.title }}</a>
                             </div>
                             <div class="cell padded rw-2 rw-sm-12">
@@ -62,9 +62,44 @@
                         <div class="cell rw-4 rw-sm-12 padded">{{ "gemeldet von" |trans({}, 'admin') }}</div>
                         <div class="cell rw-2 rw-sm-12 padded">{{ "Aktionen" |trans({}, 'admin') }}</div>
                     </div>
+                    {% for gpm in gpms %}
+                        <div class="row">
+                            <div class="cell-small padded rw-1 hide-sm small">
+                                <i class="fa fa-comments"></i>
+                            </div>
+                            <div class="cell-small padded rw-5 rw-sm-24">
+                                <span>{{ gpm.post.receiverGroup.name }}</span>
+                            </div>
+                            <div class="cell padded rw-2 rw-sm-12">
+                                <span>{{ gpm.post.sender.name }}</span>
+                            </div>
+                            <div class="cell padded rw-1 rw-sm-12">
+                                <span>{{ gpm.count }}</span>
+                            </div>
+                            <div class="cell padded rw-4 rw-sm-12">
+                                {% set iteration = 0 %}
+                                {% for reporter in gpm.reporters %}
+                                    {% if iteration > 0 %}
+                                        <span>{{ ", " ~ reporter.name }}</span>
+                                    {% else %}
+                                        <span>{{ reporter.name }}</span>
+                                    {% endif %}
+                                    {% set iteration = iteration + 1 %}
+                                {% endfor %}
+                            </div>
+                            <div class="cell padded rw-2 rw-sm-12 right">
+                                <button class="small inline" x-report-action="open-gpm-reports" x-post-id={{ gpm.post.id }}>{{ 'Öffnen'|trans({}, 'admin') }}</button>
+                                <button class="small inline" x-report-action="clear-gpm-reports" x-post-id={{ gpm.post.id }}>{{ 'Gesehen'|trans({}, 'admin') }}</button>
+                            </div>
+                            <div class="hidden cell padded rw-12" x-gpm-target="{{ gpm.post.id }}"></div>
+                        </div>
+                    {% endfor %}
                     {% for pm in pms %}
                         <div class="row">
-                            <div class="cell padded rw-3 rw-sm-12">
+                            <div class="cell-small padded rw-1 hide-sm small">
+                                <i class="fa fa-building"></i>
+                            </div>
+                            <div class="cell-small padded rw-5 rw-sm-24">
                                 <span>{{ pm.post.privateMessageThread.title }}</span>
                             </div>
                             <div class="cell padded rw-2 rw-sm-12">
@@ -85,8 +120,8 @@
                                 {% endfor %}
                             </div>
                             <div class="cell padded rw-2 rw-sm-12 right">
-                                <button class="small inline" x-report-action="open-pn-reports" x-post-id={{ pm.post.id }}>{{ 'Öffnen'|trans({}, 'admin') }}</button>
-                                <button class="small inline" x-report-action="clear-pn-reports" x-post-id={{ pm.post.id }}>{{ 'Gesehen'|trans({}, 'admin') }}</button>
+                                <button class="small inline" x-report-action="open-pm-reports" x-post-id={{ pm.post.id }}>{{ 'Öffnen'|trans({}, 'admin') }}</button>
+                                <button class="small inline" x-report-action="clear-pm-reports" x-post-id={{ pm.post.id }}>{{ 'Gesehen'|trans({}, 'admin') }}</button>
                             </div>
                             <div class="hidden cell padded rw-12" x-pm-target="{{ pm.post.id }}"></div>
                         </div>
@@ -150,29 +185,54 @@
                 } )
         } );
 
-        $.html.addEventListenerAll('[x-report-action=clear-pn-reports]', 'click', function(e,elem) {
-            $.ajax.easySend( '{{ path('admin_reports_mod_pn') }}', {pmid: parseInt(elem.getAttribute('x-post-id')), seen: true},
+        $.html.addEventListenerAll('[x-report-action=clear-pm-reports]', 'click', function(e,elem) {
+            $.ajax.easySend( '{{ path('admin_reports_mod_pm') }}', {pmid: parseInt(elem.getAttribute('x-post-id')), seen: true},
                 function () {
                     $.ajax.load(null, '{{ path('admin_reports', {opt: all_shown ? 'all' : ''}) }}', true);
                 } );
         } );
 
-        $.html.addEventListenerAll('[x-report-action=open-pn-reports]', 'click', function(e,elem) {
+        $.html.addEventListenerAll('[x-report-action=clear-gpm-reports]', 'click', function(e,elem) {
+            $.ajax.easySend( '{{ path('admin_reports_mod_gpm') }}', {pmid: parseInt(elem.getAttribute('x-post-id')), seen: true},
+                function () {
+                    $.ajax.load(null, '{{ path('admin_reports', {opt: all_shown ? 'all' : ''}) }}', true);
+                } );
+        } );
+
+        $.html.addEventListenerAll('[x-report-action=open-pm-reports]', 'click', function(e,elem) {
             const pm_id = parseInt( elem.getAttribute('x-post-id'));
             let target = document.querySelector('[x-pm-target="' + pm_id + '"]');
             if (!target) return;
 
-            $.html.forEach( '[x-pm-target]', e => {
+            $.html.forEach( '[x-pm-target],[x-gpm-target]', e => {
                 e.innerHTML = '';
                 e.classList.add('hidden')
             } );
-            $.html.forEach( '[x-report-action="open-pn-reports"]', e => e.classList.remove('hidden') );
+            $.html.forEach( '[x-report-action="open-pm-reports"],[x-report-action="open-gpm-reports"]', e => e.classList.remove('hidden') );
 
             elem.classList.add('hidden');
             target.innerHTML = '<div class="center"><i class="fa fa-pulse fa-spinner"></i></div>';
             target.classList.remove('hidden');
 
             $.ajax.background().load(target, '{{ path('admin_pm_viewer')|e('js') }}', false, {pmid: pm_id})
+        } );
+
+        $.html.addEventListenerAll('[x-report-action=open-gpm-reports]', 'click', function(e,elem) {
+            const pm_id = parseInt( elem.getAttribute('x-post-id'));
+            let target = document.querySelector('[x-gpm-target="' + pm_id + '"]');
+            if (!target) return;
+
+            $.html.forEach( '[x-pm-target],[x-gpm-target]', e => {
+                e.innerHTML = '';
+                e.classList.add('hidden')
+            } );
+            $.html.forEach( '[x-report-action="open-pm-reports"],[x-report-action="open-gpm-reports"]', e => e.classList.remove('hidden') );
+
+            elem.classList.add('hidden');
+            target.innerHTML = '<div class="center"><i class="fa fa-pulse fa-spinner"></i></div>';
+            target.classList.remove('hidden');
+
+            $.ajax.background().load(target, '{{ path('admin_gpm_viewer')|e('js') }}', false, {pmid: pm_id})
         } );
 
         $.html.addEventListenerAll('#snippet_save','click',() => {

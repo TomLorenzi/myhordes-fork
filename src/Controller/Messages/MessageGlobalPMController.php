@@ -2,6 +2,7 @@
 
 namespace App\Controller\Messages;
 
+use App\Entity\AdminReport;
 use App\Entity\Announcement;
 use App\Entity\ForumModerationSnippet;
 use App\Entity\ForumUsagePermissions;
@@ -17,8 +18,10 @@ use App\Service\UserHandler;
 use App\Translation\T;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
@@ -741,7 +744,7 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
-     * @Route("api/pm/answer/{id<\d+>}", name="pm_new_post_controller")
+     * @Route("api/pm/{id<\d+>}/answer", name="pm_new_post_controller")
      * @param int $id
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
@@ -789,5 +792,53 @@ class MessageGlobalPMController extends MessageController
         }
 
         return AjaxResponse::success( true , ['url' => $this->generateUrl('pm_view')] );
+    }
+
+    /**
+     * @Route("api/pm/{pid<\d+>}/report", name="pm_report_post_controller")
+     * @param int $pid
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @param TranslatorInterface $ti
+     * @return Response
+     */
+    public function report_post_api(int $pid, JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti): Response {
+        $user = $this->getUser();
+
+        $message = $em->getRepository( GlobalPrivateMessage::class )->find( $pid );
+        if (!$message) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $group = $message->getReceiverGroup();
+        if (!$group || $group->getType() !== UserGroup::GroupMessageGroup)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var UserGroupAssociation $group_association */
+        $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(),
+            'associationType' => [UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive], 'association' => $group]);
+        if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+
+        $targetUser = $message->getSender();
+        if ($targetUser->getName() === "Der Rabe" )
+            return AjaxResponse::success(true, ['msg' => $ti->trans('Das ist keine gute Idee, das ist dir doch wohl klar!', [], 'game')]);
+
+        $reports = $message->getAdminReports();
+        foreach ($reports as $report)
+            if ($report->getSourceUser()->getId() == $user->getId())
+                return AjaxResponse::success();
+
+        $newReport = (new AdminReport())
+            ->setSourceUser($user)
+            ->setTs(new DateTime('now'))
+            ->setGpm($message);
+
+        try {
+            $em->persist($newReport);
+            $em->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success( true, ['msg' => $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $message->getSender()->getName() . '</span>'], 'game')]);
     }
 }

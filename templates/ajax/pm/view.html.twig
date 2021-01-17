@@ -195,6 +195,7 @@
                         document.getElementById('pm-forum-content-header').innerText = elem.getAttribute('x-title');
                         document.getElementById('pm-forum-actions-container').classList.remove('hidden');
                         msg_list_more = document.querySelector('#pm-right-plane .pm-endless-more[x-endless-endpoint][x-last-id]');
+                        fun_msg_events();
                         fun_msg_loader_control();
                     } );
                 });
@@ -244,6 +245,13 @@
             } );
             document.getElementById('pm-conversation-list').addEventListener('scroll', fun_conv_loader_control);
 
+            const fun_msg_events = function() {
+                $.html.addEventListenerAll('ul.group-conversation>li .pm-button[x-report-url]', 'click', function(e,elem) {
+                    if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                        $.ajax.easySend( elem.getAttribute('x-report-url'), {}, (data)=>{ if (data.msg) $.html.notice(data.msg); });
+                });
+            }
+
             const fun_msg_loader = function() {
                 if (loading_msg_list) return;
                 loading_msg_list = true;
@@ -263,6 +271,7 @@
 
                     document.querySelector('#pm-forum-content>ul.group-conversation').innerHTML += messages.innerHTML;
 
+                    fun_msg_events();
                     loading_msg_list = false;
                     fun_msg_loader_control();
                 } );
