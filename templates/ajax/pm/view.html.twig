@@ -282,14 +282,16 @@
             document.getElementById('pm-mobile-back-button').addEventListener('click', () => document.getElementById('post-office-mobile-wrapper').classList.remove('panel-2'));
 
             const userSearchHandler = function() {
-                if (searchBox.value.length >= 3)
+                if (searchBox.value.length >= 3) {
+                    let skip = [];
+                    $.html.forEach('#pm-selected-users>li[x-soul-id]', e => skip.push(parseInt(e.getAttribute('x-soul-id'))));
                     $.ajax.background().load(
                         document.getElementById('pm-users-list'),
                         '{{ path('users_fuzzyfind', {url: 'pm_manage_users'}) }}',
                         false,
-                        {'name': searchBox.value},
+                        {'name': searchBox.value, 'exclude': skip},
                         function () {
-                            $.html.addEventListenerAll('#pm-users-list>.users-list-entry>div', 'click', function (e,elem) {
+                            $.html.addEventListenerAll('#pm-users-list>.users-list-entry>div', 'click', function (e, elem) {
                                 if (!document.querySelector('#pm-selected-users>li[x-soul-id="' + elem.getAttribute('x-soul-id') + '"]')) {
                                     let li = document.createElement('li');
                                     li.setAttribute('x-soul-id', elem.getAttribute('x-soul-id'));
@@ -302,6 +304,7 @@
                             })
                         }
                     );
+                }
                 else document.getElementById('pm-users-list').innerHTML = '';
             };
 
@@ -330,6 +333,8 @@
                 document.getElementById('pm-forum-actions-container').classList.add('hidden');
                 document.getElementById('pm-forum-content-header').innerText = '{{ 'Vorschau'|trans({},'global')|e('js') }}'
                 document.getElementById('pm-new-thread-controls').classList.add('hidden');
+                document.getElementById('pm-user-list-container').classList.add('hidden');
+                document.getElementById('pm-user-list-payload').innerHTML = '';
 
                 editor.innerText = '';
                 document.getElementById('pm-forum-editor-container').classList.remove('hidden');

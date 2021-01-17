@@ -7,7 +7,7 @@
             {% endif %}
             <div class="row-flex wrap">
                 {% for user in active %}
-                    <div class="cell"><div class="pm-userbox">
+                    <div class="cell"><div class="pm-userbox" x-user-id="{{ user.id }}">
                             {% if (user.avatar) %}
                                 <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.filename, 'ext': user.avatar.format}) }}) center/cover"></div>
                             {% else %}
@@ -26,13 +26,31 @@
                             {% endif %}
                         </div></div>
                 {% endfor %}
+                {% if owner %}
+                    <div class="cell"><div class="pm-userbox"><div class="pm-avatar empty"></div><div class="pm-userbox-action" id="pm-add-user-button">
+                        <i class="fa fa-plus-square"></i>
+                        <div class="tooltip"><b>{{ 'Spieler hinzufügen'|trans({},'global') }}</b><br />
+                            {{ 'Neu hinzugefügte Spieler erhalten Zugriff auf alle Nachrichten in der Gruppe.'|trans({},'global') }}
+                        </div>
+                    </div></div></div>
+                {% endif %}
             </div>
+
+            {% if owner %}
+                <div id="pm-add-user-selector" class="hidden">
+                    <h5>{{ 'Einen Empfänger hinzufügen'|trans({},'global') }}</h5>
+                    <div id="pm-add-users-list-container">
+                        <div><label><input type="text" id="pm-add-users-search" /></label><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
+                        <div id="pm-add-users-list"></div>
+                    </div>
+                </div>
+            {% endif %}
 
             {% if inactive is not empty %}
                 <h5>{{ 'Ausgeschlossene Teilnehmer'|trans({},'global') }}</h5>
                 <div class="row-flex wrap">
                     {% for user in inactive %}
-                        <div class="cell"><div class="pm-userbox">
+                        <div class="cell"><div class="pm-userbox" x-user-id="{{ user.id }}">
                                 <div class="pm-avatar empty"></div>
                                 <div class="pm-userbox-name">{{ user.name }}</div>
                                 {% if owner %}
@@ -50,6 +68,7 @@
         </div>
     </div>
 
+
 {% endblock %}
 {% block js %}
     {{ parent() }}
@@ -65,6 +84,61 @@
                     $.ajax.background().load( target, '{{ path('pm_conv_group_users', {id: gid}) }}', false );
                 });
             });
+
+            {% if owner %}
+                $.html.addEventListenerAll('#pm-add-user-button', 'click', function(e,elem) {
+                    elem.classList.add('hidden');
+                    document.getElementById('pm-add-user-selector').classList.remove('hidden');
+                });
+
+                let typingTimer, doneTypingInterval = 500;
+                let searchBox = document.getElementById('pm-add-users-search');
+
+                document.getElementById('pm-mobile-back-button').addEventListener('click', () => document.getElementById('post-office-mobile-wrapper').classList.remove('panel-2'));
+
+                const userSearchHandler = function() {
+                    if (searchBox.value.length >= 3) {
+                        let skip = [];
+                        $.html.forEach('.pm-userbox[x-user-id]', e => skip.push(parseInt(e.getAttribute('x-user-id'))));
+                        $.ajax.background().load(
+                            document.getElementById('pm-add-users-list'),
+                            '{{ path('users_fuzzyfind', {url: 'pm_add_users'}) }}',
+                            false,
+                            {'name': searchBox.value, 'group': {{ gid }}, 'exclude': skip},
+                            function () {
+                                $.html.addEventListenerAll('#pm-add-users-list>.users-list-entry>div', 'click', function (e, elem) {
+                                    let target = document.getElementById('pm-user-list-payload');
+                                    if (!target) return;
+
+                                    const url = elem.getAttribute('x-var');
+                                    target.innerHTML = '<div style="margin: 10px" class="small center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}</div>';
+
+                                    $.ajax.background().easySend(url, {}, () => {
+                                        $.ajax.background().load(target, '{{ path('pm_conv_group_users', {id: gid}) }}', false);
+                                    });
+                                })
+                            }
+                        );
+                    }
+                    else document.getElementById('pm-add-users-list').innerHTML = '';
+                };
+
+                const userSearchHandlerUp = function () {
+                    clearTimeout(typingTimer);
+                    typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
+                };
+
+                const userSearchHandlerDown = function () {
+                    clearTimeout(typingTimer);
+                };
+
+                if (searchBox) {
+                    searchBox.addEventListener('keyup', userSearchHandlerUp);
+                    searchBox.addEventListener('keydown', userSearchHandlerDown);
+                    searchBox.addEventListener('focus', () => userSearchHandler());
+                    searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('pm-users-list').innerHTML = '', 100));
+                }
+            {% endif %}
         })();
     </script>
 {% endblock %}

@@ -198,12 +198,16 @@ class MessageGlobalPMController extends MessageController
             UserGroupAssociation::GroupAssociationTypePrivateMessageMember, 'association' => $group]);
         if (!$other_association) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        $messages = $em->getRepository(GlobalPrivateMessage::class)->findByGroup($group, 0, 1);
+        if ($other_association->getRef1() === null)
+            $em->remove( $other_association );
+        else {
+            $messages = $em->getRepository(GlobalPrivateMessage::class)->findByGroup($group, 0, 1);
 
-        $em->persist($other_association
-            ->setAssociationType(UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive)
-            ->setRef3( $group->getRef1() )->setRef4( empty($messages) ? 1 : $messages[0]->getId() )
-        );
+            $em->persist($other_association
+                             ->setAssociationType(UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive)
+                             ->setRef3( $group->getRef1() )->setRef4( empty($messages) ? 1 : $messages[0]->getId() )
+            );
+        }
 
         try {
             $em->flush();
@@ -243,6 +247,47 @@ class MessageGlobalPMController extends MessageController
         $em->persist($other_association
              ->setAssociationType(UserGroupAssociation::GroupAssociationTypePrivateMessageMember)
              ->setRef3( null )->setRef4( null )
+        );
+
+        try {
+            $em->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/pm/conversation/group/{gid<\d+>}/user/{uid<\d+>}/add", name="pm_conv_group_user_add")
+     * @param int $gid
+     * @param int $uid
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function pm_conversation_group_user_add(int $gid, int $uid, EntityManagerInterface $em, UserHandler $userHandler): Response {
+
+        $group = $em->getRepository( UserGroup::class )->find($gid);
+        if (!$group || $group->getType() !== UserGroup::GroupMessageGroup) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        /** @var UserGroupAssociation $group_association */
+        $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(), 'associationType' =>
+            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, 'associationLevel' => UserGroupAssociation::GroupAssociationLevelFounder
+                                                                                            , 'association' => $group]);
+        if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        $other_user = $em->getRepository(User::class)->find($uid);
+        if (!$other_user) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        if ($userHandler->hasRole($other_user, 'ROLE_DUMMY')) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var UserGroupAssociation $other_association */
+        $other_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $other_user,'association' => $group]);
+        if ($other_association) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $em->persist((new UserGroupAssociation())
+                         ->setUser($other_user)->setAssociation($group)
+                         ->setAssociationLevel(UserGroupAssociation::GroupAssociationLevelDefault)
+                         ->setAssociationType(UserGroupAssociation::GroupAssociationTypePrivateMessageMember)
         );
 
         try {

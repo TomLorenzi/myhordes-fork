@@ -171,11 +171,21 @@ class SoulController extends CustomAbstractController
 
         if (!$parser->has_all(['name'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        $searchName = $parser->get('name');
-        $users = mb_strlen($searchName) >= 3 ? array_filter($em->getRepository(User::class)->findByNameContains($searchName), fn(User $u) =>
-            ($u !== $user) && ($u->getEmail() !== 'crow') && (mb_substr($u->getEmail(), -10) !== '@localhost') && ($u->getUsername() !== $u->getEmail())) : [];
+        $searchName = $parser->get('name', '');
+        $searchSkip = $parser->get_array('exclude', []);
+        $searchSkip[] = $user->getId();
 
-        return $this->render( 'ajax/soul/users_list.html.twig', [ 'users' => in_array($url, ['soul_visit','soul_invite_coalition','pm_manage_users']) ? $users : [], 'route' => in_array($url, ['soul_visit','soul_invite_coalition']) ? $url : '' ]);
+        $users = mb_strlen($searchName) >= 3 ? $em->getRepository(User::class)->findBySoulSearchQuery($searchName, 10, $searchSkip) : [];
+
+        $data = [
+            'var' => $url,
+            'users' => in_array($url, ['soul_visit','soul_invite_coalition','pm_manage_users','pm_add_users']) ? $users : [],
+            'route' => in_array($url, ['soul_visit','soul_invite_coalition']) ? $url : ''
+        ];
+
+        if ($url === 'pm_add_users') $data['gid'] = $parser->get_num('group', 0);
+
+        return $this->render( 'ajax/soul/users_list.html.twig', $data);
     }
 
 

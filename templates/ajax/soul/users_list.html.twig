@@ -1,7 +1,11 @@
 {% block ajax %}
     {% for user in users %}
+        {% set var_content = null %}
+        {% if var == 'pm_add_users' %}
+            {% set var_content = path('pm_conv_group_user_add', {gid: gid, uid: user.id}) %}
+        {% endif %}
         <div class="users-list-entry">
-            <div x-soul-name="{{ user.name }}" x-soul-id="{{ user.id }}" x-soul-url="{{ route ? url(route, {id: user.id}) : '' }}">
+            <div x-soul-name="{{ user.name }}" x-soul-id="{{ user.id }}" x-soul-url="{{ route ? url(route, {id: user.id}) : '' }}" x-var="{{ var_content }}">
                 <div class="avatar small ua-{{ user.id % 10 }}"><img alt="" src="{{ user.avatar ? path('app_web_avatar', {'uid': user.id, 'name': user.avatar.smallName, 'ext': user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}" style="margin-right: 0;"></div> {{ user.name }}
             </div>
         </div>
