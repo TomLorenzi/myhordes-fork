@@ -78,6 +78,8 @@
                 let target = document.getElementById('pm-user-list-payload');
                 if (!target) return;
 
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
+
                 target.innerHTML = '<div style="margin: 10px" class="small center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}</div>';
 
                 $.ajax.background().easySend(elem.getAttribute('x-api-call'), {}, () => {
