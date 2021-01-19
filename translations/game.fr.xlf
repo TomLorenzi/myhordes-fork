@@ -5227,7 +5227,7 @@
     </unit>
     <unit id="xyPBCmM" name="Gefahr">
       <notes>
-        <note category="german">__Gefahr</note>
+        <note category="german">Gefahr</note>
       </notes>
       <segment>
         <source>Gefahr</source>
@@ -5236,7 +5236,7 @@
     </unit>
     <unit id="ZvXc1po" name="Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.">
       <notes>
-        <note category="german">__Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</note>
+        <note category="german">Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</note>
       </notes>
       <segment>
         <source>Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</source>
@@ -13542,7 +13542,7 @@
       </notes>
       <segment>
         <source>Teilweise verrottet</source>
-        <target>Teilweise verrottet</target>
+        <target>Partiellement putréfié</target>
       </segment>
     </unit>
     <unit id="LzdnkS5" name="Virenschleuder">
@@ -13551,7 +13551,7 @@
       </notes>
       <segment>
         <source>Virenschleuder</source>
-        <target>Virenschleuder</target>
+        <target>Porteur de la 'Maladie'</target>
       </segment>
     </unit>
     <unit id="lR71uxG" name="Gedärmeauskotzer">
@@ -13560,7 +13560,7 @@
       </notes>
       <segment>
         <source>Gedärmeauskotzer</source>
-        <target>Gedärmeauskotzer</target>
+        <target>Vomisseur de tripes</target>
       </segment>
     </unit>
     <unit id="5LOqx_Q" name="Seuchenherd">
@@ -13569,7 +13569,7 @@
       </notes>
       <segment>
         <source>Seuchenherd</source>
-        <target>Seuchenherd</target>
+        <target>Annonciateur du fléau</target>
       </segment>
     </unit>
     <unit id="MhMq2h_" name="Verirrter Ausflügler">
@@ -13578,7 +13578,7 @@
       </notes>
       <segment>
         <source>Verirrter Ausflügler</source>
-        <target>Verirrter Ausflügler</target>
+        <target>Randonneur égaré</target>
       </segment>
     </unit>
     <unit id="GTHd4n3" name="Nächtlicher Spaziergänger">
@@ -13587,7 +13587,7 @@
       </notes>
       <segment>
         <source>Nächtlicher Spaziergänger</source>
-        <target>Nächtlicher Spaziergänger</target>
+        <target>Flâneur nocturne</target>
       </segment>
     </unit>
     <unit id="OfHX59h" name="Vertrauenswürdiger Bürger">
@@ -13596,7 +13596,7 @@
       </notes>
       <segment>
         <source>Vertrauenswürdiger Bürger</source>
-        <target>Vertrauenswürdiger Bürger</target>
+        <target>Concitoyen de confiance</target>
       </segment>
     </unit>
     <unit id="hn0iaf5" name="Sehr erfahrener Bürger">
@@ -13605,7 +13605,7 @@
       </notes>
       <segment>
         <source>Sehr erfahrener Bürger</source>
-        <target>Sehr erfahrener Bürger</target>
+        <target>Inspiration pour le peuple</target>
       </segment>
     </unit>
     <unit id="rKc_d4M" name="Vorbild für das Volk">
@@ -13614,7 +13614,7 @@
       </notes>
       <segment>
         <source>Vorbild für das Volk</source>
-        <target>Vorbild für das Volk</target>
+        <target>Joueur très expérimenté</target>
       </segment>
     </unit>
     <unit id="I3PJqtw" name="Richtwert der Gemeinschaft">
@@ -13623,7 +13623,7 @@
       </notes>
       <segment>
         <source>Richtwert der Gemeinschaft</source>
-        <target>Richtwert der Gemeinschaft</target>
+        <target>Référence communautaire</target>
       </segment>
     </unit>
     <unit id="HXtJm00" name="Berühmter Veteran">
@@ -13632,7 +13632,7 @@
       </notes>
       <segment>
         <source>Berühmter Veteran</source>
-        <target>Berühmter Veteran</target>
+        <target>Illustre vétéran</target>
       </segment>
     </unit>
     <unit id="GTEfEXg" name="Lebender Mythos">
@@ -13641,7 +13641,7 @@
       </notes>
       <segment>
         <source>Lebender Mythos</source>
-        <target>Lebender Mythos</target>
+        <target>Mythe vivant</target>
       </segment>
     </unit>
     <unit id="R6RX4Vs" name="Ich bin eine Legende">
@@ -13650,7 +13650,7 @@
       </notes>
       <segment>
         <source>Ich bin eine Legende</source>
-        <target>Ich bin eine Legende</target>
+        <target>Je suis une légende.</target>
       </segment>
     </unit>
     <unit id="Tak2K5U" name="Hör auf mich, wenn du überleben möchtest">
@@ -13659,7 +13659,7 @@
       </notes>
       <segment>
         <source>Hör auf mich, wenn du überleben möchtest</source>
-        <target>Hör auf mich, wenn du überleben möchtest</target>
+        <target>Suis-moi si tu veux vivre</target>
       </segment>
     </unit>
     <unit id="LXsPdMO" name="Alter Hase">
@@ -13668,7 +13668,7 @@
       </notes>
       <segment>
         <source>Alter Hase</source>
-        <target>Alter Hase</target>
+        <target>Grand ancien</target>
       </segment>
     </unit>
     <unit id="e0SZFhK" name="Jedes Los gewinnt">
@@ -13677,7 +13677,7 @@
       </notes>
       <segment>
         <source>Jedes Los gewinnt</source>
-        <target>Jedes Los gewinnt</target>
+        <target>Compagnon de la communauté</target>
       </segment>
     </unit>
     <unit id="NnTekv7" name="Zinker">
@@ -13686,7 +13686,7 @@
       </notes>
       <segment>
         <source>Zinker</source>
-        <target>Zinker</target>
+        <target>Animé de bonnes intentions</target>
       </segment>
     </unit>
     <unit id="lUV0fyN" name="Bingo">
@@ -13695,7 +13695,7 @@
       </notes>
       <segment>
         <source>Bingo</source>
-        <target>Bingo</target>
+        <target>Animal social</target>
       </segment>
     </unit>
     <unit id="zNfSuGP" name="Sudoku ist anders">
@@ -13704,7 +13704,7 @@
       </notes>
       <segment>
         <source>Sudoku ist anders</source>
-        <target>Sudoku ist anders</target>
+        <target>Défunt animé</target>
       </segment>
     </unit>
     <unit id="hau3lHt" name="Siebenseitiger Würfel">
@@ -13713,7 +13713,7 @@
       </notes>
       <segment>
         <source>Siebenseitiger Würfel</source>
-        <target>Siebenseitiger Würfel</target>
+        <target>Hyper-activiste communautaire</target>
       </segment>
     </unit>
     <unit id="nvWauKU" name="Einarmiger Bandit">
@@ -13722,7 +13722,7 @@
       </notes>
       <segment>
         <source>Einarmiger Bandit</source>
-        <target>Einarmiger Bandit</target>
+        <target>Gagnant dans l'âme !</target>
       </segment>
     </unit>
     <unit id="geFjTQD" name="Motivierter Messebesucher">
@@ -13731,7 +13731,7 @@
       </notes>
       <segment>
         <source>Motivierter Messebesucher</source>
-        <target>Motivierter Messebesucher</target>
+        <target>Festivalier hordien motivé</target>
       </segment>
     </unit>
     <unit id="IQd9dUu" name="Kleiner Guru">
@@ -13740,7 +13740,7 @@
       </notes>
       <segment>
         <source>Kleiner Guru</source>
-        <target>Kleiner Guru</target>
+        <target>Détourneur de fonds</target>
       </segment>
     </unit>
     <unit id="5FggkWu" name="Überzeugender Guru">
@@ -13749,7 +13749,7 @@
       </notes>
       <segment>
         <source>Überzeugender Guru</source>
-        <target>Überzeugender Guru</target>
+        <target>Trafiquant de citoyens</target>
       </segment>
     </unit>
     <unit id="BKdc_nU" name="Frischfleischhändler">
@@ -13758,7 +13758,7 @@
       </notes>
       <segment>
         <source>Frischfleischhändler</source>
-        <target>Frischfleischhändler</target>
+        <target>Négociant en chair fraîche</target>
       </segment>
     </unit>
     <unit id="YK4MoDf" name="Held der Community!">
@@ -13767,7 +13767,7 @@
       </notes>
       <segment>
         <source>Held der Community!</source>
-        <target>Held der Community!</target>
+        <target>Dedans jusqu'au cou !</target>
       </segment>
     </unit>
     <unit id="7rLOpWl" name="Nobler Spender">
@@ -13776,7 +13776,7 @@
       </notes>
       <segment>
         <source>Nobler Spender</source>
-        <target>Nobler Spender</target>
+        <target>Âme noble</target>
       </segment>
     </unit>
     <unit id="7CI50m3" name="Immer zur Stelle">
@@ -13785,7 +13785,7 @@
       </notes>
       <segment>
         <source>Immer zur Stelle</source>
-        <target>Immer zur Stelle</target>
+        <target>Donateur universel</target>
       </segment>
     </unit>
     <unit id="DQYjmAS" name="Samariter">
@@ -13794,7 +13794,7 @@
       </notes>
       <segment>
         <source>Samariter</source>
-        <target>Samariter</target>
+        <target>Assistant social</target>
       </segment>
     </unit>
     <unit id="PT2xNUt" name="Der Weihnachtsmann ist ein Schlawiner">
@@ -13803,7 +13803,7 @@
       </notes>
       <segment>
         <source>Der Weihnachtsmann ist ein Schlawiner</source>
-        <target>Der Weihnachtsmann ist ein Schlawiner</target>
+        <target>Le Père Noël est un coquin</target>
       </segment>
     </unit>
     <unit id="JVylXOR" name="Treffen der 4. Art">
@@ -13812,7 +13812,7 @@
       </notes>
       <segment>
         <source>Treffen der 4. Art</source>
-        <target>Treffen der 4. Art</target>
+        <target>Rencontre du 4ème type</target>
       </segment>
     </unit>
     <unit id="gxrFu2W" name="Hast Du mal Feuer?">
@@ -13821,7 +13821,7 @@
       </notes>
       <segment>
         <source>Hast Du mal Feuer?</source>
-        <target>Hast Du mal Feuer?</target>
+        <target>Vous avez du feu ?</target>
       </segment>
     </unit>
     <unit id="O9xv8SA" name="Medium mit Preisnachlass">
@@ -13830,7 +13830,7 @@
       </notes>
       <segment>
         <source>Medium mit Preisnachlass</source>
-        <target>Medium mit Preisnachlass</target>
+        <target>Médium au rabais</target>
       </segment>
     </unit>
     <unit id="ua9mDef" name="Amophilis Psychotropes">
@@ -13839,7 +13839,7 @@
       </notes>
       <segment>
         <source>Amophilis Psychotropes</source>
-        <target>Amophilis Psychotropes</target>
+        <target>Amophilis psychotropes</target>
       </segment>
     </unit>
     <unit id="ssmlx9q" name="Blauer Feuerspucker">
@@ -13848,7 +13848,7 @@
       </notes>
       <segment>
         <source>Blauer Feuerspucker</source>
-        <target>Blauer Feuerspucker</target>
+        <target>Cracheur de flamme bleue</target>
       </segment>
     </unit>
     <unit id="KZqJU6f" name="I see dead people 0_0">
@@ -13866,7 +13866,7 @@
       </notes>
       <segment>
         <source>Soul Man</source>
-        <target>Soul Man</target>
+        <target>Aspi-rituel</target>
       </segment>
     </unit>
     <unit id="npv5jjJ" name="Bei meiner Seel">
@@ -16868,6 +16868,159 @@
       <segment>
         <source>Chuck Norris' Ebenbild</source>
         <target>Égal de Chuck Norris</target>
+      </segment>
+    </unit>
+    <unit id="eunLp3W" name="Ich habe Magenschmerzen...">
+      <notes>
+        <note category="german">Ich habe Magenschmerzen...</note>
+      </notes>
+      <segment>
+        <source>Ich habe Magenschmerzen...</source>
+        <target>J'ai mal au ventre...</target>
+      </segment>
+    </unit>
+    <unit id="gEtgHUv" name="Mir ist kalt hier draußen...">
+      <notes>
+        <note category="german">Mir ist kalt hier draußen...</note>
+      </notes>
+      <segment>
+        <source>Mir ist kalt hier draußen...</source>
+        <target>J'ai froid, dehors...</target>
+      </segment>
+    </unit>
+    <unit id="8KQLRkY" name="Anfängerleiche">
+      <notes>
+        <note category="german">Anfängerleiche</note>
+      </notes>
+      <segment>
+        <source>Anfängerleiche</source>
+        <target>Cadavre débutant</target>
+      </segment>
+    </unit>
+    <unit id="odtY3_Y" name="Rabenfreund">
+      <notes>
+        <note category="german">Rabenfreund</note>
+      </notes>
+      <segment>
+        <source>Rabenfreund</source>
+        <target>Copain des corbeaux</target>
+      </segment>
+    </unit>
+    <unit id="m78HBvZ" name="Dehydrationskollege">
+      <notes>
+        <note category="german">Dehydrationskollege</note>
+      </notes>
+      <segment>
+        <source>Dehydrationskollege</source>
+        <target>Concitoyen déshydraté</target>
+      </segment>
+    </unit>
+    <unit id="BhsD8d_" name="Seelenhändler">
+      <notes>
+        <note category="german">Seelenhändler</note>
+      </notes>
+      <segment>
+        <source>Seelenhändler</source>
+        <target>Marchand d'âmes</target>
+      </segment>
+    </unit>
+    <unit id="QaLnp0N" name="Sehr überzeugender Pate">
+      <notes>
+        <note category="german">Sehr überzeugender Pate</note>
+      </notes>
+      <segment>
+        <source>Sehr überzeugender Pate</source>
+        <target>Parrain très convaincant</target>
+      </segment>
+    </unit>
+    <unit id="S_ni.T_" name="Wüstenspekulant">
+      <notes>
+        <note category="german">Wüstenspekulant</note>
+      </notes>
+      <segment>
+        <source>Wüstenspekulant</source>
+        <target>Spéculateur du désert</target>
+      </segment>
+    </unit>
+    <unit id="2B3cnT0" name="Bringt Sachen ins Rollen!">
+      <notes>
+        <note category="german">Bringt Sachen ins Rollen!</note>
+      </notes>
+      <segment>
+        <source>Bringt Sachen ins Rollen!</source>
+        <target>Fais bouger les choses!</target>
+      </segment>
+    </unit>
+    <unit id="PIt9fgD" name="Freigiebiger Bürger">
+      <notes>
+        <note category="german">Freigiebiger Bürger</note>
+      </notes>
+      <segment>
+        <source>Freigiebiger Bürger</source>
+        <target>Citoyen qui tombe à pic</target>
+      </segment>
+    </unit>
+    <unit id="QceNj.h" name="Messias">
+      <notes>
+        <note category="german">Messias</note>
+      </notes>
+      <segment>
+        <source>Messias</source>
+        <target>Messie</target>
+      </segment>
+    </unit>
+    <unit id="lKnLpvN" name="Santa Klaus ist ein Schummler">
+      <notes>
+        <note category="german">Santa Klaus ist ein Schummler</note>
+      </notes>
+      <segment>
+        <source>Santa Klaus ist ein Schummler</source>
+        <target>Le Père Noël est un filou</target>
+      </segment>
+    </unit>
+    <unit id="JHdt62r" name="Santa Klaus ist Abfall">
+      <notes>
+        <note category="german">Santa Klaus ist Abfall</note>
+      </notes>
+      <segment>
+        <source>Santa Klaus ist Abfall</source>
+        <target>Le Père Noël est une ordure</target>
+      </segment>
+    </unit>
+    <unit id="uJwxAdp" name="Santa Klaus ist Abschaum">
+      <notes>
+        <note category="german">Santa Klaus ist Abschaum</note>
+      </notes>
+      <segment>
+        <source>Santa Klaus ist Abschaum</source>
+        <target>Le Père Noël est une raclure</target>
+      </segment>
+    </unit>
+    <unit id="n8nyFi5" name="Hängt Santa Klaus!">
+      <notes>
+        <note category="german">Hängt Santa Klaus!</note>
+      </notes>
+      <segment>
+        <source>Hängt Santa Klaus!</source>
+        <target>Pendez le Père Noël !</target>
+      </segment>
+    </unit>
+    <unit id="C.78yQ1" name="Lebenssammler">
+      <notes>
+        <note category="german">Lebenssammler</note>
+      </notes>
+      <segment>
+        <source>Lebenssammler</source>
+        <target>Collectionneur de vie</target>
+      </segment>
+    </unit>
+    <unit id="dMZx5oC" name="Schnitter der Aussenwelt">
+      <notes>
+        <note category="german">Schnitter der Aussenwelt</note>
+      </notes>
+      <segment>
+        <source>Schnitter der Aussenwelt</source>
+        <target>Faucheur de l'outre-monde</target>
       </segment>
     </unit>
   </file>
