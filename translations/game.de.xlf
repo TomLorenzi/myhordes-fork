@@ -5202,16 +5202,16 @@
     </unit>
     <unit id="ZvXc1po" name="Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.">
       <notes>
-        <note category="german">__Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</note>
+        <note category="german">Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</note>
       </notes>
       <segment>
         <source>Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</source>
-        <target>__Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</target>
+        <target>Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</target>
       </segment>
     </unit>
     <unit id="xyPBCmM" name="Gefahr">
       <notes>
-        <note category="german">__Gefahr</note>
+        <note category="german">Gefahr</note>
       </notes>
       <segment>
         <source>Gefahr</source>
