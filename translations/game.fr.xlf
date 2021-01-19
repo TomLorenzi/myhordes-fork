@@ -14424,7 +14424,7 @@
       </notes>
       <segment>
         <source>im Nordwesten</source>
-        <target>au Nord-ouest</target>
+        <target>au Nord-Ouest</target>
       </segment>
     </unit>
     <unit id="dHF9hg3" name="im Norden">
@@ -14442,7 +14442,7 @@
       </notes>
       <segment>
         <source>im Nordosten</source>
-        <target>au Nord-est</target>
+        <target>au Nord-Est</target>
       </segment>
     </unit>
     <unit id="CGH7WpP" name="im Westen">
@@ -14469,7 +14469,7 @@
       </notes>
       <segment>
         <source>im Südwesten</source>
-        <target>au Sud-ouest</target>
+        <target>au Sud-Ouest</target>
       </segment>
     </unit>
     <unit id="UpG6M6C" name="im Süden">
@@ -14487,7 +14487,7 @@
       </notes>
       <segment>
         <source>im Südosten</source>
-        <target>au Sud-est</target>
+        <target>au Sud-Est</target>
       </segment>
     </unit>
     <unit id="Hbo1GZX" name="fe016ab">
