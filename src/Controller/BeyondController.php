@@ -1166,12 +1166,13 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if ($this->entity_manager->getRepository(DigRuinMarker::class)->findByCitizen( $citizen ))
             return AjaxResponse::error( self::ErrorNotDiggable );
 
-        $dm = (new DigRuinMarker())->setCitizen( $citizen )->setZone( $zone );
-
         if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
             $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
 
         if ($zone->getRuinDigs() > 0) {
+            $dm = (new DigRuinMarker())->setCitizen( $citizen )->setZone( $zone );
+            $this->entity_manager->persist($dm);
+
             $zone->setRuinDigs( $zone->getRuinDigs() - 1 );
 
             $event_conf_list = $this->conf->getCurrentEvent($zone->getTown())->get(EventConf::EVENT_DIG_RUINS, []);
@@ -1230,7 +1231,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         }
 
         try {
-            $this->entity_manager->persist($dm);
             $this->entity_manager->persist($zone);
             $this->entity_manager->flush();
         } catch (Exception $e) {
