@@ -241,7 +241,8 @@ class AdminTownController extends AdminActionController
                 $town,
                 $zone,
                 null,
-                in_array($zone->getId(), $soul_zones_ids)
+                in_array($zone->getId(), $soul_zones_ids),
+                true
             );
         }
 
