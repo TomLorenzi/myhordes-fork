@@ -438,10 +438,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'asafe' => [ 'bplan_e_#00' ],
 
                 'lab_fail_drugs'    => [ 'drug_#00', 'xanax_#00', 'drug_random_#00', 'drug_water_#00', 'water_cleaner_#00' ],
-                'lab_success_drugs' => [ 'drug_hero_#00' ],
+                'lab_success_drugs' => [ 'what' => ['drug_hero_#00'], "where" => AffectItemSpawn::DropTargetFloor ],
 
-                'kitchen_fail_food'    => [ 'dish_#00' ],
-                'kitchen_success_food' => [ 'dish_tasty_#00' ],
+                'kitchen_fail_food'    => [ 'what' => ['dish_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
+                'kitchen_success_food' => [ 'what' => ['dish_tasty_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
 
                 'meat_4xs' => [ 'what' => [ 'meat_#00',  4 ], 'where' => AffectItemSpawn::DropTargetFloor],
                 'meat_4x'  => [ 'what' => [ 'undef_#00', 4 ], 'where' => AffectItemSpawn::DropTargetFloor],
