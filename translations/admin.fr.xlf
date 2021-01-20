@@ -2170,5 +2170,32 @@
         <target>Retirer le rôle</target>
       </segment>
     </unit>
+    <unit id="x8Xk.ym" name="Bürger nach Sprache">
+      <notes>
+        <note category="german">Bürger nach Sprache</note>
+      </notes>
+      <segment>
+        <source>Bürger nach Sprache</source>
+        <target>Citoyens par ville</target>
+      </segment>
+    </unit>
+    <unit id="gvDyCm1" name="Geöffnet">
+      <notes>
+        <note category="german">Geöffnet</note>
+      </notes>
+      <segment>
+        <source>Geöffnet</source>
+        <target>Ouvert</target>
+      </segment>
+    </unit>
+    <unit id="gTA4SQS" name="Leben">
+      <notes>
+        <note category="german">Leben</note>
+      </notes>
+      <segment>
+        <source>Leben</source>
+        <target>Vivants</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -115,6 +115,20 @@ class CitizenRepository extends ServiceEntityRepository
         }
     }
 
+    public function getStatByLang() {
+        try {
+            return $this->createQueryBuilder('c')
+                ->select('count(c.id) as count, t.language')
+                ->innerJoin("c.town", "t")
+                ->andWhere("c.alive = true")
+                ->groupBy("t.language")
+                ->orderBy("t.language")
+                ->getQuery()->getResult();
+        } catch (\Exception $e) {
+            return [];
+        }
+    }
+
     // /**
     //  * @return Citizen[] Returns an array of Citizen objects
     //  */
