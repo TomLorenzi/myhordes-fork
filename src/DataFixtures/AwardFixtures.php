@@ -443,9 +443,19 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         ['title'=>'Dieser Kobold ist unaufhaltbar.', 'unlockquantity'=>50, 'associatedtag'=>':lepre:', 'associatedpicto'=>'r_lepre_#00'],
         ['title'=>'Verbrennt ihn! Sieh nach ob seine Asche grün wird!', 'unlockquantity'=>75, 'associatedtag'=>':lepre:', 'associatedpicto'=>'r_lepre_#00'],
         ['title'=>'Ein Wohnwagen ohne Räder???', 'unlockquantity'=>100, 'associatedtag'=>':lepre:', 'associatedpicto'=>'r_lepre_#00'],
+        ['title'=>'Mitglied des Roten Kreuzes', 'unlockquantity'=>1, 'associatedtag'=>':easter:', 'associatedpicto'=>'r_paques_#00'],
         ['title'=>'Ich bin geheilt', 'unlockquantity'=>1, 'associatedtag'=>':gsp:', 'associatedpicto'=>'r_gsp_#00'],
         ['title'=>'Keine Fehler hi&e%12;r', 'unlockquantity'=>1, 'associatedtag'=>':ripflash:', 'associatedpicto'=>'r_ripflash_#00'],
         ['title'=>'Patient Null', 'unlockquantity'=>1, 'associatedtag'=>':beta2:', 'associatedpicto'=>'r_beta2_#00'],
+        ['title'=>'Es ist der Tod der mich fürchten sollte!', 'unlockquantity'=>1, 'associatedtag'=>':derwin:', 'associatedpicto'=>'r_derwin_#00'],
+        ['title'=>'Sandmann', 'unlockquantity'=>10, 'associatedtag'=>':sand:', 'associatedpicto'=>'r_sandb_#00'],
+        ['title'=>'Sandy Maverick', 'unlockquantity'=>50, 'associatedtag'=>':sand:', 'associatedpicto'=>'r_sandb_#00'],
+        ['title'=>'Wegweiser', 'unlockquantity'=>300, 'associatedtag'=>':sand:', 'associatedpicto'=>'r_guide_#00'],
+        ['title'=>'Praktischer Begleiter', 'unlockquantity'=>1000, 'associatedtag'=>':sand:', 'associatedpicto'=>'r_guide_#00'],
+        ['title'=>'Erleuchteter Anführer', 'unlockquantity'=>2500, 'associatedtag'=>':sand:', 'associatedpicto'=>'r_guide_#00'],
+        ['title'=>'Erleuchteter Prediger', 'unlockquantity'=>5000, 'associatedtag'=>':sand:', 'associatedpicto'=>'r_guide_#00'],
+        ['title'=>'Guru der Liebe', 'unlockquantity'=>8000, 'associatedtag'=>':sand:', 'associatedpicto'=>'r_guide_#00'],
+        ['title'=>'Höret meine Stimme', 'unlockquantity'=>15000, 'associatedtag'=>':sand:', 'associatedpicto'=>'r_guide_#00'],
     ];
 
     private function insertAwards(ObjectManager $manager, ConsoleOutputInterface $out) {

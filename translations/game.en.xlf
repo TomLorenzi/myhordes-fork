@@ -16982,5 +16982,95 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Schnitter der Aussenwelt</target>
       </segment>
     </unit>
+    <unit id="pzraA_u" name="Mitglied des Roten Kreuzes">
+      <notes>
+        <note category="german">Mitglied des Roten Kreuzes</note>
+      </notes>
+      <segment>
+        <source>Mitglied des Roten Kreuzes</source>
+        <target>Mitglied des Roten Kreuzes</target>
+      </segment>
+    </unit>
+    <unit id="2ZtIR7d" name="Es ist der Tod der mich fürchten sollte!">
+      <notes>
+        <note category="german">Es ist der Tod der mich fürchten sollte!</note>
+      </notes>
+      <segment>
+        <source>Es ist der Tod der mich fürchten sollte!</source>
+        <target>Es ist der Tod der mich fürchten sollte!</target>
+      </segment>
+    </unit>
+    <unit id="ZYF2zJY" name="Sandmann">
+      <notes>
+        <note category="german">Sandmann</note>
+      </notes>
+      <segment>
+        <source>Sandmann</source>
+        <target>Sandmann</target>
+      </segment>
+    </unit>
+    <unit id="Au5Ajw2" name="Sandy Maverick">
+      <notes>
+        <note category="german">Sandy Maverick</note>
+      </notes>
+      <segment>
+        <source>Sandy Maverick</source>
+        <target>Sandy Maverick</target>
+      </segment>
+    </unit>
+    <unit id="aDIILgt" name="Wegweiser">
+      <notes>
+        <note category="german">Wegweiser</note>
+      </notes>
+      <segment>
+        <source>Wegweiser</source>
+        <target>Wegweiser</target>
+      </segment>
+    </unit>
+    <unit id="dwFklZb" name="Praktischer Begleiter">
+      <notes>
+        <note category="german">Praktischer Begleiter</note>
+      </notes>
+      <segment>
+        <source>Praktischer Begleiter</source>
+        <target>Praktischer Begleiter</target>
+      </segment>
+    </unit>
+    <unit id="Kmu_sqS" name="Erleuchteter Anführer">
+      <notes>
+        <note category="german">Erleuchteter Anführer</note>
+      </notes>
+      <segment>
+        <source>Erleuchteter Anführer</source>
+        <target>Erleuchteter Anführer</target>
+      </segment>
+    </unit>
+    <unit id="JztdI6n" name="Erleuchteter Prediger">
+      <notes>
+        <note category="german">Erleuchteter Prediger</note>
+      </notes>
+      <segment>
+        <source>Erleuchteter Prediger</source>
+        <target>Erleuchteter Prediger</target>
+      </segment>
+    </unit>
+    <unit id="GAeKRC9" name="Guru der Liebe">
+      <notes>
+        <note category="german">Guru der Liebe</note>
+      </notes>
+      <segment>
+        <source>Guru der Liebe</source>
+        <target>Guru der Liebe</target>
+      </segment>
+    </unit>
+    <unit id="uCPB93p" name="Höret meine Stimme">
+      <notes>
+        <note category="german">Höret meine Stimme</note>
+      </notes>
+      <segment>
+        <source>Höret meine Stimme</source>
+        <target>Höret meine Stimme</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
