@@ -1035,10 +1035,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     /**
      * @Route("api/town/constructions/build", name="town_constructions_build_controller")
      * @param JSONRequestParser $parser
-     * @param TownHandler $th
      * @return Response
      */
-    public function construction_build_api(JSONRequestParser $parser, TownHandler $th): Response {
+    public function construction_build_api(JSONRequestParser $parser): Response {
         // Get citizen & town
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
@@ -1050,7 +1049,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $ap = (int)$parser->get('ap');
 
         // Check if slave labor is allowed (ministry of slavery must be built)
-        $slavery_allowed = $th->getBuilding($town, 'small_slave_#00', true) !== null;
+        $slavery_allowed = $this->town_handler->getBuilding($town, 'small_slave_#00', true) !== null;
 
         // If no slavery is allowed, block banished citizens from working on the construction site
         // If slavery is allowed and the citizen is banished, permit slavery bonus
@@ -1067,14 +1066,14 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         // Check if all parent buildings are completed
         $current = $building->getPrototype();
         while ($parent = $current->getParent()) {
-            if (!$th->getBuilding($town, $parent, true))
+            if (!$this->town_handler->getBuilding($town, $parent, true))
                 return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
             $current = $parent;
         }
 
         $workshopBonus = 1;
         $hpToAp = 2;
-        if(($workshop = $th->getBuilding($town, "small_refine_#00")) !== null){
+        if(($workshop = $this->town_handler->getBuilding($town, "small_refine_#00")) !== null){
             $level = $workshop->getLevel();
             switch($level){
                 case 1:
@@ -1132,13 +1131,12 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         }
 
         // Create a log entry
-        if ($th->getBuilding($town, 'item_rp_book2_#00', true)) {
+        if ($this->town_handler->getBuilding($town, 'item_rp_book2_#00', true)) {
             if (!$was_completed)
                 $this->entity_manager->persist( $this->log->constructionsInvestAP( $citizen, $building->getPrototype(), $ap ) );
             else
                 $this->entity_manager->persist( $this->log->constructionsInvestRepairAP( $citizen, $building->getPrototype(), $ap ) );
         }
-
 
         // Calculate the amount of AP that will be invested in the construction
         $ap_effect = floor( $ap * ( $slave_bonus ? 1.5 : 1 ) );
@@ -1176,7 +1174,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
 
             $this->entity_manager->persist( $this->log->constructionsBuildingComplete( $citizen, $building->getPrototype() ) );
-            $th->triggerBuildingCompletion( $town, $building );
+            $this->town_handler->triggerBuildingCompletion( $town, $building );
             $votes = $building->getBuildingVotes();
             foreach ($votes as $vote) {
                 $vote->getCitizen()->setBuildingVote(null);

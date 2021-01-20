@@ -145,7 +145,7 @@ class TownHandler
             $this->entity_manager->persist( $this->log->constructionsBuildingCompleteWell( $building, $well ) );
 
         switch ($building->getPrototype()->getName()) {
-            case 'small_fireworks_#00':case 'small_balloon_#00':
+            /*case 'small_fireworks_#00':*/case 'small_balloon_#00':
                 $all = $building->getPrototype()->getName() === 'small_balloon_#00';
                 foreach ($town->getZones() as &$zone)
                     if ($all || $zone->getPrototype()) {
