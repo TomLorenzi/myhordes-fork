@@ -593,10 +593,11 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 [ ['do_nothing'], 1 ],
             ]] ] ] ,
             'drug_rand_xmas'  => [ 'label' => 'Essen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap' ], 'result' => [ 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
-                [ ['plus_ap8_30', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.']]], 15 ],
-                [ ['plus_ap8_30', 'drug_addict_no_msg', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-addict>{hr}Du bist jetzt ein Süchtiger!</t-stat-up-addict>']]], 20 ],
-                [ ['plus_ap8_30', 'terrorize', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>']]], 60 ],
-                [ ['plus_ap8_30', 'infect_no_msg', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-infection>{hr}Du bist jetzt infiziert!</t-stat-up-infection>']]], 3 ],                [ ['death_poison'], 2 ],
+                [ ['plus_ap8_30', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.']]], 22 ],
+                [ ['plus_ap8_30', 'drug_addict_no_msg', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-addict>{hr}Du bist jetzt ein Süchtiger!</t-stat-up-addict>']]], 13 ],
+                [ ['plus_ap8_30', 'terrorize', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>']]], 57 ],
+                [ ['plus_ap8_30', 'infect_no_msg', ['message' => ['text' => 'Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-infection>{hr}Du bist jetzt infiziert!</t-stat-up-infection>']]], 29 ],
+                [ ['death_poison'], 2 ],
             ]] ] ] ,
 
             'open_doggybag'  => [ 'label' => 'Öffnen', 'meta' => [], 'result' => [ 'consume_item', [ 'spawn' => [ 'food_pims_#00', 'food_tarte_#00', 'food_chick_#00', 'food_biscuit_#00', 'food_bar3_#00', 'food_bar1_#00', 'food_sandw_#00', 'food_bar2_#00' ] ] ], 'message' => 'Du hast dein {item} ausgepackt und {items_spawn} erhalten!' ],
