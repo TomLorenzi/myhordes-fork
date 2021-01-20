@@ -119,7 +119,7 @@ class DeathHandler
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
 
-        $survivedDays = max(0, $citizen->getTown()->getDay() - ($citizen->getTown()->getDevastated() ? 0 : 1));
+        $survivedDays = max(0, $citizen->getTown()->getDay() - ($citizen->getTown()->getDevastated() ? 0 : 1) + ($cod->getRef() === CauseOfDeath::Vanished ? 1 : 0));
 
         $citizen->setSurvivedDays($survivedDays);
 
