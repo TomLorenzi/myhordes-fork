@@ -995,8 +995,12 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $town = $citizen->getTown();
 
         $citizens = [];
+        $hidden = [];
 
         foreach($town->getCitizens() as $citizen) {
+            $hidden[$citizen->getId()] = (bool)($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($citizen->getHome(),
+                $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('curtain')
+            ));
             $clairvoyanceLevel = 0;
             if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_forum')){
                 $clairvoyanceLevel++;
@@ -1024,6 +1028,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'citizens' => $citizens,
             'has_omniscience' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
             'me' => $this->getActiveCitizen(),
+            'hidden' => $hidden
         ]) );
     }
 

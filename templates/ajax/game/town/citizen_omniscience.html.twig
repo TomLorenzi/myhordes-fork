@@ -37,7 +37,6 @@
             <div class="padded cell rw-2 center">{{ 'Aktivität'|trans({},'game') }}</div>
         </div>
         {% for citizen in citizens|sort((a,b) => (a.infos.alive == b.infos.alive) ? ((a.infos.alive) ? a.infos.user.name|lower <=> b.infos.user.name|lower : b.infos.survivedDays <=> a.infos.survivedDays) : b.infos.alive <=> a.infos.alive) %}
-            {# @var \App\Entity\Citizen citizen  #}
             {% if citizen.infos.alive %}
             <div class="row {% if citizen.infos == me%} me{% endif %}" x-ajax-href="{{ path('town_visit', {id: citizen.infos.id}) }}">
                 <div class="padded cell rw-1 rw-md-2">
@@ -57,13 +56,18 @@
                     </span>
                 </div>
                 <div class="padded cell rw-4 rw-md-2 small">
-                    {% if citizen.infos.home.chest.items|length == 0 %}
-                        <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
+                    {% if not hidden[citizen.infos.id] %}
+                        {% if citizen.infos.home.chest.items|length == 0 %}
+                            <em>{{ 'Leere Truhe'|trans({},'game') }}</em>
+                        {% endif %}
+                        {% for item in citizen.infos.home.chest.items %}
+                            {# @var \App\Entity\Item item #}
+                            <img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
+                        {% endfor %}
+                    {% else %}
+                        <em>{{ 'Ein Vorhang blockiert die Sicht ...'|trans({},'game') }}</em>
                     {% endif %}
-                    {% for item in citizen.infos.home.chest.items %}
-                        {# @var \App\Entity\Item item #}
-                        <img alt="{{ item.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
-                    {% endfor %}
+
                 </div>
                 <div class="padded cell rw-2 rd-md-1 small">
                     {{ citizen.soulPoint }} {{ 'Punkt(e)'|trans({},'game') }}
