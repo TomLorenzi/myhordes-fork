@@ -82,10 +82,7 @@
                             {% for season in seasons %}
                                 {% if season.number > 0 %}
                                     <option value="{{season.id}}">
-                                        {{ 'Saison %n%'|trans({'%n%': season.number},'soul') }}
-                                        {% if season.name is not empty %}
-                                            - {{season.name|trans({},'soul')}}
-                                        {% endif %}
+                                        {{ 'Saison %n%'|trans({'%n%': season.number},'soul') }} - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}
                                     </option>
                                 {% endif %}
                             {% endfor %}
@@ -93,11 +90,8 @@
                             {% for season in seasons %}
                                 {% if season.number == 0 %}
                                     <option value="{{season.id}}">
-                                        {{ 'Gute Alte Zeit'|trans({},'soul') }} -
+                                        {{ 'Gute Alte Zeit'|trans({},'soul') }} - 
                                         {{ 'Saison %n%'|trans({'%n%': season.subNumber},'soul') }}
-                                        {% if season.name is not empty %}
-                                            - {{season.name|trans({},'soul')}}
-                                        {% endif %}
                                     </option>
                                 {% endif %}
                             {% endfor %}
@@ -127,11 +121,11 @@
     <script>
         let season_select = document.getElementById('season');
         $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: app.user.id}) }}', false, {season: season_select.value, limit10: document.getElementById("limit-10").checked } );
-        if (season)
+        if (season_select)
             season_select.addEventListener('change', function(e) { $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: app.user.id}) }}', false, {season: this.value, limit10: document.getElementById("limit-10").checked } ) } );
 
     let limit_checkbox = document.getElementById('limit-10');
-    if (season)
+    if (season_select)
         limit_checkbox.addEventListener('change', function(e) { $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: app.user.id}) }}', false, {season: document.getElementById('season').value, limit10: this.checked } ) } );
 
     let typingTimer, doneTypingInterval = 500;

@@ -29,11 +29,6 @@ class Season
     private $number;
 
     /**
-     * @ORM\Column(type="string", length=190, nullable=true)
-     */
-    private $name;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Town", mappedBy="season")
      */
     private $towns;
@@ -72,18 +67,6 @@ class Season
     public function setNumber(int $number): self
     {
         $this->number = $number;
-
-        return $this;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
 
         return $this;
     }

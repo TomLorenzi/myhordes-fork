@@ -260,7 +260,7 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/season/{type<\d+>}/{seasonId<\d+>}", name="soul_season")
+     * @Route("jx/soul/ranking/{type<\d+>}/{seasonId<\d+>}", name="soul_season")
      * @return Response
      */
     public function soul_season($type = 1, $seasonId = null): Response
@@ -273,7 +273,7 @@ class SoulController extends CustomAbstractController
 
         $seasons = $this->entity_manager->getRepository(Season::class)->findAll();
         if ($seasonId === null) {
-            $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
+            $currentSeason = $this->entity_manager->getRepository(Season::class)->findLatest();
         } else {
             $currentSeason = $this->entity_manager->getRepository(Season::class)->find($seasonId);
         }
@@ -284,7 +284,7 @@ class SoulController extends CustomAbstractController
             $this->redirect($this->generateUrl('soul_season'));
         }
 
-        $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['season' => $currentSeason], ['language' => 'ASC', 'days' => 'DESC']);
+        $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['season' => $currentSeason], ['language' => 'ASC', 'days' => 'DESC'], 35);
 
         return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season", [
             'seasons' => $seasons,

@@ -157,9 +157,7 @@ class MessageController extends CustomAbstractController
             'forum' => $forum,
             'threads' => $threads,
             'pinned_threads' => $pinned_threads,
-
             'permission' => $this->getPermissionObject( $permissions ),
-
             'select' => $tid,
             'jump' => $pid,
             'pages' => $pages,

@@ -1,0 +1,59 @@
+{% extends "ajax/ajax.html.twig" %}
+{% if current_season is not null and current_season.name != '' %}
+    {% set season_name = current_season.name ~ " (" ~ current_season.number ~ "-" ~ current_season.subNumber ~ ")" %}
+{% elseif current_season is not null %}
+    {% set season_name = current_season.number ~ "-" ~ current_season.subNumber %}
+{% endif %}
+{% block title %}{% if current_season is null %}{{ 'Neue Saison'|trans({}, 'admin') }}{% else %}{{ 'Saison "%season%"'|trans({'%season%': season_name}, "admin")|raw }}{% endif %}{% endblock %}
+{% block ajax %}
+    {# @var current_season \App\Entity\Season #}
+    <div class="row">
+        <div class="padded cell rw-12">
+
+            <div class="form">
+                <h5>{{ 'Saison'|trans({},'admin') }}</h5>
+
+                <div class="row">
+                    <div class="cell padded rw-4 note note-lightest"><label for="season_number">{{ 'Saison Nummer'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4"><input id="season_number" type="number" value="{{ current_season is not null ? current_season.number : '' }}" /></div>
+                </div>
+
+                <div class="row">
+                    <div class="cell padded rw-4 note note-lightest"><label for="season_subnumber">{{ 'Saison Sub-Nummer'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4"><input id="season_subnumber" type="number" value="{{ current_season is not null ? current_season.subNumber : '' }}" /></div>
+                </div>
+
+                <div class="row">
+                    <div class="cell padded rw-4 note note-lightest"><label for="season_current">{{ 'Aktuelle Saison'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4"><input id="season_current" type="checkbox" {{ current_season is not null ? 'checked' :  '' }}" /></div>
+                </div>
+
+                <div class="row">
+                    <div class="padded cell rw-4 ro-4">
+                        <button id="save_button">{{ (current_season is null ? 'Neue Saison registrieren' : "Änderungen an '%appname%' speichern")|trans({'%appname%': current_season is null ? '' : current_season.name},'admin') }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        $.html.addEventListenerAll('#save_button','click', () => {
+
+            const payload = {
+                number: document.getElementById('season_number').value,
+                subnumber: document.getElementById('season_subnumber').value,
+                current: document.getElementById('season_current').checked,
+            }
+
+            $.ajax.easySend( '{{ path('admin_update_season', {id: current_season is null ? -1 : current_season.id }) }}', payload,
+                function () {
+                    $.ajax.load(null, '{{ path('admin_seasons_view') }}', true);
+                } );
+
+        });
+    </script>
+{% endblock %}

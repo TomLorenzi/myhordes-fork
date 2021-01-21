@@ -4,14 +4,19 @@
     {{ parent() }}
 {% endblock %}
 {% block soul_content %}
+    {# @var currentSeason \Src\Entity\Season #}
     <div class="row">
         <div class="cell rw-12 seasonHeader">
-            {{ dump(currentSeason) }}
             <span class="seasonName">
-                lol
+                {{ ('Saison ' ~ currentSeason.number ~ '.' ~ currentSeason.subNumber)|trans({}, "season")}}
             </span>
             <span class="seasonNumber">
-                Season 15
+                {% if currentSeason.subNumber > 0 %}
+                    {% set curNumber = currentSeason.number ~ '.' ~ currentSeason.subNumber %}
+                {% else %}
+                    {% set curNumber = currentSeason.number %}
+                {% endif %}
+                {{ 'Saison %number%'|trans({"%number%": '<span class="number">' ~ curNumber ~ '</span>'}, "soul")|raw}}
             </span>
         </div>
     </div>
