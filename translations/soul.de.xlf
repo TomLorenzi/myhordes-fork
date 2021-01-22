@@ -2257,5 +2257,14 @@
         <target>Kleine Koalitionen</target>
       </segment>
     </unit>
+    <unit id="TE.pp6F" name="Saison %number%">
+      <notes>
+        <note category="german">Saison %number%</note>
+      </notes>
+      <segment>
+        <source>Saison %number%</source>
+        <target>Saison %number%</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

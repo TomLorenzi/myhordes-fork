@@ -16528,42 +16528,42 @@
         <target>Citoyens ! Hors du site officiel, prudence !</target>
       </segment>
     </unit>
-      <unit id="0Kqpu1t" name="gering">
-          <notes>
-              <note category="german">gering</note>
-          </notes>
-          <segment>
-              <source>gering</source>
-              <target>réduites</target>
-          </segment>
-      </unit>
-      <unit id=".CQK_8d" name="hoch">
-          <notes>
-              <note category="german">hoch</note>
-          </notes>
-          <segment>
-              <source>hoch</source>
-              <target>importantes</target>
-          </segment>
-      </unit>
-      <unit id="ssHCx3q" name="1d82f8e">
-          <notes>
-              <note category="german">Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</note>
-          </notes>
-          <segment>
-              <source>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</source>
-              <target>Vos chances d'être repéré(e) si vous dévorez un citoyen en ville sont %chances%...</target>
-          </segment>
-      </unit>
-      <unit id="qD3lUP9" name="dc1e0ac">
-          <notes>
-              <note category="german">Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</note>
-          </notes>
-          <segment>
-              <source>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</source>
-              <target>Ce risque dépend directement du nombre de citoyens sortis dans l'Outre-Monde : moins il y a de citoyens en ville, moins vous avez de chances d'être vu(e).</target>
-          </segment>
-      </unit>
+    <unit id="0Kqpu1t" name="gering">
+      <notes>
+        <note category="german">gering</note>
+      </notes>
+      <segment>
+        <source>gering</source>
+        <target>réduites</target>
+      </segment>
+    </unit>
+    <unit id=".CQK_8d" name="hoch">
+      <notes>
+        <note category="german">hoch</note>
+      </notes>
+      <segment>
+        <source>hoch</source>
+        <target>importantes</target>
+      </segment>
+    </unit>
+    <unit id="ssHCx3q" name="1d82f8e">
+      <notes>
+        <note category="german">Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</note>
+      </notes>
+      <segment>
+        <source>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</source>
+        <target>Vos chances d'être repéré(e) si vous dévorez un citoyen en ville sont %chances%...</target>
+      </segment>
+    </unit>
+    <unit id="qD3lUP9" name="dc1e0ac">
+      <notes>
+        <note category="german">Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</note>
+      </notes>
+      <segment>
+        <source>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</source>
+        <target>Ce risque dépend directement du nombre de citoyens sortis dans l'Outre-Monde : moins il y a de citoyens en ville, moins vous avez de chances d'être vu(e).</target>
+      </segment>
+    </unit>
     <unit id=".7eWye." name="Legendärer Dompteur">
       <notes>
         <note category="german">Legendärer Dompteur</note>
@@ -17255,6 +17255,42 @@
       <segment>
         <source>Höret meine Stimme</source>
         <target>Écoutez ma voix</target>
+      </segment>
+    </unit>
+    <unit id="6VwkHrE" name="9cdcb6a">
+      <notes>
+        <note category="german">Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</source>
+        <target>Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</target>
+      </segment>
+    </unit>
+    <unit id="g0fspLE" name="d7ab8db">
+      <notes>
+        <note category="german">Deine Stadt "%town%" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt "%town%" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</source>
+        <target>Deine Stadt "%town%" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</target>
+      </segment>
+    </unit>
+    <unit id="EZZp0Cu" name="8b9de7a">
+      <notes>
+        <note category="german">Deine Stadt "%town%" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt "%town%" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.</source>
+        <target>Deine Stadt "%town%" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.</target>
+      </segment>
+    </unit>
+    <unit id="fPHWumZ" name="40e06cb">
+      <notes>
+        <note category="german">Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</note>
+      </notes>
+      <segment>
+        <source>Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</source>
+        <target>Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</target>
       </segment>
     </unit>
   </file>

@@ -16487,51 +16487,51 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Citizens! If you're going off-site, be careful out there!</target>
       </segment>
     </unit>
-      <unit id="0Kqpu1t" name="gering">
-          <notes>
-              <note category="german">gering</note>
-          </notes>
-          <segment>
-              <source>gering</source>
-              <target>gering</target>
-          </segment>
-      </unit>
-      <unit id=".CQK_8d" name="hoch">
-          <notes>
-              <note category="german">hoch</note>
-          </notes>
-          <segment>
-              <source>hoch</source>
-              <target>hoch</target>
-          </segment>
-      </unit>
-      <unit id="ssHCx3q" name="1d82f8e">
-          <notes>
-              <note category="german">Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</note>
-          </notes>
-          <segment>
-              <source>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</source>
-              <target>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</target>
-          </segment>
-      </unit>
-      <unit id="qD3lUP9" name="dc1e0ac">
-          <notes>
-              <note category="german">Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</note>
-          </notes>
-          <segment>
-              <source>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</source>
-              <target>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</target>
-          </segment>
-      </unit>
-      <unit id="8yLsMnc" name="1f8ca6f">
-          <notes>
-              <note category="german">Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</note>
-          </notes>
-          <segment>
-              <source>Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
-              <target><![CDATA[Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?]]></target>
-          </segment>
-      </unit>
+    <unit id="0Kqpu1t" name="gering">
+      <notes>
+        <note category="german">gering</note>
+      </notes>
+      <segment>
+        <source>gering</source>
+        <target>gering</target>
+      </segment>
+    </unit>
+    <unit id=".CQK_8d" name="hoch">
+      <notes>
+        <note category="german">hoch</note>
+      </notes>
+      <segment>
+        <source>hoch</source>
+        <target>hoch</target>
+      </segment>
+    </unit>
+    <unit id="ssHCx3q" name="1d82f8e">
+      <notes>
+        <note category="german">Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</note>
+      </notes>
+      <segment>
+        <source>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</source>
+        <target>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</target>
+      </segment>
+    </unit>
+    <unit id="qD3lUP9" name="dc1e0ac">
+      <notes>
+        <note category="german">Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</note>
+      </notes>
+      <segment>
+        <source>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</source>
+        <target>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</target>
+      </segment>
+    </unit>
+    <unit id="8yLsMnc" name="1f8ca6f">
+      <notes>
+        <note category="german">Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</note>
+      </notes>
+      <segment>
+        <source>Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
+        <target><![CDATA[Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?]]></target>
+      </segment>
+    </unit>
     <unit id=".7eWye." name="Legendärer Dompteur">
       <notes>
         <note category="german">Legendärer Dompteur</note>
@@ -17142,6 +17142,105 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Höret meine Stimme</source>
         <target>Höret meine Stimme</target>
+      </segment>
+    </unit>
+    <unit id="6VwkHrE" name="9cdcb6a">
+      <notes>
+        <note category="german">Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</source>
+        <target>Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</target>
+      </segment>
+    </unit>
+    <unit id="g0fspLE" name="d7ab8db">
+      <notes>
+        <note category="german">Deine Stadt "%town%" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt "%town%" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</source>
+        <target>Deine Stadt "%town%" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</target>
+      </segment>
+    </unit>
+    <unit id="EZZp0Cu" name="8b9de7a">
+      <notes>
+        <note category="german">Deine Stadt "%town%" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt "%town%" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.</source>
+        <target>Deine Stadt "%town%" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.</target>
+      </segment>
+    </unit>
+    <unit id="fPHWumZ" name="40e06cb">
+      <notes>
+        <note category="german">Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</note>
+      </notes>
+      <segment>
+        <source>Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</source>
+        <target>Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</target>
+      </segment>
+    </unit>
+    <unit id="uh49WWx" name="cea913a">
+      <notes>
+        <note category="german">Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</note>
+      </notes>
+      <segment>
+        <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
+        <target>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</target>
+      </segment>
+    </unit>
+    <unit id="Goz9BWd" name="(Allein)">
+      <notes>
+        <note category="german">(Allein)</note>
+      </notes>
+      <segment>
+        <source>(Allein)</source>
+        <target>(Allein)</target>
+      </segment>
+    </unit>
+    <unit id="WWzkuFQ" name="(Mit Eskorte)">
+      <notes>
+        <note category="german">(Mit Eskorte)</note>
+      </notes>
+      <segment>
+        <source>(Mit Eskorte)</source>
+        <target>(Mit Eskorte)</target>
+      </segment>
+    </unit>
+    <unit id="5xLwZCN" name="Du hast dich in einen %role% verwandelt!">
+      <notes>
+        <note category="german">Du hast dich in einen %role% verwandelt!</note>
+      </notes>
+      <segment>
+        <source>Du hast dich in einen %role% verwandelt!</source>
+        <target>Du hast dich in einen %role% verwandelt!</target>
+      </segment>
+    </unit>
+    <unit id="41EQiml" name="Erzähle niemandem davon oder du wirst sofort erschossen!">
+      <notes>
+        <note category="german">Erzähle niemandem davon oder du wirst sofort erschossen!</note>
+      </notes>
+      <segment>
+        <source>Erzähle niemandem davon oder du wirst sofort erschossen!</source>
+        <target>Erzähle niemandem davon oder du wirst sofort erschossen!</target>
+      </segment>
+    </unit>
+    <unit id=".S3ibaS" name="Wie man als Ghul spielt ?">
+      <notes>
+        <note category="german">Wie man als Ghul spielt ?</note>
+      </notes>
+      <segment>
+        <source>Wie man als Ghul spielt ?</source>
+        <target>Wie man als Ghul spielt ?</target>
+      </segment>
+    </unit>
+    <unit id="sZoC__." name="Der Bürger weigert sich, dies zu tun...">
+      <notes>
+        <note category="german">Der Bürger weigert sich, dies zu tun...</note>
+      </notes>
+      <segment>
+        <source>Der Bürger weigert sich, dies zu tun...</source>
+        <target>Der Bürger weigert sich, dies zu tun...</target>
       </segment>
     </unit>
   </file>
