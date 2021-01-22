@@ -93,7 +93,7 @@ class AdminSeasonController extends CustomAbstractController
             ->setCurrent( (bool)$parser->get('current') );
 
         $test = $this->entity_manager->getRepository(Season::class)->findOneBy(['number' => $season->getNumber(), 'subNumber' => $season->getSubNumber()]);
-        if ($test !== null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        if ($test !== null && $id < 0) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         if ($season->getCurrent()) {
             $allSeasons = $this->entity_manager->getRepository(Season::class)->findAll();

@@ -119,9 +119,10 @@ class DeathHandler
         $citizen->setCauseOfDeath($cod);
         $citizen->setAlive(false);
 
-        $survivedDays = max(0, $citizen->getTown()->getDay() - ($citizen->getTown()->getDevastated() ? 0 : 1) + ($cod->getRef() === CauseOfDeath::Vanished ? 1 : 0));
+        $survivedDays = max(0, $citizen->getTown()->getDay() - ($citizen->getTown()->getDevastated() ? 0 : 1));
 
         $citizen->setSurvivedDays($survivedDays);
+        $citizen->setDayOfDeath($citizen->getTown()->getDay());
 
         if ($citizen->getTown()->getDay() <= 3) {
             $cdm = $this->entity_manager->getRepository(ConsecutiveDeathMarker::class)->findOneBy( ['user' => $citizen->getUser()] )

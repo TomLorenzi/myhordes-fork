@@ -267,6 +267,11 @@ class Citizen
      */
     private $specialActions;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $dayOfDeath;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -1212,6 +1217,18 @@ class Citizen
     public function removeSpecialAction(SpecialActionPrototype $specialAction): self
     {
         $this->specialActions->removeElement($specialAction);
+
+        return $this;
+    }
+
+    public function getDayOfDeath(): ?int
+    {
+        return $this->dayOfDeath;
+    }
+
+    public function setDayOfDeath(int $dayOfDeath): self
+    {
+        $this->dayOfDeath = $dayOfDeath;
 
         return $this;
     }

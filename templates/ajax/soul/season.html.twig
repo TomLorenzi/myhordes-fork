@@ -4,7 +4,7 @@
     {{ parent() }}
 {% endblock %}
 {% block soul_content %}
-    {# @var currentSeason \Src\Entity\Season #}
+    {# @var \src\Entity\Season currentSeason #}
     <div class="row">
         <div class="cell rw-12 seasonHeader">
             <span class="seasonName">
@@ -20,4 +20,71 @@
             </span>
         </div>
     </div>
+
+    <div class="row season-ranking">
+        <div class="cell rw-12">
+            <ul class="type-list">
+                {% for type in townTypes %}
+                    <li x-ajax-sticky x-ajax-href="{{ path('soul_season', {'type': type.id}) }}" class="type {% if type.id == currentType.id %}selected{% endif %}" x-type-id="{{ type.id }}"><img src="{{ asset('build/images/towntypes/' ~ type.name ~ '.gif') }}" alt="" /> <span class="link">{{ type.label|trans({}, 'game') }}</span></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="cell padded rw-12">
+            {% if towns|length > 0 %}
+            <div class="row-flex header">
+                <div class="cell padded rw-2 center">
+                    {{'Pos.'|trans({}, 'soul')}}
+                </div>
+                <div class="cell padded rw-6 center">
+                    {{'Stadt'|trans({}, 'game')}}
+                </div>
+                <div class="cell padded rw-2 center">
+                    {{'Überlebte Tage'|trans({}, 'soul')}}
+                </div>
+                <div class="cell padded rw-2 center">
+                    {{'Score'|trans({}, 'soul')}}
+                </div>
+            </div>
+            <div class="town-container">
+                {% set pos = 1 %}
+                {% for town in towns %}
+                    <div class="row-flex stretch {% if played[town.id] is defined %}played{% endif %}">
+                        {# @var \src\Entity\TownRankingProxy town #}
+                        <div class="cell rw-2 center">{{ pos }}</div>
+                        <div class="cell rw-6 center">{{ town.name }}</div>
+                        <div class="cell rw-2 center">{{ town.days }}</div>
+                        <div class="cell rw-2 center">{{ town.score }}</div>
+                    </div>
+                    {% set pos = pos + 1 %}
+                {% endfor %}
+            </div>
+            {% else %}
+                <div class="note note-critical">Es wurde noch keine Stadt in die Rangliste aufgenommen! </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="cell rw-12 note">
+            <label for="season">
+                {{ 'Vorangegangene Saisons:'|trans({}, 'soul') }}
+            </label>
+            <select name="season" id="season">
+                {% for season in seasons %}
+                    <option value="{{season.id}}" {% if currentSeason.id == season.id %}selected{% endif %}>
+                        {% if season.number == 0 %}{{ 'Gute Alte Zeit'|trans({},'soul') }} -{% endif %}
+                        {{ 'Saison %n%'|trans({'%n%': season.number > 0 ? season.number : season.subNumber},'soul') }}{% if season.number > 0 %} - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}{% endif %}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        let season = document.getElementById("season");
+        if(season) season.addEventListener("change", function(){
+            $.ajax.load(null, '{{ path("soul_season", {'type': currentType.id}) }}', true, {'season': season.value});
+        })
+    </script>
 {% endblock %}

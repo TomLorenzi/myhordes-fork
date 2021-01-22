@@ -95,6 +95,11 @@ class CitizenRankingProxy
      */
     private $importLang;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $dayOfDeath;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -232,6 +237,7 @@ class CitizenRankingProxy
             ->setBaseID( $citizen->getId() )
             ->setUser( $citizen->getUser() )
             ->setDay( $citizen->getSurvivedDays() )
+            ->setDayOfDeath($citizen->getDayOfDeath())
             ->setTown( $citizen->getTown()->getRankingEntry() )
             ->setCitizen( $citizen )
             ->setComment( $citizen->getComment() )
@@ -290,6 +296,18 @@ class CitizenRankingProxy
     public function setImportLang(?string $importLang): self
     {
         $this->importLang = $importLang;
+
+        return $this;
+    }
+
+    public function getDayOfDeath(): ?int
+    {
+        return $this->dayOfDeath;
+    }
+
+    public function setDayOfDeath(int $dayOfDeath): self
+    {
+        $this->dayOfDeath = $dayOfDeath;
 
         return $this;
     }

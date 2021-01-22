@@ -56,6 +56,11 @@ class TownClass implements NamedEntity
      */
     private $hasPreset = true;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $ranked;
+
     public function __construct()
     {
         $this->towns = new ArrayCollection();
@@ -161,6 +166,18 @@ class TownClass implements NamedEntity
     public function setHasPreset(?bool $hasPreset): self
     {
         $this->hasPreset = $hasPreset;
+
+        return $this;
+    }
+
+    public function getRanked(): ?bool
+    {
+        return $this->ranked;
+    }
+
+    public function setRanked(bool $ranked): self
+    {
+        $this->ranked = $ranked;
 
         return $this;
     }

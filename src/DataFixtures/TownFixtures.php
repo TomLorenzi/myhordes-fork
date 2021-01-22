@@ -14,10 +14,10 @@ use Symfony\Component\Console\Output\ConsoleOutputInterface;
 class TownFixtures extends Fixture
 {
     public static $town_class_data = [
-        ['name'=>'small'  ,'label'=>'Kleine Stadt'      ,'preset' => true],
-        ['name'=>'remote' ,'label'=>'Entfernte Regionen','preset' => true],
-        ['name'=>'panda'  ,'label'=>'Pandämonium'       ,'preset' => true],
-        ['name'=>'custom' ,'label'=>'Private Stadt'     ,'preset' => false],
+        ['name'=>'small'  ,'label'=>'Kleine Stadt'      ,'preset' => true, 'ranked' => false],
+        ['name'=>'remote' ,'label'=>'Entfernte Regionen','preset' => true, 'ranked' => true],
+        ['name'=>'panda'  ,'label'=>'Pandämonium'       ,'preset' => true, 'ranked' => true],
+        ['name'=>'custom' ,'label'=>'Private Stadt'     ,'preset' => false, 'ranked' => true],
     ];
 
     private $entityManager;
@@ -45,6 +45,7 @@ class TownFixtures extends Fixture
                 ->setName( $entry['name'] )
                 ->setLabel( $entry['label'] )
                 ->setHasPreset( $entry['preset'])
+                ->setRanked( $entry['ranked'] )
             ;
 
             $manager->persist( $entity );

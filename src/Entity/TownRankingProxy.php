@@ -91,6 +91,16 @@ class TownRankingProxy
      */
     private $imported = false;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $score;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $v1 = false;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -320,6 +330,30 @@ class TownRankingProxy
     public function setImported(bool $imported): self
     {
         $this->imported = $imported;
+
+        return $this;
+    }
+
+    public function getScore(): ?int
+    {
+        return $this->score;
+    }
+
+    public function setScore(int $score): self
+    {
+        $this->score = $score;
+
+        return $this;
+    }
+
+    public function getV1(): ?bool
+    {
+        return $this->v1;
+    }
+
+    public function setV1(bool $v1): self
+    {
+        $this->v1 = $v1;
 
         return $this;
     }

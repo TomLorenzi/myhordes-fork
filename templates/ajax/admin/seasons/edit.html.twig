@@ -1,8 +1,6 @@
 {% extends "ajax/ajax.html.twig" %}
-{% if current_season is not null and current_season.name != '' %}
-    {% set season_name = current_season.name ~ " (" ~ current_season.number ~ "-" ~ current_season.subNumber ~ ")" %}
-{% elseif current_season is not null %}
-    {% set season_name = current_season.number ~ "-" ~ current_season.subNumber %}
+{% if current_season is not null %}
+    {% set season_name = ('Saison ' ~ current_season.number ~ '.' ~ current_season.subNumber)|trans({}, "season") %}
 {% endif %}
 {% block title %}{% if current_season is null %}{{ 'Neue Saison'|trans({}, 'admin') }}{% else %}{{ 'Saison "%season%"'|trans({'%season%': season_name}, "admin")|raw }}{% endif %}{% endblock %}
 {% block ajax %}
@@ -30,7 +28,7 @@
 
                 <div class="row">
                     <div class="padded cell rw-4 ro-4">
-                        <button id="save_button">{{ (current_season is null ? 'Neue Saison registrieren' : "Änderungen an '%appname%' speichern")|trans({'%appname%': current_season is null ? '' : current_season.name},'admin') }}</button>
+                        <button id="save_button">{{ (current_season is null ? 'Neue Saison registrieren' : "Änderungen speichern")|trans({},'admin') }}</button>
                     </div>
                 </div>
             </div>
