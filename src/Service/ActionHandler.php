@@ -755,7 +755,7 @@ class ActionHandler
                     }
                 } elseif (is_a($target, ItemPrototype::class)) {
                     if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ),
-                        [ $floor_inventory, $citizen->getInventory(), $citizen->getZone() ? null : $citizen->getTown()->getBank() ]
+                        [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ]
                         , true)) $execute_info_cache['items_spawn'][] = $target;
                 }
             }
