@@ -16495,51 +16495,60 @@
         <target>Architekt</target>
       </segment>
     </unit>
-    <unit id="0Kqpu1t" name="gering">
+    <unit id="0oUM0cs" name="Bürger! Seid auf inoffiziellen Webseiten wachsam!">
       <notes>
-        <note category="german">gering</note>
+        <note category="german">Bürger! Seid auf inoffiziellen Webseiten wachsam!</note>
       </notes>
       <segment>
-        <source>gering</source>
-        <target>gering</target>
+        <source>Bürger! Seid auf inoffiziellen Webseiten wachsam!</source>
+        <target>Bürger! Seid auf inoffiziellen Webseiten wachsam!</target>
       </segment>
     </unit>
-    <unit id=".CQK_8d" name="hoch">
-      <notes>
-        <note category="german">hoch</note>
-      </notes>
-      <segment>
-        <source>hoch</source>
-        <target>hoch</target>
-      </segment>
-    </unit>
-    <unit id="ssHCx3q" name="1d82f8e">
-      <notes>
-        <note category="german">Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</note>
-      </notes>
-      <segment>
-        <source>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</source>
-        <target>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</target>
-      </segment>
-    </unit>
-    <unit id="qD3lUP9" name="dc1e0ac">
-      <notes>
-        <note category="german">Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</note>
-      </notes>
-      <segment>
-        <source>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</source>
-        <target>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</target>
-      </segment>
-    </unit>
-    <unit id="8yLsMnc" name="1f8ca6f">
-      <notes>
-        <note category="german">Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</note>
-      </notes>
-      <segment>
-        <source>Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
-        <target><![CDATA[Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?]]></target>
-      </segment>
-    </unit>
+      <unit id="0Kqpu1t" name="gering">
+          <notes>
+              <note category="german">gering</note>
+          </notes>
+          <segment>
+              <source>gering</source>
+              <target>gering</target>
+          </segment>
+      </unit>
+      <unit id=".CQK_8d" name="hoch">
+          <notes>
+              <note category="german">hoch</note>
+          </notes>
+          <segment>
+              <source>hoch</source>
+              <target>hoch</target>
+          </segment>
+      </unit>
+      <unit id="ssHCx3q" name="1d82f8e">
+          <notes>
+              <note category="german">Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</note>
+          </notes>
+          <segment>
+              <source>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</source>
+              <target>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</target>
+          </segment>
+      </unit>
+      <unit id="qD3lUP9" name="dc1e0ac">
+          <notes>
+              <note category="german">Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</note>
+          </notes>
+          <segment>
+              <source>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</source>
+              <target>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</target>
+          </segment>
+      </unit>
+      <unit id="8yLsMnc" name="1f8ca6f">
+          <notes>
+              <note category="german">Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</note>
+          </notes>
+          <segment>
+              <source>Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
+              <target><![CDATA[Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?]]></target>
+          </segment>
+      </unit>
     <unit id=".7eWye." name="Legendärer Dompteur">
       <notes>
         <note category="german">Legendärer Dompteur</note>
@@ -16907,6 +16916,249 @@
       <segment>
         <source>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem &lt;strong&gt;er splitternackt durch die Straßen rannte&lt;/strong&gt;. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
         <target><![CDATA[Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem <strong>er splitternackt durch die Straßen rannte</strong>. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.]]></target>
+      </segment>
+    </unit>
+    <unit id="eunLp3W" name="Ich habe Magenschmerzen...">
+      <notes>
+        <note category="german">Ich habe Magenschmerzen...</note>
+      </notes>
+      <segment>
+        <source>Ich habe Magenschmerzen...</source>
+        <target>Ich habe Magenschmerzen...</target>
+      </segment>
+    </unit>
+    <unit id="gEtgHUv" name="Mir ist kalt hier draußen...">
+      <notes>
+        <note category="german">Mir ist kalt hier draußen...</note>
+      </notes>
+      <segment>
+        <source>Mir ist kalt hier draußen...</source>
+        <target>Mir ist kalt hier draußen...</target>
+      </segment>
+    </unit>
+    <unit id="8KQLRkY" name="Anfängerleiche">
+      <notes>
+        <note category="german">Anfängerleiche</note>
+      </notes>
+      <segment>
+        <source>Anfängerleiche</source>
+        <target>Anfängerleiche</target>
+      </segment>
+    </unit>
+    <unit id="odtY3_Y" name="Rabenfreund">
+      <notes>
+        <note category="german">Rabenfreund</note>
+      </notes>
+      <segment>
+        <source>Rabenfreund</source>
+        <target>Rabenfreund</target>
+      </segment>
+    </unit>
+    <unit id="m78HBvZ" name="Dehydrationskollege">
+      <notes>
+        <note category="german">Dehydrationskollege</note>
+      </notes>
+      <segment>
+        <source>Dehydrationskollege</source>
+        <target>Dehydrationskollege</target>
+      </segment>
+    </unit>
+    <unit id="BhsD8d_" name="Seelenhändler">
+      <notes>
+        <note category="german">Seelenhändler</note>
+      </notes>
+      <segment>
+        <source>Seelenhändler</source>
+        <target>Seelenhändler</target>
+      </segment>
+    </unit>
+    <unit id="QaLnp0N" name="Sehr überzeugender Pate">
+      <notes>
+        <note category="german">Sehr überzeugender Pate</note>
+      </notes>
+      <segment>
+        <source>Sehr überzeugender Pate</source>
+        <target>Sehr überzeugender Pate</target>
+      </segment>
+    </unit>
+    <unit id="S_ni.T_" name="Wüstenspekulant">
+      <notes>
+        <note category="german">Wüstenspekulant</note>
+      </notes>
+      <segment>
+        <source>Wüstenspekulant</source>
+        <target>Wüstenspekulant</target>
+      </segment>
+    </unit>
+    <unit id="2B3cnT0" name="Bringt Sachen ins Rollen!">
+      <notes>
+        <note category="german">Bringt Sachen ins Rollen!</note>
+      </notes>
+      <segment>
+        <source>Bringt Sachen ins Rollen!</source>
+        <target>Bringt Sachen ins Rollen!</target>
+      </segment>
+    </unit>
+    <unit id="PIt9fgD" name="Freigiebiger Bürger">
+      <notes>
+        <note category="german">Freigiebiger Bürger</note>
+      </notes>
+      <segment>
+        <source>Freigiebiger Bürger</source>
+        <target>Freigiebiger Bürger</target>
+      </segment>
+    </unit>
+    <unit id="QceNj.h" name="Messias">
+      <notes>
+        <note category="german">Messias</note>
+      </notes>
+      <segment>
+        <source>Messias</source>
+        <target>Messias</target>
+      </segment>
+    </unit>
+    <unit id="lKnLpvN" name="Santa Klaus ist ein Schummler">
+      <notes>
+        <note category="german">Santa Klaus ist ein Schummler</note>
+      </notes>
+      <segment>
+        <source>Santa Klaus ist ein Schummler</source>
+        <target>Santa Klaus ist ein Schummler</target>
+      </segment>
+    </unit>
+    <unit id="JHdt62r" name="Santa Klaus ist Abfall">
+      <notes>
+        <note category="german">Santa Klaus ist Abfall</note>
+      </notes>
+      <segment>
+        <source>Santa Klaus ist Abfall</source>
+        <target>Santa Klaus ist Abfall</target>
+      </segment>
+    </unit>
+    <unit id="uJwxAdp" name="Santa Klaus ist Abschaum">
+      <notes>
+        <note category="german">Santa Klaus ist Abschaum</note>
+      </notes>
+      <segment>
+        <source>Santa Klaus ist Abschaum</source>
+        <target>Santa Klaus ist Abschaum</target>
+      </segment>
+    </unit>
+    <unit id="n8nyFi5" name="Hängt Santa Klaus!">
+      <notes>
+        <note category="german">Hängt Santa Klaus!</note>
+      </notes>
+      <segment>
+        <source>Hängt Santa Klaus!</source>
+        <target>Hängt Santa Klaus!</target>
+      </segment>
+    </unit>
+    <unit id="C.78yQ1" name="Lebenssammler">
+      <notes>
+        <note category="german">Lebenssammler</note>
+      </notes>
+      <segment>
+        <source>Lebenssammler</source>
+        <target>Lebenssammler</target>
+      </segment>
+    </unit>
+    <unit id="dMZx5oC" name="Schnitter der Aussenwelt">
+      <notes>
+        <note category="german">Schnitter der Aussenwelt</note>
+      </notes>
+      <segment>
+        <source>Schnitter der Aussenwelt</source>
+        <target>Schnitter der Aussenwelt</target>
+      </segment>
+    </unit>
+    <unit id="pzraA_u" name="Mitglied des Roten Kreuzes">
+      <notes>
+        <note category="german">Mitglied des Roten Kreuzes</note>
+      </notes>
+      <segment>
+        <source>Mitglied des Roten Kreuzes</source>
+        <target>Mitglied des Roten Kreuzes</target>
+      </segment>
+    </unit>
+    <unit id="2ZtIR7d" name="Es ist der Tod der mich fürchten sollte!">
+      <notes>
+        <note category="german">Es ist der Tod der mich fürchten sollte!</note>
+      </notes>
+      <segment>
+        <source>Es ist der Tod der mich fürchten sollte!</source>
+        <target>Es ist der Tod der mich fürchten sollte!</target>
+      </segment>
+    </unit>
+    <unit id="ZYF2zJY" name="Sandmann">
+      <notes>
+        <note category="german">Sandmann</note>
+      </notes>
+      <segment>
+        <source>Sandmann</source>
+        <target>Sandmann</target>
+      </segment>
+    </unit>
+    <unit id="Au5Ajw2" name="Sandy Maverick">
+      <notes>
+        <note category="german">Sandy Maverick</note>
+      </notes>
+      <segment>
+        <source>Sandy Maverick</source>
+        <target>Sandy Maverick</target>
+      </segment>
+    </unit>
+    <unit id="aDIILgt" name="Wegweiser">
+      <notes>
+        <note category="german">Wegweiser</note>
+      </notes>
+      <segment>
+        <source>Wegweiser</source>
+        <target>Wegweiser</target>
+      </segment>
+    </unit>
+    <unit id="dwFklZb" name="Praktischer Begleiter">
+      <notes>
+        <note category="german">Praktischer Begleiter</note>
+      </notes>
+      <segment>
+        <source>Praktischer Begleiter</source>
+        <target>Praktischer Begleiter</target>
+      </segment>
+    </unit>
+    <unit id="Kmu_sqS" name="Erleuchteter Anführer">
+      <notes>
+        <note category="german">Erleuchteter Anführer</note>
+      </notes>
+      <segment>
+        <source>Erleuchteter Anführer</source>
+        <target>Erleuchteter Anführer</target>
+      </segment>
+    </unit>
+    <unit id="JztdI6n" name="Erleuchteter Prediger">
+      <notes>
+        <note category="german">Erleuchteter Prediger</note>
+      </notes>
+      <segment>
+        <source>Erleuchteter Prediger</source>
+        <target>Erleuchteter Prediger</target>
+      </segment>
+    </unit>
+    <unit id="GAeKRC9" name="Guru der Liebe">
+      <notes>
+        <note category="german">Guru der Liebe</note>
+      </notes>
+      <segment>
+        <source>Guru der Liebe</source>
+        <target>Guru der Liebe</target>
+      </segment>
+    </unit>
+    <unit id="uCPB93p" name="Höret meine Stimme">
+      <notes>
+        <note category="german">Höret meine Stimme</note>
+      </notes>
+      <segment>
+        <source>Höret meine Stimme</source>
+        <target>Höret meine Stimme</target>
       </segment>
     </unit>
   </file>

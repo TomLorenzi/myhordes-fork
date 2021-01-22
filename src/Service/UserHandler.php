@@ -81,7 +81,7 @@ class UserHandler
                     if ($picto["c"] >= 25)
                         $points += 6.5;
                     break;
-                case "r_animal_#00":
+                case "r_animal_#00": case "r_plundr_#00":
                     if ($picto["c"] >= 30)
                         $points += 3.5;
                     if ($picto["c"] >= 60)
@@ -93,13 +93,13 @@ class UserHandler
                     if ($picto["c"] >= 10)
                         $points += 6.5;
                     break;
-                case "r_build_#00":
+                case "r_buildr_#00":
                     if ($picto["c"] >= 100)
                         $points += 3.5;
                     if ($picto["c"] >= 200)
                         $points += 6.5;
                     break;
-                case "status_clean_#00":
+                case "r_nodrug_#00":
                     if ($picto["c"] >= 20)
                         $points += 3.5;
                     if ($picto["c"] >= 75)
@@ -210,7 +210,7 @@ class UserHandler
                     if($picto["c"] >= 1)
                         $points += 20;
                     break;
-                case "small_zombie_#00":
+                case "r_killz_#00":
                     if($picto["c"] >= 100)
                         $points += 3.5;
                     if($picto["c"] >= 200)
@@ -219,6 +219,12 @@ class UserHandler
                         $points += 10;
                     if($picto["c"] >= 800)
                         $points += 13;
+                    break;
+                case "r_cannib_#00":
+                    if ($picto["c"] >= 10)
+                        $points += 3.5;
+                    if ($picto["c"] >= 40)
+                        $points += 6.5;
                     break;
             }
         }
