@@ -17,395 +17,395 @@ class ItemFixtures extends Fixture
 {
     public static $item_category_data = [
 
-        ["name" => "Rsc" ,"label" => "Baustoffe", "parent" => null      ,"ordering" => 0],
-        ["name" => "Furniture" ,"label" => "Einrichtungen", "parent" => null,"ordering" => 1],
-		["name" => "Weapon","label" => "Waffenarsenal", "parent" => null,"ordering" => 2],
-		["name" => "Box", "label" => "Taschen und Behälter", "parent" => null,"ordering" => 3],
-        ["name" => "Armor",  "label" => "Verteidigung", "parent" => null,"ordering" => 4],
-        ["name" => "Drug","label" => "Apotheke und Labor", "parent" => null,"ordering" => 5],
-        ["name" => "Food","label" => "Grundnahrungsmittel", "parent" => null,"ordering" => 6],
-        ["name" => "Misc","label" => "Sonstiges", "parent" => null,"ordering" => 7],
+        ["name" => "Rsc", "label" => "Baustoffe", "parent" => null, "ordering" => 0],
+        ["name" => "Furniture", "label" => "Einrichtungen", "parent" => null, "ordering" => 1],
+        ["name" => "Weapon", "label" => "Waffenarsenal", "parent" => null, "ordering" => 2],
+        ["name" => "Box", "label" => "Taschen und Behälter", "parent" => null, "ordering" => 3],
+        ["name" => "Armor", "label" => "Verteidigung", "parent" => null, "ordering" => 4],
+        ["name" => "Drug", "label" => "Apotheke und Labor", "parent" => null, "ordering" => 5],
+        ["name" => "Food", "label" => "Grundnahrungsmittel", "parent" => null, "ordering" => 6],
+        ["name" => "Misc", "label" => "Sonstiges", "parent" => null, "ordering" => 7],
     ];
 
     public static $item_prototype_data = [
 	
-		['label' =>'Drahtspule','icon'=>'wire','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                  // -- ---
-        ['label' =>'Ölkännchen','icon'=>'oilcan','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                // -- ---
-        ['label' =>'Konvexlinse','icon'=>'lens','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                 // -- ---
-		['label' =>'Riemen','icon'=>'courroie','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                  // -- ---
-        ['label' =>'Sprengstoff','icon'=>'explo','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                // -- ---
-        ['label' =>'Klebeband','icon'=>'rustine','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                // -- ---
-		['label' =>'Teleskop','icon'=>'scope','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                   // -- ---
-        ['label' =>'Kupferrohr','icon'=>'tube','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                  // -- ---
-        ['label' =>'Elektronisches Bauteil','icon'=>'electro','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                   // -- ---
-        ['label' =>'Zünder','icon'=>'deto','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                      // -- ---
-        ['label' =>'Defektes Elektrogerät','icon'=>'electro_box','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                               // -- ---
-        ['label' =>'Getriebe','icon'=>'mecanism','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                               // -- ---
-        ['label' =>'Laserdiode','icon'=>'diode','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                 // -- ---
-        ['label' =>'Trockene Kräuter','icon'=>'ryebag','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                          // -- ---
-        ['label' =>'Ohrstöpsel','icon'=>'bquies','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                // -- ---
-        ['label' =>'Kaputter Stock','icon'=>'staff2','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                             // -- ---
+		['label' => 'Drahtspule', 'icon' => 'wire', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                  // -- ---
+        ['label' => 'Ölkännchen', 'icon' => 'oilcan', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                // -- ---
+        ['label' => 'Konvexlinse', 'icon' => 'lens', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                 // -- ---
+		['label' => 'Riemen', 'icon' => 'courroie', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                  // -- ---
+        ['label' => 'Sprengstoff', 'icon' => 'explo', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                // -- ---
+        ['label' => 'Klebeband', 'icon' => 'rustine', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                // -- ---
+		['label' => 'Teleskop', 'icon' => 'scope', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                   // -- ---
+        ['label' => 'Kupferrohr', 'icon' => 'tube', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                  // -- ---
+        ['label' => 'Elektronisches Bauteil', 'icon' => 'electro', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                   // -- ---
+        ['label' => 'Zünder', 'icon' => 'deto', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                      // -- ---
+        ['label' => 'Defektes Elektrogerät', 'icon' => 'electro_box', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                               // -- ---
+        ['label' => 'Getriebe', 'icon' => 'mecanism', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                               // -- ---
+        ['label' => 'Laserdiode', 'icon' => 'diode', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                 // -- ---
+        ['label' => 'Trockene Kräuter', 'icon' => 'ryebag', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                          // -- ---
+        ['label' => 'Ohrstöpsel', 'icon' => 'bquies', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                // -- ---
+        ['label' => 'Kaputter Stock', 'icon' => 'staff2', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                             // -- ---
 		
-		['label' =>'Handvoll Schrauben und Muttern','icon'=>'meca_parts','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                      // -- ---
-		['label' =>'Batterie','icon'=>'pile','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],
-		['label' =>'Krummes Holzbrett','icon'=>'wood2','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                        // -- ---
-		['label' =>'Alteisen','icon'=>'metal','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                 // -- ---
-		['label' =>'Zusammengeschusterter Holzbalken','icon'=>'wood_beam','category'=>'Rsc','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                      // -- ---
-        ['label' =>'Metallstruktur','icon'=>'metal_beam','category'=>'Rsc','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                       // -- ---
-        ['label' =>'Metalltrümmer','icon'=>'metal_bad','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                        // -- ---
-        ['label' =>'Verrotteter Baumstumpf','icon'=>'wood_bad','category'=>'Rsc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                // -- ---
+		['label' => 'Handvoll Schrauben und Muttern', 'icon' => 'meca_parts', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                      // -- ---
+		['label' => 'Batterie', 'icon' => 'pile', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],
+		['label' => 'Krummes Holzbrett', 'icon' => 'wood2', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                        // -- ---
+		['label' => 'Alteisen', 'icon' => 'metal', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                 // -- ---
+		['label' => 'Zusammengeschusterter Holzbalken', 'icon' => 'wood_beam', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                      // -- ---
+        ['label' => 'Metallstruktur', 'icon' => 'metal_beam', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                       // -- ---
+        ['label' => 'Metalltrümmer', 'icon' => 'metal_bad', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                        // -- ---
+        ['label' => 'Verrotteter Baumstumpf', 'icon' => 'wood_bad', 'category' => 'Rsc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                // -- ---
 		
 		
-		['label' =>'Gut erhaltener Holzscheit','icon'=>'wood_log','category'=>'Furniture','deco'=>2,'heavy'=>true, 'watchpoint' => 0],                              // -- ---
-		['label' =>'Minibar','icon'=>'machine_3','category'=>'Furniture','deco'=>2,'heavy'=>true, 'watchpoint' => 19],                                                 // -- Out
-		['label' =>'MagLite Kinderlampe (aus)','icon'=>'maglite_off','category'=>'Furniture','deco'=>5,'heavy'=>false, 'watchpoint' => 0],                      // In Out
-        ['label' =>'MagLite Kinderlampe (1 Ladung)','icon'=>'maglite_1','category'=>'Furniture','deco'=>5,'heavy'=>false, 'watchpoint' => 0],                       // -- ---
-        ['label' =>'MagLite Kinderlampe (2 Ladungen)','icon'=>'maglite_2','category'=>'Furniture','deco'=>5,'heavy'=>false, 'watchpoint' => 0],                     // -- ---
-		['label' =>'Krebserregender Ofen','icon'=>'machine_2','category'=>'Furniture','deco'=>2,'heavy'=>true, 'watchpoint' => 15],                                    // -- Out
-		['label' =>'Alte Waschmaschine','icon'=>'machine_1','category'=>'Furniture','deco'=>2,'heavy'=>true, 'watchpoint' => 19],                                      // -- Out
-		['label' =>'Wütende Mieze (halb verdaut)','icon'=>'angryc','category'=>'Furniture','deco'=>1,'heavy'=>false, 'watchpoint' => 0, 'fragile' => true],                           // --
-		['label' =>'Kassettenradio','icon'=>'radio_on','category'=>'Furniture','deco'=>2,'heavy'=>false, 'watchpoint' => -10],                                    // -- ---
-        ['label' =>'Schaukelstuhl','icon'=>'chair','category'=>'Furniture','deco'=>5,'heavy'=>true, 'watchpoint' => 15],                                         // -- ---
-        ['label' =>'Ausgeschaltete Nachttischlampe','icon'=>'lamp','category'=>'Furniture','deco'=>1,'heavy'=>false, 'watchpoint' => 4],                        // In Out
-        ['label' =>'Perser','icon'=>'carpet','category'=>'Furniture','deco'=>10,'heavy'=>false, 'watchpoint' => 8],                                             // -- ---
-        ['label' =>'Mini Hi-Fi Anlage (defekt)','icon'=>'music_part','category'=>'Furniture','deco'=>1,'heavy'=>true, 'watchpoint' => 0],                       // -- ---
-        ['label' =>'Kette + Vorhängeschloss','icon'=>'lock','category'=>'Furniture','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                               // -- ---
-        ['label' =>'Fußabstreifer','icon'=>'door_carpet','category'=>'Furniture','deco'=>5,'heavy'=>false, 'watchpoint' => 0],                                  // -- ---
-        ['label' =>'Videoprojektor','icon'=>'cinema','category'=>'Furniture','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                       // -- ---
-        ['label' =>'Nachttischlampe (an)','icon'=>'lamp_on','category'=>'Furniture','deco'=>3,'heavy'=>false, 'watchpoint' => 10],                               // -- ---
-        ['label' =>'Mini Hi-Fi Anlage (an)','icon'=>'music','category'=>'Furniture','deco'=>10,'heavy'=>true, 'watchpoint' => -20],                               // -- ---
-        ['label' =>'Ektorp-Gluten Stuhl','icon'=>'chair_basic','category'=>'Furniture','deco'=>2,'heavy'=>true, 'watchpoint' => 8],                             // -- Out
-        ['label' =>'Revolver (entladen)','icon'=>'gun','category'=>'Furniture','deco'=>5,'heavy'=>false, 'watchpoint' => 0],                                    // -- ---
-        ['label' =>'Sturmgewehr (entladen)','icon'=>'machine_gun','category'=>'Furniture','deco'=>15,'heavy'=>false, 'watchpoint' => 0],                        // -- ---
-        ['label' =>'Teddybär','icon'=>'teddy','category'=>'Furniture','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                             // In Out
-        ['label' =>'Geldbündel','icon'=>'money','category'=>'Furniture','deco'=>7,'heavy'=>false, 'watchpoint' => 0],                                           // -- ---
-        ['label' =>'Schrankkoffer','icon'=>'home_box_xl','category'=>'Furniture','deco'=>0,'heavy'=>true, 'watchpoint' => 8],                                   // In ---
-        ['label' =>'Kartons','icon'=>'home_box','category'=>'Furniture','deco'=>0,'heavy'=>false, 'watchpoint' => 4],                                           // In ---
-        ['label' =>'Nagelbare Barrikade','icon'=>'home_def','category'=>'Furniture','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                // In ---
-        ['label' =>'Maschendrahtzaunstück','icon'=>'fence','category'=>'Furniture','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                      // -- ---
-        ['label' =>'Verfluchter Teddybär','icon'=>'teddy','category'=>'Furniture','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                 // In Out
-        ['label' =>'Schnellgebauter Tisch','icon'=>'bureau','category'=>'Furniture','deco'=>0,'heavy'=>true, 'watchpoint' => 23],                                // -- ---
-        ['label' =>'Leerer Automat','icon'=>'distri','category'=>'Furniture','deco'=>0,'heavy'=>true, 'watchpoint' => 30],                                       // -- ---
-        ['label' =>'Unpersönliche Explodierende Fußmatte','icon'=>'trapma','category'=>'Furniture','deco'=>0,'heavy'=>false, 'watchpoint' => 0, 'hideInForeignChest' => true],                // -- ---
-        ['label' =>'Chuck-Figur','icon'=>'chudol','category'=>'Furniture','deco'=>15,'heavy'=>false, 'watchpoint' => 0],                                        // -- ---
-        ['label' =>'Verfluchte HiFi','icon'=>'hifiev','category'=>'Furniture','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                      // -- ---
-        ['label' =>'Phil Collins CD','icon'=>'cdphil','category'=>'Furniture','deco'=>1,'heavy'=>false, 'watchpoint' => 0],                                     // -- ---
-        ['label' =>'Britney Spears CD','icon'=>'cdbrit','category'=>'Furniture','deco'=>3,'heavy'=>false, 'watchpoint' => 0],                                   // -- ---
-        ['label' =>'Best of The King CD','icon'=>'cdelvi','category'=>'Furniture','deco'=>7,'heavy'=>false, 'watchpoint' => 0],                                 // -- ---
-        ['label' =>'Rock n Roll HiFi','icon'=>'dfhifi','category'=>'Furniture','deco'=>10,'heavy'=>true, 'watchpoint' => 0],                                     // -- ---
-        ['label' =>'Verteidigende HiFi','icon'=>'dfhifi','category'=>'Furniture','deco'=>10,'heavy'=>true, 'watchpoint' => 0],                                   // -- ---
-		['label' =>'Großer knuddeliger Kater','icon'=>'pet_cat','category'=>'Furniture','deco'=>5,'heavy'=>false, 'watchpoint' => 10, 'fragile' => true],                              // -- Out
-		['label' =>'Kaffeekocher','icon'=>'coffee_machine','category'=>'Furniture','deco'=>5,'heavy'=>true, 'watchpoint' => 0],                                       // -- ---
-		['label' =>'PC-Gehäuse','icon'=>'pc','category'=>'Furniture','deco'=>3,'heavy'=>true, 'watchpoint' => 11],                                                  // -- Out
-		['label' =>'Selbstgebaute Gitarre','icon'=>'guitar','category'=>'Furniture','deco'=>6,'heavy'=>false, 'watchpoint' => 19],                                     // In ---
+		['label' => 'Gut erhaltener Holzscheit', 'icon' => 'wood_log', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>true, 'watchpoint' => 0],                              // -- ---
+		['label' => 'Minibar', 'icon' => 'machine_3', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>true, 'watchpoint' => 19],                                                 // -- Out
+		['label' => 'MagLite Kinderlampe (aus)', 'icon' => 'maglite_off', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 0],                      // In Out
+        ['label' => 'MagLite Kinderlampe (1 Ladung)', 'icon' => 'maglite_1', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 0],                       // -- ---
+        ['label' => 'MagLite Kinderlampe (2 Ladungen)', 'icon' => 'maglite_2', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 0],                     // -- ---
+		['label' => 'Krebserregender Ofen', 'icon' => 'machine_2', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>true, 'watchpoint' => 15],                                    // -- Out
+		['label' => 'Alte Waschmaschine', 'icon' => 'machine_1', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>true, 'watchpoint' => 19],                                      // -- Out
+		['label' => 'Wütende Mieze (halb verdaut)', 'icon' => 'angryc', 'category' => 'Furniture', 'deco' =>1, 'heavy' =>false, 'watchpoint' => 0, 'fragile' => true],                           // --
+		['label' => 'Kassettenradio', 'icon' => 'radio_on', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>false, 'watchpoint' => -10],                                    // -- ---
+        ['label' => 'Schaukelstuhl', 'icon' => 'chair', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>true, 'watchpoint' => 15],                                         // -- ---
+        ['label' => 'Ausgeschaltete Nachttischlampe', 'icon' => 'lamp', 'category' => 'Furniture', 'deco' =>1, 'heavy' =>false, 'watchpoint' => 4],                        // In Out
+        ['label' => 'Perser', 'icon' => 'carpet', 'category' => 'Furniture', 'deco' =>10, 'heavy' =>false, 'watchpoint' => 8],                                             // -- ---
+        ['label' => 'Mini Hi-Fi Anlage (defekt)', 'icon' => 'music_part', 'category' => 'Furniture', 'deco' =>1, 'heavy' =>true, 'watchpoint' => 0],                       // -- ---
+        ['label' => 'Kette + Vorhängeschloss', 'icon' => 'lock', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                               // -- ---
+        ['label' => 'Fußabstreifer', 'icon' => 'door_carpet', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 0],                                  // -- ---
+        ['label' => 'Videoprojektor', 'icon' => 'cinema', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                       // -- ---
+        ['label' => 'Nachttischlampe (an)', 'icon' => 'lamp_on', 'category' => 'Furniture', 'deco' =>3, 'heavy' =>false, 'watchpoint' => 10],                               // -- ---
+        ['label' => 'Mini Hi-Fi Anlage (an)', 'icon' => 'music', 'category' => 'Furniture', 'deco' =>10, 'heavy' =>true, 'watchpoint' => -20],                               // -- ---
+        ['label' => 'Ektorp-Gluten Stuhl', 'icon' => 'chair_basic', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>true, 'watchpoint' => 8],                             // -- Out
+        ['label' => 'Revolver (entladen)', 'icon' => 'gun', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 0],                                    // -- ---
+        ['label' => 'Sturmgewehr (entladen)', 'icon' => 'machine_gun', 'category' => 'Furniture', 'deco' =>15, 'heavy' =>false, 'watchpoint' => 0],                        // -- ---
+        ['label' => 'Teddybär', 'icon' => 'teddy', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                             // In Out
+        ['label' => 'Geldbündel', 'icon' => 'money', 'category' => 'Furniture', 'deco' =>7, 'heavy' =>false, 'watchpoint' => 0],                                           // -- ---
+        ['label' => 'Schrankkoffer', 'icon' => 'home_box_xl', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 8],                                   // In ---
+        ['label' => 'Kartons', 'icon' => 'home_box', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 4],                                           // In ---
+        ['label' => 'Nagelbare Barrikade', 'icon' => 'home_def', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                // In ---
+        ['label' => 'Maschendrahtzaunstück', 'icon' => 'fence', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                      // -- ---
+        ['label' => 'Verfluchter Teddybär', 'icon' => 'teddy', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // In Out
+        ['label' => 'Schnellgebauter Tisch', 'icon' => 'bureau', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 23],                                // -- ---
+        ['label' => 'Leerer Automat', 'icon' => 'distri', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 30],                                       // -- ---
+        ['label' => 'Unpersönliche Explodierende Fußmatte', 'icon' => 'trapma', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'hideInForeignChest' => true],                // -- ---
+        ['label' => 'Chuck-Figur', 'icon' => 'chudol', 'category' => 'Furniture', 'deco' =>15, 'heavy' =>false, 'watchpoint' => 0],                                        // -- ---
+        ['label' => 'Verfluchte HiFi', 'icon' => 'hifiev', 'category' => 'Furniture', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                      // -- ---
+        ['label' => 'Phil Collins CD', 'icon' => 'cdphil', 'category' => 'Furniture', 'deco' =>1, 'heavy' =>false, 'watchpoint' => 0],                                     // -- ---
+        ['label' => 'Britney Spears CD', 'icon' => 'cdbrit', 'category' => 'Furniture', 'deco' =>3, 'heavy' =>false, 'watchpoint' => 0],                                   // -- ---
+        ['label' => 'Best of The King CD', 'icon' => 'cdelvi', 'category' => 'Furniture', 'deco' =>7, 'heavy' =>false, 'watchpoint' => 0],                                 // -- ---
+        ['label' => 'Rock n Roll HiFi', 'icon' => 'dfhifi', 'category' => 'Furniture', 'deco' =>10, 'heavy' =>true, 'watchpoint' => 0],                                     // -- ---
+        ['label' => 'Verteidigende HiFi', 'icon' => 'dfhifi', 'category' => 'Furniture', 'deco' =>10, 'heavy' =>true, 'watchpoint' => 0],                                   // -- ---
+		['label' => 'Großer knuddeliger Kater', 'icon' => 'pet_cat', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 10, 'fragile' => true],                              // -- Out
+		['label' => 'Kaffeekocher', 'icon' => 'coffee_machine', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>true, 'watchpoint' => 0],                                       // -- ---
+		['label' => 'PC-Gehäuse', 'icon' => 'pc', 'category' => 'Furniture', 'deco' =>3, 'heavy' =>true, 'watchpoint' => 11],                                                  // -- Out
+		['label' => 'Selbstgebaute Gitarre', 'icon' => 'guitar', 'category' => 'Furniture', 'deco' =>6, 'heavy' =>false, 'watchpoint' => 19],                                     // In ---
 		
 	
-        ['label' =>'Matratze','icon'=>'bed','category'=>'Armor','deco'=>3,'heavy'=>true, 'watchpoint' => 25],                                                    // -- ---
-        ['label' =>'Bissiger Hund','icon'=>'pet_dog','category'=>'Armor','deco'=>0,'heavy'=>false, 'watchpoint' => 0, 'fragile' => true],                                          // -- Out
-        ['label' =>'Blechplatte','icon'=>'plate','category'=>'Armor','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                               // -- ---
-        ['label' =>'Alte Tür','icon'=>'door','category'=>'Armor','deco'=>0,'heavy'=>true, 'watchpoint' => 10],                                                   // -- ---
-        ['label' =>'Unförmige Zementblöcke','icon'=>'concrete_wall','category'=>'Armor','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                            // -- Out
-        ['label' =>'Holzbock','icon'=>'trestle','category'=>'Armor','deco'=>1,'heavy'=>true, 'watchpoint' => 4],                                                // -- ---
-        ['label' =>'Järpen-Tisch','icon'=>'table','category'=>'Armor','deco'=>3,'heavy'=>true, 'watchpoint' => 15],                                              // -- ---
-        ['label' =>'Solide Holzplatte','icon'=>'wood_plate','category'=>'Armor','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                    // -- ---
-        ['label' =>'Autotür','icon'=>'car_door','category'=>'Armor','deco'=>0,'heavy'=>true, 'watchpoint' => 40],                                                // -- ---
-        ['label' =>'Fackel','icon'=>'torch','category'=>'Armor','deco'=>0,'heavy'=>false, 'watchpoint' => 15],                                                   // -- Out
-		['label' =>'Dackel','icon'=>'tekel','category'=>'Armor','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                  // -- Out
+        ['label' => 'Matratze', 'icon' => 'bed', 'category' => 'Armor', 'deco' =>3, 'heavy' =>true, 'watchpoint' => 25],                                                    // -- ---
+        ['label' => 'Bissiger Hund', 'icon' => 'pet_dog', 'category' => 'Armor', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'fragile' => true],                                          // -- Out
+        ['label' => 'Blechplatte', 'icon' => 'plate', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                               // -- ---
+        ['label' => 'Alte Tür', 'icon' => 'door', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 10],                                                   // -- ---
+        ['label' => 'Unförmige Zementblöcke', 'icon' => 'concrete_wall', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                            // -- Out
+        ['label' => 'Holzbock', 'icon' => 'trestle', 'category' => 'Armor', 'deco' =>1, 'heavy' =>true, 'watchpoint' => 4],                                                // -- ---
+        ['label' => 'Järpen-Tisch', 'icon' => 'table', 'category' => 'Armor', 'deco' =>3, 'heavy' =>true, 'watchpoint' => 15],                                              // -- ---
+        ['label' => 'Solide Holzplatte', 'icon' => 'wood_plate', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                    // -- ---
+        ['label' => 'Autotür', 'icon' => 'car_door', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 40],                                                // -- ---
+        ['label' => 'Fackel', 'icon' => 'torch', 'category' => 'Armor', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 15],                                                   // -- Out
+		    ['label' => 'Dackel', 'icon' => 'tekel', 'category' => 'Armor', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                  // -- Out
 		
 		
-        ['label' =>'Aqua-Splash (leer)','icon'=>'watergun_opt_empty','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                          // In Out
-        ['label' =>'Kanisterpumpe (leer)','icon'=>'jerrygun_off','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                              // In Out
-        ['label' =>'Plastiktüte','icon'=>'grenade_empty','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                      // In Out
-        ['label' =>'Plastiktüte mit Sprengstoff','icon'=>'bgrenade_empty','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                     // -- ---
-        ['label' =>'Wasserpistole (leer)','icon'=>'watergun_empty','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                            // In Out
-        ['label' =>'Handmixer (ohne Strom)','icon'=>'mixergun_empty','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                          // In Out
-        ['label' =>'Kettensäge (ohne Strom)','icon'=>'chainsaw_empty','category'=>'Weapon','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                          // In Out
-        ['label' =>'Batteriewerfer 1-PDTG (entladen)','icon'=>'pilegun_empty','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                 // In Out
-        ['label' =>'Taser (ohne Strom)','icon'=>'taser_empty','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                 // In Out
-        ['label' =>'Zerstörer (entladen)','icon'=>'big_pgun_empty','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                            // In Out
-        ['label' =>'Batteriewerfer Mark II (leer)','icon'=>'pilegun_up_empty','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                 // In Out
-		['label' =>'Große rostige Kette','icon'=>'chain','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                                        // -- Out
-        ['label' =>'ANZAC Badge','icon'=>'badge','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 40],                                              // -- ---
+        ['label' => 'Aqua-Splash (leer)', 'icon' => 'watergun_opt_empty', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                          // In Out
+        ['label' => 'Kanisterpumpe (leer)', 'icon' => 'jerrygun_off', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                              // In Out
+        ['label' => 'Plastiktüte', 'icon' => 'grenade_empty', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                      // In Out
+        ['label' => 'Plastiktüte mit Sprengstoff', 'icon' => 'bgrenade_empty', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                     // -- ---
+        ['label' => 'Wasserpistole (leer)', 'icon' => 'watergun_empty', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            // In Out
+        ['label' => 'Handmixer (ohne Strom)', 'icon' => 'mixergun_empty', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                          // In Out
+        ['label' => 'Kettensäge (ohne Strom)', 'icon' => 'chainsaw_empty', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                          // In Out
+        ['label' => 'Batteriewerfer 1-PDTG (entladen)', 'icon' => 'pilegun_empty', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                 // In Out
+        ['label' => 'Taser (ohne Strom)', 'icon' => 'taser_empty', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // In Out
+        ['label' => 'Zerstörer (entladen)', 'icon' => 'big_pgun_empty', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            // In Out
+        ['label' => 'Batteriewerfer Mark II (leer)', 'icon' => 'pilegun_up_empty', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                 // In Out
+		['label' => 'Große rostige Kette', 'icon' => 'chain', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8],                                        // -- Out
+        ['label' => 'ANZAC Badge', 'icon' => 'badge', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 40],                                              // -- ---
 		
 		
-		['label' =>'Batteriewerfer 1-PDTG (geladen)','icon'=>'pilegun','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 10],                       // -- Out
-		['label' =>'Starker Laserpointer (4 Schuss)','icon'=>'lpoint4','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                       // -- Out
-        ['label' =>'Starker Laserpointer (3 Schuss)','icon'=>'lpoint3','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                       // -- Out
-        ['label' =>'Starker Laserpointer (2 Schuss)','icon'=>'lpoint2','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                       // -- Out
-        ['label' =>'Starker Laserpointer (1 Schuss)','icon'=>'lpoint1','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                       // -- Out
-        ['label' =>'Starker Laserpointer (Leer)','icon'=>'lpoint','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                            // In Out
-        ['label' =>'Taser','icon'=>'taser','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 4],                                                   // -- Out
-        ['label' =>'Handmixer (geladen)','icon'=>'mixergun','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 9],                                  // -- Out
-        ['label' =>'Kettensäge (geladen)','icon'=>'chainsaw','category'=>'Weapon','deco'=>0,'heavy'=>true, 'watchpoint' => 30],                                  // -- Out
-        ['label' =>'Rasenmäher','icon'=>'lawn','category'=>'Weapon','deco'=>0,'heavy'=>true, 'watchpoint' => 15],                                                // -- Out
-        ['label' =>'Verstellbarer Schraubenschlüssel','icon'=>'wrench','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 2],                       // -- Out
-        ['label' =>'Schraubenzieher','icon'=>'screw','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 5],                                         // -- Out
-        ['label' =>'Großer trockener Stock','icon'=>'staff','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 4],                                  // -- Out
-        ['label' =>'Jagdmesser','icon'=>'knife','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 10],                                              // -- Out
-        ['label' =>'Machete','icon'=>'cutcut','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 5],                                                // -- Out
-        ['label' =>'Lächerliches Taschenmesser','icon'=>'small_knife','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 5],                        // -- Out
-        ['label' =>'Schweizer Taschenmesser','icon'=>'swiss_knife','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 10],                           // -- Out
-        ['label' =>'Teppichmesser','icon'=>'cutter','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 10],                                          // -- Out
-        ['label' =>'Dosenöffner','icon'=>'can_opener','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 4],                                        // -- Out
-        ['label' =>'Wasserbombe','icon'=>'grenade','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8, 'fragile' => true],                                           // -- Out
-        ['label' =>'Explodierende Wasserbombe','icon'=>'bgrenade','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 20, 'fragile' => true],                            // -- Out
-        ['label' =>'Aqua-Splash (3 Ladungen)','icon'=>'watergun_opt_3','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                       // -- Out
-        ['label' =>'Aqua-Splash (2 Ladungen)','icon'=>'watergun_opt_2','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                       // -- Out
-        ['label' =>'Aqua-Splash (1 Ladung)','icon'=>'watergun_opt_1','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                         // -- Out
-        ['label' =>'Zerstörer (geladen)','icon'=>'big_pgun','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 10],                                  // -- Out
-        ['label' =>'Kanisterpumpe (einsatzbereit)','icon'=>'jerrygun','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                        // -- Out
-        ['label' =>'Angeknackster menschlicher Knochen','icon'=>'bone','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 10],                       // -- Out
-        ['label' =>'Wasserpistole (3 Ladungen)','icon'=>'watergun_3','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 9],                         // -- Out
-        ['label' =>'Wasserpistole (2 Ladungen)','icon'=>'watergun_2','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 9],                         // -- Out
-        ['label' =>'Wasserpistole (1 Ladung)','icon'=>'watergun_1','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 9],                           // -- Out
-        ['label' =>'Aqua-Splash (5 Ladungen)','icon'=>'watergun_opt_5','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                       // -- Out
-        ['label' =>'Aqua-Splash (4 Ladungen)','icon'=>'watergun_opt_4','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                       // -- Out
-        ['label' =>'Batteriewerfer Mark II (geladen)','icon'=>'pilegun_up','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 11],                   // -- Out
-        ['label' =>'Verbrauchte Fackel','icon'=>'torch_off','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 4],                                  // -- Out
-        ['label' =>'Mobiltelefon','icon'=>'iphone','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8, 'fragile' => true],                                           // -- Out
-        ['label' =>'Explosive Pampelmuse','icon'=>'boomfruit','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                                // -- Out
-        ['label' =>'Pfahlwerfer','icon'=>'rlaunc','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 8],                                            // --
-        ['label' =>'Kalaschni-Splash','icon'=>'kalach','category'=>'Weapon','deco'=>0,'heavy'=>true, 'watchpoint' => 11],                                        // -- ---
-        ['label' =>'Kalaschni-Splash (leer)','icon'=>'kalach','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                // In Out
-        ['label' =>'Tretmine','icon'=>'claymo','category'=>'Weapon','deco'=>0,'heavy'=>false, 'watchpoint' => 50],                                               // -- ---
+		['label' => 'Batteriewerfer 1-PDTG (geladen)', 'icon' => 'pilegun', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 10],                       // -- Out
+		['label' => 'Starker Laserpointer (4 Schuss)', 'icon' => 'lpoint4', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                       // -- Out
+        ['label' => 'Starker Laserpointer (3 Schuss)', 'icon' => 'lpoint3', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                       // -- Out
+        ['label' => 'Starker Laserpointer (2 Schuss)', 'icon' => 'lpoint2', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                       // -- Out
+        ['label' => 'Starker Laserpointer (1 Schuss)', 'icon' => 'lpoint1', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                       // -- Out
+        ['label' => 'Starker Laserpointer (Leer)', 'icon' => 'lpoint', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            // In Out
+        ['label' => 'Taser', 'icon' => 'taser', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 4],                                                   // -- Out
+        ['label' => 'Handmixer (geladen)', 'icon' => 'mixergun', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 9],                                  // -- Out
+        ['label' => 'Kettensäge (geladen)', 'icon' => 'chainsaw', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 30],                                  // -- Out
+        ['label' => 'Rasenmäher', 'icon' => 'lawn', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 15],                                                // -- Out
+        ['label' => 'Verstellbarer Schraubenschlüssel', 'icon' => 'wrench', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 2],                       // -- Out
+        ['label' => 'Schraubenzieher', 'icon' => 'screw', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 5],                                         // -- Out
+        ['label' => 'Großer trockener Stock', 'icon' => 'staff', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 4],                                  // -- Out
+        ['label' => 'Jagdmesser', 'icon' => 'knife', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 10],                                              // -- Out
+        ['label' => 'Machete', 'icon' => 'cutcut', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 5],                                                // -- Out
+        ['label' => 'Lächerliches Taschenmesser', 'icon' => 'small_knife', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 5],                        // -- Out
+        ['label' => 'Schweizer Taschenmesser', 'icon' => 'swiss_knife', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 10],                           // -- Out
+        ['label' => 'Teppichmesser', 'icon' => 'cutter', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 10],                                          // -- Out
+        ['label' => 'Dosenöffner', 'icon' => 'can_opener', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 4],                                        // -- Out
+        ['label' => 'Wasserbombe', 'icon' => 'grenade', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8, 'fragile' => true],                                           // -- Out
+        ['label' => 'Explodierende Wasserbombe', 'icon' => 'bgrenade', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 20, 'fragile' => true],                            // -- Out
+        ['label' => 'Aqua-Splash (3 Ladungen)', 'icon' => 'watergun_opt_3', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8],                       // -- Out
+        ['label' => 'Aqua-Splash (2 Ladungen)', 'icon' => 'watergun_opt_2', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8],                       // -- Out
+        ['label' => 'Aqua-Splash (1 Ladung)', 'icon' => 'watergun_opt_1', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8],                         // -- Out
+        ['label' => 'Zerstörer (geladen)', 'icon' => 'big_pgun', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 10],                                  // -- Out
+        ['label' => 'Kanisterpumpe (einsatzbereit)', 'icon' => 'jerrygun', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                        // -- Out
+        ['label' => 'Angeknackster menschlicher Knochen', 'icon' => 'bone', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 10],                       // -- Out
+        ['label' => 'Wasserpistole (3 Ladungen)', 'icon' => 'watergun_3', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 9],                         // -- Out
+        ['label' => 'Wasserpistole (2 Ladungen)', 'icon' => 'watergun_2', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 9],                         // -- Out
+        ['label' => 'Wasserpistole (1 Ladung)', 'icon' => 'watergun_1', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 9],                           // -- Out
+        ['label' => 'Aqua-Splash (5 Ladungen)', 'icon' => 'watergun_opt_5', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8],                       // -- Out
+        ['label' => 'Aqua-Splash (4 Ladungen)', 'icon' => 'watergun_opt_4', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8],                       // -- Out
+        ['label' => 'Batteriewerfer Mark II (geladen)', 'icon' => 'pilegun_up', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 11],                   // -- Out
+        ['label' => 'Verbrauchte Fackel', 'icon' => 'torch_off', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 4],                                  // -- Out
+        ['label' => 'Mobiltelefon', 'icon' => 'iphone', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8, 'fragile' => true],                                           // -- Out
+        ['label' => 'Explosive Pampelmuse', 'icon' => 'boomfruit', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8],                                // -- Out
+        ['label' => 'Pfahlwerfer', 'icon' => 'rlaunc', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8],                                            // --
+        ['label' => 'Kalaschni-Splash', 'icon' => 'kalach', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 11],                                        // -- ---
+        ['label' => 'Kalaschni-Splash (leer)', 'icon' => 'kalach', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                // In Out
+        ['label' => 'Tretmine', 'icon' => 'claymo', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 50],                                               // -- ---
 		
 		
 		
-		['label' =>'Einkaufswagen','icon'=>'cart','category'=>'Box','deco'=>0,'heavy'=>true, 'watchpoint' => 20],                                             // -- ---
-        ['label' =>'Extra Tasche','icon'=>'bag','category'=>'Box','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                               // -- ---
-        ['label' =>'Superpraktischer Rucksack','icon'=>'bagxl','category'=>'Box','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                // -- ---
-        ['label' =>'Gürtel mit Tasche','icon'=>'pocket_belt','category'=>'Box','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                  // -- ---
+		['label' => 'Einkaufswagen', 'icon' => 'cart', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 20],                                             // -- ---
+        ['label' => 'Extra Tasche', 'icon' => 'bag', 'category' => 'Box', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                               // -- ---
+        ['label' => 'Superpraktischer Rucksack', 'icon' => 'bagxl', 'category' => 'Box', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                // -- ---
+        ['label' => 'Gürtel mit Tasche', 'icon' => 'pocket_belt', 'category' => 'Box', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                  // -- ---
 		
 		
-        ['label' =>'Metallkiste','icon'=>'chest','category'=>'Box','deco'=>0,'heavy'=>true, 'watchpoint' => 8],                                                 // In Out
-        ['label' =>'Großer Metallkoffer','icon'=>'chest_xl','category'=>'Box','deco'=>0,'heavy'=>true, 'watchpoint' => 10],                                      // In Out
-        ['label' =>'Werkzeugkiste','icon'=>'chest_tools','category'=>'Box','deco'=>0,'heavy'=>true, 'watchpoint' => 5],                                         // In Out
-        ['label' =>'Habseligkeiten eines Bürgers','icon'=>'chest_citizen','category'=>'Box','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                        // In Out
-        ['label' =>'Ein Paket','icon'=>'book_gen_box','category'=>'Box','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                           // In Out
-        ['label' =>'Kiste mit Materialien (3)','icon'=>'rsc_pack_3','category'=>'Box','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                              // In Out
-        ['label' =>'Kiste mit Materialien (2)','icon'=>'rsc_pack_2','category'=>'Box','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                              // In Out
-        ['label' =>'Kiste mit Materialien (1)','icon'=>'rsc_pack_1','category'=>'Box','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                              // In Out
-        ['label' =>'Vorräte eines umsichtigen Bürgers','icon'=>'chest_hero','category'=>'Box','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                      // In Out
-        ['label' =>'Postpaket','icon'=>'postal_box','category'=>'Box','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                             // In Out
-        ['label' =>'Safe','icon'=>'safe','category'=>'Box','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                                         // In Out
-        ['label' =>'Architektenkoffer','icon'=>'bplan_box','category'=>'Box','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                       // In Out
-        ['label' =>'Versiegelter Architektenkoffer','icon'=>'bplan_box_e','category'=>'Box','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                        // In Out
-        ['label' =>'Schrödingers Box','icon'=>'catbox','category'=>'Box','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                          // In Out
-		['label' =>'Ein Briefumschlag','icon'=>'book_gen_letter','category'=>'Box','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                // In Out
-		['label' =>'Überraschungskiste (3 Geschenke)','icon'=>'chest_christmas_3','category'=>'Box','deco'=>0,'heavy'=>true, 'watchpoint' => 0],               // In Out
-        ['label' =>'Überraschungskiste (2 Geschenke)','icon'=>'chest_christmas_2','category'=>'Box','deco'=>0,'heavy'=>true, 'watchpoint' => 0],               // In Out
-        ['label' =>'Überraschungskiste (1 Geschenk)','icon'=>'chest_christmas_1','category'=>'Box','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                // In Out
-		['label' =>'Lunch-Box','icon'=>'food_armag','category'=>'Box','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                          // In Out
-		['label' =>'Gesellschaftsspiel','icon'=>'game_box','category'=>'Box','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                      // In Out
-        ['label' =>'Geschenkpaket','icon'=>'postal_box','category'=>'Box','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                // In Out
-        ['label' =>'Großes Geschenkpaket','icon'=>'postal_box_xl','category'=>'Box','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                // In Out
+        ['label' => 'Metallkiste', 'icon' => 'chest', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 8],                                                 // In Out
+        ['label' => 'Großer Metallkoffer', 'icon' => 'chest_xl', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 10],                                      // In Out
+        ['label' => 'Werkzeugkiste', 'icon' => 'chest_tools', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 5],                                         // In Out
+        ['label' => 'Habseligkeiten eines Bürgers', 'icon' => 'chest_citizen', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                        // In Out
+        ['label' => 'Ein Paket', 'icon' => 'book_gen_box', 'category' => 'Box', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                           // In Out
+        ['label' => 'Kiste mit Materialien (3)', 'icon' => 'rsc_pack_3', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                              // In Out
+        ['label' => 'Kiste mit Materialien (2)', 'icon' => 'rsc_pack_2', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                              // In Out
+        ['label' => 'Kiste mit Materialien (1)', 'icon' => 'rsc_pack_1', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                              // In Out
+        ['label' => 'Vorräte eines umsichtigen Bürgers', 'icon' => 'chest_hero', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                      // In Out
+        ['label' => 'Postpaket', 'icon' => 'postal_box', 'category' => 'Box', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                             // In Out
+        ['label' => 'Safe', 'icon' => 'safe', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                                         // In Out
+        ['label' => 'Architektenkoffer', 'icon' => 'bplan_box', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                       // In Out
+        ['label' => 'Versiegelter Architektenkoffer', 'icon' => 'bplan_box_e', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                        // In Out
+        ['label' => 'Schrödingers Box', 'icon' => 'catbox', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                          // In Out
+		['label' => 'Ein Briefumschlag', 'icon' => 'book_gen_letter', 'category' => 'Box', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                // In Out
+		['label' => 'Überraschungskiste (3 Geschenke)', 'icon' => 'chest_christmas_3', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],               // In Out
+        ['label' => 'Überraschungskiste (2 Geschenke)', 'icon' => 'chest_christmas_2', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],               // In Out
+        ['label' => 'Überraschungskiste (1 Geschenk)', 'icon' => 'chest_christmas_1', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                // In Out
+		['label' => 'Lunch-Box', 'icon' => 'food_armag', 'category' => 'Box', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                          // In Out
+		['label' => 'Gesellschaftsspiel', 'icon' => 'game_box', 'category' => 'Box', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                      // In Out
+        ['label' => 'Geschenkpaket', 'icon' => 'postal_box', 'category' => 'Box', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                // In Out
+        ['label' => 'Großes Geschenkpaket', 'icon' => 'postal_box_xl', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                // In Out
 
-        ['label' =>'Zeltplane','icon'=>'sheet','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 10],                                                 // -- ---
-        ['label' =>'Sperrholzstück','icon'=>'out_def','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                          // -- ---
-        ['label' =>'Ekliger Hautfetzen','icon'=>'smelly_meat','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                  // -- ---
-        ['label' =>'Bandage','icon'=>'bandage','category'=>'Drug','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                 // In Out
-        ['label' =>'Pharmazeutische Substanz','icon'=>'pharma','category'=>'Drug','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                 // -- ---
-        ['label' =>'Zyanid','icon'=>'cyanure','category'=>'Drug','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                  // In Out
-        ['label' =>'Micropur Brausetablette','icon'=>'water_cleaner','category'=>'Drug','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                           // -- ---
-        ['label' =>'Dickflüssige Substanz','icon'=>'pharma_part','category'=>'Drug','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                               // -- ---
-        ['label' =>'Blutdurchtränkter Verband','icon'=>'infect_poison_part','category'=>'Drug','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                    // -- ---
-        ['label' =>'LSD','icon'=>'lsd','category'=>'Drug','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                         //
-		['label' =>'Kleine Zen-Fibel','icon'=>'lilboo','category'=>'Drug','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                          // In Out
-        ['label' =>'Beruhigungsspritze','icon'=>'xanax','category'=>'Drug','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                      // In Out
-        ['label' =>'Anaboles Steroid','icon'=>'drug','category'=>'Drug','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                         // In Out
+        ['label' => 'Zeltplane', 'icon' => 'sheet', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 10],                                                 // -- ---
+        ['label' => 'Sperrholzstück', 'icon' => 'out_def', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                          // -- ---
+        ['label' => 'Ekliger Hautfetzen', 'icon' => 'smelly_meat', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                  // -- ---
+        ['label' => 'Bandage', 'icon' => 'bandage', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                 // In Out
+        ['label' => 'Pharmazeutische Substanz', 'icon' => 'pharma', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // -- ---
+        ['label' => 'Zyanid', 'icon' => 'cyanure', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                  // In Out
+        ['label' => 'Micropur Brausetablette', 'icon' => 'water_cleaner', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                           // -- ---
+        ['label' => 'Dickflüssige Substanz', 'icon' => 'pharma_part', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                               // -- ---
+        ['label' => 'Blutdurchtränkter Verband', 'icon' => 'infect_poison_part', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                    // -- ---
+        ['label' => 'LSD', 'icon' => 'lsd', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                         //
+		['label' => 'Kleine Zen-Fibel', 'icon' => 'lilboo', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                          // In Out
+        ['label' => 'Beruhigungsspritze', 'icon' => 'xanax', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                      // In Out
+        ['label' => 'Anaboles Steroid', 'icon' => 'drug', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                         // In Out
 		
-        ['label' =>'Twinoid 500mg','icon'=>'drug_hero','category'=>'Drug','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                       // In Out
-        ['label' =>'Hydraton 100mg','icon'=>'drug_water','category'=>'Drug','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                     // In Out
-        ['label' =>'Etikettenloses Medikament','icon'=>'drug_random','category'=>'Drug','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                         // In Out
-        ['label' =>'Paracetoid 7g','icon'=>'disinfect','category'=>'Drug','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                       // In Out
-        ['label' =>'Abgelaufene Betapropin-Tablette 5mg','icon'=>'beta_drug_bad','category'=>'Drug','deco'=>0,'heavy'=>false, 'watchpoint' => 0],             // In Out
-        ['label' =>'Betapropin-Tablette 5mg','icon'=>'beta_drug','category'=>'Drug','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                             // In Out
-        ['label' =>'Ghul-Serum','icon'=>'vagoul','category'=>'Drug','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                             //
+        ['label' => 'Twinoid 500mg', 'icon' => 'drug_hero', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                       // In Out
+        ['label' => 'Hydraton 100mg', 'icon' => 'drug_water', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                     // In Out
+        ['label' => 'Etikettenloses Medikament', 'icon' => 'drug_random', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                         // In Out
+        ['label' => 'Paracetoid 7g', 'icon' => 'disinfect', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                       // In Out
+        ['label' => 'Abgelaufene Betapropin-Tablette 5mg', 'icon' => 'beta_drug_bad', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],             // In Out
+        ['label' => 'Betapropin-Tablette 5mg', 'icon' => 'beta_drug', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                             // In Out
+        ['label' => 'Ghul-Serum', 'icon' => 'vagoul', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                             //
 		
 		
-        ['label' =>"Zonenmarker 'Radius'",'icon'=>'tagger','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                    // -- Out
-        ['label' =>'Unkrautbekämpfungsmittel Ness-Quick','icon'=>'digger','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                     // -- Out
-        ['label' =>'Schießpulverbombe','icon'=>'flash','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                        // -- Out
-        ['label' =>'Radius Mark II (entladen)','icon'=>'radius_mk2_part','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                      // -- ---
-        ['label' =>'Radius Mark II','icon'=>'radius_mk2','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                      // -- Out
-        ['label' =>'Wasserspender (leer)','icon'=>'water_can_empty','category'=>'Misc','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                            // -- ---
-        ['label' =>'Makabre Bombe','icon'=>'flesh','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                            // -- Out
-        ['label' =>'Notizzettel eines Verbannten','icon'=>'banned_note','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                       //
-        ['label' =>'Magnet-Schlüssel','icon'=>'magneticKey','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                   // --
-        ['label' =>'Schlagschlüssel','icon'=>'bumpKey','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                        // --
-        ['label' =>'Flaschenöffner','icon'=>'classicKey','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                             // --
-        ['label' =>'Abdruck vom Magnet-Schlüssel','icon'=>'prints','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                            //
-        ['label' =>'Abdruck vom Schlagschlüssel','icon'=>'prints','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                             //
-        ['label' =>'Abdruck vom Flaschenöffner','icon'=>'prints','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                 //
+        ['label' =>"Zonenmarker 'Radius'", 'icon' => 'tagger', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                    // -- Out
+        ['label' => 'Unkrautbekämpfungsmittel Ness-Quick', 'icon' => 'digger', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                     // -- Out
+        ['label' => 'Schießpulverbombe', 'icon' => 'flash', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                        // -- Out
+        ['label' => 'Radius Mark II (entladen)', 'icon' => 'radius_mk2_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                      // -- ---
+        ['label' => 'Radius Mark II', 'icon' => 'radius_mk2', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                      // -- Out
+        ['label' => 'Wasserspender (leer)', 'icon' => 'water_can_empty', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                            // -- ---
+        ['label' => 'Makabre Bombe', 'icon' => 'flesh', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                            // -- Out
+        ['label' => 'Notizzettel eines Verbannten', 'icon' => 'banned_note', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                       //
+        ['label' => 'Magnet-Schlüssel', 'icon' => 'magneticKey', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                   // --
+        ['label' => 'Schlagschlüssel', 'icon' => 'bumpKey', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                        // --
+        ['label' => 'Flaschenöffner', 'icon' => 'classicKey', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                             // --
+        ['label' => 'Abdruck vom Magnet-Schlüssel', 'icon' => 'prints', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            //
+        ['label' => 'Abdruck vom Schlagschlüssel', 'icon' => 'prints', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                             //
+        ['label' => 'Abdruck vom Flaschenöffner', 'icon' => 'prints', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 //
 		
-        ['label' =>'Ration Wasser','icon'=>'water','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                             // In Out
-        ['label' =>'Offene Konservendose','icon'=>'can_open','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 2],                                   // In Out
-        ['label' =>'Undefinierbares Fleisch','icon'=>'undef','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 2],                                   // In Out
-        ['label' =>'Heißer Kaffee','icon'=>'coffee','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0, 'fragile' => true],                                            // In Out
-        ['label' =>'Verdächtiges Gemüse','icon'=>'vegetable','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                   // In Out
-        ['label' =>'Doggybag','icon'=>'food_bag','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                               // In Out
-        ['label' =>'Tüte mit labbrigen Chips','icon'=>'food_bar1','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                              // In Out
-        ['label' =>'Verschimmelte Waffeln','icon'=>'food_bar2','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                 // In Out
-        ['label' =>'Trockene Kaugummis','icon'=>'food_bar3','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                    // In Out
-        ['label' =>'Ranzige Butterkekse','icon'=>'food_biscuit','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                // In Out
-        ['label' =>'Angebissene Hähnchenflügel','icon'=>'food_chick','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                           // In Out
-        ['label' =>"Abgelaufene Pim's Kekse",'icon'=>'food_pims','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                               // In Out
-        ['label' =>'Fades Gebäck','icon'=>'food_tarte','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                         // In Out
-        ['label' =>'Verschimmelte Stulle','icon'=>'food_sandw','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                 // In Out
-        ['label' =>'Chinesische Nudeln','icon'=>'food_noodles','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                 // In Out
-        ['label' =>'Verdächtige Speise','icon'=>'dish','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 4],                                         // In Out
-        ['label' =>'Wasserspender (1 Ration)','icon'=>'water_can_1','category'=>'Food','deco'=>0,'heavy'=>true, 'watchpoint' => 20],                             // In Out
-        ['label' =>'Wasserspender (2 Rationen)','icon'=>'water_can_2','category'=>'Food','deco'=>0,'heavy'=>true, 'watchpoint' => 20],                           // In Out
-        ['label' =>'Wasserspender (3 Rationen)','icon'=>'water_can_3','category'=>'Food','deco'=>0,'heavy'=>true, 'watchpoint' => 20],                           // In Out
-        ['label' =>'Aasbeerenbrei','icon'=>'fruit','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                             // In Out
-        ['label' =>'Gereinigtes modriges Wasser','icon'=>'water_cup','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                           // In Out
-        ['label' =>'Brezel','icon'=>'bretz','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                    // In Out
-        ['label' =>'Mutterkorn','icon'=>'fungus','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                               // -- ---
-        ['label' =>'Korn-Bräu','icon'=>'hmbrew','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0, 'fragile' => true],                                                // In Out
-        ['label' =>'Verdächtiger Traubensaft','icon'=>'omg_this_will_kill_you','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                 //
-		['label' =>'Nahrungsmittelkiste','icon'=>'chest_food','category'=>'Food','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                    // In Out
-		['label' =>'Weihnachts-Süßigkeiten','icon'=>'christmas_candy','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                    // In Out
+        ['label' => 'Ration Wasser', 'icon' => 'water', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                             // In Out
+        ['label' => 'Offene Konservendose', 'icon' => 'can_open', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 2],                                   // In Out
+        ['label' => 'Undefinierbares Fleisch', 'icon' => 'undef', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 2],                                   // In Out
+        ['label' => 'Heißer Kaffee', 'icon' => 'coffee', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'fragile' => true],                                            // In Out
+        ['label' => 'Verdächtiges Gemüse', 'icon' => 'vegetable', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                   // In Out
+        ['label' => 'Doggybag', 'icon' => 'food_bag', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                               // In Out
+        ['label' => 'Tüte mit labbrigen Chips', 'icon' => 'food_bar1', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                              // In Out
+        ['label' => 'Verschimmelte Waffeln', 'icon' => 'food_bar2', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // In Out
+        ['label' => 'Trockene Kaugummis', 'icon' => 'food_bar3', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                    // In Out
+        ['label' => 'Ranzige Butterkekse', 'icon' => 'food_biscuit', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                // In Out
+        ['label' => 'Angebissene Hähnchenflügel', 'icon' => 'food_chick', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                           // In Out
+        ['label' =>"Abgelaufene Pim's Kekse", 'icon' => 'food_pims', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                               // In Out
+        ['label' => 'Fades Gebäck', 'icon' => 'food_tarte', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                         // In Out
+        ['label' => 'Verschimmelte Stulle', 'icon' => 'food_sandw', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // In Out
+        ['label' => 'Chinesische Nudeln', 'icon' => 'food_noodles', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // In Out
+        ['label' => 'Verdächtige Speise', 'icon' => 'dish', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 4],                                         // In Out
+        ['label' => 'Wasserspender (1 Ration)', 'icon' => 'water_can_1', 'category' => 'Food', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 20],                             // In Out
+        ['label' => 'Wasserspender (2 Rationen)', 'icon' => 'water_can_2', 'category' => 'Food', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 20],                           // In Out
+        ['label' => 'Wasserspender (3 Rationen)', 'icon' => 'water_can_3', 'category' => 'Food', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 20],                           // In Out
+        ['label' => 'Aasbeerenbrei', 'icon' => 'fruit', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                             // In Out
+        ['label' => 'Gereinigtes modriges Wasser', 'icon' => 'water_cup', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                           // In Out
+        ['label' => 'Brezel', 'icon' => 'bretz', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                    // In Out
+        ['label' => 'Mutterkorn', 'icon' => 'fungus', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                               // -- ---
+        ['label' => 'Korn-Bräu', 'icon' => 'hmbrew', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'fragile' => true],                                                // In Out
+        ['label' => 'Verdächtiger Traubensaft', 'icon' => 'omg_this_will_kill_you', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                 //
+		['label' => 'Nahrungsmittelkiste', 'icon' => 'chest_food', 'category' => 'Food', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                    // In Out
+		['label' => 'Weihnachts-Süßigkeiten', 'icon' => 'christmas_candy', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                    // In Out
 
-        ['label' =>'Leckeres Steak','icon'=>'meat','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 4],                                           // In Out
-        ['label' =>'Gewürzte chinesische Nudeln','icon'=>'food_noodles_hot','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                  // In Out
-        ['label' =>'Darmmelone','icon'=>'vegetable_tasty','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                    // In Out
-        ['label' =>'Leckere Speise','icon'=>'dish_tasty','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 6],                                     // In Out
-        ['label' =>'Eine Handvoll Bonbons','icon'=>'food_candies','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                            // In Out
-        ['label' =>'Geröstete Marshmallows','icon'=>'chama_tasty','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                            // In Out
-        ['label' =>'Sägemehlsteak','icon'=>'woodsteak','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                       // In Out
-        ['label' =>'Ei','icon'=>'egg','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                        // In Out
-        ['label' =>'Apfel','icon'=>'apple','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                                   // In Out
+        ['label' => 'Leckeres Steak', 'icon' => 'meat', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 4],                                           // In Out
+        ['label' => 'Gewürzte chinesische Nudeln', 'icon' => 'food_noodles_hot', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                  // In Out
+        ['label' => 'Darmmelone', 'icon' => 'vegetable_tasty', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                    // In Out
+        ['label' => 'Leckere Speise', 'icon' => 'dish_tasty', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 6],                                     // In Out
+        ['label' => 'Eine Handvoll Bonbons', 'icon' => 'food_candies', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            // In Out
+        ['label' => 'Geröstete Marshmallows', 'icon' => 'chama_tasty', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            // In Out
+        ['label' => 'Sägemehlsteak', 'icon' => 'woodsteak', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                       // In Out
+        ['label' => 'Ei', 'icon' => 'egg', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                        // In Out
+        ['label' => 'Apfel', 'icon' => 'apple', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                   // In Out
 		
 		
-        ['label' =>'Grüne Bierflasche','icon'=>'vodka_de','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0, 'fragile' => true],                                    // In Out
-        ['label' =>'Vodka Marinostov','icon'=>'vodka','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0, 'fragile' => true],                                    // In Out
-        ['label' =>"'Wake The Dead'",'icon'=>'rhum','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0, 'fragile' => true],                                          // In Out
-        ['label' =>'Bierkrug','icon'=>'fest','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0, 'fragile' => true],                                                 // In Out
+        ['label' => 'Grüne Bierflasche', 'icon' => 'vodka_de', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'fragile' => true],                                    // In Out
+        ['label' => 'Vodka Marinostov', 'icon' => 'vodka', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'fragile' => true],                                    // In Out
+        ['label' =>"'Wake The Dead'", 'icon' => 'rhum', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'fragile' => true],                                          // In Out
+        ['label' => 'Bierkrug', 'icon' => 'fest', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'fragile' => true],                                                 // In Out
 		
-        ['label' =>'Menschenfleisch','icon'=>'hmeat','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 20],                                         // In Out
-        ['label' =>'Knochen mit Fleisch','icon'=>'bone_meat','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 10],                                 // In Out
-        ['label' =>'Leiche eines Reisenden','icon'=>'cadaver','category'=>'Food','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                 // In Out
+        ['label' => 'Menschenfleisch', 'icon' => 'hmeat', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 20],                                         // In Out
+        ['label' => 'Knochen mit Fleisch', 'icon' => 'bone_meat', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 10],                                 // In Out
+        ['label' => 'Leiche eines Reisenden', 'icon' => 'cadaver', 'category' => 'Food', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                 // In Out
 		
-        ['label' =>'Konservendose','icon'=>'can','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                             // In Out
-        ['label' =>'Getrocknete Marshmallows','icon'=>'chama','category'=>'Food','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                // -- ---
+        ['label' => 'Konservendose', 'icon' => 'can', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                             // In Out
+        ['label' => 'Getrocknete Marshmallows', 'icon' => 'chama', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                // -- ---
      	
 		
-        ['label' =>'Staubiges Buch','icon'=>'rp_book','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                           // In Out
-        ['label' =>'Ein paar Würfel','icon'=>'dice','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                             // In Out
-        ['label' =>'Motor','icon'=>'engine','category'=>'Misc','deco'=>0,'heavy'=>true, 'watchpoint' => 40],                                                      // -- ---
-        ['label' =>'Vibrator (geladen)','icon'=>'vibr','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => -5],                                          // In ---
-        ['label' =>'Wackliger Einkaufswagen','icon'=>'cart_part','category'=>'Misc','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                 // -- ---
-        ['label' =>'Unvollständiger Kaffeekocher','icon'=>'coffee_machine_part','category'=>'Misc','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                  // -- ---
-        ['label' =>'Reparaturset (kaputt)','icon'=>'repair_kit_part','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                            // -- ---
-        ['label' =>'Reparaturset','icon'=>'repair_kit','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                          // In Out
-        ['label' =>'Elektrischer Bauchmuskeltrainer (ohne Strom)','icon'=>'sport_elec_empty','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],    // In Out
-        ['label' =>'Elektrischer Bauchmuskeltrainer (geladen)','icon'=>'sport_elec','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],             // In Out
-        ['label' =>'Zementsack','icon'=>'concrete','category'=>'Misc','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                               // -- ---
-        ['label' =>'Unvollständiges Kartenspiel','icon'=>'cards','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                // In Out
-        ['label' =>'Vibrator (entladen)','icon'=>'vibr_empty','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                   // In Out
-        ['label' =>'Metallsäge','icon'=>'saw_tool','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                              // -- ---
-        ['label' =>'Beschädigte Metallsäge','icon'=>'saw_tool_part','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                             // -- ---
-        ['label' =>'Reparatur Fix','icon'=>'repair_one','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                         // In Out
-        ['label' =>'Unvollständiger Motor','icon'=>'engine_part','category'=>'Misc','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                 // -- ---
-        ['label' =>'Aufgewelltes Blatt','icon'=>'rp_scroll','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                     // In Out
-        ['label' =>'Unleserliches Notizbuch','icon'=>'rp_book2','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                 // In Out
-        ['label' =>'Blätterstapel','icon'=>'rp_sheets','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                          // In Out
-        ['label' =>'Giftfläschchen','icon'=>'poison','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                            // In Out
-        ['label' =>'Ätzmittel','icon'=>'poison_part','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                            // -- ---
-        ['label' =>'Normaler Bauplan (gewöhnlich)','icon'=>'bplan_c','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                            // In ---
-        ['label' =>'Normaler Bauplan (ungewöhnlich)','icon'=>'bplan_u','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                          // In ---
-        ['label' =>'Normaler Bauplan (selten)','icon'=>'bplan_r','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                // In ---
-        ['label' =>'Normaler Bauplan (sehr selten!)','icon'=>'bplan_e','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                          // In ---
-        ['label' =>'Hotel-Bauplan (ungewöhnlich)','icon'=>'hbplan_u','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                            // In ---
-        ['label' =>'Hotel-Bauplan (selten)','icon'=>'hbplan_r','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                  // In ---
-        ['label' =>'Hotel-Bauplan (sehr selten!)','icon'=>'hbplan_e','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                            // In ---
-        ['label' =>'Bunker-Bauplan (ungewöhnlich)','icon'=>'bbplan_u','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                           // In ---
-        ['label' =>'Bunker-Bauplan (selten)','icon'=>'bbplan_r','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                 // In ---
-        ['label' =>'Bunker-Bauplan (sehr selten!)','icon'=>'bbplan_e','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                           // In ---
-        ['label' =>'Hospital-Bauplan (ungewöhnlich)','icon'=>'mbplan_u','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                         // In ---
-        ['label' =>'Hospital-Bauplan (selten)','icon'=>'mbplan_r','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                               // In ---
-        ['label' =>'Hospital-Bauplan (sehr selten!)','icon'=>'mbplan_e','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                         // In ---
-        ['label' =>'Verirrte Seele','icon'=>'soul_blue','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                         //
-        ['label' =>'Gequälte Seele','icon'=>'soul_red','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                            //
-        ['label' =>'Starke Seele','icon'=>'soul_yellow','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                            //
-        ['label' =>'Schwache Seele','icon'=>'soul_blue','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                         //
-        ['label' =>'Ein Etikett','icon'=>'rp_scroll','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                            // In Out
+        ['label' => 'Staubiges Buch', 'icon' => 'rp_book', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                           // In Out
+        ['label' => 'Ein paar Würfel', 'icon' => 'dice', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                             // In Out
+        ['label' => 'Motor', 'icon' => 'engine', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 40],                                                      // -- ---
+        ['label' => 'Vibrator (geladen)', 'icon' => 'vibr', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => -5],                                          // In ---
+        ['label' => 'Wackliger Einkaufswagen', 'icon' => 'cart_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                 // -- ---
+        ['label' => 'Unvollständiger Kaffeekocher', 'icon' => 'coffee_machine_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                  // -- ---
+        ['label' => 'Reparaturset (kaputt)', 'icon' => 'repair_kit_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            // -- ---
+        ['label' => 'Reparaturset', 'icon' => 'repair_kit', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                          // In Out
+        ['label' => 'Elektrischer Bauchmuskeltrainer (ohne Strom)', 'icon' => 'sport_elec_empty', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],    // In Out
+        ['label' => 'Elektrischer Bauchmuskeltrainer (geladen)', 'icon' => 'sport_elec', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],             // In Out
+        ['label' => 'Zementsack', 'icon' => 'concrete', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                               // -- ---
+        ['label' => 'Unvollständiges Kartenspiel', 'icon' => 'cards', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                // In Out
+        ['label' => 'Vibrator (entladen)', 'icon' => 'vibr_empty', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                   // In Out
+        ['label' => 'Metallsäge', 'icon' => 'saw_tool', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                              // -- ---
+        ['label' => 'Beschädigte Metallsäge', 'icon' => 'saw_tool_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                             // -- ---
+        ['label' => 'Reparatur Fix', 'icon' => 'repair_one', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                         // In Out
+        ['label' => 'Unvollständiger Motor', 'icon' => 'engine_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                 // -- ---
+        ['label' => 'Aufgewelltes Blatt', 'icon' => 'rp_scroll', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                     // In Out
+        ['label' => 'Unleserliches Notizbuch', 'icon' => 'rp_book2', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // In Out
+        ['label' => 'Blätterstapel', 'icon' => 'rp_sheets', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                          // In Out
+        ['label' => 'Giftfläschchen', 'icon' => 'poison', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                            // In Out
+        ['label' => 'Ätzmittel', 'icon' => 'poison_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                            // -- ---
+        ['label' => 'Normaler Bauplan (gewöhnlich)', 'icon' => 'bplan_c', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            // In ---
+        ['label' => 'Normaler Bauplan (ungewöhnlich)', 'icon' => 'bplan_u', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                          // In ---
+        ['label' => 'Normaler Bauplan (selten)', 'icon' => 'bplan_r', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                // In ---
+        ['label' => 'Normaler Bauplan (sehr selten!)', 'icon' => 'bplan_e', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                          // In ---
+        ['label' => 'Hotel-Bauplan (ungewöhnlich)', 'icon' => 'hbplan_u', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            // In ---
+        ['label' => 'Hotel-Bauplan (selten)', 'icon' => 'hbplan_r', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                  // In ---
+        ['label' => 'Hotel-Bauplan (sehr selten!)', 'icon' => 'hbplan_e', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            // In ---
+        ['label' => 'Bunker-Bauplan (ungewöhnlich)', 'icon' => 'bbplan_u', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                           // In ---
+        ['label' => 'Bunker-Bauplan (selten)', 'icon' => 'bbplan_r', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // In ---
+        ['label' => 'Bunker-Bauplan (sehr selten!)', 'icon' => 'bbplan_e', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                           // In ---
+        ['label' => 'Hospital-Bauplan (ungewöhnlich)', 'icon' => 'mbplan_u', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                         // In ---
+        ['label' => 'Hospital-Bauplan (selten)', 'icon' => 'mbplan_r', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                               // In ---
+        ['label' => 'Hospital-Bauplan (sehr selten!)', 'icon' => 'mbplan_e', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                         // In ---
+        ['label' => 'Verirrte Seele', 'icon' => 'soul_blue', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                         //
+        ['label' => 'Gequälte Seele', 'icon' => 'soul_red', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                            //
+        ['label' => 'Starke Seele', 'icon' => 'soul_yellow', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                            //
+        ['label' => 'Schwache Seele', 'icon' => 'soul_blue', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                         //
+        ['label' => 'Ein Etikett', 'icon' => 'rp_scroll', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                            // In Out
 		
 		
-		['label' =>'Kassettenradio (ohne Strom)','icon'=>'radio_off','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                      // In Out
-        ['label' =>'Streichholzschachtel','icon'=>'lights','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                     // -- ---
-        ['label' =>'Leuchtrakete','icon'=>'flare','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => -10],                                              // --
-        ['label' =>'Starke Gewürze','icon'=>'spices','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                           // -- ---
-        ['label' =>'Raketenpulver','icon'=>'powder','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                             // -- ---
-        ['label' =>'Loses Werkzeug','icon'=>'repair_kit_part_raw','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                              // -- ---
-        ['label' =>'Ein Brief ohne Adresse','icon'=>'rp_letter','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                // In Out
-        ['label' =>'Betriebsanleitung','icon'=>'rp_manual','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                     // In Out
-        ['label' =>'Fotoalbum','icon'=>'rp_book','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                               // In Out
-        ['label' =>'Angefangene Zigarettenschachtel','icon'=>'cigs','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                            //
-        ['label' =>'Druckregler PDTT Mark II','icon'=>'pilegun_upkit','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                          // -- ---
-        ['label' =>'Zerquetschte Batterie','icon'=>'pile_broken','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                               // -- ---
-        ['label' =>'Eine Enzyklopädie','icon'=>'rp_twin','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                       // In Out
-        ['label' =>'Aasbeeren','icon'=>'fruit_sub_part','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                        // -- ---
-        ['label' =>'Schleimige Kugel','icon'=>'fruit_part','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                     // -- ---
-        ['label' =>'Fleischfetzen','icon'=>'flesh_part','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                        // -- ---
-        ['label' =>'Abgetragene rote Jacke','icon'=>'christmas_suit_1','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                         // -- ---
-        ['label' =>'Zerrissene rote Hose','icon'=>'christmas_suit_2','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                           // -- ---
-        ['label' =>'Schweißtriefende rote Mütze','icon'=>'christmas_suit_3','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                    // -- ---
-        ['label' =>'Übelriechender Anzug aus einer anderen Zeit','icon'=>'christmas_suit_full','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0], //
-        ['label' =>'Angenagte Leiche','icon'=>'cadaver_remains','category'=>'Misc','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                 // -- ---
-        ['label' =>"Rauchgranate 'Tannenduft'",'icon'=>'smoke_bomb','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                            // --
-        ['label' =>'Sandball','icon'=>'sand_ball','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                              //
-        ['label' =>'Santas Rentier','icon'=>'renne','category'=>'Misc','deco'=>0,'heavy'=>true, 'watchpoint' => 30],                                             // -- ---
-        ['label' =>'Osterei','icon'=>'paques','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 38],                                                  // -- ---
-        ['label' =>'Geistiger Beistand','icon'=>'chkspk','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                       // -- ---
-        ['label' =>'Fette Python','icon'=>'pet_snake2','category'=>'Misc','deco'=>0,'heavy'=>true, 'watchpoint' => 0, 'fragile' => true],                                          // -- ---
-        ['label' =>'Bürgerbekleidung','icon'=>'basic_suit','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                     // -- ---
-        ['label' =>'Dreckige Bürgerbekleidung','icon'=>'basic_suit_dirt','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                       // -- ---
-        ['label' =>'Tarnanzug','icon'=>'vest_on','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                               // -- ---
-        ['label' =>'Tarnanzug (abgelegt)','icon'=>'vest_off','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                   //
-        ['label' =>'Kleine Schaufel','icon'=>'pelle','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                           // -- ---
-        ['label' =>'Dreibeiniger Malteser','icon'=>'tamed_pet','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                 // --
-        ['label' =>'Dreibeiniger Malteser (gedopt)','icon'=>'tamed_pet_drug','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                   // --
-        ['label' =>'Dreibeiniger Malteser (erschöpft)','icon'=>'tamed_pet_off','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                 // -- ---
-        ['label' =>'Survivalbuch','icon'=>'surv_book','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                          // --
-        ['label' =>'Schraubenschlüssel','icon'=>'keymol','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                       // -- ---
-        ['label' =>'Schutzschild','icon'=>'shield','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                             // -- ---
-        ['label' =>'Voodoo-Maske','icon'=>'shaman','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],
-        ['label' =>'Kamera aus Vorkriegs-Tagen','icon'=>'photo_3','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],
-        ['label' =>'Kamera aus Vorkriegs-Tagen','icon'=>'photo_2','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],
-        ['label' =>'Kamera aus Vorkriegs-Tagen','icon'=>'photo_1','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],
-        ['label' =>'Kamera aus Vorkriegs-Tagen','icon'=>'photo_off','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],
-		['label' =>'Huhn','icon'=>'pet_chick','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 8, 'fragile' => true],                                                // -- Out
-        ['label' =>'Übelriechendes Schwein','icon'=>'pet_pig','category'=>'Misc','deco'=>0,'heavy'=>true, 'watchpoint' => 20, 'fragile' => true],                                 // -- Out
-        ['label' =>'Riesige Ratte','icon'=>'pet_rat','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 4, 'fragile' => true],                                         // -- Out
-        ['label' =>'Zwei-Meter Schlange','icon'=>'pet_snake','category'=>'Misc','deco'=>0,'heavy'=>true, 'watchpoint' => 20, 'fragile' => true],                                  // -- Out
-		['label' =>'Holzkistendeckel','icon'=>'wood_plate_part','category'=>'Misc','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                                // -- ---
-		['label' =>'Unverarbeitete Blechplatten','icon'=>'plate_raw','category'=>'Misc','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                           // -- ---
-		['label' =>'Kanisterpumpe (zerlegt)','icon'=>'jerrygun_part','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                          // -- ---
-		['label' =>'Unvollständige Kettensäge','icon'=>'chainsaw_part','category'=>'Misc','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                         // -- ---
-		['label' =>'Unvollständiger Handmixer','icon'=>'mixergun_part','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                        // -- ---
-		['label' =>'Zerlegter Rasenmäher','icon'=>'lawn_part','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                 // -- ---
-		['label' =>'Unvollständiger Zerstörer','icon'=>'big_pgun_part','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                        // -- ---
-		['label' =>'Aqua-Splash (zerlegt)','icon'=>'watergun_opt_part','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                        // -- ---
-		['label' =>'Beschädigte Autotür','icon'=>'car_door_part','category'=>'Misc','deco'=>0,'heavy'=>true, 'watchpoint' => 0],                               // -- ---
-		['label' =>'Kanister','icon'=>'jerrycan','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                                             // In ---
-		['label' =>'Eisengefäß mit modrigem Wasser','icon'=>'water_cup_part','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                 // In Out
-		['label' =>'Möbelpackung','icon'=>'deco_box','category'=>'Misc','deco'=>0,'heavy'=>true, 'watchpoint' => 8],                                             // -- ---
-		['label' =>'Abgenutzte Kuriertasche','icon'=>'bplan_drop','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],                               // In Out
-		['label' =>'Unidentifizierbare Trümmerstücke','icon'=>'broken','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],
-		['label' =>'Munitionsgriff','icon'=>'bullets','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0],
+		['label' => 'Kassettenradio (ohne Strom)', 'icon' => 'radio_off', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                      // In Out
+        ['label' => 'Streichholzschachtel', 'icon' => 'lights', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                     // -- ---
+        ['label' => 'Leuchtrakete', 'icon' => 'flare', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => -10],                                              // --
+        ['label' => 'Starke Gewürze', 'icon' => 'spices', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                           // -- ---
+        ['label' => 'Raketenpulver', 'icon' => 'powder', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                             // -- ---
+        ['label' => 'Loses Werkzeug', 'icon' => 'repair_kit_part_raw', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                              // -- ---
+        ['label' => 'Ein Brief ohne Adresse', 'icon' => 'rp_letter', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                // In Out
+        ['label' => 'Betriebsanleitung', 'icon' => 'rp_manual', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                     // In Out
+        ['label' => 'Fotoalbum', 'icon' => 'rp_book', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                               // In Out
+        ['label' => 'Angefangene Zigarettenschachtel', 'icon' => 'cigs', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            //
+        ['label' => 'Druckregler PDTT Mark II', 'icon' => 'pilegun_upkit', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                          // -- ---
+        ['label' => 'Zerquetschte Batterie', 'icon' => 'pile_broken', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                               // -- ---
+        ['label' => 'Eine Enzyklopädie', 'icon' => 'rp_twin', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                       // In Out
+        ['label' => 'Aasbeeren', 'icon' => 'fruit_sub_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                        // -- ---
+        ['label' => 'Schleimige Kugel', 'icon' => 'fruit_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                     // -- ---
+        ['label' => 'Fleischfetzen', 'icon' => 'flesh_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                        // -- ---
+        ['label' => 'Abgetragene rote Jacke', 'icon' => 'christmas_suit_1', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                         // -- ---
+        ['label' => 'Zerrissene rote Hose', 'icon' => 'christmas_suit_2', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                           // -- ---
+        ['label' => 'Schweißtriefende rote Mütze', 'icon' => 'christmas_suit_3', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                    // -- ---
+        ['label' => 'Übelriechender Anzug aus einer anderen Zeit', 'icon' => 'christmas_suit_full', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0], //
+        ['label' => 'Angenagte Leiche', 'icon' => 'cadaver_remains', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                 // -- ---
+        ['label' =>"Rauchgranate 'Tannenduft'", 'icon' => 'smoke_bomb', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                            // --
+        ['label' => 'Sandball', 'icon' => 'sand_ball', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                              //
+        ['label' => 'Santas Rentier', 'icon' => 'renne', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 30],                                             // -- ---
+        ['label' => 'Osterei', 'icon' => 'paques', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 38],                                                  // -- ---
+        ['label' => 'Geistiger Beistand', 'icon' => 'chkspk', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                       // -- ---
+        ['label' => 'Fette Python', 'icon' => 'pet_snake2', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0, 'fragile' => true],                                          // -- ---
+        ['label' => 'Bürgerbekleidung', 'icon' => 'basic_suit', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                     // -- ---
+        ['label' => 'Dreckige Bürgerbekleidung', 'icon' => 'basic_suit_dirt', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                       // -- ---
+        ['label' => 'Tarnanzug', 'icon' => 'vest_on', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                               // -- ---
+        ['label' => 'Tarnanzug (abgelegt)', 'icon' => 'vest_off', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                   //
+        ['label' => 'Kleine Schaufel', 'icon' => 'pelle', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                           // -- ---
+        ['label' => 'Dreibeiniger Malteser', 'icon' => 'tamed_pet', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // --
+        ['label' => 'Dreibeiniger Malteser (gedopt)', 'icon' => 'tamed_pet_drug', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                   // --
+        ['label' => 'Dreibeiniger Malteser (erschöpft)', 'icon' => 'tamed_pet_off', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                 // -- ---
+        ['label' => 'Survivalbuch', 'icon' => 'surv_book', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                          // --
+        ['label' => 'Schraubenschlüssel', 'icon' => 'keymol', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                       // -- ---
+        ['label' => 'Schutzschild', 'icon' => 'shield', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                             // -- ---
+        ['label' => 'Voodoo-Maske', 'icon' => 'shaman', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],
+        ['label' => 'Kamera aus Vorkriegs-Tagen', 'icon' => 'photo_3', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],
+        ['label' => 'Kamera aus Vorkriegs-Tagen', 'icon' => 'photo_2', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],
+        ['label' => 'Kamera aus Vorkriegs-Tagen', 'icon' => 'photo_1', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],
+        ['label' => 'Kamera aus Vorkriegs-Tagen', 'icon' => 'photo_off', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],
+		['label' => 'Huhn', 'icon' => 'pet_chick', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8, 'fragile' => true],                                                // -- Out
+        ['label' => 'Übelriechendes Schwein', 'icon' => 'pet_pig', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 20, 'fragile' => true],                                 // -- Out
+        ['label' => 'Riesige Ratte', 'icon' => 'pet_rat', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 4, 'fragile' => true],                                         // -- Out
+        ['label' => 'Zwei-Meter Schlange', 'icon' => 'pet_snake', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 20, 'fragile' => true],                                  // -- Out
+		['label' => 'Holzkistendeckel', 'icon' => 'wood_plate_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                // -- ---
+		['label' => 'Unverarbeitete Blechplatten', 'icon' => 'plate_raw', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                           // -- ---
+		['label' => 'Kanisterpumpe (zerlegt)', 'icon' => 'jerrygun_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                          // -- ---
+		['label' => 'Unvollständige Kettensäge', 'icon' => 'chainsaw_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                         // -- ---
+		['label' => 'Unvollständiger Handmixer', 'icon' => 'mixergun_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                        // -- ---
+		['label' => 'Zerlegter Rasenmäher', 'icon' => 'lawn_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // -- ---
+		['label' => 'Unvollständiger Zerstörer', 'icon' => 'big_pgun_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                        // -- ---
+		['label' => 'Aqua-Splash (zerlegt)', 'icon' => 'watergun_opt_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                        // -- ---
+		['label' => 'Beschädigte Autotür', 'icon' => 'car_door_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                               // -- ---
+		['label' => 'Kanister', 'icon' => 'jerrycan', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                             // In ---
+		['label' => 'Eisengefäß mit modrigem Wasser', 'icon' => 'water_cup_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                 // In Out
+		['label' => 'Möbelpackung', 'icon' => 'deco_box', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 8],                                             // -- ---
+		['label' => 'Abgenutzte Kuriertasche', 'icon' => 'bplan_drop', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                               // In Out
+		['label' => 'Unidentifizierbare Trümmerstücke', 'icon' => 'broken', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],
+		['label' => 'Munitionsgriff', 'icon' => 'bullets', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],
 
 		
-        ['label' => 'Super-Flaum-Pulver','icon' => 'firework_powder','category' => 'Furniture','deco' => 5,'heavy' => false, 'watchpoint' => 0],                       // -- ---
-        ['label' => 'Flush-Abschussrohr','icon' => 'firework_tube','category' => 'Furniture','deco' => 2,'heavy' => true, 'watchpoint' => 0],                                 // In Out
-        ['label' => 'Feuerwerkskiste','icon' => 'firework_box','category' => 'Furniture','deco' => 3,'heavy' => true, 'watchpoint' => 0],                                 // In Out
-        ['label' => 'Kürbis ausgestorben','icon' => 'pumpkin_off','category' => 'Furniture','deco' => 5,'heavy' => true, 'watchpoint' => 0],                              // -- ---
-        ['label' => 'Beleuchteter Kürbis','icon' => 'pumpkin_on','category' => 'Armor','deco' => 15,'heavy' => true, 'watchpoint' => 0],                                   // -- ---
-        ['label' => 'Krähengirlande','icon' => 'xmas_gift','category' => 'Furniture','deco' => 2,'heavy' => false, 'watchpoint' => 0],                              // -- Out
-        ['label' => 'Mystischer Trank','icon' => 'potion','category' => 'Food','deco' => 0,'heavy' => false, 'watchpoint' => 0],                              // -- Out
-		['label' => 'Krähenelfe','icon' => 'food_xmas','category' => 'Food','deco' => 0,'heavy' => false, 'watchpoint' => 0],                              // -- Out
-        ['label' => 'Logbuch Schokolade','icon' => 'wood_xmas','category' => 'Food','deco' => 8,'heavy' => true, 'watchpoint' => 0],                              // -- Out
-        ['label' => 'Grüner Kobold-Anzug','icon'=>'leprechaun_suit','category'=>'Misc','deco'=>0,'heavy'=>false, 'watchpoint' => 0], //
+        ['label' => 'Super-Flaum-Pulver', 'icon' => 'firework_powder', 'category' => 'Furniture', 'deco' => 5, 'heavy' => false, 'watchpoint' => 0],                       // -- ---
+        ['label' => 'Flush-Abschussrohr', 'icon' => 'firework_tube', 'category' => 'Furniture', 'deco' => 2, 'heavy' => true, 'watchpoint' => 0],                                 // In Out
+        ['label' => 'Feuerwerkskiste', 'icon' => 'firework_box', 'category' => 'Furniture', 'deco' => 3, 'heavy' => true, 'watchpoint' => 0],                                 // In Out
+        ['label' => 'Kürbis ausgestorben', 'icon' => 'pumpkin_off', 'category' => 'Furniture', 'deco' => 5, 'heavy' => true, 'watchpoint' => 0],                              // -- ---
+        ['label' => 'Beleuchteter Kürbis', 'icon' => 'pumpkin_on', 'category' => 'Armor', 'deco' => 15, 'heavy' => true, 'watchpoint' => 0],                                   // -- ---
+        ['label' => 'Krähengirlande', 'icon' => 'xmas_gift', 'category' => 'Furniture', 'deco' => 2, 'heavy' => false, 'watchpoint' => 0],                              // -- Out
+        ['label' => 'Mystischer Trank', 'icon' => 'potion', 'category' => 'Food', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],                              // -- Out
+		['label' => 'Krähenelfe', 'icon' => 'food_xmas', 'category' => 'Food', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],                              // -- Out
+        ['label' => 'Logbuch Schokolade', 'icon' => 'wood_xmas', 'category' => 'Food', 'deco' => 8, 'heavy' => true, 'watchpoint' => 0],                              // -- Out
+        ['label' => 'Grüner Kobold-Anzug', 'icon' => 'leprechaun_suit', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0], //
     ];
     
     public static $item_desc_data = [
@@ -926,175 +926,175 @@ class ItemFixtures extends Fixture
 
     public static $item_groups = [
         'empty_dig' => array(
-            array('item' => 'wood_bad_#00','count' => '41306'),
-            array('item' => 'metal_bad_#00','count' => '22856'),
+            array('item' => 'wood_bad_#00', 'count' => '41306'),
+            array('item' => 'metal_bad_#00', 'count' => '22856'),
         ),
         'base_dig' => array(
-            array('item' => 'wood2_#00','count' => '16764'),
-            array('item' => 'metal_#00','count' => '10124'),
-            array('item' => 'grenade_empty_#00','count' => '6915'),
-            array('item' => 'food_bag_#00','count' => '4845'),
-            array('item' => 'pile_#00','count' => '4766'),
-            array('item' => 'pharma_#00','count' => '3935'),
-            array('item' => 'rustine_#00','count' => '2578'),
-            array('item' => 'can_#00','count' => '2445'),
-            array('item' => 'concrete_#00','count' => '1689'),
-            array('item' => 'wood_plate_part_#00','count' => '1529'),
-            array('item' => 'jerrycan_#00','count' => '1456'),
-            array('item' => 'chest_tools_#00','count' => '1390'),
-            array('item' => 'deco_box_#00','count' => '1309'),
-            array('item' => 'bplan_drop_#00','count' => '1232'),
-            array('item' => 'digger_#00','count' => '1231'),
-            array('item' => 'tube_#00','count' => '1184'),
-            array('item' => 'wood_beam_#00','count' => '1176'),
-            array('item' => 'powder_#00','count' => '1159'),
-            array('item' => 'staff_#00','count' => '1138'),
-            array('item' => 'oilcan_#00','count' => '1100'),
-            array('item' => 'mecanism_#00','count' => '1063'),
-            array('item' => 'drug_#00','count' => '965'),
-            array('item' => 'fest_#00','count' => '964'),
-            array('item' => 'meca_parts_#00','count' => '964'),
-            array('item' => 'plate_raw_#00','count' => '963'),
-            array('item' => 'watergun_empty_#00','count' => '953'),
-            array('item' => 'deto_#00','count' => '935'),
-            array('item' => 'repair_one_#00','count' => '907'),
-            array('item' => 'pet_snake_#00','count' => '877'),
-            array('item' => 'electro_box_#00','count' => '854'),
-            array('item' => 'tekel_#00','count' => '845'),
-            array('item' => 'door_#00','count' => '841'),
-            array('item' => 'drug_random_#00','count' => '818'),
-            array('item' => 'smoke_bomb_#00','count' => '814'),
-            array('item' => 'bag_#00','count' => '808'),
-            array('item' => 'water_cleaner_#00','count' => '803'),
-            array('item' => 'tagger_#00','count' => '794'),
-            array('item' => 'machine_3_#00','count' => '794'),
-            array('item' => 'trestle_#00','count' => '790'),
-            array('item' => 'pilegun_empty_#00','count' => '784'),
-            array('item' => 'machine_1_#00','count' => '777'),
-            array('item' => 'bretz_#00','count' => '775'),
-            array('item' => 'explo_#00','count' => '771'),
-            array('item' => 'food_noodles_#00','count' => '763'),
-            array('item' => 'chest_#00','count' => '734'),
-            array('item' => 'machine_2_#00','count' => '729'),
-            array('item' => 'pet_rat_#00','count' => '710'),
-            array('item' => 'wire_#00','count' => '691'),
-            array('item' => 'drug_hero_#00','count' => '634'),
-            array('item' => 'metal_beam_#00','count' => '592'),
-            array('item' => 'ryebag_#00','count' => '541'),
-            array('item' => 'spices_#00','count' => '508'),
-            array('item' => 'small_knife_#00','count' => '501'),
-            array('item' => 'bed_#00','count' => '501'),
-            array('item' => 'rhum_#00','count' => '499'),
-            array('item' => 'chain_#00','count' => '493'),
-            array('item' => 'pet_chick_#00','count' => '491'),
-            array('item' => 'cutter_#00','count' => '476'),
-            array('item' => 'pet_pig_#00','count' => '474'),
-            array('item' => 'meat_#00','count' => '474'),
-            array('item' => 'can_opener_#00','count' => '469'),
-            array('item' => 'lilboo_#00','count' => '458'),
-            array('item' => 'electro_#00','count' => '427'),
-            array('item' => 'chair_basic_#00','count' => '423'),
-            array('item' => 'xanax_#00','count' => '418'),
-            array('item' => 'diode_#00','count' => '416'),
-            array('item' => 'pet_cat_#00','count' => '396'),
-            array('item' => 'lights_#00','count' => '381'),
-            array('item' => 'sport_elec_empty_#00','count' => '376'),
-            array('item' => 'lock_#00','count' => '369'),
-            array('item' => 'lens_#00','count' => '366'),
-            array('item' => 'chest_food_#00','count' => '364'),
-            array('item' => 'chudol_#00','count' => '347'),
-            array('item' => 'angryc_#00','count' => '342'),
-            array('item' => 'home_box_#00','count' => '302'),
-            array('item' => 'home_def_#00','count' => '294'),
-            array('item' => 'fence_#00','count' => '293'),
-            array('item' => 'repair_kit_part_raw_#00','count' => '293'),
-            array('item' => 'rsc_pack_2_#00','count' => '290'),
-            array('item' => 'lamp_#00','count' => '288'),
-            array('item' => 'disinfect_#00','count' => '288'),
-            array('item' => 'book_gen_letter_#00','count' => '286'),
-            array('item' => 'bandage_#00','count' => '284'),
-            array('item' => 'plate_#00','count' => '283'),
-            array('item' => 'chest_citizen_#00','count' => '282'),
-            array('item' => 'cart_part_#00','count' => '274'),
-            array('item' => 'chair_#00','count' => '273'),
-            array('item' => 'bquies_#00','count' => '257'),
-            array('item' => 'screw_#00','count' => '240'),
-            array('item' => 'badge_#00','count' => '238'),
-            array('item' => 'pc_#00','count' => '215'),
-            array('item' => 'music_part_#00','count' => '210'),
-            array('item' => 'book_gen_box_#00','count' => '209'),
-            array('item' => 'cyanure_#00','count' => '206'),
-            array('item' => 'hmeat_#00','count' => '195'),
-            array('item' => 'knife_#00','count' => '194'),
-            array('item' => 'engine_part_#00','count' => '193'),
-            array('item' => 'game_box_#00','count' => '192'),
-            array('item' => 'wood_log_#00','count' => '190'),
-            array('item' => 'vibr_empty_#00','count' => '189'),
-            array('item' => 'cigs_#00','count' => '181'),
-            array('item' => 'out_def_#00','count' => '180'),
-            array('item' => 'courroie_#00','count' => '179'),
-            array('item' => 'catbox_#00','count' => '170'),
-            array('item' => 'sheet_#00','count' => '115'),
-            array('item' => 'iphone_#00','count' => '112'),
-            array('item' => 'money_#00','count' => '110'),
-            array('item' => 'home_box_xl_#00','count' => '109'),
-            array('item' => 'coffee_machine_part_#00','count' => '103'),
-            array('item' => 'cadaver_#00','count' => '102'),
-            array('item' => 'smelly_meat_#00','count' => '102'),
-            array('item' => 'postal_box_#00','count' => '98'),
-            array('item' => 'big_pgun_part_#00','count' => '95'),
-            array('item' => 'car_door_part_#00','count' => '95'),
-            array('item' => 'chama_#00','count' => '94'),
-            array('item' => 'water_can_empty_#00','count' => '93'),
-            array('item' => 'cdbrit_#00','count' => '92'),
-            array('item' => 'pilegun_upkit_#00','count' => '90'),
-            array('item' => 'saw_tool_part_#00','count' => '90'),
-            array('item' => 'beta_drug_bad_#00','count' => '90'),
-            array('item' => 'rp_book_#00','count' => '90'),
-            array('item' => 'chest_xl_#00','count' => '90'),
-            array('item' => 'poison_part_#00','count' => '90'),
-            array('item' => 'gun_#00','count' => '90'),
-            array('item' => 'rsc_pack_3_#00','count' => '89'),
-            array('item' => 'safe_#00','count' => '88'),
-            array('item' => 'rp_twin_#00','count' => '87'),
-            array('item' => 'food_armag_#00','count' => '87'),
-            array('item' => 'cdelvi_#00','count' => '82'),
-            array('item' => 'cdphil_#00','count' => '67'),
-            array('item' => 'cinema_#00','count' => '53'),
-            array('item' => 'maglite_off_#00','count' => '24'),
-            array('item' => 'vodka_#00','count' => '18'),
-            //array('item' => 'vodka_de_#00','count' => '6'),
+            array('item' => 'wood2_#00', 'count' => '16764'),
+            array('item' => 'metal_#00', 'count' => '10124'),
+            array('item' => 'grenade_empty_#00', 'count' => '6915'),
+            array('item' => 'food_bag_#00', 'count' => '4845'),
+            array('item' => 'pile_#00', 'count' => '4766'),
+            array('item' => 'pharma_#00', 'count' => '3935'),
+            array('item' => 'rustine_#00', 'count' => '2578'),
+            array('item' => 'can_#00', 'count' => '2445'),
+            array('item' => 'concrete_#00', 'count' => '1689'),
+            array('item' => 'wood_plate_part_#00', 'count' => '1529'),
+            array('item' => 'jerrycan_#00', 'count' => '1456'),
+            array('item' => 'chest_tools_#00', 'count' => '1390'),
+            array('item' => 'deco_box_#00', 'count' => '1309'),
+            array('item' => 'bplan_drop_#00', 'count' => '1232'),
+            array('item' => 'digger_#00', 'count' => '1231'),
+            array('item' => 'tube_#00', 'count' => '1184'),
+            array('item' => 'wood_beam_#00', 'count' => '1176'),
+            array('item' => 'powder_#00', 'count' => '1159'),
+            array('item' => 'staff_#00', 'count' => '1138'),
+            array('item' => 'oilcan_#00', 'count' => '1100'),
+            array('item' => 'mecanism_#00', 'count' => '1063'),
+            array('item' => 'drug_#00', 'count' => '965'),
+            array('item' => 'fest_#00', 'count' => '964'),
+            array('item' => 'meca_parts_#00', 'count' => '964'),
+            array('item' => 'plate_raw_#00', 'count' => '963'),
+            array('item' => 'watergun_empty_#00', 'count' => '953'),
+            array('item' => 'deto_#00', 'count' => '935'),
+            array('item' => 'repair_one_#00', 'count' => '907'),
+            array('item' => 'pet_snake_#00', 'count' => '877'),
+            array('item' => 'electro_box_#00', 'count' => '854'),
+            array('item' => 'tekel_#00', 'count' => '845'),
+            array('item' => 'door_#00', 'count' => '841'),
+            array('item' => 'drug_random_#00', 'count' => '818'),
+            array('item' => 'smoke_bomb_#00', 'count' => '814'),
+            array('item' => 'bag_#00', 'count' => '808'),
+            array('item' => 'water_cleaner_#00', 'count' => '803'),
+            array('item' => 'tagger_#00', 'count' => '794'),
+            array('item' => 'machine_3_#00', 'count' => '794'),
+            array('item' => 'trestle_#00', 'count' => '790'),
+            array('item' => 'pilegun_empty_#00', 'count' => '784'),
+            array('item' => 'machine_1_#00', 'count' => '777'),
+            array('item' => 'bretz_#00', 'count' => '775'),
+            array('item' => 'explo_#00', 'count' => '771'),
+            array('item' => 'food_noodles_#00', 'count' => '763'),
+            array('item' => 'chest_#00', 'count' => '734'),
+            array('item' => 'machine_2_#00', 'count' => '729'),
+            array('item' => 'pet_rat_#00', 'count' => '710'),
+            array('item' => 'wire_#00', 'count' => '691'),
+            array('item' => 'drug_hero_#00', 'count' => '634'),
+            array('item' => 'metal_beam_#00', 'count' => '592'),
+            array('item' => 'ryebag_#00', 'count' => '541'),
+            array('item' => 'spices_#00', 'count' => '508'),
+            array('item' => 'small_knife_#00', 'count' => '501'),
+            array('item' => 'bed_#00', 'count' => '501'),
+            array('item' => 'rhum_#00', 'count' => '499'),
+            array('item' => 'chain_#00', 'count' => '493'),
+            array('item' => 'pet_chick_#00', 'count' => '491'),
+            array('item' => 'cutter_#00', 'count' => '476'),
+            array('item' => 'pet_pig_#00', 'count' => '474'),
+            array('item' => 'meat_#00', 'count' => '474'),
+            array('item' => 'can_opener_#00', 'count' => '469'),
+            array('item' => 'lilboo_#00', 'count' => '458'),
+            array('item' => 'electro_#00', 'count' => '427'),
+            array('item' => 'chair_basic_#00', 'count' => '423'),
+            array('item' => 'xanax_#00', 'count' => '418'),
+            array('item' => 'diode_#00', 'count' => '416'),
+            array('item' => 'pet_cat_#00', 'count' => '396'),
+            array('item' => 'lights_#00', 'count' => '381'),
+            array('item' => 'sport_elec_empty_#00', 'count' => '376'),
+            array('item' => 'lock_#00', 'count' => '369'),
+            array('item' => 'lens_#00', 'count' => '366'),
+            array('item' => 'chest_food_#00', 'count' => '364'),
+            array('item' => 'chudol_#00', 'count' => '347'),
+            array('item' => 'angryc_#00', 'count' => '342'),
+            array('item' => 'home_box_#00', 'count' => '302'),
+            array('item' => 'home_def_#00', 'count' => '294'),
+            array('item' => 'fence_#00', 'count' => '293'),
+            array('item' => 'repair_kit_part_raw_#00', 'count' => '293'),
+            array('item' => 'rsc_pack_2_#00', 'count' => '290'),
+            array('item' => 'lamp_#00', 'count' => '288'),
+            array('item' => 'disinfect_#00', 'count' => '288'),
+            array('item' => 'book_gen_letter_#00', 'count' => '286'),
+            array('item' => 'bandage_#00', 'count' => '284'),
+            array('item' => 'plate_#00', 'count' => '283'),
+            array('item' => 'chest_citizen_#00', 'count' => '282'),
+            array('item' => 'cart_part_#00', 'count' => '274'),
+            array('item' => 'chair_#00', 'count' => '273'),
+            array('item' => 'bquies_#00', 'count' => '257'),
+            array('item' => 'screw_#00', 'count' => '240'),
+            array('item' => 'badge_#00', 'count' => '238'),
+            array('item' => 'pc_#00', 'count' => '215'),
+            array('item' => 'music_part_#00', 'count' => '210'),
+            array('item' => 'book_gen_box_#00', 'count' => '209'),
+            array('item' => 'cyanure_#00', 'count' => '206'),
+            array('item' => 'hmeat_#00', 'count' => '195'),
+            array('item' => 'knife_#00', 'count' => '194'),
+            array('item' => 'engine_part_#00', 'count' => '193'),
+            array('item' => 'game_box_#00', 'count' => '192'),
+            array('item' => 'wood_log_#00', 'count' => '190'),
+            array('item' => 'vibr_empty_#00', 'count' => '189'),
+            array('item' => 'cigs_#00', 'count' => '181'),
+            array('item' => 'out_def_#00', 'count' => '180'),
+            array('item' => 'courroie_#00', 'count' => '179'),
+            array('item' => 'catbox_#00', 'count' => '170'),
+            array('item' => 'sheet_#00', 'count' => '115'),
+            array('item' => 'iphone_#00', 'count' => '112'),
+            array('item' => 'money_#00', 'count' => '110'),
+            array('item' => 'home_box_xl_#00', 'count' => '109'),
+            array('item' => 'coffee_machine_part_#00', 'count' => '103'),
+            array('item' => 'cadaver_#00', 'count' => '102'),
+            array('item' => 'smelly_meat_#00', 'count' => '102'),
+            array('item' => 'postal_box_#00', 'count' => '98'),
+            array('item' => 'big_pgun_part_#00', 'count' => '95'),
+            array('item' => 'car_door_part_#00', 'count' => '95'),
+            array('item' => 'chama_#00', 'count' => '94'),
+            array('item' => 'water_can_empty_#00', 'count' => '93'),
+            array('item' => 'cdbrit_#00', 'count' => '92'),
+            array('item' => 'pilegun_upkit_#00', 'count' => '90'),
+            array('item' => 'saw_tool_part_#00', 'count' => '90'),
+            array('item' => 'beta_drug_bad_#00', 'count' => '90'),
+            array('item' => 'rp_book_#00', 'count' => '90'),
+            array('item' => 'chest_xl_#00', 'count' => '90'),
+            array('item' => 'poison_part_#00', 'count' => '90'),
+            array('item' => 'gun_#00', 'count' => '90'),
+            array('item' => 'rsc_pack_3_#00', 'count' => '89'),
+            array('item' => 'safe_#00', 'count' => '88'),
+            array('item' => 'rp_twin_#00', 'count' => '87'),
+            array('item' => 'food_armag_#00', 'count' => '87'),
+            array('item' => 'cdelvi_#00', 'count' => '82'),
+            array('item' => 'cdphil_#00', 'count' => '67'),
+            array('item' => 'cinema_#00', 'count' => '53'),
+            array('item' => 'maglite_off_#00', 'count' => '24'),
+            array('item' => 'vodka_#00', 'count' => '18'),
+            //array('item' => 'vodka_de_#00', 'count' => '6'),
         ),
         'christmas_dig' => [
-            array('item' => 'renne_#00','count' => '8'),
-            array('item' => 'sand_ball_#00','count' => '14'),
-            array('item' => 'christmas_suit_3_#00','count' => '4'),
-            array('item' => 'christmas_suit_1_#00','count' => '3'),
-            array('item' => 'christmas_suit_2_#00','count' => '1'),
-            array('item' => 'food_xmas_#00','count' => '2'),
+            array('item' => 'renne_#00', 'count' => '8'),
+            array('item' => 'sand_ball_#00', 'count' => '14'),
+            array('item' => 'christmas_suit_3_#00', 'count' => '4'),
+            array('item' => 'christmas_suit_1_#00', 'count' => '3'),
+            array('item' => 'christmas_suit_2_#00', 'count' => '1'),
+            array('item' => 'food_xmas_#00', 'count' => '2'),
         ],
         'christmas_dig_post' => [
-            array('item' => 'postal_box_#01','count' => '3'),
-            array('item' => 'postal_box_xl_#00','count' => '1'),
+            array('item' => 'postal_box_#01', 'count' => '3'),
+            array('item' => 'postal_box_xl_#00', 'count' => '1'),
         ],
         'easter_dig' => [
-            array('item' => 'paques_#00','count' => '207'),
+            array('item' => 'paques_#00', 'count' => '207'),
         ],
         'trash_good' => [
-            array('item' => 'fence_#00','count' => '33'),
-            array('item' => 'chest_#00','count' => '6'),
-            array('item' => 'wood2_#00','count' => '15'),
-            array('item' => 'metal_#00','count' => '2'),
-            array('item' => 'repair_one_#00','count' => '7'),
-            array('item' => 'home_def_#00','count' => '9'),
-            array('item' => 'home_box_#00','count' => '4'),
+            array('item' => 'fence_#00', 'count' => '33'),
+            array('item' => 'chest_#00', 'count' => '6'),
+            array('item' => 'wood2_#00', 'count' => '15'),
+            array('item' => 'metal_#00', 'count' => '2'),
+            array('item' => 'repair_one_#00', 'count' => '7'),
+            array('item' => 'home_def_#00', 'count' => '9'),
+            array('item' => 'home_box_#00', 'count' => '4'),
         ],
         'trash_bad' => [
-            array('item' => 'fruit_sub_part_#00','count' => '205'),
-            array('item' => 'fruit_part_#00','count' => '54'),
-            array('item' => 'pharma_part_#00','count' => '148'),
-            array('item' => 'flesh_part_#00','count' => '311'),
-            array('item' => 'water_cup_part_#00','count' => '16'),
+            array('item' => 'fruit_sub_part_#00', 'count' => '205'),
+            array('item' => 'fruit_part_#00', 'count' => '54'),
+            array('item' => 'pharma_part_#00', 'count' => '148'),
+            array('item' => 'flesh_part_#00', 'count' => '311'),
+            array('item' => 'water_cup_part_#00', 'count' => '16'),
         ],
     ];
 
@@ -1163,7 +1163,7 @@ class ItemFixtures extends Fixture
         if (!empty($missing_data)) {
             $out->writeln('<error>Unable to insert all fixtures. The following entries are missing:</error>');
             $table2 = new Table( $out->section() );
-            $table2->setHeaders( ['Name','Label','Parent','Ordering'] );
+            $table2->setHeaders( ['Name', 'Label', 'Parent', 'Ordering'] );
             foreach ($missing_data as $entry)
                 $table2->addRow( [ $entry['name'], $entry['label'], $entry['parent'], $entry['ordering'] ] );
             $table2->render();
@@ -1191,7 +1191,7 @@ class ItemFixtures extends Fixture
             else $cache[$entry['icon']]++;
 
             // Generate unique ID
-            $entry_unique_id = $entry['icon'] . '_#' . str_pad($cache[$entry['icon']],2,'0',STR_PAD_LEFT);
+            $entry_unique_id = $entry['icon'] . '_#' . str_pad($cache[$entry['icon']],2, '0',STR_PAD_LEFT);
 
             // Check the category
             $category = $this->entityManager->getRepository(ItemCategory::class)->findOneBy( ['name' => $entry['category']] );
