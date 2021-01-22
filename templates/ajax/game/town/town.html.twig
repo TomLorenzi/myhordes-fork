@@ -8,7 +8,7 @@
                 <div class="green-note warning-box">
                     <img src="{{ asset('build/images/status/status_ghoul.gif') }}" alt=""> {{'Du hast dich in einen %role% verwandelt!'|trans({'%role%': '<strong>' ~ 'Ghul'|trans({},'game') ~ '</strong>'}, 'game')|raw}}<br />
                     <em>{{ "Erzähle niemandem davon oder du wirst sofort erschossen!"|trans({}, 'game') }}</em><br />
-                    {{ help_lnk('Wie man als Ghul spielt'|trans({},'game'), 'help', {'name' : 'ghouls'}) }}
+                    {{ help_lnk('Wie man als Ghul spielt ?'|trans({},'game'), 'help', {'name' : 'ghouls'}) }}
                 </div>
             {% endif %}
             {% if chaos %}

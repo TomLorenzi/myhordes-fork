@@ -15,6 +15,7 @@ use App\Entity\PictoPrototype;
 use App\Entity\RememberMeTokens;
 use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
+use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\RolePlayTextPage;
@@ -281,10 +282,10 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/season", name="soul_season")
+     * @Route("jx/soul/ranking/{type<\d+>}/{seasonId<\d+>}", name="soul_season")
      * @return Response
      */
-    public function soul_season(): Response
+    public function soul_season($type = 1, $seasonId = null): Response
     {
         $user = $this->getUser();
 
@@ -292,7 +293,28 @@ class SoulController extends CustomAbstractController
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season") );
+        $seasons = $this->entity_manager->getRepository(Season::class)->findAll();
+        if ($seasonId === null) {
+            $currentSeason = $this->entity_manager->getRepository(Season::class)->findLatest();
+        } else {
+            $currentSeason = $this->entity_manager->getRepository(Season::class)->find($seasonId);
+        }
+
+        $currentType = $this->entity_manager->getRepository(TownClass::class)->find($type);
+
+        if ($currentSeason === null || $currentType === null) {
+            $this->redirect($this->generateUrl('soul_season'));
+        }
+
+        $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['season' => $currentSeason], ['language' => 'ASC', 'days' => 'DESC'], 35);
+
+        return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season", [
+            'seasons' => $seasons,
+            'currentSeason' => $currentSeason,
+            'towns' => $towns,
+            'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findAll(),
+            'currentType' => $currentType,
+        ]) );
     }
 
     /**

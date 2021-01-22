@@ -145,7 +145,7 @@ class TownHandler
             $this->entity_manager->persist( $this->log->constructionsBuildingCompleteWell( $building, $well ) );
 
         switch ($building->getPrototype()->getName()) {
-            case 'small_fireworks_#00':case 'small_balloon_#00':
+            /*case 'small_fireworks_#00':*/case 'small_balloon_#00':
                 $all = $building->getPrototype()->getName() === 'small_balloon_#00';
                 foreach ($town->getZones() as &$zone)
                     if ($all || $zone->getPrototype()) {
@@ -497,18 +497,23 @@ class TownHandler
 
     public function get_zombie_estimation_quality(Town &$town, int $future = 0, ?int &$min = null, ?int &$max = null): float {
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town, $town->getDay() + $future);
+        /** @var ZombieEstimation $est */
         if (!$est) return 0;
 
-        $offsetMin = $est->getOffsetMin();
-        $offsetMax = $est->getOffsetMax();
+        $c = $est->getCitizens()->count();
+        if ($this->getBuilding($town, 'item_tagger_#01')) $c *= 2;
+        if ($this->inventory_handler->countSpecificItems($town->getBank(), 'scope_#00', false, false) > 0) $c *= 2;
+
+        $offsetMin = $est->getOffsetMin() - floor($c / 2);
+        $offsetMax = $est->getOffsetMax() - floor($c / 2);
 
         $min = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
         $max = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
 
         $soulFactor = min(1 + (0.04 * $this->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 
-        $min = round($min * $soulFactor, 0);
-        $max = round($max * $soulFactor, 0);
+        $min = round($min * $soulFactor);
+        $max = round($max * $soulFactor);
 
         $this->conf->getCurrentEvent($town)->hook_watchtower_estimations($min,$max, $town);
 

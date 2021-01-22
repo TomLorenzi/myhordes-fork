@@ -22,6 +22,7 @@ use App\Entity\ItemCategory;
 use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
+use App\Entity\Season;
 use App\Entity\TownClass;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
@@ -212,6 +213,11 @@ class DatabaseExtractor implements ExtractorInterface
             /** @var ComplaintReason $reason */
             if ($reason->getText())
                 $this->insert( $c, $reason->getText(), 'game' );
+        }
+
+        foreach ($this->em->getRepository(Season::class)->findAll() as $season) {
+            /** @var Season $season */
+            $this->insert( $c, "Saison {$season->getNumber()}.{$season->getSubNumber()}", 'season' );
         }
         //</editor-fold>
     }

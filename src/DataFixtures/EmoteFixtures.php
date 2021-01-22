@@ -148,6 +148,13 @@ class EmoteFixtures extends Fixture {
         ['tag'=>':gsp:', 'path'=>'build/images/emotes/gsp.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 124],
         ['tag'=>':ufc:', 'path'=>'build/images/emotes/ufc.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 125],
         ['tag'=>':tamwin:', 'path'=>'build/images/emotes/tamwin.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 126],
+        ['tag'=>':part:', 'path'=>'build/images/emotes/winthi.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 127],
+        ['tag'=>':comu:', 'path'=>'build/images/emotes/comu.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 128],
+        ['tag'=>':comu2:', 'path'=>'build/images/emotes/comu2.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 129],
+        ['tag'=>':rangwin:', 'path'=>'build/images/emotes/rangwin.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 130],
+        ['tag'=>':derwin:', 'path'=>'build/images/emotes/derwin.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 131],
+        ['tag'=>':easter:', 'path'=>'build/images/emotes/paques.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 132],
+        ['tag'=>':sand:', 'path'=>'build/images/emotes/sandb.gif', 'isactive'=> true, 'requiresunlock'=> true, 'index'=> 133],
     ];
 
     private function insertEmotes(ObjectManager $manager, ConsoleOutputInterface $out) {

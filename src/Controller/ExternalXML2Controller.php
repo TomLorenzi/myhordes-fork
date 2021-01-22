@@ -646,54 +646,60 @@ class ExternalXML2Controller extends ExternalController {
             // Map
             foreach($town->getZones() as $zone) {
                 /** @var Zone $zone */
-                if($zone->getDiscoveryStatus() != Zone::DiscoveryStateNone) {
-                    $danger = 0;
-                    if($zone->getZombies() > 0 && $zone->getZombies() <= 2) {
-                        $danger = 1;
-                    } else if($zone->getZombies() > 2 && $zone->getZombies() <= 5) {
-                        $danger = 2;
-                    } else if ($zone->getZombies() > 5) {
-                        $danger = 3;
+                if($zone->getDiscoveryStatus() === Zone::DiscoveryStateNone) continue;
+
+                $danger = 0;
+                if($zone->getZombies() > 0 && $zone->getZombies() <= 2) {
+                    $danger = 1;
+                } else if($zone->getZombies() > 2 && $zone->getZombies() <= 5) {
+                    $danger = 2;
+                } else if ($zone->getZombies() > 5) {
+                    $danger = 3;
+                }
+
+                $item = [
+                    'attributes' => [
+                        'x' => $offset['x'] + $zone->getX(),
+                        'y' => $offset['y'] - $zone->getY(),
+                        'nvt' => intval($zone->getDiscoveryStatus() != Zone::DiscoveryStateCurrent)
+                    ]
+                ];
+
+                if ($zone->getDiscoveryStatus() == Zone::DiscoveryStateCurrent) {
+                    if($danger > 0) {
+                        $item['attributes']['danger'] = $danger;
                     }
-                    
-                    $item = [
+                }
+
+                if($zone->getTag() !== null && $zone->getTag()->getRef() !== ZoneTag::TagNone) {
+                    $item['attributes']['tag'] = $zone->getTag()->getRef();
+                }
+
+                if ($zone->getZombieStatus() == Zone::ZombieStateExact && $zone->getZombies() > 0) {
+                    $item["attributes"]["z"] = $zone->getZombies();
+                }
+
+                if($zone->getPrototype() !== null) {
+                    $zoneXml = [
                         'attributes' => [
-                            'x' => $offset['x'] + $zone->getX(),
-                            'y' => $offset['y'] - $zone->getY(),
-                            'nvt' => intval($zone->getDiscoveryStatus() != Zone::DiscoveryStateCurrent)
+                            'type' => $zone->getBuryCount() > 0 ? -1 : $zone->getPrototype()->getId(),
+                            'dig' => $zone->getBuryCount()
                         ]
                     ];
-                    if ($zone->getDiscoveryStatus() == Zone::DiscoveryStateCurrent) {
-                        if($danger > 0) {
-                            $item['attributes']['danger'] = $danger;
+                    if ($language !== 'all') {
+                        $zoneXml['attributes']['name'] = $zone->getBuryCount() > 0 ? $this->translator->trans('Verschüttete Ruine', [], 'game') : $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game');
+                        $zoneXml['cdata_value'] = $zone->getBuryCount() > 0 ? $this->translator->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $this->translator->trans($zone->getPrototype()->getDescription(), [], 'game');
+                    } else {
+                        foreach ($this->available_langs as $lang) {
+                            $zoneXml['attributes']["name-$lang"] = $zone->getBuryCount() > 0 ? $this->translator->trans('Verschüttete Ruine', [], 'game', $lang) : $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game', $lang);
+                            $zoneXml["value-$lang"] = ['cdata_value'=> $zone->getBuryCount() > 0 ? $this->translator->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $this->translator->trans($zone->getPrototype()->getDescription(), [], 'game', $lang)];
                         }
                     }
-
-                    if($zone->getTag() !== null && $zone->getTag()->getRef() !== ZoneTag::TagNone) {
-                        $item['attributes']['tag'] = $zone->getTag()->getRef();
-                    }
-
-                    if($zone->getPrototype() !== null) {
-                        $zoneXml = [
-                            'attributes' => [
-                                'type' => $zone->getBuryCount() > 0 ? -1 : $zone->getPrototype()->getId(),
-                                'dig' => $zone->getBuryCount()
-                            ]
-                        ];
-                        if ($language !== 'all') {
-                            $zoneXml['attributes']['name'] = $zone->getBuryCount() > 0 ? $this->translator->trans('Verschüttete Ruine', [], 'game') : $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game');
-                            $zoneXml['cdata_value'] = $zone->getBuryCount() > 0 ? $this->translator->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $this->translator->trans($zone->getPrototype()->getDescription(), [], 'game');
-                        } else {
-                            foreach ($this->available_langs as $lang) {
-                                $zoneXml['attributes']["name-$lang"] = $zone->getBuryCount() > 0 ? $this->translator->trans('Verschüttete Ruine', [], 'game', $lang) : $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game', $lang);
-                                $zoneXml["value-$lang"] = ['cdata_value'=> $zone->getBuryCount() > 0 ? $this->translator->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $this->translator->trans($zone->getPrototype()->getDescription(), [], 'game', $lang)];
-                            }
-                        }
-                        $item['building'] = $zoneXml;
-                    }
-
-                    $data['data']['map']['list']['items'][] = $item;
+                    $item['building'] = $zoneXml;
                 }
+
+                $data['data']['map']['list']['items'][] = $item;
+
             }
 
             $has_zombie_est    = !empty($this->town_handler->getBuilding($town, 'item_tagger_#00'));

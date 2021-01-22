@@ -60,7 +60,31 @@ class LandingController extends CustomAbstractController
         if (!$tk->isDuringAttack())
             return $this->redirect($this->generateUrl('initial_landing'));
 
-        return $this->render( 'ajax/public/maintenance_attack.html.twig', ['rand' => $rand] );
+        $attack_messages = [
+            $this->translator->trans('Deinen Rucksack umklammern', [], 'global'),
+            $this->translator->trans('Schreien', [], 'global'),
+            $this->translator->trans('Rotz und Wasser heulen', [], 'global'),
+            $this->translator->trans('Die Zähne zusammenbeißen', [], 'global'),
+            $this->translator->trans('Eine Gitarre umarmen', [], 'global'),
+            $this->translator->trans('Nervös weinen', [], 'global'),
+            $this->translator->trans('In Panik ausbrechen', [], 'global'),
+            $this->translator->trans('Hinter dem Wrack verstecken', [], 'global'),
+            $this->translator->trans('Die Tür zuhalten', [], 'global'),
+            $this->translator->trans('Unter der Decke verstecken', [], 'global'),
+            $this->translator->trans('Nach Hilfe schreien', [], 'global'),
+            $this->translator->trans('"Hilfe" schreien', [], 'global'),
+            $this->translator->trans('Unter einem Karton verstecken', [], 'global'),
+            $this->translator->trans('Unter dem Bett verstecken', [], 'global'),
+            $this->translator->trans('Ruhig bleiben...', [], 'global'),
+            $this->translator->trans('In die Fötusstellung zusammenrollen', [], 'global'),
+            $this->translator->trans('Alleine laut singen', [], 'global'),
+            $this->translator->trans('Um dein Leben beten', [], 'global'),
+            $this->translator->trans('Die Backen halten', [], 'global'),
+        ];
+
+        $button_texts = $rand->pick($attack_messages, 2);
+
+        return $this->render( 'ajax/public/maintenance_attack.html.twig', ['button_texts' => $button_texts] );
     }
 
 

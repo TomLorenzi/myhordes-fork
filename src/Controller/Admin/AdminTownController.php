@@ -43,6 +43,7 @@ class AdminTownController extends AdminActionController
     {
         return $this->render( 'ajax/admin/towns/list.html.twig', $this->addDefaultTwigArgs('towns', [
             'towns' => $this->entity_manager->getRepository(Town::class)->findAll(),
+            'citizen_stats' => $this->entity_manager->getRepository(Citizen::class)->getStatByLang()
         ]));
     }
 
@@ -257,7 +258,8 @@ class AdminTownController extends AdminActionController
                 $town,
                 $zone,
                 null,
-                in_array($zone->getId(), $soul_zones_ids)
+                in_array($zone->getId(), $soul_zones_ids),
+                true
             );
         }
 

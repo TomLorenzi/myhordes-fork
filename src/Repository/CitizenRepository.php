@@ -96,6 +96,8 @@ class CitizenRepository extends ServiceEntityRepository
             ->innerJoin('c.roles', 'r')
             ->andWhere('c.town = :town')
             ->andWhere('c.alive = true')
+            ->addOrderBy("r.id")
+            ->addOrderBy("c.id")
             ->setParameter('town', $town)
             ->getQuery()
             ->getResult();
@@ -112,6 +114,20 @@ class CitizenRepository extends ServiceEntityRepository
                 ->getResult();
         } catch (NonUniqueResultException $e) {
             return null;
+        }
+    }
+
+    public function getStatByLang() {
+        try {
+            return $this->createQueryBuilder('c')
+                ->select('count(c.id) as count, t.language')
+                ->innerJoin("c.town", "t")
+                ->andWhere("c.alive = true")
+                ->groupBy("t.language")
+                ->orderBy("t.language")
+                ->getQuery()->getResult();
+        } catch (\Exception $e) {
+            return [];
         }
     }
 

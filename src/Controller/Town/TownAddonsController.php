@@ -169,11 +169,11 @@ class TownAddonsController extends TownController
         if ($est->getCitizens()->contains($this->getActiveCitizen()))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        $c = 1;
+        /*$c = 1;
         if ($th->getBuilding($town, 'item_tagger_#01', true)) $c *= 2;
         if ($this->inventory_handler->countSpecificItems($town->getBank(), 'scope_#00', false, false) > 0) $c *= 2;
 
-        for ($i = 0; $i < $c; $i++)
+        for ($i = 0; $i < $c; $i++)*/
             if ($est->getOffsetMin() + $est->getOffsetMax() > 10) {
                 $increase_min = $rg->chance( $est->getOffsetMin() / ($est->getOffsetMin() + $est->getOffsetMax()) );
                 if ($increase_min) $est->setOffsetMin( $est->getOffsetMin() - 1);

@@ -139,7 +139,7 @@ class CustomAbstractController extends AbstractController {
     /**
      * @return TownConf The current town settings
      */
-    protected function getTownConf() {
+    protected function getTownConf(): TownConf {
         return $this->town_conf ?? ($this->town_conf = $this->conf->getTownConfiguration( $this->getActiveCitizen()->getTown() ));
     }
 }

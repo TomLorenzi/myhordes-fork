@@ -20,7 +20,7 @@
                     <div class="small-note">{{ citizen.cod.description|trans({},'game') }}</div>
                     <div>
                         <button {% if gazette %}x-ajax-href="{{ path('game_newspaper') }}"{% else %}disabled{% endif %}>{{ 'Die letzte Zeitung lesen'|trans({},'game') }}</button>
-                        {% if not gazette %}<div class="tooltip">{{ 'Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.'|trans({}, 'soul') }}</div>{% endif %}
+                        {% if not gazette %}<div class="tooltip">{{ 'Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.'|trans({}, 'game') }}</div>{% endif %}
                     </div>
                 </div>
                 <div class="cell rw-6 rw-sm-12">

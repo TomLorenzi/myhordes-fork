@@ -4,5 +4,20 @@
     {{ parent() }}
 {% endblock %}
 {% block soul_content %}
-    COMING SOON
+    {# @var currentSeason \Src\Entity\Season #}
+    <div class="row">
+        <div class="cell rw-12 seasonHeader">
+            <span class="seasonName">
+                {{ ('Saison ' ~ currentSeason.number ~ '.' ~ currentSeason.subNumber)|trans({}, "season")}}
+            </span>
+            <span class="seasonNumber">
+                {% if currentSeason.subNumber > 0 %}
+                    {% set curNumber = currentSeason.number ~ '.' ~ currentSeason.subNumber %}
+                {% else %}
+                    {% set curNumber = currentSeason.number %}
+                {% endif %}
+                {{ 'Saison %number%'|trans({"%number%": '<span class="number">' ~ curNumber ~ '</span>'}, "soul")|raw}}
+            </span>
+        </div>
+    </div>
 {% endblock %}

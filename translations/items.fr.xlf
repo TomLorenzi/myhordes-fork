@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>Was für ein Spaß!</source>
-        <target></target>
+        <target>Quelle joie !</target>
       </segment>
     </unit>
     <unit id="zcpU78C" name="3649d62">
@@ -160,7 +160,7 @@
       </notes>
       <segment>
         <source>Taser</source>
-        <target>Taser</target>
+        <target>Taser d'auto-défense</target>
       </segment>
     </unit>
     <unit id="mhB5NC7" name="Aqua-Splash (leer)">
@@ -997,7 +997,7 @@
       </notes>
       <segment>
         <source>Taser (ohne Strom)</source>
-        <target>Taser</target>
+        <target>Taser d'auto-défense (éteint)</target>
       </segment>
     </unit>
     <unit id="Pv.PdId" name="Elektrischer Bauchmuskeltrainer (ohne Strom)">
@@ -6564,7 +6564,7 @@
     </unit>
     <unit id="5OR30sk" name="01df5c7">
       <notes>
-        <note category="german">__Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.</note>
+        <note category="german">Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.</note>
       </notes>
       <segment>
         <source>Du bist der Ansicht, dass du diese Zone nicht besser ausbauen kannst, da du schon dein Bestes gegeben hast.</source>
@@ -7459,7 +7459,7 @@
       </notes>
       <segment>
         <source>Geschenkpaket</source>
-        <target>Colis postal</target>
+        <target>Colis de Noël</target>
       </segment>
     </unit>
     <unit id="kdGOsHH" name="cfe7609">

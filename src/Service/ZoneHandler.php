@@ -464,7 +464,7 @@ class ZoneHandler
         return array_values($cache);
     }
 
-    public function getZoneClasses(Town $town, Zone $zone, ?Citizen $citizen = null, bool $soul = false) {
+    public function getZoneClasses(Town $town, Zone $zone, ?Citizen $citizen = null, bool $soul = false, bool $admin = false) {
         $attributes = ['zone'];
 
         if ($zone->getX() == 0 && $zone->getY() == 0) {
@@ -476,11 +476,10 @@ class ZoneHandler
         if ($citizen && $zone === $citizen->getZone()) {
             $attributes[] = 'active';
         }
-        if ($zone->getDiscoveryStatus() === Zone::DiscoveryStateNone) {
+        if (!$admin && $zone->getDiscoveryStatus() === Zone::DiscoveryStateNone) {
             $attributes[] = 'unknown';
-        }
-        else {
-            if ($zone->getDiscoveryStatus() === Zone::DiscoveryStatePast) {
+        } else {
+            if (!$admin && $zone->getDiscoveryStatus() === Zone::DiscoveryStatePast) {
                 $attributes[] = 'past';
             }
             if ($zone->getPrototype()) {
@@ -490,7 +489,7 @@ class ZoneHandler
                 }
             }
         }
-        if ($zone->getZombieStatus() >= Zone::ZombieStateEstimate) {
+        if ($zone->getZombieStatus() >= Zone::ZombieStateEstimate || $admin) {
             if ($zone->getZombies() == 0) {
                 $attributes[] = 'danger-0';
             }

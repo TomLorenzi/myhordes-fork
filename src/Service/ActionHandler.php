@@ -755,7 +755,7 @@ class ActionHandler
                     }
                 } elseif (is_a($target, ItemPrototype::class)) {
                     if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ),
-                        [ $floor_inventory, $citizen->getInventory(), $citizen->getZone() ? null : $citizen->getTown()->getBank() ]
+                        [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ]
                         , true)) $execute_info_cache['items_spawn'][] = $target;
                 }
             }
@@ -1219,7 +1219,13 @@ class ActionHandler
 
                         $trans = [
                             'watergun_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'watergun_3_#00']),
+                            'watergun_2_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'watergun_3_#00']),
+                            'watergun_1_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'watergun_3_#00']),
                             'watergun_opt_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'watergun_opt_5_#00']),
+                            'watergun_opt_4_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'watergun_opt_5_#00']),
+                            'watergun_opt_3_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'watergun_opt_5_#00']),
+                            'watergun_opt_2_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'watergun_opt_5_#00']),
+                            'watergun_opt_1_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'watergun_opt_5_#00']),
                             'grenade_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'grenade_#00']),
                             'bgrenade_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'bgrenade_#00']),
                             'kalach_#01' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'kalach_#00']),

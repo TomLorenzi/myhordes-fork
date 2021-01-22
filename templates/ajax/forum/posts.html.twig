@@ -379,7 +379,7 @@
         {% endif %}
 
         {% if markedPost is defined and markedPost > 0 %}
-            document.querySelector('[x-post-content-id="{{markedPost}}"]').parentElement.scrollIntoView();
+            document.querySelector('[x-post-wrapper-id="{{markedPost}}"]').scrollIntoView();
         {% endif %}
     </script>
 {% endblock %}

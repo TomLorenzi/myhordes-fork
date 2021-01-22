@@ -171,7 +171,12 @@
                                         <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" />
                                         {% endif %}
                                         {% if not citizen.alive %}
-                                        <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
+                                        <span>
+                                            <img alt="{{ 'Tot!'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
+                                            <div class="tooltip">
+                                                {{ citizen.causeOfDeath.label|trans({}, 'game') }} - {{ 'Tag'|trans({}, "admin") }} {{ citizen.survivedDays }}
+                                            </div>
+                                        </span>
                                         {% endif %}
                                         
                                         {% if citizen.profession.heroic %}

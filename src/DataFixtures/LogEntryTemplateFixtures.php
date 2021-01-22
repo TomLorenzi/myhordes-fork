@@ -128,6 +128,7 @@ class LogEntryTemplateFixtures extends Fixture
 
         ['text'=>'%attacker% hat %defender% mit einem üblen Sandballwurf verwundet. Autsch, das hat sicher weh getan...!', 'name'=>'sandballAttackWounded', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassWarning, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'attacker'], ['type'=>"citizen",'name'=>'defender'])],
         ['text'=>'%attacker% hat %defender% einen Sandball direkt ins Gesicht geworfen!', 'name'=>'sandballAttack', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassWarning, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'attacker'], ['type'=>"citizen",'name'=>'defender'])],
+        ['text'=>'Die Stadt hat folgende Gegenstände in Folge der Verbannung von %shunned% zurückerhalten: %list%', 'name'=>'bankBanRecovery', 'type'=>LogEntryTemplate::TypeBank, 'class'=>LogEntryTemplate::ClassNone, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>'citizen','name'=>'shunned'],['type'=>'list','name'=>'list','listType'=>'item'])],
 
         // Global PM templates
         ['text'=>'Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.', 'name'=>'gpm_townNegatedAdmin', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassWarning, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"string",'name'=>'town'])],

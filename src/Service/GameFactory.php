@@ -12,6 +12,7 @@ use App\Entity\CitizenProfession;
 use App\Entity\Forum;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
+use App\Entity\Season;
 use App\Entity\Shoutbox;
 use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
@@ -210,6 +211,10 @@ class GameFactory
         $town
             ->setType($townClass)
             ->setConf($customConf);
+
+        $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
+
+        $town->setSeason($currentSeason);
 
         $conf = $this->conf->getTownConfiguration($town);
 
