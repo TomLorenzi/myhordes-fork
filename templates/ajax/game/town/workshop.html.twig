@@ -1,5 +1,5 @@
 {% extends "ajax/game/town/town.html.twig" %}
-{%block title %}{{'Werkstatt'|trans({}, 'game')}}{% endblock %}
+{%block title %}{{'Werkstatt'|trans({}, 'game')|raw }}{% endblock %}
 {% block content %}
     {% set hour = "now"|date("G") %}
     <div class="row">

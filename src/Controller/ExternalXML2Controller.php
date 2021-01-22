@@ -118,6 +118,7 @@ class ExternalXML2Controller extends ExternalController {
             $endpoints['items']= $this->generateUrl('api_x2_xml_items', [], UrlGeneratorInterface::ABSOLUTE_URL);
             $endpoints['buildings']= $this->generateUrl('api_x2_xml_buildings', [], UrlGeneratorInterface::ABSOLUTE_URL);
             $endpoints['ruins']= $this->generateUrl('api_x2_xml_ruins', [], UrlGeneratorInterface::ABSOLUTE_URL);
+            $endpoints['pictos']= $this->generateUrl('api_x2_xml_pictos', [], UrlGeneratorInterface::ABSOLUTE_URL);
         }
         if ($user->getActiveCitizen()) $endpoints['town'] = $this->generateUrl("api_x2_xml_town", [], UrlGeneratorInterface::ABSOLUTE_URL);
 
@@ -366,7 +367,7 @@ class ExternalXML2Controller extends ExternalController {
                 ],
                 'bank' => [
                     'list' => [
-                        'name' => 'item', 
+                        'name' => 'item',
                         'items' => [
 
                         ]
@@ -380,17 +381,17 @@ class ExternalXML2Controller extends ExternalController {
                 ],
                 'citizens' => [
                     'list' => [
-                        'name' => 'citizen', 
+                        'name' => 'citizen',
                         'items' => [
-                            
+
                         ]
                     ]
                 ],
                 'cadavers' => [
                     'list' => [
-                        'name' => 'cadaver', 
+                        'name' => 'cadaver',
                         'items' => [
-                            
+
                         ]
                     ]
                 ],
@@ -400,9 +401,9 @@ class ExternalXML2Controller extends ExternalController {
                         'wid' => $town->getMapSize()
                     ],
                     'list' => [
-                        'name' => 'zone', 
+                        'name' => 'zone',
                         'items' => [
-                            
+
                         ]
                     ]
                 ],
@@ -411,17 +412,17 @@ class ExternalXML2Controller extends ExternalController {
                         'total' => 0,
                     ],
                     'list' => [
-                        'name' => 'up', 
+                        'name' => 'up',
                         'items' => [
-                            
+
                         ]
                     ]
                 ],
                 'estimations' => [
                     'list' => [
-                        'name' => 'e', 
+                        'name' => 'e',
                         'items' => [
-                            
+
                         ]
                     ]
                 ]
@@ -488,17 +489,33 @@ class ExternalXML2Controller extends ExternalController {
                 $gazette = $town->findGazette( $town->getDay() );
                 if ($gazette !== null) {
                     $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette);
-                    $text = '';
-                    while (count($gazette_logs) > 0) {
-                        $text .= '<p>' . $this->parseGazetteLog(array_shift($gazette_logs)) . '</p>';
-                    }
+
                     $data['data']['city']['news'] = [
                         'attributes' => [
                             'z' => $gazette->getAttack(),
                             'def' => $gazette->getDefense()
-                        ],
-                        'content' => $text
+                        ]
                     ];
+                    if($language !== "all") {
+                        $text = '';
+                        while (count($gazette_logs) > 0) {
+                            $text .= '<p>' . $this->parseGazetteLog(array_shift($gazette_logs)) . '</p>';
+                        }
+                        $data['data']['city']['news']['content'] = [
+                            'cdata_value' => $text
+                        ];
+                    } else {
+                        foreach($this->available_langs as $lang) {
+                            $logs = $gazette_logs;
+                            $text = '';
+                            while (count($logs) > 0) {
+                                $text .= '<p>' . $this->parseGazetteLog(array_shift($logs), $lang) . '</p>';
+                            }
+                            $data['data']['city']['news']["content-$lang"] = [
+                                'cdata_value' => $text
+                            ];
+                        }
+                    }
                 }
 
             }
@@ -611,10 +628,11 @@ class ExternalXML2Controller extends ExternalController {
                                 $type = "ghoul";
                                 break;
                         }
+
                         $cadaver['cleanup'] = [
                             'attributes' => [
                                 'type' => $type,
-                                'user' => $citizen->getDisposedBy()[0]->getUser()->getName()
+                                'user' => $citizen->getDisposedBy()->count() > 0 ? $citizen->getDisposedBy()[0]->getUser()->getName() : ""
                             ]
                         ];
                     }
@@ -633,66 +651,77 @@ class ExternalXML2Controller extends ExternalController {
             // Map
             foreach($town->getZones() as $zone) {
                 /** @var Zone $zone */
-                if ($zone->getDiscoveryStatus() != Zone::DiscoveryStateNone) {
-                    $danger = 0;
-                    if ($zone->getZombies() > 0 && $zone->getZombies() <= 2) {
-                        $danger = 1;
-                    } else if ($zone->getZombies() > 2 && $zone->getZombies() <= 5) {
-                        $danger = 2;
-                    } else if ($zone->getZombies() > 5) {
-                        $danger = 3;
+
+                if ($zone->getDiscoveryStatus() === Zone::DiscoveryStateNone) continue;
+
+                $danger = 0;
+                if ($zone->getZombies() > 0 && $zone->getZombies() <= 2) {
+                    $danger = 1;
+                } else if ($zone->getZombies() > 2 && $zone->getZombies() <= 5) {
+                    $danger = 2;
+                } else if ($zone->getZombies() > 5) {
+                    $danger = 3;
+                }
+
+                $item = [
+                    'attributes' => [
+                        'x' => $offset['x'] + $zone->getX(),
+                        'y' => $offset['y'] - $zone->getY(),
+                        'nvt' => intval($zone->getDiscoveryStatus() != Zone::DiscoveryStateCurrent)
+                    ]
+                ];
+
+                if ($zone->getDiscoveryStatus() == Zone::DiscoveryStateCurrent) {
+                    if($danger > 0) {
+                        $item['attributes']['danger'] = $danger;
+
                     }
-                    
-                    $item = [
+                }
+
+                if ($upgradedMap && $this->zone_handler->getZoneKm($zone) <= 10) {
+                    $item['attributes']['z'] = $zone->getZombies();
+                }
+
+                if ($zone->getTag() !== null && $zone->getTag()->getRef() !== ZoneTag::TagNone) {
+                    $item['attributes']['tag'] = $zone->getTag()->getRef();
+                }
+
+                if ($zone->getZombieStatus() == Zone::ZombieStateExact && $zone->getZombies() > 0) {
+                    $item["attributes"]["z"] = $zone->getZombies();
+                }
+
+                if ($zone->getPrototype() !== null) {
+                    $zoneXml = [
                         'attributes' => [
-                            'x' => $offset['x'] + $zone->getX(),
-                            'y' => $offset['y'] - $zone->getY(),
-                            'nvt' => intval($zone->getDiscoveryStatus() != Zone::DiscoveryStateCurrent)
+                            'type' => $zone->getBuryCount() > 0 ? -1 : $zone->getPrototype()->getId(),
+                            'dig' => $zone->getBuryCount()
                         ]
                     ];
-                    if ($zone->getDiscoveryStatus() == Zone::DiscoveryStateCurrent) {
-                        if ($danger > 0) {
-                            $item['attributes']['danger'] = $danger;
+
+                    if ($language !== 'all') {
+                        $zoneXml['attributes']['name'] = $zone->getBuryCount() > 0 ? $this->translator->trans('Verschüttete Ruine', [], 'game') : $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game');
+                        $zoneXml['cdata_value'] = $zone->getBuryCount() > 0 ? $this->translator->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $this->translator->trans($zone->getPrototype()->getDescription(), [], 'game');
+                    } else {
+                        foreach ($this->available_langs as $lang) {
+                            $zoneXml['attributes']["name-$lang"] = $zone->getBuryCount() > 0 ? $this->translator->trans('Verschüttete Ruine', [], 'game', $lang) : $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game', $lang);
+                            $zoneXml["value-$lang"] = ['cdata_value'=> $zone->getBuryCount() > 0 ? $this->translator->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $this->translator->trans($zone->getPrototype()->getDescription(), [], 'game', $lang)];
                         }
                     }
-                    if ($upgradedMap && $this->zone_handler->getZoneKm($zone) <= 10) {
-                      $item['attributes']['z'] = $zone->getZombies();
-                    }
-
-                    if($zone->getTag() !== null && $zone->getTag()->getRef() !== ZoneTag::TagNone) {
-                        $item['attributes']['tag'] = $zone->getTag()->getRef();
-                    }
-
-                    if($zone->getPrototype() !== null) {
-                        $zoneXml = [
-                            'attributes' => [
-                                'type' => $zone->getBuryCount() > 0 ? -1 : $zone->getPrototype()->getId(),
-                                'dig' => $zone->getBuryCount()
-                            ]
-                        ];
-                        if ($language !== 'all') {
-                            $zoneXml['attributes']['name'] = $zone->getBuryCount() > 0 ? $this->translator->trans('Verschüttete Ruine', [], 'game') : $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game');
-                            $zoneXml['cdata_value'] = $zone->getBuryCount() > 0 ? $this->translator->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $this->translator->trans($zone->getPrototype()->getDescription(), [], 'game');
-                        } else {
-                            foreach ($this->available_langs as $lang) {
-                                $zoneXml['attributes']["name-$lang"] = $zone->getBuryCount() > 0 ? $this->translator->trans('Verschüttete Ruine', [], 'game', $lang) : $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game', $lang);
-                                $zoneXml["value-$lang"] = ['cdata_value'=> $zone->getBuryCount() > 0 ? $this->translator->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $this->translator->trans($zone->getPrototype()->getDescription(), [], 'game', $lang)];
-                            }
-                        }
-                        $item['building'] = $zoneXml;
-                    }
-
-                    $data['data']['map']['list']['items'][] = $item;
+                    $item['building'] = $zoneXml;
                 }
+
+
+                $data['data']['map']['list']['items'][] = $item;
+
             }
 
-            $has_zombie_est    = !empty($this->town_handler->getBuilding($town, 'item_tagger_#00'));
+            $has_zombie_est = !empty($this->town_handler->getBuilding($town, 'item_tagger_#00'));
             if ($has_zombie_est){
                 // Zombies estimations
                 for ($i = $town->getDay() + 1 ;  $i > 0 ; $i--) {
                     $quality = $this->town_handler->get_zombie_estimation_quality( $town, $town->getDay() - $i, $z_today_min, $z_today_max );
                     $watchtrigger = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WT_THRESHOLD, 33);
-                    if($watchtrigger >= $quality) continue;
+                    if ($watchtrigger >= $quality) continue;
 
                     $data['data']['estimations']['list']['items'][] = [
                         'attributes' => [
@@ -726,11 +755,11 @@ class ExternalXML2Controller extends ExternalController {
             $now = date('Y-m-d H:i:s');
         }
 
-        if($user instanceof Response)
+        if ($user instanceof Response)
             return $user;
 
         $language = $this->getRequestLanguage($request,$user);
-        if($language !== 'all')
+        if ($language !== 'all')
             $this->translator->setLocale($language);
 
         // Base data.
@@ -912,12 +941,144 @@ class ExternalXML2Controller extends ExternalController {
                 $ruinXml['cdata_value'] = $this->translator->trans($ruin->getExplorableDescription() ?? $ruin->getDescription(), [], 'game');
             } else {
                 foreach ($this->available_langs as $lang) {
-                    $ruinXml['attributes']["name-$lang"] = $this->translator->trans($ruin->getLabel(), [], 'buildings', $lang);
-                    $ruinXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($ruin->getExplorableDescription() ?? $ruin->getDescription(), [], 'buildings', $lang)];
+                    $ruinXml['attributes']["name-$lang"] = $this->translator->trans($ruin->getLabel(), [], 'game', $lang);
+                    $ruinXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($ruin->getExplorableDescription() ?? $ruin->getDescription(), [], 'game', $lang)];
                 }
             }
 
             $data['data']['ruins']['list']['items'][] = $ruinXml;
+        }
+
+        $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+        $response->headers->set('Content-Type', 'text/xml');
+        return $response;
+    }
+
+    /**
+     * @Route("/api/x/v2/xml/pictos", name="api_x2_xml_pictos", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * Returns the lists of pictos currently used in the game
+     * @param Request $request
+     * @return Response
+     */
+    public function api_xml_pictos(Request $request): Response {
+        $user = $this->check_keys(true);
+
+        try {
+            $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
+        } catch (Exception $e) {
+            $now = date('Y-m-d H:i:s');
+        }
+
+        if($user instanceof Response)
+            return $user;
+
+        $language = $this->getRequestLanguage($request,$user);
+        if($language !== 'all')
+            $this->translator->setLocale($language);
+
+        // Base data.
+        $data = $this->getHeaders($user, $language);
+
+        $pictos = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
+
+        $data['data'] = [
+            'attributes' => [
+                'cache-date' => $now->format('Y-m-d H:i:s'),
+                'cache-fast' => 0,
+            ],
+            'pictos' => [
+                'list' => [
+                    'name' => 'picto',
+                    'items' => [
+                    ]
+                ],
+            ],
+        ];
+
+        /** @var PictoPrototype $ruin */
+        foreach ($pictos as $picto) {
+            $pictoXml = [
+                'attributes' => [
+                    'id' => $picto->getId(),
+                ]
+            ];
+            if ($language !== 'all') {
+                $pictoXml['attributes']['name'] = $this->translator->trans($picto->getLabel(), [], 'game');
+                $pictoXml['cdata_value'] = $this->translator->trans($picto->getDescription(), [], 'game');
+            } else {
+                foreach ($this->available_langs as $lang) {
+                    $pictoXml['attributes']["name-$lang"] = $this->translator->trans($picto->getLabel(), [], 'game', $lang);
+                    $pictoXml["value-$lang"] = ['cdata_value'=> $this->translator->trans($picto->getDescription(), [], 'game', $lang)];
+                }
+            }
+
+            $data['data']['pictos']['list']['items'][] = $pictoXml;
+        }
+
+        $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+        $response->headers->set('Content-Type', 'text/xml');
+        return $response;
+    }
+
+    /**
+     * @Route("/api/x/v2/xml/titles", name="api_x2_xml_titles", defaults={"_format"="xml"}, methods={"GET","POST"})
+     * Returns the lists of titles currently used in the game
+     * @param Request $request
+     * @return Response
+     */
+    public function api_xml_titles(Request $request): Response {
+        $user = $this->check_keys(true);
+
+        try {
+            $now = new DateTime('now', new DateTimeZone('Europe/Paris'));
+        } catch (Exception $e) {
+            $now = date('Y-m-d H:i:s');
+        }
+
+        if($user instanceof Response)
+            return $user;
+
+        $language = $this->getRequestLanguage($request,$user);
+        if($language !== 'all')
+            $this->translator->setLocale($language);
+
+        // Base data.
+        $data = $this->getHeaders($user, $language);
+
+        $awards = $this->entity_manager->getRepository(AwardPrototype::class)->findAll();
+
+        $data['data'] = [
+            'attributes' => [
+                'cache-date' => $now->format('Y-m-d H:i:s'),
+                'cache-fast' => 0,
+            ],
+            'titles' => [
+                'list' => [
+                    'name' => 'title',
+                    'items' => [
+                    ]
+                ],
+            ],
+        ];
+
+        /** @var AwardPrototype $ruin */
+        foreach ($awards as $award) {
+            $awardXml = [
+                'attributes' => [
+                    'id' => $award->getId(),
+                    'picto' => $award->getAssociatedPicto()->getId(),
+                    'unlock_quantity' => $award->getUnlockQuantity(),
+                ]
+            ];
+            if ($language !== 'all') {
+                $awardXml['attributes']['name'] = $this->translator->trans($award->getTitle(), [], 'game');
+            } else {
+                foreach ($this->available_langs as $lang) {
+                    $awardXml['attributes']["name-$lang"] = $this->translator->trans($award->getTitle(), [], 'game', $lang);
+                }
+            }
+
+            $data['data']['titles']['list']['items'][] = $awardXml;
         }
 
         $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
@@ -978,17 +1139,23 @@ class ExternalXML2Controller extends ExternalController {
         return $_xml->asXML();
     }
 
-    protected function parseGazetteLog(GazetteLogEntry $gazetteLogEntry): string
+    /**
+     * Returns the text corresponding to the entry
+     * @param GazetteLogEntry $gazetteLogEntry The gazette log entry to parse
+     * @param string|null $lang Lang to translate the text into (null to use the default)
+     * @return string The string corresponding to the GazetteLogEntry
+     */
+    protected function parseGazetteLog(GazetteLogEntry $gazetteLogEntry, string $lang = null): string
     {
-        return $this->parseLog($gazetteLogEntry->getLogEntryTemplate(), $gazetteLogEntry->getVariables());
+        return $this->parseLog($gazetteLogEntry->getLogEntryTemplate(), $gazetteLogEntry->getVariables(), $lang);
     }
 
-    protected function parseLog(LogEntryTemplate $template, array $variables ): string {
+    protected function parseLog(LogEntryTemplate $template, array $variables, string $lang = null): string {
         $variableTypes = $template->getVariableTypes();
-        $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $variables, true);
+        $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $variables);
 
         try {
-            $text = $this->translator->trans($template->getText(), $transParams, 'game');
+            $text = $this->translator->trans($template->getText(), $transParams, 'game', $lang);
         }
         catch (Exception $e) {
             $text = "null";
@@ -1072,7 +1239,7 @@ class ExternalXML2Controller extends ExternalController {
 
                     /** @var Item $item */
                     foreach($zone->getFloor()->getItems() as $item) {
-
+                        if ($item->getHidden()) continue;
                         $str = "{$item->getPrototype()->getId()}-" . intval($item->getBroken());
                         if (!isset($headers['headers']['owner']['myZone']['list']['items'][$str])) {
 

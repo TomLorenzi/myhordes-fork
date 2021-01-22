@@ -44,13 +44,14 @@ class AdminActionController extends CustomAbstractController
 
     public static function getAdminActions(): array {
         return [
-            ['name' => T::__('Dashboard', 'admin'),  'id' => 0],
-            ['name' => T::__('Users', 'admin'),      'id' => 1],
-            ['name' => T::__('Foren-Mod.', 'admin'),  'id' => 2],
-            ['name' => T::__('Städte', 'admin'),     'id' => 3],
-            ['name' => T::__('Zukunft', 'admin'),    'id' => 4],
-            ['name' => T::__('AntiSpam', 'admin'),   'id' => 5],
-            ['name' => T::__('Apps', 'admin'),   'id' => 6],
+            ['name' => T::__('Dashboard', 'admin'),   'id' => 0, 'route' => 'admin_dashboard'],
+            ['name' => T::__('Users', 'admin'),       'id' => 1, 'route' => 'admin_users'],
+            ['name' => T::__('Foren-Mod.', 'admin'),  'id' => 2, 'route' => 'admin_reports'],
+            ['name' => T::__('Städte', 'admin'),      'id' => 3, 'route' => 'admin_town_list'],
+            ['name' => T::__('Zukunft', 'admin'),     'id' => 4, 'route' => 'admin_changelogs'],
+            ['name' => T::__('AntiSpam', 'admin'),    'id' => 5, 'route' => 'admin_spam_domain_view'],
+            ['name' => T::__('Apps', 'admin'),        'id' => 6, 'route' => 'admin_app_view'],
+            ['name' => T::__('Saisons', 'admin'),     'id' => 7, 'route' => 'admin_seasons_view'],
         ];
     }
 
@@ -199,16 +200,11 @@ class AdminActionController extends CustomAbstractController
      */
     public function index(int $id): Response
     {
-        switch ($id) {
-            case 0: return $this->redirect($this->generateUrl('admin_dashboard'));
-            case 1: return $this->redirect($this->generateUrl('admin_users'));
-            case 2: return $this->redirect($this->generateUrl('admin_reports'));
-            case 3: return $this->redirect($this->generateUrl('admin_town_list'));
-            case 4: return $this->redirect($this->generateUrl('admin_changelogs'));
-            case 5: return $this->redirect($this->generateUrl('admin_spam_domain_view'));
-            case 6: return $this->redirect($this->generateUrl('admin_app_view'));
-            default: break;
+        $actions = self::getAdminActions();
+        if (isset($actions[$id]) && isset($actions[$id]['route'])) {
+            return $this->redirect($this->generateUrl($actions[$id]['route']));
         }
+
         return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
     }
 

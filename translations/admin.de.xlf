@@ -2125,5 +2125,176 @@
         <target>Entfernen</target>
       </segment>
     </unit>
+    <unit id="S1OmuJB" name="Saisons">
+      <notes>
+        <note category="german">Saisons</note>
+      </notes>
+      <segment>
+        <source>Saisons</source>
+        <target>Saisons</target>
+      </segment>
+    </unit>
+    <unit id="wWE.yC2" name="Neue Saison">
+      <notes>
+        <note category="german">Neue Saison</note>
+      </notes>
+      <segment>
+        <source>Neue Saison</source>
+        <target>Neue Saison</target>
+      </segment>
+    </unit>
+    <unit id="pcCL6tz" name="Status vergeben">
+      <notes>
+        <note category="german">Status vergeben</note>
+      </notes>
+      <segment>
+        <source>Status vergeben</source>
+        <target>Status vergeben</target>
+      </segment>
+    </unit>
+    <unit id="PLdhbVW" name="Status entfernen">
+      <notes>
+        <note category="german">Status entfernen</note>
+      </notes>
+      <segment>
+        <source>Status entfernen</source>
+        <target>Status entfernen</target>
+      </segment>
+    </unit>
+    <unit id="YkT2Odb" name="Eine Rolle auswählen:">
+      <notes>
+        <note category="german">Eine Rolle auswählen:</note>
+      </notes>
+      <segment>
+        <source>Eine Rolle auswählen:</source>
+        <target>Eine Rolle auswählen:</target>
+      </segment>
+    </unit>
+    <unit id="v6OJxnk" name="Rolle vergeben">
+      <notes>
+        <note category="german">Rolle vergeben</note>
+      </notes>
+      <segment>
+        <source>Rolle vergeben</source>
+        <target>Rolle vergeben</target>
+      </segment>
+    </unit>
+    <unit id="sOLeN_J" name="Rolle entfernen">
+      <notes>
+        <note category="german">Rolle entfernen</note>
+      </notes>
+      <segment>
+        <source>Rolle entfernen</source>
+        <target>Rolle entfernen</target>
+      </segment>
+    </unit>
+    <unit id="x8Xk.ym" name="Bürger nach Sprache">
+      <notes>
+        <note category="german">Bürger nach Sprache</note>
+      </notes>
+      <segment>
+        <source>Bürger nach Sprache</source>
+        <target>Bürger nach Sprache</target>
+      </segment>
+    </unit>
+    <unit id="gvDyCm1" name="Geöffnet">
+      <notes>
+        <note category="german">Geöffnet</note>
+      </notes>
+      <segment>
+        <source>Geöffnet</source>
+        <target>Geöffnet</target>
+      </segment>
+    </unit>
+    <unit id="gTA4SQS" name="Leben">
+      <notes>
+        <note category="german">Leben</note>
+      </notes>
+      <segment>
+        <source>Leben</source>
+        <target>Leben</target>
+      </segment>
+    </unit>
+    <unit id="wVUnsZu" name="Seasons">
+      <notes>
+        <note category="german">Seasons</note>
+      </notes>
+      <segment>
+        <source>Seasons</source>
+        <target>Seasons</target>
+      </segment>
+    </unit>
+    <unit id="5vc95gS" name="Akt.">
+      <notes>
+        <note category="german">Akt.</note>
+      </notes>
+      <segment>
+        <source>Akt.</source>
+        <target>Akt.</target>
+      </segment>
+    </unit>
+    <unit id="lzLlEpR" name="Nummer">
+      <notes>
+        <note category="german">Nummer</note>
+      </notes>
+      <segment>
+        <source>Nummer</source>
+        <target>Nummer</target>
+      </segment>
+    </unit>
+    <unit id="ZOp9mWZ" name="Sub-Nummer">
+      <notes>
+        <note category="german">Sub-Nummer</note>
+      </notes>
+      <segment>
+        <source>Sub-Nummer</source>
+        <target>Sub-Nummer</target>
+      </segment>
+    </unit>
+    <unit id="3NHVIj9" name="Name">
+      <notes>
+        <note category="german">Name</note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Name</target>
+      </segment>
+    </unit>
+    <unit id="W_0lUFE" name="Saison &quot;%season%&quot;">
+      <notes>
+        <note category="german">Saison "%season%"</note>
+      </notes>
+      <segment>
+        <source>Saison "%season%"</source>
+        <target>Saison "%season%"</target>
+      </segment>
+    </unit>
+    <unit id="3RyPmTj" name="Saison Nummer">
+      <notes>
+        <note category="german">Saison Nummer</note>
+      </notes>
+      <segment>
+        <source>Saison Nummer</source>
+        <target>Saison Nummer</target>
+      </segment>
+    </unit>
+    <unit id="1uPFCaE" name="Saison Sub-Nummer">
+      <notes>
+        <note category="german">Saison Sub-Nummer</note>
+      </notes>
+      <segment>
+        <source>Saison Sub-Nummer</source>
+        <target>Saison Sub-Nummer</target>
+      </segment>
+    </unit>
+    <unit id="V8mA5zz" name="Aktuelle Saison">
+      <notes>
+        <note category="german">Aktuelle Saison</note>
+      </notes>
+      <segment>
+        <source>Aktuelle Saison</source>
+        <target>Aktuelle Saison</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

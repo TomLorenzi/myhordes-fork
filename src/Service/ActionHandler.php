@@ -5,6 +5,7 @@ namespace App\Service;
 
 
 use App\Entity\ActionCounter;
+use App\Entity\AffectItemSpawn;
 use App\Entity\BuildingPrototype;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
@@ -754,7 +755,7 @@ class ActionHandler
                     }
                 } elseif (is_a($target, ItemPrototype::class)) {
                     if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ),
-                        [ $floor_inventory, $citizen->getInventory(), $citizen->getZone() ? null : $citizen->getTown()->getBank() ]
+                        [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ]
                         , true)) $execute_info_cache['items_spawn'][] = $target;
                 }
             }
@@ -769,9 +770,17 @@ class ActionHandler
 
                     if ($proto) $tags[] = 'spawned';
 
+                    switch ($item_spawn->getSpawnTarget()) {
+                        case AffectItemSpawn::DropTargetFloor:
+                            $target = [ $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
+                            break;
+                        case AffectItemSpawn::DropTargetRucksack: default:
+                            $target = [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
+                            break;
+                    }
+
                     if ($proto && $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ),
-                            [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ]
-                            , true)) $execute_info_cache['items_spawn'][] = $proto;
+                            $target,true)) $execute_info_cache['items_spawn'][] = $proto;
                 }
             }
 
@@ -945,7 +954,7 @@ class ActionHandler
                         } else if ( $dice[0] === ($dice[1]-1) && $dice[0] === ($dice[2]-2) ) {
                             $ap = true;
                             $cmg .= ' ' . $this->translator->trans('Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!', [], 'items');
-                        } else if ( $dice[0] === 1 && $dice[0] === 2 && $dice[2] === 4 ) {
+                        } else if ( $dice[0] === 1 && $dice[1] === 2 && $dice[2] === 4 ) {
                             $ap = true;
                             $cmg .= ' ' . $this->translator->trans('Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!', [], 'items');
                         } else if ( $dice[0] === $dice[1] || $dice[1] === $dice[2] )
@@ -1210,7 +1219,13 @@ class ActionHandler
 
                         $trans = [
                             'watergun_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'watergun_3_#00']),
+                            'watergun_2_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'watergun_3_#00']),
+                            'watergun_1_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'watergun_3_#00']),
                             'watergun_opt_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'watergun_opt_5_#00']),
+                            'watergun_opt_4_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'watergun_opt_5_#00']),
+                            'watergun_opt_3_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'watergun_opt_5_#00']),
+                            'watergun_opt_2_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'watergun_opt_5_#00']),
+                            'watergun_opt_1_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'watergun_opt_5_#00']),
                             'grenade_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'grenade_#00']),
                             'bgrenade_empty_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'bgrenade_#00']),
                             'kalach_#01' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'kalach_#00']),

@@ -285,7 +285,7 @@
                 {% if allow_enter_town %}
                     <button id="town-enter" {% if not doors_open %}disabled{% endif %}>
                         {% if zone.x == 0 and zone.y == 0 %}
-                            <img alt="" src="{{ asset('build/images/emotes/arrowright.gif') }}"> {% trans from 'game' %}Stadt betreten{% endtrans %}
+                            <img alt="" src="{{ asset('build/images/emotes/arrowright.gif') }}"> {% trans from 'game' %}Stadt betreten{% endtrans %} {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) and citizen.validLeadingEscorts|length > 0 %}{{ '(Allein)'|trans({}, 'game') }}{% endif %}
                         {% else %}
                             <img class="icon left" alt="" src="{{ asset('build/images/building/small_door_closed.gif') }}" />{% trans from 'game' %}In die Stadt zurückkehren{% endtrans %}
                         {% endif %}
@@ -293,6 +293,9 @@
                             (<div class="ap">1</div>)
                         {% endif %}
                     </button>
+                    {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) and citizen.validLeadingEscorts|length > 0 and zone.x == 0 and zone.y == 0 %}
+                        <button id="town-enter-escort" {% if not doors_open %}disabled{% endif %}><img alt="" src="{{ asset('build/images/emotes/arrowright.gif') }}"> {% trans from 'game' %}Stadt betreten{% endtrans %} {% trans from 'game' %}(Mit Eskorte){% endtrans %}</button>
+                    {% endif %}
                 {% endif %}
                 {% if show_ventilation %}
                     <button id="town-enter-hero"{% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}</button>
@@ -435,7 +438,7 @@
                                 {% if other_citizen.escortSettings.allowInventoryAccess %}
                                     {% for escort_action in escort_actions[other_citizen.id] %}
                                         {# @var \App\Structures\EscortItemActionSet escort_action #}
-                                        <button {% if not escort_action.hasAvailableActions %}disabled{% endif%} class="small inline" x-escort-meta-group x-escort-meta-action="{{ escort_action.group.id }}" x-citizen="{{ other_citizen.id }}" ><img alt="" src="{{ asset('build/images/actions/' ~ escort_action.group.icon ~ '.gif') }}" style="margin-right: 0px;" /></button>
+                                        <button {% if not escort_action.hasAvailableActions %}disabled{% endif%} class="small inline" x-escort-meta-group x-escort-meta-action="{{ escort_action.group.id }}" x-citizen="{{ other_citizen.id }}" ><img alt="" src="{{ asset('build/images/actions/' ~ escort_action.group.icon ~ '.gif') }}" style="margin-right: 0;" /></button>
                                     {% endfor %}
                                 {% endif %}
                                 {% if zone.x != 0 or zone.y != 0 %}
@@ -824,6 +827,14 @@
             let townEnterBtn = document.getElementById('town-enter');
             if(townEnterBtn) townEnterBtn.addEventListener('click', function() {
                 $.ajax.easySend( '{{ path('beyond_desert_exit_controller') }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('game_landing') }}', true);
+                    } );
+            });
+
+            let townEnterEscortBtn = document.getElementById('town-enter-escort');
+            if(townEnterEscortBtn) townEnterEscortBtn.addEventListener('click', function() {
+                $.ajax.easySend( '{{ path('beyond_desert_exit_controller', {'special': 'normal-escort'}) }}', {},
                     function () {
                         $.ajax.load(null, '{{ path('game_landing') }}', true);
                     } );

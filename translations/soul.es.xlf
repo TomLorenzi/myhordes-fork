@@ -2248,15 +2248,6 @@
         <target><![CDATA[Marca la casilla si notas que el juego se enltentece considerablemente cuando se muestra el mapa.<br /><em>Esta opción reducirá la calidad de las animaciones relacionadas con el mapa.</em>.]]></target>
       </segment>
     </unit>
-    <unit id="uh49WWx" name="cea913a">
-      <notes>
-        <note category="german">Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</note>
-      </notes>
-      <segment>
-        <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
-        <target>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</target>
-      </segment>
-    </unit>
     <unit id="JAkgM4Z" name="Kleine Koalitionen">
       <notes>
         <note category="german">Kleine Koalitionen</note>
@@ -2264,6 +2255,15 @@
       <segment>
         <source>Kleine Koalitionen</source>
         <target>Alianzas</target>
+      </segment>
+    </unit>
+    <unit id="TE.pp6F" name="Saison %number%">
+      <notes>
+        <note category="german">Saison %number%</note>
+      </notes>
+      <segment>
+        <source>Saison %number%</source>
+        <target>Saison %number%</target>
       </segment>
     </unit>
   </file>

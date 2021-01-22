@@ -23,6 +23,15 @@ class SeasonRepository extends ServiceEntityRepository
         return $this->findBy([],['number' => 'DESC','subNumber' => 'DESC']);
     }
 
+    public function findLatest(){
+        return $this->createQueryBuilder('s')
+            ->addOrderBy('s.number', 'DESC')
+            ->addOrderBy('s.subNumber', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
     // /**
     //  * @return Season[] Returns an array of Season objects
     //  */

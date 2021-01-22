@@ -98,7 +98,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
 
     protected function parseLog( LogEntryTemplate $template, array $variables ): String {
         $variableTypes = $template->getVariableTypes();
-        $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $variables, true);
+        $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $variables);
 
         try {
             $text = $this->translator->trans($template->getText(), $transParams, 'game');
@@ -454,16 +454,9 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
             'show_register'  => $show_register,
             'show_town_link'  => $in_town,
             'day' => $town->getDay(),
-            'log' => $show_register ? $this->renderLog( -1 )->getContent() : "",
+            'log' => $show_register ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'gazette' => $gazette_info,
             'citizensWithRole' => $citizensWithRole,
-            'clock' => [
-                'desc'      => $this->getActiveCitizen()->getTown()->getName(),
-                'day'       => $this->getActiveCitizen()->getTown()->getDay(),
-                'timestamp' => new DateTime('now'),
-                'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
-                'towntype'  => $this->getActiveCitizen()->getTown()->getType()->getName(),
-            ],
         ]));
     }
 

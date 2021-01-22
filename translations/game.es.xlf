@@ -5205,20 +5205,20 @@
     </unit>
     <unit id="ZvXc1po" name="Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.">
       <notes>
-        <note category="german">__Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</note>
+        <note category="german">Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</note>
       </notes>
       <segment>
         <source>Am Ende der Schlacht zerfiel das Gebäude %buildingName% zu Staub.</source>
-        <target>__Al final de la noche, se escuchó como la construcción %buildingName% se derrumbaba hasta ser una nube de polvo.</target>
+        <target>Al final de la noche, se escuchó como la construcción %buildingName% se derrumbaba hasta ser una nube de polvo.</target>
       </segment>
     </unit>
     <unit id="xyPBCmM" name="Gefahr">
       <notes>
-        <note category="german">__Gefahr</note>
+        <note category="german">Gefahr</note>
       </notes>
       <segment>
         <source>Gefahr</source>
-        <target>__Peligro</target>
+        <target>Peligro</target>
       </segment>
     </unit>
     <unit id="S103XG1" name="@citizens Bürger">
@@ -16476,6 +16476,15 @@
         <target>Architekt (title)</target>
       </segment>
     </unit>
+    <unit id="0oUM0cs" name="Bürger! Seid auf inoffiziellen Webseiten wachsam!">
+      <notes>
+        <note category="german">Bürger! Seid auf inoffiziellen Webseiten wachsam!</note>
+      </notes>
+      <segment>
+        <source>Bürger! Seid auf inoffiziellen Webseiten wachsam!</source>
+        <target>Bürger! Seid auf inoffiziellen Webseiten wachsam!</target>
+      </segment>
+    </unit>
     <unit id="0Kqpu1t" name="gering">
       <notes>
         <note category="german">gering</note>
@@ -16888,6 +16897,348 @@
       <segment>
         <source>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem &lt;strong&gt;er splitternackt durch die Straßen rannte&lt;/strong&gt;. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
         <target><![CDATA[Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem <strong>er splitternackt durch die Straßen rannte</strong>. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.]]></target>
+      </segment>
+    </unit>
+    <unit id="eunLp3W" name="Ich habe Magenschmerzen...">
+      <notes>
+        <note category="german">Ich habe Magenschmerzen...</note>
+      </notes>
+      <segment>
+        <source>Ich habe Magenschmerzen...</source>
+        <target>Ich habe Magenschmerzen...</target>
+      </segment>
+    </unit>
+    <unit id="gEtgHUv" name="Mir ist kalt hier draußen...">
+      <notes>
+        <note category="german">Mir ist kalt hier draußen...</note>
+      </notes>
+      <segment>
+        <source>Mir ist kalt hier draußen...</source>
+        <target>Mir ist kalt hier draußen...</target>
+      </segment>
+    </unit>
+    <unit id="8KQLRkY" name="Anfängerleiche">
+      <notes>
+        <note category="german">Anfängerleiche</note>
+      </notes>
+      <segment>
+        <source>Anfängerleiche</source>
+        <target>Anfängerleiche</target>
+      </segment>
+    </unit>
+    <unit id="odtY3_Y" name="Rabenfreund">
+      <notes>
+        <note category="german">Rabenfreund</note>
+      </notes>
+      <segment>
+        <source>Rabenfreund</source>
+        <target>Rabenfreund</target>
+      </segment>
+    </unit>
+    <unit id="m78HBvZ" name="Dehydrationskollege">
+      <notes>
+        <note category="german">Dehydrationskollege</note>
+      </notes>
+      <segment>
+        <source>Dehydrationskollege</source>
+        <target>Dehydrationskollege</target>
+      </segment>
+    </unit>
+    <unit id="BhsD8d_" name="Seelenhändler">
+      <notes>
+        <note category="german">Seelenhändler</note>
+      </notes>
+      <segment>
+        <source>Seelenhändler</source>
+        <target>Seelenhändler</target>
+      </segment>
+    </unit>
+    <unit id="QaLnp0N" name="Sehr überzeugender Pate">
+      <notes>
+        <note category="german">Sehr überzeugender Pate</note>
+      </notes>
+      <segment>
+        <source>Sehr überzeugender Pate</source>
+        <target>Sehr überzeugender Pate</target>
+      </segment>
+    </unit>
+    <unit id="S_ni.T_" name="Wüstenspekulant">
+      <notes>
+        <note category="german">Wüstenspekulant</note>
+      </notes>
+      <segment>
+        <source>Wüstenspekulant</source>
+        <target>Wüstenspekulant</target>
+      </segment>
+    </unit>
+    <unit id="2B3cnT0" name="Bringt Sachen ins Rollen!">
+      <notes>
+        <note category="german">Bringt Sachen ins Rollen!</note>
+      </notes>
+      <segment>
+        <source>Bringt Sachen ins Rollen!</source>
+        <target>Bringt Sachen ins Rollen!</target>
+      </segment>
+    </unit>
+    <unit id="PIt9fgD" name="Freigiebiger Bürger">
+      <notes>
+        <note category="german">Freigiebiger Bürger</note>
+      </notes>
+      <segment>
+        <source>Freigiebiger Bürger</source>
+        <target>Freigiebiger Bürger</target>
+      </segment>
+    </unit>
+    <unit id="QceNj.h" name="Messias">
+      <notes>
+        <note category="german">Messias</note>
+      </notes>
+      <segment>
+        <source>Messias</source>
+        <target>Messias</target>
+      </segment>
+    </unit>
+    <unit id="lKnLpvN" name="Santa Klaus ist ein Schummler">
+      <notes>
+        <note category="german">Santa Klaus ist ein Schummler</note>
+      </notes>
+      <segment>
+        <source>Santa Klaus ist ein Schummler</source>
+        <target>Santa Klaus ist ein Schummler</target>
+      </segment>
+    </unit>
+    <unit id="JHdt62r" name="Santa Klaus ist Abfall">
+      <notes>
+        <note category="german">Santa Klaus ist Abfall</note>
+      </notes>
+      <segment>
+        <source>Santa Klaus ist Abfall</source>
+        <target>Santa Klaus ist Abfall</target>
+      </segment>
+    </unit>
+    <unit id="uJwxAdp" name="Santa Klaus ist Abschaum">
+      <notes>
+        <note category="german">Santa Klaus ist Abschaum</note>
+      </notes>
+      <segment>
+        <source>Santa Klaus ist Abschaum</source>
+        <target>Santa Klaus ist Abschaum</target>
+      </segment>
+    </unit>
+    <unit id="n8nyFi5" name="Hängt Santa Klaus!">
+      <notes>
+        <note category="german">Hängt Santa Klaus!</note>
+      </notes>
+      <segment>
+        <source>Hängt Santa Klaus!</source>
+        <target>Hängt Santa Klaus!</target>
+      </segment>
+    </unit>
+    <unit id="C.78yQ1" name="Lebenssammler">
+      <notes>
+        <note category="german">Lebenssammler</note>
+      </notes>
+      <segment>
+        <source>Lebenssammler</source>
+        <target>Lebenssammler</target>
+      </segment>
+    </unit>
+    <unit id="dMZx5oC" name="Schnitter der Aussenwelt">
+      <notes>
+        <note category="german">Schnitter der Aussenwelt</note>
+      </notes>
+      <segment>
+        <source>Schnitter der Aussenwelt</source>
+        <target>Schnitter der Aussenwelt</target>
+      </segment>
+    </unit>
+    <unit id="pzraA_u" name="Mitglied des Roten Kreuzes">
+      <notes>
+        <note category="german">Mitglied des Roten Kreuzes</note>
+      </notes>
+      <segment>
+        <source>Mitglied des Roten Kreuzes</source>
+        <target>Mitglied des Roten Kreuzes</target>
+      </segment>
+    </unit>
+    <unit id="2ZtIR7d" name="Es ist der Tod der mich fürchten sollte!">
+      <notes>
+        <note category="german">Es ist der Tod der mich fürchten sollte!</note>
+      </notes>
+      <segment>
+        <source>Es ist der Tod der mich fürchten sollte!</source>
+        <target>Es ist der Tod der mich fürchten sollte!</target>
+      </segment>
+    </unit>
+    <unit id="ZYF2zJY" name="Sandmann">
+      <notes>
+        <note category="german">Sandmann</note>
+      </notes>
+      <segment>
+        <source>Sandmann</source>
+        <target>Sandmann</target>
+      </segment>
+    </unit>
+    <unit id="Au5Ajw2" name="Sandy Maverick">
+      <notes>
+        <note category="german">Sandy Maverick</note>
+      </notes>
+      <segment>
+        <source>Sandy Maverick</source>
+        <target>Sandy Maverick</target>
+      </segment>
+    </unit>
+    <unit id="aDIILgt" name="Wegweiser">
+      <notes>
+        <note category="german">Wegweiser</note>
+      </notes>
+      <segment>
+        <source>Wegweiser</source>
+        <target>Wegweiser</target>
+      </segment>
+    </unit>
+    <unit id="dwFklZb" name="Praktischer Begleiter">
+      <notes>
+        <note category="german">Praktischer Begleiter</note>
+      </notes>
+      <segment>
+        <source>Praktischer Begleiter</source>
+        <target>Praktischer Begleiter</target>
+      </segment>
+    </unit>
+    <unit id="Kmu_sqS" name="Erleuchteter Anführer">
+      <notes>
+        <note category="german">Erleuchteter Anführer</note>
+      </notes>
+      <segment>
+        <source>Erleuchteter Anführer</source>
+        <target>Erleuchteter Anführer</target>
+      </segment>
+    </unit>
+    <unit id="JztdI6n" name="Erleuchteter Prediger">
+      <notes>
+        <note category="german">Erleuchteter Prediger</note>
+      </notes>
+      <segment>
+        <source>Erleuchteter Prediger</source>
+        <target>Erleuchteter Prediger</target>
+      </segment>
+    </unit>
+    <unit id="GAeKRC9" name="Guru der Liebe">
+      <notes>
+        <note category="german">Guru der Liebe</note>
+      </notes>
+      <segment>
+        <source>Guru der Liebe</source>
+        <target>Guru der Liebe</target>
+      </segment>
+    </unit>
+    <unit id="uCPB93p" name="Höret meine Stimme">
+      <notes>
+        <note category="german">Höret meine Stimme</note>
+      </notes>
+      <segment>
+        <source>Höret meine Stimme</source>
+        <target>Höret meine Stimme</target>
+      </segment>
+    </unit>
+    <unit id="6VwkHrE" name="9cdcb6a">
+      <notes>
+        <note category="german">Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</source>
+        <target>Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</target>
+      </segment>
+    </unit>
+    <unit id="g0fspLE" name="d7ab8db">
+      <notes>
+        <note category="german">Deine Stadt "%town%" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt "%town%" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</source>
+        <target>Deine Stadt "%town%" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</target>
+      </segment>
+    </unit>
+    <unit id="EZZp0Cu" name="8b9de7a">
+      <notes>
+        <note category="german">Deine Stadt "%town%" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt "%town%" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.</source>
+        <target>Deine Stadt "%town%" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.</target>
+      </segment>
+    </unit>
+    <unit id="fPHWumZ" name="40e06cb">
+      <notes>
+        <note category="german">Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</note>
+      </notes>
+      <segment>
+        <source>Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</source>
+        <target>Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</target>
+      </segment>
+    </unit>
+    <unit id="uh49WWx" name="cea913a">
+      <notes>
+        <note category="german">Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</note>
+      </notes>
+      <segment>
+        <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
+        <target>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</target>
+      </segment>
+    </unit>
+    <unit id="Goz9BWd" name="(Allein)">
+      <notes>
+        <note category="german">(Allein)</note>
+      </notes>
+      <segment>
+        <source>(Allein)</source>
+        <target>(Allein)</target>
+      </segment>
+    </unit>
+    <unit id="WWzkuFQ" name="(Mit Eskorte)">
+      <notes>
+        <note category="german">(Mit Eskorte)</note>
+      </notes>
+      <segment>
+        <source>(Mit Eskorte)</source>
+        <target>(Mit Eskorte)</target>
+      </segment>
+    </unit>
+    <unit id="5xLwZCN" name="Du hast dich in einen %role% verwandelt!">
+      <notes>
+        <note category="german">Du hast dich in einen %role% verwandelt!</note>
+      </notes>
+      <segment>
+        <source>Du hast dich in einen %role% verwandelt!</source>
+        <target>Du hast dich in einen %role% verwandelt!</target>
+      </segment>
+    </unit>
+    <unit id="41EQiml" name="Erzähle niemandem davon oder du wirst sofort erschossen!">
+      <notes>
+        <note category="german">Erzähle niemandem davon oder du wirst sofort erschossen!</note>
+      </notes>
+      <segment>
+        <source>Erzähle niemandem davon oder du wirst sofort erschossen!</source>
+        <target>Erzähle niemandem davon oder du wirst sofort erschossen!</target>
+      </segment>
+    </unit>
+    <unit id=".S3ibaS" name="Wie man als Ghul spielt ?">
+      <notes>
+        <note category="german">Wie man als Ghul spielt ?</note>
+      </notes>
+      <segment>
+        <source>Wie man als Ghul spielt ?</source>
+        <target>Wie man als Ghul spielt ?</target>
+      </segment>
+    </unit>
+    <unit id="sZoC__." name="Der Bürger weigert sich, dies zu tun...">
+      <notes>
+        <note category="german">Der Bürger weigert sich, dies zu tun...</note>
+      </notes>
+      <segment>
+        <source>Der Bürger weigert sich, dies zu tun...</source>
+        <target>Der Bürger weigert sich, dies zu tun...</target>
       </segment>
     </unit>
   </file>

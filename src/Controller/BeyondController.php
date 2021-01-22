@@ -72,6 +72,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
     const ErrorEscortLimitHit       = ErrorHelper::BaseBeyondErrors + 11;
     const ErrorEscortFailure        = ErrorHelper::BaseBeyondErrors + 12;
     const ErrorTerrorized           = ErrorHelper::BaseBeyondErrors + 13;
+    const ErrorEscortActionRefused  = ErrorHelper::BaseBeyondErrors + 14;
 
     protected $game_factory;
     protected ZoneHandler $zone_handler;
@@ -160,7 +161,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         return parent::addDefaultTwigArgs( $section, array_merge( [
             'zone_players' => count($zone->getCitizens()),
             'zone_zombies' => max(0,$zone->getZombies()),
-            'can_attack_citizen' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5 && !$this->citizen_handler->isWounded($this->getActiveCitizen()),
+            'can_attack_citizen' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5 && !$this->citizen_handler->isWounded($this->getActiveCitizen()) && ($zone->getX() != 0 || $zone->getY() != 0),
             'can_devour_citizen' => $this->getActiveCitizen()->hasRole('ghoul'),
             'allow_devour_citizen' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
             'zone_cp' => $cp,
@@ -443,7 +444,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $trashlock->increment();
             $this->citizen_handler->setAP($citizen, true, -1);
             $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
-                '%item%' => "<span class='tool'> {$this->translator->trans($item->getPrototype()->getLabel(), [], 'items')}</span>"
+                '%item%' => "<span class='tool'> <img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($item->getPrototype()->getLabel(), [], 'items')}</span>"
             ], 'game' ));
 
             try {
@@ -537,6 +538,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         switch ($special) {
             case 'normal':
+            case "normal-escort":
                 if (!$citizen->getTown()->getDoor())
                     return AjaxResponse::error( self::ErrorDoorClosed );
                 break;
@@ -555,7 +557,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         $movers = [];
         $movers[] = $citizen;
-        if ($special === 'normal')
+        if ($special === 'normal-escort' || ($special === 'normal' && $distance > 0))
             foreach ($citizen->getValidLeadingEscorts() as $escort)
                 $movers[] = $escort->getCitizen();
         else
@@ -1164,12 +1166,13 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if ($this->entity_manager->getRepository(DigRuinMarker::class)->findByCitizen( $citizen ))
             return AjaxResponse::error( self::ErrorNotDiggable );
 
-        $dm = (new DigRuinMarker())->setCitizen( $citizen )->setZone( $zone );
-
         if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
             $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
 
         if ($zone->getRuinDigs() > 0) {
+            $dm = (new DigRuinMarker())->setCitizen( $citizen )->setZone( $zone );
+            $this->entity_manager->persist($dm);
+
             $zone->setRuinDigs( $zone->getRuinDigs() - 1 );
 
             $event_conf_list = $this->conf->getCurrentEvent($zone->getTown())->get(EventConf::EVENT_DIG_RUINS, []);
@@ -1228,7 +1231,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         }
 
         try {
-            $this->entity_manager->persist($dm);
             $this->entity_manager->persist($zone);
             $this->entity_manager->flush();
         } catch (Exception $e) {
@@ -1302,7 +1304,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         if (!$target_citizen || $target_citizen->getZone()->getId() !== $citizen->getZone()->getId())
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if ($target_citizen->activeExplorerStats())
+        if ($target_citizen->activeExplorerStats() || ($citizen->getZone()->getX() == 0 && $citizen->getZone()->getY() == 0) )
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         return $this->generic_attack_api( $citizen, $target_citizen );
