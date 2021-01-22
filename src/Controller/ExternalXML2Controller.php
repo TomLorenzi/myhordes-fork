@@ -323,7 +323,6 @@ class ExternalXML2Controller extends ExternalController {
             ];
 
             $offset = $town->getMapOffset();
-            $upgradedMap = false;
 
             /** @var TownDefenseSummary $def */
             $def = new TownDefenseSummary();
@@ -440,10 +439,6 @@ class ExternalXML2Controller extends ExternalController {
                         'img' => $this->getIconPath($this->asset->getUrl("build/images/building/{$building->getPrototype()->getIcon()}.gif"))
                     ]
                 ];
-
-                if ($building->getPrototype()->getId() === 78) {
-                  $upgradedMap = true;
-                }
 
                 if ($language !== 'all') {
                     $buildingXml['attributes']['name'] = $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings');
@@ -678,16 +673,12 @@ class ExternalXML2Controller extends ExternalController {
                     }
                 }
 
-                if ($upgradedMap && $this->zone_handler->getZoneKm($zone) <= 10) {
-                    $item['attributes']['z'] = $zone->getZombies();
-                }
-
                 if ($zone->getTag() !== null && $zone->getTag()->getRef() !== ZoneTag::TagNone) {
                     $item['attributes']['tag'] = $zone->getTag()->getRef();
                 }
 
                 if ($zone->getZombieStatus() == Zone::ZombieStateExact && $zone->getZombies() > 0) {
-                    $item["attributes"]["z"] = $zone->getZombies();
+                    $item['attributes']['z'] = $zone->getZombies();
                 }
 
                 if ($zone->getPrototype() !== null) {
