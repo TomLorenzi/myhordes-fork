@@ -391,7 +391,7 @@ class AdminTownController extends AdminActionController
      * @Route("/api/admin/town/{id}/picto/give", name="admin_town_give_picto", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Give picto to all citizens of a town
-     * @param int $id User ID
+     * @param int $id Town ID
      * @param JSONRequestParser $parser The Request Parser
      * @return Response
      */
@@ -445,7 +445,7 @@ class AdminTownController extends AdminActionController
    * @Route("/api/admin/town/{id}/status/give", name="admin_town_give_status", requirements={"id"="\d+"})
    * @Security("is_granted('ROLE_ADMIN')")
    * Give status to selected citizens of a town
-   * @param int $id User ID
+   * @param int $id Town ID
    * @param JSONRequestParser $parser The Request Parser
    * @param CitizenHandler $handler
    * @return Response
@@ -483,7 +483,7 @@ class AdminTownController extends AdminActionController
    * @Route("/api/admin/town/{id}/status/take", name="admin_town_take_status", requirements={"id"="\d+"})
    * @Security("is_granted('ROLE_ADMIN')")
    * Give status to selected citizens of a town
-   * @param int $id User ID
+   * @param int $id Town ID
    * @param JSONRequestParser $parser The Request Parser
    * @param CitizenHandler $handler
    * @return Response
@@ -521,7 +521,7 @@ class AdminTownController extends AdminActionController
    * @Route("/api/admin/town/{id}/role/give", name="admin_town_give_role", requirements={"id"="\d+"})
    * @Security("is_granted('ROLE_ADMIN')")
    * Give status to selected citizens of a town
-   * @param int $id User ID
+   * @param int $id Town ID
    * @param JSONRequestParser $parser The Request Parser
    * @param CitizenHandler $handler
    * @return Response
@@ -559,7 +559,7 @@ class AdminTownController extends AdminActionController
    * @Route("/api/admin/town/{id}/role/take", name="admin_town_take_role", requirements={"id"="\d+"})
    * @Security("is_granted('ROLE_ADMIN')")
    * Give status to selected citizens of a town
-   * @param int $id User ID
+   * @param int $id Town ID
    * @param JSONRequestParser $parser The Request Parser
    * @param CitizenHandler $handler
    * @return Response
@@ -584,6 +584,62 @@ class AdminTownController extends AdminActionController
       $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
 
       $citizen->removeRole($citizenRole);
+
+      $this->entity_manager->persist($citizen);
+    }
+
+    $this->entity_manager->flush();
+
+    return AjaxResponse::success();
+  }
+
+  /**
+   * @Route("/api/admin/town/{id}/ap/alter", name="admin_town_alter_ap", requirements={"id"="\d+"})
+   * @Security("is_granted('ROLE_ADMIN')")
+   * Change AP of selected citizens of a town
+   * @param int $id Town ID
+   * @param JSONRequestParser $parser The Request Parser
+   * @param CitizenHandler $handler
+   * @return Response
+   */
+  public function town_alter_ap(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
+  {
+    $town = $this->entity_manager->getRepository(Town::class)->find($id);
+    if(!$town) {
+      return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+    }
+
+    $number = $parser->get('number', 6);
+    $action = $parser->get('action', 'set');
+    $targets = $parser->get('targets', "");
+
+    $targets = explode(",", $targets);
+    foreach ($targets as $target) {
+      $infos = explode("-", $target);
+      /** @var Citizen $citizen */
+      $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
+
+      $current_ap = $citizen->getAp();
+
+      switch ($action) {
+        case 'set':
+          if ($number < 0) $number = 0;
+          $citizen->setAp($number);
+          break;
+
+        case 'add':
+          $citizen->setAp($current_ap + $number);
+          break;
+
+        case 'remove':
+          if ($number >= $current_ap) {
+            $citizen->setAp(0);
+          }
+          else {
+            $citizen->setAp($current_ap - $number);
+          }
+          break;
+      }
 
       $this->entity_manager->persist($citizen);
     }

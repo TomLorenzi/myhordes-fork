@@ -255,6 +255,16 @@
                                 {% endfor %}
                             </select>
                             <button id="giverolebtn">{{'Rolle vergeben'|trans({}, 'admin')}}</button><button id="takerolebtn">{{'Rolle entfernen'|trans({}, 'admin')}}</button>
+                            <hr />
+                            <label for="numberAP">
+                                {{'AP'|trans({}, 'admin')}}:
+                            </label>
+                            <input type="number" id="numberAP" value="6"/>
+                            <br />
+                            <button id="setAPbtn">{{'Setzen'|trans({}, 'admin')}}</button>
+                            <button id="addAPbtn">{{'Hinzufügen'|trans({}, 'admin')}}</button>
+                            <button id="removeAPbtn">{{'Abziehen'|trans({}, 'admin')}}</button>
+
                         </div>
                         <div class="padded cell">
                             <h5>{{ 'Anzeigen'|trans({}, 'admin') }}</h5>
@@ -595,6 +605,73 @@
 
                 $.ajax.easySend('{{ path('admin_town_take_role', {id: town.id}) }}', {
                           role: role, targets: targets.join(',')
+                        },
+                        function () {
+                          $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "citizens"}) }}', true);
+                        }
+                );
+            });
+
+          let setAPbtn = document.getElementById("setAPbtn");
+          if (setAPbtn) setAPbtn.addEventListener('click', function(){
+            let number = document.getElementById("numberAP").value;
+            if (isNaN(number)) number = 6;
+            if (number < 0) number = Math.abs(number);
+
+            let citizens = document.querySelectorAll("input[target='status']:checked");
+
+            let targets = [];
+            citizens.forEach(element => {
+              targets.push(element.getAttribute('id'));
+            });
+
+            $.ajax.easySend('{{ path('admin_town_alter_ap', {id: town.id}) }}', {
+                              targets: targets.join(','), number: number, action: 'set'
+                            },
+                            function () {
+                              $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "citizens"}) }}', true);
+                            }
+            );
+          });
+
+
+          let addAPbtn = document.getElementById("addAPbtn");
+            if (addAPbtn) addAPbtn.addEventListener('click', function(){
+                let number = document.getElementById("numberAP").value;
+                if (isNaN(number)) number = 6;
+                if (number < 0) number = Math.abs(number);
+
+                let citizens = document.querySelectorAll("input[target='status']:checked");
+
+                let targets = [];
+                citizens.forEach(element => {
+                    targets.push(element.getAttribute('id'));
+                });
+
+                $.ajax.easySend('{{ path('admin_town_alter_ap', {id: town.id}) }}', {
+                                  targets: targets.join(','), number: number, action: 'add'
+                        },
+                        function () {
+                          $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "citizens"}) }}', true);
+                        }
+                );
+            });
+
+            let removeAPbtn = document.getElementById("removeAPbtn");
+            if (removeAPbtn) removeAPbtn.addEventListener('click', function(){
+                let number = document.getElementById("numberAP").value;
+                if (isNaN(number)) number = 6;
+                if (number < 0) number = Math.abs(number);
+
+                let citizens = document.querySelectorAll("input[target='status']:checked");
+
+                let targets = [];
+                citizens.forEach(element => {
+                    targets.push(element.getAttribute('id'));
+                });
+
+                $.ajax.easySend('{{ path('admin_town_alter_ap', {id: town.id}) }}', {
+                                  targets: targets.join(','), number: number, action: 'remove'
                         },
                         function () {
                           $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "citizens"}) }}', true);
