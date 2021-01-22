@@ -322,6 +322,7 @@ class ExternalXML2Controller extends ExternalController {
             ];
 
             $offset = $town->getMapOffset();
+            $upgradedMap = false;
 
             /** @var TownDefenseSummary $def */
             $def = new TownDefenseSummary();
@@ -439,6 +440,10 @@ class ExternalXML2Controller extends ExternalController {
                     ]
                 ];
 
+                if ($building->getPrototype()->getId() === 78) {
+                  $upgradedMap = true;
+                }
+
                 if ($language !== 'all') {
                     $buildingXml['attributes']['name'] = $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings');
                     $buildingXml['cdata_value'] = $this->translator->trans($building->getPrototype()->getDescription(), [], 'buildings');
@@ -449,13 +454,13 @@ class ExternalXML2Controller extends ExternalController {
                     }
                 }
 
-                if($building->getPrototype()->getParent() !== null) {
+                if ($building->getPrototype()->getParent() !== null) {
                     $buildingXml['attributes']['parent'] = $building->getPrototype()->getParent()->getId();
                 }
 
                 $data['data']['city']['list']['items'][] = $buildingXml;
 
-                if($building->getPrototype()->getMaxLevel() > 0 && $building->getLevel() > 0){
+                if ($building->getPrototype()->getMaxLevel() > 0 && $building->getLevel() > 0) {
                     $data['data']['upgrades']['attributes']['total'] += $building->getLevel();
                     $updateXml = [
                         'attributes' => [
@@ -628,11 +633,11 @@ class ExternalXML2Controller extends ExternalController {
             // Map
             foreach($town->getZones() as $zone) {
                 /** @var Zone $zone */
-                if($zone->getDiscoveryStatus() != Zone::DiscoveryStateNone) {
+                if ($zone->getDiscoveryStatus() != Zone::DiscoveryStateNone) {
                     $danger = 0;
-                    if($zone->getZombies() > 0 && $zone->getZombies() <= 2) {
+                    if ($zone->getZombies() > 0 && $zone->getZombies() <= 2) {
                         $danger = 1;
-                    } else if($zone->getZombies() > 2 && $zone->getZombies() <= 5) {
+                    } else if ($zone->getZombies() > 2 && $zone->getZombies() <= 5) {
                         $danger = 2;
                     } else if ($zone->getZombies() > 5) {
                         $danger = 3;
@@ -646,9 +651,12 @@ class ExternalXML2Controller extends ExternalController {
                         ]
                     ];
                     if ($zone->getDiscoveryStatus() == Zone::DiscoveryStateCurrent) {
-                        if($danger > 0) {
+                        if ($danger > 0) {
                             $item['attributes']['danger'] = $danger;
                         }
+                    }
+                    if ($upgradedMap && $this->zone_handler->getZoneKm($zone) <= 10) {
+                      $item['attributes']['z'] = $zone->getZombies();
                     }
 
                     if($zone->getTag() !== null && $zone->getTag()->getRef() !== ZoneTag::TagNone) {
