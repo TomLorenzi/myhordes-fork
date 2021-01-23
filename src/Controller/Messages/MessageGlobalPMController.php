@@ -118,7 +118,7 @@ class MessageGlobalPMController extends MessageController
         }
 
         return new AjaxResponse(['success' => true, 'response_key' => (new DateTime('now'))->getTimestamp(), 'payload' => [
-            'connected' => 5000,
+            'connected' => 10000,
             'index' => $index,
             'focus' => $focus,
         ]]);
