@@ -152,6 +152,12 @@
                 post.classList.add('visible');
                 document.body.style.overflow = 'hidden';
                 document.getElementById('post-office-content').innerText = '';
+
+                $.msg.restoreFetchEndpoint();
+                $.msg.togglePing(false);
+                $.msg.toggleFetch(true);
+                $.msg.setFetchRK(null);
+
                 $.ajax.background().load( document.getElementById('post-office-content'),'{{ url('pm_view')|e('js') }}', false )
             }
         });

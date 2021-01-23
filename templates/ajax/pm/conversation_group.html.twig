@@ -1,42 +1,11 @@
 {% extends "ajax/ajax_plain.html.twig" %}
+
+{% from "ajax/pm/bubbles.html.twig" import bubble_group as bubble %}
+
 {% block ajax_base %}
-    {% set today = date() %}
-    {% set yesterday = date('-1days') %}
     <ul class="group-conversation">
         {% for message in messages %}
-            {# @var message App\Entity\GlobalPrivateMessage #}
-            <li class="{% if message.sender == app.user %}own{% endif %} {% if message.id > last %}new{% endif %}">
-                {% if (message.sender.avatar) %}
-                    <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': message.sender.id, 'name': message.sender.avatar.filename, 'ext': message.sender.avatar.format}) }}) center/cover"></div>
-                {% else %}
-                    <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ message.sender.name|slice(0,2) }}</div></div>
-                {% endif %}
-                <div class="pm-message">
-                    <div class="pm-message-header"><i class="fa fa-user"></i> {{ message.sender.name }}</div>
-                    <div class="pm-message-content">
-                        {% if message.hidden %}
-                            <div class="crowmsg">{{ 'Der Rabe hat diese Nachricht zerrissen.'|trans({},'game') }}</div>
-                        {% else %}
-                            {{ message.text|raw }}
-                        {% endif %}
-                        {% if message.modMessage %}
-                            <div class="modAnnounce">{{ message.modMessage }}</div>
-                        {% endif %}
-                    </div>
-                    <div class="pm-message-footer">
-                        {% if message.timestamp.format('Ymd') == today|date("Ymd") %}
-                            {{ 'Heute um'|trans({},'global') }} {{ message.timestamp|format_datetime('none', 'short') }}
-                        {% elseif message.timestamp.format('Ymd') == yesterday|date("Ymd") %}
-                            {{ 'Gestern um'|trans({},'global') }} {{ message.timestamp|format_datetime('none', 'short') }}
-                        {% else %}
-                            {{ message.timestamp|format_datetime('medium', 'short') }}
-                        {% endif %}
-                        {% if message.sender != app.user %}
-                            &nbsp;<a class="pm-button" x-report-url="{{ path('pm_report_post_controller', {pid: message.id}) }}"><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a>
-                        {% endif %}
-                    </div>
-                </div>
-            </li>
+            {{ bubble(message, last) }}
         {% endfor %}
     </ul>
     {% if more %}

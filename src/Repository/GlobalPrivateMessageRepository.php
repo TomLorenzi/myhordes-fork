@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\GlobalPrivateMessage;
 use App\Entity\User;
 use App\Entity\UserGroup;
+use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -21,7 +22,7 @@ class GlobalPrivateMessageRepository extends ServiceEntityRepository
         parent::__construct($registry, GlobalPrivateMessage::class);
     }
 
-    public function findByGroup(UserGroup $group, int $last_id = 0, int $num = 0, int $not_beyond = 0)
+    public function findByGroup(UserGroup $group, int $last_id = 0, int $num = 0, int $not_beyond = 0, ?DateTime $not_before = null)
     {
         $qb = $this->createQueryBuilder('g')
             ->andWhere('g.receiverGroup = :group')->setParameter('group', $group)
@@ -30,6 +31,7 @@ class GlobalPrivateMessageRepository extends ServiceEntityRepository
         if ($last_id > 0)    $qb->andWhere('g.id < :lid')->setParameter('lid', $last_id);
         if ($not_beyond > 0) $qb->andWhere('g.id <= :bid')->setParameter('bid', $not_beyond);
         if ($num > 0) $qb->setMaxResults($num);
+        if ($not_before !== null) $qb->andWhere('g.timestamp > :time')->setParameter('time', $not_before);
 
         return $qb->getQuery()->getResult();
     }
@@ -43,6 +45,19 @@ class GlobalPrivateMessageRepository extends ServiceEntityRepository
                 ->andWhere('g.seen = :seen')->setParameter('seen', false)
                 ->getQuery()->getSingleScalarResult();
         } catch (\Exception $e) { return 0; }
+    }
+
+    public function getUnreadDirectPMsByUser( User $user, ?DateTime $newer_then = null ): int
+    {
+        $qb = $this->createQueryBuilder('g')
+                ->andWhere('g.receiverUser = :user')->setParameter('user', $user)
+                ->andWhere('g.receiverGroup IS NULL')
+                ->andWhere('g.seen = :seen')->setParameter('seen', false)
+                ->orderBy('g.timestamp', 'DESC');
+
+        if ($newer_then !== null) $qb->andWhere('g.timestamp > :time')->setParameter('time', $newer_then);
+
+        return $qb->getQuery()->getResult();
     }
 
     public function getDirectPMsByUser( User $user, int $last_id = 0, int $num = 0 )

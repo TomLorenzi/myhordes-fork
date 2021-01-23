@@ -1,112 +1,11 @@
 {% extends "ajax/ajax_plain.html.twig" %}
+
+{% from "ajax/pm/bubbles.html.twig" import bubble_index as bubble %}
+
 {% block ajax_base %}
-    {% set today = date() %}
-    {% set yesterday = date('-1days') %}
     <ul class="pm-conversation-list">
         {% for entry in entries %}
-            {% set endpoint_fetch   = null %}
-            {% set endpoint_answer  = null %}
-            {% set endpoint_trash   = null %}
-            {% set endpoint_unread  = null %}
-            {% set endpoint_users   = null %}
-            {% set message_title    = entry.title %}
-            {% set message_id       = 0 %}
-            {% set message_type     = 'un' %}
-            {% set message_show_ava = true %}
-            {% if entry.obj|instance_of('App\\Entity\\UserGroupAssociation') %}
-                {% if not entry.closed %}
-                    {% set endpoint_answer = path('pm_post_editor_controller', {'id': entry.obj.association.id}) %}
-                    {% set endpoint_users  = path('pm_conv_group_users', {'id': entry.obj.association.id}) %}
-                {% endif %}
-                {% set endpoint_fetch  = path('pm_conv_group', {'id': entry.obj.association.id}) %}
-                {% set endpoint_trash  = path('pm_delete_conv_group', {'id': entry.obj.association.id}) %}
-                {% set endpoint_unread = path('pm_unread_conv_group', {'id': entry.obj.association.id}) %}
-                {% set message_id      = entry.obj.id %}
-                {% set message_type    = 'g' %}
-            {% elseif entry.obj|instance_of('App\\Entity\\Announcement') %}
-                {% set message_title    = 'Ankündigung'|trans({},'global') %}
-                {% set endpoint_fetch   = path('pm_announce', {'id': entry.obj.id}) %}
-                {% set endpoint_unread  = path('pm_unread_announce', {'id': entry.obj.id}) %}
-                {% set message_id       = entry.obj.id %}
-                {% set message_type     = 'a' %}
-                {% set message_show_ava = false %}
-            {% elseif entry.obj|instance_of('App\\Entity\\GlobalPrivateMessage') %}
-                {% set endpoint_fetch  = path('pm_dm') %}
-                {% set endpoint_trash  = path('pm_delete_dm') %}
-                {% set endpoint_unread = path('pm_unread_dm') %}
-                {% set message_id      = entry.obj.id %}
-                {% set message_type    = 'd' %}
-            {% endif %}
-
-            <li x-title="{{ message_title }}" x-domain="{{ message_type }}" x-identifier="{{ message_id }}"
-                class="{% if entry.closed %}closed{% endif %} {% if entry.system %}system{% endif %} {% if entry.unread > 0 %}new{% endif %}"
-                {% if endpoint_fetch  is not null %}x-endpoint="{{ endpoint_fetch }}"{% endif %}
-                {% if endpoint_answer is not null %}x-editor="{{ endpoint_answer }}"{% endif %}
-                {% if endpoint_trash  is not null %}x-trash="{{ endpoint_trash }}"{% endif %}
-                {% if endpoint_unread is not null %}x-unread="{{ endpoint_unread }}"{% endif %}
-                {% if endpoint_users  is not null %}x-userlist="{{ endpoint_users }}"{% endif %}
-            >
-                {% if message_show_ava %}
-                    <div class="pm-avatar-block">
-                    {% if entry.system %}
-                        <div class="pm-avatar-crow"></div>
-                    {% elseif entry.users|length > 1 %}
-                        {% set i = 0 %}
-                        {% for message_partner in entry.users %}
-                            {% if i < 4 and message_partner != app.user and message_partner != entry.owner and message_partner.avatar %}
-                                <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': message_partner.id, 'name': message_partner.avatar.filename, 'ext': message_partner.avatar.format}) }}) center/cover"></div>
-                                {% set i = i+1 %}
-                            {% endif %}
-                        {% endfor %}
-                        {% if i < 4 %}
-                            {% for message_partner in entry.users %}
-                                {% if i < 4 and message_partner != app.user and message_partner != entry.owner and message_partner.avatar is empty %}
-                                    <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ message_partner.name|slice(0,2) }}</div></div>
-                                    {% set i = i+1 %}
-                                {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                        {% if entry.owner is not empty and entry.owner != app.user %}
-                            {% if entry.owner.avatar %}
-                                <div class="pm-avatar owner" style="background: url({{ path('app_web_avatar', {'uid': entry.owner.id, 'name': entry.owner.avatar.filename, 'ext': entry.owner.avatar.format}) }}) center/cover"></div>
-                            {% else %}
-                                <div class="pm-avatar owner row-flex v-center"><div class="cell rw-12 center">{{ entry.owner.name|slice(0,2) }}</div></div>
-                            {% endif %}
-                        {% endif %}
-                    {% endif %}
-                </div>
-                {% endif %}
-
-                <b class="title {% if entry.system %}crow-note{% endif %}">{{ entry.title }}</b>
-
-                {% if entry.system %}
-                    <span class="author crow-note">{{ 'Der Rabe'|trans({},'global') }}</span>
-                {% elseif entry.users|length > 2 and entry.owner != app.user %}
-                    <span class="author group-desc"><b class="sender">{{ entry.owner.name }}</b>, {{ '%n% Teilnehmer'|trans({'%n%': entry.users|length},'global') }}</span>
-                {% elseif entry.users|length > 2 %}
-                    <span class="author group-desc">{{ '%n% Teilnehmer'|trans({'%n%': entry.users|length},'global') }}</span>
-                {% elseif entry.users|length == 2 %}
-                    {% for message_partner in entry.users %}
-                        {% if message_partner != app.user %}
-                            <span class="author group-desc"><b class="sender">{{ message_partner.name }}</b></span>
-                        {% endif %}
-                    {% endfor %}
-                {% else %}
-                    <span class="author unknown"></span>
-                {% endif %}
-
-                {% if not entry.closed %}
-                    <span class="date">
-                            {% if entry.date.format('Ymd') == today|date("Ymd") %}
-                                {{ 'Heute um'|trans({},'global') }} {{ entry.date|format_datetime('none', 'short') }}
-                            {% elseif entry.date.format('Ymd') == yesterday|date("Ymd") %}
-                                {{ 'Gestern um'|trans({},'global') }} {{ entry.date|format_datetime('none', 'short') }}
-                            {% else %}
-                                {{ entry.date|format_datetime('medium', 'short') }}
-                            {% endif %}
-                    </span>
-                {% endif %}
-            </li>
+            {{ bubble(entry) }}
         {% endfor %}
     </ul>
     {% if more %}

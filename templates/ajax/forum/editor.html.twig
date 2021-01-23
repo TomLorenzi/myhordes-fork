@@ -233,7 +233,7 @@
             });
 
             let node_transfer_source = document.getElementById('{{ type }}-forum-editor-text');
-            let node_transfer_target = document.getElementById('{{ preview_name|raw }}');
+            const get_preview = function() { return document.getElementById('{{ preview_name|raw }}'); }
 
             const transfer_to_preview = function() {
 
@@ -247,7 +247,7 @@
                 {% endfor %}
                 {% endif %}
 
-                $.html.twinoParser.parseTo( node_transfer_source.value, node_transfer_target, function(s) {
+                $.html.twinoParser.parseTo( node_transfer_source.value, get_preview(), function(s) {
                     switch (s) {
                         case ':)': s = ':smile:';    break;
                         case ':d': s = ':lol:';      break;

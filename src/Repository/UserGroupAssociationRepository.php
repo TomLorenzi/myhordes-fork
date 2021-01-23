@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\User;
 use App\Entity\UserGroupAssociation;
+use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Exception;
@@ -43,7 +44,22 @@ class UserGroupAssociationRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    /**
+     * @param User $user
+     * @param DateTime|null $newer_then
+     * @return UserGroupAssociation[]
+     */
+    public function getUnreadPMsByUser( User $user, ?DateTime $newer_then = null) {
+        $qb = $this->createQueryBuilder('u')->select('u')->leftJoin('u.association', 'g')
+            ->andWhere('u.user = :user')->setParameter('user', $user)
+            ->andWhere('u.ref1 < g.ref1 OR u.ref1 IS NULL')
+            ->orderBy('g.ref2', 'DESC')
+            ->andWhere('u.associationType = :assoc')->setParameter('assoc', UserGroupAssociation::GroupAssociationTypePrivateMessageMember);
 
+        if ($newer_then !== null) $qb->andWhere('g.ref2 > :time')->setParameter('time', $newer_then->getTimestamp());
+
+        return $qb->getQuery()->getResult();
+    }
 
     /**
      * @param User $user

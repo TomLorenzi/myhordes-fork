@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Announcement;
 use App\Entity\User;
+use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Exception;
@@ -43,6 +44,19 @@ class AnnouncementRepository extends ServiceEntityRepository
         try {
             return $qb->getQuery()->getSingleScalarResult();
         } catch (Exception $e) { return 0; }
+    }
+
+    public function getUnreadByUser(User $user, string $lang, ?DateTime $newer_then = null, int $limit = 0)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->andWhere(':user NOT MEMBER OF a.readBy')->setParameter('user', $user)
+            ->andWhere('a.lang = :lang')->setParameter('lang', $lang)
+            ->andWhere('a.timestamp > :cut')->setParameter('cut', $newer_then ?? new DateTime('-60days'))
+            ->orderBy('a.timestamp', 'DESC');
+
+        if ($limit > 0) $qb->setMaxResults($limit);
+
+        return $qb->getQuery()->getResult();
     }
 
     // /**

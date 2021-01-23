@@ -43,20 +43,93 @@ class MessageGlobalPMController extends MessageController
             $em->getRepository(UserGroupAssociation::class)->countUnreadPMsByUser($user) +
             $em->getRepository(UserGroupAssociation::class)->countUnreadInactivePMsByUser($user) +
             $em->getRepository(GlobalPrivateMessage::class)->countUnreadDirectPMsByUser($user) +
-            $em->getRepository(Announcement::class)->countUnreadByUser($user, $this->getUserLanguage())
-            , 'connected' => 15000, 'success' => true]);
+            $em->getRepository(Announcement::class)->countUnreadByUser($user, $this->getUserLanguage()),
+            'connected' => 15000, 'success' => true]);
+    }
+
+    /**
+     * @Route("api/pm/spring/{domain}/{id<\d+>}", name="api_pm_spring")
+     * @param string $domain
+     * @param int $id
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function ping_fetch_new_messages(EntityManagerInterface $em, JSONRequestParser $parser, string $domain = '', int $id = 0): Response {
+
+
+        $user = $this->getUser();
+        if (!$user) return new AjaxResponse(['connected' => false, 'success' => true]);
+        $rk = $parser->get_num('rk',0);
+
+        if ($rk <= 0 || $rk >= time()) return new AjaxResponse(['connected' => 15000, 'success' => true]);
+
+        if ($id <= 0 || !in_array($domain, ['d','g'])) $domain = '';
+
+        $cutoff = new DateTime();
+        $cutoff->setTimestamp( $rk );
+
+        /** @var GlobalPrivateMessage[] $dm_cache */
+        $dm_cache = $em->getRepository(Announcement::class)->getUnreadByUser($user, $this->getUserLanguage(), $cutoff, $domain === 'd' ? 0 : 1);
+
+        $entries = [];
+        $this->render_group_associations( $em->getRepository(UserGroupAssociation::class)->getUnreadPMsByUser($user, $cutoff), $entries );
+        $this->render_announcements( $em->getRepository(Announcement::class)->getUnreadByUser($user, $this->getUserLanguage(), $cutoff), $entries );
+        $this->render_directNotifications( $dm_cache );
+
+        usort($entries, fn($a,$b) => $b['date'] <=> $a['date']);
+
+        $index = $this->render( 'ajax/pm/bubbles.html.twig', ['raw_id' => $entries] )->getContent();
+        $focus = '';
+
+        switch ($domain) {
+            case 'd':
+                foreach ($dm_cache as $entry) $this->entity_manager->persist( $entry->setSeen(true) );
+                try {
+                    $this->entity_manager->flush();
+                } catch (Exception $e) {}
+
+                foreach ($dm_cache as $entry) $entry->setText( $this->prepareEmotes( $entry->getText() ) );
+                $focus = $this->render( 'ajax/pm/bubbles.html.twig', ['raw_dm' => $dm_cache] )->getContent();
+
+                break;
+            case 'g':
+
+                $group = $em->getRepository( UserGroup::class )->find($id);
+                if (!$group || $group->getType() !== UserGroup::GroupMessageGroup) break;
+
+                /** @var UserGroupAssociation $group_association */
+                $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(), 'associationType' =>
+                    UserGroupAssociation::GroupAssociationTypePrivateMessageMember,
+                'association' => $group]);
+                if (!$group_association) break;
+
+                $messages = $em->getRepository(GlobalPrivateMessage::class)->findByGroup($group, 0, 0, 0, $cutoff);
+                if (!$messages) break;
+
+                try {
+                    $this->entity_manager->persist( $group_association->setRef1( $group->getRef1() )->setRef2( $messages[0]->getId() ) );
+                    $this->entity_manager->flush();
+                } catch (\Exception $e) {}
+
+                foreach ($messages as $message) $message->setText( $this->prepareEmotes( $message->getText() ) );
+                $focus = $this->render( 'ajax/pm/bubbles.html.twig', ['raw_gp' => $messages] )->getContent();
+
+                break;
+        }
+
+        return new AjaxResponse(['success' => true, 'response_key' => (new DateTime('now'))->getTimestamp(), 'payload' => [
+            'connected' => 5000,
+            'index' => $index,
+            'focus' => $focus,
+        ]]);
     }
 
     /**
      * @Route("jx/pm/view", name="pm_view")
-     * @param EntityManagerInterface $em
-     * @param JSONRequestParser $p
      * @return Response
      */
-    public function pm_view(EntityManagerInterface $em, JSONRequestParser $p): Response {
-        return $this->render( 'ajax/pm/view.html.twig', $this->addDefaultTwigArgs(null, [
-
-        ] ));
+    public function pm_view(): Response {
+        return $this->render( 'ajax/pm/view.html.twig', ['rk' => (new DateTime('now'))->getTimestamp()]);
     }
 
     /**
@@ -120,18 +193,19 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
+     * @param GlobalPrivateMessage[] $pms
      * @param array|null $entries
      */
-    private function render_directNotifications( ?array &$entries = null ): void {
+    private function render_directNotifications( array $pms, ?array &$entries = null ): void {
         if ($entries === null) $entries = [];
 
-        $latest_pm = $this->entity_manager->getRepository(GlobalPrivateMessage::class)->getDirectPMsByUser($this->getUser(), 0, 1);
+        $latest_pm = empty($pms) ? null : $pms[0];
 
         if ($latest_pm) {
             $crow = $this->entity_manager->getRepository(User::class)->find(66);
             $entries[] = [
-                'obj'    => $latest_pm[0],
-                'date'   => $latest_pm[0]->getTimestamp(),
+                'obj'    => $latest_pm,
+                'date'   => $latest_pm->getTimestamp(),
                 'system' => true,
                 'title'  => T::__('Nachrichten des Raben', 'global'),
                 'closed' => false,
@@ -163,7 +237,7 @@ class MessageGlobalPMController extends MessageController
         $this->render_announcements( $em->getRepository(Announcement::class)->findByLang($this->getUserLanguage(),
         $skip['a'] ?? [], $num+1), $entries );
 
-        $this->render_directNotifications($entries);
+        $this->render_directNotifications($this->entity_manager->getRepository(GlobalPrivateMessage::class)->getDirectPMsByUser($this->getUser(), 0, 1), $entries);
 
         usort($entries, fn($a,$b) => $b['date'] <=> $a['date']);
 

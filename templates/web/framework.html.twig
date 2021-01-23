@@ -145,6 +145,10 @@
             if (e.target !== elem) return;
             elem.classList.remove('visible');
             document.body.style.overflow = null;
+            $.msg.togglePing(true);
+            $.msg.toggleFetch(false);
+            $.msg.restoreFetchEndpoint();
+            $.msg.setFetchRK(null);
             $.msg.execute();
         });
         $.html.addEventListenerAll('#post-office-button-overlay>ul>li:last-child','click', function() {
@@ -152,6 +156,10 @@
             if (post) {
                 post.classList.remove('visible');
                 document.body.style.overflow = null;
+                $.msg.togglePing(true);
+                $.msg.toggleFetch(false);
+                $.msg.restoreFetchEndpoint();
+                $.msg.setFetchRK(null);
                 $.msg.execute();
             }
         });
@@ -165,6 +173,8 @@
             }
             else $.html.forEach('#postbox', e=>e.classList.add('hidden'));
         }, true);
+        $.msg.registerFetchEndpoint( '{{ path('api_pm_spring') }}' );
+        $.msg.toggleFetch(false);
     })();
 
 </script>

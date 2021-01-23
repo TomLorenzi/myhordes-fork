@@ -1,35 +1,11 @@
 {% extends "ajax/ajax_plain.html.twig" %}
+
+{% from "ajax/pm/bubbles.html.twig" import bubble_dm as bubble %}
+
 {% block ajax_base %}
-    {% set today = date() %}
-    {% set yesterday = date('-1days') %}
     <ul class="group-conversation dm">
         {% for message in messages %}
-            {# @var message App\Entity\GlobalPrivateMessage #}
-            <li class="{% if not message.seen %}new{% endif %}">
-                {% if (message.sender.id == 66) %}
-                    <div class="pm-avatar-crow"></div>
-                {% elseif (message.sender.avatar) %}
-                    <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': message.sender.id, 'name': message.sender.avatar.filename, 'ext': message.sender.avatar.format}) }}) center/cover"></div>
-                {% else %}
-                    <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ message.sender.name|slice(0,2) }}</div></div>
-                {% endif %}
-                <div class="pm-message">
-                    <div class="pm-message-header"><i class="fa fa-user"></i> {{ message.sender.name }}</div>
-                    <div class="pm-message-content">
-                        <div class="crowmsg">{{ 'Dies ist eine offizielle Nachricht.'|trans({},'game') }} <a class="help-button"><div class="tooltip help">{{ 'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></div>
-                        {{ message.text|raw }}
-                    </div>
-                    <div class="pm-message-footer">
-                        {% if message.timestamp.format('Ymd') == today|date("Ymd") %}
-                            {{ 'Heute um'|trans({},'global') }} {{ message.timestamp|format_datetime('none', 'short') }}
-                        {% elseif message.timestamp.format('Ymd') == yesterday|date("Ymd") %}
-                            {{ 'Gestern um'|trans({},'global') }} {{ message.timestamp|format_datetime('none', 'short') }}
-                        {% else %}
-                            {{ message.timestamp|format_datetime('medium', 'short') }}
-                        {% endif %}
-                    </div>
-                </div>
-            </li>
+            {{ bubble(message, 0) }}
         {% endfor %}
     </ul>
     {% if more %}
