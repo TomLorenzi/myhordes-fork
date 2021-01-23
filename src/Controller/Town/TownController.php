@@ -149,10 +149,6 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                 $alive++;
         }
 
-        $z_today_min = $z_today_max = $z_tomorrow_min = $z_tomorrow_max = null; $z_q = 0;
-        if ($has_zombie_est_today) $z_q = $th->get_zombie_estimation_quality( $town, 0, $z_today_min, $z_today_max );
-        if ($has_zombie_est_today && $has_zombie_est_tomorrow && $z_q >= 1) $th->get_zombie_estimation_quality( $town, 1, $z_tomorrow_min, $z_tomorrow_max );
-
         $item_def_factor = 1;
         $has_battlement = false;
         $has_watchtower = false;
@@ -206,11 +202,25 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
         }
 
+        $estims = $this->town_handler->get_zombie_estimation_quality($town);
+        $zeds_today = [
+            $has_zombie_est_today, // Can see
+            $estims[0]->getMin(), // Min
+            $estims[0]->getMax(),  // Max
+            round($estims[0]->getEstimation()*100) // Progress
+        ];
+        $zeds_tomorrow = [
+            $has_zombie_est_tomorrow,
+            isset($estims[1]) ? $estims[1]->getMin() : 0,
+            isset($estims[1]) ? $estims[1]->getMax() : 0,
+            isset($estims[1]) ? round($estims[1]->getEstimation()*100) : 0
+        ];
+
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
             'def' => $th->calculate_town_def($town, $defSummary),
-            'zeds_today'    => [ $has_zombie_est_today, $z_today_min, $z_today_max, round($z_q*100) ],
-            'zeds_tomorrow' => [ $has_zombie_est_tomorrow, $z_tomorrow_min, $z_tomorrow_max ],
+            'zeds_today'    => $zeds_today,
+            'zeds_tomorrow' => $zeds_tomorrow,
             'living_citizens' => $alive,
             'def_summary' => $defSummary,
             'item_def_count' => $item_def_count,
