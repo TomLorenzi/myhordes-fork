@@ -512,7 +512,7 @@ class TownHandler
         $offsetMin = $est->getOffsetMin();
         $offsetMax = $est->getOffsetMax();
 
-        mt_srand($est->getCitizens()->count());
+        mt_srand($town->getDay());
 
         for ($i = 0; $i < $est->getCitizens()->count() * $ratio; $i++) {
             if ($offsetMin + $offsetMax > 10) {
