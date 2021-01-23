@@ -10,6 +10,7 @@ use App\Entity\PrivateMessage;
 use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
+use App\Service\CrowService;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\PermissionHandler;
@@ -110,9 +111,10 @@ class AdminForumController extends AdminActionController
      * @Route("api/admin/forum/reports/moderate-pm", name="admin_reports_mod_pm")
      * @param JSONRequestParser $parser
      * @param PermissionHandler $perm
+     * @param CrowService $crow
      * @return Response
      */
-    public function reports_moderate_pm(JSONRequestParser $parser, PermissionHandler $perm): Response
+    public function reports_moderate_pm(JSONRequestParser $parser, PermissionHandler $perm, CrowService $crow): Response
     {
         $user = $this->getUser();
 
@@ -149,6 +151,14 @@ class AdminForumController extends AdminActionController
         if ($message) $pm->setModMessage( $message );
         $this->entity_manager->persist($pm->setModerator($user));
 
+        if ($hide || $message) {
+            $notification = $crow->createPM_moderation( $pm->getOwner()->getUser(),
+                CrowService::ModerationActionDomainTownPM, CrowService::ModerationActionTargetPost, $hide ? CrowService::ModerationActionDelete : CrowService::ModerationActionEdit,
+                $pm, $message ?? ''
+            );
+            if ($notification) $this->entity_manager->persist($notification);
+        }
+
         try {
             $this->entity_manager->flush();
         } catch (\Exception $e) {
@@ -161,9 +171,10 @@ class AdminForumController extends AdminActionController
     /**
      * @Route("api/admin/forum/reports/moderate-gpm", name="admin_reports_mod_gpm")
      * @param JSONRequestParser $parser
+     * @param CrowService $crow
      * @return Response
      */
-    public function reports_moderate_gpm(JSONRequestParser $parser): Response
+    public function reports_moderate_gpm(JSONRequestParser $parser, CrowService $crow): Response
     {
         $user = $this->getUser();
 
@@ -195,6 +206,14 @@ class AdminForumController extends AdminActionController
         if ($hide) $pm->setHidden(true);
         if ($message) $pm->setModMessage( $message );
         $this->entity_manager->persist($pm->setModerator($user));
+
+        if ($hide || $message) {
+            $notification = $crow->createPM_moderation( $pm->getSender(),
+                CrowService::ModerationActionDomainGlobalPM, CrowService::ModerationActionTargetPost, $hide ? CrowService::ModerationActionDelete : CrowService::ModerationActionEdit,
+                $pm, $message ?? ''
+            );
+            if ($notification) $this->entity_manager->persist($notification);
+        }
 
         try {
             $this->entity_manager->flush();

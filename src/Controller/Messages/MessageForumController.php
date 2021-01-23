@@ -14,6 +14,7 @@ use App\Entity\ThreadReadMarker;
 use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
+use App\Service\CrowService;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\PictoHandler;
@@ -365,9 +366,10 @@ class MessageForumController extends MessageController
      * @param int $pid
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
+     * @param CrowService $crow
      * @return Response
      */
-    public function edit_post_api(int $fid, int $tid, int $pid, JSONRequestParser $parser, EntityManagerInterface $em): Response {
+    public function edit_post_api(int $fid, int $tid, int $pid, JSONRequestParser $parser, EntityManagerInterface $em, CrowService $crow): Response {
         $user = $this->getUser();
         if ($user->getIsBanned()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
@@ -413,6 +415,12 @@ class MessageForumController extends MessageController
                 ->setLastAdminActionBy($user);
             if ($post->getOriginalText() === null && $post->getOwner()->getId() !== 66)
                 $post->setOriginalText($old_text);
+
+            $notification = $crow->createPM_moderation( $post->getOwner(),
+                CrowService::ModerationActionDomainForum, CrowService::ModerationActionTargetPost, CrowService::ModerationActionEdit,
+                $post
+            );
+            if ($notification) $em->persist($notification);
         }
 
 
@@ -538,10 +546,10 @@ class MessageForumController extends MessageController
             $last_read = $marker->getPost();
             if ($last_read === null || $read_post->getId() > $last_read->getId()) {
                 $marker->setPost($read_post);
-                //try {
-                $em->persist($marker);
-                $em->flush();
-                //} catch (Exception $e) {}
+                try {
+                    $em->persist($marker);
+                    $em->flush();
+                } catch (Exception $e) {}
             }
         }
 
@@ -639,9 +647,10 @@ class MessageForumController extends MessageController
      * @param int $tid
      * @param string $mod
      * @param JSONRequestParser $parser
+     * @param CrowService $crow
      * @return Response
      */
-    public function mod_thread_api(int $fid, int $tid, string $mod, JSONRequestParser $parser): Response {
+    public function mod_thread_api(int $fid, int $tid, string $mod, JSONRequestParser $parser, CrowService $crow): Response {
         $success = false;
 
         /** @var Forum $forum */
@@ -732,7 +741,20 @@ class MessageForumController extends MessageController
                     if ($post === $thread->firstPost(true)) {
                         $thread->setHidden(true)->setLocked(true);
                         $this->entity_manager->persist($thread);
+
+                        $notification = $crow->createPM_moderation( $post->getOwner(),
+                            CrowService::ModerationActionDomainForum, CrowService::ModerationActionTargetThread, CrowService::ModerationActionDelete,
+                            $post, $reason
+                        );
+
+                    } else {
+                        $notification = $crow->createPM_moderation( $post->getOwner(),
+                            CrowService::ModerationActionDomainForum, CrowService::ModerationActionTargetPost, CrowService::ModerationActionDelete,
+                            $post, $reason
+                        );
                     }
+
+                    if ($notification) $this->entity_manager->persist($notification);
 
                     $this->entity_manager->flush();
                     return AjaxResponse::success();

@@ -15,11 +15,22 @@ use App\Entity\User;
 use App\Structures\TownConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Finder\Glob;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class CrowService {
+    const ModerationActionDomainForum = 1;
+    const ModerationActionDomainTownPM = 2;
+    const ModerationActionDomainGlobalPM = 3;
 
-    private $em;
-    private $crow_cache = null;
+    const ModerationActionTargetThread = 1;
+    const ModerationActionTargetPost = 2;
+
+    const ModerationActionEdit = 1;
+    const ModerationActionDelete = 2;
+
+    private EntityManagerInterface $em;
+    private ?User $crow_cache = null;
 
     private function getCrowAccount(): User {
         return $this->crow_cache ?? ($this->crow_cache = $this->em->getRepository(User::class)->find(66));
@@ -126,6 +137,63 @@ class CrowService {
         return (new GlobalPrivateMessage())
             ->setTemplate( $template )
             ->setData( [ 'town' => $townName ])
+            ->setTimestamp( new DateTime('now') )
+            ->setReceiverUser( $receiver )
+            ->setSender( $this->getCrowAccount() )
+            ->setSeen( false );
+    }
+
+    public function createPM_moderation( User $receiver, int $domain, int $target, int $action, ?object $object = null, string $reason = ''): ?GlobalPrivateMessage {
+
+        $name = null;
+        $data = [];
+        switch ($domain) {
+
+            case self::ModerationActionDomainForum: {
+                if (!is_a($object, Post::class)) return null;
+                switch ("{$target}.{$action}") {
+                    case self::ModerationActionTargetThread .'.'. self::ModerationActionDelete: $name = 'gpm_mod_threadDeleted'; break;
+                    case self::ModerationActionTargetPost .'.'. self::ModerationActionEdit:     $name = 'gpm_mod_postEdited'; break;
+                    case self::ModerationActionTargetPost .'.'. self::ModerationActionDelete:   $name = 'gpm_mod_postDeleted'; break;
+                    default: return null;
+                }
+                $data = [ 'link_post' => $object->getId(), 'threadname' => $object->getThread()->getTitle(), 'forumname' => $object->getThread()->getForum()->getTitle() ];
+                break;
+            }
+
+            case self::ModerationActionDomainTownPM: {
+                if (!is_a($object, PrivateMessage::class)) return null;
+                switch ("{$target}.{$action}") {
+                    case self::ModerationActionTargetPost .'.'. self::ModerationActionEdit:     $name = 'gpm_mod_townPMEdited'; break;
+                    case self::ModerationActionTargetPost .'.'. self::ModerationActionDelete:   $name = 'gpm_mod_townPMDeleted'; break;
+                    default: return null;
+                }
+                $data = [ 'threadname' => $object->getPrivateMessageThread()->getTitle() ];
+                break;
+            }
+
+            case self::ModerationActionDomainGlobalPM: {
+                if (!is_a($object, GlobalPrivateMessage::class)) return null;
+                switch ("{$target}.{$action}") {
+                    case self::ModerationActionTargetPost .'.'. self::ModerationActionEdit:     $name = 'gpm_mod_globalPMEdited'; break;
+                    case self::ModerationActionTargetPost .'.'. self::ModerationActionDelete:   $name = 'gpm_mod_globalPMDeleted'; break;
+                    default: return null;
+                }
+                $data = [ 'threadname' => $object->getReceiverGroup()->getName() ];
+                break;
+            }
+
+            default: break;
+        }
+
+        if ($name === null) return null;
+
+        $template = $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $name]);
+        $data['reason'] = $reason;
+
+        return (new GlobalPrivateMessage())
+            ->setTemplate( $template )
+            ->setData( $data )
             ->setTimestamp( new DateTime('now') )
             ->setReceiverUser( $receiver )
             ->setSender( $this->getCrowAccount() )

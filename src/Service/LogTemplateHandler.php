@@ -25,19 +25,22 @@ use DateTimeInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class LogTemplateHandler
 {
-    private $trans;
-    private $asset;
-    private $entity_manager;
+    private TranslatorInterface $trans;
+    private Packages $asset;
+    private EntityManagerInterface $entity_manager;
+    private UrlGeneratorInterface $url;
 
-    public function __construct(TranslatorInterface $t, Packages $a, EntityManagerInterface $em )
+    public function __construct(TranslatorInterface $t, Packages $a, EntityManagerInterface $em, UrlGeneratorInterface $url)
     {
         $this->trans = $t;
         $this->asset = $a;
         $this->entity_manager = $em;
+        $this->url = $url;
     }
 
     public function wrap(?string $obj, ?string $class = null): string {
@@ -167,14 +170,19 @@ class LogTemplateHandler
                     $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->generateDogName((int)$variables[$typeEntry['name']]) );
                 }
                 elseif ($typeEntry['type'] === 'ap') {
-                    $ap = $variables[$typeEntry['name']];
-                    $transParams['%'.$typeEntry['name'].'%'] = "<div class='ap'>{$ap}</div>";
+                    $transParams['%'.$typeEntry['name'].'%'] = "<div class='ap'>{$variables[$typeEntry['name']]}</div>";
                 }   
                 elseif ($typeEntry['type'] === 'chat') {
                     $transParams['%'.$typeEntry['name'].'%'] = $variables[$typeEntry['name']];
                 }
                 elseif ($typeEntry['type'] === 'item') {
                     $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ), 'tool' );
+                }
+                elseif ($typeEntry['type'] === 'link_post') {
+                    $transParams['%'.$typeEntry['name'].'%'] = "<a target='_blank' href='{$this->url->generate('forum_jump_view', ['pid' => $variables[$typeEntry['name']] ?? 0])}'>{$this->trans->trans('Anzeigen', [], 'global')}</a>";
+                }
+                elseif ($typeEntry['type'] === 'ne-string') {
+                    $transParams['%'.$typeEntry['name'].'%'] = empty($variables[$typeEntry['name']]) ? '-' : $variables[$typeEntry['name']];
                 }
                 else {
                     $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ) );

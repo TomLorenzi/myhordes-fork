@@ -115,11 +115,11 @@
                     </div>
                 </div>
 
-                <div id="pm-forum-content-container" class="cell rw-12">
+                <div id="gpm-forum-content-container" class="cell rw-12">
                     <div class="forum-note">
-                        <b id="pm-forum-content-header">{{ 'Bitte wähle eine Konversation auf der linken Seite.'|trans({},'global') }}</b>
+                        <b id="gpm-forum-content-header">{{ 'Bitte wähle eine Konversation auf der linken Seite.'|trans({},'global') }}</b>
 
-                        <div id="pm-forum-content">
+                        <div id="gpm-forum-content">
                             <!-- CONVERSATION CONTAINER HERE -->
                         </div>
 
@@ -162,9 +162,9 @@
 
             const fun_conv_events = function() {
                 $.html.addEventListenerAll('ul.pm-conversation-list>li[x-title][x-endpoint]', 'click', function(e,elem) {
-                    let target = document.getElementById('pm-forum-content');
+                    let target = document.getElementById('gpm-forum-content');
                     target.innerText = '';
-                    document.getElementById('pm-forum-content-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Unterhaltung...'|trans({},'global')|e('js') }}';
+                    document.getElementById('gpm-forum-content-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Unterhaltung...'|trans({},'global')|e('js') }}';
 
                     $.html.forEach( 'ul.pm-conversation-list>li[x-title][x-endpoint]', ee => ee.classList.remove('selected') );
                     elem.classList.add('selected');
@@ -193,7 +193,7 @@
 
                     $.ajax.background().load( target, elem.getAttribute('x-endpoint'), false, {num: 30}, function() {
                         $.msg.rescheduleFetch(15000);
-                        document.getElementById('pm-forum-content-header').innerText = elem.getAttribute('x-title');
+                        document.getElementById('gpm-forum-content-header').innerText = elem.getAttribute('x-title');
                         document.getElementById('pm-forum-actions-container').classList.remove('hidden');
                         msg_list_more = document.querySelector('#pm-right-plane .pm-endless-more[x-endless-endpoint][x-last-id]');
                         fun_msg_events();
@@ -327,7 +327,7 @@
                         msg_list_more.setAttribute('x-endless-endpoint', more.getAttribute('x-endless-endpoint'));
                     }
 
-                    document.querySelector('#pm-forum-content>ul.group-conversation').innerHTML += messages.innerHTML;
+                    document.querySelector('#gpm-forum-content>ul.group-conversation').innerHTML += messages.innerHTML;
 
                     fun_msg_events();
                     loading_msg_list = false;
@@ -396,9 +396,9 @@
                 let editor = document.getElementById('global-pm-forum-editor');
                 if (!editor) return;
 
-                document.getElementById('pm-forum-content-container').classList.add('hidden');
+                document.getElementById('gpm-forum-content-container').classList.add('hidden');
                 document.getElementById('pm-forum-actions-container').classList.add('hidden');
-                document.getElementById('pm-forum-content-header').innerText = '{{ 'Vorschau'|trans({},'global')|e('js') }}'
+                document.getElementById('gpm-forum-content-header').innerText = '{{ 'Vorschau'|trans({},'global')|e('js') }}'
                 document.getElementById('pm-new-thread-controls').classList.add('hidden');
                 document.getElementById('pm-user-list-container').classList.add('hidden');
                 document.getElementById('pm-user-list-payload').innerHTML = '';
@@ -407,7 +407,7 @@
                 document.getElementById('pm-forum-editor-container').classList.remove('hidden');
                 document.getElementById('pm-forum-editor-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}';
 
-                document.getElementById('pm-forum-content').innerHTML = '<ul>{{ _self.pm_preview(app.user)|e('js') }}</ul>';
+                document.getElementById('gpm-forum-content').innerHTML = '<ul>{{ _self.pm_preview(app.user)|e('js') }}</ul>';
 
                 document.getElementById('post-office-mobile-wrapper').classList.add('panel-2');
                 $.html.forEach('.pm-conversation-list>li.selected', e => e.classList.remove('selected'));
@@ -415,7 +415,7 @@
                 if (editor) $.ajax.background().load( editor, '{{ url('pm_thread_editor_controller') }}', false, {}, function() {
                     document.getElementById('pm-forum-editor-header').innerText = '{{ 'Neue Nachricht'|trans({},'global') }}';
 
-                    document.getElementById('pm-forum-content-container').classList.remove('hidden');
+                    document.getElementById('gpm-forum-content-container').classList.remove('hidden');
                     document.getElementById('pm-new-thread-controls').classList.remove('hidden');
 
 
@@ -425,7 +425,7 @@
             $.html.addEventListenerAll('[x-pm-action="answer-single"]', 'click', function () {
 
                 const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-editor].selected');
-                let list = document.querySelector('#pm-forum-content>ul');
+                let list = document.querySelector('#gpm-forum-content>ul');
                 let editor = document.getElementById('global-pm-forum-editor');
                 if (!editor || !selected_thread || !list) return;
 
@@ -474,7 +474,7 @@
                 if (!selected_thread) return;
 
                 $.ajax.easySend(selected_thread.getAttribute('x-unread'), {}, function() {
-                    $.html.forEach('#pm-forum-content>ul>li', e => e.classList.add('new'));
+                    $.html.forEach('#gpm-forum-content>ul>li', e => e.classList.add('new'));
                 });
             });
 
