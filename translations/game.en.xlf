@@ -12340,7 +12340,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Plünderer</source>
-        <target>Plünderer</target>
+        <target>Pillager</target>
       </segment>
     </unit>
     <unit id="CGvAzP5" name="Aasgeier">
@@ -12349,7 +12349,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Aasgeier</source>
-        <target>Aasgeier</target>
+        <target>Plunderer</target>
       </segment>
     </unit>
     <unit id="6pQK.d7" name="Hyäne">
@@ -12358,7 +12358,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hyäne</source>
-        <target>Hyäne</target>
+        <target>Viking</target>
       </segment>
     </unit>
     <unit id="oULxGXv" name="Wegelagerer post mortem">
@@ -12367,7 +12367,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wegelagerer post mortem</source>
-        <target>Wegelagerer post mortem</target>
+        <target>Post-mortem Pickpocket</target>
       </segment>
     </unit>
     <unit id="wrk6884" name="Hungriger Schakal">
@@ -12376,7 +12376,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hungriger Schakal</source>
-        <target>Hungriger Schakal</target>
+        <target>Hungry Jackal</target>
       </segment>
     </unit>
     <unit id="sH.HjOH" name="Kojote der kargen Steppen">
@@ -12385,7 +12385,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Kojote der kargen Steppen</source>
-        <target>Kojote der kargen Steppen</target>
+        <target>Fleet-footed Coyote</target>
       </segment>
     </unit>
     <unit id="urPWQsn" name="Fingerschmied">
@@ -12394,7 +12394,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Fingerschmied</source>
-        <target>Fingerschmied</target>
+        <target>Solicitor of the World Beyond</target>
       </segment>
     </unit>
     <unit id="YWEYkqM" name="Nein, das Ding fasse ich nicht an.">
@@ -12403,7 +12403,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Nein, das Ding fasse ich nicht an.</source>
-        <target>Nein, das Ding fasse ich nicht an.</target>
+        <target>Silver Showerer</target>
       </segment>
     </unit>
     <unit id="r5GkUq2" name="Leichenhygieniker">
@@ -12412,7 +12412,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Leichenhygieniker</source>
-        <target>Leichenhygieniker</target>
+        <target>Golden Showerer</target>
       </segment>
     </unit>
     <unit id="psoFfLg" name="Ich liebe den Geruch von gewaschenen Leichen am Morgen.">
@@ -12421,7 +12421,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ich liebe den Geruch von gewaschenen Leichen am Morgen.</source>
-        <target>Ich liebe den Geruch von gewaschenen Leichen am Morgen.</target>
+        <target>Platinum Showerer</target>
       </segment>
     </unit>
     <unit id="LhDxZvT" name="Müllmann">
@@ -12430,7 +12430,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Müllmann</source>
-        <target>Müllmann</target>
+        <target>Corpse Cop</target>
       </segment>
     </unit>
     <unit id="sFQWLgK" name="Erfahrener Müllmann">
@@ -12439,7 +12439,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Erfahrener Müllmann</source>
-        <target>Erfahrener Müllmann</target>
+        <target>Body Bouncer</target>
       </segment>
     </unit>
     <unit id="tsPJ.tn" name="Entsorgungsfachmann">
@@ -12448,7 +12448,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Entsorgungsfachmann</source>
-        <target>Entsorgungsfachmann</target>
+        <target>Stiff Shifter</target>
       </segment>
     </unit>
     <unit id="B4Wcvgc" name="SM Anhänger">
@@ -12457,7 +12457,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>SM Anhänger</source>
-        <target>SM Anhänger</target>
+        <target>Casual S+M Enthusiast</target>
       </segment>
     </unit>
     <unit id="U8Ek_Ms" name="SM Spezialist">
@@ -12466,7 +12466,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>SM Spezialist</source>
-        <target>SM Spezialist</target>
+        <target>Whip me harder!</target>
       </segment>
     </unit>
     <unit id="SpnmnFy" name="Nenn mich Herrin">
@@ -12475,7 +12475,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Nenn mich Herrin</source>
-        <target>Nenn mich Herrin</target>
+        <target>Attach the testicle clamps!</target>
       </segment>
     </unit>
     <unit id="xCZqHbA" name="Ich möchte dein Objekt sein.">
@@ -12484,7 +12484,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ich möchte dein Objekt sein.</source>
-        <target>Ich möchte dein Objekt sein.</target>
+        <target>Bring out the gimp!</target>
       </segment>
     </unit>
     <unit id="MFlCpq0" name="Stadtmetzger">
@@ -12493,7 +12493,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Stadtmetzger</source>
-        <target>Stadtmetzger</target>
+        <target>Local Butcher</target>
       </segment>
     </unit>
     <unit id="VsHM2Ov" name="Spezialität: Hundesteaks">
@@ -12502,7 +12502,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Spezialität: Hundesteaks</source>
-        <target>Spezialität: Hundesteaks</target>
+        <target>Anyone for a fat-cat-kebab?</target>
       </segment>
     </unit>
     <unit id="vPqbzL2" name="Miezi? Jaaaa, komm her...">
@@ -12511,7 +12511,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Miezi? Jaaaa, komm her...</source>
-        <target>Miezi? Jaaaa, komm her...</target>
+        <target>Scourge of the animal kingdom...</target>
       </segment>
     </unit>
     <unit id="j0rqxtq" name="Fleisch ist mein Gemüse">
@@ -12520,7 +12520,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Fleisch ist mein Gemüse</source>
-        <target>Fleisch ist mein Gemüse</target>
+        <target>If we're meant to eat vegetables, why are animals so tasty?</target>
       </segment>
     </unit>
     <unit id="kux2P8d" name="Nervensäge">
@@ -12529,7 +12529,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Nervensäge</source>
-        <target>Nervensäge</target>
+        <target>Nuisance</target>
       </segment>
     </unit>
     <unit id="EmKmq5r" name="Sozialschmarotzer">
@@ -12538,7 +12538,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Sozialschmarotzer</source>
-        <target>Sozialschmarotzer</target>
+        <target>Undesirable Type</target>
       </segment>
     </unit>
     <unit id="fReXfmp" name="Die Wüste ist mein Zuhause">
@@ -12547,7 +12547,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Wüste ist mein Zuhause</source>
-        <target>Die Wüste ist mein Zuhause</target>
+        <target>Social Parasite</target>
       </segment>
     </unit>
     <unit id="HYrdx8z" name="Immer ein Auge offen">
@@ -12556,7 +12556,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Immer ein Auge offen</source>
-        <target>Immer ein Auge offen</target>
+        <target>One Eye Open</target>
       </segment>
     </unit>
     <unit id="Z_0j57p" name="Mit offenen Augen schlafen? Kein Problem!">
@@ -12565,7 +12565,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Mit offenen Augen schlafen? Kein Problem!</source>
-        <target>Mit offenen Augen schlafen? Kein Problem!</target>
+        <target>Both Eyes Open</target>
       </segment>
     </unit>
     <unit id="_gGT4Bo" name="Immer alles im Blick">
@@ -12574,7 +12574,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Immer alles im Blick</source>
-        <target>Immer alles im Blick</target>
+        <target>Long-sighted</target>
       </segment>
     </unit>
     <unit id="y3Kn2k." name="Großer Baumeister">
@@ -12583,7 +12583,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Großer Baumeister</source>
-        <target>Großer Baumeister</target>
+        <target>Master Builder</target>
       </segment>
     </unit>
     <unit id="jmKMicq" name="Großer Architekt">
@@ -12592,7 +12592,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Großer Architekt</source>
-        <target>Großer Architekt</target>
+        <target>Great Architect</target>
       </segment>
     </unit>
     <unit id="MvKgCjl" name="Freimauer">
@@ -12601,7 +12601,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Freimauer</source>
-        <target>Freimauer</target>
+        <target>Great Mason</target>
       </segment>
     </unit>
     <unit id="a12lyk0" name="Terraformingspezialist">
@@ -12610,7 +12610,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Terraformingspezialist</source>
-        <target>Terraformingspezialist</target>
+        <target>Terraforming Specialist</target>
       </segment>
     </unit>
     <unit id="6qQgdl3" name="Allmächtiger Schöpfer">
@@ -12619,7 +12619,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Allmächtiger Schöpfer</source>
-        <target>Allmächtiger Schöpfer</target>
+        <target>Great, benevolent, all-powerful creator</target>
       </segment>
     </unit>
     <unit id="iI2X2UH" name="Bauherr ohne Sinn und Verstand">
@@ -12628,7 +12628,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Bauherr ohne Sinn und Verstand</source>
-        <target>Bauherr ohne Sinn und Verstand</target>
+        <target>Nonsense builder</target>
       </segment>
     </unit>
     <unit id="G3RJpst" name="Erbauer der verlorenen Zeit">
@@ -12637,7 +12637,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Erbauer der verlorenen Zeit</source>
-        <target>Erbauer der verlorenen Zeit</target>
+        <target>Founder of Timewasting</target>
       </segment>
     </unit>
     <unit id="SFBU3BN" name="Erleuchteter Baumeister">
@@ -12646,7 +12646,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Erleuchteter Baumeister</source>
-        <target>Erleuchteter Baumeister</target>
+        <target>Enlightened Builder</target>
       </segment>
     </unit>
     <unit id="lSOiFIr" name="Maurer aus Leidenschaft">
@@ -12655,7 +12655,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Maurer aus Leidenschaft</source>
-        <target>Maurer aus Leidenschaft</target>
+        <target>Soul Mason</target>
       </segment>
     </unit>
     <unit id="0or.wGT" name="Huldigt den riesigen KVF!">
@@ -12673,7 +12673,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Durazell</source>
-        <target>Durazell</target>
+        <target>There's a battery with your name on it...</target>
       </segment>
     </unit>
     <unit id="TYUW16_" name="Hüter der Heiligen Batterie">
@@ -12682,7 +12682,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hüter der Heiligen Batterie</source>
-        <target>Hüter der Heiligen Batterie</target>
+        <target>Zen-ergizer</target>
       </segment>
     </unit>
     <unit id="UE4hY7d" name="Maurerlehrling">
@@ -12691,7 +12691,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Maurerlehrling</source>
-        <target>Maurerlehrling</target>
+        <target>Labourer</target>
       </segment>
     </unit>
     <unit id="Q9svW6q" name="Maurer">
@@ -12700,7 +12700,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Maurer</source>
-        <target>Maurer</target>
+        <target>Builder</target>
       </segment>
     </unit>
     <unit id="6S8DN5y" name="Polier">
@@ -12709,7 +12709,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Polier</source>
-        <target>Polier</target>
+        <target>Site Manager</target>
       </segment>
     </unit>
     <unit id="oQ7Otmd" name="Baustellenleiter">
@@ -12718,7 +12718,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Baustellenleiter</source>
-        <target>Baustellenleiter</target>
+        <target>Architect</target>
       </segment>
     </unit>
     <unit id="8v3L_FV" name="Meisterarchitekt">
@@ -12727,7 +12727,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Meisterarchitekt</source>
-        <target>Meisterarchitekt</target>
+        <target>Town Planner</target>
       </segment>
     </unit>
     <unit id="3UPelIK" name="Oscar Niemeyer">
@@ -12736,7 +12736,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Oscar Niemeyer</source>
-        <target>Oscar Niemeyer</target>
+        <target>Bob the builder</target>
       </segment>
     </unit>
     <unit id="vDfFFwR" name="Spachtler">
@@ -12745,7 +12745,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Spachtler</source>
-        <target>Spachtler</target>
+        <target>Town plasterer</target>
       </segment>
     </unit>
     <unit id="EQ0gFgq" name="Gewissenhafter Maurer">
@@ -12754,7 +12754,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Gewissenhafter Maurer</source>
-        <target>Gewissenhafter Maurer</target>
+        <target>All-round Handyman</target>
       </segment>
     </unit>
     <unit id="3lgdVhM" name="Meisterwerke in Gefahr">
@@ -12763,7 +12763,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Meisterwerke in Gefahr</source>
-        <target>Meisterwerke in Gefahr</target>
+        <target>Masterpieces in Peril</target>
       </segment>
     </unit>
     <unit id="T3Y_6id" name="Ein Flicken und alles ist wie neu">
@@ -12772,7 +12772,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ein Flicken und alles ist wie neu</source>
-        <target>Ein Flicken und alles ist wie neu</target>
+        <target>Get some Duct Tape in there.</target>
       </segment>
     </unit>
     <unit id="5gsWNg_" name="Kettensägenmassaker">
@@ -12781,7 +12781,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Kettensägenmassaker</source>
-        <target>Kettensägenmassaker</target>
+        <target>Chainsaw Massacre</target>
       </segment>
     </unit>
     <unit id="_qvR5kt" name="Hobby-Heimwerker">
@@ -12790,7 +12790,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hobby-Heimwerker</source>
-        <target>Hobby-Heimwerker</target>
+        <target>Home Depot Regular</target>
       </segment>
     </unit>
     <unit id="rEGk1G9" name="Meisterbastler ">
@@ -12799,7 +12799,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Meisterbastler </source>
-        <target>Meisterbastler </target>
+        <target>Fitter</target>
       </segment>
     </unit>
     <unit id="jmPWc5Q" name="Sowas wirft man doch nicht weg!">
@@ -12808,7 +12808,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Sowas wirft man doch nicht weg!</source>
-        <target>Sowas wirft man doch nicht weg!</target>
+        <target>Craftsman</target>
       </segment>
     </unit>
     <unit id="M8coTc5" name="Mac Gyver der Außenwelt">
@@ -12817,7 +12817,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Mac Gyver der Außenwelt</source>
-        <target>Mac Gyver der Außenwelt</target>
+        <target>MacGyver of the World beyond</target>
       </segment>
     </unit>
     <unit id="RZgJyGg" name="Super Soaker">
@@ -12835,7 +12835,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Archäologielehrling</source>
-        <target>Archäologielehrling</target>
+        <target>Archaeologist</target>
       </segment>
     </unit>
     <unit id="K4lcaj0" name="Archäologe">
@@ -12844,7 +12844,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Archäologe</source>
-        <target>Archäologe</target>
+        <target>Sand Shifter</target>
       </segment>
     </unit>
     <unit id="saCdR3." name="Grabungsleiter">
@@ -12853,7 +12853,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Grabungsleiter</source>
-        <target>Grabungsleiter</target>
+        <target>Ruin Restorer</target>
       </segment>
     </unit>
     <unit id="d_VW4n7" name="Furchtloser Camper">
@@ -12862,7 +12862,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Furchtloser Camper</source>
-        <target>Furchtloser Camper</target>
+        <target>Unshakeable Camper</target>
       </segment>
     </unit>
     <unit id="wJkos1g" name="Waisenkind der Wüste">
@@ -12871,7 +12871,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Waisenkind der Wüste</source>
-        <target>Waisenkind der Wüste</target>
+        <target>Desert Orphant</target>
       </segment>
     </unit>
     <unit id="30V5YYq" name="Unglaubliche Entschlossenheit">
@@ -12880,7 +12880,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Unglaubliche Entschlossenheit</source>
-        <target>Unglaubliche Entschlossenheit</target>
+        <target>Incredible determination</target>
       </segment>
     </unit>
     <unit id="KIn20mU" name="Der letzte Überlebende">
@@ -12889,7 +12889,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der letzte Überlebende</source>
-        <target>Der letzte Überlebende</target>
+        <target>The Last Survivor</target>
       </segment>
     </unit>
     <unit id="F4i5n1d" name="Lebensmüder Kundschafter">
@@ -12898,7 +12898,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Lebensmüder Kundschafter</source>
-        <target>Lebensmüder Kundschafter</target>
+        <target>Extreme Explorer</target>
       </segment>
     </unit>
     <unit id="K5wkxsW" name="Draufgängerischer Expeditionsreisender">
@@ -12907,7 +12907,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Draufgängerischer Expeditionsreisender</source>
-        <target>Draufgängerischer Expeditionsreisender</target>
+        <target>Expedition Expert</target>
       </segment>
     </unit>
     <unit id="dHefPEX" name="Nervenkitzelsucher">
@@ -12916,7 +12916,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Nervenkitzelsucher</source>
-        <target>Nervenkitzelsucher</target>
+        <target>Horizon traveller</target>
       </segment>
     </unit>
     <unit id="y1cQ.we" name="Christopher Kolumbus">
@@ -12925,7 +12925,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Christopher Kolumbus</source>
-        <target>Christopher Kolumbus</target>
+        <target>Desert Shackleton</target>
       </segment>
     </unit>
     <unit id="uzKHOBH" name="Neil Armstrong der Außenwelt">
@@ -12934,7 +12934,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Neil Armstrong der Außenwelt</source>
-        <target>Neil Armstrong der Außenwelt</target>
+        <target>Neil Armstrong of the World Beyond</target>
       </segment>
     </unit>
     <unit id="uAR60V." name="Wenn ich das nur vorher gewusst hätte...">
@@ -12943,7 +12943,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wenn ich das nur vorher gewusst hätte...</source>
-        <target>Wenn ich das nur vorher gewusst hätte...</target>
+        <target>Sneaky Voyager</target>
       </segment>
     </unit>
     <unit id="AFtFx3S" name="Verwegener Wanderer">
@@ -12952,7 +12952,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Verwegener Wanderer</source>
-        <target>Verwegener Wanderer</target>
+        <target>Tunnel Visionary</target>
       </segment>
     </unit>
     <unit id="xbciBar" name="Tunnelblicker">
@@ -12961,7 +12961,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Tunnelblicker</source>
-        <target>Tunnelblicker</target>
+        <target>Regularly A-mazed!</target>
       </segment>
     </unit>
     <unit id="E0TEflx" name="Im Irrgarten">
@@ -12970,7 +12970,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Im Irrgarten</source>
-        <target>Im Irrgarten</target>
+        <target>Compass Included</target>
       </segment>
     </unit>
     <unit id="sI3v2iE" name="Inklusive Kompass">
@@ -12979,7 +12979,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Inklusive Kompass</source>
-        <target>Inklusive Kompass</target>
+        <target>Buried Voluntarily</target>
       </segment>
     </unit>
     <unit id="9MvetCf" name="Wo klemmt's?">
@@ -12988,7 +12988,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wo klemmt's?</source>
-        <target>Wo klemmt's?</target>
+        <target>Key hee hee!</target>
       </segment>
     </unit>
     <unit id="xSIL2hw" name="Dietrich">
@@ -12997,7 +12997,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Dietrich</source>
-        <target>Dietrich</target>
+        <target>How about some Chubb-ly?</target>
       </segment>
     </unit>
     <unit id="rO44v_5" name="Sesam, öffne dich...">
@@ -13006,7 +13006,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Sesam, öffne dich...</source>
-        <target>Sesam, öffne dich...</target>
+        <target>Sesame, shift your A...</target>
       </segment>
     </unit>
     <unit id="m6lDtle" name="Türöffner">
@@ -13015,7 +13015,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Türöffner</source>
-        <target>Türöffner</target>
+        <target>Deadbolt Dick</target>
       </segment>
     </unit>
     <unit id="R0ZtLGb" name="Gentleman-Einbrecher">
@@ -13024,7 +13024,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Gentleman-Einbrecher</source>
-        <target>Gentleman-Einbrecher</target>
+        <target>Gentleman Robber</target>
       </segment>
     </unit>
     <unit id="LC18HiM" name="Schlüsseldienst">
@@ -13033,7 +13033,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Schlüsseldienst</source>
-        <target>Schlüsseldienst</target>
+        <target>Captain Hook</target>
       </segment>
     </unit>
     <unit id="oDCQsxd" name="Zerberus">
@@ -13042,7 +13042,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Zerberus</source>
-        <target>Zerberus</target>
+        <target>Shim Surgeon</target>
       </segment>
     </unit>
     <unit id="mUXkV5x" name="Brutalo">
@@ -13051,7 +13051,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Brutalo</source>
-        <target>Brutalo</target>
+        <target>Mutilator</target>
       </segment>
     </unit>
     <unit id="1leFpaB" name="Verstümmler">
@@ -13060,7 +13060,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Verstümmler</source>
-        <target>Verstümmler</target>
+        <target>Exterminator</target>
       </segment>
     </unit>
     <unit id="6OntuXL" name="Killer">
@@ -13069,7 +13069,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Killer</source>
-        <target>Killer</target>
+        <target>Corpse Crusher</target>
       </segment>
     </unit>
     <unit id="Em4Oqo2" name="Kadaverentsorger">
@@ -13078,7 +13078,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Kadaverentsorger</source>
-        <target>Kadaverentsorger</target>
+        <target>The Hitman</target>
       </segment>
     </unit>
     <unit id="UT6JPAL" name="Vernichter">
@@ -13087,7 +13087,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Vernichter</source>
-        <target>Vernichter</target>
+        <target>The Peacemaker</target>
       </segment>
     </unit>
     <unit id="wLvuWTM" name="Schlächter">
@@ -13096,7 +13096,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Schlächter</source>
-        <target>Schlächter</target>
+        <target>Chuck Norris</target>
       </segment>
     </unit>
     <unit id="h22lyQh" name="Friedensstifter">
@@ -13105,7 +13105,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Friedensstifter</source>
-        <target>Friedensstifter</target>
+        <target>Jean Claude Van Damned</target>
       </segment>
     </unit>
     <unit id="7BFkjgW" name="Alptraum der Traumlosen">
@@ -13114,7 +13114,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Alptraum der Traumlosen</source>
-        <target>Alptraum der Traumlosen</target>
+        <target>Go ahead, make my day!</target>
       </segment>
     </unit>
     <unit id="bpDT2gF" name="Hans im Glück">
@@ -13123,7 +13123,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hans im Glück</source>
-        <target>Hans im Glück</target>
+        <target>The name's Nate Fortu</target>
       </segment>
     </unit>
     <unit id="1B_QLcP" name="Vierklettriges Kleeblatt">
@@ -13132,7 +13132,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Vierklettriges Kleeblatt</source>
-        <target>Vierklettriges Kleeblatt</target>
+        <target>Do you feel lucky, punk?</target>
       </segment>
     </unit>
     <unit id="oSJbjHs" name="Fortuna">
@@ -13141,7 +13141,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Fortuna</source>
-        <target>Fortuna</target>
+        <target>Windfall Catcher</target>
       </segment>
     </unit>
     <unit id="mdOmwT_" name="Ultimate Fighter">
@@ -13159,7 +13159,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Stürmischer Kundschafter</source>
-        <target>Stürmischer Kundschafter</target>
+        <target>Dora the Explorer</target>
       </segment>
     </unit>
     <unit id="FYjowMw" name="Furchtloser Abenteurer">
@@ -13168,7 +13168,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Furchtloser Abenteurer</source>
-        <target>Furchtloser Abenteurer</target>
+        <target>Fearless adventurer</target>
       </segment>
     </unit>
     <unit id="tTqatlE" name="Wagemutiger Trapper">
@@ -13177,7 +13177,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wagemutiger Trapper</source>
-        <target>Wagemutiger Trapper</target>
+        <target>Guide to the World Beyond</target>
       </segment>
     </unit>
     <unit id="blmFuiK" name="Wikinger">
@@ -13186,7 +13186,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wikinger</source>
-        <target>Wikinger</target>
+        <target>Brave Prospector</target>
       </segment>
     </unit>
     <unit id="bInjN2I" name="Außenweltreiseführer">
@@ -13195,7 +13195,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Außenweltreiseführer</source>
-        <target>Außenweltreiseführer</target>
+        <target>Tenzing Norgay</target>
       </segment>
     </unit>
     <unit id="spLDM3R" name="Außenweltschläfer">
@@ -13204,7 +13204,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Außenweltschläfer</source>
-        <target>Außenweltschläfer</target>
+        <target>Suicide Sleeper</target>
       </segment>
     </unit>
     <unit id="tN.fsYk" name="Allein in dieser Welt">
@@ -13213,7 +13213,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Allein in dieser Welt</source>
-        <target>Allein in dieser Welt</target>
+        <target>Alone in the Dark</target>
       </segment>
     </unit>
     <unit id="0c_KtqX" name="Der mit den Zombies tanzt">
@@ -13222,7 +13222,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der mit den Zombies tanzt</source>
-        <target>Der mit den Zombies tanzt</target>
+        <target>Dances with zombies</target>
       </segment>
     </unit>
     <unit id="2VIFWs4" name="Ich sehe überall Tote!">
@@ -13231,7 +13231,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ich sehe überall Tote!</source>
-        <target>Ich sehe überall Tote!</target>
+        <target>I see dead people - everywhere!</target>
       </segment>
     </unit>
     <unit id="VkcylUg" name="Ich komme heute Nacht nicht heim...">
@@ -13240,7 +13240,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ich komme heute Nacht nicht heim...</source>
-        <target>Ich komme heute Nacht nicht heim...</target>
+        <target>Don't wait up...</target>
       </segment>
     </unit>
     <unit id="Dp2y90j" name="Ein Mann gegen die Außenwelt">
@@ -13249,7 +13249,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ein Mann gegen die Außenwelt</source>
-        <target>Ein Mann gegen die Außenwelt</target>
+        <target>Man vs World Beyond</target>
       </segment>
     </unit>
     <unit id="6oEZQKt" name="Neugieriger Leser">
@@ -13258,7 +13258,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Neugieriger Leser</source>
-        <target>Neugieriger Leser</target>
+        <target>Curious reader</target>
       </segment>
     </unit>
     <unit id="Vq_scnh" name="Eifriger Leser">
@@ -13267,7 +13267,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Eifriger Leser</source>
-        <target>Eifriger Leser</target>
+        <target>Storyteller</target>
       </segment>
     </unit>
     <unit id="WjVYOHI" name="Wüstenhistoriker">
@@ -13276,7 +13276,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wüstenhistoriker</source>
-        <target>Wüstenhistoriker</target>
+        <target>Desert Historian</target>
       </segment>
     </unit>
     <unit id="5x7Ljm0" name="Bibliothekar">
@@ -13285,7 +13285,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Bibliothekar</source>
-        <target>Bibliothekar</target>
+        <target>Librarian</target>
       </segment>
     </unit>
     <unit id="81_RQfR" name="Archivar">
@@ -13294,7 +13294,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Archivar</source>
-        <target>Archivar</target>
+        <target>Archivist</target>
       </segment>
     </unit>
     <unit id="39aUvZi" name="Twinoid ist tabu">
@@ -13303,7 +13303,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Twinoid ist tabu</source>
-        <target>Twinoid ist tabu</target>
+        <target>Twinoid is taboo</target>
       </segment>
     </unit>
     <unit id="3Eh6k_i" name="Keine Macht den Drogen">
@@ -13312,7 +13312,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Keine Macht den Drogen</source>
-        <target>Keine Macht den Drogen</target>
+        <target>Happy as Larry</target>
       </segment>
     </unit>
     <unit id="C2u908W" name="Sowas fasse ICH nicht an">
@@ -13321,7 +13321,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Sowas fasse ICH nicht an</source>
-        <target>Sowas fasse ICH nicht an</target>
+        <target>Never touch the stuff, me.</target>
       </segment>
     </unit>
     <unit id="jMuFMNy" name="Vorbild für die Jugend">
@@ -13330,7 +13330,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Vorbild für die Jugend</source>
-        <target>Vorbild für die Jugend</target>
+        <target>Just Say No!</target>
       </segment>
     </unit>
     <unit id="ihhvM4Y" name="Champions nehmen keine Drogen!">
@@ -13339,7 +13339,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Champions nehmen keine Drogen!</source>
-        <target>Champions nehmen keine Drogen!</target>
+        <target>Winners don't use drugs!</target>
       </segment>
     </unit>
     <unit id="4AHAF07" name="Medikamentetester">
@@ -13348,7 +13348,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Medikamentetester</source>
-        <target>Medikamentetester</target>
+        <target>Guinea Pig</target>
       </segment>
     </unit>
     <unit id="KQJ083f" name="Laborratte">
@@ -13357,7 +13357,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Laborratte</source>
-        <target>Laborratte</target>
+        <target>Lab Rat</target>
       </segment>
     </unit>
     <unit id="Y7OBSHf" name="Pille palle, 3 Tage wach!">
@@ -13366,7 +13366,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Pille palle, 3 Tage wach!</source>
-        <target>Pille palle, 3 Tage wach!</target>
+        <target>Product Tester!</target>
       </segment>
     </unit>
     <unit id="0A79ZRe" name="Timothy Leary">
@@ -13375,7 +13375,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Timothy Leary</source>
-        <target>Timothy Leary</target>
+        <target>What do you mean these ain't skittles</target>
       </segment>
     </unit>
     <unit id="T._inuH" name="Menschenfleischliebhaber">
@@ -13384,7 +13384,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Menschenfleischliebhaber</source>
-        <target>Menschenfleischliebhaber</target>
+        <target>Meat Muncher</target>
       </segment>
     </unit>
     <unit id="2fnnqHL" name="Hannibalfan">
@@ -13393,7 +13393,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hannibalfan</source>
-        <target>Hannibalfan</target>
+        <target>Dr Death's Dietician</target>
       </segment>
     </unit>
     <unit id="ZH64Tzb" name="Totmacher">
@@ -13402,7 +13402,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Totmacher</source>
-        <target>Totmacher</target>
+        <target>Check out my skin sombrero!</target>
       </segment>
     </unit>
     <unit id="gUIyMph" name="Jeffrey Dahmer">
@@ -13411,7 +13411,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Jeffrey Dahmer</source>
-        <target>Jeffrey Dahmer</target>
+        <target>Lunches like Lecter</target>
       </segment>
     </unit>
     <unit id="rtCWNuh" name="Fido">
@@ -13429,7 +13429,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Fast schon ein Zombie...</source>
-        <target>Fast schon ein Zombie...</target>
+        <target>Wannabe Zombie...</target>
       </segment>
     </unit>
     <unit id="hQntRjp" name="Schmeckt am besten wenn's noch schreit!">
@@ -13438,7 +13438,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Schmeckt am besten wenn's noch schreit!</source>
-        <target>Schmeckt am besten wenn's noch schreit!</target>
+        <target>It's better when they scream.</target>
       </segment>
     </unit>
     <unit id="Jn.J6ZI" name="Die Macht der Proteine">
@@ -13447,7 +13447,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Macht der Proteine</source>
-        <target>Die Macht der Proteine</target>
+        <target>"Full of protein.</target>
       </segment>
     </unit>
     <unit id="WE9IWrB" name="Zombieliebling">
@@ -13456,7 +13456,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Zombieliebling</source>
-        <target>Zombieliebling</target>
+        <target>Zombie favourite</target>
       </segment>
     </unit>
     <unit id="gSBK_12" name="Ich bin in der Hölle aufgewachsen.">
@@ -13465,7 +13465,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ich bin in der Hölle aufgewachsen.</source>
-        <target>Ich bin in der Hölle aufgewachsen.</target>
+        <target>Hell is a walk in the park.</target>
       </segment>
     </unit>
     <unit id="h9OS6ti" name="Teilweise verrottet">
@@ -13474,7 +13474,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Teilweise verrottet</source>
-        <target>Teilweise verrottet</target>
+        <target>Partially Putrified</target>
       </segment>
     </unit>
     <unit id="LzdnkS5" name="Virenschleuder">
@@ -13483,7 +13483,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Virenschleuder</source>
-        <target>Virenschleuder</target>
+        <target>Infected with a poison</target>
       </segment>
     </unit>
     <unit id="lR71uxG" name="Gedärmeauskotzer">
@@ -13492,7 +13492,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Gedärmeauskotzer</source>
-        <target>Gedärmeauskotzer</target>
+        <target>Blood 'n' Bile Spitter</target>
       </segment>
     </unit>
     <unit id="5LOqx_Q" name="Seuchenherd">
@@ -13501,7 +13501,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Seuchenherd</source>
-        <target>Seuchenherd</target>
+        <target>Harbinger of the Plague</target>
       </segment>
     </unit>
     <unit id="MhMq2h_" name="Verirrter Ausflügler">
@@ -13510,7 +13510,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Verirrter Ausflügler</source>
-        <target>Verirrter Ausflügler</target>
+        <target>Moonlight Stroller</target>
       </segment>
     </unit>
     <unit id="GTHd4n3" name="Nächtlicher Spaziergänger">
@@ -13519,7 +13519,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Nächtlicher Spaziergänger</source>
-        <target>Nächtlicher Spaziergänger</target>
+        <target>Wild-eyed Wanderer</target>
       </segment>
     </unit>
     <unit id="OfHX59h" name="Vertrauenswürdiger Bürger">
@@ -13528,7 +13528,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Vertrauenswürdiger Bürger</source>
-        <target>Vertrauenswürdiger Bürger</target>
+        <target>Trusted Neighbour</target>
       </segment>
     </unit>
     <unit id="hn0iaf5" name="Sehr erfahrener Bürger">
@@ -13537,7 +13537,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Sehr erfahrener Bürger</source>
-        <target>Sehr erfahrener Bürger</target>
+        <target>Inspiration for the people</target>
       </segment>
     </unit>
     <unit id="rKc_d4M" name="Vorbild für das Volk">
@@ -13546,7 +13546,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Vorbild für das Volk</source>
-        <target>Vorbild für das Volk</target>
+        <target>Highly experienced player</target>
       </segment>
     </unit>
     <unit id="I3PJqtw" name="Richtwert der Gemeinschaft">
@@ -13555,7 +13555,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Richtwert der Gemeinschaft</source>
-        <target>Richtwert der Gemeinschaft</target>
+        <target>Pillar of the community</target>
       </segment>
     </unit>
     <unit id="HXtJm00" name="Berühmter Veteran">
@@ -13564,7 +13564,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Berühmter Veteran</source>
-        <target>Berühmter Veteran</target>
+        <target>Decorated Veteran</target>
       </segment>
     </unit>
     <unit id="GTEfEXg" name="Lebender Mythos">
@@ -13573,7 +13573,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Lebender Mythos</source>
-        <target>Lebender Mythos</target>
+        <target>Myth in the making</target>
       </segment>
     </unit>
     <unit id="R6RX4Vs" name="Ich bin eine Legende">
@@ -13582,7 +13582,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ich bin eine Legende</source>
-        <target>Ich bin eine Legende</target>
+        <target>I am legend.</target>
       </segment>
     </unit>
     <unit id="Tak2K5U" name="Hör auf mich, wenn du überleben möchtest">
@@ -13591,7 +13591,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hör auf mich, wenn du überleben möchtest</source>
-        <target>Hör auf mich, wenn du überleben möchtest</target>
+        <target>If you want to live... Follow me!</target>
       </segment>
     </unit>
     <unit id="LXsPdMO" name="Alter Hase">
@@ -13600,7 +13600,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Alter Hase</source>
-        <target>Alter Hase</target>
+        <target>In with the bricks</target>
       </segment>
     </unit>
     <unit id="e0SZFhK" name="Jedes Los gewinnt">
@@ -13609,7 +13609,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Jedes Los gewinnt</source>
-        <target>Jedes Los gewinnt</target>
+        <target>Community Companion</target>
       </segment>
     </unit>
     <unit id="NnTekv7" name="Zinker">
@@ -13618,7 +13618,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Zinker</source>
-        <target>Zinker</target>
+        <target>Community Spirit</target>
       </segment>
     </unit>
     <unit id="lUV0fyN" name="Bingo">
@@ -13627,7 +13627,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Bingo</source>
-        <target>Bingo</target>
+        <target>Social Animal</target>
       </segment>
     </unit>
     <unit id="zNfSuGP" name="Sudoku ist anders">
@@ -13636,7 +13636,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Sudoku ist anders</source>
-        <target>Sudoku ist anders</target>
+        <target>Animated Corpse</target>
       </segment>
     </unit>
     <unit id="hau3lHt" name="Siebenseitiger Würfel">
@@ -13645,7 +13645,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Siebenseitiger Würfel</source>
-        <target>Siebenseitiger Würfel</target>
+        <target>Community Über-Activist</target>
       </segment>
     </unit>
     <unit id="nvWauKU" name="Einarmiger Bandit">
@@ -13654,7 +13654,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Einarmiger Bandit</source>
-        <target>Einarmiger Bandit</target>
+        <target>Winner at heart!</target>
       </segment>
     </unit>
     <unit id="geFjTQD" name="Motivierter Messebesucher">
@@ -13663,7 +13663,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Motivierter Messebesucher</source>
-        <target>Motivierter Messebesucher</target>
+        <target>Motivated Hordian festival-goer</target>
       </segment>
     </unit>
     <unit id="IQd9dUu" name="Kleiner Guru">
@@ -13672,7 +13672,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Kleiner Guru</source>
-        <target>Kleiner Guru</target>
+        <target>Fund re-allocation specialist</target>
       </segment>
     </unit>
     <unit id="5FggkWu" name="Überzeugender Guru">
@@ -13681,7 +13681,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Überzeugender Guru</source>
-        <target>Überzeugender Guru</target>
+        <target>Citizen trafficker</target>
       </segment>
     </unit>
     <unit id="BKdc_nU" name="Frischfleischhändler">
@@ -13690,7 +13690,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Frischfleischhändler</source>
-        <target>Frischfleischhändler</target>
+        <target>Fresh flesh peddler</target>
       </segment>
     </unit>
     <unit id="YK4MoDf" name="Held der Community!">
@@ -13699,7 +13699,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Held der Community!</source>
-        <target>Held der Community!</target>
+        <target>In at the deep end!</target>
       </segment>
     </unit>
     <unit id="7rLOpWl" name="Nobler Spender">
@@ -13708,7 +13708,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Nobler Spender</source>
-        <target>Nobler Spender</target>
+        <target>Noble Heart</target>
       </segment>
     </unit>
     <unit id="7CI50m3" name="Immer zur Stelle">
@@ -13717,7 +13717,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Immer zur Stelle</source>
-        <target>Immer zur Stelle</target>
+        <target>Charitable Soul</target>
       </segment>
     </unit>
     <unit id="DQYjmAS" name="Samariter">
@@ -13726,7 +13726,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Samariter</source>
-        <target>Samariter</target>
+        <target>Social Support</target>
       </segment>
     </unit>
     <unit id="PT2xNUt" name="Der Weihnachtsmann ist ein Schlawiner">
@@ -13735,7 +13735,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Weihnachtsmann ist ein Schlawiner</source>
-        <target>Der Weihnachtsmann ist ein Schlawiner</target>
+        <target>Father Christmas is a little rascal</target>
       </segment>
     </unit>
     <unit id="JVylXOR" name="Treffen der 4. Art">
@@ -13744,7 +13744,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Treffen der 4. Art</source>
-        <target>Treffen der 4. Art</target>
+        <target>Type 4 Encounter</target>
       </segment>
     </unit>
     <unit id="gxrFu2W" name="Hast Du mal Feuer?">
@@ -13753,7 +13753,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hast Du mal Feuer?</source>
-        <target>Hast Du mal Feuer?</target>
+        <target>Have you got a light?</target>
       </segment>
     </unit>
     <unit id="O9xv8SA" name="Medium mit Preisnachlass">
@@ -13762,7 +13762,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Medium mit Preisnachlass</source>
-        <target>Medium mit Preisnachlass</target>
+        <target>Psychic for rent</target>
       </segment>
     </unit>
     <unit id="ua9mDef" name="Amophilis Psychotropes">
@@ -13771,7 +13771,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Amophilis Psychotropes</source>
-        <target>Amophilis Psychotropes</target>
+        <target>Amophilis psychotropia</target>
       </segment>
     </unit>
     <unit id="ssmlx9q" name="Blauer Feuerspucker">
@@ -13780,7 +13780,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Blauer Feuerspucker</source>
-        <target>Blauer Feuerspucker</target>
+        <target>Blue Fire-breather</target>
       </segment>
     </unit>
     <unit id="KZqJU6f" name="I see dead people 0_0">
@@ -13798,7 +13798,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Soul Man</source>
-        <target>Soul Man</target>
+        <target>Who you gonna call?</target>
       </segment>
     </unit>
     <unit id="npv5jjJ" name="Bei meiner Seel">
@@ -13807,7 +13807,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Bei meiner Seel</source>
-        <target>Bei meiner Seel</target>
+        <target>O Soul-e Mio</target>
       </segment>
     </unit>
     <unit id="Yt_PNgK" name="Für immer und seelich">
@@ -13816,7 +13816,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Für immer und seelich</source>
-        <target>Für immer und seelich</target>
+        <target>Tin-soul town</target>
       </segment>
     </unit>
     <unit id="s87SnO6" name="Noble Seele">
@@ -13825,7 +13825,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Noble Seele</source>
-        <target>Noble Seele</target>
+        <target>Noble Soul</target>
       </segment>
     </unit>
     <unit id="F1KJmZk" name="Beseelt">
@@ -13834,7 +13834,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Beseelt</source>
-        <target>Beseelt</target>
+        <target>Soul-dier</target>
       </segment>
     </unit>
     <unit id="q8Y1vX0" name="Reinkarnator">
@@ -13843,7 +13843,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Reinkarnator</source>
-        <target>Reinkarnator</target>
+        <target>Reincarnator</target>
       </segment>
     </unit>
     <unit id="EEzpRAE" name="Göttliche Seele">
@@ -13852,7 +13852,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Göttliche Seele</source>
-        <target>Göttliche Seele</target>
+        <target>Divine Soul</target>
       </segment>
     </unit>
     <unit id="zoS8PK1" name="Open-chakra">
@@ -13870,7 +13870,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Tausend-und-ein-Leben</source>
-        <target>Tausend-und-ein-Leben</target>
+        <target>Thousand I-lived</target>
       </segment>
     </unit>
     <unit id="gIRIl_l" name="Buddha">
@@ -13897,7 +13897,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ich bin ein Gott! Ich werde ewig leben!</source>
-        <target>Ich bin ein Gott! Ich werde ewig leben!</target>
+        <target>I am a god! I will live forever!</target>
       </segment>
     </unit>
     <unit id="NrbBkvY" name="Eine Stadt sie zu knechten!">
@@ -13906,7 +13906,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Eine Stadt sie zu knechten!</source>
-        <target>Eine Stadt sie zu knechten!</target>
+        <target>One town to rule them all!</target>
       </segment>
     </unit>
     <unit id="9aeJYKv" name="Der unsichtbare Mann">
@@ -13996,7 +13996,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Verrückter Skeptiker</source>
-        <target>Verrückter Skeptiker</target>
+        <target>Keen Sceptic</target>
       </segment>
     </unit>
     <unit id="lUQdYSh" name="Seelenknipser">
@@ -14005,7 +14005,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Seelenknipser</source>
-        <target>Seelenknipser</target>
+        <target>Soul Calipers</target>
       </segment>
     </unit>
     <unit id="hB6qDhD" name="Wächter der Seelen">
@@ -14014,7 +14014,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wächter der Seelen</source>
-        <target>Wächter der Seelen</target>
+        <target>Watches with Scouts</target>
       </segment>
     </unit>
     <unit id="HhpZEPz" name="Die Wahrheit ist irgendwo da draußen">
@@ -14023,7 +14023,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Wahrheit ist irgendwo da draußen</source>
-        <target>Die Wahrheit ist irgendwo da draußen</target>
+        <target>The truth is elsewhere</target>
       </segment>
     </unit>
     <unit id="gLH3tE5" name="Ich glaube!">
@@ -14032,7 +14032,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ich glaube!</source>
-        <target>Ich glaube!</target>
+        <target>I'm a believer</target>
       </segment>
     </unit>
     <unit id="xhBxbLA" name="Sektenmitglied">
@@ -14041,7 +14041,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Sektenmitglied</source>
-        <target>Sektenmitglied</target>
+        <target>Sect Member</target>
       </segment>
     </unit>
     <unit id="1HEtOB8" name="Kosmischer Anführer">
@@ -14050,7 +14050,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Kosmischer Anführer</source>
-        <target>Kosmischer Anführer</target>
+        <target>Cosmic Sponsor</target>
       </segment>
     </unit>
     <unit id=".DPY78g" name="dbe2a8d">
@@ -14068,7 +14068,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Batterienator</source>
-        <target>Der Batterienator</target>
+        <target>The batterinator.</target>
       </segment>
     </unit>
     <unit id="xgCfGsM" name="Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!">
@@ -14077,7 +14077,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!</source>
-        <target>Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!</target>
+        <target>Is it a bird? Is it a plane? No, it's the super battery launcher!</target>
       </segment>
     </unit>
     <unit id="_5jsyrZ" name="Aufgeladen und kampfbereit">
@@ -14086,7 +14086,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Aufgeladen und kampfbereit</source>
-        <target>Aufgeladen und kampfbereit</target>
+        <target>Amped up and ready to roll</target>
       </segment>
     </unit>
     <unit id="3gGDaMw" name="Hey! Willst du meine... Batterie sehen?">
@@ -14095,7 +14095,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hey! Willst du meine... Batterie sehen?</source>
-        <target>Hey! Willst du meine... Batterie sehen?</target>
+        <target>Hey hey, wanna see my... Battery?</target>
       </segment>
     </unit>
     <unit id="XLDVSsV" name="Meister der Schlüssel">
@@ -14104,7 +14104,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Meister der Schlüssel</source>
-        <target>Meister der Schlüssel</target>
+        <target>Grand Key Master</target>
       </segment>
     </unit>
     <unit id="gKGzu5i" name="Es war wirklich zu einfach.">
@@ -14113,7 +14113,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Es war wirklich zu einfach.</source>
-        <target>Es war wirklich zu einfach.</target>
+        <target>It's just too easy.</target>
       </segment>
     </unit>
     <unit id="QPcrBd9" name="Ich fresse Nägel und scheiße Kugeln!">
@@ -14122,7 +14122,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ich fresse Nägel und scheiße Kugeln!</source>
-        <target>Ich fresse Nägel und scheiße Kugeln!</target>
+        <target>I eat nails and sh*t bullets!</target>
       </segment>
     </unit>
     <unit id="8yrjws." name="Pandämonium? Hah. Einfach.">
@@ -14131,7 +14131,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Pandämonium? Hah. Einfach.</source>
-        <target>Pandämonium? Hah. Einfach.</target>
+        <target>Hardcore? Candy from babies...</target>
       </segment>
     </unit>
     <unit id="RAheQ6X" name="Rauch? Welcher Rauch?">
@@ -14140,7 +14140,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Rauch? Welcher Rauch?</source>
-        <target>Rauch? Welcher Rauch?</target>
+        <target>Smoke? What smoke?</target>
       </segment>
     </unit>
     <unit id="0yKxX98" name="Leckstopper">
@@ -14149,7 +14149,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Leckstopper</source>
-        <target>Leckstopper</target>
+        <target>Leak Plugger</target>
       </segment>
     </unit>
     <unit id="88ZyuY4" name="Licht in der Nacht">
@@ -14158,7 +14158,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Licht in der Nacht</source>
-        <target>Licht in der Nacht</target>
+        <target>Light in the night</target>
       </segment>
     </unit>
     <unit id="NbdbHur" name="RadioactiveMan">
@@ -14176,7 +14176,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Strahlender Bürger</source>
-        <target>Strahlender Bürger</target>
+        <target>Radiant citizen</target>
       </segment>
     </unit>
     <unit id="nGvkh6T" name="Hölle, das esse ich jeden Morgen.">
@@ -14185,7 +14185,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hölle, das esse ich jeden Morgen.</source>
-        <target>Hölle, das esse ich jeden Morgen.</target>
+        <target>Hell? I eat a little bit of it for breakfast</target>
       </segment>
     </unit>
     <unit id="L0BHZsf" name="Abonnent der Pandämoniumsauna">
@@ -14194,7 +14194,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Abonnent der Pandämoniumsauna</source>
-        <target>Abonnent der Pandämoniumsauna</target>
+        <target>Regular at the Pandemonium Sauna</target>
       </segment>
     </unit>
     <unit id="eiNhL4c" name="Pandämonium ist meine Liebe!">
@@ -14203,7 +14203,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Pandämonium ist meine Liebe!</source>
-        <target>Pandämonium ist meine Liebe!</target>
+        <target>Hardcore my love!</target>
       </segment>
     </unit>
     <unit id="rUm7U9a" name="Luzifers Tanzpartner">
@@ -14212,7 +14212,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Luzifers Tanzpartner</source>
-        <target>Luzifers Tanzpartner</target>
+        <target>Lucifer's dance partner</target>
       </segment>
     </unit>
     <unit id="ydooU6U" name="Ultimativer Horden-Erkunder">
@@ -14221,7 +14221,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ultimativer Horden-Erkunder</source>
-        <target>Ultimativer Horden-Erkunder</target>
+        <target>Ultimate Hordian Explorer</target>
       </segment>
     </unit>
     <unit id="GPwTxbP" name="Irische Taschen sind prall gefüllt!">
@@ -14230,7 +14230,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Irische Taschen sind prall gefüllt!</source>
-        <target>Irische Taschen sind prall gefüllt!</target>
+        <target>Irish pockets are bulging!</target>
       </segment>
     </unit>
     <unit id=".vLpN2Q" name="Wo ist mein Topf voll Gold, diebische Elster!">
@@ -14239,7 +14239,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wo ist mein Topf voll Gold, diebische Elster!</source>
-        <target>Wo ist mein Topf voll Gold, diebische Elster!</target>
+        <target>Where's my pot of gold, thieving pikey!</target>
       </segment>
     </unit>
     <unit id="eOQPgcU" name="Dieser Kobold ist unaufhaltbar.">
@@ -14248,7 +14248,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Dieser Kobold ist unaufhaltbar.</source>
-        <target>Dieser Kobold ist unaufhaltbar.</target>
+        <target>This leprechaun is unstoppable.</target>
       </segment>
     </unit>
     <unit id="Spx1xmA" name="Verbrennt ihn! Sieh nach ob seine Asche grün wird!">
@@ -14257,7 +14257,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Verbrennt ihn! Sieh nach ob seine Asche grün wird!</source>
-        <target>Verbrennt ihn! Sieh nach ob seine Asche grün wird!</target>
+        <target>Burn him, see if his ashes turn green!</target>
       </segment>
     </unit>
     <unit id="HJTFoon" name="Ein Wohnwagen ohne Räder???">
@@ -14266,7 +14266,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ein Wohnwagen ohne Räder???</source>
-        <target>Ein Wohnwagen ohne Räder???</target>
+        <target>A caravan with no wheels???</target>
       </segment>
     </unit>
     <unit id="tz9Jwn2" name="d2acf54">
@@ -14464,7 +14464,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Seelenführer der Gemeinschaft</source>
-        <target>Seelenführer der Gemeinschaft</target>
+        <target>Community Soul Guide</target>
       </segment>
     </unit>
     <unit id="fxrMNw." name="Charismatischer Prophet">
@@ -14473,7 +14473,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Charismatischer Prophet</source>
-        <target>Charismatischer Prophet</target>
+        <target>Charismatic prophet</target>
       </segment>
     </unit>
     <unit id="1RZZDef" name="576549b">
@@ -15337,7 +15337,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Keine Fehler hi&amp;e%12;r</source>
-        <target><![CDATA[Keine Fehler hi&e%12;r]]></target>
+        <target><![CDATA[No bugs h&e%12;re]]></target>
       </segment>
     </unit>
     <unit id="y013sMW" name="Patient Null">
@@ -15346,7 +15346,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Patient Null</source>
-        <target>Patient Null</target>
+        <target>Patient Zero</target>
       </segment>
     </unit>
     <unit id="WFILm.J" name="8a84bed">
@@ -15953,7 +15953,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Maccabees-Vertreiber</source>
-        <target>Maccabees-Vertreiber</target>
+        <target>Apocalyptic Garbageman</target>
       </segment>
     </unit>
     <unit id="MX76WBL" name="Wachsam">
@@ -15962,7 +15962,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wachsam</source>
-        <target>Wachsam</target>
+        <target>Uber-Aware</target>
       </segment>
     </unit>
     <unit id="FfSBotU" name="Paranoid">
@@ -15971,7 +15971,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Paranoid</source>
-        <target>Paranoid</target>
+        <target>Paranoid and Proud</target>
       </segment>
     </unit>
     <unit id="HD9fBxU" name="Fels in der Brandung">
@@ -15980,7 +15980,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Fels in der Brandung</source>
-        <target>Fels in der Brandung</target>
+        <target>The Rock !</target>
       </segment>
     </unit>
     <unit id="k.3ej4O" name="Archi-Mädlicher Illustrator von Pi">
@@ -15989,7 +15989,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Archi-Mädlicher Illustrator von Pi</source>
-        <target>Archi-Mädlicher Illustrator von Pi</target>
+        <target>I can recite pi to infinity!</target>
       </segment>
     </unit>
     <unit id="HB_a6_1" name="Muad'Dib">
@@ -15998,7 +15998,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Muad'Dib</source>
-        <target>Muad'Dib</target>
+        <target>Three rivers dam... That's adorable.</target>
       </segment>
     </unit>
     <unit id="Xmw4HRL" name="Am 7. Tag erschuf er den Fleischkäfig">
@@ -16007,7 +16007,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Am 7. Tag erschuf er den Fleischkäfig</source>
-        <target>Am 7. Tag erschuf er den Fleischkäfig</target>
+        <target>And on the 7th day, he did not rest!</target>
       </segment>
     </unit>
     <unit id="BW6THM." name="Das Unnütze mit dem Angenehmen verbinden">
@@ -16016,7 +16016,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das Unnütze mit dem Angenehmen verbinden</source>
-        <target>Das Unnütze mit dem Angenehmen verbinden</target>
+        <target>Chief DIY</target>
       </segment>
     </unit>
     <unit id="Wpl2gUI" name="Verrückter Architekten-Visionär">
@@ -16025,7 +16025,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Verrückter Architekten-Visionär</source>
-        <target>Verrückter Architekten-Visionär</target>
+        <target>Visionary Architect</target>
       </segment>
     </unit>
     <unit id="trZ7w_g" name="Ich habe einen Plan">
@@ -16034,7 +16034,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ich habe einen Plan</source>
-        <target>Ich habe einen Plan</target>
+        <target>I have a plan</target>
       </segment>
     </unit>
     <unit id="D6_7qkX" name="Hirnverbrannter Baumeister">
@@ -16043,7 +16043,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hirnverbrannter Baumeister</source>
-        <target>Hirnverbrannter Baumeister</target>
+        <target>Demented Master Builder</target>
       </segment>
     </unit>
     <unit id="q2CuBRQ" name="Meister der Nutzlosigkeit">
@@ -16052,7 +16052,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Meister der Nutzlosigkeit</source>
-        <target>Meister der Nutzlosigkeit</target>
+        <target>Master of futility</target>
       </segment>
     </unit>
     <unit id="UFqlbJo" name="Vereister Ingenieur">
@@ -16061,7 +16061,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Vereister Ingenieur</source>
-        <target>Vereister Ingenieur</target>
+        <target>Fruit Loop Engineer</target>
       </segment>
     </unit>
     <unit id="aIuS0Sj" name="Wundervoll nutzlos">
@@ -16070,7 +16070,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wundervoll nutzlos</source>
-        <target>Wundervoll nutzlos</target>
+        <target>Wonderfully futile</target>
       </segment>
     </unit>
     <unit id="dcsH.yQ" name="Der Bruce Lee des Spachtels">
@@ -16079,7 +16079,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Bruce Lee des Spachtels</source>
-        <target>Der Bruce Lee des Spachtels</target>
+        <target>Bruce Lee of the trowel</target>
       </segment>
     </unit>
     <unit id="_VOLHDy" name="Es ist Zeit für Kathedralen">
@@ -16088,7 +16088,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Es ist Zeit für Kathedralen</source>
-        <target>Es ist Zeit für Kathedralen</target>
+        <target>The time for cathedrals has come</target>
       </segment>
     </unit>
     <unit id="rJXbX_r" name="Hast du nichts besseres zu tun?">
@@ -16097,7 +16097,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hast du nichts besseres zu tun?</source>
-        <target>Hast du nichts besseres zu tun?</target>
+        <target>Don't you have better things to do?</target>
       </segment>
     </unit>
     <unit id="x_PaHg0" name="Hohepriesterin des Sonnentempels">
@@ -16106,7 +16106,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hohepriesterin des Sonnentempels</source>
-        <target>Hohepriesterin des Sonnentempels</target>
+        <target>High Priestess of the Sun Temple</target>
       </segment>
     </unit>
     <unit id="zVHZr2r" name="Obelisk der heutigen Zeit!">
@@ -16115,7 +16115,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Obelisk der heutigen Zeit!</source>
-        <target>Obelisk der heutigen Zeit!</target>
+        <target>Modern obelisk!</target>
       </segment>
     </unit>
     <unit id="WOrknJP" name="Lebhafter Tribut">
@@ -16124,7 +16124,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Lebhafter Tribut</source>
-        <target>Lebhafter Tribut</target>
+        <target>Standing ovation</target>
       </segment>
     </unit>
     <unit id="TqdQfu7" name="Wird in die Annalen eingehen">
@@ -16133,7 +16133,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wird in die Annalen eingehen</source>
-        <target>Wird in die Annalen eingehen</target>
+        <target>One for the books</target>
       </segment>
     </unit>
     <unit id="9zHZYv_" name="Extra viel Liebe">
@@ -16142,7 +16142,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Extra viel Liebe</source>
-        <target>Extra viel Liebe</target>
+        <target>Extra large love</target>
       </segment>
     </unit>
     <unit id="sn9vZwR" name="Es ist kleiner als im Katalog">
@@ -16151,7 +16151,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Es ist kleiner als im Katalog</source>
-        <target>Es ist kleiner als im Katalog</target>
+        <target>It was smaller on the catalog</target>
       </segment>
     </unit>
     <unit id="bDu8nlB" name="Freude der Stärke 8">
@@ -16160,7 +16160,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Freude der Stärke 8</source>
-        <target>Freude der Stärke 8</target>
+        <target>Happiness of magnitude 8</target>
       </segment>
     </unit>
     <unit id="Xv9f2ri" name="Bewahrer der Freuden">
@@ -16169,7 +16169,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Bewahrer der Freuden</source>
-        <target>Bewahrer der Freuden</target>
+        <target>Keeper of pleasures</target>
       </segment>
     </unit>
     <unit id="HyxJCPt" name="Eimerhalter">
@@ -16178,7 +16178,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Eimerhalter</source>
-        <target>Eimerhalter</target>
+        <target>Guard of the seals</target>
       </segment>
     </unit>
     <unit id="q2E4co1" name="Sandverkäufer">
@@ -16187,7 +16187,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Sandverkäufer</source>
-        <target>Sandverkäufer</target>
+        <target>Snake oil salesman</target>
       </segment>
     </unit>
     <unit id=".pcy1Un" name="Martinet am Strand">
@@ -16196,7 +16196,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Martinet am Strand</source>
-        <target>Martinet am Strand</target>
+        <target>Martine at the beach</target>
       </segment>
     </unit>
     <unit id="4XRzpjv" name="Ein Spiel für echte Kinder">
@@ -16205,7 +16205,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ein Spiel für echte Kinder</source>
-        <target>Ein Spiel für echte Kinder</target>
+        <target>A real children's game!</target>
       </segment>
     </unit>
     <unit id="6yisrZq" name="Dauermitglied in Micky's Club">
@@ -16214,7 +16214,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Dauermitglied in Micky's Club</source>
-        <target>Dauermitglied in Micky's Club</target>
+        <target>Permanent member of the Mickey Club</target>
       </segment>
     </unit>
     <unit id="PqnvEpt" name="Niemals ohne meinen Eimer">
@@ -16223,7 +16223,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Niemals ohne meinen Eimer</source>
-        <target>Niemals ohne meinen Eimer</target>
+        <target>Never without my bucket</target>
       </segment>
     </unit>
     <unit id="2M9Gp5u" name="Ein Korn fehlt noch">
@@ -16232,7 +16232,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ein Korn fehlt noch</source>
-        <target>Ein Korn fehlt noch</target>
+        <target>I know I have a grain</target>
       </segment>
     </unit>
     <unit id="qG9by4Z" name="Taube aus der Unterwelt">
@@ -16241,7 +16241,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Taube aus der Unterwelt</source>
-        <target>Taube aus der Unterwelt</target>
+        <target>Pigeon from the outer world.</target>
       </segment>
     </unit>
     <unit id="fM2iq8U" name="Corvid-Spezialist">
@@ -16250,7 +16250,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Corvid-Spezialist</source>
-        <target>Corvid-Spezialist</target>
+        <target>Spécialist ès corvidés</target>
       </segment>
     </unit>
     <unit id="YmHi4UG" name="Phoenix des Unterholzes">
@@ -16259,7 +16259,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Phoenix des Unterholzes</source>
-        <target>Phoenix des Unterholzes</target>
+        <target>Phoenix of the desert</target>
       </segment>
     </unit>
     <unit id="WAptaqe" name="Edit Piaf">
@@ -16277,7 +16277,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Vogel der schlechten Vorzeichen</source>
-        <target>Vogel der schlechten Vorzeichen</target>
+        <target>Bird of bad omen</target>
       </segment>
     </unit>
     <unit id="ziOZR_0" name="Kraaaah!">
@@ -16286,7 +16286,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Kraaaah!</source>
-        <target>Kraaaah!</target>
+        <target>CroooAAwW!</target>
       </segment>
     </unit>
     <unit id="9rYZXaj" name="Er war Leber ...">
@@ -16295,7 +16295,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Er war Leber ...</source>
-        <target>Er war Leber ...</target>
+        <target>He was a liver...</target>
       </segment>
     </unit>
     <unit id="sXvmrh." name="Hey wir können die Zombies von hier oben sehen">
@@ -16304,7 +16304,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hey wir können die Zombies von hier oben sehen</source>
-        <target>Hey wir können die Zombies von hier oben sehen</target>
+        <target>I can see the zeds from here!</target>
       </segment>
     </unit>
     <unit id="e2HAMte" name="Fröhlicher Hamster">
@@ -16313,7 +16313,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Fröhlicher Hamster</source>
-        <target>Fröhlicher Hamster</target>
+        <target>Happy hampster</target>
       </segment>
     </unit>
     <unit id="EJtDt_b" name="Showman aus der Anderen Welt!">
@@ -16322,7 +16322,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Showman aus der Anderen Welt!</source>
-        <target>Showman aus der Anderen Welt!</target>
+        <target>Desert showman!</target>
       </segment>
     </unit>
     <unit id="cqXb9dx" name="5. Rad am Wagen">
@@ -16331,7 +16331,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>5. Rad am Wagen</source>
-        <target>5. Rad am Wagen</target>
+        <target>5th wheel of the caravan</target>
       </segment>
     </unit>
     <unit id="mVb24ct" name="Mir ist schwindelig">
@@ -16340,7 +16340,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Mir ist schwindelig</source>
-        <target>Mir ist schwindelig</target>
+        <target>I'm dizzy</target>
       </segment>
     </unit>
     <unit id="Wna0z71" name="Hier oben">
@@ -16349,7 +16349,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hier oben</source>
-        <target>Hier oben</target>
+        <target>Up there</target>
       </segment>
     </unit>
     <unit id="zYN6d4f" name="Auge der Wüste">
@@ -16358,7 +16358,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Auge der Wüste</source>
-        <target>Auge der Wüste</target>
+        <target>Eye of the desert</target>
       </segment>
     </unit>
     <unit id="_JrXyKL" name="4000 Zombies starren uns an">
@@ -16367,7 +16367,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>4000 Zombies starren uns an</source>
-        <target>4000 Zombies starren uns an</target>
+        <target>4000 zombies gaze at us</target>
       </segment>
     </unit>
     <unit id="FL.RZkx" name="Huldigt den Raben!">
@@ -16376,7 +16376,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Huldigt den Raben!</source>
-        <target>Huldigt den Raben!</target>
+        <target>Glory to the Crow!</target>
       </segment>
     </unit>
     <unit id="xFSSBy6" name="Zement &amp; Garfunkel">
@@ -16385,7 +16385,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Zement &amp; Garfunkel</source>
-        <target><![CDATA[Zement & Garfunkel]]></target>
+        <target><![CDATA[Cement & Garfunkle]]></target>
       </segment>
     </unit>
     <unit id="Kk9BS0m" name="Menschliche Ameisenkolonie">
@@ -16394,7 +16394,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Menschliche Ameisenkolonie</source>
-        <target>Menschliche Ameisenkolonie</target>
+        <target>The human ant</target>
       </segment>
     </unit>
     <unit id="9qzCU.Y" name="Arbeiterhelm und Kupferstiefel">
@@ -16403,7 +16403,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Arbeiterhelm und Kupferstiefel</source>
-        <target>Arbeiterhelm und Kupferstiefel</target>
+        <target>The Great Wall of what?</target>
       </segment>
     </unit>
     <unit id="TRVtL2T" name="Arbeit ist Gesundheit">
@@ -16412,7 +16412,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Arbeit ist Gesundheit</source>
-        <target>Arbeit ist Gesundheit</target>
+        <target>Pyramid shmyramid</target>
       </segment>
     </unit>
     <unit id="KWH.AsD" name="Bob der Baumeister">
@@ -16421,7 +16421,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Bob der Baumeister</source>
-        <target>Bob der Baumeister</target>
+        <target>I'm working on the Sagrada</target>
       </segment>
     </unit>
     <unit id="Od2TNJw" name="Pisa-Geraderichter">
@@ -16430,7 +16430,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Pisa-Geraderichter</source>
-        <target>Pisa-Geraderichter</target>
+        <target>The Fixer</target>
       </segment>
     </unit>
     <unit id="WY2cHvq" name="Großer Renovator">
@@ -16439,7 +16439,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Großer Renovator</source>
-        <target>Großer Renovator</target>
+        <target>Renovator to the stars</target>
       </segment>
     </unit>
     <unit id="NIDWWFi" name="Ein Patch, kein Spiel">
@@ -16448,7 +16448,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ein Patch, kein Spiel</source>
-        <target>Ein Patch, kein Spiel</target>
+        <target>Patch-up Specialist</target>
       </segment>
     </unit>
     <unit id="QWyE78o" name="Ein Riss? Welcher Riss?">
@@ -16457,7 +16457,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ein Riss? Welcher Riss?</source>
-        <target>Ein Riss? Welcher Riss?</target>
+        <target>A crack? What crack?</target>
       </segment>
     </unit>
     <unit id="YaD1.Qw" name="Das braucht noch 10 Jahre!">
@@ -16466,7 +16466,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das braucht noch 10 Jahre!</source>
-        <target>Das braucht noch 10 Jahre!</target>
+        <target>That'll last another 10 years!</target>
       </segment>
     </unit>
     <unit id="pbNlQwl" name="Architekt (title)">
@@ -16475,7 +16475,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Architekt (title)</source>
-        <target>Architekt (title)</target>
+        <target>Architect</target>
       </segment>
     </unit>
     <unit id="0oUM0cs" name="Bürger! Seid auf inoffiziellen Webseiten wachsam!">
@@ -16511,7 +16511,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Fleisch-Schuldner</source>
-        <target>Fleisch-Schuldner</target>
+        <target>There ain't nothing I can't take this chainsaw to...</target>
       </segment>
     </unit>
     <unit id="tz.x2ip" name="Bruce Campbell">
@@ -16529,7 +16529,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wasserwaffen-Spezialist</source>
-        <target>Wasserwaffen-Spezialist</target>
+        <target>"H2Operative</target>
       </segment>
     </unit>
     <unit id="dNzdcfT" name="Hydraulik-Engineering">
@@ -16538,7 +16538,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hydraulik-Engineering</source>
-        <target>Hydraulik-Engineering</target>
+        <target>Hydraulics Engineer</target>
       </segment>
     </unit>
     <unit id="yIV3A4F" name="Abstieg der Atlanteaner">
@@ -16547,7 +16547,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Abstieg der Atlanteaner</source>
-        <target>Abstieg der Atlanteaner</target>
+        <target>Descendant of the Atlanteans</target>
       </segment>
     </unit>
     <unit id="t059IuV" name="Großer Löcherbuddler">
@@ -16556,7 +16556,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Großer Löcherbuddler</source>
-        <target>Großer Löcherbuddler</target>
+        <target>Indiana Jones</target>
       </segment>
     </unit>
     <unit id="Qu__dUH" name="Riesenmaulwurf">
@@ -16565,7 +16565,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Riesenmaulwurf</source>
-        <target>Riesenmaulwurf</target>
+        <target>Desert Rat</target>
       </segment>
     </unit>
     <unit id="GRpQt1m" name="Ich gehe alleine.">
@@ -16574,7 +16574,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ich gehe alleine.</source>
-        <target>Ich gehe alleine.</target>
+        <target>I walk alone.</target>
       </segment>
     </unit>
     <unit id="Ypo2q1y" name="Bis zur Unendlichkeit... und noch viel weiter!">
@@ -16583,7 +16583,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Bis zur Unendlichkeit... und noch viel weiter!</source>
-        <target>Bis zur Unendlichkeit... und noch viel weiter!</target>
+        <target>To infinity and beyond!</target>
       </segment>
     </unit>
     <unit id="LarIzsY" name="Indiana Jones und die Ruinen der Aussenwelt">
@@ -16592,7 +16592,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Indiana Jones und die Ruinen der Aussenwelt</source>
-        <target>Indiana Jones und die Ruinen der Aussenwelt</target>
+        <target>Indiana Jones and the ruins of the World Beyond</target>
       </segment>
     </unit>
     <unit id="u4jvGVA" name="Begrabener Freiwilliger">
@@ -16601,7 +16601,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Begrabener Freiwilliger</source>
-        <target>Begrabener Freiwilliger</target>
+        <target>Tombstone Toppler</target>
       </segment>
     </unit>
     <unit id="7zruD98" name="Tomb Raider">
@@ -16610,7 +16610,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Tomb Raider</source>
-        <target>Tomb Raider</target>
+        <target>Gollum of the Labyrinths</target>
       </segment>
     </unit>
     <unit id="Pk4ITzM" name="Labyrinth-Gollum">
@@ -16619,7 +16619,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Labyrinth-Gollum</source>
-        <target>Labyrinth-Gollum</target>
+        <target>Labyrinth Master PhD</target>
       </segment>
     </unit>
     <unit id="sx2ffu." name="Labyrinth-Meister MB">
@@ -16628,7 +16628,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Labyrinth-Meister MB</source>
-        <target>Labyrinth-Meister MB</target>
+        <target>Don't call me Junior</target>
       </segment>
     </unit>
     <unit id="9fp6bzE" name="Gontran Happiness">
@@ -16637,7 +16637,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Gontran Happiness</source>
-        <target>Gontran Happiness</target>
+        <target>Jack Pott</target>
       </segment>
     </unit>
     <unit id="A9.RjsE" name="Lucky 7">
@@ -16664,7 +16664,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wilde Bestie</source>
-        <target>Wilde Bestie</target>
+        <target>Wild Beast</target>
       </segment>
     </unit>
     <unit id="5eyzono" name="Rambos Großvater">
@@ -16673,7 +16673,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Rambos Großvater</source>
-        <target>Rambos Großvater</target>
+        <target>Rambo's ancestor</target>
       </segment>
     </unit>
     <unit id="Z980nNy" name="Absolut keine Angst!">
@@ -16682,7 +16682,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Absolut keine Angst!</source>
-        <target>Absolut keine Angst!</target>
+        <target>Not even afraid !</target>
       </segment>
     </unit>
     <unit id="BpYFjK7" name="Ich habe die Erde umrundet... zweimal!">
@@ -16691,7 +16691,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ich habe die Erde umrundet... zweimal!</source>
-        <target>Ich habe die Erde umrundet... zweimal!</target>
+        <target>I've been round the world... Twice!</target>
       </segment>
     </unit>
     <unit id="Y7BDALO" name="Internet Explorer">
@@ -16709,7 +16709,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ich hab sogar das Klo abgesucht!</source>
-        <target>Ich hab sogar das Klo abgesucht!</target>
+        <target>I've even dug through a public toilet!</target>
       </segment>
     </unit>
     <unit id="zBZGIfK" name="Sind wir schon da?">
@@ -16718,7 +16718,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Sind wir schon da?</source>
-        <target>Sind wir schon da?</target>
+        <target>Are we there yet?</target>
       </segment>
     </unit>
     <unit id="P8a8jTw" name="Stadtallergie">
@@ -16727,7 +16727,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Stadtallergie</source>
-        <target>Stadtallergie</target>
+        <target>I'm allergic to something in town.</target>
       </segment>
     </unit>
     <unit id="yVOs1t0" name="Wo ich hinguck, seh ich Gegend.">
@@ -16736,7 +16736,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wo ich hinguck, seh ich Gegend.</source>
-        <target>Wo ich hinguck, seh ich Gegend.</target>
+        <target>So I guess we're not waiting for Bob?</target>
       </segment>
     </unit>
     <unit id="z8XQiYT" name="Runaway Michael">
@@ -16745,7 +16745,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Runaway Michael</source>
-        <target>Runaway Michael</target>
+        <target>Bear Grylls</target>
       </segment>
     </unit>
     <unit id="k6l_Uv1" name="Ohne Dach oder Leber">
@@ -16754,7 +16754,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ohne Dach oder Leber</source>
-        <target>Ohne Dach oder Leber</target>
+        <target>Without a roof or a tooth.</target>
       </segment>
     </unit>
     <unit id="tri9myN" name="Erinnerungsträger">
@@ -16763,7 +16763,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Erinnerungsträger</source>
-        <target>Erinnerungsträger</target>
+        <target>Souvenir Collector</target>
       </segment>
     </unit>
     <unit id="W_jOaSL" name="Erinnerungen an die Zivilisation">
@@ -16772,7 +16772,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Erinnerungen an die Zivilisation</source>
-        <target>Erinnerungen an die Zivilisation</target>
+        <target>Memory of civilization</target>
       </segment>
     </unit>
     <unit id="yit.avN" name="Ich sehe ein Blauuuuuuues Tal">
@@ -16781,7 +16781,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ich sehe ein Blauuuuuuues Tal</source>
-        <target>Ich sehe ein Blauuuuuuues Tal</target>
+        <target>The sky is falling!!!</target>
       </segment>
     </unit>
     <unit id="SY9JB1d" name="Nackt und Zerfleischt">
@@ -16790,7 +16790,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Nackt und Zerfleischt</source>
-        <target>Nackt und Zerfleischt</target>
+        <target>Holocaust cannibals</target>
       </segment>
     </unit>
     <unit id="ARi3tBG" name="Letzter Überlebender">
@@ -16799,7 +16799,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Letzter Überlebender</source>
-        <target>Letzter Überlebender</target>
+        <target>Last Boy Scout</target>
       </segment>
     </unit>
     <unit id="fKtbOrq" name="Unzerstörbar">
@@ -16808,7 +16808,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Unzerstörbar</source>
-        <target>Unzerstörbar</target>
+        <target>Dances with Hordes</target>
       </segment>
     </unit>
     <unit id="SdLISLP" name="Allein gegen die Horde">
@@ -16817,7 +16817,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Allein gegen die Horde</source>
-        <target>Allein gegen die Horde</target>
+        <target>Me vs. the Horde!</target>
       </segment>
     </unit>
     <unit id="H5Tt7bI" name="Chuck Norris' Ebenbild">
@@ -16826,7 +16826,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Chuck Norris' Ebenbild</source>
-        <target>Chuck Norris' Ebenbild</target>
+        <target>Equal to Chuck Norris</target>
       </segment>
     </unit>
     <unit id="eunLp3W" name="Ich habe Magenschmerzen...">
@@ -16835,7 +16835,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ich habe Magenschmerzen...</source>
-        <target>Ich habe Magenschmerzen...</target>
+        <target>I've got a sore tummy...</target>
       </segment>
     </unit>
     <unit id="gEtgHUv" name="Mir ist kalt hier draußen...">
@@ -16844,7 +16844,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Mir ist kalt hier draußen...</source>
-        <target>Mir ist kalt hier draußen...</target>
+        <target>Baby it's cold outside...</target>
       </segment>
     </unit>
     <unit id="8KQLRkY" name="Anfängerleiche">
@@ -16853,7 +16853,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Anfängerleiche</source>
-        <target>Anfängerleiche</target>
+        <target>Beginner Corpse</target>
       </segment>
     </unit>
     <unit id="odtY3_Y" name="Rabenfreund">
@@ -16862,7 +16862,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Rabenfreund</source>
-        <target>Rabenfreund</target>
+        <target>Crows buddy</target>
       </segment>
     </unit>
     <unit id="m78HBvZ" name="Dehydrationskollege">
@@ -16871,7 +16871,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Dehydrationskollege</source>
-        <target>Dehydrationskollege</target>
+        <target>Dehydrated fellow</target>
       </segment>
     </unit>
     <unit id="BhsD8d_" name="Seelenhändler">
@@ -16880,7 +16880,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Seelenhändler</source>
-        <target>Seelenhändler</target>
+        <target>Soul salesman</target>
       </segment>
     </unit>
     <unit id="QaLnp0N" name="Sehr überzeugender Pate">
@@ -16889,7 +16889,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Sehr überzeugender Pate</source>
-        <target>Sehr überzeugender Pate</target>
+        <target>Very convincing sponsor</target>
       </segment>
     </unit>
     <unit id="S_ni.T_" name="Wüstenspekulant">
@@ -16898,7 +16898,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wüstenspekulant</source>
-        <target>Wüstenspekulant</target>
+        <target>Desert speculator</target>
       </segment>
     </unit>
     <unit id="2B3cnT0" name="Bringt Sachen ins Rollen!">
@@ -16907,7 +16907,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Bringt Sachen ins Rollen!</source>
-        <target>Bringt Sachen ins Rollen!</target>
+        <target>Making things happen!</target>
       </segment>
     </unit>
     <unit id="PIt9fgD" name="Freigiebiger Bürger">
@@ -16916,7 +16916,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Freigiebiger Bürger</source>
-        <target>Freigiebiger Bürger</target>
+        <target>Samaritan</target>
       </segment>
     </unit>
     <unit id="QceNj.h" name="Messias">
@@ -16925,7 +16925,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Messias</source>
-        <target>Messias</target>
+        <target>All you need is love... and Hero days</target>
       </segment>
     </unit>
     <unit id="lKnLpvN" name="Santa Klaus ist ein Schummler">
@@ -16934,7 +16934,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Santa Klaus ist ein Schummler</source>
-        <target>Santa Klaus ist ein Schummler</target>
+        <target>Santa is a crook</target>
       </segment>
     </unit>
     <unit id="JHdt62r" name="Santa Klaus ist Abfall">
@@ -16943,7 +16943,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Santa Klaus ist Abfall</source>
-        <target>Santa Klaus ist Abfall</target>
+        <target>Old Saint Nick is a little **it</target>
       </segment>
     </unit>
     <unit id="uJwxAdp" name="Santa Klaus ist Abschaum">
@@ -16952,7 +16952,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Santa Klaus ist Abschaum</source>
-        <target>Santa Klaus ist Abschaum</target>
+        <target>Santa Claus is a thieving b*****d</target>
       </segment>
     </unit>
     <unit id="n8nyFi5" name="Hängt Santa Klaus!">
@@ -16961,7 +16961,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hängt Santa Klaus!</source>
-        <target>Hängt Santa Klaus!</target>
+        <target>Prepare the gallows - we're hanging Santa!</target>
       </segment>
     </unit>
     <unit id="C.78yQ1" name="Lebenssammler">
@@ -16970,7 +16970,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Lebenssammler</source>
-        <target>Lebenssammler</target>
+        <target>Don't cross the streams</target>
       </segment>
     </unit>
     <unit id="dMZx5oC" name="Schnitter der Aussenwelt">
@@ -16979,7 +16979,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Schnitter der Aussenwelt</source>
-        <target>Schnitter der Aussenwelt</target>
+        <target>I ain't afraid of no ghost</target>
       </segment>
     </unit>
     <unit id="pzraA_u" name="Mitglied des Roten Kreuzes">
@@ -16988,7 +16988,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Mitglied des Roten Kreuzes</source>
-        <target>Mitglied des Roten Kreuzes</target>
+        <target>Member of the Red Cross</target>
       </segment>
     </unit>
     <unit id="2ZtIR7d" name="Es ist der Tod der mich fürchten sollte!">
@@ -16997,7 +16997,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Es ist der Tod der mich fürchten sollte!</source>
-        <target>Es ist der Tod der mich fürchten sollte!</target>
+        <target>It is death that should be afraid of me!</target>
       </segment>
     </unit>
     <unit id="ZYF2zJY" name="Sandmann">
@@ -17006,7 +17006,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Sandmann</source>
-        <target>Sandmann</target>
+        <target>Sandman</target>
       </segment>
     </unit>
     <unit id="Au5Ajw2" name="Sandy Maverick">
@@ -17024,7 +17024,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wegweiser</source>
-        <target>Wegweiser</target>
+        <target>Daylight Lantern</target>
       </segment>
     </unit>
     <unit id="dwFklZb" name="Praktischer Begleiter">
@@ -17033,7 +17033,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Praktischer Begleiter</source>
-        <target>Praktischer Begleiter</target>
+        <target>Pocket Companion</target>
       </segment>
     </unit>
     <unit id="Kmu_sqS" name="Erleuchteter Anführer">
@@ -17042,7 +17042,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Erleuchteter Anführer</source>
-        <target>Erleuchteter Anführer</target>
+        <target>Illuminated Guide</target>
       </segment>
     </unit>
     <unit id="JztdI6n" name="Erleuchteter Prediger">
@@ -17051,7 +17051,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Erleuchteter Prediger</source>
-        <target>Erleuchteter Prediger</target>
+        <target>Enlightened Preacher</target>
       </segment>
     </unit>
     <unit id="GAeKRC9" name="Guru der Liebe">
@@ -17060,7 +17060,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Guru der Liebe</source>
-        <target>Guru der Liebe</target>
+        <target>Love guru</target>
       </segment>
     </unit>
     <unit id="uCPB93p" name="Höret meine Stimme">
@@ -17069,7 +17069,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Höret meine Stimme</source>
-        <target>Höret meine Stimme</target>
+        <target>Listen to my voice</target>
       </segment>
     </unit>
   </file>
