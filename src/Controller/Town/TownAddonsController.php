@@ -102,93 +102,67 @@ class TownAddonsController extends TownController
 
     /**
      * @Route("jx/town/watchtower", name="town_watchtower")
-     * @param TownHandler $th
-     * @param InventoryHandler $iv
      * @return Response
      */
-    public function addon_watchtower(TownHandler $th, InventoryHandler $iv): Response
+    public function addon_watchtower(): Response
     {
         if (!$this->getActiveCitizen()->getHasSeenGazette())
             return $this->redirect($this->generateUrl('game_newspaper'));
 
         $town = $this->getActiveCitizen()->getTown();
-        if (!$th->getBuilding($town, 'item_tagger_#00', true))
+        if (!$this->town_handler->getBuilding($town, 'item_tagger_#00', true))
             return $this->redirect($this->generateUrl('town_dashboard'));
 
-        $has_zombie_est_tomorrow = !empty($th->getBuilding($town, 'item_tagger_#02'));
+        $has_zombie_est_tomorrow = !empty($this->town_handler->getBuilding($town, 'item_tagger_#02'));
 
-        $z_today_min = $z_today_max = $z_tomorrow_min = $z_tomorrow_max = null; $z_q2 = 0;
-        $z_q1 = $th->get_zombie_estimation_quality( $town, 0, $z_today_min, $z_today_max );
-        if ($has_zombie_est_tomorrow && $z_q1 >= 1) $z_q2 = $th->get_zombie_estimation_quality( $town, 1, $z_tomorrow_min, $z_tomorrow_max );
+        $estims = $this->town_handler->get_zombie_estimation_quality($town);
+
+        $z0 = [
+            true, // Can see
+            true,  // Is available
+            $estims[0]->getMin(), // Min
+            $estims[0]->getMax(),  // Max
+            round($estims[0]->getEstimation()*100) // Progress
+        ];
+        $z1 = [
+            $has_zombie_est_tomorrow,
+            $estims[0]->getEstimation() >= 1,
+            isset($estims[1]) ? $estims[1]->getMin() : 0,
+            isset($estims[1]) ? $estims[1]->getMax() : 0,
+            isset($estims[1]) ? round($estims[1]->getEstimation()*100) : 0
+        ];
 
         /** @var ZombieEstimation $est0 */
         $est0 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneBy(['town' => $town, 'day' => $town->getDay()]);
-        /** @var ZombieEstimation $est1 */
-        $est1 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneBy(['town' => $town, 'day' => $town->getDay()+1]);
 
         return $this->render( 'ajax/game/town/watchtower.html.twig', $this->addDefaultTwigArgs('watchtower', [
-            'z0' => [ true, true, $z_today_min, $z_today_max, round($z_q1*100) ],
-            'z1' => [ $has_zombie_est_tomorrow, $z_q1 >= 1, $z_tomorrow_min, $z_tomorrow_max, round($z_q2*100) ],
+            'z0' => $z0,
+            'z1' => $z1,
             'z0_av' => $est0 && !$est0->getCitizens()->contains( $this->getActiveCitizen() ),
-            'z1_av' => $est1 && !$est1->getCitizens()->contains( $this->getActiveCitizen() ),
-            'has_scanner' => !empty($th->getBuilding($town, 'item_tagger_#01')),
+            'z1_av' => $est0 && !$est0->getCitizens()->contains( $this->getActiveCitizen() ),
+            'has_scanner' => !empty($this->town_handler->getBuilding($town, 'item_tagger_#01')),
             'has_calc'    => $has_zombie_est_tomorrow,
         ]) );
     }
 
     /**
      * @Route("api/town/watchtower/est", name="town_watchtower_estimate_controller")
-     * @param JSONRequestParser $parser
-     * @param TownHandler $th
-     * @param RandomGenerator $rg
      * @return Response
      */
-    public function watchtower_est_api(JSONRequestParser $parser, TownHandler $th, RandomGenerator $rg): Response {
+    public function watchtower_est_api(): Response {
         $town = $this->getActiveCitizen()->getTown();
 
-        if (!$th->getBuilding($town, 'item_tagger_#00', true))
+        if (!$this->town_handler->getBuilding($town, 'item_tagger_#00', true))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        if (!$parser->has_all(['day'], false))
-            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-        $day = (int)$parser->get('day');
-        if ($day < 0 || $day > 1) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-        if ($day === 1) {
-            if (!$th->getBuilding($town, 'item_tagger_#02', true))
-                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-            if ($th->get_zombie_estimation_quality($town, 0) < 1)
-                return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-        }
-
         /** @var ZombieEstimation $est */
-        $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneBy(['town' => $town, 'day' => $town->getDay() + $day]);
+        $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneBy(['town' => $town, 'day' => $town->getDay()]);
         if (!$est) return AjaxResponse::error( ErrorHelper::ErrorInternalError );
 
         if ($est->getCitizens()->contains($this->getActiveCitizen()))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        /*$c = 1;
-        if ($th->getBuilding($town, 'item_tagger_#01', true)) $c *= 2;
-        if ($this->inventory_handler->countSpecificItems($town->getBank(), 'scope_#00', false, false) > 0) $c *= 2;
-
-        for ($i = 0; $i < $c; $i++)*/
-            if ($est->getOffsetMin() + $est->getOffsetMax() > 10) {
-                $increase_min = $rg->chance( $est->getOffsetMin() / ($est->getOffsetMin() + $est->getOffsetMax()) );
-                if ($increase_min) $est->setOffsetMin( $est->getOffsetMin() - 1);
-                else $est->setOffsetMax( $est->getOffsetMax() - 1);
-            }
         $est->addCitizen($this->getActiveCitizen());
-
-        if($day === 1) {
-            // If we are calculating for tomorrow, we also add that this citizen estimated for today
-            $est_current = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneBy(['town' => $town, 'day' => $town->getDay()]);
-            if(!$est_current->getCitizens()->contains($this->getActiveCitizen())) {
-                $est_current->addCitizen($this->getActiveCitizen());
-                $this->entity_manager->persist($est_current);    
-            }
-        }
 
         try {
             $this->entity_manager->persist($est);

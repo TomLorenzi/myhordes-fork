@@ -107,8 +107,8 @@
         let buttons = document.querySelectorAll('[x-predict-attack]');
         for (let i = 0; i < buttons.length; i++)
             buttons[i].addEventListener('click', function() {
-                const day = this.getAttribute('x-predict-attack');
-                $.ajax.easySend( '{{ path('town_watchtower_estimate_controller') }}', {day: day},
+                // const day = this.getAttribute('x-predict-attack');
+                $.ajax.easySend( '{{ path('town_watchtower_estimate_controller') }}', {/*day: day*/},
                     function () {
                         $.ajax.load(null, '{{ path('town_watchtower') }}', true);
                     } );

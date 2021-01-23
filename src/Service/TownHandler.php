@@ -27,6 +27,7 @@ use App\Structures\EventConf;
 use App\Structures\HomeDefenseSummary;
 use App\Structures\TownDefenseSummary;
 use App\Structures\TownConf;
+use App\Structures\WatchtowerEstimation;
 use Doctrine\ORM\EntityManagerInterface;
 
 class TownHandler
@@ -495,17 +496,31 @@ class TownHandler
         return $total_def;
     }
 
-    public function get_zombie_estimation_quality(Town &$town, int $future = 0, ?int &$min = null, ?int &$max = null): float {
-        $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town, $town->getDay() + $future);
+    public function get_zombie_estimation_quality(Town &$town): array {
+        $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town, $town->getDay());
         /** @var ZombieEstimation $est */
-        if (!$est) return 0;
+        if (!$est) return [];
 
-        $c = $est->getCitizens()->count();
-        if ($this->getBuilding($town, 'item_tagger_#01')) $c *= 2;
-        if ($this->inventory_handler->countSpecificItems($town->getBank(), 'scope_#00', false, false) > 0) $c *= 2;
+        $ratio = 1;
+        if ($this->getBuilding($town, 'item_tagger_#01')) {
+            $ratio *= 2;
+        }
+        if ($this->inventory_handler->countSpecificItems($town->getBank(), 'scope_#00', false, false) > 0) {
+            $ratio *= 2;
+        }
 
-        $offsetMin = $est->getOffsetMin() - floor($c / 2);
-        $offsetMax = $est->getOffsetMax() - floor($c / 2);
+        $offsetMin = $est->getOffsetMin();
+        $offsetMax = $est->getOffsetMax();
+
+        mt_srand($est->getCitizens()->count());
+
+        for ($i = 0; $i < $est->getCitizens()->count() * $ratio; $i++) {
+            if ($offsetMin + $offsetMax > 10) {
+                $increase_min = $this->random->chance( $offsetMin / ($offsetMin + $offsetMax) );
+                if ($increase_min) $offsetMin -= 1;
+                else $offsetMax -= 1;
+            }
+        }
 
         $min = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
         $max = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
@@ -515,9 +530,60 @@ class TownHandler
         $min = round($min * $soulFactor);
         $max = round($max * $soulFactor);
 
+        $quality = min($est->getCitizens()->count() / (24 / $ratio), 1);
         $this->conf->getCurrentEvent($town)->hook_watchtower_estimations($min,$max, $town);
 
-        return min((1 - (($offsetMin + $offsetMax) - 10) / 24), 1);
+        $estim = new WatchtowerEstimation();
+        $estim->setMin($min);
+        $estim->setMax($max);
+        $estim->setEstimation($quality);
+        $estim->setFuture(0);
+
+        $result = [$estim];
+
+        if (!$this->getBuilding($town, 'item_tagger_#02')) {
+            return $result;
+        }
+
+        if ($est->getCitizens()->count() * $ratio >= 24 && !empty($this->getBuilding($town, 'item_tagger_#02'))) {
+            $estim->setEstimation(1);
+            $calculateUntil = $est->getCitizens()->count() * $ratio - 24;
+            $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town, $town->getDay() + 1);
+
+            /** @var ZombieEstimation $est */
+            if (!$est) return  $result;
+
+            $offsetMin = $est->getOffsetMin();
+            $offsetMax = $est->getOffsetMax();
+
+            for ($i = 0; $i < $calculateUntil; $i++) {
+                if ($offsetMin + $offsetMax > 10) {
+                    $increase_min = $this->random->chance( $offsetMin / ($offsetMin + $offsetMax) );
+                    if ($increase_min) $offsetMin -= 1;
+                    else $offsetMax -= 1;
+                }
+            }
+
+            $min2 = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
+            $max2 = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
+
+            $soulFactor = min(1 + (0.04 * $this->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
+
+            $min2 = round($min2 * $soulFactor);
+            $max2 = round($max2 * $soulFactor);
+
+            $quality2 = min($calculateUntil / (24 / $ratio), 1);
+            $this->conf->getCurrentEvent($town)->hook_watchtower_estimations($min2,$max2, $town);
+
+            $estim2 = new WatchtowerEstimation();
+            $estim2->setMin($min2);
+            $estim2->setMax($max2);
+            $estim2->setEstimation($quality2);
+            $estim2->setFuture(1);
+            $result[] = $estim2;
+        }
+
+        return $result;
     }
 
     public function calculate_zombie_attacks(Town &$town, int $future = 2) {
@@ -551,8 +617,11 @@ class TownHandler
                 $off_max = 34 - $off_min;
 
                 $town->addZombieEstimation(
-                    (new ZombieEstimation())->setDay( $current_day )->setZombies( $value )->setOffsetMin( $off_min )
-                    ->setOffsetMax( $off_max )
+                    (new ZombieEstimation())
+                        ->setDay( $current_day )
+                        ->setZombies( $value )
+                        ->setOffsetMin( $off_min )
+                        ->setOffsetMax( $off_max )
                 );
             }
     }
