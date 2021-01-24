@@ -708,20 +708,28 @@ class ExternalXML2Controller extends ExternalController {
             $has_zombie_est_tomorrow = ($this->town_handler->getBuilding($town, 'item_tagger_#02') !== null);
             if ($has_zombie_est){
                 // Zombies estimations
-                for ($i = $town->getDay() - 1;  $i >= 0 ; $i--) {
-                    $estims = $this->town_handler->get_zombie_estimation( $town, $town->getDay() - $i );
-                    $watchtrigger = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WT_THRESHOLD, 33);
+                $estims = $this->town_handler->get_zombie_estimation($town);
+                $watchtrigger = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WT_THRESHOLD, 33);
 
-                    if($watchtrigger / 100 >= $estims[0]->getEstimation()) continue;
-
+                if($watchtrigger / 100 <= $estims[0]->getEstimation()) {
                     $data['data']['estimations']['list']['items'][] = [
                         'attributes' => [
-                            'day' => ($town->getDay() - $i),
+                            'day' => ($town->getDay()),
                             'max' => $estims[0]->getMax(),
                             'min' => $estims[0]->getMin(),
                             'maxed' => intval($estims[0]->getEstimation() >= 1)
                         ]
                     ];
+                    if ($estims[0]->getEstimation() > 0 && $has_zombie_est_tomorrow) {
+                        $data['data']['estimations']['list']['items'][] = [
+                            'attributes' => [
+                                'day' => ($town->getDay() + 1),
+                                'max' => $estims[1]->getMax(),
+                                'min' => $estims[1]->getMin(),
+                                'maxed' => intval($estims[1]->getEstimation() >= 1)
+                            ]
+                        ];
+                    }
                 }
             }
         }
