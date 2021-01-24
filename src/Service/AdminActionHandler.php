@@ -31,6 +31,7 @@ class AdminActionHandler
     private $translator;
     private $log;
     private $userHandler;
+    private $crow;
 
     private $requiredRole = [
         'headshot' => 'ROLE_CROW',
@@ -42,13 +43,14 @@ class AdminActionHandler
         'clearReports' => 'ROLE_CROW',
     ];
 
-    public function __construct( EntityManagerInterface $em, DeathHandler $dh, TranslatorInterface $ti, LogTemplateHandler $lt, UserHandler $uh)
+    public function __construct( EntityManagerInterface $em, DeathHandler $dh, TranslatorInterface $ti, LogTemplateHandler $lt, UserHandler $uh, CrowService $crow)
     {
         $this->entity_manager = $em;
         $this->death_handler = $dh;
         $this->translator = $ti;
         $this->log = $lt;
         $this->userHandler = $uh;
+        $this->crow = $crow;
     }
 
     protected function hasRights(int $sourceUser, string $desiredAction)
@@ -122,9 +124,12 @@ class AdminActionHandler
             ->setBanStart( $banStart )
             ->setBanEnd( $banEnd )
             ->setType(0);
-        
+
+        $this->entity_manager->persist($newban);
+        $n = $this->crow->createPM_moderation( $targetUser, CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetForumBan, CrowService::ModerationActionImpose, $duration * 86400, $reason );
+        if ($n) $this->entity_manager->persist($n);
+
         try {
-            $this->entity_manager->persist($newban);
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return false;

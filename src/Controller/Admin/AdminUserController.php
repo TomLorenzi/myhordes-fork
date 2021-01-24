@@ -15,6 +15,7 @@ use App\Entity\UserPendingValidation;
 use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
 use App\Service\AntiCheatService;
+use App\Service\CrowService;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\PermissionHandler;
@@ -73,12 +74,15 @@ class AdminUserController extends AdminActionController
      * @param UserFactory $uf
      * @param TwinoidHandler $twin
      * @param UserHandler $userHandler
+     * @param PermissionHandler $perm
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param CrowService $crow
      * @param string $param
      * @return Response
      */
     public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf,
                                          TwinoidHandler $twin, UserHandler $userHandler, PermissionHandler $perm,
-                                         UserPasswordEncoderInterface $passwordEncoder,
+                                         UserPasswordEncoderInterface $passwordEncoder, CrowService $crow,
                                          string $param = ''): Response
     {
         /** @var User $user */
@@ -222,6 +226,9 @@ class AdminUserController extends AdminActionController
 
                 $user->setShadowBan( (new ShadowBan())->setAdmin( $this->getUser() )->setCreated( new \DateTime() )->setReason($param) );
                 $this->entity_manager->persist($user);
+
+                $n = $crow->createPM_moderation( $user, CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetGameBan, CrowService::ModerationActionImpose, -1, $param );
+                if ($n) $this->entity_manager->persist($n);
                 break;
 
             case 'unshadow':
@@ -231,6 +238,8 @@ class AdminUserController extends AdminActionController
                 $user->setShadowBan( null );
 
                 $this->entity_manager->persist($user);
+                $n = $crow->createPM_moderation( $user, CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetGameBan, CrowService::ModerationActionRevoke, -1, '' );
+                if ($n) $this->entity_manager->persist($n);
                 break;
 
             case 'whitelist':

@@ -22,12 +22,17 @@ class CrowService {
     const ModerationActionDomainForum = 1;
     const ModerationActionDomainTownPM = 2;
     const ModerationActionDomainGlobalPM = 3;
+    const ModerationActionDomainAccount = 101;
 
     const ModerationActionTargetThread = 1;
     const ModerationActionTargetPost = 2;
+    const ModerationActionTargetForumBan = 101;
+    const ModerationActionTargetGameBan = 102;
 
     const ModerationActionEdit = 1;
     const ModerationActionDelete = 2;
+    const ModerationActionImpose = 3;
+    const ModerationActionRevoke = 4;
 
     private EntityManagerInterface $em;
     private ?User $crow_cache = null;
@@ -143,7 +148,7 @@ class CrowService {
             ->setSeen( false );
     }
 
-    public function createPM_moderation( User $receiver, int $domain, int $target, int $action, ?object $object = null, string $reason = ''): ?GlobalPrivateMessage {
+    public function createPM_moderation( User $receiver, int $domain, int $target, int $action, $object = null, string $reason = ''): ?GlobalPrivateMessage {
 
         $name = null;
         $data = [];
@@ -164,8 +169,8 @@ class CrowService {
             case self::ModerationActionDomainTownPM: {
                 if (!is_a($object, PrivateMessage::class)) return null;
                 switch ("{$target}.{$action}") {
-                    case self::ModerationActionTargetPost .'.'. self::ModerationActionEdit:     $name = 'gpm_mod_townPMEdited'; break;
-                    case self::ModerationActionTargetPost .'.'. self::ModerationActionDelete:   $name = 'gpm_mod_townPMDeleted'; break;
+                    case self::ModerationActionTargetPost .'.'. self::ModerationActionEdit:   $name = 'gpm_mod_townPMEdited'; break;
+                    case self::ModerationActionTargetPost .'.'. self::ModerationActionDelete: $name = 'gpm_mod_townPMDeleted'; break;
                     default: return null;
                 }
                 $data = [ 'threadname' => $object->getPrivateMessageThread()->getTitle() ];
@@ -175,11 +180,24 @@ class CrowService {
             case self::ModerationActionDomainGlobalPM: {
                 if (!is_a($object, GlobalPrivateMessage::class)) return null;
                 switch ("{$target}.{$action}") {
-                    case self::ModerationActionTargetPost .'.'. self::ModerationActionEdit:     $name = 'gpm_mod_globalPMEdited'; break;
-                    case self::ModerationActionTargetPost .'.'. self::ModerationActionDelete:   $name = 'gpm_mod_globalPMDeleted'; break;
+                    case self::ModerationActionTargetPost .'.'. self::ModerationActionEdit:   $name = 'gpm_mod_globalPMEdited'; break;
+                    case self::ModerationActionTargetPost .'.'. self::ModerationActionDelete: $name = 'gpm_mod_globalPMDeleted'; break;
                     default: return null;
                 }
                 $data = [ 'threadname' => $object->getReceiverGroup()->getName() ];
+                break;
+            }
+
+            case self::ModerationActionDomainAccount: {
+                if (!is_int($object) && $object !== null) return null;
+                switch ("{$target}.{$action}") {
+                    case self::ModerationActionTargetForumBan .'.'. self::ModerationActionImpose: $name = 'gpm_mod_forumBanOn'; break;
+                    case self::ModerationActionTargetGameBan .'.'.  self::ModerationActionImpose: $name = 'gpm_mod_gameBanOn'; break;
+                    case self::ModerationActionTargetForumBan .'.'. self::ModerationActionRevoke: $name = 'gpm_mod_forumBanOff'; break;
+                    case self::ModerationActionTargetGameBan .'.'.  self::ModerationActionRevoke: $name = 'gpm_mod_gameBanOff'; break;
+                    default: return null;
+                }
+                $data = [ 'reason' => $reason, 'duration' => $object ?? -1 ];
                 break;
             }
 
