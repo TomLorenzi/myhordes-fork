@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\User;
+use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
 use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -20,6 +21,21 @@ class UserGroupAssociationRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, UserGroupAssociation::class);
+    }
+
+    /**
+     * @param User $user
+     * @return int
+     */
+    public function countRecentRecipients( User $user ): int {
+        $owned_groups = $this->createQueryBuilder('u')->select('u')->leftJoin('u.association', 'g')
+            ->andWhere('u.user = :user')->setParameter('user', $user)
+            ->andWhere('u.associationLevel = :founder')->setParameter('founder', UserGroupAssociation::GroupAssociationLevelFounder)
+            ->andWhere('g.ref3 > :cutoff')->setParameter('cutoff', (new DateTime('-24hours'))->getTimestamp())
+            ->getQuery()->getResult();
+
+
+        return $this->count( ['association' => array_map(fn(UserGroupAssociation $a) => $a->getAssociation(), $owned_groups)] );
     }
 
     /**

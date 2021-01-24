@@ -35,11 +35,13 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class MessageController extends CustomAbstractController
 {
-    const ErrorForumNotFound    = ErrorHelper::BaseForumErrors + 1;
-    const ErrorPostTextLength   = ErrorHelper::BaseForumErrors + 2;
-    const ErrorPostTitleLength  = ErrorHelper::BaseForumErrors + 3;
-    const ErrorPMItemLimitHit   = ErrorHelper::BaseForumErrors + 4;
-    const ErrorForumLimitHit    = ErrorHelper::BaseForumErrors + 5;
+    const ErrorForumNotFound     = ErrorHelper::BaseForumErrors + 1;
+    const ErrorPostTextLength    = ErrorHelper::BaseForumErrors + 2;
+    const ErrorPostTitleLength   = ErrorHelper::BaseForumErrors + 3;
+    const ErrorPMItemLimitHit    = ErrorHelper::BaseForumErrors + 4;
+    const ErrorForumLimitHit     = ErrorHelper::BaseForumErrors + 5;
+    const ErrorGPMMemberLimitHit = ErrorHelper::BaseForumErrors + 6;
+    const ErrorGPMThreadLimitHit = ErrorHelper::BaseForumErrors + 7;
 
     protected RandomGenerator $rand;
     protected Packages $asset;

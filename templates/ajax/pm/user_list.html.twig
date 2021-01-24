@@ -26,7 +26,7 @@
                             {% endif %}
                         </div></div>
                 {% endfor %}
-                {% if owner %}
+                {% if owner and can_add %}
                     <div class="cell"><div class="pm-userbox"><div class="pm-avatar empty"></div><div class="pm-userbox-action" id="pm-add-user-button">
                         <i class="fa fa-plus-square"></i>
                         <div class="tooltip"><b>{{ 'Spieler hinzufügen'|trans({},'global') }}</b><br />

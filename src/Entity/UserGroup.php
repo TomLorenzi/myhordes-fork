@@ -55,6 +55,11 @@ class UserGroup
      */
     private $shoutbox;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $ref3;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -121,6 +126,18 @@ class UserGroup
         if ($entries->getUserGroup() !== $this) {
             $entries->setUserGroup($this);
         }
+
+        return $this;
+    }
+
+    public function getRef3(): ?int
+    {
+        return $this->ref3;
+    }
+
+    public function setRef3(?int $ref3): self
+    {
+        $this->ref3 = $ref3;
 
         return $this;
     }

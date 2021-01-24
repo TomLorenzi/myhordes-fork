@@ -359,6 +359,10 @@
                         {'name': searchBox.value, 'exclude': skip},
                         function () {
                             $.html.addEventListenerAll('#pm-users-list>.users-list-entry>div', 'click', function (e, elem) {
+                                if (skip.length >= 99) {
+                                    alert('{{'Du kannst keine weiteren Spieler zu dieser Nachricht hinzufügen.'|trans({},'global')|e('js')}}');
+                                    return;
+                                }
                                 if (!document.querySelector('#pm-selected-users>li[x-soul-id="' + elem.getAttribute('x-soul-id') + '"]')) {
                                     let li = document.createElement('li');
                                     li.setAttribute('x-soul-id', elem.getAttribute('x-soul-id'));

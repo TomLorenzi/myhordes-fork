@@ -297,7 +297,7 @@ class MessageForumController extends MessageController
         if (($thread->getLocked() || $thread->getHidden()) && !$this->perm->isPermitted($permissions, ForumUsagePermissions::PermissionModerate))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
-        // Check the last 4 threads; if they were all made by the same user, they must wait 4h before they can post again
+        // Check the last 4 posts; if they were all made by the same user, they must wait 4h before they can post again
         if (!$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate )) {
             $last_posts = $this->entity_manager->getRepository(Post::class)->findBy(['thread' => $thread], ['date' => 'DESC'], 4);
             if (count($last_posts) === 4) {

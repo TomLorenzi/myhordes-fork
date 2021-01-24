@@ -366,6 +366,9 @@ class MessageGlobalPMController extends MessageController
                                                                                             , 'association' => $group]);
         if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
+        $member_count = $em->getRepository(UserGroupAssociation::class)->count(['association' => $group]);
+        if ($member_count >= 100) return AjaxResponse::error( self::ErrorGPMMemberLimitHit);
+
         $other_user = $em->getRepository(User::class)->find($uid);
         if (!$other_user) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         if ($userHandler->hasRole($other_user, 'ROLE_DUMMY')) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -412,6 +415,7 @@ class MessageGlobalPMController extends MessageController
         return $this->render( 'ajax/pm/user_list.html.twig', $this->addDefaultTwigArgs(null, [
             'gid' => $id,
             'owner' => $group_association->getAssociationLevel() === UserGroupAssociation::GroupAssociationLevelFounder,
+            'can_add' => count($all_associations) < 100,
             'active'   => array_filter( array_map( fn(UserGroupAssociation $a): ?User => $a->getAssociationType() === UserGroupAssociation::GroupAssociationTypePrivateMessageMember ? $a->getUser() : null, $all_associations ) ),
             'inactive' => array_filter( array_map( fn(UserGroupAssociation $a): ?User => $a->getAssociationType() !== UserGroupAssociation::GroupAssociationTypePrivateMessageMember ? $a->getUser() : null, $all_associations ) ),
         ] ));
@@ -716,6 +720,9 @@ class MessageGlobalPMController extends MessageController
      * @return Response
      */
     public function editor_pm_thread_api(EntityManagerInterface $em): Response {
+        if ($em->getRepository(UserGroupAssociation::class)->countRecentRecipients($this->getUser()) > 100)
+            return $this->render( 'ajax/pm/non-editor.html.twig');
+
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => null,
             'tid' => null,
@@ -783,17 +790,22 @@ class MessageGlobalPMController extends MessageController
         $users = $this->entity_manager->getRepository(User::class)->findBy(['id' => $user_ids]);
         if (count($user_ids) !== count($users)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
+        if (count($users) > 100) return AjaxResponse::error( self::ErrorGPMMemberLimitHit);
+
         foreach ($users as $chk_user) {
             if ($chk_user === $user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
             if ($userHandler->hasRole($chk_user, 'ROLE_DUMMY')) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
+
+        if ($em->getRepository(UserGroupAssociation::class)->countRecentRecipients($user) > 100)
+            return AjaxResponse::error( self::ErrorGPMThreadLimitHit);
 
         if (mb_strlen($title) < 3 || mb_strlen($title) > 64)  return AjaxResponse::error( self::ErrorPostTitleLength );
         if (mb_strlen($text) < 2 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
 
         $ts = new DateTime();
 
-        $pg = (new UserGroup())->setType(UserGroup::GroupMessageGroup)->setName( $title )->setRef1(1)->setRef2( $ts->getTimestamp() );
+        $pg = (new UserGroup())->setType(UserGroup::GroupMessageGroup)->setName( $title )->setRef1(1)->setRef2( $ts->getTimestamp() )->setRef3( $ts->getTimestamp() );
         $this->entity_manager->persist($pg);
 
         $this->entity_manager->persist( $owner_assoc = (new UserGroupAssociation())
@@ -854,6 +866,15 @@ class MessageGlobalPMController extends MessageController
         $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(),
             'associationType' => UserGroupAssociation::GroupAssociationTypePrivateMessageMember, 'association' => $group]);
         if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        // Check the last 4 posts; if they were all made by the same user, they must wait 5min before they can post again
+        $last_posts = $this->entity_manager->getRepository(GlobalPrivateMessage::class)->findBy(['receiverGroup' => $group], ['timestamp' => 'DESC'], 4);
+        if (count($last_posts) === 4) {
+            $all_by_user = true;
+            foreach ($last_posts as $last_post) $all_by_user = $all_by_user && ($last_post->getSender() === $user);
+            if ($all_by_user && $last_posts[0]->getDate()->getTimestamp() > (time() - 300) )
+                return AjaxResponse::error( self::ErrorForumLimitHit );
+        }
 
         $text  = $parser->trimmed('content');
 
