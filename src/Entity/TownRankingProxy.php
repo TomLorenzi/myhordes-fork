@@ -94,7 +94,7 @@ class TownRankingProxy
     /**
      * @ORM\Column(type="integer")
      */
-    private $score;
+    private $score = 0;
 
     /**
      * @ORM\Column(type="boolean")
