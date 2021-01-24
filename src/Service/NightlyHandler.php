@@ -104,6 +104,7 @@ class NightlyHandler
         $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> dies of <info>{$cod->getLabel()}</info>.");
         $this->death_handler->kill($citizen,$cod,$rr);
 
+
         if (!$skip_log) $this->entity_manager->persist( $this->logTemplates->citizenDeath( $citizen, $zombies, null, $day ) );
         foreach ($rr as $r) $this->cleanup[] = $r;
         if ($skip_reanimation) $this->skip_reanimation[] = $citizen->getId();
@@ -431,14 +432,7 @@ class NightlyHandler
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow) );
 
         $total_watch_def = $this->town_handler->calculate_watch_def($town, $town->getDay() - 1);
-        $zeds_each_watcher = -1;
-        if($total_watch_def > $overflow){
-            // If we have more watchpoint than the overflow,
-            // we dispatch the zeds
-            $zeds_each_watcher = $overflow / count($town->getCitizenWatches());
-        }
-
-        $this->log->debug("There are <info>".count($watchers)."</info> watchers in the town, against <info>$overflow</info> zombies");
+        $this->log->debug("There are <info>".count($watchers)."</info> watchers (with <info>{$total_watch_def}</info> watch defense) in town, against <info>$overflow</info> zombies.");
 
         $has_shooting_gallery = (bool)$this->town_handler->getBuilding($town, 'small_tourello_#00', true);
         $has_trebuchet        = (bool)$this->town_handler->getBuilding($town, 'small_catapult3_#00', true);
@@ -452,12 +446,12 @@ class NightlyHandler
             $woundOrTerrorChances = $deathChances + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05);
             $ctz = $watcher->getCitizen();
 
-            if ($this->random->chance($deathChances)){
+            if ($this->random->chance($deathChances)) {
                 $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> is now <info>dead</info> because of the watch");
                 $skip = false;
 
                 // too sad, he died by falling from the edge
-                if($overflow <= 0) {
+                if ($overflow <= 0) {
                     $this->entity_manager->persist($this->logTemplates->citizenDeathOnWatch($watcher->getCitizen(), 0));
                     $skip = true;
                 }
@@ -823,10 +817,11 @@ class NightlyHandler
                     $this->log->debug('Town has lived for 5 days or more, we give the <info>Last Man Standing</info> picto to a lucky citizen that died in town');
                     $citizen_eligible = [];
                     foreach ($town->getCitizens() as $citizen) {
+                        /** @var Citizen $citizen */
                         if($citizen->getAlive() || $citizen->getZone())
                             continue;
 
-                        if($citizen->getSurvivedDays() < $town->getDay())
+                        if($citizen->getSurvivedDays() < $town->getDay() - 1)
                             continue;
 
                         if($citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack && $citizen->getCauseOfDeath()->getRef() !== CauseOfDeath::Radiations)
@@ -1065,73 +1060,76 @@ class NightlyHandler
     private function stage2_building_effects(Town $town) {
         $this->log->info('<info>Processing building functions</info> ...');
 
-        $buildings = []; $max_votes = -1;
-        foreach ($town->getBuildings() as $b) if ($b->getComplete())
-            if ($b->getPrototype()->getMaxLevel() > 0 && $b->getPrototype()->getMaxLevel() > $b->getLevel()) {
-                $v = $b->getDailyUpgradeVotes()->count();
-                $this->log->debug("<info>{$v}</info> citizens voted for <info>{$b->getPrototype()->getLabel()}</info>.");
-                if ($v > $max_votes) {
-                    $buildings = [$b];
-                    $max_votes = $v;
-                } elseif ($v === $max_votes) $buildings[] = $b;
-            }
-
         $spawn_default_blueprint = $this->town_handler->getBuilding($town, 'small_refine_#01', true) !== null;
 
-        if (!empty($buildings)) {
-            /** @var Building $target_building */
-            $target_building = $this->random->pick( $buildings );
-            $target_building->setLevel( $target_building->getLevel() + 1 );
-            $this->log->debug("Increasing level of <info>{$target_building->getPrototype()->getLabel()}</info> to Level <info>{$target_building->getLevel()}</info>.");
+        if (!$town->getDevastated()) {
+            $buildings = []; $max_votes = -1;
+            foreach ($town->getBuildings() as $b) if ($b->getComplete())
+                if ($b->getPrototype()->getMaxLevel() > 0 && $b->getPrototype()->getMaxLevel() > $b->getLevel()) {
+                    $v = $b->getDailyUpgradeVotes()->count();
+                    $this->log->debug("<info>{$v}</info> citizens voted for <info>{$b->getPrototype()->getLabel()}</info>.");
+                    if ($v > $max_votes) {
+                        $buildings = [$b];
+                        $max_votes = $v;
+                    } elseif ($v === $max_votes) $buildings[] = $b;
+                }
 
-            switch ($target_building->getPrototype()->getName()) {
-                case 'small_gather_#00':
-                    $def_add = [0,13,21,32,33,51];
-                    $target_building->setDefenseBonus( $target_building->getDefenseBonus() + $def_add[ $target_building->getLevel() ] );
-                    $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing variable defense by <info>{$def_add[ $target_building->getLevel() ] }</info>.");
-                    break;
-                case 'small_water_#00':
-                    $water_add = [5,20,20,30,30,40];
-                    $town->setWell( $town->getWell() + $water_add[$target_building->getLevel()] );
-                    $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingWell( $target_building, $water_add[$target_building->getLevel()] ) );
 
-                    $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing well count by <info>{$water_add[ $target_building->getLevel() ] }</info>.");
-                    break;
-                case 'small_refine_#01':
-                    $spawn_default_blueprint = false;
-                    $bps = [
-                        ['bplan_c_#00' => 1],
-                        ['bplan_c_#00' => 4],
-                        ['bplan_c_#00' => 2,'bplan_u_#00' => 2],
-                        ['bplan_u_#00' => 2,'bplan_r_#00' => 2],
-                    ];
-                    $opt_bp = [null,'bplan_c_#00','bplan_r_#00','bplan_e_#00'];
+            if (!empty($buildings)) {
+                /** @var Building $target_building */
+                $target_building = $this->random->pick( $buildings );
+                $target_building->setLevel( $target_building->getLevel() + 1 );
+                $this->log->debug("Increasing level of <info>{$target_building->getPrototype()->getLabel()}</info> to Level <info>{$target_building->getLevel()}</info>.");
 
-                    $plans = [];
-                    foreach ($bps[$target_building->getLevel()] as $id => $count)
-                        for ($i = 0; $i < $count; $i++) $plans[] = $this->item_factory->createItem( $id );
-                    if ( $opt_bp[$target_building->getLevel()] !== null && $this->random->chance( 0.5 ) )
-                        $plans[] = $this->item_factory->createItem( $opt_bp[$target_building->getLevel()] );
+                switch ($target_building->getPrototype()->getName()) {
+                    case 'small_gather_#00':
+                        $def_add = [0,13,21,32,33,51];
+                        $target_building->setDefenseBonus( $target_building->getDefenseBonus() + $def_add[ $target_building->getLevel() ] );
+                        $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing variable defense by <info>{$def_add[ $target_building->getLevel() ] }</info>.");
+                        break;
+                    case 'small_water_#00':
+                        $water_add = [5,20,20,30,30,40];
+                        $town->setWell( $town->getWell() + $water_add[$target_building->getLevel()] );
+                        $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingWell( $target_building, $water_add[$target_building->getLevel()] ) );
 
-                    $tx = [];
-                    foreach ($plans as $plan) {
-                        $this->inventory_handler->forceMoveItem( $town->getBank(), $plan );
-                        $tx[] = "<info>{$plan->getPrototype()->getLabel()}</info>";
-                    }
+                        $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing well count by <info>{$water_add[ $target_building->getLevel() ] }</info>.");
+                        break;
+                    case 'small_refine_#01':
+                        $spawn_default_blueprint = false;
+                        $bps = [
+                            ['bplan_c_#00' => 1],
+                            ['bplan_c_#00' => 4],
+                            ['bplan_c_#00' => 2,'bplan_u_#00' => 2],
+                            ['bplan_u_#00' => 2,'bplan_r_#00' => 2],
+                        ];
+                        $opt_bp = [null,'bplan_c_#00','bplan_r_#00','bplan_e_#00'];
 
-                    $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingItems( $target_building, array_map( function(Item $e) { return  array($e->getPrototype()) ;}, $plans ) ));
-                    $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Placing " . implode(', ', $tx) . " in the bank.");
-                    break;
-                case 'item_home_def_#00':
-                    $def_add = [0,30,35,50,65,80];
-                    $target_building->setDefenseBonus( $target_building->getDefenseBonus() + $def_add[ $target_building->getLevel() ] );
-                    $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing variable defense by <info>{$def_add[ $target_building->getLevel() ] }</info>.");
-                    break;
-                case 'item_tube_#00':
-                    $def_mul = [0, 0.8, 1.6, 2.4, 3.2, 4];
-                    $target_building->setDefenseBonus( $target_building->getDefense() * $def_mul[ $target_building->getLevel() ] );
-                    $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing variable defense by <info>{$def_mul[ $target_building->getLevel() ] }</info>.");
-                    break;
+                        $plans = [];
+                        foreach ($bps[$target_building->getLevel()] as $id => $count)
+                            for ($i = 0; $i < $count; $i++) $plans[] = $this->item_factory->createItem( $id );
+                        if ( $opt_bp[$target_building->getLevel()] !== null && $this->random->chance( 0.5 ) )
+                            $plans[] = $this->item_factory->createItem( $opt_bp[$target_building->getLevel()] );
+
+                        $tx = [];
+                        foreach ($plans as $plan) {
+                            $this->inventory_handler->forceMoveItem( $town->getBank(), $plan );
+                            $tx[] = "<info>{$plan->getPrototype()->getLabel()}</info>";
+                        }
+
+                        $this->entity_manager->persist( $this->logTemplates->nightlyAttackUpgradeBuildingItems( $target_building, array_map( function(Item $e) { return  array($e->getPrototype()) ;}, $plans ) ));
+                        $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Placing " . implode(', ', $tx) . " in the bank.");
+                        break;
+                    case 'item_home_def_#00':
+                        $def_add = [0,30,35,50,65,80];
+                        $target_building->setDefenseBonus( $target_building->getDefenseBonus() + $def_add[ $target_building->getLevel() ] );
+                        $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing variable defense by <info>{$def_add[ $target_building->getLevel() ] }</info>.");
+                        break;
+                    case 'item_tube_#00':
+                        $def_mul = [0, 0.8, 1.6, 2.4, 3.2, 4];
+                        $target_building->setDefenseBonus( $target_building->getDefense() * $def_mul[ $target_building->getLevel() ] );
+                        $this->log->debug("Leveling up <info>{$target_building->getPrototype()->getLabel()}</info>: Increasing variable defense by <info>{$def_mul[ $target_building->getLevel() ] }</info>.");
+                        break;
+                }
             }
         }
 
@@ -1233,57 +1231,52 @@ class NightlyHandler
         $this->log->info( "Processing elections..." );
         $citizens = $town->getCitizens();
         $roles = $this->entity_manager->getRepository(CitizenRole::class)->findVotable();
-        $votes = array();
 
+        /** @var CitizenRole $role */
         foreach ($roles as $role) {
-            /** @var CitizenRole $role */
+            $this->log->debug("Processing votes for role {$role->getLabel()}");
+            /** @var SpecialActionPrototype $special_vote */
             $special_vote = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => 'special_vote_' . $role->getName()]);
 
-            /** @var Citizen $last_one */
-            $last_one = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town);
-            if ($last_one &&
-                ($last_one->getAlive() ||                                                                                                               // Skip vote if the last citizen with this role is still alive
-                    ($last_one->getSurvivedDays() >= ($town->getDay()-1)) ||                                                                            // Skip vote if the last citizen with this role died during the attack
-                    ($last_one->getSurvivedDays() >= ($town->getDay()-2) && $last_one->getCauseOfDeath()->getRef() !== CauseOfDeath::NightlyAttack)     // Skip vote if the last citizen with this role died the previous day
-                )) continue;
+            if(!$this->town_handler->is_vote_needed($town, $role)) continue;
 
             // Getting vote per role per citizen
-            $votes[$role->getId()] = array();
+            $votes = array();
             foreach ($citizens as $citizen) {
                 if($citizen->getAlive()) {
-                    $votes[$role->getId()][$citizen->getId()] = $this->entity_manager->getRepository(CitizenVote::class)->countCitizenVotesFor($citizen, $role);
+                    $votes[$citizen->getId()] = $this->entity_manager->getRepository(CitizenVote::class)->countCitizenVotesFor($citizen, $role);
                 }
             }
 
             foreach ($citizens as $citizen) {
                 // Removing citizen with 0 votes
-                if(array_key_exists($role->getId(), $votes)
-                    && array_key_exists($citizen->getId(), $votes[$role->getId()])
-                    && $votes[$role->getId()][$citizen->getId()] == 0) {
-                    unset($votes[$role->getId()][$citizen->getId()]);
+                if(array_key_exists($citizen->getId(), $votes) && $votes[$citizen->getId()] == 0) {
+                    unset($votes[$citizen->getId()]);
                 }
             }
 
-            if(empty($votes[$role->getId()])) {
+            if(empty($votes)) {
                 foreach ($citizens as $citizen) {
                     if($citizen->getAlive()) {
-                        $votes[$role->getId()][$citizen->getId()] = 0;
+                        $votes[$citizen->getId()] = 0;
                     }
                 }
             }
 
             foreach ($citizens as $citizen) {
+                // Dead citizen cannot vote
                 if(!$citizen->getAlive()) continue;
 
-                $voted = ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($citizen, $role) !== null);
-                if(!$voted) {
-                    // He has not voted, let's give his vote to someone who has votes
-                    $vote_for_id = $this->random->pick(array_keys($votes[$role->getId()]), 1);
+                $voted = $this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($citizen, $role);
+                /** @var CitizenVote $voted */
+                if($voted === null || !$voted->getVotedCitizen()->getAlive()) {
+                    // He has not voted, or the citizen he voted for is now dead, let's give his vote to someone who has votes
+                    $vote_for_id = $this->random->pick(array_keys($votes), 1);
 
-                    if(isset($votes[$role->getId()][$vote_for_id]))
-                        $votes[$role->getId()][$vote_for_id]++;
+                    if(isset($votes[$vote_for_id]))
+                        $votes[$vote_for_id]++;
                     else
-                        $votes[$role->getId()][$vote_for_id] = 1;
+                        $votes[$vote_for_id] = 1;
                 }
             }
 
@@ -1291,7 +1284,7 @@ class NightlyHandler
             $citizenWinnerId = 0;
             $citizenWinnerCount = 0;
 
-            foreach ($votes[$role->getId()] as $idCitizen => $count) {
+            foreach ($votes as $idCitizen => $count) {
                 if($citizenWinnerCount <= $count) {
                     $citizenWinnerCount = $count;
                     $citizenWinnerId = $idCitizen;
@@ -1300,12 +1293,9 @@ class NightlyHandler
 
             // We give him the related status
             $winningCitizen = $this->entity_manager->getRepository(Citizen::class)->find($citizenWinnerId);
-            $this->log->info( "Citizen <info>{$winningCitizen->getUser()->getUsername()}</info> has been elected as <info>{$role->getLabel()}</info>." );
             if($winningCitizen !== null){
+                $this->log->info( "Citizen <info>{$winningCitizen->getUser()->getUsername()}</info> has been elected as <info>{$role->getLabel()}</info>." );
                 $this->citizen_handler->addRole($winningCitizen, $role);
-                $this->citizen_handler->setPM($winningCitizen, false, $this->citizen_handler->getMaxPM($winningCitizen));
-                if($role->getName() == "shaman")
-                    $this->citizen_handler->inflictStatus($winningCitizen, "tg_shaman_immune"); // Shaman is immune to red souls
                 $this->entity_manager->persist($winningCitizen);
             }
 

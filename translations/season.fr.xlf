@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="fr">
+  <file id="season.fr">
+    <unit id="ai1cZ.U" name="Saison 15.0">
+      <notes>
+        <note category="german">Saison 15.0</note>
+      </notes>
+      <segment>
+        <source>Saison 15.0</source>
+        <target>Bétapropine FTW</target>
+      </segment>
+    </unit>
+    <unit id="5av5KpC" name="Saison 0.14">
+      <notes>
+        <note category="german">Saison 0.14</note>
+      </notes>
+      <segment>
+        <source>Saison 0.14</source>
+        <target>Pandé-mania</target>
+      </segment>
+    </unit>
+    <unit id="MKuQjMi" name="Saison 0.13">
+      <notes>
+        <note category="german">Saison 0.13</note>
+      </notes>
+      <segment>
+        <source>Saison 0.13</source>
+        <target>Le Guide du voyageur désertique</target>
+      </segment>
+    </unit>
+    <unit id="Qb8gU6v" name="Saison 0.11">
+      <notes>
+        <note category="german">Saison 0.11</note>
+      </notes>
+      <segment>
+        <source>Saison 0.11</source>
+        <target>I âme Back !</target>
+      </segment>
+    </unit>
+    <unit id="1_E.ytA" name="Saison 0.10">
+      <notes>
+        <note category="german">Saison 0.10</note>
+      </notes>
+      <segment>
+        <source>Saison 0.10</source>
+        <target>Dev's not dead</target>
+      </segment>
+    </unit>
+    <unit id="2py6hDF" name="Saison 0.6">
+      <notes>
+        <note category="german">Saison 0.6</note>
+      </notes>
+      <segment>
+        <source>Saison 0.6</source>
+        <target>Veillée funèbre</target>
+      </segment>
+    </unit>
+    <unit id="UmYesiE" name="Saison 0.5">
+      <notes>
+        <note category="german">Saison 0.5</note>
+      </notes>
+      <segment>
+        <source>Saison 0.5</source>
+        <target>I'm a Soul man</target>
+      </segment>
+    </unit>
+    <unit id="R6v2_H_" name="Saison 0.4">
+      <notes>
+        <note category="german">Saison 0.4</note>
+      </notes>
+      <segment>
+        <source>Saison 0.4</source>
+        <target>Crimes et Bâtiments</target>
+      </segment>
+    </unit>
+    <unit id="YL.wVHS" name="Saison 0.3">
+      <notes>
+        <note category="german">Saison 0.3</note>
+      </notes>
+      <segment>
+        <source>Saison 0.3</source>
+        <target>Truelles intentions</target>
+      </segment>
+    </unit>
+    <unit id="OKCTySu" name="Saison 0.2">
+      <notes>
+        <note category="german">Saison 0.2</note>
+      </notes>
+      <segment>
+        <source>Saison 0.2</source>
+        <target>Super Ghouls'n'Hordes</target>
+      </segment>
+    </unit>
+    <unit id="VwuJDaU" name="Saison 0.1">
+      <notes>
+        <note category="german">Saison 0.1</note>
+      </notes>
+      <segment>
+        <source>Saison 0.1</source>
+        <target>Rise of the Bichon</target>
+      </segment>
+    </unit>
+    <unit id="ffgTaDr" name="Saison 0.0">
+      <notes>
+        <note category="german">Saison 0.0</note>
+      </notes>
+      <segment>
+        <source>Saison 0.0</source>
+        <target>Saison 0.0</target>
+      </segment>
+    </unit>
+    <unit id="KOA0ZKt" name="Saison %number%.%subnumber%">
+      <notes>
+        <note category="german">Saison %number%.%subnumber%</note>
+      </notes>
+      <segment>
+        <source>Saison %number%.%subnumber%</source>
+        <target>Saison %number%.%subnumber%</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

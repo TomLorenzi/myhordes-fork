@@ -26,9 +26,14 @@
             <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_citizens_omniscience') }}"> <img src="{{ asset('build/images/icons/small_view.gif') }}" alt="" />{{'Allwissenheit'|trans({}, 'game')}}</div>
         </li>
         {% endif %}
-        
     </ul>
-
+    {% if is_ghoul %}
+        {% if caught_chance < 0.5 %}{% set chances = 'gering'|trans({}, 'game') %}{% else %}{% set chances = 'hoch'|trans({}, 'game') %}{% endif %}
+    <div class="note warning">
+        <strong><img src="{{ asset('build/images/status/status_ghoul.gif') }}" alt="" />{{'Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...'|trans({'%chances%': chances}, 'game')}}</strong><br />
+        {{'Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.'|trans({}, 'game')}}
+    </div>
+    {% endif %}
     <div class="row-table citizens-list">
         <div class="row header">
             <div class="padded cell rw-5 left rw-md-7">{{ 'Bürger'|trans({},'game') }}</div>

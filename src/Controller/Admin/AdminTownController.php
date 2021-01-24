@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Citizen;
+use App\Entity\CitizenRole;
+use App\Entity\CitizenStatus;
 use App\Entity\Complaint;
 use App\Entity\ExpeditionRoute;
 use App\Entity\Item;
@@ -13,6 +15,7 @@ use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
+use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
 use App\Service\InventoryHandler;
@@ -39,6 +42,7 @@ class AdminTownController extends AdminActionController
     {
         return $this->render( 'ajax/admin/towns/list.html.twig', $this->addDefaultTwigArgs('towns', [
             'towns' => $this->entity_manager->getRepository(Town::class)->findAll(),
+            'citizen_stats' => $this->entity_manager->getRepository(Citizen::class)->getStatByLang()
         ]));
     }
 
@@ -109,6 +113,16 @@ class AdminTownController extends AdminActionController
             return strcmp($this->translator->trans($a->getLabel(), [], 'items'), $this->translator->trans($b->getLabel(), [], 'items'));
         });
 
+        $citizenStati = $this->entity_manager->getRepository(CitizenStatus::class)->findAll();
+        usort($citizenStati, function($a, $b) {
+          return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
+        });
+
+      $citizenRoles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
+      usort($citizenRoles, function($a, $b) {
+        return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
+      });
+
         $complaints = [];
 
         foreach($town->getCitizens() as $citizen) {
@@ -121,11 +135,13 @@ class AdminTownController extends AdminActionController
             'town' => $town,
             'conf' => $this->conf->getTownConfiguration( $town ),
             'explorables' => $explorables,
-            'log' => $this->renderLog( -1, $town )->getContent(),
+            'log' => $this->renderLog( -1, $town, false )->getContent(),
             'day' => $town->getDay(),
             'bank' => $this->renderInventoryAsBank( $town->getBank() ),
             'itemPrototypes' => $itemPrototypes,
             'pictoPrototypes' => $pictoProtos,
+            'citizenStati' => $citizenStati,
+            'citizenRoles' => $citizenRoles,
             'tab' => $tab,
             'complaints' => $complaints,
         ], $this->get_map_blob($town))));
@@ -225,7 +241,8 @@ class AdminTownController extends AdminActionController
                 $town,
                 $zone,
                 null,
-                in_array($zone->getId(), $soul_zones_ids)
+                in_array($zone->getId(), $soul_zones_ids),
+                true
             );
         }
 
@@ -423,6 +440,158 @@ class AdminTownController extends AdminActionController
 
         return AjaxResponse::success();
     }
+
+  /**
+   * @Route("/api/admin/town/{id}/status/give", name="admin_town_give_status", requirements={"id"="\d+"})
+   * @Security("is_granted('ROLE_ADMIN')")
+   * Give status to selected citizens of a town
+   * @param int $id User ID
+   * @param JSONRequestParser $parser The Request Parser
+   * @param CitizenHandler $handler
+   * @return Response
+   */
+  public function town_give_status(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
+  {
+    $town = $this->entity_manager->getRepository(Town::class)->find($id);
+    if(!$town) {
+      return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+    }
+
+    $status_id = $parser->get('status');
+    $targets = $parser->get('targets', "");
+
+    /** @var CitizenStatus $citizenStatus */
+    $citizenStatus = $this->entity_manager->getRepository(CitizenStatus::class)->find($status_id);
+
+    $targets = explode(",", $targets);
+    foreach ($targets as $target) {
+      $infos = explode("-", $target);
+      /** @var Citizen $citizen */
+      $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
+
+      $citizen->addStatus($citizenStatus);
+
+      $this->entity_manager->persist($citizen);
+    }
+
+    $this->entity_manager->flush();
+
+    return AjaxResponse::success();
+  }
+
+  /**
+   * @Route("/api/admin/town/{id}/status/take", name="admin_town_take_status", requirements={"id"="\d+"})
+   * @Security("is_granted('ROLE_ADMIN')")
+   * Give status to selected citizens of a town
+   * @param int $id User ID
+   * @param JSONRequestParser $parser The Request Parser
+   * @param CitizenHandler $handler
+   * @return Response
+   */
+  public function town_take_status(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
+  {
+    $town = $this->entity_manager->getRepository(Town::class)->find($id);
+    if(!$town) {
+      return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+    }
+
+    $status_id = $parser->get('status');
+    $targets = $parser->get('targets', "");
+
+    /** @var CitizenStatus $citizenStatus */
+    $citizenStatus = $this->entity_manager->getRepository(CitizenStatus::class)->find($status_id);
+
+    $targets = explode(",", $targets);
+    foreach ($targets as $target) {
+      $infos = explode("-", $target);
+      /** @var Citizen $citizen */
+      $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
+
+      $citizen->removeStatus($citizenStatus);
+
+      $this->entity_manager->persist($citizen);
+    }
+
+    $this->entity_manager->flush();
+
+    return AjaxResponse::success();
+  }
+
+  /**
+   * @Route("/api/admin/town/{id}/role/give", name="admin_town_give_role", requirements={"id"="\d+"})
+   * @Security("is_granted('ROLE_ADMIN')")
+   * Give status to selected citizens of a town
+   * @param int $id User ID
+   * @param JSONRequestParser $parser The Request Parser
+   * @param CitizenHandler $handler
+   * @return Response
+   */
+  public function town_give_role(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
+  {
+    $town = $this->entity_manager->getRepository(Town::class)->find($id);
+    if(!$town) {
+      return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+    }
+
+    $role_id = $parser->get('role');
+    $targets = $parser->get('targets', "");
+
+    /** @var CitizenRole $citizenRole */
+    $citizenRole = $this->entity_manager->getRepository(CitizenRole::class)->find($role_id);
+
+    $targets = explode(",", $targets);
+    foreach ($targets as $target) {
+      $infos = explode("-", $target);
+      /** @var Citizen $citizen */
+      $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
+
+      $citizen->addRole($citizenRole);
+
+      $this->entity_manager->persist($citizen);
+    }
+
+    $this->entity_manager->flush();
+
+    return AjaxResponse::success();
+  }
+
+  /**
+   * @Route("/api/admin/town/{id}/role/take", name="admin_town_take_role", requirements={"id"="\d+"})
+   * @Security("is_granted('ROLE_ADMIN')")
+   * Give status to selected citizens of a town
+   * @param int $id User ID
+   * @param JSONRequestParser $parser The Request Parser
+   * @param CitizenHandler $handler
+   * @return Response
+   */
+  public function town_take_role(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
+  {
+    $town = $this->entity_manager->getRepository(Town::class)->find($id);
+    if(!$town) {
+      return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+    }
+
+    $role_id = $parser->get('role');
+    $targets = $parser->get('targets', "");
+
+    /** @var CitizenRole $citizenRole */
+    $citizenRole = $this->entity_manager->getRepository(CitizenRole::class)->find($role_id);
+
+    $targets = explode(",", $targets);
+    foreach ($targets as $target) {
+      $infos = explode("-", $target);
+      /** @var Citizen $citizen */
+      $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
+
+      $citizen->removeRole($citizenRole);
+
+      $this->entity_manager->persist($citizen);
+    }
+
+    $this->entity_manager->flush();
+
+    return AjaxResponse::success();
+  }
 
     /**
      * @Route("jx/admin/towns/old/fuzzyfind", name="admin_old_towns_fuzzyfind")

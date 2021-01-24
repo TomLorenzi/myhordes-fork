@@ -93,9 +93,12 @@ For postgresql:
 `DATABASE_URL=postgresql://db_user:db_password@db_ip:db_port/db_name`
 Default `db_port`: 5432
 
-Replace `db_user`, `db_password` with the credentials used for the database user. If your db is hosted on the same computer, you will probably use `localhost`as the db_ip.
+Replace `db_user`, `db_password` with the credentials used for the database user. If your db is hosted on the same computer, you will probably use `localhost` as the db_ip.
 
 `db_name` can be whatever you need. You can change it during development to test on more databases.
+
+When using MySQL, you need to disable sql mode ONLY_FULL_GROUP_BY by running this query.
+`SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));`
 
 ## Populate the database
 

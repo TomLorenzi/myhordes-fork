@@ -502,7 +502,7 @@
       </notes>
       <segment>
         <source>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</source>
-        <target>En tant qu'exilé, vous ne pouvez retirer aucun objet de la banque.</target>
+        <target>En tant que banni, vous ne pouvez retirer aucun objet de la banque.</target>
       </segment>
     </unit>
     <unit id="2HhqG76" name="Diese Aktion ist ungültig.">
@@ -3134,7 +3134,7 @@
       </notes>
       <segment>
         <source>Verrat! %citizen% ist gestorben: %cod%.</source>
-        <target>Trahison! %citizen% est décédé : %cod%.</target>
+        <target>%citizen% nous a quitté : %cod%.</target>
       </segment>
     </unit>
     <unit id="EWgulaj" name="98f1530">
@@ -8251,7 +8251,7 @@
       </notes>
       <segment>
         <source>%citizen% wurde von %num% Zombies zerfleischt!</source>
-        <target>%citizen% a été mutilé par %num% zombies !</target>
+        <target>%citizen% a été dévoré par %num% zombies !</target>
       </segment>
     </unit>
     <unit id="0OgA2rX" name="0505799">
@@ -8440,7 +8440,7 @@
       </notes>
       <segment>
         <source>Ein abscheuliches Verbrechen ist geschehen: %attacker% hat %defender% in seinem Haus verschlungen!</source>
-        <target>Un crime odieux s'est produit : %attacker% a dévoré %defender% chez lui !</target>
+        <target><![CDATA[Un crime abominable vient de se produire : %attacker% a été vu(e) en train <span>de dévorer %defender% dans sa maison</span> !]]></target>
       </segment>
     </unit>
     <unit id="8xZcKzq" name="65218d1">
@@ -8470,22 +8470,22 @@
         <target>Qu'est-il arrivé au corps? Le corps sans vie a disparu sans laisser de trace ... Il se trouve probablement quelque part devant la ville et pourrit ... Peut-être qu'il viendra vous rendre visite la nuit ?</target>
       </segment>
     </unit>
-    <unit id="oHxefYi" name="6fc4576">
+    <unit id="4v4ATlD" name="3972722">
       <notes>
-        <note category="german">%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</note>
+        <note category="german">%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen &lt;strong&gt;massiven Zusammenbruch&lt;/strong&gt; hatten. Letzte Nacht gab es keine Toten in der Stadt.</note>
       </notes>
       <segment>
-        <source>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
+        <source>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen &lt;strong&gt;massiven Zusammenbruch&lt;/strong&gt; hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
         <target><![CDATA[%citizen1% a passé toute la nuit à hurler dans sa maison, au point que tout le monde pensait que les zombies se taillaient un steak dessus. Ben non, en fait c'était juste une <strong>grosse crise de nerfs</strong> : aucun mort en ville hier soir.]]></target>
       </segment>
     </unit>
-    <unit id="ZV3brVh" name="7dd2cf8">
+    <unit id="ycaiqp4" name="6a8fc71">
       <notes>
-        <note category="german">%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</note>
+        <note category="german">%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern &lt;strong&gt;zu erhängen&lt;/strong&gt;. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend &lt;strong&gt;keine Zombies&lt;/strong&gt; in die Stadt geschafft haben.</note>
       </notes>
       <segment>
-        <source>%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</source>
-        <target>%citizen1% et %citizen2% ont été sauvés à la dernière minute lorsqu'ils se sont préparés à se pendre dans leurs maisons hier soir. Commentaire : "Je pensais qu'ils me mangeraient vivant et je ne voulais plus en faire l'expérience". Rétrospectivement, ce fut une mauvaise décision car aucun zombie n'est entré dans la ville la nuit dernière.</target>
+        <source>%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern &lt;strong&gt;zu erhängen&lt;/strong&gt;. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend &lt;strong&gt;keine Zombies&lt;/strong&gt; in die Stadt geschafft haben.</source>
+        <target><![CDATA[on a sauvé de justesse %citizen1% et %citizen2% qui s'apprêtaient à <strong>se pendre</strong> dans leur maison cette nuit : "je pensais qu'on allait se faire bouffer, je voulais pas être en vie pour voir ça". Mauvaise analyse semble-t-il, car <strong>aucun zombie</strong> n'a pu entrer chez nous cette nuit.]]></target>
       </segment>
     </unit>
     <unit id="6iAHRm0" name="ba03d33">
@@ -8539,7 +8539,7 @@
       </notes>
       <segment>
         <source>Es sei darauf hingewiesen, dass unsere Verteidigung nicht weit von der großen Südmauer entfernt dem furchterregenden Angriff der Horden letzte Nacht standgehalten hat. Um die %attack% Zombies versuchten alles, aber keine Verluste an Menschenleben während des Angriffs!</source>
-        <target>Nos défenses ont tenu le choc face à l'assaut terrifiant des Hordes dans la nuit pas loin de la muraille sud. Près de %attack% morts-vivants ! Aucune perte n'est à déplorer lors de cette attaque.</target>
+        <target>On avait ce qu'il fallait pour tenir pas loin de la muraille sud cette nuit contre les quelques %attack% macchabées de l'attaque, ça ne fait aucun doute. Aucune perte chez nous... Tout au plus quelques maisons sur lesquelles ils ont cogné.</target>
       </segment>
     </unit>
     <unit id="4Z_UnE1" name="6fad503">
@@ -8605,12 +8605,12 @@
         <target><![CDATA[Les zombies ont cogné <strong>dur</strong> pendant un bon moment, mais aucun n'est passé... A n'en pas douter, ils reviendront ce soir, encore plus affamés et sûrement plus nombreux...]]></target>
       </segment>
     </unit>
-    <unit id="nzbV8IO" name="e986527">
+    <unit id="h8UBn_c" name="d881f0f">
       <notes>
-        <note category="german">Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</note>
+        <note category="german">Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem &lt;strong&gt;er splitternackt durch die Straßen rannte&lt;/strong&gt;. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</note>
       </notes>
       <segment>
-        <source>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
+        <source>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem &lt;strong&gt;er splitternackt durch die Straßen rannte&lt;/strong&gt;. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
         <target><![CDATA[Ce matin, %citizen1% a tenu à fêter dignement la nuit passée sans un mort <strong>en courant nu comme un ver</strong> dans nos ruelles. "J'avais envie d'accueillir comme il se devait ce jour nouveau" aurait expliqué ce citoyen.]]></target>
       </segment>
     </unit>
@@ -8737,7 +8737,7 @@
       </notes>
       <segment>
         <source>Die Zombies fanden gestern Abend an der Nordwand eine Schwäche in unserer Verteidigung... Einige Häuser hielten dem Angriff stand. Andere nicht... ... %deaths% tot. Ende der Geschichte.</source>
-        <target>Les zombies ont trouvé une faiblesse dans notre défense sur le mur nord hier soir ... Certaines maisons ont résisté à l'attaque. D'autres non ... ... %deaths% morts. Fin de l'histoire.</target>
+        <target>Les zombies ont franchi nos murs ce soir en profitant d'une faille au mur nord... Certaines maisons ont tenu le coup. D'autres non...  %deaths% morts. Sans appel.</target>
       </segment>
     </unit>
     <unit id="THY9ZW3" name="99077cf">
@@ -8791,7 +8791,7 @@
       </notes>
       <segment>
         <source>Letzte Nacht haben es %deaths% Bürger nicht rechtzeitig nach Hause geschafft. Einige Teile von ihnen wurden in der Nähe des westlichen Viertels gefunden. Augenzeugen berichten, dass die Anwohner riefen: "Lauf, Forrest, lauf!", bevor sie vor Lachen ausbrachen und in ihr Haus rannten.</source>
-        <target>La nuit dernière, %deaths% citoyens ne sont pas rentrés chez eux à temps. Certaines parties ont été trouvées près du quartier ouest. Des témoins oculaires rapportent que les résidents ont crié "Courez, Forrest, courez!" Avant d'éclater de rire et de courir dans leur maison.</target>
+        <target>Hier soir, %deaths% citoyens n'ont pas rejoint à temps leur maison. Rattrapés par les zombies lors de l'attaque, ils n'auront eu aucune chance. Certains morceaux ont même été retrouvés au mur nord. Quelques témoignages racontent que des résidents aurait crié "Cours, Forrest, cours !" avant d'éclater de rire et de s'enfermer dans leur maison.</target>
       </segment>
     </unit>
     <unit id="anjAe5K" name="0d2c4d5">
@@ -10357,7 +10357,7 @@
       </notes>
       <segment>
         <source>%citizen% hat mit etwas Wasser † %disposed% "verbrannt".</source>
-        <target>%citizen% s'est débarrassé du corps de † %disposed% "en l'arrosant d'eau".</target>
+        <target>%citizen% s'est débarrassé du corps de † %disposed% en l'arrosant d'eau.</target>
       </segment>
     </unit>
     <unit id="UA1vSp." name="Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!">
@@ -14424,7 +14424,7 @@
       </notes>
       <segment>
         <source>im Nordwesten</source>
-        <target>au Nord-ouest</target>
+        <target>au Nord-Ouest</target>
       </segment>
     </unit>
     <unit id="dHF9hg3" name="im Norden">
@@ -14442,7 +14442,7 @@
       </notes>
       <segment>
         <source>im Nordosten</source>
-        <target>au Nord-est</target>
+        <target>au Nord-Est</target>
       </segment>
     </unit>
     <unit id="CGH7WpP" name="im Westen">
@@ -14469,7 +14469,7 @@
       </notes>
       <segment>
         <source>im Südwesten</source>
-        <target>au Sud-ouest</target>
+        <target>au Sud-Ouest</target>
       </segment>
     </unit>
     <unit id="UpG6M6C" name="im Süden">
@@ -14487,7 +14487,7 @@
       </notes>
       <segment>
         <source>im Südosten</source>
-        <target>au Sud-est</target>
+        <target>au Sud-Est</target>
       </segment>
     </unit>
     <unit id="Hbo1GZX" name="fe016ab">
@@ -14640,7 +14640,7 @@
       </notes>
       <segment>
         <source>Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Bewege dafür den Mauszeiger über das Bauprojekt, das du empfehlen willst und klicke auf den Link &lt;strong&gt;Abstimmen&lt;/strong&gt;, der darüber erscheint.</source>
-        <target><![CDATA[Vous pouvez recommander la construction d'un chantier en particulier aux citoyens. Placez votre curseur sur la ligne du chantier à recommander, puis cliquer sur le lien <strong>Voter</strong> qui apparaît.]]></target>
+        <target><![CDATA[Vous pouvez recommander la construction d'un chantier en particulier aux citoyens. Placez votre curseur sur la ligne du chantier à recommander, puis cliquez sur le lien <strong>Voter</strong> qui apparaît.]]></target>
       </segment>
     </unit>
     <unit id="apc56SN" name="Beruf">
@@ -15333,7 +15333,7 @@
       </notes>
       <segment>
         <source>Katapult-Bediener</source>
-        <target>Katapult-Bediener</target>
+        <target>Responsable de la catapulte</target>
       </segment>
     </unit>
     <unit id="AISIM8E" name="Du bist für das Katapult verantwortlich">
@@ -16528,6 +16528,42 @@
         <target>Citoyens ! Hors du site officiel, prudence !</target>
       </segment>
     </unit>
+    <unit id="0Kqpu1t" name="gering">
+      <notes>
+        <note category="german">gering</note>
+      </notes>
+      <segment>
+        <source>gering</source>
+        <target>réduites</target>
+      </segment>
+    </unit>
+    <unit id=".CQK_8d" name="hoch">
+      <notes>
+        <note category="german">hoch</note>
+      </notes>
+      <segment>
+        <source>hoch</source>
+        <target>importantes</target>
+      </segment>
+    </unit>
+    <unit id="ssHCx3q" name="1d82f8e">
+      <notes>
+        <note category="german">Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</note>
+      </notes>
+      <segment>
+        <source>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</source>
+        <target>Vos chances d'être repéré(e) si vous dévorez un citoyen en ville sont %chances%...</target>
+      </segment>
+    </unit>
+    <unit id="qD3lUP9" name="dc1e0ac">
+      <notes>
+        <note category="german">Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</note>
+      </notes>
+      <segment>
+        <source>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</source>
+        <target>Ce risque dépend directement du nombre de citoyens sortis dans l'Outre-Monde : moins il y a de citoyens en ville, moins vous avez de chances d'être vu(e).</target>
+      </segment>
+    </unit>
     <unit id=".7eWye." name="Legendärer Dompteur">
       <notes>
         <note category="german">Legendärer Dompteur</note>
@@ -16544,6 +16580,78 @@
       <segment>
         <source>Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</source>
         <target>Victoire en tant qu'Apprivoiseur lors du Choc des Héros !</target>
+      </segment>
+    </unit>
+    <unit id="8yLsMnc" name="1f8ca6f">
+      <notes>
+        <note category="german">Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</note>
+      </notes>
+      <segment>
+        <source>Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
+        <target><![CDATA[Aucune idée. <strong>Le corps a disparu sans laisser de trace...</strong> Peut-être qu'il a été jeté dehors et qu'il se lèvera ce soir pour vous rendre visite dans la nuit.]]></target>
+      </segment>
+    </unit>
+    <unit id="5xLwZCN" name="Du hast dich in einen %role% verwandelt!">
+      <notes>
+        <note category="german">Du hast dich in einen %role% verwandelt!</note>
+      </notes>
+      <segment>
+        <source>Du hast dich in einen %role% verwandelt!</source>
+        <target>Vous vous êtes transformé en %role% !</target>
+      </segment>
+    </unit>
+    <unit id="41EQiml" name="Erzähle niemandem davon oder du wirst sofort erschossen!">
+      <notes>
+        <note category="german">Erzähle niemandem davon oder du wirst sofort erschossen!</note>
+      </notes>
+      <segment>
+        <source>Erzähle niemandem davon oder du wirst sofort erschossen!</source>
+        <target>N'en parlez à personne ou vous seriez abattu(e) aussitôt !</target>
+      </segment>
+    </unit>
+    <unit id="Goz9BWd" name="(Allein)">
+      <notes>
+        <note category="german">(Allein)</note>
+      </notes>
+      <segment>
+        <source>(Allein)</source>
+        <target>(Seul)</target>
+      </segment>
+    </unit>
+    <unit id="WWzkuFQ" name="(Mit Eskorte)">
+      <notes>
+        <note category="german">(Mit Eskorte)</note>
+      </notes>
+      <segment>
+        <source>(Mit Eskorte)</source>
+        <target>(Avec escorte)</target>
+      </segment>
+    </unit>
+    <unit id="oHxefYi" name="6fc4576">
+      <notes>
+        <note category="german">%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</note>
+      </notes>
+      <segment>
+        <source>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
+        <target>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="ZV3brVh" name="7dd2cf8">
+      <notes>
+        <note category="german">%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</note>
+      </notes>
+      <segment>
+        <source>%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</source>
+        <target>%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</target>
+      </segment>
+    </unit>
+    <unit id="nzbV8IO" name="e986527">
+      <notes>
+        <note category="german">Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</note>
+      </notes>
+      <segment>
+        <source>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
+        <target>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</target>
       </segment>
     </unit>
     <unit id="HDssmyH" name="Fleisch-Schuldner">
@@ -16870,6 +16978,42 @@
         <target>Égal de Chuck Norris</target>
       </segment>
     </unit>
+    <unit id="QYDe4ZX" name="350de81">
+      <notes>
+        <note category="german">Die Stadt hat folgende Gegenstände in Folge der Verbannung von %shunned% zurückerhalten: %list%</note>
+      </notes>
+      <segment>
+        <source>Die Stadt hat folgende Gegenstände in Folge der Verbannung von %shunned% zurückerhalten: %list%</source>
+        <target>La ville a récupéré %list% (bannissement de %shunned%)</target>
+      </segment>
+    </unit>
+    <unit id=".S3ibaS" name="Wie man als Ghul spielt ?">
+      <notes>
+        <note category="german">Wie man als Ghul spielt ?</note>
+      </notes>
+      <segment>
+        <source>Wie man als Ghul spielt ?</source>
+        <target>Comment jouer une goule ?</target>
+      </segment>
+    </unit>
+    <unit id="sZoC__." name="Der Bürger weigert sich, dies zu tun...">
+      <notes>
+        <note category="german">Der Bürger weigert sich, dies zu tun...</note>
+      </notes>
+      <segment>
+        <source>Der Bürger weigert sich, dies zu tun...</source>
+        <target>Der Bürger weigert sich, dies zu tun...</target>
+      </segment>
+    </unit>
+    <unit id="uh49WWx" name="cea913a">
+      <notes>
+        <note category="german">Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</note>
+      </notes>
+      <segment>
+        <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
+        <target>Malheureusement, le sable du désert a déjà recouvert jusqu'à l'existence de votre ville... La communauté s'est éteinte..</target>
+      </segment>
+    </unit>
     <unit id="eunLp3W" name="Ich habe Magenschmerzen...">
       <notes>
         <note category="german">Ich habe Magenschmerzen...</note>
@@ -17111,6 +17255,42 @@
       <segment>
         <source>Höret meine Stimme</source>
         <target>Écoutez ma voix</target>
+      </segment>
+    </unit>
+    <unit id="6VwkHrE" name="9cdcb6a">
+      <notes>
+        <note category="german">Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</source>
+        <target>Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</target>
+      </segment>
+    </unit>
+    <unit id="g0fspLE" name="d7ab8db">
+      <notes>
+        <note category="german">Deine Stadt "%town%" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt "%town%" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</source>
+        <target>Deine Stadt "%town%" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</target>
+      </segment>
+    </unit>
+    <unit id="EZZp0Cu" name="8b9de7a">
+      <notes>
+        <note category="german">Deine Stadt "%town%" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt "%town%" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.</source>
+        <target>Deine Stadt "%town%" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.</target>
+      </segment>
+    </unit>
+    <unit id="fPHWumZ" name="40e06cb">
+      <notes>
+        <note category="german">Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</note>
+      </notes>
+      <segment>
+        <source>Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</source>
+        <target>Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</target>
       </segment>
     </unit>
   </file>

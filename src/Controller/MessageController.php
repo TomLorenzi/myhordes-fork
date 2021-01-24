@@ -9,6 +9,7 @@ use App\Entity\Award;
 use App\Entity\Changelog;
 use App\Entity\Citizen;
 use App\Entity\Complaint;
+use App\Entity\ComplaintReason;
 use App\Entity\Emotes;
 use App\Entity\Forum;
 use App\Entity\ForumModerationSnippet;
@@ -33,6 +34,7 @@ use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
 use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
+use App\Service\UserHandler;
 use App\Structures\ForumPermissionAccessor;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -155,9 +157,7 @@ class MessageController extends CustomAbstractController
             'forum' => $forum,
             'threads' => $threads,
             'pinned_threads' => $pinned_threads,
-
             'permission' => $this->getPermissionObject( $permissions ),
-
             'select' => $tid,
             'jump' => $pid,
             'pages' => $pages,
@@ -1270,7 +1270,7 @@ class MessageController extends CustomAbstractController
      * @param TranslatorInterface $t
      * @return Response
      */
-    public function send_pm_api(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $t): Response {
+    public function send_pm_api(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $t, UserHandler $userHandler): Response {
         $type      = $parser->get('type', "");
         $recipient = $parser->get('recipient', '');
         $title     = $parser->get('title', '');
@@ -1293,9 +1293,11 @@ class MessageController extends CustomAbstractController
 
         $sender = $this->getUser()->getActiveCitizen();
 
-        if($type === "global" && !$sender->getProfession()->getHeroic()){
+        if ($type === "global" && !$sender->getProfession()->getHeroic() && !$userHandler->hasSkill($sender->getUser(), 'writer'))
             return AjaxResponse::error(ErrorHelper::ErrorMustBeHero);
-        }
+
+        if ($type === "global" && $sender->getBanished())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
         $linked_items = array();
 
@@ -1496,31 +1498,15 @@ class MessageController extends CustomAbstractController
 
                 case PrivateMessage::TEMPLATE_CROW_COMPLAINT_ON:
                     /** @var Complaint $complaint */
-                    $complaint = $this->entity_manager->getRepository(Complaint::class)->find( $post->getForeignID() );
-                    $reason = '';
-                    if($complaint){
-                        if ($complaint->getLinkedReason() != null)
-                            $reason = $complaint->getLinkedReason()->getText();
-                        else
-                            $reason = $complaint->getReason();
-                    }
-
+                    $reason = $this->entity_manager->getRepository(ComplaintReason::class)->find( $post->getForeignID() );
                     $thread->setTitle( $this->translator->trans('Anonyme Beschwerde', [], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"', ['%reason%' => $this->translator->trans( $reason, [], 'game' )], 'game' ) );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"', ['%reason%' => $reason ? $this->translator->trans( $reason->getText(), [], 'game' ) : '???'], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF:
                     /** @var Complaint $complaint */
-                    $complaint = $this->entity_manager->getRepository(Complaint::class)->find( $post->getForeignID() );
-                    $reason = '';
-                    if($complaint){
-                        if ($complaint->getLinkedReason() != null)
-                            $reason = $complaint->getLinkedReason()->getText();
-                        else
-                            $reason = $complaint->getReason();
-                    }
-
+                    $reason = $this->entity_manager->getRepository(ComplaintReason::class)->find( $post->getForeignID() );
                     $thread->setTitle( $this->translator->trans('Beschwerde zurückgezogen', [], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"', ['%reason%' => $this->translator->trans( $reason, [], 'game' )], 'game' ) );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"', ['%reason%' => $reason ? $this->translator->trans( $reason->getText(), [], 'game' ) : '???'], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_TERROR:
                     $thread->setTitle( $this->translator->trans('Du bist vor Angst erstarrt!!', [], 'game') );

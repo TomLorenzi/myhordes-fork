@@ -17,6 +17,7 @@ use App\Entity\HeroicActionPrototype;
 use App\Entity\Item;
 use App\Entity\Picto;
 use App\Entity\RuinZone;
+use App\Entity\Season;
 use App\Entity\SpecialActionPrototype;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
@@ -117,6 +118,7 @@ class MigrateCommand extends Command
 
             ->addOption('assign-heroic-actions-all', null, InputOption::VALUE_NONE, 'Resets the heroic actions for all citizens in all towns.')
             ->addOption('assign-special-actions-all', null, InputOption::VALUE_NONE, 'Resets the special actions for all citizens in all towns.')
+            ->addOption('assign-town-season', null, InputOption::VALUE_NONE, 'Assigns the towns with no season to the latest available.')
             ->addOption('init-item-stacks', null, InputOption::VALUE_NONE, 'Sets item count for items without a counter to 1')
             ->addOption('delete-legacy-logs', null, InputOption::VALUE_NONE, 'Deletes legacy log entries')
 
@@ -326,7 +328,7 @@ class MigrateCommand extends Command
                 $this->entity_manager->persist($new_user);
                 $this->entity_manager->flush();
 
-                $output->writeln('You user account <info>has been created</info>.');
+                $output->writeln('Your user account <info>has been created</info>.');
             }
 
             return 0;
@@ -449,6 +451,23 @@ class MigrateCommand extends Command
                     $citizen->addSpecialAction( $special_action );
                 $this->entity_manager->persist( $citizen );
             }
+            $this->entity_manager->flush();
+            $output->writeln('OK!');
+
+            return 0;
+        }
+
+        if ($input->getOption("assign-town-season")) {
+            $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['season' => null]);
+            /* @var Season $latestSeason */
+            $latestSeason = $this->entity_manager->getRepository(Season::class)->findLatest();
+            foreach ($towns as $town) {
+                /*  @var TownRankingProxy $town */
+                $town->setSeason($latestSeason);
+                $latestSeason->addRankedTown($town);
+                $this->entity_manager->persist($town);
+            }
+
             $this->entity_manager->flush();
             $output->writeln('OK!');
 

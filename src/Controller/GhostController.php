@@ -29,10 +29,11 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @method User|null getUser
  */
 class GhostController extends CustomAbstractController implements GhostInterfaceController
 {
-    private $user_handler;
+    private UserHandler $user_handler;
     const ErrorWrongTownPassword          = ErrorHelper::BaseGhostErrors + 1;
 
     public function __construct(EntityManagerInterface $em, UserHandler $uh, TimeKeeperService $tk, TranslatorInterface $translator, ConfMaster $conf, CitizenHandler $ch, InventoryHandler $ih)
@@ -99,10 +100,9 @@ class GhostController extends CustomAbstractController implements GhostInterface
      * @Route("api/ghost/create_town", name="ghost_process_create_town")
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
-     * @param ConfMaster $conf
-     * @param UserHandler $uh
      * @param GameFactory $gf
      * @param LogTemplateHandler $log
+     * @param TownHandler $townHandler
      * @return Response
      */
     public function process_create_town(JSONRequestParser $parser, EntityManagerInterface $em,
@@ -242,19 +242,6 @@ class GhostController extends CustomAbstractController implements GhostInterface
         if(!empty($password)) $town->setPassword($password);
         $em->persist($town);
 
-        if($incarnated) {
-            $citizen = $gf->createCitizen($town, $user, $error);
-            if (!$citizen) return AjaxResponse::error($error);
-            try {
-                $em->persist($citizen);
-                $em->flush();
-            } catch (Exception $e) {
-                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
-            }
-
-            $em->persist( $log->citizenJoin( $citizen ) );
-        }
-
         try {
             $em->flush();
         } catch (Exception $e) {
@@ -269,6 +256,24 @@ class GhostController extends CustomAbstractController implements GhostInterface
                 $em->persist($town);
                 $em->flush();
             } catch (Exception $e) {}
+        }
+
+        if ($incarnated) {
+            $citizen = $gf->createCitizen($town, $user, $error);
+            if (!$citizen) return AjaxResponse::error($error);
+            try {
+                $em->persist($citizen);
+                $em->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
+
+            $em->persist( $log->citizenJoin( $citizen ) );
+            try {
+                $em->flush();
+            } catch (Exception $e) {
+                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+            }
         }
 
         return AjaxResponse::success( true, ['url' => $this->generateUrl('game_jobs')] );

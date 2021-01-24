@@ -94,6 +94,7 @@ class CustomAbstractController extends AbstractController {
             $data['is_shaman_job'] = $this->getActiveCitizen()->getProfession()->getName() == 'shaman';
             $data['is_shaman_role'] = $this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman');
             $data['hunger'] = $this->getActiveCitizen()->getGhulHunger();
+            $data['is_night'] = $this->getActiveCitizen()->getTown()->isNight();
         }
         return $data;
     }
@@ -129,7 +130,7 @@ class CustomAbstractController extends AbstractController {
     /**
      * @return TownConf The current town settings
      */
-    protected function getTownConf() {
+    protected function getTownConf(): TownConf {
         return $this->town_conf ?? ($this->town_conf = $this->conf->getTownConfiguration( $this->getActiveCitizen()->getTown() ));
     }
 }

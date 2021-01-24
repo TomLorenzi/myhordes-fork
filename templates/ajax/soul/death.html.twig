@@ -18,7 +18,10 @@
                 <div class="cell rw-6 rw-sm-12">
                     <img class="fit" alt="" src="{{ asset('build/images/death/' ~ citizen.cod.icon ~ '.jpg') }}" />
                     <div class="small-note">{{ citizen.cod.description|trans({},'game') }}</div>
-                    <button {% if gazette %}x-ajax-href="{{ path('game_newspaper') }}"{% else %}disabled{% endif %}>{{ 'Die letzte Zeitung lesen'|trans({},'game') }}{% if not gazette %}<div class="tooltip">{{ 'Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.'|trans({}, 'soul') }}</div>{% endif %}</button>
+                    <div>
+                        <button {% if gazette %}x-ajax-href="{{ path('game_newspaper') }}"{% else %}disabled{% endif %}>{{ 'Die letzte Zeitung lesen'|trans({},'game') }}</button>
+                        {% if not gazette %}<div class="tooltip">{{ 'Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.'|trans({}, 'game') }}</div>{% endif %}
+                    </div>
                 </div>
                 <div class="cell rw-6 rw-sm-12">
                     <div class="death_list">

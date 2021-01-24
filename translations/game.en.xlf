@@ -16487,6 +16487,51 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Citizens! If you're going off-site, be careful out there!</target>
       </segment>
     </unit>
+    <unit id="0Kqpu1t" name="gering">
+      <notes>
+        <note category="german">gering</note>
+      </notes>
+      <segment>
+        <source>gering</source>
+        <target>gering</target>
+      </segment>
+    </unit>
+    <unit id=".CQK_8d" name="hoch">
+      <notes>
+        <note category="german">hoch</note>
+      </notes>
+      <segment>
+        <source>hoch</source>
+        <target>hoch</target>
+      </segment>
+    </unit>
+    <unit id="ssHCx3q" name="1d82f8e">
+      <notes>
+        <note category="german">Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</note>
+      </notes>
+      <segment>
+        <source>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</source>
+        <target>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</target>
+      </segment>
+    </unit>
+    <unit id="qD3lUP9" name="dc1e0ac">
+      <notes>
+        <note category="german">Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</note>
+      </notes>
+      <segment>
+        <source>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</source>
+        <target>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</target>
+      </segment>
+    </unit>
+    <unit id="8yLsMnc" name="1f8ca6f">
+      <notes>
+        <note category="german">Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</note>
+      </notes>
+      <segment>
+        <source>Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
+        <target><![CDATA[Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?]]></target>
+      </segment>
+    </unit>
     <unit id=".7eWye." name="Legendärer Dompteur">
       <notes>
         <note category="german">Legendärer Dompteur</note>
@@ -16829,6 +16874,33 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Equal to Chuck Norris</target>
       </segment>
     </unit>
+    <unit id="4v4ATlD" name="3972722">
+      <notes>
+        <note category="german">%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen &lt;strong&gt;massiven Zusammenbruch&lt;/strong&gt; hatten. Letzte Nacht gab es keine Toten in der Stadt.</note>
+      </notes>
+      <segment>
+        <source>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen &lt;strong&gt;massiven Zusammenbruch&lt;/strong&gt; hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
+        <target><![CDATA[%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen <strong>massiven Zusammenbruch</strong> hatten. Letzte Nacht gab es keine Toten in der Stadt.]]></target>
+      </segment>
+    </unit>
+    <unit id="ycaiqp4" name="6a8fc71">
+      <notes>
+        <note category="german">%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern &lt;strong&gt;zu erhängen&lt;/strong&gt;. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend &lt;strong&gt;keine Zombies&lt;/strong&gt; in die Stadt geschafft haben.</note>
+      </notes>
+      <segment>
+        <source>%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern &lt;strong&gt;zu erhängen&lt;/strong&gt;. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend &lt;strong&gt;keine Zombies&lt;/strong&gt; in die Stadt geschafft haben.</source>
+        <target><![CDATA[%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern <strong>zu erhängen</strong>. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend <strong>keine Zombies</strong> in die Stadt geschafft haben.]]></target>
+      </segment>
+    </unit>
+    <unit id="h8UBn_c" name="d881f0f">
+      <notes>
+        <note category="german">Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem &lt;strong&gt;er splitternackt durch die Straßen rannte&lt;/strong&gt;. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</note>
+      </notes>
+      <segment>
+        <source>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem &lt;strong&gt;er splitternackt durch die Straßen rannte&lt;/strong&gt;. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
+        <target><![CDATA[Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem <strong>er splitternackt durch die Straßen rannte</strong>. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.]]></target>
+      </segment>
+    </unit>
     <unit id="eunLp3W" name="Ich habe Magenschmerzen...">
       <notes>
         <note category="german">Ich habe Magenschmerzen...</note>
@@ -17070,6 +17142,105 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Höret meine Stimme</source>
         <target>Listen to my voice</target>
+      </segment>
+    </unit>
+    <unit id="6VwkHrE" name="9cdcb6a">
+      <notes>
+        <note category="german">Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</source>
+        <target>Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</target>
+      </segment>
+    </unit>
+    <unit id="g0fspLE" name="d7ab8db">
+      <notes>
+        <note category="german">Deine Stadt "%town%" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt "%town%" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</source>
+        <target>Deine Stadt "%town%" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</target>
+      </segment>
+    </unit>
+    <unit id="EZZp0Cu" name="8b9de7a">
+      <notes>
+        <note category="german">Deine Stadt "%town%" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.</note>
+      </notes>
+      <segment>
+        <source>Deine Stadt "%town%" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.</source>
+        <target>Deine Stadt "%town%" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.</target>
+      </segment>
+    </unit>
+    <unit id="fPHWumZ" name="40e06cb">
+      <notes>
+        <note category="german">Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</note>
+      </notes>
+      <segment>
+        <source>Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</source>
+        <target>Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</target>
+      </segment>
+    </unit>
+    <unit id="uh49WWx" name="cea913a">
+      <notes>
+        <note category="german">Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</note>
+      </notes>
+      <segment>
+        <source>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</source>
+        <target>Unglücklicherweise ist deine Stadt vollkommen im Wüstensand versunken... Die Gemeinschaft wurde ausgelöscht.</target>
+      </segment>
+    </unit>
+    <unit id="Goz9BWd" name="(Allein)">
+      <notes>
+        <note category="german">(Allein)</note>
+      </notes>
+      <segment>
+        <source>(Allein)</source>
+        <target>(Allein)</target>
+      </segment>
+    </unit>
+    <unit id="WWzkuFQ" name="(Mit Eskorte)">
+      <notes>
+        <note category="german">(Mit Eskorte)</note>
+      </notes>
+      <segment>
+        <source>(Mit Eskorte)</source>
+        <target>(Mit Eskorte)</target>
+      </segment>
+    </unit>
+    <unit id="5xLwZCN" name="Du hast dich in einen %role% verwandelt!">
+      <notes>
+        <note category="german">Du hast dich in einen %role% verwandelt!</note>
+      </notes>
+      <segment>
+        <source>Du hast dich in einen %role% verwandelt!</source>
+        <target>Du hast dich in einen %role% verwandelt!</target>
+      </segment>
+    </unit>
+    <unit id="41EQiml" name="Erzähle niemandem davon oder du wirst sofort erschossen!">
+      <notes>
+        <note category="german">Erzähle niemandem davon oder du wirst sofort erschossen!</note>
+      </notes>
+      <segment>
+        <source>Erzähle niemandem davon oder du wirst sofort erschossen!</source>
+        <target>Erzähle niemandem davon oder du wirst sofort erschossen!</target>
+      </segment>
+    </unit>
+    <unit id=".S3ibaS" name="Wie man als Ghul spielt ?">
+      <notes>
+        <note category="german">Wie man als Ghul spielt ?</note>
+      </notes>
+      <segment>
+        <source>Wie man als Ghul spielt ?</source>
+        <target>Wie man als Ghul spielt ?</target>
+      </segment>
+    </unit>
+    <unit id="sZoC__." name="Der Bürger weigert sich, dies zu tun...">
+      <notes>
+        <note category="german">Der Bürger weigert sich, dies zu tun...</note>
+      </notes>
+      <segment>
+        <source>Der Bürger weigert sich, dies zu tun...</source>
+        <target>Der Bürger weigert sich, dies zu tun...</target>
       </segment>
     </unit>
   </file>

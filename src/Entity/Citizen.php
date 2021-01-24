@@ -18,6 +18,7 @@ class Citizen
     const Thrown = 1;
     const Watered = 2;
     const Cooked = 3;
+    const Ghoul = 4;
 
     /**
      * @ORM\Id()

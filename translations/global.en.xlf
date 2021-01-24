@@ -1958,6 +1958,15 @@
         <target>Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.</target>
       </segment>
     </unit>
+    <unit id="0oUM0cs" name="Bürger! Seid auf inoffiziellen Webseiten wachsam!">
+      <notes>
+        <note category="german">Bürger! Seid auf inoffiziellen Webseiten wachsam!</note>
+      </notes>
+      <segment>
+        <source>Bürger! Seid auf inoffiziellen Webseiten wachsam!</source>
+        <target>Citizens! If you're going off-site, be careful out there!</target>
+      </segment>
+    </unit>
     <unit id="mDTAh7E" name="Du bist vor Angst erstarrt...">
       <notes>
         <note category="german">Du bist vor Angst erstarrt...</note>

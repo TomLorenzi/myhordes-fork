@@ -292,14 +292,14 @@ class ZoneHandler
         }
 
         $factor = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RESPAWN_FACTOR, 1);
-        if($killedZombies >= $town->getMapSize() * $town->getDay() * $factor) {
-            $mode = self::RespawnModeForce;
-        }
 
         // Respawn
         $d = $town->getDay();
-        if ($mode === self::RespawnModeForce || ($mode === self::RespawnModeAuto && $d >= 3 && count($empty_zones) > (count($zones)* 18/20))) {
-            $keys = $d == 1 ? [array_rand($empty_zones)] : array_rand($empty_zones, $d);
+        if ($mode === self::RespawnModeForce ||
+            ($mode === self::RespawnModeAuto && $d >= 3 && (
+                (count($empty_zones) > (count($zones)* 18/20)) /*|| ($killedZombies >= $town->getMapSize() * $town->getDay() * $factor)*/
+            ))) {
+            $keys = $d == 1 ? [array_rand($empty_zones)] : array_rand($empty_zones, min($d,count($empty_zones)));
             foreach ($keys as $spawn_zone_id)
                 /** @var Zone $spawn_zone */
                 $zone_db[ $zones[$spawn_zone_id]->getX() ][ $zones[$spawn_zone_id]->getY() ] = mt_rand(1,intval($town->getDay() / 2));
@@ -464,7 +464,7 @@ class ZoneHandler
         return array_values($cache);
     }
 
-    public function getZoneClasses(Town $town, Zone $zone, ?Citizen $citizen = null, bool $soul = false) {
+    public function getZoneClasses(Town $town, Zone $zone, ?Citizen $citizen = null, bool $soul = false, bool $admin = false) {
         $attributes = ['zone'];
 
         if ($zone->getX() == 0 && $zone->getY() == 0) {
@@ -476,11 +476,10 @@ class ZoneHandler
         if ($citizen && $zone === $citizen->getZone()) {
             $attributes[] = 'active';
         }
-        if ($zone->getDiscoveryStatus() === Zone::DiscoveryStateNone) {
+        if (!$admin && $zone->getDiscoveryStatus() === Zone::DiscoveryStateNone) {
             $attributes[] = 'unknown';
-        }
-        else {
-            if ($zone->getDiscoveryStatus() === Zone::DiscoveryStatePast) {
+        } else {
+            if (!$admin && $zone->getDiscoveryStatus() === Zone::DiscoveryStatePast) {
                 $attributes[] = 'past';
             }
             if ($zone->getPrototype()) {
@@ -490,7 +489,7 @@ class ZoneHandler
                 }
             }
         }
-        if ($zone->getZombieStatus() >= Zone::ZombieStateEstimate) {
+        if ($zone->getZombieStatus() >= Zone::ZombieStateEstimate || $admin) {
             if ($zone->getZombies() == 0) {
                 $attributes[] = 'danger-0';
             }

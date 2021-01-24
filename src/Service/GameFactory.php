@@ -10,21 +10,15 @@ use App\Entity\CitizenHome;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\Forum;
-use App\Entity\GazetteLogEntry;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
-use App\Entity\Picto;
-use App\Entity\Post;
-use App\Entity\RuinZone;
+use App\Entity\Season;
 use App\Entity\Shoutbox;
 use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
 use App\Entity\Thread;
-use App\Entity\ThreadReadMarker;
 use App\Entity\Town;
 use App\Entity\TownClass;
-use App\Entity\TownLogEntry;
-use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\Zone;
@@ -217,6 +211,10 @@ class GameFactory
         $town
             ->setType($townClass)
             ->setConf($customConf);
+
+        $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
+
+        $town->setSeason($currentSeason);
 
         $conf = $this->conf->getTownConfiguration($town);
 

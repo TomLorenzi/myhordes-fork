@@ -83,7 +83,27 @@ class ExternalController extends InventoryAwareController {
     * @var SURLLobj
     */
     private $SURLLobj;
-    
+
+    protected function getRequestLanguage(Request $request, ?User $user = null): string {
+        $language =
+            $request->query->get('lang') ??
+            $request->request->get('lang') ??
+            ( $user ? $user->getLanguage() : null ) ??
+            'de';
+
+        $language = explode('_', $language)[0];
+
+        if($language !== 'all' && !in_array($language, $this->available_langs))
+            $language = 'de';
+
+        return $language;
+    }
+
+    protected function getIconPath(string $fullPath): string {
+        $list = explode('/build/images/', $fullPath, 2);
+        return count($list) === 2 ? $list[1] : $fullPath;
+    }
+
     /**
     * @Route("/jx/disclaimer/{id}", name="disclaimer", condition="request.isXmlHttpRequest()")
     * @param int $id

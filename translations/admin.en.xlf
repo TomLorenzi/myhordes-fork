@@ -97,7 +97,7 @@
       </notes>
       <segment>
         <source>1 Tag</source>
-        <target>1 Day</target>
+        <target>1 day</target>
       </segment>
     </unit>
     <unit id="JU_xNFX" name="3 Tage">
@@ -106,7 +106,7 @@
       </notes>
       <segment>
         <source>3 Tage</source>
-        <target>3 Days</target>
+        <target>3 days</target>
       </segment>
     </unit>
     <unit id="84RJxpK" name="5 Tage">
@@ -115,7 +115,7 @@
       </notes>
       <segment>
         <source>5 Tage</source>
-        <target>5 Tage</target>
+        <target>5 days</target>
       </segment>
     </unit>
     <unit id="zEDFlzj" name="7 Tage">
@@ -124,7 +124,7 @@
       </notes>
       <segment>
         <source>7 Tage</source>
-        <target>7 Days</target>
+        <target>7 days</target>
       </segment>
     </unit>
     <unit id="GtUIerm" name="15 Tage">
@@ -133,7 +133,7 @@
       </notes>
       <segment>
         <source>15 Tage</source>
-        <target>15 Days</target>
+        <target>15 days</target>
       </segment>
     </unit>
     <unit id="WB_sVVK" name="30 Tage">
@@ -142,7 +142,7 @@
       </notes>
       <segment>
         <source>30 Tage</source>
-        <target>30 Days</target>
+        <target>30 days</target>
       </segment>
     </unit>
     <unit id="tF9Axzf" name="Grund">
@@ -295,7 +295,7 @@
       </notes>
       <segment>
         <source>E-Mail</source>
-        <target>E-Mail</target>
+        <target>E-mail</target>
       </segment>
     </unit>
     <unit id=".Dfg1PE" name="Validiert">
@@ -610,7 +610,7 @@
       </notes>
       <segment>
         <source>Zerstört</source>
-        <target>Devasted</target>
+        <target>Devastated</target>
       </segment>
     </unit>
     <unit id="vZWh3VH" name="Tor offen">
@@ -619,7 +619,7 @@
       </notes>
       <segment>
         <source>Tor offen</source>
-        <target>Gates opened</target>
+        <target>Gates open</target>
       </segment>
     </unit>
     <unit id="lQNhv.P" name="Brunnen">
@@ -664,7 +664,7 @@
       </notes>
       <segment>
         <source>Stadtübersicht</source>
-        <target>Towns Overview</target>
+        <target>Town Overview</target>
       </segment>
     </unit>
     <unit id="4Gs3q79" name="Liste aller Städte">
@@ -673,7 +673,7 @@
       </notes>
       <segment>
         <source>Liste aller Städte</source>
-        <target>Towns List</target>
+        <target>Towns' list</target>
       </segment>
     </unit>
     <unit id="47Pj4uU" name="Pop.">
@@ -709,7 +709,7 @@
       </notes>
       <segment>
         <source>Getrennt</source>
-        <target>Headshoted</target>
+        <target>Headshotted</target>
       </segment>
     </unit>
     <unit id="RZid5J_" name="Details">
@@ -790,7 +790,7 @@
       </notes>
       <segment>
         <source>Ruinenscanner</source>
-        <target>Ruins Scanner</target>
+        <target>Ruin scanner</target>
       </segment>
     </unit>
     <unit id="bQMa8Q2" name="Position">
@@ -826,7 +826,7 @@
       </notes>
       <segment>
         <source>Abdruck</source>
-        <target>Footprint</target>
+        <target>Imprint</target>
       </segment>
     </unit>
     <unit id="H716AMr" name="Schlüssel">
@@ -862,7 +862,7 @@
       </notes>
       <segment>
         <source>Flucht</source>
-        <target>Flee</target>
+        <target>Escape</target>
       </segment>
     </unit>
     <unit id="0vxeWOf" name="Raum">
@@ -889,7 +889,7 @@
       </notes>
       <segment>
         <source>Alle Sitzungen</source>
-        <target>All Sessions</target>
+        <target>All sessions</target>
       </segment>
     </unit>
     <unit id="ZtFgVEb" name="Admin Dashboard">
@@ -898,7 +898,7 @@
       </notes>
       <segment>
         <source>Admin Dashboard</source>
-        <target>Admin Dashboard</target>
+        <target>Admin dashboard</target>
       </segment>
     </unit>
     <unit id="eFGF2zF" name="Dieser Login ist ausschließlich für Administratoren gedacht.">
@@ -916,7 +916,7 @@
       </notes>
       <segment>
         <source>Server-Log herunterladen</source>
-        <target>Download Server logs</target>
+        <target>Download server logs</target>
       </segment>
     </unit>
     <unit id="yvg6S11" name="Server-Log ansehen">
@@ -925,7 +925,7 @@
       </notes>
       <segment>
         <source>Server-Log ansehen</source>
-        <target>View Server logs</target>
+        <target>View server logs</target>
       </segment>
     </unit>
     <unit id="UYFKH.u" name="Server-Log löschen">
@@ -934,7 +934,7 @@
       </notes>
       <segment>
         <source>Server-Log löschen</source>
-        <target>Clear Server logs</target>
+        <target>Clear server logs</target>
       </segment>
     </unit>
     <unit id="LzfXrql" name="Geplante Angriffe">
@@ -943,7 +943,7 @@
       </notes>
       <segment>
         <source>Geplante Angriffe</source>
-        <target>Planned Attacks</target>
+        <target>Planned attacks</target>
       </segment>
     </unit>
     <unit id="5HWWJl3" name="Überfällig seit %s% Sekunden!">
@@ -979,7 +979,7 @@
       </notes>
       <segment>
         <source>Munition erzeugen</source>
-        <target>Generate ammunitions</target>
+        <target>Generate ammunition</target>
       </segment>
     </unit>
     <unit id="Hizwkp7" name="Admin-Berechtigung setzen">
@@ -997,7 +997,7 @@
       </notes>
       <segment>
         <source>+ 9999 Seelenpunkte</source>
-        <target>+ 9999 Soul points</target>
+        <target>+ 9999 soul points</target>
       </segment>
     </unit>
     <unit id="WgSXz1." name="Geheime Saison freischalten">
@@ -1042,7 +1042,7 @@
       </notes>
       <segment>
         <source>Du gehörst keiner Stadt an.</source>
-        <target>You do not belong to a Town.</target>
+        <target>You do not belong to a town.</target>
       </segment>
     </unit>
     <unit id="jnQ5tRO" name="Selbstmord begehen">
@@ -1060,7 +1060,7 @@
       </notes>
       <segment>
         <source>Rundmail als Rabe</source>
-        <target>Global Message as Crow</target>
+        <target>Global message as Crow</target>
       </segment>
     </unit>
     <unit id="K_rzvjv" name="PM vom Raben">
@@ -1105,7 +1105,7 @@
       </notes>
       <segment>
         <source>Unter Quarantäne stellen</source>
-        <target>Put under Quarantine</target>
+        <target>Put under quarantine</target>
       </segment>
     </unit>
     <unit id="akWsVTF" name="Manueller Tageswechsel">
@@ -1114,7 +1114,7 @@
       </notes>
       <segment>
         <source>Manueller Tageswechsel</source>
-        <target>Manually change the Day</target>
+        <target>Manually change the day</target>
       </segment>
     </unit>
     <unit id="w84b5LJ" name="Twinoid-Konto">
@@ -1123,7 +1123,7 @@
       </notes>
       <segment>
         <source>Twinoid-Konto</source>
-        <target>Twinoid Account</target>
+        <target>Twinoid account</target>
       </segment>
     </unit>
     <unit id="BCS.RQ1" name="Orakel">
@@ -1141,7 +1141,7 @@
       </notes>
       <segment>
         <source>Twinoid-Integration</source>
-        <target>Twinoid Integration</target>
+        <target>Twinoid integration</target>
       </segment>
     </unit>
     <unit id="p2lp75S" name="Integrationen löschen">
@@ -1159,7 +1159,7 @@
       </notes>
       <segment>
         <source>Hauptseele zurücksetzen</source>
-        <target>Reset Main Soul</target>
+        <target>Reset main soul</target>
       </segment>
     </unit>
     <unit id="Le1sVIR" name="Du hast keine Berechtigung, diesen Benutzer zu administrieren!">
@@ -1168,7 +1168,7 @@
       </notes>
       <segment>
         <source>Du hast keine Berechtigung, diesen Benutzer zu administrieren!</source>
-        <target>Wow, wow, wow ! What are you trying ? lol</target>
+        <target>Wow, wow, wow! What are you trying? lol</target>
       </segment>
     </unit>
     <unit id="4mfTQ4I" name="Profil">
@@ -1186,7 +1186,7 @@
       </notes>
       <segment>
         <source>Neuen Namen eingeben.</source>
-        <target>Enter new Name.</target>
+        <target>Enter new name.</target>
       </segment>
     </unit>
     <unit id="g_B_0fN" name="Umbenennen">
@@ -1231,7 +1231,7 @@
       </notes>
       <segment>
         <source>Berechtigungsstufe zurücksetzen</source>
-        <target>Reset Authorization level</target>
+        <target>Reset authorization level</target>
       </segment>
     </unit>
     <unit id="EHG8mpy" name="Bitte bestätige folgende Aktion:">
@@ -1240,7 +1240,7 @@
       </notes>
       <segment>
         <source>Bitte bestätige folgende Aktion:</source>
-        <target>Please confirm the following Action:</target>
+        <target>Please confirm the following action:</target>
       </segment>
     </unit>
     <unit id="XCp8Tn4" name="Multi-Account Report">
@@ -1249,7 +1249,7 @@
       </notes>
       <segment>
         <source>Multi-Account Report</source>
-        <target>Multi-Account Report</target>
+        <target>Multi-account report</target>
       </segment>
     </unit>
     <unit id="NBT1t.l" name="Verdacht">
@@ -1330,7 +1330,7 @@
       </notes>
       <segment>
         <source>Multi-Account Whitelist</source>
-        <target>Multi-Account Whitelist</target>
+        <target>Multi-account whitelist</target>
       </segment>
     </unit>
     <unit id="8slYyDF" name="Spieler-ID">
@@ -1339,7 +1339,7 @@
       </notes>
       <segment>
         <source>Spieler-ID</source>
-        <target>Player-ID</target>
+        <target>Player ID</target>
       </segment>
     </unit>
     <unit id="101JnrD" name="Multi-Account Whitelist-Eintrag hinzufügen">
@@ -1393,7 +1393,7 @@
       </notes>
       <segment>
         <source>Annulieren</source>
-        <target>Abort Town</target>
+        <target>Abort town</target>
       </segment>
     </unit>
     <unit id=".rV_1n2" name="Verwende folgende Syntax, um deine Suche zu spezifizieren:">
@@ -1411,7 +1411,7 @@
       </notes>
       <segment>
         <source>E-Mail eingeben.</source>
-        <target>E-Mail eingeben.</target>
+        <target>E-mail eingeben.</target>
       </segment>
     </unit>
     <unit id="lJqqLMl" name="E-Mail ändern">
@@ -1420,7 +1420,7 @@
       </notes>
       <segment>
         <source>E-Mail ändern</source>
-        <target>E-Mail ändern</target>
+        <target>Change e-mail</target>
       </segment>
     </unit>
     <unit id="5sAjGFp" name="Neues Passwort eingeben.">
@@ -1429,7 +1429,7 @@
       </notes>
       <segment>
         <source>Neues Passwort eingeben.</source>
-        <target>Neues Passwort eingeben.</target>
+        <target>Enter new password.</target>
       </segment>
     </unit>
     <unit id="n2HwFFe" name="Neues Passwort setzen">
@@ -1438,7 +1438,7 @@
       </notes>
       <segment>
         <source>Neues Passwort setzen</source>
-        <target>Neues Passwort setzen</target>
+        <target>Set new password</target>
       </segment>
     </unit>
     <unit id="V1ukt7Z" name="EternalTwin-Integration">
@@ -1447,7 +1447,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Integration</source>
-        <target>EternalTwin-Integration</target>
+        <target>EternalTwin integration</target>
       </segment>
     </unit>
     <unit id="OkyzTP2" name="In lokalen Account umwandeln">
@@ -1456,7 +1456,7 @@
       </notes>
       <segment>
         <source>In lokalen Account umwandeln</source>
-        <target>In lokalen Account umwandeln</target>
+        <target>Turn into local account</target>
       </segment>
     </unit>
     <unit id="B9D7Dk5" name="Kartei">
@@ -1474,7 +1474,7 @@
       </notes>
       <segment>
         <source>Anzeigename</source>
-        <target>Anzeigename</target>
+        <target>Display name</target>
       </segment>
     </unit>
     <unit id="14HKU3b" name="Lokal: %account%">
@@ -1483,7 +1483,7 @@
       </notes>
       <segment>
         <source>Lokal: %account%</source>
-        <target>Lokal: %account%</target>
+        <target>Local: %account%</target>
       </segment>
     </unit>
     <unit id="OaKjJho" name="Von EternalTwin verwaltet">
@@ -1492,7 +1492,7 @@
       </notes>
       <segment>
         <source>Von EternalTwin verwaltet</source>
-        <target>Von EternalTwin verwaltet</target>
+        <target>Administered by EternalTwin</target>
       </segment>
     </unit>
     <unit id="uCT9EnO" name="Nur für Administratoren sichtbar">
@@ -1501,7 +1501,7 @@
       </notes>
       <segment>
         <source>Nur für Administratoren sichtbar</source>
-        <target>Nur für Administratoren sichtbar</target>
+        <target>Only visible to administrators</target>
       </segment>
     </unit>
     <unit id="pitbSje" name="Verknüpfte Konten">
@@ -1510,7 +1510,7 @@
       </notes>
       <segment>
         <source>Verknüpfte Konten</source>
-        <target>Verknüpfte Konten</target>
+        <target>Connect accounts</target>
       </segment>
     </unit>
     <unit id="L0eG_iZ" name="EternalTwin-Konto">
@@ -1519,7 +1519,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Konto</source>
-        <target>EternalTwin-Konto</target>
+        <target>EternalTwin account</target>
       </segment>
     </unit>
     <unit id="nz1fjZT" name="Sonstiges">
@@ -1528,7 +1528,7 @@
       </notes>
       <segment>
         <source>Sonstiges</source>
-        <target>Sonstiges</target>
+        <target>Miscellaneous</target>
       </segment>
     </unit>
     <unit id="TklQ7Ze" name="AntiSpam">
@@ -1546,7 +1546,7 @@
       </notes>
       <segment>
         <source>Account zur Löschung vorgemerkt!</source>
-        <target>Account zur Löschung vorgemerkt!</target>
+        <target>Account marked for deletion!</target>
       </segment>
     </unit>
     <unit id="_Ywx.pH" name="Anzahl der gelisteten Domains: %number%">
@@ -1555,7 +1555,7 @@
       </notes>
       <segment>
         <source>Anzahl der gelisteten Domains: %number%</source>
-        <target>Anzahl der gelisteten Domains: %number%</target>
+        <target>Amount of listed domains: %number%</target>
       </segment>
     </unit>
     <unit id="u.IOicZ" name="Domain-Suche">
@@ -1564,7 +1564,7 @@
       </notes>
       <segment>
         <source>Domain-Suche</source>
-        <target>Domain-Suche</target>
+        <target>Search domain</target>
       </segment>
     </unit>
     <unit id="zptHdme" name="Gewählte entfernen">
@@ -1573,7 +1573,7 @@
       </notes>
       <segment>
         <source>Gewählte entfernen</source>
-        <target>Gewählte entfernen</target>
+        <target>Remove selected</target>
       </segment>
     </unit>
     <unit id="l.ziWyi" name="Domains hinzufügen">
@@ -1582,7 +1582,7 @@
       </notes>
       <segment>
         <source>Domains hinzufügen</source>
-        <target>Domains hinzufügen</target>
+        <target>Add domain</target>
       </segment>
     </unit>
     <unit id="y7lc8Ct" name="Hinzufügen">
@@ -1591,7 +1591,7 @@
       </notes>
       <segment>
         <source>Hinzufügen</source>
-        <target>Hinzufügen</target>
+        <target>Add</target>
       </segment>
     </unit>
     <unit id="_b4bK2O" name="Nachricht?">
@@ -1600,7 +1600,7 @@
       </notes>
       <segment>
         <source>Nachricht?</source>
-        <target>Nachricht?</target>
+        <target>Message?</target>
       </segment>
     </unit>
     <unit id="XCTslOz" name="Foren-Meldungen">
@@ -1609,7 +1609,7 @@
       </notes>
       <segment>
         <source>Foren-Meldungen</source>
-        <target>Foren-Meldungen</target>
+        <target>Forum posts</target>
       </segment>
     </unit>
     <unit id="EdJ7diC" name="PN-Meldungen">
@@ -1618,7 +1618,7 @@
       </notes>
       <segment>
         <source>PN-Meldungen</source>
-        <target>PN-Meldungen</target>
+        <target>PMs</target>
       </segment>
     </unit>
     <unit id="vDhaMLU" name="Öffnen">
@@ -1627,7 +1627,7 @@
       </notes>
       <segment>
         <source>Öffnen</source>
-        <target>Öffnen</target>
+        <target>Open</target>
       </segment>
     </unit>
     <unit id="Z7aWRoY" name="Dashboard">
@@ -1645,7 +1645,7 @@
       </notes>
       <segment>
         <source>Stadt %townname%</source>
-        <target>Stadt %townname%</target>
+        <target>Town %townname%</target>
       </segment>
     </unit>
     <unit id="Z2xHG8j" name="Bank">
@@ -1672,16 +1672,16 @@
       </notes>
       <segment>
         <source>Einen Gegenstand erzeugen:</source>
-        <target>Einen Gegenstand erzeugen:</target>
+        <target>Create an item:</target>
       </segment>
     </unit>
     <unit id="pkg069a" name="Nummer des Gegenstandes:">
       <notes>
-        <note category="german">Nummer des Gegenstandes:</note>
+        <note category="german">Anzahl des Gegenstandes:</note>
       </notes>
       <segment>
         <source>Nummer des Gegenstandes:</source>
-        <target>Nummer des Gegenstandes:</target>
+        <target>Amount:</target>
       </segment>
     </unit>
     <unit id="9B3v_rN" name="Vergiftet:">
@@ -1690,7 +1690,7 @@
       </notes>
       <segment>
         <source>Vergiftet:</source>
-        <target>Vergiftet:</target>
+        <target>Poisoned:</target>
       </segment>
     </unit>
     <unit id="ba2jGNX" name="Zerstört:">
@@ -1699,7 +1699,7 @@
       </notes>
       <segment>
         <source>Zerstört:</source>
-        <target>Zerstört:</target>
+        <target>Destroyed:</target>
       </segment>
     </unit>
     <unit id="_vIjrdl" name="Essentiell:">
@@ -1708,7 +1708,7 @@
       </notes>
       <segment>
         <source>Essentiell:</source>
-        <target>Essentiell:</target>
+        <target>Essential:</target>
       </segment>
     </unit>
     <unit id="pAhkch3" name="Erzeugen!">
@@ -1717,7 +1717,7 @@
       </notes>
       <segment>
         <source>Erzeugen!</source>
-        <target>Erzeugen!</target>
+        <target>Create!</target>
       </segment>
     </unit>
     <unit id="HMtmyP_" name="Rucksack">
@@ -1726,7 +1726,7 @@
       </notes>
       <segment>
         <source>Rucksack</source>
-        <target>Rucksack</target>
+        <target>Backpack</target>
       </segment>
     </unit>
     <unit id="n__v7g9" name="Truhe">
@@ -1735,7 +1735,7 @@
       </notes>
       <segment>
         <source>Truhe</source>
-        <target>Truhe</target>
+        <target>Chest</target>
       </segment>
     </unit>
     <unit id="fUbvGiO" name="Leere Truhe">
@@ -1744,7 +1744,7 @@
       </notes>
       <segment>
         <source>Leere Truhe</source>
-        <target>Leere Truhe</target>
+        <target>Empty chest</target>
       </segment>
     </unit>
     <unit id="fV5wxwj" name="In der Stadt">
@@ -1753,7 +1753,7 @@
       </notes>
       <segment>
         <source>In der Stadt</source>
-        <target>In der Stadt</target>
+        <target>Inside the town</target>
       </segment>
     </unit>
     <unit id="I5qOX6_" name="Anwendung">
@@ -1762,7 +1762,7 @@
       </notes>
       <segment>
         <source>Anwendung</source>
-        <target>Anwendung</target>
+        <target>Application</target>
       </segment>
     </unit>
     <unit id="zO1HXOo" name="Besitzer">
@@ -1771,7 +1771,7 @@
       </notes>
       <segment>
         <source>Besitzer</source>
-        <target>Besitzer</target>
+        <target>Owner</target>
       </segment>
     </unit>
     <unit id="Ml7s_dM" name="Kontakt">
@@ -1780,7 +1780,7 @@
       </notes>
       <segment>
         <source>Kontakt</source>
-        <target>Kontakt</target>
+        <target>Contact</target>
       </segment>
     </unit>
     <unit id="zYXso4d" name="Name der Anwendung">
@@ -1789,7 +1789,7 @@
       </notes>
       <segment>
         <source>Name der Anwendung</source>
-        <target>Name der Anwendung</target>
+        <target>Application name</target>
       </segment>
     </unit>
     <unit id="gwaSbiX" name="Niemand">
@@ -1798,7 +1798,7 @@
       </notes>
       <segment>
         <source>Niemand</source>
-        <target>Niemand</target>
+        <target>Nobody</target>
       </segment>
     </unit>
     <unit id="56JB3rr" name="URL">
@@ -1816,7 +1816,7 @@
       </notes>
       <segment>
         <source>Anzeige</source>
-        <target>Anzeige</target>
+        <target>Display</target>
       </segment>
     </unit>
     <unit id="YIZ57UG" name="Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.">
@@ -1825,7 +1825,7 @@
       </notes>
       <segment>
         <source>Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.</source>
-        <target>Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.</target>
+        <target>Applications in test mode are only visible to their owner.</target>
       </segment>
     </unit>
     <unit id="pmqhEIB" name="Testbetrieb">
@@ -1834,7 +1834,7 @@
       </notes>
       <segment>
         <source>Testbetrieb</source>
-        <target>Testbetrieb</target>
+        <target>Test mode</target>
       </segment>
     </unit>
     <unit id="o1q81tr" name="Icon">
@@ -1852,7 +1852,7 @@
       </notes>
       <segment>
         <source>Datenzugriff</source>
-        <target>Datenzugriff</target>
+        <target>Data access</target>
       </segment>
     </unit>
     <unit id="PgM27MC" name="Anwendungen ohne API-Zugang werden nur als Links eingebunden.">
@@ -1861,7 +1861,7 @@
       </notes>
       <segment>
         <source>Anwendungen ohne API-Zugang werden nur als Links eingebunden.</source>
-        <target>Anwendungen ohne API-Zugang werden nur als Links eingebunden.</target>
+        <target>Applications without API access will be added as links, only.</target>
       </segment>
     </unit>
     <unit id="ftE4M1T" name="Zugang zur API">
@@ -1870,7 +1870,7 @@
       </notes>
       <segment>
         <source>Zugang zur API</source>
-        <target>Zugang zur API</target>
+        <target>API access</target>
       </segment>
     </unit>
     <unit id="oFJRNSD" name="Wird automatisch generiert">
@@ -1879,7 +1879,7 @@
       </notes>
       <segment>
         <source>Wird automatisch generiert</source>
-        <target>Wird automatisch generiert</target>
+        <target>Generated automatically</target>
       </segment>
     </unit>
     <unit id="NoNAzwa" name="Schlüssel regenerieren">
@@ -1888,7 +1888,7 @@
       </notes>
       <segment>
         <source>Schlüssel regenerieren</source>
-        <target>Schlüssel regenerieren</target>
+        <target>Generate key</target>
       </segment>
     </unit>
     <unit id="i2H25l5" name="Foren-Mod.">
@@ -1897,7 +1897,7 @@
       </notes>
       <segment>
         <source>Foren-Mod.</source>
-        <target>Foren-Mod.</target>
+        <target>Forum mod.</target>
       </segment>
     </unit>
     <unit id="EK4cGZo" name="Kurztexte">
@@ -1906,7 +1906,7 @@
       </notes>
       <segment>
         <source>Kurztexte</source>
-        <target>Kurztexte</target>
+        <target>Short texts</target>
       </segment>
     </unit>
     <unit id="PMRlWSR" name="Inhalt">
@@ -1915,7 +1915,7 @@
       </notes>
       <segment>
         <source>Inhalt</source>
-        <target>Inhalt</target>
+        <target>Content</target>
       </segment>
     </unit>
     <unit id="yqFNLUk" name="Neuen Kurztext anlegen">
@@ -1924,7 +1924,7 @@
       </notes>
       <segment>
         <source>Neuen Kurztext anlegen</source>
-        <target>Neuen Kurztext anlegen</target>
+        <target>Create new short text</target>
       </segment>
     </unit>
     <unit id="EA6TVUx" name="ID eingeben">
@@ -1933,7 +1933,7 @@
       </notes>
       <segment>
         <source>ID eingeben</source>
-        <target>ID eingeben</target>
+        <target>Enter ID</target>
       </segment>
     </unit>
     <unit id="GYf8Lr5" name="Eine Auszeichnungen auswählen:">
@@ -1942,7 +1942,7 @@
       </notes>
       <segment>
         <source>Eine Auszeichnungen auswählen:</source>
-        <target>Eine Auszeichnungen auswählen:</target>
+        <target>Select distinction:</target>
       </segment>
     </unit>
     <unit id="jm_rhmk" name="Anzahl der Auszeichnungen:">
@@ -1951,7 +1951,7 @@
       </notes>
       <segment>
         <source>Anzahl der Auszeichnungen:</source>
-        <target>Anzahl der Auszeichnungen:</target>
+        <target>Amount:</target>
       </segment>
     </unit>
     <unit id="XtyN3Vk" name="Vergeben!">
@@ -1960,7 +1960,7 @@
       </notes>
       <segment>
         <source>Vergeben!</source>
-        <target>Vergeben!</target>
+        <target>Grant!</target>
       </segment>
     </unit>
     <unit id="BYzHaeg" name="Aktuelle Städte">
@@ -1969,7 +1969,7 @@
       </notes>
       <segment>
         <source>Aktuelle Städte</source>
-        <target>Aktuelle Städte</target>
+        <target>Current towns</target>
       </segment>
     </unit>
     <unit id="7BBdmva" name="Fertige Städte">
@@ -1978,7 +1978,7 @@
       </notes>
       <segment>
         <source>Fertige Städte</source>
-        <target>Fertige Städte</target>
+        <target>Completed towns</target>
       </segment>
     </unit>
     <unit id="zFOkrfz" name="Importiert">
@@ -1987,7 +1987,7 @@
       </notes>
       <segment>
         <source>Importiert</source>
-        <target>Importiert</target>
+        <target>Imported</target>
       </segment>
     </unit>
     <unit id="GsetYdP" name="Seite %page%/%total%">
@@ -1996,7 +1996,7 @@
       </notes>
       <segment>
         <source>Seite %page%/%total%</source>
-        <target>Seite %page%/%total%</target>
+        <target>Page %page%/%total%</target>
       </segment>
     </unit>
     <unit id="HAvttwf" name="Gib den Namen der Stadt ein.">
@@ -2005,7 +2005,7 @@
       </notes>
       <segment>
         <source>Gib den Namen der Stadt ein.</source>
-        <target>Gib den Namen der Stadt ein.</target>
+        <target>Enter the town's name.</target>
       </segment>
     </unit>
     <unit id="F_ijNEI" name="Neue Anwendung registrieren">
@@ -2014,7 +2014,7 @@
       </notes>
       <segment>
         <source>Neue Anwendung registrieren</source>
-        <target>Neue Anwendung registrieren</target>
+        <target>Register new application</target>
       </segment>
     </unit>
     <unit id="SisP.gu" name="Änderungen an '%appname%' speichern">
@@ -2023,7 +2023,7 @@
       </notes>
       <segment>
         <source>Änderungen an '%appname%' speichern</source>
-        <target>Änderungen an '%appname%' speichern</target>
+        <target>Save changes on '%appname%'</target>
       </segment>
     </unit>
     <unit id="zLJ.A.A" name="Anzeigen">
@@ -2032,7 +2032,7 @@
       </notes>
       <segment>
         <source>Anzeigen</source>
-        <target>Anzeigen</target>
+        <target>Show</target>
       </segment>
     </unit>
     <unit id=".iE.xsh" name="Gegen %culprit%">
@@ -2041,7 +2041,7 @@
       </notes>
       <segment>
         <source>Gegen %culprit%</source>
-        <target>Gegen %culprit%</target>
+        <target>Against %culprit%</target>
       </segment>
     </unit>
     <unit id="OeZ5Hgz" name="Anwendungen">
@@ -2050,7 +2050,7 @@
       </notes>
       <segment>
         <source>Anwendungen</source>
-        <target>Anwendungen</target>
+        <target>Applications</target>
       </segment>
     </unit>
     <unit id="I2gx52t" name="Neue Anwendung">
@@ -2059,7 +2059,7 @@
       </notes>
       <segment>
         <source>Neue Anwendung</source>
-        <target>Neue Anwendung</target>
+        <target>New application</target>
       </segment>
     </unit>
     <unit id="GOi00pr" name="Anwendung &quot;%external_app%&quot;">
@@ -2068,7 +2068,214 @@
       </notes>
       <segment>
         <source>Anwendung "%external_app%"</source>
-        <target>Anwendung "%external_app%"</target>
+        <target>Application "%external_app%"</target>
+      </segment>
+    </unit>
+    <unit id="IeSesrK" name="Log">
+      <notes>
+        <note category="german">Log</note>
+      </notes>
+      <segment>
+        <source>Log</source>
+        <target>Log</target>
+      </segment>
+    </unit>
+    <unit id="tAQPtd4" name="Einen Status auswählen:">
+      <notes>
+        <note category="german">Einen Status auswählen:</note>
+      </notes>
+      <segment>
+        <source>Einen Status auswählen:</source>
+        <target>Select status:</target>
+      </segment>
+    </unit>
+    <unit id="R7yBd_O" name="Vergeben">
+      <notes>
+        <note category="german">Vergeben</note>
+      </notes>
+      <segment>
+        <source>Vergeben</source>
+        <target>Add status</target>
+      </segment>
+    </unit>
+    <unit id="OCg3Wi1" name="Entfernen">
+      <notes>
+        <note category="german">Entfernen</note>
+      </notes>
+      <segment>
+        <source>Entfernen</source>
+        <target>Remove status</target>
+      </segment>
+    </unit>
+    <unit id="S1OmuJB" name="Saisons">
+      <notes>
+        <note category="german">Saisons</note>
+      </notes>
+      <segment>
+        <source>Saisons</source>
+        <target>Saisons</target>
+      </segment>
+    </unit>
+    <unit id="wWE.yC2" name="Neue Saison">
+      <notes>
+        <note category="german">Neue Saison</note>
+      </notes>
+      <segment>
+        <source>Neue Saison</source>
+        <target>Neue Saison</target>
+      </segment>
+    </unit>
+    <unit id="pcCL6tz" name="Status vergeben">
+      <notes>
+        <note category="german">Status vergeben</note>
+      </notes>
+      <segment>
+        <source>Status vergeben</source>
+        <target>Status vergeben</target>
+      </segment>
+    </unit>
+    <unit id="PLdhbVW" name="Status entfernen">
+      <notes>
+        <note category="german">Status entfernen</note>
+      </notes>
+      <segment>
+        <source>Status entfernen</source>
+        <target>Status entfernen</target>
+      </segment>
+    </unit>
+    <unit id="YkT2Odb" name="Eine Rolle auswählen:">
+      <notes>
+        <note category="german">Eine Rolle auswählen:</note>
+      </notes>
+      <segment>
+        <source>Eine Rolle auswählen:</source>
+        <target>Eine Rolle auswählen:</target>
+      </segment>
+    </unit>
+    <unit id="v6OJxnk" name="Rolle vergeben">
+      <notes>
+        <note category="german">Rolle vergeben</note>
+      </notes>
+      <segment>
+        <source>Rolle vergeben</source>
+        <target>Rolle vergeben</target>
+      </segment>
+    </unit>
+    <unit id="sOLeN_J" name="Rolle entfernen">
+      <notes>
+        <note category="german">Rolle entfernen</note>
+      </notes>
+      <segment>
+        <source>Rolle entfernen</source>
+        <target>Rolle entfernen</target>
+      </segment>
+    </unit>
+    <unit id="x8Xk.ym" name="Bürger nach Sprache">
+      <notes>
+        <note category="german">Bürger nach Sprache</note>
+      </notes>
+      <segment>
+        <source>Bürger nach Sprache</source>
+        <target>Bürger nach Sprache</target>
+      </segment>
+    </unit>
+    <unit id="gvDyCm1" name="Geöffnet">
+      <notes>
+        <note category="german">Geöffnet</note>
+      </notes>
+      <segment>
+        <source>Geöffnet</source>
+        <target>Geöffnet</target>
+      </segment>
+    </unit>
+    <unit id="gTA4SQS" name="Leben">
+      <notes>
+        <note category="german">Leben</note>
+      </notes>
+      <segment>
+        <source>Leben</source>
+        <target>Leben</target>
+      </segment>
+    </unit>
+    <unit id="wVUnsZu" name="Seasons">
+      <notes>
+        <note category="german">Seasons</note>
+      </notes>
+      <segment>
+        <source>Seasons</source>
+        <target>Seasons</target>
+      </segment>
+    </unit>
+    <unit id="5vc95gS" name="Akt.">
+      <notes>
+        <note category="german">Akt.</note>
+      </notes>
+      <segment>
+        <source>Akt.</source>
+        <target>Akt.</target>
+      </segment>
+    </unit>
+    <unit id="lzLlEpR" name="Nummer">
+      <notes>
+        <note category="german">Nummer</note>
+      </notes>
+      <segment>
+        <source>Nummer</source>
+        <target>Nummer</target>
+      </segment>
+    </unit>
+    <unit id="ZOp9mWZ" name="Sub-Nummer">
+      <notes>
+        <note category="german">Sub-Nummer</note>
+      </notes>
+      <segment>
+        <source>Sub-Nummer</source>
+        <target>Sub-Nummer</target>
+      </segment>
+    </unit>
+    <unit id="3NHVIj9" name="Name">
+      <notes>
+        <note category="german">Name</note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Name</target>
+      </segment>
+    </unit>
+    <unit id="W_0lUFE" name="Saison &quot;%season%&quot;">
+      <notes>
+        <note category="german">Saison "%season%"</note>
+      </notes>
+      <segment>
+        <source>Saison "%season%"</source>
+        <target>Saison "%season%"</target>
+      </segment>
+    </unit>
+    <unit id="3RyPmTj" name="Saison Nummer">
+      <notes>
+        <note category="german">Saison Nummer</note>
+      </notes>
+      <segment>
+        <source>Saison Nummer</source>
+        <target>Saison Nummer</target>
+      </segment>
+    </unit>
+    <unit id="1uPFCaE" name="Saison Sub-Nummer">
+      <notes>
+        <note category="german">Saison Sub-Nummer</note>
+      </notes>
+      <segment>
+        <source>Saison Sub-Nummer</source>
+        <target>Saison Sub-Nummer</target>
+      </segment>
+    </unit>
+    <unit id="V8mA5zz" name="Aktuelle Saison">
+      <notes>
+        <note category="german">Aktuelle Saison</note>
+      </notes>
+      <segment>
+        <source>Aktuelle Saison</source>
+        <target>Aktuelle Saison</target>
       </segment>
     </unit>
   </file>

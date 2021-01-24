@@ -987,21 +987,21 @@ class LogTemplateHandler
 
     public function citizenDisposal( Citizen $actor, Citizen $disposed, int $action, ?array $items = [] ): TownLogEntry {
         switch ($action) {
-            case 1:
+            case Citizen::Thrown:
                 $variables = array('citizen' => $actor->getId(), 'disposed' => $disposed->getId());
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'citizenDisposalDrag']);
                 break;
-            case 2:
+            case Citizen::Watered:
                 $variables = array('citizen' => $actor->getId(), 'disposed' => $disposed->getId());
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'citizenDisposalWater']);
                 break;
-            case 3:
+            case Citizen::Cooked:
                 $variables = array('citizen' => $actor->getId(), 'disposed' => $disposed->getId(), 
                     'items' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
                         else { return array('id' => $e[0]->getId()); } }, $items ));
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'citizenDisposalCremato']);
                 break;
-            case 4:
+            case Citizen::Ghoul:
                 $variables = array();
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'citizenDisposalGhoul']);
                 break;
@@ -1339,5 +1339,20 @@ class LogTemplateHandler
             ->setDay( $target->getTown()->getDay() )
             ->setZone( ($target->getX() === 0 && $target->getY() === 0) ? null : $target )
             ->setTimestamp( new DateTime('now') );
+    }
+
+    public function bankBanRecovery( Citizen $citizen, $items ): TownLogEntry {
+        $variables = array('shunned' => $citizen->getId(),
+            'list' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
+            else { return array('id' => $e[0]->getId()); } }, $items ));
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'bankBanRecovery']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
     }
 }

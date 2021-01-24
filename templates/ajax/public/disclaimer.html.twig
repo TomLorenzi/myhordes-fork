@@ -1,5 +1,5 @@
 {% extends "ajax/ajax.html.twig" %}
-{%block title %}{{'Bürger! Seid auf inoffiziellen Webseiten wachsam!'|trans({}, 'game')|raw}}{% endblock %}
+{%block title %}{{'Bürger! Seid auf inoffiziellen Webseiten wachsam!'|trans({}, 'global')}}{% endblock %}
 {% block menu_text %}
     {{parent()}}
     <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>

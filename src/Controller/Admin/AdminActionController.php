@@ -21,10 +21,12 @@ use App\Service\TimeKeeperService;
 use App\Service\ZoneHandler;
 use App\Structures\BankItem;
 use App\Translation\T;
+use DirectoryIterator;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
 use Exception;
+use SplFileInfo;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -42,13 +44,14 @@ class AdminActionController extends CustomAbstractController
 
     public static function getAdminActions(): array {
         return [
-            ['name' => T::__('Dashboard', 'admin'),  'id' => 0],
-            ['name' => T::__('Users', 'admin'),      'id' => 1],
-            ['name' => T::__('Foren-Mod.', 'admin'),  'id' => 2],
-            ['name' => T::__('Städte', 'admin'),     'id' => 3],
-            ['name' => T::__('Zukunft', 'admin'),    'id' => 4],
-            ['name' => T::__('AntiSpam', 'admin'),   'id' => 5],
-            ['name' => T::__('Apps', 'admin'),   'id' => 6],
+            ['name' => T::__('Dashboard', 'admin'),   'id' => 0, 'route' => 'admin_dashboard'],
+            ['name' => T::__('Users', 'admin'),       'id' => 1, 'route' => 'admin_users'],
+            ['name' => T::__('Foren-Mod.', 'admin'),  'id' => 2, 'route' => 'admin_reports'],
+            ['name' => T::__('Städte', 'admin'),      'id' => 3, 'route' => 'admin_town_list'],
+            ['name' => T::__('Zukunft', 'admin'),     'id' => 4, 'route' => 'admin_changelogs'],
+            ['name' => T::__('AntiSpam', 'admin'),    'id' => 5, 'route' => 'admin_spam_domain_view'],
+            ['name' => T::__('Apps', 'admin'),        'id' => 6, 'route' => 'admin_app_view'],
+            ['name' => T::__('Saisons', 'admin'),     'id' => 7, 'route' => 'admin_seasons_view'],
         ];
     }
 
@@ -102,11 +105,29 @@ class AdminActionController extends CustomAbstractController
 
     /**
      * @Route("jx/admin/dash", name="admin_dashboard")
+     * @param ParameterBagInterface $params
      * @return Response
      */
-    public function dash(): Response
+    public function dash(ParameterBagInterface $params): Response
     {
+        $log_files = [];
+        $base_dir = "{$params->get('kernel.project_dir')}/var/log";
+        $log_paths = [$base_dir];
+
+        while (!empty($log_paths)) {
+            $path = array_pop($log_paths);
+            foreach (new DirectoryIterator($path) as $fileInfo) {
+                /** @var SplFileInfo $fileInfo */
+                if ($fileInfo->isDot() || $fileInfo->isLink()) continue;
+                elseif ($fileInfo->isFile() && strtolower($fileInfo->getExtension()) === 'log')
+                    $log_files[] = str_replace(['/','\\'],'::', str_replace("$base_dir/",'', $fileInfo->getRealPath()));
+                elseif ($fileInfo->isDir()) $log_paths[] = $fileInfo->getRealPath();
+            }
+        }
+
+
         return $this->render( 'ajax/admin/dash.html.twig', $this->addDefaultTwigArgs(null, [
+            'logs' => $log_files,
             'actions' => self::getAdminActions(),
             'now' => time(),
             'schedules' => $this->isGranted('ROLE_ADMIN') ? $this->entity_manager->getRepository(AttackSchedule::class)->findByCompletion( false ) : [],
@@ -114,32 +135,43 @@ class AdminActionController extends CustomAbstractController
     }
 
     /**
-     * @Route("admin/log/{a}", name="admin_log", condition="!request.isXmlHttpRequest()")
+     * @Route("admin/log/{a}/{f}", name="admin_log", condition="!request.isXmlHttpRequest()")
      * @param ParameterBagInterface $params
      * @param string $a
+     * @param string $f
      * @return Response
      */
-    public function log(ParameterBagInterface $params, string $a = ''): Response
+    public function log(ParameterBagInterface $params, string $a = '', string $f = ''): Response
     {
+        if (!$this->isGranted('ROLE_ADMIN')) return new Response('', 403);
+
         $dispo = 'attachment';
         if ($a === 'view') $dispo = 'inline';
 
-        return $this->file($params->get('kernel.project_dir') . '/var/log/' . $params->get('kernel.environment') . '.log', 'myhordes.log', $dispo);
+        if (empty($f)) $f = $params->get('kernel.environment');
+        $f = str_replace(['..','::'],['','/'],$f);
+
+        $path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/log/{$f}");
+        if ($path->isFile() && strtolower($path->getExtension()) === 'log') return $this->file($path->getRealPath(), $path->getFilename(), $dispo);
+        else return new Response('', 404);
     }
 
     /**
-     * @Route("api/admin/clearlog", name="api_admin_clear_log")
+     * @Route("api/admin/clearlog/{f}", name="api_admin_clear_log")
      * @param ParameterBagInterface $params
+     * @param string $f
      * @return Response
      */
-    public function clear_log_api(ParameterBagInterface $params): Response
+    public function clear_log_api(ParameterBagInterface $params, string $f = ''): Response
     {
+        if (!$this->isGranted('ROLE_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
-        $f = $params->get('kernel.project_dir') . '/var/log/' . $params->get('kernel.environment') . '.log';
-        if (file_exists( $f )) {
-            $ff = fopen($f, "w+");
-            fclose($ff);
-        }
+        if (empty($f)) $f = $params->get('kernel.environment');
+        $f = str_replace(['..','::'],['','/'],$f);
+
+        $path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/log/{$f}");
+        if ($path->isFile() && strtolower($path->getExtension()) === 'log')
+            unlink($path->getRealPath());
 
         return AjaxResponse::success();
     }
@@ -168,16 +200,11 @@ class AdminActionController extends CustomAbstractController
      */
     public function index(int $id): Response
     {
-        switch ($id) {
-            case 0: return $this->redirect($this->generateUrl('admin_dashboard'));
-            case 1: return $this->redirect($this->generateUrl('admin_users'));
-            case 2: return $this->redirect($this->generateUrl('admin_reports'));
-            case 3: return $this->redirect($this->generateUrl('admin_town_list'));
-            case 4: return $this->redirect($this->generateUrl('admin_changelogs'));
-            case 5: return $this->redirect($this->generateUrl('admin_spam_domain_view'));
-            case 6: return $this->redirect($this->generateUrl('admin_app_view'));
-            default: break;
+        $actions = self::getAdminActions();
+        if (isset($actions[$id]) && isset($actions[$id]['route'])) {
+            return $this->redirect($this->generateUrl($actions[$id]['route']));
         }
+
         return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
     }
 

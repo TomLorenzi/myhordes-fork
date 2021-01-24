@@ -104,6 +104,18 @@ div.map_area {
         position: absolute; z-index: 4; cursor: pointer;
         &.on-route { filter: hue-rotate(90deg); transform: scale(1.2); }
       }
+      &.morning,
+      &.evening{
+        background: url("../../img/game-bar/glass_tl.png") 0 0 no-repeat,url("../../img/game-bar/glass_tr.png") 100% 0 no-repeat,url("../../img/game-bar/glass_bl.png") 0 100% no-repeat,url("../../img/game-bar/glass_br.png") 100% 100% no-repeat,url("../../img/game-bar/glass_t.png") 0 0 repeat-x,url("../../img/game-bar/glass_l.png") 0 0 repeat-y,url("../../img/game-bar/glass_r.png") 100% 0 repeat-y,url("../../img/game-bar/glass_b.png") 0 100% repeat-x,radial-gradient(transparent 60%, rgba(128, 0, 0, 0.2));
+      }
+
+      &.night {
+        background: url("../../img/game-bar/glass_tl.png") 0 0 no-repeat,url("../../img/game-bar/glass_tr.png") 100% 0 no-repeat,url("../../img/game-bar/glass_bl.png") 0 100% no-repeat,url("../../img/game-bar/glass_br.png") 100% 100% no-repeat,url("../../img/game-bar/glass_t.png") 0 0 repeat-x,url("../../img/game-bar/glass_l.png") 0 0 repeat-y,url("../../img/game-bar/glass_r.png") 100% 0 repeat-y,url("../../img/game-bar/glass_b.png") 0 100% repeat-x,radial-gradient(transparent 60%, rgba(13, 37, 107, 0.5));
+      }
+
+      &.blocked {
+        background-image: url("../../img/map/blood.png");
+      }
       &>.scout-sense,&>.scavenger-sense,&>.marker-direction { cursor: default; pointer-events: none; }
       &>.scout-sense-west , &>.scavenger-sense-west  { top: 43%; bottom: 43%; left: 8%; right: 87% }
       &>.scout-sense-east , &>.scavenger-sense-east  { top: 43%; bottom: 43%; left: 87%; right: 8% }
