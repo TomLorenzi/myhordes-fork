@@ -3,7 +3,7 @@ parameters:
     default:
       allow_local_conf: true
 
-      open_town_limit: 5
+      open_town_limit: -1
       lock_door_until_full: false
 
       well:       { min: 90, max: 180 }
