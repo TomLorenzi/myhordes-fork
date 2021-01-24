@@ -7460,7 +7460,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</source>
-        <target>You hit a zombie with all your strength, several times, but your punches turned out to be more Joe Biden than Joe Calzaghe... You couldn't get him to go down !</target>
+        <target>You hit a zombie with all your strength, several times, but your punches turned out to be more Joe Quimby than Joe Calzaghe... You couldn't get him to go down !</target>
       </segment>
     </unit>
     <unit id="tT6PQwS" name="Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...">
@@ -7469,7 +7469,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...</source>
-        <target><![CDATA[Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...]]></target>
+        <target><![CDATA[Your weapon just <strong>broke</strong> on impact...]]></target>
       </segment>
     </unit>
     <unit id="fqH14J." name="Weihnachts-Süßigkeiten">
