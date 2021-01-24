@@ -19,6 +19,7 @@ use App\Translation\T;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -125,11 +126,23 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
+     * @Route("jx/pm", name="pm_proxy_view")
+     * @return Response
+     */
+    public function pm_proxy_view(): Response {
+        return $this->render( 'ajax/pm/proxy.html.twig', $this->addDefaultTwigArgs());
+    }
+
+    /**
      * @Route("jx/pm/view", name="pm_view")
      * @return Response
      */
     public function pm_view(): Response {
-        return $this->render( 'ajax/pm/view.html.twig', ['rk' => (new DateTime('now'))->getTimestamp()]);
+        $target = Request::createFromGlobals()->headers->get('X-Render-Target', '');
+
+        if ($target === 'post-office-content')
+            return $this->render( 'ajax/pm/view.html.twig', ['rk' => (new DateTime('now'))->getTimestamp()]);
+        return $this->pm_proxy_view();
     }
 
     /**

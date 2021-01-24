@@ -1,0 +1,39 @@
+{% extends "ajax/game/game.html.twig" %}
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
+
+{% block ajax %}
+    <div class="row">
+        <div class="cell rw-12">
+            <div id="pm-proxy-loader">
+                <br/><br/>
+                <div class="center"><i class="fa fa-5x fa-spin fa-circle-notch"></i></div>
+                <div class="center">{{ 'Posteingang wird geladen ...'|trans({},'global') }}</div>
+                <br /><br />
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script>
+        let tc = 0;
+        let check_box = function () {
+            const p = document.getElementById('postbox');
+            if (p) {
+                p.click();
+                $.html.addEventListenerAll('#post-office-button-overlay>ul>li:last-child','click', function() {
+                    document.getElementById('pm-proxy-loader').style.opacity = '0';
+                    window.location.href = $.ajax.getBaseURL();
+                });
+            }
+            else if (tc++ <= 10) setTimeout(check_box, 500);
+            else alert('{{ 'Fehler beim Laden des Posteingangs.'|trans({},'global') }}')
+        }
+        check_box();
+
+    </script>
+{% endblock %}

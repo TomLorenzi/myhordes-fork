@@ -55,6 +55,8 @@ const resize_game_menu = function() {
     let game_menu_burger = document.querySelector('#gma>div.game-bar>ul.text-menu>li.burger-button');
     let game_menu_hide = document.querySelectorAll('#gma>div.game-bar>ul.text-menu>li:not(.burger-button)');
 
+    if (!game_menu) return;
+
     if(game_menu_burger !== null)
         game_menu_burger.style.display = 'none';
 
