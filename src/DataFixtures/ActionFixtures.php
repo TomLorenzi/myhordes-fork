@@ -443,11 +443,11 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'kitchen_fail_food'    => [ 'what' => ['dish_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
                 'kitchen_success_food' => [ 'what' => ['dish_tasty_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
 
-                'meat_4xs' => [ 'what' => [ 'meat_#00',  4 ], 'where' => AffectItemSpawn::DropTargetFloor],
-                'meat_4x'  => [ 'what' => [ 'undef_#00', 4 ], 'where' => AffectItemSpawn::DropTargetFloor],
-                'meat_2xs' => [ 'what' => [ 'meat_#00',  2 ], 'where' => AffectItemSpawn::DropTargetFloor],
-                'meat_2x'  => [ 'what' => [ 'undef_#00', 2 ], 'where' => AffectItemSpawn::DropTargetFloor],
-                'meat_bmb' => [ 'what' => [ 'flesh_#00', 2 ], 'where' => AffectItemSpawn::DropTargetFloor],
+                'meat_4xs' => [ 'what' => [ ['meat_#00',  4] ], 'where' => AffectItemSpawn::DropTargetFloor],
+                'meat_4x'  => [ 'what' => [ ['undef_#00', 4] ], 'where' => AffectItemSpawn::DropTargetFloor],
+                'meat_2xs' => [ 'what' => [ ['meat_#00',  2] ], 'where' => AffectItemSpawn::DropTargetFloor],
+                'meat_2x'  => [ 'what' => [ ['undef_#00', 2] ], 'where' => AffectItemSpawn::DropTargetFloor],
+                'meat_bmb' => [ 'what' => [ ['flesh_#00', 2] ], 'where' => AffectItemSpawn::DropTargetFloor],
 
                 'potion'   => [ [ 'potion_#00', 1] ],
             ],
