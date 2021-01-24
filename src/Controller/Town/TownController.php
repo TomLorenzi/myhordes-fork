@@ -139,8 +139,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         $town = $this->getActiveCitizen()->getTown();
 
-        $has_zombie_est_today    = !empty($th->getBuilding($town, 'item_tagger_#00'));
-        $has_zombie_est_tomorrow = !empty($th->getBuilding($town, 'item_tagger_#02'));
+        $has_zombie_est_today    = !empty($this->town_handler->getBuilding($town, 'item_tagger_#00'));
+        $has_zombie_est_tomorrow = !empty($this->town_handler->getBuilding($town, 'item_tagger_#02'));
 
         $citizens = $town->getCitizens();
         $alive = 0;
@@ -173,7 +173,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $item_def_count = $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ), false, false);
 
         $est0 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
-        $has_estimated = $est0 && ($est0->getCitizens()->contains($this->getActiveCitizen()) || $th->get_zombie_estimation_quality($town) >= 1.0);
+        $has_estimated = $est0 && ($est0->getCitizens()->contains($this->getActiveCitizen()) || $this->town_handler->get_zombie_estimation($town) >= 1.0);
 
         $display_home_upgrade = false;
         foreach ($citizens as $citizen) {
@@ -202,7 +202,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
         }
 
-        $estims = $this->town_handler->get_zombie_estimation_quality($town);
+        $estims = $this->town_handler->get_zombie_estimation($town);
         $zeds_today = [
             $has_zombie_est_today, // Can see
             $estims[0]->getMin(), // Min
@@ -218,7 +218,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
-            'def' => $th->calculate_town_def($town, $defSummary),
+            'def' => $this->town_handler->calculate_town_def($town, $defSummary),
             'zeds_today'    => $zeds_today,
             'zeds_tomorrow' => $zeds_tomorrow,
             'living_citizens' => $alive,

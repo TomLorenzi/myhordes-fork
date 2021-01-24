@@ -115,7 +115,7 @@ class TownAddonsController extends TownController
 
         $has_zombie_est_tomorrow = !empty($this->town_handler->getBuilding($town, 'item_tagger_#02'));
 
-        $estims = $this->town_handler->get_zombie_estimation_quality($town);
+        $estims = $this->town_handler->get_zombie_estimation($town);
 
         $z0 = [
             true, // Can see
