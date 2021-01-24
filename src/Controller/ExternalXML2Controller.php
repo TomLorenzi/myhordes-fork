@@ -720,7 +720,7 @@ class ExternalXML2Controller extends ExternalController {
                             'maxed' => intval($estims[0]->getEstimation() >= 1)
                         ]
                     ];
-                    if ($estims[0]->getEstimation() > 0 && $has_zombie_est_tomorrow) {
+                    if ($estims[0]->getEstimation() >= 1 && $has_zombie_est_tomorrow) {
                         $data['data']['estimations']['list']['items'][] = [
                             'attributes' => [
                                 'day' => ($town->getDay() + 1),
