@@ -17,7 +17,7 @@
                             {% if owner %}
                                 {% if user != app.user %}
                                     <div class="pm-userbox-action" x-api-call="{{ path('pm_conv_group_user_kick', {gid: gid, uid: user.id}) }}">
-                                        <img src="{{ asset('build/images/icons/fired.gif') }}" alt="(X)">
+                                        <img src="{{ asset('build/images/icons/small_remove.gif') }}" alt="(X)">
                                         <div class="tooltip"><b>{{ 'Spieler ausschließen'|trans({},'global') }}</b><br />
                                             {{ 'Ausgeschlossene Spieler können die vor ihrem Ausschluss geposteten Nachrichten in der Gruppe weiterhin lesen, erhalten allerdings keine neuen Nachrichten mehr und können auch nicht mehr antworten.'|trans({},'global') }}
                                         </div>
