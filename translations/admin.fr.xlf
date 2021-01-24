@@ -2305,5 +2305,32 @@
         <target>Saison actuelle</target>
       </segment>
     </unit>
+    <unit id="hIEL.qI" name="AP">
+      <notes>
+        <note category="german">AP</note>
+      </notes>
+      <segment>
+        <source>AP</source>
+        <target>AP</target>
+      </segment>
+    </unit>
+    <unit id="Q_CT7Yc" name="Setzen">
+      <notes>
+        <note category="german">Setzen</note>
+      </notes>
+      <segment>
+        <source>Setzen</source>
+        <target>Setzen</target>
+      </segment>
+    </unit>
+    <unit id="wM4Qh3r" name="Abziehen">
+      <notes>
+        <note category="german">Abziehen</note>
+      </notes>
+      <segment>
+        <source>Abziehen</source>
+        <target>Abziehen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

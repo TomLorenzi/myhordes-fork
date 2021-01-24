@@ -6190,7 +6190,7 @@
     </unit>
     <unit id="edsJJvH" name="Wie viele Seelen hat Ihre Stadt befreien können.">
       <notes>
-        <note category="german">Wie viele Seelen hat Ihre Stadt befreien können.</note>
+        <note category="german">Anzahl der Seelen, die die Stadt befreien konnte</note>
       </notes>
       <segment>
         <source>Wie viele Seelen hat Ihre Stadt befreien können.</source>
@@ -14384,7 +14384,7 @@
     </unit>
     <unit id="dMCiesS" name="Wie viele Seelen hat Ihre Stadt befreien können. (job)">
       <notes>
-        <note category="german">Anzahl der Seelen, die du in der Werkstatt umgewandelt hast.</note>
+        <note category="german">Anzahl der Seelen, die du in der Werkstatt umgewandelt hast</note>
       </notes>
       <segment>
         <source>Wie viele Seelen hat Ihre Stadt befreien können. (job)</source>
@@ -16890,7 +16890,7 @@
     </unit>
     <unit id="z8XQiYT" name="Runaway Michael">
       <notes>
-        <note category="german">Runaway Michael</note>
+        <note category="german">Bear Grylls</note>
       </notes>
       <segment>
         <source>Runaway Michael</source>
@@ -17291,6 +17291,24 @@
       <segment>
         <source>Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</source>
         <target>La quarantaine dans votre ville "%town%" a été levée. Désormais, l'attaque nocturne aura lieu à nouveau à l'heure habituelle.</target>
+      </segment>
+    </unit>
+    <unit id="O2fzsqE" name="%citizen% hat an dem Bauprojekt %plan% mitgearbeitet.">
+      <notes>
+        <note category="german">%citizen% hat an dem Bauprojekt %plan% mitgearbeitet.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet.</source>
+        <target>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet.</target>
+      </segment>
+    </unit>
+    <unit id="7MfXJbM" name="%citizen% hat das Gebäude %plan% repariert.">
+      <notes>
+        <note category="german">%citizen% hat das Gebäude %plan% repariert.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat das Gebäude %plan% repariert.</source>
+        <target>%citizen% hat das Gebäude %plan% repariert.</target>
       </segment>
     </unit>
   </file>

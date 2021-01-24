@@ -2266,5 +2266,32 @@
         <target>Saison %number%</target>
       </segment>
     </unit>
+    <unit id="J6NchKS" name="Pos.">
+      <notes>
+        <note category="german">Pos.</note>
+      </notes>
+      <segment>
+        <source>Pos.</source>
+        <target>Pos.</target>
+      </segment>
+    </unit>
+    <unit id="OOWkbLx" name="Score">
+      <notes>
+        <note category="german">Score</note>
+      </notes>
+      <segment>
+        <source>Score</source>
+        <target>Score</target>
+      </segment>
+    </unit>
+    <unit id="epp2oSj" name="Vorangegangene Saisons:">
+      <notes>
+        <note category="german">Vorangegangene Saisons:</note>
+      </notes>
+      <segment>
+        <source>Vorangegangene Saisons:</source>
+        <target>Vorangegangene Saisons:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
