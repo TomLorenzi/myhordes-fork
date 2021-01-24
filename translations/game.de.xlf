@@ -6142,7 +6142,7 @@
       </notes>
       <segment>
         <source>Wie viele Seelen hat Ihre Stadt befreien können.</source>
-        <target>Wie viele Seelen hat Ihre Stadt befreien können.</target>
+        <target>Anzahl der Seelen, die die Stadt befreien konnte</target>
       </segment>
     </unit>
     <unit id="faOzY5m" name="Wüstenausflüge">
@@ -14344,7 +14344,7 @@
       </notes>
       <segment>
         <source>Wie viele Seelen hat Ihre Stadt befreien können. (job)</source>
-        <target>Anzahl der Seelen, die du in der Werkstatt umgewandelt hast.</target>
+        <target>Anzahl der Seelen, die du in der Werkstatt umgewandelt hast</target>
       </segment>
     </unit>
     <unit id="MsIlSXC" name="Ich bin geheilt">

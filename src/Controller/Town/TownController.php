@@ -1142,10 +1142,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         // Create a log entry
         if ($this->town_handler->getBuilding($town, 'item_rp_book2_#00', true)) {
+            // TODO: Create an option to include AP in Log entries as a town parameter?
             if (!$was_completed)
-                $this->entity_manager->persist( $this->log->constructionsInvestAP( $citizen, $building->getPrototype(), $ap ) );
+                $this->entity_manager->persist( $this->log->constructionsInvest( $citizen, $building->getPrototype(), $ap ) );
             else
-                $this->entity_manager->persist( $this->log->constructionsInvestRepairAP( $citizen, $building->getPrototype(), $ap ) );
+                $this->entity_manager->persist( $this->log->constructionsInvestRepair( $citizen, $building->getPrototype(), $ap ) );
         }
 
         // Calculate the amount of AP that will be invested in the construction

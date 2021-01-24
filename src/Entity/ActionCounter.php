@@ -21,6 +21,10 @@ class ActionCounter
     const ActionTypeSendPMItem  = 7;
     const ActionTypeSandballHit = 8;
 
+    const PerGameActionTypes = [
+        self::ActionTypeRemoveLog,
+    ];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -45,6 +49,11 @@ class ActionCounter
     private $citizen;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $daily = true;
+
+    /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $last;
@@ -62,6 +71,10 @@ class ActionCounter
     public function setType(int $type): self
     {
         $this->type = $type;
+
+        if (in_array($type, self::PerGameActionTypes)) {
+            $this->daily = false;
+        }
 
         return $this;
     }
@@ -103,6 +116,18 @@ class ActionCounter
     public function setLast(?\DateTimeInterface $last): self
     {
         $this->last = $last;
+
+        return $this;
+    }
+
+    public function getDaily(): ?bool
+    {
+        return $this->daily;
+    }
+
+    public function setDaily(bool $daily): self
+    {
+        $this->daily = $daily;
 
         return $this;
     }

@@ -778,7 +778,7 @@ class NightlyHandler
             $this->citizen_handler->setAP($citizen,false,$this->citizen_handler->getMaxAP( $citizen ),0);
             $this->citizen_handler->setBP($citizen,false,$this->citizen_handler->getMaxBP( $citizen ),0);
             $this->citizen_handler->setPM($citizen,false,$this->citizen_handler->getMaxPM( $citizen ));
-            $citizen->getActionCounters()->clear();
+            $citizen->getActionCounters()->filter(function($action_counter) { return $action_counter->getDaily(); })->clear();
             $citizen->getDigTimers()->clear();
             if ($citizen->getEscortSettings()) $this->entity_manager->remove($citizen->getEscortSettings());
             $citizen->setEscortSettings(null);

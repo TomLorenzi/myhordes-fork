@@ -366,7 +366,7 @@ class ExternalXML2Controller extends ExternalController {
                 ],
                 'bank' => [
                     'list' => [
-                        'name' => 'item', 
+                        'name' => 'item',
                         'items' => [
 
                         ]
@@ -380,17 +380,17 @@ class ExternalXML2Controller extends ExternalController {
                 ],
                 'citizens' => [
                     'list' => [
-                        'name' => 'citizen', 
+                        'name' => 'citizen',
                         'items' => [
-                            
+
                         ]
                     ]
                 ],
                 'cadavers' => [
                     'list' => [
-                        'name' => 'cadaver', 
+                        'name' => 'cadaver',
                         'items' => [
-                            
+
                         ]
                     ]
                 ],
@@ -400,9 +400,9 @@ class ExternalXML2Controller extends ExternalController {
                         'wid' => $town->getMapSize()
                     ],
                     'list' => [
-                        'name' => 'zone', 
+                        'name' => 'zone',
                         'items' => [
-                            
+
                         ]
                     ]
                 ],
@@ -411,17 +411,17 @@ class ExternalXML2Controller extends ExternalController {
                         'total' => 0,
                     ],
                     'list' => [
-                        'name' => 'up', 
+                        'name' => 'up',
                         'items' => [
-                            
+
                         ]
                     ]
                 ],
                 'estimations' => [
                     'list' => [
-                        'name' => 'e', 
+                        'name' => 'e',
                         'items' => [
-                            
+
                         ]
                     ]
                 ]
@@ -450,13 +450,13 @@ class ExternalXML2Controller extends ExternalController {
                     }
                 }
 
-                if($building->getPrototype()->getParent() !== null) {
+                if ($building->getPrototype()->getParent() !== null) {
                     $buildingXml['attributes']['parent'] = $building->getPrototype()->getParent()->getId();
                 }
 
                 $data['data']['city']['list']['items'][] = $buildingXml;
 
-                if($building->getPrototype()->getMaxLevel() > 0 && $building->getLevel() > 0){
+                if ($building->getPrototype()->getMaxLevel() > 0 && $building->getLevel() > 0) {
                     $data['data']['upgrades']['attributes']['total'] += $building->getLevel();
                     $updateXml = [
                         'attributes' => [
@@ -646,12 +646,13 @@ class ExternalXML2Controller extends ExternalController {
             // Map
             foreach($town->getZones() as $zone) {
                 /** @var Zone $zone */
-                if($zone->getDiscoveryStatus() === Zone::DiscoveryStateNone) continue;
+
+                if ($zone->getDiscoveryStatus() === Zone::DiscoveryStateNone) continue;
 
                 $danger = 0;
-                if($zone->getZombies() > 0 && $zone->getZombies() <= 2) {
+                if ($zone->getZombies() > 0 && $zone->getZombies() <= 2) {
                     $danger = 1;
-                } else if($zone->getZombies() > 2 && $zone->getZombies() <= 5) {
+                } else if ($zone->getZombies() > 2 && $zone->getZombies() <= 5) {
                     $danger = 2;
                 } else if ($zone->getZombies() > 5) {
                     $danger = 3;
@@ -671,21 +672,22 @@ class ExternalXML2Controller extends ExternalController {
                     }
                 }
 
-                if($zone->getTag() !== null && $zone->getTag()->getRef() !== ZoneTag::TagNone) {
+                if ($zone->getTag() !== null && $zone->getTag()->getRef() !== ZoneTag::TagNone) {
                     $item['attributes']['tag'] = $zone->getTag()->getRef();
                 }
 
                 if ($zone->getZombieStatus() == Zone::ZombieStateExact && $zone->getZombies() > 0) {
-                    $item["attributes"]["z"] = $zone->getZombies();
+                    $item['attributes']['z'] = $zone->getZombies();
                 }
 
-                if($zone->getPrototype() !== null) {
+                if ($zone->getPrototype() !== null) {
                     $zoneXml = [
                         'attributes' => [
                             'type' => $zone->getBuryCount() > 0 ? -1 : $zone->getPrototype()->getId(),
                             'dig' => $zone->getBuryCount()
                         ]
                     ];
+
                     if ($language !== 'all') {
                         $zoneXml['attributes']['name'] = $zone->getBuryCount() > 0 ? $this->translator->trans('Verschüttete Ruine', [], 'game') : $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game');
                         $zoneXml['cdata_value'] = $zone->getBuryCount() > 0 ? $this->translator->trans('Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.', [], 'game') : $this->translator->trans($zone->getPrototype()->getDescription(), [], 'game');
@@ -744,11 +746,11 @@ class ExternalXML2Controller extends ExternalController {
             $now = date('Y-m-d H:i:s');
         }
 
-        if($user instanceof Response)
+        if ($user instanceof Response)
             return $user;
 
         $language = $this->getRequestLanguage($request,$user);
-        if($language !== 'all')
+        if ($language !== 'all')
             $this->translator->setLocale($language);
 
         // Base data.

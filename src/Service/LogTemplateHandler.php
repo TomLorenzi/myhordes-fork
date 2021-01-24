@@ -294,9 +294,33 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
+    public function constructionsInvest( Citizen $citizen, BuildingPrototype $proto ): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId(), 'plan' => $proto->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'constructionsInvest']);
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
     public function constructionsInvestAP( Citizen $citizen, BuildingPrototype $proto, int $ap ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(), 'plan' => $proto->getId(), 'ap' => $ap);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'constructionsInvestAP']);
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
+    public function constructionsInvestRepair( Citizen $citizen, BuildingPrototype $proto ): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId(), 'plan' => $proto->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'constructionsInvestRepair']);
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
