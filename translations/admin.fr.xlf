@@ -2212,7 +2212,7 @@
       </notes>
       <segment>
         <source>Neue Saison</source>
-        <target>Neue Saison</target>
+        <target>Nouvelle saison</target>
       </segment>
     </unit>
     <unit id="wVUnsZu" name="Seasons">
@@ -2221,7 +2221,7 @@
       </notes>
       <segment>
         <source>Seasons</source>
-        <target>Seasons</target>
+        <target>Saisons</target>
       </segment>
     </unit>
     <unit id="5vc95gS" name="Akt.">
@@ -2239,7 +2239,7 @@
       </notes>
       <segment>
         <source>Nummer</source>
-        <target>Nummer</target>
+        <target>Numéro</target>
       </segment>
     </unit>
     <unit id="ZOp9mWZ" name="Sub-Nummer">
@@ -2248,7 +2248,7 @@
       </notes>
       <segment>
         <source>Sub-Nummer</source>
-        <target>Sub-Nummer</target>
+        <target>Sous-numéro</target>
       </segment>
     </unit>
     <unit id="3NHVIj9" name="Name">
@@ -2257,7 +2257,7 @@
       </notes>
       <segment>
         <source>Name</source>
-        <target>Name</target>
+        <target>Nom</target>
       </segment>
     </unit>
     <unit id="W_0lUFE" name="Saison &quot;%season%&quot;">
@@ -2275,7 +2275,7 @@
       </notes>
       <segment>
         <source>Name der Saison</source>
-        <target>Name der Saison</target>
+        <target>Nom de la Saison</target>
       </segment>
     </unit>
     <unit id="3RyPmTj" name="Saison Nummer">
@@ -2284,7 +2284,7 @@
       </notes>
       <segment>
         <source>Saison Nummer</source>
-        <target>Saison Nummer</target>
+        <target>Numéro de Saison</target>
       </segment>
     </unit>
     <unit id="1uPFCaE" name="Saison Sub-Nummer">
@@ -2293,7 +2293,7 @@
       </notes>
       <segment>
         <source>Saison Sub-Nummer</source>
-        <target>Saison Sub-Nummer</target>
+        <target>Sous-numéro de Saison</target>
       </segment>
     </unit>
     <unit id="V8mA5zz" name="Aktuelle Saison">
@@ -2302,7 +2302,7 @@
       </notes>
       <segment>
         <source>Aktuelle Saison</source>
-        <target>Aktuelle Saison</target>
+        <target>Saison actuelle</target>
       </segment>
     </unit>
   </file>

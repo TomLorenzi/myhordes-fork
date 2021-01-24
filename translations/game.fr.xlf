@@ -14037,7 +14037,7 @@
       </notes>
       <segment>
         <source>Seele eines Profis</source>
-        <target>Ame du professionnel</target>
+        <target>Âme du professionnel</target>
       </segment>
     </unit>
     <unit id="W6KG1Kx" name="Personalisierter Titel - Techniker (T-ID: 631944)">
@@ -14253,7 +14253,7 @@
       </notes>
       <segment>
         <source>Hölle, das esse ich jeden Morgen.</source>
-        <target>L'enfer, j'en mange un peu chaque matin"</target>
+        <target>L'enfer, j'en mange un peu chaque matin</target>
       </segment>
     </unit>
     <unit id="L0BHZsf" name="Abonnent der Pandämoniumsauna">
@@ -17263,7 +17263,7 @@
       </notes>
       <segment>
         <source>Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</source>
-        <target>Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</target>
+        <target>Votre ville "%town%" a été annulée par un administrateur. La ville n'apparaîtra pas dans le classement ou sur votre âme et vous n'obtiendrez pas de points d'âme ou de récompenses pour elle.</target>
       </segment>
     </unit>
     <unit id="g0fspLE" name="d7ab8db">
@@ -17272,7 +17272,7 @@
       </notes>
       <segment>
         <source>Deine Stadt "%town%" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</source>
-        <target>Deine Stadt "%town%" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</target>
+        <target>Votre ville "%town%" a été automatiquement annulée car elle ne s'est pas remplie à temps. La ville n'apparaîtra pas dans le classement ou sur votre âme et vous n'obtiendrez pas de points d'âme ou de récompenses pour elle.</target>
       </segment>
     </unit>
     <unit id="EZZp0Cu" name="8b9de7a">
@@ -17281,7 +17281,7 @@
       </notes>
       <segment>
         <source>Deine Stadt "%town%" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.</source>
-        <target>Deine Stadt "%town%" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.</target>
+        <target>Votre ville "%town%" est en quarantaine en raison d'un problème technique. Les administrateurs ont déjà été informés. Tant que la ville est en quarantaine, vous pouvez continuer à jouer normalement, mais l'attaque nocturne est annulée et il n'y a pas de changement de jour. Vous serez averti dès que le problème sera résolu et que la quarantaine sera levée.</target>
       </segment>
     </unit>
     <unit id="fPHWumZ" name="40e06cb">
@@ -17290,7 +17290,7 @@
       </notes>
       <segment>
         <source>Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</source>
-        <target>Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</target>
+        <target>La quarantaine dans votre ville "%town%" a été levée. Désormais, l'attaque nocturne aura lieu à nouveau à l'heure habituelle.</target>
       </segment>
     </unit>
   </file>
