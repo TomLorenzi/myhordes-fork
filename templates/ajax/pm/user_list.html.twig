@@ -17,7 +17,7 @@
                             {% if owner %}
                                 {% if user != app.user %}
                                     <div class="pm-userbox-action" x-api-call="{{ path('pm_conv_group_user_kick', {gid: gid, uid: user.id}) }}">
-                                        <i class="fa fa-times-circle"></i>
+                                        <img src="{{ asset('build/images/icons/fired.gif') }}" alt="(X)">
                                         <div class="tooltip"><b>{{ 'Spieler ausschließen'|trans({},'global') }}</b><br />
                                             {{ 'Ausgeschlossene Spieler können die vor ihrem Ausschluss geposteten Nachrichten in der Gruppe weiterhin lesen, erhalten allerdings keine neuen Nachrichten mehr und können auch nicht mehr antworten.'|trans({},'global') }}
                                         </div>
@@ -28,7 +28,7 @@
                 {% endfor %}
                 {% if owner and can_add %}
                     <div class="cell"><div class="pm-userbox"><div class="pm-avatar empty"></div><div class="pm-userbox-action" id="pm-add-user-button">
-                        <i class="fa fa-plus-square"></i>
+                        <img src="{{ asset('build/images/icons/small_more2.gif') }}" alt="[+]">
                         <div class="tooltip"><b>{{ 'Spieler hinzufügen'|trans({},'global') }}</b><br />
                             {{ 'Neu hinzugefügte Spieler erhalten Zugriff auf alle Nachrichten in der Gruppe.'|trans({},'global') }}
                         </div>
@@ -55,7 +55,7 @@
                                 <div class="pm-userbox-name">{{ user.name }}</div>
                                 {% if owner %}
                                     <div class="pm-userbox-action" x-api-call="{{ path('pm_conv_group_user_restore', {gid: gid, uid: user.id}) }}">
-                                        <i class="fa fa-plus-circle"></i>
+                                        <img src="{{ asset('build/images/icons/small_more2.gif') }}" alt="[+]">
                                         <div class="tooltip"><b>{{ 'Ausschluss annulieren'|trans({},'global') }}</b><br />
                                             {{ 'Der Ausschluss des Spielers wird annuliert und er oder sie erhält wieder vollen Zugriff auf die Gruppe.'|trans({},'global') }}
                                         </div>
