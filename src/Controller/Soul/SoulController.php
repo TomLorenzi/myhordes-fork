@@ -39,6 +39,7 @@ use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -267,6 +268,8 @@ class SoulController extends CustomAbstractController
      */
     public function soul_season($type = null, JSONRequestParser $parser): Response
     {
+        return $this->redirect($this->generateUrl('soul_me'));
+
         $user = $this->getUser();
         $seasonId = $parser->get('season', null);
 
