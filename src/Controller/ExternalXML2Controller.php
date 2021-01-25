@@ -1242,7 +1242,7 @@ class ExternalXML2Controller extends ExternalController {
                 }
                 /** @var Zone $zone */
                 $zone = $citizen->getZone();
-                if($zone !== null){
+                if($zone !== null && ($zone->getX() !== 0 || $zone->getY() !== 0)){
                     $cp = 0;
                     foreach ($zone->getCitizens() as $c) {
                         if ($c->getAlive()) {
@@ -1252,18 +1252,15 @@ class ExternalXML2Controller extends ExternalController {
 
                     $headers['headers']['owner']['myZone'] = [
                         "attributes" => [
+                            'dried' => intval($zone->getDigs() <= 0),
+                            'h' => $cp,
+                            'z' => $zone->getZombies()
                         ],
                         'list' => [
                             'name' => 'item',
                             'items' => []
                         ]
                     ];
-
-                    if($zone->getX() !== 0 || $zone->getY() !== 0) {
-                        $headers['headers']['owner']['myZone']['attributes']['dried'] = intval($zone->getDigs() <= 0);
-                        $headers['headers']['owner']['myZone']['attributes']['h'] = $cp;
-                        $headers['headers']['owner']['myZone']['attributes']['z'] = $zone->getZombies();
-                    }
 
                     /** @var Item $item */
                     foreach($zone->getFloor()->getItems() as $item) {
