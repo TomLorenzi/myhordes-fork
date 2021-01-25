@@ -2311,7 +2311,7 @@
       </notes>
       <segment>
         <source>AP</source>
-        <target>AP</target>
+        <target>PA</target>
       </segment>
     </unit>
     <unit id="Q_CT7Yc" name="Setzen">
@@ -2320,7 +2320,7 @@
       </notes>
       <segment>
         <source>Setzen</source>
-        <target>Setzen</target>
+        <target>Mettre</target>
       </segment>
     </unit>
     <unit id="wM4Qh3r" name="Abziehen">
@@ -2329,7 +2329,7 @@
       </notes>
       <segment>
         <source>Abziehen</source>
-        <target>Abziehen</target>
+        <target>Retirer</target>
       </segment>
     </unit>
   </file>
