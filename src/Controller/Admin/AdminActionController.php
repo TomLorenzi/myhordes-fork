@@ -85,6 +85,7 @@ class AdminActionController extends CustomAbstractController
                 $entries[$idx]['type'] = $template->getType();
                 $entries[$idx]['id'] = $entity->getId();
                 $entries[$idx]['hidden'] = $entity->getHidden();
+                $entries[$idx]['hiddenBy'] = $entity->getHiddenBy();
 
                 $variableTypes = $template->getVariableTypes();
                 $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $entityVariables);
