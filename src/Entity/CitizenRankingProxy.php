@@ -98,7 +98,7 @@ class CitizenRankingProxy
     /**
      * @ORM\Column(type="integer")
      */
-    private $dayOfDeath;
+    private $dayOfDeath = 1;
 
     public function getId(): ?int
     {
