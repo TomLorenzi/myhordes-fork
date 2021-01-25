@@ -6,6 +6,7 @@ use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\CitizenRole;
 use App\Entity\ExpeditionRoute;
 use App\Entity\ExternalApp;
 use App\Entity\Gazette;
@@ -438,6 +439,19 @@ class ExternalXML2Controller extends ExternalController {
                     ]
                 ]
             ];
+
+            // Town roles
+            /** @var Citizen $latest_guide */
+            $latest_guide = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => 'guide']), $town);
+            if ($latest_guide && $latest_guide->getAlive()) {
+                $data['data']['city']['attributes']['guide'] = $latest_guide->getUser()->getId();
+            }
+
+            /** @var Citizen $latest_shaman */
+            $latest_shaman = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($this->entity_manager->getRepository(CitizenRole::class)->findOneBy(['name' => 'shaman']), $town);
+            if ($latest_shaman && $latest_shaman->getAlive()) {
+                $data['data']['city']['attributes']['shaman'] = $latest_shaman->getUser()->getId();
+            }
 
             // Town buildings
             foreach($town->getBuildings() as $building){
@@ -1228,7 +1242,7 @@ class ExternalXML2Controller extends ExternalController {
                 }
                 /** @var Zone $zone */
                 $zone = $citizen->getZone();
-                if($zone !== null){
+                if($zone !== null && ($zone->getX() !== 0 || $zone->getY() !== 0)){
                     $cp = 0;
                     foreach ($zone->getCitizens() as $c) {
                         if ($c->getAlive()) {

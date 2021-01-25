@@ -61,7 +61,9 @@ class DeathHandler
 
         $rucksack = $citizen->getInventory();
 
-        $floor = ($citizen->getZone() ? $citizen->getZone()->getFloor() : $citizen->getHome()->getChest());
+        $floor = ($citizen->getZone() ?
+            $citizen->getZone()->getX() != 0 || $citizen->getZone()->getY() !== 0 ? $citizen->getZone()->getFloor() : $citizen->getTown()->getBank() :
+            $citizen->getHome()->getChest());
         if ($citizen->activeExplorerStats()) {
             $ruinZone = $this->entity_manager->getRepository(RuinZone::class)->findOneByExplorerStats($citizen->activeExplorerStats());
             $floor = $citizen->activeExplorerStats()->getInRoom() ? $ruinZone->getRoomFloor() : $ruinZone->getFloor();
