@@ -437,7 +437,7 @@ class TownAddonsController extends TownController
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function log_door_api(JSONRequestParser $parser): Response {
+    public function log_dump_api(JSONRequestParser $parser): Response {
         return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeDump, null);
     }
 
