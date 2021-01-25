@@ -17299,7 +17299,7 @@
       </notes>
       <segment>
         <source>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet.</source>
-        <target>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet.</target>
+        <target>%citizen% a travaillé sur le projet %plan%.</target>
       </segment>
     </unit>
     <unit id="7MfXJbM" name="%citizen% hat das Gebäude %plan% repariert.">

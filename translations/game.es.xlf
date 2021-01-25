@@ -17247,7 +17247,7 @@
       </notes>
       <segment>
         <source>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet.</source>
-        <target>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet.</target>
+        <target>%citizen% ha trabajado en la %plan%.</target>
       </segment>
     </unit>
     <unit id="7MfXJbM" name="%citizen% hat das Gebäude %plan% repariert.">
@@ -17256,7 +17256,7 @@
       </notes>
       <segment>
         <source>%citizen% hat das Gebäude %plan% repariert.</source>
-        <target>%citizen% hat das Gebäude %plan% repariert.</target>
+        <target>%citizen% ha reparado la construcción %plan%.</target>
       </segment>
     </unit>
     <unit id="QYDe4ZX" name="350de81">

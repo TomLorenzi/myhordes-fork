@@ -17249,7 +17249,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet.</source>
-        <target>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet.</target>
+        <target>%citizen% worked on constructing the %plan%.</target>
       </segment>
     </unit>
     <unit id="7MfXJbM" name="%citizen% hat das Gebäude %plan% repariert.">
@@ -17258,7 +17258,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>%citizen% hat das Gebäude %plan% repariert.</source>
-        <target>%citizen% hat das Gebäude %plan% repariert.</target>
+        <target>%citizen% repaired the %plan% building.</target>
       </segment>
     </unit>
     <unit id="QYDe4ZX" name="350de81">
