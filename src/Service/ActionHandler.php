@@ -14,6 +14,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenVote;
+use App\Entity\Complaint;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\EscortActionGroup;
@@ -41,6 +42,7 @@ use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use App\Translation\T;
 use DateTime;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Asset\Packages;
@@ -1326,6 +1328,24 @@ class ActionHandler
                         break;
                     }
 
+                    // Flare
+                    case 21 :
+                        $criteria = new Criteria();
+                        $criteria->andWhere($criteria->expr()->eq('town', $citizen->getTown()));
+                        $criteria->andWhere($criteria->expr()->neq('discoveryStatus', Zone::DiscoveryStateCurrent));
+                        $zones = $this->entity_manager->getRepository(Zone::class)->matching($criteria)->getValues();
+                        if(count($zones) > 0) {
+                            $zone = $this->random_generator->pick($zones);
+                            $zone->setDiscoveryStatus(Zone::DiscoveryStateCurrent);
+                            $this->entity_manager->persist($zone);
+                            $this->inventory_handler->forceRemoveItem( $item );
+                            $execute_info_cache['items_consume'][] = $item->getPrototype();
+                            $tags[] = 'flare_ok';
+                            $execute_info_cache['zone'] = $zone;
+                        } else {
+                            $tags[] = 'flare_fail';
+                        }
+                        break;
                 }
 
                 if ($ap) {
