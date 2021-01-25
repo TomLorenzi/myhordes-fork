@@ -311,8 +311,20 @@ class ExternalXML2Controller extends ExternalController {
             $data['error']['attributes'] = ['code' => "not_in_game"];
             $data['status']['attributes'] = ['open' => "1", "msg" => ""];
         } else {
-            $town = $user->getActiveCitizen()->getTown();
-    
+            if ($user->getRightsElevation() >= User::ROLE_ADMIN && $request->query->has('town')) {
+                $town = $this->entity_manager->getRepository(Town::class)->find($request->query->get('town'));
+                if ($town === null) {
+                    $data['error']['attributes'] = ['code' => "town_not_found"];
+                    $data['status']['attributes'] = ['open' => "1", "msg" => ""];
+                    $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+                    $response->headers->set('Content-Type', 'text/xml');
+                    return $response;
+                }
+
+            } else {
+                $town = $user->getActiveCitizen()->getTown();
+            }
+
             $data['headers']['game'] = [
                 'attributes' => [
                     'days' => $town->getDay(),

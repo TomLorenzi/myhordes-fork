@@ -1042,6 +1042,8 @@ class ItemFixtures extends Fixture
             array('item' => 'coffee_machine_part_#00', 'count' => '103'),
             array('item' => 'cadaver_#00', 'count' => '102'),
             array('item' => 'smelly_meat_#00', 'count' => '102'),
+            array('item' => 'maglite_off_#00', 'count' => '100'),
+            array('item' => 'vodka_#00', 'count' => '100'),
             array('item' => 'postal_box_#00', 'count' => '98'),
             array('item' => 'big_pgun_part_#00', 'count' => '95'),
             array('item' => 'car_door_part_#00', 'count' => '95'),
@@ -1062,8 +1064,6 @@ class ItemFixtures extends Fixture
             array('item' => 'cdelvi_#00', 'count' => '82'),
             array('item' => 'cdphil_#00', 'count' => '67'),
             array('item' => 'cinema_#00', 'count' => '53'),
-            array('item' => 'maglite_off_#00', 'count' => '24'),
-            array('item' => 'vodka_#00', 'count' => '18'),
             //array('item' => 'vodka_de_#00', 'count' => '6'),
         ),
         'christmas_dig' => [
