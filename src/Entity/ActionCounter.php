@@ -49,11 +49,6 @@ class ActionCounter
     private $citizen;
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    private $daily = true;
-
-    /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $last;
@@ -71,11 +66,6 @@ class ActionCounter
     public function setType(int $type): self
     {
         $this->type = $type;
-
-        if (in_array($type, self::PerGameActionTypes)) {
-            $this->daily = false;
-        }
-
         return $this;
     }
 
@@ -122,13 +112,6 @@ class ActionCounter
 
     public function getDaily(): ?bool
     {
-        return $this->daily;
-    }
-
-    public function setDaily(bool $daily): self
-    {
-        $this->daily = $daily;
-
-        return $this;
+        return !in_array($this->type, self::PerGameActionTypes);
     }
 }
