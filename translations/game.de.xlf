@@ -17287,5 +17287,104 @@
         <target>Die Stadt hat folgende Gegenstände in Folge der Verbannung von %shunned% zurückerhalten: %list%</target>
       </segment>
     </unit>
+    <unit id="IuqDnZY" name="%citizen% hat %items% in der Müllhalde zerstört (+%def% Verteidigung)">
+      <notes>
+        <note category="german">%citizen% hat %items% in der Müllhalde zerstört (+%def% Verteidigung)</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat %items% in der Müllhalde zerstört (+%def% Verteidigung)</source>
+        <target>%citizen% hat %items% in der Müllhalde zerstört (+%def% Verteidigung)</target>
+      </segment>
+    </unit>
+    <unit id="IyPutvn" name="%username% hat dich angegriffen!">
+      <notes>
+        <note category="german">%username% hat dich angegriffen!</note>
+      </notes>
+      <segment>
+        <source>%username% hat dich angegriffen!</source>
+        <target>%username% hat dich angegriffen!</target>
+      </segment>
+    </unit>
+    <unit id="3FkZzSY" name="cc5afe0">
+      <notes>
+        <note category="german">Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</note>
+      </notes>
+      <segment>
+        <source>Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</source>
+        <target>Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</target>
+      </segment>
+    </unit>
+    <unit id="yAoIHm6" name="%username% hat dich angegriffen und verletzt!">
+      <notes>
+        <note category="german">%username% hat dich angegriffen und verletzt!</note>
+      </notes>
+      <segment>
+        <source>%username% hat dich angegriffen und verletzt!</source>
+        <target>%username% hat dich angegriffen und verletzt!</target>
+      </segment>
+    </unit>
+    <unit id="2J88_Zj" name="1219402">
+      <notes>
+        <note category="german">Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</note>
+      </notes>
+      <segment>
+        <source>Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</source>
+        <target>Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</target>
+      </segment>
+    </unit>
+    <unit id="cyaNyje" name="Verletzt">
+      <notes>
+        <note category="german">Verletzt</note>
+      </notes>
+      <segment>
+        <source>Verletzt</source>
+        <target>Verletzt</target>
+      </segment>
+    </unit>
+    <unit id="tUUhiUN" name="7e2a918">
+      <notes>
+        <note category="german">Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</note>
+      </notes>
+      <segment>
+        <source>Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</source>
+        <target>Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</target>
+      </segment>
+    </unit>
+    <unit id="zKN7f_C" name="Du verlässt deinen Posten?...">
+      <notes>
+        <note category="german">Du verlässt deinen Posten?...</note>
+      </notes>
+      <segment>
+        <source>Du verlässt deinen Posten?...</source>
+        <target>Du verlässt deinen Posten?...</target>
+      </segment>
+    </unit>
+    <unit id="81G6y92" name="2bec6b6">
+      <notes>
+        <note category="german">Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...</note>
+      </notes>
+      <segment>
+        <source>Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...</source>
+        <target>Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...</target>
+      </segment>
+    </unit>
+    <unit id="k23__KG" name="7d8dbe4">
+      <notes>
+        <note category="german">Zur Information: Sobald du Wächter bist, kannst du danach wieder einfacher Bürger werden.</note>
+      </notes>
+      <segment>
+        <source>Zur Information: Sobald du Wächter bist, kannst du danach wieder einfacher Bürger werden.</source>
+        <target>Zur Information: Sobald du Wächter bist, kannst du danach wieder einfacher Bürger werden.</target>
+      </segment>
+    </unit>
+    <unit id="zzRDqeC" name="52c1a7d">
+      <notes>
+        <note category="german">Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...</note>
+      </notes>
+      <segment>
+        <source>Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...</source>
+        <target>Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

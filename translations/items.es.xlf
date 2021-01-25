@@ -7601,5 +7601,14 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
         <target><![CDATA[Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-infection>{hr}Du bist jetzt infiziert!</t-stat-up-infection>]]></target>
       </segment>
     </unit>
+    <unit id="JyuMfMZ" name="04a3d62">
+      <notes>
+        <note category="german">&lt;t-flare_ok&gt;Du hast die Zone {zone} entdeckt.&lt;/t-flare_ok&gt;&lt;t-flare_fail&gt;Es gibt keine weitere Zone zu entdecken.&lt;/t-flare_fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-flare_ok&gt;Du hast die Zone {zone} entdeckt.&lt;/t-flare_ok&gt;&lt;t-flare_fail&gt;Es gibt keine weitere Zone zu entdecken.&lt;/t-flare_fail&gt;</source>
+        <target><![CDATA[<t-flare_ok>Du hast die Zone {zone} entdeckt.</t-flare_ok><t-flare_fail>Es gibt keine weitere Zone zu entdecken.</t-flare_fail>]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

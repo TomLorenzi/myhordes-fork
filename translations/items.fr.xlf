@@ -7552,7 +7552,7 @@
         <target><![CDATA[Vous avalez un bonbon de Noël en souriant... mais vous déchantez rapidement. Le bonbon contenait un puissant <strong>poison psychotrope</strong> !</strong><t-stat-up-infection>{hr}Vous êtes maintenant <strong>infecté(e)</strong>!</t-stat-up-infection>]]></target>
       </segment>
     </unit>
-    <unit id="3mCkjVI" name="bc1f84b">
+    <unit id="JyuMfMZ" name="04a3d62">
       <notes>
         <note category="german">&lt;t-flare_ok&gt;Du hast die Zone {zone} entdeckt.&lt;/t-flare_ok&gt;&lt;t-flare_fail&gt;Es gibt keine weitere Zone zu entdecken.&lt;/t-flare_fail&gt;</note>
       </notes>
