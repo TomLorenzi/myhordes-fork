@@ -777,6 +777,20 @@ class Citizen
         foreach ($this->getActionCounters() as $c)
             if ($c->getType() === $type) return $c;
         $a = (new ActionCounter())->setType($type);
+        switch($type){
+            case ActionCounter::ActionTypeWell:
+            case ActionCounter::ActionTypeHomeKitchen:
+            case ActionCounter::ActionTypeHomeLab:
+            case ActionCounter::ActionTypeTrash:
+            case ActionCounter::ActionTypeComplaint:
+            case ActionCounter::ActionTypeSendPMItem:
+            case ActionCounter::ActionTypeSandballHit:
+                $a->setDaily(true);
+                break;
+            case ActionCounter::ActionTypeRemoveLog:
+                $a->setDaily(false);
+                break;
+        }
         $this->addActionCounter($a);
         return $a;
     }
