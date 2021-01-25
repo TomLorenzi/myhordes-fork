@@ -1378,6 +1378,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if ($action === 'close' && !$town->getDoor())
             return AjaxResponse::error( self::ErrorDoorAlreadyClosed );
 
+        if ($this->citizen_handler->hasStatusEffect($citizen, 'wound2')) {
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableWounded );
+        }
+
         if ($citizen->getAp() < 1 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
