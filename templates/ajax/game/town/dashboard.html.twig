@@ -23,7 +23,7 @@
                     {{ 'Unbekannt'|trans({}, 'game')}} {{ help_btn(('Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.'|trans({},'global'))) }}
                 {% endif %}
                 </span>
-                {% if (zeds_tomorrow[3] >= wtt) and zeds_tomorrow[0] %}
+                {% if zeds_tomorrow[0] %}
                     <br /><em>{{ 'Morgiger Angriff :'|trans({},'game') }}</em><br />
                     <span class="counter">
                         {{ zeds_tomorrow[1] }} - {{ zeds_tomorrow[2] }} <img alt="" src="{{ asset('build/images/icons/small_zombie.gif') }}" />
