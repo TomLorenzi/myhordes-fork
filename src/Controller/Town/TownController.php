@@ -505,7 +505,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @return Response
      */
     public function complain_visit_api(int $id, EntityManagerInterface $em, TownHandler $th, JSONRequestParser $parser ): Response {
-        if ($id === $this->getActiveCitizen()->getId() || !$this->conf->getTownConfiguration( $this->getActiveCitizen()->getTown() )->get(TownConf::CONF_FEATURE_SHUN, true))
+        if ($id === $this->getActiveCitizen()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
         if ($this->getActiveCitizen()->getBanished())

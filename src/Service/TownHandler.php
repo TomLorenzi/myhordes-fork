@@ -169,9 +169,11 @@ class TownHandler
                 $this->entity_manager->persist( $this->log->constructionsBuildingCompleteSpawnItems( $building, [ ['item'=>$proto,'count'=>2] ] ) );
                 break;
             case 'r_dhang_#00':case 'small_fleshcage_#00':
-                foreach ($town->getCitizens() as $citizen)
-                    if ($this->citizen_handler->updateBanishment( $citizen, $building->getPrototype()->getName() === 'r_dhang_#00' ? $building : $this->getBuilding( $town, 'r_dhang_#00', true ), $building->getPrototype()->getName() === 'small_fleshcage_#00' ? $building : $this->getBuilding( $town, 'small_fleshcage_#00', true ) ))
-                        $this->entity_manager->persist($town);
+                // Only insta-kill on building completion when shunning is enabled
+                if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_SHUN, true))
+                    foreach ($town->getCitizens() as $citizen)
+                        if ($this->citizen_handler->updateBanishment( $citizen, $building->getPrototype()->getName() === 'r_dhang_#00' ? $building : $this->getBuilding( $town, 'r_dhang_#00', true ), $building->getPrototype()->getName() === 'small_fleshcage_#00' ? $building : $this->getBuilding( $town, 'small_fleshcage_#00', true ) ))
+                            $this->entity_manager->persist($town);
                 break;
             case 'small_redemption_#00':
                 foreach ($town->getCitizens() as $citizen)
