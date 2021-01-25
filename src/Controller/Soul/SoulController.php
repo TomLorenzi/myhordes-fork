@@ -268,7 +268,7 @@ class SoulController extends CustomAbstractController
      */
     public function soul_season($type = null, JSONRequestParser $parser): Response
     {
-        return $this->redirect($this->generateUrl('soul_me'));
+        // return $this->redirect($this->generateUrl('soul_me'));
 
         $user = $this->getUser();
         $seasonId = $parser->get('season', null);

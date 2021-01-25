@@ -682,14 +682,14 @@ class ExternalXML2Controller extends ExternalController {
                     if($danger > 0) {
                         $item['attributes']['danger'] = $danger;
                     }
+                    
+                    if ($zone->getZombieStatus() == Zone::ZombieStateExact && $zone->getZombies() > 0) {
+                        $item['attributes']['z'] = $zone->getZombies();
+                    }
                 }
 
                 if ($zone->getTag() !== null && $zone->getTag()->getRef() !== ZoneTag::TagNone) {
                     $item['attributes']['tag'] = $zone->getTag()->getRef();
-                }
-
-                if ($zone->getZombieStatus() == Zone::ZombieStateExact && $zone->getZombies() > 0) {
-                    $item['attributes']['z'] = $zone->getZombies();
                 }
 
                 if ($zone->getPrototype() !== null) {
