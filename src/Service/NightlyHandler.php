@@ -778,7 +778,8 @@ class NightlyHandler
             $this->citizen_handler->setAP($citizen,false,$this->citizen_handler->getMaxAP( $citizen ),0);
             $this->citizen_handler->setBP($citizen,false,$this->citizen_handler->getMaxBP( $citizen ),0);
             $this->citizen_handler->setPM($citizen,false,$this->citizen_handler->getMaxPM( $citizen ));
-            $citizen->getActionCounters()->filter(function($action_counter) { return $action_counter->getDaily(); })->clear();
+            foreach ($citizen->getActionCounters() as $counter)
+                if ($counter->getDaily()) $citizen->removeActionCounter($counter);
             $citizen->getDigTimers()->clear();
             if ($citizen->getEscortSettings()) $this->entity_manager->remove($citizen->getEscortSettings());
             $citizen->setEscortSettings(null);
@@ -794,7 +795,6 @@ class NightlyHandler
                     $this->citizen_handler->removeStatus( $citizen, $st );
                 }
             if ($add_hangover) $this->citizen_handler->inflictStatus($citizen, 'hungover');
-
         }
 
         if($town->getDevastated()){
