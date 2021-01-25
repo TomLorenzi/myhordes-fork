@@ -294,7 +294,13 @@
                         {% endif %}
                     </button>
                     {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) and citizen.validLeadingEscorts|length > 0 and zone.x == 0 and zone.y == 0 %}
-                        <button id="town-enter-escort" {% if not doors_open %}disabled{% endif %}><img alt="" src="{{ asset('build/images/emotes/arrowright.gif') }}"> {% trans from 'game' %}Stadt betreten{% endtrans %} {% trans from 'game' %}(Mit Eskorte){% endtrans %}</button>
+                        <button id="town-enter-escort" {% if not doors_open %}disabled{% endif %}>
+                            <img alt="" src="{{ asset('build/images/emotes/arrowright.gif') }}">
+                            {% trans from 'game' %}Stadt betreten{% endtrans %} {% trans from 'game' %}(Mit Eskorte){% endtrans %}
+                            {% if enter_costs_ap %}
+                                (<div class="ap">1</div>)
+                            {% endif %}
+                        </button>
                     {% endif %}
                 {% endif %}
                 {% if show_ventilation %}
