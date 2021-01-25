@@ -1238,7 +1238,7 @@ class NightlyHandler
             /** @var SpecialActionPrototype $special_vote */
             $special_vote = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => 'special_vote_' . $role->getName()]);
 
-            if(!$this->town_handler->is_vote_needed($town, $role)) continue;
+            if(!$this->town_handler->is_vote_needed($town, $role, true)) continue;
 
             // Getting vote per role per citizen
             $votes = array();
