@@ -193,10 +193,13 @@ class CitizenHandler
         $shunningEnabled = $this->conf->getTownConfiguration( $citizen->getTown() )->get(TownConf::CONF_FEATURE_SHUN, true);
 
         // If the citizen is already shunned, we need 6 more complains to hang him
-        if($citizen->getBanished())
+        // If the citizen is already shunned and cage/gallows is not built, do nothing
+        if ($citizen->getBanished()) {
+            if (!$gallows && !$cage) return false;
             $complaintNeeded = 6;
+        }
 
-        if ($shunningEnabled && $nbComplaint >= $complaintNeeded)
+        if (($shunningEnabled || $gallows || $cage) && $nbComplaint >= $complaintNeeded)
             $action = true;
 
         if ($action && ($gallows || $cage)) {
