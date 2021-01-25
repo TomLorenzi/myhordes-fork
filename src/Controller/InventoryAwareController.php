@@ -454,7 +454,7 @@ class InventoryAwareController extends CustomAbstractController
                 return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         }
 
-        $ap = $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_AP, 4);
+        $ap = $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_AP, 5);
         if ($this->citizen_handler->isTired($aggressor) || $aggressor->getAp() < $ap)
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
@@ -493,13 +493,18 @@ class InventoryAwareController extends CustomAbstractController
             $this->entity_manager->persist($this->log->citizenAttack($aggressor, $defender, $wound));
             if ($wound) {
                 $this->addFlash('notice',
-                    $this->translator->trans('Mit aller Gewalt greifst du %citizen% an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt %citizen% eine schwere Verletzung davon.', ['%citizen%' => $defender->getUser()->getName()], 'game')
+                    $this->translator->trans('Mit aller Gewalt greifst du %citizen% an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt %citizen% eine schwere Verletzung davon.', ['%citizen%' => '<span>' . $defender->getUser()->getName() . '</span>'], 'game')
                 );
                 $this->citizen_handler->inflictWound($defender);
+            } else {
+                $this->addFlash('notice',
+                    $this->translator->trans('Mit aller Gewalt greifst du %citizen% an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.', ['%citizen%' => '<span>' . $defender->getUser()->getName() . '</span>'], 'game')
+                );
+            }
 
-            } else $this->addFlash('notice',
-                $this->translator->trans('Mit aller Gewalt greifst du %citizen% an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.', ['%citizen%' => $defender->getUser()->getName()], 'game')
-            );
+            if (!$defender->getZone()) {
+                $this->crow->postAsPM( $defender, '', '', $wound ? PrivateMessage::TEMPLATE_CROW_AGGRESSION_SUCCESS : PrivateMessage::TEMPLATE_CROW_AGGRESSION_FAIL, $aggressor->getId() );
+            }
         }
 
         $this->entity_manager->persist($aggressor);

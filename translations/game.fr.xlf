@@ -17308,7 +17308,61 @@
       </notes>
       <segment>
         <source>%citizen% hat das Gebäude %plan% repariert.</source>
-        <target>%citizen% hat das Gebäude %plan% repariert.</target>
+        <target>%citizen% a réparé le chantier %plan%.</target>
+      </segment>
+    </unit>
+    <unit id="IyPutvn" name="%username% hat dich angegriffen!">
+      <notes>
+        <note category="german">%username% hat dich angegriffen!</note>
+      </notes>
+      <segment>
+        <source>%username% hat dich angegriffen!</source>
+        <target>%username% vous a aggressé !</target>
+      </segment>
+    </unit>
+    <unit id="3FkZzSY" name="cc5afe0">
+      <notes>
+        <note category="german">Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</note>
+      </notes>
+      <segment>
+        <source>Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</source>
+        <target>Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</target>
+      </segment>
+    </unit>
+    <unit id="yAoIHm6" name="%username% hat dich angegriffen und verletzt!">
+      <notes>
+        <note category="german">%username% hat dich angegriffen und verletzt!</note>
+      </notes>
+      <segment>
+        <source>%username% hat dich angegriffen und verletzt!</source>
+        <target>%username% vous a aggressé et blessé !</target>
+      </segment>
+    </unit>
+    <unit id="2J88_Zj" name="1219402">
+      <notes>
+        <note category="german">Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</note>
+      </notes>
+      <segment>
+        <source>Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</source>
+        <target>Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</target>
+      </segment>
+    </unit>
+    <unit id="cyaNyje" name="Verletzt">
+      <notes>
+        <note category="german">Verletzt</note>
+      </notes>
+      <segment>
+        <source>Verletzt</source>
+        <target>Blessé</target>
+      </segment>
+    </unit>
+    <unit id="tUUhiUN" name="7e2a918">
+      <notes>
+        <note category="german">Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</note>
+      </notes>
+      <segment>
+        <source>Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</source>
+        <target>Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</target>
       </segment>
     </unit>
   </file>

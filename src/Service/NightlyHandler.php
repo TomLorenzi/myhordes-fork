@@ -470,11 +470,11 @@ class NightlyHandler
                         $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> is now <info>wounded</info>");
                         $this->skip_infection[] = $ctz->getId();
                     }
+                    $this->crow->postAsPM($ctz, '', '', PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_WOUND, $defBonus);
                 } elseif(!$this->town_handler->getBuilding($town, "small_catapult3_#00", true)) {
                     // Terror
                     $this->citizen_handler->inflictStatus($ctz, $status_terror);
                     $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
-
                     $gazette->setTerror($gazette->getTerror() + 1);
                 }
             }
