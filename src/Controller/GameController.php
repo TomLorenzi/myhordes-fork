@@ -661,6 +661,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
         }
 
         $log->setHidden(true);
+        $log->setHiddenBy($citizen);
         $this->addFlash( 'notice', $this->translator->trans('Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch %times% mal tun.', ['%times%' => $limit - $counter->getCount()], 'game') );
 
         try {

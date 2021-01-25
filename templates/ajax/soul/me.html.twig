@@ -90,7 +90,7 @@
                             {% for season in seasons %}
                                 {% if season.number == 0 %}
                                     <option value="{{season.id}}">
-                                        {{ 'Gute Alte Zeit'|trans({},'soul') }} - 
+                                        {{ 'Gute Alte Zeit'|trans({},'soul') }} -
                                         {{ 'Saison %n%'|trans({'%n%': season.subNumber},'soul') }}
                                     </option>
                                 {% endif %}

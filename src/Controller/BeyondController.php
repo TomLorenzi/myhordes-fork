@@ -566,7 +566,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         $others_are_here = $zone->getCitizens()->count() > count($movers);
 
-        $labyrinth = ($zone->getX() === 0 && $zone->getY() === 0 && $special === 'normal' && $th->getBuilding($town, 'small_labyrinth_#00',  true));
+        $labyrinth = ($zone->getX() === 0 && $zone->getY() === 0 && in_array($special, ['normal', 'normal-escort']) && $th->getBuilding($town, 'small_labyrinth_#00',  true));
 
         foreach ($movers as $mover){
             // Check if the labyrinth is built and the user enters from 0/0

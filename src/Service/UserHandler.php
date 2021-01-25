@@ -75,7 +75,7 @@ class UserHandler
                     if ($picto["c"] >= 30)
                         $points += 6.5;
                     break;
-                case "r_cookr_#00": case "r_cmplst_#00": case "r_camp_#00": case "r_drgmkr_#00" case "r_jtamer_#00": 
+                case "r_cookr_#00": case "r_cmplst_#00": case "r_camp_#00":case "r_drgmkr_#00": case "r_jtamer_#00":
                 case "r_jrangr_#00": case "r_jguard_#00": case "r_jermit_#00": case "r_jtech_#00": case "r_jcolle_#00":
                     if ($picto["c"] >= 10)
                         $points += 3.5;

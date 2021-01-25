@@ -144,10 +144,11 @@ div.tooltip.badge-tooltip {
     }
 
     .town-history .header { font-size: 8pt; }
-    .skills-history > .header { font-size: 10pt; }
+    .skills-history > .header, .season-ranking > .header { font-size: 10pt; }
 
     .town-history,
-    .skills-history {
+    .skills-history,
+    .season-ranking{
         .header {
             font-weight: bold;
             font-family: "Trebuchet MS", "Arial",Verdana, sans-serif;
@@ -157,9 +158,41 @@ div.tooltip.badge-tooltip {
             background: linear-gradient(to top, #643b25 0%, rgba(100, 59, 37, 0) 50%, rgba(100, 59, 37, 0) 100%);
         }
 
+        .type-list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background: #2c0e00;
+            font-size: 1rem;
+            li {
+                display: inline-block;
+                font-variant: small-caps;
+                padding: 0 3px;
+                margin: 0 0 3px 2px;
+                background-color: #7e4d2a;
+                border: 1px solid #ddab76;
+                &.selected {
+                    .link { color: white };
+                    background-color: #5c2b20;
+                    border-color: white;
+                }
+            }
+        }
+
         .town-container,
         .skills-container {
             background-color: #5c2b20;
+            .row-flex:nth-child(odd) {
+                background-color: #663024;
+            }
+
+            .row-flex:nth-child(even) {
+                background-color: #5c2b20;
+            }
+
+            .row-flex.played {
+                background-color: #3b3249;
+            }
             border-bottom: 1px solid #ddab76;
 
             .town-name {

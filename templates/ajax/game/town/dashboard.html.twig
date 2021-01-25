@@ -26,7 +26,11 @@
                 {% if zeds_tomorrow[0] %}
                     <br /><em>{{ 'Morgiger Angriff :'|trans({},'game') }}</em><br />
                     <span class="counter">
+                    {% if (zeds_today[3] >= 100) %}
                         {{ zeds_tomorrow[1] }} - {{ zeds_tomorrow[2] }} <img alt="" src="{{ asset('build/images/icons/small_zombie.gif') }}" />
+                    {% else %}
+                        {{ 'Unbekannt'|trans({}, 'game')}} {{ help_btn(('Wir müssen den Wachturm benutzen, um eine Schätzung des Angriffs zu erhalten.'|trans({},'global'))) }}
+                    {% endif %}
                     </span>
                 {% endif %}
                 {% if has_watchtower and not has_estimated %}<br /><span class="help">[ <span class="link" x-ajax-href="{{ path('town_watchtower') }}">{{ 'Teilnehmen'|trans({}, 'game') }}</span> ] </span>{% endif %}

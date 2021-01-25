@@ -5,7 +5,7 @@
     {% for entry in entries %}
         <div class="log-entry log-entry-type-{{ entry.type }} log-entry-class-{{ entry.class }}">
             <span class="log-part-time">{{ entry.timestamp.format('G:i') }}</span>
-            <span class="log-part-content {% if entry.hidden %}log-part-entry-hidden{% endif %}">{% if entry.hidden %}<img src="{{ asset('build/images/icons/small_warning.gif') }}" />{% endif %} {{ entry.text|raw }}</span>
+            <span class="log-part-content {% if entry.hidden %}log-part-entry-hidden{% endif %}">{% if entry.hidden %}<img src="{{ asset('build/images/icons/small_warning.gif') }}" />{% endif %} {{ entry.text|raw }} {% if entry.hiddenBy is not null %}(Hidden by {{ entry.hiddenBy.user.name }}){% endif %}</span>
         </div>
     {% endfor %}
 

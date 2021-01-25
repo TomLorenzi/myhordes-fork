@@ -248,7 +248,8 @@ class TwinoidHandler
                     ->setType( $default_town_type )
                     ->setSeason( $seasons[$town->getSeason()] )
                     ->setDays( $town->getDay() )
-                    ->setPopulation( 40 );
+                    ->setPopulation( 40 )
+                    ->setV1($town->isOld());
             else $entry->setDays( max( $entry->getDays(), $town->getDay() ) );
 
             $entry->addCitizen(
@@ -271,6 +272,8 @@ class TwinoidHandler
             $entry = $this->em->getRepository(CitizenRankingProxy::class)->findOneBy( ['user' => $user, 'importID' => $town->getID(), 'importLang' => $lang] );
             if ($entry) {
                 $entry->setComment( $town->getComment() )->setLastWords( $town->getMessage() )->setDay( $town->getSurvivedDays() )->setPoints( $town->getScore() )->setCod( $town->convertDeath() );
+                $entry->getTown()->setV1($town->isOld());
+                // $this->em->persist( $entry );
                 $this->em->persist( $entry );
             }
         }

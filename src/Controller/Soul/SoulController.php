@@ -6,6 +6,7 @@ use App\Controller\CustomAbstractController;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\CitizenRankingProxy;
+use App\Entity\Complaint;
 use App\Entity\ExternalApp;
 use App\Entity\FoundRolePlayText;
 use App\Entity\HeroSkillPrototype;
@@ -34,9 +35,11 @@ use App\Service\InventoryHandler;
 use App\Service\TimeKeeperService;
 use App\Structures\MyHordesConf;
 use DateTime;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -260,12 +263,15 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/ranking/{type<\d+>}/{seasonId<\d+>}", name="soul_season")
+     * @Route("jx/soul/ranking/{type<\d+>}", name="soul_season")
      * @return Response
      */
-    public function soul_season($type = 1, $seasonId = null): Response
+    public function soul_season($type = null, JSONRequestParser $parser): Response
     {
+        return $this->redirect($this->generateUrl('soul_me'));
+
         $user = $this->getUser();
+        $seasonId = $parser->get('season', null);
 
         /** @var CitizenRankingProxy $nextDeath */
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
@@ -273,25 +279,47 @@ class SoulController extends CustomAbstractController
 
         $seasons = $this->entity_manager->getRepository(Season::class)->findAll();
         if ($seasonId === null) {
-            $currentSeason = $this->entity_manager->getRepository(Season::class)->findLatest();
+            $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]) ?? $this->entity_manager->getRepository(Season::class)->findLatest();
         } else {
             $currentSeason = $this->entity_manager->getRepository(Season::class)->find($seasonId);
         }
-
-        $currentType = $this->entity_manager->getRepository(TownClass::class)->find($type);
+        if ($type === null) {
+            $currentType = $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true], ['id' => 'ASC'])[0];
+        } else {
+            $currentType = $this->entity_manager->getRepository(TownClass::class)->find($type);
+        }
 
         if ($currentSeason === null || $currentType === null) {
             $this->redirect($this->generateUrl('soul_season'));
         }
+        $criteria = new Criteria();
+        $criteria->andWhere($criteria->expr()->eq('season', $currentSeason));
+        $criteria->andWhere($criteria->expr()->eq('type', $currentType));
+        if ($currentSeason->getNumber() > 0)
+            $criteria->andWhere($criteria->expr()->neq('end', null));
 
-        $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['season' => $currentSeason], ['language' => 'ASC', 'days' => 'DESC'], 35);
+        $criteria->orderBy(['language' => 'ASC', 'score' => 'DESC']);
+        $criteria->setMaxResults(35);
+        $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->matching($criteria);
+        $played = [];
+        foreach ($towns as $town) {
+            /* @var TownRankingProxy $town */
+            foreach ($town->getCitizens() as $citizen) {
+                /* @var CitizenRankingProxy $citizen */
+                if($citizen->getUser() == $user) {
+                    $played[$town->getId()] = true;
+                    break;
+                }
+            }
+        }
 
         return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season", [
             'seasons' => $seasons,
             'currentSeason' => $currentSeason,
             'towns' => $towns,
-            'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findAll(),
+            'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true]),
             'currentType' => $currentType,
+            'played' => $played
         ]) );
     }
 
@@ -746,8 +774,6 @@ class SoulController extends CustomAbstractController
         if ($nextDeath === null || ($nextDeath->getCitizen() && $nextDeath->getCitizen()->getAlive()))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-
-
         if ($nextDeath->getCod()->getRef() != CauseOfDeath::Poison && $nextDeath->getCod()->getRef() != CauseOfDeath::GhulEaten)
             $last_words = $parser->get('lastwords');
         else $last_words = $this->translator->trans("...der Mörder .. ist.. IST.. AAARGHhh..", [], "game");
@@ -771,7 +797,6 @@ class SoulController extends CustomAbstractController
         //        $this->checkAwards($user, $pendingPicto->getPrototype()->getLabel());
         //    }
         //}
-
 
         if ($active = $nextDeath->getCitizen()) {
             $active->setActive(false);

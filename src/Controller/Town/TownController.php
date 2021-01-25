@@ -139,8 +139,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         $town = $this->getActiveCitizen()->getTown();
 
-        $has_zombie_est_today    = !empty($th->getBuilding($town, 'item_tagger_#00'));
-        $has_zombie_est_tomorrow = !empty($th->getBuilding($town, 'item_tagger_#02'));
+        $has_zombie_est_today    = !empty($this->town_handler->getBuilding($town, 'item_tagger_#00'));
+        $has_zombie_est_tomorrow = !empty($this->town_handler->getBuilding($town, 'item_tagger_#02'));
 
         $citizens = $town->getCitizens();
         $alive = 0;
@@ -148,10 +148,6 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             if($citizen->getAlive())
                 $alive++;
         }
-
-        $z_today_min = $z_today_max = $z_tomorrow_min = $z_tomorrow_max = null; $z_q = 0;
-        if ($has_zombie_est_today) $z_q = $th->get_zombie_estimation_quality( $town, 0, $z_today_min, $z_today_max );
-        if ($has_zombie_est_today && $has_zombie_est_tomorrow && $z_q >= 1) $th->get_zombie_estimation_quality( $town, 1, $z_tomorrow_min, $z_tomorrow_max );
 
         $item_def_factor = 1;
         $has_battlement = false;
@@ -177,7 +173,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $item_def_count = $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ), false, false);
 
         $est0 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
-        $has_estimated = $est0 && ($est0->getCitizens()->contains($this->getActiveCitizen()) || $th->get_zombie_estimation_quality($town) >= 1.0);
+        $has_estimated = $est0 && ($est0->getCitizens()->contains($this->getActiveCitizen()) || $this->town_handler->get_zombie_estimation($town) >= 1.0);
 
         $display_home_upgrade = false;
         foreach ($citizens as $citizen) {
@@ -206,11 +202,25 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             }
         }
 
+        $estims = $this->town_handler->get_zombie_estimation($town);
+        $zeds_today = [
+            $has_zombie_est_today, // Can see
+            $estims[0]->getMin(), // Min
+            $estims[0]->getMax(),  // Max
+            round($estims[0]->getEstimation()*100) // Progress
+        ];
+        $zeds_tomorrow = [
+            $has_zombie_est_tomorrow,
+            isset($estims[1]) ? $estims[1]->getMin() : 0,
+            isset($estims[1]) ? $estims[1]->getMax() : 0,
+            isset($estims[1]) ? round($estims[1]->getEstimation()*100) : 0
+        ];
+
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
-            'def' => $th->calculate_town_def($town, $defSummary),
-            'zeds_today'    => [ $has_zombie_est_today, $z_today_min, $z_today_max, round($z_q*100) ],
-            'zeds_tomorrow' => [ $has_zombie_est_tomorrow, $z_tomorrow_min, $z_tomorrow_max ],
+            'def' => $this->town_handler->calculate_town_def($town, $defSummary),
+            'zeds_today'    => $zeds_today,
+            'zeds_tomorrow' => $zeds_tomorrow,
             'living_citizens' => $alive,
             'def_summary' => $defSummary,
             'item_def_count' => $item_def_count,
@@ -1042,6 +1052,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
 
+        if ($this->citizen_handler->hasStatusEffect($citizen, 'wound3')) {
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableWounded );
+        }
+
         // Check if the request is complete
         if (!$parser->has_all(['id','ap'], true))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -1132,10 +1146,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         // Create a log entry
         if ($this->town_handler->getBuilding($town, 'item_rp_book2_#00', true)) {
+            // TODO: Create an option to include AP in Log entries as a town parameter?
             if (!$was_completed)
-                $this->entity_manager->persist( $this->log->constructionsInvestAP( $citizen, $building->getPrototype(), $ap ) );
+                $this->entity_manager->persist( $this->log->constructionsInvest( $citizen, $building->getPrototype(), $ap ) );
             else
-                $this->entity_manager->persist( $this->log->constructionsInvestRepairAP( $citizen, $building->getPrototype(), $ap ) );
+                $this->entity_manager->persist( $this->log->constructionsInvestRepair( $citizen, $building->getPrototype(), $ap ) );
         }
 
         // Calculate the amount of AP that will be invested in the construction
@@ -1366,6 +1381,10 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         if ($action === 'close' && !$town->getDoor())
             return AjaxResponse::error( self::ErrorDoorAlreadyClosed );
+
+        if ($this->citizen_handler->hasStatusEffect($citizen, 'wound3')) {
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailableWounded );
+        }
 
         if ($citizen->getAp() < 1 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );

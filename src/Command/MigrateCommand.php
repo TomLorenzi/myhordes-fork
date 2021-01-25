@@ -121,6 +121,7 @@ class MigrateCommand extends Command
             ->addOption('assign-town-season', null, InputOption::VALUE_NONE, 'Assigns the towns with no season to the latest available.')
             ->addOption('init-item-stacks', null, InputOption::VALUE_NONE, 'Sets item count for items without a counter to 1')
             ->addOption('delete-legacy-logs', null, InputOption::VALUE_NONE, 'Deletes legacy log entries')
+            ->addOption('calculate-score', null, InputOption::VALUE_NONE, 'Recalculate the score for each ended town')
 
             ->addOption('set-default-zonetag', null, InputOption::VALUE_NONE, 'Set the default tag to all zones')
             ->addOption('assign-building-hp', null, InputOption::VALUE_NONE, 'Give HP to all buildings (so they can be attacked by zeds)')
@@ -516,6 +517,23 @@ class MigrateCommand extends Command
             return 0;
         }
 
+        if ($input->getOption('calculate-score')) {
+            $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['score' => 0]);
+            foreach ($towns as $town) {
+                /* @var TownRankingProxy $town */
+                $score = 0;
+                foreach ($town->getCitizens() as $citizen) {
+                    /* @var CitizenRankingProxy $citizen */
+                    $score += $citizen->getDay();
+                }
+                $town->setScore($score);
+                $this->entity_manager->persist($town);
+            }
+            $this->entity_manager->flush();
+            $output->writeln('OK!');
+            return 0;
+        }
+
         if ($input->getOption('set-default-zonetag')) {
             /** @var Zone[] $zones */
             $zones = $this->entity_manager->getRepository(Zone::class)->findAll();
@@ -587,7 +605,7 @@ class MigrateCommand extends Command
 
         if ($input->getOption('update-shaman-immune')) {
             /** @var Town[] $towns */
-            $old_immune_status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("tg_immune");
+            $old_immune_status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('tg_immune');
             $new_immune_status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName("tg_shaman_immune");
 
             if($old_immune_status === null){

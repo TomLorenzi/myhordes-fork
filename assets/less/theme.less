@@ -564,6 +564,15 @@ div.note {
     .box( #820000 ); color: white; position: relative; padding: 5px 5px 5px 26px;
     &:before { content: " "; position: absolute; display: block; top: 5px; left: 5px; width: 16px; height: 16px; background: url('../img/icons/small_warning.gif') no-repeat; }
   }
+  &.note-critical {
+    .box( #5c2b20 );
+    color: #f86;
+    position: relative;
+    padding: 5px;
+    font-variant: small-caps;
+    font-weight: bold;
+    outline: 1px solid #5c2b20;
+  }
   &.note-light {
     background-color: #5c2b20;
   }
@@ -1183,7 +1192,7 @@ div.rebirth {
 a.help-button {
     background-image: url("../img/help/helpTooltip.gif"); background-repeat: no-repeat; 
     color: #E7D1B2; border: 1px solid #5e3d17; text-transform: uppercase; font-size: 0.85rem;
-    padding-left: 3px; padding-right: 3px; cursor: help; height: 100%; width: 100%;
+    padding-left: 3px; padding-right: 3px; cursor: help; height: 14px; width: 28px;
     &:hover { outline: 1px solid white; }
 }
 

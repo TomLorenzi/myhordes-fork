@@ -21,6 +21,10 @@ class ActionCounter
     const ActionTypeSendPMItem  = 7;
     const ActionTypeSandballHit = 8;
 
+    const PerGameActionTypes = [
+        self::ActionTypeRemoveLog,
+    ];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -62,7 +66,6 @@ class ActionCounter
     public function setType(int $type): self
     {
         $this->type = $type;
-
         return $this;
     }
 
@@ -105,5 +108,10 @@ class ActionCounter
         $this->last = $last;
 
         return $this;
+    }
+
+    public function getDaily(): ?bool
+    {
+        return !in_array($this->type, self::PerGameActionTypes);
     }
 }

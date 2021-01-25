@@ -122,7 +122,6 @@ class TwinoidPayload
                     public function getID():           int { return $this->_town['mapId'] ?? $this->_town['id']; }
 
                     public function getDeath():  int { return $this->_town['dtype'] ?? 0; }
-
                     public function isOld(): bool { return $this->_town['v1']; }
 
                     public function convertDeath(): CauseOfDeath {

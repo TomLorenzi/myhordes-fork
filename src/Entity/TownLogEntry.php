@@ -68,6 +68,11 @@ class TownLogEntry
      */
     private $adminOnly = false;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Citizen::class)
+     */
+    private $hiddenBy;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -189,6 +194,18 @@ class TownLogEntry
     public function setAdminOnly(bool $adminOnly): self
     {
         $this->adminOnly = $adminOnly;
+
+        return $this;
+    }
+
+    public function getHiddenBy(): ?Citizen
+    {
+        return $this->hiddenBy;
+    }
+
+    public function setHiddenBy(?Citizen $hiddenBy): self
+    {
+        $this->hiddenBy = $hiddenBy;
 
         return $this;
     }

@@ -6133,13 +6133,6 @@ class TextFixtures extends Fixture
                 <p>If you have no history in modelling or the sex industry please include a full-length photo</p>
                 <p>Yours Bunga-tastically,</p>
                 <p>Silvio</p>',
-                '<p><strong>Dear <s>Sir or</s> Madam</strong></p>
-                <p>It is with regret that we have had to cancel the 39th parliamentary Bunga Bunga party</p>
-                <p>This is due to (not entirely) unforeseen circumstances.</p>
-                <p>Please check the box provided if you have experience in cake baking and file smuggling</p>
-                <p>and return it for the attention of Big Sadie, Cell Block D, Il Clinki Prisoni, Italia. </p>
-                <p>Yours Bung-requiringly,</p>
-                <p>S.B</p>'
             ],
             "lang" => "en",
             "background" => "letter",
@@ -6213,7 +6206,9 @@ class TextFixtures extends Fixture
                 There wild woods grow, and rivers row,<br><br>
                 And monie a hill between,<br><br>
                 But day and night my fancy\'s flight<br><br>
-                Is ever wi\' my Jean.</center>'
+                Is ever wi\' my Jean.</center>
+                <br><br>
+                <p> - Robert Burns</p>'
             ],
             "lang" => "en",
             "background" => "old",
@@ -6492,8 +6487,8 @@ class TextFixtures extends Fixture
                 <p><em>Stravingo</em></p>'
             ],
             "lang" => "en",
-            "background" => "old",
-            "design" => "poem"
+            "background" => "notepad",
+            "design" => "written"
         ],
         "bilan_en" => [
             "title" => "Minutes of the meeting of 24th August",
@@ -6760,8 +6755,8 @@ class TextFixtures extends Fixture
                 <p>There are people making lots of noise late at night. I\'m going to see if they want to play with my ball.</p>'
             ],
             "lang" => "en",
-            "background" => "old",
-            "design" => "ad"
+            "background" => "postit",
+            "design" => "small"
         ],
         "qwp1jl" => [
             "title" => "Quark and the Watchtower - Part 1",
