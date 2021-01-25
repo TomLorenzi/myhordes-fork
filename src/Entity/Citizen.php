@@ -777,9 +777,6 @@ class Citizen
         foreach ($this->getActionCounters() as $c)
             if ($c->getType() === $type) return $c;
         $a = (new ActionCounter())->setType($type);
-        if (in_array($type, ActionCounter::PerGameActionTypes)) {
-            $a->setDaily(false);
-        }
 
         $this->addActionCounter($a);
         return $a;
