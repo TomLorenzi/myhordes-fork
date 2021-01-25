@@ -352,6 +352,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $criteria->andWhere($criteria->expr()->gte('severity', Complaint::SeverityBanish));
         $criteria->andWhere($criteria->expr()->eq('culprit', $c));
 
+        $shunningEnabled = $this->conf->getTownConfiguration( $citizen->getTown() )->get(TownConf::CONF_FEATURE_SHUN, true);
+
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
             'can_attack' => !$this->getActiveCitizen()->getBanished() && !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
@@ -361,7 +363,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'allow_devour_corpse' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_corpse'),
             'home' => $home,
             'actions' => $this->getItemActions(),
-            'can_complain' => !$this->getActiveCitizen()->getBanished() && ( !$c->getBanished() || $this->town_handler->getBuilding( $this->getActiveCitizen()->getTown(), 'r_dhang_#00', true ) || $this->town_handler->getBuilding( $this->getActiveCitizen()->getTown(), 'small_fleshcage_#00', true )),
+            'can_complain' => $shunningEnabled && !$this->getActiveCitizen()->getBanished() && ( !$c->getBanished() || $this->town_handler->getBuilding( $this->getActiveCitizen()->getTown(), 'r_dhang_#00', true ) || $this->town_handler->getBuilding( $this->getActiveCitizen()->getTown(), 'small_fleshcage_#00', true )),
             'complaint' => $this->entity_manager->getRepository(Complaint::class)->findByCitizens( $this->getActiveCitizen(), $c ),
             'complaints' => $this->entity_manager->getRepository(Complaint::class)->matching( $criteria ),
             'complaintreasons' => $this->entity_manager->getRepository(ComplaintReason::class)->findAll(),
@@ -505,7 +507,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @return Response
      */
     public function complain_visit_api(int $id, EntityManagerInterface $em, TownHandler $th, JSONRequestParser $parser ): Response {
-        if ($id === $this->getActiveCitizen()->getId())
+        if ($id === $this->getActiveCitizen()->getId() || !$this->conf->getTownConfiguration( $this->getActiveCitizen()->getTown() )->get(TownConf::CONF_FEATURE_SHUN, true))
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
 
         if ($this->getActiveCitizen()->getBanished())

@@ -33,6 +33,7 @@ use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\TownHandler;
 use App\Structures\ItemRequest;
+use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
@@ -187,6 +188,8 @@ class TownHomeController extends TownController
         $criteria->andWhere($criteria->expr()->gte('severity', Complaint::SeverityBanish));
         $criteria->andWhere($criteria->expr()->eq('culprit', $citizen));
 
+        $shunningEnabled = $this->conf->getTownConfiguration( $citizen->getTown() )->get(TownConf::CONF_FEATURE_SHUN, true);
+
         // Render
         return $this->render( 'ajax/game/town/home.html.twig', $this->addDefaultTwigArgs('house', [
             'home' => $home,
@@ -203,7 +206,7 @@ class TownHomeController extends TownController
             'upgrades' => $upgrade_proto,
             'upgrade_levels' => $upgrade_proto_lv,
             'upgrade_costs' => $upgrade_cost,
-            'complaints' => $this->entity_manager->getRepository(Complaint::class)->matching( $criteria ),
+            'complaints' => $shunningEnabled ? $this->entity_manager->getRepository(Complaint::class)->matching( $criteria ) : [],
 
             'def' => $summary,
             'deco' => $deco,
