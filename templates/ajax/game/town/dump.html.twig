@@ -75,10 +75,18 @@
             </div>
         {% endfor %}
     </div>
+
+    <div class="row">
+        <div class="cell rw-12">
+            {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('town_dump_log_controller') } %}
+            {% endembed %}
+        </div>
+    </div>
 {% endblock %}
 {% block js %}
     {{ parent() }}
     <script>
+        {% embed "scripts/log.js.twig" %}{% endembed %}
         $.html.addEventListenerAll( '[x-item-id]', 'click', function (e,elem) {
             let ap = null, valid = false;
             do {

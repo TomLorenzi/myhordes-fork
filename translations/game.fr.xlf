@@ -17365,5 +17365,50 @@
         <target>Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</target>
       </segment>
     </unit>
+    <unit id="IuqDnZY" name="%citizen% hat %items% in der Müllhalde zerstört (+%def% Verteidigung)">
+      <notes>
+        <note category="german">%citizen% hat %items% in der Müllhalde zerstört (+%def% Verteidigung)</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat %items% in der Müllhalde zerstört (+%def% Verteidigung)</source>
+        <target>%citizen% a détruit %items% à la décharge (+%def% Déf)</target>
+      </segment>
+    </unit>
+    <unit id="zKN7f_C" name="Du verlässt deinen Posten?...">
+      <notes>
+        <note category="german">Du verlässt deinen Posten?...</note>
+      </notes>
+      <segment>
+        <source>Du verlässt deinen Posten?...</source>
+        <target>Du verlässt deinen Posten?...</target>
+      </segment>
+    </unit>
+    <unit id="81G6y92" name="2bec6b6">
+      <notes>
+        <note category="german">Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...</note>
+      </notes>
+      <segment>
+        <source>Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...</source>
+        <target>Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...</target>
+      </segment>
+    </unit>
+    <unit id="k23__KG" name="7d8dbe4">
+      <notes>
+        <note category="german">Zur Information: Sobald du Wächter bist, kannst du danach wieder einfacher Bürger werden.</note>
+      </notes>
+      <segment>
+        <source>Zur Information: Sobald du Wächter bist, kannst du danach wieder einfacher Bürger werden.</source>
+        <target>Zur Information: Sobald du Wächter bist, kannst du danach wieder einfacher Bürger werden.</target>
+      </segment>
+    </unit>
+    <unit id="zzRDqeC" name="52c1a7d">
+      <notes>
+        <note category="german">Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...</note>
+      </notes>
+      <segment>
+        <source>Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...</source>
+        <target>Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

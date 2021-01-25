@@ -351,6 +351,8 @@ class TownAddonsController extends TownController
             'items' => $cache,
             'dump_def' => $dump->getTempDefenseBonus(),
             'total_def' => $th->calculate_town_def( $town ),
+            'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeDump, 10 )->getContent(),
+            'day' => $this->getActiveCitizen()->getTown()->getDay(),
         ]) );
     }
 
@@ -390,6 +392,18 @@ class TownAddonsController extends TownController
         $items = $this->inventory_handler->fetchSpecificItems( $town->getBank(), [new ItemRequest($prototype->getName(), $ap)] );
         if (!$items) return AjaxResponse::error( ErrorHelper::ErrorItemsMissing );
 
+        $itemsForLog = [];
+        foreach ($items as $item){
+            if(isset($itemsForLog[$item->getPrototype()->getId()])) {
+                $itemsForLog[$item->getPrototype()->getId()]['count'] += $ap;
+            } else {
+                $itemsForLog[$item->getPrototype()->getId()] = [
+                    'item' => $item->getPrototype(),
+                    'count' => $ap
+                ];
+            }
+        }
+
         // Remove items
         $n = $ap;
         while (!empty($items) && $n > 0) {
@@ -405,6 +419,8 @@ class TownAddonsController extends TownController
         // Increase def
         $dump->setTempDefenseBonus( $dump->getTempDefenseBonus() + $ap * $dump_def );
 
+        $this->entity_manager->persist($this->log->dumpItems($citizen, $itemsForLog, $ap*$dump_def));
+
         // Persist
         try {
             $this->entity_manager->persist( $dump );
@@ -414,6 +430,15 @@ class TownAddonsController extends TownController
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
+    }
+
+    /**
+     * @Route("api/dump/log", name="town_dump_log_controller")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function log_door_api(JSONRequestParser $parser): Response {
+        return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeDump, null);
     }
 
     /**
@@ -611,13 +636,14 @@ class TownAddonsController extends TownController
             }
 
         if($action == 'unwatch') {
-
             if ($activeCitizenWatcher === null)
                 return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
             $town->removeCitizenWatch($activeCitizenWatcher);
             $this->getActiveCitizen()->removeCitizenWatch($activeCitizenWatcher);
             $this->entity_manager->remove($activeCitizenWatcher);
+            $this->addFlash('notice', $this->translator->trans('Du verlässt deinen Posten?...',[], 'game'));
+
         } else if ($action == "watch") {
 
             if ($activeCitizenWatcher !== null)
@@ -630,6 +656,8 @@ class TownAddonsController extends TownController
             $this->getActiveCitizen()->addCitizenWatch($citizenWatch);
 
             $this->entity_manager->persist($citizenWatch);
+
+            $this->addFlash('notice', $this->translator->trans('Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...',[], 'game'));
         }
 
         $this->entity_manager->persist($this->getActiveCitizen());
