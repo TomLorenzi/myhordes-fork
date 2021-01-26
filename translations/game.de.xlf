@@ -4849,13 +4849,13 @@
         <target>Ja</target>
       </segment>
     </unit>
-    <unit id="0vW.4CA" name="Ein Vorhang blockiert die Sicht ...">
+    <unit id="0vW.4CA" name="Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was %citizen% bei sich aufbewahrt...">
       <notes>
-        <note category="german">Ein Vorhang blockiert die Sicht ...</note>
+        <note category="german">Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was %citizen% bei sich aufbewahrt...</note>
       </notes>
       <segment>
-        <source>Ein Vorhang blockiert die Sicht ...</source>
-        <target>Ein Vorhang blockiert die Sicht ...</target>
+        <source>Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was %citizen% bei sich aufbewahrt...</source>
+        <target>Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was %citizen% bei sich aufbewahrt...</target>
       </segment>
     </unit>
     <unit id="0lltLsX" name="Unsere Verteidigung :">

@@ -4751,12 +4751,12 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Yes</target>
       </segment>
     </unit>
-    <unit id="0vW.4CA" name="Ein Vorhang blockiert die Sicht ...">
+    <unit id="0vW.4CA" name="Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was %citizen% bei sich aufbewahrt...">
       <notes>
-        <note category="german">Ein Vorhang blockiert die Sicht ...</note>
+        <note category="german">Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was %citizen% bei sich aufbewahrt...</note>
       </notes>
       <segment>
-        <source>Ein Vorhang blockiert die Sicht ...</source>
+        <source>Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was %citizen% bei sich aufbewahrt...</source>
         <target>The contents of this house are hidden by curtains over the windows... how rude!</target>
       </segment>
     </unit>

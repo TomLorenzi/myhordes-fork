@@ -318,7 +318,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         $hidden = (bool)($em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($home,
             $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneBy(['name' => 'curtain'])
-        )) && $this->citizen_handler->houseIsProtected($c);
+        ));
 
         $is_injured    = $this->citizen_handler->isWounded($c);
         $is_infected   = $this->citizen_handler->hasStatusEffect($c, 'infection');
@@ -386,6 +386,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'day' => $c->getTown()->getDay(),
             'already_stolen' => $already_stolen,
             'hidden' => $hidden,
+            'protect' => $this->citizen_handler->houseIsProtected($c),
             'hasClairvoyance' => $hasClairvoyance,
             'clairvoyanceLevel' => $clairvoyanceLevel,
             'attackAP' => $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 4 )
