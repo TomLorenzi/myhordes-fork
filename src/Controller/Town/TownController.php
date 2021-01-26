@@ -41,11 +41,13 @@ use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
 use App\Service\ErrorHelper;
 use App\Service\TownHandler;
+use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -283,13 +285,14 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         $town = $this->getActiveCitizen()->getTown();
         $lastActionTimestamp = $c->getLastActionTimestamp();
+        $date = (new DateTime())->setTimestamp($lastActionTimestamp);
 
         // Getting delta time between now and the last action
         $time = time() - $lastActionTimestamp; 
         $time = abs($time); 
 
-        if ($time > 10800) {
-            // If it was more than 3 hours, let's get the full date/time format
+        if ($time > 10800 || $date->format('d') !== (new DateTime())->format('d')) {
+            // If it was more than 3 hours, or if the day changed, let's get the full date/time format
             $lastActionText =$this->translator->trans('am', [], 'game') . ' '. date('d/m/Y, H:i', $lastActionTimestamp);
         } else {
             // Tableau des unités et de leurs valeurs en secondes
