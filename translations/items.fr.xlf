@@ -6829,7 +6829,7 @@
       </notes>
       <segment>
         <source>Du hast soeben den mystischen Trank getrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</source>
-        <target>Vous venez de voire la potion chamanique ! Il ne reste plus qu'à espérer que ce chaman sache un peu ce qu'il fait...</target>
+        <target>Vous venez de boire la potion chamanique ! Il ne reste plus qu'à espérer que ce chaman sache un peu ce qu'il fait...</target>
       </segment>
     </unit>
     <unit id="qpQMEHf" name="5f07d6b">
