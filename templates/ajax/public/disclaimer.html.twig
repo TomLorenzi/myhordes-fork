@@ -26,9 +26,13 @@
                     {% endtrans %}</span> ({% trans from 'global' %}Auch dann nicht, wenn du dazu aufgefordert wirst!{% endtrans %})
                 </li>
                 {% if ex.contact is not empty %}
-
+                {% if "@" in ex.contact %}
+                    {% set uri = "mailto:" ~ ex.contact %}
+                {% else %}
+                    {% set uri = ex.contact %}
+                {% endif %}
                 <li>
-                    {% trans with { '%contact%': '<a href="mailto:' ~ ex.contact ~ '">' ~ ex.contact ~ '</a>' } from 'global' %}
+                    {% trans with { '%contact%': '<a href="' ~ uri ~ '">' ~ ex.contact ~ '</a>' } from 'global' %}
                         Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.
                     {% endtrans %}
                 </li>
@@ -76,7 +80,7 @@
                             <div class="tooltip help">{{ 'Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.'|trans({},'global') }}</div>
                         </a></span>
                         </div>
-                        <div class="cell padded rw-8 rw-md-12"><input id="app_email" type="email" value="{{ ex.contact }}" /></div>
+                        <div class="cell padded rw-8 rw-md-12"><input id="app_email" type="text" value="{{ ex.contact }}" /></div>
                     </div>
 
                     <div class="row">
