@@ -1118,9 +1118,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $missing_ap = ceil( (round($building->getPrototype()->getAp()*$workshopBonus) - $building->getAp()) * ( $slave_bonus ? (2.0/3.0) : 1 )) ;
             $ap = max(0,min( $ap, $missing_ap ) );
         } else {
-            $neededApForFullHp = ($building->getPrototype()->getHp() - $building->getHp()) / $hpToAp;
+            $neededApForFullHp = ceil(($building->getPrototype()->getHp() - $building->getHp()) / $hpToAp);
             $missing_ap = ceil( (round($neededApForFullHp) * ( $slave_bonus ? (2.0/3.0) : 1 ))) ;
-            $ap = max(0,min( $ap, $missing_ap ) );
+            $ap = max(0, min( $ap, $missing_ap ) );
         }
 
         if (intval($ap) <= 0 && $was_completed)

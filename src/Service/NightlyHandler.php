@@ -500,10 +500,8 @@ class NightlyHandler
 
         if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_BUILDING_DAMAGE)) {
             // In panda, built buildings get damaged every night
-            $damageInflicted = $zombies;
-
             // Only 10% of the attack is inflicted to buildings
-            $damageInflicted = round($damageInflicted * 0.1, 0);
+            $damageInflicted = round($zombies * 0.1);
 
             $this->log->debug("Inflicting <info>$damageInflicted</info> damage to the buildings in town...");
 
@@ -511,7 +509,8 @@ class NightlyHandler
 
             foreach ($town->getBuildings() as $building) {
                 // Only built buildings AND buildings with HP can get damaged
-                if (!$building->getComplete() || $building->getPrototype()->getHp() == 0 || $building->getPrototype()->getImpervious()) continue;
+                if (!$building->getComplete() || $building->getPrototype()->getHp() <= 0 || $building->getPrototype()->getImpervious()) continue;
+
                 $targets[] = $building;
             }
 
@@ -1038,7 +1037,7 @@ class NightlyHandler
         $morph = [
             'torch_#00'    => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'torch_off_#00']),
             'lamp_on_#00'  => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'lamp_#00']),
-            'radio_on_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'radio_off_#00']),
+            // 'radio_on_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'radio_off_#00']),
             'tamed_pet_off_#00'  => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_#00']),
             'tamed_pet_drug_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_#00']),
             'maglite_2_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'maglite_1_#00']),

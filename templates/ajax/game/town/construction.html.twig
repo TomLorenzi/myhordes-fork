@@ -115,7 +115,7 @@
                     </div>
                 {% elseif (building.complete and building.hp < building.prototype.hp) %}
                     <div class="build-req">
-                        <div class="ap">{{ ((building.prototype.hp - building.hp)/hpToAp)|round }}</div>
+                        <div class="ap">{{ ((building.prototype.hp - building.hp)/hpToAp)|round(0, 'ceil') }}</div>
                     </div>
                 {% endif %}
                 {% if not building.complete and building.prototype.resources is not null and buildable %}
