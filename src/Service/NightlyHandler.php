@@ -410,7 +410,7 @@ class NightlyHandler
 
         $zombies *= $soulFactor;
         $zombies = round($zombies);
-
+        $zombies = 2950;
         $gazette->setAttack($zombies);
 
         $overflow = !$town->getDoor() ? max(0, $zombies - $def) : $zombies;
@@ -445,6 +445,7 @@ class NightlyHandler
             $deathChances = $this->citizen_handler->getDeathChances($watcher->getCitizen(), true);
             $woundOrTerrorChances = $deathChances + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05);
             $ctz = $watcher->getCitizen();
+            $deathChances = 0;
 
             if ($this->random->chance($deathChances)) {
                 $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> is now <info>dead</info> because of the watch");
@@ -485,7 +486,7 @@ class NightlyHandler
                 $null = null;
                 foreach ($watcher->getCitizen()->getInventory()->getItems() as $item)
                     if ($item->getPrototype()->getNightWatchAction()) {
-                        $this->log->debug("Executing night watch action for '<info>{$item->getPrototype()->getLabel()}</info>' held by Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info>.");
+                        $this->log->debug("Executing night watch action for '<info>{$item->getPrototype()->getLabel()}</info> : '<info>{$item->getPrototype()->getNightWatchAction()->getName()}</info>' held by Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info>.");
                         $this->action_handler->execute( $ctz, $item, $null, $item->getPrototype()->getNightWatchAction(), $msg, $r, true);
                         foreach ($r as $rr) $this->entity_manager->remove($rr);
                     }

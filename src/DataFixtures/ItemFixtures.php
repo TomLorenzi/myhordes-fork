@@ -357,7 +357,7 @@ class ItemFixtures extends Fixture
         ['label' => 'Sandball', 'icon' => 'sand_ball', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                              //
         ['label' => 'Santas Rentier', 'icon' => 'renne', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 30],                                             // -- ---
         ['label' => 'Osterei', 'icon' => 'paques', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 38],                                                  // -- ---
-        ['label' => 'Geistiger Beistand', 'icon' => 'chkspk', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                       // -- ---
+        ['label' => 'Geistiger Beistand', 'icon' => 'chkspk', 'category' => 'Misc', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],                                       // -- ---
         ['label' => 'Fette Python', 'icon' => 'pet_snake2', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0, 'fragile' => true],                                          // -- ---
         ['label' => 'Bürgerbekleidung', 'icon' => 'basic_suit', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                     // -- ---
         ['label' => 'Dreckige Bürgerbekleidung', 'icon' => 'basic_suit_dirt', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                       // -- ---
