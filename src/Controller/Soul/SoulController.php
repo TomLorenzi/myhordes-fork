@@ -279,7 +279,7 @@ class SoulController extends CustomAbstractController
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        $seasons = $this->entity_manager->getRepository(Season::class)->findAll();
+        $seasons = $this->entity_manager->getRepository(Season::class)->findBy(['subNumber' => null]);
         if ($seasonId === null) {
             $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
         } else {
