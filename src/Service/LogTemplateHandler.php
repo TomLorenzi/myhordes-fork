@@ -48,6 +48,7 @@ class LogTemplateHandler
     /**
      * @param Item|ItemPrototype|ItemGroupEntry|Citizen|CitizenProfession|Building|BuildingPrototype|CauseOfDeath|CitizenHome|CitizenHomePrototype|array $obj
      * @param bool $small
+     * @param bool $broken
      * @return string
      */
     public function iconize($obj, bool $small = false, bool $broken = false): string {

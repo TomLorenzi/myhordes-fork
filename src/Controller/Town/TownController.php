@@ -744,8 +744,12 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                     $citizen,
                     $item,$inv_source, $inv_target
                 )) === InventoryHandler::ErrorNone) {
-                    if ($counter->getCount() > 0)
+                    if ($counter->getCount() > 0) {
+                        $flash = $this->translator->trans("Du hast eine weitere %item% genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...", ['%item%' => $this->log->wrap($this->log->iconize($item), 'tool')], 'game');
                         $ba->increaseBankCount( $citizen );
+                    } else {
+                        $flash = $this->translator->trans("Du hast deine tägliche Ration erhalten: %item%", ['%item%' => $this->log->wrap($this->log->iconize($item), 'tool')], 'game');
+                    }
 
                     $this->entity_manager->persist( $this->log->wellLog( $citizen, $counter->getCount() >= 1 ) );
                     $counter->increment();
@@ -759,6 +763,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                     } catch (Exception $e) {
                         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
                     }
+
+                    $this->addFlash('notice', $flash);
                     return AjaxResponse::success();
                 } else return AjaxResponse::error($error);
             } else {
