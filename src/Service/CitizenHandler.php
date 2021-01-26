@@ -662,7 +662,8 @@ class CitizenHandler
 
         // Leuchtturm
         $camping_values['lighthouse'] = 0;
-        if ($town->getBuildings()->contains( $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName( 'small_lighthouse_#00' )) ) {
+
+        if ($this->container->get(TownHandler::class)->getBuilding( $town, "small_lighthouse_#00" )) {
             $camping_values['lighthouse'] = 25; //camping improvement or percent ? Because it's 5 camping improvement normally
         }
 
