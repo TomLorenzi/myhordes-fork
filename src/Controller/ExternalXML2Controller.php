@@ -326,6 +326,14 @@ class ExternalXML2Controller extends ExternalController {
                 $town = $user->getActiveCitizen()->getTown();
             }
 
+            if (!$this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_XML, true)) {
+                $data['error']['attributes'] = ['code' => "disabled_feed"];
+                $data['status']['attributes'] = ['open' => "1", "msg" => ""];
+                $response = new Response($this->arrayToXml( $data, '<hordes xmlns:dc="http://purl.org/dc/elements/1.1" xmlns:content="http://purl.org/rss/1.0/modules/content/" />' ));
+                $response->headers->set('Content-Type', 'text/xml');
+                return $response;
+            }
+
             $data['headers']['game'] = [
                 'attributes' => [
                     'days' => $town->getDay(),

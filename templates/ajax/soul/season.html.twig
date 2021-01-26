@@ -8,13 +8,21 @@
     <div class="row">
         <div class="cell rw-12 seasonHeader">
             <span class="seasonName">
+                {% if currentSeason is not null %}
                 {{ ('Saison ' ~ currentSeason.number ~ '.' ~ currentSeason.subNumber)|trans({}, "season")}}
+                {% else %}
+                    {{'Alte Städte'|trans({}, "soul")}}
+                {% endif %}
             </span>
             <span class="seasonNumber">
-                {% if currentSeason.subNumber > 0 %}
-                    {% set curNumber = currentSeason.number ~ '.' ~ currentSeason.subNumber %}
+                {% if currentSeason is not null %}
+                    {% if currentSeason.subNumber > 0 %}
+                        {% set curNumber = currentSeason.number ~ '.' ~ currentSeason.subNumber %}
+                    {% else %}
+                        {% set curNumber = currentSeason.number %}
+                    {% endif %}
                 {% else %}
-                    {% set curNumber = currentSeason.number %}
+                    {% set curNumber = 0 %}
                 {% endif %}
                 {{ 'Saison %number%'|trans({"%number%": '<span class="number">' ~ curNumber ~ '</span>'}, "soul")|raw}}
             </span>
@@ -32,7 +40,10 @@
         <div class="cell padded rw-12">
             {% if towns|length > 0 %}
             <div class="row-flex header">
-                <div class="cell padded rw-2 center">
+                <div class="cell padded rw-1 center">
+                    {{'Lang.'|trans({}, 'soul')}}
+                </div>
+                <div class="cell padded rw-1 center">
                     {{'Pos.'|trans({}, 'soul')}}
                 </div>
                 <div class="cell padded rw-6 center">
@@ -49,8 +60,9 @@
                 {% set pos = 1 %}
                 {% for town in towns %}
                     <div class="row-flex stretch {% if played[town.id] is defined %}played{% endif %}">
-                        {# @var \src\Entity\TownRankingProxy town #}
-                        <div class="cell rw-2 center">{{ pos }}</div>
+                        {# @var town \src\Entity\TownRankingProxy #}
+                        <div class="cell rw-1 center"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></div>
+                        <div class="cell rw-1 center">{{ pos }}</div>
                         <div class="cell rw-6 center">{{ town.name }}</div>
                         <div class="cell rw-2 center">{{ town.days }}</div>
                         <div class="cell rw-2 center">{{ town.score }}</div>
@@ -69,8 +81,9 @@
                 {{ 'Vorangegangene Saisons:'|trans({}, 'soul') }}
             </label>
             <select name="season" id="season">
+                <option value="-1" {% if currentSeason is null %}selected{% endif %}>{{'Alte Städte'|trans({}, "soul")}}</option>
                 {% for season in seasons %}
-                    <option value="{{season.id}}" {% if currentSeason.id == season.id %}selected{% endif %}>
+                    <option value="{{season.id}}" {% if currentSeason is not null and currentSeason.id == season.id %}selected{% endif %}>
                         {% if season.number == 0 %}{{ 'Gute Alte Zeit'|trans({},'soul') }} -{% endif %}
                         {{ 'Saison %n%'|trans({'%n%': season.number > 0 ? season.number : season.subNumber},'soul') }}{% if season.number > 0 %} - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}{% endif %}
                     </option>
