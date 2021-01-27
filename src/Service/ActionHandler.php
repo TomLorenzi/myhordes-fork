@@ -569,6 +569,7 @@ class ActionHandler
             'cp' => 0,
             'item'   => $item ? $item->getPrototype() : null,
             'target' => $target_item_prototype,
+            'source_inv' => $item->getInventory(),
             'citizen' => is_a($target, Citizen::class) ? $target : null,
             'item_morph' => [ null, null ],
             'item_target_morph' => [ null, null ],
@@ -776,8 +777,11 @@ class ActionHandler
                         case AffectItemSpawn::DropTargetFloor:
                             $target = [ $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
                             break;
-                        case AffectItemSpawn::DropTargetRucksack: default:
+                        case AffectItemSpawn::DropTargetRucksack:
                             $target = [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
+                        case AffectItemSpawn::DropTargetDefault:
+                        default:
+                            $target = [ $execute_info_cache['source_inv'] ];
                             break;
                     }
 
