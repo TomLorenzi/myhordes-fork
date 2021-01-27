@@ -809,7 +809,7 @@ class ActionHandler
                     if ($kills > 0) {
                         $citizen->getZone()->setZombies( $citizen->getZone()->getZombies() - $kills );
                         $execute_info_cache['kills'] = $kills;
-                        $this->entity_manager->persist( $this->log->zombieKill( $citizen, $item ? $item->getPrototype() : null, $kills ) );
+                        $this->entity_manager->persist( $this->log->zombieKill( $citizen, $execute_info_cache['item'], $kills ) );
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
                         if($citizen->getZone()->getZombies() <= 0){
                             $tags[] = 'kill-latest';
@@ -825,7 +825,7 @@ class ActionHandler
                         $ruinZone->setZombies( $ruinZone->getZombies() - $kills );
                         $ruinZone->setKilledZombies( $ruinZone->getKilledZombies() + $kills );
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
-                        $this->entity_manager->persist( $this->log->zombieKill( $citizen, $item ? $item->getPrototype() : null, $kills ) );
+                        $this->entity_manager->persist( $this->log->zombieKill( $citizen, $execute_info_cache['item'], $kills ) );
                     }
                 }
             }
@@ -900,7 +900,7 @@ class ActionHandler
                 $execute_info_cache['well'] += $add;
 
                 if ($add > 0)
-                    $this->entity_manager->persist( $this->log->wellAdd( $citizen, $item->getPrototype(), $add) );
+                    $this->entity_manager->persist( $this->log->wellAdd( $citizen, $execute_info_cache['item'], $add) );
             }
 
             if ($result->getRolePlayText()) {
