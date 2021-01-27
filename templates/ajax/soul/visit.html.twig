@@ -72,10 +72,7 @@
                                     {% for season in seasons %}
                                         {% if season.number > 0 %}
                                             <option value="{{season.id}}">
-                                                {{ 'Saison %n%'|trans({'%n%': season.number},'soul') }}
-                                                {% if season.name is not empty %}
-                                                    - {{season.name|trans({},'soul')}}
-                                                {% endif %}
+                                                {{ 'Saison %n%'|trans({'%n%': season.number},'soul') }} - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}
                                             </option>
                                         {% endif %}
                                     {% endfor %}
@@ -85,9 +82,6 @@
                                             <option value="{{season.id}}">
                                                 {{ 'Gute Alte Zeit'|trans({},'soul') }} -
                                                 {{ 'Saison %n%'|trans({'%n%': season.subNumber},'soul') }}
-                                                {% if season.name is not empty %}
-                                                    - {{season.name|trans({},'soul')}}
-                                                {% endif %}
                                             </option>
                                         {% endif %}
                                     {% endfor %}
