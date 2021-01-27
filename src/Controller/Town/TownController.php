@@ -126,6 +126,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $data["new_message"] = $this->citizen_handler->hasNewMessage($this->getActiveCitizen());
         $data['can_do_insurrection'] = $this->getActiveCitizen()->getBanished() && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), "tg_insurrection") && $town->getInsurrectionProgress() < 100;
         $data['has_insurrection_part'] = $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), "tg_insurrection");
+        $data['has_battlement']    = $this->town_handler->getBuilding($town, 'small_round_path_#00') && !$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH_INSTANT, false) && $this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true);
         return parent::addDefaultTwigArgs( $section, $data );
     }
 
@@ -1507,6 +1508,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'show_sneaky'       => $this->getActiveCitizen()->hasRole('ghoul'),
             'log'               => $this->renderLog( -1, null, false, LogEntryTemplate::TypeDoor, 10 )->getContent(),
             'day'               => $this->getActiveCitizen()->getTown()->getDay(),
+            'door_section'      => 'door'
         ], $this->get_map_blob())) );
     }
 
@@ -1517,6 +1519,44 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function log_door_api(JSONRequestParser $parser): Response {
         return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeDoor, null);
+    }
+
+    /**
+     * @Route("jx/town/routes", name="town_routes")
+     * @return Response
+     */
+    public function routes(): Response
+    {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
+        return $this->render( 'ajax/game/town/routes.html.twig', $this->addDefaultTwigArgs('door', array_merge([
+            'door_section'      => 'planner',
+            'town'  =>  $this->getActiveCitizen()->getTown(),
+            'routes' => $expeditions = $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown($this->getActiveCitizen()->getTown()),
+            'allow_extended' => $this->getActiveCitizen()->getProfession()->getHeroic(),
+        ], $this->get_map_blob())) );
+    }
+
+    /**
+     * @Route("jx/town/planner", name="town_planner")
+     * @return Response
+     */
+    public function planner(): Response
+    {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
+        $routes = $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown($this->getActiveCitizen()->getTown());
+
+        if(count($routes) >= 16)
+            return $this->redirect($this->generateUrl('town_routes'));
+
+        return $this->render( 'ajax/game/town/planner.html.twig', $this->addDefaultTwigArgs('door', array_merge([
+            'door_section'      => 'planner',
+            'town'  =>  $this->getActiveCitizen()->getTown(),
+            'allow_extended' => $this->getActiveCitizen()->getProfession()->getHeroic(),
+        ], $this->get_map_blob())) );
     }
 
     /**
@@ -1537,6 +1577,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         if ($citizen->getExpeditionRoutes()->count() >= 12)
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $routes = $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown($citizen->getTown());
+
+        if(count($routes) >= 16)
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $last = null; $ap = 0;
@@ -1581,18 +1626,27 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     }
 
     /**
-     * @Route("jx/town/planner", name="town_planner")
+     * @Route("api/town/planner/delete", name="town_planner_delete_route")
+     * @param JSONRequestParser $parser
      * @return Response
      */
-    public function planner(): Response
-    {
-        if (!$this->getActiveCitizen()->getHasSeenGazette())
-            return $this->redirect($this->generateUrl('game_newspaper'));
+    public function planner_delete_api(JSONRequestParser $parser): Response {
+        $route_id = $parser->get('id', -1);
 
-        return $this->render( 'ajax/game/town/planner.html.twig', $this->addDefaultTwigArgs('door', array_merge([
-            'town'  =>  $this->getActiveCitizen()->getTown(),
-            'allow_extended' => $this->getActiveCitizen()->getProfession()->getHeroic()
-        ], $this->get_map_blob())) );
+        if ($route_id <= 0)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var ExpeditionRoute $route */
+        $route = $this->entity_manager->getRepository(ExpeditionRoute::class)->find($route_id);
+
+        if(!$route || $route->getOwner() !== $this->getActiveCitizen())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        $this->entity_manager->remove($route);
+        $this->entity_manager->flush();
+
+        $this->addFlash( 'notice', $this->translator->trans('Die Route wurde gelöscht.', [], 'game') );
+        return AjaxResponse::success();
     }
 
     /**

@@ -1,0 +1,86 @@
+{% extends "ajax/game/town/town.html.twig" %}
+{% block title %}{{'Expeditionen'|trans({}, 'game')}}{% endblock %}
+{% block content %}
+    {% set hour = "now"|date("G") %}
+    <div class="row">
+        <div class="cell rw-12 town-banner town-banner-door-{% if town.door %}open{% else %}closed{% endif%} time-{{ hour }} {% if town.isNight %}night{% endif %}"></div>
+    </div>
+
+    {% embed "ajax/game/town/door_tabs.html.twig" with {'door_section': door_section, 'has_battlement': has_battlement} %}
+    {% endembed %}
+
+    <div class="help">
+        {{'In diesem Bereich kannst du für deine Mitbürger "Wege" in der Außenwelt markieren. Auf diese Weise könnt ihr Expeditionen in Zonen organisieren, die euch wirklich interessieren..'|trans({}, 'game')}}<br />
+        <br />
+        <em class="small">{{'Achtung: Die Stadt kann nur 16 Expeditionen durchführen. Denke immer daran, nutzlos gewordene Expeditionen abzubrechen!'|trans({}, 'game')}}</em>
+    </div>
+
+    <div class="row">
+        <div class="cell padded header rw-6 row-table routes-list">
+            {% if routes|length > 0 %}
+            <div class="row header">
+                <div class="padded cell rw-4">{{ 'Expeditionen'|trans({},'game') }}</div>
+                <div class="padded cell rw-3">{{ 'Dauer'|trans({},'game') }}</div>
+                <div class="padded cell rw-5"></div>
+            </div>
+            {% for route in routes %}
+             <div class="row stretch pointer" x-route-id="{{ route.id }}">
+                 <div class="cell padded rw-4">{{ route.label }}<br /><span class="small">{{ "von %citizen%"|trans({'%citizen%': route.owner.user.name }, 'game') }}</span></div>
+                 <div class="cell padded rw-3">{{ route.length}} <div class="ap"></div></div>
+                 <div class="cell padded rw-4"><img src="{{ asset('build/images/icons/small_view.gif') }}" alt="" />{{ "Ansehen"|trans({}, 'game') }}</div>
+                 <div class="cell padded rw-1 delete_exp"><div class="inline-block"><img src="{{ asset('build/images/icons/small_remove.gif') }}" alt="" /><div class="tooltip">{{ 'Diese Expedition löschen'|trans({}, 'game') }}</div></div></div>
+             </div>
+            {% endfor %}
+            {% endif %}
+            <br />
+            {% if routes|length < 16 %}
+            <button x-ajax-href="{{ path('town_planner') }}">{{ 'Eine Expedition Erstellen'|trans({}, 'game') }}</button>
+            {% endif %}
+        </div>
+        <div class="padded cell rw-6">
+            {% embed "ajax/game/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'in_town': true, 'map': map_data} %}
+            {% endembed %}
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        {% embed "scripts/map.js.twig" with {'map': map_data} %}{% endembed %}
+
+        if ($.client.get('current', 'routes') !== null) {
+            document.querySelector('div.routes-list [x-route-id="' + $.client.get('current', 'routes') +'"]').classList.add("me");
+        }
+
+        for (let i = 0; i < scroll_areas.length; i++) {
+            let scroll_area = scroll_areas[i];
+            let map_area = scroll_area.parentNode;
+            let map = map_area.parentNode;
+
+            let route_selectors = document.querySelectorAll('div.routes-list [x-route-id]');
+            for (let i = 0; i < route_selectors.length; i++)
+                route_selectors[i].addEventListener('click', function () {
+                    const old_route = $.client.get('current', 'routes');
+                    const new_route = old_route === route_selectors[i].getAttribute('x-route-id') ? null : route_selectors[i].getAttribute('x-route-id');
+                    activate_route(map, '#b4da4c', new_route);
+                    $.client.set('current', 'routes', new_route, false);
+                    if (old_route !== null)
+                        document.querySelector('div.routes-list [x-route-id].me').classList.remove("me");
+                    if(new_route !== null)
+                        route_selectors[i].classList.add('me');
+                });
+        }
+
+        let deletebtn = document.querySelectorAll(".delete_exp");
+        for (let i = 0; i < deletebtn.length; i++)
+            deletebtn[i].addEventListener('click', function () {
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                    return;
+
+                $.ajax.easySend( '{{ path('town_planner_delete_route') }}', {id: deletebtn[i].parentElement.getAttribute('x-route-id')},
+                    function () {
+                        $.ajax.load(null, '{{ path('town_routes') }}', true);
+                    } );
+            });
+    </script>
+{% endblock %}

@@ -17450,5 +17450,113 @@
         <target>Le contenu de cette habitation est caché par des rideaux aux fenêtres...</target>
       </segment>
     </unit>
+    <unit id="rqIPcqm" name="%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!">
+      <notes>
+        <note category="german">%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!</note>
+      </notes>
+      <segment>
+        <source>%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!</source>
+        <target>%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!</target>
+      </segment>
+    </unit>
+    <unit id="lDKOiMz" name="d1143ea">
+      <notes>
+        <note category="german">... Auf jeden Fall kamen %zombies% Zombies durch unsere Verteidigungen und griffen Bürger an!</note>
+      </notes>
+      <segment>
+        <source>... Auf jeden Fall kamen %zombies% Zombies durch unsere Verteidigungen und griffen Bürger an!</source>
+        <target>... Auf jeden Fall kamen %zombies% Zombies durch unsere Verteidigungen und griffen Bürger an!</target>
+      </segment>
+    </unit>
+    <unit id="0FSEa0F" name="66f1b95">
+      <notes>
+        <note category="german">Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!</note>
+      </notes>
+      <segment>
+        <source>Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!</source>
+        <target>Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!</target>
+      </segment>
+    </unit>
+    <unit id="T4D33fJ" name="Die Route wurde gelöscht.">
+      <notes>
+        <note category="german">Die Route wurde gelöscht.</note>
+      </notes>
+      <segment>
+        <source>Die Route wurde gelöscht.</source>
+        <target>Die Route wurde gelöscht.</target>
+      </segment>
+    </unit>
+    <unit id="2610l.t" name="999c592">
+      <notes>
+        <note category="german">In diesem Bereich kannst du für deine Mitbürger "Wege" in der Außenwelt markieren. Auf diese Weise könnt ihr Expeditionen in Zonen organisieren, die euch wirklich interessieren..</note>
+      </notes>
+      <segment>
+        <source>In diesem Bereich kannst du für deine Mitbürger "Wege" in der Außenwelt markieren. Auf diese Weise könnt ihr Expeditionen in Zonen organisieren, die euch wirklich interessieren..</source>
+        <target>In diesem Bereich kannst du für deine Mitbürger "Wege" in der Außenwelt markieren. Auf diese Weise könnt ihr Expeditionen in Zonen organisieren, die euch wirklich interessieren..</target>
+      </segment>
+    </unit>
+    <unit id="oUzp6eN" name="e9767a0">
+      <notes>
+        <note category="german">Achtung: Die Stadt kann nur 16 Expeditionen durchführen. Denke immer daran, nutzlos gewordene Expeditionen abzubrechen!</note>
+      </notes>
+      <segment>
+        <source>Achtung: Die Stadt kann nur 16 Expeditionen durchführen. Denke immer daran, nutzlos gewordene Expeditionen abzubrechen!</source>
+        <target>Attention: Die Stadt kann nur 16 Expeditionen durchführen. Denke immer daran, nutzlos gewordene Expeditionen abzubrechen!</target>
+      </segment>
+    </unit>
+    <unit id="Zoy_MWF" name="Dauer">
+      <notes>
+        <note category="german">Dauer</note>
+      </notes>
+      <segment>
+        <source>Dauer</source>
+        <target>Distance</target>
+      </segment>
+    </unit>
+    <unit id="mZIzUeE" name="von %citizen%">
+      <notes>
+        <note category="german">von %citizen%</note>
+      </notes>
+      <segment>
+        <source>von %citizen%</source>
+        <target>De %citizen%</target>
+      </segment>
+    </unit>
+    <unit id="jjE2OUe" name="Ansehen">
+      <notes>
+        <note category="german">Ansehen</note>
+      </notes>
+      <segment>
+        <source>Ansehen</source>
+        <target>Voir</target>
+      </segment>
+    </unit>
+    <unit id="J.e7pwb" name="Diese Expedition löschen">
+      <notes>
+        <note category="german">Diese Expedition löschen</note>
+      </notes>
+      <segment>
+        <source>Diese Expedition löschen</source>
+        <target>Supprimer cette expédition</target>
+      </segment>
+    </unit>
+    <unit id="d560REt" name="Eine Expedition Erstellen">
+      <notes>
+        <note category="german">Eine Expedition Erstellen</note>
+      </notes>
+      <segment>
+        <source>Eine Expedition Erstellen</source>
+        <target>Créer une expédition</target>
+      </segment>
+    </unit>
+    <unit id="DqKvoHz" name="0ea5fb9">
+      <notes>
+        <note category="german">Cette maison est &lt;strong&gt;protégée&lt;/strong&gt; (verrou ou autre...) et ne peut être cambriolée.</note>
+      </notes>
+      <segment>
+        <source>Cette maison est &lt;strong&gt;protégée&lt;/strong&gt; (verrou ou autre...) et ne peut être cambriolée.</source>
+        <target><![CDATA[Cette maison est <strong>protégée</strong> (verrou ou autre...) et ne peut être cambriolée.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

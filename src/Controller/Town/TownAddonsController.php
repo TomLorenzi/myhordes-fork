@@ -605,7 +605,8 @@ class TownAddonsController extends TownController
             'woundAndTerrorChance' => max(0.0, min($deathChance + $this->getTownConf()->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05), 1.0)),
             'me' => $this->getActiveCitizen(),
             'total_def' => $total_def,
-            'has_counsel' => $has_counsel
+            'has_counsel' => $has_counsel,
+            'door_section' => 'nightwatch'
         ]) );
     }
 

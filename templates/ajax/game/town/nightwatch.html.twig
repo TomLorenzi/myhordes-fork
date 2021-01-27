@@ -6,6 +6,9 @@
         <div class="cell rw-12 town-banner town-banner-door-{% if town.door %}open{% else %}closed{% endif%} time-{{ hour }} {% if town.isNight %}night{% endif %}"></div>
     </div>
 
+    {% embed "ajax/game/town/door_tabs.html.twig" with {'door_section': door_section, 'has_battlement': has_battlement} %}
+    {% endembed %}
+
     <div class="help">
          {% if is_watcher %}
             {{'Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:'|trans({}, 'game')}}<br />
