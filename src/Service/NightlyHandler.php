@@ -701,6 +701,12 @@ class NightlyHandler
                 }
                 
                 //TODO: Lower the attack for 2-3 days
+                for($i = 0 ; $i < 3 ; $i++) {
+                    /** @var ZombieEstimation $est */
+                    $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()+$i);
+                    $est->setZombies($est->getZombies() * (0.7 + ($i / 10)));
+                    $this->entity_manager->persist($est);
+                }
 
             } else {
                 $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $fireworks->getPrototype(), 20 ));
