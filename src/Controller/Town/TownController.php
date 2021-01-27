@@ -386,7 +386,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'day' => $c->getTown()->getDay(),
             'already_stolen' => $already_stolen,
             'hidden' => $hidden,
-            'protect' => $this->citizen_handler->houseIsProtected($c),
+            'protect' => $this->citizen_handler->houseIsProtected($c, true),
             'hasClairvoyance' => $hasClairvoyance,
             'clairvoyanceLevel' => $clairvoyanceLevel,
             'attackAP' => $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 4 )

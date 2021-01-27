@@ -7561,5 +7561,14 @@
         <target><![CDATA[<t-flare_ok>Vous avez découvert la zone {zone}.</t-flare_ok><t-flare_fail>Il n'y a plus de zone à découvrir.</t-flare_fail>]]></target>
       </segment>
     </unit>
+    <unit id="T9oSme7" name="2ebb8ed">
+      <notes>
+        <note category="german">Dein Hündchen sieht *müde* aus... Es keucht die ganze Zeit und starrt dich aus erschöpften Augen an.</note>
+      </notes>
+      <segment>
+        <source>Dein Hündchen sieht *müde* aus... Es keucht die ganze Zeit und starrt dich aus erschöpften Augen an.</source>
+        <target>Dein Hündchen sieht *müde* aus... Es keucht die ganze Zeit und starrt dich aus erschöpften Augen an.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

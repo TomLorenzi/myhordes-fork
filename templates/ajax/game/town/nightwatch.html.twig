@@ -90,7 +90,7 @@
                 if(action == 'watch')
                     txt = '{{ 'Zur Information: Sobald du Wächter bist, kannst du danach wieder einfacher Bürger werden.'|trans({},'game')|e('js') }}';
                 else
-                    txt = '{{ 'Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen... '|trans({},'game')|e('js') }}'
+                    txt = '{{ 'Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...'|trans({},'game')|e('js') }}'
                 if (!confirm(txt))
                     return;
                 $.ajax.easySend( '{{ path('town_nightwatch_go_controller') }}', {

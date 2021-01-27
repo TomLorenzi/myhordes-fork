@@ -5000,13 +5000,13 @@
         <target>Oui</target>
       </segment>
     </unit>
-    <unit id="0vW.4CA" name="Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was %citizen% bei sich aufbewahrt...">
+    <unit id="bJkX9d8" name="7702a5e">
       <notes>
         <note category="german">Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was %citizen% bei sich aufbewahrt...</note>
       </notes>
       <segment>
         <source>Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was %citizen% bei sich aufbewahrt...</source>
-        <target>Le contenu de cette habitation est caché par des rideaux aux fenêtres ...</target>
+        <target>En regardant par la fenêtre, vous constatez qu'un gros rideau cache la vue et qu'il n'est pas possible de voir ce que %citizen% a stocké chez lui... </target>
       </segment>
     </unit>
     <unit id="p7WJjEO" name="cabb91e">
@@ -17380,7 +17380,7 @@
       </notes>
       <segment>
         <source>Du verlässt deinen Posten?...</source>
-        <target>Du verlässt deinen Posten?...</target>
+        <target>Finalement, vous désertez ? Enfin, c'est vous qui voyez...</target>
       </segment>
     </unit>
     <unit id="81G6y92" name="2bec6b6">
@@ -17389,7 +17389,7 @@
       </notes>
       <segment>
         <source>Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...</source>
-        <target>Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...</target>
+        <target>Bravo, vous avez décidé de prendre tous les risques pour sauver vos concitoyens du danger de ce soir...</target>
       </segment>
     </unit>
     <unit id="k23__KG" name="7d8dbe4">
@@ -17398,7 +17398,7 @@
       </notes>
       <segment>
         <source>Zur Information: Sobald du Wächter bist, kannst du danach wieder einfacher Bürger werden.</source>
-        <target>Zur Information: Sobald du Wächter bist, kannst du danach wieder einfacher Bürger werden.</target>
+        <target>Pour information, une fois veilleur, vous pourrez redevenir simple citoyen.</target>
       </segment>
     </unit>
     <unit id="zzRDqeC" name="52c1a7d">
@@ -17407,7 +17407,47 @@
       </notes>
       <segment>
         <source>Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...</source>
-        <target>Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...</target>
+        <target>Attention. Une fois confirmé, les citoyens se moqueront sans doute de vous...</target>
+      </segment>
+    </unit>
+    <unit id="MotZLIj" name="875de78">
+      <notes>
+        <note category="german">Du hast eine weitere %item% genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...</note>
+      </notes>
+      <segment>
+        <source>Du hast eine weitere %item% genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...</source>
+        <target>Vous avez pris %item% supplémentaire ! Les autres citoyens ont été informés.</target>
+      </segment>
+    </unit>
+    <unit id=".DUvSmW" name="Du hast deine tägliche Ration erhalten: %item%">
+      <notes>
+        <note category="german">Du hast deine tägliche Ration erhalten: %item%</note>
+      </notes>
+      <segment>
+        <source>Du hast deine tägliche Ration erhalten: %item%</source>
+        <target>Vous avez bien reçu votre part quotidienne : %item%</target>
+      </segment>
+    </unit>
+    <unit id="4jN.T2l" name="315dd2d">
+      <notes>
+        <note category="german">Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
+                Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
+                Nichts, was der Mühe wert wäre.</note>
+      </notes>
+      <segment>
+        <source>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
+                Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
+                Nichts, was der Mühe wert wäre.</source>
+        <target>En regardant par la fenêtre, vous constatez que la maison de %citizen% semble être vide de tout objet intéressant. Des bouts de poterie, de la poussière et un rat crevé. Rien qui ne vaille la peine. .</target>
+      </segment>
+    </unit>
+    <unit id="9zkVg8p" name="Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...">
+      <notes>
+        <note category="german">Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...</note>
+      </notes>
+      <segment>
+        <source>Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...</source>
+        <target>Le contenu de cette habitation est caché par des rideaux aux fenêtres...</target>
       </segment>
     </unit>
   </file>
