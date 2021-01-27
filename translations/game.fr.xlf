@@ -17492,7 +17492,7 @@
       </notes>
       <segment>
         <source>In diesem Bereich kannst du für deine Mitbürger "Wege" in der Außenwelt markieren. Auf diese Weise könnt ihr Expeditionen in Zonen organisieren, die euch wirklich interessieren..</source>
-        <target>In diesem Bereich kannst du für deine Mitbürger "Wege" in der Außenwelt markieren. Auf diese Weise könnt ihr Expeditionen in Zonen organisieren, die euch wirklich interessieren..</target>
+        <target>Cette section vous permet d'indiquer à vos concitoyens des "chemins" dans l'Outre-Monde, et ainsi d'organiser des expéditions passant par les zones qui vous intéressent</target>
       </segment>
     </unit>
     <unit id="oUzp6eN" name="e9767a0">
@@ -17501,7 +17501,7 @@
       </notes>
       <segment>
         <source>Achtung: Die Stadt kann nur 16 Expeditionen durchführen. Denke immer daran, nutzlos gewordene Expeditionen abzubrechen!</source>
-        <target>Attention: Die Stadt kann nur 16 Expeditionen durchführen. Denke immer daran, nutzlos gewordene Expeditionen abzubrechen!</target>
+        <target>Attention, la ville est limitée à 16 expéditions. Pensez à toujours supprimer les expéditions devenues inutiles !</target>
       </segment>
     </unit>
     <unit id="Zoy_MWF" name="Dauer">
