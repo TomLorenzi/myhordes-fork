@@ -143,12 +143,13 @@ class TownInspectorCommand extends Command
         $table = new Table( $output );
         $table->setHeaders( ['Day', 'Est-Min', 'Zombies', 'Est-Max', 'Est-Q'] );
         foreach ($town->getZombieEstimations() as $estimation) {
+            $estim = $this->townHandler->get_zombie_estimation($town, $estimation->getDay());
             $table->addRow([
                 $estimation->getDay(),
-                round( $estimation->getZombies() - $estimation->getZombies() * $estimation->getOffsetMin()/100),
+                $estim[0]->getMin(),
                 $estimation->getZombies(),
-                round( $estimation->getZombies() + $estimation->getZombies() * $estimation->getOffsetMax()/100),
-                round((1 - (($estimation->getOffsetMin() + $estimation->getOffsetMax()) - 10) / 24) * 100) . '%'
+                $estim[0]->getMax(),
+                round($estim[0]->getEstimation() * 100) . '%'
             ]);
         }
         $table->render();

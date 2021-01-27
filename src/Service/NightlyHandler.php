@@ -496,7 +496,17 @@ class NightlyHandler
             }
         }
 
+        if ($total_watch_def > 0) {
+            $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieStopped($town, min($overflow, $total_watch_def)));
+        }
+
         $overflow = max(0, $overflow - $total_watch_def);
+
+        if ($overflow > 0) {
+            $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieThrough($town, $overflow));
+        } else {
+            $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieAllStopped($town));
+        }
 
         if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_BUILDING_DAMAGE)) {
             // In panda, built buildings get damaged every night
