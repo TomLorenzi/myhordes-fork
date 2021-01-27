@@ -14,7 +14,7 @@
             <h5>{{ 'Bürger nach Sprache'|trans({}, 'admin') }}</h5>
             <div class="row">
                 {% for stat in citizen_stats %}
-                <div class="cell rw-3 center">
+                <div class="cell rw-2 center">
                         <img src="{{ asset("build/images/lang/" ~ stat.language ~".png") }}" alt="{{ stat.language }}" /><br />
                         {{ stat.count }}
                 </div>
