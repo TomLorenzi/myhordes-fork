@@ -760,7 +760,7 @@
       </notes>
       <segment>
         <source>Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?</source>
-        <target>You can now be reincarnated in the world of Die2Nite to try and survive once more. Who knows what is waiting for you in this new life?</target>
+        <target>You can now be reincarnated in the world of MyHordes to try and survive once more. Who knows what is waiting for you in this new life?</target>
       </segment>
     </unit>
     <unit id="Knuuneb" name="Karten-Seed">
@@ -1078,7 +1078,7 @@
       </notes>
       <segment>
         <source>Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.</source>
-        <target>Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.</target>
+        <target>Since you died prematurely in several of your last cities, you are excluded from the game for a while. You cannot currently enter a new city.</target>
       </segment>
     </unit>
     <unit id="pOtfy6G" name="5cb7c99">
@@ -1087,7 +1087,7 @@
       </notes>
       <segment>
         <source>Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</source>
-        <target>Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</target>
+        <target>You have not been active during this party and therefore have penalized players in your city. We were warning you now that if it happens again, you will no longer reach the city for several days.</target>
       </segment>
     </unit>
     <unit id="TIikksZ" name="Wiedergeburt: Privatstadt gründen">
@@ -1096,7 +1096,7 @@
       </notes>
       <segment>
         <source>Wiedergeburt: Privatstadt gründen</source>
-        <target>Wiedergeburt: Privatstadt gründen</target>
+        <target>Incarnation: Create a private town</target>
       </segment>
     </unit>
     <unit id="LCh7GiT" name="Wiedergeburt: Wahl der Partie">
@@ -1105,7 +1105,7 @@
       </notes>
       <segment>
         <source>Wiedergeburt: Wahl der Partie</source>
-        <target>Wiedergeburt: Wahl der Partie</target>
+        <target>Incarnation: Choose a game</target>
       </segment>
     </unit>
   </file>

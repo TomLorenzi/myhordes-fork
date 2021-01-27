@@ -945,7 +945,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>Der Mark.-Knopf &lt;strong&gt;[3]&lt;/strong&gt; zeigt alle von dir oder von anderen Spieler gesetzten Wegmarken an. Diese können zum Markieren von gefährlichen Zonen gesetzt werden, oder aber, um auf wichtige Gegenstände hinzuweisen.</source>
-        <target><![CDATA[The Tags button <strong>[3]</strong> allows you to view the markers which have been placed on the map by other players (or yourself). This allows players to highlight dangerous zones, or zones containing important objects etc.]]></target>
+        <target><![CDATA[The Mark. button <strong>[3]</strong> allows you to view the markers which have been placed on the map by other players (or yourself). This allows players to highlight dangerous zones, or zones containing important objects etc.]]></target>
       </segment>
     </unit>
     <unit id="px25T6e" name="ef90c4f">
@@ -1488,7 +1488,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt
       </notes>
       <segment>
         <source>dich etwas essen lassen (aus deinem Rucksack).</source>
-        <target>dich etwas essen lassen (aus deinem Rucksack).</target>
+        <target>make you eat an item from your rucksack.</target>
       </segment>
     </unit>
     <unit id="0gZf1w8" name="dich in die Stadt zurückbringen (wenn du in der Nähe des Stadttors bist).">
@@ -1497,7 +1497,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt
       </notes>
       <segment>
         <source>dich in die Stadt zurückbringen (wenn du in der Nähe des Stadttors bist).</source>
-        <target>make you eat an item from your rucksack.</target>
+        <target>make you enter the town (if you are at the gates).</target>
       </segment>
     </unit>
     <unit id="hkluwlo" name="62236b5">
@@ -2992,7 +2992,7 @@ Dein überlebter Tag wird gezählt! &lt;em&gt;Wenn du zum Beispiel in der Nacht 
       </notes>
       <segment>
         <source>Im Spiel gibt es eine ganz besondere Auszeichung, die den besten (oder hinterhältigsten) Bürgern vorbehalten ist: &lt;strong&gt;Der letzte Tod!&lt;/strong&gt;</source>
-        <target><![CDATA[There is a very special distinction in Die2Nite. One which only goes to the best (or most devious) citizens: <strong>Last Man Standing!</strong>]]></target>
+        <target><![CDATA[There is a very special distinction in MyHordes. One which only goes to the best (or most devious) citizens: <strong>Last Man Standing!</strong>]]></target>
       </segment>
     </unit>
     <unit id="kNwp_aT" name="Um die Auszeichung zu erhalten, müssen drei Regeln beachtet werden:">
@@ -4178,7 +4178,7 @@ Du kannst dieses "Manko" allerdings durch Steroide beseitigen... Hör auf zu gri
       </notes>
       <segment>
         <source>Als *Hans Dampf auf jeder Baustelle* kann der Techniker - und zwar nur er - extra Aktionspunkte auf den Baustellen der Stadt einsetzen.</source>
-        <target>lways ready to get involved with any construction project, the technician, abandoned alone on a desert island with nothing but a toothpick, could construct an enormous entirely autonomous wheel. So just imagine what technical marvels they could construct with a shiny new DIY kit!</target>
+        <target>Always ready to get involved with any construction project, the technician, abandoned alone on a desert island with nothing but a toothpick, could construct an enormous entirely autonomous wheel. So just imagine what technical marvels they could construct with a shiny new DIY kit!</target>
       </segment>
     </unit>
     <unit id="y1Nwhhg" name="Schraubenschlüssel">
@@ -6462,7 +6462,7 @@ in die Rangliste aufgenommen. Kleine Städte oder Privatstädte werden nicht ins
       </notes>
       <segment>
         <source>Nachfolgend findest du eine Liste zu den verschiedenen Seiten und Bereichen, in denen du Hilfe bekommen kannst:</source>
-        <target>Consult the official technical support site for Die2Nite by clicking below :</target>
+        <target>Consult the official technical support site for MyHordes by clicking below :</target>
       </segment>
     </unit>
     <unit id="4JTe4YC" name="06ebae8">
@@ -7024,7 +7024,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href="%url_forums%"&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
-        <target><![CDATA[<strong>MIT ANDEREN SPIELERN REDEN:</strong> Die meisten Spielfragen werden oder wurden meistens schon in den <span x-ajax-href="%url_forums%">Foren</span> beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.]]></target>
+        <target><![CDATA[<strong>DISCUSS WITH OTHER PLAYERS:</strong> you will often find the answers to your questions directly on the <span x-ajax-href="%url_forums%">site forums</span> , which are available as long as you are signed in.]]></target>
       </segment>
     </unit>
   </file>
