@@ -7132,5 +7132,14 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
         <target><![CDATA[<strong>MIT ANDEREN SPIELERN REDEN:</strong> Die meisten Spielfragen werden oder wurden meistens schon in den <span x-ajax-href="%url_forums%">Foren</span> beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.]]></target>
       </segment>
     </unit>
+    <unit id="26VxGUx" name="122c95c">
+      <notes>
+        <note category="german">Die Schaltflächen &lt;strong&gt;[5]&lt;/strong&gt; ermöglichen das Herein- und Herauszoomen der Ansicht</note>
+      </notes>
+      <segment>
+        <source>Die Schaltflächen &lt;strong&gt;[5]&lt;/strong&gt; ermöglichen das Herein- und Herauszoomen der Ansicht</source>
+        <target><![CDATA[Die Schaltflächen <strong>[5]</strong> ermöglichen das Herein- und Herauszoomen der Ansicht]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -963,7 +963,7 @@ Im Schnelldurchlauf lässt du die schönen und unschönen Momente deines kurzen 
       </notes>
       <segment>
         <source>Der Expeditionsknopf &lt;strong&gt;[4]&lt;/strong&gt; zeigt alle geplanten Expeditionen an.</source>
-        <target><![CDATA[Finally, the Expeditions button <strong>[4]</strong> allows you to display any expeditions planned by any citizen.]]></target>
+        <target><![CDATA[The Expeditions button <strong>[4]</strong> allows you to display any expeditions planned by any citizen.]]></target>
       </segment>
     </unit>
     <unit id="XRq1Sgx" name="Zonentypen">
@@ -7025,6 +7025,15 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       <segment>
         <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href="%url_forums%"&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
         <target><![CDATA[<strong>DISCUSS WITH OTHER PLAYERS:</strong> you will often find the answers to your questions directly on the <span x-ajax-href="%url_forums%">site forums</span> , which are available as long as you are signed in.]]></target>
+      </segment>
+    </unit>
+    <unit id="26VxGUx" name="122c95c">
+      <notes>
+        <note category="german">Die Schaltflächen &lt;strong&gt;[5]&lt;/strong&gt; ermöglichen das Herein- und Herauszoomen der Ansicht</note>
+      </notes>
+      <segment>
+        <source>Die Schaltflächen &lt;strong&gt;[5]&lt;/strong&gt; ermöglichen das Herein- und Herauszoomen der Ansicht</source>
+        <target><![CDATA[And finally, the buttons <strong>[5]</strong> allow you to zoom in / out and center the view.]]></target>
       </segment>
     </unit>
   </file>
