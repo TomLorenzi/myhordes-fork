@@ -1,5 +1,6 @@
 {% extends "ajax/ajax.html.twig" %}
 {% block ajax %}
+    {% embed "ajax/admin/users/footer.html.twig" %}{% endembed %}
     <div class="row">
         <div class="cell rw-12">
             <h5>{{'Multi-Account Report'|trans({}, "admin")}}</h5>
@@ -54,7 +55,6 @@
 
         </div>
     </div>
-    {% embed "ajax/admin/users/footer.html.twig" %}{% endembed %}
 {% endblock %}
 {% block js %}
     {{ parent() }}
