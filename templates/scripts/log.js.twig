@@ -8,8 +8,8 @@
         let content_box = log.querySelectorAll('.log-content');
 
         const fun_refresh = function(d,bg) {
-            if (bg) $.ajax.background().load( content_box[0], url, false, {day: d} );
-            else $.ajax.load( content_box[0], url, false, {day: d} )
+            if (bg) $.ajax.background().no_history().load( content_box[0], url, false, {day: d} );
+            else $.ajax.no_history().load( content_box[0], url, false, {day: d} )
         };
 
         let refresh_button = log.querySelector('.log-complete-link');
@@ -37,6 +37,7 @@
                 if ((dif > 0 && cur <= (max-dif)) || (dif < 0 && cur >= (min-dif))) {
                     cur += dif;
                     label.innerText = ('' + cur);
+                    control_tab.setAttribute( 'x-page-current', cur )
                     fun_refresh(cur,false);
                 }
             };

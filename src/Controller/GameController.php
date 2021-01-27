@@ -457,6 +457,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
             'log' => $show_register ? $this->renderLog( -1, null, false, null, 50 )->getContent() : "",
             'gazette' => $gazette_info,
             'citizensWithRole' => $citizensWithRole,
+            'town' => $town
         ]));
     }
 
@@ -466,7 +467,17 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
      * @return Response
      */
     public function log_newspaper_api(JSONRequestParser $parser): Response {
-        return $this->renderLog((int)$parser->get('day', -1), null, false, null, null);
+        $citizen_id = $parser->get('citizen', -1);
+        $citizen = null;
+        if($citizen_id > 0) {
+            /** @var Citizen $citizen */
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($citizen_id);
+            if ($citizen->getTown() !== $this->getActiveCitizen()->getTown())
+                $citizen = null;
+        }
+
+        $type_id = $parser->get('category', -1);
+        return $this->renderLog((int)$parser->get('day', -1), $citizen, false, $type_id >= 0 ? $type_id : null, null);
     }
 
     /**
