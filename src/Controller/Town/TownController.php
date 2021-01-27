@@ -176,7 +176,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $item_def_count = $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ), false, false);
 
         $est0 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
-        $has_estimated = $est0 && ($est0->getCitizens()->contains($this->getActiveCitizen()) || $this->town_handler->get_zombie_estimation($town) >= 1.0);
+        $has_estimated = $est0 && ($est0->getCitizens()->contains($this->getActiveCitizen()));
 
         $display_home_upgrade = false;
         foreach ($citizens as $citizen) {
