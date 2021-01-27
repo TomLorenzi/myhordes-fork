@@ -502,9 +502,9 @@ class NightlyHandler
 
         $overflow = max(0, $overflow - $total_watch_def);
 
-        if ($overflow > 0) {
+        if ($overflow > 0 && $total_watch_def > 0) {
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieThrough($town, $overflow));
-        } else {
+        } else if ($total_watch_def > 0) {
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieAllStopped($town));
         }
 
