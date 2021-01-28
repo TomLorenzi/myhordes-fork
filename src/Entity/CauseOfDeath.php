@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping\UniqueConstraint;
@@ -84,6 +86,16 @@ class CauseOfDeath
      */
     private $ref;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=PictoPrototype::class)
+     */
+    private $pictos;
+
+    public function __construct()
+    {
+        $this->pictos = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -133,6 +145,30 @@ class CauseOfDeath
     public function setRef(int $ref): self
     {
         $this->ref = $ref;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PictoPrototype[]
+     */
+    public function getPictos(): Collection
+    {
+        return $this->pictos;
+    }
+
+    public function addPicto(PictoPrototype $picto): self
+    {
+        if (!$this->pictos->contains($picto)) {
+            $this->pictos[] = $picto;
+        }
+
+        return $this;
+    }
+
+    public function removePicto(PictoPrototype $picto): self
+    {
+        $this->pictos->removeElement($picto);
 
         return $this;
     }
