@@ -569,7 +569,7 @@ class ActionHandler
             'cp' => 0,
             'item'   => $item ? $item->getPrototype() : null,
             'target' => $target_item_prototype,
-            'source_inv' => $item->getInventory(),
+            'source_inv' => $item ? $item->getInventory() : null,
             'citizen' => is_a($target, Citizen::class) ? $target : null,
             'item_morph' => [ null, null ],
             'item_target_morph' => [ null, null ],
