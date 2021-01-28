@@ -7203,11 +7203,11 @@
     </unit>
     <unit id="kUD78DD" name="4f2517e">
       <notes>
-        <note category="german">Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren. Du hast 1 zusätzlichen AP erhalten!</note>
+        <note category="german">Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast &lt;strong&gt;1 zusätzlichen AP erhalten!&lt;/strong&gt;</note>
       </notes>
       <segment>
-        <source>Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren. Du hast 1 zusätzlichen AP erhalten!</source>
-        <target>Une fois n'est pas coutume, vous vous faîtes plaisir en avalant {item} . Ca change des rations quotidiennes infectes... Vous reprenez du poil de la bête. Vous recevez un bonus de 1 PA !</target>
+        <source>Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast &lt;strong&gt;1 zusätzlichen AP erhalten!&lt;/strong&gt;</source>
+        <target><![CDATA[Une fois n'est pas coutume, vous vous faîtes plaisir en avalant {item} . Ca change des rations quotidiennes infectes... Vous reprenez du poil de la bête.{hr}Vous recevez <strong>un bonus de 1 PA</strong>!]]></target>
       </segment>
     </unit>
     <unit id="wDKaGfq" name="Krähenelfe">

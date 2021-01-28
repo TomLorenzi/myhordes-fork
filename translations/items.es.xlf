@@ -7260,12 +7260,13 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </segment>
     </unit>
     <unit id="kUD78DD" name="4f2517e">
+
       <notes>
-        <note category="german">Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren. Du hast 1 zusätzlichen AP erhalten!</note>
+        <note category="german">Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast &lt;strong&gt;1 zusätzlichen AP erhalten!&lt;/strong&gt;</note>
       </notes>
       <segment>
-        <source>Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren. Du hast 1 zusätzlichen AP erhalten!</source>
-        <target>Te das un gusto comiendo {item} , de vez en cuando no está mal para cambiar de esas raciones pútridas. ¡Recibes un bonus de 1 PA!</target>
+        <source>Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast &lt;strong&gt;1 zusätzlichen AP erhalten!&lt;/strong&gt;</source>
+        <target><![CDATA[Te das un gusto comiendo {item} , de vez en cuando no está mal para cambiar de esas raciones pútridas. ¡Recibes <strong>un bonus de 1 PA</strong>!]]></target>
       </segment>
     </unit>
     <unit id="wDKaGfq" name="Krähenelfe">
