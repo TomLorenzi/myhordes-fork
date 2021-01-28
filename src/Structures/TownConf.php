@@ -61,6 +61,7 @@ class TownConf extends Conf
     const CONF_MODIFIER_CARRY_EXTRA_BAG      = 'modifiers.carry_extra_bag';
     const CONF_MODIFIER_BONES_IN_TOWN        = 'modifiers.meaty_bones_within_town';
     const CONF_MODIFIER_BUILDING_DAMAGE      = 'modifiers.building_attack_damage';
+    const CONF_MODIFIER_DO_DESTROY           = 'modifiers.destroy_defense_objects_attack';
     const CONF_MODIFIER_CAMPING_BONUS        = 'modifiers.camping.default_bonus';
     const CONF_MODIFIER_CAMPING_CHANCE_MAP   = 'modifiers.camping.map';
     const CONF_MODIFIER_RED_SOUL_FACTOR      = 'modifiers.red_soul_max_factor';

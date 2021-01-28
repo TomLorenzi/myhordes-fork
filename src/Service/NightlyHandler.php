@@ -508,7 +508,7 @@ class NightlyHandler
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieAllStopped($town));
         }
 
-        if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_BUILDING_DAMAGE)) {
+        if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_BUILDING_DAMAGE, false)) {
             // In panda, built buildings get damaged every night
             // Only 10% of the attack is inflicted to buildings
             $damageInflicted = round($zombies * 0.1);
@@ -553,6 +553,30 @@ class NightlyHandler
             }
         }
 
+        if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_DO_DESTROY, false)) {
+            // Panda towns sees their defense object in the bank destroyed
+            $number = max(1, min(mt_rand($est->getZombies() * 0.01, $est->getZombies() * 0.2), 20));
+            $number=  20;
+            $this->log->info("We destroy <info>$number</info> items");
+            $items = $this->inventory_handler->fetchSpecificItems($town->getBank(), [new ItemRequest('defence', $number, false, null, true)]);
+            $this->log->info("We fetched <info>". count($items) . "</info> items");
+            shuffle($items);
+            $destroyed_count = 0;
+            while($destroyed_count < $number) {
+                foreach ($items as $item) {
+                    if ($destroyed_count >= $number) break;
+
+                    $this->log->debug("selecting between 1 and " . min($item->getCount(), $number - $destroyed_count));
+                    $delete = mt_rand(1, min($item->getCount(), $number - $destroyed_count));
+                    $destroyed_count += $delete;
+                    $this->log->info("Destroying $delete <info>{$item->getPrototype()->getName()}</info> due to the attack");
+                    $this->inventory_handler->forceRemoveItem($item, $delete);
+                    if ($delete === $item->getCount()) {
+                        array_pop($items);
+                    }
+                }
+            }
+        }
         if ($overflow <= 0) {
             $this->entity_manager->persist($gazette);
             return;
@@ -606,8 +630,7 @@ class NightlyHandler
 			$repartition[$i] /= $sum;
 			$repartition[$i] = round($repartition[$i]*$attacking);
 		}
-		
-		
+
 		//remove citizen receiving 0 zombie
 		foreach (array_keys($repartition, 0) as $key) {
 			unset($repartition[$key]);
