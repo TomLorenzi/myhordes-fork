@@ -1504,7 +1504,6 @@ class ActionHandler
                 case "Zerlegen":
                   $base = T::__('Du hast %item_list% in der Werkstatt zu %item% zerlegt.', 'game');
                   break;
-
                 default:
                   $base = T::__('Du hast %item_list% in der Werkstatt zu %item% umgewandelt.', 'game');
               }
@@ -1512,9 +1511,6 @@ class ActionHandler
               break;
             case Recipe::ManualOutside:case Recipe::ManualInside:case Recipe::ManualAnywhere:default:
                 $base = T::__('Du hast %item_list% zu %item% umgewandelt.', 'game');
-                if ($recipe->getPictoPrototype()) {
-                    $this->picto_handler->give_picto($citizen, $recipe->getPictoPrototype());
-                }
                 break;
         }
 

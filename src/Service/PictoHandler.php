@@ -34,6 +34,9 @@ class PictoHandler
                 return;
         }
 
+        file_put_contents("/tmp/dump.txt", "We give $count picto {$pictoPrototype->getName()} to citizen {$citizen->getUser()->getName()}\n", FILE_APPEND);
+        file_put_contents("/tmp/dump.txt", print_r(debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 4), true), FILE_APPEND);
+
         // Do not give the Emancipation of the Banished picto to non-banned citizen
         if ($pictoPrototype->getName() === 'r_solban_#00' && !$citizen->getBanished())
             return;

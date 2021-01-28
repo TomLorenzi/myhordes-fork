@@ -6,6 +6,7 @@ namespace App\Command;
 
 use App\Entity\Inventory;
 use App\Entity\ItemPrototype;
+use App\Entity\Recipe;
 use App\Entity\Town;
 use App\Entity\TownClass;
 use App\Service\CommandHelper;
@@ -46,6 +47,7 @@ class InventoryInspectorCommand extends Command
             ->addArgument('InventoryID', InputArgument::REQUIRED, 'The inventory ID')
 
             ->addOption('spawn', 's',InputOption::VALUE_REQUIRED, 'Spawns a new item (given by PID or PNAME) in the selected inventory.')
+            ->addOption('spawn-recipe', 'sr',InputOption::VALUE_REQUIRED, 'Spawns all the items needed for a recipe (given by PID) in the selected inventory.')
             ->addOption('number','sn',InputOption::VALUE_REQUIRED, 'Sets the number of spawned items when used together with --spawn or -s.', 1)
             ->addOption('set-broken',null,InputOption::VALUE_NONE,     'When used together with --spawn or -s, the created item/s will be broken.')
             ->addOption('set-poison',null,InputOption::VALUE_NONE,     'When used together with --spawn or -s, the created item/s will be poisoned.')
@@ -117,6 +119,27 @@ class InventoryInspectorCommand extends Command
 
             for ($i = 0; $i < $input->getOption('number'); $i++) {
                 $this->inventoryHandler->forceMoveItem($inventory, $this->itemFactory->createItem($spawn->getName(), (bool)$input->getOption('set-broken'), (bool)$input->getOption('set-poison')));
+                $this->entityManager->flush();
+            }
+
+            $updated = true;
+        }
+
+        if ($spawn = $input->getOption('spawn-recipe')) {
+
+            /** @var Recipe $spawn */
+            $spawn = $this->helper->resolve_string($spawn, Recipe::class, 'Spawned Recipe', $this->getHelper('question'), $input, $output);
+            if (!$spawn) {
+                $output->writeln("<error>The selected recipe could not be found.</error>");
+                return 1;
+            }
+
+            $output->writeln( "Spawning <info>{$input->getOption('number')}</info> instances of the recipe '<info>{$spawn->getName()}</info>'.\n" );
+
+            for ($i = 0; $i < $input->getOption('number'); $i++) {
+                foreach ($spawn->getSource()->getEntries() as $entry) {
+                    $this->inventoryHandler->forceMoveItem($inventory, $this->itemFactory->createItem($entry->getPrototype(), false, false));
+                }
                 $this->entityManager->flush();
             }
 
