@@ -8026,7 +8026,7 @@
       </notes>
       <segment>
         <source>Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%</source>
-        <target>De valeureux citoyens se sont postés sur les ramparts de la ville : %citizens%</target>
+        <target>De valeureux citoyens se sont postés sur les remparts de la ville : %citizens%</target>
       </segment>
     </unit>
     <unit id="vuWaICz" name="87f59f6">
