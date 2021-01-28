@@ -422,13 +422,18 @@ class NightlyHandler
         
         $this->log->debug("Getting watchers for day " . $town->getDay());
 
+        $has_nightwatch = $this->town_handler->getBuilding($town, 'small_round_path_#00');
+
         /** @var CitizenWatch[] $watchers */
         $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town, $town->getDay() - 1); // -1 because day has been advanced before stage2
 
         if(count($watchers) > 0)
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchers($town, $watchers));
+        else if ($overflow > 0 && $has_nightwatch) {
+            $this->entity_manager->persist($this->logTemplates->nightlyAttackNoWatchers($town));
+        }
 
-        $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow) );
+        $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow, count($watchers) > 0 && $has_nightwatch));
 
         $total_watch_def = $this->town_handler->calculate_watch_def($town, $town->getDay() - 1);
         $this->log->debug("There are <info>".count($watchers)."</info> watchers (with <info>{$total_watch_def}</info> watch defense) in town, against <info>$overflow</info> zombies.");
@@ -496,15 +501,17 @@ class NightlyHandler
             }
         }
 
-        if ($total_watch_def > 0) {
+        if ($total_watch_def > 0 && $overflow > 0) {
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieStopped($town, min($overflow, $total_watch_def)));
         }
+
+        $initial_overflow = $overflow;
 
         $overflow = max(0, $overflow - $total_watch_def);
 
         if ($overflow > 0 && $total_watch_def > 0) {
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieThrough($town, $overflow));
-        } else if ($total_watch_def > 0) {
+        } else if ($total_watch_def > 0 && $initial_overflow > 0) {
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieAllStopped($town));
         }
 
@@ -562,6 +569,8 @@ class NightlyHandler
             $this->log->info("We fetched <info>". count($items) . "</info> items");
             shuffle($items);
             $destroyed_count = 0;
+            $itemsForLog = [];
+
             while($destroyed_count < $number) {
                 foreach ($items as $item) {
                     if ($destroyed_count >= $number) break;
@@ -571,10 +580,22 @@ class NightlyHandler
                     $destroyed_count += $delete;
                     $this->log->info("Destroying $delete <info>{$item->getPrototype()->getName()}</info> due to the attack");
                     $this->inventory_handler->forceRemoveItem($item, $delete);
+                    if(isset($itemsForLog[$item->getPrototype()->getId()])) {
+                        $itemsForLog[$item->getPrototype()->getId()]['count']+= $delete;
+                    } else {
+                        $itemsForLog[$item->getPrototype()->getId()] = [
+                            'item' => $item->getPrototype(),
+                            'count' => $delete
+                        ];
+                    }
                     if ($delete === $item->getCount()) {
                         array_pop($items);
                     }
                 }
+            }
+
+            if (!empty($itemsForLog)) {
+                $this->entity_manager->persist($this->logTemplates->nightlyAttackBankItemsDestroy($town, $itemsForLog));
             }
         }
         if ($overflow <= 0) {
@@ -879,6 +900,7 @@ class NightlyHandler
 
                 }
 
+                $this->entity_manager->persist($this->logTemplates->nightlyAttackDevastated($town));
                 $town->setDevastated(true);
                 $town->setChaos(true);
                 $town->setDoor(true);

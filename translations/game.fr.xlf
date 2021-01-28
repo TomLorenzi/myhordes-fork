@@ -3269,7 +3269,7 @@
       </notes>
       <segment>
         <source>... das OFFEN stand! %num% Zombies sind in die Stadt eingedrungen!</source>
-        <target>... qui sont grandes ouvertes ! %num% zombies sont entrés dans la ville !</target>
+        <target>... qui étaient ouvertes !! %num% zombies se sont abattus sur les citoyens sans être arrêtés. Les défenses de la ville n'ont servi à rien !</target>
       </segment>
     </unit>
     <unit id="4ETWhR_" name="%num% Zombies sind durch unsere Verteidigung gebrochen!">
@@ -17474,7 +17474,7 @@
       </notes>
       <segment>
         <source>Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!</source>
-        <target>Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!</target>
+        <target>Aucun Zombie n'a pu passer. Les veilleurs ont courageusement défendu la ville !</target>
       </segment>
     </unit>
     <unit id="T4D33fJ" name="Die Route wurde gelöscht.">
@@ -17637,6 +17637,60 @@
       <segment>
         <source>Zombieangriff (newspaper)</source>
         <target>L'attaque de la nuit</target>
+      </segment>
+    </unit>
+    <unit id="usdY6.E" name="Die Zombies haben beim Angriff %list% zerstört.">
+      <notes>
+        <note category="german">Die Zombies haben beim Angriff %list% zerstört.</note>
+      </notes>
+      <segment>
+        <source>Die Zombies haben beim Angriff %list% zerstört.</source>
+        <target>Les zombies ont détruit %list% pendant l'attaque.</target>
+      </segment>
+    </unit>
+    <unit id="oGFad6j" name="Es ist kein Nachtwächter da, um die Stadt zu verteidigen.">
+      <notes>
+        <note category="german">Es ist kein Nachtwächter da, um die Stadt zu verteidigen.</note>
+      </notes>
+      <segment>
+        <source>Es ist kein Nachtwächter da, um die Stadt zu verteidigen.</source>
+        <target>Aucun veilleur n'était présent pour défendre la ville. Auriez-vous les foies ? Mauviettes !</target>
+      </segment>
+    </unit>
+    <unit id="gWz67fx" name="c3a54a1">
+      <notes>
+        <note category="german">Da keine lebendigen Bürger beim Angriff in der Stadt waren, wurde sie von den Zombies vollständig zerstört...</note>
+      </notes>
+      <segment>
+        <source>Da keine lebendigen Bürger beim Angriff in der Stadt waren, wurde sie von den Zombies vollständig zerstört...</source>
+        <target>N'ayant plus de citoyens vivants dans la ville lorsqu'elle a été attaquée, elle a été complètement détruite par les zombies....</target>
+      </segment>
+    </unit>
+    <unit id="OwJiT_2" name="5f08baa">
+      <notes>
+        <note category="german">Die Nachtwächter der letzten nacht zeigten unglaublichen Mut, es ist nur schade, dass die Zombies offensichtlich mit etwas anderem beschäftigt waren!</note>
+      </notes>
+      <segment>
+        <source>Die Nachtwächter der letzten nacht zeigten unglaublichen Mut, es ist nur schade, dass die Zombies offensichtlich mit etwas anderem beschäftigt waren!</source>
+        <target>Les veilleurs de la dernière nuit ont fait preuve d'un courage incroyable, c'est juste dommage que les zombies étaient occupés à autre chose!</target>
+      </segment>
+    </unit>
+    <unit id="bB1fuj8" name="2294b6d">
+      <notes>
+        <note category="german">Nachtwächter %citizen% hat sein Bestes gegeben, aber dieser Angriff hat ihn schwer verängstigt...</note>
+      </notes>
+      <segment>
+        <source>Nachtwächter %citizen% hat sein Bestes gegeben, aber dieser Angriff hat ihn schwer verängstigt...</source>
+        <target>Le veilleur %citizen% s'est battu de son mieux, mais cette attaque a laissé une expression de terreur sur son visage...</target>
+      </segment>
+    </unit>
+    <unit id="_.2FoR8" name="9e7c62b">
+      <notes>
+        <note category="german">Verdammt! Nachtwächter %citizen% wurde von Zombies überrumpelt und verwundet...</note>
+      </notes>
+      <segment>
+        <source>Verdammt! Nachtwächter %citizen% wurde von Zombies überrumpelt und verwundet...</source>
+        <target>Oh non ! Le veilleur %citizen% a été blessé pendant l'attaque...</target>
       </segment>
     </unit>
   </file>
