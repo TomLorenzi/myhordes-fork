@@ -191,7 +191,7 @@
     </div>
     <div class="row prof-list">
         <div class="padded cell small center ro-4 rw-4 rw-md-4">
-            <img alt="" src="{{ asset('build/images/icons/small_human.gif') }}" /> {{ "@citizens Bürger"|trans({ '@citizens': citizens|length }, 'game') }} {% if death_count > 0 %}({{ death_count }} {{ 'Tot'|trans({},'game') }}){% endif %}
+            <img alt="" src="{{ asset('build/images/icons/small_human.gif') }}" /> {{ "@citizens Bürger"|trans({ '@citizens': citizens|length - death_count }, 'game') }} {% if death_count > 0 %}(+ {{ death_count }} {{ 'Tot'|trans({},'game') }}){% endif %}
         </div>
     </div>
 
