@@ -1,5 +1,5 @@
 {% extends "ajax/ajax.html.twig" %}
-{% block title %}{{'Stadt %townname%'|trans({'%townname%': town.name}, 'admin')}}{% endblock %}
+{% block title %}{{'Stadt %townname%'|trans({'%townname%': town.name}, 'admin')|raw}}{% endblock %}
 {% block ajax %}
     {% macro valuelist(prop,val) %}
         <div class="row">
