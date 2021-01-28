@@ -590,7 +590,12 @@ class InventoryAwareController extends CustomAbstractController
                             $current_item, $inv_source, $inv_target, InventoryHandler::ModalityNone, $this->getTownConf()->get(TownConf::CONF_MODIFIER_CARRY_EXTRA_BAG, false)
                         )) === InventoryHandler::ErrorNone) {
 
-                        if ($bank_up !== null)  $this->entity_manager->persist( $this->log->bankItemLog( $target_citizen, $current_item->getPrototype(), !$bank_up, $current_item->getBroken() ) );
+                        if ($bank_up !== null) {
+                            $this->entity_manager->persist( $this->log->bankItemLog( $target_citizen, $current_item->getPrototype(), !$bank_up, $current_item->getBroken() ) );
+                            if ($bank_up) {
+                                $this->addFlash('notice',$this->translator->trans('Du hast soeben folgenden Gegenstand aus der Bank genommen: %item%. <strong>Sei nicht zu gierig</strong> oder deine Mitbürger könnten dich für einen <strong>Egoisten</strong> halten...', ['%item%' => $this->log->wrap($this->log->iconize($current_item), 'tool')], "game"));
+                            }
+                        }
                         if ($floor_up !== null) {
                             if($floor_up && $current_item->getPrototype()->getName() == 'soul_blue_#00' && $current_item->getFirstPick()) {
                                 $current_item->setFirstPick(false);
@@ -601,7 +606,6 @@ class InventoryAwareController extends CustomAbstractController
                             }
                             if (!$hide && !$current_item->getHidden()) $this->entity_manager->persist( $this->log->beyondItemLog( $target_citizen, $current_item->getPrototype(), !$floor_up, $current_item->getBroken() ) );
                         }
-
                         if ($steal_up !== null) {
 
                             $this->citizen_handler->inflictStatus($target_citizen, 'tg_steal');

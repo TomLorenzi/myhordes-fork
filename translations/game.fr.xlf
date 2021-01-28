@@ -17558,5 +17558,86 @@
         <target><![CDATA[Cette maison est <strong>protégée</strong> (verrou ou autre...) et ne peut être cambriolée.]]></target>
       </segment>
     </unit>
+    <unit id="nSErwiZ" name="584c3c5">
+      <notes>
+        <note category="german">Du hast soeben folgenden Gegenstand aus der Bank genommen: %item%. &lt;strong&gt;Sei nicht zu gierig&lt;/strong&gt; oder deine Mitbürger könnten dich für einen &lt;strong&gt;Egoisten&lt;/strong&gt; halten...</note>
+      </notes>
+      <segment>
+        <source>Du hast soeben folgenden Gegenstand aus der Bank genommen: %item%. &lt;strong&gt;Sei nicht zu gierig&lt;/strong&gt; oder deine Mitbürger könnten dich für einen &lt;strong&gt;Egoisten&lt;/strong&gt; halten...</source>
+        <target><![CDATA[Vous venez de prendre %item% dans la Banque. <strong>N'en abusez pas</strong> ou d'autres citoyens pourraient mal le vivre...]]></target>
+      </segment>
+    </unit>
+    <unit id="OZBaq.m" name="Das Register filtern">
+      <notes>
+        <note category="german">Das Register filtern</note>
+      </notes>
+      <segment>
+        <source>Das Register filtern</source>
+        <target>Filtrer le registre</target>
+      </segment>
+    </unit>
+    <unit id="pVw6QMt" name="Bürger:">
+      <notes>
+        <note category="german">Bürger:</note>
+      </notes>
+      <segment>
+        <source>Bürger:</source>
+        <target>Citoyen :</target>
+      </segment>
+    </unit>
+    <unit id="veFPW3j" name="Alles sehen">
+      <notes>
+        <note category="german">Alles sehen</note>
+      </notes>
+      <segment>
+        <source>Alles sehen</source>
+        <target>Tout voir</target>
+      </segment>
+    </unit>
+    <unit id="02rWWHc" name="Kategorie:">
+      <notes>
+        <note category="german">Kategorie:</note>
+      </notes>
+      <segment>
+        <source>Kategorie:</source>
+        <target>Catégorie :</target>
+      </segment>
+    </unit>
+    <unit id="X377hje" name="Verbrechen">
+      <notes>
+        <note category="german">Verbrechen</note>
+      </notes>
+      <segment>
+        <source>Verbrechen</source>
+        <target>Vols et aggressions</target>
+      </segment>
+    </unit>
+    <unit id="EimCTw3" name="Baustelle">
+      <notes>
+        <note category="german">Baustelle</note>
+      </notes>
+      <segment>
+        <source>Baustelle</source>
+        <target>Constructions</target>
+      </segment>
+    </unit>
+    <unit id="TXchxsK" name="Neue und Tote">
+      <notes>
+        <note category="german">Neue und Tote</note>
+      </notes>
+      <segment>
+        <source>Neue und Tote</source>
+        <target>Arrivées et morts</target>
+      </segment>
+    </unit>
+    <unit id="To01kGO" name="Zombieangriff (newspaper)">
+      <notes>
+        <note category="german">Zombieangriff (newspaper)</note>
+      </notes>
+      <segment>
+        <source>Zombieangriff (newspaper)</source>
+        <target>L'attaque de la nuit</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
