@@ -154,7 +154,7 @@
                     <h5>{{ 'Das Register filtern'|trans({}, 'game') }}</h5>
                     <div class="note row">
                         <label for="citizen-filter" class="cell rw-4 rw-sm-12">{{ 'Bürger:'|trans({}, 'game') }}</label>
-                        <select id="citizen-filter" name="citizen-filter" class="cell rw-8 rw-sm-12 mb-1">
+                        <select id="citizen-filter" name="citizen-filter" class="cell rw-8 rw-sm-12 mb-1" x-filter-name="citizen">
                             <option value="-1">[ {{ 'Alles sehen'|trans({}, 'game')}} ]</option>
                             {% for citizen in town.citizens|sort((a,b) => a.user.name|lower <=> b.user.name|lower) %}
                             <option value="{{ citizen.id }}">{% if not citizen.alive %}&dagger; {% endif %}{{ citizen.user.name }}</option>
@@ -162,7 +162,7 @@
                         </select>
 
                         <label for="category-filter" class="cell rw-4 rw-sm-12">{{ 'Kategorie:'|trans({}, 'game') }}</label>
-                        <select id="category-filter" name="category-filter" class="cell rw-8 rw-sm-12">
+                        <select id="category-filter" name="category-filter" class="cell rw-8 rw-sm-12" x-filter-name="category">
                             <option value="-1">[ {{ 'Alles sehen'|trans({}, 'game')}} ]</option>
                             <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeCrimes') }}">{{ 'Verbrechen'|trans({}, 'game') }}</option>
                             <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeBank') }}">{{ 'Bank'|trans({}, 'game') }}</option>
@@ -204,7 +204,16 @@
                 let content_box = log.querySelectorAll('.log-content');
 
                 const fun_refresh = function(d) {
-                    $.ajax.no_history().load( content_box[0], url, false, {day: d, citizen: document.getElementById("citizen-filter").value, category: document.getElementById("category-filter").value} )
+                    let payload = {
+                        day: d
+                    };
+
+                    let filters = document.querySelectorAll("[x-filter-name]");
+                    for(let j = 0 ; j < filters.length ; j++) {
+                        payload[filters[j].getAttribute('x-filter-name')] = filters[j].value;
+                    }
+
+                    $.ajax.no_history().load( content_box[0], url, false, payload )
                 };
 
                 document.getElementById("citizen-filter").addEventListener('change', function(){
