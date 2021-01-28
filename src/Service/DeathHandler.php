@@ -185,7 +185,7 @@ class DeathHandler
 
                 if($nameOfPicto != "") {
                     $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $nameOfPicto]);
-                    $this->picto_handler->give_validated_picto($citizen, $pictoPrototype, $citizen->getSurvivedDays() - 1);
+                    $this->picto_handler->give_validated_picto($citizen, $pictoPrototype, $citizen->getDayOfDeath() - 1);
                 }
             }
 
