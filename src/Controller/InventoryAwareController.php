@@ -126,9 +126,17 @@ class InventoryAwareController extends CustomAbstractController
                     $entries[$idx]['text'] = "null";
                 }
             }
+
+        $limit = 0;
+        if($this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'manipulator'))
+            $limit = 2;
+
+        if($this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'treachery'))
+            $limit = 4;
+
         return $this->render( 'ajax/game/log_content.html.twig', [
             'entries' => $entries,
-            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getZone() === null,
+            'canHideEntry' => $this->getActiveCitizen()->getAlive() && $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getUser(), 'manipulator') && $this->getActiveCitizen()->getZone() === null && $this->getActiveCitizen()->getSpecificActionCounterValue(ActionCounter::ActionTypeRemoveLog) < $limit,
         ] );
     }
 
