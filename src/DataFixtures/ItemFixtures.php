@@ -844,7 +844,7 @@ class ItemFixtures extends Fixture
         'pharma_part_#00'            => [ 'impoundable', 'drug' ],
         'lsd_#00'                    => [ 'impoundable', 'drug' ],
         'radio_on_#00'               => [ 'impoundable', 'nw_ikea' ],
-        'water_#00'                  => [ 'can_poison', 'hero_find', 'esc_fixed', 'hero_find_lucky' ],
+        'water_#00'                  => [ 'can_poison', 'hero_find', 'esc_fixed', 'hero_find_lucky',  'found_poisoned' ],
         'can_open_#00'               => [ 'can_poison', 'food', 'can_cook' ],
         'vegetable_#00'              => [ 'can_poison', 'food', 'can_cook' ],
         'fruit_#00'                  => [ 'can_poison', 'food', 'can_cook' ],

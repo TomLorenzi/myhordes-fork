@@ -315,7 +315,8 @@ class ExplorationController extends InventoryAwareController implements Explorat
         $ruinZone->setDigs( $ruinZone->getDigs() + 1 );
 
         if ($prototype) {
-            $item = $this->item_factory->createItem($prototype);
+
+            $item = $this->item_factory->createItem($prototype, false, $prototype->hasProperty("found_poisoned") ? $this->random_generator->chance(0.90) : false);
             $noPlaceLeftMsg = "";
             $inventoryDest = $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getRoomFloor()]);
             if ($inventoryDest === $ruinZone->getFloor())

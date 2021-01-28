@@ -49,7 +49,8 @@
         {% embed "scripts/map.js.twig" with {'map': map_data} %}{% endembed %}
 
         if ($.client.get('current', 'routes') !== null) {
-            document.querySelector('div.routes-list [x-route-id="' + $.client.get('current', 'routes') +'"]').classList.add("me");
+            let route = document.querySelector('div.routes-list [x-route-id="' + $.client.get('current', 'routes') +'"]');
+            if(route) route.classList.add("me");
         }
 
         for (let i = 0; i < scroll_areas.length; i++) {
