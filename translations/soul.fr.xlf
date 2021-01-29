@@ -2267,5 +2267,32 @@
         <target>Accès aux saisons précédentes :</target>
       </segment>
     </unit>
+    <unit id="5VYoVVK" name="Lang.">
+      <notes>
+        <note category="german">Lang.</note>
+      </notes>
+      <segment>
+        <source>Lang.</source>
+        <target>Lang.</target>
+      </segment>
+    </unit>
+    <unit id="3XwCnkh" name="Pandämoniumsstadt">
+      <notes>
+        <note category="german">Pandämoniumsstadt</note>
+      </notes>
+      <segment>
+        <source>Pandämoniumsstadt</source>
+        <target>Pandämoniumsstadt</target>
+      </segment>
+    </unit>
+    <unit id="1BicMk1" name="Privatstadt">
+      <notes>
+        <note category="german">Privatstadt</note>
+      </notes>
+      <segment>
+        <source>Privatstadt</source>
+        <target>Privatstadt</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

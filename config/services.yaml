@@ -35,6 +35,8 @@ services:
         public: true
     App\Service\ItemFactory:
         public: true
+    App\Service\TownHandler:
+        public: true
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class

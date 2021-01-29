@@ -10,6 +10,7 @@ use App\Entity\ForumUsagePermissions;
 use App\Entity\Inventory;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
+use App\Entity\Recipe;
 use App\Entity\Town;
 use App\Entity\User;
 use App\Entity\UserGroup;
@@ -130,6 +131,10 @@ class CommandHelper
         $this->_db[UserGroup::class][IdentifierSemantic::PerfectMatch] = ['#id'];
         $this->_db[UserGroup::class][IdentifierSemantic::LikelyMatch]  = ['name'];
         $this->_db[UserGroup::class][IdentifierSemantic::GuessMatch]   = ['%name'];
+
+        $this->_db[Recipe::class][IdentifierSemantic::PerfectMatch] = ['#id',];
+        $this->_db[Recipe::class][IdentifierSemantic::LikelyMatch]  = ['name'];
+        $this->_db[Recipe::class][IdentifierSemantic::GuessMatch]   = ['%name'];
 
         return $this->_db;
     }

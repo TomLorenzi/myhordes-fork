@@ -652,7 +652,7 @@ class TownHandler
     public function destroy_building(Town &$town, Building $building, ?callable $trigger_after = null){
         if(!$building->getComplete()) return;
 
-        $building->setComplete(false)->setAp(0)->setDefense(0)->setHp(0);
+        $building->setComplete(false)->setAp(0)->setDefense(0)->setHp(0)->setLevel(0);
 
         $this->entity_manager->persist($building);
 
@@ -753,9 +753,10 @@ class TownHandler
     /**
      * @param Town $town
      * @param CitizenRole|string $role
+     * @param bool $duringNightly
      * @return bool
      */
-    public function is_vote_needed(Town $town, $role): bool {
+    public function is_vote_needed(Town $town, $role, bool $duringNightly = false): bool {
 
         // No votes needed before the town is full or during chaos
         if ($town->getChaos() || $town->isOpen()) return false;
@@ -768,12 +769,15 @@ class TownHandler
         if (in_array( $role->getName(), $this->conf->getTownConfiguration($town)->get(TownConf::CONF_DISABLED_ROLES, []) ))
             return false;
 
+        $limit = ($duringNightly ? 1 : 0);
+
         // Check if the role has already been given
         /** @var Citizen $last_one */
         $last_one = $this->entity_manager->getRepository(Citizen::class)->findLastOneByRoleAndTown($role, $town);
         if ($last_one) {
-            if ($last_one->getAlive() || ($last_one->getSurvivedDays() >= ($town->getDay() - 1))     // Skip vote if the last citizen with this role died the previous day
-            ) return false;
+            if ($last_one->getAlive() || ($last_one->getDayOfDeath() >= ($town->getDay() - $limit)))     // Skip vote if the last citizen with this role died the previous day
+                return false;
+
         }
         return true;
     }

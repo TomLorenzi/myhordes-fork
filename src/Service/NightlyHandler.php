@@ -410,7 +410,6 @@ class NightlyHandler
 
         $zombies *= $soulFactor;
         $zombies = round($zombies);
-
         $gazette->setAttack($zombies);
 
         $overflow = !$town->getDoor() ? max(0, $zombies - $def) : $zombies;
@@ -423,13 +422,18 @@ class NightlyHandler
         
         $this->log->debug("Getting watchers for day " . $town->getDay());
 
+        $has_nightwatch = $this->town_handler->getBuilding($town, 'small_round_path_#00');
+
         /** @var CitizenWatch[] $watchers */
         $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town, $town->getDay() - 1); // -1 because day has been advanced before stage2
 
         if(count($watchers) > 0)
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchers($town, $watchers));
+        else if ($overflow > 0 && $has_nightwatch) {
+            $this->entity_manager->persist($this->logTemplates->nightlyAttackNoWatchers($town));
+        }
 
-        $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow) );
+        $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow, count($watchers) > 0 && $has_nightwatch));
 
         $total_watch_def = $this->town_handler->calculate_watch_def($town, $town->getDay() - 1);
         $this->log->debug("There are <info>".count($watchers)."</info> watchers (with <info>{$total_watch_def}</info> watch defense) in town, against <info>$overflow</info> zombies.");
@@ -485,7 +489,7 @@ class NightlyHandler
                 $null = null;
                 foreach ($watcher->getCitizen()->getInventory()->getItems() as $item)
                     if ($item->getPrototype()->getNightWatchAction()) {
-                        $this->log->debug("Executing night watch action for '<info>{$item->getPrototype()->getLabel()}</info>' held by Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info>.");
+                        $this->log->debug("Executing night watch action for '<info>{$item->getPrototype()->getLabel()}</info> : '<info>{$item->getPrototype()->getNightWatchAction()->getName()}</info>' held by Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info>.");
                         $this->action_handler->execute( $ctz, $item, $null, $item->getPrototype()->getNightWatchAction(), $msg, $r, true);
                         foreach ($r as $rr) $this->entity_manager->remove($rr);
                     }
@@ -497,14 +501,24 @@ class NightlyHandler
             }
         }
 
+        if ($total_watch_def > 0 && $overflow > 0) {
+            $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieStopped($town, min($overflow, $total_watch_def)));
+        }
+
+        $initial_overflow = $overflow;
+
         $overflow = max(0, $overflow - $total_watch_def);
 
-        if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_BUILDING_DAMAGE)) {
-            // In panda, built buildings get damaged every night
-            $damageInflicted = $zombies;
+        if ($overflow > 0 && $total_watch_def > 0) {
+            $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieThrough($town, $overflow));
+        } else if ($total_watch_def > 0 && $initial_overflow > 0) {
+            $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieAllStopped($town));
+        }
 
+        if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_BUILDING_DAMAGE, false)) {
+            // In panda, built buildings get damaged every night
             // Only 10% of the attack is inflicted to buildings
-            $damageInflicted = round($damageInflicted * 0.1, 0);
+            $damageInflicted = round($zombies * 0.1);
 
             $this->log->debug("Inflicting <info>$damageInflicted</info> damage to the buildings in town...");
 
@@ -512,7 +526,8 @@ class NightlyHandler
 
             foreach ($town->getBuildings() as $building) {
                 // Only built buildings AND buildings with HP can get damaged
-                if (!$building->getComplete() || $building->getPrototype()->getHp() == 0 || $building->getPrototype()->getImpervious()) continue;
+                if (!$building->getComplete() || $building->getPrototype()->getHp() <= 0 || $building->getPrototype()->getImpervious()) continue;
+
                 $targets[] = $building;
             }
 
@@ -545,6 +560,44 @@ class NightlyHandler
             }
         }
 
+        if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_DO_DESTROY, false)) {
+            // Panda towns sees their defense object in the bank destroyed
+            $number = max(1, min(mt_rand($est->getZombies() * 0.01, $est->getZombies() * 0.2), 20));
+            $number=  20;
+            $this->log->info("We destroy <info>$number</info> items");
+            $items = $this->inventory_handler->fetchSpecificItems($town->getBank(), [new ItemRequest('defence', $number, false, null, true)]);
+            $this->log->info("We fetched <info>". count($items) . "</info> items");
+            shuffle($items);
+            $destroyed_count = 0;
+            $itemsForLog = [];
+
+            while($destroyed_count < $number) {
+                foreach ($items as $item) {
+                    if ($destroyed_count >= $number) break;
+
+                    $this->log->debug("selecting between 1 and " . min($item->getCount(), $number - $destroyed_count));
+                    $delete = mt_rand(1, min($item->getCount(), $number - $destroyed_count));
+                    $destroyed_count += $delete;
+                    $this->log->info("Destroying $delete <info>{$item->getPrototype()->getName()}</info> due to the attack");
+                    $this->inventory_handler->forceRemoveItem($item, $delete);
+                    if(isset($itemsForLog[$item->getPrototype()->getId()])) {
+                        $itemsForLog[$item->getPrototype()->getId()]['count']+= $delete;
+                    } else {
+                        $itemsForLog[$item->getPrototype()->getId()] = [
+                            'item' => $item->getPrototype(),
+                            'count' => $delete
+                        ];
+                    }
+                    if ($delete === $item->getCount()) {
+                        array_pop($items);
+                    }
+                }
+            }
+
+            if (!empty($itemsForLog)) {
+                $this->entity_manager->persist($this->logTemplates->nightlyAttackBankItemsDestroy($town, $itemsForLog));
+            }
+        }
         if ($overflow <= 0) {
             $this->entity_manager->persist($gazette);
             return;
@@ -598,8 +651,7 @@ class NightlyHandler
 			$repartition[$i] /= $sum;
 			$repartition[$i] = round($repartition[$i]*$attacking);
 		}
-		
-		
+
 		//remove citizen receiving 0 zombie
 		foreach (array_keys($repartition, 0) as $key) {
 			unset($repartition[$key]);
@@ -693,6 +745,12 @@ class NightlyHandler
                 }
                 
                 //TODO: Lower the attack for 2-3 days
+                for($i = 0 ; $i < 3 ; $i++) {
+                    /** @var ZombieEstimation $est */
+                    $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()+$i);
+                    $est->setZombies($est->getZombies() * (0.7 + ($i / 10)));
+                    $this->entity_manager->persist($est);
+                }
 
             } else {
                 $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $fireworks->getPrototype(), 20 ));
@@ -845,6 +903,7 @@ class NightlyHandler
 
                 }
 
+                $this->entity_manager->persist($this->logTemplates->nightlyAttackDevastated($town));
                 $town->setDevastated(true);
                 $town->setChaos(true);
                 $town->setDoor(true);
@@ -1042,7 +1101,7 @@ class NightlyHandler
         $morph = [
             'torch_#00'    => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'torch_off_#00']),
             'lamp_on_#00'  => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'lamp_#00']),
-            'radio_on_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'radio_off_#00']),
+            // 'radio_on_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'radio_off_#00']),
             'tamed_pet_off_#00'  => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_#00']),
             'tamed_pet_drug_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_#00']),
             'maglite_2_#00' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'maglite_1_#00']),
@@ -1241,7 +1300,7 @@ class NightlyHandler
             /** @var SpecialActionPrototype $special_vote */
             $special_vote = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => 'special_vote_' . $role->getName()]);
 
-            if(!$this->town_handler->is_vote_needed($town, $role)) continue;
+            if(!$this->town_handler->is_vote_needed($town, $role, true)) continue;
 
             // Getting vote per role per citizen
             $votes = array();

@@ -100,7 +100,7 @@
 
             <div class="row town-buildings hide-md hide-sm">
                 <ul>
-                {% for building in builtbuildings|sort((a, b) => a.prototype.orderBy <=> b.prototype.orderBy) %}
+                {% for building in builtbuildings|sort((a, b) => a.prototype.orderBy <=> b.prototype.orderBy ) %}
                     <li class="cell padded-small rw-12">
                         <img alt="" src="{{ asset('build/images/building/' ~ building.prototype.icon ~ '.gif' ) }}" />
                         {{ building.prototype.label|trans({},'buildings') }}

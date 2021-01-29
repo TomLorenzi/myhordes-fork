@@ -6,6 +6,9 @@
         <div class="cell rw-12 town-banner town-banner-door-{% if town.door %}open{% else %}closed{% endif%} time-{{ hour }} {% if town.isNight %}night{% endif %}"></div>
     </div>
 
+    {% embed "ajax/game/town/door_tabs.html.twig" with {'door_section': door_section, 'has_battlement': has_battlement} %}
+    {% endembed %}
+
     <div class="row">
         <div class="padded cell rw-12">
             {% embed "ajax/game/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'in_town': true, 'map': map_data} %}
@@ -18,7 +21,7 @@
             <div id="create_route_control">
                 <button id="create_route_1">{{ 'Neue einfache Route'|trans({},'game') }}</button>
                 <button {% if not allow_extended %}disabled{% endif %} id="create_route_2">{{ 'Neue komplexe Route'|trans({},'game') }}</button>
-                <button x-ajax-href="{{ path('town_door') }}">{{ 'Schließen'|trans({},'global') }}</button>
+                <button x-ajax-href="{{ path('town_routes') }}">{{ 'Schließen'|trans({},'global') }}</button>
             </div>
             <div id="route_dashboard" style="display: none">
                 <div class="row">

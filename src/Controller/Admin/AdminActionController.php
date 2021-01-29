@@ -126,6 +126,7 @@ class AdminActionController extends CustomAbstractController
             }
         }
 
+        sort($log_files);
 
         return $this->render( 'ajax/admin/dash.html.twig', $this->addDefaultTwigArgs(null, [
             'logs' => $log_files,

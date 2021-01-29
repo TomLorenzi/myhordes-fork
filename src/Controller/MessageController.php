@@ -1308,7 +1308,7 @@ class MessageController extends CustomAbstractController
 
                 if (in_array($item->getPrototype()->getName(), ['bagxl_#00', 'bag_#00', 'cart_#00', 'pocket_belt_#00'])) {
                     // We cannot send bag expansion
-                    continue;
+                    return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
                 }
 
                 if($item->getInventory()->getHome() !== null && $item->getInventory()->getHome()->getCitizen() === $sender){

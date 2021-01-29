@@ -127,6 +127,7 @@ class MigrateCommand extends Command
             ->addOption('assign-building-hp', null, InputOption::VALUE_NONE, 'Give HP to all buildings (so they can be attacked by zeds)')
             ->addOption('assign-building-defense', null, InputOption::VALUE_NONE, 'Give defense to all buildings (so they can be attacked by zeds)')
             ->addOption('update-ranking-entries', null, InputOption::VALUE_NONE, 'Update ranking values')
+            ->addOption('fix-ruin-inventories', null, InputOption::VALUE_NONE, 'Move each items belonging to a RuinRoom to its corresponding RuinZone')
             ->addOption('update-shaman-immune', null, InputOption::VALUE_NONE, 'Changes status tg_immune to tg_shaman_immune')
             ->addOption('place-explorables', null, InputOption::VALUE_NONE, 'Adds explorable ruins to all towns')
 
@@ -599,6 +600,28 @@ class MigrateCommand extends Command
                     $this->entity_manager->persist( $picto->setTownEntry( $picto->getTown()->getRankingEntry() ) );
             $this->entity_manager->flush();
             $output->writeln('Pictos updated!');
+
+            return 0;
+        }
+
+        if ($input->getOption('fix-ruin-inventories')) {
+            $ruinZones = $this->entity_manager->getRepository(RuinZone::class)->findAll();
+            foreach ($ruinZones as $ruinZone) {
+                /** @var RuinZone $ruinZone */
+                if ($ruinZone->getRoomFloor() === null) continue;
+
+                foreach ($ruinZone->getRoomFloor()->getItems() as $item) {
+                    for ($i = 0 ; $i < $item->getCount() ; $i++) {
+                        $output->writeln("Moving item {$item->getPrototype()->getName()} into the Ruin's Floor");
+                        $this->inventory_handler->forceMoveItem($ruinZone->getFloor(), $item);
+                        $this->entity_manager->persist($ruinZone);
+                        $this->entity_manager->persist($ruinZone->getFloor());
+                        $this->entity_manager->persist($item);
+                    }
+                }
+            }
+            $this->entity_manager->flush();
+            $output->writeln('OK!');
 
             return 0;
         }

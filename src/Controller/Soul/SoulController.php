@@ -264,22 +264,24 @@ class SoulController extends CustomAbstractController
 
     /**
      * @Route("jx/soul/ranking/{type<\d+>}", name="soul_season")
+     * @param null $type Type of town we're looking the ranking for
      * @return Response
      */
     public function soul_season($type = null, JSONRequestParser $parser): Response
     {
-        return $this->redirect($this->generateUrl('soul_me'));
-
         $user = $this->getUser();
+        if($user->getRightsElevation() <= User::ROLE_CROW)
+            return $this->redirect($this->generateUrl('soul_me'));
+
         $seasonId = $parser->get('season', null);
 
         /** @var CitizenRankingProxy $nextDeath */
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        $seasons = $this->entity_manager->getRepository(Season::class)->findAll();
+        $seasons = $this->entity_manager->getRepository(Season::class)->findBy(['subNumber' => null]);
         if ($seasonId === null) {
-            $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]) ?? $this->entity_manager->getRepository(Season::class)->findLatest();
+            $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
         } else {
             $currentSeason = $this->entity_manager->getRepository(Season::class)->find($seasonId);
         }
@@ -289,16 +291,16 @@ class SoulController extends CustomAbstractController
             $currentType = $this->entity_manager->getRepository(TownClass::class)->find($type);
         }
 
-        if ($currentSeason === null || $currentType === null) {
+        if ($currentType === null) {
             $this->redirect($this->generateUrl('soul_season'));
         }
         $criteria = new Criteria();
         $criteria->andWhere($criteria->expr()->eq('season', $currentSeason));
         $criteria->andWhere($criteria->expr()->eq('type', $currentType));
-        if ($currentSeason->getNumber() > 0)
+        if ($seasonId > 0 && $currentSeason->getNumber() > 0)
             $criteria->andWhere($criteria->expr()->neq('end', null));
 
-        $criteria->orderBy(['language' => 'ASC', 'score' => 'DESC']);
+        $criteria->orderBy(['score' => 'DESC']);
         $criteria->setMaxResults(35);
         $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->matching($criteria);
         $played = [];

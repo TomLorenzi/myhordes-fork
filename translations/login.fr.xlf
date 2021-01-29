@@ -634,7 +634,7 @@
       </notes>
       <segment>
         <source>Dein Name kann nur alphanumerische Zeichen enthalten.</source>
-        <target>Le pseudo ne doit contenir dque des caractères alphanumériques.</target>
+        <target>Le pseudo ne doit contenir que des caractères alphanumériques.</target>
       </segment>
     </unit>
   </file>
