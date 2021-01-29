@@ -109,6 +109,11 @@ class CitizenInspectorCommand extends Command
         if ($set_ap >= 0) {
             $citizen->setAp( $set_ap );
             $updated = true;
+            if($set_ap > 0) {
+                $this->citizenHandler->inflictStatus($citizen, "tired");
+            } else {
+                $this->citizenHandler->removeStatus($citizen, "tired");
+            }
         }
 
         $set_pm = $input->getOption('set-pm');
