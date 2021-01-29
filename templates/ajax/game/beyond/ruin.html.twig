@@ -36,9 +36,6 @@
         <div class="row">
             <div class="padded cell rw-6 rw-md-12">
                 <h5>{% trans from 'game' %}Meine Aktionen{% endtrans %}</h5>
-                {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes, 'scout': false, 'hidden': false} %}
-                {% endembed %}
-
                 {% if zone.x == 0 and zone.y == 0 %}
                     <br />
                     <button id="exit_ruin_button"  >
@@ -48,7 +45,6 @@
                 {% endif %}
 
                 {% if zone.prototype %}
-
                     {% if shifted %}
                         <br />
                         <button {% if not scavenge %}disabled{% endif%} id="scavenge_button">
@@ -88,6 +84,8 @@
                     {% endif %}
                 {% endif %}
 
+                {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'item_action_list': actions, 'recipe_list': recipes, 'scout': false, 'hidden': false} %}
+                {% endembed %}
             </div>
 
             <div class="padded cell rw-6 rw-md-12">

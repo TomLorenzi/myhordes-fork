@@ -594,12 +594,12 @@ class ActionHandler
         else $ruinZone = null;
 
         $floor_inventory = null;
-        if     (!$citizen->getZone())
+        if (!$citizen->getZone())
             $floor_inventory = $citizen->getHome()->getChest();
         elseif (!$ruinZone)
             $floor_inventory = ($citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0) ? $citizen->getZone()->getFloor() : null;
-        elseif ($citizen->activeExplorerStats()->getInRoom())
-            $floor_inventory = $ruinZone->getRoomFloor();
+        /*elseif ($citizen->activeExplorerStats()->getInRoom())
+            $floor_inventory = $ruinZone->getRoomFloor();*/
         else
             $floor_inventory = $ruinZone->getFloor();
 

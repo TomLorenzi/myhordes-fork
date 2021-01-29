@@ -105,7 +105,8 @@ class ExplorationController extends InventoryAwareController implements Explorat
             'prototype' => $citizen->getZone()->getPrototype(),
             'exploration' => $ex,
             'zone' => $ruinZone,
-            'floor' => $ex->getInRoom() ? $ruinZone->getRoomFloor() : $ruinZone->getFloor(),
+            // 'floor' => $ex->getInRoom() ? $ruinZone->getRoomFloor() : $ruinZone->getFloor(),
+            'floor' => $ruinZone->getFloor(),
             'heroics' => $this->getHeroicActions(),
             'actions' => $this->getItemActions(),
             'recipes' => $this->getItemCombinations(false),
@@ -282,7 +283,8 @@ class ExplorationController extends InventoryAwareController implements Explorat
      */
     public function item_explore_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
         $ex = $this->getActiveCitizen()->activeExplorerStats();
-        $down_inv = $ex->getInRoom() ? $this->getCurrentRuinZone()->getRoomFloor() : $this->getCurrentRuinZone()->getFloor();
+        //$down_inv = $ex->getInRoom() ? $this->getCurrentRuinZone()->getRoomFloor() : $this->getCurrentRuinZone()->getFloor();
+        $down_inv = $this->getCurrentRuinZone()->getFloor();
         $up_inv   = $this->getActiveCitizen()->getInventory();
 
         return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler);
@@ -315,16 +317,17 @@ class ExplorationController extends InventoryAwareController implements Explorat
         $ruinZone->setDigs( $ruinZone->getDigs() + 1 );
 
         if ($prototype) {
-
             $item = $this->item_factory->createItem($prototype, false, $prototype->hasProperty("found_poisoned") ? $this->random_generator->chance(0.90) : false);
             $noPlaceLeftMsg = "";
-            $inventoryDest = $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getRoomFloor()]);
-            if ($inventoryDest === $ruinZone->getFloor())
-                $noPlaceLeftMsg = "<hr />" . $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
+            // $inventoryDest = $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getRoomFloor()]);
+            $inventoryDest = $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getFloor()]);
+            //if ($inventoryDest === $ruinZone->getFloor())
+            //    $noPlaceLeftMsg = "<hr />" . $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
 
             $this->entity_manager->persist($item);
             $this->entity_manager->persist($citizen->getInventory());
-            $this->entity_manager->persist($ruinZone->getRoomFloor());
+            // $this->entity_manager->persist($ruinZone->getRoomFloor());
+            $this->entity_manager->persist($ruinZone->getFloor());
 
             $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
                     '%item%' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>"

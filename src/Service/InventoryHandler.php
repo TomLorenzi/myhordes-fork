@@ -314,16 +314,16 @@ class InventoryHandler
         // Check if the inventory belongs to the citizens current ruin zone
         if ($inventory->getRuinZone() && !$citizen_is_at_home &&
             $inventory->getRuinZone()->getZone()->getId() === $citizen->getZone()->getId() &&
-            ($ex = $citizen->activeExplorerStats()) && !$ex->getInRoom() &&
+            ($ex = $citizen->activeExplorerStats()) && /*!$ex->getInRoom() &&*/
             $ex->getX() === $inventory->getRuinZone()->getX() && $ex->getY() === $inventory->getRuinZone()->getY()  )
             return self::TransferTypeLocal;
 
         // Check if the inventory belongs to the citizens current ruin room zone
-        if ($inventory->getRuinZoneRoom() && !$citizen_is_at_home &&
+       /* if ($inventory->getRuinZoneRoom() && !$citizen_is_at_home &&
             $inventory->getRuinZoneRoom()->getZone()->getId() === $citizen->getZone()->getId() &&
             ($ex = $citizen->activeExplorerStats()) && $ex->getInRoom() &&
             $ex->getX() === $inventory->getRuinZoneRoom()->getX() && $ex->getY() === $inventory->getRuinZoneRoom()->getY()  )
-            return self::TransferTypeLocal;
+            return self::TransferTypeLocal;*/
 
         //ToDo: Check escort
         return self::TransferTypeUnknown;
@@ -372,7 +372,6 @@ class InventoryHandler
         if ($modality !== self::ModalityEnforcePlacement && ($to && ($max_size = $this->getSize($to)) > 0 && count($to->getItems()) >= $max_size ) ) return self::ErrorInventoryFull;
 
         // Check exp_b items already in inventory
-
         if(!$allow_extra_bag){
             if (($type_to === self::TransferTypeRucksack || $type_to === self::TransferTypeEscort) &&
               (in_array($item->getPrototype()->getName(), ['bagxl_#00', 'bag_#00', 'cart_#00']) &&
