@@ -2263,7 +2263,7 @@
       </notes>
       <segment>
         <source>Saison %number%</source>
-        <target>Saison %number%</target>
+        <target>Temporada %number%</target>
       </segment>
     </unit>
     <unit id="J6NchKS" name="Pos.">
@@ -2290,7 +2290,7 @@
       </notes>
       <segment>
         <source>Vorangegangene Saisons:</source>
-        <target>Vorangegangene Saisons:</target>
+        <target>Temporadas anteriores:</target>
       </segment>
     </unit>
     <unit id="5VYoVVK" name="Lang.">
@@ -2299,7 +2299,7 @@
       </notes>
       <segment>
         <source>Lang.</source>
-        <target>Lang.</target>
+        <target>Leng.</target>
       </segment>
     </unit>
     <unit id="3XwCnkh" name="Pandämoniumsstadt">
@@ -2308,7 +2308,7 @@
       </notes>
       <segment>
         <source>Pandämoniumsstadt</source>
-        <target>Pandämoniumsstadt</target>
+        <target>Pueblo de Pandemonio</target>
       </segment>
     </unit>
     <unit id="1BicMk1" name="Privatstadt">
@@ -2317,7 +2317,7 @@
       </notes>
       <segment>
         <source>Privatstadt</source>
-        <target>Privatstadt</target>
+        <target>Pueblo privado</target>
       </segment>
     </unit>
     <unit id="jA6UdTz" name="Zukunft">
@@ -2326,7 +2326,7 @@
       </notes>
       <segment>
         <source>Zukunft</source>
-        <target>Zukunft</target>
+        <target>Futuro</target>
       </segment>
     </unit>
     <unit id="viM4Z2P" name="Einen Empfänger hinzufügen">
@@ -2335,7 +2335,7 @@
       </notes>
       <segment>
         <source>Einen Empfänger hinzufügen</source>
-        <target>Einen Empfänger hinzufügen</target>
+        <target>Agregar un destinatario</target>
       </segment>
     </unit>
   </file>

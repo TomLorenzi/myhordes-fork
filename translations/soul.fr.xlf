@@ -2282,7 +2282,7 @@
       </notes>
       <segment>
         <source>Pandämoniumsstadt</source>
-        <target>Pandämoniumsstadt</target>
+        <target>Ville du Pandémonium</target>
       </segment>
     </unit>
     <unit id="1BicMk1" name="Privatstadt">
@@ -2291,7 +2291,7 @@
       </notes>
       <segment>
         <source>Privatstadt</source>
-        <target>Privatstadt</target>
+        <target>Ville privée</target>
       </segment>
     </unit>
     <unit id="jA6UdTz" name="Zukunft">
@@ -2300,7 +2300,7 @@
       </notes>
       <segment>
         <source>Zukunft</source>
-        <target>Zukunft</target>
+        <target>Avenir</target>
       </segment>
     </unit>
     <unit id="viM4Z2P" name="Einen Empfänger hinzufügen">
@@ -2309,7 +2309,7 @@
       </notes>
       <segment>
         <source>Einen Empfänger hinzufügen</source>
-        <target>Einen Empfänger hinzufügen</target>
+        <target>Ajouter un destinataire</target>
       </segment>
     </unit>
   </file>
