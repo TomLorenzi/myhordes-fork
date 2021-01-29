@@ -25,6 +25,7 @@ use DOMNode;
 use DOMXPath;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -438,5 +439,28 @@ class MessageController extends CustomAbstractController
         elseif (is_a($forumOrPermission, Forum::class)) $p = $this->perm->getEffectivePermissions($this->getUser(), $forumOrPermission);
 
         return new ForumPermissionAccessor($p, $this->perm);
+    }
+
+    /**
+     * @Route("jx/admin/numb/editor", name="admin_numb_editor")
+     * @return Response
+     */
+    public function admin_numb_editor(): Response {
+        $user = $this->getUser();
+
+        return $this->render( 'ajax/forum/editor.html.twig', [
+            'fid' => null,
+            'tid' => null,
+            'pid' => null,
+
+            'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionOwn ),
+            'snippets' => [],
+            'emotes' => $this->getEmotesByUser($user,true),
+
+            'forum' => false,
+            'type' => 'numb',
+            'target_url' => '',
+            'town_controls' => false
+        ] );
     }
 }

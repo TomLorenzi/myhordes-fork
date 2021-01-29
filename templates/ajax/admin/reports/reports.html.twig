@@ -159,9 +159,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="cell padded rw-3 note note-lightest"><label for="snippet_content">{{ 'Inhalt'|trans({},'admin')}}</label></div>
+                        <div class="cell padded rw-3 note note-lightest"><label>{{ 'Inhalt'|trans({},'admin')}}</label></div>
                         <div class="cell padded rw-9">
-                            <textarea id="snippet_content"></textarea>
+                            <div id="numb-forum-editor"></div>
                         </div>
                     </div>
                     <div class="row">
@@ -239,7 +239,7 @@
             $.ajax.easySend( '{{ path('admin_reports_add_snippet') }}', {
                     id: document.getElementById('snippet_name').value,
                     lang: document.getElementById('snippet_lang').value,
-                    content: document.getElementById('snippet_content').value,
+                    content: document.getElementById('numb-forum-editor-text').value,
                 },
                 function () {
                     $.ajax.load(null, '{{ path('admin_reports', {tab: 'snippets', opt: all_shown ? 'all' : ''}) }}', true);
@@ -251,5 +251,7 @@
                     $.ajax.load(null, '{{ path('admin_reports', {tab: 'snippets', opt: all_shown ? 'all' : ''}) }}', true);
                 } );
         });
+
+        $.ajax.no_history().load( document.getElementById('numb-forum-editor'), '{{ url('admin_numb_editor') }}', false )
     </script>
 {% endblock %}
