@@ -124,7 +124,7 @@
       </notes>
       <segment>
         <source>%citizen% hat die Stadt %action%.</source>
-        <target>%citizen% hat die Stadt %action%.</target>
+        <target>%citizen% %action%.</target>
       </segment>
     </unit>
     <unit id="RvCIvJN" name="betreten">
@@ -133,7 +133,7 @@
       </notes>
       <segment>
         <source>betreten</source>
-        <target>betreten</target>
+        <target>ist in die Stadt zurückgekehrt</target>
       </segment>
     </unit>
     <unit id="N0kS6xp" name="verlassen">
@@ -142,7 +142,7 @@
       </notes>
       <segment>
         <source>verlassen</source>
-        <target>verlassen</target>
+        <target>hat die Stadt verlassen..</target>
       </segment>
     </unit>
     <unit id="o6VrUc4" name="Ein neuer Bürger ist in der Stadt angekommen: %citizen%.">
