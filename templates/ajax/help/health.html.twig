@@ -16,7 +16,7 @@
 <img alt="" src="{{ asset('build/images/status/status_tired.gif') }}"> <strong>{{ 'Erschöpfung'|trans({},'help')|raw }}</strong> :
 </dt>
 <dd>
-{{ 'Wenn du keine %img_ap% Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: <span x-ajax-href=%url_move%>Sich bewegen</span>).'|trans({'%img_ap%' : '<span class="ap"></span>', '%url_move%': url('help', {'name': 'move'})},'help')|raw }}
+{{ 'Wenn du keine %img_ap% Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: <span x-ajax-href=%url_move%>Sich bewegen</span>).'|trans({'%img_ap%' : '<span class="ap"></span>', '%url_move%': url('help', {'name': 'map'})},'help')|raw }}
 </dd>
 <dt>
 <img alt="" src="{{ asset('build/images/status/status_thirst1.gif') }}"> <strong>{{ 'Durst'|trans({},'help')|raw }}</strong>:
@@ -92,7 +92,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.'|trans({},'help')|raw }}
 <img alt="" src="{{ asset('build/images/status/status_ghoul.gif') }}"> <strong>{{ 'Ghul'|trans({},'help')|raw }}</strong> :
 </dt>
 <dd>
-{{ 'Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen <span x-ajax-href=%url_ghoul%>Ghul</span> verwandelt.'|trans({'%url_ghoul%': url('help', {'name': 'move'})},'help')|raw }}
+{{ 'Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen <span x-ajax-href=%url_ghoul%>Ghul</span> verwandelt.'|trans({'%url_ghoul%': url('help', {'name': 'ghouls'})},'help')|raw }}
 </dd>
 </dl>
 <h2>{{ 'Die Drogenabhängigkeit'|trans({},'help')|raw }}</h2>

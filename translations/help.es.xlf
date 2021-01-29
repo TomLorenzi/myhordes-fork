@@ -7039,7 +7039,16 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href="%url_forums%"&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
-        <target><![CDATA[<strong>MIT ANDEREN SPIELERN REDEN:</strong> Die meisten Spielfragen werden oder wurden meistens schon in den <span x-ajax-href="%url_forums%">Foren</span> beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.]]></target>
+        <target><![CDATA[<strong>CHARLA CON LOS JUGADORES:</strong> Encontrarás muchas respuestas y soluciones en los <span x-ajax-href="%url_forums%">foros del sitio</span> , disponibles al interior del juego.]]></target>
+      </segment>
+    </unit>
+    <unit id="26VxGUx" name="122c95c">
+      <notes>
+        <note category="german">Die Schaltflächen &lt;strong&gt;[5]&lt;/strong&gt; ermöglichen das Herein- und Herauszoomen der Ansicht</note>
+      </notes>
+      <segment>
+        <source>Die Schaltflächen &lt;strong&gt;[5]&lt;/strong&gt; ermöglichen das Herein- und Herauszoomen der Ansicht</source>
+        <target><![CDATA[Y finalmente, los botones <strong>[5]</strong> te permiten acercar / alejar y centrar la vista.]]></target>
       </segment>
     </unit>
   </file>

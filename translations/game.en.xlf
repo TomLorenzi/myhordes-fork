@@ -17270,6 +17270,105 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Die Stadt hat folgende Gegenstände in Folge der Verbannung von %shunned% zurückerhalten: %list%</target>
       </segment>
     </unit>
+    <unit id="jjgpeoi" name="eef0357">
+      <notes>
+        <note category="german">Ein Moderator hat deinen Thread "%threadname%" im Forum "%forumname%" entfernt. Grund: "%reason%".</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat deinen Thread "%threadname%" im Forum "%forumname%" entfernt. Grund: "%reason%".</source>
+        <target>Ein Moderator hat deinen Thread "%threadname%" im Forum "%forumname%" entfernt. Grund: "%reason%".</target>
+      </segment>
+    </unit>
+    <unit id="mNNpr7V" name="1cb001b">
+      <notes>
+        <note category="german">Ein Moderator hat einen deiner Posts aus dem Thread "%threadname%" im Forum "%forumname%" entfernt. Grund: "%reason%" %link_post%</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat einen deiner Posts aus dem Thread "%threadname%" im Forum "%forumname%" entfernt. Grund: "%reason%" %link_post%</source>
+        <target>Ein Moderator hat einen deiner Posts aus dem Thread "%threadname%" im Forum "%forumname%" entfernt. Grund: "%reason%" %link_post%</target>
+      </segment>
+    </unit>
+    <unit id="04OIDsR" name="820d0b3">
+      <notes>
+        <note category="german">Ein Moderator hat einen deiner Posts aus dem Thread "%threadname%" im Forum "%forumname%" editiert. Grund: "%reason%" %link_post%</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat einen deiner Posts aus dem Thread "%threadname%" im Forum "%forumname%" editiert. Grund: "%reason%" %link_post%</source>
+        <target>Ein Moderator hat einen deiner Posts aus dem Thread "%threadname%" im Forum "%forumname%" editiert. Grund: "%reason%" %link_post%</target>
+      </segment>
+    </unit>
+    <unit id="n6L6TtH" name="d436583">
+      <notes>
+        <note category="german">Ein Moderator hat eine deiner Stadt-Nachrichten aus dem Thread "%threadname%" entfernt. Grund: "%reason%"</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat eine deiner Stadt-Nachrichten aus dem Thread "%threadname%" entfernt. Grund: "%reason%"</source>
+        <target>Ein Moderator hat eine deiner Stadt-Nachrichten aus dem Thread "%threadname%" entfernt. Grund: "%reason%"</target>
+      </segment>
+    </unit>
+    <unit id="OeJ4Ek5" name="110769a">
+      <notes>
+        <note category="german">Ein Moderator hat eine deiner Stadt-Nachrichten aus dem Thread "%threadname%" editiert. Grund: "%reason%"</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat eine deiner Stadt-Nachrichten aus dem Thread "%threadname%" editiert. Grund: "%reason%"</source>
+        <target>Ein Moderator hat eine deiner Stadt-Nachrichten aus dem Thread "%threadname%" editiert. Grund: "%reason%"</target>
+      </segment>
+    </unit>
+    <unit id="EIc0114" name="47a9de1">
+      <notes>
+        <note category="german">Ein Moderator hat eine deiner Privatnachrichten aus dem Thread "%threadname%" entfernt. Grund: "%reason%"</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat eine deiner Privatnachrichten aus dem Thread "%threadname%" entfernt. Grund: "%reason%"</source>
+        <target>Ein Moderator hat eine deiner Privatnachrichten aus dem Thread "%threadname%" entfernt. Grund: "%reason%"</target>
+      </segment>
+    </unit>
+    <unit id="YXN_1dc" name="fc862b9">
+      <notes>
+        <note category="german">Ein Moderator hat eine deiner Privatnachrichten aus dem Thread "%threadname%" editiert. Grund: "%reason%"</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat eine deiner Privatnachrichten aus dem Thread "%threadname%" editiert. Grund: "%reason%"</source>
+        <target>Ein Moderator hat eine deiner Privatnachrichten aus dem Thread "%threadname%" editiert. Grund: "%reason%"</target>
+      </segment>
+    </unit>
+    <unit id="79UdHDI" name="41ceed9">
+      <notes>
+        <note category="german">Ein Moderator hat deinen Account mit einer Forensperre belegt. Grund: "%reason%". Dauer: %duration%</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat deinen Account mit einer Forensperre belegt. Grund: "%reason%". Dauer: %duration%</source>
+        <target>Ein Moderator hat deinen Account mit einer Forensperre belegt. Grund: "%reason%". Dauer: %duration%</target>
+      </segment>
+    </unit>
+    <unit id="uqCTgUl" name="fe118ee">
+      <notes>
+        <note category="german">Ein Moderator hat deinen Account mit einer Spielsperre belegt. Grund: "%reason%". Dauer: %duration%</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat deinen Account mit einer Spielsperre belegt. Grund: "%reason%". Dauer: %duration%</source>
+        <target>Ein Moderator hat deinen Account mit einer Spielsperre belegt. Grund: "%reason%". Dauer: %duration%</target>
+      </segment>
+    </unit>
+    <unit id="cdgCxLt" name="Ein Moderator hat die Forensperre deines Accounts aufgehoben.">
+      <notes>
+        <note category="german">Ein Moderator hat die Forensperre deines Accounts aufgehoben.</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat die Forensperre deines Accounts aufgehoben.</source>
+        <target>Ein Moderator hat die Forensperre deines Accounts aufgehoben.</target>
+      </segment>
+    </unit>
+    <unit id="_Rtl8Sm" name="Ein Moderator hat die Spielsperre deines Accounts aufgehoben.">
+      <notes>
+        <note category="german">Ein Moderator hat die Spielsperre deines Accounts aufgehoben.</note>
+      </notes>
+      <segment>
+        <source>Ein Moderator hat die Spielsperre deines Accounts aufgehoben.</source>
+        <target>Ein Moderator hat die Spielsperre deines Accounts aufgehoben.</target>
+      </segment>
+    </unit>
     <unit id="IuqDnZY" name="%citizen% hat %items% in der Müllhalde zerstört (+%def% Verteidigung)">
       <notes>
         <note category="german">%citizen% hat %items% in der Müllhalde zerstört (+%def% Verteidigung)</note>
