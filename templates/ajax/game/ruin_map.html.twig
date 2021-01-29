@@ -72,7 +72,7 @@
             {% endif %}
         </div>
         <div class="zone-plane-ui">
-            <div class="name">{{ map.name|trans({},'game') }}</div>
+            <div class="name">{{ map.name|trans({},'names') }}</div>
             <div class="timer">
                 {{ 'Sauerstoff'|trans({},'game') }}:<br />
                 <div class="ox"><span x-countdown-interval="250" x-countdown-handler="handle" x-countdown="{{ map.timeout }}" x-on-expire="reload">{{ (map.timeout/3)|round(0,'floor') }}</span></div></div>
