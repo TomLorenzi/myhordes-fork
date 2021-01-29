@@ -17702,5 +17702,14 @@
         <target>Temps avant la prochaine attaque de zombies</target>
       </segment>
     </unit>
+    <unit id="mqPzV.O" name="%citizen% wurde in die Stadt &lt;span&gt;teleportiert&lt;/span&gt;">
+      <notes>
+        <note category="german">%citizen% wurde in die Stadt &lt;span&gt;teleportiert&lt;/span&gt;</note>
+      </notes>
+      <segment>
+        <source>%citizen% wurde in die Stadt &lt;span&gt;teleportiert&lt;/span&gt;</source>
+        <target><![CDATA[%citizen% a été <span>rapatrié(e)</span> en ville !]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

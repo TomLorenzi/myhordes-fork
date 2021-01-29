@@ -492,6 +492,20 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
+    public function citizenTeleport( Citizen $citizen, Zone $zone ): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'citizenTeleport']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setZone( $zone )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
     public function citizenJoin( Citizen $citizen ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId());
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'citizenJoin']);

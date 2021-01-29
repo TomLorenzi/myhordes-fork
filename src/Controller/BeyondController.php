@@ -590,6 +590,10 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 $this->entity_manager->persist( $dig_timer );
             }
 
+            if(($special === 'normal' || $special === 'normal-escort') && ($zone->getX() > 0 || $zone->getY() > 0)) {
+                $this->entity_manager->persist($this->log->citizenTeleport($mover, $zone));
+            }
+
             // Remove zone from citizen
             $mover->setZone( null );
             $zone->removeCitizen( $mover );
