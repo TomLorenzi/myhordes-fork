@@ -79,7 +79,7 @@ class MessageTownMessageController extends MessageController
 
                 if (in_array($item->getPrototype()->getName(), ['bagxl_#00', 'bag_#00', 'cart_#00', 'pocket_belt_#00'])) {
                     // We cannot send bag expansion
-                    continue;
+                    return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
                 }
 
                 if($item->getInventory()->getHome() !== null && $item->getInventory()->getHome()->getCitizen() === $sender){
@@ -299,6 +299,22 @@ class MessageTownMessageController extends MessageController
                 case PrivateMessage::TEMPLATE_CROW_CATAPULT:
                     $thread->setTitle( $this->translator->trans('Du bist für das Katapult verantwortlich', [], 'game') );
                     $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.', [], 'game' ) );
+                    break;
+                case PrivateMessage::TEMPLATE_CROW_AGGRESSION_FAIL:
+                    /** @var Citizen $aggressor */
+                    $aggressor = $this->entity_manager->getRepository(Citizen::class)->find( $post->getForeignID() );
+                    $thread->setTitle( $this->translator->trans('%username% hat dich angegriffen!', ['%username%' => $aggressor->getUser()->getName()], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.', ['%username%' => $aggressor->getUser()->getName()], 'game' ) );
+                    break;
+                case PrivateMessage::TEMPLATE_CROW_AGGRESSION_SUCCESS:
+                    /** @var Citizen $aggressor */
+                    $aggressor = $this->entity_manager->getRepository(Citizen::class)->find( $post->getForeignID() );
+                    $thread->setTitle( $this->translator->trans('%username% hat dich angegriffen und verletzt!', ['%username%' => $aggressor->getUser()->getName()], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!', ['%username%' => $aggressor->getUser()->getName()], 'game' ) );
+                    break;
+                case PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_WOUND:
+                    $thread->setTitle( $this->translator->trans('Verletzt', [], 'game') );
+                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...', ['%count%' => $post->getForeignID()], 'game' ) );
                     break;
                 default:
                     $post->setText($this->prepareEmotes($post->getText()));

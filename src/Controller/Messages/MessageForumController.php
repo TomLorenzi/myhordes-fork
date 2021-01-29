@@ -118,9 +118,7 @@ class MessageForumController extends MessageController
             'forum' => $forum,
             'threads' => $threads,
             'pinned_threads' => $pinned_threads,
-
             'permission' => $this->getPermissionObject( $permissions ),
-
             'select' => $tid,
             'jump' => $pid,
             'pages' => $pages,
