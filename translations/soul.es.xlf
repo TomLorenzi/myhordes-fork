@@ -2320,5 +2320,23 @@
         <target>Privatstadt</target>
       </segment>
     </unit>
+    <unit id="jA6UdTz" name="Zukunft">
+      <notes>
+        <note category="german">Zukunft</note>
+      </notes>
+      <segment>
+        <source>Zukunft</source>
+        <target>Zukunft</target>
+      </segment>
+    </unit>
+    <unit id="viM4Z2P" name="Einen Empfänger hinzufügen">
+      <notes>
+        <note category="german">Einen Empfänger hinzufügen</note>
+      </notes>
+      <segment>
+        <source>Einen Empfänger hinzufügen</source>
+        <target>Einen Empfänger hinzufügen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
