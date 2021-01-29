@@ -9,6 +9,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenHome;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenProfession;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\Forum;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
@@ -525,6 +526,13 @@ class GameFactory
 
         foreach ($town->getCitizens() as $citizen) if ($citizen->getAlive()) return false;
         if ($town->isOpen() && !$town->getCitizens()->isEmpty()) return false;
+
+        $score = 0;
+        foreach ($town->getRankingEntry()->getCitizens() as $r_citizen) {
+            /* @var CitizenRankingProxy $citizen */
+            $score += $r_citizen->getDay();
+        }
+        $town->getRankingEntry()->setScore($score);
 
         $this->entity_manager->remove($town);
         return true;

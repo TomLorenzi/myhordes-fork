@@ -356,24 +356,26 @@ class DebugCommand extends Command
 
         if ($input->getOption('reapply-twinoid-data')) {
             /** @var TwinoidImport[] $all_imports */
-            $all_imports = $this->entity_manager->getRepository(TwinoidImport::class)->findAll();
 
+            $tc = $this->entity_manager->getRepository(TwinoidImport::class)->count([]);
+            $tc_chunk = 0;
+
+            $output->writeln("Processing <info>$tc</info> entries...");
             $progress = new ProgressBar( $output->section() );
-            $progress->start( count($all_imports) );
+            $progress->start( $tc );
 
-            $i = 0;
+            while ($tc_chunk < $tc) {
 
-            foreach ($all_imports as $import) {
-                if ($this->twin->importData($import->getUser(), $import->getScope(), $import->getData($this->entity_manager), $import->getMain())) {
-                    $this->entity_manager->persist($import->getUser());
-                    if ($i++ >= 25) {
-                        $this->entity_manager->flush();
-                        $i = 0;
+                $all_imports = $this->entity_manager->getRepository(TwinoidImport::class)->findBy([], ['id' => 'ASC'], 50, $tc_chunk);
+                foreach ($all_imports as $import)
+                    if ($this->twin->importData($import->getUser(), $import->getScope(), $import->getData($this->entity_manager), $import->getMain())) {
+                        $this->entity_manager->persist($import->getUser());
+                        $tc_chunk++;
                     }
-                }
-                $progress->advance();
-
+                $this->entity_manager->flush();
+                $progress->setProgress($tc_chunk);
             }
+
 
             $progress->finish();
             $output->writeln("OK.");
