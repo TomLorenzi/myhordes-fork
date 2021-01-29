@@ -418,7 +418,7 @@ x-message {
       background-color: #5c2b20;
       outline: 1px solid black;
       border: 1px solid #f0d79e;
-      z-index: 9999;
+      z-index: 998;
 
       & h1 {
         margin: 0px;
@@ -907,29 +907,6 @@ div.game-menu-area {
         }
       }
 
-      &.user {
-        position: absolute;
-        right: 10px;
-        top: -30px;
-        font-size: 10px;
-        background-color: rgba(62, 36, 23, .75);
-        border-radius: 6px;
-        color: @myhordes-smalltext;
-
-        li {
-          margin: 3px 6px;
-
-          a {
-            text-decoration: none;
-            transition: color 200ms;
-
-            &:hover {
-              color: #c00;
-            }
-          }
-        }
-      }
-
       &.clock {
         position: absolute; background: url("../img/background/clock.png"); width: 280px; height: 97px;
         top: -130px; right: 0px;
@@ -1060,6 +1037,11 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
   }
   &.plain { background: url(../img/background/tabs-header-plain.gif) bottom left no-repeat; }
 
+  &.no-bottom-margin {
+    margin-bottom: 0;
+    &~div.lightbox { margin-top: 0 }
+  }
+
   min-height: 34px;
 
   &>.tab-floater {
@@ -1077,6 +1059,11 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
     &:not(.left) { float: right; }
     &:not(.tab-floater) { padding-top: 9px };
     overflow: hidden;
+
+    &:first-child.left.inline > div.avatar.small:first-child {
+      margin-left: -5px; border-top-left-radius: 8px;
+      &>img:only-child { border-top-left-radius: 8px; }
+    }
 
     .tab-link {
       float: right; height: 21px; margin-right: 0px; margin-left: 2px;
@@ -1489,6 +1476,24 @@ i.dagger {
     padding: 5px; background-color: #5c2b20; border: 1px solid #f0d79e; outline: 1px solid #5c2b20;
     strong { text-transform: uppercase; color: #f8eacb; }
   }
+}
+
+#postbox {
+  position: absolute; right: 10px; top: 105px; font-size: 10px;
+  background-color: rgba(62, 36, 23, .75); border-radius: 6px; padding: 3px 5px;
+  color: @myhordes-smalltext; transition: background-color 0.5s ease-in-out;
+  cursor: pointer;
+  &:hover { background-color: lighten(rgba(62, 36, 23, .75),10%); }
+
+  &>div {
+    margin: 0; display: inline-block; font-weight: bold;
+    &:last-child { margin-left: 4px; }
+  }
+
+  &.new-messages {
+    >*:nth-child(1) { display: none; }
+  }
+  &:not(.new-messages)>*:not(:nth-child(1)) { display: none; }
 }
 
 .mt-1 {

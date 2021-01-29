@@ -1,0 +1,14 @@
+{% extends "ajax/ajax_plain.html.twig" %}
+
+{% from "ajax/pm/bubbles.html.twig" import bubble_group as bubble %}
+
+{% block ajax_base %}
+    <ul class="group-conversation">
+        {% for message in messages %}
+            {{ bubble(message, last) }}
+        {% endfor %}
+    </ul>
+    {% if more %}
+        <div x-endless-endpoint="{{ path('pm_conv_group', {id: gid}) }}" x-last-id="{{ last_message }}" class="pm-endless-more"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Weitere Einträge werden geladen...'|trans({},'global') }}</div>
+    {% endif %}
+{% endblock %}

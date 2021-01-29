@@ -47,6 +47,7 @@ security:
         - { path: ^/jx/public/,     roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/jx/ghost/,      roles: ROLE_USER }
         - { path: ^/jx/soul/,       roles: ROLE_USER }
+        - { path: ^/jx/pm/,         roles: ROLE_USER }
         - { path: ^/jx/admin/dash,  roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/jx/admin/,      roles: ROLE_CROW }
         - { path: ^/admin/,         roles: ROLE_CROW }
@@ -55,6 +56,8 @@ security:
         - { path: ^/api/public/login,  roles: ROLE_REGISTERED }
         - { path: ^/api/public/logout, roles: ROLE_REGISTERED }
         - { path: ^/api/soul/,         roles: ROLE_USER }
+        - { path: ^/api/pm/ping,       roles: [ROLE_REGISTERED, IS_AUTHENTICATED_ANONYMOUSLY]}
+        - { path: ^/api/pm/,           roles: ROLE_USER}
         - { path: ^/api/public/,       roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/admin/login,   roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/admin/,        roles: ROLE_CROW }

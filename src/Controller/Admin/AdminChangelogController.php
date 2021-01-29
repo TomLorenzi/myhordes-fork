@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Announcement;
 use App\Entity\Changelog;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,15 +13,16 @@ use Symfony\Component\HttpFoundation\Response;
 class AdminChangelogController extends AdminActionController
 {
     /**
-     * @Route("jx/admin/changelogs", name="admin_changelogs")
+     * @Route("jx/admin/changelogs/{tab}", name="admin_changelogs")
+     * @param string $tab
      * @return Response
      */
-    public function changelogs(): Response
+    public function changelogs( string $tab = 'changelog' ): Response
     {
-        $news = $this->entity_manager->getRepository(Changelog::class)->findAll();
-
         return $this->render( 'ajax/admin/changelogs/changelogs.html.twig', $this->addDefaultTwigArgs(null, [
-            'news' => $news
+            'news' => $this->entity_manager->getRepository(Changelog::class)->findAll(),
+            'announces' => $this->entity_manager->getRepository(Announcement::class)->findAll(),
+            'tab' => $tab
         ]));
     }
 

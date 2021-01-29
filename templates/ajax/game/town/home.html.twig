@@ -281,9 +281,8 @@
                 <h5>{% trans from 'game'%}Neue globale Nachricht{% endtrans %}</h5>
             </div>
         {% endif %}
-        <div id="forum-content">
-
-        </div>
+        <div id="pm-forum-editor"></div>
+        <div id="global-forum-editor"></div>
     </div>
 
     <div x-tab-group="home-main" x-tab-id="complaints" x-tab-target>
@@ -636,7 +635,7 @@
                 e.preventDefault();
                 e.stopPropagation();
 
-                $.ajax.no_history().load( document.getElementById('forum-content'), this.getAttribute('x-pm-source'), false )
+                $.ajax.no_history().load( document.getElementById('pm-forum-editor'), this.getAttribute('x-pm-source'), false )
                 document.getElementById("nonArchivedContent").style.display = "none";
             });
         }
@@ -647,40 +646,45 @@
                 e.preventDefault();
                 e.stopPropagation();
 
-                $.ajax.no_history().load( document.getElementById('forum-content'), this.getAttribute('x-pm-source'), false )
+                $.ajax.no_history().load( document.getElementById('pm-forum-editor'), this.getAttribute('x-pm-source'), false )
                 document.getElementById("archivedContent").style.display = "none";
             });
         }
 
         let received_tab = document.getElementById('received_tab');
         if(received_tab) received_tab.addEventListener('click', function(e) {
-            document.getElementById("forum-content").innerHTML = "";
+            document.getElementById("pm-forum-editor").innerHTML = "";
+            document.getElementById("global-forum-editor").innerHTML = "";
             document.getElementById("nonArchivedContent").style.display = "";
         });
 
         let archives_tab = document.getElementById('archives_tab');
         if(archives_tab) archives_tab.addEventListener('click', function(e) {
-            document.getElementById("forum-content").innerHTML = "";
+            document.getElementById("pm-forum-editor").innerHTML = "";
+            document.getElementById("global-forum-editor").innerHTML = "";
             document.getElementById("archivedContent").style.display = "";
         });
 
         let new_pm_tab = document.getElementById('new_pm_tab');
         if(new_pm_tab) new_pm_tab.addEventListener('click', function(e) {
-            document.getElementById("forum-content").innerHTML = "";
-            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('home_new_post_editor_controller', {type: 'pm'}) }}', false )
+            document.getElementById("pm-forum-editor").innerHTML = "";
+            document.getElementById("global-forum-editor").innerHTML = "";
+            $.ajax.no_history().load( document.getElementById('pm-forum-editor'), '{{ path('home_new_post_editor_controller', {type: 'pm'}) }}', false )
         });
 
-        {% if can_send_global_pm %}
+        {% if can_send_global_pm or true %}
         let new_global_pm_tab = document.getElementById('new_global_pm_tab');
         if(new_global_pm_tab) new_global_pm_tab.addEventListener('click', function(e) {
-            document.getElementById("forum-content").innerHTML = "";
-            $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('home_new_post_editor_controller', {type: 'global'}) }}', false )
+            document.getElementById("pm-forum-editor").innerHTML = "";
+            document.getElementById("global-forum-editor").innerHTML = "";
+            $.ajax.no_history().load( document.getElementById('global-forum-editor'), '{{ path('home_new_post_editor_controller', {type: 'global'}) }}', false )
         });
         {% endif %}
 
         {% if dest_citizen is not null %}
-        document.getElementById("forum-content").innerHTML = "";
-        $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('home_new_post_editor_controller', {type: 'pm'}) }}', false )
+        document.getElementById("pm-forum-editor").innerHTML = "";
+        document.getElementById("global-forum-editor").innerHTML = "";
+        $.ajax.no_history().load( document.getElementById('pm-forum-editor'), '{{ path('home_new_post_editor_controller', {type: 'pm'}) }}', false )
         {% endif %}
 
         let send_item_btn = document.getElementById("send-item-btn");

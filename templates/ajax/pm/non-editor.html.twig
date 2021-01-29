@@ -1,0 +1,26 @@
+{% extends "ajax/ajax_plain.html.twig" %}
+
+{% block ajax_base %}
+    <div></div>
+{% endblock %}
+{% block js %}
+    <script>
+        (function() {
+            document.getElementById('post-office-mobile-wrapper').classList.remove('panel-2');
+            document.getElementById('post-office-mobile-wrapper').classList.add('panel-1');
+
+            let target = document.getElementById('gpm-forum-content');
+            target.innerText = '';
+
+            document.getElementById('gpm-forum-content-header').innerText = '{{ 'Bitte wähle eine Konversation auf der linken Seite.'|trans({},'global')|e('js') }}';
+
+            document.getElementById('pm-forum-actions-container').classList.add('hidden');
+            document.getElementById('pm-forum-editor-container').classList.add('hidden');
+            document.getElementById('pm-user-list-container').classList.add('hidden');
+
+            let editor = document.getElementById('global-pm-forum-editor');
+            if (editor) editor.innerText = '';
+            $.html.error('{{'Spamschutz: Du hast heute bereits eine große Anzahl an Spielern kontaktiert; du musst eine Weile warten, bevor du eine neue Nachricht erstellen kannst.'|trans({},'global')|e('js')}}');
+        })();
+    </script>
+{% endblock %}

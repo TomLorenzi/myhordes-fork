@@ -4,41 +4,39 @@
     {{ parent() }}
 {% endblock %}
 {% block soul_content %}
-    {% if selected is null %}
-        COMING SOON
-    {% else %}
-    <div class="news">
-        <div class="head">
-            <div class="title center"><img alt="" src="{{ asset('build/images/log/build.gif') }}" /><span class="title-content">{{news[0].title}}</span><img src="{{ asset('build/images/log/build.gif') }}" /></div>
-        </div>
-        <div class="version">
-            {{"Version"|trans({}, 'soul')}} {{selected.version}}
-        </div>
-        {% if news|length > 1 %}
-        <div class="row">
-            <div class="center version-list">
-                <p><label for="change_version">{{'Hier findet ihr alle vorangegangenen Updates:'|trans({}, 'soul')}}</label></p>
-                <select id="change_version">
-                    {% for new in news %}
-                        <option {% if selected.id == new.id %}selected="selected"{% endif%} value="{{ path('soul_news', {id: new.id}) }}">{{"Version"|trans({}, 'soul')}} {{new.version}} - {{new.title}}</option>
-                    {% endfor %}
-                </select>
-            </div>
-        </div>
-        {% endif %}
-        <div class="row forum-post">
-            <div class="forum-post-content content" style="min-height: 155px;">
-                {{selected.text|raw}}
-            </div>
-        </div>
-    </div>
-    {% endif %}
+    <div id="news_anchor"></div>
 {% endblock %}
 {% block js %}
     {{parent()}}
     <script>
-        $.html.addEventListenerAll('#change_version', 'change', function (e,elem) {
-            $.ajax.load(null, elem.value);
-        });
+        (function() {
+            $.html.forEach('img#shell_news_icon[x-src-default]', e=>e.setAttribute('src', e.getAttribute('x-src-default')));
+
+            const fun_announce_events = function() {
+                $.html.addEventListenerAll('#news_anchor .pm-endless-more', 'click', function(e,elem) {
+                    elem.remove();
+
+                    let skip = [];
+                    $.html.forEach('#news_anchor li[x-announce-id]', e=>skip.push(e.getAttribute('x-announce-id')));
+
+                    let container = document.createElement( 'div' );
+                    $.ajax.no_history().load( container, '{{ path('pm_announce_all')|e('js') }}', false, {num: 3, skip: skip}, function() {
+                        let messages = container.querySelector('ul.group-conversation');
+                        let more = container.querySelector('.pm-endless-more');
+                        document.querySelector('#news_anchor>ul.group-conversation').innerHTML += messages.innerHTML;
+                        if (more) document.querySelector('#news_anchor').innerHTML += more.outerHTML;
+                        fun_announce_events();
+                        $.msg.execute();
+                    } );
+                })
+            };
+
+            $.ajax.no_history().load(document.getElementById('news_anchor'), '{{ path('pm_announce_all')|e('js') }}', false, {num: 5}, function() {
+                fun_announce_events();
+                $.msg.execute();
+            })
+
+
+        })();
     </script>
 {% endblock %}

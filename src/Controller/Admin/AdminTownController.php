@@ -15,6 +15,7 @@ use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
+use App\Service\CrowService;
 use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
@@ -179,7 +180,7 @@ class AdminTownController extends AdminActionController
      * @param GameFactory $gameFactory
      * @return Response
      */
-    public function town_manager(int $id, string $action, NightlyHandler $night, GameFactory $gameFactory): Response
+    public function town_manager(int $id, string $action, NightlyHandler $night, GameFactory $gameFactory, CrowService $crowService): Response
     {
         /** @var Town $town */
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
@@ -190,11 +191,23 @@ class AdminTownController extends AdminActionController
 
         switch ($action) {
             case 'release':
+                if ($town->getAttackFails() >= 3)
+                    foreach ($town->getCitizens() as $citizen)
+                        if ($citizen->getAlive())
+                            $this->entity_manager->persist(
+                                $crowService->createPM_townQuarantine( $citizen->getUser(), $town->getName(), false )
+                            );
                 $town->setAttackFails(0);
                 $this->entity_manager->persist($town);
                 break;
             case 'quarantine':
-                $town->setAttackFails(3);
+                if ($town->getAttackFails() < 3)
+                    foreach ($town->getCitizens() as $citizen)
+                        if ($citizen->getAlive())
+                            $this->entity_manager->persist(
+                                $crowService->createPM_townQuarantine( $citizen->getUser(), $town->getName(), true )
+                            );
+                $town->setAttackFails(4);
                 $this->entity_manager->persist($town);
                 break;
             case 'advance':
@@ -205,6 +218,10 @@ class AdminTownController extends AdminActionController
                 }
                 break;
             case 'nullify':
+                foreach ($town->getCitizens() as $citizen)
+                    $this->entity_manager->persist(
+                        $crowService->createPM_townNegated( $citizen->getUser(), $town->getName(), false )
+                    );
                 $gameFactory->nullifyTown($town, true);
                 break;
 

@@ -16,6 +16,7 @@ require('../css/app.css');
 import Client from '../ts/client'
 import Ajax from '../ts/ajax'
 import HTML from '../ts/html'
+import MessageAPI from '../ts/messages'
 const matchAll = require('string.prototype.matchall');
 matchAll.shim();
 
@@ -29,6 +30,7 @@ let $ = {
     ajax: new Ajax(url),
     html: new HTML(),
     client: new Client(),
+    msg: new MessageAPI(),
     vendor: {
         punycode: require("./punycode")
     }
@@ -39,7 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
     $.ajax.setDefaultNode( document.getElementById('content') );
     $.html.init();
     const initial_landing = document.documentElement.getAttribute('x-ajax-landing');
-    if (initial_landing) $.ajax.no_loader().load( null, initial_landing, true );
+    if (initial_landing) $.ajax.no_loader().load( null, initial_landing, true, {}, ()=>$.msg.execute() );
+    else $.msg.execute();
 }, {once: true, passive: true});
 
 window.addEventListener('popstate', function(event) {
@@ -51,6 +54,8 @@ const resize_game_menu = function() {
     let game_menu_elems = document.querySelectorAll('#gma>div.game-bar>ul:not(.clock)');
     let game_menu_burger = document.querySelector('#gma>div.game-bar>ul.text-menu>li.burger-button');
     let game_menu_hide = document.querySelectorAll('#gma>div.game-bar>ul.text-menu>li:not(.burger-button)');
+
+    if (!game_menu) return;
 
     if(game_menu_burger !== null)
         game_menu_burger.style.display = 'none';

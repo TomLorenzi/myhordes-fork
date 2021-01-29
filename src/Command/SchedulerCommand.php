@@ -13,6 +13,7 @@ use App\Entity\TownLogEntry;
 use App\Entity\User;
 use App\Service\AntiCheatService;
 use App\Service\ConfMaster;
+use App\Service\CrowService;
 use App\Service\GameFactory;
 use App\Service\Locksmith;
 use App\Service\NightlyHandler;
@@ -45,9 +46,11 @@ class SchedulerCommand extends Command
     private GameFactory $gameFactory;
     private UserHandler $userHandler;
     private TownHandler $townHandler;
+    private CrowService $crowService;
 
     public function __construct(EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator,
-                                ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh, TownHandler $th)
+                                ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh,
+                                TownHandler $th, CrowService $cs)
     {
         $this->entityManager = $em;
         $this->night = $nh;
@@ -59,6 +62,7 @@ class SchedulerCommand extends Command
         $this->gameFactory = $gf;
         $this->userHandler = $uh;
         $this->townHandler = $th;
+        $this->crowService = $cs;
         parent::__construct();
     }
 
@@ -108,8 +112,20 @@ class SchedulerCommand extends Command
                 $town = $this->entityManager->getRepository(Town::class)->find($town->getId());
                 $s = $this->entityManager->getRepository(AttackSchedule::class)->find($s->getId());
 
-                if ($town->getAttackFails() >= 3 || ($town->getLastAttack() && $town->getLastAttack()->getId() === $s->getId()))
+                if ($town->getAttackFails() >= 3 || ($town->getLastAttack() && $town->getLastAttack()->getId() === $s->getId())) {
+                    if ($town->getAttackFails() === 3) {
+                        foreach ($town->getCitizens() as $citizen)
+                            if ($citizen->getAlive())
+                                $this->entityManager->persist(
+                                    $this->crowService->createPM_townQuarantine( $citizen->getUser(), $town->getName(), true )
+                                );
+                        $town->setAttackFails(4);
+                        $this->entityManager->flush();
+                    }
+
                     continue;
+                }
+
 
                 $town_conf = $this->conf_master->getTownConfiguration($town);
 
@@ -154,6 +170,10 @@ class SchedulerCommand extends Command
 
                         if ($town->isOpen() && $limit >= 0 && $town->getDayWithoutAttack() > $limit) {
                             $last_op = 'del';
+                            foreach ($town->getCitizens() as $citizen)
+                                $this->entityManager->persist(
+                                    $this->crowService->createPM_townNegated( $citizen->getUser(), $town->getName(), true )
+                                );
                             $this->gameFactory->nullifyTown($town, true);
 
                         } elseif (!$town->isOpen() && $town->getAliveCitizenCount() == 0) {

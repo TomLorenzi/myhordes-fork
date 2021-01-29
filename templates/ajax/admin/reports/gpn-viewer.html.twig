@@ -1,0 +1,100 @@
+{% set today = date() %}
+{% set yesterday = date('-1days') %}
+
+<div class="row-table home-pm">
+    {% for post in posts %}
+        <div class="forum-post {% if post.id == markedPost %}forum-post-marked{% endif %}">
+            <div class="forum-post-header">
+                <i>
+                    {% if post.timestamp.format('Ymd') == today|date("Ymd") %}
+                        {{ 'Heute um'|trans({},'global') }} {{ post.timestamp|format_datetime('none', 'short') }}
+                    {% elseif post.timestamp.format('Ymd') == yesterday|date("Ymd") %}
+                        {{ 'Gestern um'|trans({},'global') }} {{ post.timestamp|format_datetime('none', 'short') }}
+                    {% else %}
+                        {{ post.timestamp|format_datetime('medium', 'short') }}
+                    {% endif %}
+                </i>
+                {% if (post.sender.avatar) %}
+                    {% if app.user.preferSmallAvatars %}
+                        <div class="avatar small ua-{{ post.sender.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': post.sender.id, 'name': post.sender.avatar.smallName, 'ext': post.sender.avatar.format}) }}"></div>
+                    {% else %}
+                        <div class="avatar ua-{{ post.sender.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': post.sender.id, 'name': post.sender.avatar.filename, 'ext': post.sender.avatar.format}) }}"></div>
+                    {% endif %}
+                {% else %}
+                    <div class="avatar small ua-{{ post.sender.id % 10 }}"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
+                {% endif %}
+                <b>{{ post.sender.name }}</b>
+            </div>
+            {% if post.adminReports(true)|length > 0 %}
+                <div class="modrev modWarnText pointer">
+                    <span>{{ '%num% Meldungen. Klicken, um Benutzer anzuzeigen.'|trans({'%num%': post.adminReports(true)|length},'global') }}</span>
+                    <div>
+                        {% for report in post.adminReports(true) %}
+                            <a target="_blank" href="{{ url('soul_visit', {id: report.sourceUser.id}) }}">{{ report.sourceUser.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="forum-post-content" >
+                {% if post.hidden %}
+                    <div class="modrev modOrigText pointer">
+                        <span>{{ 'Ursprünglichen Text anzeigen'|trans({},'global') }}</span>
+                        <div>{{ post.text|raw }}</div>
+                    </div>
+                {% else %}
+                    {{ post.text|raw }}
+                {% endif %}
+
+                {% if post.modMessage %}
+                    <div class="modAnnounce">{{ post.modMessage }}</div>
+                {% endif %}
+            </div>
+            <div class="forum-post-footer">
+                <div class="float-left small">
+                    {% if is_granted('ROLE_ADMIN') and post.moderator is not null %}
+                        {{ 'MOD: ' ~ post.moderator.name }}
+                    {% endif %}
+                </div>
+                {% if post.sender %}
+                    <div class="float-right small">
+                        <label class="mod-submenu" for="mod-submenu-toggle-{{ post.id }}">
+                            <input type="checkbox" name="mod-submenu-toggle-{{ post.id }}" id="mod-submenu-toggle-{{ post.id }}" />
+                            <ul class="mod-submenu-links">
+                                {% if post.adminReports(true) is not empty %}
+                                    <li><a class="action-button" x-forum-moderator-action="gpm-seen" x-post-id={{ post.id }}>{{ 'Überprüft'|trans({},'global') }}</a></li>
+                                {% endif %}
+                                {% if not post.hidden %}
+                                    <li><a class="action-button" x-forum-moderator-action="gpm-delete-post" x-post-id={{ post.id }}>{{ 'Ausblenden'|trans({},'global') }}</a></li>
+                                {% endif %}
+                                <li><a class="action-button" x-forum-moderator-action="gpm-edit-post"   x-post-id={{ post.id }}>{{ 'Nachricht'|trans({},'global') }}</a></li>
+                                {% if not post.hidden %}
+                                    <li><a class="action-button" x-forum-moderator-action="gpm-edit-delete-post" x-post-id={{ post.id }}>{{ 'Ausb.+Nachr.'|trans({},'global') }}</a></li>
+                                {% endif %}
+                            </ul>
+                        </label>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<script>
+    $.html.addEventListenerAll('.modrev.pointer', 'click', (e,elem) => { elem.classList.remove('pointer'); } )
+
+    $.html.addEventListenerAll('[x-forum-moderator-action="gpm-seen"],[x-forum-moderator-action="gpm-delete-post"],[x-forum-moderator-action="gpm-edit-post"],[x-forum-moderator-action="gpm-edit-delete-post"]', 'click', function (e,elem) {
+        const action = elem.getAttribute('x-forum-moderator-action');
+
+        const seen = true;
+        const hide = ( action === 'gpm-delete-post' || action === 'gpm-edit-delete-post' );
+        const message = ( action === 'gpm-edit-post' || action === 'gpm-edit-delete-post' ) ? window.prompt('{{ 'Nachricht?'|trans({},'admin')|e('js') }}') : false;
+
+        if (!message && message !== false) return;
+        if (!message && !confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
+
+        $.ajax.easySend( '{{ path('admin_reports_mod_gpm') }}', {pmid: parseInt(elem.getAttribute('x-post-id')), seen: seen, hide: hide, message: message},
+            function () {
+                $.ajax.load(null, '{{ path('admin_reports', {opt: ''}) }}', true);
+            } );
+    } );
+</script>

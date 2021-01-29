@@ -25,19 +25,22 @@ use DateTimeInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class LogTemplateHandler
 {
-    private $trans;
-    private $asset;
-    private $entity_manager;
+    private TranslatorInterface $trans;
+    private Packages $asset;
+    private EntityManagerInterface $entity_manager;
+    private UrlGeneratorInterface $url;
 
-    public function __construct(TranslatorInterface $t, Packages $a, EntityManagerInterface $em )
+    public function __construct(TranslatorInterface $t, Packages $a, EntityManagerInterface $em, UrlGeneratorInterface $url)
     {
         $this->trans = $t;
         $this->asset = $a;
         $this->entity_manager = $em;
+        $this->url = $url;
     }
 
     public function wrap(?string $obj, ?string $class = null): string {
@@ -168,14 +171,35 @@ class LogTemplateHandler
                     $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->generateDogName((int)$variables[$typeEntry['name']]) );
                 }
                 elseif ($typeEntry['type'] === 'ap') {
-                    $ap = $variables[$typeEntry['name']];
-                    $transParams['%'.$typeEntry['name'].'%'] = "<div class='ap'>{$ap}</div>";
+                    $transParams['%'.$typeEntry['name'].'%'] = "<div class='ap'>{$variables[$typeEntry['name']]}</div>";
                 }   
                 elseif ($typeEntry['type'] === 'chat') {
                     $transParams['%'.$typeEntry['name'].'%'] = $variables[$typeEntry['name']];
                 }
                 elseif ($typeEntry['type'] === 'item') {
                     $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ), 'tool' );
+                }
+                elseif ($typeEntry['type'] === 'link_post') {
+                    $transParams['%'.$typeEntry['name'].'%'] = "<a target='_blank' href='{$this->url->generate('forum_jump_view', ['pid' => $variables[$typeEntry['name']] ?? 0])}'>{$this->trans->trans('Anzeigen', [], 'global')}</a>";
+                }
+                elseif ($typeEntry['type'] === 'ne-string') {
+                    $transParams['%'.$typeEntry['name'].'%'] = $this->wrap(empty($variables[$typeEntry['name']]) ? '-' : $variables[$typeEntry['name']]);
+                }
+                elseif ($typeEntry['type'] === 'duration') {
+                    $i = (int)$variables[$typeEntry['name']];
+                    if ($i <= 0) $transParams['%'.$typeEntry['name'].'%'] = $this->wrap($this->trans->trans('Dauerhaft', [], 'global'));
+                    else {
+                        $d = floor($i / 86400); $i -= ($d * 86400);
+                        $h = floor($i /  3600); $i -= ($h *  3600);
+                        $m = floor($i /    60); $i -= ($m *    60);
+
+                        $stack = [];
+                        if ($d > 0) $stack[] = $d > 1 ? $this->trans->trans('%n% Tage', ['%n%' => $d], 'global') : $this->trans->trans('1 Tag', [], 'global');
+                        if ($h > 0) $stack[] = $h > 1 ? $this->trans->trans('%n% Stunden', ['%n%' => $h], 'global') : $this->trans->trans('1 Stunde', [], 'global');
+                        if ($m > 0) $stack[] = $m > 1 ? $this->trans->trans('%n% Minuten', ['%n%' => $m], 'global') : $this->trans->trans('1 Minute', [], 'global');
+                        if ($i > 0) $stack[] = $i > 1 ? $this->trans->trans('%n% Sekunden', ['%n%' => $i], 'global') : $this->trans->trans('1 Sekunde', [], 'global');
+                        $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( implode(', ', $stack) );
+                    }
                 }
                 else {
                     $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ) );

@@ -1,0 +1,488 @@
+{% extends "ajax/ajax_plain.html.twig" %}
+
+{% block ajax_base %}
+
+    <div id="post-office-mobile-wrapper" class="row-flex stretch wrap" x-response-key="{{ rk }}">
+        <div class="padded cell rw-4 rw-lg-6 max-height">
+
+            <div class="row-flex vertical stretch full-height">
+
+                <div class="cell rw-12 grow-0" style="padding-bottom: 10px;">
+                    <div class="forum-control">
+                        <div class="forum-header-bar">
+                            <b><i class="fa fa-caret-right"></i> {{ 'Aktionen'|trans({},'global') }}</b>
+                        </div>
+                        <div class="forum-button-bar">
+                            {% if not is_granted("ROLE_FORUM_BANNED") %}
+                                <div x-pm-action="new-single" class="pm-button" id="new-thread-single-button">
+                                    <i class="fa fa-pen-alt"></i> {{ 'Schreiben'|trans({},'global') }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell rw-12 grow-0">
+                    <div class="forum-note" style="border-bottom: none;"><b><i class="fa fa-comments"></i> {{ 'Konversationen'|trans({},'global') }}</b></div>
+                </div>
+
+                <div class="cell rw-12 grow-1 relative">
+                    <div class="forum-note max-height stretcher" style="border-top: none">
+                        <div class="scroll-area" id="pm-conversation-list">
+                            <div class="center small"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Unterhaltungen ...'|trans({},'global') }}</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="pm-right-plane" class="padded cell rw-8 rw-lg-6 max-height" style="overflow: auto">
+
+            <div class="row-flex vertical stretch full-height">
+                <div id="pm-mobile-back-button" class="forum-control hide-desktop hide-lg hide-md center pointer" style="font-size: 2em; margin-bottom: 10px;"><img src="{{ asset('build/images/icons/small_prev.gif') }}" alt="<-"></div>
+
+                <div id="pm-forum-actions-container" class="cell rw-12 grow-0 hidden" style="padding-bottom: 10px;">
+                    <div class="forum-control">
+                        <div class="forum-header-bar">
+                            <b><i class="fa fa-caret-right"></i> {{ 'Diese Konversation'|trans({},'global') }}</b>
+                        </div>
+                        <div class="forum-button-bar" style="font-size: 0.8em">
+                            <div class="row-flex wrap">
+                                {% if not is_granted("ROLE_FORUM_BANNED") %}
+                                    <div class="cell">
+                                        <div x-pm-action="answer-single" class="pm-button" id="new-answer-single-button">
+                                            <i class="fa fa-pen-alt"></i> {{ 'Antworten'|trans({},'global') }}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <div class="cell">
+                                    <div x-pm-action="trash-single" class="pm-button" id="trash-single-button">
+                                        <i class="fa fa-times"></i> {{ 'Löschen'|trans({},'global') }}
+                                    </div>
+                                </div>
+                                <div class="cell">
+                                    <div x-pm-action="unread-single" class="pm-button" id="unread-single-button">
+                                        <i class="fa fa-eye-slash"></i> {{ 'Nicht gelesen'|trans({},'global') }}
+                                    </div>
+                                </div>
+                                <div class="cell">
+                                    <div x-pm-action="show-users" class="pm-button" id="users-single-button">
+                                        <i class="fa fa-users"></i> {{ 'Teilnehmer'|trans({},'global') }}
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pm-user-list-container" class="cell rw-12 hidden" style="padding-bottom: 10px">
+                    <div class="forum-note">
+                        <b>{{ 'Teilnehmer'|trans({},'global') }}</b>
+                        <div id="pm-user-list-payload"></div>
+                    </div>
+                </div>
+
+                <div id="pm-forum-editor-container" class="cell rw-12 hidden" style="padding-bottom: 10px">
+                    <div class="forum-note">
+                        <b id="pm-forum-editor-header"></b>
+                        <div id="pm-new-thread-controls" class="hidden">
+                            <div class="row">
+                                <div class="cell rw-4 padded">
+                                    <label for="global-pm-forum-editor-title">{{ 'Titel'|trans({},'global') }}</label>
+                                </div>
+                                <div class="cell rw-8 padded">
+                                    <input type="text" id="global-pm-forum-editor-title" />
+                                </div>
+                            </div>
+                            <div id="pm-user-selector">
+                                <div class="row">
+                                    <div class="padded cell rw-4"><label for="pm-users-search">{{'Einen Empfänger hinzufügen'|trans({}, "soul")}}</label></div>
+                                    <div class="padded cell rw-8">
+                                        <div id="pm-users-list-container">
+                                            <div><label><input type="text" id="pm-users-search" /></label><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
+                                            <div id="pm-users-list"></div>
+                                        </div>
+                                    </div>
+                                    <div class="padded cell rw-8 ro-4"><ul id="pm-selected-users"></ul></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="global-pm-forum-editor"></div>
+                        <div id="pm-forum-editor-anchor"></div>
+                    </div>
+                </div>
+
+                <div id="gpm-forum-content-container" class="cell rw-12">
+                    <div class="forum-note">
+                        <b id="gpm-forum-content-header">{{ 'Bitte wähle eine Konversation auf der linken Seite.'|trans({},'global') }}</b>
+
+                        <div id="gpm-forum-content">
+                            <!-- CONVERSATION CONTAINER HERE -->
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% macro pm_preview(user) %}
+    <li class="own" x-preview>
+        {% if (user.avatar) %}
+            <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.filename, 'ext': user.avatar.format}) }}) center/cover"></div>
+        {% else %}
+            <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ user.name|slice(0,2) }}</div></div>
+        {% endif %}
+        <div class="pm-message">
+            <div class="pm-message-header"><i class="fa fa-user"></i> {{ user.name }}</div>
+            <div class="pm-message-content"><div id="pm-editor-preview"></div></div>
+            <div class="pm-message-footer">{{ 'Vorschau'|trans({},'global') }}</div>
+        </div>
+    </li>
+{% endmacro %}
+
+{% block js %}
+    {{ parent() }}
+    <script>
+        (function() {
+
+            let loading_conv_list = false;
+            let conv_list_more = null;
+
+            let loading_msg_list = false;
+            let msg_list_more = null;
+
+            const fun_conv_events = function() {
+                $.html.addEventListenerAll('ul.pm-conversation-list>li[x-title][x-endpoint]', 'click', function(e,elem) {
+                    let target = document.getElementById('gpm-forum-content');
+                    target.innerText = '';
+                    document.getElementById('gpm-forum-content-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Unterhaltung...'|trans({},'global')|e('js') }}';
+
+                    $.html.forEach( 'ul.pm-conversation-list>li[x-title][x-endpoint]', ee => ee.classList.remove('selected') );
+                    elem.classList.add('selected');
+                    elem.classList.remove('new');
+
+                    document.getElementById('pm-forum-actions-container').classList.add('hidden');
+                    document.getElementById('pm-forum-editor-container').classList.add('hidden');
+                    document.getElementById('pm-user-list-container').classList.add('hidden');
+
+                    if (elem.getAttribute('x-editor')) $.html.forEach('[x-pm-action="answer-single"]', e => e.classList.remove('hidden'));
+                    else $.html.forEach('[x-pm-action="answer-single"]', e => e.classList.add('hidden'));
+
+                    if (elem.getAttribute('x-trash')) $.html.forEach('[x-pm-action="trash-single"]', e => e.classList.remove('hidden'));
+                    else $.html.forEach('[x-pm-action="trash-single"]', e => e.classList.add('hidden'));
+
+                    if (elem.getAttribute('x-unread')) $.html.forEach('[x-pm-action="unread-single"]', e => e.classList.remove('hidden'));
+                    else $.html.forEach('[x-pm-action="unread-single"]', e => e.classList.add('hidden'));
+
+                    if (elem.getAttribute('x-userlist')) $.html.forEach('[x-pm-action="show-users"]', e => e.classList.remove('hidden'));
+                    else $.html.forEach('[x-pm-action="show-users"]', e => e.classList.add('hidden'));
+
+                    let editor = document.getElementById('global-pm-forum-editor');
+                    if (editor) editor.innerText = '';
+
+                    document.getElementById('post-office-mobile-wrapper').classList.add('panel-2');
+
+                    $.ajax.background().load( target, elem.getAttribute('x-endpoint'), false, {num: 30}, function() {
+                        $.msg.rescheduleFetch(15000);
+                        document.getElementById('gpm-forum-content-header').innerText = elem.getAttribute('x-title');
+                        document.getElementById('pm-forum-actions-container').classList.remove('hidden');
+                        msg_list_more = document.querySelector('#pm-right-plane .pm-endless-more[x-endless-endpoint][x-last-id]');
+                        fun_msg_events();
+                        fun_msg_loader_control();
+                        if (elem.getAttribute('x-spring')) $.msg.overrideFetchEndpoint( elem.getAttribute('x-spring') );
+                        else $.msg.restoreFetchEndpoint();
+                    } );
+                });
+            }
+
+            const fun_conv_loader = function() {
+                if (loading_conv_list) return;
+                loading_conv_list = true;
+
+                let skip = {};
+                $.html.forEach( '#pm-conversation-list>ul.pm-conversation-list>li[x-domain][x-identifier]', element => {
+                    const domain = element.getAttribute('x-domain');
+                    const id = parseInt( element.getAttribute('x-identifier') );
+                    if (typeof skip[domain] === 'undefined') skip[domain] = [id];
+                    else skip[domain].push(id);
+                });
+
+                let container = document.createElement( 'div' );
+                $.ajax.background().load( container, '{{ path('pm_list') }}', false, {num: 10, skip: skip}, function() {
+                    let messages = container.querySelector('ul.pm-conversation-list');
+                    let more = container.querySelector('.pm-endless-more');
+
+                    if (!more) {
+                        conv_list_more.remove();
+                        conv_list_more = null;
+                    }
+
+                    document.querySelector('#pm-conversation-list>.pm-conversation-list').innerHTML += messages.innerHTML;
+
+                    fun_conv_events();
+                    loading_conv_list = false;
+                    fun_conv_loader_control();
+                } );
+            }
+
+            const fun_conv_loader_control = function() {
+                if (!conv_list_more) return;
+                const scroll_obj = document.getElementById('pm-conversation-list');
+                if (scroll_obj.scrollHeight - scroll_obj.scrollTop <= (scroll_obj.clientHeight + 32))
+                    fun_conv_loader();
+            }
+
+            const d_inst = document.getElementById('post-office-mobile-wrapper');
+            const fun_conv_updater_control = function(data) {
+                if (!document.querySelector('#post-office-mobile-wrapper[x-response-key="{{ rk }}"]')) return;
+
+                let index_container = document.querySelector('.pm-conversation-list');
+                let focus_container = document.querySelector('.group-conversation');
+                const index_data = data.index_list.data;
+                const focus_data = data.focus_list.data;
+
+                let newstr = '';
+                for (let i = 0; i < index_data.length; i++) {
+
+                    const domain = index_data[i][0];
+                    const id     = index_data[i][1];
+                    const elem   = index_data[i][2];
+
+                    const existing_node = document.querySelector('.pm-conversation-list>li[x-domain="' + domain + '"][x-identifier="' + id + '"]');
+                    if (existing_node) {
+                        if (existing_node.classList.contains('selected')) {
+                            elem.classList.add('selected');
+                            elem.classList.remove('new');
+                        }
+                        existing_node.remove();
+                    }
+                    newstr += elem.outerHTML;
+                }
+
+                if (newstr !== '') {
+                    index_container.innerHTML = newstr + index_container.innerHTML;
+                    fun_conv_events();
+                }
+
+                newstr = '';
+                let preview_node = document.querySelector('.group-conversation>li[x-preview]');
+                if (preview_node) preview_node.remove();
+                for (let i = 0; i < focus_data.length; i++) {
+
+                    const domain = focus_data[i][0];
+                    const id     = focus_data[i][1];
+                    const elem   = focus_data[i][2];
+
+                    const existing_node = document.querySelector('.group-conversation>li[x-domain="' + domain + '"][x-identifier="' + id + '"]');
+                    if (existing_node) existing_node.remove();
+                    newstr += elem.outerHTML;
+                }
+
+                if (newstr !== '') {
+                    focus_container.innerHTML = (preview_node ? preview_node.outerHTML : '') + newstr + focus_container.innerHTML;
+                    fun_msg_events();
+                }
+
+                $.msg.registerFetchCallback(fun_conv_updater_control);
+            }
+            $.msg.registerFetchCallback(fun_conv_updater_control);
+
+            $.ajax.background().load( document.getElementById('pm-conversation-list'), '{{ path('pm_list') }}', false, {num: 30}, function() {
+                conv_list_more = document.querySelector('#pm-conversation-list>.pm-endless-more');
+                fun_conv_events();
+                fun_conv_loader_control();
+            } );
+            document.getElementById('pm-conversation-list').addEventListener('scroll', fun_conv_loader_control);
+
+            const fun_msg_events = function() {
+                $.html.addEventListenerAll('ul.group-conversation>li .pm-button[x-report-url]', 'click', function(e,elem) {
+                    if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                        $.ajax.easySend( elem.getAttribute('x-report-url'), {}, (data)=>{ if (data.msg) $.html.notice(data.msg); });
+                });
+            }
+
+            const fun_msg_loader = function() {
+                if (loading_msg_list) return;
+                loading_msg_list = true;
+
+                let container = document.createElement( 'div' );
+                $.ajax.background().load( container, msg_list_more.getAttribute('x-endless-endpoint'), false, {num: 10, last: parseInt(msg_list_more.getAttribute('x-last-id'))}, function() {
+                    let messages = container.querySelector('ul.group-conversation');
+                    let more = container.querySelector('.pm-endless-more');
+
+                    if (!more) {
+                        msg_list_more.remove();
+                        msg_list_more = null;
+                    } else {
+                        msg_list_more.setAttribute('x-last-id', more.getAttribute('x-last-id'));
+                        msg_list_more.setAttribute('x-endless-endpoint', more.getAttribute('x-endless-endpoint'));
+                    }
+
+                    document.querySelector('#gpm-forum-content>ul.group-conversation').innerHTML += messages.innerHTML;
+
+                    fun_msg_events();
+                    loading_msg_list = false;
+                    fun_msg_loader_control();
+                } );
+            }
+
+            const fun_msg_loader_control = function() {
+                if (!msg_list_more) return;
+                const scroll_obj = document.getElementById('pm-right-plane');
+                if (scroll_obj.scrollHeight - scroll_obj.scrollTop <= (scroll_obj.clientHeight + 32))
+                    fun_msg_loader();
+            }
+            document.getElementById('pm-right-plane').addEventListener('scroll', fun_msg_loader_control);
+
+            let typingTimer, doneTypingInterval = 500;
+            let searchBox = document.getElementById('pm-users-search');
+
+            document.getElementById('pm-mobile-back-button').addEventListener('click', () => document.getElementById('post-office-mobile-wrapper').classList.remove('panel-2'));
+
+            const userSearchHandler = function() {
+                if (searchBox.value.length >= 3) {
+                    let skip = [];
+                    $.html.forEach('#pm-selected-users>li[x-soul-id]', e => skip.push(parseInt(e.getAttribute('x-soul-id'))));
+                    $.ajax.background().load(
+                        document.getElementById('pm-users-list'),
+                        '{{ path('users_fuzzyfind', {url: 'pm_manage_users'}) }}',
+                        false,
+                        {'name': searchBox.value, 'exclude': skip},
+                        function () {
+                            $.html.addEventListenerAll('#pm-users-list>.users-list-entry>div', 'click', function (e, elem) {
+                                if (skip.length >= 99) {
+                                    alert('{{'Du kannst keine weiteren Spieler zu dieser Nachricht hinzufügen.'|trans({},'global')|e('js')}}');
+                                    return;
+                                }
+                                if (!document.querySelector('#pm-selected-users>li[x-soul-id="' + elem.getAttribute('x-soul-id') + '"]')) {
+                                    let li = document.createElement('li');
+                                    li.setAttribute('x-soul-id', elem.getAttribute('x-soul-id'));
+                                    li.innerHTML = '<b>' + elem.getAttribute('x-soul-name') + '</b><span><i class="fa fa-times-circle"></i></span></li>';
+                                    document.getElementById('pm-selected-users').append(li)
+                                    document.querySelector('#pm-selected-users>li[x-soul-id="' + elem.getAttribute('x-soul-id') + '"]>span').addEventListener('click', () => li.remove());
+                                }
+
+                                searchBox.value = '';
+                            })
+                        }
+                    );
+                }
+                else document.getElementById('pm-users-list').innerHTML = '';
+            };
+
+            const userSearchHandlerUp = function () {
+                clearTimeout(typingTimer);
+                typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
+            };
+
+            const userSearchHandlerDown = function () {
+                clearTimeout(typingTimer);
+            };
+
+            if (searchBox) {
+                searchBox.addEventListener('keyup', userSearchHandlerUp);
+                searchBox.addEventListener('keydown', userSearchHandlerDown);
+                searchBox.addEventListener('focus', () => userSearchHandler());
+                searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('pm-users-list').innerHTML = '', 100));
+            }
+
+            $.html.addEventListenerAll('[x-pm-action="new-single"]', 'click', function () {
+
+                let editor = document.getElementById('global-pm-forum-editor');
+                if (!editor) return;
+
+                document.getElementById('gpm-forum-content-container').classList.add('hidden');
+                document.getElementById('pm-forum-actions-container').classList.add('hidden');
+                document.getElementById('gpm-forum-content-header').innerText = '{{ 'Vorschau'|trans({},'global')|e('js') }}'
+                document.getElementById('pm-new-thread-controls').classList.add('hidden');
+                document.getElementById('pm-user-list-container').classList.add('hidden');
+                document.getElementById('pm-user-list-payload').innerHTML = '';
+
+                editor.innerText = '';
+                document.getElementById('pm-forum-editor-container').classList.remove('hidden');
+                document.getElementById('pm-forum-editor-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}';
+
+                document.getElementById('gpm-forum-content').innerHTML = '<ul>{{ _self.pm_preview(app.user)|e('js') }}</ul>';
+
+                document.getElementById('post-office-mobile-wrapper').classList.add('panel-2');
+                $.html.forEach('.pm-conversation-list>li.selected', e => e.classList.remove('selected'));
+
+                if (editor) $.ajax.background().load( editor, '{{ url('pm_thread_editor_controller') }}', false, {}, function() {
+                    document.getElementById('pm-forum-editor-header').innerText = '{{ 'Neue Nachricht'|trans({},'global') }}';
+
+                    document.getElementById('gpm-forum-content-container').classList.remove('hidden');
+                    document.getElementById('pm-new-thread-controls').classList.remove('hidden');
+
+
+                } );
+            });
+
+            $.html.addEventListenerAll('[x-pm-action="answer-single"]', 'click', function () {
+
+                const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-editor].selected');
+                let list = document.querySelector('#gpm-forum-content>ul');
+                let editor = document.getElementById('global-pm-forum-editor');
+                if (!editor || !selected_thread || !list) return;
+
+                document.getElementById('pm-forum-actions-container').classList.add('hidden');
+                document.getElementById('pm-new-thread-controls').classList.add('hidden');
+
+                editor.innerText = '';
+                document.getElementById('pm-forum-editor-container').classList.remove('hidden');
+                document.getElementById('pm-forum-editor-header').innerHTML = '<i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}';
+
+                list.innerHTML = '{{ _self.pm_preview(app.user)|e('js') }}' + list.innerHTML;
+
+                if (editor) $.ajax.background().load( editor, selected_thread.getAttribute('x-editor'), false, {}, function() {
+                    document.getElementById('pm-forum-editor-header').innerText = '{{ 'Antworten'|trans({},'global')|e('js') }}';
+                } );
+            });
+
+            $.html.addEventListenerAll('[x-pm-action="show-users"]', 'click', function () {
+
+                const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-editor].selected');
+                let target = document.getElementById('pm-user-list-payload');
+                if (!target) return;
+
+                target.innerHTML = '<div style="margin: 10px" class="small center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}</div>';
+
+                document.getElementById('pm-user-list-container').classList.remove('hidden');
+                $.ajax.background().load( target, selected_thread.getAttribute('x-userlist'), false );
+            });
+
+            $.html.addEventListenerAll('[x-pm-action="trash-single"]', 'click', function () {
+
+                const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-trash].selected');
+                if (!selected_thread) return;
+
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                    return;
+
+                $.ajax.easySend(selected_thread.getAttribute('x-trash'), {}, function() {
+                    $.ajax.load( document.getElementById('post-office-content'), '{{ path('pm_view')|e('js') }}' );
+                });
+            });
+
+            $.html.addEventListenerAll('[x-pm-action="unread-single"]', 'click', function () {
+
+                const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-unread].selected');
+                if (!selected_thread) return;
+
+                $.ajax.easySend(selected_thread.getAttribute('x-unread'), {}, function() {
+                    $.html.forEach('#gpm-forum-content>ul>li', e => e.classList.add('new'));
+                });
+            });
+
+            $.msg.setFetchRK({{ rk }});
+        })();
+    </script>
+{% endblock %}

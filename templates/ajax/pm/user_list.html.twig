@@ -1,0 +1,146 @@
+{% extends "ajax/ajax_plain.html.twig" %}
+{% block ajax_base %}
+    <div class="row">
+        <div class="padded cell rw-12">
+            {% if inactive is not empty %}
+                <h5>{{ 'Aktuelle Teilnehmer'|trans({},'global') }}</h5>
+            {% endif %}
+            <div class="row-flex wrap">
+                {% for user in active %}
+                    <div class="cell"><div class="pm-userbox" x-user-id="{{ user.id }}">
+                            {% if (user.avatar) %}
+                                <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.filename, 'ext': user.avatar.format}) }}) center/cover"></div>
+                            {% else %}
+                                <div class="pm-avatar empty"></div>
+                            {% endif %}
+                            <div class="pm-userbox-name">{{ user.name }}</div>
+                            {% if owner %}
+                                {% if user != app.user %}
+                                    <div class="pm-userbox-action" x-api-call="{{ path('pm_conv_group_user_kick', {gid: gid, uid: user.id}) }}">
+                                        <img src="{{ asset('build/images/icons/small_remove.gif') }}" alt="(X)">
+                                        <div class="tooltip"><b>{{ 'Spieler ausschließen'|trans({},'global') }}</b><br />
+                                            {{ 'Ausgeschlossene Spieler können die vor ihrem Ausschluss geposteten Nachrichten in der Gruppe weiterhin lesen, erhalten allerdings keine neuen Nachrichten mehr und können auch nicht mehr antworten.'|trans({},'global') }}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        </div></div>
+                {% endfor %}
+                {% if owner and can_add %}
+                    <div class="cell"><div class="pm-userbox"><div class="pm-avatar empty"></div><div class="pm-userbox-action" id="pm-add-user-button">
+                        <img src="{{ asset('build/images/icons/small_more2.gif') }}" alt="[+]">
+                        <div class="tooltip"><b>{{ 'Spieler hinzufügen'|trans({},'global') }}</b><br />
+                            {{ 'Neu hinzugefügte Spieler erhalten Zugriff auf alle Nachrichten in der Gruppe.'|trans({},'global') }}
+                        </div>
+                    </div></div></div>
+                {% endif %}
+            </div>
+
+            {% if owner %}
+                <div id="pm-add-user-selector" class="hidden">
+                    <h5>{{ 'Einen Empfänger hinzufügen'|trans({},'global') }}</h5>
+                    <div id="pm-add-users-list-container">
+                        <div><label><input type="text" id="pm-add-users-search" /></label><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
+                        <div id="pm-add-users-list"></div>
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if inactive is not empty %}
+                <h5>{{ 'Ausgeschlossene Teilnehmer'|trans({},'global') }}</h5>
+                <div class="row-flex wrap">
+                    {% for user in inactive %}
+                        <div class="cell"><div class="pm-userbox" x-user-id="{{ user.id }}">
+                                <div class="pm-avatar empty"></div>
+                                <div class="pm-userbox-name">{{ user.name }}</div>
+                                {% if owner %}
+                                    <div class="pm-userbox-action" x-api-call="{{ path('pm_conv_group_user_restore', {gid: gid, uid: user.id}) }}">
+                                        <img src="{{ asset('build/images/icons/small_more2.gif') }}" alt="[+]">
+                                        <div class="tooltip"><b>{{ 'Ausschluss annulieren'|trans({},'global') }}</b><br />
+                                            {{ 'Der Ausschluss des Spielers wird annuliert und er oder sie erhält wieder vollen Zugriff auf die Gruppe.'|trans({},'global') }}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div></div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        (function() {
+            $.html.addEventListenerAll('.pm-userbox-action[x-api-call]', 'click', function(e,elem) {
+                let target = document.getElementById('pm-user-list-payload');
+                if (!target) return;
+
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}')) return;
+
+                target.innerHTML = '<div style="margin: 10px" class="small center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}</div>';
+
+                $.ajax.background().easySend(elem.getAttribute('x-api-call'), {}, () => {
+                    $.ajax.background().load( target, '{{ path('pm_conv_group_users', {id: gid}) }}', false );
+                });
+            });
+
+            {% if owner %}
+                $.html.addEventListenerAll('#pm-add-user-button', 'click', function(e,elem) {
+                    elem.classList.add('hidden');
+                    document.getElementById('pm-add-user-selector').classList.remove('hidden');
+                });
+
+                let typingTimer, doneTypingInterval = 500;
+                let searchBox = document.getElementById('pm-add-users-search');
+
+                document.getElementById('pm-mobile-back-button').addEventListener('click', () => document.getElementById('post-office-mobile-wrapper').classList.remove('panel-2'));
+
+                const userSearchHandler = function() {
+                    if (searchBox.value.length >= 3) {
+                        let skip = [];
+                        $.html.forEach('.pm-userbox[x-user-id]', e => skip.push(parseInt(e.getAttribute('x-user-id'))));
+                        $.ajax.background().load(
+                            document.getElementById('pm-add-users-list'),
+                            '{{ path('users_fuzzyfind', {url: 'pm_add_users'}) }}',
+                            false,
+                            {'name': searchBox.value, 'group': {{ gid }}, 'exclude': skip},
+                            function () {
+                                $.html.addEventListenerAll('#pm-add-users-list>.users-list-entry>div', 'click', function (e, elem) {
+                                    let target = document.getElementById('pm-user-list-payload');
+                                    if (!target) return;
+
+                                    const url = elem.getAttribute('x-var');
+                                    target.innerHTML = '<div style="margin: 10px" class="small center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}</div>';
+
+                                    $.ajax.background().easySend(url, {}, () => {
+                                        $.ajax.background().load(target, '{{ path('pm_conv_group_users', {id: gid}) }}', false);
+                                    });
+                                })
+                            }
+                        );
+                    }
+                    else document.getElementById('pm-add-users-list').innerHTML = '';
+                };
+
+                const userSearchHandlerUp = function () {
+                    clearTimeout(typingTimer);
+                    typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
+                };
+
+                const userSearchHandlerDown = function () {
+                    clearTimeout(typingTimer);
+                };
+
+                if (searchBox) {
+                    searchBox.addEventListener('keyup', userSearchHandlerUp);
+                    searchBox.addEventListener('keydown', userSearchHandlerDown);
+                    searchBox.addEventListener('focus', () => userSearchHandler());
+                    searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('pm-users-list').innerHTML = '', 100));
+                }
+            {% endif %}
+        })();
+    </script>
+{% endblock %}
