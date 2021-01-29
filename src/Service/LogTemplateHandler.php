@@ -147,28 +147,30 @@ class LogTemplateHandler
         $transParams = [];
         foreach ($variableTypes as $typeEntry) {
             try {
+                $wrap_fun = ( $typeEntry['raw'] ?? false ) ? fn($a,$b=null) => $a : fn($a,$b=null) => $this->wrap($a,$b);
+
                 if ($typeEntry['type'] === 'itemGroup') {                
                     $itemGroupEntries  = $this->fetchVariableObject($typeEntry['type'], $variables[$typeEntry['name']])->getEntries()->getValues();
-                    $transParams['%'.$typeEntry['name'].'%'] = implode( ', ', array_map( function(ItemGroupEntry $e) { return $this->wrap( $this->iconize( $e ), 'tool' ); }, $itemGroupEntries ));
+                    $transParams['%'.$typeEntry['name'].'%'] = implode( ', ', array_map( function(ItemGroupEntry $e) use ($wrap_fun) { return $wrap_fun( $this->iconize( $e ), 'tool' ); }, $itemGroupEntries ));
                 }
                 elseif ($typeEntry['type'] === 'list') {
                     $listType = $typeEntry['listType'];
                     $listArray = array_map( function($e) use ($listType) { if(array_key_exists('count', $e)) {return array('item' => $this->fetchVariableObject($listType, $e['id']),'count' => $e['count']);}
                         else { return $this->fetchVariableObject($listType, $e['id']); } }, $variables[$typeEntry['name']] );
                     if (isset($listArray)) {
-                        $transParams['%'.$typeEntry['name'].'%'] = implode( ', ', array_map( function($e) { return $this->wrap( $this->iconize( $e ), 'tool' ); }, $listArray ) );
+                        $transParams['%'.$typeEntry['name'].'%'] = implode( ', ', array_map( function($e) use ($wrap_fun) { return $wrap_fun( $this->iconize( $e ), 'tool' ); }, $listArray ) );
                     }
                     else
                         $transParams['%'.$typeEntry['name'].'%'] = "null";
                 }
                 elseif ($typeEntry['type'] === 'num' || $typeEntry['type'] === 'string') {
-                    $transParams['%'.$typeEntry['name'].'%'] = $this->wrap($variables[$typeEntry['name']]);
+                    $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun($variables[$typeEntry['name']]);
                 }
                 elseif ($typeEntry['type'] === 'transString') {
-                    $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->trans->trans($variables[$typeEntry['name']], [], 'game') );
+                    $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun( $this->trans->trans($variables[$typeEntry['name']], [], 'game') );
                 }
                 elseif ($typeEntry['type'] === 'dogname') {
-                    $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->generateDogName((int)$variables[$typeEntry['name']]) );
+                    $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun( $this->generateDogName((int)$variables[$typeEntry['name']]) );
                 }
                 elseif ($typeEntry['type'] === 'ap') {
                     $transParams['%'.$typeEntry['name'].'%'] = "<div class='ap'>{$variables[$typeEntry['name']]}</div>";
@@ -177,17 +179,17 @@ class LogTemplateHandler
                     $transParams['%'.$typeEntry['name'].'%'] = $variables[$typeEntry['name']];
                 }
                 elseif ($typeEntry['type'] === 'item') {
-                    $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ), 'tool' );
+                    $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ), 'tool' );
                 }
                 elseif ($typeEntry['type'] === 'link_post') {
                     $transParams['%'.$typeEntry['name'].'%'] = "<a target='_blank' href='{$this->url->generate('forum_jump_view', ['pid' => $variables[$typeEntry['name']] ?? 0])}'>{$this->trans->trans('Anzeigen', [], 'global')}</a>";
                 }
                 elseif ($typeEntry['type'] === 'ne-string') {
-                    $transParams['%'.$typeEntry['name'].'%'] = $this->wrap(empty($variables[$typeEntry['name']]) ? '-' : $variables[$typeEntry['name']]);
+                    $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun(empty($variables[$typeEntry['name']]) ? '-' : $variables[$typeEntry['name']]);
                 }
                 elseif ($typeEntry['type'] === 'duration') {
                     $i = (int)$variables[$typeEntry['name']];
-                    if ($i <= 0) $transParams['%'.$typeEntry['name'].'%'] = $this->wrap($this->trans->trans('Dauerhaft', [], 'global'));
+                    if ($i <= 0) $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun($this->trans->trans('Dauerhaft', [], 'global'));
                     else {
                         $d = floor($i / 86400); $i -= ($d * 86400);
                         $h = floor($i /  3600); $i -= ($h *  3600);
@@ -198,11 +200,11 @@ class LogTemplateHandler
                         if ($h > 0) $stack[] = $h > 1 ? $this->trans->trans('%n% Stunden', ['%n%' => $h], 'global') : $this->trans->trans('1 Stunde', [], 'global');
                         if ($m > 0) $stack[] = $m > 1 ? $this->trans->trans('%n% Minuten', ['%n%' => $m], 'global') : $this->trans->trans('1 Minute', [], 'global');
                         if ($i > 0) $stack[] = $i > 1 ? $this->trans->trans('%n% Sekunden', ['%n%' => $i], 'global') : $this->trans->trans('1 Sekunde', [], 'global');
-                        $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( implode(', ', $stack) );
+                        $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun( implode(', ', $stack) );
                     }
                 }
                 else {
-                    $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ) );
+                    $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ) );
                 }
             }
             catch (Exception $e) {
