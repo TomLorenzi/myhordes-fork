@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\RuinZone;
+use App\Entity\Zone;
+use App\Entity\ZonePrototype;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -119,7 +121,7 @@ class ExplorationController extends InventoryAwareController implements Explorat
             'can_imprint' => $citizen->getProfession()->getName() === 'tech',
             'ruin_map_data' => [
                 'show_exit_direction' => $citizen->getProfession()->getName() === 'tamer',
-                'name' => $citizen->getZone()->getPrototype()->getLabel(),
+                'name' => $this->generateRuinName($citizen->getZone(), 'fr'),
                 'timeout' => max(0, $ex->getTimeout()->getTimestamp() - time()),
                 'zone' => $ruinZone,
                 'shifted' => $ex->getInRoom(),
@@ -450,5 +452,32 @@ class ExplorationController extends InventoryAwareController implements Explorat
      */
     public function recipe_desert_api(JSONRequestParser $parser, ActionHandler $handler): Response {
         return $this->generic_recipe_api( $parser, $handler);
+    }
+
+    public function generateRuinName(Zone $zone, string $lang) {
+        $ruinNames = [
+            'fr' => [
+                'deserted_hospital' => ["Hôpital Velpo", "Clinique esthétruique", "Hôpital malade", "L'Hôpital du régal", "L'hospice du vice", "L'hôpital du mal", "Clinique du couic !", "Clinique aux allergiques", "Pelle grain", "Sale pré-trier", "White et Necker", "C.H.UT", "Bordeaux grace", "Georges XXXII"],
+                'deserted_hotel' => ["Hôtel charlton eston", "Le Motel enchanté", "Caesar palace", "Le palace de la place", "L'Hôtel sordide", "Hôtel terminus", "Palace pas classe", "Relais des gourmets", "Hôtel de passe", "Hôtel particulier", "Hôtel de la défenestration", "Hôtel Santa frit", "Hôtel Chez yen", "Hôtel Old port bay club", "Hôtel Sapin lodge", "Hôtel Front tenace", "Hôtel Beverly colline", "Palace Gonzalez"],
+                'deserted_bunker' => ["Bunker abandonné", "Bunker thermonucléaire", "Bunker maginot", "Bunker de la peur", "Bunker de la fureur", "Abri atomique", "Pas d'abri, t'es pris !", "Blockhaus glauque", "Blockhaus abandonné", "Blockhaus plein d'os", "Blockhaus à l'os", "Centre d'expérimentation", "Bunker zone 52.1", "Bunker zone 33", "Etude des quarantaines"],
+            ],
+            'en' => [
+                'deserted_hospital' => ["Cash Ulty Hospital", "Aesthetyxiation Unit", "Syck Niss Hospital", "Royal Troon Hospital", "The Munro Chronic STI Treatment Unit", "Bill S. Preston Memorial Hospital", "Dr Kwak's Clinic!", "The Mererid Allergy Clinic", "Pelle Grain Hospital", "Osmond St Hospital", "The Chapman Penis Reduction Clinic", "The Brunting Daily Exhaustion Center", "Bordeaux Grace", "George and Ralph Children's Hospital"],
+                'deserted_hotel' => ["Charlton Eston Hotel", "The Enchanted Motel", "The Rabble Lodge", "The Unravel Inn", "The Busted Arts", "Terminal Hotel", "Hotel Von Otto", "S+M B+B", "The Passing Trade Motel", "The Hotel Peculiar", "Liza Defenestration Hotel", "The Smashed Santa Inn", "Chez Clem Hotel", "Three Door Hotel + Spa", "Hostel Partout", "The Bumbling Inn", "The Vajazzl Inn", "Hotel Venga"],
+                'deserted_bunker' => ["Abandoned Bunker", "Thermonuclear Bunker", "Garrison House", "Bastion of Fear", "Bunker of Fury", "Fallout Shelter", "Nowhere to hide, even inside!", "Shady Fort", "Abandoned Troop Station", "Bone-filled Bunker", "Bone Blockhouse", "Secret Testing Center", "Area 52.1 Shelter", "Area 33 Bunker", "Quarantine Zone"],
+            ],
+            'de' => [
+                'deserted_hospital' => ["Cash Ulty Hospital", "Aesthetyxiation Unit", "Syck Niss Hospital", "Royal Troon Hospital", "The Munro Chronic STI Treatment Unit", "Bill S. Preston Memorial Hospital", "Dr Kwak's Clinic!", "The Mererid Allergy Clinic", "Pelle Grain Hospital", "Osmond St Hospital", "The Chapman Penis Reduction Clinic", "The Brunting Daily Exhaustion Center", "Bordeaux Grace", "George and Ralph Children's Hospital"],
+                'deserted_hotel' => ["Charlton Eston Hotel", "The Enchanted Motel", "The Rabble Lodge", "The Unravel Inn", "The Busted Arts", "Terminal Hotel", "Hotel Von Otto", "S+M B+B", "The Passing Trade Motel", "The Hotel Peculiar", "Liza Defenestration Hotel", "The Smashed Santa Inn", "Chez Clem Hotel", "Three Door Hotel + Spa", "Hostel Partout", "The Bumbling Inn", "The Vajazzl Inn", "Hotel Venga"],
+                'deserted_bunker' => ["Abandoned Bunker", "Thermonuclear Bunker", "Garrison House", "Bastion of Fear", "Bunker of Fury", "Fallout Shelter", "Nowhere to hide, even inside!", "Shady Fort", "Abandoned Troop Station", "Bone-filled Bunker", "Bone Blockhouse", "Secret Testing Center", "Area 52.1 Shelter", "Area 33 Bunker", "Quarantine Zone"],
+            ],
+            'es' => [
+                'deserted_hospital' => ["Hospital Matasanos", "Clínica El Serrucho", "Hospital Privado", "Hospital del Rey", "Clínica de Miércoles", "Hospital Sangriento", "Hospital Bar Discoteca", "Hospital Cementerio", "Hospital Dolores", "Hospital Milagros", "Clínica del Dr. Cuervo", "Hospital Nocturno", "Hospital del Estado", "Hospital Madre Mía"],
+                'deserted_hotel' => ["Hotel California", "Hotel El Cielo II", "Death Palace Hotel", "Hostal Barato", "Hotel Maravilla", "Hotel Melody", "Hotel Paraeso", "Hostal de Paso", "Hotel Particular", "Hotel Monstruo", "Hotel Znarfo", "Hotel Transilvania", "Hotel Nirvana", "Hostal El Secreto", "Hotel El Pájaro Loco", "Hotel Gonzalez", "Hostal El Cielo I"],
+                'deserted_bunker' => ["Bunker abandonado", "Bunker termonuclear", "Bunker de políticos", "Bunker del terror", "Bunker de los prófugos", "Guarida insalubre", "Refugio Fin del Mundo", "Bunker rockero", "Bunker graffitero", "Bunker lleno de huesos", "Bunker del rey", "Centro de experimentos", "Bunker zona 52.1", "Bunker zona 33", "Viejo bunker"],
+
+            ]
+        ];
+        return $ruinNames[$lang][$zone->getPrototype()->getIcon()][$zone->getId() % count($ruinNames[$lang][$zone->getPrototype()->getIcon()])];
     }
 }
