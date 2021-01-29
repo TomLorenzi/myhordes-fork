@@ -7256,7 +7256,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...</target>
       </segment>
     </unit>
-    <unit id="kUD78DD" name="4f2517e">
+    <unit id="wt_Avmu" name="742d658">
       <notes>
         <note category="german">Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast &lt;strong&gt;1 zusätzlichen AP erhalten!&lt;/strong&gt;</note>
       </notes>
@@ -7605,6 +7605,15 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>&lt;t-flare_ok&gt;Du hast die Zone {zone} entdeckt.&lt;/t-flare_ok&gt;&lt;t-flare_fail&gt;Es gibt keine weitere Zone zu entdecken.&lt;/t-flare_fail&gt;</source>
         <target><![CDATA[<t-flare_ok>Du hast die Zone {zone} entdeckt.</t-flare_ok><t-flare_fail>Es gibt keine weitere Zone zu entdecken.</t-flare_fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="T9oSme7" name="2ebb8ed">
+      <notes>
+        <note category="german">Dein Hündchen sieht *müde* aus... Es keucht die ganze Zeit und starrt dich aus erschöpften Augen an.</note>
+      </notes>
+      <segment>
+        <source>Dein Hündchen sieht *müde* aus... Es keucht die ganze Zeit und starrt dich aus erschöpften Augen an.</source>
+        <target>Dein Hündchen sieht *müde* aus... Es keucht die ganze Zeit und starrt dich aus erschöpften Augen an.</target>
       </segment>
     </unit>
   </file>

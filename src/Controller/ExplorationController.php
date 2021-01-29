@@ -121,7 +121,7 @@ class ExplorationController extends InventoryAwareController implements Explorat
             'can_imprint' => $citizen->getProfession()->getName() === 'tech',
             'ruin_map_data' => [
                 'show_exit_direction' => $citizen->getProfession()->getName() === 'tamer',
-                'name' => $this->generateRuinName($citizen->getZone(), 'fr'),
+                'name' => $this->generateRuinName($citizen->getZone()),
                 'timeout' => max(0, $ex->getTimeout()->getTimestamp() - time()),
                 'zone' => $ruinZone,
                 'shifted' => $ex->getInRoom(),
@@ -454,30 +454,12 @@ class ExplorationController extends InventoryAwareController implements Explorat
         return $this->generic_recipe_api( $parser, $handler);
     }
 
-    public function generateRuinName(Zone $zone, string $lang) {
+    public function generateRuinName(Zone $zone) {
         $ruinNames = [
-            'fr' => [
-                'deserted_hospital' => ["Hôpital Velpo", "Clinique esthétruique", "Hôpital malade", "L'Hôpital du régal", "L'hospice du vice", "L'hôpital du mal", "Clinique du couic !", "Clinique aux allergiques", "Pelle grain", "Sale pré-trier", "White et Necker", "C.H.UT", "Bordeaux grace", "Georges XXXII"],
-                'deserted_hotel' => ["Hôtel charlton eston", "Le Motel enchanté", "Caesar palace", "Le palace de la place", "L'Hôtel sordide", "Hôtel terminus", "Palace pas classe", "Relais des gourmets", "Hôtel de passe", "Hôtel particulier", "Hôtel de la défenestration", "Hôtel Santa frit", "Hôtel Chez yen", "Hôtel Old port bay club", "Hôtel Sapin lodge", "Hôtel Front tenace", "Hôtel Beverly colline", "Palace Gonzalez"],
-                'deserted_bunker' => ["Bunker abandonné", "Bunker thermonucléaire", "Bunker maginot", "Bunker de la peur", "Bunker de la fureur", "Abri atomique", "Pas d'abri, t'es pris !", "Blockhaus glauque", "Blockhaus abandonné", "Blockhaus plein d'os", "Blockhaus à l'os", "Centre d'expérimentation", "Bunker zone 52.1", "Bunker zone 33", "Etude des quarantaines"],
-            ],
-            'en' => [
-                'deserted_hospital' => ["Cash Ulty Hospital", "Aesthetyxiation Unit", "Syck Niss Hospital", "Royal Troon Hospital", "The Munro Chronic STI Treatment Unit", "Bill S. Preston Memorial Hospital", "Dr Kwak's Clinic!", "The Mererid Allergy Clinic", "Pelle Grain Hospital", "Osmond St Hospital", "The Chapman Penis Reduction Clinic", "The Brunting Daily Exhaustion Center", "Bordeaux Grace", "George and Ralph Children's Hospital"],
-                'deserted_hotel' => ["Charlton Eston Hotel", "The Enchanted Motel", "The Rabble Lodge", "The Unravel Inn", "The Busted Arts", "Terminal Hotel", "Hotel Von Otto", "S+M B+B", "The Passing Trade Motel", "The Hotel Peculiar", "Liza Defenestration Hotel", "The Smashed Santa Inn", "Chez Clem Hotel", "Three Door Hotel + Spa", "Hostel Partout", "The Bumbling Inn", "The Vajazzl Inn", "Hotel Venga"],
-                'deserted_bunker' => ["Abandoned Bunker", "Thermonuclear Bunker", "Garrison House", "Bastion of Fear", "Bunker of Fury", "Fallout Shelter", "Nowhere to hide, even inside!", "Shady Fort", "Abandoned Troop Station", "Bone-filled Bunker", "Bone Blockhouse", "Secret Testing Center", "Area 52.1 Shelter", "Area 33 Bunker", "Quarantine Zone"],
-            ],
-            'de' => [
-                'deserted_hospital' => ["Krankenhaus Beinapp", "Aesthetyxiations-Abteilung", "Krankenhaus Krankenstedt", "Waldorf Klinik", "STD Behandlungszentrum Bohlen", "Bill S. Preston Memorial Hospital", "Klinik von Dr. Quack Salber", "Wasserallergie-Behandlungszentrum", "Klinikum Altenburg", "Stadtkrankenhaus am Dorfplatz", "Blanko-Penisverkleinerungsklinik", "Chronische Erschöpfungsheilanstalt Dr. Sloth", "Bordeaux Grace", "George und Ralph Kinderkrankenhaus"],
-                'deserted_hotel' => ["Charlton Eston Hotel", "Motel Zauberstübchen", "Rabble Lodge", "Gasthof 'Zum Spanner'", "Zur Erbrochenen Krone", "Terminal Hotel", "Hotel Von Otto", "S+M B+B", "Zm Schlafen Reichts Motel", "Hotel Peculiar", "Liza Defloration Hotel", "Santas Absteige", "Chez Clem Hotel", "Drei Eingänge Hotel + Spa", "Hostel Partout", "Bumbling Inn", "Vajazzl Inn", "Hotel Venga"],
-                'deserted_bunker' => ["Verlassener Bunker", "Thermonuklear-Bunker", "Garrison-Haus", "Bastion der Angst", "Bunker der Wut", "Fallout Shelter", "Keine Hoffnung ohne Öffnung!", "Schattenfort", "Verlassene Trooper-Station", "Verwesungsversteck", "Knochenkeller", "Geheimes Testlabor", "Area 52.1 Bunker", "Area 33 Bunker", "Quarantäne-Zone"],
-            ],
-            'es' => [
-                'deserted_hospital' => ["Hospital Matasanos", "Clínica El Serrucho", "Hospital Privado", "Hospital del Rey", "Clínica de Miércoles", "Hospital Sangriento", "Hospital Bar Discoteca", "Hospital Cementerio", "Hospital Dolores", "Hospital Milagros", "Clínica del Dr. Cuervo", "Hospital Nocturno", "Hospital del Estado", "Hospital Madre Mía"],
-                'deserted_hotel' => ["Hotel California", "Hotel El Cielo II", "Death Palace Hotel", "Hostal Barato", "Hotel Maravilla", "Hotel Melody", "Hotel Paraeso", "Hostal de Paso", "Hotel Particular", "Hotel Monstruo", "Hotel Znarfo", "Hotel Transilvania", "Hotel Nirvana", "Hostal El Secreto", "Hotel El Pájaro Loco", "Hotel Gonzalez", "Hostal El Cielo I"],
-                'deserted_bunker' => ["Bunker abandonado", "Bunker termonuclear", "Bunker de políticos", "Bunker del terror", "Bunker de los prófugos", "Guarida insalubre", "Refugio Fin del Mundo", "Bunker rockero", "Bunker graffitero", "Bunker lleno de huesos", "Bunker del rey", "Centro de experimentos", "Bunker zona 52.1", "Bunker zona 33", "Viejo bunker"],
-
-            ]
+            'deserted_hospital' => [T::__("Krankenhaus Beinapp", 'game'), T::__("Aesthetyxiations-Abteilung", 'game'), T::__("Krankenhaus Krankenstedt", 'game'), T::__("Waldorf Klinik", 'game'), T::__("STD Behandlungszentrum Bohlen", 'game'), T::__("Bill S. Preston Memorial Hospital", 'game'), T::__("Klinik von Dr. Quack Salber", 'game'), T::__("Wasserallergie-Behandlungszentrum", 'game'), T::__("Klinikum Altenburg", 'game'), T::__("Stadtkrankenhaus am Dorfplatz", 'game'), T::__("Blanko-Penisverkleinerungsklinik", 'game'), T::__("Chronische Erschöpfungsheilanstalt Dr. Sloth", 'game'), T::__("Bordeaux Grace", 'game'), T::__("George und Ralph Kinderkrankenhaus", 'game')],
+            'deserted_hotel' => [T::__("Charlton Eston Hotel", 'game'), T::__("Motel Zauberstübchen", 'game'), T::__("Rabble Lodge", 'game'), T::__("Gasthof 'Zum Spanner'", 'game'), T::__("Zur Erbrochenen Krone", 'game'), T::__("Terminal Hotel", 'game'), T::__("Hotel Von Otto", 'game'), T::__("S+M B+B", 'game'), T::__("Zum Schlafen Reichts Motel", 'game'), T::__("Hotel Peculiar", 'game'), T::__("Liza Defloration Hotel", 'game'), T::__("Santas Absteige", 'game'), T::__("Chez Clem Hotel", 'game'), T::__("Drei Eingänge Hotel + Spa", 'game'), T::__("Hostel Partout", 'game'), T::__("Bumbling Inn", 'game'), T::__("Vajazzl Inn", 'game'), T::__("Hotel Venga", 'game')],
+            'deserted_bunker' => [T::__("Verlassener Bunker", 'game'), T::__("Thermonuklear-Bunker", 'game'), T::__("Garrison-Haus", 'game'), T::__("Bastion der Angst", 'game'), T::__("Bunker der Wut", 'game'), T::__("Fallout Shelter", 'game'), T::__("Keine Hoffnung ohne Öffnung!", 'game'), T::__("Schattenfort", 'game'), T::__("Verlassene Trooper-Station", 'game'), T::__("Verwesungsversteck", 'game'), T::__("Knochenkeller", 'game'), T::__("Geheimes Testlabor", 'game'), T::__("Area 52.1 Bunker", 'game'), T::__("Area 33 Bunker", 'game'), T::__("Quarantäne-Zone", 'game')],
         ];
-        return $ruinNames[$lang][$zone->getPrototype()->getIcon()][$zone->getId() % count($ruinNames[$lang][$zone->getPrototype()->getIcon()])];
+        return $ruinNames[$zone->getPrototype()->getIcon()][$zone->getId() % count($ruinNames[$zone->getPrototype()->getIcon()])];
     }
 }
