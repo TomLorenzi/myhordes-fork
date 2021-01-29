@@ -625,7 +625,7 @@
       </notes>
       <segment>
         <source>Du wurdest erfolgreich von allen Geräten abgemeldet.</source>
-        <target>Du wurdest erfolgreich von allen Geräten abgemeldet.</target>
+        <target>Vous avez été déconnecté avec succès de tous les appareils.</target>
       </segment>
     </unit>
     <unit id="iGunNf8" name="Dein Name kann nur alphanumerische Zeichen enthalten.">

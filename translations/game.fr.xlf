@@ -18131,7 +18131,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "%threadname%" im Forum "%forumname%" entfernt. Grund: "%reason%".</source>
-        <target>Ein Moderator hat deinen Thread "%threadname%" im Forum "%forumname%" entfernt. Grund: "%reason%".</target>
+        <target>Un modérateur a supprimé votre fil « %threadname% » dans le forum « %forumname% ». Raison: « %reason% »</target>
       </segment>
     </unit>
     <unit id="mNNpr7V" name="1cb001b">
@@ -18140,7 +18140,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat einen deiner Posts aus dem Thread "%threadname%" im Forum "%forumname%" entfernt. Grund: "%reason%" %link_post%</source>
-        <target>Ein Moderator hat einen deiner Posts aus dem Thread "%threadname%" im Forum "%forumname%" entfernt. Grund: "%reason%" %link_post%</target>
+        <target>Un modérateur a supprimé l'un de vos messages du topic « %threadname% » dans le forum « %forumname% ». Raison: « %reason% » %link_post%</target>
       </segment>
     </unit>
     <unit id="04OIDsR" name="820d0b3">
@@ -18149,7 +18149,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat einen deiner Posts aus dem Thread "%threadname%" im Forum "%forumname%" editiert. Grund: "%reason%" %link_post%</source>
-        <target>Ein Moderator hat einen deiner Posts aus dem Thread "%threadname%" im Forum "%forumname%" editiert. Grund: "%reason%" %link_post%</target>
+        <target>Un modérateur a édité l'un de vos messages du topic « %threadname% » dans le forum « %forumname% ». Raison: « %reason% » %link_post%</target>
       </segment>
     </unit>
     <unit id="n6L6TtH" name="d436583">
@@ -18158,7 +18158,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat eine deiner Stadt-Nachrichten aus dem Thread "%threadname%" entfernt. Grund: "%reason%"</source>
-        <target>Ein Moderator hat eine deiner Stadt-Nachrichten aus dem Thread "%threadname%" entfernt. Grund: "%reason%"</target>
+        <target>Un modérateur a supprimé l'un de vos messages de ville du topic « %threadname% ». Raison: « %reason% »</target>
       </segment>
     </unit>
     <unit id="OeJ4Ek5" name="110769a">
@@ -18167,7 +18167,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat eine deiner Stadt-Nachrichten aus dem Thread "%threadname%" editiert. Grund: "%reason%"</source>
-        <target>Ein Moderator hat eine deiner Stadt-Nachrichten aus dem Thread "%threadname%" editiert. Grund: "%reason%"</target>
+        <target>Un modérateur a édité l'un de vos messages de ville du topic « %threadname% ». Raison: « %reason% »</target>
       </segment>
     </unit>
     <unit id="EIc0114" name="47a9de1">
@@ -18176,7 +18176,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat eine deiner Privatnachrichten aus dem Thread "%threadname%" entfernt. Grund: "%reason%"</source>
-        <target>Ein Moderator hat eine deiner Privatnachrichten aus dem Thread "%threadname%" entfernt. Grund: "%reason%"</target>
+        <target>Un modérateur a supprimé l'un de vos messages privés du message « %threadname% ». Raison: « %reason% »</target>
       </segment>
     </unit>
     <unit id="YXN_1dc" name="fc862b9">
@@ -18185,7 +18185,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat eine deiner Privatnachrichten aus dem Thread "%threadname%" editiert. Grund: "%reason%"</source>
-        <target>Ein Moderator hat eine deiner Privatnachrichten aus dem Thread "%threadname%" editiert. Grund: "%reason%"</target>
+        <target>Un modérateur a édité l'un de vos messages privés du message « %threadname% ». Raison: « %reason% »</target>
       </segment>
     </unit>
     <unit id="79UdHDI" name="41ceed9">
@@ -18194,7 +18194,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Account mit einer Forensperre belegt. Grund: "%reason%". Dauer: %duration%</source>
-        <target>Ein Moderator hat deinen Account mit einer Forensperre belegt. Grund: "%reason%". Dauer: %duration%</target>
+        <target>Vous avez été banni(e) du forum. Raison: « %reason% ». Durée: %duration%</target>
       </segment>
     </unit>
     <unit id="uqCTgUl" name="fe118ee">
@@ -18203,7 +18203,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Account mit einer Spielsperre belegt. Grund: "%reason%". Dauer: %duration%</source>
-        <target>Ein Moderator hat deinen Account mit einer Spielsperre belegt. Grund: "%reason%". Dauer: %duration%</target>
+        <target>Vous avez été banni(e) du jeu. Raison: « %reason% ». Durée: %duration%</target>
       </segment>
     </unit>
     <unit id="cdgCxLt" name="Ein Moderator hat die Forensperre deines Accounts aufgehoben.">
@@ -18212,7 +18212,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat die Forensperre deines Accounts aufgehoben.</source>
-        <target>Ein Moderator hat die Forensperre deines Accounts aufgehoben.</target>
+        <target>Un modérateur a retiré le bannissement de forum sur votre compte.</target>
       </segment>
     </unit>
     <unit id="_Rtl8Sm" name="Ein Moderator hat die Spielsperre deines Accounts aufgehoben.">
@@ -18221,7 +18221,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat die Spielsperre deines Accounts aufgehoben.</source>
-        <target>Ein Moderator hat die Spielsperre deines Accounts aufgehoben.</target>
+        <target>Un modérateur a retiré le bannissement de jouer sur votre compte.</target>
       </segment>
     </unit>
   </file>

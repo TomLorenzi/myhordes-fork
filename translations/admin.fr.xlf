@@ -2347,7 +2347,7 @@
       </notes>
       <segment>
         <source>Ankündigungen</source>
-        <target>Ankündigungen</target>
+        <target>Annonces</target>
       </segment>
     </unit>
     <unit id="lkqERse" name="Neue Ankündigung">
@@ -2356,7 +2356,7 @@
       </notes>
       <segment>
         <source>Neue Ankündigung</source>
-        <target>Neue Ankündigung</target>
+        <target>Nouvelle annonce</target>
       </segment>
     </unit>
   </file>

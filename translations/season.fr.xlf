@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="fr">
   <file id="season.fr">
-    <unit id="ai1cZ.U" name="Saison 15.0">
-      <notes>
-        <note category="german">Saison 15.0</note>
-      </notes>
-      <segment>
-        <source>Saison 15.0</source>
-        <target>Bétapropine FTW</target>
-      </segment>
-    </unit>
     <unit id="5av5KpC" name="Saison 0.14">
       <notes>
         <note category="german">Saison 0.14</note>
@@ -124,7 +115,7 @@
       </notes>
       <segment>
         <source>Saison 0.12</source>
-        <target>Saison 0.12</target>
+        <target>Démoncratie</target>
       </segment>
     </unit>
     <unit id="oLxl2RQ" name="Saison 0.9">
@@ -133,7 +124,7 @@
       </notes>
       <segment>
         <source>Saison 0.9</source>
-        <target>Saison 0.9</target>
+        <target>Villa nostra</target>
       </segment>
     </unit>
     <unit id="ocnWude" name="Saison 0.8">
@@ -142,7 +133,7 @@
       </notes>
       <segment>
         <source>Saison 0.8</source>
-        <target>Saison 0.8</target>
+        <target>Evil's back</target>
       </segment>
     </unit>
     <unit id="BbqgTUU" name="Saison 0.7">
@@ -151,7 +142,7 @@
       </notes>
       <segment>
         <source>Saison 0.7</source>
-        <target>Saison 0.7</target>
+        <target>Corps vidés</target>
       </segment>
     </unit>
   </file>

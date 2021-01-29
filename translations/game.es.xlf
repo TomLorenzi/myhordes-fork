@@ -17148,7 +17148,7 @@
       </notes>
       <segment>
         <source>Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</source>
-        <target>Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</target>
+        <target>Tu pueblo "%town%" fue cancelado por un administrador. El pueblo no aparecerá en la clasificación ni en tu alma y tampoco conseguirás puntos de alma o recompensas por él.</target>
       </segment>
     </unit>
     <unit id="g0fspLE" name="d7ab8db">
@@ -17157,7 +17157,7 @@
       </notes>
       <segment>
         <source>Deine Stadt "%town%" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</source>
-        <target>Deine Stadt "%town%" wurde automatisch negiert, da sie sich nicht rechtzeitig gefüllt hat. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.</target>
+        <target>Tu pueblo "%town%" fue automáticamente cancelado debido a que no se llenó a tiempo. El pueblo no aparecerá en la clasificación ni en tu alma y tampoco conseguirás puntos de alma o recompensas por él.</target>
       </segment>
     </unit>
     <unit id="EZZp0Cu" name="8b9de7a">
@@ -17166,7 +17166,7 @@
       </notes>
       <segment>
         <source>Deine Stadt "%town%" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.</source>
-        <target>Deine Stadt "%town%" befindet sich aufgrund eines technischen Problems in Quarantäne. Die Administratoren sind bereits informiert. Während sich die Stadt in Quarantäne befindet kannst du normal weiter spielen, allerdings fällt der nächtliche Angriff aus und es findet kein Tageswechsel statt. Sobald das Problem behoben und die Quarantäne aufgehoben ist, wirst du benachrichtigt.</target>
+        <target>Tu pueblo "%town%" está bajo cuarentena debido a un problema técnico. Los administradores ya han sido informados al respecto. Mientras el pueblo está en cuarentena, puedes seguir jugando normalmente, pero el ataque nocturno no sucederá y el día no cambia. Serás notificado tan pronto como el problema sea resuelto y la cuarentena sea levantada.</target>
       </segment>
     </unit>
     <unit id="fPHWumZ" name="40e06cb">
@@ -17175,7 +17175,7 @@
       </notes>
       <segment>
         <source>Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</source>
-        <target>Die Quarantäne in deiner Stadt "%town%" wurde aufgehoben. Ab sofort findet der nächtliche Angriff wieder zur gewohnten Zeit statt.</target>
+        <target>La cuarentena en tu pueblo "%town%" ha sido levantada. Desde ahora, el ataque nocturno tomará lugar de nuevo a la hora usual.</target>
       </segment>
     </unit>
     <unit id="uh49WWx" name="cea913a">
@@ -17274,7 +17274,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Thread "%threadname%" im Forum "%forumname%" entfernt. Grund: "%reason%".</source>
-        <target>Ein Moderator hat deinen Thread "%threadname%" im Forum "%forumname%" entfernt. Grund: "%reason%".</target>
+        <target>Un moderador quitó tu tema "%threadname%" del foro "%forumname%". Razón: "%reason%".</target>
       </segment>
     </unit>
     <unit id="mNNpr7V" name="1cb001b">
@@ -17283,7 +17283,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat einen deiner Posts aus dem Thread "%threadname%" im Forum "%forumname%" entfernt. Grund: "%reason%" %link_post%</source>
-        <target>Ein Moderator hat einen deiner Posts aus dem Thread "%threadname%" im Forum "%forumname%" entfernt. Grund: "%reason%" %link_post%</target>
+        <target>Un moderador quitó uno de tus mensajes del tema "%threadname%" del foro "%forumname%". Razón: "%reason%" %link_post%</target>
       </segment>
     </unit>
     <unit id="04OIDsR" name="820d0b3">
@@ -17292,7 +17292,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat einen deiner Posts aus dem Thread "%threadname%" im Forum "%forumname%" editiert. Grund: "%reason%" %link_post%</source>
-        <target>Ein Moderator hat einen deiner Posts aus dem Thread "%threadname%" im Forum "%forumname%" editiert. Grund: "%reason%" %link_post%</target>
+        <target>Un moderador editó uno de tus mensajes del tema "%threadname%" del foro "%forumname%". Razón: "%reason%" %link_post%</target>
       </segment>
     </unit>
     <unit id="n6L6TtH" name="d436583">
@@ -17301,7 +17301,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat eine deiner Stadt-Nachrichten aus dem Thread "%threadname%" entfernt. Grund: "%reason%"</source>
-        <target>Ein Moderator hat eine deiner Stadt-Nachrichten aus dem Thread "%threadname%" entfernt. Grund: "%reason%"</target>
+        <target>Un moderador quitó uno de tus mensajes en el foro del pueblo del tema "%thread%. Razón: "%reason"</target>
       </segment>
     </unit>
     <unit id="OeJ4Ek5" name="110769a">
@@ -17310,7 +17310,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat eine deiner Stadt-Nachrichten aus dem Thread "%threadname%" editiert. Grund: "%reason%"</source>
-        <target>Ein Moderator hat eine deiner Stadt-Nachrichten aus dem Thread "%threadname%" editiert. Grund: "%reason%"</target>
+        <target>Un moderador editó uno de tus mensajes en el foro del pueblo del tema "%thread%. Razón: "%reason"</target>
       </segment>
     </unit>
     <unit id="EIc0114" name="47a9de1">
@@ -17319,7 +17319,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat eine deiner Privatnachrichten aus dem Thread "%threadname%" entfernt. Grund: "%reason%"</source>
-        <target>Ein Moderator hat eine deiner Privatnachrichten aus dem Thread "%threadname%" entfernt. Grund: "%reason%"</target>
+        <target>Un moderador quitó uno de tus mensajes privados del mensaje "%threadname%". Razón: "%reason%"</target>
       </segment>
     </unit>
     <unit id="YXN_1dc" name="fc862b9">
@@ -17328,7 +17328,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat eine deiner Privatnachrichten aus dem Thread "%threadname%" editiert. Grund: "%reason%"</source>
-        <target>Ein Moderator hat eine deiner Privatnachrichten aus dem Thread "%threadname%" editiert. Grund: "%reason%"</target>
+        <target>Un moderador editó uno de tus mensajes privados del mensaje "%threadname%". Razón: "%reason%"</target>
       </segment>
     </unit>
     <unit id="79UdHDI" name="41ceed9">
@@ -17337,7 +17337,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Account mit einer Forensperre belegt. Grund: "%reason%". Dauer: %duration%</source>
-        <target>Ein Moderator hat deinen Account mit einer Forensperre belegt. Grund: "%reason%". Dauer: %duration%</target>
+        <target>Un moderador ha puesto una prohibición de foro en tu cuenta. Razón: "%reason%". Duración: %duration%</target>
       </segment>
     </unit>
     <unit id="uqCTgUl" name="fe118ee">
@@ -17346,7 +17346,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat deinen Account mit einer Spielsperre belegt. Grund: "%reason%". Dauer: %duration%</source>
-        <target>Ein Moderator hat deinen Account mit einer Spielsperre belegt. Grund: "%reason%". Dauer: %duration%</target>
+        <target>Un moderador ha puesto una prohibición de juego en tu cuenta. Razón: "%reason%". Duración: %duration%</target>
       </segment>
     </unit>
     <unit id="cdgCxLt" name="Ein Moderator hat die Forensperre deines Accounts aufgehoben.">
@@ -17355,7 +17355,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat die Forensperre deines Accounts aufgehoben.</source>
-        <target>Ein Moderator hat die Forensperre deines Accounts aufgehoben.</target>
+        <target>Un moderador ha levantado la prohibición de foro de tu cuenta.</target>
       </segment>
     </unit>
     <unit id="_Rtl8Sm" name="Ein Moderator hat die Spielsperre deines Accounts aufgehoben.">
@@ -17364,7 +17364,7 @@
       </notes>
       <segment>
         <source>Ein Moderator hat die Spielsperre deines Accounts aufgehoben.</source>
-        <target>Ein Moderator hat die Spielsperre deines Accounts aufgehoben.</target>
+        <target>Un moderador ha levantado la prohibición de juego de tu cuenta.</target>
       </segment>
     </unit>
     <unit id="IuqDnZY" name="%citizen% hat %items% in der Müllhalde zerstört (+%def% Verteidigung)">
