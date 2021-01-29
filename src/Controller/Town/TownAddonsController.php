@@ -332,6 +332,8 @@ class TownAddonsController extends TownController
 
         $cache = [];
         foreach ($town->getBank()->getItems() as $item) {
+            if ($item->getBroken()) continue;
+
             if (!isset($cache[$item->getPrototype()->getId()]))
                 $cache[$item->getPrototype()->getId()] = [
                     $item->getPrototype(),

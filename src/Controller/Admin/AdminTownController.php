@@ -339,12 +339,11 @@ class AdminTownController extends AdminActionController
         /** @var ItemPrototype $itemPrototype */
         $itemPrototype = $this->entity_manager->getRepository(ItemPrototype::class)->find($prototype_id);
 
-        for ($i = 0 ; $i < $number ; $i++){
-            /** @var Item $item */
-            $item = $itemFactory->createItem($itemPrototype->getName(), $broken, $poison);
-            $item->setEssential($essential);
-            $handler->forceMoveItem($town->getBank(), $item);
-        }
+        /** @var Item $item */
+        $item = $itemFactory->createItem($itemPrototype->getName(), $broken, $poison);
+        $item->setEssential($essential);
+        $item->setCount($number);
+        $handler->forceMoveItem($town->getBank(), $item);
 
         $this->entity_manager->persist($town->getBank());
         $this->entity_manager->flush();
