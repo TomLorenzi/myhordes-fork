@@ -287,7 +287,7 @@ class TownAddonsController extends TownController
 
         // Weapons
         if ($proto->hasProperty('weapon') || in_array( $proto->getName(), [
-            'machine_gun_#00', 'gun_#00', 'chair_basic_#00', 'machine1_#00', 'machine2_#00', 'machine3_#00', 'pc_#00'
+            'machine_gun_#00', 'gun_#00', 'chair_basic_#00', 'machine_1_#00', 'machine_2_#00', 'machine_3_#00', 'pc_#00'
             ] ) )
             return ($improved ? 2 : 1) + ( $th->getBuilding($town, 'small_trash_#03', true) ? 5 : 0 );
 
