@@ -25,19 +25,22 @@ use DateTimeInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class LogTemplateHandler
 {
-    private $trans;
-    private $asset;
-    private $entity_manager;
+    private TranslatorInterface $trans;
+    private Packages $asset;
+    private EntityManagerInterface $entity_manager;
+    private UrlGeneratorInterface $url;
 
-    public function __construct(TranslatorInterface $t, Packages $a, EntityManagerInterface $em )
+    public function __construct(TranslatorInterface $t, Packages $a, EntityManagerInterface $em, UrlGeneratorInterface $url)
     {
         $this->trans = $t;
         $this->asset = $a;
         $this->entity_manager = $em;
+        $this->url = $url;
     }
 
     public function wrap(?string $obj, ?string $class = null): string {
@@ -48,6 +51,7 @@ class LogTemplateHandler
     /**
      * @param Item|ItemPrototype|ItemGroupEntry|Citizen|CitizenProfession|Building|BuildingPrototype|CauseOfDeath|CitizenHome|CitizenHomePrototype|array $obj
      * @param bool $small
+     * @param bool $broken
      * @return string
      */
     public function iconize($obj, bool $small = false, bool $broken = false): string {
@@ -143,41 +147,64 @@ class LogTemplateHandler
         $transParams = [];
         foreach ($variableTypes as $typeEntry) {
             try {
+                $wrap_fun = ( $typeEntry['raw'] ?? false ) ? fn($a,$b=null) => $a : fn($a,$b=null) => $this->wrap($a,$b);
+
                 if ($typeEntry['type'] === 'itemGroup') {                
                     $itemGroupEntries  = $this->fetchVariableObject($typeEntry['type'], $variables[$typeEntry['name']])->getEntries()->getValues();
-                    $transParams['%'.$typeEntry['name'].'%'] = implode( ', ', array_map( function(ItemGroupEntry $e) { return $this->wrap( $this->iconize( $e ), 'tool' ); }, $itemGroupEntries ));
+                    $transParams['%'.$typeEntry['name'].'%'] = implode( ', ', array_map( function(ItemGroupEntry $e) use ($wrap_fun) { return $wrap_fun( $this->iconize( $e ), 'tool' ); }, $itemGroupEntries ));
                 }
                 elseif ($typeEntry['type'] === 'list') {
                     $listType = $typeEntry['listType'];
                     $listArray = array_map( function($e) use ($listType) { if(array_key_exists('count', $e)) {return array('item' => $this->fetchVariableObject($listType, $e['id']),'count' => $e['count']);}
                         else { return $this->fetchVariableObject($listType, $e['id']); } }, $variables[$typeEntry['name']] );
                     if (isset($listArray)) {
-                        $transParams['%'.$typeEntry['name'].'%'] = implode( ', ', array_map( function($e) { return $this->wrap( $this->iconize( $e ), 'tool' ); }, $listArray ) );
+                        $transParams['%'.$typeEntry['name'].'%'] = implode( ', ', array_map( function($e) use ($wrap_fun) { return $wrap_fun( $this->iconize( $e ), 'tool' ); }, $listArray ) );
                     }
                     else
                         $transParams['%'.$typeEntry['name'].'%'] = "null";
                 }
                 elseif ($typeEntry['type'] === 'num' || $typeEntry['type'] === 'string') {
-                    $transParams['%'.$typeEntry['name'].'%'] = $this->wrap($variables[$typeEntry['name']]);
+                    $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun($variables[$typeEntry['name']]);
                 }
                 elseif ($typeEntry['type'] === 'transString') {
-                    $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->trans->trans($variables[$typeEntry['name']], [], 'game') );
+                    $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun( $this->trans->trans($variables[$typeEntry['name']], [], 'game') );
                 }
                 elseif ($typeEntry['type'] === 'dogname') {
-                    $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->generateDogName((int)$variables[$typeEntry['name']]) );
+                    $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun( $this->generateDogName((int)$variables[$typeEntry['name']]) );
                 }
                 elseif ($typeEntry['type'] === 'ap') {
-                    $ap = $variables[$typeEntry['name']];
-                    $transParams['%'.$typeEntry['name'].'%'] = "<div class='ap'>{$ap}</div>";
+                    $transParams['%'.$typeEntry['name'].'%'] = "<div class='ap'>{$variables[$typeEntry['name']]}</div>";
                 }   
                 elseif ($typeEntry['type'] === 'chat') {
                     $transParams['%'.$typeEntry['name'].'%'] = $variables[$typeEntry['name']];
                 }
                 elseif ($typeEntry['type'] === 'item') {
-                    $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ), 'tool' );
+                    $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ), 'tool' );
+                }
+                elseif ($typeEntry['type'] === 'link_post') {
+                    $transParams['%'.$typeEntry['name'].'%'] = "<a target='_blank' href='{$this->url->generate('forum_jump_view', ['pid' => $variables[$typeEntry['name']] ?? 0])}'>{$this->trans->trans('Anzeigen', [], 'global')}</a>";
+                }
+                elseif ($typeEntry['type'] === 'ne-string') {
+                    $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun(empty($variables[$typeEntry['name']]) ? '-' : $variables[$typeEntry['name']]);
+                }
+                elseif ($typeEntry['type'] === 'duration') {
+                    $i = (int)$variables[$typeEntry['name']];
+                    if ($i <= 0) $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun($this->trans->trans('Dauerhaft', [], 'global'));
+                    else {
+                        $d = floor($i / 86400); $i -= ($d * 86400);
+                        $h = floor($i /  3600); $i -= ($h *  3600);
+                        $m = floor($i /    60); $i -= ($m *    60);
+
+                        $stack = [];
+                        if ($d > 0) $stack[] = $d > 1 ? $this->trans->trans('%n% Tage', ['%n%' => $d], 'global') : $this->trans->trans('1 Tag', [], 'global');
+                        if ($h > 0) $stack[] = $h > 1 ? $this->trans->trans('%n% Stunden', ['%n%' => $h], 'global') : $this->trans->trans('1 Stunde', [], 'global');
+                        if ($m > 0) $stack[] = $m > 1 ? $this->trans->trans('%n% Minuten', ['%n%' => $m], 'global') : $this->trans->trans('1 Minute', [], 'global');
+                        if ($i > 0) $stack[] = $i > 1 ? $this->trans->trans('%n% Sekunden', ['%n%' => $i], 'global') : $this->trans->trans('1 Sekunde', [], 'global');
+                        $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun( implode(', ', $stack) );
+                    }
                 }
                 else {
-                    $transParams['%'.$typeEntry['name'].'%'] = $this->wrap( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ) );
+                    $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ) );
                 }
             }
             catch (Exception $e) {
@@ -486,6 +513,20 @@ class LogTemplateHandler
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
             ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
+    public function citizenTeleport( Citizen $citizen, Zone $zone ): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'citizenTeleport']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setZone( $zone )
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen );
@@ -864,7 +905,7 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') );
     }
 
-    public function nightlyAttackSummary( Town $town, bool $door_open, int $num_zombies ): TownLogEntry {
+    public function nightlyAttackSummary( Town $town, bool $door_open, int $num_zombies, bool $watch = false ): TownLogEntry {
         if ($door_open) {
             $variables = array('num' => $num_zombies);
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackSummaryOpenDoor']);
@@ -875,7 +916,10 @@ class LogTemplateHandler
         }
         else {
             $variables = [];
-            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackSummaryNoZombies']);
+            if($watch)
+                $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackUselessWatch']);
+            else
+                $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackSummaryNoZombies']);
         }
 
         return (new TownLogEntry())
@@ -894,6 +938,78 @@ class LogTemplateHandler
         $variables = array('citizens' => $citizenList);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackWatchers']);
         
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
+    public function nightlyAttackNoWatchers( Town $town ): TownLogEntry {
+        $variables = array();
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackNoWatchers']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
+    public function nightlyAttackWatchersZombieStopped( Town $town, int $zombies ): TownLogEntry {
+        $variables = array('zombies' => $zombies);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackWatchersZombieStopped']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
+    public function nightlyAttackWatchersZombieThrough( Town $town, int $zombies ): TownLogEntry {
+        $variables = array('zombies' => $zombies);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackWatchersZombieThrough']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
+    public function nightlyAttackWatchersZombieAllStopped( Town $town ): TownLogEntry {
+        $variables = array();
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackWatchersZombieAllStopped']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
+    public function nightlyAttackWatcherWound( Town $town, Citizen $citizen ): TownLogEntry {
+        $variables = array('citizen' => $citizen);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackWatcherWound']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
+    public function nightlyAttackWatcherTerror( Town $town, Citizen $citizen ): TownLogEntry {
+        $variables = array('citizen' => $citizen);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackWatcherTerror']);
+
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
@@ -986,6 +1102,31 @@ class LogTemplateHandler
     public function nightlyAttackDestroyBuilding( Town $town, Building $building ): TownLogEntry {
         $variables = array('buildingName' => $building->getPrototype()->getId());
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackDestroyBuilding']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
+    public function nightlyAttackBankItemsDestroy( Town $town, $items ): TownLogEntry {
+        $variables = array('list' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
+            else { return array('id' => $e[0]->getId()); } }, $items ));
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackBankItemsDestroy']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
+    public function nightlyAttackDevastated( Town $town ): TownLogEntry {
+        $variables = array();
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackDevastated']);
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)

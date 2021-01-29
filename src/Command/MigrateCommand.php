@@ -41,6 +41,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
@@ -127,12 +128,11 @@ class MigrateCommand extends Command
             ->addOption('assign-building-hp', null, InputOption::VALUE_NONE, 'Give HP to all buildings (so they can be attacked by zeds)')
             ->addOption('assign-building-defense', null, InputOption::VALUE_NONE, 'Give defense to all buildings (so they can be attacked by zeds)')
             ->addOption('update-ranking-entries', null, InputOption::VALUE_NONE, 'Update ranking values')
+            ->addOption('fix-ruin-inventories', null, InputOption::VALUE_NONE, 'Move each items belonging to a RuinRoom to its corresponding RuinZone')
             ->addOption('update-shaman-immune', null, InputOption::VALUE_NONE, 'Changes status tg_immune to tg_shaman_immune')
             ->addOption('place-explorables', null, InputOption::VALUE_NONE, 'Adds explorable ruins to all towns')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
-            ->addOption('repair-causesofdeath', null, InputOption::VALUE_NONE, 'Change the cause of deaths number to be like Hordes\' one')
-            ->addOption('split-ruin-decals', null, InputOption::VALUE_NONE, 'Updates the way ruin decals are stored in DB')
         ;
     }
 
@@ -518,18 +518,33 @@ class MigrateCommand extends Command
         }
 
         if ($input->getOption('calculate-score')) {
-            $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['score' => 0]);
-            foreach ($towns as $town) {
-                /* @var TownRankingProxy $town */
-                $score = 0;
-                foreach ($town->getCitizens() as $citizen) {
-                    /* @var CitizenRankingProxy $citizen */
-                    $score += $citizen->getDay();
+
+            $tc = $this->entity_manager->getRepository(TownRankingProxy::class)->count(['imported' => false]);
+            $tc_chunk = 0;
+
+            $output->writeln("Processing <info>$tc</info> entries...");
+            $progress = new ProgressBar( $output->section() );
+            $progress->start( $tc );
+
+            while ($tc_chunk < $tc) {
+
+                $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['imported' => false],['id' => 'ASC'], 5000, $tc_chunk);
+                foreach ($towns as $town) {
+                    /* @var TownRankingProxy $town */
+                    $score = 0;
+                    foreach ($town->getCitizens() as $citizen) {
+                        /* @var CitizenRankingProxy $citizen */
+                        $score += $citizen->getDay();
+                    }
+                    $town->setScore($score);
+                    $this->entity_manager->persist($town);
+                    $tc_chunk++;
                 }
-                $town->setScore($score);
-                $this->entity_manager->persist($town);
+                $this->entity_manager->flush();
+                $progress->setProgress($tc_chunk);
+
             }
-            $this->entity_manager->flush();
+
             $output->writeln('OK!');
             return 0;
         }
@@ -599,6 +614,28 @@ class MigrateCommand extends Command
                     $this->entity_manager->persist( $picto->setTownEntry( $picto->getTown()->getRankingEntry() ) );
             $this->entity_manager->flush();
             $output->writeln('Pictos updated!');
+
+            return 0;
+        }
+
+        if ($input->getOption('fix-ruin-inventories')) {
+            $ruinZones = $this->entity_manager->getRepository(RuinZone::class)->findAll();
+            foreach ($ruinZones as $ruinZone) {
+                /** @var RuinZone $ruinZone */
+                if ($ruinZone->getRoomFloor() === null) continue;
+
+                foreach ($ruinZone->getRoomFloor()->getItems() as $item) {
+                    for ($i = 0 ; $i < $item->getCount() ; $i++) {
+                        $output->writeln("Moving item {$item->getPrototype()->getName()} into the Ruin's Floor");
+                        $this->inventory_handler->forceMoveItem($ruinZone->getFloor(), $item);
+                        $this->entity_manager->persist($ruinZone);
+                        $this->entity_manager->persist($ruinZone->getFloor());
+                        $this->entity_manager->persist($item);
+                    }
+                }
+            }
+            $this->entity_manager->flush();
+            $output->writeln('OK!');
 
             return 0;
         }
@@ -800,63 +837,6 @@ class MigrateCommand extends Command
             $this->entity_manager->flush();
             return 0;
 
-        }
-
-        if ($input->getOption('repair-causesofdeath')) {
-            $mappingRefs = array (
-                1 => 10,
-                2 => 6,
-                3 => 5,
-                4 => 1,
-                5 => 14,
-                6 => 7,
-                7 => 8,
-                8 => 3,
-                9 => 11,
-                10 => 12,
-                11 => 13,
-                12 => 4,
-                13 => 15,
-                14 => 2,
-                15 => 9,
-                16 => 19,
-                17 => 18,
-                18 => 17,
-                19 => 16,
-            );
-            $deadCitizens = $this->entity_manager->getRepository(Citizen::class)->findBy(['alive' => 0]);
-            foreach($deadCitizens as $deadCitizen){
-                /** @var Citizen $deadCitizen */
-                $deadCitizen->setCauseOfDeath($this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => $mappingRefs[$deadCitizen->getCauseOfDeath()->getRef()]]));
-                $this->entity_manager->persist($deadCitizen);
-            }
-
-            $deadCitizens = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findAll();
-            foreach($deadCitizens as $deadCitizen){
-                /** @var CitizenRankingProxy $deadCitizen */
-                if($deadCitizen->getCod() === null) continue;
-                $deadCitizen->setCod($this->entity_manager->getRepository(CauseOfDeath::class)->findOneBy(['ref' => $mappingRefs[$deadCitizen->getCod()->getRef()]]));
-                $this->entity_manager->persist($deadCitizen);
-            }
-
-            $this->entity_manager->flush();
-        }
-
-        if ($input->getOption('split-ruin-decals')) {
-            /** @var RuinZone[] $ruinZone */
-            $ruinZones = $this->entity_manager->getRepository(RuinZone::class)->findAll();
-            foreach ($ruinZones as $ruinZone) {
-                $decals = $ruinZone->getDecals();
-                if ($decals <= 0xFFFF)
-                    continue;
-
-                $ruinZone->setDecals($decals & 0xFFFF);
-                $ruinZone->setDecalVariants(($decals >> 16) & 0xFFFF);
-
-                $this->entity_manager->persist($ruinZone);
-            }
-
-            $this->entity_manager->flush();
         }
 
         return 1;

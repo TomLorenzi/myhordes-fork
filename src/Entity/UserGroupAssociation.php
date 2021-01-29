@@ -20,6 +20,9 @@ class UserGroupAssociation
     const GroupAssociationTypeCoalitionMember         = 1001;
     const GroupAssociationTypeCoalitionMemberInactive = 1002;
 
+    const GroupAssociationTypePrivateMessageMember         = 2000;
+    const GroupAssociationTypePrivateMessageMemberInactive = 2001;
+
     const GroupAssociationLevelDefault = 0;
     const GroupAssociationLevelFounder = 100;
 
@@ -51,6 +54,26 @@ class UserGroupAssociation
      * @ORM\Column(type="integer", nullable=true)
      */
     private ?int $associationLevel;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $ref1;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $ref2;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $ref3;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $ref4;
 
 
     public function getId(): ?int
@@ -102,6 +125,54 @@ class UserGroupAssociation
     public function setAssociationLevel(?int $associationLevel): self
     {
         $this->associationLevel = $associationLevel;
+
+        return $this;
+    }
+
+    public function getRef1(): ?int
+    {
+        return $this->ref1;
+    }
+
+    public function setRef1(?int $ref1): self
+    {
+        $this->ref1 = $ref1;
+
+        return $this;
+    }
+
+    public function getRef2(): ?int
+    {
+        return $this->ref2;
+    }
+
+    public function setRef2(?int $ref2): self
+    {
+        $this->ref2 = $ref2;
+
+        return $this;
+    }
+
+    public function getRef3(): ?int
+    {
+        return $this->ref3;
+    }
+
+    public function setRef3(?int $ref3): self
+    {
+        $this->ref3 = $ref3;
+
+        return $this;
+    }
+
+    public function getRef4(): ?int
+    {
+        return $this->ref4;
+    }
+
+    public function setRef4(?int $ref4): self
+    {
+        $this->ref4 = $ref4;
 
         return $this;
     }

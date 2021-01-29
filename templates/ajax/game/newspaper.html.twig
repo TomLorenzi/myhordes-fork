@@ -136,7 +136,6 @@
                 </div>
             </div>
             <div id="gazette-switcher"><label class="button" for="gazette-switch">{{ 'Umdrehen'|trans({}, 'game') }}</label></div>
-            
             {% if citizensWithRole|length > 0 %}
             <h5>{{ 'Stadtrat'|trans({}, 'game') }}</h5>
             <div id="gazette-role-list">
@@ -149,14 +148,44 @@
             {% endfor %}
             </div>
             {% endif %}
-            
-            <h5>{{ 'Stadtregister'|trans({},'game') }}</h5>
-            {% if show_register %}
-                {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('game_newspaper_log_controller') } %}
-                {% endembed %}
-            {% else %}
-            <div class="note">{{ 'Das Stadtregister steht nicht zur Verfügung.'|trans({}, 'game') }}</div>
-            {% endif %}
+
+            <div class="row">
+                <div class="cell padded rw-4">
+                    <h5>{{ 'Das Register filtern'|trans({}, 'game') }}</h5>
+                    <div class="note row">
+                        <label for="citizen-filter" class="cell rw-4 rw-sm-12">{{ 'Bürger:'|trans({}, 'game') }}</label>
+                        <select id="citizen-filter" name="citizen-filter" class="cell rw-8 rw-sm-12 mb-1" x-filter-name="citizen">
+                            <option value="-1">[ {{ 'Alles sehen'|trans({}, 'game')}} ]</option>
+                            {% for citizen in town.citizens|sort((a,b) => a.user.name|lower <=> b.user.name|lower) %}
+                            <option value="{{ citizen.id }}">{% if not citizen.alive %}&dagger; {% endif %}{{ citizen.user.name }}</option>
+                            {% endfor %}
+                        </select>
+
+                        <label for="category-filter" class="cell rw-4 rw-sm-12">{{ 'Kategorie:'|trans({}, 'game') }}</label>
+                        <select id="category-filter" name="category-filter" class="cell rw-8 rw-sm-12" x-filter-name="category">
+                            <option value="-1">[ {{ 'Alles sehen'|trans({}, 'game')}} ]</option>
+                            <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeCrimes') }}">{{ 'Verbrechen'|trans({}, 'game') }}</option>
+                            <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeBank') }}">{{ 'Bank'|trans({}, 'game') }}</option>
+                            <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeDump') }}">{{ 'Müllhalde'|trans({}, 'game') }}</option>
+                            <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeConstruction') }}">{{'Baustelle'|trans({}, 'game')}}</option>
+                            <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeWorkshop') }}">{{ 'Werkstatt'|trans({}, 'game') }}</option>
+                            <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeDoor') }}">{{ 'Stadttor'|trans({}, 'game') }}</option>
+                            <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeWell') }}">{{ 'Brunnen'|trans({}, 'game') }}</option>
+                            <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeCitizens') }}">{{ 'Neue und Tote'|trans({}, 'game') }}</option>
+                            <option value="{{ constant('App\\Entity\\LogEntryTemplate::TypeNightly') }}">{{ 'Zombieangriff (newspaper)'|trans({}, 'game') }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="cell padded rw-8">
+                    <h5>{{ 'Stadtregister'|trans({},'game') }}</h5>
+                    {% if show_register %}
+                        {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('game_newspaper_log_controller') } %}
+                        {% endembed %}
+                    {% else %}
+                    <div class="note">{{ 'Das Stadtregister steht nicht zur Verfügung.'|trans({}, 'game') }}</div>
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
@@ -165,6 +194,40 @@
     <script>
         {% if show_register %}
             {% embed "scripts/log.js.twig" %}{% endembed %}
+
+            let log_boxes = document.querySelectorAll('.log-container');
+            for (let i = 0; i < log_boxes.length; i++) {
+                let log = log_boxes[i].querySelector( '.log' );
+
+                const has_preloaded_content = log.getAttribute('x-log-default-provided') == '1';
+                const url = log.getAttribute('x-log-source');
+                let content_box = log.querySelectorAll('.log-content');
+
+                const fun_refresh = function(d) {
+                    let payload = {
+                        day: d
+                    };
+
+                    let filters = document.querySelectorAll("[x-filter-name]");
+                    for(let j = 0 ; j < filters.length ; j++) {
+                        payload[filters[j].getAttribute('x-filter-name')] = filters[j].value;
+                    }
+
+                    $.ajax.no_history().load( content_box[0], url, false, payload )
+                };
+
+                document.getElementById("citizen-filter").addEventListener('change', function(){
+                    let control_tab = log_boxes[i].querySelector( '.log-day-select .tab' );
+                    let   cur = parseInt(control_tab.getAttribute( 'x-page-current' ));
+                    fun_refresh(cur);
+                });
+
+                document.getElementById("category-filter").addEventListener('change', function(){
+                    let control_tab = log_boxes[i].querySelector( '.log-day-select .tab' );
+                    let cur = parseInt(control_tab.getAttribute( 'x-page-current' ));
+                    fun_refresh(cur);
+                });
+            }
         {% endif %}
     </script>
 {% endblock %}

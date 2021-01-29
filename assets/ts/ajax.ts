@@ -141,6 +141,12 @@ export default class Ajax {
                     countdowns[c].addEventListener('expire', function() { ajax_instance.load( target, url ) });
                 $.html.handleCountdown( countdowns[c] );
             }
+
+            let current_time = content_source[i].querySelectorAll("*[x-current-time]");
+            for (let c = 0; c < current_time.length; c++) {
+                $.html.handleCurrentTime( current_time[c] );
+            }
+
             let tooltips = content_source[i].querySelectorAll('div.tooltip');
             for (let t = 0; t < tooltips.length; t++)
                 $.html.handleTooltip( <HTMLElement>tooltips[t] );
@@ -237,6 +243,11 @@ export default class Ajax {
         request.open('POST', url);
         request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         request.setRequestHeader('X-Request-Intent', 'WebNavigation');
+        request.setRequestHeader('X-Request-Intent', 'WebNavigation');
+
+        const target_id = target.getAttribute('x-target-id') ?? target.getAttribute('id') ?? '';
+        if (target_id) request.setRequestHeader('X-Render-Target', target_id);
+
         request.setRequestHeader('Content-Type', 'application/json');
         request.send( JSON.stringify(data) );
     };
@@ -277,17 +288,20 @@ export default class Ajax {
         request.send( JSON.stringify(data) );
     };
 
-    easySend( url: string, data: object, success: ajaxCallback, errors: object = null, error: ajaxCallback|null = null ) {
+    easySend( url: string, data: object, success: ajaxCallback, errors: object = null, error: ajaxCallback|null = null, handleErrors: boolean = true ) {
         this.send( url, data,function (data: ajaxResponse, code) {
             if (code < 200 || code >= 300) {
-                $.html.selectErrorMessage( 'com', {}, c.errors );
+                if (handleErrors && !error) $.html.selectErrorMessage( 'com', {}, c.errors );
                 if (error) error(null,code);
             } else if (data.error) {
-                $.html.selectErrorMessage( data.error, errors, c.errors, data );
+                if (handleErrors && !error) $.html.selectErrorMessage( data.error, errors, c.errors, data );
                 if (error) error(data,code);
             } else if (data.success)
                 success(data,code);
-            else $.html.selectErrorMessage( 'default', errors, c.errors, data );
+            else {
+                if (handleErrors && !error) $.html.selectErrorMessage('default', errors, c.errors, data);
+                if (error) error(null,null);
+            }
         } );
     }
 }

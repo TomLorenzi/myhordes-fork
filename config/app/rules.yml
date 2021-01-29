@@ -3,7 +3,7 @@ parameters:
     default:
       allow_local_conf: true
 
-      open_town_limit: -1
+      open_town_limit: 5
       lock_door_until_full: false
 
       well:       { min: 90, max: 180 }
@@ -81,6 +81,7 @@ parameters:
         carry_extra_bag: false
         meaty_bones_within_town: false
         building_attack_damage: false
+        destroy_defense_objects_attack: false
         camping:
           default_bonus: 0
           map: 'normal'
@@ -156,6 +157,7 @@ parameters:
         infection_death_chance: 0.75
         wound_terror_penalty: 0.2
         building_attack_damage: true
+        destroy_defense_objects_attack: true
         citizen_attack:
           ap: 4
           injury: 0.6

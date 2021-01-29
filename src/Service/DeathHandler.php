@@ -65,8 +65,10 @@ class DeathHandler
             (($citizen->getZone()->getX() != 0 || $citizen->getZone()->getY() !== 0) ? $citizen->getZone()->getFloor() : $citizen->getTown()->getBank()) :
             $citizen->getHome()->getChest());
         if ($citizen->activeExplorerStats()) {
+            /** @var RuinZone $ruinZone */
             $ruinZone = $this->entity_manager->getRepository(RuinZone::class)->findOneByExplorerStats($citizen->activeExplorerStats());
-            $floor = $citizen->activeExplorerStats()->getInRoom() ? $ruinZone->getRoomFloor() : $ruinZone->getFloor();
+            // $floor = $citizen->activeExplorerStats()->getInRoom() ? $ruinZone->getRoomFloor() : $ruinZone->getFloor();
+            $floor = $ruinZone->getFloor();
         }
 
         foreach ($rucksack->getItems() as $item)
@@ -185,7 +187,7 @@ class DeathHandler
 
                 if($nameOfPicto != "") {
                     $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $nameOfPicto]);
-                    $this->picto_handler->give_validated_picto($citizen, $pictoPrototype, $citizen->getSurvivedDays() - 1);
+                    $this->picto_handler->give_validated_picto($citizen, $pictoPrototype, $citizen->getDayOfDeath() - 1);
                 }
             }
 
@@ -209,38 +211,10 @@ class DeathHandler
 	           $this->picto_handler->give_validated_picto($citizen, "r_deco_#00", $deco);
         }
 
-        $pictoDeath = null;
-        $pictoDeath2 = null;
-        switch ($cod->getRef()) {
-            case CauseOfDeath::NightlyAttack:
-                $pictoDeath = "r_dcity_#00";
-                break;
-            case CauseOfDeath::Vanished:
-                $pictoDeath = "r_doutsd_#00";
-                break;
-            case CauseOfDeath::Dehydration:
-                $pictoDeath = "r_dwater_#00";
-                break;
-            case CauseOfDeath::Addiction:
-                $pictoDeath = "r_ddrug_#00";
-                break;
-            case CauseOfDeath::Infection:
-                $pictoDeath = "r_dinfec_#00";
-                break;
-            case CauseOfDeath::Hanging:
-                $pictoDeath = "r_dhang_#00";
-                break;
-            case CauseOfDeath::Radiations:
-                $pictoDeath = "r_dnucl_#00";
-                $pictoDeath2 = "r_dinfec_#00";
-                break;
+        foreach ($cod->getPictos() as $pictoDeath) {
+            $this->picto_handler->give_validated_picto($citizen, $pictoDeath);
         }
 
-        if($pictoDeath !== null)
-            $this->picto_handler->give_validated_picto($citizen, $pictoDeath);
-
-        if($pictoDeath2 !== null)
-            $this->picto_handler->give_validated_picto($citizen, $pictoDeath2);
         $sp = $this->citizen_handler->getSoulpoints($citizen);
         
         if($sp > 0)

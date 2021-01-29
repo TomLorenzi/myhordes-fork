@@ -41,11 +41,13 @@ use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
 use App\Service\ErrorHelper;
 use App\Service\TownHandler;
+use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -124,6 +126,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $data["new_message"] = $this->citizen_handler->hasNewMessage($this->getActiveCitizen());
         $data['can_do_insurrection'] = $this->getActiveCitizen()->getBanished() && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), "tg_insurrection") && $town->getInsurrectionProgress() < 100;
         $data['has_insurrection_part'] = $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), "tg_insurrection");
+        $data['has_battlement']    = $this->town_handler->getBuilding($town, 'small_round_path_#00') && !$this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH_INSTANT, false) && $this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTWATCH, true);
         return parent::addDefaultTwigArgs( $section, $data );
     }
 
@@ -173,7 +176,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         $item_def_count = $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ), false, false);
 
         $est0 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
-        $has_estimated = $est0 && ($est0->getCitizens()->contains($this->getActiveCitizen()) || $this->town_handler->get_zombie_estimation($town) >= 1.0);
+        $has_estimated = $est0 && ($est0->getCitizens()->contains($this->getActiveCitizen()));
 
         $display_home_upgrade = false;
         foreach ($citizens as $citizen) {
@@ -283,13 +286,14 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         $town = $this->getActiveCitizen()->getTown();
         $lastActionTimestamp = $c->getLastActionTimestamp();
+        $date = (new DateTime())->setTimestamp($lastActionTimestamp);
 
         // Getting delta time between now and the last action
         $time = time() - $lastActionTimestamp; 
         $time = abs($time); 
 
-        if ($time > 10800) {
-            // If it was more than 3 hours, let's get the full date/time format
+        if ($time > 10800 || $date->format('d') !== (new DateTime())->format('d')) {
+            // If it was more than 3 hours, or if the day changed, let's get the full date/time format
             $lastActionText =$this->translator->trans('am', [], 'game') . ' '. date('d/m/Y, H:i', $lastActionTimestamp);
         } else {
             // Tableau des unités et de leurs valeurs en secondes
@@ -315,7 +319,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         $hidden = (bool)($em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($home,
             $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneBy(['name' => 'curtain'])
-        )) && $this->citizen_handler->houseIsProtected($c);
+        ));
 
         $is_injured    = $this->citizen_handler->isWounded($c);
         $is_infected   = $this->citizen_handler->hasStatusEffect($c, 'infection');
@@ -383,6 +387,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'day' => $c->getTown()->getDay(),
             'already_stolen' => $already_stolen,
             'hidden' => $hidden,
+            'protect' => $this->citizen_handler->houseIsProtected($c, true),
             'hasClairvoyance' => $hasClairvoyance,
             'clairvoyanceLevel' => $clairvoyanceLevel,
             'attackAP' => $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 4 )
@@ -741,8 +746,12 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                     $citizen,
                     $item,$inv_source, $inv_target
                 )) === InventoryHandler::ErrorNone) {
-                    if ($counter->getCount() > 0)
+                    if ($counter->getCount() > 0) {
+                        $flash = $this->translator->trans("Du hast eine weitere %item% genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...", ['%item%' => $this->log->wrap($this->log->iconize($item), 'tool')], 'game');
                         $ba->increaseBankCount( $citizen );
+                    } else {
+                        $flash = $this->translator->trans("Du hast deine tägliche Ration erhalten: %item%", ['%item%' => $this->log->wrap($this->log->iconize($item), 'tool')], 'game');
+                    }
 
                     $this->entity_manager->persist( $this->log->wellLog( $citizen, $counter->getCount() >= 1 ) );
                     $counter->increment();
@@ -756,6 +765,8 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
                     } catch (Exception $e) {
                         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
                     }
+
+                    $this->addFlash('notice', $flash);
                     return AjaxResponse::success();
                 } else return AjaxResponse::error($error);
             } else {
@@ -1118,9 +1129,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             $missing_ap = ceil( (round($building->getPrototype()->getAp()*$workshopBonus) - $building->getAp()) * ( $slave_bonus ? (2.0/3.0) : 1 )) ;
             $ap = max(0,min( $ap, $missing_ap ) );
         } else {
-            $neededApForFullHp = ($building->getPrototype()->getHp() - $building->getHp()) / $hpToAp;
+            $neededApForFullHp = ceil(($building->getPrototype()->getHp() - $building->getHp()) / $hpToAp);
             $missing_ap = ceil( (round($neededApForFullHp) * ( $slave_bonus ? (2.0/3.0) : 1 ))) ;
-            $ap = max(0,min( $ap, $missing_ap ) );
+            $ap = max(0, min( $ap, $missing_ap ) );
         }
 
         if (intval($ap) <= 0 && $was_completed)
@@ -1497,6 +1508,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'show_sneaky'       => $this->getActiveCitizen()->hasRole('ghoul'),
             'log'               => $this->renderLog( -1, null, false, LogEntryTemplate::TypeDoor, 10 )->getContent(),
             'day'               => $this->getActiveCitizen()->getTown()->getDay(),
+            'door_section'      => 'door'
         ], $this->get_map_blob())) );
     }
 
@@ -1507,6 +1519,44 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      */
     public function log_door_api(JSONRequestParser $parser): Response {
         return $this->renderLog((int)$parser->get('day', -1), null, false, LogEntryTemplate::TypeDoor, null);
+    }
+
+    /**
+     * @Route("jx/town/routes", name="town_routes")
+     * @return Response
+     */
+    public function routes(): Response
+    {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
+        return $this->render( 'ajax/game/town/routes.html.twig', $this->addDefaultTwigArgs('door', array_merge([
+            'door_section'      => 'planner',
+            'town'  =>  $this->getActiveCitizen()->getTown(),
+            'routes' => $expeditions = $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown($this->getActiveCitizen()->getTown()),
+            'allow_extended' => $this->getActiveCitizen()->getProfession()->getHeroic(),
+        ], $this->get_map_blob())) );
+    }
+
+    /**
+     * @Route("jx/town/planner", name="town_planner")
+     * @return Response
+     */
+    public function planner(): Response
+    {
+        if (!$this->getActiveCitizen()->getHasSeenGazette())
+            return $this->redirect($this->generateUrl('game_newspaper'));
+
+        $routes = $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown($this->getActiveCitizen()->getTown());
+
+        if(count($routes) >= 16)
+            return $this->redirect($this->generateUrl('town_routes'));
+
+        return $this->render( 'ajax/game/town/planner.html.twig', $this->addDefaultTwigArgs('door', array_merge([
+            'door_section'      => 'planner',
+            'town'  =>  $this->getActiveCitizen()->getTown(),
+            'allow_extended' => $this->getActiveCitizen()->getProfession()->getHeroic(),
+        ], $this->get_map_blob())) );
     }
 
     /**
@@ -1527,6 +1577,11 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         if ($citizen->getExpeditionRoutes()->count() >= 12)
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        $routes = $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown($citizen->getTown());
+
+        if(count($routes) >= 16)
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $last = null; $ap = 0;
@@ -1571,18 +1626,27 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
     }
 
     /**
-     * @Route("jx/town/planner", name="town_planner")
+     * @Route("api/town/planner/delete", name="town_planner_delete_route")
+     * @param JSONRequestParser $parser
      * @return Response
      */
-    public function planner(): Response
-    {
-        if (!$this->getActiveCitizen()->getHasSeenGazette())
-            return $this->redirect($this->generateUrl('game_newspaper'));
+    public function planner_delete_api(JSONRequestParser $parser): Response {
+        $route_id = $parser->get('id', -1);
 
-        return $this->render( 'ajax/game/town/planner.html.twig', $this->addDefaultTwigArgs('door', array_merge([
-            'town'  =>  $this->getActiveCitizen()->getTown(),
-            'allow_extended' => $this->getActiveCitizen()->getProfession()->getHeroic()
-        ], $this->get_map_blob())) );
+        if ($route_id <= 0)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var ExpeditionRoute $route */
+        $route = $this->entity_manager->getRepository(ExpeditionRoute::class)->find($route_id);
+
+        if(!$route || $route->getOwner() !== $this->getActiveCitizen())
+            return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+
+        $this->entity_manager->remove($route);
+        $this->entity_manager->flush();
+
+        $this->addFlash( 'notice', $this->translator->trans('Die Route wurde gelöscht.', [], 'game') );
+        return AjaxResponse::success();
     }
 
     /**

@@ -1,16 +1,13 @@
 {% extends "ajax/ajax.html.twig" %}
 
 {% block menu_bar %}
-    {#<ul class="user">
-        <li>{{ username }}</li>
-        <li><a title="{% trans from 'soul' %}Logout{% endtrans %}" target="_self" href="{{ path('auto_logout') }}">&#10006;</a></li>
-    </ul>#}
+
     {% if clock is defined %}
         <ul class="clock">
             <li>{{ clock.desc }}</li>
             <li>{% if clock.towntype == 'panda' %}<span class="hardcore">{{'Pandämonium'|trans({}, 'game')}}</span> {% endif %}{% if clock.day != "" %}{{ 'Tag %day%'|trans({'%day%': clock.day}, 'game') }}{% endif %}</li>
-            <li><div class="tooltip help">{{ 'Spielzeit'|trans({},'game') }}</div>{{ clock.timestamp.format('G:i') }}</li>
-            <li x-countdown="{{ clock.attack }}" x-countdown-no-seconds="1" x-countdown-force-hours="1"></li>
+            <li x-current-time x-no-seconds="1" x-countdown-force-hours="1"><div class="tooltip help">{{ 'Spielzeit'|trans({},'game') }}</div>{{ clock.timestamp.format('G:i') }}</li>
+            <li x-countdown="{{ clock.attack }}" x-countdown-no-seconds="1" x-countdown-force-hours="1"><div class="tooltip help">{{ 'Zeit bis zum nächsten Zombieangriff'|trans({},'game') }}</div></li>
             <li><a target="_self" href="{{ path('auto_logout') }}"><img src="{{ asset('build/images/icons/b_exit.png') }}" alt="{{ 'Logout'|trans({},'soul') }}"></a><div class="tooltip">{{ 'Logout'|trans({},'soul') }}</div></li>
         </ul>
     {% endif %}
@@ -149,5 +146,20 @@
 {% block js %}
     {{ parent() }}
     <script>
+        $.html.addEventListenerAll('#postbox','click', function() {
+            let post = document.getElementById('post-office');
+            if (post) {
+                post.classList.add('visible');
+                document.body.style.overflow = 'hidden';
+                document.getElementById('post-office-content').innerText = '';
+
+                $.msg.restoreFetchEndpoint();
+                $.msg.togglePing(false);
+                $.msg.toggleFetch(true);
+                $.msg.setFetchRK(null);
+
+                $.ajax.background().load( document.getElementById('post-office-content'),'{{ url('pm_view')|e('js') }}', false )
+            }
+        });
     </script>
 {% endblock %}

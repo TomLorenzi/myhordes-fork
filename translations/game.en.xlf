@@ -4751,12 +4751,12 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Yes</target>
       </segment>
     </unit>
-    <unit id="0vW.4CA" name="Ein Vorhang blockiert die Sicht ...">
+    <unit id="bJkX9d8" name="7702a5e">
       <notes>
-        <note category="german">Ein Vorhang blockiert die Sicht ...</note>
+        <note category="german">Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was %citizen% bei sich aufbewahrt...</note>
       </notes>
       <segment>
-        <source>Ein Vorhang blockiert die Sicht ...</source>
+        <source>Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was %citizen% bei sich aufbewahrt...</source>
         <target>The contents of this house are hidden by curtains over the windows... how rude!</target>
       </segment>
     </unit>
@@ -17466,6 +17466,732 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...</source>
         <target>Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...</target>
+      </segment>
+    </unit>
+    <unit id="rqIPcqm" name="%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!">
+      <notes>
+        <note category="german">%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!</note>
+      </notes>
+      <segment>
+        <source>%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!</source>
+        <target>%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!</target>
+      </segment>
+    </unit>
+    <unit id="lDKOiMz" name="d1143ea">
+      <notes>
+        <note category="german">... Auf jeden Fall kamen %zombies% Zombies durch unsere Verteidigungen und griffen Bürger an!</note>
+      </notes>
+      <segment>
+        <source>... Auf jeden Fall kamen %zombies% Zombies durch unsere Verteidigungen und griffen Bürger an!</source>
+        <target>... Auf jeden Fall kamen %zombies% Zombies durch unsere Verteidigungen und griffen Bürger an!</target>
+      </segment>
+    </unit>
+    <unit id="0FSEa0F" name="66f1b95">
+      <notes>
+        <note category="german">Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!</note>
+      </notes>
+      <segment>
+        <source>Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!</source>
+        <target>Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!</target>
+      </segment>
+    </unit>
+    <unit id="usdY6.E" name="Die Zombies haben beim Angriff %list% zerstört.">
+      <notes>
+        <note category="german">Die Zombies haben beim Angriff %list% zerstört.</note>
+      </notes>
+      <segment>
+        <source>Die Zombies haben beim Angriff %list% zerstört.</source>
+        <target>Die Zombies haben beim Angriff %list% zerstört.</target>
+      </segment>
+    </unit>
+    <unit id="oGFad6j" name="Es ist kein Nachtwächter da, um die Stadt zu verteidigen.">
+      <notes>
+        <note category="german">Es ist kein Nachtwächter da, um die Stadt zu verteidigen.</note>
+      </notes>
+      <segment>
+        <source>Es ist kein Nachtwächter da, um die Stadt zu verteidigen.</source>
+        <target>Es ist kein Nachtwächter da, um die Stadt zu verteidigen.</target>
+      </segment>
+    </unit>
+    <unit id="gWz67fx" name="c3a54a1">
+      <notes>
+        <note category="german">Da keine lebendigen Bürger beim Angriff in der Stadt waren, wurde sie von den Zombies vollständig zerstört...</note>
+      </notes>
+      <segment>
+        <source>Da keine lebendigen Bürger beim Angriff in der Stadt waren, wurde sie von den Zombies vollständig zerstört...</source>
+        <target>Da keine lebendigen Bürger beim Angriff in der Stadt waren, wurde sie von den Zombies vollständig zerstört...</target>
+      </segment>
+    </unit>
+    <unit id="OwJiT_2" name="5f08baa">
+      <notes>
+        <note category="german">Die Nachtwächter der letzten nacht zeigten unglaublichen Mut, es ist nur schade, dass die Zombies offensichtlich mit etwas anderem beschäftigt waren!</note>
+      </notes>
+      <segment>
+        <source>Die Nachtwächter der letzten nacht zeigten unglaublichen Mut, es ist nur schade, dass die Zombies offensichtlich mit etwas anderem beschäftigt waren!</source>
+        <target>Die Nachtwächter der letzten nacht zeigten unglaublichen Mut, es ist nur schade, dass die Zombies offensichtlich mit etwas anderem beschäftigt waren!</target>
+      </segment>
+    </unit>
+    <unit id="bB1fuj8" name="2294b6d">
+      <notes>
+        <note category="german">Nachtwächter %citizen% hat sein Bestes gegeben, aber dieser Angriff hat ihn schwer verängstigt...</note>
+      </notes>
+      <segment>
+        <source>Nachtwächter %citizen% hat sein Bestes gegeben, aber dieser Angriff hat ihn schwer verängstigt...</source>
+        <target>Nachtwächter %citizen% hat sein Bestes gegeben, aber dieser Angriff hat ihn schwer verängstigt...</target>
+      </segment>
+    </unit>
+    <unit id="_.2FoR8" name="9e7c62b">
+      <notes>
+        <note category="german">Verdammt! Nachtwächter %citizen% wurde von Zombies überrumpelt und verwundet...</note>
+      </notes>
+      <segment>
+        <source>Verdammt! Nachtwächter %citizen% wurde von Zombies überrumpelt und verwundet...</source>
+        <target>Verdammt! Nachtwächter %citizen% wurde von Zombies überrumpelt und verwundet...</target>
+      </segment>
+    </unit>
+    <unit id="mv5qEr6" name="%citizen% wurde in die Stadt &lt;span&gt;teleportiert&lt;/span&gt;">
+      <notes>
+        <note category="german">%citizen% wurde in die Stadt &lt;span&gt;teleportiert&lt;/span&gt;</note>
+      </notes>
+      <segment>
+        <source>%citizen% wurde in die Stadt &lt;span&gt;teleportiert&lt;/span&gt;</source>
+        <target><![CDATA[%citizen% wurde in die Stadt <span>teleportiert</span>]]></target>
+      </segment>
+    </unit>
+    <unit id="OGB7Pen" name="Krankenhaus Beinapp">
+      <notes>
+        <note category="german">Krankenhaus Beinapp</note>
+      </notes>
+      <segment>
+        <source>Krankenhaus Beinapp</source>
+        <target>Cash Ulty Hospital</target>
+      </segment>
+    </unit>
+    <unit id="2gwJ5rX" name="Aesthetyxiations-Abteilung">
+      <notes>
+        <note category="german">Aesthetyxiations-Abteilung</note>
+      </notes>
+      <segment>
+        <source>Aesthetyxiations-Abteilung</source>
+        <target>Aesthetyxiation Unit</target>
+      </segment>
+    </unit>
+    <unit id="gRKS19j" name="Krankenhaus Krankenstedt">
+      <notes>
+        <note category="german">Krankenhaus Krankenstedt</note>
+      </notes>
+      <segment>
+        <source>Krankenhaus Krankenstedt</source>
+        <target>Syck Niss Hospital</target>
+      </segment>
+    </unit>
+    <unit id="nE0ohJ." name="Waldorf Klinik">
+      <notes>
+        <note category="german">Waldorf Klinik</note>
+      </notes>
+      <segment>
+        <source>Waldorf Klinik</source>
+        <target>Royal Troon Hospital</target>
+      </segment>
+    </unit>
+    <unit id="MpHqmpl" name="STD Behandlungszentrum Bohlen">
+      <notes>
+        <note category="german">STD Behandlungszentrum Bohlen</note>
+      </notes>
+      <segment>
+        <source>STD Behandlungszentrum Bohlen</source>
+        <target>The Munro Chronic STI Treatment Unit</target>
+      </segment>
+    </unit>
+    <unit id="3IZqzXd" name="Bill S. Preston Memorial Hospital">
+      <notes>
+        <note category="german">Bill S. Preston Memorial Hospital</note>
+      </notes>
+      <segment>
+        <source>Bill S. Preston Memorial Hospital</source>
+        <target>Bill S. Preston Memorial Hospital</target>
+      </segment>
+    </unit>
+    <unit id="4YF2o8." name="Klinik von Dr. Quack Salber">
+      <notes>
+        <note category="german">Klinik von Dr. Quack Salber</note>
+      </notes>
+      <segment>
+        <source>Klinik von Dr. Quack Salber</source>
+        <target>Dr Kwak's Clinic!</target>
+      </segment>
+    </unit>
+    <unit id=".wacYXQ" name="Wasserallergie-Behandlungszentrum">
+      <notes>
+        <note category="german">Wasserallergie-Behandlungszentrum</note>
+      </notes>
+      <segment>
+        <source>Wasserallergie-Behandlungszentrum</source>
+        <target>The Mererid Allergy Clinic</target>
+      </segment>
+    </unit>
+    <unit id="OpAA8wW" name="Klinikum Altenburg">
+      <notes>
+        <note category="german">Klinikum Altenburg</note>
+      </notes>
+      <segment>
+        <source>Klinikum Altenburg</source>
+        <target>Pelle Grain Hospital</target>
+      </segment>
+    </unit>
+    <unit id="b9dLorE" name="Stadtkrankenhaus am Dorfplatz">
+      <notes>
+        <note category="german">Stadtkrankenhaus am Dorfplatz</note>
+      </notes>
+      <segment>
+        <source>Stadtkrankenhaus am Dorfplatz</source>
+        <target>Osmond St Hospital</target>
+      </segment>
+    </unit>
+    <unit id="Myeh7YJ" name="Blanko-Penisverkleinerungsklinik">
+      <notes>
+        <note category="german">Blanko-Penisverkleinerungsklinik</note>
+      </notes>
+      <segment>
+        <source>Blanko-Penisverkleinerungsklinik</source>
+        <target>The Chapman Penis Reduction Clinic</target>
+      </segment>
+    </unit>
+    <unit id="KYvE.Q7" name="Chronische Erschöpfungsheilanstalt Dr. Sloth">
+      <notes>
+        <note category="german">Chronische Erschöpfungsheilanstalt Dr. Sloth</note>
+      </notes>
+      <segment>
+        <source>Chronische Erschöpfungsheilanstalt Dr. Sloth</source>
+        <target>The Brunting Daily Exhaustion Center</target>
+      </segment>
+    </unit>
+    <unit id="6w7BxUc" name="Bordeaux Grace">
+      <notes>
+        <note category="german">Bordeaux Grace</note>
+      </notes>
+      <segment>
+        <source>Bordeaux Grace</source>
+        <target>Bordeaux Grace</target>
+      </segment>
+    </unit>
+    <unit id="6es1Zyz" name="George und Ralph Kinderkrankenhaus">
+      <notes>
+        <note category="german">George und Ralph Kinderkrankenhaus</note>
+      </notes>
+      <segment>
+        <source>George und Ralph Kinderkrankenhaus</source>
+        <target>George and Ralph Children's Hospital</target>
+      </segment>
+    </unit>
+    <unit id="bLVHCVX" name="Charlton Eston Hotel">
+      <notes>
+        <note category="german">Charlton Eston Hotel</note>
+      </notes>
+      <segment>
+        <source>Charlton Eston Hotel</source>
+        <target>Charlton Eston Hotel</target>
+      </segment>
+    </unit>
+    <unit id="YW9tNOa" name="Motel Zauberstübchen">
+      <notes>
+        <note category="german">Motel Zauberstübchen</note>
+      </notes>
+      <segment>
+        <source>Motel Zauberstübchen</source>
+        <target>The Enchanted Motel</target>
+      </segment>
+    </unit>
+    <unit id="RXTU0Jt" name="Rabble Lodge">
+      <notes>
+        <note category="german">Rabble Lodge</note>
+      </notes>
+      <segment>
+        <source>Rabble Lodge</source>
+        <target>The Rabble Lodge</target>
+      </segment>
+    </unit>
+    <unit id="nDrFULB" name="Gasthof 'Zum Spanner'">
+      <notes>
+        <note category="german">Gasthof 'Zum Spanner'</note>
+      </notes>
+      <segment>
+        <source>Gasthof 'Zum Spanner'</source>
+        <target>The Unravel Inn</target>
+      </segment>
+    </unit>
+    <unit id="11soaXO" name="Zur Erbrochenen Krone">
+      <notes>
+        <note category="german">Zur Erbrochenen Krone</note>
+      </notes>
+      <segment>
+        <source>Zur Erbrochenen Krone</source>
+        <target>The Busted Arts</target>
+      </segment>
+    </unit>
+    <unit id=".tqLOvU" name="Terminal Hotel">
+      <notes>
+        <note category="german">Terminal Hotel</note>
+      </notes>
+      <segment>
+        <source>Terminal Hotel</source>
+        <target>Terminal Hotel</target>
+      </segment>
+    </unit>
+    <unit id="UJ.NcUe" name="Hotel Von Otto">
+      <notes>
+        <note category="german">Hotel Von Otto</note>
+      </notes>
+      <segment>
+        <source>Hotel Von Otto</source>
+        <target>Hotel Von Otto</target>
+      </segment>
+    </unit>
+    <unit id="4iY4V5c" name="S+M B+B">
+      <notes>
+        <note category="german">S+M B+B</note>
+      </notes>
+      <segment>
+        <source>S+M B+B</source>
+        <target>S+M B+B</target>
+      </segment>
+    </unit>
+    <unit id="38Pnm9V" name="Zm Schlafen Reichts Motel">
+      <notes>
+        <note category="german">Zm Schlafen Reichts Motel</note>
+      </notes>
+      <segment>
+        <source>Zm Schlafen Reichts Motel</source>
+        <target>The Passing Trade Motel</target>
+      </segment>
+    </unit>
+    <unit id="ugpUYNk" name="Hotel Peculiar">
+      <notes>
+        <note category="german">Hotel Peculiar</note>
+      </notes>
+      <segment>
+        <source>Hotel Peculiar</source>
+        <target>The Hotel Peculiar</target>
+      </segment>
+    </unit>
+    <unit id="FfhGQBk" name="Liza Defloration Hotel">
+      <notes>
+        <note category="german">Liza Defloration Hotel</note>
+      </notes>
+      <segment>
+        <source>Liza Defloration Hotel</source>
+        <target>Liza Defenestration Hotel</target>
+      </segment>
+    </unit>
+    <unit id="LEp.7HR" name="Santas Absteige">
+      <notes>
+        <note category="german">Santas Absteige</note>
+      </notes>
+      <segment>
+        <source>Santas Absteige</source>
+        <target>The Smashed Santa Inn</target>
+      </segment>
+    </unit>
+    <unit id="QAgPWD4" name="Chez Clem Hotel">
+      <notes>
+        <note category="german">Chez Clem Hotel</note>
+      </notes>
+      <segment>
+        <source>Chez Clem Hotel</source>
+        <target>Chez Clem Hotel</target>
+      </segment>
+    </unit>
+    <unit id="CVqoAHv" name="Drei Eingänge Hotel + Spa">
+      <notes>
+        <note category="german">Drei Eingänge Hotel + Spa</note>
+      </notes>
+      <segment>
+        <source>Drei Eingänge Hotel + Spa</source>
+        <target>Three Door Hotel + Spa</target>
+      </segment>
+    </unit>
+    <unit id="3ElP164" name="Hostel Partout">
+      <notes>
+        <note category="german">Hostel Partout</note>
+      </notes>
+      <segment>
+        <source>Hostel Partout</source>
+        <target>Hostel Partout</target>
+      </segment>
+    </unit>
+    <unit id="NwLPq6d" name="Bumbling Inn">
+      <notes>
+        <note category="german">Bumbling Inn</note>
+      </notes>
+      <segment>
+        <source>Bumbling Inn</source>
+        <target>The Bumbling Inn</target>
+      </segment>
+    </unit>
+    <unit id="RhHPR6w" name="Vajazzl Inn">
+      <notes>
+        <note category="german">Vajazzl Inn</note>
+      </notes>
+      <segment>
+        <source>Vajazzl Inn</source>
+        <target>The Vajazzl Inn</target>
+      </segment>
+    </unit>
+    <unit id="iPCSevb" name="Hotel Venga">
+      <notes>
+        <note category="german">Hotel Venga</note>
+      </notes>
+      <segment>
+        <source>Hotel Venga</source>
+        <target>Hotel Venga</target>
+      </segment>
+    </unit>
+    <unit id="IX8g.CS" name="Thermonuklear-Bunker">
+      <notes>
+        <note category="german">Thermonuklear-Bunker</note>
+      </notes>
+      <segment>
+        <source>Thermonuklear-Bunker</source>
+        <target>Thermonuclear Bunker</target>
+      </segment>
+    </unit>
+    <unit id="nk_3SAa" name="Garrison-Haus">
+      <notes>
+        <note category="german">Garrison-Haus</note>
+      </notes>
+      <segment>
+        <source>Garrison-Haus</source>
+        <target>Garrison House</target>
+      </segment>
+    </unit>
+    <unit id="SpbWkEI" name="Bastion der Angst">
+      <notes>
+        <note category="german">Bastion der Angst</note>
+      </notes>
+      <segment>
+        <source>Bastion der Angst</source>
+        <target>Bastion of Fear</target>
+      </segment>
+    </unit>
+    <unit id="St7WqwF" name="Bunker der Wut">
+      <notes>
+        <note category="german">Bunker der Wut</note>
+      </notes>
+      <segment>
+        <source>Bunker der Wut</source>
+        <target>Bunker of Fury</target>
+      </segment>
+    </unit>
+    <unit id="6TfqhRy" name="Fallout Shelter">
+      <notes>
+        <note category="german">Fallout Shelter</note>
+      </notes>
+      <segment>
+        <source>Fallout Shelter</source>
+        <target>Fallout Shelter</target>
+      </segment>
+    </unit>
+    <unit id="LjLekr." name="Keine Hoffnung ohne Öffnung!">
+      <notes>
+        <note category="german">Keine Hoffnung ohne Öffnung!</note>
+      </notes>
+      <segment>
+        <source>Keine Hoffnung ohne Öffnung!</source>
+        <target>Nowhere to hide</target>
+      </segment>
+    </unit>
+    <unit id="OjXicDh" name="Schattenfort">
+      <notes>
+        <note category="german">Schattenfort</note>
+      </notes>
+      <segment>
+        <source>Schattenfort</source>
+        <target>even inside!</target>
+      </segment>
+    </unit>
+    <unit id="NLf.v3s" name="Verlassene Trooper-Station">
+      <notes>
+        <note category="german">Verlassene Trooper-Station</note>
+      </notes>
+      <segment>
+        <source>Verlassene Trooper-Station</source>
+        <target>Shady Fort</target>
+      </segment>
+    </unit>
+    <unit id="T0elHRk" name="Verwesungsversteck">
+      <notes>
+        <note category="german">Verwesungsversteck</note>
+      </notes>
+      <segment>
+        <source>Verwesungsversteck</source>
+        <target>Abandoned Troop Station</target>
+      </segment>
+    </unit>
+    <unit id="kdHZpFX" name="Knochenkeller">
+      <notes>
+        <note category="german">Knochenkeller</note>
+      </notes>
+      <segment>
+        <source>Knochenkeller</source>
+        <target>Bone-filled Bunker</target>
+      </segment>
+    </unit>
+    <unit id="kYVhknJ" name="Geheimes Testlabor">
+      <notes>
+        <note category="german">Geheimes Testlabor</note>
+      </notes>
+      <segment>
+        <source>Geheimes Testlabor</source>
+        <target>Bone Blockhouse</target>
+      </segment>
+    </unit>
+    <unit id="xVdbliM" name="Area 52.1 Bunker">
+      <notes>
+        <note category="german">Area 52.1 Bunker</note>
+      </notes>
+      <segment>
+        <source>Area 52.1 Bunker</source>
+        <target>Secret Testing Center</target>
+      </segment>
+    </unit>
+    <unit id="hhCsY5M" name="Area 33 Bunker">
+      <notes>
+        <note category="german">Area 33 Bunker</note>
+      </notes>
+      <segment>
+        <source>Area 33 Bunker</source>
+        <target>Area 52.1 Shelter</target>
+      </segment>
+    </unit>
+    <unit id="Veg.kOO" name="Quarantäne-Zone">
+      <notes>
+        <note category="german">Quarantäne-Zone</note>
+      </notes>
+      <segment>
+        <source>Quarantäne-Zone</source>
+        <target>Area 33 Bunker</target>
+      </segment>
+    </unit>
+    <unit id="nSErwiZ" name="584c3c5">
+      <notes>
+        <note category="german">Du hast soeben folgenden Gegenstand aus der Bank genommen: %item%. &lt;strong&gt;Sei nicht zu gierig&lt;/strong&gt; oder deine Mitbürger könnten dich für einen &lt;strong&gt;Egoisten&lt;/strong&gt; halten...</note>
+      </notes>
+      <segment>
+        <source>Du hast soeben folgenden Gegenstand aus der Bank genommen: %item%. &lt;strong&gt;Sei nicht zu gierig&lt;/strong&gt; oder deine Mitbürger könnten dich für einen &lt;strong&gt;Egoisten&lt;/strong&gt; halten...</source>
+        <target><![CDATA[Du hast soeben folgenden Gegenstand aus der Bank genommen: %item%. <strong>Sei nicht zu gierig</strong> oder deine Mitbürger könnten dich für einen <strong>Egoisten</strong> halten...]]></target>
+      </segment>
+    </unit>
+    <unit id="MotZLIj" name="875de78">
+      <notes>
+        <note category="german">Du hast eine weitere %item% genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...</note>
+      </notes>
+      <segment>
+        <source>Du hast eine weitere %item% genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...</source>
+        <target>Du hast eine weitere %item% genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...</target>
+      </segment>
+    </unit>
+    <unit id=".DUvSmW" name="Du hast deine tägliche Ration erhalten: %item%">
+      <notes>
+        <note category="german">Du hast deine tägliche Ration erhalten: %item%</note>
+      </notes>
+      <segment>
+        <source>Du hast deine tägliche Ration erhalten: %item%</source>
+        <target>Du hast deine tägliche Ration erhalten: %item%</target>
+      </segment>
+    </unit>
+    <unit id="T4D33fJ" name="Die Route wurde gelöscht.">
+      <notes>
+        <note category="german">Die Route wurde gelöscht.</note>
+      </notes>
+      <segment>
+        <source>Die Route wurde gelöscht.</source>
+        <target>Die Route wurde gelöscht.</target>
+      </segment>
+    </unit>
+    <unit id="2610l.t" name="999c592">
+      <notes>
+        <note category="german">In diesem Bereich kannst du für deine Mitbürger "Wege" in der Außenwelt markieren. Auf diese Weise könnt ihr Expeditionen in Zonen organisieren, die euch wirklich interessieren..</note>
+      </notes>
+      <segment>
+        <source>In diesem Bereich kannst du für deine Mitbürger "Wege" in der Außenwelt markieren. Auf diese Weise könnt ihr Expeditionen in Zonen organisieren, die euch wirklich interessieren..</source>
+        <target>In diesem Bereich kannst du für deine Mitbürger "Wege" in der Außenwelt markieren. Auf diese Weise könnt ihr Expeditionen in Zonen organisieren, die euch wirklich interessieren..</target>
+      </segment>
+    </unit>
+    <unit id="oUzp6eN" name="e9767a0">
+      <notes>
+        <note category="german">Achtung: Die Stadt kann nur 16 Expeditionen durchführen. Denke immer daran, nutzlos gewordene Expeditionen abzubrechen!</note>
+      </notes>
+      <segment>
+        <source>Achtung: Die Stadt kann nur 16 Expeditionen durchführen. Denke immer daran, nutzlos gewordene Expeditionen abzubrechen!</source>
+        <target>Achtung: Die Stadt kann nur 16 Expeditionen durchführen. Denke immer daran, nutzlos gewordene Expeditionen abzubrechen!</target>
+      </segment>
+    </unit>
+    <unit id="Zoy_MWF" name="Dauer">
+      <notes>
+        <note category="german">Dauer</note>
+      </notes>
+      <segment>
+        <source>Dauer</source>
+        <target>Dauer</target>
+      </segment>
+    </unit>
+    <unit id="mZIzUeE" name="von %citizen%">
+      <notes>
+        <note category="german">von %citizen%</note>
+      </notes>
+      <segment>
+        <source>von %citizen%</source>
+        <target>von %citizen%</target>
+      </segment>
+    </unit>
+    <unit id="jjE2OUe" name="Ansehen">
+      <notes>
+        <note category="german">Ansehen</note>
+      </notes>
+      <segment>
+        <source>Ansehen</source>
+        <target>Ansehen</target>
+      </segment>
+    </unit>
+    <unit id="J.e7pwb" name="Diese Expedition löschen">
+      <notes>
+        <note category="german">Diese Expedition löschen</note>
+      </notes>
+      <segment>
+        <source>Diese Expedition löschen</source>
+        <target>Diese Expedition löschen</target>
+      </segment>
+    </unit>
+    <unit id="d560REt" name="Eine Expedition Erstellen">
+      <notes>
+        <note category="german">Eine Expedition Erstellen</note>
+      </notes>
+      <segment>
+        <source>Eine Expedition Erstellen</source>
+        <target>Eine Expedition Erstellen</target>
+      </segment>
+    </unit>
+    <unit id="9zkVg8p" name="Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...">
+      <notes>
+        <note category="german">Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...</note>
+      </notes>
+      <segment>
+        <source>Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...</source>
+        <target>Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...</target>
+      </segment>
+    </unit>
+    <unit id="4jN.T2l" name="315dd2d">
+      <notes>
+        <note category="german">Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
+                Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
+                Nichts, was der Mühe wert wäre.</note>
+      </notes>
+      <segment>
+        <source>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
+                Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
+                Nichts, was der Mühe wert wäre.</source>
+        <target>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
+                Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
+                Nichts, was der Mühe wert wäre.</target>
+      </segment>
+    </unit>
+    <unit id="DqKvoHz" name="0ea5fb9">
+      <notes>
+        <note category="german">Cette maison est &lt;strong&gt;protégée&lt;/strong&gt; (verrou ou autre...) et ne peut être cambriolée.</note>
+      </notes>
+      <segment>
+        <source>Cette maison est &lt;strong&gt;protégée&lt;/strong&gt; (verrou ou autre...) et ne peut être cambriolée.</source>
+        <target><![CDATA[Cette maison est <strong>protégée</strong> (verrou ou autre...) et ne peut être cambriolée.]]></target>
+      </segment>
+    </unit>
+    <unit id="Hre92RP" name="Zeit bis zum nächsten Zombieangriff">
+      <notes>
+        <note category="german">Zeit bis zum nächsten Zombieangriff</note>
+      </notes>
+      <segment>
+        <source>Zeit bis zum nächsten Zombieangriff</source>
+        <target>Zeit bis zum nächsten Zombieangriff</target>
+      </segment>
+    </unit>
+    <unit id="OZBaq.m" name="Das Register filtern">
+      <notes>
+        <note category="german">Das Register filtern</note>
+      </notes>
+      <segment>
+        <source>Das Register filtern</source>
+        <target>Das Register filtern</target>
+      </segment>
+    </unit>
+    <unit id="pVw6QMt" name="Bürger:">
+      <notes>
+        <note category="german">Bürger:</note>
+      </notes>
+      <segment>
+        <source>Bürger:</source>
+        <target>Bürger:</target>
+      </segment>
+    </unit>
+    <unit id="veFPW3j" name="Alles sehen">
+      <notes>
+        <note category="german">Alles sehen</note>
+      </notes>
+      <segment>
+        <source>Alles sehen</source>
+        <target>Alles sehen</target>
+      </segment>
+    </unit>
+    <unit id="02rWWHc" name="Kategorie:">
+      <notes>
+        <note category="german">Kategorie:</note>
+      </notes>
+      <segment>
+        <source>Kategorie:</source>
+        <target>Kategorie:</target>
+      </segment>
+    </unit>
+    <unit id="X377hje" name="Verbrechen">
+      <notes>
+        <note category="german">Verbrechen</note>
+      </notes>
+      <segment>
+        <source>Verbrechen</source>
+        <target>Verbrechen</target>
+      </segment>
+    </unit>
+    <unit id="EimCTw3" name="Baustelle">
+      <notes>
+        <note category="german">Baustelle</note>
+      </notes>
+      <segment>
+        <source>Baustelle</source>
+        <target>Baustelle</target>
+      </segment>
+    </unit>
+    <unit id="TXchxsK" name="Neue und Tote">
+      <notes>
+        <note category="german">Neue und Tote</note>
+      </notes>
+      <segment>
+        <source>Neue und Tote</source>
+        <target>Neue und Tote</target>
+      </segment>
+    </unit>
+    <unit id="To01kGO" name="Zombieangriff (newspaper)">
+      <notes>
+        <note category="german">Zombieangriff (newspaper)</note>
+      </notes>
+      <segment>
+        <source>Zombieangriff (newspaper)</source>
+        <target>Zombieangriff (newspaper)</target>
+      </segment>
+    </unit>
+    <unit id="9tYl8RU" name="Zum Schlafen Reichts Motel">
+      <notes>
+        <note category="german">Zum Schlafen Reichts Motel</note>
+      </notes>
+      <segment>
+        <source>Zum Schlafen Reichts Motel</source>
+        <target>Zum Schlafen Reichts Motel</target>
       </segment>
     </unit>
   </file>

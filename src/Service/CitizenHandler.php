@@ -269,8 +269,6 @@ class CitizenHandler
             // The gallow is used before the cage
             if ($gallows) {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Hanging, $rem );
-                $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_dhang_#00']);
-                $this->picto_handler->give_picto($citizen, $pictoPrototype);
 
                 // The gallow gets destroyed
                 $gallows->setComplete(false)->setAp(0)->setDefense(0)->setHp(0);
@@ -662,7 +660,8 @@ class CitizenHandler
 
         // Leuchtturm
         $camping_values['lighthouse'] = 0;
-        if ($town->getBuildings()->contains( $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName( 'small_lighthouse_#00' )) ) {
+
+        if ($this->container->get(TownHandler::class)->getBuilding( $town, "small_lighthouse_#00" )) {
             $camping_values['lighthouse'] = 25; //camping improvement or percent ? Because it's 5 camping improvement normally
         }
 

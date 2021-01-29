@@ -7,9 +7,9 @@ div.tooltip.badge-tooltip {
     &>b { display: block; font-size: 1.2em; border-bottom: 1px solid wheat; color: wheat; margin-bottom: 3px; }
 }
 
-#users-list-soul {
+#users-list-soul, #pm-users-list-container, #pm-add-users-list-container {
     position: relative; overflow: visible;
-    #users-list {
+    #users-list, #pm-users-list, #pm-add-users-list {
         position: absolute; margin: 0; display: block; background: @myhordes-cell-header-background-color;
         width:300px; max-height: 200px; overflow: auto; z-index: 1; border: 1px solid @myhordes-smalltext;
         outline: 1px solid black; box-shadow: 0 0 3px black;
@@ -193,6 +193,14 @@ div.tooltip.badge-tooltip {
             .row-flex.played {
                 background-color: #3b3249;
             }
+
+            .row-flex.hardcore {
+                background-color:#773939;
+            }
+
+            .row-flex.custom {
+                background-color:#3b3249;
+            }
             border-bottom: 1px solid #ddab76;
 
             .town-name {
@@ -216,7 +224,6 @@ div.tooltip.badge-tooltip {
             }
 
             .hardcore {
-                background-color:#773939;
                 .town-name, .town-days { color: #f86; }
             }
 
@@ -270,6 +277,26 @@ div.tooltip.badge-tooltip {
         .note { width: 24%; flex-basis: 24%; }
     }
 
+    ul.group-conversation.announcement {
+      padding: 0;
+      &>li {
+        list-style: none; margin: 20px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        background: #5c2b20; padding: 10px; border: 1px solid #704328;
+        h1 { color: @myhordes-smalltext; margin: 0 0 5px 0; padding: 0 0 5px 0; border-bottom: 1px solid rgba(0,0,0,0.2); }
+        &>p:only-child { margin: 5px 0 10px 0; font-size: 1.5rem; }
+        .pm-message-footer {
+          padding: 5px 0; border-top: 1px solid rgba(0,0,0,0.2); color: @myhordes-smalltext;
+          .pm-announcement-sender { font-weight: bold }
+          .pm-announcement-date { opacity: 0.7; }
+        }
+      }
+    }
+
+    .pm-endless-more {
+      text-align: center; color: @myhordes-smalltext; margin: 10px 5px; padding: 2px 0; cursor: pointer;
+      border-top: 1px solid fade(@myhordes-smalltext, 50%); border-bottom: 1px solid fade(@myhordes-smalltext, 50%);
+    }
+
     .news {
         margin: 0 15px;
         .head {
@@ -299,10 +326,13 @@ div.tooltip.badge-tooltip {
             p { margin: 0; }
         }
 
-        .forum-post { background: #5c2b20; padding: 10px 0 0 10px; border: 1px solid #704328; }
+        .forum-post {
+          background: #5c2b20; padding: 10px 0 0 10px; border: 1px solid #704328;
+        }
         .content {
             padding: 5px 5px 5px 110px; background: url('../../img/help/pipWelcome.gif') no-repeat #5c2b20;
-            color: #ddab76; margin-bottom: 10px;
+            color: #ddab76; margin-bottom: 10px; border: none;
+            &>p:only-child {margin: 0}
         }
     }
 

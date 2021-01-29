@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\RuinZone;
+use App\Entity\Zone;
+use App\Entity\ZonePrototype;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\CitizenHandler;
@@ -105,7 +107,8 @@ class ExplorationController extends InventoryAwareController implements Explorat
             'prototype' => $citizen->getZone()->getPrototype(),
             'exploration' => $ex,
             'zone' => $ruinZone,
-            'floor' => $ex->getInRoom() ? $ruinZone->getRoomFloor() : $ruinZone->getFloor(),
+            // 'floor' => $ex->getInRoom() ? $ruinZone->getRoomFloor() : $ruinZone->getFloor(),
+            'floor' => $ruinZone->getFloor(),
             'heroics' => $this->getHeroicActions(),
             'actions' => $this->getItemActions(),
             'recipes' => $this->getItemCombinations(false),
@@ -118,7 +121,7 @@ class ExplorationController extends InventoryAwareController implements Explorat
             'can_imprint' => $citizen->getProfession()->getName() === 'tech',
             'ruin_map_data' => [
                 'show_exit_direction' => $citizen->getProfession()->getName() === 'tamer',
-                'name' => $citizen->getZone()->getPrototype()->getLabel(),
+                'name' => $this->generateRuinName($citizen->getZone()),
                 'timeout' => max(0, $ex->getTimeout()->getTimestamp() - time()),
                 'zone' => $ruinZone,
                 'shifted' => $ex->getInRoom(),
@@ -282,7 +285,8 @@ class ExplorationController extends InventoryAwareController implements Explorat
      */
     public function item_explore_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
         $ex = $this->getActiveCitizen()->activeExplorerStats();
-        $down_inv = $ex->getInRoom() ? $this->getCurrentRuinZone()->getRoomFloor() : $this->getCurrentRuinZone()->getFloor();
+        //$down_inv = $ex->getInRoom() ? $this->getCurrentRuinZone()->getRoomFloor() : $this->getCurrentRuinZone()->getFloor();
+        $down_inv = $this->getCurrentRuinZone()->getFloor();
         $up_inv   = $this->getActiveCitizen()->getInventory();
 
         return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler);
@@ -315,15 +319,17 @@ class ExplorationController extends InventoryAwareController implements Explorat
         $ruinZone->setDigs( $ruinZone->getDigs() + 1 );
 
         if ($prototype) {
-            $item = $this->item_factory->createItem($prototype);
+            $item = $this->item_factory->createItem($prototype, false, $prototype->hasProperty("found_poisoned") ? $this->random_generator->chance(0.90) : false);
             $noPlaceLeftMsg = "";
-            $inventoryDest = $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getRoomFloor()]);
-            if ($inventoryDest === $ruinZone->getFloor())
-                $noPlaceLeftMsg = "<hr />" . $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
+            // $inventoryDest = $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getRoomFloor()]);
+            $inventoryDest = $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getFloor()]);
+            //if ($inventoryDest === $ruinZone->getFloor())
+            //    $noPlaceLeftMsg = "<hr />" . $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
 
             $this->entity_manager->persist($item);
             $this->entity_manager->persist($citizen->getInventory());
-            $this->entity_manager->persist($ruinZone->getRoomFloor());
+            // $this->entity_manager->persist($ruinZone->getRoomFloor());
+            $this->entity_manager->persist($ruinZone->getFloor());
 
             $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
                     '%item%' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>"
@@ -446,5 +452,14 @@ class ExplorationController extends InventoryAwareController implements Explorat
      */
     public function recipe_desert_api(JSONRequestParser $parser, ActionHandler $handler): Response {
         return $this->generic_recipe_api( $parser, $handler);
+    }
+
+    public function generateRuinName(Zone $zone) {
+        $ruinNames = [
+            'deserted_hospital' => [T::__("Krankenhaus Beinapp", 'game'), T::__("Aesthetyxiations-Abteilung", 'game'), T::__("Krankenhaus Krankenstedt", 'game'), T::__("Waldorf Klinik", 'game'), T::__("STD Behandlungszentrum Bohlen", 'game'), T::__("Bill S. Preston Memorial Hospital", 'game'), T::__("Klinik von Dr. Quack Salber", 'game'), T::__("Wasserallergie-Behandlungszentrum", 'game'), T::__("Klinikum Altenburg", 'game'), T::__("Stadtkrankenhaus am Dorfplatz", 'game'), T::__("Blanko-Penisverkleinerungsklinik", 'game'), T::__("Chronische Erschöpfungsheilanstalt Dr. Sloth", 'game'), T::__("Bordeaux Grace", 'game'), T::__("George und Ralph Kinderkrankenhaus", 'game')],
+            'deserted_hotel' => [T::__("Charlton Eston Hotel", 'game'), T::__("Motel Zauberstübchen", 'game'), T::__("Rabble Lodge", 'game'), T::__("Gasthof 'Zum Spanner'", 'game'), T::__("Zur Erbrochenen Krone", 'game'), T::__("Terminal Hotel", 'game'), T::__("Hotel Von Otto", 'game'), T::__("S+M B+B", 'game'), T::__("Zum Schlafen Reichts Motel", 'game'), T::__("Hotel Peculiar", 'game'), T::__("Liza Defloration Hotel", 'game'), T::__("Santas Absteige", 'game'), T::__("Chez Clem Hotel", 'game'), T::__("Drei Eingänge Hotel + Spa", 'game'), T::__("Hostel Partout", 'game'), T::__("Bumbling Inn", 'game'), T::__("Vajazzl Inn", 'game'), T::__("Hotel Venga", 'game')],
+            'deserted_bunker' => [T::__("Verlassener Bunker", 'game'), T::__("Thermonuklear-Bunker", 'game'), T::__("Garrison-Haus", 'game'), T::__("Bastion der Angst", 'game'), T::__("Bunker der Wut", 'game'), T::__("Fallout Shelter", 'game'), T::__("Keine Hoffnung ohne Öffnung!", 'game'), T::__("Schattenfort", 'game'), T::__("Verlassene Trooper-Station", 'game'), T::__("Verwesungsversteck", 'game'), T::__("Knochenkeller", 'game'), T::__("Geheimes Testlabor", 'game'), T::__("Area 52.1 Bunker", 'game'), T::__("Area 33 Bunker", 'game'), T::__("Quarantäne-Zone", 'game')],
+        ];
+        return $ruinNames[$zone->getPrototype()->getIcon()][$zone->getId() % count($ruinNames[$zone->getPrototype()->getIcon()])];
     }
 }

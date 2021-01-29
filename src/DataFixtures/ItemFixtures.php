@@ -357,7 +357,7 @@ class ItemFixtures extends Fixture
         ['label' => 'Sandball', 'icon' => 'sand_ball', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                              //
         ['label' => 'Santas Rentier', 'icon' => 'renne', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 30],                                             // -- ---
         ['label' => 'Osterei', 'icon' => 'paques', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 38],                                                  // -- ---
-        ['label' => 'Geistiger Beistand', 'icon' => 'chkspk', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                       // -- ---
+        ['label' => 'Geistiger Beistand', 'icon' => 'chkspk', 'category' => 'Misc', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],                                       // -- ---
         ['label' => 'Fette Python', 'icon' => 'pet_snake2', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0, 'fragile' => true],                                          // -- ---
         ['label' => 'Bürgerbekleidung', 'icon' => 'basic_suit', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                     // -- ---
         ['label' => 'Dreckige Bürgerbekleidung', 'icon' => 'basic_suit_dirt', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                       // -- ---
@@ -735,7 +735,7 @@ class ItemFixtures extends Fixture
         'pelle_#00' => 'Mit der kleinen Schaufel musst du in der Wüste nicht so lange graben (automatisch aktiviert). Die Wahrscheinlichkeit einen Gegenstand zu finden ist ebenfalls größer.', // Kleine Schaufel
         'tamed_pet_#00' => 'Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich.', // Dreibeiniger Malteser
         'tamed_pet_drug_#00' => 'Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich.', // Dreibeiniger Malteser (gedopt)
-        'tamed_pet_off_#00' => 'Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich.', // Dreibeiniger Malteser (erschöpft)
+        'tamed_pet_off_#00' => 'Dein Hündchen sieht *müde* aus... Es keucht die ganze Zeit und starrt dich aus erschöpften Augen an.', // Dreibeiniger Malteser (erschöpft)
         'surv_book_#00' => 'Auch wenn der Titel anderes vermuten lässt: "Tick, Trick und Tracks Schlaues Buch" ist von unschätzbarem Wert. Es enthält zahlreiche Tipps und Tricks, wie man in der Natur am besten überleben und Nahrung finden kann.', // Survivalbuch
         'keymol_#00' => 'Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.', // Schraubenschlüssel
         'shield_#00' => ' Ein großer Schutzschild, der keine Wünsche offen lässt, ermöglicht es dir, in der Wüste bis zu 2 zusätzliche Zombies auf Distanz zu halten.', // Schutzschild
@@ -844,7 +844,7 @@ class ItemFixtures extends Fixture
         'pharma_part_#00'            => [ 'impoundable', 'drug' ],
         'lsd_#00'                    => [ 'impoundable', 'drug' ],
         'radio_on_#00'               => [ 'impoundable', 'nw_ikea' ],
-        'water_#00'                  => [ 'can_poison', 'hero_find', 'esc_fixed', 'hero_find_lucky' ],
+        'water_#00'                  => [ 'can_poison', 'hero_find', 'esc_fixed', 'hero_find_lucky',  'found_poisoned' ],
         'can_open_#00'               => [ 'can_poison', 'food', 'can_cook' ],
         'vegetable_#00'              => [ 'can_poison', 'food', 'can_cook' ],
         'fruit_#00'                  => [ 'can_poison', 'food', 'can_cook' ],

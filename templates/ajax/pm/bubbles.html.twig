@@ -1,0 +1,202 @@
+{% macro bubble_index(entry) %}
+    {% set endpoint_fetch   = null %}
+    {% set endpoint_spring  = null %}
+    {% set endpoint_answer  = null %}
+    {% set endpoint_trash   = null %}
+    {% set endpoint_unread  = null %}
+    {% set endpoint_users   = null %}
+    {% set message_title    = entry.title %}
+    {% set message_id       = 0 %}
+    {% set message_type     = 'un' %}
+    {% set message_show_ava = true %}
+    {% if entry.obj|instance_of('App\\Entity\\UserGroupAssociation') %}
+        {% if not entry.closed %}
+            {% set endpoint_answer = path('pm_post_editor_controller', {'id': entry.obj.association.id}) %}
+            {% set endpoint_users  = path('pm_conv_group_users', {'id': entry.obj.association.id}) %}
+            {% set endpoint_spring = path('api_pm_spring', {'id': entry.obj.association.id, 'domain': 'g'}) %}
+        {% endif %}
+        {% set endpoint_fetch  = path('pm_conv_group', {'id': entry.obj.association.id}) %}
+        {% set endpoint_trash  = path('pm_delete_conv_group', {'id': entry.obj.association.id}) %}
+        {% set endpoint_unread = path('pm_unread_conv_group', {'id': entry.obj.association.id}) %}
+        {% set message_id      = entry.obj.id %}
+        {% set message_type    = 'g' %}
+    {% elseif entry.obj|instance_of('App\\Entity\\Announcement') %}
+        {% set message_title    = 'Ankündigung'|trans({},'global') %}
+        {% set endpoint_fetch   = path('pm_announce', {'id': entry.obj.id}) %}
+        {% set endpoint_unread  = path('pm_unread_announce', {'id': entry.obj.id}) %}
+        {% set message_id       = entry.obj.id %}
+        {% set message_type     = 'a' %}
+        {% set message_show_ava = false %}
+    {% elseif entry.obj|instance_of('App\\Entity\\GlobalPrivateMessage') %}
+        {% set endpoint_fetch  = path('pm_dm') %}
+        {% set endpoint_spring = path('api_pm_spring', {'id': entry.owner.id, 'domain': 'd'}) %}
+        {% set endpoint_trash  = path('pm_delete_dm') %}
+        {% set endpoint_unread = path('pm_unread_dm') %}
+        {% set message_id      = entry.owner.id %}
+        {% set message_type    = 'd' %}
+    {% endif %}
+
+    <li x-title="{{ message_title }}" x-domain="{{ message_type }}" x-identifier="{{ message_id }}"
+        class="{% if entry.closed %}closed{% endif %} {% if entry.system %}system{% endif %} {% if entry.unread > 0 %}new{% endif %}"
+        {% if endpoint_fetch  is not null %}x-endpoint="{{ endpoint_fetch }}"{% endif %}
+            {% if endpoint_spring is not null %}x-spring="{{ endpoint_spring }}"{% endif %}
+            {% if endpoint_answer is not null %}x-editor="{{ endpoint_answer }}"{% endif %}
+            {% if endpoint_trash  is not null %}x-trash="{{ endpoint_trash }}"{% endif %}
+            {% if endpoint_unread is not null %}x-unread="{{ endpoint_unread }}"{% endif %}
+            {% if endpoint_users  is not null %}x-userlist="{{ endpoint_users }}"{% endif %}
+    >
+        {% if message_show_ava %}
+            <div class="pm-avatar-block">
+                {% if entry.system %}
+                    <div class="pm-avatar-crow"></div>
+                {% elseif entry.users|length > 1 %}
+                    {% set i = 0 %}
+                    {% for message_partner in entry.users %}
+                        {% if i < 4 and message_partner != app.user and message_partner != entry.owner and message_partner.avatar %}
+                            <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': message_partner.id, 'name': message_partner.avatar.filename, 'ext': message_partner.avatar.format}) }}) center/cover"></div>
+                            {% set i = i+1 %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if i < 4 %}
+                        {% for message_partner in entry.users %}
+                            {% if i < 4 and message_partner != app.user and message_partner != entry.owner and message_partner.avatar is empty %}
+                                <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ message_partner.name|slice(0,2) }}</div></div>
+                                {% set i = i+1 %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                    {% if entry.owner is not empty and entry.owner != app.user %}
+                        {% if entry.owner.avatar %}
+                            <div class="pm-avatar owner" style="background: url({{ path('app_web_avatar', {'uid': entry.owner.id, 'name': entry.owner.avatar.filename, 'ext': entry.owner.avatar.format}) }}) center/cover"></div>
+                        {% else %}
+                            <div class="pm-avatar owner row-flex v-center"><div class="cell rw-12 center">{{ entry.owner.name|slice(0,2) }}</div></div>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endif %}
+
+        <b class="title {% if entry.system %}crow-note{% endif %}">{{ entry.title }}</b>
+
+        {% if entry.system %}
+            <span class="author crow-note">{{ 'Der Rabe'|trans({},'global') }}</span>
+        {% elseif entry.users|length > 2 and entry.owner != app.user %}
+            <span class="author group-desc"><b class="sender">{{ entry.owner.name }}</b>, {{ '%n% Teilnehmer'|trans({'%n%': entry.users|length},'global') }}</span>
+        {% elseif entry.users|length > 2 %}
+            <span class="author group-desc">{{ '%n% Teilnehmer'|trans({'%n%': entry.users|length},'global') }}</span>
+        {% elseif entry.users|length == 2 %}
+            {% for message_partner in entry.users %}
+                {% if message_partner != app.user %}
+                    <span class="author group-desc"><b class="sender">{{ message_partner.name }}</b></span>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <span class="author unknown"></span>
+        {% endif %}
+
+        {% if not entry.closed %}
+            <span class="date">
+                {% if entry.date >= 'today'|to_date %}
+                    {{ 'Heute um'|trans({},'global') }} {{ entry.date|format_datetime('none', 'short') }}
+                {% elseif entry.date >= 'yesterday'|to_date %}
+                    {{ 'Gestern um'|trans({},'global') }} {{ entry.date|format_datetime('none', 'short') }}
+                {% else %}
+                    {{ entry.date|format_datetime('medium', 'short') }}
+                {% endif %}
+            </span>
+        {% endif %}
+    </li>
+{% endmacro %}
+{% macro bubble_announcement(announcement, last) %}
+    {# @var announcement App\Entity\Announcement #}
+    <li x-domain="m-a" x-identifier="{{ announcement.id }}" x-announce-id="{{ announcement.id }}">
+        <div class="pm-announce">
+            <div class="pm-message-content">
+                <h1>{{ announcement.title }}</h1>
+                {{ announcement.text|raw }}
+            </div>
+            <div class="pm-message-footer">
+                {% if (announcement.sender.avatar) %}
+                    <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': announcement.sender.id, 'name': announcement.sender.avatar.filename, 'ext': announcement.sender.avatar.format}) }}) center/cover"></div>
+                {% else %}
+                    <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ announcement.sender.name|slice(0,2) }}</div></div>
+                {% endif %}
+                <span class="pm-announcement-sender"><span class="hide-md">{{ announcement.sender.name }}</span></span>
+                <span class="pm-announcement-date float-right">{% if announcement.timestamp >= "today"|to_date %}
+                    {{ 'Heute um'|trans({},'global') }} {{ announcement.timestamp|format_datetime('none', 'short') }}
+                {% elseif announcement.timestamp >= "yesterday"|to_date %}
+                    {{ 'Gestern um'|trans({},'global') }} {{ announcement.timestamp|format_datetime('none', 'short') }}
+                {% else %}
+                    {{ announcement.timestamp|format_datetime('medium', 'short') }}
+                {% endif %}</span>
+            </div>
+        </div>
+    </li>
+{% endmacro %}
+{% macro bubble_dm(message, last) %}
+    {# @var message App\Entity\GlobalPrivateMessage #}
+    <li class="{% if not message.seen %}new{% endif %}" x-domain="m-g" x-identifier="{{ message.id }}">
+        {% if (message.sender.id == 66) %}
+            <div class="pm-avatar-crow"></div>
+        {% elseif (message.sender.avatar) %}
+            <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': message.sender.id, 'name': message.sender.avatar.filename, 'ext': message.sender.avatar.format}) }}) center/cover"></div>
+        {% else %}
+            <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ message.sender.name|slice(0,2) }}</div></div>
+        {% endif %}
+        <div class="pm-message">
+            <div class="pm-message-header"><i class="fa fa-user"></i> {{ message.sender.name }}</div>
+            <div class="pm-message-content">
+                <div class="crowmsg">{{ 'Dies ist eine offizielle Nachricht.'|trans({},'game') }} <a class="help-button"><div class="tooltip help">{{ 'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></div>
+                {{ message.text|raw }}
+            </div>
+            <div class="pm-message-footer">
+                {% if message.timestamp >= "today"|to_date %}
+                    {{ 'Heute um'|trans({},'global') }} {{ message.timestamp|format_datetime('none', 'short') }}
+                {% elseif message.timestamp >= "yesterday"|to_date %}
+                    {{ 'Gestern um'|trans({},'global') }} {{ message.timestamp|format_datetime('none', 'short') }}
+                {% else %}
+                    {{ message.timestamp|format_datetime('medium', 'short') }}
+                {% endif %}
+            </div>
+        </div>
+    </li>
+{% endmacro %}
+{% macro bubble_group(message, last) %}
+    {# @var message App\Entity\GlobalPrivateMessage #}
+    <li  x-domain="m-d" x-identifier="{{ message.id }}" class="{% if message.sender == app.user %}own{% endif %} {% if message.id > last %}new{% endif %}">
+        {% if (message.sender.avatar) %}
+            <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': message.sender.id, 'name': message.sender.avatar.filename, 'ext': message.sender.avatar.format}) }}) center/cover"></div>
+        {% else %}
+            <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ message.sender.name|slice(0,2) }}</div></div>
+        {% endif %}
+        <div class="pm-message">
+            <div class="pm-message-header"><i class="fa fa-user"></i> {{ message.sender.name }}</div>
+            <div class="pm-message-content">
+                {% if message.hidden %}
+                    <div class="crowmsg">{{ 'Der Rabe hat diese Nachricht zerrissen.'|trans({},'game') }}</div>
+                {% else %}
+                    {{ message.text|raw }}
+                {% endif %}
+                {% if message.modMessage %}
+                    <div class="modAnnounce">{{ message.modMessage }}</div>
+                {% endif %}
+            </div>
+            <div class="pm-message-footer">
+                {% if message.timestamp >= "today"|to_date %}
+                    {{ 'Heute um'|trans({},'global') }} {{ message.timestamp|format_datetime('none', 'short') }}
+                {% elseif message.timestamp >= "yesterday"|to_date %}
+                    {{ 'Gestern um'|trans({},'global') }} {{ message.timestamp|format_datetime('none', 'short') }}
+                {% else %}
+                    {{ message.timestamp|format_datetime('medium', 'short') }}
+                {% endif %}
+                {% if message.sender != app.user %}
+                    &nbsp;<a class="pm-button" x-report-url="{{ path('pm_report_post_controller', {pid: message.id}) }}"><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a>
+                {% endif %}
+            </div>
+        </div>
+    </li>
+{% endmacro %}
+{% if raw_id is defined %}{% for index   in raw_id %}{{ _self.bubble_index(index)            }}{% endfor %}{% endif %}
+{% if raw_gp is defined %}{% for message in raw_gp %}{{ _self.bubble_group(message,0)        }}{% endfor %}{% endif %}
+{% if raw_dm is defined %}{% for message in raw_dm %}{{ _self.bubble_dm(message,0)           }}{% endfor %}{% endif %}
+{% if raw_an is defined %}{% for message in raw_an %}{{ _self.bubble_announcement(message,0) }}{% endfor %}{% endif %}

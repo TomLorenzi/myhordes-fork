@@ -418,7 +418,7 @@ x-message {
       background-color: #5c2b20;
       outline: 1px solid black;
       border: 1px solid #f0d79e;
-      z-index: 9999;
+      z-index: 998;
 
       & h1 {
         margin: 0px;
@@ -880,9 +880,10 @@ div.game-menu-area {
             filter: brightness(100%); -webkit-filter: brightness(100%); -moz-filter: brightness(100%); -o-filter: brightness(100%); -ms-filter: brightness(100%);
             width: 84px; margin-top: 7px; text-transform:uppercase; font-size: 1.0rem;
             font-weight: bold; color: #FFFFCA; text-align: center;
+            position: relative;
             &:hover {
             filter: brightness(140%); -webkit-filter: brightness(140%); -moz-filter: brightness(140%); -o-filter: brightness(140%); -ms-filter: brightness(140%);
-            color: #FFFFCA; position: relative
+            color: #FFFFCA;
             }
             &:after {
               filter: drop-shadow(0 0 2px black);
@@ -903,29 +904,6 @@ div.game-menu-area {
           &.town-news:after { background-image: url("../img/game-bar/gazette.png");}
           &.soul:after      { background-image: url("../img/game-bar/soul.png");}
           &.help:after      { background-image: url("../img/game-bar/help.png");}
-        }
-      }
-
-      &.user {
-        position: absolute;
-        right: 10px;
-        top: -30px;
-        font-size: 10px;
-        background-color: rgba(62, 36, 23, .75);
-        border-radius: 6px;
-        color: @myhordes-smalltext;
-
-        li {
-          margin: 3px 6px;
-
-          a {
-            text-decoration: none;
-            transition: color 200ms;
-
-            &:hover {
-              color: #c00;
-            }
-          }
         }
       }
 
@@ -980,7 +958,7 @@ div.game-menu-area {
           &>li:not(.text) {
             height: 18px; margin-top: 6px; vertical-align: bottom;
             &.free,&.item {width: 16px;}
-            &.free { background: url("../img/small_empty_inv.gif"); background-repeat-y: no-repeat; }
+            &.free { background: url("../img/small_empty_inv.gif") no-repeat; }
             &.item.broken { outline: 1px dotted #ff0000; }
           }
         }
@@ -1059,6 +1037,11 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
   }
   &.plain { background: url(../img/background/tabs-header-plain.gif) bottom left no-repeat; }
 
+  &.no-bottom-margin {
+    margin-bottom: 0;
+    &~div.lightbox { margin-top: 0 }
+  }
+
   min-height: 34px;
 
   &>.tab-floater {
@@ -1076,6 +1059,11 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
     &:not(.left) { float: right; }
     &:not(.tab-floater) { padding-top: 9px };
     overflow: hidden;
+
+    &:first-child.left.inline > div.avatar.small:first-child {
+      margin-left: -5px; border-top-left-radius: 8px;
+      &>img:only-child { border-top-left-radius: 8px; }
+    }
 
     .tab-link {
       float: right; height: 21px; margin-right: 0px; margin-left: 2px;
@@ -1490,6 +1478,24 @@ i.dagger {
   }
 }
 
+#postbox {
+  position: absolute; right: 10px; top: 105px; font-size: 10px;
+  background-color: rgba(62, 36, 23, .75); border-radius: 6px; padding: 3px 5px;
+  color: @myhordes-smalltext; transition: background-color 0.5s ease-in-out;
+  cursor: pointer;
+  &:hover { background-color: lighten(rgba(62, 36, 23, .75),10%); }
+
+  &>div {
+    margin: 0; display: inline-block; font-weight: bold;
+    &:last-child { margin-left: 4px; }
+  }
+
+  &.new-messages {
+    >*:nth-child(1) { display: none; }
+  }
+  &:not(.new-messages)>*:not(:nth-child(1)) { display: none; }
+}
+
 .mt-1 {
   margin-top: 1em;
 }
@@ -1504,4 +1510,8 @@ i.dagger {
 
 .mb-2 {
   margin-bottom: 2em;
+}
+
+.inline-block {
+  display: inline-block;
 }

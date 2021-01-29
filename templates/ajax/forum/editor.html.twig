@@ -2,51 +2,67 @@
 
 {# @var permission \App\Structures\ForumPermissionAccessor #}
 
+{% set preview_name = 'forum-editor-preview' %}
+{% if type is defined and type == 'global-pm' %}
+    {% set preview_name = 'pm-editor-preview' %}
+{% endif %}
+
+{% if type is not defined and forum %}{% set type = 'forum' %}{% endif %}
+{% if target_data is not defined %}{% set target_data = [] %}{% endif %}
+
 {% block ajax_base %}
-    <div class="forum-editor">
-        <div class="forum-editor-header">
-            {% if tid is null %}
-                <i>{{ 'Neuer Thread'|trans({},'global') }}</i>
-            {% elseif pid is null %}
-                <i>{{ 'Neuer Post'|trans({},'global') }}</i>
-            {% else %}
-                <i>{{ 'Bearbeiten'|trans({},'global') }}</i>
-            {% endif %}
-            <b>{{ app.user.name }}</b>
-        </div>
+    <div class="{% if type != 'global-pm' %}forum-editor{% else %}pm-editor{% endif %}">
+        {% if type != 'global-pm' and type != 'numb' %}
+            <div class="forum-editor-header">
+                {% if tid is null %}
+                    <i>{{ 'Neuer Thread'|trans({},'global') }}</i>
+                {% elseif pid is null %}
+                    <i>{{ 'Neuer Post'|trans({},'global') }}</i>
+                {% else %}
+                    <i>{{ 'Bearbeiten'|trans({},'global') }}</i>
+                {% endif %}
+                <b>{{ app.user.name }}</b>
+            </div>
+        {% endif %}
         {% if tid is null %}
             <div class="row">
-                <div class="cell rw-4 padded">
-                    <label for="forum-editor-title">{{ 'Titel'|trans({},'global') }}</label>
-                </div>
-                <div class="cell rw-8 padded">
-                    <input type="text" id="forum-editor-title" />
-                </div>
-                {% if type is defined and type == "changelog" %}
+                {% if type != 'global-pm' and type != 'numb' %}
                     <div class="cell rw-4 padded">
-                        <label for="forum-editor-version">{{ 'Version'|trans({},'global') }}</label>
+                        <label for="{{ type }}-forum-editor-title">{{ 'Titel'|trans({},'global') }}</label>
                     </div>
                     <div class="cell rw-8 padded">
-                        <input type="text" id="forum-editor-version" />
+                        <input type="text" id="{{ type }}-forum-editor-title" />
                     </div>
+                {% endif %}
+                {% if type == "changelog" or type == "announcement" %}
+                    {% if type == "changelog" %}
+                        <div class="cell rw-4 padded">
+                            <label for="{{ type }}-forum-editor-version">{{ 'Version'|trans({},'global') }}</label>
+                        </div>
+                        <div class="cell rw-8 padded">
+                            <input type="text" id="{{ type }}-forum-editor-version" />
+                        </div>
+                    {% endif %}
                     <div class="cell rw-4 padded">
-                        <label for="forum-editor-lang">{{ 'Sprache'|trans({},'global') }}</label>
+                        <label for="{{ type }}-forum-editor-lang">{{ 'Sprache'|trans({},'global') }}</label>
                     </div>
                     <div class="cell rw-8 padded">
-                        <select id="forum-editor-lang">
-
-                        </select>
+                        <select id="{{ type }}-forum-editor-lang"></select>
                     </div>
                 {% endif %}
             </div>
         {% endif %}
+
         <div class="row classic-editor">
             <div class="padded cell rw-12">
-                <label>{{ 'Vorschau'|trans({},'global') }}</label>
-                <div id="forum-editor-preview"></div>
-                <br />
-                <label for="forum-editor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
-                <div class="forum-button-bar">
+                {% if type != 'global-pm' %}
+                    <label>{{ 'Vorschau'|trans({},'global') }}</label>
+                    <div id="{{ preview_name }}"></div>
+                    <br />
+                {% endif %}
+                <label for="{{ type }}-forum-editor-text">{{ 'Deine Nachricht'|trans({},'global') }}</label>
+                <a class="float-right" x-non-extended id="{{ type }}-forum-editor-extend" href="#">{{ 'Zum erweiterten Editor wechseln'|trans({},'global') }}</a>
+                <div x-extended class="forum-button-bar">
                     <div x-forum-action="edit" x-text-wrap-node="b" class="forum-button"><i class="fa fa-bold"></i><span class="forum-button-tooltip">{{ 'Fett'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="i" class="forum-button"><i class="fa fa-italic"></i><span class="forum-button-tooltip">{{ 'Kursiv'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="u" class="forum-button"><i class="fa fa-underline"></i><span class="forum-button-tooltip">{{ 'Unterstreichen'|trans({},'global') }}</span></div>
@@ -75,11 +91,11 @@
                 </div>
             </div>
 
-            <textarea id="forum-editor-text"></textarea>
+            <textarea id="{{ type }}-forum-editor-text" {% if type == 'global-pm' %}style="min-height: 90px; height: 90px;"{% endif %}></textarea>
 
             <div class="row">
-                <div class="padded cell rw-12">
-                    <ul class="tabs plain" x-tab-group="forum-classic-editor-toolbox" x-tab-control>
+                <div x-extended class="padded cell rw-12">
+                    <ul class="tabs plain no-bottom-margin" x-tab-group="forum-classic-editor-toolbox" x-tab-control>
                         <li class="tab" x-tab-id="emotes"><div class="tab-link"><i class="fa fa-smile"></i></div></li>
                         <li class="tab" x-tab-id="games"><div class="tab-link"><i class="fa fa-dice"></i></div></li>
                         {% if town_controls %}
@@ -169,7 +185,7 @@
                                             <div class="cell padded rw-3"><span class="small" style="color: white">
                                                     <strong class="pointer" x-forum-action="edit" x-text-insert-raw="{{ current_snippet }}">{{ current_snippet }}</strong>
                                                 </span></div>
-                                            <div class="cell padded rw-9"><span class="small pointer" x-forum-action="edit" x-text-insert-raw="{{ current_snippet }}" style="display:block; font-size: 0.55em;">{{ snippet.text }}</span></div>
+                                            <div class="cell padded rw-9"><span class="small pointer" x-forum-action="edit" x-text-insert-raw="{{ current_snippet }}" style="display:block; font-size: 0.8em;">{{ snippet.text }}</span></div>
                                         </div>
                                     {% endif %}
                                 {% endfor %}
@@ -193,7 +209,9 @@
                         <span id="crow_answer_content">{% if not permission.post_as_dev() or app.user.postAsDefault != "DEV" %}{{ app.user.name }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
                     </div>
                 {% endif %}
-                <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
+                {% if not type == 'numb' %}
+                    <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -202,22 +220,36 @@
     <script>
         (function() {
 
-            let node_transfer_source = document.getElementById('forum-editor-text');
-            let node_transfer_target = document.getElementById('forum-editor-preview');
+            {% if type == 'global-pm' or type == 'numb' %}
+                $.html.forEach('#{{ type }}-forum-editor *[x-extended]', elem => elem.classList.add('hidden') );
+                $.html.forEach('#{{ type }}-forum-editor *[x-non-extended]', elem => elem.classList.remove('hidden') );
+            {% else %}
+                $.html.forEach('#{{ type }}-forum-editor *[x-extended]', elem => elem.classList.remove('hidden') );
+                $.html.forEach('#{{ type }}-forum-editor *[x-non-extended]', elem => elem.classList.add('hidden') );
+            {% endif %}
+
+            $.html.addEventListenerAll('#{{ type }}-forum-editor-extend', 'click', function(e) {
+                e.preventDefault();
+                $.html.forEach('#{{ type }}-forum-editor *[x-extended]', elem => elem.classList.remove('hidden') );
+                $.html.forEach('#{{ type }}-forum-editor *[x-non-extended]', elem => elem.classList.add('hidden') );
+            });
+
+            let node_transfer_source = document.getElementById('{{ type }}-forum-editor-text');
+            const get_preview = function() { return document.getElementById('{{ preview_name|raw }}'); }
 
             const transfer_to_preview = function() {
 
                 {% if snippets is not empty %}
-                    {% for snippet in snippets %}
-                        {# @var snippet \App\Entity\ForumModerationSnippet #}
-                        node_transfer_source.value = node_transfer_source.value.replace('%{{ snippet.lang|e('js') }}%{{ snippet.short|e('js') }}','{{ snippet.text|e('js') }}');
-                            {% if snippet.lang == app.user.language %}
-                                node_transfer_source.value = node_transfer_source.value.replace('%%{{ snippet.short|e('js') }}','{{ snippet.text|e('js') }}');
-                            {% endif %}
-                    {% endfor %}
+                {% for snippet in snippets %}
+                {# @var snippet \App\Entity\ForumModerationSnippet #}
+                node_transfer_source.value = node_transfer_source.value.replace('%{{ snippet.lang|e('js') }}%{{ snippet.short|e('js') }}','{{ snippet.text|e('js') }}');
+                {% if snippet.lang == app.user.language %}
+                node_transfer_source.value = node_transfer_source.value.replace('%%{{ snippet.short|e('js') }}','{{ snippet.text|e('js') }}');
+                {% endif %}
+                {% endfor %}
                 {% endif %}
 
-                $.html.twinoParser.parseTo( node_transfer_source.value, node_transfer_target, function(s) {
+                $.html.twinoParser.parseTo( node_transfer_source.value, get_preview(), function(s) {
                     switch (s) {
                         case ':)': s = ':smile:';    break;
                         case ':d': s = ':lol:';      break;
@@ -436,125 +468,142 @@
                 node_transfer_source.value = content.substr( 0, s_start ) + tag + content.substr( s_start );
 
                 node_transfer_source.setSelectionRange( s_start + tag.length, s_end + tag.length );
-                //window.setTimeout( function() {
                 node_transfer_source.focus()
-                //}, 10);
                 transfer_to_preview();
             } );
 
             // Post as crow toggle
             {% if (permission.post_as_dev() or permission.post_as_crow()) and forum and not pid %}
-                function changeHandler(){
-                    switch (document.querySelector("input[name=post-type]:checked").value) {
-                        case "USER":
-                            document.getElementById("radio-user").checked = false;
-                            {% if permission.post_as_crow() %}
-                                document.getElementById("radio-crow").checked = true;
-                                document.getElementById('crow_answer_content').innerHTML = "{{ 'Rabe'|trans({},'global') }}";
-                            {% elseif permission.post_as_dev() %}
-                                document.getElementById("radio-dev").checked = true;
-                                document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
-                            {% else %}
-                                document.getElementById("radio-user").checked = true;
-                                document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
-                            {% endif %}
-                            break;
-                        case "CROW":
-                            document.getElementById("radio-crow").checked = false;
-                            {% if permission.post_as_dev() %}
-                                document.getElementById("radio-dev").checked = true;
-                                document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
-                            {% else %}
-                                document.getElementById("radio-user").checked = true;
-                                document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
-                            {% endif %}
-                            break;
-                        case "DEV":
-                            document.getElementById("radio-dev").checked = false;
-                            document.getElementById("radio-user").checked = true;
-                            document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
-                            break;
-                    }
+            function changeHandler(){
+                switch (document.querySelector("input[name=post-type]:checked").value) {
+                    case "USER":
+                        document.getElementById("radio-user").checked = false;
+                    {% if permission.post_as_crow() %}
+                        document.getElementById("radio-crow").checked = true;
+                        document.getElementById('crow_answer_content').innerHTML = "{{ 'Rabe'|trans({},'global') }}";
+                    {% elseif permission.post_as_dev() %}
+                        document.getElementById("radio-dev").checked = true;
+                        document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
+                    {% else %}
+                        document.getElementById("radio-user").checked = true;
+                        document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
+                    {% endif %}
+                        break;
+                    case "CROW":
+                        document.getElementById("radio-crow").checked = false;
+                    {% if permission.post_as_dev() %}
+                        document.getElementById("radio-dev").checked = true;
+                        document.getElementById('crow_answer_content').innerHTML = "{{ 'Dev'|trans({},'global') }}";
+                    {% else %}
+                        document.getElementById("radio-user").checked = true;
+                        document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
+                    {% endif %}
+                        break;
+                    case "DEV":
+                        document.getElementById("radio-dev").checked = false;
+                        document.getElementById("radio-user").checked = true;
+                        document.getElementById('crow_answer_content').innerHTML = "{{ app.user.name }}";
+                        break;
                 }
-                document.getElementById('crowpost').addEventListener('click', changeHandler);
+            }
+            document.getElementById('crowpost').addEventListener('click', changeHandler);
             {% endif %}
 
-            let send_buttons = document.querySelectorAll('[x-forum-action=send]');
-            for (let i = 0; i < send_buttons.length; i++) {
-                send_buttons[i].addEventListener('click', function() {
-                    let target_url, target_payload;
-                    {% if forum %}
+            {% if type != 'numb' %}
+                let send_buttons = document.querySelectorAll('[x-forum-action=send]');
+                for (let i = 0; i < send_buttons.length; i++) {
+                    send_buttons[i].addEventListener('click', function() {
+                        let target_url, target_payload;
+                        {% if forum %}
                         let type = document.querySelector("input[name=post-type]:checked") ? document.querySelector("input[name=post-type]:checked").value : null;
-                    {% endif %}
+                        {% endif %}
 
-                    // Replace proxies
-                    let content_node = document.getElementById('forum-editor-preview').cloneNode(true);
+                        // Replace proxies
+                        let content_node = document.getElementById('{{ preview_name|raw }}').cloneNode(true);
 
-                    let proxies = content_node.querySelectorAll('[x-foxy-proxy]');
-                    for (let j = 0; j < proxies.length; j++) {
-                        if (!proxies[j].parentNode) continue;
-                        proxies[j].parentNode.insertBefore(document.createTextNode(proxies[j].getAttribute('x-foxy-proxy')), proxies[j]);
-                        proxies[j].parentNode.removeChild(proxies[j]);
-                    }
+                        let proxies = content_node.querySelectorAll('[x-foxy-proxy]');
+                        for (let j = 0; j < proxies.length; j++) {
+                            if (!proxies[j].parentNode) continue;
+                            proxies[j].parentNode.insertBefore(document.createTextNode(proxies[j].getAttribute('x-foxy-proxy')), proxies[j]);
+                            proxies[j].parentNode.removeChild(proxies[j]);
+                        }
 
-                    {% if not forum %}
-                        target_url = '{{ path(target_url) }}';
+                        {% if not forum %}
+                        target_url = '{{ target_url is not empty ? path(target_url, target_data) : '' }}';
                         target_payload = {
                             'content': content_node.innerHTML,
                             'type': "{{ type }}",
                         };
                         {% if tid is not null %}
-                            target_payload.tid = {{ tid }};
+                        target_payload.tid = {{ tid }};
                         {% else %}
-                            target_payload.title = document.getElementById('forum-editor-title').value;
-                            {% if type == 'pm' or type == 'global' %}
-                                const rc = document.getElementById('pmidrecipient');
-                                if (rc) target_payload.recipient = rc.value;
-                                let sent_items = document.querySelectorAll("#sent-items .item");
-                                if(sent_items.length > 0) {
-                                    target_payload.items = [];
-                                    for (let i = 0; i < sent_items.length; i++) {
-                                        target_payload.items.push(sent_items[i].attributes['x-item-id'].value);
-                                    }
-                                }
-                            {% elseif type == "changelog" %}
-                                target_payload.version = document.getElementById('forum-editor-version').value;
-                                target_payload.lang = document.getElementById('forum-editor-lang').value;
-                            {% endif %}
-                        {% endif %}
-                    {% else %}
-                        {% if tid is null %}
-                            target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
-                            target_payload = {
-                                title: document.getElementById('forum-editor-title').value,
-                                text: content_node.innerHTML,
-                                type: type
-                            };
-                        {% elseif (pid is null) %}
-                            target_url = '{{ path('forum_new_post_controller', {fid: fid, tid: tid}) }}';
-                            target_payload = {
-                                text: content_node.innerHTML,
-                                type: type,
-                            };
-                        {% else %}
-                            target_url = '{{ path('forum_edit_post_controller', {fid: fid, tid: tid, pid: pid}) }}';
-                            target_payload = {
-                                text: content_node.innerHTML
-                            };
-                        {% endif %}
-                    {% endif %}
-
-                    $.ajax.easySend( target_url, target_payload,
-                        function (data) {
-                            $.client.config.editorCache.set('');
-                            $.ajax.load( null, data.url, true );
+                        let title_input = document.getElementById('{{ type }}-forum-editor-title');
+                        target_payload.title = title_input ? title_input.value : null;
+                        {% if type == 'pm' or type == 'global' %}
+                        const rc = document.getElementById('pmidrecipient');
+                        if (rc) target_payload.recipient = rc.value;
+                        let sent_items = document.querySelectorAll("#sent-items .item");
+                        if(sent_items.length > 0) {
+                            target_payload.items = [];
+                            for (let i = 0; i < sent_items.length; i++) {
+                                target_payload.items.push(sent_items[i].attributes['x-item-id'].value);
+                            }
                         }
-                    );
-                });
-            }
+                        {% elseif type == "global-pm" %}
+                        const pm_list = [];
+                        $.html.forEach('#pm-selected-users>li[x-soul-id]', function(elem) {
+                            pm_list.push( parseInt(elem.getAttribute('x-soul-id')) );
+                        });
+                        target_payload.users = pm_list;
+                        {% elseif type == "changelog" %}
+                        target_payload.version = document.getElementById('{{ type }}-forum-editor-version').value;
+                        target_payload.lang = document.getElementById('{{ type }}-forum-editor-lang').value;
+                        {% elseif type == "announcement" %}
+                        target_payload.lang = document.getElementById('{{ type }}-forum-editor-lang').value;
+                        {% endif %}
+                        {% endif %}
+                        {% else %}
+                        {% if tid is null %}
+                        target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
+                        target_payload = {
+                            title: document.getElementById('{{ type }}-forum-editor-title').value,
+                            text: content_node.innerHTML,
+                            type: type
+                        };
+                        {% elseif (pid is null) %}
+                        target_url = '{{ path('forum_new_post_controller', {fid: fid, tid: tid}) }}';
+                        target_payload = {
+                            text: content_node.innerHTML,
+                            type: type,
+                        };
+                        {% else %}
+                        target_url = '{{ path('forum_edit_post_controller', {fid: fid, tid: tid, pid: pid}) }}';
+                        target_payload = {
+                            text: content_node.innerHTML
+                        };
+                        {% endif %}
+                        {% endif %}
 
-            {% if type is defined and type == "changelog" %}
-                let lang_selector = document.getElementById('forum-editor-lang');
+                        $.ajax.easySend( target_url, target_payload,
+                            function (data) {
+                                $.client.config.editorCache.set('');
+                                {% if type == 'global-pm' %}
+                                let selected = document.querySelector('.pm-conversation-list>li.selected');
+                                if (selected) selected.click();
+                                else $.ajax.load( document.getElementById('post-office-content'), data.url );
+                                {% elseif type == 'announcement' %}
+                                $.ajax.load( null, data.url, true, {}, ()=>$.msg.execute() );
+                                {% else %}
+                                $.ajax.load( null, data.url, true );
+                                {% endif %}
+                            }
+                        );
+                    });
+                }
+            {% endif %}
+
+            {% if type == "changelog" or type == "announcement" %}
+                let lang_selector = document.getElementById('{{ type }}-forum-editor-lang');
                 if(lang_selector) {
                     for(let prop in window.c.langs) {
                         let option = document.createElement("option");

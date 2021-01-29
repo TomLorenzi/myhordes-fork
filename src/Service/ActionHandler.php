@@ -569,6 +569,7 @@ class ActionHandler
             'cp' => 0,
             'item'   => $item ? $item->getPrototype() : null,
             'target' => $target_item_prototype,
+            'source_inv' => $item ? $item->getInventory() : null,
             'citizen' => is_a($target, Citizen::class) ? $target : null,
             'item_morph' => [ null, null ],
             'item_target_morph' => [ null, null ],
@@ -593,12 +594,12 @@ class ActionHandler
         else $ruinZone = null;
 
         $floor_inventory = null;
-        if     (!$citizen->getZone())
+        if (!$citizen->getZone())
             $floor_inventory = $citizen->getHome()->getChest();
         elseif (!$ruinZone)
             $floor_inventory = ($citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0) ? $citizen->getZone()->getFloor() : null;
-        elseif ($citizen->activeExplorerStats()->getInRoom())
-            $floor_inventory = $ruinZone->getRoomFloor();
+        /*elseif ($citizen->activeExplorerStats()->getInRoom())
+            $floor_inventory = $ruinZone->getRoomFloor();*/
         else
             $floor_inventory = $ruinZone->getFloor();
 
@@ -776,8 +777,11 @@ class ActionHandler
                         case AffectItemSpawn::DropTargetFloor:
                             $target = [ $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
                             break;
-                        case AffectItemSpawn::DropTargetRucksack: default:
+                        case AffectItemSpawn::DropTargetRucksack:
                             $target = [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
+                        case AffectItemSpawn::DropTargetDefault:
+                        default:
+                            $target = [ $execute_info_cache['source_inv'] ];
                             break;
                     }
 
@@ -809,7 +813,7 @@ class ActionHandler
                     if ($kills > 0) {
                         $citizen->getZone()->setZombies( $citizen->getZone()->getZombies() - $kills );
                         $execute_info_cache['kills'] = $kills;
-                        $this->entity_manager->persist( $this->log->zombieKill( $citizen, $item ? $item->getPrototype() : null, $kills ) );
+                        $this->entity_manager->persist( $this->log->zombieKill( $citizen, $execute_info_cache['item'], $kills ) );
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
                         if($citizen->getZone()->getZombies() <= 0){
                             $tags[] = 'kill-latest';
@@ -825,7 +829,7 @@ class ActionHandler
                         $ruinZone->setZombies( $ruinZone->getZombies() - $kills );
                         $ruinZone->setKilledZombies( $ruinZone->getKilledZombies() + $kills );
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
-                        $this->entity_manager->persist( $this->log->zombieKill( $citizen, $item ? $item->getPrototype() : null, $kills ) );
+                        $this->entity_manager->persist( $this->log->zombieKill( $citizen, $execute_info_cache['item'], $kills ) );
                     }
                 }
             }
@@ -900,7 +904,7 @@ class ActionHandler
                 $execute_info_cache['well'] += $add;
 
                 if ($add > 0)
-                    $this->entity_manager->persist( $this->log->wellAdd( $citizen, $item->getPrototype(), $add) );
+                    $this->entity_manager->persist( $this->log->wellAdd( $citizen, $execute_info_cache['item'], $add) );
             }
 
             if ($result->getRolePlayText()) {
@@ -1500,7 +1504,6 @@ class ActionHandler
                 case "Zerlegen":
                   $base = T::__('Du hast %item_list% in der Werkstatt zu %item% zerlegt.', 'game');
                   break;
-
                 default:
                   $base = T::__('Du hast %item_list% in der Werkstatt zu %item% umgewandelt.', 'game');
               }
@@ -1508,9 +1511,6 @@ class ActionHandler
               break;
             case Recipe::ManualOutside:case Recipe::ManualInside:case Recipe::ManualAnywhere:default:
                 $base = T::__('Du hast %item_list% zu %item% umgewandelt.', 'game');
-                if ($recipe->getPictoPrototype()) {
-                    $this->picto_handler->give_picto($citizen, $recipe->getPictoPrototype());
-                }
                 break;
         }
 

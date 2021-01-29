@@ -862,7 +862,7 @@
       </notes>
       <segment>
         <source>Durchsucht</source>
-        <target>Chercher</target>
+        <target>Fouilles</target>
       </segment>
     </unit>
     <unit id="VxMRN_s" name="Aktuelle Sitzung">
@@ -2330,6 +2330,33 @@
       <segment>
         <source>Abziehen</source>
         <target>Retirer</target>
+      </segment>
+    </unit>
+    <unit id="lEIUlKS" name="Changelogs">
+      <notes>
+        <note category="german">Changelogs</note>
+      </notes>
+      <segment>
+        <source>Changelogs</source>
+        <target>Changelogs</target>
+      </segment>
+    </unit>
+    <unit id="vdD8Evg" name="Ankündigungen">
+      <notes>
+        <note category="german">Ankündigungen</note>
+      </notes>
+      <segment>
+        <source>Ankündigungen</source>
+        <target>Ankündigungen</target>
+      </segment>
+    </unit>
+    <unit id="lkqERse" name="Neue Ankündigung">
+      <notes>
+        <note category="german">Neue Ankündigung</note>
+      </notes>
+      <segment>
+        <source>Neue Ankündigung</source>
+        <target>Neue Ankündigung</target>
       </segment>
     </unit>
   </file>

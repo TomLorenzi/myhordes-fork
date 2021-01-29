@@ -1,0 +1,14 @@
+{% extends "ajax/ajax_plain.html.twig" %}
+
+{% from "ajax/pm/bubbles.html.twig" import bubble_announcement as bubble %}
+
+{% block ajax_base %}
+    <ul class="group-conversation announcement">
+        {% for announcement in announcements %}
+            {{ bubble(announcement, 0) }}
+        {% endfor %}
+    </ul>
+    {% if more %}
+        <div class="pm-endless-more"><i class="fa fa-plus"></i> {{ 'Weitere Einträge laden'|trans({},'global') }}</div>
+    {% endif %}
+{% endblock %}

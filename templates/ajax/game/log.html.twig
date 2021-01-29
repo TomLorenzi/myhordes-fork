@@ -12,7 +12,17 @@
     </div>
     {% if day is defined %}
         <div class="log-day-select">
-            <div><div class="tab" x-page-current="{{ day }}" x-page-min="1" x-page-max="{{ day }}"><div class="control"><i class="fa fa-arrow-left"></i></div><div>{{ 'Tag'|trans({}, 'game') }} <span>{{ day }}</span></div><div class="control"><i class="fa fa-arrow-right"></i></div></div></div>
+            <div>
+                <div class="tab" x-page-current="{{ day }}" x-page-min="1" x-page-max="{{ day }}">
+                    <div class="control">
+                        <i class="fa fa-arrow-left"></i>
+                    </div>
+                    <div>{{ 'Tag'|trans({}, 'game') }} <span>{{ day }}</span></div>
+                    <div class="control">
+                        <i class="fa fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
         </div>
     {% endif %}
 </div>

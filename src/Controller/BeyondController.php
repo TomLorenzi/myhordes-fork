@@ -328,8 +328,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 }
             }
 
-
-
             // Uncomment next line to show camping values in game interface.
             #$camping_debug = "DEBUG CampingChances\nSurvivalChance for Comparison: " . $survival_chance . "\nCitizenCampingChance: " . $this->getActiveCitizen()->getCampingChance() . "\nCitizenHandlerCalculatedChance: " . $this->citizen_handler->getCampingChance($this->getActiveCitizen()) . "\nCalculationValues:\n" . str_replace( ',', "\n", str_replace( ['{', '}'], '', json_encode($this->citizen_handler->getCampingValues($this->getActiveCitizen()), 8) ) );
         }
@@ -590,6 +588,10 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             if ($dig_timer = $mover->getCurrentDigTimer()) {
                 $dig_timer->setPassive(true);
                 $this->entity_manager->persist( $dig_timer );
+            }
+
+            if(($special === 'normal' || $special === 'normal-escort') && ($zone->getX() > 0 || $zone->getY() > 0)) {
+                $this->entity_manager->persist($this->log->citizenTeleport($mover, $zone));
             }
 
             // Remove zone from citizen

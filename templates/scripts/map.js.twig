@@ -273,12 +273,23 @@ for (let i = 0; i < scroll_areas.length; i++) {
                     map_area.classList.remove('show-tags');
                     this.classList.remove('show-tags');
                     this.classList.add('hide-tags');
+                    $.client.set('map', 'tags', 'hide', true);
                 } else {
                     map_area.classList.add('show-tags');
                     this.classList.remove('hide-tags');
                     this.classList.add('show-tags');
+                    $.client.set('map', 'tags', 'show', true);
                 }
             });
+
+        let show_tags = $.client.get('map', 'tags', 'hide');
+        if (show_tags === 'show') {
+            map_area.classList.add('show-tags');
+            if (tags_button) {
+                tags_button.classList.remove('hide-tags');
+                tags_button.classList.add('show-tags');
+            }
+        }
     }
 
     let route_selectors = route_plane.querySelectorAll('[x-route-id]');

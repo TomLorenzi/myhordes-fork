@@ -1,0 +1,13 @@
+<ul class="tabs plain">
+    <li class="tab {% if door_section == 'door' %}selected{% endif %}">
+        <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_door') }}">{% trans from 'game' %}Stadttor{% endtrans %}</div>
+    </li>
+    <li class="tab {% if door_section == 'planner' %}selected{% endif %}">
+        <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_routes') }}">{% trans from 'game' %}Expeditionen{% endtrans %}</div>
+    </li>
+    {% if has_battlement %}
+        <li class="tab {% if door_section == 'nightwatch' %}selected{% endif %}">
+            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('town_nightwatch') }}">{% trans from 'game' %}Wächt{% endtrans %}</div>
+        </li>
+    {% endif %}
+</ul>

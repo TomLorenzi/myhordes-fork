@@ -6,6 +6,9 @@
         <div class="cell rw-12 town-banner town-banner-door-{% if town.door %}open{% else %}closed{% endif%} time-{{ hour }} {% if town.isNight %}night{% endif %}"></div>
     </div>
 
+    {% embed "ajax/game/town/door_tabs.html.twig" with {'door_section': door_section, 'has_battlement': has_battlement} %}
+    {% endembed %}
+
     <div class="help">
          {% if is_watcher %}
             {{'Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:'|trans({}, 'game')}}<br />
@@ -90,7 +93,7 @@
                 if(action == 'watch')
                     txt = '{{ 'Zur Information: Sobald du Wächter bist, kannst du danach wieder einfacher Bürger werden.'|trans({},'game')|e('js') }}';
                 else
-                    txt = '{{ 'Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen... '|trans({},'game')|e('js') }}'
+                    txt = '{{ 'Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...'|trans({},'game')|e('js') }}'
                 if (!confirm(txt))
                     return;
                 $.ajax.easySend( '{{ path('town_nightwatch_go_controller') }}', {

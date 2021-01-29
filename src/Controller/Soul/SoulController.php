@@ -3,6 +3,7 @@
 namespace App\Controller\Soul;
 
 use App\Controller\CustomAbstractController;
+use App\Entity\Announcement;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\CitizenRankingProxy;
@@ -96,8 +97,8 @@ class SoulController extends CustomAbstractController
         ]);
 
         $user_invitations = $user_coalition ? [] : $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
-                'user' => $user,
-                'associationType' => UserGroupAssociation::GroupAssociationTypeCoalitionInvitation ]
+            'user' => $user,
+            'associationType' => UserGroupAssociation::GroupAssociationTypeCoalitionInvitation ]
         );
 
         $sb = $this->user_handler->getShoutbox($user);
@@ -112,6 +113,7 @@ class SoulController extends CustomAbstractController
 
         $data["soul_tab"] = $section;
         $data["new_message"] = !empty($user_invitations) || $messages;
+        $data["new_news"] = $this->entity_manager->getRepository(Announcement::class)->countUnreadByUser($user, $this->getUserLanguage()) > 0;
 
         return $data;
     }
@@ -173,11 +175,21 @@ class SoulController extends CustomAbstractController
 
         if (!$parser->has_all(['name'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        $searchName = $parser->get('name');
-        $users = mb_strlen($searchName) >= 3 ? array_filter($em->getRepository(User::class)->findByNameContains($searchName), fn(User $u) =>
-            ($u !== $user) && ($u->getEmail() !== 'crow') && (mb_substr($u->getEmail(), -10) !== '@localhost') && ($u->getUsername() !== $u->getEmail())) : [];
+        $searchName = $parser->get('name', '');
+        $searchSkip = $parser->get_array('exclude', []);
+        $searchSkip[] = $user->getId();
 
-        return $this->render( 'ajax/soul/users_list.html.twig', [ 'users' => in_array($url, ['soul_visit','soul_invite_coalition']) ? $users : [], 'route' => $url ]);
+        $users = mb_strlen($searchName) >= 3 ? $em->getRepository(User::class)->findBySoulSearchQuery($searchName, 10, $searchSkip) : [];
+
+        $data = [
+            'var' => $url,
+            'users' => in_array($url, ['soul_visit','soul_invite_coalition','pm_manage_users','pm_add_users']) ? $users : [],
+            'route' => in_array($url, ['soul_visit','soul_invite_coalition']) ? $url : ''
+        ];
+
+        if ($url === 'pm_add_users') $data['gid'] = $parser->get_num('group', 0);
+
+        return $this->render( 'ajax/soul/users_list.html.twig', $data);
     }
 
 
@@ -211,13 +223,13 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/news/{id}", name="soul_news")
+     * @Route("jx/soul/future/{id}", name="soul_future")
      * @param Request $request
      * @param UserHandler $userHandler
      * @param int $id
      * @return Response
      */
-    public function soul_news(Request $request, UserHandler $userHandler, int $id = 0): Response
+    public function soul_future(Request $request, UserHandler $userHandler, int $id = 0): Response
     {
         $user = $this->getUser();
 
@@ -236,10 +248,20 @@ class SoulController extends CustomAbstractController
             $this->entity_manager->flush();
         } catch (Exception $e) {}
 
-        return $this->render( 'ajax/soul/news.html.twig', $this->addDefaultTwigArgs("soul_news", [
+        return $this->render( 'ajax/soul/future.html.twig', $this->addDefaultTwigArgs("soul_future", [
             'news' => $news, 'selected' => $selected
         ]) );
     }
+
+    /**
+     * @Route("jx/soul/news", name="soul_news")
+     * @return Response
+     */
+    public function soul_news(): Response
+    {
+        return $this->render( 'ajax/soul/news.html.twig', $this->addDefaultTwigArgs("soul_news", []) );
+    }
+
 
     /**
      * @Route("jx/soul/settings", name="soul_settings")
@@ -264,22 +286,24 @@ class SoulController extends CustomAbstractController
 
     /**
      * @Route("jx/soul/ranking/{type<\d+>}", name="soul_season")
+     * @param null $type Type of town we're looking the ranking for
      * @return Response
      */
     public function soul_season($type = null, JSONRequestParser $parser): Response
     {
-        return $this->redirect($this->generateUrl('soul_me'));
-
         $user = $this->getUser();
+        if($user->getRightsElevation() <= User::ROLE_CROW)
+            return $this->redirect($this->generateUrl('soul_me'));
+
         $seasonId = $parser->get('season', null);
 
         /** @var CitizenRankingProxy $nextDeath */
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
-        $seasons = $this->entity_manager->getRepository(Season::class)->findAll();
+        $seasons = $this->entity_manager->getRepository(Season::class)->findBy(['subNumber' => null]);
         if ($seasonId === null) {
-            $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]) ?? $this->entity_manager->getRepository(Season::class)->findLatest();
+            $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
         } else {
             $currentSeason = $this->entity_manager->getRepository(Season::class)->find($seasonId);
         }
@@ -289,16 +313,16 @@ class SoulController extends CustomAbstractController
             $currentType = $this->entity_manager->getRepository(TownClass::class)->find($type);
         }
 
-        if ($currentSeason === null || $currentType === null) {
+        if ($currentType === null) {
             $this->redirect($this->generateUrl('soul_season'));
         }
         $criteria = new Criteria();
         $criteria->andWhere($criteria->expr()->eq('season', $currentSeason));
         $criteria->andWhere($criteria->expr()->eq('type', $currentType));
-        if ($currentSeason->getNumber() > 0)
+        if ($seasonId > 0 && $currentSeason->getNumber() > 0)
             $criteria->andWhere($criteria->expr()->neq('end', null));
 
-        $criteria->orderBy(['language' => 'ASC', 'score' => 'DESC']);
+        $criteria->orderBy(['score' => 'DESC']);
         $criteria->setMaxResults(35);
         $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->matching($criteria);
         $played = [];

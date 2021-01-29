@@ -12,7 +12,7 @@
                     </h4>
                 </div>
                 <div class="float-right">
-                    <button x-ajax-href='{{returnUrl}}' style="margin-top: 4px;">{{ "Kartei schließen"|trans({}, 'soul') }}</button>
+                    <button x-ajax-href='{{returnUrl}}' style="margin-top: 4px;padding: 0 8px;" class="inline"><span class="hide-sm">{{ "Kartei schließen"|trans({}, 'soul') }}</span><span class="hide-lg hide-md hide-desktop"><img style="margin-right: 0;" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="[X]" /></span></button>
                 </div>
             </div>
             <div class="row me">
@@ -72,10 +72,7 @@
                                     {% for season in seasons %}
                                         {% if season.number > 0 %}
                                             <option value="{{season.id}}">
-                                                {{ 'Saison %n%'|trans({'%n%': season.number},'soul') }}
-                                                {% if season.name is not empty %}
-                                                    - {{season.name|trans({},'soul')}}
-                                                {% endif %}
+                                                {{ 'Saison %n%'|trans({'%n%': season.number},'soul') }} - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}
                                             </option>
                                         {% endif %}
                                     {% endfor %}
@@ -85,9 +82,6 @@
                                             <option value="{{season.id}}">
                                                 {{ 'Gute Alte Zeit'|trans({},'soul') }} -
                                                 {{ 'Saison %n%'|trans({'%n%': season.subNumber},'soul') }}
-                                                {% if season.name is not empty %}
-                                                    - {{season.name|trans({},'soul')}}
-                                                {% endif %}
                                             </option>
                                         {% endif %}
                                     {% endfor %}

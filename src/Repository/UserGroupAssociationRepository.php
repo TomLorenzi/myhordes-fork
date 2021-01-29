@@ -2,9 +2,13 @@
 
 namespace App\Repository;
 
+use App\Entity\User;
+use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
+use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Exception;
 
 /**
  * @method UserGroupAssociation|null find($id, $lockMode = null, $lockVersion = null)
@@ -17,6 +21,90 @@ class UserGroupAssociationRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, UserGroupAssociation::class);
+    }
+
+    /**
+     * @param User $user
+     * @return int
+     */
+    public function countRecentRecipients( User $user ): int {
+        $owned_groups = $this->createQueryBuilder('u')->select('u')->leftJoin('u.association', 'g')
+            ->andWhere('u.user = :user')->setParameter('user', $user)
+            ->andWhere('u.associationLevel = :founder')->setParameter('founder', UserGroupAssociation::GroupAssociationLevelFounder)
+            ->andWhere('g.ref3 > :cutoff')->setParameter('cutoff', (new DateTime('-24hours'))->getTimestamp())
+            ->getQuery()->getResult();
+
+
+        return $this->count( ['association' => array_map(fn(UserGroupAssociation $a) => $a->getAssociation(), $owned_groups)] );
+    }
+
+    /**
+     * @param User $user
+     * @param null $association
+     * @param array $skip
+     * @param int $limit
+     * @return int|mixed|string
+     */
+    public function findByUserAssociation( User $user, $association = null, array $skip = [], int $limit = 0 ) {
+        $qb = $this->createQueryBuilder('u')->select('u')->leftJoin('u.association', 'g')
+            ->andWhere('u.user = :user')->setParameter('user', $user)
+            ->orderBy('g.ref2', 'DESC')->orderBy('u.id', 'DESC');
+
+        if (is_array($association))
+            $qb->andWhere('u.associationType IN (:assoc)')->setParameter('assoc', $association);
+        elseif ($association !== null) $qb->andWhere('u.associationType = :assoc')->setParameter('assoc', $association);
+
+        if (!empty($skip)) $qb->andWhere('u.id NOT IN (:skip)')->setParameter('skip', $skip);
+        if ($limit > 0) $qb->setMaxResults( $limit );
+
+        return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * @param User $user
+     * @param DateTime|null $newer_then
+     * @return UserGroupAssociation[]
+     */
+    public function getUnreadPMsByUser( User $user, ?DateTime $newer_then = null) {
+        $qb = $this->createQueryBuilder('u')->select('u')->leftJoin('u.association', 'g')
+            ->andWhere('u.user = :user')->setParameter('user', $user)
+            ->andWhere('u.ref1 < g.ref1 OR u.ref1 IS NULL')
+            ->orderBy('g.ref2', 'DESC')
+            ->andWhere('u.associationType = :assoc')->setParameter('assoc', UserGroupAssociation::GroupAssociationTypePrivateMessageMember);
+
+        if ($newer_then !== null) $qb->andWhere('g.ref2 > :time')->setParameter('time', $newer_then->getTimestamp());
+
+        return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * @param User $user
+     * @return int|mixed|string
+     */
+    public function countUnreadPMsByUser( User $user ): int {
+        $qb = $this->createQueryBuilder('u')->select('COUNT(u.id)')->leftJoin('u.association', 'g')
+            ->andWhere('u.user = :user')->setParameter('user', $user)
+            ->andWhere('u.ref1 < g.ref1 OR u.ref1 IS NULL')
+            ->andWhere('u.associationType = :assoc')->setParameter('assoc', UserGroupAssociation::GroupAssociationTypePrivateMessageMember);
+
+        try {
+            return $qb->getQuery()->getSingleScalarResult();
+        } catch (Exception $e) { return 0; }
+    }
+
+    /**
+     * @param User $user
+     * @return int|mixed|string
+     */
+    public function countUnreadInactivePMsByUser( User $user ): int {
+        $qb = $this->createQueryBuilder('u')->select('COUNT(u.id)')
+            ->andWhere('u.user = :user')->setParameter('user', $user)
+            ->andWhere('u.ref1 < u.ref3 OR u.ref1 IS NULL')
+            ->andWhere('u.associationType = :assoc')->setParameter('assoc', UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive);
+
+        try {
+            return $qb->getQuery()->getSingleScalarResult();
+        } catch (Exception $e) { return 0; }
     }
 
     // /**

@@ -214,7 +214,10 @@
 }
 
 .forum-note {
-  &>b:first-child { display: block; background: #965c36; padding: 4px; font-variant: small-caps; }
+  &>b:first-child {
+    display: block; background: #965c36; padding: 4px; font-variant: small-caps; overflow: hidden; white-space: nowrap;
+    text-overflow: ellipsis;
+  }
   font-size: 1.1rem; background: #8a5432; box-shadow: 0 0 5px rgba(0,0,0,0.2);
   border: 1px solid #704328;
 }
@@ -315,9 +318,12 @@
 
 }
 
-.forum-editor {
-  background: #8a5432; box-shadow: 0 0 5px rgba(0,0,0,0.2);  padding: 0 0 5px;
-  border: 1px solid #704328; margin: 10px 0;
+.forum-editor, .pm-editor {
+
+  &:not(.pm-editor) {
+    background: #8a5432; box-shadow: 0 0 5px rgba(0,0,0,0.2);  padding: 0 0 5px;
+    border: 1px solid #704328; margin: 10px 0;
+  }
 
   &>.forum-editor-header {
     display: block; background: #804d2f; padding: 4px;
@@ -330,7 +336,7 @@
   }
 }
 
-.sun-editor-editable, #forum-editor-preview, #forum-editor-preview-global, #forum-editor-preview-answer { .forum-content-format(); }
+#forum-editor-preview, #forum-editor-preview-global, #forum-editor-preview-answer, .pm-message-content { .forum-content-format(); }
 
 .forum-button-inline {
   font-size: 1.4rem; background: none; border: 1px solid transparent;
@@ -367,33 +373,26 @@
 .forum-button-bar {
   margin: 5px 0; padding: 0 5px;
 
-  .forum-button {
+  .forum-button, .pm-button {
     position: relative;
+
+    &.pm-button {
+      padding: 6px; margin: 3px; box-shadow: 0 0 3px rgba(0,0,0,0.3); transition: background-color 0.1s ease;
+      font-size: 1.5em; text-align: center; cursor: pointer;
+      &:hover { background-color: rgba(255,255,255,0.1) }
+    }
+
     &>span.forum-button-tooltip {
       display: none;
     }
     &:hover>span.forum-button-tooltip {
-      display: block;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      top: -2.5rem;
-      z-index: 1;
-      background-color: rgba(0, 0, 0, 0.75);
-      padding: 2px 8px;
-      border-radius: 8px;
+      display: block; position: absolute; left: 50%; transform: translateX(-50%); top: -2.5rem;
+      z-index: 1; background-color: rgba(0, 0, 0, 0.75); padding: 2px 8px; border-radius: 8px;
       white-space: nowrap;
 
       &::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: -6px;
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-color: rgba(0, 0, 0, 0.75) transparent transparent;
+        content: ''; position: absolute; left: 50%; transform: translateX(-50%);
+        bottom: -6px; width: 0; height: 0; border-style: solid; border-color: rgba(0, 0, 0, 0.75) transparent transparent;
         border-width: 6px 6px 0 6px;
       }
     }
@@ -407,8 +406,8 @@
   & label { font-size: 1rem; }
 }
 
-#forum-content,
-#forum-editor {
+.forum-content,
+.forum-editor {
 
   div.forum-checkbox {
     padding: 3px 20px; margin-right: 2rem; vertical-align: middle;
@@ -453,6 +452,10 @@
       display: block; content: " "; width: 16px; height: 16px; top: 9px; left: -7px;
       background-image: url("../../img/forum/recent.png"); position: absolute;
     }
+  }
+
+  .author {
+    word-wrap: break-word;
   }
 }
 
@@ -512,5 +515,234 @@
 .home-pm {
   .forum-post-content {
     font-size: 1.3rem;
+  }
+}
+
+#post-office {
+  position: fixed; background: url("../../img/background/mask.png"); width: 100%; height: 100%; z-index: 999;
+  backdrop-filter: blur(2px); padding: 15px 0;
+  transition: opacity 1s ease; opacity: 1;
+
+  #post-office-box {
+    position: absolute; width: 900px; left: 50%; margin-left: -450px;
+    background: url("../../img/background/bg_content2.jpg") repeat-y top left/900px 263px, url("../../img/background/bg_content2.jpg") repeat-y top right/900px 263px;
+    top: 10px; bottom: 10px; border-radius: 8px; box-shadow: 0 0 10px black;
+    transition: transform 0.5s ease; transform: scale(1) translateY(0);
+
+    #post-office-button-overlay {
+      position: absolute; top: 12px; right: 12px;
+      &:hover {
+            filter: brightness(140%); -webkit-filter: brightness(140%); -moz-filter: brightness(140%); -o-filter: brightness(140%); -ms-filter: brightness(140%);
+      }
+      ul {
+        margin: 2px; padding: 0;
+        &>li {
+          display: inline-block; list-style: none; cursor: pointer;
+          &:last-child { color: red; filter: drop-shadow(0 0 2px black); }
+        }
+      }
+    }
+
+    #post-office-content {
+      background: @myhordes-panel-border, @myhordes-panel-bg; position: absolute; overflow-x: hidden; overflow-y: auto;
+      left: 18px; top: 0; right: 5px; bottom: 0; border-radius: 12px; padding: 8px; color: white;
+
+      &>.row-flex.stretch { height: 100% };
+      .forum-note.stretcher {
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        div.scroll-area { position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: auto }
+      }
+
+      #pm-selected-users {
+        margin: 0; padding: 0;
+        &>li {
+          margin: 2px; padding: 2px; display: inline-block; list-style: none;
+          background: #3b3249; border: 1px solid #25202f; border-radius: 3px;
+          &>b { text-shadow: 0 0 1px black; }
+          &>span { color: @myhordes-smalltext; cursor: pointer; margin-left: 6px; font-size: 0.8em; vertical-align: super; }
+        }
+      }
+    }
+  }
+
+  &:not(.visible) {
+    pointer-events: none; opacity: 0;
+    #post-office-box { transform: scale(0) translateY(1000px) }
+  }
+
+  .pm-userbox {
+    background: #65382e; box-shadow: 0 0 4px rgba(0,0,0,0.3); margin: 5px; height: 24px; cursor: default;
+    overflow: hidden;
+    &>.pm-avatar {
+      height: 24px; display: inline-block;
+      &:not(.empty) {width: 24px; }
+    }
+    &>.pm-userbox-name {
+      display: inline-block; padding: 10px; position: relative; top: -8px;
+      &:not(:last-child) { padding-right: 2px; }
+    };
+    &>.pm-userbox-action {
+      display: inline-block; padding: 10px; position: relative; top: -9px; transition: background-color 0.5s ease-in-out;
+      cursor: pointer;
+      &:hover { background-color: rgba(255,255,255,0.2); }
+    };
+  }
+
+  #pm-conversation-list>ul {
+    padding: 0; margin: 0;
+    &>li {
+      list-style: none; padding: 8px 8px 8px 15px; transition: background-color 0.5s ease, box-shadow 0.5s ease; position: relative;
+      &::before, &::after {content: " "; clear: both;}
+
+      &.selected { cursor: default; }
+      &:not(.selected) { cursor: pointer; }
+
+      &[x-domain="a"] {
+        background-image: url("../../img/forum/announceBgR.png");
+        background-repeat: no-repeat; background-size: contain; background-position: top right;
+      }
+
+      &.selected {
+        background-color: rgba(0,0,0,0.2); box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+        &::before {
+          display: block; content: " "; width: 16px; height: 16px; top: calc(50% - 8px); left: -5px;
+          background-image: url(../../img/forum/selected.png); position: absolute;
+        }
+      }
+      &.closed>* { filter: grayscale(1) contrast(0.7) brightness(0.8); }
+
+      &.new:not(.selected) {
+        &::before {
+          display: block; content: " "; width: 16px; height: 16px; top: calc(50% - 8px); left: 0;
+          background-image: url(../../img/forum/recent.png); position: absolute;
+        }
+      }
+
+      &+li { border-top: 1px solid fade(@myhordes-smalltext, 50%); }
+      &:not(.selected):hover { background-color: rgba(255,255,255,0.2); box-shadow: 0 0 5px rgba(0,0,0,0.5) }
+      b.title {
+        font-size: 1.6em; font-weight: bold; display: block; max-width: calc(100% - 50px);
+        &:not(.crow-note) { overflow: hidden; white-space: nowrap; text-overflow: " [...]"; }
+        &.crow-note { color: #3e0000; font-weight: bold; font-variant: small-caps; }
+      }
+      &.closed b.title::before { display: inline-block; height: 16px; width: 16px; content: " "; background: url(../../img/icons/lock.gif) center no-repeat; }
+      &[x-domain="a"] b.title { max-width: calc(100% - 0px); color: @myhordes-smalltext }
+      span.author {
+        color: @myhordes-smalltext;
+        &.crow-note { color: #3e0000; font-weight: bold; font-variant: small-caps; }
+        b.sender { color: white; font-weight: bold; }
+      }
+      span.date { opacity: 0.6 }
+      div.pm-avatar-block {
+        float: right; height: 40px; width: 40px; position: relative;
+        div.pm-avatar, div.pm-avatar-crow {
+          position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 100%; box-shadow: 0 0 4px rgba(0,0,0,0.6);
+          background-color: @myhordes-smalltext; font-size: 19px;
+
+          &.pm-avatar-crow { background: url(../../img/forum/crow/crow.png) center / cover no-repeat; border: 2px solid #3e0000; box-shadow: 0 0 6px #3e0000 }
+
+          &.owner:not(:first-child) { top: 20%; left: 20%; width: 60%; height: 60%; font-size: 13px; }
+          &:not(.owner):not(:only-child) { width: 45%; height: 45%; border-radius: 0; font-size: 10px; }
+
+          &:not(.owner):first-child:nth-last-child(2) { top: 0; left: 0; }
+          &:not(.owner):first-child:nth-last-child(2) ~ div.pm-avatar.owner { top: 30%; left: 30%; width: 70%; height: 70%; border-radius: 50% 0 0 0; font-size: 15px; }
+          &:not(.owner):first-child:nth-last-child(2) ~ div.pm-avatar:not(.owner):nth-child(2)  { top: 55%; left: 55%; }
+
+          &:not(.owner):first-child:nth-last-child(3) { top: 0; left: 0; }
+          &:not(.owner):first-child:nth-last-child(3) ~ div.pm-avatar.owner { top: 15%; left: 15%; width: 70%; height: 70%; border-radius: 50% 0 50% 0; font-size: 15px;}
+          &:not(.owner):first-child:nth-last-child(3) ~ div.pm-avatar:not(.owner):nth-child(2)  { top: 55%; left: 55%; }
+          &:not(.owner):first-child:nth-last-child(3) ~ div.pm-avatar:not(.owner):nth-child(3)  { top: 55%; left: 0; }
+
+          &:not(.owner):first-child:nth-last-child(4) { top: 0; left: 0; }
+          &:not(.owner):first-child:nth-last-child(4) ~ div.pm-avatar.owner { top: 0; left: 30%; width: 70%; height: 70%; border-top-right-radius: 0; font-size: 15px; }
+          &:not(.owner):first-child:nth-last-child(4) ~ div.pm-avatar:not(.owner):nth-child(2)  { top: 55%; left: 55%; }
+          &:not(.owner):first-child:nth-last-child(4) ~ div.pm-avatar:not(.owner):nth-child(3)  { top: 55%; left: 0; }
+          &:not(.owner):first-child:nth-last-child(4) ~ div.pm-avatar:not(.owner):nth-child(4)  { top: 0; left: 55%; }
+
+          &:not(.owner):first-child:nth-last-child(5) { top: 0; left: 0; }
+          &:not(.owner):first-child:nth-last-child(5) ~ div.pm-avatar:not(.owner):nth-child(2)  { top: 55%; left: 55%; }
+          &:not(.owner):first-child:nth-last-child(5) ~ div.pm-avatar:not(.owner):nth-child(3)  { top: 55%; left: 0; }
+          &:not(.owner):first-child:nth-last-child(5) ~ div.pm-avatar:not(.owner):nth-child(4)  { top: 0; left: 55%; }
+        }
+      }
+    }
+  }
+
+  #gpm-forum-content {
+    ul {
+
+      &:not(.announcement) { padding: 0 0 0 40px; }
+      &.announcement { padding: 0; }
+
+      margin: 10px;
+      &>li {
+        position: relative; list-style: none; display: block; min-height: 30px;
+        &+li { margin-top: 20px; }
+        div.pm-avatar, div.pm-avatar-crow {
+          position: absolute; height: 30px; width: 30px; border-radius: 15px; top: 0; left: -40px;
+          background: @myhordes-smalltext; font-size: 16px; filter: drop-shadow(0 0 4px black);
+          &.pm-avatar-crow { background: url(../../img/forum/crow/crow.png) center / cover no-repeat; border: 2px solid #3e0000; filter: drop-shadow(0 0 4px #3e0000) }
+        }
+        div.pm-message {
+          &:before {
+            content: " "; position: absolute; height: 0; width: 0; right: 100%; top: 10px;
+            border: 6px solid transparent; border-right: 6px solid #4a261e;
+          }
+
+          padding: 6px; margin: 5px 0 5px 10px; background-color: #4a261e; position: relative; overflow: visible;
+          min-height: 30px; filter: drop-shadow(0 0 3px rgba(0,0,0,0.35));
+          &>div.pm-message-header { color: @myhordes-smalltext; font-size: 0.7em; }
+          &>div.pm-message-content {
+            font-size: 1.5rem;
+            &>p { margin: 0; }
+          }
+          &>div.pm-message-footer {
+            margin-top: 4px; padding-top: 4px; font-size: 0.8em; opacity: 0.6; border-top: 1px solid rgba(0,0,0,0.2);
+            text-align: right;
+            .pm-button { cursor: pointer }
+          }
+        }
+
+        div.pm-announce {
+
+          div.pm-avatar { left: 6px; top: 3px; }
+
+          &>div.pm-message-content {
+            &:before {
+              content: " "; position: absolute; height: 0; width: 0; top: 100%; left: 10px;
+              border: 6px solid transparent; border-top: 6px solid #4a261e;
+            }
+            padding: 6px; margin: 5px 0 10px 5px; background-color: #4a261e; position: relative; overflow: visible;
+            min-height: 30px; filter: drop-shadow(0 0 3px rgba(0,0,0,0.35)); text-align: justify; font-size: 1.2em;
+
+            h1 { color: @myhordes-smalltext; margin: 0 0 5px 0; padding: 0 0 5px 0; border-bottom: 1px solid rgba(0,0,0,0.2); }
+
+            &>p:only-child { margin: 5px 0 10px 0; font-size: 1.5rem; }
+          }
+
+          &>div.pm-message-footer {
+            margin-top: 4px; padding: 4px 5px 0 50px; min-height: 50px; position: relative;
+            .pm-announcement-sender { font-size: 2em; color: @myhordes-smalltext }
+            .pm-announcement-date { font-size: 0.8em; opacity: 0.6; }
+
+          }
+        }
+
+        &.own div.pm-message {
+          &:before { border-right: 6px solid #65382e; }
+          background-color: #65382e;
+        }
+
+        &.new:not(.own) div.pm-avatar::after, &.new:not(.own) div.pm-avatar-crow::after {
+          content: " "; position: absolute; width: 20px; height: 20px; border: 1px solid #fe7d00; border-radius: 10px;
+          background: url("../../img/forum/new.png") top center no-repeat, #bd3d00; bottom: -10px; right: -10px;
+        }
+      }
+    }
+  }
+
+  .pm-endless-more {
+    text-align: center; color: @myhordes-smalltext; margin: 10px 5px; padding: 2px 0;
+    border-top: 1px solid fade(@myhordes-smalltext, 50%); border-bottom: 1px solid fade(@myhordes-smalltext, 50%);
   }
 }
