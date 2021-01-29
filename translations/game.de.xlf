@@ -18202,5 +18202,14 @@
         <target>Zombieangriff (newspaper)</target>
       </segment>
     </unit>
+    <unit id="9tYl8RU" name="Zum Schlafen Reichts Motel">
+      <notes>
+        <note category="german">Zum Schlafen Reichts Motel</note>
+      </notes>
+      <segment>
+        <source>Zum Schlafen Reichts Motel</source>
+        <target>Zum Schlafen Reichts Motel</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
