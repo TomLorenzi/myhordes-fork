@@ -17693,5 +17693,14 @@
         <target>Oh non ! Le veilleur %citizen% a été blessé pendant l'attaque...</target>
       </segment>
     </unit>
+    <unit id="Hre92RP" name="Zeit bis zum nächsten Zombieangriff">
+      <notes>
+        <note category="german">Zeit bis zum nächsten Zombieangriff</note>
+      </notes>
+      <segment>
+        <source>Zeit bis zum nächsten Zombieangriff</source>
+        <target>Temps avant la prochaine attaque de zombies</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

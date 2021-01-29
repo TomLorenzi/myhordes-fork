@@ -182,12 +182,22 @@ export default class HTML {
             const m = Math.floor((seconds - h*3600)/60);
             const s = seconds - h*3600 - m*60;
 
+            let html = "";
+            // Check if there's a tooltip set
+            let tooltip = element.querySelectorAll(".tooltip");
+            if (tooltip.length > 0) {
+                for (let i = 0 ; i < tooltip.length ; i++) {
+                    html += tooltip[i].outerHTML;
+                }
+            }
+
             if (custom_handler === 'pre' || custom_handler === 'handle') element.dispatchEvent(new CustomEvent('countdown', {detail: [seconds, h, m, s]}));
-            if (!custom_handler || custom_handler === 'pre' || custom_handler === 'post')
-                element.innerHTML =
+            if (!custom_handler || custom_handler === 'pre' || custom_handler === 'post') {
+                element.innerHTML = html +
                     ((h > 0 || force_hours) ? (h + ':') : '') +
                     ((h > 0 || force_hours) ? (m > 9 ? m : ('0' + m)) : m) +
                     (show_secs ? (':' + (s > 9 ? s : ('0' + s))) : '');
+            }
             if (custom_handler === 'post') element.dispatchEvent(new CustomEvent('countdown', {detail: [seconds, h, m, s]}));
         };
 
@@ -203,6 +213,41 @@ export default class HTML {
                 draw();
                 window.setTimeout(f,parseInt(interval));
             }
+        };
+
+        f(true);
+    }
+
+    handleCurrentTime( element: Element ): void {
+        const show_secs   = !element.getAttribute('x-no-seconds');
+        const force_hours =  element.getAttribute('x-force-hours');
+        const custom_handler = element.getAttribute('x-handler');
+        let interval = element.getAttribute('x-countdown-interval');
+        if (!interval) interval = '1000';
+
+        const draw = function() {
+
+            const h = (new Date()).getHours();
+            const m = (new Date()).getMinutes();
+            const s = (new Date()).getSeconds();
+            let html = "";
+            // Check if there's a tooltip set
+            let tooltip = element.querySelectorAll(".tooltip");
+            if (tooltip.length > 0) {
+                for (let i = 0 ; i < tooltip.length ; i++) {
+                    html += tooltip[i].outerHTML;
+                }
+            }
+            element.innerHTML = html +
+                ((h > 0 || force_hours) ? (h + ':') : '') +
+                ((h > 0 || force_hours) ? (m > 9 ? m : ('0' + m)) : m) +
+                (show_secs ? (':' + (s > 9 ? s : ('0' + s))) : '');
+        };
+
+        const f = function(no_chk = false) {
+            if (!no_chk && !document.body.contains(element)) return;
+            draw();
+            window.setTimeout(f,parseInt(interval));
         };
 
         f(true);
