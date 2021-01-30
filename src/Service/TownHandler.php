@@ -148,10 +148,11 @@ class TownHandler
         switch ($building->getPrototype()->getName()) {
             /*case 'small_fireworks_#00':*/case 'small_balloon_#00':
                 $all = $building->getPrototype()->getName() === 'small_balloon_#00';
+                $state = $this->getBuilding($town, 'item_electro_#00', true) ? Zone::ZombieStateExact : Zone::ZombieStateEstimate;
                 foreach ($town->getZones() as &$zone)
                     if ($all || $zone->getPrototype()) {
                         $zone->setDiscoveryStatus( Zone::DiscoveryStateCurrent );
-                        $zone->setZombieStatus( max( $zone->getZombieStatus(), Zone::ZombieStateEstimate ) );
+                        $zone->setZombieStatus( max( $zone->getZombieStatus(), $state ) );
                     }
                 break;
             case 'small_rocket_#00':
