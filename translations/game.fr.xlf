@@ -6638,7 +6638,7 @@
       <segment>
         <source>Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
                 Stadt aus, musst du als einfacher Einwohner weiterspielen.</source>
-        <target>Si vous jouez en tant que %hero%, un Jour Héro vous sera déduit quotidiennement. Si vous tombez à court de Jours Héro pendant une incernation, vous continuerez à jouer en tant que simple citoyen.</target>
+        <target>Si vous jouez en tant que %hero%, un Jour Héro vous sera déduit quotidiennement. Si vous tombez à court de Jours Héro pendant une incarnation, vous continuerez à jouer en tant que simple citoyen.</target>
       </segment>
     </unit>
     <unit id="nbN6CQm" name="f843777">
