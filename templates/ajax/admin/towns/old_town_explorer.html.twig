@@ -28,7 +28,7 @@
             <div x-tab-group="admin-town" x-tab-id="dash" x-tab-target>
                 <div class="row">
                     <div class="cell padded rw-6 rw-sm-12">
-                        {{ _self.valuelist('ID'|trans({},'admin'),         town.id) }}
+                        {{ _self.valuelist('ID'|trans({},'admin'),         town.imported ? town.baseID : town.id) }}
                         {{ _self.valuelist('Stadtname'|trans({},'admin'),  town.name) }}
                         {{ _self.valuelist('Sprache'|trans({},'admin'),    town.language) }}
                         {{ _self.valuelist('Typ'|trans({},'admin'),        town.type.label|trans({},'game')) }}
