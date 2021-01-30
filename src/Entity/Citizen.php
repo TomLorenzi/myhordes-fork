@@ -370,6 +370,13 @@ class Citizen
         return $this;
     }
 
+    public function hasStatus(string $status_name): bool
+    {
+        foreach ($this->getStatus() as $status)
+            if ($status->getName() === $status_name) return true;
+        return false;
+    }
+
     public function getProfession(): ?CitizenProfession
     {
         return $this->profession;
