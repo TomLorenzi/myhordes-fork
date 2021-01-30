@@ -1341,6 +1341,7 @@ class ActionHandler
                         if(count($zones) > 0) {
                             $zone = $this->random_generator->pick($zones);
                             $zone->setDiscoveryStatus(Zone::DiscoveryStateCurrent);
+                            $zone->setZombieStatus( max( $zone->getZombieStatus(), $this->town_handler->getBuilding($citizen->getTown(), 'item_electro_#00', true) ? Zone::ZombieStateExact : Zone::ZombieStateEstimate ) );
                             $this->entity_manager->persist($zone);
                             $this->inventory_handler->forceRemoveItem( $item );
                             $execute_info_cache['items_consume'][] = $item->getPrototype();
