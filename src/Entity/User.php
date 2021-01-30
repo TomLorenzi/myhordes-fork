@@ -222,6 +222,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $disableFx = false;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $expert = false;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -963,6 +968,18 @@ class User implements UserInterface, EquatableInterface
     public function setDisableFx(bool $disableFx): self
     {
         $this->disableFx = $disableFx;
+
+        return $this;
+    }
+
+    public function getExpert(): ?bool
+    {
+        return $this->expert;
+    }
+
+    public function setExpert(bool $expert): self
+    {
+        $this->expert = $expert;
 
         return $this;
     }

@@ -234,7 +234,7 @@ x-message {
 
   &>#content {
     margin: 0 5px 0 @myhordes-left-padding;
-    &>.row:not(.external-app)>.cell,&>noscript>.row>.cell {
+    &>.row:not(.external-app)>.cell:not(.manual-background),&>noscript>.row>.cell, & .cell.background {
 
       &.header>h4:first-child {
         &+*::before { content: " "; display: block; height: 24px; }
@@ -249,37 +249,20 @@ x-message {
       &.padded-none, &:not(.padded):not(.padded-small)  { padding: 12px; }
 
       &:not(.fact):not(.quote) {background: @myhordes-panel-border, @myhordes-panel-bg; color: @myhordes-panel-color;}
+
       &.fact {
-        color: white;
-        height: 43px;
-        margin-bottom: -25px;
-        z-index: 1;
-        background: url('../img/background/footer_zombie.gif') 0 0 no-repeat;
-        text-align: right;
-        font-size: 1.2rem;
-        text-shadow: 0px 1px 1px black, 0px -1px 1px black, 1px 0px 1px black, -1px 0px 1px black, 1px 1px 1px black, -1px -1px 1px black, -1px 1px 1px black, 1px -1px 1px black;
-        .author {
-          font-weight: bold;
-          color: #fdcb70;
-        }
+        color: white; height: 43px; margin-bottom: -25px; z-index: 1;
+        background: url('../img/background/footer_zombie.gif') 0 0 no-repeat; text-align: right; font-size: 1.2rem;
+        text-shadow: 0 1px 1px black, 0 -1px 1px black, 1px 0 1px black, -1px 0 1px black, 1px 1px 1px black, -1px -1px 1px black, -1px 1px 1px black, 1px -1px 1px black;
+        .author { font-weight: bold; color: #fdcb70; }
       }
+
       &.quote {
-        color: #513c2d;
-        padding: 0 !important;
-        font-size: 1.1rem;
-        width: 200px;
-        background: url('../img/background/flavor_bg.jpg') 0 41px repeat-y;
-        float: right;
-        font-style: italic;
-        font-weight: bold;
-        .quote-head {
-          background: url('../img/background/flavor_header.jpg') left top no-repeat;
-          padding: 12px 8px;
-          min-height: 55px;
-        }
-        .quote-foot {
-          background: url('../img/background/flavor_footer.jpg') left bottom no-repeat;
-        }
+        color: #513c2d; padding: 0 !important; font-size: 1.1rem; width: 200px; font-weight: bold;
+        background: url('../img/background/flavor_bg.jpg') 0 41px repeat-y; float: right; font-style: italic;
+
+        .quote-head { background: url('../img/background/flavor_header.jpg') left top no-repeat; padding: 12px 8px; min-height: 55px; }
+        .quote-foot { background: url('../img/background/flavor_footer.jpg') left bottom no-repeat; }
       }
     }
 
@@ -595,6 +578,7 @@ div.help {
   .box(@myhordes-help-color); padding: 5px 5px 5px 26px; font-size: 1.2rem; margin: 5px 0; text-align: justify; position: relative;
   &>p:first-child { margin-top: 0 }
   &>p:last-child { margin-bottom: 0 }
+  color: white;
   strong { color: #e2d890; }
 }
 
@@ -1325,6 +1309,10 @@ div.block {
     text-align: center;
     font-size: 1.2rem;
   }
+}
+
+div.item-addendum {
+  font-weight: bold; color: @myhordes-smalltext; margin-top: 10px;
 }
 
 div.item-tag {
