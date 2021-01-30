@@ -322,7 +322,7 @@ class SoulController extends CustomAbstractController
         if ($seasonId > 0 && $currentSeason->getNumber() > 0)
             $criteria->andWhere($criteria->expr()->neq('end', null));
 
-        $criteria->orderBy(['score' => 'DESC', 'end' => 'ASC']);
+        $criteria->orderBy(['score' => 'DESC', 'end' => 'ASC', 'id'=> 'ASC']);
         $criteria->setMaxResults(35);
         $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->matching($criteria);
         $played = [];
