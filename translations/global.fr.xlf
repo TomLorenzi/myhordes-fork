@@ -2343,5 +2343,365 @@
         <target>Erreur lors du chargement de la boîte de réception.</target>
       </segment>
     </unit>
+    <unit id="BFjRnfU" name="Nachrichten des Raben">
+      <notes>
+        <note category="german">Nachrichten des Raben</note>
+      </notes>
+      <segment>
+        <source>Nachrichten des Raben</source>
+        <target>Nachrichten des Raben</target>
+      </segment>
+    </unit>
+    <unit id="zLJ.A.A" name="Anzeigen">
+      <notes>
+        <note category="german">Anzeigen</note>
+      </notes>
+      <segment>
+        <source>Anzeigen</source>
+        <target>Anzeigen</target>
+      </segment>
+    </unit>
+    <unit id="NhpWriw" name="Dauerhaft">
+      <notes>
+        <note category="german">Dauerhaft</note>
+      </notes>
+      <segment>
+        <source>Dauerhaft</source>
+        <target>Dauerhaft</target>
+      </segment>
+    </unit>
+    <unit id="6Ql8d6C" name="%n% Tage">
+      <notes>
+        <note category="german">%n% Tage</note>
+      </notes>
+      <segment>
+        <source>%n% Tage</source>
+        <target>%n% Tage</target>
+      </segment>
+    </unit>
+    <unit id="1E2BbPr" name="1 Tag">
+      <notes>
+        <note category="german">1 Tag</note>
+      </notes>
+      <segment>
+        <source>1 Tag</source>
+        <target>1 Tag</target>
+      </segment>
+    </unit>
+    <unit id="j5aKYuL" name="%n% Stunden">
+      <notes>
+        <note category="german">%n% Stunden</note>
+      </notes>
+      <segment>
+        <source>%n% Stunden</source>
+        <target>%n% Stunden</target>
+      </segment>
+    </unit>
+    <unit id="2iHBadX" name="1 Stunde">
+      <notes>
+        <note category="german">1 Stunde</note>
+      </notes>
+      <segment>
+        <source>1 Stunde</source>
+        <target>1 Stunde</target>
+      </segment>
+    </unit>
+    <unit id="p._haUN" name="%n% Minuten">
+      <notes>
+        <note category="german">%n% Minuten</note>
+      </notes>
+      <segment>
+        <source>%n% Minuten</source>
+        <target>%n% Minuten</target>
+      </segment>
+    </unit>
+    <unit id="ST5ILqV" name="1 Minute">
+      <notes>
+        <note category="german">1 Minute</note>
+      </notes>
+      <segment>
+        <source>1 Minute</source>
+        <target>1 Minute</target>
+      </segment>
+    </unit>
+    <unit id="kk4m10D" name="%n% Sekunden">
+      <notes>
+        <note category="german">%n% Sekunden</note>
+      </notes>
+      <segment>
+        <source>%n% Sekunden</source>
+        <target>%n% Sekunden</target>
+      </segment>
+    </unit>
+    <unit id="1rEgLVY" name="1 Sekunde">
+      <notes>
+        <note category="german">1 Sekunde</note>
+      </notes>
+      <segment>
+        <source>1 Sekunde</source>
+        <target>1 Sekunde</target>
+      </segment>
+    </unit>
+    <unit id="wdMI1yW" name="Zum erweiterten Editor wechseln">
+      <notes>
+        <note category="german">Zum erweiterten Editor wechseln</note>
+      </notes>
+      <segment>
+        <source>Zum erweiterten Editor wechseln</source>
+        <target>Zum erweiterten Editor wechseln</target>
+      </segment>
+    </unit>
+    <unit id="V.p5aJp" name="Aktuelle Teilnehmer">
+      <notes>
+        <note category="german">Aktuelle Teilnehmer</note>
+      </notes>
+      <segment>
+        <source>Aktuelle Teilnehmer</source>
+        <target>Aktuelle Teilnehmer</target>
+      </segment>
+    </unit>
+    <unit id="fRSZTyY" name="Spieler ausschließen">
+      <notes>
+        <note category="german">Spieler ausschließen</note>
+      </notes>
+      <segment>
+        <source>Spieler ausschließen</source>
+        <target>Spieler ausschließen</target>
+      </segment>
+    </unit>
+    <unit id="oQjRJjM" name="b58bfe6">
+      <notes>
+        <note category="german">Ausgeschlossene Spieler können die vor ihrem Ausschluss geposteten Nachrichten in der Gruppe weiterhin lesen, erhalten allerdings keine neuen Nachrichten mehr und können auch nicht mehr antworten.</note>
+      </notes>
+      <segment>
+        <source>Ausgeschlossene Spieler können die vor ihrem Ausschluss geposteten Nachrichten in der Gruppe weiterhin lesen, erhalten allerdings keine neuen Nachrichten mehr und können auch nicht mehr antworten.</source>
+        <target>Ausgeschlossene Spieler können die vor ihrem Ausschluss geposteten Nachrichten in der Gruppe weiterhin lesen, erhalten allerdings keine neuen Nachrichten mehr und können auch nicht mehr antworten.</target>
+      </segment>
+    </unit>
+    <unit id="3RIQeU4" name="Spieler hinzufügen">
+      <notes>
+        <note category="german">Spieler hinzufügen</note>
+      </notes>
+      <segment>
+        <source>Spieler hinzufügen</source>
+        <target>Spieler hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id="OlIltPQ" name="Neu hinzugefügte Spieler erhalten Zugriff auf alle Nachrichten in der Gruppe.">
+      <notes>
+        <note category="german">Neu hinzugefügte Spieler erhalten Zugriff auf alle Nachrichten in der Gruppe.</note>
+      </notes>
+      <segment>
+        <source>Neu hinzugefügte Spieler erhalten Zugriff auf alle Nachrichten in der Gruppe.</source>
+        <target>Neu hinzugefügte Spieler erhalten Zugriff auf alle Nachrichten in der Gruppe.</target>
+      </segment>
+    </unit>
+    <unit id="viM4Z2P" name="Einen Empfänger hinzufügen">
+      <notes>
+        <note category="german">Einen Empfänger hinzufügen</note>
+      </notes>
+      <segment>
+        <source>Einen Empfänger hinzufügen</source>
+        <target>Einen Empfänger hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id="3bh1FTt" name="Ausgeschlossene Teilnehmer">
+      <notes>
+        <note category="german">Ausgeschlossene Teilnehmer</note>
+      </notes>
+      <segment>
+        <source>Ausgeschlossene Teilnehmer</source>
+        <target>Ausgeschlossene Teilnehmer</target>
+      </segment>
+    </unit>
+    <unit id="tR.PKkG" name="Ausschluss annulieren">
+      <notes>
+        <note category="german">Ausschluss annulieren</note>
+      </notes>
+      <segment>
+        <source>Ausschluss annulieren</source>
+        <target>Ausschluss annulieren</target>
+      </segment>
+    </unit>
+    <unit id="u2oPHL5" name="458e607">
+      <notes>
+        <note category="german">Der Ausschluss des Spielers wird annuliert und er oder sie erhält wieder vollen Zugriff auf die Gruppe.</note>
+      </notes>
+      <segment>
+        <source>Der Ausschluss des Spielers wird annuliert und er oder sie erhält wieder vollen Zugriff auf die Gruppe.</source>
+        <target>Der Ausschluss des Spielers wird annuliert und er oder sie erhält wieder vollen Zugriff auf die Gruppe.</target>
+      </segment>
+    </unit>
+    <unit id="v6K7zGV" name="Wird geladen...">
+      <notes>
+        <note category="german">Wird geladen...</note>
+      </notes>
+      <segment>
+        <source>Wird geladen...</source>
+        <target>Wird geladen...</target>
+      </segment>
+    </unit>
+    <unit id="O2YDDa_" name="Bitte wähle eine Konversation auf der linken Seite.">
+      <notes>
+        <note category="german">Bitte wähle eine Konversation auf der linken Seite.</note>
+      </notes>
+      <segment>
+        <source>Bitte wähle eine Konversation auf der linken Seite.</source>
+        <target>Bitte wähle eine Konversation auf der linken Seite.</target>
+      </segment>
+    </unit>
+    <unit id="GdEH33Y" name="b44f7e8">
+      <notes>
+        <note category="german">Spamschutz: Du hast heute bereits eine große Anzahl an Spielern kontaktiert; du musst eine Weile warten, bevor du eine neue Nachricht erstellen kannst.</note>
+      </notes>
+      <segment>
+        <source>Spamschutz: Du hast heute bereits eine große Anzahl an Spielern kontaktiert; du musst eine Weile warten, bevor du eine neue Nachricht erstellen kannst.</source>
+        <target>Spamschutz: Du hast heute bereits eine große Anzahl an Spielern kontaktiert; du musst eine Weile warten, bevor du eine neue Nachricht erstellen kannst.</target>
+      </segment>
+    </unit>
+    <unit id="pOsDbB7" name="Weitere Einträge werden geladen...">
+      <notes>
+        <note category="german">Weitere Einträge werden geladen...</note>
+      </notes>
+      <segment>
+        <source>Weitere Einträge werden geladen...</source>
+        <target>Weitere Einträge werden geladen...</target>
+      </segment>
+    </unit>
+    <unit id="Vlb5Lbe" name="Aktionen">
+      <notes>
+        <note category="german">Aktionen</note>
+      </notes>
+      <segment>
+        <source>Aktionen</source>
+        <target>Aktionen</target>
+      </segment>
+    </unit>
+    <unit id="abqsDy0" name="Schreiben">
+      <notes>
+        <note category="german">Schreiben</note>
+      </notes>
+      <segment>
+        <source>Schreiben</source>
+        <target>Schreiben</target>
+      </segment>
+    </unit>
+    <unit id="8t5pAcX" name="Konversationen">
+      <notes>
+        <note category="german">Konversationen</note>
+      </notes>
+      <segment>
+        <source>Konversationen</source>
+        <target>Konversationen</target>
+      </segment>
+    </unit>
+    <unit id="Fok7iu4" name="Lade Unterhaltungen ...">
+      <notes>
+        <note category="german">Lade Unterhaltungen ...</note>
+      </notes>
+      <segment>
+        <source>Lade Unterhaltungen ...</source>
+        <target>Lade Unterhaltungen ...</target>
+      </segment>
+    </unit>
+    <unit id="7nL8pkj" name="Diese Konversation">
+      <notes>
+        <note category="german">Diese Konversation</note>
+      </notes>
+      <segment>
+        <source>Diese Konversation</source>
+        <target>Diese Konversation</target>
+      </segment>
+    </unit>
+    <unit id="QhNmYG6" name="Nicht gelesen">
+      <notes>
+        <note category="german">Nicht gelesen</note>
+      </notes>
+      <segment>
+        <source>Nicht gelesen</source>
+        <target>Nicht gelesen</target>
+      </segment>
+    </unit>
+    <unit id="QVc9ywt" name="Teilnehmer">
+      <notes>
+        <note category="german">Teilnehmer</note>
+      </notes>
+      <segment>
+        <source>Teilnehmer</source>
+        <target>Teilnehmer</target>
+      </segment>
+    </unit>
+    <unit id="QqEU9Ib" name="Lade Unterhaltung...">
+      <notes>
+        <note category="german">Lade Unterhaltung...</note>
+      </notes>
+      <segment>
+        <source>Lade Unterhaltung...</source>
+        <target>Lade Unterhaltung...</target>
+      </segment>
+    </unit>
+    <unit id="A3ohW8X" name="Du kannst keine weiteren Spieler zu dieser Nachricht hinzufügen.">
+      <notes>
+        <note category="german">Du kannst keine weiteren Spieler zu dieser Nachricht hinzufügen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst keine weiteren Spieler zu dieser Nachricht hinzufügen.</source>
+        <target>Du kannst keine weiteren Spieler zu dieser Nachricht hinzufügen.</target>
+      </segment>
+    </unit>
+    <unit id="6KKKVfb" name="Neue Nachricht">
+      <notes>
+        <note category="german">Neue Nachricht</note>
+      </notes>
+      <segment>
+        <source>Neue Nachricht</source>
+        <target>Neue Nachricht</target>
+      </segment>
+    </unit>
+    <unit id="8onQ9l6" name="Ankündigung">
+      <notes>
+        <note category="german">Ankündigung</note>
+      </notes>
+      <segment>
+        <source>Ankündigung</source>
+        <target>Ankündigung</target>
+      </segment>
+    </unit>
+    <unit id="2vjDBX2" name="%n% Teilnehmer">
+      <notes>
+        <note category="german">%n% Teilnehmer</note>
+      </notes>
+      <segment>
+        <source>%n% Teilnehmer</source>
+        <target>%n% Teilnehmer</target>
+      </segment>
+    </unit>
+    <unit id="Kb6Avwp" name="Weitere Einträge laden">
+      <notes>
+        <note category="german">Weitere Einträge laden</note>
+      </notes>
+      <segment>
+        <source>Weitere Einträge laden</source>
+        <target>Weitere Einträge laden</target>
+      </segment>
+    </unit>
+    <unit id="Tks6pyp" name="Posteingang wird geladen ...">
+      <notes>
+        <note category="german">Posteingang wird geladen ...</note>
+      </notes>
+      <segment>
+        <source>Posteingang wird geladen ...</source>
+        <target>Posteingang wird geladen ...</target>
+      </segment>
+    </unit>
+    <unit id="PXyHpOf" name="Fehler beim Laden des Posteingangs.">
+      <notes>
+        <note category="german">Fehler beim Laden des Posteingangs.</note>
+      </notes>
+      <segment>
+        <source>Fehler beim Laden des Posteingangs.</source>
+        <target>Fehler beim Laden des Posteingangs.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

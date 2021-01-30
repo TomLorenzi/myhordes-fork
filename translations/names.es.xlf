@@ -1081,5 +1081,437 @@
         <target></target>
       </segment>
     </unit>
+    <unit id="OGB7Pen" name="Krankenhaus Beinapp">
+      <notes>
+        <note category="german">Krankenhaus Beinapp</note>
+      </notes>
+      <segment>
+        <source>Krankenhaus Beinapp</source>
+        <target>Hospital Matasanos</target>
+      </segment>
+    </unit>
+    <unit id="2gwJ5rX" name="Aesthetyxiations-Abteilung">
+      <notes>
+        <note category="german">Aesthetyxiations-Abteilung</note>
+      </notes>
+      <segment>
+        <source>Aesthetyxiations-Abteilung</source>
+        <target>Clínica El Serrucho</target>
+      </segment>
+    </unit>
+    <unit id="gRKS19j" name="Krankenhaus Krankenstedt">
+      <notes>
+        <note category="german">Krankenhaus Krankenstedt</note>
+      </notes>
+      <segment>
+        <source>Krankenhaus Krankenstedt</source>
+        <target>Hospital Privado</target>
+      </segment>
+    </unit>
+    <unit id="nE0ohJ." name="Waldorf Klinik">
+      <notes>
+        <note category="german">Waldorf Klinik</note>
+      </notes>
+      <segment>
+        <source>Waldorf Klinik</source>
+        <target>Hospital del Rey</target>
+      </segment>
+    </unit>
+    <unit id="MpHqmpl" name="STD Behandlungszentrum Bohlen">
+      <notes>
+        <note category="german">STD Behandlungszentrum Bohlen</note>
+      </notes>
+      <segment>
+        <source>STD Behandlungszentrum Bohlen</source>
+        <target>Clínica de Miércoles</target>
+      </segment>
+    </unit>
+    <unit id="3IZqzXd" name="Bill S. Preston Memorial Hospital">
+      <notes>
+        <note category="german">Bill S. Preston Memorial Hospital</note>
+      </notes>
+      <segment>
+        <source>Bill S. Preston Memorial Hospital</source>
+        <target>Hospital Sangriento</target>
+      </segment>
+    </unit>
+    <unit id="4YF2o8." name="Klinik von Dr. Quack Salber">
+      <notes>
+        <note category="german">Klinik von Dr. Quack Salber</note>
+      </notes>
+      <segment>
+        <source>Klinik von Dr. Quack Salber</source>
+        <target>Hospital Bar Discoteca</target>
+      </segment>
+    </unit>
+    <unit id=".wacYXQ" name="Wasserallergie-Behandlungszentrum">
+      <notes>
+        <note category="german">Wasserallergie-Behandlungszentrum</note>
+      </notes>
+      <segment>
+        <source>Wasserallergie-Behandlungszentrum</source>
+        <target>Hospital Cementerio</target>
+      </segment>
+    </unit>
+    <unit id="OpAA8wW" name="Klinikum Altenburg">
+      <notes>
+        <note category="german">Klinikum Altenburg</note>
+      </notes>
+      <segment>
+        <source>Klinikum Altenburg</source>
+        <target>Hospital Dolores</target>
+      </segment>
+    </unit>
+    <unit id="b9dLorE" name="Stadtkrankenhaus am Dorfplatz">
+      <notes>
+        <note category="german">Stadtkrankenhaus am Dorfplatz</note>
+      </notes>
+      <segment>
+        <source>Stadtkrankenhaus am Dorfplatz</source>
+        <target>Hospital Milagros</target>
+      </segment>
+    </unit>
+    <unit id="Myeh7YJ" name="Blanko-Penisverkleinerungsklinik">
+      <notes>
+        <note category="german">Blanko-Penisverkleinerungsklinik</note>
+      </notes>
+      <segment>
+        <source>Blanko-Penisverkleinerungsklinik</source>
+        <target>Clínica del Dr. Cuervo</target>
+      </segment>
+    </unit>
+    <unit id="KYvE.Q7" name="Chronische Erschöpfungsheilanstalt Dr. Sloth">
+      <notes>
+        <note category="german">Chronische Erschöpfungsheilanstalt Dr. Sloth</note>
+      </notes>
+      <segment>
+        <source>Chronische Erschöpfungsheilanstalt Dr. Sloth</source>
+        <target>Hospital Nocturno</target>
+      </segment>
+    </unit>
+    <unit id="6w7BxUc" name="Bordeaux Grace">
+      <notes>
+        <note category="german">Bordeaux Grace</note>
+      </notes>
+      <segment>
+        <source>Bordeaux Grace</source>
+        <target>Hospital del Estado</target>
+      </segment>
+    </unit>
+    <unit id="6es1Zyz" name="George und Ralph Kinderkrankenhaus">
+      <notes>
+        <note category="german">George und Ralph Kinderkrankenhaus</note>
+      </notes>
+      <segment>
+        <source>George und Ralph Kinderkrankenhaus</source>
+        <target>Hospital Madre Mía</target>
+      </segment>
+    </unit>
+    <unit id="bLVHCVX" name="Charlton Eston Hotel">
+      <notes>
+        <note category="german">Charlton Eston Hotel</note>
+      </notes>
+      <segment>
+        <source>Charlton Eston Hotel</source>
+        <target>Hotel California</target>
+      </segment>
+    </unit>
+    <unit id="YW9tNOa" name="Motel Zauberstübchen">
+      <notes>
+        <note category="german">Motel Zauberstübchen</note>
+      </notes>
+      <segment>
+        <source>Motel Zauberstübchen</source>
+        <target>Hotel El Cielo II</target>
+      </segment>
+    </unit>
+    <unit id="RXTU0Jt" name="Rabble Lodge">
+      <notes>
+        <note category="german">Rabble Lodge</note>
+      </notes>
+      <segment>
+        <source>Rabble Lodge</source>
+        <target>Death Palace Hotel</target>
+      </segment>
+    </unit>
+    <unit id="nDrFULB" name="Gasthof 'Zum Spanner'">
+      <notes>
+        <note category="german">Gasthof 'Zum Spanner'</note>
+      </notes>
+      <segment>
+        <source>Gasthof 'Zum Spanner'</source>
+        <target>Hostal Barato</target>
+      </segment>
+    </unit>
+    <unit id="11soaXO" name="Zur Erbrochenen Krone">
+      <notes>
+        <note category="german">Zur Erbrochenen Krone</note>
+      </notes>
+      <segment>
+        <source>Zur Erbrochenen Krone</source>
+        <target>Hotel Maravilla</target>
+      </segment>
+    </unit>
+    <unit id=".tqLOvU" name="Terminal Hotel">
+      <notes>
+        <note category="german">Terminal Hotel</note>
+      </notes>
+      <segment>
+        <source>Terminal Hotel</source>
+        <target>Hotel Melody</target>
+      </segment>
+    </unit>
+    <unit id="UJ.NcUe" name="Hotel Von Otto">
+      <notes>
+        <note category="german">Hotel Von Otto</note>
+      </notes>
+      <segment>
+        <source>Hotel Von Otto</source>
+        <target>Hotel Paraeso</target>
+      </segment>
+    </unit>
+    <unit id="4iY4V5c" name="S+M B+B">
+      <notes>
+        <note category="german">S+M B+B</note>
+      </notes>
+      <segment>
+        <source>S+M B+B</source>
+        <target>Hostal de Paso</target>
+      </segment>
+    </unit>
+    <unit id="38Pnm9V" name="Zm Schlafen Reichts Motel">
+      <notes>
+        <note category="german">Zm Schlafen Reichts Motel</note>
+      </notes>
+      <segment>
+        <source>Zm Schlafen Reichts Motel</source>
+        <target>Hotel Particular</target>
+      </segment>
+    </unit>
+    <unit id="ugpUYNk" name="Hotel Peculiar">
+      <notes>
+        <note category="german">Hotel Peculiar</note>
+      </notes>
+      <segment>
+        <source>Hotel Peculiar</source>
+        <target>Hotel Monstruo</target>
+      </segment>
+    </unit>
+    <unit id="FfhGQBk" name="Liza Defloration Hotel">
+      <notes>
+        <note category="german">Liza Defloration Hotel</note>
+      </notes>
+      <segment>
+        <source>Liza Defloration Hotel</source>
+        <target>Hotel Znarfo</target>
+      </segment>
+    </unit>
+    <unit id="LEp.7HR" name="Santas Absteige">
+      <notes>
+        <note category="german">Santas Absteige</note>
+      </notes>
+      <segment>
+        <source>Santas Absteige</source>
+        <target>Hotel Transilvania</target>
+      </segment>
+    </unit>
+    <unit id="QAgPWD4" name="Chez Clem Hotel">
+      <notes>
+        <note category="german">Chez Clem Hotel</note>
+      </notes>
+      <segment>
+        <source>Chez Clem Hotel</source>
+        <target>Hotel Nirvana</target>
+      </segment>
+    </unit>
+    <unit id="CVqoAHv" name="Drei Eingänge Hotel + Spa">
+      <notes>
+        <note category="german">Drei Eingänge Hotel + Spa</note>
+      </notes>
+      <segment>
+        <source>Drei Eingänge Hotel + Spa</source>
+        <target>Hostal El Secreto</target>
+      </segment>
+    </unit>
+    <unit id="3ElP164" name="Hostel Partout">
+      <notes>
+        <note category="german">Hostel Partout</note>
+      </notes>
+      <segment>
+        <source>Hostel Partout</source>
+        <target>Hotel El Pájaro Loco</target>
+      </segment>
+    </unit>
+    <unit id="NwLPq6d" name="Bumbling Inn">
+      <notes>
+        <note category="german">Bumbling Inn</note>
+      </notes>
+      <segment>
+        <source>Bumbling Inn</source>
+        <target>Hotel Gonzalez</target>
+      </segment>
+    </unit>
+    <unit id="RhHPR6w" name="Vajazzl Inn">
+      <notes>
+        <note category="german">Vajazzl Inn</note>
+      </notes>
+      <segment>
+        <source>Vajazzl Inn</source>
+        <target>Hostal El Cielo I</target>
+      </segment>
+    </unit>
+    <unit id="iPCSevb" name="Hotel Venga">
+      <notes>
+        <note category="german">Hotel Venga</note>
+      </notes>
+      <segment>
+        <source>Hotel Venga</source>
+        <target>Hostal El Cielo III</target>
+      </segment>
+    </unit>
+    <unit id="4gAjVQX" name="Verlassener Bunker">
+      <notes>
+        <note category="german">Verlassener Bunker</note>
+      </notes>
+      <segment>
+        <source>Verlassener Bunker</source>
+        <target>Bunker Abandonado</target>
+      </segment>
+    </unit>
+    <unit id="IX8g.CS" name="Thermonuklear-Bunker">
+      <notes>
+        <note category="german">Thermonuklear-Bunker</note>
+      </notes>
+      <segment>
+        <source>Thermonuklear-Bunker</source>
+        <target>Bunker termonuclear</target>
+      </segment>
+    </unit>
+    <unit id="nk_3SAa" name="Garrison-Haus">
+      <notes>
+        <note category="german">Garrison-Haus</note>
+      </notes>
+      <segment>
+        <source>Garrison-Haus</source>
+        <target>Bunker de políticos</target>
+      </segment>
+    </unit>
+    <unit id="SpbWkEI" name="Bastion der Angst">
+      <notes>
+        <note category="german">Bastion der Angst</note>
+      </notes>
+      <segment>
+        <source>Bastion der Angst</source>
+        <target>Bunker del terror</target>
+      </segment>
+    </unit>
+    <unit id="St7WqwF" name="Bunker der Wut">
+      <notes>
+        <note category="german">Bunker der Wut</note>
+      </notes>
+      <segment>
+        <source>Bunker der Wut</source>
+        <target>Bunker de los prófugos</target>
+      </segment>
+    </unit>
+    <unit id="6TfqhRy" name="Fallout Shelter">
+      <notes>
+        <note category="german">Fallout Shelter</note>
+      </notes>
+      <segment>
+        <source>Fallout Shelter</source>
+        <target>Guarida insalubre</target>
+      </segment>
+    </unit>
+    <unit id="LjLekr." name="Keine Hoffnung ohne Öffnung!">
+      <notes>
+        <note category="german">Keine Hoffnung ohne Öffnung!</note>
+      </notes>
+      <segment>
+        <source>Keine Hoffnung ohne Öffnung!</source>
+        <target>Refugio Fin del Mundo</target>
+      </segment>
+    </unit>
+    <unit id="OjXicDh" name="Schattenfort">
+      <notes>
+        <note category="german">Schattenfort</note>
+      </notes>
+      <segment>
+        <source>Schattenfort</source>
+        <target>Bunker rockero</target>
+      </segment>
+    </unit>
+    <unit id="NLf.v3s" name="Verlassene Trooper-Station">
+      <notes>
+        <note category="german">Verlassene Trooper-Station</note>
+      </notes>
+      <segment>
+        <source>Verlassene Trooper-Station</source>
+        <target>Bunker graffitero</target>
+      </segment>
+    </unit>
+    <unit id="T0elHRk" name="Verwesungsversteck">
+      <notes>
+        <note category="german">Verwesungsversteck</note>
+      </notes>
+      <segment>
+        <source>Verwesungsversteck</source>
+        <target>Bunker lleno de huesos</target>
+      </segment>
+    </unit>
+    <unit id="kdHZpFX" name="Knochenkeller">
+      <notes>
+        <note category="german">Knochenkeller</note>
+      </notes>
+      <segment>
+        <source>Knochenkeller</source>
+        <target>Bunker del rey</target>
+      </segment>
+    </unit>
+    <unit id="kYVhknJ" name="Geheimes Testlabor">
+      <notes>
+        <note category="german">Geheimes Testlabor</note>
+      </notes>
+      <segment>
+        <source>Geheimes Testlabor</source>
+        <target>Centro de experimentos</target>
+      </segment>
+    </unit>
+    <unit id="xVdbliM" name="Area 52.1 Bunker">
+      <notes>
+        <note category="german">Area 52.1 Bunker</note>
+      </notes>
+      <segment>
+        <source>Area 52.1 Bunker</source>
+        <target>Bunker zona 52.1</target>
+      </segment>
+    </unit>
+    <unit id="hhCsY5M" name="Area 33 Bunker">
+      <notes>
+        <note category="german">Area 33 Bunker</note>
+      </notes>
+      <segment>
+        <source>Area 33 Bunker</source>
+        <target>Bunker zona 33</target>
+      </segment>
+    </unit>
+    <unit id="Veg.kOO" name="Quarantäne-Zone">
+      <notes>
+        <note category="german">Quarantäne-Zone</note>
+      </notes>
+      <segment>
+        <source>Quarantäne-Zone</source>
+        <target>Viejo bunker</target>
+      </segment>
+    </unit>
+    <unit id="9tYl8RU" name="Zum Schlafen Reichts Motel">
+      <notes>
+        <note category="german">Zum Schlafen Reichts Motel</note>
+      </notes>
+      <segment>
+        <source>Zum Schlafen Reichts Motel</source>
+        <target>Zum Schlafen Reichts Motel</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
