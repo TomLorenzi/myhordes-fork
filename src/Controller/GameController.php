@@ -14,6 +14,7 @@ use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
 use App\Entity\SpecialActionPrototype;
 use App\Entity\TownLogEntry;
+use App\Entity\User;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
@@ -39,6 +40,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @method User getUser()
  */
 class GameController extends CustomAbstractController implements GameInterfaceController
 {
@@ -134,6 +136,18 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
         elseif ($this->getActiveCitizen()->getZone() && $this->getActiveCitizen()->activeExplorerStats())
             return $this->redirect($this->generateUrl('exploration_dashboard'));
         else return $this->redirect($this->generateUrl('town_dashboard'));
+    }
+
+    /**
+     * @Route("api/game/expert_toggle", name="game_toggle_expert_mode")
+     * @return Response
+     */
+    public function toggle_expert_mode() {
+        $this->entity_manager->persist( $this->getUser()->setExpert( !$this->getUser()->getExpert() ) );
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) { return AjaxResponse::error(ErrorHelper::ErrorDatabaseException); }
+        return AjaxResponse::success();
     }
 
     /**

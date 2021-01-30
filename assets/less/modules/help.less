@@ -307,3 +307,19 @@ a {
         em { color: #f8eacb; }
     }
 }
+
+*[x-tutorial-content] {
+  &.toplevel {
+    max-width: 400px; position: absolute;
+    &.text {width: 400px; left: calc(50% - 200px); top: 180px; z-index: 100;}
+  }
+
+  &.arrow-up:before {
+    position: absolute; top: -30px; left: calc(50% - 11px); content: " "; background: url("../../img/help/anim_upArrow.gif") no-repeat;
+    width: 22px; height: 27px;
+  }
+  display: none;
+
+}
+
+*[x-tutorial-content="1.text6"] { top: 200px !important; left: 110px !important; }

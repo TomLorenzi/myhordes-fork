@@ -11,6 +11,8 @@ export default class HTML {
 
     twinoParser: TwinoAlikeParser;
 
+    private tutorialStage: [number,string] = null;
+
     constructor() { this.twinoParser = new TwinoAlikeParser(); }
 
     init(): void {
@@ -372,5 +374,22 @@ export default class HTML {
             }
 
         }
+    }
+
+    setTutorialStage( tutorial: number, stage: string ): void {
+        this.forEach('[x-tutorial-content]', elem => {
+            const list = elem.getAttribute('x-tutorial-content').split(' ');
+            elem.style.display = (list.includes( tutorial + '.*' ) || list.includes( tutorial + '.' + stage )) ? 'block' : null;
+        });
+        this.tutorialStage = [tutorial,stage];
+    }
+
+    restoreTutorialStage(): void {
+        if (this.tutorialStage !== null) this.setTutorialStage(this.tutorialStage[0],this.tutorialStage[1]);
+    }
+
+    finishTutorialStage(): void {
+        this.forEach('[x-tutorial-content]', elem =>  elem.style.display = null);
+        this.tutorialStage = null;
     }
 }
