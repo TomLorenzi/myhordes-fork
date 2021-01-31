@@ -120,7 +120,7 @@
     </unit>
     <unit id="lnVaJJH" name="%citizen% hat die Stadt %action%.">
       <notes>
-        <note category="german">%citizen% hat die Stadt %action%.</note>
+        <note category="german">%citizen% %action%.</note>
       </notes>
       <segment>
         <source>%citizen% hat die Stadt %action%.</source>
@@ -129,7 +129,7 @@
     </unit>
     <unit id="RvCIvJN" name="betreten">
       <notes>
-        <note category="german">betreten</note>
+        <note category="german">ist in die Stadt zurückgekehrt</note>
       </notes>
       <segment>
         <source>betreten</source>
@@ -138,7 +138,7 @@
     </unit>
     <unit id="N0kS6xp" name="verlassen">
       <notes>
-        <note category="german">verlassen</note>
+        <note category="german">hat die Stadt verlassen..</note>
       </notes>
       <segment>
         <source>verlassen</source>
@@ -7790,7 +7790,7 @@
     </unit>
     <unit id="Ci7U3L." name="Aktualisierung">
       <notes>
-        <note category="german">Aktualisierung</note>
+        <note category="german">Aktualisieren</note>
       </notes>
       <segment>
         <source>Aktualisierung</source>
@@ -17776,6 +17776,117 @@
       <segment>
         <source>Zum Schlafen Reichts Motel</source>
         <target>Zum Schlafen Reichts Motel</target>
+      </segment>
+    </unit>
+    <unit id="DXGanAJ" name="Wie soll ich spielen?">
+      <notes>
+        <note category="german">Wie soll ich spielen?</note>
+      </notes>
+      <segment>
+        <source>Wie soll ich spielen?</source>
+        <target>Wie soll ich spielen?</target>
+      </segment>
+    </unit>
+    <unit id="7ufilHx" name="Den Lernmodus ausschalten">
+      <notes>
+        <note category="german">Den Lernmodus ausschalten</note>
+      </notes>
+      <segment>
+        <source>Den Lernmodus ausschalten</source>
+        <target>Den Lernmodus ausschalten</target>
+      </segment>
+    </unit>
+    <unit id="LHrC.7H" name="Wie gebraucht man diese Karte?">
+      <notes>
+        <note category="german">Wie gebraucht man diese Karte?</note>
+      </notes>
+      <segment>
+        <source>Wie gebraucht man diese Karte?</source>
+        <target>Wie gebraucht man diese Karte?</target>
+      </segment>
+    </unit>
+    <unit id="Gu2qWPY" name="Brauchst du Hilfe? Benutze den %modelink%!">
+      <notes>
+        <note category="german">Brauchst du Hilfe? Benutze den %modelink%!</note>
+      </notes>
+      <segment>
+        <source>Brauchst du Hilfe? Benutze den %modelink%!</source>
+        <target>Brauchst du Hilfe? Benutze den %modelink%!</target>
+      </segment>
+    </unit>
+    <unit id="Ei6.Z0j" name="Anfängermodus">
+      <notes>
+        <note category="german">Anfängermodus</note>
+      </notes>
+      <segment>
+        <source>Anfängermodus</source>
+        <target>Anfängermodus</target>
+      </segment>
+    </unit>
+    <unit id="mw0MdAz" name="Handbuch zur Aussenwelt">
+      <notes>
+        <note category="german">Handbuch zur Aussenwelt</note>
+      </notes>
+      <segment>
+        <source>Handbuch zur Aussenwelt</source>
+        <target>Handbuch zur Aussenwelt</target>
+      </segment>
+    </unit>
+    <unit id="RVCVIu." name="05a9ba3">
+      <notes>
+        <note category="german">Wenn du "MyHordes" zum ersten Mal spielst, empfehlen wir dir den Links &lt;strong&gt;Wie soll ich spielen?&lt;/strong&gt; zu folgen,
+                die sich auf der Webseite links befindet. Interaktive Schritt-für-Schritt-Anleitungen erklären dir in 5 Minuten die Grundlagen des Spiels.</note>
+      </notes>
+      <segment>
+        <source>Wenn du "MyHordes" zum ersten Mal spielst, empfehlen wir dir den Links &lt;strong&gt;Wie soll ich spielen?&lt;/strong&gt; zu folgen,
+                die sich auf der Webseite links befindet. Interaktive Schritt-für-Schritt-Anleitungen erklären dir in 5 Minuten die Grundlagen des Spiels.</source>
+        <target><![CDATA[Wenn du "MyHordes" zum ersten Mal spielst, empfehlen wir dir den Links <strong>Wie soll ich spielen?</strong> zu folgen,
+                die sich auf der Webseite links befindet. Interaktive Schritt-für-Schritt-Anleitungen erklären dir in 5 Minuten die Grundlagen des Spiels.]]></target>
+      </segment>
+    </unit>
+    <unit id="PF899T3" name="Du kannst jederzeit die %helplink% im oberen Abschnitt der Seite aufsuchen.">
+      <notes>
+        <note category="german">Du kannst jederzeit die %helplink% im oberen Abschnitt der Seite aufsuchen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst jederzeit die %helplink% im oberen Abschnitt der Seite aufsuchen.</source>
+        <target>Du kannst jederzeit die %helplink% im oberen Abschnitt der Seite aufsuchen.</target>
+      </segment>
+    </unit>
+    <unit id="333PWhL" name="komplette Spielhilfe">
+      <notes>
+        <note category="german">komplette Spielhilfe</note>
+      </notes>
+      <segment>
+        <source>komplette Spielhilfe</source>
+        <target>komplette Spielhilfe</target>
+      </segment>
+    </unit>
+    <unit id="D053dcd" name="Zum Anfängermodus zurückkehren">
+      <notes>
+        <note category="german">Zum Anfängermodus zurückkehren</note>
+      </notes>
+      <segment>
+        <source>Zum Anfängermodus zurückkehren</source>
+        <target>Zum Anfängermodus zurückkehren</target>
+      </segment>
+    </unit>
+    <unit id="qq349uP" name="(Du bist gerade im &lt;strong&gt;Expertenmodus&lt;/strong&gt;)">
+      <notes>
+        <note category="german">(Du bist gerade im &lt;strong&gt;Expertenmodus&lt;/strong&gt;)</note>
+      </notes>
+      <segment>
+        <source>(Du bist gerade im &lt;strong&gt;Expertenmodus&lt;/strong&gt;)</source>
+        <target><![CDATA[(Du bist gerade im <strong>Expertenmodus</strong>)]]></target>
+      </segment>
+    </unit>
+    <unit id="_WQ7cjB" name="534d954">
+      <notes>
+        <note category="german">Du besitzt eine &lt;strong&gt;Karte&lt;/strong&gt;. Benutze den Knopf hier oben, um nicht verloren zu gehen!</note>
+      </notes>
+      <segment>
+        <source>Du besitzt eine &lt;strong&gt;Karte&lt;/strong&gt;. Benutze den Knopf hier oben, um nicht verloren zu gehen!</source>
+        <target><![CDATA[Du besitzt eine <strong>Karte</strong>. Benutze den Knopf hier oben, um nicht verloren zu gehen!]]></target>
       </segment>
     </unit>
   </file>
