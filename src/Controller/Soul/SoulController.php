@@ -292,8 +292,8 @@ class SoulController extends CustomAbstractController
     public function soul_season($type = null, JSONRequestParser $parser): Response
     {
         $user = $this->getUser();
-        if($user->getRightsElevation() <= User::ROLE_CROW)
-            return $this->redirect($this->generateUrl('soul_me'));
+        //if($user->getRightsElevation() <= User::ROLE_CROW)
+        //    return $this->redirect($this->generateUrl('soul_me'));
 
         $seasonId = $parser->get('season', null);
 
