@@ -15,6 +15,7 @@ use App\Controller\GameProfessionInterfaceController;
 use App\Controller\GhostInterfaceController;
 use App\Controller\HookedInterfaceController;
 use App\Controller\LandingController;
+use App\Controller\Messages\MessageGlobalPMController;
 use App\Controller\TownInterfaceController;
 use App\Controller\WebController;
 use App\Entity\Citizen;
@@ -67,7 +68,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
         $controller = $event->getController();
         if (is_array($controller)) $controller = $controller[0];
 
-        if (!($controller instanceof LandingController) && !($controller instanceof WebController) && !($controller instanceof AdminActionController) && !($controller instanceof ExternalController)) {
+        if (!($controller instanceof LandingController) && !($controller instanceof WebController) && !($controller instanceof AdminActionController) && !($controller instanceof ExternalController)  && !($controller instanceof MessageGlobalPMController)) {
             // During the attack, only the landing, web and admin controller shall be made available
             if ($this->timeKeeper->isDuringAttack())
                 throw new DynamicAjaxResetException($event->getRequest());
