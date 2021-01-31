@@ -2,7 +2,7 @@
 {% block ajax %}
     {{ parent() }}
     {% if not app.user.expert %}
-        <div x-tutorial-content="* !3.text2 !3.text4 !3.text5" class="toplevel cover"></div>
+        <div x-tutorial-content="* !3.text2 !3.text4 !3.text5 !4.text2 !4.text3" class="toplevel cover"></div>
         <div x-tutorial-content="1.text1 1.text2 1.text3 1.text4 1.text5" class="toplevel text">
             <div class="help">
                 <div x-tutorial-content="1.text1">
@@ -145,11 +145,11 @@
         <div x-tutorial-content="3.text8 3.text9" class="toplevel text arrow-up">
             <div class="help" x-tutorial-content="3.text8">
                 <p>{% trans from "help" %}
-                        Deinen Rucksack findest du übrigens hier.
-                    {% endtrans %}</p>
+                    Deinen Rucksack findest du übrigens hier.
+                {% endtrans %}</p>
                 <p>{% trans from "help" %}
-                        Wenn du möchtest, kannst du etwas Proviant mitnehmen (Essen, Wasser..). Denke aber daran, in deinem Rucksack ein <strong>bisschen Platz</strong> übrig zu lassen, um weitere Gegenstände mitnehmen zu können, die du in der Wüste finden wirst.
-                    {% endtrans %}</p>
+                    Wenn du möchtest, kannst du etwas Proviant mitnehmen (Essen, Wasser..). Denke aber daran, in deinem Rucksack ein <strong>bisschen Platz</strong> übrig zu lassen, um weitere Gegenstände mitnehmen zu können, die du in der Wüste finden wirst.
+                {% endtrans %}</p>
                 <button x-advance-tutorial="3.text9">{{ 'Weiter...'|trans({},'help') }}</button>
             </div>
             <div class="help" x-tutorial-content="3.text9">
@@ -157,6 +157,21 @@
                     Der erste Gegenstand auf der Liste entspricht dem <strong>Beruf</strong>, den du dir ausgesucht hast. Er nimmt <strong>keinen Platz</strong> weg und du kannst ihn auch nicht verlieren.
                 {% endtrans %}</p>
                 <button x-advance-tutorial="finish">{{ 'Weiter...'|trans({},'help') }}</button>
+            </div>
+        </div>
+        <div x-tutorial-content="4.text1" class="toplevel text">
+            <div class="help">
+                <p>{% trans from "help" %}
+                    Eine Expedition in die Außenwelt, will <strong>gut vorbereitet</strong> sein... Vergewissere dich, dass du den Leitfaden <strong>Wie rüste ich mich aus?</strong> gelesen hast, bevor du diese Etappe in Angriff nimmst! Du kannst jederzeit auf <strong>Anhalten</strong> drücken (zu deiner Rechten), um die Erklärungen abzustellen und dir einen anderen Leitfaden aussuchen...
+                {% endtrans %}</p>
+                <button x-advance-tutorial="4.text2">{{ 'Weiter...'|trans({},'help') }}</button>
+            </div>
+        </div>
+        <div x-tutorial-content="4.text2" class="toplevel text arrow-down">
+            <div class="help">
+                <p>{% trans from "help" %}
+                    Klicke auf diesen Abschnitt, um zum <strong>Stadttor</strong> zu gelangen.
+                {% endtrans %}</p>
             </div>
         </div>
         {% block tutorial %}
@@ -175,7 +190,7 @@
                                 <li class="tick"><a class="small" href="#" x-advance-tutorial="2.text1">{{ 'Die Benutzeroberfläche'|trans({},'help') }}</a></li>
                                 <li class="tick"><a class="small" href="#" x-advance-tutorial="3.text1">{{ 'Wie rüste ich mich aus?'|trans({},'help') }}</a></li>
                                 <li class="tick"><a class="small" href="#" x-advance-tutorial="4.text1">{{ 'Wie kann ich die Stadt verlassen?'|trans({},'help') }}</a></li>
-                                <li><span class="small">{{ 'Entdecke deinen Beruf:'|trans({},'help') }} <img alt="" src="{{ asset('build/images/professions/' ~ app.user.activeCitizen.profession.icon ~ '.gif') }}" /> <a href="#" x-ajax-href="{{ path('help', {'name': app.user.activeCitizen.profession.name}) }}">{{ app.user.activeCitizen.profession.label }}</a></span></li>
+                                <li><span class="small">{{ 'Entdecke deinen Beruf:'|trans({},'help') }} <img alt="" src="{{ asset('build/images/professions/' ~ app.user.activeCitizen.profession.icon ~ '.gif') }}" /> <a href="#" x-ajax-href="{{ path('help', {'name': app.user.activeCitizen.profession.name}) }}">{{ app.user.activeCitizen.profession.label|trans({},'game') }}</a></span></li>
                             </ul>
                         </div>
                         <img src="{{ asset('build/images/icons/small_expert.gif') }}" alt="">
@@ -226,7 +241,7 @@
                         <div class="padded-small cell rw-12 town-overview {% if menu_section == '' %}selected{% endif %}">
                             <div x-ajax-href="{{ url('town_dashboard') }}"><img src="{{asset('build/images/icons/small_view.gif')}}" alt =""/>{% trans from 'game' %}Übersicht{% endtrans %}</div>
                         </div>
-                        <div x-ajax-href="{{ path('town_house', {tab: 'dash', subtab: 'received'}) }}" {% if not app.user.expert%}x-advance-tutorial="3.text4>3.text5"{% endif%} class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'house' %}selected{% endif %} town-menu-house">
+                        <div x-ajax-href="{{ path('town_house', {tab: 'dash', subtab: 'received'}) }}" {% if not app.user.expert%}x-advance-tutorial="3.text4>3.text6"{% endif%} class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'house' %}selected{% endif %} town-menu-house">
                             <div></div>
                             <div class="hide-sm">
                                 <img alt="{{ home.prototype.level }}" src="{{ asset('build/images/home/' ~ home.prototype.icon ~ '.gif') }}" />{% trans from 'game' %}Mein Haus{% endtrans %} {% if new_message %}<img src="{{ asset('build/images/icons/anim_icon_mail.gif') }}" style="vertical-align: baseline;" /> {% endif %}
@@ -256,7 +271,7 @@
                                 {% trans from 'game' %}Konstruktionen{% endtrans %}
                             </div>
                         </div>
-                        <div x-ajax-href="{{ path('town_door') }}" class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'door' %}selected{% endif %} town-menu-door">
+                        <div x-ajax-href="{{ path('town_door') }}" {% if not app.user.expert%}x-advance-tutorial="4.text2>4.text3"{% endif%} class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'door' %}selected{% endif %} town-menu-door">
                             <div></div>
                             <div class="hide-sm">
                                 {% trans from 'game' %}Stadttor{% endtrans %}
