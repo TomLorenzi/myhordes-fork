@@ -382,6 +382,8 @@ export default class HTML {
             let display = (list.includes( '*' ) || list.includes( tutorial + '.*' ) || list.includes( tutorial + '.' + stage ));
             if (display) display = !(list.includes( '!*' ) || list.includes( '!' + tutorial + '.*' ) || list.includes( '!' + tutorial + '.' + stage ));
             elem.style.display = display ? 'block' : null;
+
+            if (display && elem.classList.contains('text')) elem.scrollIntoView( elem.classList.contains('arrow-down') );
         });
         this.tutorialStage = [tutorial,stage];
     }
@@ -402,6 +404,6 @@ export default class HTML {
 
     conditionalFinishTutorialStage( current_tutorial: number, current_stage: string ): void {
         if (this.tutorialStage !== null && current_tutorial === this.tutorialStage[0] && current_stage === this.tutorialStage[1])
-            this.finishTutorialStage();
+            this.finishTutorialStage(  );
     }
 }

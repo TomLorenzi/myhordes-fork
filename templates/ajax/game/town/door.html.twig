@@ -1,5 +1,24 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block title %}{{'Das Stadttor von "%townname%"'|trans({"%townname%": town.name}, 'game')|raw}}{% endblock %}
+{% block tutorial %}
+    <div x-tutorial-content="4.text3" class="toplevel text arrow-down">
+        <div class="help">
+            {% if town.door %}
+                <p>{% trans from "help" %}
+                    Das Stadttor ist geöffnet.
+                {% endtrans %}</p>
+                <p>{% trans from "help" %}
+                    Klick hier, um <strong>in die Wüste zu gehen</strong>... Sei jedoch vorsichtig!
+                {% endtrans %}</p>
+                <button x-advance-tutorial="finish">{{ 'Weiter...'|trans({},'help') }}</button>
+            {% else %}
+                <p>{% trans from "help" %}
+                        Du kannst <strong>das Stadttor</strong> in diesem Bereich öffnen... Achtung: Wenn das Tor beim allnächtlichen <strong>Angriff der Zombiehorde</strong> offen steht, kann das für die Stadt fatale Folgen haben...<strong></strong>
+                {% endtrans %}</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
 {% block content %}
     {% set hour = "now"|date("G") %}
     <div class="row">
