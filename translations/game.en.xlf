@@ -7102,7 +7102,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="Ci7U3L." name="Aktualisierung">
       <notes>
-        <note category="german">Aktualisierung</note>
+        <note category="german">Aktualisieren</note>
       </notes>
       <segment>
         <source>Aktualisierung</source>
@@ -17880,6 +17880,15 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>(Du bist gerade im &lt;strong&gt;Expertenmodus&lt;/strong&gt;)</source>
         <target><![CDATA[(Du bist gerade im <strong>Expertenmodus</strong>)]]></target>
+      </segment>
+    </unit>
+    <unit id="_WQ7cjB" name="534d954">
+      <notes>
+        <note category="german">Du besitzt eine &lt;strong&gt;Karte&lt;/strong&gt;. Benutze den Knopf hier oben, um nicht verloren zu gehen!</note>
+      </notes>
+      <segment>
+        <source>Du besitzt eine &lt;strong&gt;Karte&lt;/strong&gt;. Benutze den Knopf hier oben, um nicht verloren zu gehen!</source>
+        <target><![CDATA[Du besitzt eine <strong>Karte</strong>. Benutze den Knopf hier oben, um nicht verloren zu gehen!]]></target>
       </segment>
     </unit>
   </file>

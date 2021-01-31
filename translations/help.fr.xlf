@@ -7333,7 +7333,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
     </unit>
     <unit id="uyGoX2c" name="0659246">
       <notes>
-        <note category="german">Wenn du möchtest, kannst du etwas Proviant mitnehmen (Essen, Wasser..). Denke aber daran, in deinem Rucksack ein &lt;strong&gt;bisschen Platz&lt;/strong&gt; übrig zu lassen, um weitere Gegenstände mitnehmen zu können, die du in der Wüste finden wirst.</note>
+        <note category="german">&lt;em&gt;Wenn du möchtest, kannst du etwas Proviant mitnehmen (Essen, Wasser..). Denke aber daran, in deinem Rucksack ein &lt;strong&gt;bisschen Platz&lt;/strong&gt; übrig zu lassen, um weitere Gegenstände mitnehmen zu können, die du in der Wüste finden wirst.&lt;/em&gt;</note>
       </notes>
       <segment>
         <source>Wenn du möchtest, kannst du etwas Proviant mitnehmen (Essen, Wasser..). Denke aber daran, in deinem Rucksack ein &lt;strong&gt;bisschen Platz&lt;/strong&gt; übrig zu lassen, um weitere Gegenstände mitnehmen zu können, die du in der Wüste finden wirst.</source>
@@ -7410,6 +7410,105 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       <segment>
         <source>Wenn sich die Bürger eines Tages dazu entschließen eine &lt;strong&gt;Pumpe&lt;/strong&gt; zu bauen, wird die Stadt über mehr Wasser verfügen.</source>
         <target><![CDATA[Si les citoyens décident un jour de construire une <strong>Pompe</strong>, il vous sera alors possible de prendre des rations d'eau en plus de votre dose quotidienne.]]></target>
+      </segment>
+    </unit>
+    <unit id="6wWIdYL" name="b3d7784">
+      <notes>
+        <note category="german">Dieses Feld zeigt die Karte der Außenwelt. Du musst hier klicken, wenn du dich &lt;strong&gt;bewegen&lt;/strong&gt; möchtest.</note>
+      </notes>
+      <segment>
+        <source>Dieses Feld zeigt die Karte der Außenwelt. Du musst hier klicken, wenn du dich &lt;strong&gt;bewegen&lt;/strong&gt; möchtest.</source>
+        <target><![CDATA[Ce panneau affiche la carte de l'Outre-Monde. C'est ici qu'il faut cliquer pour vous <strong>déplacer</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="7CJKW6D" name="259ded5">
+      <notes>
+        <note category="german">Der rechte Teil zeigt die Zone, in der du dich gerade befindest. Dort findest du auch alle verfügbaren Aktionsmöglichkeiten.</note>
+      </notes>
+      <segment>
+        <source>Der rechte Teil zeigt die Zone, in der du dich gerade befindest. Dort findest du auch alle verfügbaren Aktionsmöglichkeiten.</source>
+        <target>La partie droite décrit la zone dans laquelle vous êtes. Vous y trouverez aussi les actions disponibles.</target>
+      </segment>
+    </unit>
+    <unit id="UL9YoQf" name="8ee19aa">
+      <notes>
+        <note category="german">Klick auf &lt;strong&gt;einen der 4 Pfeile&lt;/strong&gt;, um dich in eine neue Zone zu bewegen...</note>
+      </notes>
+      <segment>
+        <source>Klick auf &lt;strong&gt;einen der 4 Pfeile&lt;/strong&gt;, um dich in eine neue Zone zu bewegen...</source>
+        <target><![CDATA[Cliquez sur <strong>l'une des 4 flêches</strong> pour vous déplacer dans une nouvelle zone...]]></target>
+      </segment>
+    </unit>
+    <unit id="_Lp9re7" name="Wie erkunde ich die Außenwelt?">
+      <notes>
+        <note category="german">Wie erkunde ich die Außenwelt?</note>
+      </notes>
+      <segment>
+        <source>Wie erkunde ich die Außenwelt?</source>
+        <target>Comment explorer l'Outre-Monde?</target>
+      </segment>
+    </unit>
+    <unit id="Q5jU0Bo" name="Lesen:">
+      <notes>
+        <note category="german">Lesen:</note>
+      </notes>
+      <segment>
+        <source>Lesen:</source>
+        <target>Lire:</target>
+      </segment>
+    </unit>
+    <unit id="VhE6CQq" name="Der Kleine Außenweltführer">
+      <notes>
+        <note category="german">Der Kleine Außenweltführer</note>
+      </notes>
+      <segment>
+        <source>Der Kleine Außenweltführer</source>
+        <target>Le petit guide de l'Outre-Monde</target>
+      </segment>
+    </unit>
+    <unit id="3WkBbnG" name="Das Stadttor ist geöffnet.">
+      <notes>
+        <note category="german">Das Stadttor ist geöffnet.</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor ist geöffnet.</source>
+        <target>Les portes de la ville sont ouvertes.</target>
+      </segment>
+    </unit>
+    <unit id="GQqJv8t" name="Klick hier, um &lt;strong&gt;in die Wüste zu gehen&lt;/strong&gt;... Sei jedoch vorsichtig!">
+      <notes>
+        <note category="german">Klick hier, um &lt;strong&gt;in die Wüste zu gehen&lt;/strong&gt;... Sei jedoch vorsichtig!</note>
+      </notes>
+      <segment>
+        <source>Klick hier, um &lt;strong&gt;in die Wüste zu gehen&lt;/strong&gt;... Sei jedoch vorsichtig!</source>
+        <target><![CDATA[Cliquez ici pour <strong>sortir dans le désert</strong>... Soyez prudent(e) !]]></target>
+      </segment>
+    </unit>
+    <unit id="HoXsc8P" name="ae0a0ed">
+      <notes>
+        <note category="german">Du kannst &lt;strong&gt;das Stadttor&lt;/strong&gt; in diesem Bereich öffnen... Achtung: Wenn das Tor beim allnächtlichen &lt;strong&gt;Angriff der Zombiehorde&lt;/strong&gt; offen steht, kann das für die Stadt fatale Folgen haben...&lt;strong&gt;&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Du kannst &lt;strong&gt;das Stadttor&lt;/strong&gt; in diesem Bereich öffnen... Achtung: Wenn das Tor beim allnächtlichen &lt;strong&gt;Angriff der Zombiehorde&lt;/strong&gt; offen steht, kann das für die Stadt fatale Folgen haben...&lt;strong&gt;&lt;/strong&gt;</source>
+        <target><![CDATA[Vous pouvez <strong>ouvrir les portes</strong> depuis cette section... Attention: si elles restent ouvertes lors de l'<strong>attaque de la Horde</strong> qui a lieu <strong>chaque soir</strong>, la ville pourrait courir de grands dangers...]]></target>
+      </segment>
+    </unit>
+    <unit id="_1_xXoc" name="55fa741">
+      <notes>
+        <note category="german">Eine Expedition in die Außenwelt, will &lt;strong&gt;gut vorbereitet&lt;/strong&gt; sein... Vergewissere dich, dass du den Leitfaden &lt;strong&gt;Wie rüste ich mich aus?&lt;/strong&gt; gelesen hast, bevor du diese Etappe in Angriff nimmst! Du kannst jederzeit auf &lt;strong&gt;Anhalten&lt;/strong&gt; drücken (zu deiner Rechten), um die Erklärungen abzustellen und dir einen anderen Leitfaden aussuchen...</note>
+      </notes>
+      <segment>
+        <source>Eine Expedition in die Außenwelt, will &lt;strong&gt;gut vorbereitet&lt;/strong&gt; sein... Vergewissere dich, dass du den Leitfaden &lt;strong&gt;Wie rüste ich mich aus?&lt;/strong&gt; gelesen hast, bevor du diese Etappe in Angriff nimmst! Du kannst jederzeit auf &lt;strong&gt;Anhalten&lt;/strong&gt; drücken (zu deiner Rechten), um die Erklärungen abzustellen und dir einen anderen Leitfaden aussuchen...</source>
+        <target><![CDATA[Une expédition dans l'Outre-Monde, ça se <strong>prépare</strong>... Assurez-vous d'avoir d'abord suivi le Guide <strong>Comment s'équiper</strong> avant d'attaquer cette étape ! Vous pouvez cliquer sur <strong>Arrêter</strong> à droite pour interrompre ces explications et choisir un autre Guide...]]></target>
+      </segment>
+    </unit>
+    <unit id=".KSB7iY" name="Klicke auf diesen Abschnitt, um zum &lt;strong&gt;Stadttor&lt;/strong&gt; zu gelangen.">
+      <notes>
+        <note category="german">Klicke auf diesen Abschnitt, um zum &lt;strong&gt;Stadttor&lt;/strong&gt; zu gelangen.</note>
+      </notes>
+      <segment>
+        <source>Klicke auf diesen Abschnitt, um zum &lt;strong&gt;Stadttor&lt;/strong&gt; zu gelangen.</source>
+        <target><![CDATA[Cliquez sur cette section pour accéder aux <strong>Portes de la ville</strong>.]]></target>
       </segment>
     </unit>
   </file>
