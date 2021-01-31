@@ -276,7 +276,7 @@
             let fun_quote = function() {
                 let content = document.querySelector('[x-post-content-id="' + elem.getAttribute('x-post-id') + '"]');
                 let author = content.getAttribute('x-post-content-author');
-                let textEditor = document.getElementById("forum-editor-text");
+                let textEditor = document.getElementById("forum-forum-editor-text");
 
                 if(textEditor.value != '' && !textEditor.value.endsWith("\n")) textEditor.value += "\n";
 
@@ -295,7 +295,7 @@
 
             let fun_edit = function() {
                 let content = document.querySelector('[x-post-content-id="' + postID + '"]');
-                let textEditor = document.getElementById("forum-editor-text");
+                let textEditor = document.getElementById("forum-forum-editor-text");
                 if (!textEditor) return;
                 textEditor.value = $.html.twinoParser.parseFrom( content.innerHTML, twinoOpMode );
                 textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
