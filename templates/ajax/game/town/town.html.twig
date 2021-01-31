@@ -241,7 +241,7 @@
                         <div class="padded-small cell rw-12 town-overview {% if menu_section == '' %}selected{% endif %}">
                             <div x-ajax-href="{{ url('town_dashboard') }}"><img src="{{asset('build/images/icons/small_view.gif')}}" alt =""/>{% trans from 'game' %}Übersicht{% endtrans %}</div>
                         </div>
-                        <div x-ajax-href="{{ path('town_house', {tab: 'dash', subtab: 'received'}) }}" {% if not app.user.expert%}x-advance-tutorial="3.text4>3.text5"{% endif%} class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'house' %}selected{% endif %} town-menu-house">
+                        <div x-ajax-href="{{ path('town_house', {tab: 'dash', subtab: 'received'}) }}" {% if not app.user.expert%}x-advance-tutorial="3.text4>3.text6"{% endif%} class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'house' %}selected{% endif %} town-menu-house">
                             <div></div>
                             <div class="hide-sm">
                                 <img alt="{{ home.prototype.level }}" src="{{ asset('build/images/home/' ~ home.prototype.icon ~ '.gif') }}" />{% trans from 'game' %}Mein Haus{% endtrans %} {% if new_message %}<img src="{{ asset('build/images/icons/anim_icon_mail.gif') }}" style="vertical-align: baseline;" /> {% endif %}
