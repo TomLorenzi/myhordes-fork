@@ -190,11 +190,11 @@
                                 <li class="tick"><a class="small" href="#" x-advance-tutorial="2.text1">{{ 'Die Benutzeroberfläche'|trans({},'help') }}</a></li>
                                 <li class="tick"><a class="small" href="#" x-advance-tutorial="3.text1">{{ 'Wie rüste ich mich aus?'|trans({},'help') }}</a></li>
                                 <li class="tick"><a class="small" href="#" x-advance-tutorial="4.text1">{{ 'Wie kann ich die Stadt verlassen?'|trans({},'help') }}</a></li>
-                                <li><span class="small">{{ 'Entdecke deinen Beruf:'|trans({},'help') }} <img alt="" src="{{ asset('build/images/professions/' ~ app.user.activeCitizen.profession.icon ~ '.gif') }}" /> <a href="#" x-ajax-href="{{ path('help', {'name': app.user.activeCitizen.profession.name}) }}">{{ app.user.activeCitizen.profession.label }}</a></span></li>
+                                <li><span class="small">{{ 'Entdecke deinen Beruf:'|trans({},'help') }} <img alt="" src="{{ asset('build/images/professions/' ~ app.user.activeCitizen.profession.icon ~ '.gif') }}" /> <a href="#" x-ajax-href="{{ path('help', {'name': app.user.activeCitizen.profession.name}) }}">{{ app.user.activeCitizen.profession.label|trans({},'game') }}</a></span></li>
                             </ul>
                         </div>
                         <img src="{{ asset('build/images/icons/small_expert.gif') }}" alt="">
-                        <a class="small" href="#" x-toggle-expert-mode>{{ 'Den Lernmodus ausschalten '|trans({}, 'game') }}</a>
+                        <a class="small" href="#" x-toggle-expert-mode>{{ 'Den Lernmodus ausschalten'|trans({}, 'game') }}</a>
                     </div>
                 </div>
             {% endif %}
