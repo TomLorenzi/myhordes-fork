@@ -160,7 +160,7 @@
         searchBox.addEventListener('keyup', userSearchHandlerUp);
         searchBox.addEventListener('keydown', userSearchHandlerDown);
         searchBox.addEventListener('focus', () => userSearchHandler());
-        searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('users-list').innerHTML = '', 100));
+        searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('users-list').innerHTML = '', 500));
     }
 
     </script>
