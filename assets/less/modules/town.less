@@ -120,6 +120,10 @@ div.town-banner {
     flex-shrink: 0; font-size: 1.1rem; padding: 0; cursor: pointer;
     margin: 3px; background-color: @myhordes-cell-header-background-color;
 
+    &:first-child {margin-left: 0}
+    &:nth-child(6) {margin-right: 0}
+
+
     &:nth-child(n+7) { display: none; }
 
     & > div {

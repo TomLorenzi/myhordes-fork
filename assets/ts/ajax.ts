@@ -135,6 +135,18 @@ export default class Ajax {
                 });
             }
 
+            let tutorials = content_source[i].querySelectorAll('*[x-advance-tutorial]');
+            for (let t = 0; t < tutorials.length; t++) {
+                tutorials[t].addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const next_section = tutorials[t].getAttribute('x-advance-tutorial');
+                    if (next_section === 'finish') $.html.finishTutorialStage();
+                    const list = next_section.split('.');
+                    $.html.setTutorialStage(parseInt(list[0]), list[1]);
+                }, {capture: true});
+            }
+
             let countdowns = content_source[i].querySelectorAll('*[x-countdown]');
             for (let c = 0; c < countdowns.length; c++) {
                 if ( countdowns[c].getAttribute('x-on-expire') === 'reload' )
@@ -174,6 +186,8 @@ export default class Ajax {
         window.dispatchEvent(new Event("resize", {
             bubbles: true, cancelable: true
         }));
+
+        $.html.restoreTutorialStage();
     }
 
     push_history( url: string ) {

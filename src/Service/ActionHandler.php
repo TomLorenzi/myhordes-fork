@@ -757,6 +757,8 @@ class ActionHandler
                         if ($target_result->getPoison() !== null) $target->setPoison( $target_result->getPoison() );
                     }
                 } elseif (is_a($target, ItemPrototype::class)) {
+                    if ($target->getHeavy() && $this->inventory_handler->countHeavyItems( $citizen->getInventory() ) > 0)
+                        $execute_info_cache['message'][] = $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
                     if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ),
                         [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ]
                         , true)) $execute_info_cache['items_spawn'][] = $target;
@@ -1341,6 +1343,7 @@ class ActionHandler
                         if(count($zones) > 0) {
                             $zone = $this->random_generator->pick($zones);
                             $zone->setDiscoveryStatus(Zone::DiscoveryStateCurrent);
+                            $zone->setZombieStatus( max( $zone->getZombieStatus(), $this->town_handler->getBuilding($citizen->getTown(), 'item_electro_#00', true) ? Zone::ZombieStateExact : Zone::ZombieStateEstimate ) );
                             $this->entity_manager->persist($zone);
                             $this->inventory_handler->forceRemoveItem( $item );
                             $execute_info_cache['items_consume'][] = $item->getPrototype();

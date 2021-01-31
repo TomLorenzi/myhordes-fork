@@ -1954,7 +1954,7 @@
       </notes>
       <segment>
         <source>Nachrichten des Raben</source>
-        <target>Nachrichten des Raben</target>
+        <target>Noticias del Cuervo</target>
       </segment>
     </unit>
     <unit id="zLJ.A.A" name="Anzeigen">
@@ -1963,7 +1963,7 @@
       </notes>
       <segment>
         <source>Anzeigen</source>
-        <target>Anzeigen</target>
+        <target>Mostrar</target>
       </segment>
     </unit>
     <unit id="NhpWriw" name="Dauerhaft">
@@ -1972,7 +1972,7 @@
       </notes>
       <segment>
         <source>Dauerhaft</source>
-        <target>Dauerhaft</target>
+        <target>Permanente</target>
       </segment>
     </unit>
     <unit id="6Ql8d6C" name="%n% Tage">
@@ -1981,7 +1981,7 @@
       </notes>
       <segment>
         <source>%n% Tage</source>
-        <target>%n% Tage</target>
+        <target>%n% Días</target>
       </segment>
     </unit>
     <unit id="1E2BbPr" name="1 Tag">
@@ -1990,7 +1990,7 @@
       </notes>
       <segment>
         <source>1 Tag</source>
-        <target>1 Tag</target>
+        <target>1 Día</target>
       </segment>
     </unit>
     <unit id="j5aKYuL" name="%n% Stunden">
@@ -1999,7 +1999,7 @@
       </notes>
       <segment>
         <source>%n% Stunden</source>
-        <target>%n% Stunden</target>
+        <target>%n% Horas</target>
       </segment>
     </unit>
     <unit id="2iHBadX" name="1 Stunde">
@@ -2008,7 +2008,7 @@
       </notes>
       <segment>
         <source>1 Stunde</source>
-        <target>1 Stunde</target>
+        <target>1 Hora</target>
       </segment>
     </unit>
     <unit id="p._haUN" name="%n% Minuten">
@@ -2017,7 +2017,7 @@
       </notes>
       <segment>
         <source>%n% Minuten</source>
-        <target>%n% Minuten</target>
+        <target>%n% Minutos</target>
       </segment>
     </unit>
     <unit id="ST5ILqV" name="1 Minute">
@@ -2026,7 +2026,7 @@
       </notes>
       <segment>
         <source>1 Minute</source>
-        <target>1 Minute</target>
+        <target>1 Minuto</target>
       </segment>
     </unit>
     <unit id="kk4m10D" name="%n% Sekunden">
@@ -2035,7 +2035,7 @@
       </notes>
       <segment>
         <source>%n% Sekunden</source>
-        <target>%n% Sekunden</target>
+        <target>%n% Segundos</target>
       </segment>
     </unit>
     <unit id="1rEgLVY" name="1 Sekunde">
@@ -2044,7 +2044,7 @@
       </notes>
       <segment>
         <source>1 Sekunde</source>
-        <target>1 Sekunde</target>
+        <target>1 Segundo</target>
       </segment>
     </unit>
     <unit id="wdMI1yW" name="Zum erweiterten Editor wechseln">
@@ -2053,7 +2053,7 @@
       </notes>
       <segment>
         <source>Zum erweiterten Editor wechseln</source>
-        <target>Zum erweiterten Editor wechseln</target>
+        <target>Mostrar editor avanzado</target>
       </segment>
     </unit>
     <unit id="V.p5aJp" name="Aktuelle Teilnehmer">
@@ -2062,7 +2062,7 @@
       </notes>
       <segment>
         <source>Aktuelle Teilnehmer</source>
-        <target>Aktuelle Teilnehmer</target>
+        <target>Participantes actuales</target>
       </segment>
     </unit>
     <unit id="fRSZTyY" name="Spieler ausschließen">
@@ -2071,7 +2071,7 @@
       </notes>
       <segment>
         <source>Spieler ausschließen</source>
-        <target>Spieler ausschließen</target>
+        <target>Excluir jugadores</target>
       </segment>
     </unit>
     <unit id="oQjRJjM" name="b58bfe6">
@@ -2080,7 +2080,7 @@
       </notes>
       <segment>
         <source>Ausgeschlossene Spieler können die vor ihrem Ausschluss geposteten Nachrichten in der Gruppe weiterhin lesen, erhalten allerdings keine neuen Nachrichten mehr und können auch nicht mehr antworten.</source>
-        <target>Ausgeschlossene Spieler können die vor ihrem Ausschluss geposteten Nachrichten in der Gruppe weiterhin lesen, erhalten allerdings keine neuen Nachrichten mehr und können auch nicht mehr antworten.</target>
+        <target>Los jugadores excluidos aún pueden leer los mensajes publicados en el grupo antes de que fueran excluidos, pero ya no recibirán mensajes nuevos ni responderán.</target>
       </segment>
     </unit>
     <unit id="3RIQeU4" name="Spieler hinzufügen">
@@ -2089,7 +2089,7 @@
       </notes>
       <segment>
         <source>Spieler hinzufügen</source>
-        <target>Spieler hinzufügen</target>
+        <target>Agregar jugador</target>
       </segment>
     </unit>
     <unit id="OlIltPQ" name="Neu hinzugefügte Spieler erhalten Zugriff auf alle Nachrichten in der Gruppe.">
@@ -2098,7 +2098,7 @@
       </notes>
       <segment>
         <source>Neu hinzugefügte Spieler erhalten Zugriff auf alle Nachrichten in der Gruppe.</source>
-        <target>Neu hinzugefügte Spieler erhalten Zugriff auf alle Nachrichten in der Gruppe.</target>
+        <target>Los jugadores recién agregados tendrán acceso a todos los mensajes del grupo.</target>
       </segment>
     </unit>
     <unit id="viM4Z2P" name="Einen Empfänger hinzufügen">
@@ -2107,7 +2107,7 @@
       </notes>
       <segment>
         <source>Einen Empfänger hinzufügen</source>
-        <target>Einen Empfänger hinzufügen</target>
+        <target>Agregar un destinatario</target>
       </segment>
     </unit>
     <unit id="3bh1FTt" name="Ausgeschlossene Teilnehmer">
@@ -2116,7 +2116,7 @@
       </notes>
       <segment>
         <source>Ausgeschlossene Teilnehmer</source>
-        <target>Ausgeschlossene Teilnehmer</target>
+        <target>Participantes excluidos</target>
       </segment>
     </unit>
     <unit id="tR.PKkG" name="Ausschluss annulieren">
@@ -2125,7 +2125,7 @@
       </notes>
       <segment>
         <source>Ausschluss annulieren</source>
-        <target>Ausschluss annulieren</target>
+        <target>Cancelar la exclusión</target>
       </segment>
     </unit>
     <unit id="u2oPHL5" name="458e607">
@@ -2134,7 +2134,7 @@
       </notes>
       <segment>
         <source>Der Ausschluss des Spielers wird annuliert und er oder sie erhält wieder vollen Zugriff auf die Gruppe.</source>
-        <target>Der Ausschluss des Spielers wird annuliert und er oder sie erhält wieder vollen Zugriff auf die Gruppe.</target>
+        <target>La exclusión del jugador se cancelará y recuperará el acceso completo al grupo.</target>
       </segment>
     </unit>
     <unit id="v6K7zGV" name="Wird geladen...">
@@ -2143,7 +2143,7 @@
       </notes>
       <segment>
         <source>Wird geladen...</source>
-        <target>Wird geladen...</target>
+        <target>Cargando...</target>
       </segment>
     </unit>
     <unit id="O2YDDa_" name="Bitte wähle eine Konversation auf der linken Seite.">
@@ -2152,7 +2152,7 @@
       </notes>
       <segment>
         <source>Bitte wähle eine Konversation auf der linken Seite.</source>
-        <target>Bitte wähle eine Konversation auf der linken Seite.</target>
+        <target>Seleccione una conversación a la izquierda.</target>
       </segment>
     </unit>
     <unit id="GdEH33Y" name="b44f7e8">
@@ -2161,7 +2161,7 @@
       </notes>
       <segment>
         <source>Spamschutz: Du hast heute bereits eine große Anzahl an Spielern kontaktiert; du musst eine Weile warten, bevor du eine neue Nachricht erstellen kannst.</source>
-        <target>Spamschutz: Du hast heute bereits eine große Anzahl an Spielern kontaktiert; du musst eine Weile warten, bevor du eine neue Nachricht erstellen kannst.</target>
+        <target>Protección contra correo no deseado: ya tu ha puesto en contacto con un gran número de jugadores hoy; tienes que esperar un poco antes de poder redactar un nuevo mensaje.</target>
       </segment>
     </unit>
     <unit id="pOsDbB7" name="Weitere Einträge werden geladen...">
@@ -2170,7 +2170,7 @@
       </notes>
       <segment>
         <source>Weitere Einträge werden geladen...</source>
-        <target>Weitere Einträge werden geladen...</target>
+        <target>Cargando más entradas...</target>
       </segment>
     </unit>
     <unit id="Vlb5Lbe" name="Aktionen">
@@ -2179,7 +2179,7 @@
       </notes>
       <segment>
         <source>Aktionen</source>
-        <target>Aktionen</target>
+        <target>Acciones</target>
       </segment>
     </unit>
     <unit id="abqsDy0" name="Schreiben">
@@ -2188,7 +2188,7 @@
       </notes>
       <segment>
         <source>Schreiben</source>
-        <target>Schreiben</target>
+        <target>Escribir</target>
       </segment>
     </unit>
     <unit id="8t5pAcX" name="Konversationen">
@@ -2197,7 +2197,7 @@
       </notes>
       <segment>
         <source>Konversationen</source>
-        <target>Konversationen</target>
+        <target>Conversaciones</target>
       </segment>
     </unit>
     <unit id="Fok7iu4" name="Lade Unterhaltungen ...">
@@ -2206,7 +2206,7 @@
       </notes>
       <segment>
         <source>Lade Unterhaltungen ...</source>
-        <target>Lade Unterhaltungen ...</target>
+        <target>Cargando conversaciones...</target>
       </segment>
     </unit>
     <unit id="7nL8pkj" name="Diese Konversation">
@@ -2215,7 +2215,7 @@
       </notes>
       <segment>
         <source>Diese Konversation</source>
-        <target>Diese Konversation</target>
+        <target>Esta conversación</target>
       </segment>
     </unit>
     <unit id="QhNmYG6" name="Nicht gelesen">
@@ -2224,7 +2224,7 @@
       </notes>
       <segment>
         <source>Nicht gelesen</source>
-        <target>Nicht gelesen</target>
+        <target>No leer</target>
       </segment>
     </unit>
     <unit id="QVc9ywt" name="Teilnehmer">
@@ -2233,7 +2233,7 @@
       </notes>
       <segment>
         <source>Teilnehmer</source>
-        <target>Teilnehmer</target>
+        <target>Participantes</target>
       </segment>
     </unit>
     <unit id="QqEU9Ib" name="Lade Unterhaltung...">
@@ -2242,7 +2242,7 @@
       </notes>
       <segment>
         <source>Lade Unterhaltung...</source>
-        <target>Lade Unterhaltung...</target>
+        <target>Cargando entretenimiento...</target>
       </segment>
     </unit>
     <unit id="A3ohW8X" name="Du kannst keine weiteren Spieler zu dieser Nachricht hinzufügen.">
@@ -2251,7 +2251,7 @@
       </notes>
       <segment>
         <source>Du kannst keine weiteren Spieler zu dieser Nachricht hinzufügen.</source>
-        <target>Du kannst keine weiteren Spieler zu dieser Nachricht hinzufügen.</target>
+        <target>No puedes agregar más jugadores a este mensaje.</target>
       </segment>
     </unit>
     <unit id="6KKKVfb" name="Neue Nachricht">
@@ -2260,7 +2260,7 @@
       </notes>
       <segment>
         <source>Neue Nachricht</source>
-        <target>Neue Nachricht</target>
+        <target>Nuevo mensaje</target>
       </segment>
     </unit>
     <unit id="8onQ9l6" name="Ankündigung">
@@ -2269,7 +2269,7 @@
       </notes>
       <segment>
         <source>Ankündigung</source>
-        <target>Ankündigung</target>
+        <target>Anuncio</target>
       </segment>
     </unit>
     <unit id="2vjDBX2" name="%n% Teilnehmer">
@@ -2278,7 +2278,7 @@
       </notes>
       <segment>
         <source>%n% Teilnehmer</source>
-        <target>%n% Teilnehmer</target>
+        <target>%n% Participantes</target>
       </segment>
     </unit>
     <unit id="Kb6Avwp" name="Weitere Einträge laden">
@@ -2287,7 +2287,7 @@
       </notes>
       <segment>
         <source>Weitere Einträge laden</source>
-        <target>Weitere Einträge laden</target>
+        <target>Cargar más entradas</target>
       </segment>
     </unit>
     <unit id="Tks6pyp" name="Posteingang wird geladen ...">
@@ -2296,7 +2296,7 @@
       </notes>
       <segment>
         <source>Posteingang wird geladen ...</source>
-        <target>Posteingang wird geladen ...</target>
+        <target>Cargando bandeja de mensajes...</target>
       </segment>
     </unit>
     <unit id="PXyHpOf" name="Fehler beim Laden des Posteingangs.">
@@ -2305,7 +2305,7 @@
       </notes>
       <segment>
         <source>Fehler beim Laden des Posteingangs.</source>
-        <target>Fehler beim Laden des Posteingangs.</target>
+        <target>Error al cargar la bandeja de entrada.</target>
       </segment>
     </unit>
   </file>
