@@ -1,5 +1,36 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block title %}{{'Mein Zuhause (Truhe)'|trans({}, 'game')}}{% endblock %}
+{% block tutorial %}
+    <div x-tutorial-content="3.text5" class="toplevel text arrow-down">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Alle deine Gegenstände werden <strong>in der Truhe</strong> aufbewahrt. Klick auf einen <strong>Gegenstand</strong>, um ihn mitzunehmen...
+            {% endtrans %}</p>
+        </div>
+    </div>
+    <div x-tutorial-content="3.text6" class="toplevel text arrow-down">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Ausgerüstete Gegenstände werden in deinem <strong>Rucksack</strong> aufbewahrt.
+            {% endtrans %}</p>
+            <p>{% trans from "help" %}
+                Wenn du einen Gegenstand gegen einen anderen aus deiner Truhe tauschen möchtest, brauchst du ihn nur anzuklicken.
+            {% endtrans %}</p>
+            <button x-advance-tutorial="3.text7">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+    <div x-tutorial-content="3.text7" class="toplevel text arrow-down">
+        <div class="help">
+            <p>{% trans from "help" %}
+                An dieser Stelle werden die Gegenstände angezeigt, die du gebrauchen kannst.
+            {% endtrans %}</p>
+            <p>{% trans from "help" %}
+                <strong>Klick auf einen Link, um einen Gegenstand zu verwenden (z.B.: eine Kiste öffnen, Essen, Trinken usw...).</strong>
+            {% endtrans %}</p>
+            <button x-advance-tutorial="3.text8">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+{% endblock %}
 {% block content %}
     {% set hour = "now"|date("G") %}
     <div class="row">
@@ -696,10 +727,10 @@
 
             document.getElementById("rows-send").style.display = "block";
 
-            var items = document.querySelectorAll("#rows-send .item");
-            var sent = document.getElementById("sent-items");
-            var keep = document.querySelector(".sendable-items");
-            for (var i = 0; i < items.length; i++) {
+            let items = document.querySelectorAll("#rows-send .item");
+            let sent = document.getElementById("sent-items");
+            let keep = document.querySelector(".sendable-items");
+            for (let i = 0; i < items.length; i++) {
                 items[i].addEventListener('click', function(){
                     if(this.parentElement.classList.contains('sendable-items'))
                         sent.appendChild(this);
@@ -740,5 +771,11 @@
                     $.ajax.load(null, '{{ path('town_house', {'tab': 'messages', 'subtab': 'received'}) }}', true);
                 } );
         });
+
+        {% if not app.user.expert %}
+            $.html.addEventListenerAll('ul.inventory.chest>li.item', 'click', function() {
+                $.html.conditionalSetTutorialStage(3,'text5',3,'text6');
+            });
+        {% endif %}
     </script>
 {% endblock %}

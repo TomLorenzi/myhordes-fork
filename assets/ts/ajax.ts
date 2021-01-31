@@ -141,9 +141,18 @@ export default class Ajax {
                     e.preventDefault();
 
                     const next_section = tutorials[t].getAttribute('x-advance-tutorial');
-                    if (next_section === 'finish') $.html.finishTutorialStage();
-                    const list = next_section.split('.');
-                    $.html.setTutorialStage(parseInt(list[0]), list[1]);
+
+                    const conditionals =  next_section.split('>');
+                    const from = conditionals.length > 1 ? conditionals[0].split('.') : [];
+                    const to   = conditionals.length > 1 ? conditionals[1].split('.') : conditionals[0].split('.');
+
+                    if (from.length > 0) {
+                        if (to.length === 1 && to[0] === 'finish') $.html.conditionalFinishTutorialStage(parseInt(from[0]), from[1]);
+                        else $.html.conditionalSetTutorialStage( parseInt(from[0]), from[1], parseInt(to[0]), to[1] );
+                    } else {
+                        if (to.length === 1 && to[0] === 'finish') $.html.finishTutorialStage();
+                        else $.html.setTutorialStage( parseInt(to[0]), to[1] );
+                    }
                 }, {capture: true});
             }
 

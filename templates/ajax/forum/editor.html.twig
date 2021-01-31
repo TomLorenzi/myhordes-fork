@@ -209,7 +209,7 @@
                         <span id="crow_answer_content">{% if not permission.post_as_dev() or app.user.postAsDefault != "DEV" %}{{ app.user.name }}{% else %}{{ 'Dev'|trans({},'global') }}{% endif %}</span>
                     </div>
                 {% endif %}
-                {% if not type == 'numb' %}
+                {% if type != 'numb' %}
                     <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
                 {% endif %}
             </div>
