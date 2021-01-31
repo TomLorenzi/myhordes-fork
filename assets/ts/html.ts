@@ -379,9 +379,16 @@ export default class HTML {
     setTutorialStage( tutorial: number, stage: string ): void {
         this.forEach('[x-tutorial-content]', elem => {
             const list = elem.getAttribute('x-tutorial-content').split(' ');
-            elem.style.display = (list.includes( tutorial + '.*' ) || list.includes( tutorial + '.' + stage )) ? 'block' : null;
+            let display = (list.includes( '*' ) || list.includes( tutorial + '.*' ) || list.includes( tutorial + '.' + stage ));
+            if (display) display = !(list.includes( '!*' ) || list.includes( '!' + tutorial + '.*' ) || list.includes( '!' + tutorial + '.' + stage ));
+            elem.style.display = display ? 'block' : null;
         });
         this.tutorialStage = [tutorial,stage];
+    }
+
+    conditionalSetTutorialStage( current_tutorial: number, current_stage: string, tutorial: number, stage: string ): void {
+        if (this.tutorialStage !== null && current_tutorial === this.tutorialStage[0] && current_stage === this.tutorialStage[1])
+            this.setTutorialStage(tutorial,stage);
     }
 
     restoreTutorialStage(): void {
@@ -391,5 +398,10 @@ export default class HTML {
     finishTutorialStage(): void {
         this.forEach('[x-tutorial-content]', elem =>  elem.style.display = null);
         this.tutorialStage = null;
+    }
+
+    conditionalFinishTutorialStage( current_tutorial: number, current_stage: string ): void {
+        if (this.tutorialStage !== null && current_tutorial === this.tutorialStage[0] && current_stage === this.tutorialStage[1])
+            this.finishTutorialStage();
     }
 }

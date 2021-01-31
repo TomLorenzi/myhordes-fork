@@ -1,5 +1,15 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block title %}{{'Der Brunnen'|trans({}, 'game')}}{% endblock %}
+{% block tutorial %}
+    <div x-tutorial-content="3.text3" class="toplevel text">
+        <div class="help">
+            <p>{% trans from "help" %}
+                    Wenn sich die Bürger eines Tages dazu entschließen eine <strong>Pumpe</strong> zu bauen, wird die Stadt über mehr Wasser verfügen.
+            {% endtrans %}</p>
+            <button x-advance-tutorial="3.text4">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+{% endblock %}
 {% block content %}
     {% set hour = "now"|date("G") %}
     <div class="row">
