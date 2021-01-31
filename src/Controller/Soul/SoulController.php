@@ -319,8 +319,7 @@ class SoulController extends CustomAbstractController
         $criteria = new Criteria();
         $criteria->andWhere($criteria->expr()->eq('season', $currentSeason));
         $criteria->andWhere($criteria->expr()->eq('type', $currentType));
-        if ($seasonId > 0 && $currentSeason->getNumber() > 0)
-            $criteria->andWhere($criteria->expr()->neq('end', null));
+        $criteria->andWhere($criteria->expr()->neq('end', null));
 
         $criteria->orderBy(['score' => 'DESC', 'end' => 'ASC', 'id'=> 'ASC']);
         $criteria->setMaxResults(35);

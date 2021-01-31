@@ -33,6 +33,16 @@ Log in to your database with `sudo mysql -u root` (specify `-p` if you have a lo
 CREATE USER 'hordes'@'localhost' IDENTIFIED BY 'hordes_pwd';
 ```
 
+Then give it all privileges for the wanted database name
+```sql
+GRANT ALL PRIVILEGES ON 'myhordes'.*  TO 'hordes'@'localhost';
+```
+
+Then flush the privileges so MySQL/MariaDB knows your latest changes
+```sql
+FLUSH PRIVILEGES;
+```
+
 Exit the mariadb command prompt with CTRL+C or `exit;`
 
 #### Access the DB
