@@ -101,7 +101,7 @@
                                     </div>
                                     <div class="cell"><div class="avatar small ua-{{ assoc.user.id % 10 }}"><img alt="" src="{{ assoc.user.avatar ? path('app_web_avatar', {'uid': assoc.user.id, 'name': assoc.user.avatar.smallName, 'ext': assoc.user.avatar.format}) : asset('build/images/forum/empty_avatar.gif') }}" style="margin-right: 0;"></div></div>
                                     <div class="cell grow-1" style="margin-left: 4px;">
-                                        {{ assoc.user.name }}<br />
+                                        <a class="link" href="{{ path('soul_visit', {id: assoc.user.id}) }}">{{ assoc.user.name }}</a><br />
                                         <span>
                                             {% if assoc.user.activeCitizen is not null %}
                                                 {% if show_town %}
