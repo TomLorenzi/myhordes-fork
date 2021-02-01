@@ -144,7 +144,7 @@
             <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ message.sender.name|slice(0,2) }}</div></div>
         {% endif %}
         <div class="pm-message">
-            <div class="pm-message-header"><i class="fa fa-user"></i> {{ message.sender.name }}</div>
+            <div class="pm-message-header"><i class="fa fa-user"></i> {% if (message.sender.id == 66) %}{{'Der Rabe'|trans({}, 'global')}}{% else %}{{ message.sender.name }}{% endif %}</div>
             <div class="pm-message-content">
                 <div class="crowmsg">{{ 'Dies ist eine offizielle Nachricht.'|trans({},'game') }} <a class="help-button"><div class="tooltip help">{{ 'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></div>
                 {{ message.text|raw }}
