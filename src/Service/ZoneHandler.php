@@ -302,7 +302,7 @@ class ZoneHandler
             $keys = $d == 1 ? [array_rand($empty_zones)] : array_rand($empty_zones, min($d,count($empty_zones)));
             foreach ($keys as $spawn_zone_id)
                 /** @var Zone $spawn_zone */
-                $zone_db[ $zones[$spawn_zone_id]->getX() ][ $zones[$spawn_zone_id]->getY() ] = mt_rand(1,intval($town->getDay() / 2));
+                $zone_db[ $zones[$spawn_zone_id]->getX() ][ $zones[$spawn_zone_id]->getY() ] = mt_rand(1,intval(ceil($town->getDay() / 2)));
             $cycles += ceil($d/2);
         }
 
@@ -489,7 +489,7 @@ class ZoneHandler
                 }
             }
         }
-        if ($zone->getZombieStatus() >= Zone::ZombieStateEstimate || $admin) {
+        if (($zone->getDiscoveryStatus() === Zone::DiscoveryStateCurrent && $zone->getZombieStatus() >= Zone::ZombieStateEstimate) || $admin) {
             if ($zone->getZombies() == 0) {
                 $attributes[] = 'danger-0';
             }

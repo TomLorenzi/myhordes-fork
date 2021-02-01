@@ -63,9 +63,32 @@
                         {# @var town \src\Entity\TownRankingProxy #}
                         <div class="cell rw-1 center"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></div>
                         <div class="cell rw-1 center">{{ pos }}</div>
-                        <div class="cell rw-6 center">{{ town.name }}</div>
+                        <div class="cell rw-6 center"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div> {{ town.name }}</div>
                         <div class="cell rw-2 center">{{ town.days }}</div>
                         <div class="cell rw-2 center">{{ town.score }}</div>
+                    </div>
+                    <div class="row-flex stretch">
+                        <div x-town-details="{{ town.id }}" class="padded cell rw-12 hidden" style="background-color: #3b3249;">
+                            <ul class="citizen-list">
+                                {% for denizen in town.citizens|sort((a,b) => b.day <=> a.day) %}
+                                    {# @var denizen \App\Entity\CitizenRankingProxy #}
+                                    <li class="row">
+                                        <div class="cell padded rw-2"></div>
+                                        <div class="cell padded rw-3">
+                                            {% if denizen.cod.ref == constant("App\\Entity\\CauseOfDeath::Vanished") %}
+                                                <div class="inline-block"><img src="{{ asset("build/images/death/outside.gif") }}" alt="" /> <div class="tooltip">{{ 'Draußen gestorben'|trans({}, 'soul') }}</div></div>
+                                            {% else %}
+                                                <div class="inline-block"><img src="{{ asset("build/images/death/inside.gif") }}" alt="" /> <div class="tooltip">{{ 'In der Stadt gestorben'|trans({}, 'soul') }}</div></div>
+                                            {% endif %}
+                                            <a class="link" href="{{ path('soul_visit', {id: denizen.user.id}) }}">{{ denizen.user.name }}</a>
+                                        </div>
+                                        <div class="cell padded rw-1">{{ denizen.day }}</div>
+                                        <div class="cell padded rw-6"><em>{{ denizen.lastWords }}</em></div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <div class="right"><span class="small pointer" x-town-toggle="{{ town.id }}">{{ 'Schließen'|trans({},'global') }}</span></div>
+                        </div>
                     </div>
                     {% set pos = pos + 1 %}
                 {% endfor %}
@@ -101,5 +124,13 @@
         if(season) season.addEventListener("change", function(){
             $.ajax.load(null, '{{ path("soul_season", {'type': currentType.id}) }}', true, {'season': season.value});
         })
+
+        $.html.addEventListenerAll( '[x-town-toggle]', 'click', function(e,elem) {
+            const id = elem.getAttribute('x-town-toggle');
+            document.querySelectorAll('[x-town-details="' + id + '"]').forEach(function( target ) {
+                if (target.classList.contains('hidden')) target.classList.remove('hidden');
+                else target.classList.add('hidden');
+            })
+        } );
     </script>
 {% endblock %}

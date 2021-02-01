@@ -438,7 +438,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'safe'  => [ 'watergun_opt_part_#00', 'big_pgun_part_#00', 'lawn_part_#00', 'chainsaw_part_#00', 'mixergun_part_#00', 'cutcut_#00', 'pilegun_upkit_#00', 'book_gen_letter_#00', 'pocket_belt_#00', 'drug_hero_#00', 'meca_parts_#00' ],
                 'asafe' => [ 'bplan_e_#00' ],
 
-                'lab_fail_drugs'    => [ 'drug_#00', 'xanax_#00', 'drug_random_#00', 'drug_water_#00', 'water_cleaner_#00' ],
+                'lab_fail_drugs'    => [ 'what' => ['drug_#00', 'xanax_#00', 'drug_random_#00', 'drug_water_#00', 'water_cleaner_#00'], "where" => AffectItemSpawn::DropTargetFloor  ],
                 'lab_success_drugs' => [ 'what' => ['drug_hero_#00'], "where" => AffectItemSpawn::DropTargetFloor ],
 
                 'kitchen_fail_food'    => [ 'what' => ['dish_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
@@ -450,7 +450,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'meat_2x'  => [ 'what' => [ ['undef_#00', 2] ], 'where' => AffectItemSpawn::DropTargetFloor],
                 'meat_bmb' => [ 'what' => [ ['flesh_#00', 2] ], 'where' => AffectItemSpawn::DropTargetFloor],
 
-                'potion'   => [ [ 'potion_#00', 1] ],
+                'potion'   => [ 'what' => [ [ 'potion_#00', 1] ], "where" => AffectItemSpawn::DropTargetFloor  ],
             ],
 
             'consume' => [

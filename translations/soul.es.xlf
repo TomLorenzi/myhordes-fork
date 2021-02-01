@@ -646,13 +646,13 @@
         <target>Alianza</target>
       </segment>
     </unit>
-    <unit id="svF8aFT" name="Saison 15">
+    <unit id="svF8aFT" name="Saison %season%">
       <notes>
-        <note category="german">Saison 15</note>
+        <note category="german">Saison %season%</note>
       </notes>
       <segment>
-        <source>Saison 15</source>
-        <target>Temporada 15</target>
+        <source>Saison %season%</source>
+        <target>Temporada %season%</target>
       </segment>
     </unit>
     <unit id="x3_4s4O" name="Alte Städte">
