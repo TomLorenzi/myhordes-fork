@@ -114,7 +114,7 @@ class SoulController extends CustomAbstractController
         $data["soul_tab"] = $section;
         $data["new_message"] = !empty($user_invitations) || $messages;
         $data["new_news"] = $this->entity_manager->getRepository(Announcement::class)->countUnreadByUser($user, $this->getUserLanguage()) > 0;
-
+        $data["season"] = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
         return $data;
     }
 

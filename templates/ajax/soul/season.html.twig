@@ -83,7 +83,7 @@
                                             <a class="link" href="{{ path('soul_visit', {id: denizen.user.id}) }}">{{ denizen.user.name }}</a>
                                         </div>
                                         <div class="cell padded rw-1">{{ denizen.day }}</div>
-                                        <div class="cell padded rw-6">{{ denizen.lastWords }}</div>
+                                        <div class="cell padded rw-6"><em>{{ denizen.lastWords }}</em></div>
                                     </li>
                                 {% endfor %}
                             </ul>
