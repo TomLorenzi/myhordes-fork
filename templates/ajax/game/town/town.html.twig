@@ -199,44 +199,46 @@
                 </div>
             {% endif %}
 
-            {% if citizen.hasRole('ghoul') %}
-                <div class="green-note warning-box">
-                    <img src="{{ asset('build/images/status/status_ghoul.gif') }}" alt=""> {{'Du hast dich in einen %role% verwandelt!'|trans({'%role%': '<strong>' ~ 'Ghul'|trans({},'game') ~ '</strong>'}, 'game')|raw}}<br />
-                    <em>{{ "Erzähle niemandem davon oder du wirst sofort erschossen!"|trans({}, 'game') }}</em><br />
-                    {{ help_lnk('Wie man als Ghul spielt ?'|trans({},'game'), 'help', {'name' : 'ghouls'}) }}
-                </div>
-            {% endif %}
-            {% if chaos %}
-                <div class="header-menu chaos"><a class="help-button"><div class="tooltip help">{{ '<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a></div>
-            {% elseif town.insurrectionProgress >= 100 %}
-                <div class="header-menu insurrect"></div>
-            {% endif %}
-            {% if citizen.banished %}
-                <div class="banished-info">
-                    <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" /> {{ 'Du wurdest verbannt!'|trans({}, 'game') }} <a class="help-button"><div class="tooltip help">{{ 'Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
-                </div>
-                {% if has_insurrection_part %}
-                    <div class="banished-info">
-                        <em>{{ 'Status:'|trans({}, 'game') }}</em>
-                        {% if town.insurrectionProgress >= 0 and town.insurrectionProgress < 20 %}
-                            {{ 'Eine Revolte liegt in weiter Ferne...'|trans({}, 'game') }}
-                        {% elseif town.insurrectionProgress >= 20 and town.insurrectionProgress < 40 %}
-                            {{ 'Erste Spannungen bilden sich.'|trans({}, 'game') }}
-                        {% elseif town.insurrectionProgress >= 40 and town.insurrectionProgress < 60 %}
-                            {{ 'Wir machen Fortschritte.'|trans({}, 'game') }}
-                        {% elseif town.insurrectionProgress >= 60 and town.insurrectionProgress < 80 %}
-                            {{ 'Das Ende ist nah.'|trans({}, 'game') }}
-                        {% elseif town.insurrectionProgress >= 80 %}
-                            {{ 'Die Revolte steht bevor!'|trans({}, 'game') }}
-                        {% endif %}
-                    </div>
-                {% elseif can_do_insurrection %}
-                    <button id="do_insurrection"><img alt="" src="{{ asset('build/images/actions/insurrect.gif') }}" /> {{'Auf den Aufstand hinarbeiten'|trans({}, 'game')}}</button>
-                {% endif %}
-            {% endif %}
+
             {% set hour = "now"|date("G") %}
             <div class="row">
+
                 <div class="background cell rw-12">
+                    {% if citizen.hasRole('ghoul') %}
+                        <div class="green-note warning-box">
+                            <img src="{{ asset('build/images/status/status_ghoul.gif') }}" alt=""> {{'Du hast dich in einen %role% verwandelt!'|trans({'%role%': '<strong>' ~ 'Ghul'|trans({},'game') ~ '</strong>'}, 'game')|raw}}<br />
+                            <em>{{ "Erzähle niemandem davon oder du wirst sofort erschossen!"|trans({}, 'game') }}</em><br />
+                            {{ help_lnk('Wie man als Ghul spielt ?'|trans({},'game'), 'help', {'name' : 'ghouls'}) }}
+                        </div>
+                    {% endif %}
+                    {% if chaos %}
+                        <div class="header-menu chaos"><a class="help-button"><div class="tooltip help">{{ '<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a></div>
+                    {% elseif town.insurrectionProgress >= 100 %}
+                        <div class="header-menu insurrect"></div>
+                    {% endif %}
+                    {% if citizen.banished %}
+                        <div class="banished-info">
+                            <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" /> {{ 'Du wurdest verbannt!'|trans({}, 'game') }} <a class="help-button"><div class="tooltip help">{{ 'Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
+                        </div>
+                        {% if has_insurrection_part %}
+                            <div class="banished-info">
+                                <em>{{ 'Status:'|trans({}, 'game') }}</em>
+                                {% if town.insurrectionProgress >= 0 and town.insurrectionProgress < 20 %}
+                                    {{ 'Eine Revolte liegt in weiter Ferne...'|trans({}, 'game') }}
+                                {% elseif town.insurrectionProgress >= 20 and town.insurrectionProgress < 40 %}
+                                    {{ 'Erste Spannungen bilden sich.'|trans({}, 'game') }}
+                                {% elseif town.insurrectionProgress >= 40 and town.insurrectionProgress < 60 %}
+                                    {{ 'Wir machen Fortschritte.'|trans({}, 'game') }}
+                                {% elseif town.insurrectionProgress >= 60 and town.insurrectionProgress < 80 %}
+                                    {{ 'Das Ende ist nah.'|trans({}, 'game') }}
+                                {% elseif town.insurrectionProgress >= 80 %}
+                                    {{ 'Die Revolte steht bevor!'|trans({}, 'game') }}
+                                {% endif %}
+                            </div>
+                        {% elseif can_do_insurrection %}
+                            <button id="do_insurrection"><img alt="" src="{{ asset('build/images/actions/insurrect.gif') }}" /> {{'Auf den Aufstand hinarbeiten'|trans({}, 'game')}}</button>
+                        {% endif %}
+                    {% endif %}
                     <div class="row town-menu {% if town.isNight %}night{% endif %}">
                         <div class="padded-small cell rw-12 town-overview {% if menu_section == '' %}selected{% endif %}">
                             <div x-ajax-href="{{ url('town_dashboard') }}"><img src="{{asset('build/images/icons/small_view.gif')}}" alt =""/>{% trans from 'game' %}Übersicht{% endtrans %}</div>
