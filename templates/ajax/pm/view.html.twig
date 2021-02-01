@@ -142,7 +142,7 @@
             <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ user.name|slice(0,2) }}</div></div>
         {% endif %}
         <div class="pm-message">
-            <div class="pm-message-header"><i class="fa fa-user"></i> {{ user.name }}</div>
+            <div class="pm-message-header"><img src="{{ asset('build/images/icons/small_user.gif') }}" alt=""> {{ user.name }}</div>
             <div class="pm-message-content"><div id="pm-editor-preview"></div></div>
             <div class="pm-message-footer">{{ 'Vorschau'|trans({},'global') }}</div>
         </div>
