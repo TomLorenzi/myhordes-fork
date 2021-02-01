@@ -7363,7 +7363,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Das Grundprizip des Spiels</source>
-        <target>Das Grundprizip des Spiels</target>
+        <target>Las bases del juego en pocas palabras</target>
       </segment>
     </unit>
     <unit id="D.eaIss" name="Die Benutzeroberfläche">
@@ -7372,7 +7372,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Die Benutzeroberfläche</source>
-        <target>Die Benutzeroberfläche</target>
+        <target>La interfaz</target>
       </segment>
     </unit>
     <unit id="WSj7XMU" name="Wie rüste ich mich aus?">
@@ -7381,7 +7381,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wie rüste ich mich aus?</source>
-        <target>Wie rüste ich mich aus?</target>
+        <target>¿Cómo equiparse?</target>
       </segment>
     </unit>
     <unit id="BAFRWYu" name="Wie kann ich die Stadt verlassen?">
@@ -7390,7 +7390,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wie kann ich die Stadt verlassen?</source>
-        <target>Wie kann ich die Stadt verlassen?</target>
+        <target>¿Cómo salir del pueblo?</target>
       </segment>
     </unit>
     <unit id="22eqBTq" name="Entdecke deinen Beruf:">
@@ -7399,7 +7399,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Entdecke deinen Beruf:</source>
-        <target>Entdecke deinen Beruf:</target>
+        <target>Descubre tu oficio:</target>
       </segment>
     </unit>
     <unit id="5MHED6b" name="2028c36">
@@ -7426,7 +7426,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Der rechte Teil zeigt die Zone, in der du dich gerade befindest. Dort findest du auch alle verfügbaren Aktionsmöglichkeiten.</source>
-        <target>Der rechte Teil zeigt die Zone, in der du dich gerade befindest. Dort findest du auch alle verfügbaren Aktionsmöglichkeiten.</target>
+        <target>La parte derecha muestra la zona en la que te encuentras actualmente. Allí también encontrarás todas las acciónes disponibles.</target>
       </segment>
     </unit>
     <unit id="UL9YoQf" name="8ee19aa">
@@ -7444,7 +7444,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wie erkunde ich die Außenwelt?</source>
-        <target>Wie erkunde ich die Außenwelt?</target>
+        <target>¿Cómo explorar el Ultramundo?</target>
       </segment>
     </unit>
     <unit id="Q5jU0Bo" name="Lesen:">
@@ -7453,7 +7453,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Lesen:</source>
-        <target>Lesen:</target>
+        <target>Leer:</target>
       </segment>
     </unit>
     <unit id="VhE6CQq" name="Der Kleine Außenweltführer">
@@ -7462,7 +7462,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Der Kleine Außenweltführer</source>
-        <target>Der Kleine Außenweltführer</target>
+        <target>La Guía del Ultramundo</target>
       </segment>
     </unit>
     <unit id="3WkBbnG" name="Das Stadttor ist geöffnet.">
