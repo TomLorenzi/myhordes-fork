@@ -44,7 +44,7 @@ class TownLogEntryRepository extends ServiceEntityRepository
         }
 
         if     (is_bool($citizen)) $q->andWhere($citizen ? 't.citizen IS NOT NULL' : 't.citizen IS NULL');
-        elseif ($citizen !== null) $q->andWhere('t.citizen = :citizen OR t.secondaryCitizen = :citizen')->setParameter('citizen', $citizen);
+        elseif ($citizen !== null) $q->andWhere('t.citizen = :citizen OR t.secondaryCitizen = :citizen')->setParameter('citizen', $citizen)->andWhere("t.hidden = false");
 
         if     (is_bool($zone)) $q->andWhere($zone ? 't.zone IS NOT NULL' : 't.zone IS NULL');
         elseif ($zone !== null) $q->andWhere('t.zone = :zone')->setParameter('zone', $zone);
