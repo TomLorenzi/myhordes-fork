@@ -4552,7 +4552,7 @@
       </notes>
       <segment>
         <source>Ein Ort des Friedens und der Gelassenheit... Wenn Sie bewaffnet und bereit sind, um Ihr Leben zu kämpfen. Die umgebende Vegetation ist unheimlich und riecht stark nach Tod, unidentifizierte Kreaturen lauern im Schatten... Sie haben das überwältigende Gefühl, dass eine Kreatur aus einer Hecke ausbrechen und Sie angreifen wird.</source>
-        <target>Ein Ort des Friedens und der Gelassenheit... Wenn Sie bewaffnet und bereit sind, um Ihr Leben zu kämpfen. Die umgebende Vegetation ist unheimlich und riecht stark nach Tod, unidentifizierte Kreaturen lauern im Schatten... Sie haben das überwältigende Gefühl, dass eine Kreatur aus einer Hecke ausbrechen und Sie angreifen wird.</target>
+        <target>Un lugar de paz y serenidad... cuando estás armado y listo para luchar por tu vida. La vegetación circundante es espeluznante y huele a carroña, lo cual no te inspira mucha confianza. Tienes el presentimiento de que extrañas criaturas acechan en las sombras, preparadas para salir de entre los arbustos y atacarte en cualquier momento.</target>
       </segment>
     </unit>
     <unit id="XXTLDoG" name="7b41c4f">
@@ -6901,7 +6901,7 @@
       </notes>
       <segment>
         <source>Du hast die letzte Nacht in der Kälte der Außenwelt verbracht. Dabei konntest du die Windrichtung und den Marsch der Zombiehorde beobachten. Damit bist du für den Rest des Tages in der Lage, erfolgreicher Gegenstände zu finden.</source>
-        <target>Du hast die letzte Nacht in der Kälte der Außenwelt verbracht. Dabei konntest du die Windrichtung und den Marsch der Zombiehorde beobachten. Damit bist du für den Rest des Tages in der Lage, erfolgreicher Gegenstände zu finden.</target>
+        <target>Pasaste la última noche fuera, soportando el frío del Ultramundo. Fuiste capaz de observar los áridos vientos desérticos y el movimiento de las hordas de zombis. Gracias a la agudeza de tus observaciones hoy gozarás de un bonus al excavar.</target>
       </segment>
     </unit>
     <unit id="yuD1sSM" name="45bb090">
@@ -17598,7 +17598,7 @@
       </notes>
       <segment>
         <source>In diesem Bereich kannst du für deine Mitbürger "Wege" in der Außenwelt markieren. Auf diese Weise könnt ihr Expeditionen in Zonen organisieren, die euch wirklich interessieren..</source>
-        <target>In diesem Bereich kannst du für deine Mitbürger "Wege" in der Außenwelt markieren. Auf diese Weise könnt ihr Expeditionen in Zonen organisieren, die euch wirklich interessieren..</target>
+        <target>Esta sección te permite indicar a tus compañeros los "caminos" en el Ultramundo, para así organizar expediciones por las zonas que te interesan. </target>
       </segment>
     </unit>
     <unit id="oUzp6eN" name="e9767a0">
@@ -17607,7 +17607,7 @@
       </notes>
       <segment>
         <source>Achtung: Die Stadt kann nur 16 Expeditionen durchführen. Denke immer daran, nutzlos gewordene Expeditionen abzubrechen!</source>
-        <target>Achtung: Die Stadt kann nur 16 Expeditionen durchführen. Denke immer daran, nutzlos gewordene Expeditionen abzubrechen!</target>
+        <target>Atención: El pueblo solo puede realizar 16 expediciones. ¡Elimina las expediciones que sean inútiles!</target>
       </segment>
     </unit>
     <unit id="Zoy_MWF" name="Dauer">
@@ -17652,7 +17652,7 @@
       </notes>
       <segment>
         <source>Eine Expedition Erstellen</source>
-        <target>Eine Expedition Erstellen</target>
+        <target>Crear una expedición</target>
       </segment>
     </unit>
     <unit id="9zkVg8p" name="Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...">
@@ -17703,7 +17703,7 @@
       </notes>
       <segment>
         <source>Das Register filtern</source>
-        <target>Das Register filtern</target>
+        <target>Filtrar el Registro</target>
       </segment>
     </unit>
     <unit id="pVw6QMt" name="Bürger:">
@@ -17712,7 +17712,7 @@
       </notes>
       <segment>
         <source>Bürger:</source>
-        <target>Bürger:</target>
+        <target>Habitante:</target>
       </segment>
     </unit>
     <unit id="veFPW3j" name="Alles sehen">
@@ -17721,7 +17721,7 @@
       </notes>
       <segment>
         <source>Alles sehen</source>
-        <target>Alles sehen</target>
+        <target>Ver todo</target>
       </segment>
     </unit>
     <unit id="02rWWHc" name="Kategorie:">
@@ -17730,7 +17730,7 @@
       </notes>
       <segment>
         <source>Kategorie:</source>
-        <target>Kategorie:</target>
+        <target>Categoría:</target>
       </segment>
     </unit>
     <unit id="X377hje" name="Verbrechen">
@@ -17739,7 +17739,7 @@
       </notes>
       <segment>
         <source>Verbrechen</source>
-        <target>Verbrechen</target>
+        <target>Crímenes</target>
       </segment>
     </unit>
     <unit id="EimCTw3" name="Baustelle">
@@ -17748,7 +17748,7 @@
       </notes>
       <segment>
         <source>Baustelle</source>
-        <target>Baustelle</target>
+        <target>Construcciones</target>
       </segment>
     </unit>
     <unit id="TXchxsK" name="Neue und Tote">
@@ -17766,7 +17766,7 @@
       </notes>
       <segment>
         <source>Zombieangriff (newspaper)</source>
-        <target>Zombieangriff (newspaper)</target>
+        <target>Ataque zombi (periódico)</target>
       </segment>
     </unit>
     <unit id="9tYl8RU" name="Zum Schlafen Reichts Motel">
@@ -17784,7 +17784,7 @@
       </notes>
       <segment>
         <source>Wie soll ich spielen?</source>
-        <target>Wie soll ich spielen?</target>
+        <target>¿Cómo jugar?</target>
       </segment>
     </unit>
     <unit id="7ufilHx" name="Den Lernmodus ausschalten">
@@ -17793,7 +17793,7 @@
       </notes>
       <segment>
         <source>Den Lernmodus ausschalten</source>
-        <target>Den Lernmodus ausschalten</target>
+        <target>Desactivar el Modo Aprendizaje</target>
       </segment>
     </unit>
     <unit id="LHrC.7H" name="Wie gebraucht man diese Karte?">
@@ -17802,7 +17802,7 @@
       </notes>
       <segment>
         <source>Wie gebraucht man diese Karte?</source>
-        <target>Wie gebraucht man diese Karte?</target>
+        <target>¿Cómo funciona este mapa?</target>
       </segment>
     </unit>
     <unit id="Gu2qWPY" name="Brauchst du Hilfe? Benutze den %modelink%!">
@@ -17811,7 +17811,7 @@
       </notes>
       <segment>
         <source>Brauchst du Hilfe? Benutze den %modelink%!</source>
-        <target>Brauchst du Hilfe? Benutze den %modelink%!</target>
+        <target>¿Eres nuevo en el juego? ¿Te sientes perdido? ¡Utiliza el %modelink%!</target>
       </segment>
     </unit>
     <unit id="Ei6.Z0j" name="Anfängermodus">
@@ -17820,7 +17820,7 @@
       </notes>
       <segment>
         <source>Anfängermodus</source>
-        <target>Anfängermodus</target>
+        <target>Modo Aprendizaje</target>
       </segment>
     </unit>
     <unit id="mw0MdAz" name="Handbuch zur Aussenwelt">
@@ -17840,8 +17840,8 @@
       <segment>
         <source>Wenn du "MyHordes" zum ersten Mal spielst, empfehlen wir dir den Links &lt;strong&gt;Wie soll ich spielen?&lt;/strong&gt; zu folgen,
                 die sich auf der Webseite links befindet. Interaktive Schritt-für-Schritt-Anleitungen erklären dir in 5 Minuten die Grundlagen des Spiels.</source>
-        <target><![CDATA[Wenn du "MyHordes" zum ersten Mal spielst, empfehlen wir dir den Links <strong>Wie soll ich spielen?</strong> zu folgen,
-                die sich auf der Webseite links befindet. Interaktive Schritt-für-Schritt-Anleitungen erklären dir in 5 Minuten die Grundlagen des Spiels.]]></target>
+        <target>Si estás jugando a "MyHordes" por primera vez, te recomendamos que sigas los enlaces bajo &lt;strong&gt;¿Cómo debo jugar?&lt;strong&gt;
+                ubicados en la izquierda superior del sitio web. Las instrucciones interactivas te explicarán paso a paso los conceptos básicos del juego en menos de 5 minutos.</target>
       </segment>
     </unit>
     <unit id="PF899T3" name="Du kannst jederzeit die %helplink% im oberen Abschnitt der Seite aufsuchen.">
@@ -17850,7 +17850,7 @@
       </notes>
       <segment>
         <source>Du kannst jederzeit die %helplink% im oberen Abschnitt der Seite aufsuchen.</source>
-        <target>Du kannst jederzeit die %helplink% im oberen Abschnitt der Seite aufsuchen.</target>
+        <target>Siempre puedes visitar la %helplink% en la parte superior de la página.</target>
       </segment>
     </unit>
     <unit id="333PWhL" name="komplette Spielhilfe">
@@ -17859,7 +17859,7 @@
       </notes>
       <segment>
         <source>komplette Spielhilfe</source>
-        <target>komplette Spielhilfe</target>
+        <target>Guía completa del juego</target>
       </segment>
     </unit>
     <unit id="D053dcd" name="Zum Anfängermodus zurückkehren">
@@ -17868,7 +17868,7 @@
       </notes>
       <segment>
         <source>Zum Anfängermodus zurückkehren</source>
-        <target>Zum Anfängermodus zurückkehren</target>
+        <target>Volver al modo principante</target>
       </segment>
     </unit>
     <unit id="qq349uP" name="(Du bist gerade im &lt;strong&gt;Expertenmodus&lt;/strong&gt;)">
@@ -17877,7 +17877,7 @@
       </notes>
       <segment>
         <source>(Du bist gerade im &lt;strong&gt;Expertenmodus&lt;/strong&gt;)</source>
-        <target><![CDATA[(Du bist gerade im <strong>Expertenmodus</strong>)]]></target>
+        <target>(Estás utilizando la pantalla de &lt;strong&gt;Experto&lt;/strong&gt;)</target>
       </segment>
     </unit>
     <unit id="_WQ7cjB" name="534d954">
@@ -17886,7 +17886,7 @@
       </notes>
       <segment>
         <source>Du besitzt eine &lt;strong&gt;Karte&lt;/strong&gt;. Benutze den Knopf hier oben, um nicht verloren zu gehen!</source>
-        <target><![CDATA[Du besitzt eine <strong>Karte</strong>. Benutze den Knopf hier oben, um nicht verloren zu gehen!]]></target>
+        <target>¡Usa el &lt;strong&gt;mapa&lt;/strong&gt; para no perderte!</target>
       </segment>
     </unit>
   </file>
