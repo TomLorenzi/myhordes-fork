@@ -17,7 +17,7 @@ class TownFixtures extends Fixture
         ['name'=>'small'  ,'label'=>'Kleine Stadt'      ,'preset' => true, 'ranked' => false],
         ['name'=>'remote' ,'label'=>'Entfernte Regionen','preset' => true, 'ranked' => true],
         ['name'=>'panda'  ,'label'=>'Pandämonium'       ,'preset' => true, 'ranked' => true],
-        ['name'=>'custom' ,'label'=>'Private Stadt'     ,'preset' => false, 'ranked' => true],
+        ['name'=>'custom' ,'label'=>'Private Stadt'     ,'preset' => false, 'ranked' => false],
     ];
 
     private $entityManager;
