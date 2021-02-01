@@ -783,7 +783,7 @@ class ActionHandler
                             $target = [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
                         case AffectItemSpawn::DropTargetDefault:
                         default:
-                            $target = [ $execute_info_cache['source_inv'] ];
+                            $target = [ $execute_info_cache['source_inv'], $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
                             break;
                     }
 
