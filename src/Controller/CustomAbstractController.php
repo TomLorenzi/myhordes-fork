@@ -22,6 +22,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class CustomAbstractController
+ * @method User getUser
  */
 class CustomAbstractController extends AbstractController {
 
