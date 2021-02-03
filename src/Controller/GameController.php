@@ -6,6 +6,7 @@ use App\Entity\ActionCounter;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
+use App\Entity\Complaint;
 use App\Entity\Gazette;
 use App\Entity\GazetteEntryTemplate;
 use App\Entity\GazetteLogEntry;
@@ -32,6 +33,7 @@ use App\Service\UserHandler;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use App\Translation\T;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use DateTime;
@@ -201,6 +203,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
             $gazette->setDeaths(count($death_inside));
         }
 
+        /** @var GazetteLogEntry[] $gazette_logs */
         $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findBy(['gazette' => $gazette]);
         $text = '';
         $wind = "";
@@ -423,13 +426,14 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
         }
         else {
             while (count($gazette_logs) > 0) {
-                $text .= '<p>' . $this->parseGazetteLog(array_shift($gazette_logs)) . '</p>';
+                /** @var GazetteLogEntry $log */
+                $log = array_shift($gazette_logs);
+                $type = $log->getTemplate() !== null ? $log->getTemplate()->getType() : $log->getLogEntryTemplate()->getType();
+                if($type !== GazetteEntryTemplate::TypeGazetteWind)
+                    $text .= '<p>' . $this->parseGazetteLog($log) . '</p>';
+                else
+                    $wind = $this->parseGazetteLog($log);
             }
-
-            $wind_log = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette, GazetteEntryTemplate::TypeGazetteWind);
-            if(count($wind_log) > 0)
-                $wind = $this->parseGazetteLog($wind_log[0]);
-
         }
         $textClass = "day$day";
 
