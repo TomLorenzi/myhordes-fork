@@ -60,6 +60,11 @@ class GazetteLogEntry
      */
     private $variables = [];
 
+    /**
+     * @ORM\ManyToOne(targetEntity=GazetteEntryTemplate::class)
+     */
+    private $template;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -109,6 +114,18 @@ class GazetteLogEntry
     public function setVariables(?array $variables): self
     {
         $this->variables = $variables;
+
+        return $this;
+    }
+
+    public function getTemplate(): ?GazetteEntryTemplate
+    {
+        return $this->template;
+    }
+
+    public function setTemplate(?GazetteEntryTemplate $template): self
+    {
+        $this->template = $template;
 
         return $this;
     }

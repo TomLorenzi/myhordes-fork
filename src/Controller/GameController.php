@@ -7,6 +7,7 @@ use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\CauseOfDeath;
 use App\Entity\Gazette;
+use App\Entity\GazetteEntryTemplate;
 use App\Entity\GazetteLogEntry;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\HeroSkillPrototype;
@@ -102,10 +103,11 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
     }
 
     protected function parseGazetteLog(GazetteLogEntry $gazetteLogEntry) {
-        return $this->parseLog($gazetteLogEntry->getLogEntryTemplate(), $gazetteLogEntry->getVariables());
+        file_put_contents("/tmp/dump.txt", print_r($gazetteLogEntry->getTemplate() !== null, true));
+        return $this->parseLog($gazetteLogEntry->getTemplate() !== null ? $gazetteLogEntry->getTemplate() : $gazetteLogEntry->getLogEntryTemplate(), $gazetteLogEntry->getVariables());
     }
 
-    protected function parseLog( LogEntryTemplate $template, array $variables ): String {
+    protected function parseLog( $template, array $variables ): String {
         $variableTypes = $template->getVariableTypes();
         $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $variables);
 
@@ -199,7 +201,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
             $gazette->setDeaths(count($death_inside));
         }
 
-        $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette, LogEntryTemplate::TypeGazetteTown);
+        $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findBy(['gazette' => $gazette]);
         $text = '';
         $wind = "";
         if (count($gazette_logs) == 0) {
@@ -220,18 +222,17 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                     ];
                 } else {
                     $criteria = [
-                        'type'  => LogEntryTemplate::TypeGazetteTown,
-                        'class' => LogEntryTemplate::ClassGazetteNoDeaths + (count($death_inside) < 3 ? count($death_inside) : 3),
+                        'type' => GazetteEntryTemplate::TypeGazetteNoDeaths + (count($death_inside) < 3 ? count($death_inside) : 3),
                     ];
                 }
 
-                $applicableEntryTemplates = $this->entity_manager->getRepository(LogEntryTemplate::class)->findBy($criteria);
+                $applicableEntryTemplates = $this->entity_manager->getRepository(GazetteEntryTemplate::class)->findBy($criteria);
                 shuffle($applicableEntryTemplates);
-                /** @var LogEntryTemplate $townTemplate */
+                /** @var GazetteEntryTemplate $townTemplate */
                 $townTemplate = $applicableEntryTemplates[array_key_first($applicableEntryTemplates)];
-                $requirements = $townTemplate->getSecondaryType();
+                $requirements = $townTemplate->getRequirement();
                 $variables = [];
-                if ($requirements == GazetteLogEntry::RequiresNothing) {
+                if ($requirements == GazetteEntryTemplate::RequiresNothing) {
                     $variables = [];
                 }
                 elseif (intval(floor($requirements / 10)) === 1) {
@@ -270,7 +271,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                 $variables['defense'] = $defense < 2000 ? 10 * (round($defense / 10)) : 100 * (round($defense / 100));
 
                 $news = new GazetteLogEntry();
-                $news->setDay($day)->setGazette($gazette)->setLogEntryTemplate($townTemplate)->setVariables($variables);
+                $news->setDay($day)->setGazette($gazette)->setTemplate($townTemplate)->setVariables($variables);
                 $this->entity_manager->persist($news);
                 $text .= '<p>' . $this->parseGazetteLog($news) . '</p>';
 
@@ -283,38 +284,37 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                     switch ($featured_cadaver->getCauseOfDeath()->getId()) {
                         case CauseOfDeath::Cyanide:
                         case CauseOfDeath::Strangulation:
-                            $class = LogEntryTemplate::ClassGazetteSuicide;
+                            $type = GazetteEntryTemplate::TypeGazetteSuicide;
                             break;
 
                         case CauseOfDeath::Addiction:
-                            $class = LogEntryTemplate::ClassGazetteAddiction;
+                            $type = GazetteEntryTemplate::TypeGazetteAddiction;
                             break;
 
                         case CauseOfDeath::Dehydration:
-                            $class = LogEntryTemplate::ClassGazetteDehydration;
+                            $type = GazetteEntryTemplate::TypeGazetteDehydration;
                             break;
 
                         case CauseOfDeath::Poison:
-                            $class = LogEntryTemplate::ClassGazettePoison;
+                            $type = GazetteEntryTemplate::TypeGazettePoison;
                             break;
 
                         case CauseOfDeath::Vanished:
                         default:
-                            $class = LogEntryTemplate::ClassGazetteVanished;
+                            $type = GazetteEntryTemplate::TypeGazetteVanished;
                             break;
 
                     }
                     $criteria = [
-                        'type' => LogEntryTemplate::TypeGazetteTown,
-                        'class' => $class,
+                        'type' => $type
                     ];
-                    $applicableEntryTemplates = $this->entity_manager->getRepository(LogEntryTemplate::class)->findBy($criteria);
+                    $applicableEntryTemplates = $this->entity_manager->getRepository(GazetteEntryTemplate::class)->findBy($criteria);
                     shuffle($applicableEntryTemplates);
-                    /** @var LogEntryTemplate $townTemplate */
+                    /** @var GazetteEntryTemplate $townTemplate */
                     $townTemplate = $applicableEntryTemplates[array_key_first($applicableEntryTemplates)];
-                    $requirements = $townTemplate->getSecondaryType();
+                    $requirements = $townTemplate->getRequirement();
                     // TODO: Needs refactoring!
-                    if ($requirements == GazetteLogEntry::RequiresNothing) {
+                    if ($requirements == GazetteEntryTemplate::RequiresNothing) {
                         $variables = [];
                     }
                     elseif (floor($requirements / 10) == 1) {
@@ -346,23 +346,23 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                             $variables['cadaver' . $i] = (array_shift($cadavers))->getId();
                         }
                     }
-                    elseif ($requirements == GazetteLogEntry::RequiresAttack) {
+                    elseif ($requirements == GazetteEntryTemplate::RequiresAttack) {
                         $variables = [];
                         $attack = $gazette->getAttack();
                         $variables['attack'] = $attack < 2000 ? 10 * (round($attack / 10)) : 100 * (round($attack / 100));
                     }
-                    elseif ($requirements == GazetteLogEntry::RequiresDefense) {
+                    elseif ($requirements == GazetteEntryTemplate::RequiresDefense) {
                         $variables = [];
                         $defense = $gazette->getDefense();
                         $variables['defense'] = $defense < 2000 ? 10 * (round($defense / 10)) : 100 * (round($defense / 100));
                     }
-                    elseif ($requirements == GazetteLogEntry::RequiresDeaths) {
+                    elseif ($requirements == GazetteEntryTemplate::RequiresDeaths) {
                         $variables = [];
                         $variables['deaths'] = $gazette->getDeaths();
                     }
 
                     $news = new GazetteLogEntry();
-                    $news->setDay($day)->setGazette($gazette)->setLogEntryTemplate($townTemplate)->setVariables($variables);
+                    $news->setDay($day)->setGazette($gazette)->setTemplate($townTemplate)->setVariables($variables);
                     $this->entity_manager->persist($news);
                     $text .= '<p>' . $this->parseGazetteLog($news) . '</p>';
 
@@ -373,12 +373,11 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                 // 5. SEARCH TOWER
                 if($gazette->getWindDirection() !== 0) {
                     $criteria = [
-                        'type' => LogEntryTemplate::TypeGazetteTownInfo,
-                        'class' => LogEntryTemplate::ClassGazetteWind,
+                        'type' => GazetteEntryTemplate::TypeGazetteWind,
                     ];
-                    $applicableEntryTemplates = $this->entity_manager->getRepository(LogEntryTemplate::class)->findBy($criteria);
+                    $applicableEntryTemplates = $this->entity_manager->getRepository(GazetteEntryTemplate::class)->findBy($criteria);
                     shuffle($applicableEntryTemplates);
-                    /** @var LogEntryTemplate $townTemplate */
+                    /** @var GazetteEntryTemplate $townTemplate */
                     $townTemplate = $applicableEntryTemplates[array_key_first($applicableEntryTemplates)];
                     switch ($gazette->getWindDirection()){
                         case Zone::DirectionNorthWest:
@@ -415,7 +414,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                             break;
                     }
                     $news = new GazetteLogEntry();
-                    $news->setDay($day)->setGazette($gazette)->setLogEntryTemplate($townTemplate)->setVariables($variables);
+                    $news->setDay($day)->setGazette($gazette)->setTemplate($townTemplate)->setVariables($variables);
                     $this->entity_manager->persist($news);
                     $wind = $this->parseGazetteLog($news);
                 }
@@ -427,7 +426,7 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
                 $text .= '<p>' . $this->parseGazetteLog(array_shift($gazette_logs)) . '</p>';
             }
 
-            $wind_log = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette, LogEntryTemplate::TypeGazetteTownInfo, LogEntryTemplate::ClassGazetteWind);
+            $wind_log = $this->entity_manager->getRepository(GazetteLogEntry::class)->findByFilter($gazette, GazetteEntryTemplate::TypeGazetteWind);
             if(count($wind_log) > 0)
                 $wind = $this->parseGazetteLog($wind_log[0]);
 

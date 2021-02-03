@@ -29,11 +29,7 @@ class LogEntryTemplate
     const TypeNightly         = 9;
     const TypeHome            = 10;
     const TypeChat            = 11;
-    const TypeGazette         = 12;
-    const TypeGazetteTown     = 13;
-    const TypeGazetteBeyond   = 14;
-    const TypeGazetteTownInfo = 15;
-    const TypeCatapult = 16;
+    const TypeCatapult        = 16;
     const TypeGPMNotification = 100;
 
     const ClassNone                 = 0;
@@ -42,17 +38,6 @@ class LogEntryTemplate
     const ClassInfo                 = 3;
     const ClassChat                 = 4;
     const ClassDanger               = 5;
-    const ClassGazetteNews          = 6;
-    const ClassGazetteNoDeaths      = 7;
-    const ClassGazetteOneDeath      = 8;
-    const ClassGazetteTwoDeaths     = 9;
-    const ClassGazetteMultiDeaths   = 10;
-    const ClassGazetteSuicide       = 11;
-    const ClassGazetteAddiction     = 12;
-    const ClassGazetteDehydration   = 13;
-    const ClassGazettePoison        = 14;
-    const ClassGazetteVanished      = 15;
-    const ClassGazetteWind          = 16;
 
     /**
      * @ORM\Id()
