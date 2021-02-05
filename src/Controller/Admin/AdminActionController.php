@@ -147,15 +147,24 @@ class AdminActionController extends CustomAbstractController
     {
         if (!$this->isGranted('ROLE_ADMIN')) return new Response('', 403);
 
-        $dispo = 'attachment';
-        if ($a === 'view') $dispo = 'inline';
-
         if (empty($f)) $f = $params->get('kernel.environment');
         $f = str_replace(['..','::'],['','/'],$f);
 
         $path = new SplFileInfo("{$params->get('kernel.project_dir')}/var/log/{$f}");
-        if ($path->isFile() && strtolower($path->getExtension()) === 'log') return $this->file($path->getRealPath(), $path->getFilename(), $dispo);
-        else return new Response('', 404);
+        if (!$path->isFile() || !strtolower($path->getExtension()) === 'log') return new Response('', 404);
+
+        if ($path->getSize() > 67108864)        $a = 'download';
+        else if ($path->getSize() > 16777216 && $a === 'view') $a = 'print';
+
+        switch ($a) {
+            case 'view': return $this->render( 'web/logviewer.html.twig', [
+                'filename' => $path->getRealPath(),
+                'log' => file_get_contents($path->getRealPath()),
+            ] );
+            case 'print': return $this->file($path->getRealPath(), $path->getFilename(), 'inline');
+            case 'download': return $this->file($path->getRealPath(), $path->getFilename(), 'attachment');
+            default: return new Response('', 403);
+        }
     }
 
     /**

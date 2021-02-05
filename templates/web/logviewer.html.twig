@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="UTF-8" />
+
+    <!-- Keep the robots out -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Set Favicon -->
+    <link rel="shortcut icon" href="{{ asset('build/images/favicon.ico') }}" sizes="310x310">
+
+    <!-- Set page title -->
+    <title>MH LOG VIEWER</title>
+
+    <!-- Inline CSS -->
+    <style>
+        body { background: #1b1b1b; color: white; }
+        #log_target>code.legacy { margin: 4px 0 4px 20px; display: block }
+        #log_target>div { position: relative; font-family: monospace; padding: 2px 0 2px 400px; }
+        #log_target>div:not(.spacer):hover, #log_target>code.legacy:hover { background: rgba(255,255,255,0.05); }
+        #log_target>div.spacer { background: rgba(0,0,0,0.3); height: 5px; }
+
+        #log_target>div.type-debug>div { opacity: 0.7 }
+        #log_target>div.type-debug::before { position: absolute; top: 0; left: 0; bottom: 0; width: 5px; content: " "; background: rgba(255,255,255,0.5); }
+        #log_target>div.type-info::before  { position: absolute; top: 0; left: 0; bottom: 0; width: 5px; content: " "; background: #15b8f3; }
+        #log_target>div.type-error { background: #3d0000; }
+        #log_target>div.type-error:hover { background: #4f0000; }
+        #log_target>div.type-error::before { position: absolute; top: 0; left: 0; bottom: 0; width: 5px; content: " "; background: #ff0000; }
+
+        #log_target>div>div.date   { position: absolute; left: 10px; top: 0; width: 300px; }
+        #log_target>div>div.source { position: absolute; left: 300px; top: 0; width: 100px; }
+
+        #log_target>div>div.message>info  { color: greenyellow }
+        #log_target>div>div.message>debug { color: yellow }
+
+        #log_target>div>div.code { margin: 2px 0; padding: 0 0 0 15px; position: relative; color: rgba(255,255,255,0.5); }
+        #log_target>div>div.code:before { position: absolute; top: 0; left: 5px; content: "❯"; color: white; }
+        #log_target>div>div.code>code+code { margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <h1>{{ filename }}</h1>
+    <div id="log_target"></div>
+</body>
+<script>
+    (function() {
+
+        const data = '{{ log|e('js') }}'.split('\n');
+
+        function make_node(tag,cls=[],content=null,html=false) {
+            if (typeof cls === 'string') cls = [cls];
+
+            const n = document.createElement(tag);
+            for (let i = 0; i < cls.length; i++) n.classList.add(cls[i]);
+            if (content !== null && html) n.innerHTML = content;
+            else if (content !== null && !html) n.innerText = content;
+            return n;
+        }
+
+        let last_ms = 0;
+
+        const target = document.getElementById('log_target');
+
+        for (let i = 0; i < data.length; i++) {
+            const line = data[i];
+
+            if (!line) continue;
+
+            try {
+                const result = (/^\[(.*?)]\s(.*?)\.(.*?):\s(.*)\s[\[{](.*)[\]}]\s[\[{](.*)[\]}]$/).exec(line);
+                if (!result) continue;
+
+                const node = make_node('div', ['type-' + result[3].toLowerCase(),'from-'+result[2]]);
+
+                node.append( make_node('div', 'date', result[1]) );
+                node.append( make_node('div', 'source', result[2]) );
+                node.append( make_node('div', 'message', result[4], true) );
+
+                if (result[5] || result[6]) {
+                    const code_node = make_node('div', 'code');
+                    if (result[5]) code_node.append( make_node('code', [], result[5], false) );
+                    if (result[6]) code_node.append( make_node('code', [], result[6], false) );
+                    node.append(code_node);
+                }
+
+                const current_ms = Date.parse( result[1] );
+                if ( last_ms > 0 && current_ms - last_ms > 1000 ) target.append(make_node( 'div', 'spacer' ));
+                last_ms = current_ms;
+
+                target.append(node);
+            } catch (e) {
+                console.error(e);
+                target.append( make_node('code', 'legacy', line) );
+            }
+        }
+    })();
+</script>
+</html>
