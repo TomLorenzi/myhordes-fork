@@ -321,7 +321,7 @@ class SoulController extends CustomAbstractController
         $criteria->andWhere($criteria->expr()->eq('type', $currentType));
         $criteria->andWhere($criteria->expr()->neq('end', null));
 
-        $criteria->orderBy(['score' => 'DESC', 'end' => 'ASC', 'id'=> 'ASC']);
+        $criteria->orderBy(['score' => 'DESC', 'days' => 'DESC', 'end' => 'ASC', 'id'=> 'ASC']);
         $criteria->setMaxResults(35);
         $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->matching($criteria);
         $played = [];
