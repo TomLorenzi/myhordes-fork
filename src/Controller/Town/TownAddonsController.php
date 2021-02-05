@@ -394,17 +394,10 @@ class TownAddonsController extends TownController
         $items = $this->inventory_handler->fetchSpecificItems( $town->getBank(), [new ItemRequest($prototype->getName(), $ap)] );
         if (!$items) return AjaxResponse::error( ErrorHelper::ErrorItemsMissing );
 
-        $itemsForLog = [];
-        foreach ($items as $item){
-            if(isset($itemsForLog[$item->getPrototype()->getId()])) {
-                $itemsForLog[$item->getPrototype()->getId()]['count'] += $ap;
-            } else {
-                $itemsForLog[$item->getPrototype()->getId()] = [
-                    'item' => $item->getPrototype(),
-                    'count' => $ap
-                ];
-            }
-        }
+        $itemsForLog = [
+            'item' => $prototype,
+            'count' => $ap
+        ];
 
         // Remove items
         $n = $ap;
