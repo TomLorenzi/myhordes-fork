@@ -7493,7 +7493,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% hat sich für heute Nacht ein Versteck gesucht ...</source>
-        <target>%citizen% decided to find a place to hide in tonight. Which them good luck!</target>
+        <target>%citizen% decided to find a place to hide tonight. Wish them good luck!</target>
       </segment>
     </unit>
     <unit id="HyDSnff" name="%citizen% hat sein Versteck verlassen.">
@@ -17696,7 +17696,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Zeit bis zum nächsten Zombieangriff</source>
-        <target>Zeit bis zum nächsten Zombieangriff</target>
+        <target>Time until the next zombie attack</target>
       </segment>
     </unit>
     <unit id="OZBaq.m" name="Das Register filtern">
@@ -17705,7 +17705,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das Register filtern</source>
-        <target>Das Register filtern</target>
+        <target>Register filter</target>
       </segment>
     </unit>
     <unit id="pVw6QMt" name="Bürger:">
@@ -17714,7 +17714,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Bürger:</source>
-        <target>Bürger:</target>
+        <target>Citizen :</target>
       </segment>
     </unit>
     <unit id="veFPW3j" name="Alles sehen">
@@ -17723,7 +17723,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Alles sehen</source>
-        <target>Alles sehen</target>
+        <target>Show all</target>
       </segment>
     </unit>
     <unit id="02rWWHc" name="Kategorie:">
@@ -17732,7 +17732,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Kategorie:</source>
-        <target>Kategorie:</target>
+        <target>Category:</target>
       </segment>
     </unit>
     <unit id="X377hje" name="Verbrechen">
@@ -17741,7 +17741,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Verbrechen</source>
-        <target>Verbrechen</target>
+        <target>Thefts and Violence</target>
       </segment>
     </unit>
     <unit id="EimCTw3" name="Baustelle">
@@ -17750,7 +17750,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Baustelle</source>
-        <target>Baustelle</target>
+        <target>Constructions</target>
       </segment>
     </unit>
     <unit id="TXchxsK" name="Neue und Tote">
@@ -17759,7 +17759,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Neue und Tote</source>
-        <target>Neue und Tote</target>
+        <target>Arrivals and Deaths</target>
       </segment>
     </unit>
     <unit id="To01kGO" name="Zombieangriff (newspaper)">
@@ -17768,7 +17768,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Zombieangriff (newspaper)</source>
-        <target>Zombieangriff (newspaper)</target>
+        <target>The Attack of the Horde</target>
       </segment>
     </unit>
     <unit id="9tYl8RU" name="Zum Schlafen Reichts Motel">
