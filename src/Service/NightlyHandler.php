@@ -450,6 +450,8 @@ class NightlyHandler
             $woundOrTerrorChances = $deathChances + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05);
             $ctz = $watcher->getCitizen();
 
+            $this->log->debug("Watcher's chances are <info>{$deathChances}</info> for death and <info>{$woundOrTerrorChances}</info> for wound or terror.");
+
             if ($this->random->chance($deathChances)) {
                 $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> is now <info>dead</info> because of the watch");
                 $skip = false;
@@ -743,8 +745,7 @@ class NightlyHandler
                     $factor = 1 - max(0, (11 - $km) / 10);
                     $zone->setZombies($zone->getZombies() * $factor);
                 }
-                
-                //TODO: Lower the attack for 2-3 days
+
                 for($i = 0 ; $i < 3 ; $i++) {
                     /** @var ZombieEstimation $est */
                     $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()+$i);
