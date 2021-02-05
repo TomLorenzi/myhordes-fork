@@ -105,7 +105,6 @@ class GameController extends CustomAbstractController implements GameInterfaceCo
     }
 
     protected function parseGazetteLog(GazetteLogEntry $gazetteLogEntry) {
-        file_put_contents("/tmp/dump.txt", print_r($gazetteLogEntry->getTemplate() !== null, true));
         return $this->parseLog($gazetteLogEntry->getTemplate() !== null ? $gazetteLogEntry->getTemplate() : $gazetteLogEntry->getLogEntryTemplate(), $gazetteLogEntry->getVariables());
     }
 
