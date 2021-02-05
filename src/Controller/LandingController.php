@@ -40,7 +40,7 @@ class LandingController extends CustomAbstractController
             // The user is properly authenticated has no pending death pages to confirm
             // Check if there is some news for him to see
             if (!$userHandler->hasSeenLatestChangelog($user, $this->getUserLanguage()))
-                return $this->redirect($this->generateUrl('soul_news'));
+                return $this->redirect($this->generateUrl('soul_future'));
             elseif ($em->getRepository(Citizen::class)->findActiveByUser($user))
                 return $this->redirect($this->generateUrl('game_landing'));
             else
