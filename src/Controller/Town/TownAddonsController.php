@@ -734,7 +734,7 @@ class TownAddonsController extends TownController
         $town = $citizen->getTown();
 
         // Check if catapult is build
-        if (!$th->getBuilding($town, 'item_courroie_#00', true) || !$citizen->hasRole('cata'))
+        if (!$this->town_handler->getBuilding($town, 'item_courroie_#00', true) || !$citizen->hasRole('cata'))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         // Get prototype ID
@@ -756,7 +756,7 @@ class TownAddonsController extends TownController
         if (!$target_zone) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         // Check if the improved catapult is built
-        $ap = ($catapult = $th->getBuilding($town, 'item_courroie_#01', true)) ? 2 : 4;
+        $ap = ($this->town_handler->getBuilding( $town, 'item_courroie_#01', true ) !== null ? 2 : 4);
 
         // Make sure the citizen has enough AP
         if ($citizen->getAp() < $ap || $ch->isTired($citizen)) return AjaxResponse::error(ErrorHelper::ErrorNoAP);
@@ -782,7 +782,7 @@ class TownAddonsController extends TownController
         }
 
         // Deduct AP
-        $this->citizen_handler->setAP($citizen, true, -4);
+        $this->citizen_handler->setAP($citizen, true, -$ap);
 
         $this->entity_manager->persist($this->log->catapultUsage($citizen, $item, $target_zone));
 
