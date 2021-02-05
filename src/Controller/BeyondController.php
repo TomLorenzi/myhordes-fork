@@ -481,7 +481,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         $hide_items = true;
         foreach ($citizen->getZone()->getCitizens() as $fellow_citizen) {
-            if(!$fellow_citizen->getBanished()) // If there's a non-banished citizen on the zone, the items are not hidden
+            if(!$fellow_citizen->getBanished() && !$town->getChaos()) // If there's a non-banished citizen on the zone during a non-chaos town, the items are not hidden
                 $hide_items = false;
         }
 

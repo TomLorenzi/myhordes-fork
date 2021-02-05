@@ -2663,11 +2663,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         /** @var ItemPrototype[] $all_prototypes */
         $all_prototypes = $this->entityManager->getRepository(ItemPrototype::class)->findAll();
         foreach ($all_prototypes as $prototype) {
-            if ($prototype->getWatchpoint() === 0 && $prototype->getName() !== 'chkspk_#00') continue;
 
-            if (!isset(static::$item_actions['items_nw'][$prototype->getName()]))
+            if ($prototype->getWatchpoint() === 0 && !isset(static::$item_actions['items_nw'][$prototype->getName()]))
                 $out->writeln("<error>Item prototype '{$prototype->getName()}' ({$prototype->getLabel()}) has {$prototype->getWatchpoint()} watch points, but no night watch action!</error>");
-            else {
+            else if (isset(static::$item_actions['items_nw'][$prototype->getName()])) {
                 $prototype->setNightWatchAction( $this->generate_action( $manager, $out, static::$item_actions['items_nw'][$prototype->getName()], $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
                 $this->entityManager->persist($prototype);
             }

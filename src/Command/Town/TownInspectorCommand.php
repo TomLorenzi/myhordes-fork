@@ -79,8 +79,8 @@ class TownInspectorCommand extends Command
             ->addOption('map-zs', null, InputOption::VALUE_REQUIRED, 'When used together with --unveil-map, sets the zombie state')
             ->addOption('rebuild-explorables', null, InputOption::VALUE_NONE, 'Will regenerate all explorable ruin maps')
 
-            ->addOption('set-chaos', null, InputOption::VALUE_NONE, 'Enables chaos mode.')
-            ->addOption('set-devastation', null, InputOption::VALUE_NONE, 'Enables chaos mode and devastation')
+            ->addOption('set-chaos', null, InputOption::VALUE_REQUIRED, 'Enable/Disable chaos mode.')
+            ->addOption('set-devastation', null, InputOption::VALUE_REQUIRED, 'Enable/Disable chaos mode and devastation')
             ->addOption('advance-day', null, InputOption::VALUE_NONE, 'Starts the nightly attack.')
             ->addOption('dry', null, InputOption::VALUE_NONE, 'When used together with --advance-day, changes in the DB will not persist.')
 
@@ -280,15 +280,15 @@ class TownInspectorCommand extends Command
             $this->entityManager->persist( $town );
         }
 
-        if ($input->getOption('set-chaos')) {
-            $town->setChaos(true);
+        if ($chaos = $input->getOption('set-chaos')) {
+            $town->setChaos(intval($chaos) !== 0);
             $this->entityManager->persist( $town );
             $changes = true;
         }
 
-        if ($input->getOption('set-devastation')) {
-            $town->setChaos(true);
-            $town->setDevastated(true);
+        if ($devast = $input->getOption('set-devastation')) {
+            $town->setChaos(intval($devast) !== 0);
+            $town->setDevastated(intval($devast) != 0);
             $town->setDoor(true);
             $this->entityManager->persist( $town );
             $changes = true;

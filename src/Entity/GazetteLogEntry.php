@@ -9,28 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class GazetteLogEntry
 {
-    const TypeGazette       = 12;
-    const TypeGazetteTown   = 13;
-    const TypeGazetteBeyond = 14;
-
-    const RequiresNothing       =  0;
-
-    const RequiresOneCitizen    = 11;
-    const RequiresTwoCitizens   = 12;
-    const RequiresThreeCitizens = 13;
-
-    const RequiresOneCadaver    = 21;
-    const RequiresTwoCadavers   = 22;
-
-    const RequiresOneOfEach     = 31;
-    const RequiresTwoOfEach     = 32;
-
-    const RequiresAttack        = 40;
-    const RequiresDefense       = 41;
-    const RequiresDeaths        = 42;
-    const RequiresInvasion      = 43;
-    const RequiresAttackDeaths  = 44;
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -59,6 +37,11 @@ class GazetteLogEntry
      * @ORM\Column(type="array", nullable=true)
      */
     private $variables = [];
+
+    /**
+     * @ORM\ManyToOne(targetEntity=GazetteEntryTemplate::class)
+     */
+    private $template;
 
     public function getId(): ?int
     {
@@ -109,6 +92,18 @@ class GazetteLogEntry
     public function setVariables(?array $variables): self
     {
         $this->variables = $variables;
+
+        return $this;
+    }
+
+    public function getTemplate(): ?GazetteEntryTemplate
+    {
+        return $this->template;
+    }
+
+    public function setTemplate(?GazetteEntryTemplate $template): self
+    {
+        $this->template = $template;
 
         return $this;
     }

@@ -986,21 +986,20 @@ class ActionHandler
                                 $cmg = $this->translator->trans('Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.', [], 'items');
                             }
                         } else {
-
                             $s_color = $this->translator->trans((['Kreuz','Pik','Herz','Karo'])[$color], [], 'items');
                             $s_value = $value < 9 ? ('' . ($value+2)) : $this->translator->trans((['Bube','Dame','König','Ass'])[$value-9], [], 'items');
 
                             $cmg = $this->translator->trans('Du ziehst eine Karte... es ist: {color} {value}.', [
-                                '{color}' => "<b>{$s_color}</b>",
-                                '{value}' => "<b>{$s_value}</b>",
+                                '{color}' => "<strong>{$s_color}</strong>",
+                                '{value}' => "<strong>{$s_value}</strong>",
                             ], 'items');
 
                             if ( $value === 12 ) {
                                 $ap = true;
-                                $cmg .= ' ' . $this->translator->trans('Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.', [], 'items');
+                                $cmg .= '<hr />' . $this->translator->trans('Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.', [], 'items');
                             } else if ($value === 10 && $color === 2) {
                                 $ap = true;
-                                $cmg .= ' ' . $this->translator->trans('Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.', [], 'items');
+                                $cmg .= '<hr />' . $this->translator->trans('Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.', [], 'items');
                             }
                         }
 
