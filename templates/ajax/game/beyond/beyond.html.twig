@@ -203,6 +203,7 @@
         $.html.addEventListenerAll('[x-toggle-expert-mode]','click', function(e,elem) {
             e.preventDefault();
             $.client.config.hiddenConditionalHelp.set([]);
+            $.client.config.completedTutorials.set([]);
             $.ajax.easySend('{{ path('game_toggle_expert_mode')|e('js') }}', {}, function() {
                 $.ajax.load( null, '{{ path('beyond_dashboard')|e('js') }}' );
             })
