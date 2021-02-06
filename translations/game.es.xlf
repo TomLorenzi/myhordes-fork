@@ -17562,7 +17562,7 @@
       </notes>
       <segment>
         <source>Du hast soeben folgenden Gegenstand aus der Bank genommen: %item%. &lt;strong&gt;Sei nicht zu gierig&lt;/strong&gt; oder deine Mitbürger könnten dich für einen &lt;strong&gt;Egoisten&lt;/strong&gt; halten...</source>
-        <target><![CDATA[Du hast soeben folgenden Gegenstand aus der Bank genommen: %item%. <strong>Sei nicht zu gierig</strong> oder deine Mitbürger könnten dich für einen <strong>Egoisten</strong> halten...]]></target>
+        <target>Acabas de tomar %item% del Almacén. &lt;strong&gt;No intentes pasarte de listo&lt;/strong&gt;, los demás habitantes podrían castigarte.</target>
       </segment>
     </unit>
     <unit id="MotZLIj" name="875de78">
@@ -17840,8 +17840,8 @@
       <segment>
         <source>Wenn du "MyHordes" zum ersten Mal spielst, empfehlen wir dir den Links &lt;strong&gt;Wie soll ich spielen?&lt;/strong&gt; zu folgen,
                 die sich auf der Webseite links befindet. Interaktive Schritt-für-Schritt-Anleitungen erklären dir in 5 Minuten die Grundlagen des Spiels.</source>
-        <target>Si estás jugando a "MyHordes" por primera vez, te recomendamos que sigas los enlaces bajo &lt;strong&gt;¿Cómo debo jugar?&lt;strong&gt;
-                ubicados en la izquierda superior del sitio web. Las instrucciones interactivas te explicarán paso a paso los conceptos básicos del juego en menos de 5 minutos.</target>
+        <target>Si estás jugando a "MyHordes" por primera vez, te recomendamos que sigas los enlaces bajo &lt;strong&gt;¿Cómo jugar?&lt;/strong&gt; ubicados 
+                en la izquierda superior del sitio web. Las instrucciones interactivas te explicarán paso a paso los conceptos básicos del juego en menos de 5 minutos.</target>
       </segment>
     </unit>
     <unit id="PF899T3" name="Du kannst jederzeit die %helplink% im oberen Abschnitt der Seite aufsuchen.">
@@ -17850,7 +17850,7 @@
       </notes>
       <segment>
         <source>Du kannst jederzeit die %helplink% im oberen Abschnitt der Seite aufsuchen.</source>
-        <target>Siempre puedes visitar la %helplink% en la parte superior de la página.</target>
+        <target>Recuerda que siempre puedes visitar la %helplink% en la parte superior de la página.</target>
       </segment>
     </unit>
     <unit id="333PWhL" name="komplette Spielhilfe">
@@ -17868,7 +17868,7 @@
       </notes>
       <segment>
         <source>Zum Anfängermodus zurückkehren</source>
-        <target>Volver al modo principante</target>
+        <target>Volver al Modo Aprendizaje</target>
       </segment>
     </unit>
     <unit id="qq349uP" name="(Du bist gerade im &lt;strong&gt;Expertenmodus&lt;/strong&gt;)">
