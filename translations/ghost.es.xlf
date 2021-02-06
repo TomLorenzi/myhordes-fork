@@ -211,7 +211,7 @@
       </notes>
       <segment>
         <source>Worauf warten Sie noch?</source>
-        <target>Worauf warten Sie noch?</target>
+        <target>¿Qué estás esperando?</target>
       </segment>
     </unit>
     <unit id="L4_Jvrm" name="Privatstadt gründen">
@@ -391,7 +391,7 @@
       </notes>
       <segment>
         <source>Keine</source>
-        <target>Keine</target>
+        <target>Ninguno</target>
       </segment>
     </unit>
     <unit id="LDmQN2V" name="94fc68e">
@@ -400,7 +400,7 @@
       </notes>
       <segment>
         <source>Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!</source>
-        <target>Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!</target>
+        <target>Ningún edificio está desbloqueado desde el comienzo, ¡todos deben encontrarse en el Ultramundo!</target>
       </segment>
     </unit>
     <unit id="KzRE1mD" name="Keine Startgebäude">
@@ -418,7 +418,7 @@
       </notes>
       <segment>
         <source>Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.</source>
-        <target>Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.</target>
+        <target>Toda la comida y drogas que consumas tendrá una pequeña probabilidad de infectarte.</target>
       </segment>
     </unit>
     <unit id="gQkxXIB" name="Kontaminierte Zone">
@@ -463,7 +463,7 @@
       </notes>
       <segment>
         <source>Seelen &amp; Schamane:</source>
-        <target><![CDATA[Seelen & Schamane:]]></target>
+        <target>Almas &amp; Chamán:</target>
       </segment>
     </unit>
     <unit id="k2SkMiM" name="Verlorene Seelen und Schamanen aktivieren">
@@ -472,7 +472,7 @@
       </notes>
       <segment>
         <source>Verlorene Seelen und Schamanen aktivieren</source>
-        <target>Verlorene Seelen und Schamanen aktivieren</target>
+        <target>Activar almas perdidas y chamán</target>
       </segment>
     </unit>
     <unit id="KwchNgg" name="Eskorte:">
@@ -535,7 +535,7 @@
       </notes>
       <segment>
         <source>Camping:</source>
-        <target>Acampe:</target>
+        <target>Acampada:</target>
       </segment>
     </unit>
     <unit id="PWZojkF" name="Camping in der Wildnis aktivieren">
@@ -652,7 +652,7 @@
       </notes>
       <segment>
         <source>Leiche Angriffe</source>
-        <target>Leiche Angriffe</target>
+        <target>Ataques débiles</target>
       </segment>
     </unit>
     <unit id="MKxsVor" name="Schwere Angriffe">
@@ -661,7 +661,7 @@
       </notes>
       <segment>
         <source>Schwere Angriffe</source>
-        <target>Schwere Angriffe</target>
+        <target>Ataques severos</target>
       </segment>
     </unit>
     <unit id="WLIeM8b" name="Spiel-Optionen">
@@ -679,7 +679,7 @@
       </notes>
       <segment>
         <source>Abstimmung aller Piktogramme:</source>
-        <target>Abstimmung aller Piktogramme:</target>
+        <target>Recompensar todas las distinciones:</target>
       </segment>
     </unit>
     <unit id="WjDyWyC" name="614a449">
@@ -688,7 +688,7 @@
       </notes>
       <segment>
         <source>Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.</source>
-        <target>Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.</target>
+        <target>Da el total de distinciones obtenidas en el pueblo en lugar de sólamente una tercera parte.</target>
       </segment>
     </unit>
     <unit id="vLYm3DY" name="Seelenpunkte vergeben:">
@@ -697,7 +697,7 @@
       </notes>
       <segment>
         <source>Seelenpunkte vergeben:</source>
-        <target>Seelenpunkte vergeben:</target>
+        <target>Recompensar puntos de alma:</target>
       </segment>
     </unit>
     <unit id="Uadj6Vo" name="Gibt Ihnen Seelenpunkte.">
@@ -706,7 +706,7 @@
       </notes>
       <segment>
         <source>Gibt Ihnen Seelenpunkte.</source>
-        <target>Gibt Ihnen Seelenpunkte.</target>
+        <target>Te da puntos de alma.</target>
       </segment>
     </unit>
     <unit id="ROOTy.N" name="Achtung!">
@@ -866,7 +866,7 @@
       </notes>
       <segment>
         <source>Verkörperung in der Stadt:</source>
-        <target>Verkörperung in der Stadt:</target>
+        <target>Reencarnar en el pueblo:</target>
       </segment>
     </unit>
     <unit id="4iMXGoK" name="Verkörpert dich in der Stadt bei ihrer Entstehung">
@@ -875,7 +875,7 @@
       </notes>
       <segment>
         <source>Verkörpert dich in der Stadt bei ihrer Entstehung</source>
-        <target>Verkörpert dich in der Stadt bei ihrer Entstehung</target>
+        <target>Reencárnate en el pueblo cuando este dé comienzo</target>
       </segment>
     </unit>
     <unit id="Vwi2p0a" name="Verfügbare Berufe">
@@ -884,7 +884,7 @@
       </notes>
       <segment>
         <source>Verfügbare Berufe</source>
-        <target>Verfügbare Berufe</target>
+        <target>Profesiones disponibles</target>
       </segment>
     </unit>
     <unit id="UgJmKP7" name="Bitte gib das Stadtpasswort ein :">
@@ -893,7 +893,7 @@
       </notes>
       <segment>
         <source>Bitte gib das Stadtpasswort ein :</source>
-        <target>Bitte gib das Stadtpasswort ein :</target>
+        <target>Por favor, ingresa la contraseña del pueblo:</target>
       </segment>
     </unit>
     <unit id="VHJI.J4" name="Nicht als Privatstadt erstellen:">
@@ -902,7 +902,7 @@
       </notes>
       <segment>
         <source>Nicht als Privatstadt erstellen:</source>
-        <target>Nicht als Privatstadt erstellen:</target>
+        <target>No crear pueblo privado:</target>
       </segment>
     </unit>
     <unit id="QFPVvM5" name="e82f193">
@@ -911,7 +911,7 @@
       </notes>
       <segment>
         <source>Die Stadt wird nicht in der Liste der Privatstädte, sondern in der oben gewählten Gruppe erscheinen. Diese Option hat keine Auswirkungen auf die Spielregeln oder die Vergabe von Auszeichnungen und Seelenpunkten!</source>
-        <target>Die Stadt wird nicht in der Liste der Privatstädte, sondern in der oben gewählten Gruppe erscheinen. Diese Option hat keine Auswirkungen auf die Spielregeln oder die Vergabe von Auszeichnungen und Seelenpunkten!</target>
+        <target>El pueblo no aparecerá en la lista de pueblos privados sino en el grupo elegido arriba. ¡Esta opción no tiene efecto en las reglas del juego o en las recompensas de Distinciones y Puntos de Alma!</target>
       </segment>
     </unit>
     <unit id="Y1vuSS7" name="Kein XML Feed:">
@@ -920,7 +920,7 @@
       </notes>
       <segment>
         <source>Kein XML Feed:</source>
-        <target>Kein XML Feed:</target>
+        <target>Sin feed XML:</target>
       </segment>
     </unit>
     <unit id="dSkZ2BY" name="ee8a5d1">
@@ -933,9 +933,9 @@
         <source>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
                                     Gib eine positive ganze Zahl ein, um es zu aktivieren.
                                     DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</source>
-        <target>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
-                                    Gib eine positive ganze Zahl ein, um es zu aktivieren.
-                                    DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</target>
+        <target>Semilla que habilita la creación de mapa controlada. Permite crear mapas similares en caso de eventos.
+                                     Ingresa un entero positivo para activarlo.
+                                     DEBERÍAS PENSARTE CAMBIAR ESTE NÚMERO ENTRE UN EVENTO Y OTRO!</target>
       </segment>
     </unit>
     <unit id="9SrqJ_A" name="Strikte Vergabe von Auszeichnungen:">
@@ -944,7 +944,7 @@
       </notes>
       <segment>
         <source>Strikte Vergabe von Auszeichnungen:</source>
-        <target>Strikte Vergabe von Auszeichnungen:</target>
+        <target>Recompensa de Distinciones estricta:</target>
       </segment>
     </unit>
     <unit id="FtgTDco" name="Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.">
@@ -953,7 +953,7 @@
       </notes>
       <segment>
         <source>Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.</source>
-        <target>Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.</target>
+        <target>Las recompensas de las Distinciones siguen las reglas de los pequeños pueblos.</target>
       </segment>
     </unit>
     <unit id="wuiQkOi" name="Nach 2 Tagen negieren:">
@@ -962,7 +962,7 @@
       </notes>
       <segment>
         <source>Nach 2 Tagen negieren:</source>
-        <target>Nach 2 Tagen negieren:</target>
+        <target>Cancelar después de 2 días:</target>
       </segment>
     </unit>
     <unit id="q64vyDh" name="Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.">
@@ -971,7 +971,7 @@
       </notes>
       <segment>
         <source>Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.</source>
-        <target>Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.</target>
+        <target>Cancela el pueblo si no se llena en 2 días.</target>
       </segment>
     </unit>
     <unit id="MOZLgFu" name="Tor versperren:">
@@ -980,7 +980,7 @@
       </notes>
       <segment>
         <source>Tor versperren:</source>
-        <target>Tor versperren:</target>
+        <target>Bloquear el Portal:</target>
       </segment>
     </unit>
     <unit id="lC8mS57" name="Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.">
@@ -989,7 +989,7 @@
       </notes>
       <segment>
         <source>Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.</source>
-        <target>Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.</target>
+        <target>El Portal del pueblo no se puede abrir hasta que este último se haya llenado.</target>
       </segment>
     </unit>
     <unit id="8UBVWFJ" name="Betapropin steht nicht zur Verfügung.">
@@ -998,7 +998,7 @@
       </notes>
       <segment>
         <source>Betapropin steht nicht zur Verfügung.</source>
-        <target>Betapropin steht nicht zur Verfügung.</target>
+        <target>Betapropin no disponible.</target>
       </segment>
     </unit>
     <unit id="QjQvnlj" name="Beta-Funktionen deaktivieren">
@@ -1007,7 +1007,7 @@
       </notes>
       <segment>
         <source>Beta-Funktionen deaktivieren</source>
-        <target>Beta-Funktionen deaktivieren</target>
+        <target>Deshabilitar funciones de la Beta</target>
       </segment>
     </unit>
     <unit id="VoOkBZ0" name="Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.">
@@ -1016,7 +1016,7 @@
       </notes>
       <segment>
         <source>Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.</source>
-        <target>Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.</target>
+        <target>Un miembro de tu alianza no puede unirse al pueblo.</target>
       </segment>
     </unit>
     <unit id="jLPuWWW" name="In dieser Stadt ist kein Platz mehr für dich und deine Koalition.">
@@ -1025,7 +1025,7 @@
       </notes>
       <segment>
         <source>In dieser Stadt ist kein Platz mehr für dich und deine Koalition.</source>
-        <target>In dieser Stadt ist kein Platz mehr für dich und deine Koalition.</target>
+        <target>No hay lugar para ti y tu alianza en este pueblo.</target>
       </segment>
     </unit>
     <unit id="hMJko2L" name="6057265">
@@ -1034,7 +1034,7 @@
       </notes>
       <segment>
         <source>Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</source>
-        <target>Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</target>
+        <target>Advertencia: ¡Tú NO ESTÁS DISPONIBLE para tu alianza! Eso significa que entrarás a este pueblo solo.</target>
       </segment>
     </unit>
     <unit id="cglpSDE" name="6b90743">
@@ -1043,7 +1043,7 @@
       </notes>
       <segment>
         <source>Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
-        <target>Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</target>
+        <target>Advertencia: Tu alianza no aparece como "disponible"; ¡si entras a un pueblo, lo harás solo!</target>
       </segment>
     </unit>
     <unit id="UtrdfFQ" name="21c3104">
@@ -1052,7 +1052,7 @@
       </notes>
       <segment>
         <source>Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
-        <target>Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</target>
+        <target>Advertencia: No todos los miembros de tu alianza están disponibles para seguirte a un pueblo.</target>
       </segment>
     </unit>
     <unit id="EwLUGr9" name="8b6f59e">
@@ -1061,7 +1061,7 @@
       </notes>
       <segment>
         <source>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</source>
-        <target>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</target>
+        <target>Cuando entras a un pueblo, los siguientes miembros de tu alianza reencarnarán contigo:</target>
       </segment>
     </unit>
     <unit id="U6CJxvc" name="d1dce65">
@@ -1070,7 +1070,7 @@
       </notes>
       <segment>
         <source>Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.</source>
-        <target>Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.</target>
+        <target>Dado que has muerto de forma prematura en tus últimas vidas, has sido baneado del juego por unos días. Actualmente no puedes entrar a un nuevo pueblo.</target>
       </segment>
     </unit>
     <unit id="pOtfy6G" name="5cb7c99">
@@ -1079,7 +1079,7 @@
       </notes>
       <segment>
         <source>Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</source>
-        <target>Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</target>
+        <target>No has estado activo en este pueblo y por lo tanto has perjudicado al resto de jugadores en él. Si esto sucede de nuevo serás penalizado y no podrás entrar a ningún pueblo por varios días.</target>
       </segment>
     </unit>
     <unit id="TIikksZ" name="Wiedergeburt: Privatstadt gründen">
@@ -1088,7 +1088,7 @@
       </notes>
       <segment>
         <source>Wiedergeburt: Privatstadt gründen</source>
-        <target>Wiedergeburt: Privatstadt gründen</target>
+        <target>Reencarnar: Crear pueblo privado</target>
       </segment>
     </unit>
     <unit id="LCh7GiT" name="Wiedergeburt: Wahl der Partie">
@@ -1097,7 +1097,7 @@
       </notes>
       <segment>
         <source>Wiedergeburt: Wahl der Partie</source>
-        <target>Wiedergeburt: Wahl der Partie</target>
+        <target>Reencarnar: Elegir un pueblo</target>
       </segment>
     </unit>
   </file>
