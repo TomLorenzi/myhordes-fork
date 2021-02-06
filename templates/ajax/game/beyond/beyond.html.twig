@@ -2,7 +2,15 @@
 {% block ajax %}
     {{ parent() }}
     {% if not app.user.expert %}
-        <div x-tutorial-content="*" class="toplevel cover"></div>
+        <div x-tutorial-content="* !10.text3 !10.text4" class="toplevel cover"></div>
+        <div x-tutorial-content="*" class="toplevel control">
+            <b>{{ 'Spielhilfe aktiv:'|trans({},'help') }}</b>
+            <div>
+                <strong x-tutorial-content="10.*">{{ 'Wie erkunde ich die Außenwelt?'|trans({},'help') }}</strong>
+                <button x-advance-tutorial="finish">{{ 'Die Spielhilfe stoppen'|trans({},'help') }}</button>
+            </div>
+        </div>
+
         <div x-tutorial-content="10.text1" class="toplevel text arrow-down">
             <div class="help">
                 <p>{% trans from "help" %}
@@ -24,7 +32,6 @@
                 <p>{% trans from "help" %}
                     Klick auf <strong>einen der 4 Pfeile</strong>, um dich in eine neue Zone zu bewegen...
                 {% endtrans %}</p>
-                <button x-advance-tutorial="finish">{{ 'Weiter...'|trans({},'help') }}</button>
             </div>
         </div>
         {% block tutorial %}
@@ -40,7 +47,7 @@
                         <div class="hide-sm hide-md">
                             <h5>{{ 'Wie soll ich spielen?'|trans({},'help') }}</h5>
                             <ul>
-                                <li class="tick"><a class="small" href="#" x-advance-tutorial="10.text1">{{ 'Wie erkunde ich die Außenwelt?'|trans({},'help') }}</a></li>
+                                <li x-tutorial-section="10" class="tick"><a class="small" href="#" x-advance-tutorial="10.text1">{{ 'Wie erkunde ich die Außenwelt?'|trans({},'help') }}</a></li>
                                 <li><span class="small">{{ 'Entdecke deinen Beruf:'|trans({},'help') }} <img alt="" src="{{ asset('build/images/professions/' ~ app.user.activeCitizen.profession.icon ~ '.gif') }}" /> <a href="#" x-ajax-href="{{ path('help', {'name': app.user.activeCitizen.profession.name}) }}">{{ app.user.activeCitizen.profession.label|trans({},'game') }}</a></span></li>
                                 <li><span class="small">{{ 'Lesen:'|trans({},'help') }} <a href="#" x-ajax-href="{{ path('help', {'name': 'world_beyond'}) }}">{{ 'Der Kleine Außenweltführer'|trans({},'help') }}</a></span></li>
                             </ul>
@@ -195,9 +202,21 @@
 
         $.html.addEventListenerAll('[x-toggle-expert-mode]','click', function(e,elem) {
             e.preventDefault();
+            $.client.config.hiddenConditionalHelp.set([]);
             $.ajax.easySend('{{ path('game_toggle_expert_mode')|e('js') }}', {}, function() {
                 $.ajax.load( null, '{{ path('beyond_dashboard')|e('js') }}' );
             })
         })
+
+        {% if not app.user.expert %}
+            $.html.addEventListenerAll('.map .action-move', 'click', function() {
+                $.html.conditionalSetTutorialStage(10,'text3',10,'text4');
+            });
+
+            const completed_tuts = $.client.config.completedTutorials.get();
+            $.html.forEach('.beginner-mode li.tick[x-tutorial-section]', element => {
+                if (completed_tuts.includes(parseInt(element.getAttribute('x-tutorial-section')))) element.classList.add('complete');
+            });
+        {% endif %}
     </script>
 {% endblock %}

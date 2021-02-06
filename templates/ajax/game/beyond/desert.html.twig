@@ -57,6 +57,52 @@
 {% block menu_text %}
     {{ parent() }}
 {% endblock %}
+
+{% block tutorial %}
+    <div x-tutorial-content="10.text4" class="toplevel text arrow-down">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Drücke auf diesen Knopf, um in dieser Zone zu <strong>graben</strong>...
+            {% endtrans %}</p>
+        </div>
+    </div>
+    <div x-tutorial-content="10.text5" class="toplevel text arrow-down">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Wenn du einen Gegenstand findest, wird er automatisch in deinem <strong>Rucksack</strong> verräumt (sofern du noch Platz hast) <strong>oder am Boden abgelegt</strong> (wenn du keinen Platz mehr hast).
+            {% endtrans %}</p>
+            <button x-advance-tutorial="10.text6">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+    <div x-tutorial-content="10.text6" class="toplevel text arrow-down">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Wenn du für ein paar Stunden in der Zone verharrst, in der du schon einmal gegraben hast, kannst du dort noch einmal <strong>umsonst graben</strong>.
+            {% endtrans %}</p>
+            <p><strong><i>{% trans from "help" %}
+                Der Zähler, der die nächste automatische Ausgrabung anzeigt, ist hier sichtbar.
+            {% endtrans %}</i></strong></p>
+            <button x-advance-tutorial="10.text7">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+    <div x-tutorial-content="10.text7" class="toplevel text">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Du kannst dich weiterhin im Freien bewegen oder auf die nächste automatische Grabungsaktion warten. Egal wie du dich entscheidest, <strong>du MUSST ZUSEHEN, dass du vor dem Zombieangriffum Mitternacht nach Hause kommst</strong>!
+            {% endtrans %}</p>
+            <button x-advance-tutorial="10.text8">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+    <div x-tutorial-content="10.text8" class="toplevel text arrow-up">
+        <div class="help">
+            <p>{% trans from "help" %}
+                Deine im Freien verwendbaren <strong>Aktionspunkte</strong> werden hier angezeigt. <strong>Wenn du keine Aktionspunkte mehr hast, bist du Erschöpft</strong>. Um dein Punktekonto wieder aufzufüllen, kannst du etwas essen, trinken oder Drogen zu dir nehmen (je nachdem was dir zur Verfügung steht).
+            {% endtrans %}</p>
+            <button x-advance-tutorial="complete">{{ 'Weiter...'|trans({},'help') }}</button>
+        </div>
+    </div>
+{% endblock %}
+
 {# @var zone \App\Entity\Zone #}
 {# @var citizen \App\Entity\Citizen #}
 {% block content %}
@@ -897,6 +943,12 @@
                     function () {
                         $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
                     } );
+            });
+        {% endif %}
+
+        {% if not app.user.expert %}
+            $.html.addEventListenerAll('#dig_button', 'click', function() {
+                $.html.conditionalSetTutorialStage(10,'text4',10,'text5');
             });
         {% endif %}
     </script>

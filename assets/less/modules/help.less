@@ -311,7 +311,8 @@ a {
 .beginner-mode {
   h5:first-child { margin-top: 2px }
   ul {
-    &>li.tick { list-style: url("../../img/icons/tickOff.gif") }
+    &>li.tick.complete { list-style: url("../../img/icons/tickOn.gif") }
+    &>li.tick:not(.complete) { list-style: url("../../img/icons/tickOff.gif") }
     &>li:not(.tick) { list-style: url("../../img/icons/small_dot.gif") }
     margin: 5px 0; padding-bottom: 10px;
     border-bottom: 1px dashed #b37c4a;
@@ -326,6 +327,12 @@ a {
     position: absolute;
 
     &.text {width: 400px; left: calc(50% - 200px); top: 180px; z-index: 100;}
+    &.control {
+      width: 200px; left: calc(50% - 100px); top: 30px; z-index: 100; background: #996739; color: white; font-size: 0.8em;
+      border: 1px solid #EFDBA8;
+      &>b { display: block; background: #7E4D2A; color: #DDAB76; padding: 2px 2px 2px 6px; font-size: 0.8em; }
+      &>div { display: block; text-align: center; padding: 3px; }
+    }
     &.cover { top: 0; left: 0; width: 100%; height: 100%; z-index: 99; background: url("../../img/blackBg.gif") top repeat-x, #6d1e0a; opacity: 0.5 }
   }
 
@@ -335,6 +342,17 @@ a {
   &.arrow-up-right:before { top:    -30px; right: 0;               width: 22px; height: 27px; }
   &.arrow-down:before     { bottom: -30px; left: calc(50% - 11px); width: 22px; height: 27px; transform: rotate(180deg); }
 
+}
+
+div[x-conditional-help] {
+  position: absolute; top: calc(100% + 20px); width: 400px; left: calc(50% - 200px); z-index: 10;
+  background: #523326; padding: 3px; text-align: justify; color: @myhordes-smalltext; border: 1px solid #CEAD79;
+  filter: drop-shadow(0 0 3px black);
+  strong { color: white }
+  &:not(.no-arrow):before {
+    content: " "; position: absolute; height: 0; width: 0; bottom: 100%; left: 50%;
+    border: 15px solid transparent; border-bottom: 15px solid #CEAD79;
+  }
 }
 
 *[x-tutorial-content="1.text6"] { top: 200px !important; left: 110px !important; }
@@ -356,3 +374,7 @@ a {
 *[x-tutorial-content="10.text1"] { top: 260px !important; left: 25px !important; width: 300px !important; }
 *[x-tutorial-content="10.text2"] { top: 300px !important; left: 440px !important; }
 *[x-tutorial-content="10.text3"] { top: 730px !important; left: 25px !important; width: 300px !important; }
+*[x-tutorial-content="10.text4"] { top: 380px !important; }
+*[x-tutorial-content="10.text5"] { top: 320px !important; left: 550px !important;}
+*[x-tutorial-content="10.text6"] { top: 320px !important; }
+*[x-tutorial-content="10.text8"] { top: 200px !important; left: 550px !important; }

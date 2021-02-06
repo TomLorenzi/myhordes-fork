@@ -397,13 +397,21 @@ export default class HTML {
         if (this.tutorialStage !== null) this.setTutorialStage(this.tutorialStage[0],this.tutorialStage[1]);
     }
 
-    finishTutorialStage(): void {
+    finishTutorialStage(complete: boolean = false): void {
+        if (this.tutorialStage !== null && complete) {
+            let completed = $.client.config.completedTutorials.get();
+            if (!completed.includes(this.tutorialStage[0])) {
+                completed.push(this.tutorialStage[0]);
+                $.client.config.completedTutorials.set(completed);
+                $.html.forEach('.beginner-mode li.tick[x-tutorial-section="' + this.tutorialStage[0] + '"]', element => element.classList.add('complete'));
+            }
+        }
         this.forEach('[x-tutorial-content]', elem =>  elem.style.display = null);
         this.tutorialStage = null;
     }
 
-    conditionalFinishTutorialStage( current_tutorial: number, current_stage: string ): void {
+    conditionalFinishTutorialStage( current_tutorial: number, current_stage: string, complete: boolean = false ): void {
         if (this.tutorialStage !== null && current_tutorial === this.tutorialStage[0] && current_stage === this.tutorialStage[1])
-            this.finishTutorialStage(  );
+            this.finishTutorialStage( complete );
     }
 }
