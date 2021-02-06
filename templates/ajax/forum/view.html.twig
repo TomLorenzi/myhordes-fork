@@ -7,9 +7,10 @@
 {# @var forum \App\Entity\Forum #}
 {# @var permission \App\Structures\ForumPermissionAccessor #}
 
-{% macro display_thread_list( list, fid, icon, title, select, jump, permission ) %}
+{% macro display_thread_list( list, fid, icon, title, select, jump, permission, add_seperators = false ) %}
     <div class="forum-note">
         <b><i class="fa {{ icon }}"></i> {{ title }}</b>
+        {% set last_day = 'today'|to_date %}
         {% for thread in list %}
             {% set postUrl = path('forum_viewer_controller', {fid: fid, tid: thread.id }) %}
             {% if thread.id == select and jump > 0 %}
@@ -17,6 +18,17 @@
             {% else %}
                 {% set postUrlFg = postUrl %}
             {% endif %}
+
+            {% if add_seperators and thread.lastPost and last_day != thread.lastPost.date|date_modify('today') %}
+                {% set last_day = thread.lastPost.date|date_modify('today') %}
+                <div class="row forum-separator"><div class="cell rw-12 padded-small">
+                    {% if last_day >= 'today'|to_date %}{{ 'Heute'|trans({},'global') }}
+                    {% elseif last_day >= 'yesterday'|to_date %}{{ 'Gestern'|trans({},'global') }}
+                    {% elseif last_day >= 'tomorrow-1week'|to_date %}{{last_day|format_datetime(pattern="EEEE")}}
+                    {% else %}{{last_day|format_datetime('full', 'none')}}{% endif %}
+                </div></div>
+            {% endif %}
+
             <div class="row forum-thread {% if thread.new %}forum-thread-unread{% endif%}" x-public-route="{{ path('forum_thread_view', {fid: fid, tid: thread.id }) }}" {% if postUrl != postUrlFg %}x-post-source-next="{{ postUrlFg }}"{% endif%} x-post-source="{{ postUrl }}" x-thread-id="{{ thread.id }}">
                 {# @var thread \App\Entity\Thread #}
                 <div class="cell rw-1 status" style="padding: 5px;">
@@ -134,7 +146,7 @@
                         <br />
                     {% endif %}
 
-                    {{ _self.display_thread_list(threads, forum.id, 'fa-scroll', forum.title, select, jump, permission) }}
+                    {{ _self.display_thread_list(threads, forum.id, 'fa-scroll', forum.title, select, jump, permission, true) }}
                     {% if pages > 1 %}
                         <div class="row">
                             <div class="cell rw-12 padded center">
