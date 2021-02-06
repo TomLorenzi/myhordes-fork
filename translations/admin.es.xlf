@@ -79,7 +79,7 @@
       </notes>
       <segment>
         <source>Verbannen</source>
-        <target>Verbannen</target>
+        <target>Desterrar</target>
       </segment>
     </unit>
     <unit id="Zoy_MWF" name="Dauer">
@@ -160,7 +160,7 @@
       </notes>
       <segment>
         <source>Derzeitiges Leben</source>
-        <target>Derzeitiges Leben</target>
+        <target>Vida actual</target>
       </segment>
     </unit>
     <unit id="XspCSk2" name="TOD NICHT BESTÄTIGT">
@@ -556,7 +556,7 @@
       </notes>
       <segment>
         <source>Admin-Wachturm</source>
-        <target>Admin-Wachturm</target>
+        <target>Torre de vigilancia del admin</target>
       </segment>
     </unit>
     <unit id="Sq.PLVK" name="Ruinenscanner">
@@ -1636,7 +1636,7 @@
       </notes>
       <segment>
         <source>Dashboard</source>
-        <target>Dashboard</target>
+        <target>Tablero</target>
       </segment>
     </unit>
     <unit id="KVK60jg" name="Stadt %townname%">
@@ -2014,7 +2014,7 @@
       </notes>
       <segment>
         <source>Neue Anwendung registrieren</source>
-        <target>Neue Anwendung registrieren</target>
+        <target>Registrar nueva solicitud</target>
       </segment>
     </unit>
     <unit id="SisP.gu" name="Änderungen an '%appname%' speichern">
@@ -2023,7 +2023,7 @@
       </notes>
       <segment>
         <source>Änderungen an '%appname%' speichern</source>
-        <target>Änderungen an '%appname%' speichern</target>
+        <target>Guardar cambios en '%appname%'</target>
       </segment>
     </unit>
     <unit id="zLJ.A.A" name="Anzeigen">
@@ -2032,7 +2032,7 @@
       </notes>
       <segment>
         <source>Anzeigen</source>
-        <target>Anzeigen</target>
+        <target>Mostrar</target>
       </segment>
     </unit>
     <unit id=".iE.xsh" name="Gegen %culprit%">
@@ -2041,7 +2041,7 @@
       </notes>
       <segment>
         <source>Gegen %culprit%</source>
-        <target>Gegen %culprit%</target>
+        <target>Contra %culprit%</target>
       </segment>
     </unit>
     <unit id="OeZ5Hgz" name="Anwendungen">
@@ -2050,7 +2050,7 @@
       </notes>
       <segment>
         <source>Anwendungen</source>
-        <target>Anwendungen</target>
+        <target>Solicitudes</target>
       </segment>
     </unit>
     <unit id="I2gx52t" name="Neue Anwendung">
@@ -2059,7 +2059,7 @@
       </notes>
       <segment>
         <source>Neue Anwendung</source>
-        <target>Neue Anwendung</target>
+        <target>Nueva solicitud</target>
       </segment>
     </unit>
     <unit id="GOi00pr" name="Anwendung &quot;%external_app%&quot;">
@@ -2068,7 +2068,7 @@
       </notes>
       <segment>
         <source>Anwendung "%external_app%"</source>
-        <target>Anwendung "%external_app%"</target>
+        <target>Solicitar "%external_app%"</target>
       </segment>
     </unit>
     <unit id="IeSesrK" name="Log">
@@ -2086,7 +2086,7 @@
       </notes>
       <segment>
         <source>Einen Status auswählen:</source>
-        <target>Einen Status auswählen:</target>
+        <target>Seleccionar status:</target>
       </segment>
     </unit>
     <unit id="R7yBd_O" name="Vergeben">
@@ -2095,7 +2095,7 @@
       </notes>
       <segment>
         <source>Vergeben</source>
-        <target>Vergeben</target>
+        <target>Agregar status</target>
       </segment>
     </unit>
     <unit id="OCg3Wi1" name="Entfernen">
@@ -2104,7 +2104,7 @@
       </notes>
       <segment>
         <source>Entfernen</source>
-        <target>Entfernen</target>
+        <target>Remover status</target>
       </segment>
     </unit>
     <unit id="S1OmuJB" name="Saisons">
@@ -2113,7 +2113,7 @@
       </notes>
       <segment>
         <source>Saisons</source>
-        <target>Saisons</target>
+        <target>Temporadas</target>
       </segment>
     </unit>
     <unit id="wWE.yC2" name="Neue Saison">
@@ -2122,7 +2122,7 @@
       </notes>
       <segment>
         <source>Neue Saison</source>
-        <target>Neue Saison</target>
+        <target>Nueva temporada</target>
       </segment>
     </unit>
     <unit id="pcCL6tz" name="Status vergeben">
@@ -2131,7 +2131,7 @@
       </notes>
       <segment>
         <source>Status vergeben</source>
-        <target>Status vergeben</target>
+        <target>Status asignado</target>
       </segment>
     </unit>
     <unit id="PLdhbVW" name="Status entfernen">
@@ -2140,7 +2140,7 @@
       </notes>
       <segment>
         <source>Status entfernen</source>
-        <target>Status entfernen</target>
+        <target>Remover status</target>
       </segment>
     </unit>
     <unit id="YkT2Odb" name="Eine Rolle auswählen:">
@@ -2149,7 +2149,7 @@
       </notes>
       <segment>
         <source>Eine Rolle auswählen:</source>
-        <target>Eine Rolle auswählen:</target>
+        <target>Seleccionar rol:</target>
       </segment>
     </unit>
     <unit id="v6OJxnk" name="Rolle vergeben">
@@ -2158,7 +2158,7 @@
       </notes>
       <segment>
         <source>Rolle vergeben</source>
-        <target>Rolle vergeben</target>
+        <target>Asignar rol</target>
       </segment>
     </unit>
     <unit id="sOLeN_J" name="Rolle entfernen">
@@ -2167,7 +2167,7 @@
       </notes>
       <segment>
         <source>Rolle entfernen</source>
-        <target>Rolle entfernen</target>
+        <target>Eliminar rol</target>
       </segment>
     </unit>
     <unit id="x8Xk.ym" name="Bürger nach Sprache">
@@ -2176,7 +2176,7 @@
       </notes>
       <segment>
         <source>Bürger nach Sprache</source>
-        <target>Bürger nach Sprache</target>
+        <target>Habitantes por lenguaje</target>
       </segment>
     </unit>
     <unit id="gvDyCm1" name="Geöffnet">
@@ -2185,7 +2185,7 @@
       </notes>
       <segment>
         <source>Geöffnet</source>
-        <target>Geöffnet</target>
+        <target>Abrir</target>
       </segment>
     </unit>
     <unit id="gTA4SQS" name="Leben">
@@ -2194,7 +2194,7 @@
       </notes>
       <segment>
         <source>Leben</source>
-        <target>Leben</target>
+        <target>Vida</target>
       </segment>
     </unit>
     <unit id="wVUnsZu" name="Seasons">
@@ -2203,7 +2203,7 @@
       </notes>
       <segment>
         <source>Seasons</source>
-        <target>Seasons</target>
+        <target>Temporadas</target>
       </segment>
     </unit>
     <unit id="5vc95gS" name="Akt.">
@@ -2221,7 +2221,7 @@
       </notes>
       <segment>
         <source>Nummer</source>
-        <target>Nummer</target>
+        <target>Número</target>
       </segment>
     </unit>
     <unit id="ZOp9mWZ" name="Sub-Nummer">
@@ -2230,7 +2230,7 @@
       </notes>
       <segment>
         <source>Sub-Nummer</source>
-        <target>Sub-Nummer</target>
+        <target>Sub-Número</target>
       </segment>
     </unit>
     <unit id="3NHVIj9" name="Name">
@@ -2239,7 +2239,7 @@
       </notes>
       <segment>
         <source>Name</source>
-        <target>Name</target>
+        <target>Nombre</target>
       </segment>
     </unit>
     <unit id="W_0lUFE" name="Saison &quot;%season%&quot;">
@@ -2248,7 +2248,7 @@
       </notes>
       <segment>
         <source>Saison "%season%"</source>
-        <target>Saison "%season%"</target>
+        <target>Temporada "%season%"</target>
       </segment>
     </unit>
     <unit id="3RyPmTj" name="Saison Nummer">
@@ -2257,7 +2257,7 @@
       </notes>
       <segment>
         <source>Saison Nummer</source>
-        <target>Saison Nummer</target>
+        <target>Número de temporada</target>
       </segment>
     </unit>
     <unit id="1uPFCaE" name="Saison Sub-Nummer">
@@ -2266,7 +2266,7 @@
       </notes>
       <segment>
         <source>Saison Sub-Nummer</source>
-        <target>Saison Sub-Nummer</target>
+        <target>Sub-Número de temporada</target>
       </segment>
     </unit>
     <unit id="V8mA5zz" name="Aktuelle Saison">
@@ -2275,7 +2275,7 @@
       </notes>
       <segment>
         <source>Aktuelle Saison</source>
-        <target>Aktuelle Saison</target>
+        <target>Temporada actual</target>
       </segment>
     </unit>
     <unit id="hIEL.qI" name="AP">
@@ -2284,7 +2284,7 @@
       </notes>
       <segment>
         <source>AP</source>
-        <target>AP</target>
+        <target>PA</target>
       </segment>
     </unit>
     <unit id="Q_CT7Yc" name="Setzen">
@@ -2293,7 +2293,7 @@
       </notes>
       <segment>
         <source>Setzen</source>
-        <target>Setzen</target>
+        <target>Establecer</target>
       </segment>
     </unit>
     <unit id="wM4Qh3r" name="Abziehen">
@@ -2302,7 +2302,7 @@
       </notes>
       <segment>
         <source>Abziehen</source>
-        <target>Abziehen</target>
+        <target>Remover</target>
       </segment>
     </unit>
     <unit id="lEIUlKS" name="Changelogs">
@@ -2311,7 +2311,7 @@
       </notes>
       <segment>
         <source>Changelogs</source>
-        <target>Changelogs</target>
+        <target>Registros de cambios</target>
       </segment>
     </unit>
     <unit id="vdD8Evg" name="Ankündigungen">
@@ -2320,7 +2320,7 @@
       </notes>
       <segment>
         <source>Ankündigungen</source>
-        <target>Ankündigungen</target>
+        <target>Anuncios</target>
       </segment>
     </unit>
     <unit id="lkqERse" name="Neue Ankündigung">
@@ -2329,7 +2329,7 @@
       </notes>
       <segment>
         <source>Neue Ankündigung</source>
-        <target>Neue Ankündigung</target>
+        <target>Nuevo anuncio</target>
       </segment>
     </unit>
   </file>
