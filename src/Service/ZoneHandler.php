@@ -62,13 +62,18 @@ class ZoneHandler
 
     public function updateRuinZone(?RuinExplorerStats $ex) {
         if ($ex === null || !$ex->getActive()) return false;
-        if ($ex->getTimeout()->getTimestamp() < time()) {
+
+        $eject = $ex->getTimeout()->getTimestamp() < time() || $this->citizen_handler->isWounded( $ex->getCitizen() ) || $this->citizen_handler->hasStatusEffect($ex->getCitizen(), 'terror');
+        $wound = $ex->getTimeout()->getTimestamp() < time();
+
+        if ($eject) {
             $citizen = $ex->getCitizen();
             $ruinZone = $this->entity_manager->getRepository(RuinZone::class)->findOneByPosition($citizen->getZone(), $ex->getX(), $ex->getY());
 
             foreach ($citizen->getInventory()->getItems() as $item)
                 $this->inventory_handler->moveItem( $citizen, $citizen->getInventory(), $item, [$ruinZone->getFloor()] );
-            $this->citizen_handler->inflictWound( $citizen );
+
+            if ($wound) $this->citizen_handler->inflictWound( $citizen );
 
             $ex->setActive( false );
 
