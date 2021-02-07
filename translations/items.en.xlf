@@ -7262,7 +7262,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast &lt;strong&gt;1 zusätzlichen AP erhalten!&lt;/strong&gt;</source>
-        <target><![CDATA[Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast <strong>1 zusätzlichen AP erhalten!</strong>]]></target>
+        <target><![CDATA[Just this once does no harm, you enjoy devouring the {item}. It makes a change from the usual disgusting slop... it perks you right up.{hr}You get <strong>a bonus of 1 AP !</strong>]]></target>
       </segment>
     </unit>
     <unit id="wDKaGfq" name="Krähenelfe">
