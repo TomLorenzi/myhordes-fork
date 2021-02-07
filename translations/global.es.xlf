@@ -1810,7 +1810,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Die Stadt versinkt im Chaos!&lt;/strong&gt;&lt;/p&gt;Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!&lt;p&gt;&lt;em&gt;... Oder euch gegenseitig abschlachten, je nachdem.&lt;/em&gt;</source>
-        <target>&lt;strong&gt;¡La ciudad ha caído en el caos!&lt;/strong&gt;&lt;/p&gt; Ya no rige ninguna ley... ¡Deben mantenerse unidos y llevarse bien entre ustedes...!&lt;p&gt;&lt;em&gt; O matarse los unos a los otros, dependiendo de la situación.&lt;/em&gt;</target>
+        <target><![CDATA[<strong>¡La ciudad ha caído en el caos!</strong></p> Ya no rige ninguna ley... ¡Deben mantenerse unidos y llevarse bien entre ustedes...!<p><em> O matarse los unos a los otros, dependiendo de la situación.</em>]]></target>
       </segment>
     </unit>
     <unit id="aGhiyb5" name="Entwickler-Einstellungen">
@@ -1885,9 +1885,9 @@
         <target>Foros</target>
       </segment>
     </unit>
-    <unit id="56Kf42Z" name="1d800f8">
+    <unit id="l1gJnXq" name="1d6e8f8">
       <notes>
-        <note category="german">Als &lt;strong&gt;Ausgestoßener&lt;/strong&gt; stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...</note>
+        <note category="german">Como &lt;strong&gt;desterrado&lt;/strong&gt;, las tareas de la comunidad como construir, tomar objetos del almacén o cerrar la puerta ya no están disponibles...</note>
       </notes>
       <segment>
         <source>Como &lt;strong&gt;desterrado&lt;/strong&gt;, las tareas de la comunidad como construir, tomar objetos del almacén o cerrar la puerta ya no están disponibles...</source>
@@ -2306,6 +2306,33 @@
       <segment>
         <source>Fehler beim Laden des Posteingangs.</source>
         <target>Error al cargar la bandeja de entrada.</target>
+      </segment>
+    </unit>
+    <unit id="Ruov.3p" name="Heute">
+      <notes>
+        <note category="german">Heute</note>
+      </notes>
+      <segment>
+        <source>Heute</source>
+        <target>Heute</target>
+      </segment>
+    </unit>
+    <unit id="yqnaeA." name="Gestern">
+      <notes>
+        <note category="german">Gestern</note>
+      </notes>
+      <segment>
+        <source>Gestern</source>
+        <target>Gestern</target>
+      </segment>
+    </unit>
+    <unit id="56Kf42Z" name="1d800f8">
+      <notes>
+        <note category="german">Als &lt;strong&gt;Ausgestoßener&lt;/strong&gt; stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...</note>
+      </notes>
+      <segment>
+        <source>Als &lt;strong&gt;Ausgestoßener&lt;/strong&gt; stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...</source>
+        <target><![CDATA[Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...]]></target>
       </segment>
     </unit>
   </file>

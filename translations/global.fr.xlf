@@ -2343,5 +2343,23 @@
         <target>Erreur lors du chargement de la boîte de réception.</target>
       </segment>
     </unit>
+    <unit id="Ruov.3p" name="Heute">
+      <notes>
+        <note category="german">Heute</note>
+      </notes>
+      <segment>
+        <source>Heute</source>
+        <target>Aujourd'hui</target>
+      </segment>
+    </unit>
+    <unit id="yqnaeA." name="Gestern">
+      <notes>
+        <note category="german">Gestern</note>
+      </notes>
+      <segment>
+        <source>Gestern</source>
+        <target>Hier</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

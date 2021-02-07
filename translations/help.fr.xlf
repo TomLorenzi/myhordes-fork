@@ -7511,5 +7511,104 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
         <target><![CDATA[Cliquez sur cette section pour accéder aux <strong>Portes de la ville</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="uUBYOVt" name="Spielhilfe aktiv:">
+      <notes>
+        <note category="german">Spielhilfe aktiv:</note>
+      </notes>
+      <segment>
+        <source>Spielhilfe aktiv:</source>
+        <target>Guide du jeu en cours :</target>
+      </segment>
+    </unit>
+    <unit id="RDaVuhy" name="Die Spielhilfe stoppen">
+      <notes>
+        <note category="german">Die Spielhilfe stoppen</note>
+      </notes>
+      <segment>
+        <source>Die Spielhilfe stoppen</source>
+        <target>Arrêter ce guide</target>
+      </segment>
+    </unit>
+    <unit id="nXD28aB" name="Drücke auf diesen Knopf, um in dieser Zone zu &lt;strong&gt;graben&lt;/strong&gt;...">
+      <notes>
+        <note category="german">Drücke auf diesen Knopf, um in dieser Zone zu &lt;strong&gt;graben&lt;/strong&gt;...</note>
+      </notes>
+      <segment>
+        <source>Drücke auf diesen Knopf, um in dieser Zone zu &lt;strong&gt;graben&lt;/strong&gt;...</source>
+        <target><![CDATA[Utilisez ce bouton pour <strong>fouiller</strong> la zone où vous vous trouvez maintenant...]]></target>
+      </segment>
+    </unit>
+    <unit id="IAz_MhR" name="159138e">
+      <notes>
+        <note category="german">Wenn du einen Gegenstand findest, wird er automatisch in deinem &lt;strong&gt;Rucksack&lt;/strong&gt; verräumt (sofern du noch Platz hast) &lt;strong&gt;oder am Boden abgelegt&lt;/strong&gt; (wenn du keinen Platz mehr hast).</note>
+      </notes>
+      <segment>
+        <source>Wenn du einen Gegenstand findest, wird er automatisch in deinem &lt;strong&gt;Rucksack&lt;/strong&gt; verräumt (sofern du noch Platz hast) &lt;strong&gt;oder am Boden abgelegt&lt;/strong&gt; (wenn du keinen Platz mehr hast).</source>
+        <target><![CDATA[Si vous trouvez un objet, il se rangera dans votre <strong>sac à dos</strong> (s'il y a de la place) <strong>ou par terre</strong> (si vous n'avez plus de place).]]></target>
+      </segment>
+    </unit>
+    <unit id="rKxSqrI" name="4228fd8">
+      <notes>
+        <note category="german">Wenn du für ein paar Stunden in der Zone verharrst, in der du schon einmal gegraben hast, kannst du dort noch einmal &lt;strong&gt;umsonst graben&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Wenn du für ein paar Stunden in der Zone verharrst, in der du schon einmal gegraben hast, kannst du dort noch einmal &lt;strong&gt;umsonst graben&lt;/strong&gt;.</source>
+        <target><![CDATA[Notez que si vous attendez dans la zone pendant quelques heures après une fouille, vous bénéficierez d'<strong>une autre fouille gratuite</strong> sur cette zone.]]></target>
+      </segment>
+    </unit>
+    <unit id="sISZRef" name="6da577e">
+      <notes>
+        <note category="german">Der Zähler, der die nächste automatische Ausgrabung anzeigt, ist hier sichtbar.</note>
+      </notes>
+      <segment>
+        <source>Der Zähler, der die nächste automatische Ausgrabung anzeigt, ist hier sichtbar.</source>
+        <target>Le compteur de temps avant la prochaine fouille automatique est visible ici.</target>
+      </segment>
+    </unit>
+    <unit id="WQFCOK_" name="46d850b">
+      <notes>
+        <note category="german">Du kannst dich weiterhin im Freien bewegen oder auf die nächste automatische Grabungsaktion warten. Egal wie du dich entscheidest, &lt;strong&gt;du MUSST ZUSEHEN, dass du vor dem Zombieangriffum Mitternacht nach Hause kommst&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Du kannst dich weiterhin im Freien bewegen oder auf die nächste automatische Grabungsaktion warten. Egal wie du dich entscheidest, &lt;strong&gt;du MUSST ZUSEHEN, dass du vor dem Zombieangriffum Mitternacht nach Hause kommst&lt;/strong&gt;!</source>
+        <target><![CDATA[Vous pouvez continuer à vous promener dehors ou attendre la prochaine fouille automatique. Quoiqu'il soit, <strong>pensez SURTOUT à rentrer avant l'attaque de la Horde à minuit</strong> !]]></target>
+      </segment>
+    </unit>
+    <unit id="RPV.Hdo" name="c01b240">
+      <notes>
+        <note category="german">Deine im Freien verwendbaren &lt;strong&gt;Aktionspunkte&lt;/strong&gt; werden hier angezeigt. &lt;strong&gt;Wenn du keine Aktionspunkte mehr hast, bist du Erschöpft&lt;/strong&gt;. Um dein Punktekonto wieder aufzufüllen, kannst du etwas essen, trinken oder Drogen zu dir nehmen (je nachdem was dir zur Verfügung steht).</note>
+      </notes>
+      <segment>
+        <source>Deine im Freien verwendbaren &lt;strong&gt;Aktionspunkte&lt;/strong&gt; werden hier angezeigt. &lt;strong&gt;Wenn du keine Aktionspunkte mehr hast, bist du Erschöpft&lt;/strong&gt;. Um dein Punktekonto wieder aufzufüllen, kannst du etwas essen, trinken oder Drogen zu dir nehmen (je nachdem was dir zur Verfügung steht).</source>
+        <target><![CDATA[Vos <strong>points d'action</strong> en extérieur sont affichés ici. <strong>Lorsque vous êtes à zéro, vous devenez Fatigué(e)</strong>. Mangez, buvez ou droguez-vous (selon ce que vous possédez) pour les récupérer totalement.]]></target>
+      </segment>
+    </unit>
+    <unit id="J6Uka4G" name="3f21055">
+      <notes>
+        <note category="german">Achtung, du hast bereits &lt;strong&gt;die Hälfte deiner &lt;span class="ap"&gt;&lt;/span&gt;&lt;/strong&gt; verbraucht. Denke immer daran, dir genügend AP aufzuheben, um in die Stadt zurückkehren zu können!</note>
+      </notes>
+      <segment>
+        <source>Achtung, du hast bereits &lt;strong&gt;die Hälfte deiner &lt;span class="ap"&gt;&lt;/span&gt;&lt;/strong&gt; verbraucht. Denke immer daran, dir genügend AP aufzuheben, um in die Stadt zurückkehren zu können!</source>
+        <target><![CDATA[Attention, vous avez déjà utilisé <strong>la moitié de vos <span class="ap"></span></strong>. N'oubliez jamais de garder suffisamment de PA pour pouvoir retourner en ville !]]></target>
+      </segment>
+    </unit>
+    <unit id="KeA0.Fl" name="Diese Nachricht verbergen">
+      <notes>
+        <note category="german">Diese Nachricht verbergen</note>
+      </notes>
+      <segment>
+        <source>Diese Nachricht verbergen</source>
+        <target>Cacher ce message</target>
+      </segment>
+    </unit>
+    <unit id="Jod5rXM" name="3e769c0">
+      <notes>
+        <note category="german">Es wäre vielleicht nicht verkehrt etwas &lt;strong&gt;Proviant&lt;/strong&gt; (Nahrung und/oder Wasser) einzupacken, bevor du die Stadt verlässt... Gehe dazu in den Bereich &lt;strong&gt;Mein Zuhause&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Es wäre vielleicht nicht verkehrt etwas &lt;strong&gt;Proviant&lt;/strong&gt; (Nahrung und/oder Wasser) einzupacken, bevor du die Stadt verlässt... Gehe dazu in den Bereich &lt;strong&gt;Mein Zuhause&lt;/strong&gt;.</source>
+        <target><![CDATA[Il n'est peut-être pas faux d'emporter des <strong>provisions</strong> (nourriture et / ou eau) avant de quitter la ville ... Accédez à la zone <strong>Ma Maison</strong>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -610,7 +610,7 @@
         <target>Koalition</target>
       </segment>
     </unit>
-    <unit id="svF8aFT" name="Saison %season%">
+    <unit id="wG0.yX3" name="Saison %season%">
       <notes>
         <note category="german">Saison %season%</note>
       </notes>
@@ -2336,6 +2336,24 @@
       <segment>
         <source>Einen Empfänger hinzufügen</source>
         <target>Einen Empfänger hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id="3PLhyqa" name="Draußen gestorben">
+      <notes>
+        <note category="german">Draußen gestorben</note>
+      </notes>
+      <segment>
+        <source>Draußen gestorben</source>
+        <target>Draußen gestorben</target>
+      </segment>
+    </unit>
+    <unit id="sR9mfkt" name="In der Stadt gestorben">
+      <notes>
+        <note category="german">In der Stadt gestorben</note>
+      </notes>
+      <segment>
+        <source>In der Stadt gestorben</source>
+        <target>In der Stadt gestorben</target>
       </segment>
     </unit>
   </file>
