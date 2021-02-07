@@ -1157,7 +1157,7 @@ class Citizen
         return $this->helpNotifications;
     }
 
-    public function hasSeenHelpNotification(string $name) {
+    public function hasSeenHelpNotification(string $name): bool {
         foreach ($this->getHelpNotifications() as $notification)
             if ($notification->getName() === $name) return true;
         return false;

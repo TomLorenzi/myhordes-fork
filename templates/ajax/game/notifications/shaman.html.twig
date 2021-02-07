@@ -1,0 +1,35 @@
+<div class="inner-notification-header">
+    <strong>{{ 'Du wurdest zum Schamanen gewählt!'|trans({},'game') }}</strong>
+</div>
+<div class="inner-notification-content">
+    <img class="float-left" alt="" src="{{ asset('build/images/professions/select/shaman.gif') }}">
+    <p class="small">
+        {% trans from 'game' %}
+            Du wachst heute Morgen mit einer schrecklichen Migräne auf und hast Schwierigkeiten, zu sehen... Du beschließt, aus deinem Zelt zu gehen. Die Nachbarn an denen du vorbeiläufst, neigen ihr Haupt vor dir.
+        {% endtrans %}<br />
+        {% trans from 'game' %}
+        Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, kannst du ein kleines blaues Leuchten sehen... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du dir die Hand an den Kopf hälst: eine lächerliche Maske klebt an deinem Gesicht und reduziert dein Sehvermögen erheblich.
+        {% endtrans %}<br />
+    </p>
+    <p>
+        <b>{{ 'Du bist nun der Schamane.'|trans({},'game') }}</b>
+        {% trans from 'game' %}
+            Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein geistiger Führer!
+        {% endtrans %}
+    </p>
+    <p>{{ 'Mit deinen %mp% kannst du:'|trans({'%mp%': '<span class="pm">5</span>'},'game')|raw }}</p>
+    <ul class="bluelist">
+        <li>{{ 'Die Seelen deiner verstorbenen Mitbürger lokalisieren.'|trans({},'game') }}</li>
+        <li>{{ 'Schamanische Tränke für deine Nachbarn herstellen.'|trans({},'game') }}</li>
+        <li>{{ 'An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!'|trans({},'game') }}</li>
+        <li>{{ 'Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...'|trans({},'game') }}</li>
+    </ul>
+    <p>
+        {% trans with {'%shaman_help%': ('<a target="_blank" href="' ~ path('help', {'name': 'shaman'}) ~ '">' ~ 'Schamanen-Ratgeber'|trans({},'game') ~ '</a>')} from 'game' %}
+            Schau dir am besten gleich den %shaman_help% an.
+        {% endtrans %}<br />
+        {% trans from 'game' %}
+            Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...
+        {% endtrans %}
+    </p>
+</div>

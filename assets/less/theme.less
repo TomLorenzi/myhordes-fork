@@ -201,7 +201,7 @@ x-message {
       text-align: left; padding: 3px;
     }
 
-    &.popup-ghoul {
+    &.popup-ghoul, &.popup-shaman {
 
       background: #79393a;
       &>div#modal-content {
@@ -210,7 +210,10 @@ x-message {
           background: #3d3149; padding: 5px;
           &>img { margin: 0 10px 10px 0; border: 2px solid black; }
         }
-        &>.inner-notification-content { color: white; padding: 10px; }
+        &>.inner-notification-content {
+          color: white; padding: 10px;
+          &>img { margin: 0 10px 10px 0; }
+        }
         & p { margin: 14px 0;  text-align: justify }
         & ul.bluelist {
           background: #3d3149;
