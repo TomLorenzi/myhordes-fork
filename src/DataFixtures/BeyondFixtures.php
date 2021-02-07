@@ -234,7 +234,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'saw_tool_part_#00','count' => 8),
             array('item' => 'oilcan_#00','count' => 2),
             array('item' => 'rsc_pack_3_#00','count' => 1),
-        ], 'desc' => 'Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät '],
+        ], 'desc' => 'Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät'],
         ["label" => "Dönerbude Utsel-Brutzel",'icon' => 'doner',"camping" => 7,"min_dist" => 3, "max_dist" => 6, "chance" => 181, "drops" => [
             array('item' => 'meat_#00','count' => 15),
             array('item' => 'vegetable_#00','count' => 10),
@@ -245,7 +245,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
             array('item' => 'knife_#00','count' => 3),
             array('item' => 'mixergun_part_#00','count' => 2),
             array('item' => 'pet_rat_#00','count' => 1),
-        ], 'desc' => 'Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. '],
+        ], 'desc' => 'Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus.'],
         ["label" => "Dukes Villa",'icon' => 'duke',"camping" => 7,"min_dist" => 12, "max_dist" => 15, "chance" => 148, "drops" => [
             array('item' => 'drug_hero_#00','count' => 40),
             array('item' => 'rhum_#00','count' => 27),
