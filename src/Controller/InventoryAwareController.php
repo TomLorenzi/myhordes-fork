@@ -92,6 +92,11 @@ class InventoryAwareController extends CustomAbstractController
             $this->getActiveCitizen()->addHelpNotification( $this->entity_manager->getRepository(HelpNotificationMarker::class)->findOneByName('ghoul') );
             $this->entity_manager->persist($this->getActiveCitizen());
             $this->entity_manager->flush();
+        } else if ($this->citizen_handler->hasRole($this->getActiveCitizen(), 'shaman') && !$this->getActiveCitizen()->hasSeenHelpNotification('shaman')) {
+            $this->addFlash('popup-shaman', $this->renderView('ajax/game/notifications/shaman.html.twig'));
+            $this->getActiveCitizen()->addHelpNotification( $this->entity_manager->getRepository(HelpNotificationMarker::class)->findOneByName('shaman') );
+            $this->entity_manager->persist($this->getActiveCitizen());
+            $this->entity_manager->flush();
         }
         return true;
     }

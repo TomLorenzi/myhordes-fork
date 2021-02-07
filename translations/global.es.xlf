@@ -1810,7 +1810,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Die Stadt versinkt im Chaos!&lt;/strong&gt;&lt;/p&gt;Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!&lt;p&gt;&lt;em&gt;... Oder euch gegenseitig abschlachten, je nachdem.&lt;/em&gt;</source>
-        <target><![CDATA[<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>]]></target>
+        <target>&lt;strong&gt;¡La ciudad ha caído en el caos!&lt;/strong&gt;&lt;/p&gt; Ya no rige ninguna ley... ¡Deben mantenerse unidos y llevarse bien entre ustedes...!&lt;p&gt;&lt;em&gt; O matarse los unos a los otros, dependiendo de la situación.&lt;/em&gt;</target>
       </segment>
     </unit>
     <unit id="aGhiyb5" name="Entwickler-Einstellungen">
@@ -1819,7 +1819,7 @@
       </notes>
       <segment>
         <source>Entwickler-Einstellungen</source>
-        <target>Entwickler-Einstellungen</target>
+        <target>Opciones de desarrollador</target>
       </segment>
     </unit>
     <unit id="kSLdLqi" name="Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.">
@@ -1828,7 +1828,7 @@
       </notes>
       <segment>
         <source>Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.</source>
-        <target>Als Entwickler dieser Webseite kannst du hier einige Einstellungen anpassen.</target>
+        <target>Como desarrollador del sitio, puedes cambiar algunos ajustes aquí.</target>
       </segment>
     </unit>
     <unit id="8uGl2Hb" name="Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.">
@@ -1837,7 +1837,7 @@
       </notes>
       <segment>
         <source>Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.</source>
-        <target>Diese E-Mail Adresse wird als Kontakt-Adresse angezeigt.</target>
+        <target>Este correo se mostrará como correo de contacto.</target>
       </segment>
     </unit>
     <unit id="1iip6iA" name="2250af0">
@@ -1846,7 +1846,7 @@
       </notes>
       <segment>
         <source>Dies ist die URL, zu der Spieler weitergeleitet werden, wenn sie auf den Link klicken.</source>
-        <target>Dies ist die URL, zu der Spieler weitergeleitet werden, wenn sie auf den Link klicken.</target>
+        <target>Esta es la URL a la que los jugadores serán dirigidos cuando clickeen el link.</target>
       </segment>
     </unit>
     <unit id="sZ8ns1I" name="Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.">
@@ -1855,7 +1855,7 @@
       </notes>
       <segment>
         <source>Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.</source>
-        <target>Mit diesem Schlüssel authentifiziert sich deine Webseite gegenüber MyHordes.</target>
+        <target>Tu sitio utiliza esta clave para autenticarse con "MyHordes".</target>
       </segment>
     </unit>
     <unit id="r1SbraZ" name="29f4438">
@@ -1864,7 +1864,7 @@
       </notes>
       <segment>
         <source>Du darfst ihn keinesfalls weitergeben oder öffentlich verfügbar machen, beispielsweise in einem Code-Repository.</source>
-        <target>Du darfst ihn keinesfalls weitergeben oder öffentlich verfügbar machen, beispielsweise in einem Code-Repository.</target>
+        <target>No debes distribuirlo ni hacerlo público, por ejemplo, en un repositorio de claves.</target>
       </segment>
     </unit>
     <unit id="hnZ6._r" name="d66dfe5">
@@ -1873,7 +1873,7 @@
       </notes>
       <segment>
         <source>Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.</source>
-        <target>Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.</target>
+        <target>Si sospechas que tu clave ha sido comprometida, puedes pedir una nueva.</target>
       </segment>
     </unit>
     <unit id="toM7RSy" name="Alle Foren">
@@ -1890,8 +1890,8 @@
         <note category="german">Als &lt;strong&gt;Ausgestoßener&lt;/strong&gt; stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...</note>
       </notes>
       <segment>
-        <source>Als &lt;strong&gt;Ausgestoßener&lt;/strong&gt; stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...</source>
-        <target><![CDATA[Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...]]></target>
+        <source>Como &lt;strong&gt;desterrado&lt;/strong&gt;, las tareas de la comunidad como construir, tomar objetos del almacén o cerrar la puerta ya no están disponibles...</source>
+        <target></target>
       </segment>
     </unit>
     <unit id="M4kyeVr" name="Die Seite wird von Horden von Zombies belagert!">
@@ -1918,7 +1918,7 @@
       </notes>
       <segment>
         <source>Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:</source>
-        <target>Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:</target>
+        <target>Esta página está conectada al juego mediante una conexión encriptada:</target>
       </segment>
     </unit>
     <unit id="ECkSDC0" name="43e696a">
@@ -1927,7 +1927,7 @@
       </notes>
       <segment>
         <source>Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.</source>
-        <target>Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.</target>
+        <target>Si haces clic en "Siguiente", tu nombre de jugador será reconocido automáticamente para que no tengas que ingresar nada más.</target>
       </segment>
     </unit>
     <unit id="0oUM0cs" name="Bürger! Seid auf inoffiziellen Webseiten wachsam!">
@@ -1936,7 +1936,7 @@
       </notes>
       <segment>
         <source>Bürger! Seid auf inoffiziellen Webseiten wachsam!</source>
-        <target>Bürger! Seid auf inoffiziellen Webseiten wachsam!</target>
+        <target>¡Habitante! Estate atento a sitios externos no oficiales.</target>
       </segment>
     </unit>
     <unit id="mDTAh7E" name="Du bist vor Angst erstarrt...">
@@ -1945,7 +1945,7 @@
       </notes>
       <segment>
         <source>Du bist vor Angst erstarrt...</source>
-        <target>Du bist vor Angst erstarrt...</target>
+        <target>Estás paralizado de miedo...</target>
       </segment>
     </unit>
     <unit id="BFjRnfU" name="Nachrichten des Raben">

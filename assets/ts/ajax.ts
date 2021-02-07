@@ -147,12 +147,40 @@ export default class Ajax {
                     const to   = conditionals.length > 1 ? conditionals[1].split('.') : conditionals[0].split('.');
 
                     if (from.length > 0) {
-                        if (to.length === 1 && to[0] === 'finish') $.html.conditionalFinishTutorialStage(parseInt(from[0]), from[1]);
+                        if (to.length === 1 && (to[0] === 'finish' || to[0] === 'complete')) $.html.conditionalFinishTutorialStage(parseInt(from[0]), from[1], to[0] === 'complete');
                         else $.html.conditionalSetTutorialStage( parseInt(from[0]), from[1], parseInt(to[0]), to[1] );
                     } else {
-                        if (to.length === 1 && to[0] === 'finish') $.html.finishTutorialStage();
+                        if (to.length === 1 && (to[0] === 'finish' || to[0] === 'complete')) $.html.finishTutorialStage(to[0] === 'complete');
                         else $.html.setTutorialStage( parseInt(to[0]), to[1] );
                     }
+                }, {capture: true});
+            }
+
+            let conditional_help = content_source[i].querySelectorAll<HTMLElement>('*[x-conditional-help]');
+            let hidden = $.client.config.hiddenConditionalHelp.get();
+            for (let t = 0; t < conditional_help.length; t++) {
+                if (hidden.includes(conditional_help[t].getAttribute('x-conditional-help')))
+                    conditional_help[t].style.display = 'none';
+            }
+
+            let conditional_help_ctrl = content_source[i].querySelectorAll('*[x-confirm-conditional-help]');
+            for (let t = 0; t < conditional_help_ctrl.length; t++) {
+                conditional_help_ctrl[t].addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const section = conditional_help_ctrl[t].getAttribute('x-confirm-conditional-help')
+                    $.html.forEach('[x-conditional-help="' + section + '"]', function (elem) {
+                        elem.style.display = 'none';
+                    });
+
+                    if (!conditional_help_ctrl[t].getAttribute('x-temp')) {
+                        let hidden = $.client.config.hiddenConditionalHelp.get();
+                        if (!hidden.includes(section)) {
+                            hidden.push(section);
+                            $.client.config.hiddenConditionalHelp.set(hidden);
+                        }
+                    }
+
                 }, {capture: true});
             }
 

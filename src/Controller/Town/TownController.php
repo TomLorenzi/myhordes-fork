@@ -234,7 +234,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             'has_voted' => $has_voted,
             'has_levelable_building' => $has_levelable_building,
             'active_citizen' => $this->getActiveCitizen(),
-            'has_estimated' => $has_estimated,
+            'has_estimated' => $has_estimated || $zeds_today[3] >= 100,
             'has_visited_forum' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_forum'),
             'has_been_active' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_active'),
             'display_home_upgrade' => $display_home_upgrade,
@@ -317,9 +317,9 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             if ($citizen->getAlive() && !$citizen->getZone() && $citizen->getId() !== $c->getId() && $c->getId() !== $c->getId()) $cc++;
         $cc = (float)$cc / (float)$c->getTown()->getPopulation(); // Completely arbitrary
 
-        $hidden = (bool)($em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($home,
+        $hidden = ($c->getAlive() && (bool)($em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($home,
             $em->getRepository(CitizenHomeUpgradePrototype::class)->findOneBy(['name' => 'curtain'])
-        ));
+        )));
 
         $is_injured    = $this->citizen_handler->isWounded($c);
         $is_infected   = $this->citizen_handler->hasStatusEffect($c, 'infection');

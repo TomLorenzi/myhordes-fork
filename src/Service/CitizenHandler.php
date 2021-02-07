@@ -661,9 +661,8 @@ class CitizenHandler
         // Leuchtturm
         $camping_values['lighthouse'] = 0;
 
-        if ($this->container->get(TownHandler::class)->getBuilding( $town, "small_lighthouse_#00" )) {
-            $camping_values['lighthouse'] = 25; //camping improvement or percent ? Because it's 5 camping improvement normally
-        }
+        if ($this->container->get(TownHandler::class)->getBuilding( $town, "small_lighthouse_#00", true ))
+            $camping_values['lighthouse'] = 5; //camping improvement or percent ? Because it's 5 camping improvement normally
 
         // Devastated town.
         $camping_values['devastated'] = $town->getDevastated() ? -10 : 0;

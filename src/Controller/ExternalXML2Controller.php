@@ -375,7 +375,7 @@ class ExternalXML2Controller extends ExternalController {
                     'defense' => [
                         'attributes' => [
                             'base' => 10,
-                            'items' => $def->item_defense,
+                            'items' => $this->inventory_handler->countSpecificItems($town->getBank(), $this->inventory_handler->resolveItemProperties( 'defence' ), false, false),
                             'citizen_guardians' => $def->guardian_defense,
                             'citizen_homes' => $def->house_defense,
                             'upgrades' => $def->building_def_vote,

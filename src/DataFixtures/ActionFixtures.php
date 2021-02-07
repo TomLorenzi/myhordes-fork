@@ -438,7 +438,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'safe'  => [ 'watergun_opt_part_#00', 'big_pgun_part_#00', 'lawn_part_#00', 'chainsaw_part_#00', 'mixergun_part_#00', 'cutcut_#00', 'pilegun_upkit_#00', 'book_gen_letter_#00', 'pocket_belt_#00', 'drug_hero_#00', 'meca_parts_#00' ],
                 'asafe' => [ 'bplan_e_#00' ],
 
-                'lab_fail_drugs'    => [ 'drug_#00', 'xanax_#00', 'drug_random_#00', 'drug_water_#00', 'water_cleaner_#00' ],
+                'lab_fail_drugs'    => [ 'what' => ['drug_#00', 'xanax_#00', 'drug_random_#00', 'drug_water_#00', 'water_cleaner_#00'], "where" => AffectItemSpawn::DropTargetFloor  ],
                 'lab_success_drugs' => [ 'what' => ['drug_hero_#00'], "where" => AffectItemSpawn::DropTargetFloor ],
 
                 'kitchen_fail_food'    => [ 'what' => ['dish_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
@@ -450,7 +450,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'meat_2x'  => [ 'what' => [ ['undef_#00', 2] ], 'where' => AffectItemSpawn::DropTargetFloor],
                 'meat_bmb' => [ 'what' => [ ['flesh_#00', 2] ], 'where' => AffectItemSpawn::DropTargetFloor],
 
-                'potion'   => [ [ 'potion_#00', 1] ],
+                'potion'   => [ 'what' => [ [ 'potion_#00', 1] ], "where" => AffectItemSpawn::DropTargetFloor  ],
             ],
 
             'consume' => [
@@ -1182,9 +1182,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'bed_#00'        => [ 'improve' ],
             'wood_plate_#00' => [ 'improve' ],
             'out_def_#00'    => [ 'improve' ],
+            'table_#00'      => [ 'improve' ],
 
             'soul_blue_#00' => ["purify_soul"],
-            'soul_red_#00' => ["purify_soul"],
+            'soul_red_#00'  => ["purify_soul"],
             'soul_blue_#01' => ['purify_soul'],
 
             'photo_3_#00' => ['flash_photo_3'],
@@ -2663,11 +2664,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         /** @var ItemPrototype[] $all_prototypes */
         $all_prototypes = $this->entityManager->getRepository(ItemPrototype::class)->findAll();
         foreach ($all_prototypes as $prototype) {
-            if ($prototype->getWatchpoint() === 0 && $prototype->getName() !== 'chkspk_#00') continue;
 
-            if (!isset(static::$item_actions['items_nw'][$prototype->getName()]))
+            if ($prototype->getWatchpoint() === 0 && !isset(static::$item_actions['items_nw'][$prototype->getName()]))
                 $out->writeln("<error>Item prototype '{$prototype->getName()}' ({$prototype->getLabel()}) has {$prototype->getWatchpoint()} watch points, but no night watch action!</error>");
-            else {
+            else if (isset(static::$item_actions['items_nw'][$prototype->getName()])) {
                 $prototype->setNightWatchAction( $this->generate_action( $manager, $out, static::$item_actions['items_nw'][$prototype->getName()], $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
                 $this->entityManager->persist($prototype);
             }

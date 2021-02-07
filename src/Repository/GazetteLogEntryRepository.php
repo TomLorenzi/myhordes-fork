@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\GazetteEntryTemplate;
 use App\Entity\LogEntryTemplate;
 use App\Entity\Gazette;
 use App\Entity\GazetteLogEntry;
@@ -35,8 +36,8 @@ class GazetteLogEntryRepository extends ServiceEntityRepository
             ->andWhere('g.gazette = :gazette')->setParameter('gazette', $gazette);
 
         if ($type !== null) {
-            if (is_array($type)) $applicableEntryTemplates = $this->_em->getRepository(LogEntryTemplate::class)->findByTypes($type);
-            else                 $applicableEntryTemplates = $this->_em->getRepository(LogEntryTemplate::class)->findByType($type);
+            if (is_array($type)) $applicableEntryTemplates = $this->_em->getRepository(GazetteEntryTemplate::class)->findByTypes($type);
+            else                 $applicableEntryTemplates = $this->_em->getRepository(GazetteEntryTemplate::class)->findByType($type);
 
             $q->andWhere( 'g.logEntryTemplate IN (:type)' )->setParameter('type', $applicableEntryTemplates);
         }

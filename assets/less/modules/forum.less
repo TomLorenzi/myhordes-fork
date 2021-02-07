@@ -425,6 +425,10 @@
   }
 }
 
+.forum-separator {
+  cursor: default; font-size: 0.9em; font-weight: bold; padding-left: 10px;
+}
+
 .forum-thread {
   cursor: pointer;
   position: relative;
@@ -524,7 +528,7 @@
   transition: opacity 1s ease; opacity: 1;
 
   #post-office-box {
-    position: absolute; width: 65%; left: 25%; margin-left: -150px;
+    position: absolute; width: 1500px; left: calc(50% - 750px);
     background: url("../../img/background/bg_content2.jpg") repeat-y top left/900px 263px, url("../../img/background/bg_content2.jpg") repeat-y top right/900px 263px;
     top: 10px; bottom: 10px; border-radius: 8px; box-shadow: 0 0 10px black;
     transition: transform 0.5s ease; transform: scale(1) translateY(0);
@@ -679,7 +683,7 @@
         position: relative; list-style: none; display: block; min-height: 30px;
         &+li { margin-top: 20px; }
         div.pm-avatar, div.pm-avatar-crow {
-          position: absolute; height: 40px; width: 40px; border-radius: 15px; top: 0; left: -40px;
+          position: absolute; height: 40px; width: 40px; border-radius: 100%; top: 0; left: -40px;
           background: @myhordes-smalltext; font-size: 16px; filter: drop-shadow(0 0 4px black);
           &.pm-avatar-crow { background: url(../../img/forum/crow/crow.png) center / cover no-repeat; border: 2px solid #3e0000; filter: drop-shadow(0 0 4px #3e0000) }
         }

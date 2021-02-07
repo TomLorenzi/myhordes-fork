@@ -3,6 +3,17 @@
     {{ parent() }}
     {% if not app.user.expert %}
         <div x-tutorial-content="* !3.text2 !3.text4 !3.text5 !4.text2 !4.text3" class="toplevel cover"></div>
+        <div x-tutorial-content="*" class="toplevel control">
+            <b>{{ 'Spielhilfe aktiv:'|trans({},'help') }}</b>
+            <div>
+                <strong x-tutorial-content="1.*">{{ 'Das Grundprizip des Spiels'|trans({},'help') }}</strong>
+                <strong x-tutorial-content="2.*">{{ 'Die Benutzeroberfläche'|trans({},'help') }}</strong>
+                <strong x-tutorial-content="3.*">{{ 'Wie rüste ich mich aus?'|trans({},'help') }}</strong>
+                <strong x-tutorial-content="4.*">{{ 'Wie kann ich die Stadt verlassen?'|trans({},'help') }}</strong>
+                <button x-advance-tutorial="finish">{{ 'Die Spielhilfe stoppen'|trans({},'help') }}</button>
+            </div>
+        </div>
+
         <div x-tutorial-content="1.text1 1.text2 1.text3 1.text4 1.text5" class="toplevel text">
             <div class="help">
                 <div x-tutorial-content="1.text1">
@@ -60,7 +71,7 @@
                 <p>{% trans from "help" %}
                     In der Spielhilfe findest du ausführliche Informationen.
                 {% endtrans %}</p>
-                <button x-advance-tutorial="finish">{{ 'Weiter...'|trans({},'help') }}</button>
+                <button x-advance-tutorial="complete">{{ 'Weiter...'|trans({},'help') }}</button>
             </div>
         </div>
         <div x-tutorial-content="2.text1" class="toplevel text arrow-down">
@@ -117,7 +128,7 @@
                 <p>{% trans from "help" %}
                     Ganz rechts kannst du den Inhalt deines <strong>Rucksacks</strong> sehen.
                 {% endtrans %}</p>
-                <button x-advance-tutorial="finish">{{ 'Weiter...'|trans({},'help') }}</button>
+                <button x-advance-tutorial="complete">{{ 'Weiter...'|trans({},'help') }}</button>
             </div>
         </div>
         <div x-tutorial-content="3.text1" class="toplevel text">
@@ -156,7 +167,7 @@
                 <p>{% trans from "help" %}
                     Der erste Gegenstand auf der Liste entspricht dem <strong>Beruf</strong>, den du dir ausgesucht hast. Er nimmt <strong>keinen Platz</strong> weg und du kannst ihn auch nicht verlieren.
                 {% endtrans %}</p>
-                <button x-advance-tutorial="finish">{{ 'Weiter...'|trans({},'help') }}</button>
+                <button x-advance-tutorial="complete">{{ 'Weiter...'|trans({},'help') }}</button>
             </div>
         </div>
         <div x-tutorial-content="4.text1" class="toplevel text">
@@ -186,10 +197,10 @@
                         <div class="hide-sm hide-md hide-lg">
                             <h5>{{ 'Wie soll ich spielen?'|trans({},'help') }}</h5>
                             <ul>
-                                <li class="tick"><a class="small" href="#" x-advance-tutorial="1.text1">{{ 'Das Grundprizip des Spiels'|trans({},'help') }}</a></li>
-                                <li class="tick"><a class="small" href="#" x-advance-tutorial="2.text1">{{ 'Die Benutzeroberfläche'|trans({},'help') }}</a></li>
-                                <li class="tick"><a class="small" href="#" x-advance-tutorial="3.text1">{{ 'Wie rüste ich mich aus?'|trans({},'help') }}</a></li>
-                                <li class="tick"><a class="small" href="#" x-advance-tutorial="4.text1">{{ 'Wie kann ich die Stadt verlassen?'|trans({},'help') }}</a></li>
+                                <li x-tutorial-section="1" class="tick"><a class="small" href="#" x-advance-tutorial="1.text1">{{ 'Das Grundprizip des Spiels'|trans({},'help') }}</a></li>
+                                <li x-tutorial-section="2" class="tick"><a class="small" href="#" x-advance-tutorial="2.text1">{{ 'Die Benutzeroberfläche'|trans({},'help') }}</a></li>
+                                <li x-tutorial-section="3" class="tick"><a class="small" href="#" x-advance-tutorial="3.text1">{{ 'Wie rüste ich mich aus?'|trans({},'help') }}</a></li>
+                                <li x-tutorial-section="4" class="tick"><a class="small" href="#" x-advance-tutorial="4.text1">{{ 'Wie kann ich die Stadt verlassen?'|trans({},'help') }}</a></li>
                                 <li><span class="small">{{ 'Entdecke deinen Beruf:'|trans({},'help') }} <img alt="" src="{{ asset('build/images/professions/' ~ app.user.activeCitizen.profession.icon ~ '.gif') }}" /> <a href="#" x-ajax-href="{{ path('help', {'name': app.user.activeCitizen.profession.name}) }}">{{ app.user.activeCitizen.profession.label|trans({},'game') }}</a></span></li>
                             </ul>
                         </div>
@@ -199,44 +210,46 @@
                 </div>
             {% endif %}
 
-            {% if citizen.hasRole('ghoul') %}
-                <div class="green-note warning-box">
-                    <img src="{{ asset('build/images/status/status_ghoul.gif') }}" alt=""> {{'Du hast dich in einen %role% verwandelt!'|trans({'%role%': '<strong>' ~ 'Ghul'|trans({},'game') ~ '</strong>'}, 'game')|raw}}<br />
-                    <em>{{ "Erzähle niemandem davon oder du wirst sofort erschossen!"|trans({}, 'game') }}</em><br />
-                    {{ help_lnk('Wie man als Ghul spielt ?'|trans({},'game'), 'help', {'name' : 'ghouls'}) }}
-                </div>
-            {% endif %}
-            {% if chaos %}
-                <div class="header-menu chaos"><a class="help-button"><div class="tooltip help">{{ '<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a></div>
-            {% elseif town.insurrectionProgress >= 100 %}
-                <div class="header-menu insurrect"></div>
-            {% endif %}
-            {% if citizen.banished %}
-                <div class="banished-info">
-                    <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" /> {{ 'Du wurdest verbannt!'|trans({}, 'game') }} <a class="help-button"><div class="tooltip help">{{ 'Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
-                </div>
-                {% if has_insurrection_part %}
-                    <div class="banished-info">
-                        <em>{{ 'Status:'|trans({}, 'game') }}</em>
-                        {% if town.insurrectionProgress >= 0 and town.insurrectionProgress < 20 %}
-                            {{ 'Eine Revolte liegt in weiter Ferne...'|trans({}, 'game') }}
-                        {% elseif town.insurrectionProgress >= 20 and town.insurrectionProgress < 40 %}
-                            {{ 'Erste Spannungen bilden sich.'|trans({}, 'game') }}
-                        {% elseif town.insurrectionProgress >= 40 and town.insurrectionProgress < 60 %}
-                            {{ 'Wir machen Fortschritte.'|trans({}, 'game') }}
-                        {% elseif town.insurrectionProgress >= 60 and town.insurrectionProgress < 80 %}
-                            {{ 'Das Ende ist nah.'|trans({}, 'game') }}
-                        {% elseif town.insurrectionProgress >= 80 %}
-                            {{ 'Die Revolte steht bevor!'|trans({}, 'game') }}
-                        {% endif %}
-                    </div>
-                {% elseif can_do_insurrection %}
-                    <button id="do_insurrection"><img alt="" src="{{ asset('build/images/actions/insurrect.gif') }}" /> {{'Auf den Aufstand hinarbeiten'|trans({}, 'game')}}</button>
-                {% endif %}
-            {% endif %}
+
             {% set hour = "now"|date("G") %}
             <div class="row">
+
                 <div class="background cell rw-12">
+                    {% if citizen.hasRole('ghoul') %}
+                        <div class="green-note warning-box">
+                            <img src="{{ asset('build/images/status/status_ghoul.gif') }}" alt=""> {{'Du hast dich in einen %role% verwandelt!'|trans({'%role%': '<strong>' ~ 'Ghul'|trans({},'game') ~ '</strong>'}, 'game')|raw}}<br />
+                            <em>{{ "Erzähle niemandem davon oder du wirst sofort erschossen!"|trans({}, 'game') }}</em><br />
+                            {{ help_lnk('Wie man als Ghul spielt ?'|trans({},'game'), 'help', {'name' : 'ghouls'}) }}
+                        </div>
+                    {% endif %}
+                    {% if chaos %}
+                        <div class="header-menu chaos"><a class="help-button"><div class="tooltip help">{{ '<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a></div>
+                    {% elseif town.insurrectionProgress >= 100 %}
+                        <div class="header-menu insurrect"></div>
+                    {% endif %}
+                    {% if citizen.banished %}
+                        <div class="banished-info">
+                            <img alt="" src="{{ asset('build/images/icons/banished.gif') }}" /> {{ 'Du wurdest verbannt!'|trans({}, 'game') }} <a class="help-button"><div class="tooltip help">{{ 'Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
+                        </div>
+                        {% if has_insurrection_part %}
+                            <div class="banished-info">
+                                <em>{{ 'Status:'|trans({}, 'game') }}</em>
+                                {% if town.insurrectionProgress >= 0 and town.insurrectionProgress < 20 %}
+                                    {{ 'Eine Revolte liegt in weiter Ferne...'|trans({}, 'game') }}
+                                {% elseif town.insurrectionProgress >= 20 and town.insurrectionProgress < 40 %}
+                                    {{ 'Erste Spannungen bilden sich.'|trans({}, 'game') }}
+                                {% elseif town.insurrectionProgress >= 40 and town.insurrectionProgress < 60 %}
+                                    {{ 'Wir machen Fortschritte.'|trans({}, 'game') }}
+                                {% elseif town.insurrectionProgress >= 60 and town.insurrectionProgress < 80 %}
+                                    {{ 'Das Ende ist nah.'|trans({}, 'game') }}
+                                {% elseif town.insurrectionProgress >= 80 %}
+                                    {{ 'Die Revolte steht bevor!'|trans({}, 'game') }}
+                                {% endif %}
+                            </div>
+                        {% elseif can_do_insurrection %}
+                            <button id="do_insurrection"><img alt="" src="{{ asset('build/images/actions/insurrect.gif') }}" /> {{'Auf den Aufstand hinarbeiten'|trans({}, 'game')}}</button>
+                        {% endif %}
+                    {% endif %}
                     <div class="row town-menu {% if town.isNight %}night{% endif %}">
                         <div class="padded-small cell rw-12 town-overview {% if menu_section == '' %}selected{% endif %}">
                             <div x-ajax-href="{{ url('town_dashboard') }}"><img src="{{asset('build/images/icons/small_view.gif')}}" alt =""/>{% trans from 'game' %}Übersicht{% endtrans %}</div>
@@ -322,7 +335,7 @@
 
             {% if app.user.expert %}
                 <div class="row">
-                    <div class="cell rw-12 background">
+                    <div class="cell rw-12 background small center">
                         {{ 'Brauchst du Hilfe? Benutze den %modelink%!'|trans({'%modelink%': ('<a href="#" x-toggle-expert-mode>' ~ ('Anfängermodus'|trans({},'game')) ~ '</a>')},'game')|raw }}
                     </div>
                 </div>
@@ -332,7 +345,7 @@
             {% block content %}
             {% endblock %}
         </div>
-        <div class="cell rw-12 quote">
+        <div class="cell rw-12 flavour-quote">
             <div class="quote-foot">
                 <div class="quote-head">
                     « {{ quote.content }} »
@@ -357,9 +370,18 @@
 
         $.html.addEventListenerAll('[x-toggle-expert-mode]','click', function(e,elem) {
             e.preventDefault();
+            $.client.config.hiddenConditionalHelp.set([]);
+            $.client.config.completedTutorials.set([]);
             $.ajax.easySend('{{ path('game_toggle_expert_mode')|e('js') }}', {}, function() {
                 $.ajax.load( null, '{{ path('town_dashboard')|e('js') }}' );
             })
         })
+
+        {% if not app.user.expert %}
+            const completed_tuts = $.client.config.completedTutorials.get();
+            $.html.forEach('.beginner-mode li.tick[x-tutorial-section]', element => {
+                if (completed_tuts.includes(parseInt(element.getAttribute('x-tutorial-section')))) element.classList.add('complete');
+            });
+        {% endif %}
     </script>
 {% endblock %}

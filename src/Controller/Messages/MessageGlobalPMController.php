@@ -220,7 +220,7 @@ class MessageGlobalPMController extends MessageController
                 'obj'    => $latest_pm,
                 'date'   => $latest_pm->getTimestamp(),
                 'system' => true,
-                'title'  => T::__('Nachrichten des Raben', 'global'),
+                'title'  => $this->translator->trans('Nachrichten des Raben', [], 'global'),
                 'closed' => false,
                 'count'  => $this->entity_manager->getRepository(GlobalPrivateMessage::class)->count(['receiverUser' => $this->getUser(), 'receiverGroup' => null]),
                 'unread' => $this->entity_manager->getRepository(GlobalPrivateMessage::class)->countUnreadDirectPMsByUser($this->getUser()),
@@ -503,7 +503,7 @@ class MessageGlobalPMController extends MessageController
 
         foreach ($sliced as $message) {
             $tx = '';
-            if ($message->getText()) $tx .= $this->prepareEmotes($message->getText());
+            if ($message->getTemplate() === null && $message->getText()) $tx .= $this->prepareEmotes($message->getText());
 
             if ($message->getTemplate())
                 try {

@@ -2,8 +2,6 @@
 {% block ajax_base %}
     {# @var posts \App\Entity\Post[] #}
     {# @var permission \App\Structures\ForumPermissionAccessor #}
-    {% set today = date() %}
-    {% set yesterday = date('-1days') %}
     {% block buttons %}
         <div class="row">
             <div class="cell padded rw-6 left">
@@ -121,9 +119,9 @@
                 <div x-post-wrapper-id="{{ post.id }}" class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}">
                     <div class="forum-post-header {% if post.owner.name == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
                         <i>
-                            {% if post.date.format('Ymd') == today|date("Ymd") %}
+                            {% if post.date >= 'today'|to_date %}
                                 {{ 'Heute um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
-                            {% elseif post.date.format('Ymd') == yesterday|date("Ymd") %}
+                            {% elseif post.date >= 'yesterday'|to_date %}
                                 {{ 'Gestern um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
                             {% else %}
                                 {{ post.date|format_datetime('medium', 'short') }}
@@ -276,7 +274,7 @@
             let fun_quote = function() {
                 let content = document.querySelector('[x-post-content-id="' + elem.getAttribute('x-post-id') + '"]');
                 let author = content.getAttribute('x-post-content-author');
-                let textEditor = document.getElementById("forum-editor-text");
+                let textEditor = document.getElementById("forum-forum-editor-text");
 
                 if(textEditor.value != '' && !textEditor.value.endsWith("\n")) textEditor.value += "\n";
 
@@ -295,7 +293,7 @@
 
             let fun_edit = function() {
                 let content = document.querySelector('[x-post-content-id="' + postID + '"]');
-                let textEditor = document.getElementById("forum-editor-text");
+                let textEditor = document.getElementById("forum-forum-editor-text");
                 if (!textEditor) return;
                 textEditor.value = $.html.twinoParser.parseFrom( content.innerHTML, twinoOpMode );
                 textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));

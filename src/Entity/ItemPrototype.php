@@ -177,7 +177,7 @@ class ItemPrototype implements NamedEntity
         return $this;
     }
 
-    public function hasProperty(string $prop) {
+    public function hasProperty(string $prop): bool {
         foreach ($this->getProperties() as $p)
             if ($p->getName() === $prop) return true;
         return false;

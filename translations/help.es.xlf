@@ -7084,7 +7084,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Weiter...</source>
-        <target>Weiter...</target>
+        <target>Siguiente...</target>
       </segment>
     </unit>
     <unit id="QVWhtp1" name="An dieser Stelle werden die Gegenstände angezeigt, die du gebrauchen kannst.">
@@ -7111,7 +7111,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>"MyHordes" ist ein Survivalspiel, das in der Gruppe gespielt wird. Die Welt, in der ihr "lebt", ist von entsetzlichen Kreaturen bevölkert, den sogenannten &lt;strong&gt;Zombies&lt;/strong&gt;.</source>
-        <target><![CDATA["MyHordes" ist ein Survivalspiel, das in der Gruppe gespielt wird. Die Welt, in der ihr "lebt", ist von entsetzlichen Kreaturen bevölkert, den sogenannten <strong>Zombies</strong>.]]></target>
+        <target>"MyHordes" es un juego de &lt;strong&gt;cooperación y supervivencia.&lt;/strong&gt; El mundo en el que vives está habitado por horribles criaturas llamadas &lt;strong&gt;Zombis&lt;/strong&gt;.</target>
       </segment>
     </unit>
     <unit id="pPb8h28" name="62c13ce">
@@ -7120,7 +7120,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Jeden Abend &lt;strong&gt;um Mitternacht&lt;/strong&gt; strömen diese Kreaturen in die Stadt, um euch aufzufressen.</source>
-        <target><![CDATA[Jeden Abend <strong>um Mitternacht</strong> strömen diese Kreaturen in die Stadt, um euch aufzufressen.]]></target>
+        <target>Cada &lt;strong&gt;noche&lt;/strong&gt;, estas criaturas se reunirán en masa para atacar tu pueblo</target>
       </segment>
     </unit>
     <unit id="J70DLgk" name="&lt;strong&gt;Das einzige, was euch zum Überleben bleibt, ist Wasser!&lt;/strong&gt;">
@@ -7129,7 +7129,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>&lt;strong&gt;Das einzige, was euch zum Überleben bleibt, ist Wasser!&lt;/strong&gt;</source>
-        <target><![CDATA[<strong>Das einzige, was euch zum Überleben bleibt, ist Wasser!</strong>]]></target>
+        <target>&lt;strong&gt;¡Lo único que te hace falta para sobrevivir es agua!&lt;/strong&gt;</target>
       </segment>
     </unit>
     <unit id="ZL00KrJ" name="462c471">
@@ -7138,7 +7138,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wasser besitzt neben seiner lebenserhaltenden Funktion auch die Eigenschaft gegen die Wüstenkreaturen wirksam zu sein.</source>
-        <target>Wasser besitzt neben seiner lebenserhaltenden Funktion auch die Eigenschaft gegen die Wüstenkreaturen wirksam zu sein.</target>
+        <target>El agua, además de ser un recurso vital, es tu principal arma para combatir a esos monstruos</target>
       </segment>
     </unit>
     <unit id="wDdRhG7" name="6e6b03c">
@@ -7147,7 +7147,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Mit dem Wasser können nämlich die Monster umgebracht und somit der &lt;strong&gt;Prozess der Zombiefizierung gestoppt werden&lt;/strong&gt;.</source>
-        <target><![CDATA[Mit dem Wasser können nämlich die Monster umgebracht und somit der <strong>Prozess der Zombiefizierung gestoppt werden</strong>.]]></target>
+        <target>El agua puede matar a los monstruos y &lt;strong&gt;detener el proceso de zombificación&lt;/strong&gt;.</target>
       </segment>
     </unit>
     <unit id="8TV3R0W" name="524a7b0">
@@ -7156,7 +7156,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Die Bürger der betroffenen Stadt müssen kooperieren, wenn sie überleben möchten.</source>
-        <target>Die Bürger der betroffenen Stadt müssen kooperieren, wenn sie überleben möchten.</target>
+        <target>Deberás cooperar con el resto de habitantes si quieres sobrevivir.</target>
       </segment>
     </unit>
     <unit id="_OeuQWj" name="511364c">
@@ -7165,7 +7165,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Dazu ist es nötig, &lt;strong&gt;das äußere Gebiet, genannt die Außenwelt, zu erkunden&lt;/strong&gt;. In der Außenwelt finden die Bewohner überlebenswichtige Gegenstände, wie Nahrung, Waffen und Rohstoffe. Diese werden zum Beispiel für den Bau neuer Gebäude benötigt.</source>
-        <target><![CDATA[Dazu ist es nötig, <strong>das äußere Gebiet, genannt die Außenwelt, zu erkunden</strong>. In der Außenwelt finden die Bewohner überlebenswichtige Gegenstände, wie Nahrung, Waffen und Rohstoffe. Diese werden zum Beispiel für den Bau neuer Gebäude benötigt.]]></target>
+        <target>Empieza por &lt;strong&gt;explorar el desierto&lt;/strong&gt;, llamado el Ultramundo, donde encontrarás elementos esenciales para la supervivencia como alimentos, armas y materias primas. Estas últimas serán necesarias, por ejemplo, para construir edificios.</target>
       </segment>
     </unit>
     <unit id="sWF3auD" name="6cec409">
@@ -7174,7 +7174,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Jeder Bürger kann sich eine &lt;strong&gt;Konstruktion&lt;/strong&gt; aussuchen, an der er mitarbeiten möchte.</source>
-        <target><![CDATA[Jeder Bürger kann sich eine <strong>Konstruktion</strong> aussuchen, an der er mitarbeiten möchte.]]></target>
+        <target>Cada ciudadano puede elegir una &lt;strong&gt;Construcción&lt;/strong&gt; en la que desee trabajar.</target>
       </segment>
     </unit>
     <unit id="BwyhPDE" name="13213a1">
@@ -7183,7 +7183,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Möchtest du eine Verteidigungsmauer bauen oder vielleicht doch eine bessere Wasserpumpe für den Brunnen?</source>
-        <target>Möchtest du eine Verteidigungsmauer bauen oder vielleicht doch eine bessere Wasserpumpe für den Brunnen?</target>
+        <target>¿Qué prefieres, construir una muralla o una mejor bomba de agua para el pozo?</target>
       </segment>
     </unit>
     <unit id="S3PbcBt" name="04597cf">
@@ -7192,7 +7192,8 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Du allein entscheidest, ob du ein &lt;strong&gt;solidarischer Mitbürger&lt;/strong&gt; sein willst, der seine Stadt in eine bessere Zukunft führen möchte oder ob du als Außenseiter &lt;strong&gt;unabhängig&lt;/strong&gt; für dein eigenes Überleben kämpfen möchtest!</source>
-        <target><![CDATA[Du allein entscheidest, ob du ein <strong>solidarischer Mitbürger</strong> sein willst, der seine Stadt in eine bessere Zukunft führen möchte oder ob du als Außenseiter <strong>unabhängig</strong> für dein eigenes Überleben kämpfen möchtest!]]></target>
+        <target>¡Tú decides si quieres ser un &lt;strong&gt;habitante solidario&lt;/strong&gt; que quiere llevar a su ciudad hacia un futuro mejor o si quieres luchar de forma independiente como un &lt;strong&gt;forastero&lt;/strong&gt; por tu propia supervivencia!
+</target>
       </segment>
     </unit>
     <unit id="DjtQdul" name="403af39">
@@ -7201,7 +7202,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Sei dabei jedoch immer auf der Hut vor deinen Nachbarn... Man weiß nie, welche Pläne sie verfolgen...</source>
-        <target>Sei dabei jedoch immer auf der Hut vor deinen Nachbarn... Man weiß nie, welche Pläne sie verfolgen...</target>
+        <target>Sin embargo, siempre hay ten cuidado con tus vecinos... nunca se sabe qué planes pueden tener...</target>
       </segment>
     </unit>
     <unit id="_56DB9y" name="In der Spielhilfe findest du ausführliche Informationen.">
@@ -7210,7 +7211,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>In der Spielhilfe findest du ausführliche Informationen.</source>
-        <target>In der Spielhilfe findest du ausführliche Informationen.</target>
+        <target>Si quieres saber más sobre el juego, puedes encontrar información detallada en la guía.</target>
       </segment>
     </unit>
     <unit id="w67mXHH" name="5cf1683">
@@ -7219,7 +7220,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Der Großteil aller Aktionen in der Stadt werden durch dieses Menü ausgeführt. Erkunde die Stadt, indem du auf die jeweiligen Icons drückst.</source>
-        <target>Der Großteil aller Aktionen in der Stadt werden durch dieses Menü ausgeführt. Erkunde die Stadt, indem du auf die jeweiligen Icons drückst.</target>
+        <target>Harás la mayoría de tus acciones a través de este menú. Explora el pueblo haciendo clic en los íconos.</target>
       </segment>
     </unit>
     <unit id="wUPyDi8" name="95c7466">
@@ -7228,7 +7229,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Dank diesem &lt;strong&gt;Funkgerät&lt;/strong&gt; bist du in der Lage mit den &lt;strong&gt;den anderen Bürgern deiner Stadt&lt;/strong&gt; zu kommunizieren. Du kannst nach Ratschlägen fragen oder deinen Nachbarn anzeigen...</source>
-        <target><![CDATA[Dank diesem <strong>Funkgerät</strong> bist du in der Lage mit den <strong>den anderen Bürgern deiner Stadt</strong> zu kommunizieren. Du kannst nach Ratschlägen fragen oder deinen Nachbarn anzeigen...]]></target>
+        <target>Esta &lt;strong&gt;Radio&lt;/strong&gt; te permite comunicarte con los &lt;strong&gt;otros habitantes de tu pueblo&lt;/strong&gt;. Pide consejos, ayuda y coopera con ellos.</target>
       </segment>
     </unit>
     <unit id="Ddpgf84" name="013c48d">
@@ -7237,7 +7238,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Du solltest jeden Tag mindestens einmal ins Forum schauen, um zu erfahren wie deine Stadt ihre Verteidigung organisieren möchte.</source>
-        <target>Du solltest jeden Tag mindestens einmal ins Forum schauen, um zu erfahren wie deine Stadt ihre Verteidigung organisieren möchte.</target>
+        <target>Deberías consultar el foro al menos una vez al día para estar al tanto de cómo planea tu ciudad organizar su defensa.</target>
       </segment>
     </unit>
     <unit id="oR1_uqs" name="6b120e3">
@@ -7246,7 +7247,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Alle &lt;strong&gt;Ereignisse des Vortags&lt;/strong&gt; werden in einer &lt;strong&gt;Zeitung veröffentlicht, die nach jedem Angriff der Zombiehorden erscheint&lt;/strong&gt;. Sie enthält wichtige Informationen!</source>
-        <target><![CDATA[Alle <strong>Ereignisse des Vortags</strong> werden in einer <strong>Zeitung veröffentlicht, die nach jedem Angriff der Zombiehorden erscheint</strong>. Sie enthält wichtige Informationen!]]></target>
+        <target>Todos los &lt;strong&gt;eventos del día anterior&lt;/strong&gt; estrán publicados en el &lt;strong&gt;boletín después de cada ataque&lt;/strong&gt;. ¡Contiene información importante!</target>
       </segment>
     </unit>
     <unit id="hQOPgsj" name="f96ea86">
@@ -7255,7 +7256,8 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Deine &lt;strong&gt;Seele&lt;/strong&gt; ist hier sichtbar. In ihr findest du den Verlauf all deiner vorangegangenen Leben... In "MyHordes" ist Sterben nämlich etwas Alltägliches...</source>
-        <target><![CDATA[Deine <strong>Seele</strong> ist hier sichtbar. In ihr findest du den Verlauf all deiner vorangegangenen Leben... In "MyHordes" ist Sterben nämlich etwas Alltägliches...]]></target>
+        <target>Esta es tu &lt;strong&gt;Alma&lt;/strong&gt;. Aquí encontrarás información de todas tus vidas anteriores... En "MyHordes" morir es algo cotidiano...
+</target>
       </segment>
     </unit>
     <unit id="9Nqk8k1" name="ca06291">
@@ -7264,7 +7266,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>In der &lt;strong&gt;ausführlichen Spielhilfe&lt;/strong&gt; findest du alles über die Regeln des Spiels.</source>
-        <target><![CDATA[In der <strong>ausführlichen Spielhilfe</strong> findest du alles über die Regeln des Spiels.]]></target>
+        <target>La &lt;strong&gt;guía completa&lt;/strong&gt; responderá todas tus dudas sobre las reglas del juego.</target>
       </segment>
     </unit>
     <unit id="8yNAgml" name="c9e0eaf">
@@ -7273,7 +7275,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Deine &lt;strong&gt;&lt;span class="ap"&gt;Aktionspunkte&lt;/span&gt;&lt;/strong&gt; (diese werden insbesonders für deine Ausflüge in die Außenwelt benötigt) werden hier auf der linken Seite angezeigt.</source>
-        <target><![CDATA[Deine <strong><span class="ap">Aktionspunkte</span></strong> (diese werden insbesonders für deine Ausflüge in die Außenwelt benötigt) werden hier auf der linken Seite angezeigt.]]></target>
+        <target>Tus &lt;strong&gt;&lt;span class="ap"&gt;Puntos de acción&lt;/span&gt;&lt;/strong&gt; (especialmente necesarios para tus viajes al Ultramundo) se muestran aquí a la izquierda.</target>
       </segment>
     </unit>
     <unit id="ioAdH4z" name="6889983">
@@ -7282,7 +7284,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Diese Leiste in der Mitte zeigt deinen &lt;strong&gt;Gesundheitszustand&lt;/strong&gt; an. &lt;strong&gt;Behalte ihn immer im Auge.&lt;/strong&gt;</source>
-        <target><![CDATA[Diese Leiste in der Mitte zeigt deinen <strong>Gesundheitszustand</strong> an. <strong>Behalte ihn immer im Auge.</strong>]]></target>
+        <target>Esta barra en el centro muestra tu &lt;strong&gt;estado de salud&lt;/strong&gt;. &lt;strong&gt;Mantenla vigilada todo el tiempo.&lt;/strong&gt;</target>
       </segment>
     </unit>
     <unit id="D5HiVd5" name="Ganz rechts kannst du den Inhalt deines &lt;strong&gt;Rucksacks&lt;/strong&gt; sehen.">
@@ -7291,7 +7293,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Ganz rechts kannst du den Inhalt deines &lt;strong&gt;Rucksacks&lt;/strong&gt; sehen.</source>
-        <target><![CDATA[Ganz rechts kannst du den Inhalt deines <strong>Rucksacks</strong> sehen.]]></target>
+        <target>En el extremo derecho puedes ver el contenido de tu &lt;strong&gt;Mochila&lt;/strong&gt;.</target>
       </segment>
     </unit>
     <unit id="ORDqV.0" name="0871862">
@@ -7363,7 +7365,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Das Grundprizip des Spiels</source>
-        <target>Das Grundprizip des Spiels</target>
+        <target>Las bases del juego en pocas palabras</target>
       </segment>
     </unit>
     <unit id="D.eaIss" name="Die Benutzeroberfläche">
@@ -7372,7 +7374,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Die Benutzeroberfläche</source>
-        <target>Die Benutzeroberfläche</target>
+        <target>La interfaz</target>
       </segment>
     </unit>
     <unit id="WSj7XMU" name="Wie rüste ich mich aus?">
@@ -7381,7 +7383,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wie rüste ich mich aus?</source>
-        <target>Wie rüste ich mich aus?</target>
+        <target>¿Cómo equiparse?</target>
       </segment>
     </unit>
     <unit id="BAFRWYu" name="Wie kann ich die Stadt verlassen?">
@@ -7390,7 +7392,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wie kann ich die Stadt verlassen?</source>
-        <target>Wie kann ich die Stadt verlassen?</target>
+        <target>¿Cómo salir del pueblo?</target>
       </segment>
     </unit>
     <unit id="22eqBTq" name="Entdecke deinen Beruf:">
@@ -7399,7 +7401,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Entdecke deinen Beruf:</source>
-        <target>Entdecke deinen Beruf:</target>
+        <target>Descubre tu oficio:</target>
       </segment>
     </unit>
     <unit id="5MHED6b" name="2028c36">
@@ -7426,7 +7428,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Der rechte Teil zeigt die Zone, in der du dich gerade befindest. Dort findest du auch alle verfügbaren Aktionsmöglichkeiten.</source>
-        <target>Der rechte Teil zeigt die Zone, in der du dich gerade befindest. Dort findest du auch alle verfügbaren Aktionsmöglichkeiten.</target>
+        <target>La parte derecha muestra la zona en la que te encuentras actualmente. Allí también encontrarás todas las acciónes disponibles.</target>
       </segment>
     </unit>
     <unit id="UL9YoQf" name="8ee19aa">
@@ -7444,7 +7446,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wie erkunde ich die Außenwelt?</source>
-        <target>Wie erkunde ich die Außenwelt?</target>
+        <target>¿Cómo explorar el Ultramundo?</target>
       </segment>
     </unit>
     <unit id="Q5jU0Bo" name="Lesen:">
@@ -7453,7 +7455,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Lesen:</source>
-        <target>Lesen:</target>
+        <target>Leer:</target>
       </segment>
     </unit>
     <unit id="VhE6CQq" name="Der Kleine Außenweltführer">
@@ -7462,7 +7464,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Der Kleine Außenweltführer</source>
-        <target>Der Kleine Außenweltführer</target>
+        <target>La Guía del Ultramundo</target>
       </segment>
     </unit>
     <unit id="3WkBbnG" name="Das Stadttor ist geöffnet.">

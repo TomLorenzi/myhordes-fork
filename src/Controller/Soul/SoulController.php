@@ -114,7 +114,7 @@ class SoulController extends CustomAbstractController
         $data["soul_tab"] = $section;
         $data["new_message"] = !empty($user_invitations) || $messages;
         $data["new_news"] = $this->entity_manager->getRepository(Announcement::class)->countUnreadByUser($user, $this->getUserLanguage()) > 0;
-
+        $data["season"] = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
         return $data;
     }
 
@@ -292,8 +292,8 @@ class SoulController extends CustomAbstractController
     public function soul_season($type = null, JSONRequestParser $parser): Response
     {
         $user = $this->getUser();
-        if($user->getRightsElevation() <= User::ROLE_CROW)
-            return $this->redirect($this->generateUrl('soul_me'));
+        //if($user->getRightsElevation() <= User::ROLE_CROW)
+        //    return $this->redirect($this->generateUrl('soul_me'));
 
         $seasonId = $parser->get('season', null);
 
@@ -319,10 +319,9 @@ class SoulController extends CustomAbstractController
         $criteria = new Criteria();
         $criteria->andWhere($criteria->expr()->eq('season', $currentSeason));
         $criteria->andWhere($criteria->expr()->eq('type', $currentType));
-        if ($seasonId > 0 && $currentSeason->getNumber() > 0)
-            $criteria->andWhere($criteria->expr()->neq('end', null));
+        $criteria->andWhere($criteria->expr()->neq('end', null));
 
-        $criteria->orderBy(['score' => 'DESC', 'end' => 'ASC']);
+        $criteria->orderBy(['score' => 'DESC', 'days' => 'DESC', 'end' => 'ASC', 'id'=> 'ASC']);
         $criteria->setMaxResults(35);
         $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->matching($criteria);
         $played = [];

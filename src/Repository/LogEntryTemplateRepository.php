@@ -48,7 +48,7 @@ class LogEntryTemplateRepository extends ServiceEntityRepository
     }
 
 
-         /**
+     /**
       * @return LogEntryTemplate[] Returns an array of LogEntryTemplate objects
       */
     

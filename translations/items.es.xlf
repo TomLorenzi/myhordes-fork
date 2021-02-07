@@ -7265,7 +7265,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast &lt;strong&gt;1 zusätzlichen AP erhalten!&lt;/strong&gt;</source>
-        <target><![CDATA[Te das un gusto comiendo {item} , de vez en cuando no está mal para cambiar de esas raciones pútridas. ¡Recibes <strong>un bonus de 1 PA</strong>!]]></target>
+        <target>Te das un gusto comiendo {item} , de vez en cuando no está mal para cambiar de esas raciones pútridas.{hr}&lt;strong&gt;¡Recibes un bonus de 1 PA!&lt;/strong&gt;</target>
       </segment>
     </unit>
     <unit id="wDKaGfq" name="Krähenelfe">
@@ -7328,7 +7328,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Unidentifizierbare Trümmerstücke</source>
-        <target>Unidentifizierbare Trümmerstücke</target>
+        <target>Restos irreconocibles</target>
       </segment>
     </unit>
     <unit id="ug9P8X6" name="4b4524c">
@@ -7337,7 +7337,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</source>
-        <target>Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...</target>
+        <target>Estos escombros alguna vez fueron parte de un objeto que ya no eres capaz de identificar. La deformación de las piezas sugiere que el objeto golpeó el suelo a gran velocidad...</target>
       </segment>
     </unit>
     <unit id="sGKanc7" name="Abstimmen">
@@ -7346,7 +7346,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Abstimmen</source>
-        <target>Abstimmen</target>
+        <target>Votar</target>
       </segment>
     </unit>
     <unit id="Rrf3E_z" name="Vous avez voté pour {citizen} en tant que {role} !">
@@ -7355,7 +7355,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Vous avez voté pour {citizen} en tant que {role} !</source>
-        <target>Vous avez voté pour {citizen} en tant que {role} !</target>
+        <target>¡Has votado por {citizen} para {role}!</target>
       </segment>
     </unit>
     <unit id="aKn4VEo" name="Munitionsgriff">
@@ -7364,7 +7364,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Munitionsgriff</source>
-        <target>Munitionsgriff</target>
+        <target>Puñado de balas</target>
       </segment>
     </unit>
     <unit id="oFVqj4C" name="Eine Handvoll Munition. Aber was hat das für einen Sinn?">
@@ -7373,7 +7373,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Eine Handvoll Munition. Aber was hat das für einen Sinn?</source>
-        <target>Eine Handvoll Munition. Aber was hat das für einen Sinn?</target>
+        <target>Estos pequeños cilindros son extremadamente mortales. Si tan sólo supiéramos usarlos...</target>
       </segment>
     </unit>
     <unit id="Ri.5LgC" name="1376d54">
@@ -7382,7 +7382,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).</source>
-        <target>Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).</target>
+        <target>Haciendo uso de tu {item} has logrado despejar un poco el área ({bury_count} puntos despejados).</target>
       </segment>
     </unit>
     <unit id="y3qU7qO" name="b9071fe">
@@ -7391,7 +7391,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine &lt;strong&gt;nächste Bewegungsaktion&lt;/strong&gt; wird night in das Register eingetragen, wenn sie &lt;strong&gt;innerhalb von 1 Minute&lt;/strong&gt; erfolgt.</source>
-        <target><![CDATA[Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine <strong>nächste Bewegungsaktion</strong> wird night in das Register eingetragen, wenn sie <strong>innerhalb von 1 Minute</strong> erfolgt.]]></target>
+        <target>Lanzas la bomba de humo en el área, causando una gran confusión.{hr}Tu &lt;strong&gt;próxima acción&lt;/strong&gt; no será vista en el registro si la llevas a cabo &lt;strong&gt;en los próximos 60 segundos&lt;/strong&gt;.</target>
       </segment>
     </unit>
     <unit id="gN7yVQC" name="Durchgang in Kraft">
@@ -7409,7 +7409,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Den Shamane wählen</source>
-        <target>Den Shamane wählen</target>
+        <target>Elige al Chamán</target>
       </segment>
     </unit>
     <unit id="Rrvjw6U" name="Den Reiseleiter in der Außenwelt wählen">
@@ -7418,7 +7418,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Den Reiseleiter in der Außenwelt wählen</source>
-        <target>Den Reiseleiter in der Außenwelt wählen</target>
+        <target>Elige al Guía del Ultramundo.</target>
       </segment>
     </unit>
     <unit id="jHDRi5S" name="ae104e2">
@@ -7427,7 +7427,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!</source>
-        <target>Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!</target>
+        <target>Malas noticias, no debiste ponerte eso en la boca... ¡Ahora estás infectado!</target>
       </segment>
     </unit>
     <unit id="UhcYCoM" name="8c7950c">
@@ -7436,7 +7436,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...</source>
-        <target>Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...</target>
+        <target>Ser una víctima de la Gran Plaga no te hizo muy bien esta vez... y no se ve demasiado bien...</target>
       </segment>
     </unit>
     <unit id="OyENKXh" name="379ab50">
@@ -7445,7 +7445,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.</source>
-        <target>Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.</target>
+        <target>Probablemente has tenido suerte... Como víctima de la Gran Plaga, esta vez has evitado una desagradable infección.</target>
       </segment>
     </unit>
     <unit id="uHEMxan" name="430096c">

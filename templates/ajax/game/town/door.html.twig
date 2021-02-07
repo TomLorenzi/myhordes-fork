@@ -5,16 +5,16 @@
         <div class="help">
             {% if town.door %}
                 <p>{% trans from "help" %}
-                    Das Stadttor ist geöffnet.
-                {% endtrans %}</p>
+                        Das Stadttor ist geöffnet.
+                    {% endtrans %}</p>
                 <p>{% trans from "help" %}
-                    Klick hier, um <strong>in die Wüste zu gehen</strong>... Sei jedoch vorsichtig!
-                {% endtrans %}</p>
-                <button x-advance-tutorial="finish">{{ 'Weiter...'|trans({},'help') }}</button>
+                        Klick hier, um <strong>in die Wüste zu gehen</strong>... Sei jedoch vorsichtig!
+                    {% endtrans %}</p>
+                <button x-advance-tutorial="complete">{{ 'Weiter...'|trans({},'help') }}</button>
             {% else %}
                 <p>{% trans from "help" %}
                         Du kannst <strong>das Stadttor</strong> in diesem Bereich öffnen... Achtung: Wenn das Tor beim allnächtlichen <strong>Angriff der Zombiehorde</strong> offen steht, kann das für die Stadt fatale Folgen haben...<strong></strong>
-                {% endtrans %}</p>
+                    {% endtrans %}</p>
             {% endif %}
         </div>
     </div>
@@ -33,15 +33,34 @@
         <div class="padded cell rw-8 row-detail">{{def}} <img src="{{ asset('build/images/icons/small_def.gif') }}" alt="" /> (<span class="link" x-ajax-href="{{ path('town_dashboard') }}">{{'Details ansehen'|trans({}, 'game')}}</span>)</div>
         <div class="padded cell rw-4 row-header"><img src="{{ asset('build/images/item/item_door.gif') }}" alt="" /> {{'Lage'|trans({}, 'game')}}</div>
         <div class="padded cell rw-8 row-detail">{% if town.door %}
-            <span class="warning">{{'Stadttor geöffnet'|trans({}, 'game')}}</span> <span class="small">(<span class="link" x-ajax-href="{{ path("town_citizens") }}">{{'Wer ist draußen?'|trans({}, 'game')}}</span>)</span>
-        {% else %} 
-            {{'Stadttor geschlossen'|trans({}, 'game')}}
-        {% endif %} </div>
+                <span class="warning">{{'Stadttor geöffnet'|trans({}, 'game')}}</span> <span class="small">(<span class="link" x-ajax-href="{{ path("town_citizens") }}">{{'Wer ist draußen?'|trans({}, 'game')}}</span>)</span>
+            {% else %}
+                {{'Stadttor geschlossen'|trans({}, 'game')}}
+            {% endif %} </div>
     </div>
 
     <div class="row">
 
         <div class="padded cell rw-6 rw-md-12">
+
+            {% if not app.user.expert %}
+
+                {% set has_packed_food = false %}
+                {% set has_packed_water = false %}
+                {% for item in app.user.activeCitizen.inventory.items %}
+                    {% if item.prototype.hasProperty('is_water') %}{% set has_packed_water = true %}{% endif %}
+                    {% if item.prototype.hasProperty('food') %}    {% set has_packed_food  = true %}{% endif %}
+                {% endfor %}
+
+                {% if not has_packed_food and not has_packed_water %}
+                    <div x-conditional-help="door_equipment" class="no-arrow">
+                        <p>{% trans from "help" %}
+                                Es wäre vielleicht nicht verkehrt etwas <strong>Proviant</strong> (Nahrung und/oder Wasser) einzupacken, bevor du die Stadt verlässt... Gehe dazu in den Bereich <strong>Mein Zuhause</strong>.
+                            {% endtrans %}</p>
+                        <button x-confirm-conditional-help="door_equipment" x-temp="1">{{ 'Schließen'|trans({},'global') }}</button>
+                    </div>
+                {% endif %}
+            {% endif %}
 
             <div class="help">
                 {% trans from 'game' %}
@@ -81,7 +100,7 @@
     </div>
 
     <p class="ambiant">
-    {{'Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.'|trans({}, 'game')}}
+        {{'Das Stadttor ist Teil einer Festungsmauer, die den Großteil der Zombies abwehrt. Solltest du vergessen es am Abend zu schließen, kannst du dich auf Qualen einstellen, die deine schlimmsten Alpträume weit übertreffen.'|trans({}, 'game')}}
     </p>
 
     <div class="row">
@@ -123,21 +142,21 @@
         });
 
         {% if show_ventilation and allow_ventilation %}
-            document.getElementById('door_exit_hero').addEventListener('click', function() {
-                $.ajax.easySend( '{{ path('town_door_exit_controller', {'special': 'hero'}) }}', {},
-                    function () {
-                        $.ajax.load(null, '{{ path('game_landing') }}', true);
-                    } );
-            });
+        document.getElementById('door_exit_hero').addEventListener('click', function() {
+            $.ajax.easySend( '{{ path('town_door_exit_controller', {'special': 'hero'}) }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('game_landing') }}', true);
+                } );
+        });
         {% endif %}
 
         {% if show_sneaky %}
-            document.getElementById('door_exit_sneak').addEventListener('click', function() {
-                $.ajax.easySend( '{{ path('town_door_exit_controller', {'special': 'sneak'}) }}', {},
-                    function () {
-                        $.ajax.load(null, '{{ path('game_landing') }}', true);
-                    } );
-            });
+        document.getElementById('door_exit_sneak').addEventListener('click', function() {
+            $.ajax.easySend( '{{ path('town_door_exit_controller', {'special': 'sneak'}) }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('game_landing') }}', true);
+                } );
+        });
         {% endif %}
     </script>
 {% endblock %}

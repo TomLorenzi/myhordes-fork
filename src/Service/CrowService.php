@@ -35,10 +35,9 @@ class CrowService {
     const ModerationActionRevoke = 4;
 
     private EntityManagerInterface $em;
-    private ?User $crow_cache = null;
 
     private function getCrowAccount(): User {
-        return $this->crow_cache ?? ($this->crow_cache = $this->em->getRepository(User::class)->find(66));
+        return $this->em->getRepository(User::class)->find(66);
     }
 
     public function __construct(EntityManagerInterface $em)

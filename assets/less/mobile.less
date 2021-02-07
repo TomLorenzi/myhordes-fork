@@ -1,10 +1,21 @@
 @import (once) "grid";
 
+@screen-extra-large:  elg; @screen-extra-large-threshold: 1500px;
+
 @screen-large:  lg; @screen-large-threshold: 950px;
 @screen-medium: md; @screen-medium-threshold: 600px;
 @screen-small:  sm; @screen-small-threshold: 480px;
 
 // Visual Controls
+@media (max-width: (@screen-extra-large-threshold - 1)) {
+  #post-office {
+    backdrop-filter: none !important; padding: 0 !important;
+    #post-office-box {
+      width: 100% !important; left: 0 !important; margin-left: 0 !important; top: 0 !important;
+      bottom: 0 !important; border-radius: 0 !important;
+    }
+  }
+}
 @media (min-width: @screen-large-threshold) {
   .hide-desktop {display: none !important;};
 }
@@ -22,14 +33,6 @@
     &>b { display: block; position: relative; left: 0; top: 0; width: 100%; color: @myhordes-smalltext }
     &>span { position: relative; display: block; left: 0; top: 0; width: 100%; color: black; }
   }
-  #post-office {
-    backdrop-filter: none !important; padding: 0 !important;
-    #post-office-box {
-      width: 100% !important; left: 0 !important; margin-left: 0 !important; top: 0 !important;
-      bottom: 0 !important; border-radius: 0 !important;
-    }
-  }
-
 
   #gazette {
     perspective: 1000px;
@@ -153,6 +156,11 @@
     &>*:first-child, &>*:last-child  { transition: opacity 0.20s ease-in-out }
     width: 200%; transition: margin-left 0.25s ease-in-out;
   }
+
+  div[x-conditional-help="beyond_half_ap"] {
+    position: fixed; top: 50px; left: 10px; right: 10px; width: auto;
+    &:before {display: none}
+  }
 }
 
 .postfix(@threshold, @postfix) {
@@ -184,6 +192,8 @@
     }
   }
 }
+
+.postfix(@screen-extra-large-threshold, @screen-extra-large);
 
 .postfix(@screen-large-threshold, @screen-large);
 .postfix(@screen-medium-threshold, @screen-medium);

@@ -14,6 +14,7 @@ class TownConf extends Conf
     const CONF_WELL_MAX              = 'well.max';
     const CONF_MAP_MIN               = 'map.min';
     const CONF_MAP_MAX               = 'map.max';
+    const CONF_MAP_MARGIN            = 'map.margin';
     const CONF_POPULATION_MIN        = 'population.min';
     const CONF_POPULATION_MAX        = 'population.max';
     const CONF_NUM_RUINS             = 'ruins';

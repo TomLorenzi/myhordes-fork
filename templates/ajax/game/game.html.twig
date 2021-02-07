@@ -6,7 +6,7 @@
         <ul class="clock">
             <li>{{ clock.desc }}</li>
             <li>{% if clock.towntype == 'panda' %}<span class="hardcore">{{'Pandämonium'|trans({}, 'game')}}</span> {% endif %}{% if clock.day != "" %}{{ 'Tag %day%'|trans({'%day%': clock.day}, 'game') }}{% endif %}</li>
-            <li x-current-time x-no-seconds="1" x-countdown-force-hours="1"><div class="tooltip help">{{ 'Spielzeit'|trans({},'game') }}</div>{{ clock.timestamp.format('G:i') }}</li>
+            <li x-current-time x-no-seconds="1" x-force-hours="1"><div class="tooltip help">{{ 'Spielzeit'|trans({},'game') }}</div>{{ clock.timestamp.format('G:i') }}</li>
             <li x-countdown="{{ clock.attack }}" x-countdown-no-seconds="1" x-countdown-force-hours="1"><div class="tooltip help">{{ 'Zeit bis zum nächsten Zombieangriff'|trans({},'game') }}</div></li>
             <li><a target="_self" href="{{ path('auto_logout') }}"><img src="{{ asset('build/images/icons/b_exit.png') }}" alt="{{ 'Logout'|trans({},'soul') }}"></a><div class="tooltip">{{ 'Logout'|trans({},'soul') }}</div></li>
         </ul>
@@ -53,18 +53,28 @@
     <div class="ulcont">
         {% if ap is defined and max_ap is defined %}
             <div>
-                <ul class="ap">
-                    <li><b class="{{ ap == 0 ? 'red' : '' }}">{{ ap }}</b><em>/{{ max_ap }}</em></li>
-                </ul>
-                <div class="tooltip help">
-                    <h1>{{ 'Aktionspunkte'|trans({},'game') }}</h1>
-                    <em>{% trans from 'game' %}
-                            Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                            benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                            kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                            auffüllen.
-                        {% endtrans %}</em>
+                <div>
+                    <ul class="ap">
+                        <li><b class="{{ ap == 0 ? 'red' : '' }}">{{ ap }}</b><em>/{{ max_ap }}</em></li>
+                    </ul>
+                    <div class="tooltip help">
+                        <h1>{{ 'Aktionspunkte'|trans({},'game') }}</h1>
+                        <em>{% trans from 'game' %}
+                                Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                                auffüllen.
+                            {% endtrans %}</em>
+                    </div>
                 </div>
+                {% if not app.user.expert and app.user.activeCitizen.zone and ap <= ((max_ap/2)|round(1,'ceil')) %}
+                    <div x-conditional-help="beyond_half_ap">
+                        <p>{% trans from "help" %}
+                            Achtung, du hast bereits <strong>die Hälfte deiner <span class="ap"></span></strong> verbraucht. Denke immer daran, dir genügend AP aufzuheben, um in die Stadt zurückkehren zu können!
+                        {% endtrans %}</p>
+                        <button x-confirm-conditional-help="beyond_half_ap">{{ 'Diese Nachricht verbergen'|trans({},'help') }}</button>
+                    </div>
+                {% endif %}
             </div>
         {% endif %}
         {% if bp is defined and max_bp is defined and max_bp > 0 %}

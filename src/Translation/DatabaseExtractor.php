@@ -15,6 +15,7 @@ use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\ComplaintReason;
 use App\Entity\EscortActionGroup;
+use App\Entity\GazetteEntryTemplate;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\ItemAction;
 use App\Entity\ItemPrototype;
@@ -198,6 +199,11 @@ class DatabaseExtractor implements ExtractorInterface
         foreach ($this->em->getRepository(LogEntryTemplate::class)->findAll() as $logtemplate)
             /** @var LogEntryTemplate $logtemplate */
             if ($logtemplate->getText())
+                $this->insert( $c, $logtemplate->getText(), 'game' );
+
+        foreach ($this->em->getRepository(GazetteEntryTemplate::class)->findAll() as $gazetteTemplate)
+            /** @var GazetteEntryTemplate $gazetteTemplate */
+            if ($gazetteTemplate->getText())
                 $this->insert( $c, $logtemplate->getText(), 'game' );
 
         foreach ($this->em->getRepository(HeroSkillPrototype::class)->findAll() as $heroSkill) {

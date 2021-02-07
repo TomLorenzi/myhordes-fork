@@ -276,7 +276,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
     ];
 
     public static $notificationMarkers = [
-        'ghoul'
+        'ghoul', 'shaman'
     ];
 
     public static $complaintReasons = [

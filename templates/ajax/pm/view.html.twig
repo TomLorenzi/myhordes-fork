@@ -3,7 +3,7 @@
 {% block ajax_base %}
 
     <div id="post-office-mobile-wrapper" class="row-flex stretch wrap" x-response-key="{{ rk }}">
-        <div class="padded cell rw-3 rw-lg-6 max-height">
+        <div class="padded cell rw-4 rw-elg-3 rw-lg-6 max-height">
 
             <div class="row-flex vertical stretch full-height">
 
@@ -38,7 +38,7 @@
 
         </div>
 
-        <div id="pm-right-plane" class="padded cell rw-9 rw-lg-6 max-height" style="overflow: auto">
+        <div id="pm-right-plane" class="padded cell rw-8 rw-elg-9 rw-lg-6 max-height" style="overflow: auto">
 
             <div class="row-flex vertical stretch full-height">
                 <div id="pm-mobile-back-button" class="forum-control hide-desktop hide-lg hide-md center pointer" style="font-size: 2em; margin-bottom: 10px;"><img src="{{ asset('build/images/icons/small_prev.gif') }}" alt="<-"></div>
@@ -127,7 +127,6 @@
                 </div>
 
             </div>
-
 
         </div>
     </div>
@@ -247,6 +246,7 @@
 
                 let index_container = document.querySelector('.pm-conversation-list');
                 let focus_container = document.querySelector('.group-conversation');
+
                 const index_data = data.index_list.data;
                 const focus_data = data.focus_list.data;
 
@@ -268,14 +268,14 @@
                     newstr += elem.outerHTML;
                 }
 
-                if (newstr !== '') {
+                if (newstr !== '' && index_container) {
                     index_container.innerHTML = newstr + index_container.innerHTML;
                     fun_conv_events();
                 }
 
                 newstr = '';
                 let preview_node = document.querySelector('.group-conversation>li[x-preview]');
-                if (preview_node) preview_node.remove();
+
                 for (let i = 0; i < focus_data.length; i++) {
 
                     const domain = focus_data[i][0];
@@ -287,8 +287,9 @@
                     newstr += elem.outerHTML;
                 }
 
-                if (newstr !== '') {
+                if (newstr !== '' && focus_container) {
                     focus_container.innerHTML = (preview_node ? preview_node.outerHTML : '') + newstr + focus_container.innerHTML;
+                    if (preview_node) preview_node.remove();
                     fun_msg_events();
                 }
 
@@ -392,13 +393,15 @@
                 searchBox.addEventListener('keyup', userSearchHandlerUp);
                 searchBox.addEventListener('keydown', userSearchHandlerDown);
                 searchBox.addEventListener('focus', () => userSearchHandler());
-                searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('pm-users-list').innerHTML = '', 100));
+                searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('pm-users-list').innerHTML = '', 500));
             }
 
             $.html.addEventListenerAll('[x-pm-action="new-single"]', 'click', function () {
 
                 let editor = document.getElementById('global-pm-forum-editor');
                 if (!editor) return;
+
+                $.msg.restoreFetchEndpoint();
 
                 document.getElementById('gpm-forum-content-container').classList.add('hidden');
                 document.getElementById('pm-forum-actions-container').classList.add('hidden');
