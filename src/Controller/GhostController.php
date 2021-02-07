@@ -162,8 +162,47 @@ class GhostController extends CustomAbstractController implements GhostInterface
         $lang = $parser->get('lang', '');
         $well = $parser->get('well', '');
 
-        $seed       = $crow_permissions ? (int)$parser->get('seed', -1) : -1;
+        $seed       = $crow_permissions ? (int)$parser->get_num('seed', -1) : -1;
         $incarnated = $crow_permissions ? (bool)$parser->get('incarnated', true) : true;
+
+        $map_size = []; $ruin_count = [];
+        switch ($parser->get('mapsize', 'auto')) {
+            case 'small': $map_size = [12,14]; $ruin_count = [10,0]; break;
+            case 'normal': $map_size = [25,27]; break;
+            case 'large':
+                $map_size = $crow_permissions ? [32,35] : [];
+                $ruin_count = $crow_permissions ? [30,2] : [];
+                break;
+            case 'custom':
+                $s = max(10,min($parser->get_num('mapsize_e', 25),35));
+                $r = max(0,min($parser->get_num('ruins_num', 20),30));
+                $re = max(0,min($parser->get_num('ruins_e_num', 1),5));
+                $map_size = $crow_permissions ? [$s,$s] : [];
+                $ruin_count = [$r,$re]; break;
+                break;
+        }
+
+        $map_margin = null;
+        switch ($parser->get('mapmargin', 'normal')) {
+            case 'normal': $map_margin = 0.25; break;
+            case 'small' : $map_margin = 0.3; break;
+            case 'center': $map_margin = 0.5; break;
+        }
+
+        $map = [];
+
+        if (!empty($map_size)) {
+            $map['min'] = $map_size[0];
+            $map['max'] = $map_size[1];
+        }
+
+        if (!empty($map_margin)) $map['margin'] = $map_margin;
+        if (!empty($map)) $customConf['map'] = $map;
+
+        if (!empty($ruin_count)) {
+            $customConf['ruins'] = $ruin_count[0];
+            $customConf['explorable_ruins'] = $ruin_count[1];
+        }
 
         if(!empty($well) && is_numeric($well) && $well <= 300){
             $customConf['well'] = [

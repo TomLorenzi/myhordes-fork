@@ -192,9 +192,16 @@ class GameFactory
 
     private function getDefaultZoneResolution( TownConf $conf, ?int &$offset_x, ?int &$offset_y ): int {
         $resolution = mt_rand( $conf->get(TownConf::CONF_MAP_MIN, 0), $conf->get(TownConf::CONF_MAP_MAX, 0) );
-        $safe_border = ceil($resolution/4.0);
-        $offset_x = $safe_border + mt_rand(0, $resolution - 2*$safe_border);
-        $offset_y = $safe_border + mt_rand(0, $resolution - 2*$safe_border);
+        $safe_border = ceil($resolution * $conf->get(TownConf::CONF_MAP_MARGIN, 0.25));
+
+        if ($safe_border >= $resolution/2) {
+            $offset_x = mt_rand(floor(($resolution-1)/2), ceil(($resolution-1)/2));
+            $offset_y = mt_rand(floor(($resolution-1)/2), ceil(($resolution-1)/2));
+        } else {
+            $offset_x = $safe_border + mt_rand(0, max(0,$resolution - 2*$safe_border));
+            $offset_y = $safe_border + mt_rand(0, max(0,$resolution - 2*$safe_border));
+        }
+
         return $resolution;
     }
 
