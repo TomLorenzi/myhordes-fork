@@ -1182,9 +1182,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'bed_#00'        => [ 'improve' ],
             'wood_plate_#00' => [ 'improve' ],
             'out_def_#00'    => [ 'improve' ],
+            'table_#00'      => [ 'improve' ],
 
             'soul_blue_#00' => ["purify_soul"],
-            'soul_red_#00' => ["purify_soul"],
+            'soul_red_#00'  => ["purify_soul"],
             'soul_blue_#01' => ['purify_soul'],
 
             'photo_3_#00' => ['flash_photo_3'],
