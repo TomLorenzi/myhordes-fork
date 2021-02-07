@@ -225,7 +225,7 @@
     </unit>
     <unit id="iita2xJ" name="83fa5e3">
       <notes>
-        <note category="german">In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</note>
+        <note category="german">In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Themen" zu spielen.</note>
       </notes>
       <segment>
         <source>In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</source>
@@ -463,7 +463,7 @@
       </notes>
       <segment>
         <source>Seelen &amp; Schamane:</source>
-        <target>Almas &amp; Chamán:</target>
+        <target><![CDATA[Almas & Chamán:]]></target>
       </segment>
     </unit>
     <unit id="k2SkMiM" name="Verlorene Seelen und Schamanen aktivieren">
@@ -1098,6 +1098,132 @@
       <segment>
         <source>Wiedergeburt: Wahl der Partie</source>
         <target>Reencarnar: Elegir un pueblo</target>
+      </segment>
+    </unit>
+    <unit id="QkcknlN" name="Kartengröße">
+      <notes>
+        <note category="german">Kartengröße</note>
+      </notes>
+      <segment>
+        <source>Kartengröße</source>
+        <target>Kartengröße</target>
+      </segment>
+    </unit>
+    <unit id="TCo5k8F" name="Automatisch">
+      <notes>
+        <note category="german">Automatisch</note>
+      </notes>
+      <segment>
+        <source>Automatisch</source>
+        <target>Automatisch</target>
+      </segment>
+    </unit>
+    <unit id="a0HGkUJ" name="Kleine Karte">
+      <notes>
+        <note category="german">Kleine Karte</note>
+      </notes>
+      <segment>
+        <source>Kleine Karte</source>
+        <target>Kleine Karte</target>
+      </segment>
+    </unit>
+    <unit id="Pv2k4jm" name="Normale Karte">
+      <notes>
+        <note category="german">Normale Karte</note>
+      </notes>
+      <segment>
+        <source>Normale Karte</source>
+        <target>Normale Karte</target>
+      </segment>
+    </unit>
+    <unit id="5pSNNaZ" name="Riesige Karte">
+      <notes>
+        <note category="german">Riesige Karte</note>
+      </notes>
+      <segment>
+        <source>Riesige Karte</source>
+        <target>Riesige Karte</target>
+      </segment>
+    </unit>
+    <unit id="Fi9y5O9" name="Eigene Einstellung">
+      <notes>
+        <note category="german">Eigene Einstellung</note>
+      </notes>
+      <segment>
+        <source>Eigene Einstellung</source>
+        <target>Eigene Einstellung</target>
+      </segment>
+    </unit>
+    <unit id="6m4Eofp" name="Exakte Kartengröße">
+      <notes>
+        <note category="german">Exakte Kartengröße</note>
+      </notes>
+      <segment>
+        <source>Exakte Kartengröße</source>
+        <target>Exakte Kartengröße</target>
+      </segment>
+    </unit>
+    <unit id="OpX8hPZ" name="Anzahl Ruinen">
+      <notes>
+        <note category="german">Anzahl Ruinen</note>
+      </notes>
+      <segment>
+        <source>Anzahl Ruinen</source>
+        <target>Anzahl Ruinen</target>
+      </segment>
+    </unit>
+    <unit id="iXjB0RG" name="Anzahl Begehbare Ruinen">
+      <notes>
+        <note category="german">Anzahl Begehbare Ruinen</note>
+      </notes>
+      <segment>
+        <source>Anzahl Begehbare Ruinen</source>
+        <target>Anzahl Begehbare Ruinen</target>
+      </segment>
+    </unit>
+    <unit id="tOEjYLQ" name="Position der Stadt">
+      <notes>
+        <note category="german">Position der Stadt</note>
+      </notes>
+      <segment>
+        <source>Position der Stadt</source>
+        <target>Position der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="hXA9n9R" name="Eher Zentral">
+      <notes>
+        <note category="german">Eher Zentral</note>
+      </notes>
+      <segment>
+        <source>Eher Zentral</source>
+        <target>Eher Zentral</target>
+      </segment>
+    </unit>
+    <unit id="uzMPtR4" name="Zentral">
+      <notes>
+        <note category="german">Zentral</note>
+      </notes>
+      <segment>
+        <source>Zentral</source>
+        <target>Zentral</target>
+      </segment>
+    </unit>
+    <unit id="Am_FKUL" name="Spielmodifikationen:">
+      <notes>
+        <note category="german">Spielmodifikationen:</note>
+      </notes>
+      <segment>
+        <source>Spielmodifikationen:</source>
+        <target>Spielmodifikationen:</target>
+      </segment>
+    </unit>
+    <unit id="fz803_w" name="Raben-Optionen">
+      <notes>
+        <note category="german">Raben-Optionen</note>
+      </notes>
+      <segment>
+        <source>Raben-Optionen</source>
+        <target>Raben-Optionen</target>
       </segment>
     </unit>
   </file>

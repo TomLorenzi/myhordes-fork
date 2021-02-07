@@ -4211,7 +4211,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>A veritable Mecca for the DIY enthusiast. A paradise full of invaluable treasures for a world like ours... Their advertising slogan is even more appropriate nowadays: Pillage our store before someone else beats you to it!</target>
       </segment>
     </unit>
-    <unit id="bhwk0Sz" name="63b8c04">
+    <unit id="k6GmYdG" name="e35264f">
       <notes>
         <note category="german">Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät</note>
       </notes>
@@ -4220,7 +4220,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>A huge metal box-like creation stuck in the middle of nowhere. It would usually be found beside a building site, and once upon a time it probably was, but there is no sign of it today. Well, except this 'cabin'...</target>
       </segment>
     </unit>
-    <unit id="UezITiX" name="e184eae">
+    <unit id="8C9iaLK" name="927785b">
       <notes>
         <note category="german">Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus.</note>
       </notes>
@@ -17889,6 +17889,141 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Du besitzt eine &lt;strong&gt;Karte&lt;/strong&gt;. Benutze den Knopf hier oben, um nicht verloren zu gehen!</source>
         <target><![CDATA[Du besitzt eine <strong>Karte</strong>. Benutze den Knopf hier oben, um nicht verloren zu gehen!]]></target>
+      </segment>
+    </unit>
+    <unit id="cNyto3M" name="Du wurdest zum Schamanen gewählt!">
+      <notes>
+        <note category="german">Du wurdest zum Schamanen gewählt!</note>
+      </notes>
+      <segment>
+        <source>Du wurdest zum Schamanen gewählt!</source>
+        <target>Du wurdest zum Schamanen gewählt!</target>
+      </segment>
+    </unit>
+    <unit id="TCisbbN" name="72a6431">
+      <notes>
+        <note category="german">Du wachst heute Morgen mit einer schrecklichen Migräne auf und hast Schwierigkeiten, zu sehen... Du beschließt, aus deinem Zelt zu gehen. Die Nachbarn an denen du vorbeiläufst, neigen ihr Haupt vor dir.</note>
+      </notes>
+      <segment>
+        <source>Du wachst heute Morgen mit einer schrecklichen Migräne auf und hast Schwierigkeiten, zu sehen... Du beschließt, aus deinem Zelt zu gehen. Die Nachbarn an denen du vorbeiläufst, neigen ihr Haupt vor dir.</source>
+        <target>Du wachst heute Morgen mit einer schrecklichen Migräne auf und hast Schwierigkeiten, zu sehen... Du beschließt, aus deinem Zelt zu gehen. Die Nachbarn an denen du vorbeiläufst, neigen ihr Haupt vor dir.</target>
+      </segment>
+    </unit>
+    <unit id="c2baI8U" name="27aac18">
+      <notes>
+        <note category="german">Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, kannst du ein kleines blaues Leuchten sehen... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du dir die Hand an den Kopf hälst: eine lächerliche Maske klebt an deinem Gesicht und reduziert dein Sehvermögen erheblich.</note>
+      </notes>
+      <segment>
+        <source>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, kannst du ein kleines blaues Leuchten sehen... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du dir die Hand an den Kopf hälst: eine lächerliche Maske klebt an deinem Gesicht und reduziert dein Sehvermögen erheblich.</source>
+        <target>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, kannst du ein kleines blaues Leuchten sehen... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du dir die Hand an den Kopf hälst: eine lächerliche Maske klebt an deinem Gesicht und reduziert dein Sehvermögen erheblich.</target>
+      </segment>
+    </unit>
+    <unit id="x09E3UL" name="Du bist nun der Schamane.">
+      <notes>
+        <note category="german">Du bist nun der Schamane.</note>
+      </notes>
+      <segment>
+        <source>Du bist nun der Schamane.</source>
+        <target>Du bist nun der Schamane.</target>
+      </segment>
+    </unit>
+    <unit id="RjuBA.9" name="568a2ad">
+      <notes>
+        <note category="german">Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein geistiger Führer!</note>
+      </notes>
+      <segment>
+        <source>Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein geistiger Führer!</source>
+        <target>Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein geistiger Führer!</target>
+      </segment>
+    </unit>
+    <unit id="DGMBZZJ" name="Mit deinen %mp% kannst du:">
+      <notes>
+        <note category="german">Mit deinen %mp% kannst du:</note>
+      </notes>
+      <segment>
+        <source>Mit deinen %mp% kannst du:</source>
+        <target>Mit deinen %mp% kannst du:</target>
+      </segment>
+    </unit>
+    <unit id="LjWDhmt" name="Die Seelen deiner verstorbenen Mitbürger lokalisieren.">
+      <notes>
+        <note category="german">Die Seelen deiner verstorbenen Mitbürger lokalisieren.</note>
+      </notes>
+      <segment>
+        <source>Die Seelen deiner verstorbenen Mitbürger lokalisieren.</source>
+        <target>Die Seelen deiner verstorbenen Mitbürger lokalisieren.</target>
+      </segment>
+    </unit>
+    <unit id="J7D2vc9" name="Schamanische Tränke für deine Nachbarn herstellen.">
+      <notes>
+        <note category="german">Schamanische Tränke für deine Nachbarn herstellen.</note>
+      </notes>
+      <segment>
+        <source>Schamanische Tränke für deine Nachbarn herstellen.</source>
+        <target>Schamanische Tränke für deine Nachbarn herstellen.</target>
+      </segment>
+    </unit>
+    <unit id="LBdBsIv" name="An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!">
+      <notes>
+        <note category="german">An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!</note>
+      </notes>
+      <segment>
+        <source>An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!</source>
+        <target>An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!</target>
+      </segment>
+    </unit>
+    <unit id="ZWHqNbl" name="Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...">
+      <notes>
+        <note category="german">Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...</note>
+      </notes>
+      <segment>
+        <source>Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...</source>
+        <target>Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...</target>
+      </segment>
+    </unit>
+    <unit id="aq8ksxb" name="Schau dir am besten gleich den %shaman_help% an.">
+      <notes>
+        <note category="german">Schau dir am besten gleich den %shaman_help% an.</note>
+      </notes>
+      <segment>
+        <source>Schau dir am besten gleich den %shaman_help% an.</source>
+        <target>Schau dir am besten gleich den %shaman_help% an.</target>
+      </segment>
+    </unit>
+    <unit id="L8UIHsM" name="Schamanen-Ratgeber">
+      <notes>
+        <note category="german">Schamanen-Ratgeber</note>
+      </notes>
+      <segment>
+        <source>Schamanen-Ratgeber</source>
+        <target>Schamanen-Ratgeber</target>
+      </segment>
+    </unit>
+    <unit id="KqTfNKI" name="6dbee32">
+      <notes>
+        <note category="german">Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</note>
+      </notes>
+      <segment>
+        <source>Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</source>
+        <target>Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</target>
+      </segment>
+    </unit>
+    <unit id="Cm7opZK" name="877bae7">
+      <notes>
+        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                                auffüllen.</note>
+      </notes>
+      <segment>
+        <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                                auffüllen.</source>
+        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                                auffüllen.</target>
       </segment>
     </unit>
   </file>

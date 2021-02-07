@@ -7111,7 +7111,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>"MyHordes" ist ein Survivalspiel, das in der Gruppe gespielt wird. Die Welt, in der ihr "lebt", ist von entsetzlichen Kreaturen bevölkert, den sogenannten &lt;strong&gt;Zombies&lt;/strong&gt;.</source>
-        <target>"MyHordes" es un juego de &lt;strong&gt;cooperación y supervivencia.&lt;/strong&gt; El mundo en el que vives está habitado por horribles criaturas llamadas &lt;strong&gt;Zombis&lt;/strong&gt;.</target>
+        <target><![CDATA["MyHordes" es un juego de <strong>cooperación y supervivencia.</strong> El mundo en el que vives está habitado por horribles criaturas llamadas <strong>Zombis</strong>.]]></target>
       </segment>
     </unit>
     <unit id="pPb8h28" name="62c13ce">
@@ -7120,7 +7120,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Jeden Abend &lt;strong&gt;um Mitternacht&lt;/strong&gt; strömen diese Kreaturen in die Stadt, um euch aufzufressen.</source>
-        <target>Cada &lt;strong&gt;noche&lt;/strong&gt;, estas criaturas se reunirán en masa para atacar tu pueblo</target>
+        <target><![CDATA[Cada <strong>noche</strong>, estas criaturas se reunirán en masa para atacar tu pueblo]]></target>
       </segment>
     </unit>
     <unit id="J70DLgk" name="&lt;strong&gt;Das einzige, was euch zum Überleben bleibt, ist Wasser!&lt;/strong&gt;">
@@ -7129,7 +7129,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>&lt;strong&gt;Das einzige, was euch zum Überleben bleibt, ist Wasser!&lt;/strong&gt;</source>
-        <target>&lt;strong&gt;¡Lo único que te hace falta para sobrevivir es agua!&lt;/strong&gt;</target>
+        <target><![CDATA[<strong>¡Lo único que te hace falta para sobrevivir es agua!</strong>]]></target>
       </segment>
     </unit>
     <unit id="ZL00KrJ" name="462c471">
@@ -7147,7 +7147,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Mit dem Wasser können nämlich die Monster umgebracht und somit der &lt;strong&gt;Prozess der Zombiefizierung gestoppt werden&lt;/strong&gt;.</source>
-        <target>El agua puede matar a los monstruos y &lt;strong&gt;detener el proceso de zombificación&lt;/strong&gt;.</target>
+        <target><![CDATA[El agua puede matar a los monstruos y <strong>detener el proceso de zombificación</strong>.]]></target>
       </segment>
     </unit>
     <unit id="8TV3R0W" name="524a7b0">
@@ -7165,7 +7165,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Dazu ist es nötig, &lt;strong&gt;das äußere Gebiet, genannt die Außenwelt, zu erkunden&lt;/strong&gt;. In der Außenwelt finden die Bewohner überlebenswichtige Gegenstände, wie Nahrung, Waffen und Rohstoffe. Diese werden zum Beispiel für den Bau neuer Gebäude benötigt.</source>
-        <target>Empieza por &lt;strong&gt;explorar el desierto&lt;/strong&gt;, llamado el Ultramundo, donde encontrarás elementos esenciales para la supervivencia como alimentos, armas y materias primas. Estas últimas serán necesarias, por ejemplo, para construir edificios.</target>
+        <target><![CDATA[Empieza por <strong>explorar el desierto</strong>, llamado el Ultramundo, donde encontrarás elementos esenciales para la supervivencia como alimentos, armas y materias primas. Estas últimas serán necesarias, por ejemplo, para construir edificios.]]></target>
       </segment>
     </unit>
     <unit id="sWF3auD" name="6cec409">
@@ -7174,7 +7174,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Jeder Bürger kann sich eine &lt;strong&gt;Konstruktion&lt;/strong&gt; aussuchen, an der er mitarbeiten möchte.</source>
-        <target>Cada ciudadano puede elegir una &lt;strong&gt;Construcción&lt;/strong&gt; en la que desee trabajar.</target>
+        <target><![CDATA[Cada ciudadano puede elegir una <strong>Construcción</strong> en la que desee trabajar.]]></target>
       </segment>
     </unit>
     <unit id="BwyhPDE" name="13213a1">
@@ -7192,8 +7192,8 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Du allein entscheidest, ob du ein &lt;strong&gt;solidarischer Mitbürger&lt;/strong&gt; sein willst, der seine Stadt in eine bessere Zukunft führen möchte oder ob du als Außenseiter &lt;strong&gt;unabhängig&lt;/strong&gt; für dein eigenes Überleben kämpfen möchtest!</source>
-        <target>¡Tú decides si quieres ser un &lt;strong&gt;habitante solidario&lt;/strong&gt; que quiere llevar a su ciudad hacia un futuro mejor o si quieres luchar de forma independiente como un &lt;strong&gt;forastero&lt;/strong&gt; por tu propia supervivencia!
-</target>
+        <target><![CDATA[¡Tú decides si quieres ser un <strong>habitante solidario</strong> que quiere llevar a su ciudad hacia un futuro mejor o si quieres luchar de forma independiente como un <strong>forastero</strong> por tu propia supervivencia!
+]]></target>
       </segment>
     </unit>
     <unit id="DjtQdul" name="403af39">
@@ -7229,7 +7229,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Dank diesem &lt;strong&gt;Funkgerät&lt;/strong&gt; bist du in der Lage mit den &lt;strong&gt;den anderen Bürgern deiner Stadt&lt;/strong&gt; zu kommunizieren. Du kannst nach Ratschlägen fragen oder deinen Nachbarn anzeigen...</source>
-        <target>Esta &lt;strong&gt;Radio&lt;/strong&gt; te permite comunicarte con los &lt;strong&gt;otros habitantes de tu pueblo&lt;/strong&gt;. Pide consejos, ayuda y coopera con ellos.</target>
+        <target><![CDATA[Esta <strong>Radio</strong> te permite comunicarte con los <strong>otros habitantes de tu pueblo</strong>. Pide consejos, ayuda y coopera con ellos.]]></target>
       </segment>
     </unit>
     <unit id="Ddpgf84" name="013c48d">
@@ -7247,7 +7247,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Alle &lt;strong&gt;Ereignisse des Vortags&lt;/strong&gt; werden in einer &lt;strong&gt;Zeitung veröffentlicht, die nach jedem Angriff der Zombiehorden erscheint&lt;/strong&gt;. Sie enthält wichtige Informationen!</source>
-        <target>Todos los &lt;strong&gt;eventos del día anterior&lt;/strong&gt; estrán publicados en el &lt;strong&gt;boletín después de cada ataque&lt;/strong&gt;. ¡Contiene información importante!</target>
+        <target><![CDATA[Todos los <strong>eventos del día anterior</strong> estrán publicados en el <strong>boletín después de cada ataque</strong>. ¡Contiene información importante!]]></target>
       </segment>
     </unit>
     <unit id="hQOPgsj" name="f96ea86">
@@ -7256,8 +7256,8 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Deine &lt;strong&gt;Seele&lt;/strong&gt; ist hier sichtbar. In ihr findest du den Verlauf all deiner vorangegangenen Leben... In "MyHordes" ist Sterben nämlich etwas Alltägliches...</source>
-        <target>Esta es tu &lt;strong&gt;Alma&lt;/strong&gt;. Aquí encontrarás información de todas tus vidas anteriores... En "MyHordes" morir es algo cotidiano...
-</target>
+        <target><![CDATA[Esta es tu <strong>Alma</strong>. Aquí encontrarás información de todas tus vidas anteriores... En "MyHordes" morir es algo cotidiano...
+]]></target>
       </segment>
     </unit>
     <unit id="9Nqk8k1" name="ca06291">
@@ -7266,7 +7266,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>In der &lt;strong&gt;ausführlichen Spielhilfe&lt;/strong&gt; findest du alles über die Regeln des Spiels.</source>
-        <target>La &lt;strong&gt;guía completa&lt;/strong&gt; responderá todas tus dudas sobre las reglas del juego.</target>
+        <target><![CDATA[La <strong>guía completa</strong> responderá todas tus dudas sobre las reglas del juego.]]></target>
       </segment>
     </unit>
     <unit id="8yNAgml" name="c9e0eaf">
@@ -7275,7 +7275,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Deine &lt;strong&gt;&lt;span class="ap"&gt;Aktionspunkte&lt;/span&gt;&lt;/strong&gt; (diese werden insbesonders für deine Ausflüge in die Außenwelt benötigt) werden hier auf der linken Seite angezeigt.</source>
-        <target>Tus &lt;strong&gt;&lt;span class="ap"&gt;Puntos de acción&lt;/span&gt;&lt;/strong&gt; (especialmente necesarios para tus viajes al Ultramundo) se muestran aquí a la izquierda.</target>
+        <target><![CDATA[Tus <strong><span class="ap">Puntos de acción</span></strong> (especialmente necesarios para tus viajes al Ultramundo) se muestran aquí a la izquierda.]]></target>
       </segment>
     </unit>
     <unit id="ioAdH4z" name="6889983">
@@ -7284,7 +7284,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Diese Leiste in der Mitte zeigt deinen &lt;strong&gt;Gesundheitszustand&lt;/strong&gt; an. &lt;strong&gt;Behalte ihn immer im Auge.&lt;/strong&gt;</source>
-        <target>Esta barra en el centro muestra tu &lt;strong&gt;estado de salud&lt;/strong&gt;. &lt;strong&gt;Mantenla vigilada todo el tiempo.&lt;/strong&gt;</target>
+        <target><![CDATA[Esta barra en el centro muestra tu <strong>estado de salud</strong>. <strong>Mantenla vigilada todo el tiempo.</strong>]]></target>
       </segment>
     </unit>
     <unit id="D5HiVd5" name="Ganz rechts kannst du den Inhalt deines &lt;strong&gt;Rucksacks&lt;/strong&gt; sehen.">
@@ -7293,7 +7293,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Ganz rechts kannst du den Inhalt deines &lt;strong&gt;Rucksacks&lt;/strong&gt; sehen.</source>
-        <target>En el extremo derecho puedes ver el contenido de tu &lt;strong&gt;Mochila&lt;/strong&gt;.</target>
+        <target><![CDATA[En el extremo derecho puedes ver el contenido de tu <strong>Mochila</strong>.]]></target>
       </segment>
     </unit>
     <unit id="ORDqV.0" name="0871862">
@@ -7510,6 +7510,105 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       <segment>
         <source>Klicke auf diesen Abschnitt, um zum &lt;strong&gt;Stadttor&lt;/strong&gt; zu gelangen.</source>
         <target><![CDATA[Klicke auf diesen Abschnitt, um zum <strong>Stadttor</strong> zu gelangen.]]></target>
+      </segment>
+    </unit>
+    <unit id="nXD28aB" name="Drücke auf diesen Knopf, um in dieser Zone zu &lt;strong&gt;graben&lt;/strong&gt;...">
+      <notes>
+        <note category="german">Drücke auf diesen Knopf, um in dieser Zone zu &lt;strong&gt;graben&lt;/strong&gt;...</note>
+      </notes>
+      <segment>
+        <source>Drücke auf diesen Knopf, um in dieser Zone zu &lt;strong&gt;graben&lt;/strong&gt;...</source>
+        <target><![CDATA[Drücke auf diesen Knopf, um in dieser Zone zu <strong>graben</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="IAz_MhR" name="159138e">
+      <notes>
+        <note category="german">Wenn du einen Gegenstand findest, wird er automatisch in deinem &lt;strong&gt;Rucksack&lt;/strong&gt; verräumt (sofern du noch Platz hast) &lt;strong&gt;oder am Boden abgelegt&lt;/strong&gt; (wenn du keinen Platz mehr hast).</note>
+      </notes>
+      <segment>
+        <source>Wenn du einen Gegenstand findest, wird er automatisch in deinem &lt;strong&gt;Rucksack&lt;/strong&gt; verräumt (sofern du noch Platz hast) &lt;strong&gt;oder am Boden abgelegt&lt;/strong&gt; (wenn du keinen Platz mehr hast).</source>
+        <target><![CDATA[Wenn du einen Gegenstand findest, wird er automatisch in deinem <strong>Rucksack</strong> verräumt (sofern du noch Platz hast) <strong>oder am Boden abgelegt</strong> (wenn du keinen Platz mehr hast).]]></target>
+      </segment>
+    </unit>
+    <unit id="rKxSqrI" name="4228fd8">
+      <notes>
+        <note category="german">Wenn du für ein paar Stunden in der Zone verharrst, in der du schon einmal gegraben hast, kannst du dort noch einmal &lt;strong&gt;umsonst graben&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Wenn du für ein paar Stunden in der Zone verharrst, in der du schon einmal gegraben hast, kannst du dort noch einmal &lt;strong&gt;umsonst graben&lt;/strong&gt;.</source>
+        <target><![CDATA[Wenn du für ein paar Stunden in der Zone verharrst, in der du schon einmal gegraben hast, kannst du dort noch einmal <strong>umsonst graben</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="sISZRef" name="6da577e">
+      <notes>
+        <note category="german">Der Zähler, der die nächste automatische Ausgrabung anzeigt, ist hier sichtbar.</note>
+      </notes>
+      <segment>
+        <source>Der Zähler, der die nächste automatische Ausgrabung anzeigt, ist hier sichtbar.</source>
+        <target>Der Zähler, der die nächste automatische Ausgrabung anzeigt, ist hier sichtbar.</target>
+      </segment>
+    </unit>
+    <unit id="WQFCOK_" name="46d850b">
+      <notes>
+        <note category="german">Du kannst dich weiterhin im Freien bewegen oder auf die nächste automatische Grabungsaktion warten. Egal wie du dich entscheidest, &lt;strong&gt;du MUSST ZUSEHEN, dass du vor dem Zombieangriffum Mitternacht nach Hause kommst&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Du kannst dich weiterhin im Freien bewegen oder auf die nächste automatische Grabungsaktion warten. Egal wie du dich entscheidest, &lt;strong&gt;du MUSST ZUSEHEN, dass du vor dem Zombieangriffum Mitternacht nach Hause kommst&lt;/strong&gt;!</source>
+        <target><![CDATA[Du kannst dich weiterhin im Freien bewegen oder auf die nächste automatische Grabungsaktion warten. Egal wie du dich entscheidest, <strong>du MUSST ZUSEHEN, dass du vor dem Zombieangriffum Mitternacht nach Hause kommst</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="RPV.Hdo" name="c01b240">
+      <notes>
+        <note category="german">Deine im Freien verwendbaren &lt;strong&gt;Aktionspunkte&lt;/strong&gt; werden hier angezeigt. &lt;strong&gt;Wenn du keine Aktionspunkte mehr hast, bist du Erschöpft&lt;/strong&gt;. Um dein Punktekonto wieder aufzufüllen, kannst du etwas essen, trinken oder Drogen zu dir nehmen (je nachdem was dir zur Verfügung steht).</note>
+      </notes>
+      <segment>
+        <source>Deine im Freien verwendbaren &lt;strong&gt;Aktionspunkte&lt;/strong&gt; werden hier angezeigt. &lt;strong&gt;Wenn du keine Aktionspunkte mehr hast, bist du Erschöpft&lt;/strong&gt;. Um dein Punktekonto wieder aufzufüllen, kannst du etwas essen, trinken oder Drogen zu dir nehmen (je nachdem was dir zur Verfügung steht).</source>
+        <target><![CDATA[Deine im Freien verwendbaren <strong>Aktionspunkte</strong> werden hier angezeigt. <strong>Wenn du keine Aktionspunkte mehr hast, bist du Erschöpft</strong>. Um dein Punktekonto wieder aufzufüllen, kannst du etwas essen, trinken oder Drogen zu dir nehmen (je nachdem was dir zur Verfügung steht).]]></target>
+      </segment>
+    </unit>
+    <unit id="uUBYOVt" name="Spielhilfe aktiv:">
+      <notes>
+        <note category="german">Spielhilfe aktiv:</note>
+      </notes>
+      <segment>
+        <source>Spielhilfe aktiv:</source>
+        <target>Spielhilfe aktiv:</target>
+      </segment>
+    </unit>
+    <unit id="RDaVuhy" name="Die Spielhilfe stoppen">
+      <notes>
+        <note category="german">Die Spielhilfe stoppen</note>
+      </notes>
+      <segment>
+        <source>Die Spielhilfe stoppen</source>
+        <target>Die Spielhilfe stoppen</target>
+      </segment>
+    </unit>
+    <unit id="Jod5rXM" name="3e769c0">
+      <notes>
+        <note category="german">Es wäre vielleicht nicht verkehrt etwas &lt;strong&gt;Proviant&lt;/strong&gt; (Nahrung und/oder Wasser) einzupacken, bevor du die Stadt verlässt... Gehe dazu in den Bereich &lt;strong&gt;Mein Zuhause&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Es wäre vielleicht nicht verkehrt etwas &lt;strong&gt;Proviant&lt;/strong&gt; (Nahrung und/oder Wasser) einzupacken, bevor du die Stadt verlässt... Gehe dazu in den Bereich &lt;strong&gt;Mein Zuhause&lt;/strong&gt;.</source>
+        <target><![CDATA[Es wäre vielleicht nicht verkehrt etwas <strong>Proviant</strong> (Nahrung und/oder Wasser) einzupacken, bevor du die Stadt verlässt... Gehe dazu in den Bereich <strong>Mein Zuhause</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="J6Uka4G" name="3f21055">
+      <notes>
+        <note category="german">Achtung, du hast bereits &lt;strong&gt;die Hälfte deiner &lt;span class="ap"&gt;&lt;/span&gt;&lt;/strong&gt; verbraucht. Denke immer daran, dir genügend AP aufzuheben, um in die Stadt zurückkehren zu können!</note>
+      </notes>
+      <segment>
+        <source>Achtung, du hast bereits &lt;strong&gt;die Hälfte deiner &lt;span class="ap"&gt;&lt;/span&gt;&lt;/strong&gt; verbraucht. Denke immer daran, dir genügend AP aufzuheben, um in die Stadt zurückkehren zu können!</source>
+        <target><![CDATA[Achtung, du hast bereits <strong>die Hälfte deiner <span class="ap"></span></strong> verbraucht. Denke immer daran, dir genügend AP aufzuheben, um in die Stadt zurückkehren zu können!]]></target>
+      </segment>
+    </unit>
+    <unit id="KeA0.Fl" name="Diese Nachricht verbergen">
+      <notes>
+        <note category="german">Diese Nachricht verbergen</note>
+      </notes>
+      <segment>
+        <source>Diese Nachricht verbergen</source>
+        <target>Diese Nachricht verbergen</target>
       </segment>
     </unit>
   </file>

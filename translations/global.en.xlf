@@ -2336,5 +2336,23 @@
         <target>Error during loading inbox.</target>
       </segment>
     </unit>
+    <unit id="Ruov.3p" name="Heute">
+      <notes>
+        <note category="german">Heute</note>
+      </notes>
+      <segment>
+        <source>Heute</source>
+        <target>Heute</target>
+      </segment>
+    </unit>
+    <unit id="yqnaeA." name="Gestern">
+      <notes>
+        <note category="german">Gestern</note>
+      </notes>
+      <segment>
+        <source>Gestern</source>
+        <target>Gestern</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
