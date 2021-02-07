@@ -565,35 +565,34 @@ class NightlyHandler
         if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_DO_DESTROY, false)) {
             // Panda towns sees their defense object in the bank destroyed
             $number = max(1, min(mt_rand($est->getZombies() * 0.01, $est->getZombies() * 0.2), 20));
-            $this->log->info("We destroy <info>$number</info> items");
             $items = $this->inventory_handler->fetchSpecificItems($town->getBank(), [new ItemRequest('defence', $number, false, null, true)]);
+            $this->log->info("We destroy <info>$number</info> items");
             $this->log->info("We fetched <info>". count($items) . "</info> items");
             shuffle($items);
             $destroyed_count = 0;
             $itemsForLog = [];
-            if (count($items) > 0)
-                while($destroyed_count < $number) {
-                    foreach ($items as $item) {
-                        if ($destroyed_count >= $number) break;
+            while($destroyed_count < $number && count($items) > 0) {
+                foreach ($items as $item) {
+                    if ($destroyed_count >= $number) break;
 
-                        $this->log->debug("selecting between 1 and " . min($item->getCount(), $number - $destroyed_count));
-                        $delete = mt_rand(1, min($item->getCount(), $number - $destroyed_count));
-                        $destroyed_count += $delete;
-                        $this->log->info("Destroying $delete <info>{$item->getPrototype()->getName()}</info> due to the attack");
-                        $this->inventory_handler->forceRemoveItem($item, $delete);
-                        if(isset($itemsForLog[$item->getPrototype()->getId()])) {
-                            $itemsForLog[$item->getPrototype()->getId()]['count']+= $delete;
-                        } else {
-                            $itemsForLog[$item->getPrototype()->getId()] = [
-                                'item' => $item->getPrototype(),
-                                'count' => $delete
-                            ];
-                        }
-                        if ($delete === $item->getCount()) {
-                            array_pop($items);
-                        }
+                    $this->log->debug("selecting between 1 and " . min($item->getCount(), $number - $destroyed_count));
+                    $delete = mt_rand(1, min($item->getCount(), $number - $destroyed_count));
+                    $destroyed_count += $delete;
+                    $this->log->info("Destroying $delete <info>{$item->getPrototype()->getName()}</info> due to the attack");
+                    $this->inventory_handler->forceRemoveItem($item, $delete);
+                    if(isset($itemsForLog[$item->getPrototype()->getId()])) {
+                        $itemsForLog[$item->getPrototype()->getId()]['count']+= $delete;
+                    } else {
+                        $itemsForLog[$item->getPrototype()->getId()] = [
+                            'item' => $item->getPrototype(),
+                            'count' => $delete
+                        ];
+                    }
+                    if ($delete === $item->getCount()) {
+                        array_pop($items);
                     }
                 }
+            }
 
             if (!empty($itemsForLog)) {
                 $this->entity_manager->persist($this->logTemplates->nightlyAttackBankItemsDestroy($town, $itemsForLog));
