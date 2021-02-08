@@ -10,6 +10,7 @@ use App\Entity\CitizenRole;
 use App\Entity\ExpeditionRoute;
 use App\Entity\ExternalApp;
 use App\Entity\Gazette;
+use App\Entity\GazetteEntryTemplate;
 use App\Entity\GazetteLogEntry;
 use App\Entity\Item;
 use App\Entity\ItemCategory;
@@ -1180,10 +1181,16 @@ class ExternalXML2Controller extends ExternalController {
      */
     protected function parseGazetteLog(GazetteLogEntry $gazetteLogEntry, string $lang = null): string
     {
-        return $this->parseLog($gazetteLogEntry->getLogEntryTemplate(), $gazetteLogEntry->getVariables(), $lang);
+        return $this->parseLog($gazetteLogEntry->getLogEntryTemplate() ?? $gazetteLogEntry->getTemplate(), $gazetteLogEntry->getVariables(), $lang);
     }
 
-    protected function parseLog(LogEntryTemplate $template, array $variables, string $lang = null): string {
+    /**
+     * @param GazetteEntryTemplate|LogEntryTemplate $template
+     * @param array $variables
+     * @param string|null $lang
+     * @return string
+     */
+    protected function parseLog($template, array $variables, string $lang = null): string {
         $variableTypes = $template->getVariableTypes();
         $transParams = $this->logTemplateHandler->parseTransParams($variableTypes, $variables);
 
