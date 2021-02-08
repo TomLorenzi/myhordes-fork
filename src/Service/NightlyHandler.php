@@ -439,7 +439,8 @@ class NightlyHandler
 
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow, count($watchers) > 0 && $has_nightwatch));
 
-        $total_watch_def = $this->town_handler->calculate_watch_def($town, $town->getDay() - 1);
+        $def_scale = $def_summary ? $def_summary->overall_scale : 1.0;
+        $total_watch_def = floor($this->town_handler->calculate_watch_def($town, $town->getDay() - 1) * $def_scale);
         $this->log->debug("There are <info>".count($watchers)."</info> watchers (with <info>{$total_watch_def}</info> watch defense) in town, against <info>$overflow</info> zombies.");
 
         $has_shooting_gallery = (bool)$this->town_handler->getBuilding($town, 'small_tourello_#00', true);
@@ -448,7 +449,7 @@ class NightlyHandler
         $has_armory           = (bool)$this->town_handler->getBuilding($town, 'small_armor_#00', true);
 
         foreach ($watchers as $watcher) {
-            $defBonus = $overflow > 0 ? $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory) : 0;
+            $defBonus = $overflow > 0 ? floor($this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory) * $def_scale) : 0;
 
             $deathChances = $this->citizen_handler->getDeathChances($watcher->getCitizen(), true);
             $woundOrTerrorChances = $deathChances + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05);
