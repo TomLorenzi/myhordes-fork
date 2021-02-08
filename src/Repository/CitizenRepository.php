@@ -96,6 +96,8 @@ class CitizenRepository extends ServiceEntityRepository
             ->innerJoin('c.roles', 'r')
             ->andWhere('c.town = :town')
             ->andWhere('c.alive = true')
+            ->andWhere('r.secret = false')
+            ->andWhere('r.hidden = false')
             ->addOrderBy("r.id")
             ->addOrderBy("c.id")
             ->setParameter('town', $town)
