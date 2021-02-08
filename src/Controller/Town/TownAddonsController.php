@@ -395,8 +395,10 @@ class TownAddonsController extends TownController
         if (!$items) return AjaxResponse::error( ErrorHelper::ErrorItemsMissing );
 
         $itemsForLog = [
-            'item' => $prototype,
-            'count' => $ap
+            $prototype->getId() => [
+                'item' => $prototype,
+                'count' => $ap
+            ]
         ];
 
         // Remove items
