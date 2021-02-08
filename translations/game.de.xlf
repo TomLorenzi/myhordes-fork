@@ -17908,6 +17908,24 @@
         <target><![CDATA[Du besitzt eine <strong>Karte</strong>. Benutze den Knopf hier oben, um nicht verloren zu gehen!]]></target>
       </segment>
     </unit>
+    <unit id="Cm7opZK" name="877bae7">
+      <notes>
+        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                                auffüllen.</note>
+      </notes>
+      <segment>
+        <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                                auffüllen.</source>
+        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                                auffüllen.</target>
+      </segment>
+    </unit>
     <unit id="cNyto3M" name="Du wurdest zum Schamanen gewählt!">
       <notes>
         <note category="german">Du wurdest zum Schamanen gewählt!</note>
@@ -18023,24 +18041,6 @@
       <segment>
         <source>Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</source>
         <target>Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</target>
-      </segment>
-    </unit>
-    <unit id="Cm7opZK" name="877bae7">
-      <notes>
-        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                                auffüllen.</note>
-      </notes>
-      <segment>
-        <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                                auffüllen.</source>
-        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                                auffüllen.</target>
       </segment>
     </unit>
   </file>

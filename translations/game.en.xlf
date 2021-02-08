@@ -8891,7 +8891,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Verschiedene Gegenstände am Boden</source>
-        <target>Items</target>
+        <target>Item(s)</target>
       </segment>
     </unit>
     <unit id="KVObx2I" name="Wichtige(r) Gegenstand/-ände!">
@@ -17573,7 +17573,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du hast eine weitere %item% genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...</source>
-        <target>Du hast eine weitere %item% genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...</target>
+        <target>You have taken 1 additional %item% ! The other citizens have been informed.</target>
       </segment>
     </unit>
     <unit id=".DUvSmW" name="Du hast deine tägliche Ration erhalten: %item%">
@@ -17582,7 +17582,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du hast deine tägliche Ration erhalten: %item%</source>
-        <target>Du hast deine tägliche Ration erhalten: %item%</target>
+        <target>You have collected your daily ration: %item%</target>
       </segment>
     </unit>
     <unit id="T4D33fJ" name="Die Route wurde gelöscht.">
@@ -17891,6 +17891,24 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target><![CDATA[Du besitzt eine <strong>Karte</strong>. Benutze den Knopf hier oben, um nicht verloren zu gehen!]]></target>
       </segment>
     </unit>
+    <unit id="Cm7opZK" name="877bae7">
+      <notes>
+        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                                auffüllen.</note>
+      </notes>
+      <segment>
+        <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                                auffüllen.</source>
+        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                                auffüllen.</target>
+      </segment>
+    </unit>
     <unit id="cNyto3M" name="Du wurdest zum Schamanen gewählt!">
       <notes>
         <note category="german">Du wurdest zum Schamanen gewählt!</note>
@@ -18006,24 +18024,6 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</source>
         <target>Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</target>
-      </segment>
-    </unit>
-    <unit id="Cm7opZK" name="877bae7">
-      <notes>
-        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                                auffüllen.</note>
-      </notes>
-      <segment>
-        <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                                auffüllen.</source>
-        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                                auffüllen.</target>
       </segment>
     </unit>
   </file>

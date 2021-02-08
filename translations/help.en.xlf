@@ -7495,6 +7495,24 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
         <target><![CDATA[Klicke auf diesen Abschnitt, um zum <strong>Stadttor</strong> zu gelangen.]]></target>
       </segment>
     </unit>
+    <unit id="uUBYOVt" name="Spielhilfe aktiv:">
+      <notes>
+        <note category="german">Spielhilfe aktiv:</note>
+      </notes>
+      <segment>
+        <source>Spielhilfe aktiv:</source>
+        <target>Spielhilfe aktiv:</target>
+      </segment>
+    </unit>
+    <unit id="RDaVuhy" name="Die Spielhilfe stoppen">
+      <notes>
+        <note category="german">Die Spielhilfe stoppen</note>
+      </notes>
+      <segment>
+        <source>Die Spielhilfe stoppen</source>
+        <target>Die Spielhilfe stoppen</target>
+      </segment>
+    </unit>
     <unit id="nXD28aB" name="Drücke auf diesen Knopf, um in dieser Zone zu &lt;strong&gt;graben&lt;/strong&gt;...">
       <notes>
         <note category="german">Drücke auf diesen Knopf, um in dieser Zone zu &lt;strong&gt;graben&lt;/strong&gt;...</note>
@@ -7549,33 +7567,6 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
         <target><![CDATA[Deine im Freien verwendbaren <strong>Aktionspunkte</strong> werden hier angezeigt. <strong>Wenn du keine Aktionspunkte mehr hast, bist du Erschöpft</strong>. Um dein Punktekonto wieder aufzufüllen, kannst du etwas essen, trinken oder Drogen zu dir nehmen (je nachdem was dir zur Verfügung steht).]]></target>
       </segment>
     </unit>
-    <unit id="uUBYOVt" name="Spielhilfe aktiv:">
-      <notes>
-        <note category="german">Spielhilfe aktiv:</note>
-      </notes>
-      <segment>
-        <source>Spielhilfe aktiv:</source>
-        <target>Spielhilfe aktiv:</target>
-      </segment>
-    </unit>
-    <unit id="RDaVuhy" name="Die Spielhilfe stoppen">
-      <notes>
-        <note category="german">Die Spielhilfe stoppen</note>
-      </notes>
-      <segment>
-        <source>Die Spielhilfe stoppen</source>
-        <target>Die Spielhilfe stoppen</target>
-      </segment>
-    </unit>
-    <unit id="Jod5rXM" name="3e769c0">
-      <notes>
-        <note category="german">Es wäre vielleicht nicht verkehrt etwas &lt;strong&gt;Proviant&lt;/strong&gt; (Nahrung und/oder Wasser) einzupacken, bevor du die Stadt verlässt... Gehe dazu in den Bereich &lt;strong&gt;Mein Zuhause&lt;/strong&gt;.</note>
-      </notes>
-      <segment>
-        <source>Es wäre vielleicht nicht verkehrt etwas &lt;strong&gt;Proviant&lt;/strong&gt; (Nahrung und/oder Wasser) einzupacken, bevor du die Stadt verlässt... Gehe dazu in den Bereich &lt;strong&gt;Mein Zuhause&lt;/strong&gt;.</source>
-        <target><![CDATA[Es wäre vielleicht nicht verkehrt etwas <strong>Proviant</strong> (Nahrung und/oder Wasser) einzupacken, bevor du die Stadt verlässt... Gehe dazu in den Bereich <strong>Mein Zuhause</strong>.]]></target>
-      </segment>
-    </unit>
     <unit id="J6Uka4G" name="3f21055">
       <notes>
         <note category="german">Achtung, du hast bereits &lt;strong&gt;die Hälfte deiner &lt;span class="ap"&gt;&lt;/span&gt;&lt;/strong&gt; verbraucht. Denke immer daran, dir genügend AP aufzuheben, um in die Stadt zurückkehren zu können!</note>
@@ -7592,6 +7583,15 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       <segment>
         <source>Diese Nachricht verbergen</source>
         <target>Diese Nachricht verbergen</target>
+      </segment>
+    </unit>
+    <unit id="Jod5rXM" name="3e769c0">
+      <notes>
+        <note category="german">Es wäre vielleicht nicht verkehrt etwas &lt;strong&gt;Proviant&lt;/strong&gt; (Nahrung und/oder Wasser) einzupacken, bevor du die Stadt verlässt... Gehe dazu in den Bereich &lt;strong&gt;Mein Zuhause&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Es wäre vielleicht nicht verkehrt etwas &lt;strong&gt;Proviant&lt;/strong&gt; (Nahrung und/oder Wasser) einzupacken, bevor du die Stadt verlässt... Gehe dazu in den Bereich &lt;strong&gt;Mein Zuhause&lt;/strong&gt;.</source>
+        <target><![CDATA[Es wäre vielleicht nicht verkehrt etwas <strong>Proviant</strong> (Nahrung und/oder Wasser) einzupacken, bevor du die Stadt verlässt... Gehe dazu in den Bereich <strong>Mein Zuhause</strong>.]]></target>
       </segment>
     </unit>
   </file>

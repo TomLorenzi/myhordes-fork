@@ -17840,7 +17840,7 @@
       <segment>
         <source>Wenn du "MyHordes" zum ersten Mal spielst, empfehlen wir dir den Links &lt;strong&gt;Wie soll ich spielen?&lt;/strong&gt; zu folgen,
                 die sich auf der Webseite links befindet. Interaktive Schritt-für-Schritt-Anleitungen erklären dir in 5 Minuten die Grundlagen des Spiels.</source>
-        <target><![CDATA[Si estás jugando a "MyHordes" por primera vez, te recomendamos que sigas los enlaces bajo <strong>¿Cómo jugar?</strong> ubicados 
+        <target><![CDATA[Si estás jugando a "MyHordes" por primera vez, te recomendamos que sigas los enlaces bajo <strong>¿Cómo jugar?</strong> ubicados
                 en la izquierda superior del sitio web. Las instrucciones interactivas te explicarán paso a paso los conceptos básicos del juego en menos de 5 minutos.]]></target>
       </segment>
     </unit>
@@ -17887,6 +17887,24 @@
       <segment>
         <source>Du besitzt eine &lt;strong&gt;Karte&lt;/strong&gt;. Benutze den Knopf hier oben, um nicht verloren zu gehen!</source>
         <target><![CDATA[¡Usa el <strong>mapa</strong> para no perderte!]]></target>
+      </segment>
+    </unit>
+    <unit id="Cm7opZK" name="877bae7">
+      <notes>
+        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                                auffüllen.</note>
+      </notes>
+      <segment>
+        <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                                auffüllen.</source>
+        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
+                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
+                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
+                                auffüllen.</target>
       </segment>
     </unit>
     <unit id="cNyto3M" name="Du wurdest zum Schamanen gewählt!">
@@ -18004,24 +18022,6 @@
       <segment>
         <source>Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</source>
         <target>Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</target>
-      </segment>
-    </unit>
-    <unit id="Cm7opZK" name="877bae7">
-      <notes>
-        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                                auffüllen.</note>
-      </notes>
-      <segment>
-        <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                                auffüllen.</source>
-        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                                auffüllen.</target>
       </segment>
     </unit>
   </file>

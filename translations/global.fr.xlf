@@ -2349,7 +2349,7 @@
       </notes>
       <segment>
         <source>Heute</source>
-        <target>Heute</target>
+        <target>Aujourd'hui</target>
       </segment>
     </unit>
     <unit id="yqnaeA." name="Gestern">
@@ -2358,7 +2358,7 @@
       </notes>
       <segment>
         <source>Gestern</source>
-        <target>Gestern</target>
+        <target>Hier</target>
       </segment>
     </unit>
   </file>
