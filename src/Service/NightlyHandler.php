@@ -29,6 +29,7 @@ use App\Entity\Zone;
 use App\Structures\EventConf;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
+use App\Structures\TownDefenseSummary;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 
@@ -400,7 +401,10 @@ class NightlyHandler
         /** @var Gazette $gazette */
         $gazette = $town->findGazette( $town->getDay() );
         $gazette->setDoor($town->getDoor());
-	    $gazette->setDefense($def = $town->getDevastated() ? 0 : $this->town_handler->calculate_town_def( $town ));
+
+        /** @var TownDefenseSummary|null $def_summary */
+        $def_summary = null;
+	    $gazette->setDefense($def = $town->getDevastated() ? 0 : $this->town_handler->calculate_town_def( $town, $def_summary ));
 
         /** @var ZombieEstimation $est */
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
@@ -413,7 +417,7 @@ class NightlyHandler
         $gazette->setAttack($zombies);
 
         $overflow = !$town->getDoor() ? max(0, $zombies - $def) : $zombies;
-        $this->log->debug("The town has <info>{$def}</info> defense and is attacked by <info>{$zombies}</info> Zombies. The door is <info>" . ($town->getDoor() ? 'open' : 'closed') . "</info>!");
+        $this->log->debug("The town has <info>{$def}</info> defense and is attacked by <info>{$zombies}</info> Zombies. The door is <info>" . ($town->getDoor() ? 'open' : 'closed') . "</info>!", $def_summary ? $def_summary->toArray() : []);
         $this->log->debug("<info>{$overflow}</info> Zombies have entered the town!");
 
         $gazette->setInvasion($overflow);
