@@ -24,9 +24,9 @@
         #log_target>div.type-debug>div { opacity: 0.7 }
         #log_target>div.type-debug::before { position: absolute; top: 0; left: 0; bottom: 0; width: 5px; content: " "; background: rgba(255,255,255,0.5); }
         #log_target>div.type-info::before  { position: absolute; top: 0; left: 0; bottom: 0; width: 5px; content: " "; background: #15b8f3; }
-        #log_target>div.type-error { background: #3d0000; }
-        #log_target>div.type-error:hover { background: #4f0000; }
-        #log_target>div.type-error::before { position: absolute; top: 0; left: 0; bottom: 0; width: 5px; content: " "; background: #ff0000; }
+        #log_target>div.type-error, #log_target>div.type-critical { background: #3d0000; }
+        #log_target>div.type-error:hover, #log_target>div.type-critical:hover { background: #4f0000; }
+        #log_target>div.type-error::before, #log_target>div.type-critical::before { position: absolute; top: 0; left: 0; bottom: 0; width: 5px; content: " "; background: #ff0000; }
 
         #log_target>div>div.date   { position: absolute; left: 10px; top: 0; width: 300px; }
         #log_target>div>div.source { position: absolute; left: 300px; top: 0; width: 100px; }
