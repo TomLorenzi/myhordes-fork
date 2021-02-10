@@ -134,6 +134,15 @@ class AdminTownController extends AdminActionController
                 $complaints[$citizen->getUser()->getName()] = $comp;
         }
 
+        $root = [];
+        $dict = [];
+
+        foreach ($this->entity_manager->getRepository(BuildingPrototype::class)->findAll() as $building) {
+            /** @var BuildingPrototype $building */
+            $dict[ $building->getId() ] = [];
+            if (!$building->getParent()) $root[] = $building;
+        }
+
         return $this->render( 'ajax/admin/towns/explorer.html.twig', $this->addDefaultTwigArgs(null, array_merge([
             'town' => $town,
             'conf' => $this->conf->getTownConfiguration( $town ),
@@ -147,7 +156,8 @@ class AdminTownController extends AdminActionController
             'citizenRoles' => $citizenRoles,
             'tab' => $tab,
             'complaints' => $complaints,
-            'buildingsPrototypes' => $this->entity_manager->getRepository(BuildingPrototype::class)->findAll()
+            'dictBuildings' => $dict,
+            'rootBuildings'=> $root
         ], $this->get_map_blob($town))));
     }
 

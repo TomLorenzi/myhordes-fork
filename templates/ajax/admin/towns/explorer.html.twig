@@ -82,6 +82,26 @@
             </div>
 
             <div x-tab-group="admin-town" x-tab-id="buildings" x-tab-target>
+                {# @var rootBuildings \App\Entity\BuildingPrototype[] #}
+                <div>
+                    <ul class="buildings-tabs tabs plain" x-tab-group="buildings" x-tab-control>
+                        <li class="tab" x-tab-id="all">
+                            <div class="tab-link">
+                                <img class="hide-desktop" alt="*" src="{{ asset( 'build/images/icons/small_new.gif' ) }}" >
+                                <span class="hide-lg hide-md hide-sm">{{ 'Alle'|trans({},'game') }}</span>
+                            </div>
+                        </li>
+                        {% for building in rootBuildings %}
+                            <li class="tab" x-tab-id="type_{{ building.icon }}">
+                                <div class="tab-link">
+                                    <img class="hide-desktop" alt="" src="{{ asset('build/images/building/' ~ building.icon ~ '.gif' ) }}" >
+                                    {% set label = building.label|trans({}, 'buildings') %}
+                                    <span class="hide-lg hide-md hide-sm">{{ label|length > 12 ? (label|slice(0,10) ~ '...') : label }}</span>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
 
             <div x-tab-group="admin-town" x-tab-id="bank" x-tab-target>
