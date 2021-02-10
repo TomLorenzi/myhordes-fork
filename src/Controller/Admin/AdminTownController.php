@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
@@ -119,10 +120,11 @@ class AdminTownController extends AdminActionController
           return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
         });
 
-      $citizenRoles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
-      usort($citizenRoles, function($a, $b) {
-        return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
-      });
+        $citizenRoles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
+
+        usort($citizenRoles, function($a, $b) {
+            return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
+        });
 
         $complaints = [];
 
@@ -145,6 +147,7 @@ class AdminTownController extends AdminActionController
             'citizenRoles' => $citizenRoles,
             'tab' => $tab,
             'complaints' => $complaints,
+            'buildingsPrototypes' => $this->entity_manager->getRepository(BuildingPrototype::class)->findAll()
         ], $this->get_map_blob($town))));
     }
 
