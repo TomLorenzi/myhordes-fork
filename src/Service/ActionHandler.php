@@ -788,7 +788,7 @@ class ActionHandler
                     }
 
                     if ($proto && $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ),
-                            $target,true)) $execute_info_cache['items_spawn'][] = $proto;
+                            $target)) $execute_info_cache['items_spawn'][] = $proto;
                 }
             }
 
