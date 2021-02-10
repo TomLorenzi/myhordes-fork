@@ -787,8 +787,13 @@ class ActionHandler
                             break;
                     }
 
-                    if ($proto && $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ),
-                            $target)) $execute_info_cache['items_spawn'][] = $proto;
+                    if ($proto) {
+                        if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ), $target)) {
+                            $execute_info_cache['items_spawn'][] = $proto;
+                        } else {
+                            return self::ErrorActionImpossible;
+                        }
+                    }
                 }
             }
 
@@ -1377,9 +1382,15 @@ class ActionHandler
             	}
                 $execute_info_cache['message'][$index] = $result->getMessage()->getText();
             }
+
+            return self::ErrorNone;
         };
 
-        foreach ($action->getResults() as $result) $execute_result( $result ); // Here, we process AffectMessages AND $kill_by_poison var
+        foreach ($action->getResults() as $result) {
+            $res = $execute_result($result); // Here, we process AffectMessages AND $kill_by_poison var
+            if($res !== self::ErrorNone)
+                return $res;
+        }
 
         if ($spread_poison) $item->setPoison( true );
         if ($kill_by_poison && $citizen->getAlive()) {
