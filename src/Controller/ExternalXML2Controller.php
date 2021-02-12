@@ -350,6 +350,13 @@ class ExternalXML2Controller extends ExternalController {
             $def = new TownDefenseSummary();
             $this->town_handler->calculate_town_def($town, $def);
 
+            $item_def_factor = 1;
+
+            $building = $this->town_handler->getBuilding($town, 'item_meca_parts_#00');
+            if ($building) {
+                $item_def_factor += (1+$building->getLevel()) * 0.5;
+            }
+
             $data['data'] = [
                 'attributes' => [
                     'cache-date' => $now->format('Y-m-d H:i:s'),
@@ -382,7 +389,7 @@ class ExternalXML2Controller extends ExternalController {
                             'upgrades' => $def->building_def_vote,
                             'buildings' => $def->building_def_base,
                             'total' => $def->sum(),
-                            'itemsMul' => $this->town_handler->getBuilding($town, 'item_meca_parts_#00', true) ? (1.0 + 1+$this->town_handler->getBuilding($town, 'item_meca_parts_#00', true)->getLevel()) * 0.5 : 1.0
+                            'itemsMul' => $item_def_factor
                         ]
                     ]
                 ],
