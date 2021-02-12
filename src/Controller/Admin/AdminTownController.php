@@ -753,20 +753,18 @@ class AdminTownController extends AdminActionController
         if(!$building)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if ($building->getComplete())
-            return AjaxResponse::error(TownController::ErrorAlreadyFinished);
-
         $ap = intval($parser->get("ap"));
 
-        if (!$building->getComplete() && $ap >= $building->getPrototype()->getAp() - $building->getAp()) {
-            $ap = $building->getPrototype()->getAp() - $building->getAp();
+        if ($ap >= $building->getPrototype()->getAp()) {
+            $ap = $building->getPrototype()->getAp();
         }
 
         $building->setAp($ap);
 
+        $building->setComplete( $building->getAp() >= $building->getPrototype()->getAp() );
+
         if ($building->getAp() >= $building->getPrototype()->getAp()) {
-            $building->setComplete(true);
-            $th->triggerBuildingCompletion($town, $building);
+            $building->setComplete(true);            $th->triggerBuildingCompletion($town, $building);
         }
 
         $this->entity_manager->persist($building);

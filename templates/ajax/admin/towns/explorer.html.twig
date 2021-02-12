@@ -139,20 +139,12 @@
                                 </div>
                             {% endif %}
 
-                            {% if buildable and fromTown.ap < building.ap %}
-                                <div class="build-req">
-                                    <div class="ap">{{ fromTown.ap }}/{{ building.ap }}</div>
-                                </div>
-                            {% elseif (fromTown.complete and building.hp < building.hp) %}
-                                <div class="build-req">
-                                    <div class="ap">{{ building.hp - fromTown.hp }}</div>
-                                </div>
-                            {% endif %}
+                            <div class="build-req">
+                                <div class="ap">{{ fromTown.ap }}/{{ building.ap }}</div>
+                            </div>
                         </div>
                         <div class="padded cell rw-1 rw-lg-2 rw-sm-12 right">
-                            {% if buildable and (fromTown.ap < (building.ap) or not fromTown.complete) or (fromTown.complete and fromTown.hp < building.hp) %}
-                                <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="setAp">{% if not fromTown.complete %}<i class="fa fa-plus"></i>{% else %}<img src="{{ asset('build/images/icons/small_refine.gif') }}" alt="" style="margin-right: 0px;" />{% endif %}</button>
-                            {% endif %}
+                            <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="setAp"><i class="fa fa-edit"></i></button>
                         </div>
                         {% endif %}
                     </div>
