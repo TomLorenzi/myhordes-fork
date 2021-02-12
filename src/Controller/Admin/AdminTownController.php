@@ -686,6 +686,12 @@ class AdminTownController extends AdminActionController
                     break;
             }
 
+            if ($citizen->getAp() <= 0) {
+                $this->citizen_handler->inflictStatus($citizen, "tired");
+            } else {
+                $this->citizen_handler->removeStatus($citizen, "tired");
+            }
+
             $this->entity_manager->persist($citizen);
         }
 
