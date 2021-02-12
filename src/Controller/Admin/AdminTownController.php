@@ -2,6 +2,8 @@
 
 namespace App\Controller\Admin;
 
+use App\Controller\Town\TownController;
+use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
 use App\Entity\CitizenRole;
@@ -24,6 +26,7 @@ use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\NightlyHandler;
+use App\Service\TownHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Exception;
@@ -136,13 +139,25 @@ class AdminTownController extends AdminActionController
 
         $root = [];
         $dict = [];
+        $inTown = [];
 
         foreach ($this->entity_manager->getRepository(BuildingPrototype::class)->findAll() as $building) {
             /** @var BuildingPrototype $building */
             $dict[ $building->getId() ] = [];
-            if (!$building->getParent()) $root[] = $building;
+            if (!$building->getParent())
+                $root[] = $building;
         }
 
+        foreach ($this->entity_manager->getRepository(BuildingPrototype::class)->findAll() as $building) {
+            /** @var BuildingPrototype $building */
+            if ($building->getParent()) {
+                $dict[$building->getParent()->getId()][] = $building;
+            }
+
+            $available = $this->entity_manager->getRepository(Building::class)->findOneBy(['town' => $town, 'prototype' => $building]);
+            if($available)
+                $inTown[$building->getId()] = $available;
+        }
         return $this->render( 'ajax/admin/towns/explorer.html.twig', $this->addDefaultTwigArgs(null, array_merge([
             'town' => $town,
             'conf' => $this->conf->getTownConfiguration( $town ),
@@ -157,7 +172,8 @@ class AdminTownController extends AdminActionController
             'tab' => $tab,
             'complaints' => $complaints,
             'dictBuildings' => $dict,
-            'rootBuildings'=> $root
+            'rootBuildings'=> $root,
+            'availBuldings' => $inTown,
         ], $this->get_map_blob($town))));
     }
 
@@ -622,61 +638,143 @@ class AdminTownController extends AdminActionController
     return AjaxResponse::success();
   }
 
-  /**
-   * @Route("/api/admin/town/{id}/ap/alter", name="admin_town_alter_ap", requirements={"id"="\d+"})
-   * @Security("is_granted('ROLE_ADMIN')")
-   * Change AP of selected citizens of a town
-   * @param int $id Town ID
-   * @param JSONRequestParser $parser The Request Parser
-   * @param CitizenHandler $handler
-   * @return Response
-   */
-  public function town_alter_ap(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
-  {
-    $town = $this->entity_manager->getRepository(Town::class)->find($id);
-    if(!$town) {
-      return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+    /**
+     * @Route("/api/admin/town/{id}/ap/alter", name="admin_town_alter_ap", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Change AP of selected citizens of a town
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser The Request Parser
+     * @param CitizenHandler $handler
+     * @return Response
+     */
+    public function town_alter_ap(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
+    {
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if(!$town) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        $number = $parser->get('number', 6);
+        $action = $parser->get('action', 'set');
+        $targets = $parser->get('targets', "");
+
+        $targets = explode(",", $targets);
+        foreach ($targets as $target) {
+            $infos = explode("-", $target);
+            /** @var Citizen $citizen */
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
+
+            $current_ap = $citizen->getAp();
+
+            switch ($action) {
+                case 'set':
+                    if ($number < 0) $number = 0;
+                    $citizen->setAp($number);
+                    break;
+
+                case 'add':
+                    $citizen->setAp($current_ap + $number);
+                    break;
+
+                case 'remove':
+                    if ($number >= $current_ap) {
+                        $citizen->setAp(0);
+                    }
+                    else {
+                        $citizen->setAp($current_ap - $number);
+                    }
+                    break;
+            }
+
+            $this->entity_manager->persist($citizen);
+        }
+
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
     }
 
-    $number = $parser->get('number', 6);
-    $action = $parser->get('action', 'set');
-    $targets = $parser->get('targets', "");
+    /**
+     * @Route("/api/admin/town/{id}/buildings/add", name="admin_town_add_building", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Add a building to the town
+     * @param int $id ID of the town
+     * @param JSONRequestParser $parser The JSON request parser
+     * @param TownHandler $th The town handler
+     * @return Response
+     */
+    public function town_add_building(int $id, JSONRequestParser $parser, TownHandler $th) {
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if(!$town) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
 
-    $targets = explode(",", $targets);
-    foreach ($targets as $target) {
-      $infos = explode("-", $target);
-      /** @var Citizen $citizen */
-      $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
+        if (!$parser->has_all(['prototype_id'])) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
 
-      $current_ap = $citizen->getAp();
+        $proto_id = $parser->get("prototype_id");
 
-      switch ($action) {
-        case 'set':
-          if ($number < 0) $number = 0;
-          $citizen->setAp($number);
-          break;
+        $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->find($proto_id);
+        if(!$proto)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        case 'add':
-          $citizen->setAp($current_ap + $number);
-          break;
+        $th->addBuilding($town, $proto);
 
-        case 'remove':
-          if ($number >= $current_ap) {
-            $citizen->setAp(0);
-          }
-          else {
-            $citizen->setAp($current_ap - $number);
-          }
-          break;
-      }
+        $this->entity_manager->persist($town);
+        $this->entity_manager->flush();
 
-      $this->entity_manager->persist($citizen);
+        return AjaxResponse::success();
     }
 
-    $this->entity_manager->flush();
+    /**
+     * @Route("/api/admin/town/{id}/buildings/set-ap", name="admin_town_set_building_ap", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Set AP to a building of a town
+     * @param int $id ID of the town
+     * @param JSONRequestParser $parser The JSON request parser
+     * @param TownHandler $th The town handler
+     * @return Response
+     */
+    public function town_set_building_ap(int $id, JSONRequestParser $parser, TownHandler $th) {
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if(!$town) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
 
-    return AjaxResponse::success();
-  }
+        if (!$parser->has_all(['building', 'ap'])) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        $building_id = $parser->get("building");
+
+        /** @var Building $building */
+        $building = $this->entity_manager->getRepository(Building::class)->find($building_id);
+        if(!$building)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if ($building->getComplete())
+            return AjaxResponse::error(TownController::ErrorAlreadyFinished);
+
+        $ap = intval($parser->get("ap"));
+
+        if (!$building->getComplete() && $ap >= $building->getPrototype()->getAp() - $building->getAp()) {
+            $ap = $building->getPrototype()->getAp() - $building->getAp();
+        }
+
+        $building->setAp($ap);
+
+        if ($building->getAp() >= $building->getPrototype()->getAp()) {
+            $building->setComplete(true);
+            $th->triggerBuildingCompletion($town, $building);
+        }
+
+        $this->entity_manager->persist($building);
+        $this->entity_manager->persist($town);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
 
     /**
      * @Route("jx/admin/towns/old/fuzzyfind", name="admin_old_towns_fuzzyfind")
