@@ -7066,7 +7066,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Ausgerüstete Gegenstände werden in deinem &lt;strong&gt;Rucksack&lt;/strong&gt; aufbewahrt.</source>
-        <target><![CDATA[Ausgerüstete Gegenstände werden in deinem <strong>Rucksack</strong> aufbewahrt.]]></target>
+        <target><![CDATA[Los objetos equipados se guardan en tu <strong>mochila</strong>.]]></target>
       </segment>
     </unit>
     <unit id="e1TAOYF" name="c1dece3">
@@ -7075,7 +7075,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wenn du einen Gegenstand gegen einen anderen aus deiner Truhe tauschen möchtest, brauchst du ihn nur anzuklicken.</source>
-        <target>Wenn du einen Gegenstand gegen einen anderen aus deiner Truhe tauschen möchtest, brauchst du ihn nur anzuklicken.</target>
+        <target>Si quieres mover un objeto de tu cofre a tu mochila todo lo que tienes que hacer es cliquear en él.</target>
       </segment>
     </unit>
     <unit id="BGGAiM." name="Weiter...">
@@ -7093,7 +7093,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>An dieser Stelle werden die Gegenstände angezeigt, die du gebrauchen kannst.</source>
-        <target>An dieser Stelle werden die Gegenstände angezeigt, die du gebrauchen kannst.</target>
+        <target>Aquí se muestran los objetos que puedes usar.</target>
       </segment>
     </unit>
     <unit id="AM1gd9H" name="b6a6ab8">
@@ -7102,7 +7102,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>&lt;strong&gt;Klick auf einen Link, um einen Gegenstand zu verwenden (z.B.: eine Kiste öffnen, Essen, Trinken usw...).&lt;/strong&gt;</source>
-        <target><![CDATA[<strong>Klick auf einen Link, um einen Gegenstand zu verwenden (z.B.: eine Kiste öffnen, Essen, Trinken usw...).</strong>]]></target>
+        <target><![CDATA[<strong>Has clic en un enlace para usar un objeto (por ejemplo: abrir una caja, comer, beber, etc.)</strong>]]></target>
       </segment>
     </unit>
     <unit id="3nB1Tg0" name="9425f3c">
@@ -7302,7 +7302,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>An jedem Tag wirst du als Erstes immer deine &lt;strong&gt;Wasserration&lt;/strong&gt; aus dem &lt;strong&gt;Brunnen&lt;/strong&gt; nehmen...</source>
-        <target><![CDATA[An jedem Tag wirst du als Erstes immer deine <strong>Wasserration</strong> aus dem <strong>Brunnen</strong> nehmen...]]></target>
+        <target><![CDATA[Lo primero que deberías hacer cada día es recoger tu <strong>ración de agua</strong> del <strong>Pozo</strong>...]]></target>
       </segment>
     </unit>
     <unit id="7oGftAt" name="Um zum Brunnen zu gelangen, klicke auf dieses Icon.">
@@ -7311,7 +7311,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Um zum Brunnen zu gelangen, klicke auf dieses Icon.</source>
-        <target>Um zum Brunnen zu gelangen, klicke auf dieses Icon.</target>
+        <target>Para acceder al Pozo, has click aquí.</target>
       </segment>
     </unit>
     <unit id="kqSYwd7" name="bd94fad">
@@ -7320,7 +7320,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Es ist an der Zeit, ein paar Gegenstände mitzunehmen. Gehe nach &lt;strong&gt;Hause&lt;/strong&gt;, um dir dein &lt;strong&gt;Inventar&lt;/strong&gt; anzusehen.</source>
-        <target><![CDATA[Es ist an der Zeit, ein paar Gegenstände mitzunehmen. Gehe nach <strong>Hause</strong>, um dir dein <strong>Inventar</strong> anzusehen.]]></target>
+        <target><![CDATA[Es hora de equiparte con algunos items. Entra a tu <strong>casa</strong> para ver tu <strong>inventario</strong>.]]></target>
       </segment>
     </unit>
     <unit id="MAEg2PI" name="Deinen Rucksack findest du übrigens hier.">
@@ -7329,7 +7329,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Deinen Rucksack findest du übrigens hier.</source>
-        <target>Deinen Rucksack findest du übrigens hier.</target>
+        <target>Por cierto, puedes ver tu mochila aquí arriba.</target>
       </segment>
     </unit>
     <unit id="uyGoX2c" name="0659246">
@@ -7338,7 +7338,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wenn du möchtest, kannst du etwas Proviant mitnehmen (Essen, Wasser..). Denke aber daran, in deinem Rucksack ein &lt;strong&gt;bisschen Platz&lt;/strong&gt; übrig zu lassen, um weitere Gegenstände mitnehmen zu können, die du in der Wüste finden wirst.</source>
-        <target><![CDATA[<em>Wenn du möchtest, kannst du etwas Proviant mitnehmen (Essen, Wasser..). Denke aber daran, in deinem Rucksack ein <strong>bisschen Platz</strong> übrig zu lassen, um weitere Gegenstände mitnehmen zu können, die du in der Wüste finden wirst.</em>]]></target>
+        <target><![CDATA[<em>Si quieres puedes llevar algunas provisiones como comida o agua, solo recuerda dejar <strong>un poco de espacio</strong> en tu mochila para poder llevar otros objetos que encuentres en el Ultramundo.</em>]]></target>
       </segment>
     </unit>
     <unit id="4JcDo10" name="a5f74cd">
@@ -7347,7 +7347,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Der erste Gegenstand auf der Liste entspricht dem &lt;strong&gt;Beruf&lt;/strong&gt;, den du dir ausgesucht hast. Er nimmt &lt;strong&gt;keinen Platz&lt;/strong&gt; weg und du kannst ihn auch nicht verlieren.</source>
-        <target><![CDATA[Der erste Gegenstand auf der Liste entspricht dem <strong>Beruf</strong>, den du dir ausgesucht hast. Er nimmt <strong>keinen Platz</strong> weg und du kannst ihn auch nicht verlieren.]]></target>
+        <target><![CDATA[El primer objeto de la lista corresponde al <strong>oficio</strong> que has elegido. <strong>No ocupa mucho espacio</strong> y tampoco puedes perderlo.]]></target>
       </segment>
     </unit>
     <unit id="DXGanAJ" name="Wie soll ich spielen?">
@@ -7410,7 +7410,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wenn sich die Bürger eines Tages dazu entschließen eine &lt;strong&gt;Pumpe&lt;/strong&gt; zu bauen, wird die Stadt über mehr Wasser verfügen.</source>
-        <target><![CDATA[Wenn sich die Bürger eines Tages dazu entschließen eine <strong>Pumpe</strong> zu bauen, wird die Stadt über mehr Wasser verfügen.]]></target>
+        <target><![CDATA[Si algún día el pueblo decide construir una <strong>Bomba</strong>, el pozo tendrá más agua.]]></target>
       </segment>
     </unit>
     <unit id="6wWIdYL" name="b3d7784">
@@ -7473,7 +7473,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Das Stadttor ist geöffnet.</source>
-        <target>Das Stadttor ist geöffnet.</target>
+        <target>El Portal está abierto.</target>
       </segment>
     </unit>
     <unit id="GQqJv8t" name="Klick hier, um &lt;strong&gt;in die Wüste zu gehen&lt;/strong&gt;... Sei jedoch vorsichtig!">
@@ -7482,7 +7482,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Klick hier, um &lt;strong&gt;in die Wüste zu gehen&lt;/strong&gt;... Sei jedoch vorsichtig!</source>
-        <target><![CDATA[Klick hier, um <strong>in die Wüste zu gehen</strong>... Sei jedoch vorsichtig!]]></target>
+        <target><![CDATA[Has clic aquí para <strong>ir al desierto</strong>... ¡Pero ten cuidado!]]></target>
       </segment>
     </unit>
     <unit id="HoXsc8P" name="ae0a0ed">
@@ -7500,7 +7500,9 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Eine Expedition in die Außenwelt, will &lt;strong&gt;gut vorbereitet&lt;/strong&gt; sein... Vergewissere dich, dass du den Leitfaden &lt;strong&gt;Wie rüste ich mich aus?&lt;/strong&gt; gelesen hast, bevor du diese Etappe in Angriff nimmst! Du kannst jederzeit auf &lt;strong&gt;Anhalten&lt;/strong&gt; drücken (zu deiner Rechten), um die Erklärungen abzustellen und dir einen anderen Leitfaden aussuchen...</source>
-        <target><![CDATA[Eine Expedition in die Außenwelt, will <strong>gut vorbereitet</strong> sein... Vergewissere dich, dass du den Leitfaden <strong>Wie rüste ich mich aus?</strong> gelesen hast, bevor du diese Etappe in Angriff nimmst! Du kannst jederzeit auf <strong>Anhalten</strong> drücken (zu deiner Rechten), um die Erklärungen abzustellen und dir einen anderen Leitfaden aussuchen...]]></target>
+        <target><![CDATA[Una expedición al mundo exterior debe ser <strong>cuidadosamente preparada</strong>... ¡Asegúrate de haber leído la guía <strong>¿Cómo me equipo?</strong> antes de comenzar a prepararte. Puedes presionar <strong>Detener</strong> en cualquier momento (a tu derecha) para desactivar las explicaciones y elegir otra guía...
+
+]]></target>
       </segment>
     </unit>
     <unit id=".KSB7iY" name="Klicke auf diesen Abschnitt, um zum &lt;strong&gt;Stadttor&lt;/strong&gt; zu gelangen.">
@@ -7509,7 +7511,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Klicke auf diesen Abschnitt, um zum &lt;strong&gt;Stadttor&lt;/strong&gt; zu gelangen.</source>
-        <target><![CDATA[Klicke auf diesen Abschnitt, um zum <strong>Stadttor</strong> zu gelangen.]]></target>
+        <target><![CDATA[Has clic aquí para ir al <strong>Gran Portal</strong>.]]></target>
       </segment>
     </unit>
     <unit id="uUBYOVt" name="Spielhilfe aktiv:">
