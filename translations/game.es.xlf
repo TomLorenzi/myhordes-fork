@@ -4912,7 +4912,7 @@
       </notes>
       <segment>
         <source>Es ist nicht möglich, unsere Situation angesichts des Angriffs von heute Abend genau einzuschätzen.</source>
-        <target><![CDATA[Nuestras defensas <strong>podrían</strong> resistir parcialmente al ataque de esta noche.]]></target>
+        <target>Nuestras defensas &lt;strong&gt;podrían&lt;/strong&gt; resistir parcialmente al ataque de esta noche.></target>
       </segment>
     </unit>
     <unit id="aVClbc0" name="Meine täglichen Aufgaben">
@@ -6730,7 +6730,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger ist ernsthaft verletzt.</source>
-        <target><![CDATA[¡Ha sido <strong>gravemente herido</strong>!]]></target>
+        <target><¡Ha sido &lt;strong&gt;gravemente herido&lt;/strong&gt;!</target>
       </segment>
     </unit>
     <unit id="w5JoDMX" name="29edb8e">
@@ -6739,7 +6739,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</source>
-        <target>Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</target>
+        <target>Este habitante ha estado tosiendo sangre últimamente... Algunos hablan de una &lt;strong&gt;Infección&lt;/strong&gt;.</target>
       </segment>
     </unit>
     <unit id="0LaQbDJ" name="a261410">
@@ -15668,7 +15668,7 @@
       </notes>
       <segment>
         <source>Du kannst nichts von %citizen% stehlen, solange &lt;strong&gt;er (sie) in der Stadt ist&lt;/strong&gt;...</source>
-        <target><![CDATA[Du kannst nichts von %citizen% stehlen, solange <strong>er (sie) in der Stadt ist</strong>...]]></target>
+        <target>No puedes robarle nada a %citizen% porque está en el pueblo.</target>
       </segment>
     </unit>
     <unit id="uEhXFSv" name="3cb07f6">
@@ -17685,7 +17685,7 @@
       </notes>
       <segment>
         <source>Cette maison est &lt;strong&gt;protégée&lt;/strong&gt; (verrou ou autre...) et ne peut être cambriolée.</source>
-        <target><![CDATA[Cette maison est <strong>protégée</strong> (verrou ou autre...) et ne peut être cambriolée.]]></target>
+        <target>Esta casa está &lt;strong&gt;protegida&lt;/strong&gt; (con cerradura u otro...) y no se puede ingresar.></target>
       </segment>
     </unit>
     <unit id="Hre92RP" name="Zeit bis zum nächsten Zombieangriff">
