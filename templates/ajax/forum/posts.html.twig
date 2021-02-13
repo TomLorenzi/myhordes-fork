@@ -20,8 +20,8 @@
                             <div x-forum-moderator-action="unlock" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unlock'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/icons/mod.png') }}" /><span>{{ 'Öffnen'|trans({},'global') }}</span></div>
                         {% endif %}
                     {% endif %}
-
                 {% endif %}
+
                 {% if permission.moderate() %}
                     {% if not pinned %}
                         <div x-forum-moderator-action="pin" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'pin'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/icons/mod.png') }}" /><span>{{ 'Anpinnen'|trans({},'global') }}</span></div>
@@ -29,8 +29,18 @@
                         <div x-forum-moderator-action="unpin" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unpin'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/icons/mod.png') }}" /><span>{{ 'Loslösen'|trans({},'global') }}</span></div>
                     {% endif %}
                 {% endif %}
+
             </div>
             <div class="cell padded rw-6 right">
+                <div x-forum-action="{{ subscribed ? 'unsub' : 'sub' }}" class="forum-button">
+                    {% if subscribed %}
+                        <img alt="" src="{{ asset('build/images/icons/tickOn.gif') }}" />
+                    {% else %}
+                        <img alt="" src="{{ asset('build/images/icons/tickOff.gif') }}" />
+                    {% endif %}
+                    <span>{{ subscribed ? 'Abonniert'|trans({},'global') : 'Abonnieren'|trans({},'global') }}</span>
+                </div>
+
                 {% if not locked and not is_granted("ROLE_FORUM_BANNED") and (permission.create_post or permission.moderate) %}
                     <div x-forum-action="answer" class="forum-button"><span>{{ 'Antworten'|trans({},'global') }}</span></div>
                 {% else %}
@@ -303,7 +313,7 @@
             let wrapper = document.querySelector('[x-post-wrapper-id="' + postID + '"]');
             if (wrapper && editor) wrapper.parentNode.insertBefore( editor, wrapper.nextSibling );
 
-            $.html.forEach('[x-forum-action="answer"]', e => e.classList.add('hidden'));
+            $.html.forEach('[x-forum-action="answer"],[x-forum-action="sub"],[x-forum-action="unsub"]', e => e.classList.add('hidden'));
 
             if (editor) {
                 editor.innerHTML = '';
@@ -347,12 +357,18 @@
         } );
 
         $.html.addEventListenerAll( '[x-forum-action="answer"]', 'click', function(e,elem) {
-            $.html.forEach('[x-forum-action="answer"]', e => e.remove());
+            $.html.forEach('[x-forum-action="answer"],[x-forum-action="sub"],[x-forum-action="unsub"]', e => e.remove());
             $.ajax.no_history().load( document.getElementById('forum-forum-editor'), '{{ path('forum_post_editor_controller', {fid: fid, tid: tid}) }}', false, {}, function() {
                 document.getElementById("forum-forum-editor").scrollIntoView();
                 document.getElementById("forum-forum-editor-text").focus();
             } );
+        } );
 
+        $.html.addEventListenerAll( '[x-forum-action="sub"]', 'click', function(e,elem) {
+            $.ajax.easySend( '{{ path('forum_thread_subscribe_controller', {fid: fid, tid: tid})|e('js') }}', {}, reloadPage );
+        } );
+        $.html.addEventListenerAll( '[x-forum-action="unsub"]', 'click', function(e,elem) {
+            $.ajax.easySend( '{{ path('forum_thread_unsubscribe_controller', {fid: fid, tid: tid})|e('js') }}', {}, reloadPage );
         } );
 
         $.html.addEventListenerAll( '[x-forum-action="post-pager"][x-to-page]', 'click', function(e,elem) {

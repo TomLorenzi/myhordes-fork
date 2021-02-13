@@ -2350,5 +2350,14 @@
         <target>Neue Ankündigung</target>
       </segment>
     </unit>
+    <unit id="OlFB1V6" name="Konstruktionen">
+      <notes>
+        <note category="german">Konstruktionen</note>
+      </notes>
+      <segment>
+        <source>Konstruktionen</source>
+        <target>Konstruktionen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -7,6 +7,7 @@ use App\Entity\AdminReport;
 use App\Entity\Citizen;
 use App\Entity\Forum;
 use App\Entity\ForumModerationSnippet;
+use App\Entity\ForumThreadSubscription;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\Post;
 use App\Entity\Thread;
@@ -19,6 +20,7 @@ use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
 use App\Service\PictoHandler;
 use DateTime;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -46,20 +48,20 @@ class MessageForumController extends MessageController
         if (!$forum || !$this->perm->isAnyPermitted($permissions, [ ForumUsagePermissions::PermissionModerate, ForumUsagePermissions::PermissionListThreads, ForumUsagePermissions::PermissionReadThreads ]) )
             return $this->redirect($this->generateUrl('forum_list'));
 
-        // Set the activity status
-        if ($forum->getTown() && $user->getActiveCitizen()) {
-            $c = $user->getActiveCitizen();
-            if ($c) $ch->inflictStatus($c, 'tg_chk_forum');
-            $em->persist( $c );
-            $em->flush();
-        }
-
         $sel_post = $sel_thread = null;
         if ($pid > 0) $sel_post = $em->getRepository(Post::class)->find($pid);
         if ($tid > 0) $sel_thread = $em->getRepository(Thread::class)->find($tid);
 
         if (($pid > 0 && !$sel_post) || ($tid > 0 && !$sel_thread) || ($sel_thread && $sel_thread->getForum() !== $forum) || ($sel_post && $sel_thread && $sel_post->getThread() !== $sel_thread) )
             return $this->redirect($this->generateUrl('forum_list'));
+
+        // Set the activity status
+        if ($forum->getTown() && $user->getActiveCitizen() && $user->getActiveCitizen()->getTown() === $forum->getTown()) {
+            $c = $user->getActiveCitizen();
+            if ($c) $ch->inflictStatus($c, 'tg_chk_forum');
+            $em->persist( $c );
+            $em->flush();
+        }
 
         $show_hidden_threads = $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate );
 
@@ -191,9 +193,13 @@ class MessageForumController extends MessageController
      */
     public function forums(): Response
     {
+        $forums = $this->perm->getForumsWithPermission($this->getUser());
+        $subscriptions = $this->getUser()->getForumThreadSubscriptions()->filter(fn(ForumThreadSubscription $s) => in_array($s->getThread()->getForum(), $forums));
+
         return $this->render( 'ajax/forum/list.html.twig', $this->addDefaultTwigArgs(null, [
             'user' => $this->getUser(),
-            'forums' => $this->perm->getForumsWithPermission($this->getUser(), ForumUsagePermissions::PermissionRead),
+            'forums' => $forums,
+            'subscriptions' => $subscriptions
         ] ));
     }
 
@@ -252,6 +258,7 @@ class MessageForumController extends MessageController
         $forum->addThread($thread);
 
         try {
+            $em->persist((new ForumThreadSubscription())->setThread($thread)->setUser($user));
             $em->persist($thread);
             $em->persist($forum);
             $em->flush();
@@ -343,6 +350,16 @@ class MessageForumController extends MessageController
                 $ph->give_picto($current_citizen, 'r_forum_#00');
             }
         }
+
+        /** @var ForumThreadSubscription[] $subscriptions */
+        $subscriptions = $em->getRepository(ForumThreadSubscription::class)->matching(
+            (new Criteria())
+                ->andWhere( Criteria::expr()->neq('user', $user) )
+                ->andWhere( Criteria::expr()->eq('thread', $thread) )
+                ->andWhere( Criteria::expr()->lt('num', 10) )
+        );
+
+        foreach ($subscriptions as $s) $em->persist($s->setNum($s->getNum() + 1));
 
         try {
             $em->persist($thread);
@@ -537,19 +554,35 @@ class MessageForumController extends MessageController
                 $post->setNew();
         }
 
+        $flush = false;
+
         if (!empty($posts)) {
+
             /** @var Post $read_post */
             $read_post = $posts[array_key_last($posts)];
             /** @var Post $last_read */
             $last_read = $marker->getPost();
             if ($last_read === null || $read_post->getId() > $last_read->getId()) {
                 $marker->setPost($read_post);
-                try {
-                    $em->persist($marker);
-                    $em->flush();
-                } catch (Exception $e) {}
+                $em->persist($marker);
+                $flush = true;
+            }
+
+            /** @var ForumThreadSubscription[] $subscriptions */
+            $subscriptions = $em->getRepository(ForumThreadSubscription::class)->matching(
+                (new Criteria())
+                    ->andWhere( Criteria::expr()->eq('user', $user) )
+                    ->andWhere( Criteria::expr()->eq('thread', $thread) )
+                    ->andWhere( Criteria::expr()->gt('num', 0))
+            );
+
+            if (!empty($subscriptions)) {
+                foreach ($subscriptions as $s) $em->persist($s->setNum(0));
+                $flush = true;
             }
         }
+
+        if ($flush) try { $em->flush(); } catch (Exception $e) {}
 
         foreach ($posts as &$post) $post->setText( $this->prepareEmotes( $post->getText() ) );
         return $this->render( 'ajax/forum/posts.html.twig', [
@@ -566,6 +599,7 @@ class MessageForumController extends MessageController
             'pages' => $pages,
             'announces' => $announces,
             'markedPost' => $pid,
+            'subscribed' => $em->getRepository(ForumThreadSubscription::class)->count( ['user' => $user, 'thread' => $thread] )
         ] );
     }
 
@@ -637,6 +671,61 @@ class MessageForumController extends MessageController
             'forum' => true,
             'town_controls' => $thread->getForum()->getTown() !== null,
         ] );
+    }
+
+    /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/subscribe", name="forum_thread_subscribe_controller")
+     * @param int $fid
+     * @param int $tid
+     * @return Response
+     */
+    public function forum_thread_subscribe(int $fid, int $tid): Response {
+        /** @var Forum $forum */
+        $forum = $this->entity_manager->getRepository(Forum::class)->find($fid);
+        /** @var Thread $thread */
+        $thread = $this->entity_manager->getRepository(Thread::class)->find($tid);
+
+        if ($thread->getForum() !== $forum) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        $permissions = $this->perm->getEffectivePermissions( $this->getUser(), $thread->getForum() );
+        if (!$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionRead ))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+
+        $existing = $this->entity_manager->getRepository(ForumThreadSubscription::class)->count(['user' => $this->getUser(), 'thread' => $thread]);
+        if (!$existing) try {
+            $this->entity_manager->persist((new ForumThreadSubscription())->setThread($thread)->setUser($this->getUser()));
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/forum/{fid<\d+>}/{tid<\d+>}/unsubscribe", name="forum_thread_unsubscribe_controller")
+     * @param int $fid
+     * @param int $tid
+     * @return Response
+     */
+    public function forum_thread_unsubscribe(int $fid, int $tid): Response {
+        /** @var Forum $forum */
+        $forum = $this->entity_manager->getRepository(Forum::class)->find($fid);
+        /** @var Thread $thread */
+        $thread = $this->entity_manager->getRepository(Thread::class)->find($tid);
+
+        if ($thread->getForum() !== $forum) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        $existing = $this->entity_manager->getRepository(ForumThreadSubscription::class)->findOneBy(['user' => $this->getUser(), 'thread' => $thread]);
+        if ($existing) try {
+            $this->entity_manager->remove($existing);
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
     }
 
     /**

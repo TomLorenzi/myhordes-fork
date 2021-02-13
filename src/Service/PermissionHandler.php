@@ -6,6 +6,7 @@ use App\Entity\Avatar;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\Forum;
+use App\Entity\ForumThreadSubscription;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;

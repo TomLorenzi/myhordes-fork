@@ -129,5 +129,14 @@
         <target>Welcome on MyHordes!</target>
       </segment>
     </unit>
+    <unit id="Ybpua.N" name="Abonnierte Themen">
+      <notes>
+        <note category="german">Abonnierte Themen</note>
+      </notes>
+      <segment>
+        <source>Abonnierte Themen</source>
+        <target>Abonnierte Themen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

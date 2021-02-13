@@ -201,6 +201,11 @@
                         else $.msg.restoreFetchEndpoint();
                     } );
                 });
+
+                $.html.addEventListenerAll('ul.pm-conversation-list>li[x-title][x-hardlink]', 'click', function(e,elem) {
+                    document.getElementById('post-office').click();
+                    $.ajax.load(null,elem.getAttribute('x-hardlink'), false, {}, () => $.msg.execute());
+                });
             }
 
             const fun_conv_loader = function() {

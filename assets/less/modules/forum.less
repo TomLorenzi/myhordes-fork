@@ -213,6 +213,18 @@
   }
 }
 
+ul.subscriptions {
+  padding: 0 0 0 12px;
+  &>li {
+    &>span {cursor: pointer; font-size: 0.9em; color: @myhordes-smalltext;}
+    &>img { float: right; cursor: pointer }
+
+    &.new { list-style: url("../../img/icons/anim_icon_mail.gif"); font-weight: bold }
+    &:not(.new) { list-style: none }
+    &+li { margin-top: 4px; }
+  }
+}
+
 .forum-note {
   &>b:first-child {
     display: block; background: #965c36; padding: 4px; font-variant: small-caps; overflow: hidden; white-space: nowrap;
@@ -535,9 +547,7 @@
 
     #post-office-button-overlay {
       position: absolute; top: 12px; right: 12px;
-      &:hover {
-            filter: brightness(140%); -webkit-filter: brightness(140%); -moz-filter: brightness(140%); -o-filter: brightness(140%); -ms-filter: brightness(140%);
-      }
+      &:hover { filter: brightness(140%); }
       ul {
         margin: 2px; padding: 0;
         &>li {
@@ -615,10 +625,16 @@
       }
       &.closed>* { filter: grayscale(1) contrast(0.7) brightness(0.8); }
 
-      &.new:not(.selected) {
+      &.new:not(.selected):not([x-domain="f"]) {
         &::before {
           display: block; content: " "; width: 16px; height: 16px; top: calc(50% - 8px); left: 0;
           background-image: url(../../img/forum/recent.png); position: absolute;
+        }
+      }
+      &.new:not(.selected)[x-domain="f"] {
+        &::before {
+          display: block; content: " "; width: 16px; height: 16px; top: calc(50% - 8px); left: 4px;
+          background-image: url(../../img/icons/small_mail.gif); position: absolute;
         }
       }
 
@@ -635,6 +651,11 @@
         color: @myhordes-smalltext;
         &.crow-note { color: #3e0000; font-weight: bold; font-variant: small-caps; }
         b.sender { color: white; font-weight: bold; }
+      }
+      &[x-domain="f"] {
+        padding-left: 24px;
+        b.title { max-width: calc(100% - 0px); opacity: 0.6;}
+        span.date { display: none }
       }
       span.date { opacity: 0.6 }
       div.pm-avatar-block {

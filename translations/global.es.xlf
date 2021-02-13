@@ -2335,5 +2335,32 @@
         <target><![CDATA[Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...]]></target>
       </segment>
     </unit>
+    <unit id="_KsSa.z" name="Neuer Beitrag in %topic%">
+      <notes>
+        <note category="german">Neuer Beitrag in %topic%</note>
+      </notes>
+      <segment>
+        <source>Neuer Beitrag in %topic%</source>
+        <target>Neuer Beitrag in %topic%</target>
+      </segment>
+    </unit>
+    <unit id="0lz2qGs" name="Abonniert">
+      <notes>
+        <note category="german">Abonniert</note>
+      </notes>
+      <segment>
+        <source>Abonniert</source>
+        <target>Abonniert</target>
+      </segment>
+    </unit>
+    <unit id="cgCBPPJ" name="Abonnieren">
+      <notes>
+        <note category="german">Abonnieren</note>
+      </notes>
+      <segment>
+        <source>Abonnieren</source>
+        <target>Abonnieren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

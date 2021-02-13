@@ -26,8 +26,7 @@
 
 {% block ajax %}
     <div class="row">
-        <div class="cell padded header rw-8 ro-2 rw-lg-12 ro-lg-0">
-            <h4>{% trans from 'welcome' %}Foren{% endtrans %}</h4>
+        <div class="cell padded header rw-8 rw-lg-12">
             <div class="cell rw-12 padded">
                 {% if forums|length == 0 %}
                     <div class="note">
@@ -63,5 +62,38 @@
                 {% endif %}
             </div>
         </div>
+        <div class="cell padded header rw-4 rw-lg-12">
+            <h5>{% trans from 'welcome' %}Abonnierte Themen{% endtrans %}</h5>
+            <div class="cell rw-12 padded">
+                {% if subscriptions|length == 0 %}
+                    <div class="note">
+                        {% trans from 'game' %}
+                            Du hast aktuell keine Themen abonniert.
+                        {% endtrans %}
+                    </div>
+                {% else %}
+                    <ul class="subscriptions">
+                        {% for subscription in subscriptions|reverse %}
+                            {# @var subscription \App\Entity\ForumThreadSubscription #}
+                            <li class="{{ subscription.num > 0 ? 'new' : '' }}">
+                                <span x-ajax-href="{{ path('forum_thread_view', {fid: subscription.thread.forum.id, tid: subscription.thread.id}) }}" >{{ subscription.thread.translatable ? subscription.thread.title|trans({},'game') : subscription.thread.title }}</span>
+                                <img x-unsubscribe-api="{{ path('forum_thread_unsubscribe_controller', {fid: subscription.thread.forum.id, tid: subscription.thread.id}) }}" alt="X" src="{{ asset('build/images/icons/small_remove.gif') }}" />
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
     </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        (function() {
+            $.html.addEventListenerAll('[x-unsubscribe-api]', 'click', (e,elem) => {
+                $.ajax.easySend(elem.getAttribute('x-unsubscribe-api'), {}, () => $.ajax.load(null,'{{ path('forum_list') }}'));
+            })
+        })();
+    </script>
+
 {% endblock %}

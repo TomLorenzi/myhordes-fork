@@ -1,4 +1,5 @@
 {% macro bubble_index(entry) %}
+    {% set endpoint_hardlink= null %}
     {% set endpoint_fetch   = null %}
     {% set endpoint_spring  = null %}
     {% set endpoint_answer  = null %}
@@ -34,11 +35,16 @@
         {% set endpoint_unread = path('pm_unread_dm') %}
         {% set message_id      = entry.owner.id %}
         {% set message_type    = 'd' %}
+    {% elseif entry.obj|instance_of('App\\Entity\\Thread') %}
+        {% set message_id        = entry.obj.id %}
+        {% set endpoint_hardlink = path('forum_thread_view', {fid: entry.obj.forum.id, tid: entry.obj.id}) %}
+        {% set message_type      = 'f' %}
     {% endif %}
 
     <li x-title="{{ message_title }}" x-domain="{{ message_type }}" x-identifier="{{ message_id }}"
         class="{% if entry.closed %}closed{% endif %} {% if entry.system %}system{% endif %} {% if entry.unread > 0 %}new{% endif %}"
-        {% if endpoint_fetch  is not null %}x-endpoint="{{ endpoint_fetch }}"{% endif %}
+            {% if endpoint_hardlink is not null %}x-hardlink="{{ endpoint_hardlink }}"{% endif %}
+            {% if endpoint_fetch  is not null %}x-endpoint="{{ endpoint_fetch }}"{% endif %}
             {% if endpoint_spring is not null %}x-spring="{{ endpoint_spring }}"{% endif %}
             {% if endpoint_answer is not null %}x-editor="{{ endpoint_answer }}"{% endif %}
             {% if endpoint_trash  is not null %}x-trash="{{ endpoint_trash }}"{% endif %}

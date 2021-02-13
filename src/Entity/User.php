@@ -227,6 +227,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $expert = false;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ForumThreadSubscription::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $forumThreadSubscriptions;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -237,6 +242,7 @@ class User implements UserInterface, EquatableInterface
         $this->twinoidImports = new ArrayCollection();
         $this->connectionIdentifiers = new ArrayCollection();
         $this->connectionWhitelists = new ArrayCollection();
+        $this->forumThreadSubscriptions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -980,6 +986,36 @@ class User implements UserInterface, EquatableInterface
     public function setExpert(bool $expert): self
     {
         $this->expert = $expert;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ForumThreadSubscription[]
+     */
+    public function getForumThreadSubscriptions(): Collection
+    {
+        return $this->forumThreadSubscriptions;
+    }
+
+    public function addForumThreadSubscription(ForumThreadSubscription $forumTreadSubscription): self
+    {
+        if (!$this->forumThreadSubscriptions->contains($forumTreadSubscription)) {
+            $this->forumThreadSubscriptions[] = $forumTreadSubscription;
+            $forumTreadSubscription->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeForumThreadSubscription(ForumThreadSubscription $forumThreadSubscription): self
+    {
+        if ($this->forumThreadSubscriptions->removeElement($forumThreadSubscription)) {
+            // set the owning side to null (unless already changed)
+            if ($forumThreadSubscription->getUser() === $this) {
+                $forumThreadSubscription->setUser(null);
+            }
+        }
 
         return $this;
     }

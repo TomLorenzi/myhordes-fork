@@ -18073,5 +18073,14 @@
         <target>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. </target>
       </segment>
     </unit>
+    <unit id="5U6vNQX" name="Du hast aktuell keine Themen abonniert.">
+      <notes>
+        <note category="german">Du hast aktuell keine Themen abonniert.</note>
+      </notes>
+      <segment>
+        <source>Du hast aktuell keine Themen abonniert.</source>
+        <target>Du hast aktuell keine Themen abonniert.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
