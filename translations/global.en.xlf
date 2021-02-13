@@ -2342,7 +2342,7 @@
       </notes>
       <segment>
         <source>Heute</source>
-        <target>Heute</target>
+        <target>Today</target>
       </segment>
     </unit>
     <unit id="yqnaeA." name="Gestern">
@@ -2351,7 +2351,7 @@
       </notes>
       <segment>
         <source>Gestern</source>
-        <target>Gestern</target>
+        <target>Yesterday</target>
       </segment>
     </unit>
     <unit id="_KsSa.z" name="Neuer Beitrag in %topic%">
@@ -2360,7 +2360,7 @@
       </notes>
       <segment>
         <source>Neuer Beitrag in %topic%</source>
-        <target>Neuer Beitrag in %topic%</target>
+        <target>New answer in %topic%</target>
       </segment>
     </unit>
     <unit id="0lz2qGs" name="Abonniert">
@@ -2369,7 +2369,7 @@
       </notes>
       <segment>
         <source>Abonniert</source>
-        <target>Abonniert</target>
+        <target>Subscribed</target>
       </segment>
     </unit>
     <unit id="cgCBPPJ" name="Abonnieren">
@@ -2378,7 +2378,7 @@
       </notes>
       <segment>
         <source>Abonnieren</source>
-        <target>Abonnieren</target>
+        <target>Follow</target>
       </segment>
     </unit>
   </file>

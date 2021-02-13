@@ -15607,7 +15607,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Anzeigen</source>
-        <target>Anzeigen</target>
+        <target>Complaints</target>
       </segment>
     </unit>
     <unit id="GeJZ7mU" name="Auf den Aufstand hinarbeiten">
@@ -15643,7 +15643,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Grund:</source>
-        <target>Grund:</target>
+        <target>Reason :</target>
       </segment>
     </unit>
     <unit id="7aCcCH1" name="Wählen">
@@ -15652,7 +15652,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wählen</source>
-        <target>Wählen</target>
+        <target>Choose</target>
       </segment>
     </unit>
     <unit id="uEhXFSv" name="3cb07f6">
@@ -17915,7 +17915,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du wurdest zum Schamanen gewählt!</source>
-        <target>Du wurdest zum Schamanen gewählt!</target>
+        <target>YOU HAVE BEEN ELECTED SHAMAN!</target>
       </segment>
     </unit>
     <unit id="TCisbbN" name="72a6431">
@@ -17924,7 +17924,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du wachst heute Morgen mit einer schrecklichen Migräne auf und hast Schwierigkeiten, zu sehen... Du beschließt, aus deinem Zelt zu gehen. Die Nachbarn an denen du vorbeiläufst, neigen ihr Haupt vor dir.</source>
-        <target>Du wachst heute Morgen mit einer schrecklichen Migräne auf und hast Schwierigkeiten, zu sehen... Du beschließt, aus deinem Zelt zu gehen. Die Nachbarn an denen du vorbeiläufst, neigen ihr Haupt vor dir.</target>
+        <target>You wake up this morning with a horrible migraine and you have difficulty seeing... You decide to get out of your tent. Neighbors that you pass you curtsy.</target>
       </segment>
     </unit>
     <unit id="c2baI8U" name="27aac18">
@@ -17933,7 +17933,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, kannst du ein kleines blaues Leuchten sehen... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du dir die Hand an den Kopf hälst: eine lächerliche Maske klebt an deinem Gesicht und reduziert dein Sehvermögen erheblich.</source>
-        <target>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, kannst du ein kleines blaues Leuchten sehen... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du dir die Hand an den Kopf hälst: eine lächerliche Maske klebt an deinem Gesicht und reduziert dein Sehvermögen erheblich.</target>
+        <target>What happened last night? You party too much. Arrived at ramparts you can make out little blue lights... Yes yes, it's you who have been designated. Doubt disappears when you reach out to your head: a ridiculous mask sticks to your face and reduces considerably your eyesight.</target>
       </segment>
     </unit>
     <unit id="x09E3UL" name="Du bist nun der Schamane.">
@@ -17942,7 +17942,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du bist nun der Schamane.</source>
-        <target>Du bist nun der Schamane.</target>
+        <target>You are now a Shaman.</target>
       </segment>
     </unit>
     <unit id="RjuBA.9" name="568a2ad">
@@ -17951,7 +17951,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein geistiger Führer!</source>
-        <target>Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein geistiger Führer!</target>
+        <target>A new horizon awaits you: You no longer an ordinary citizen, but a spiritual guide!</target>
       </segment>
     </unit>
     <unit id="DGMBZZJ" name="Mit deinen %mp% kannst du:">
@@ -17960,7 +17960,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Mit deinen %mp% kannst du:</source>
-        <target>Mit deinen %mp% kannst du:</target>
+        <target>With your %mp% you can :</target>
       </segment>
     </unit>
     <unit id="LjWDhmt" name="Die Seelen deiner verstorbenen Mitbürger lokalisieren.">
@@ -17969,7 +17969,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Seelen deiner verstorbenen Mitbürger lokalisieren.</source>
-        <target>Die Seelen deiner verstorbenen Mitbürger lokalisieren.</target>
+        <target>Locate the souls of your deceased fellow citizens.</target>
       </segment>
     </unit>
     <unit id="J7D2vc9" name="Schamanische Tränke für deine Nachbarn herstellen.">
@@ -17978,7 +17978,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Schamanische Tränke für deine Nachbarn herstellen.</source>
-        <target>Schamanische Tränke für deine Nachbarn herstellen.</target>
+        <target>Make shamanic potions for your neighbors.</target>
       </segment>
     </unit>
     <unit id="LBdBsIv" name="An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!">
@@ -17987,7 +17987,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!</source>
-        <target>An den Toren der Stadt oder in der Außenwelt Regen herbeirufen!</target>
+        <target>Make it rain at the gates or in the World Beyond!</target>
       </segment>
     </unit>
     <unit id="ZWHqNbl" name="Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...">
@@ -17996,7 +17996,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...</source>
-        <target>Deine Nachbarn heilen, möglichst ohne sie dabei umzubringen...</target>
+        <target>Provide curative care to your neighbors without killing them...</target>
       </segment>
     </unit>
     <unit id="aq8ksxb" name="Schau dir am besten gleich den %shaman_help% an.">
@@ -18005,7 +18005,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Schau dir am besten gleich den %shaman_help% an.</source>
-        <target>Schau dir am besten gleich den %shaman_help% an.</target>
+        <target>Check out the %shaman_help% now!</target>
       </segment>
     </unit>
     <unit id="L8UIHsM" name="Schamanen-Ratgeber">
@@ -18014,7 +18014,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Schamanen-Ratgeber</source>
-        <target>Schamanen-Ratgeber</target>
+        <target>Shamans game guide</target>
       </segment>
     </unit>
     <unit id="KqTfNKI" name="6dbee32">
@@ -18023,7 +18023,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</source>
-        <target>Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</target>
+        <target>They provide all the essential information to finally recognize, in the eyes of all, the superiority of your status...</target>
       </segment>
     </unit>
     <unit id="bhwk0Sz" name="63b8c04">
@@ -18032,7 +18032,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät </source>
-        <target>Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät </target>
+        <target>A huge metal box-like creation stuck in the middle of nowhere. It would usually be found beside a building site, and once upon a time it probably was, but there is no sign of it today. Well, except this 'cabin'...</target>
       </segment>
     </unit>
     <unit id="UezITiX" name="e184eae">
@@ -18041,7 +18041,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. </source>
-        <target>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. </target>
+        <target>If you're a bit peckish, esurient or just plain hungry, whatever you do, don't stop here ! Here it's the chef that wants to eat... you... after he cuts off your head with a circular saw.</target>
       </segment>
     </unit>
     <unit id="5U6vNQX" name="Du hast aktuell keine Themen abonniert.">
@@ -18050,7 +18050,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du hast aktuell keine Themen abonniert.</source>
-        <target>Du hast aktuell keine Themen abonniert.</target>
+        <target>You are currently not subscribed to any topics.</target>
       </segment>
     </unit>
   </file>
