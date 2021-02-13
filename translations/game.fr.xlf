@@ -18061,7 +18061,7 @@
       </notes>
       <segment>
         <source>Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät </source>
-        <target>Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät </target>
+        <target>Un très grand container métallique posé au milieu de nulle part. Il devait se trouver à côté d'un chantier, à  une époque, mais il n'en reste rien aujourd'hui. A part cette 'cabane'.</target>
       </segment>
     </unit>
     <unit id="UezITiX" name="e184eae">
@@ -18070,7 +18070,7 @@
       </notes>
       <segment>
         <source>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. </source>
-        <target>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. </target>
+        <target>Si vous avez un petit creux, ne vous arrêtez surtout pas ici ! Ou c'est le cuistot lui même qui viendra vous dévorer, après vous avoir découpé à la scie circulaire.</target>
       </segment>
     </unit>
     <unit id="5U6vNQX" name="Du hast aktuell keine Themen abonniert.">
@@ -18079,7 +18079,7 @@
       </notes>
       <segment>
         <source>Du hast aktuell keine Themen abonniert.</source>
-        <target>Du hast aktuell keine Themen abonniert.</target>
+        <target>Vous n'êtes actuellement abonné à aucun sujet.</target>
       </segment>
     </unit>
   </file>
