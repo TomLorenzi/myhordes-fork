@@ -15706,7 +15706,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du kannst nichts von %citizen% stehlen, solange &lt;strong&gt;er (sie) in der Stadt ist&lt;/strong&gt;...</source>
-        <target><![CDATA[Du kannst nichts von %citizen% stehlen, solange <strong>er (sie) in der Stadt ist</strong>...]]></target>
+        <target><![CDATA[It is impossible to steal anything from %citizen% while <strong>they are in town</strong>...]]></target>
       </segment>
     </unit>
     <unit id="wHDpkBz" name="Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!">
