@@ -7573,7 +7573,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Achtung, du hast bereits &lt;strong&gt;die Hälfte deiner &lt;span class="ap"&gt;&lt;/span&gt;&lt;/strong&gt; verbraucht. Denke immer daran, dir genügend AP aufzuheben, um in die Stadt zurückkehren zu können!</source>
-        <target><![CDATA[Achtung, du hast bereits <strong>die Hälfte deiner <span class="ap"></span></strong> verbraucht. Denke immer daran, dir genügend AP aufzuheben, um in die Stadt zurückkehren zu können!]]></target>
+        <target><![CDATA[Attention, you have used <strong>half of your <span class="ap"></span>s</strong>. You might want to think about saving enough to get back to town!]]></target>
       </segment>
     </unit>
     <unit id="KeA0.Fl" name="Diese Nachricht verbergen">
@@ -7591,7 +7591,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Es wäre vielleicht nicht verkehrt etwas &lt;strong&gt;Proviant&lt;/strong&gt; (Nahrung und/oder Wasser) einzupacken, bevor du die Stadt verlässt... Gehe dazu in den Bereich &lt;strong&gt;Mein Zuhause&lt;/strong&gt;.</source>
-        <target><![CDATA[Es wäre vielleicht nicht verkehrt etwas <strong>Proviant</strong> (Nahrung und/oder Wasser) einzupacken, bevor du die Stadt verlässt... Gehe dazu in den Bereich <strong>Mein Zuhause</strong>.]]></target>
+        <target><![CDATA[It would be a better idea to take some <strong>provisions</strong> with you (food anc/or water) before you go... Go to the <strong>My House</strong> area to load up.]]></target>
       </segment>
     </unit>
   </file>

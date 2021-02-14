@@ -7352,7 +7352,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Vous avez voté pour {citizen} en tant que {role} !</source>
-        <target>You voted for {citizen} as {role}!</target>
+        <target>Your vote for {citizen} as {role} has been lost, I mean counted! It's been counted!</target>
       </segment>
     </unit>
     <unit id="aKn4VEo" name="Munitionsgriff">
@@ -7613,7 +7613,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Dein Hündchen sieht *müde* aus... Es keucht die ganze Zeit und starrt dich aus erschöpften Augen an.</source>
-        <target>Dein Hündchen sieht *müde* aus... Es keucht die ganze Zeit und starrt dich aus erschöpften Augen an.</target>
+        <target>Your labradoodle seems tired... panting constantly and looking at you with that exhausted stare.</target>
       </segment>
     </unit>
   </file>
