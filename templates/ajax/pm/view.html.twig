@@ -459,13 +459,21 @@
             $.html.addEventListenerAll('[x-pm-action="show-users"]', 'click', function () {
 
                 const selected_thread = document.querySelector('ul.pm-conversation-list>li[x-editor].selected');
+                let container = document.getElementById('pm-user-list-container');
                 let target = document.getElementById('pm-user-list-payload');
-                if (!target) return;
+                if (!target || !container) return;
 
-                target.innerHTML = '<div style="margin: 10px" class="small center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}</div>';
+                if (container.classList.contains('hidden')) {
+                    target.innerHTML = '<div style="margin: 10px" class="small center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Wird geladen...'|trans({},'global')|e('js') }}</div>';
 
-                document.getElementById('pm-user-list-container').classList.remove('hidden');
-                $.ajax.background().load( target, selected_thread.getAttribute('x-userlist'), false );
+                    document.getElementById('pm-user-list-container').classList.remove('hidden');
+                    $.ajax.background().load( target, selected_thread.getAttribute('x-userlist'), false );
+                } else {
+                    target.innerHTML = '';
+                    document.getElementById('pm-user-list-container').classList.add('hidden');
+                }
+
+
             });
 
             $.html.addEventListenerAll('[x-pm-action="trash-single"]', 'click', function () {
