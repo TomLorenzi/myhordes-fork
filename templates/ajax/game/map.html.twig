@@ -54,7 +54,7 @@
                                         <div class="cell rw-6 left">{{ 'Entfernung'|trans({},'game') }}</div>
                                         <div class="cell rw-6 right"><div class="ap">{{ (x - map.pos_x)|abs + (y - map.pos_y)|abs }}</div></div>
                                     </div>
-                                    {% if in_town and map.zones[x][y].citizens|length != 0 %}
+                                    {% if in_town and map.zones[x][y].citizens|length != 0 and not chaos %}
                                         {% for resident in map.zones[x][y].citizens %}
                                             <div class="row">
                                                 <div class="cell ro-6 rw-6 right">{{ resident.user.name }}</div>

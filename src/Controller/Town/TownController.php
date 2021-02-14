@@ -710,7 +710,6 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
      * @param ItemFactory $factory
-     * @param TownHandler $th
      * @param BankAntiAbuseService $ba
      * @return Response
      */
@@ -1098,7 +1097,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
 
         $workshopBonus = 1;
         $hpToAp = 2;
-        if(($workshop = $this->town_handler->getBuilding($town, "small_refine_#00")) !== null){
+        if (($workshop = $this->town_handler->getBuilding($town, "small_refine_#00")) !== null) {
             $level = $workshop->getLevel();
             switch($level){
                 case 1:
@@ -1146,7 +1145,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         if (!$building->getComplete() && $building->getPrototype()->getResources())
             foreach ($building->getPrototype()->getResources()->getEntries() as $entry)
                 if (!isset($res[ $entry->getPrototype()->getName() ]))
-                    $res[ $entry->getPrototype()->getName() ] = new ItemRequest( $entry->getPrototype()->getName(), $entry->getChance() );
+                    $res[ $entry->getPrototype()->getName() ] = new ItemRequest( $entry->getPrototype()->getName(), $entry->getChance(), false, false, false );
                 else $res[ $entry->getPrototype()->getName() ]->addCount( $entry->getChance() );
 
         // If the building needs resources, check if they are present in the bank; otherwise fail
@@ -1296,7 +1295,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
             if (!$building->getComplete() && !empty($building->getPrototype()->getResources()))
                 foreach ($building->getPrototype()->getResources()->getEntries() as $resource)
                     if (!isset($items[$resource->getPrototype()->getId()]))
-                        $items[$resource->getPrototype()->getId()] = $this->inventory_handler->countSpecificItems( $this->getActiveCitizen()->getTown()->getBank(), $resource->getPrototype(), false, false );
+                        $items[$resource->getPrototype()->getId()] = $this->inventory_handler->countSpecificItems( $this->getActiveCitizen()->getTown()->getBank(), $resource->getPrototype(), false, false, false );
         }
 
         $votedBuilding = null; $max_votes = -1;

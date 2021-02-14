@@ -321,7 +321,7 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
-    public function constructionsInvest( Citizen $citizen, BuildingPrototype $proto ): TownLogEntry {
+    public function constructionsInvest( Citizen $citizen, BuildingPrototype $proto, int $ap ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(), 'plan' => $proto->getId());
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'constructionsInvest']);
         return (new TownLogEntry())
@@ -345,7 +345,7 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
-    public function constructionsInvestRepair( Citizen $citizen, BuildingPrototype $proto ): TownLogEntry {
+    public function constructionsInvestRepair( Citizen $citizen, BuildingPrototype $proto, int $ap ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(), 'plan' => $proto->getId());
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'constructionsInvestRepair']);
         return (new TownLogEntry())

@@ -471,7 +471,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $down_inv = $citizen->getZone()->getFloor();
         $up_inv   = $citizen->getInventory();
         $town = $citizen->getTown();
-        if ((!$town->getChaos() || !$citizen->getBanished()) && $citizen->getZone()->getX() === 0 && $citizen->getZone()->getY() === 0)
+        if ((!$town->getChaos() && !$citizen->getBanished()) || $citizen->getZone()->isTownZone())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         if ($citizen->getAp() < 2 || $this->citizen_handler->isTired( $citizen ))
@@ -496,6 +496,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @return Response
      */
     public function chat_desert_api(JSONRequestParser $parser): Response {
+        if ($this->getActiveCitizen()->getZone()->isTownZone())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
         $message = $parser->get('msg', null);
         if (!$message || mb_strlen($message) < 2 || mb_strlen($message) > 256 )
             return AjaxResponse::error(self::ErrorChatMessageInvalid);
@@ -854,7 +857,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @return Response
      */
     public function action_desert_api(JSONRequestParser $parser): Response {
-        if (!$this->activeCitizenCanAct()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        if (!$this->activeCitizenCanAct() || $this->getActiveCitizen()->getZone()->isTownZone())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $uncover_fun = function(ItemAction &$a) {
 
@@ -979,6 +983,9 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $down_inv = $this->getActiveCitizen()->getZone()->getFloor();
         $escort = $parser->get('escort', null);
 
+        if ($this->getActiveCitizen()->getZone()->isTownZone())
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
         if ($escort !== null) {
             /** @var Citizen $citizen */
             $citizen = $this->entity_manager->getRepository(Citizen::class)->find((int)$escort);
@@ -1097,7 +1104,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
         if (!$this->zone_handler->check_cp( $zone ))
             return AjaxResponse::error( self::ErrorZoneBlocked );
-        if ($zone->getX() === 0 && $zone->getY() === 0)
+        if ($zone->isTownZone())
             return AjaxResponse::error( self::ErrorNotDiggable );
 
         if ($ext === null)

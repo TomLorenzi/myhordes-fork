@@ -38,7 +38,7 @@
             {% endif %}
         </div>
         <div class="padded cell rw-6">
-            {% embed "ajax/game/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'in_town': true, 'map': map_data} %}
+            {% embed "ajax/game/map.html.twig" with {'default_zoom': 0, 'default_show_zone': false, 'allow_zone_view': false, 'in_town': true, 'map': map_data, 'chaos': town.chaos} %}
             {% endembed %}
         </div>
     </div>

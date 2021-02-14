@@ -436,7 +436,11 @@
                                     <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
                                 {% endif %}
                                 <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
-                                <b>{{ other_citizen.user.name }}</b>
+                                {% if other_citizen != citizen %}
+                                    <a target="_blank" href="{{ path('soul_visit', {id: other_citizen.user.id}) }}"><b>{{ other_citizen.user.name }}</b></a>
+                                {% else %}
+                                    <b>{{ other_citizen.user.name }}</b>
+                                {% endif %}
                             </div>
                             <div class="padded cell rw-3">
                                 <ul class="status">
@@ -487,7 +491,7 @@
                                 <div class="ap small">{{ other_citizen.ap }}</div>
                             </div>
                             <div class="padded cell rw-3 right">
-                                {% if other_citizen.escortSettings.allowInventoryAccess %}
+                                {% if other_citizen.escortSettings.allowInventoryAccess and allow_floor_access %}
                                     {% for escort_action in escort_actions[other_citizen.id] %}
                                         {# @var \App\Structures\EscortItemActionSet escort_action #}
                                         <button {% if not escort_action.hasAvailableActions %}disabled{% endif%} class="small inline" x-escort-meta-group x-escort-meta-action="{{ escort_action.group.id }}" x-citizen="{{ other_citizen.id }}" ><img alt="" src="{{ asset('build/images/actions/' ~ escort_action.group.icon ~ '.gif') }}" style="margin-right: 0;" /></button>
@@ -574,7 +578,11 @@
                                     <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
                                 {% endif %}
                                 <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
-                                <b>{{ other_citizen.user.name }}</b>
+                                {% if other_citizen != citizen %}
+                                    <a target="_blank" href="{{ path('soul_visit', {id: other_citizen.user.id}) }}"><b>{{ other_citizen.user.name }}</b></a>
+                                {% else %}
+                                    <b>{{ other_citizen.user.name }}</b>
+                                {% endif %}
                             </div>
                             <div class="padded cell rw-4">
                                 <ul class="status">
@@ -764,24 +772,22 @@
         {% endif %}
 
         {% if zone_blocked and zone_escape < 0 and not active_scout_mode %}
-        let escapeBtn = document.getElementById('escape-btn');
-        if(escapeBtn) escapeBtn.addEventListener('click', function () {
-            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                return;
-            $.ajax.easySend( '{{ path('beyond_desert_escape_controller') }}', {},
-                function () {
-                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
-                } );
-        });
-        let attackBtn = document.getElementById('attack-btn');
-        if(attackBtn) attackBtn.addEventListener('click', function () {
-            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                return;
-            $.ajax.easySend( '{{ path('beyond_desert_attack_controller') }}', {},
-                function () {
-                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
-                } );
-        });
+            $.html.addEventListenerAll('#escape-btn', 'click', function () {
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                    return;
+                $.ajax.easySend( '{{ path('beyond_desert_escape_controller') }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                    } );
+            });
+            $.html.addEventListenerAll('#attack-btn', 'click', function () {
+                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                    return;
+                $.ajax.easySend( '{{ path('beyond_desert_attack_controller') }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                    } );
+            });
         {% endif %}
 
         {% if allow_floor_access %}
@@ -834,8 +840,7 @@
             );
 
             {% if banished or town_chaos %}
-                let bury_rucksack_button = document.getElementById("bury_rucksack_button")
-                if (bury_rucksack_button) {
+                if (document.getElementById("bury_rucksack_button")) {
                     handleItems(
                         document.querySelectorAll('#bury_rucksack_button'),
                         '{{ path('beyond_bury_rucksack_controller') }}',

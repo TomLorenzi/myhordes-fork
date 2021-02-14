@@ -2367,7 +2367,7 @@
       </notes>
       <segment>
         <source>Neuer Beitrag in %topic%</source>
-        <target>Neuer Beitrag in %topic%</target>
+        <target>Nouvelle réponse dans %topic%</target>
       </segment>
     </unit>
     <unit id="0lz2qGs" name="Abonniert">
@@ -2376,7 +2376,7 @@
       </notes>
       <segment>
         <source>Abonniert</source>
-        <target>Abonniert</target>
+        <target>Abonné</target>
       </segment>
     </unit>
     <unit id="cgCBPPJ" name="Abonnieren">
@@ -2385,7 +2385,7 @@
       </notes>
       <segment>
         <source>Abonnieren</source>
-        <target>Abonnieren</target>
+        <target>Suivre</target>
       </segment>
     </unit>
   </file>
