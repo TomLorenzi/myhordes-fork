@@ -9,6 +9,7 @@ class Config {
     public notificationAsPopup:   conf<boolean>;
     public twinoidImport:         conf<[number,string,string]>;
     public editorCache:           conf<string>;
+    public scopedEditorCache:     conf<[string,string]>;
     public navigationCache:       conf<string>;
     public hiddenConditionalHelp: conf<Array<string>>;
     public completedTutorials:    conf<Array<number>>;
@@ -19,6 +20,7 @@ class Config {
         this.notificationAsPopup   = this.makeConf<boolean>('notifAsPopup', false);
         this.twinoidImport         = this.makeConf<[number,string,string]>('twinImport', [0,'',''], true);
         this.editorCache           = this.makeConf<string>('editorCache', '', true);
+        this.scopedEditorCache     = this.makeConf<[string,string]>('scopedEditorCache', ['',''], true);
         this.navigationCache       = this.makeConf<string>('navigationCache', null, true);
         this.hiddenConditionalHelp = this.makeConf<Array<string>>('hiddenConditionalHelp', [], false);
         this.completedTutorials    = this.makeConf<Array<number>>('completedTutorials', [], false);

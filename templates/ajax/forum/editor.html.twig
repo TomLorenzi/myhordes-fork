@@ -263,7 +263,7 @@
             }
 
             node_transfer_source.addEventListener('input', function() {
-                $.client.config.editorCache.set(node_transfer_source.value);
+                $.client.config.scopedEditorCache.set(['{{ type|e('js') }}',node_transfer_source.value]);
                 transfer_to_preview();
             });
 
@@ -273,8 +273,15 @@
                 form.parentNode.removeChild(form);
             };
 
-            if ( $.client.config.editorCache.get() ) {
-                node_transfer_source.value = $.client.config.editorCache.get();
+
+            let cache = $.client.config.editorCache.get();
+            if (!cache) {
+                const s_cache = $.client.config.scopedEditorCache.get();
+                if (s_cache[0] === '{{ type|e('js') }}') cache = s_cache[1];
+            }
+
+            if ( cache ) {
+                node_transfer_source.value = cache;
                 transfer_to_preview();
             }
 
@@ -587,6 +594,7 @@
                         $.ajax.easySend( target_url, target_payload,
                             function (data) {
                                 $.client.config.editorCache.set('');
+                                $.client.config.scopedEditorCache.set(['','']);
                                 {% if type == 'global-pm' %}
                                 let selected = document.querySelector('.pm-conversation-list>li.selected');
                                 if (selected) selected.click();
