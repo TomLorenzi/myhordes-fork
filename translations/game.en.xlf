@@ -17375,7 +17375,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>%citizen% hat %items% in der Müllhalde zerstört (+%def% Verteidigung)</source>
-        <target>%citizen% hat %items% in der Müllhalde zerstört (+%def% Verteidigung)</target>
+        <target>%citizen% has destroyed %items% at the dump (+%def% def)</target>
       </segment>
     </unit>
     <unit id="IyPutvn" name="%username% hat dich angegriffen!">
