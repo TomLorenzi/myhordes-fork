@@ -9,8 +9,8 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class BankAntiAbuseService {
 
-    private $em;
-    private $conf;
+    private EntityManagerInterface $em;
+    private ConfMaster $conf;
 
     public function __construct(ConfMaster $conf, EntityManagerInterface $em)
     {
@@ -19,14 +19,15 @@ class BankAntiAbuseService {
     }
 
     public function increaseBankCount(Citizen $citizen) {
-        if (($bankAntiAbuse = $citizen->getBankAntiAbuse()) === null)
-            $this->em->persist(
+        if (($bankAntiAbuse = $citizen->getBankAntiAbuse()) === null) {
+            $this->em->persist($bankAntiAbuse =
                 (new BankAntiAbuse())
                     ->setCitizen($citizen)
                     ->setNbItemTaken(1)
                     ->setUpdated(new \DateTime())
             );
-        else {
+            $citizen->setBankAntiAbuse($bankAntiAbuse);
+        } else {
             if ($this->inRangeOfTaking($citizen, $bankAntiAbuse->getUpdated()))
                 $bankAntiAbuse->increaseNbItemTaken();
             else

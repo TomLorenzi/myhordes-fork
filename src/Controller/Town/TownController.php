@@ -710,7 +710,6 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
      * @param JSONRequestParser $parser
      * @param InventoryHandler $handler
      * @param ItemFactory $factory
-     * @param TownHandler $th
      * @param BankAntiAbuseService $ba
      * @return Response
      */
