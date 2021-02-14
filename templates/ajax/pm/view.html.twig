@@ -430,7 +430,7 @@
                     document.getElementById('gpm-forum-content-container').classList.remove('hidden');
                     document.getElementById('pm-new-thread-controls').classList.remove('hidden');
 
-
+                    $.html.forEach('#global-pm-forum-editor-title', e => e.focus());
                 } );
             });
 
@@ -452,6 +452,7 @@
 
                 if (editor) $.ajax.background().load( editor, selected_thread.getAttribute('x-editor'), false, {}, function() {
                     document.getElementById('pm-forum-editor-header').innerText = '{{ 'Antworten'|trans({},'global')|e('js') }}';
+                    $.html.forEach('#global-pm-forum-editor-text', e => e.focus());
                 } );
             });
 

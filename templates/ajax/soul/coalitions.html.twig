@@ -169,6 +169,8 @@
 {% block js %}
     {{parent()}}
     <script>
+        $.html.forEach('#shoutbox_chat', e => e.focus());
+
         {% if membership is not null %}
 
             {% if membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') %}
