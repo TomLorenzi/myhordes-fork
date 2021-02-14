@@ -2341,5 +2341,14 @@
         <target>Konstruktionen</target>
       </segment>
     </unit>
+    <unit id="JgVl7oE" name="Gib den Namen oder die ID der Stadt ein.">
+      <notes>
+        <note category="german">Gib den Namen oder die ID der Stadt ein.</note>
+      </notes>
+      <segment>
+        <source>Gib den Namen oder die ID der Stadt ein.</source>
+        <target>Gib den Namen oder die ID der Stadt ein.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
