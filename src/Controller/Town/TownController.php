@@ -1663,7 +1663,7 @@ class TownController extends InventoryAwareController implements TownInterfaceCo
         // Get town
         $town = $this->getActiveCitizen()->getTown();
 
-        $new_words_of_heroes = $parser->get('content', '');
+        $new_words_of_heroes = mb_substr($parser->get('content', ''), 0, 500);
 
         $town->setWordsOfHeroes($new_words_of_heroes);
 
