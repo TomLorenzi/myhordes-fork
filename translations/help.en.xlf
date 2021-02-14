@@ -7060,7 +7060,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wenn du einen Gegenstand gegen einen anderen aus deiner Truhe tauschen möchtest, brauchst du ihn nur anzuklicken.</source>
-        <target>Wenn du einen Gegenstand gegen einen anderen aus deiner Truhe tauschen möchtest, brauchst du ihn nur anzuklicken.</target>
+        <target>Just click an object to move it from your chest to your rucksack.</target>
       </segment>
     </unit>
     <unit id="BGGAiM." name="Weiter...">
@@ -7069,7 +7069,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Weiter...</source>
-        <target>Weiter...</target>
+        <target>Continue...</target>
       </segment>
     </unit>
     <unit id="QVWhtp1" name="An dieser Stelle werden die Gegenstände angezeigt, die du gebrauchen kannst.">
@@ -7078,7 +7078,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>An dieser Stelle werden die Gegenstände angezeigt, die du gebrauchen kannst.</source>
-        <target>An dieser Stelle werden die Gegenstände angezeigt, die du gebrauchen kannst.</target>
+        <target>Also note that your rucksack can be seen here.</target>
       </segment>
     </unit>
     <unit id="AM1gd9H" name="b6a6ab8">
@@ -7087,7 +7087,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>&lt;strong&gt;Klick auf einen Link, um einen Gegenstand zu verwenden (z.B.: eine Kiste öffnen, Essen, Trinken usw...).&lt;/strong&gt;</source>
-        <target><![CDATA[<strong>Klick auf einen Link, um einen Gegenstand zu verwenden (z.B.: eine Kiste öffnen, Essen, Trinken usw...).</strong>]]></target>
+        <target><![CDATA[<strong>You can then click on the click to use an object (for example : open a case, eat, drink, etc...)</strong>]]></target>
       </segment>
     </unit>
     <unit id="3nB1Tg0" name="9425f3c">
@@ -7096,7 +7096,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>"MyHordes" ist ein Survivalspiel, das in der Gruppe gespielt wird. Die Welt, in der ihr "lebt", ist von entsetzlichen Kreaturen bevölkert, den sogenannten &lt;strong&gt;Zombies&lt;/strong&gt;.</source>
-        <target><![CDATA["MyHordes" ist ein Survivalspiel, das in der Gruppe gespielt wird. Die Welt, in der ihr "lebt", ist von entsetzlichen Kreaturen bevölkert, den sogenannten <strong>Zombies</strong>.]]></target>
+        <target><![CDATA["MyHordes" is a community survival game. Theworls in which you "live" is inhabited by terrifying creatatures : <strong>Hordes of zombies</strong>.]]></target>
       </segment>
     </unit>
     <unit id="pPb8h28" name="62c13ce">
@@ -7105,7 +7105,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Jeden Abend &lt;strong&gt;um Mitternacht&lt;/strong&gt; strömen diese Kreaturen in die Stadt, um euch aufzufressen.</source>
-        <target><![CDATA[Jeden Abend <strong>um Mitternacht</strong> strömen diese Kreaturen in die Stadt, um euch aufzufressen.]]></target>
+        <target><![CDATA[Every night <strong>at midnight</strong>, these creatures descend upon the town to try and devour the citizens.]]></target>
       </segment>
     </unit>
     <unit id="J70DLgk" name="&lt;strong&gt;Das einzige, was euch zum Überleben bleibt, ist Wasser!&lt;/strong&gt;">
@@ -7114,7 +7114,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>&lt;strong&gt;Das einzige, was euch zum Überleben bleibt, ist Wasser!&lt;/strong&gt;</source>
-        <target><![CDATA[<strong>Das einzige, was euch zum Überleben bleibt, ist Wasser!</strong>]]></target>
+        <target><![CDATA[<strong>The only means of survival : water!</strong>]]></target>
       </segment>
     </unit>
     <unit id="ZL00KrJ" name="462c471">
@@ -7123,7 +7123,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wasser besitzt neben seiner lebenserhaltenden Funktion auch die Eigenschaft gegen die Wüstenkreaturen wirksam zu sein.</source>
-        <target>Wasser besitzt neben seiner lebenserhaltenden Funktion auch die Eigenschaft gegen die Wüstenkreaturen wirksam zu sein.</target>
+        <target>Water, more than just an obvious dietary requirement, is a powerful weapon against these desert creatures.</target>
       </segment>
     </unit>
     <unit id="wDdRhG7" name="6e6b03c">
@@ -7132,7 +7132,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Mit dem Wasser können nämlich die Monster umgebracht und somit der &lt;strong&gt;Prozess der Zombiefizierung gestoppt werden&lt;/strong&gt;.</source>
-        <target><![CDATA[Mit dem Wasser können nämlich die Monster umgebracht und somit der <strong>Prozess der Zombiefizierung gestoppt werden</strong>.]]></target>
+        <target><![CDATA[In fact, <strong>water halts the zombification process</strong>, and therefore destroys these monsters.]]></target>
       </segment>
     </unit>
     <unit id="8TV3R0W" name="524a7b0">
@@ -7141,7 +7141,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Die Bürger der betroffenen Stadt müssen kooperieren, wenn sie überleben möchten.</source>
-        <target>Die Bürger der betroffenen Stadt müssen kooperieren, wenn sie überleben möchten.</target>
+        <target>The citizens of the town must organise themselves to survive.</target>
       </segment>
     </unit>
     <unit id="_OeuQWj" name="511364c">
@@ -7150,7 +7150,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Dazu ist es nötig, &lt;strong&gt;das äußere Gebiet, genannt die Außenwelt, zu erkunden&lt;/strong&gt;. In der Außenwelt finden die Bewohner überlebenswichtige Gegenstände, wie Nahrung, Waffen und Rohstoffe. Diese werden zum Beispiel für den Bau neuer Gebäude benötigt.</source>
-        <target><![CDATA[Dazu ist es nötig, <strong>das äußere Gebiet, genannt die Außenwelt, zu erkunden</strong>. In der Außenwelt finden die Bewohner überlebenswichtige Gegenstände, wie Nahrung, Waffen und Rohstoffe. Diese werden zum Beispiel für den Bau neuer Gebäude benötigt.]]></target>
+        <target><![CDATA[To achieve this they must <strong>explore the outside world</strong>, the World Beyond, to collect objects such as food, weapons and defences...]]></target>
       </segment>
     </unit>
     <unit id="sWF3auD" name="6cec409">
@@ -7159,7 +7159,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Jeder Bürger kann sich eine &lt;strong&gt;Konstruktion&lt;/strong&gt; aussuchen, an der er mitarbeiten möchte.</source>
-        <target><![CDATA[Jeder Bürger kann sich eine <strong>Konstruktion</strong> aussuchen, an der er mitarbeiten möchte.]]></target>
+        <target><![CDATA[Each citizen can choose which <strong>construktion projects</strong> they want to work on.]]></target>
       </segment>
     </unit>
     <unit id="BwyhPDE" name="13213a1">
@@ -7168,7 +7168,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Möchtest du eine Verteidigungsmauer bauen oder vielleicht doch eine bessere Wasserpumpe für den Brunnen?</source>
-        <target>Möchtest du eine Verteidigungsmauer bauen oder vielleicht doch eine bessere Wasserpumpe für den Brunnen?</target>
+        <target>Would you rather build a new wall for defense, or a more efficient water pump for the well ?</target>
       </segment>
     </unit>
     <unit id="S3PbcBt" name="04597cf">
@@ -7177,7 +7177,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Du allein entscheidest, ob du ein &lt;strong&gt;solidarischer Mitbürger&lt;/strong&gt; sein willst, der seine Stadt in eine bessere Zukunft führen möchte oder ob du als Außenseiter &lt;strong&gt;unabhängig&lt;/strong&gt; für dein eigenes Überleben kämpfen möchtest!</source>
-        <target><![CDATA[Du allein entscheidest, ob du ein <strong>solidarischer Mitbürger</strong> sein willst, der seine Stadt in eine bessere Zukunft führen möchte oder ob du als Außenseiter <strong>unabhängig</strong> für dein eigenes Überleben kämpfen möchtest!]]></target>
+        <target><![CDATA[You are free to choose between being an <strong>united citizen</strong> capable of leading your town to a better future, or being <strong>independent</strong> fighting for your own survival!]]></target>
       </segment>
     </unit>
     <unit id="DjtQdul" name="403af39">
@@ -7186,7 +7186,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Sei dabei jedoch immer auf der Hut vor deinen Nachbarn... Man weiß nie, welche Pläne sie verfolgen...</source>
-        <target>Sei dabei jedoch immer auf der Hut vor deinen Nachbarn... Man weiß nie, welche Pläne sie verfolgen...</target>
+        <target>Whatever you chose, always be careful which neighbours you trust... You never know whose side they're really on...</target>
       </segment>
     </unit>
     <unit id="_56DB9y" name="In der Spielhilfe findest du ausführliche Informationen.">
@@ -7195,7 +7195,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>In der Spielhilfe findest du ausführliche Informationen.</source>
-        <target>In der Spielhilfe findest du ausführliche Informationen.</target>
+        <target>If required, you can find the complete game help here.</target>
       </segment>
     </unit>
     <unit id="w67mXHH" name="5cf1683">
@@ -7204,7 +7204,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Der Großteil aller Aktionen in der Stadt werden durch dieses Menü ausgeführt. Erkunde die Stadt, indem du auf die jeweiligen Icons drückst.</source>
-        <target>Der Großteil aller Aktionen in der Stadt werden durch dieses Menü ausgeführt. Erkunde die Stadt, indem du auf die jeweiligen Icons drückst.</target>
+        <target>The majority of actions you wil carry out in town are accessed via this menu: you can explore the town by clicking on these icons.</target>
       </segment>
     </unit>
     <unit id="wUPyDi8" name="95c7466">
@@ -7213,7 +7213,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Dank diesem &lt;strong&gt;Funkgerät&lt;/strong&gt; bist du in der Lage mit den &lt;strong&gt;den anderen Bürgern deiner Stadt&lt;/strong&gt; zu kommunizieren. Du kannst nach Ratschlägen fragen oder deinen Nachbarn anzeigen...</source>
-        <target><![CDATA[Dank diesem <strong>Funkgerät</strong> bist du in der Lage mit den <strong>den anderen Bürgern deiner Stadt</strong> zu kommunizieren. Du kannst nach Ratschlägen fragen oder deinen Nachbarn anzeigen...]]></target>
+        <target><![CDATA[Thanks to this <strong>radio</strong> you can communicate with others in <strong>your town forum</strong> and seek advice or help from your neighbours...]]></target>
       </segment>
     </unit>
     <unit id="Ddpgf84" name="013c48d">
@@ -7222,7 +7222,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Du solltest jeden Tag mindestens einmal ins Forum schauen, um zu erfahren wie deine Stadt ihre Verteidigung organisieren möchte.</source>
-        <target>Du solltest jeden Tag mindestens einmal ins Forum schauen, um zu erfahren wie deine Stadt ihre Verteidigung organisieren möchte.</target>
+        <target>It is essential to take a look here to see what is happening and what is planned for the town!</target>
       </segment>
     </unit>
     <unit id="oR1_uqs" name="6b120e3">
@@ -7231,7 +7231,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Alle &lt;strong&gt;Ereignisse des Vortags&lt;/strong&gt; werden in einer &lt;strong&gt;Zeitung veröffentlicht, die nach jedem Angriff der Zombiehorden erscheint&lt;/strong&gt;. Sie enthält wichtige Informationen!</source>
-        <target><![CDATA[Alle <strong>Ereignisse des Vortags</strong> werden in einer <strong>Zeitung veröffentlicht, die nach jedem Angriff der Zombiehorden erscheint</strong>. Sie enthält wichtige Informationen!]]></target>
+        <target><![CDATA[<strong>Last night's events</strong> are always reported in the <strong>gazette which is published after each Horde attack</strong>. It contains vital information!]]></target>
       </segment>
     </unit>
     <unit id="hQOPgsj" name="f96ea86">
@@ -7240,7 +7240,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Deine &lt;strong&gt;Seele&lt;/strong&gt; ist hier sichtbar. In ihr findest du den Verlauf all deiner vorangegangenen Leben... In "MyHordes" ist Sterben nämlich etwas Alltägliches...</source>
-        <target><![CDATA[Deine <strong>Seele</strong> ist hier sichtbar. In ihr findest du den Verlauf all deiner vorangegangenen Leben... In "MyHordes" ist Sterben nämlich etwas Alltägliches...]]></target>
+        <target><![CDATA[Your <strong>soul</strong> can be seen here. It contains the details of all your previous lifes... Because in "MyHordes", there's a chance you will die often...]]></target>
       </segment>
     </unit>
     <unit id="9Nqk8k1" name="ca06291">
@@ -7249,7 +7249,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>In der &lt;strong&gt;ausführlichen Spielhilfe&lt;/strong&gt; findest du alles über die Regeln des Spiels.</source>
-        <target><![CDATA[In der <strong>ausführlichen Spielhilfe</strong> findest du alles über die Regeln des Spiels.]]></target>
+        <target><![CDATA[The <strong>Game Help</strong> should answer all your questions concerning the rules of the game.]]></target>
       </segment>
     </unit>
     <unit id="8yNAgml" name="c9e0eaf">
@@ -7258,7 +7258,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Deine &lt;strong&gt;&lt;span class="ap"&gt;Aktionspunkte&lt;/span&gt;&lt;/strong&gt; (diese werden insbesonders für deine Ausflüge in die Außenwelt benötigt) werden hier auf der linken Seite angezeigt.</source>
-        <target><![CDATA[Deine <strong><span class="ap">Aktionspunkte</span></strong> (diese werden insbesonders für deine Ausflüge in die Außenwelt benötigt) werden hier auf der linken Seite angezeigt.]]></target>
+        <target><![CDATA[Your <strong><span class="ap">action points</span></strong> (generally used for travelling around the World Beyond) are shown here.]]></target>
       </segment>
     </unit>
     <unit id="ioAdH4z" name="6889983">
@@ -7267,7 +7267,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Diese Leiste in der Mitte zeigt deinen &lt;strong&gt;Gesundheitszustand&lt;/strong&gt; an. &lt;strong&gt;Behalte ihn immer im Auge.&lt;/strong&gt;</source>
-        <target><![CDATA[Diese Leiste in der Mitte zeigt deinen <strong>Gesundheitszustand</strong> an. <strong>Behalte ihn immer im Auge.</strong>]]></target>
+        <target><![CDATA[Your status icons allow you to monitor <strong>your health</strong> closely. <strong>Always keep an eye on it.</strong>]]></target>
       </segment>
     </unit>
     <unit id="D5HiVd5" name="Ganz rechts kannst du den Inhalt deines &lt;strong&gt;Rucksacks&lt;/strong&gt; sehen.">
@@ -7276,7 +7276,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Ganz rechts kannst du den Inhalt deines &lt;strong&gt;Rucksacks&lt;/strong&gt; sehen.</source>
-        <target><![CDATA[Ganz rechts kannst du den Inhalt deines <strong>Rucksacks</strong> sehen.]]></target>
+        <target><![CDATA[The contents of your <strong>rucksack</strong> are shown here.]]></target>
       </segment>
     </unit>
     <unit id="ORDqV.0" name="0871862">
@@ -7285,7 +7285,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>An jedem Tag wirst du als Erstes immer deine &lt;strong&gt;Wasserration&lt;/strong&gt; aus dem &lt;strong&gt;Brunnen&lt;/strong&gt; nehmen...</source>
-        <target><![CDATA[An jedem Tag wirst du als Erstes immer deine <strong>Wasserration</strong> aus dem <strong>Brunnen</strong> nehmen...]]></target>
+        <target><![CDATA[Each day, your first task should be to colect your daily <strong>water ration</strong> from <strong>the well</strong>...]]></target>
       </segment>
     </unit>
     <unit id="7oGftAt" name="Um zum Brunnen zu gelangen, klicke auf dieses Icon.">
@@ -7294,7 +7294,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Um zum Brunnen zu gelangen, klicke auf dieses Icon.</source>
-        <target>Um zum Brunnen zu gelangen, klicke auf dieses Icon.</target>
+        <target>Click in this icon to go in the well.</target>
       </segment>
     </unit>
     <unit id="kqSYwd7" name="bd94fad">
@@ -7303,7 +7303,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Es ist an der Zeit, ein paar Gegenstände mitzunehmen. Gehe nach &lt;strong&gt;Hause&lt;/strong&gt;, um dir dein &lt;strong&gt;Inventar&lt;/strong&gt; anzusehen.</source>
-        <target><![CDATA[Es ist an der Zeit, ein paar Gegenstände mitzunehmen. Gehe nach <strong>Hause</strong>, um dir dein <strong>Inventar</strong> anzusehen.]]></target>
+        <target><![CDATA[It is now time to take some objects with you. Go to your <strong>House</strong>, to see your <strong>Inventory</strong>.]]></target>
       </segment>
     </unit>
     <unit id="MAEg2PI" name="Deinen Rucksack findest du übrigens hier.">
@@ -7312,7 +7312,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Deinen Rucksack findest du übrigens hier.</source>
-        <target>Deinen Rucksack findest du übrigens hier.</target>
+        <target>Also note that your rucksack can be seen here</target>
       </segment>
     </unit>
     <unit id="uyGoX2c" name="0659246">
@@ -7321,7 +7321,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wenn du möchtest, kannst du etwas Proviant mitnehmen (Essen, Wasser..). Denke aber daran, in deinem Rucksack ein &lt;strong&gt;bisschen Platz&lt;/strong&gt; übrig zu lassen, um weitere Gegenstände mitnehmen zu können, die du in der Wüste finden wirst.</source>
-        <target><![CDATA[<em>Wenn du möchtest, kannst du etwas Proviant mitnehmen (Essen, Wasser..). Denke aber daran, in deinem Rucksack ein <strong>bisschen Platz</strong> übrig zu lassen, um weitere Gegenstände mitnehmen zu können, die du in der Wüste finden wirst.</em>]]></target>
+        <target><![CDATA[<em>If you wish, you can take objects with you (rations, water..), but think about <strong>saving some space</strong> for items you'll find in the desert.</em>]]></target>
       </segment>
     </unit>
     <unit id="4JcDo10" name="a5f74cd">
@@ -7330,7 +7330,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Der erste Gegenstand auf der Liste entspricht dem &lt;strong&gt;Beruf&lt;/strong&gt;, den du dir ausgesucht hast. Er nimmt &lt;strong&gt;keinen Platz&lt;/strong&gt; weg und du kannst ihn auch nicht verlieren.</source>
-        <target><![CDATA[Der erste Gegenstand auf der Liste entspricht dem <strong>Beruf</strong>, den du dir ausgesucht hast. Er nimmt <strong>keinen Platz</strong> weg und du kannst ihn auch nicht verlieren.]]></target>
+        <target><![CDATA[The first object in this list corresponds to the <strong>profession</strong>you have chosen. It takes <strong>no space</strong> in your rucksack and can never be lost.]]></target>
       </segment>
     </unit>
     <unit id="DXGanAJ" name="Wie soll ich spielen?">
@@ -7339,7 +7339,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wie soll ich spielen?</source>
-        <target>Wie soll ich spielen?</target>
+        <target>How do i play ?</target>
       </segment>
     </unit>
     <unit id="BgFPHeo" name="Das Grundprizip des Spiels">
@@ -7348,7 +7348,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Das Grundprizip des Spiels</source>
-        <target>Das Grundprizip des Spiels</target>
+        <target>The basic principles</target>
       </segment>
     </unit>
     <unit id="D.eaIss" name="Die Benutzeroberfläche">
@@ -7357,7 +7357,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Die Benutzeroberfläche</source>
-        <target>Die Benutzeroberfläche</target>
+        <target>The interface</target>
       </segment>
     </unit>
     <unit id="WSj7XMU" name="Wie rüste ich mich aus?">
@@ -7366,7 +7366,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wie rüste ich mich aus?</source>
-        <target>Wie rüste ich mich aus?</target>
+        <target>How do I get readu?</target>
       </segment>
     </unit>
     <unit id="BAFRWYu" name="Wie kann ich die Stadt verlassen?">
@@ -7375,7 +7375,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wie kann ich die Stadt verlassen?</source>
-        <target>Wie kann ich die Stadt verlassen?</target>
+        <target>How do I leave town?</target>
       </segment>
     </unit>
     <unit id="22eqBTq" name="Entdecke deinen Beruf:">
@@ -7384,7 +7384,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Entdecke deinen Beruf:</source>
-        <target>Entdecke deinen Beruf:</target>
+        <target>Discover your profession:</target>
       </segment>
     </unit>
     <unit id="5MHED6b" name="2028c36">
@@ -7393,7 +7393,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wenn sich die Bürger eines Tages dazu entschließen eine &lt;strong&gt;Pumpe&lt;/strong&gt; zu bauen, wird die Stadt über mehr Wasser verfügen.</source>
-        <target><![CDATA[Wenn sich die Bürger eines Tages dazu entschließen eine <strong>Pumpe</strong> zu bauen, wird die Stadt über mehr Wasser verfügen.]]></target>
+        <target><![CDATA[If one day, the citizens decide to build a <strong>Pump</strong>, it will be possible to take more than your daily ration of water.]]></target>
       </segment>
     </unit>
     <unit id="6wWIdYL" name="b3d7784">
@@ -7402,7 +7402,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Dieses Feld zeigt die Karte der Außenwelt. Du musst hier klicken, wenn du dich &lt;strong&gt;bewegen&lt;/strong&gt; möchtest.</source>
-        <target><![CDATA[Dieses Feld zeigt die Karte der Außenwelt. Du musst hier klicken, wenn du dich <strong>bewegen</strong> möchtest.]]></target>
+        <target><![CDATA[This panel displays the map of the World Beyond. You must click here to <strong>move around</strong>.]]></target>
       </segment>
     </unit>
     <unit id="7CJKW6D" name="259ded5">
@@ -7411,7 +7411,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Der rechte Teil zeigt die Zone, in der du dich gerade befindest. Dort findest du auch alle verfügbaren Aktionsmöglichkeiten.</source>
-        <target>Der rechte Teil zeigt die Zone, in der du dich gerade befindest. Dort findest du auch alle verfügbaren Aktionsmöglichkeiten.</target>
+        <target>The section on the right describes the zone you are in. You will also find a list of the actions available to you in this area.</target>
       </segment>
     </unit>
     <unit id="UL9YoQf" name="8ee19aa">
@@ -7420,7 +7420,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Klick auf &lt;strong&gt;einen der 4 Pfeile&lt;/strong&gt;, um dich in eine neue Zone zu bewegen...</source>
-        <target><![CDATA[Klick auf <strong>einen der 4 Pfeile</strong>, um dich in eine neue Zone zu bewegen...]]></target>
+        <target><![CDATA[Click on <strong>one for the 4 arrows</strong>to move to a new zone...]]></target>
       </segment>
     </unit>
     <unit id="_Lp9re7" name="Wie erkunde ich die Außenwelt?">
@@ -7429,7 +7429,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wie erkunde ich die Außenwelt?</source>
-        <target>Wie erkunde ich die Außenwelt?</target>
+        <target>How do I explore the World Beyond?</target>
       </segment>
     </unit>
     <unit id="Q5jU0Bo" name="Lesen:">
@@ -7438,7 +7438,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Lesen:</source>
-        <target>Lesen:</target>
+        <target>Read:</target>
       </segment>
     </unit>
     <unit id="VhE6CQq" name="Der Kleine Außenweltführer">
@@ -7447,7 +7447,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Der Kleine Außenweltführer</source>
-        <target>Der Kleine Außenweltführer</target>
+        <target>The Pocket Guide to the World Beyond</target>
       </segment>
     </unit>
     <unit id="3WkBbnG" name="Das Stadttor ist geöffnet.">
@@ -7456,7 +7456,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Das Stadttor ist geöffnet.</source>
-        <target>Das Stadttor ist geöffnet.</target>
+        <target>The town gates are open.</target>
       </segment>
     </unit>
     <unit id="GQqJv8t" name="Klick hier, um &lt;strong&gt;in die Wüste zu gehen&lt;/strong&gt;... Sei jedoch vorsichtig!">
@@ -7465,7 +7465,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Klick hier, um &lt;strong&gt;in die Wüste zu gehen&lt;/strong&gt;... Sei jedoch vorsichtig!</source>
-        <target><![CDATA[Klick hier, um <strong>in die Wüste zu gehen</strong>... Sei jedoch vorsichtig!]]></target>
+        <target><![CDATA[Click here to <strong>venture into the desert</strong>... Be careful!]]></target>
       </segment>
     </unit>
     <unit id="HoXsc8P" name="ae0a0ed">
@@ -7474,7 +7474,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Du kannst &lt;strong&gt;das Stadttor&lt;/strong&gt; in diesem Bereich öffnen... Achtung: Wenn das Tor beim allnächtlichen &lt;strong&gt;Angriff der Zombiehorde&lt;/strong&gt; offen steht, kann das für die Stadt fatale Folgen haben...&lt;strong&gt;&lt;/strong&gt;</source>
-        <target><![CDATA[Du kannst <strong>das Stadttor</strong> in diesem Bereich öffnen... Achtung: Wenn das Tor beim allnächtlichen <strong>Angriff der Zombiehorde</strong> offen steht, kann das für die Stadt fatale Folgen haben...<strong></strong>]]></target>
+        <target><![CDATA[You can <strong>open the gates</strong> from this section... Warning: if they remain open during the <strong>Horde's attack</strong> which takes place <strong>every night</strong>, the town could be in great danger...]]></target>
       </segment>
     </unit>
     <unit id="_1_xXoc" name="55fa741">
@@ -7483,7 +7483,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Eine Expedition in die Außenwelt, will &lt;strong&gt;gut vorbereitet&lt;/strong&gt; sein... Vergewissere dich, dass du den Leitfaden &lt;strong&gt;Wie rüste ich mich aus?&lt;/strong&gt; gelesen hast, bevor du diese Etappe in Angriff nimmst! Du kannst jederzeit auf &lt;strong&gt;Anhalten&lt;/strong&gt; drücken (zu deiner Rechten), um die Erklärungen abzustellen und dir einen anderen Leitfaden aussuchen...</source>
-        <target><![CDATA[Eine Expedition in die Außenwelt, will <strong>gut vorbereitet</strong> sein... Vergewissere dich, dass du den Leitfaden <strong>Wie rüste ich mich aus?</strong> gelesen hast, bevor du diese Etappe in Angriff nimmst! Du kannst jederzeit auf <strong>Anhalten</strong> drücken (zu deiner Rechten), um die Erklärungen abzustellen und dir einen anderen Leitfaden aussuchen...]]></target>
+        <target><![CDATA[An expedition into the World Beyond requires <strong>preparation</strong>... First of all ensure that you have followed the instructions in <strong>How do I get ready?</strong> before you dive in head first! You can click on <strong>Stop</strong> in the window on the right hand side of the screen to interrupt the current guide and choose another...]]></target>
       </segment>
     </unit>
     <unit id=".KSB7iY" name="Klicke auf diesen Abschnitt, um zum &lt;strong&gt;Stadttor&lt;/strong&gt; zu gelangen.">
@@ -7492,7 +7492,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Klicke auf diesen Abschnitt, um zum &lt;strong&gt;Stadttor&lt;/strong&gt; zu gelangen.</source>
-        <target><![CDATA[Klicke auf diesen Abschnitt, um zum <strong>Stadttor</strong> zu gelangen.]]></target>
+        <target><![CDATA[Click here to go to the <strong>Town Gates</strong>.]]></target>
       </segment>
     </unit>
     <unit id="uUBYOVt" name="Spielhilfe aktiv:">
@@ -7501,7 +7501,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Spielhilfe aktiv:</source>
-        <target>Spielhilfe aktiv:</target>
+        <target>Game guide in progress:</target>
       </segment>
     </unit>
     <unit id="RDaVuhy" name="Die Spielhilfe stoppen">
@@ -7510,7 +7510,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Die Spielhilfe stoppen</source>
-        <target>Die Spielhilfe stoppen</target>
+        <target>Stop guide</target>
       </segment>
     </unit>
     <unit id="nXD28aB" name="Drücke auf diesen Knopf, um in dieser Zone zu &lt;strong&gt;graben&lt;/strong&gt;...">
@@ -7519,7 +7519,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Drücke auf diesen Knopf, um in dieser Zone zu &lt;strong&gt;graben&lt;/strong&gt;...</source>
-        <target><![CDATA[Drücke auf diesen Knopf, um in dieser Zone zu <strong>graben</strong>...]]></target>
+        <target><![CDATA[Use this button to <strong>search</strong> the zone you are currently in...]]></target>
       </segment>
     </unit>
     <unit id="IAz_MhR" name="159138e">
@@ -7528,7 +7528,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wenn du einen Gegenstand findest, wird er automatisch in deinem &lt;strong&gt;Rucksack&lt;/strong&gt; verräumt (sofern du noch Platz hast) &lt;strong&gt;oder am Boden abgelegt&lt;/strong&gt; (wenn du keinen Platz mehr hast).</source>
-        <target><![CDATA[Wenn du einen Gegenstand findest, wird er automatisch in deinem <strong>Rucksack</strong> verräumt (sofern du noch Platz hast) <strong>oder am Boden abgelegt</strong> (wenn du keinen Platz mehr hast).]]></target>
+        <target><![CDATA[If you find an object, it will be placed in your <strong>rucksack</strong> (if there is enough space) <strong>or on the ground</strong> (if there is no space left).]]></target>
       </segment>
     </unit>
     <unit id="rKxSqrI" name="4228fd8">
@@ -7537,7 +7537,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wenn du für ein paar Stunden in der Zone verharrst, in der du schon einmal gegraben hast, kannst du dort noch einmal &lt;strong&gt;umsonst graben&lt;/strong&gt;.</source>
-        <target><![CDATA[Wenn du für ein paar Stunden in der Zone verharrst, in der du schon einmal gegraben hast, kannst du dort noch einmal <strong>umsonst graben</strong>.]]></target>
+        <target><![CDATA[If you wait in a zone for hours after a search, you will automatically <strong>search the zone again</strong>.]]></target>
       </segment>
     </unit>
     <unit id="sISZRef" name="6da577e">
@@ -7546,7 +7546,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Der Zähler, der die nächste automatische Ausgrabung anzeigt, ist hier sichtbar.</source>
-        <target>Der Zähler, der die nächste automatische Ausgrabung anzeigt, ist hier sichtbar.</target>
+        <target>The timer showing the countdown to the next automatic search is shown here.</target>
       </segment>
     </unit>
     <unit id="WQFCOK_" name="46d850b">
@@ -7555,7 +7555,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Du kannst dich weiterhin im Freien bewegen oder auf die nächste automatische Grabungsaktion warten. Egal wie du dich entscheidest, &lt;strong&gt;du MUSST ZUSEHEN, dass du vor dem Zombieangriffum Mitternacht nach Hause kommst&lt;/strong&gt;!</source>
-        <target><![CDATA[Du kannst dich weiterhin im Freien bewegen oder auf die nächste automatische Grabungsaktion warten. Egal wie du dich entscheidest, <strong>du MUSST ZUSEHEN, dass du vor dem Zombieangriffum Mitternacht nach Hause kommst</strong>!]]></target>
+        <target><![CDATA[You can continue to move around outside or wait for the next automatic search. Wahtever you choose, <strong>always think about returning to the town BEFORE the Horde attack at midnight</strong>!]]></target>
       </segment>
     </unit>
     <unit id="RPV.Hdo" name="c01b240">
@@ -7564,7 +7564,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Deine im Freien verwendbaren &lt;strong&gt;Aktionspunkte&lt;/strong&gt; werden hier angezeigt. &lt;strong&gt;Wenn du keine Aktionspunkte mehr hast, bist du Erschöpft&lt;/strong&gt;. Um dein Punktekonto wieder aufzufüllen, kannst du etwas essen, trinken oder Drogen zu dir nehmen (je nachdem was dir zur Verfügung steht).</source>
-        <target><![CDATA[Deine im Freien verwendbaren <strong>Aktionspunkte</strong> werden hier angezeigt. <strong>Wenn du keine Aktionspunkte mehr hast, bist du Erschöpft</strong>. Um dein Punktekonto wieder aufzufüllen, kannst du etwas essen, trinken oder Drogen zu dir nehmen (je nachdem was dir zur Verfügung steht).]]></target>
+        <target><![CDATA[Your <strong>action points</strong> are displayed here when you're outside the town. <strong>When you have none left, you are exhausted</strong>. Eat, drink or take drugs (depending on what you have to hand) to restore them all.]]></target>
       </segment>
     </unit>
     <unit id="J6Uka4G" name="3f21055">
@@ -7582,7 +7582,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Diese Nachricht verbergen</source>
-        <target>Diese Nachricht verbergen</target>
+        <target>Hide this message</target>
       </segment>
     </unit>
     <unit id="Jod5rXM" name="3e769c0">
