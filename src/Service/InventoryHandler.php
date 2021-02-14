@@ -23,6 +23,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
 use Doctrine\ORM\Query\Expr\Join;
+use Doctrine\ORM\UnexpectedResultException;
 use Exception;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -128,9 +129,10 @@ class InventoryHandler
      * @param ItemPrototype|ItemPrototype[]|string $prototype The item prototype or property we're looking for
      * @param bool $is_property Is the prototype string an item property or an item prototype
      * @param bool|null $broken Filter for broken (true) or unbroken (false) items; disable by setting to null (default)
+     * @param bool|null $poison Filter for poisoned (true) or normal (false) items; disable by setting to null (default)
      * @return int Number of item matching the filters
      */
-    public function countSpecificItems($inventory, $prototype, bool $is_property = false, ?bool $broken = null): int {
+    public function countSpecificItems($inventory, $prototype, bool $is_property = false, ?bool $broken = null, ?bool $poison = null): int {
         if (is_string( $prototype )) $prototype = $is_property
             ? $this->entity_manager->getRepository(ItemProperty::class)->findOneBy( ['name' => $prototype] )->getItemPrototypes()->getValues()
             : $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => $prototype] );
@@ -143,10 +145,9 @@ class InventoryHandler
                 ->where('i.inventory IN (:inv)')->setParameter('inv', $inventory)
                 ->andWhere('p.id IN (:type)')->setParameter('type', $prototype);
             if ($broken !== null) $qb->andWhere('i.broken = :broken')->setParameter('broken', $broken);
+            if ($poison !== null) $qb->andWhere('i.poison = :poison')->setParameter('poison', $poison);
             return (int)$qb->getQuery()->getSingleScalarResult();
-        } catch (NoResultException $e) {
-            return 0;
-        } catch (NonUniqueResultException $e) {
+        } catch (UnexpectedResultException $e) {
             return 0;
         }
     }
