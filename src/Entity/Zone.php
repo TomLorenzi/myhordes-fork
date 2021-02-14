@@ -216,6 +216,10 @@ class Zone
         return $this;
     }
 
+    public function isTownZone(): bool {
+        return $this->x === 0 && $this->y === 0;
+    }
+
     public function getDistance(): float {
         return sqrt( pow($this->getX(),2) + pow($this->getY(),2) );
     }
