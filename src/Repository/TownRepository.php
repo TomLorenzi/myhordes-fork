@@ -41,9 +41,13 @@ class TownRepository extends ServiceEntityRepository
      */
     public function findByNameContains(string $value)
     {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.name LIKE :val')->setParameter('val', '%' . $value . '%')
-            ->getQuery()->getResult();
+        return is_numeric($value)
+            ? $this->createQueryBuilder('t')
+                ->andWhere('t.name LIKE :val OR t.id = :id')->setParameter('val', '%' . $value . '%')->setParameter('id', (int)$value)
+                ->getQuery()->getResult()
+            : $this->createQueryBuilder('t')
+                ->andWhere('t.name LIKE :val')->setParameter('val', '%' . $value . '%')
+                ->getQuery()->getResult();
     }
 
     // /**
