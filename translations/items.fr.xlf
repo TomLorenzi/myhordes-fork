@@ -7660,5 +7660,14 @@
         <target>Vous ne subirez pas les effets de la Soif, de l'Infection et de l'Addiction lors de la prochaine attaque.</target>
       </segment>
     </unit>
+    <unit id="Y65IL58" name="0632b2c">
+      <notes>
+        <note category="german">Mit Hilfe deiner übermenschlichen Heldenkräfte hast du &lt;strong&gt;{kills} Zombie(s)&lt;/strong&gt; platt gemacht!</note>
+      </notes>
+      <segment>
+        <source>Mit Hilfe deiner übermenschlichen Heldenkräfte hast du &lt;strong&gt;{kills} Zombie(s)&lt;/strong&gt; platt gemacht!</source>
+        <target><![CDATA[Utilisant vos pouvoirs de héros, vous exterminez <strong>{kills} zombie(s)</strong> en face de vous !]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
