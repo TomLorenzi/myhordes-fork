@@ -1981,7 +1981,7 @@
       </notes>
       <segment>
         <source>%n% Tage</source>
-        <target>%n% Días</target>
+        <target>%n% días</target>
       </segment>
     </unit>
     <unit id="1E2BbPr" name="1 Tag">
@@ -1990,7 +1990,7 @@
       </notes>
       <segment>
         <source>1 Tag</source>
-        <target>1 Día</target>
+        <target>1 día</target>
       </segment>
     </unit>
     <unit id="j5aKYuL" name="%n% Stunden">
@@ -1999,7 +1999,7 @@
       </notes>
       <segment>
         <source>%n% Stunden</source>
-        <target>%n% Horas</target>
+        <target>%n% horas</target>
       </segment>
     </unit>
     <unit id="2iHBadX" name="1 Stunde">
@@ -2008,7 +2008,7 @@
       </notes>
       <segment>
         <source>1 Stunde</source>
-        <target>1 Hora</target>
+        <target>1 hora</target>
       </segment>
     </unit>
     <unit id="p._haUN" name="%n% Minuten">
@@ -2017,7 +2017,7 @@
       </notes>
       <segment>
         <source>%n% Minuten</source>
-        <target>%n% Minutos</target>
+        <target>%n% minutos</target>
       </segment>
     </unit>
     <unit id="ST5ILqV" name="1 Minute">
@@ -2026,7 +2026,7 @@
       </notes>
       <segment>
         <source>1 Minute</source>
-        <target>1 Minuto</target>
+        <target>1 minuto</target>
       </segment>
     </unit>
     <unit id="kk4m10D" name="%n% Sekunden">
@@ -2035,7 +2035,7 @@
       </notes>
       <segment>
         <source>%n% Sekunden</source>
-        <target>%n% Segundos</target>
+        <target>%n% segundos</target>
       </segment>
     </unit>
     <unit id="1rEgLVY" name="1 Sekunde">
@@ -2044,7 +2044,7 @@
       </notes>
       <segment>
         <source>1 Sekunde</source>
-        <target>1 Segundo</target>
+        <target>1 segundo</target>
       </segment>
     </unit>
     <unit id="wdMI1yW" name="Zum erweiterten Editor wechseln">
@@ -2314,7 +2314,7 @@
       </notes>
       <segment>
         <source>Heute</source>
-        <target>Heute</target>
+        <target>Hoy</target>
       </segment>
     </unit>
     <unit id="yqnaeA." name="Gestern">
@@ -2323,7 +2323,7 @@
       </notes>
       <segment>
         <source>Gestern</source>
-        <target>Gestern</target>
+        <target>Ayer</target>
       </segment>
     </unit>
     <unit id="56Kf42Z" name="1d800f8">
@@ -2350,7 +2350,7 @@
       </notes>
       <segment>
         <source>Abonniert</source>
-        <target>Abonniert</target>
+        <target>Dejar de seguir</target>
       </segment>
     </unit>
     <unit id="cgCBPPJ" name="Abonnieren">
@@ -2359,7 +2359,7 @@
       </notes>
       <segment>
         <source>Abonnieren</source>
-        <target>Abonnieren</target>
+        <target>Seguir</target>
       </segment>
     </unit>
   </file>
