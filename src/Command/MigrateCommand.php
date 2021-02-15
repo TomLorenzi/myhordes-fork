@@ -524,25 +524,27 @@ class MigrateCommand extends Command
 
             $output->writeln("Processing <info>$tc</info> entries...");
             $progress = new ProgressBar( $output->section() );
-            $progress->start( $tc );
+            $progress->start($tc);
 
             while ($tc_chunk < $tc) {
-
                 $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['imported' => false],['id' => 'ASC'], 5000, $tc_chunk);
                 foreach ($towns as $town) {
                     /* @var TownRankingProxy $town */
                     $score = 0;
+                    $latestDay = 0;
                     foreach ($town->getCitizens() as $citizen) {
                         /* @var CitizenRankingProxy $citizen */
                         $score += $citizen->getDay();
+                        if($latestDay < $citizen->getDay())
+                            $latestDay = $citizen->getDay();
                     }
                     $town->setScore($score);
+                    $town->setDays($latestDay);
                     $this->entity_manager->persist($town);
                     $tc_chunk++;
                 }
                 $this->entity_manager->flush();
                 $progress->setProgress($tc_chunk);
-
             }
 
             $output->writeln('OK!');
