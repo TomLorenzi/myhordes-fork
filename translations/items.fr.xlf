@@ -7669,5 +7669,14 @@
         <target><![CDATA[Utilisant vos pouvoirs de héros, vous exterminez <strong>{kills} zombie(s)</strong> en face de vous !]]></target>
       </segment>
     </unit>
+    <unit id="Pd1i68n" name="5bbcfac">
+      <notes>
+        <note category="german">Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;6 neue AP erhalten&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;6 neue AP erhalten&lt;/strong&gt;.</source>
+        <target><![CDATA[Vous prenez une profonde inspiration et secouez la tête. Bon ! C'est pas le moment de se laisser abattre !{hr}Vous avez <strong>régénéré vos 6 PA</strong>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
