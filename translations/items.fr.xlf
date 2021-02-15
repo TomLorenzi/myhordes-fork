@@ -7597,5 +7597,41 @@
         <target><![CDATA[Vous avez une chance de tuer 1 zombie dans la zone ; si vous réussissez, vous gagnez le contrôle de la zone pour 10 minutes.<br /><em>Ayant vu l'<strong>Armageddon</strong>, vous pouvez effectuer cette action spéciale <strong>une fois par partie.</strong></em>]]></target>
       </segment>
     </unit>
+    <unit id="m8tmcds" name="933eb10">
+      <notes>
+        <note category="german">Wenn du 11 km oder weniger von der Stadt entfernt bist, kehrst du sofort in die Stadt zurück!</note>
+      </notes>
+      <segment>
+        <source>Wenn du 11 km oder weniger von der Stadt entfernt bist, kehrst du sofort in die Stadt zurück!</source>
+        <target>Vous retournez immédiatement en ville si vous êtes à 11km ou moins de la ville !</target>
+      </segment>
+    </unit>
+    <unit id="GQajT3s" name="Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.">
+      <notes>
+        <note category="german">Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.</note>
+      </notes>
+      <segment>
+        <source>Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.</source>
+        <target>Dégote miraculeusement un objet utile.</target>
+      </segment>
+    </unit>
+    <unit id="gNd6Hdo" name="Damit kannst du mit einem Schlag 2 Zombies umbringen!">
+      <notes>
+        <note category="german">Damit kannst du mit einem Schlag 2 Zombies umbringen!</note>
+      </notes>
+      <segment>
+        <source>Damit kannst du mit einem Schlag 2 Zombies umbringen!</source>
+        <target>Tue 2 zombies à mains nues !</target>
+      </segment>
+    </unit>
+    <unit id="VDnHqpQ" name="e682f2e">
+      <notes>
+        <note category="german">Du bringst einen anderen Spieler nach Hause (dieser darf max. 2 Felder von der Stadt entfernt sein).</note>
+      </notes>
+      <segment>
+        <source>Du bringst einen anderen Spieler nach Hause (dieser darf max. 2 Felder von der Stadt entfernt sein).</source>
+        <target>Rapatrie en ville un autre joueur (à 2 cases maximum de la ville).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

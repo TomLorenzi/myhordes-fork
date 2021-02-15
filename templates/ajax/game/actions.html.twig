@@ -165,6 +165,9 @@
                             {{ _self.target_popup( entry.id, null, entry.targets, entry.id ~ '--hero', 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true, entry.action.confirm ) }}
                         {% endif %}
                     {% endif %}
+                    {% if not entry.action.tooltip is null %}
+                        <em class="small">{{ entry.action.tooltip|trans({}, 'items')|raw }}</em>
+                    {% endif %}
                 </li>
             {% endfor %}
             <li><div class="button" x-heroic-toggle="0">{{ 'Schließen'|trans({},'global') }}</div></li>
