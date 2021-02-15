@@ -7633,5 +7633,14 @@
         <target>Rapatrie en ville un autre joueur (à 2 cases maximum de la ville).</target>
       </segment>
     </unit>
+    <unit id="wMM0fB9" name="414226f">
+      <notes>
+        <note category="german">Du versucht nochmal alle deine Kräfte für heute Abend zu mobilisieren. Die Anspannung steht dir ins Gesicht geschrieben. Du schwitzt und deine Hände zittern.{hr}Beim heutigen Angriff wirst du weder weder Durst, noch Krankheitssymptome (Infektion), noch Entzugserscheinungen verspüren.</note>
+      </notes>
+      <segment>
+        <source>Du versucht nochmal alle deine Kräfte für heute Abend zu mobilisieren. Die Anspannung steht dir ins Gesicht geschrieben. Du schwitzt und deine Hände zittern.{hr}Beim heutigen Angriff wirst du weder weder Durst, noch Krankheitssymptome (Infektion), noch Entzugserscheinungen verspüren.</source>
+        <target>Vous essayez de rassembler vos forces pour tenir le coup ce soir. La tension se lit sur votre visage, vous transpirez, tremblez...{hr}Vous ne subirez pas les effets de la Soif, de l'Infection et de l'Addiction lors de l'attaque de ce soir.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
