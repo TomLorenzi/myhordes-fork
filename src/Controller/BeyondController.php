@@ -927,7 +927,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function special_action_house_api(JSONRequestParser $parser): Response {
+    public function special_action_api(JSONRequestParser $parser): Response {
         return $this->generic_special_action_api( $parser );
     }
 

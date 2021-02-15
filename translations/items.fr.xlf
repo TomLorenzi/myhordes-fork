@@ -7570,5 +7570,32 @@
         <target>Votre bichon semble épuisé... Il halète constamment et vous fixe d'un air las.</target>
       </segment>
     </unit>
+    <unit id="ClZU0Ua" name="a655585">
+      <notes>
+        <note category="german">Du versuchst dich einem Zombie zu nähern, aber &lt;strong&gt;der Zombie reißt dir fast das Gesicht mit seinen Zähnen ab&lt;/strong&gt;! Unmöglich zu bestehen...</note>
+      </notes>
+      <segment>
+        <source>Du versuchst dich einem Zombie zu nähern, aber &lt;strong&gt;der Zombie reißt dir fast das Gesicht mit seinen Zähnen ab&lt;/strong&gt;! Unmöglich zu bestehen...</source>
+        <target><![CDATA[Vous tentez d'approcher un zombie, mais <strong>celui-ci manque de peu de vous arracher le visage à coups de dent</strong> ! Impossible de passer...]]></target>
+      </segment>
+    </unit>
+    <unit id="eKYdtdt" name="a78efbb">
+      <notes>
+        <note category="german">Du rennst schreiend in den ersten Zombie in Reichweite! Mit einem kraftvollen, gut angepassten Schulterschlag &lt;strong&gt;schickst du ihn ein paar Meter weiter in den Staub&lt;/strong&gt;...{hr}Du kannst diese Gelegenheit zur Flucht nutzen!</note>
+      </notes>
+      <segment>
+        <source>Du rennst schreiend in den ersten Zombie in Reichweite! Mit einem kraftvollen, gut angepassten Schulterschlag &lt;strong&gt;schickst du ihn ein paar Meter weiter in den Staub&lt;/strong&gt;...{hr}Du kannst diese Gelegenheit zur Flucht nutzen!</source>
+        <target><![CDATA[Vous foncez dans le premier zombie à portée en hurlant ! D'un puissant coup d'épaule bien ajusté, <strong>vous l'envoyez mordre la poussière quelques mètres plus loin</strong>...{hr}Vous pouvez profiter de cette opportunité pour vous enfuir !]]></target>
+      </segment>
+    </unit>
+    <unit id="hs9mj9G" name="3c2ba85">
+      <notes>
+        <note category="german">Du hast die Chance, 1 Zombie in der Zone zu töten; wenn du erfolgreich bist, erhältst du die Kontrolle über die Zone für 10 Minuten.&lt;br /&gt;&lt;em&gt;Angesichts des &lt;strong&gt;Armageddon&lt;/strong&gt; kannst du diese Spezialaktion &lt;strong&gt;einmal pro Spiel&lt;/strong&gt; durchführen.&lt;/em&gt;</note>
+      </notes>
+      <segment>
+        <source>Du hast die Chance, 1 Zombie in der Zone zu töten; wenn du erfolgreich bist, erhältst du die Kontrolle über die Zone für 10 Minuten.&lt;br /&gt;&lt;em&gt;Angesichts des &lt;strong&gt;Armageddon&lt;/strong&gt; kannst du diese Spezialaktion &lt;strong&gt;einmal pro Spiel&lt;/strong&gt; durchführen.&lt;/em&gt;</source>
+        <target><![CDATA[Vous avez une chance de tuer 1 zombie dans la zone ; si vous réussissez, vous gagnez le contrôle de la zone pour 10 minutes.<br /><em>Ayant vu l'<strong>Armageddon</strong>, vous pouvez effectuer cette action spéciale <strong>une fois par partie.</strong></em>]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

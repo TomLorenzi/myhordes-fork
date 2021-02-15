@@ -49,6 +49,7 @@
                                 {{ _self.target_popup( entry.id, entry.item.id, entry.targets, entry.id ~ '--' ~ entry.item.id, 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false, entry.action.confirm ) }}
                             {% endif %}
                         {% endif %}
+                        {% embed "ajax/game/item_tooltip.html.twig" with {"item": entry.item} %}{% endembed %}
                     </li>
                 {% endfor %}
             {% endif %}
@@ -136,6 +137,9 @@
                         {% elseif entry.target_mode in [3,4,5] %}
                             {{ _self.target_popup( entry.id, null, entry.targets, entry.id ~ '--special', 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true, entry.action.confirm ) }}
                         {% endif %}
+                    {% endif %}
+                    {% if not entry.action.tooltip is null %}
+                        <div class="tooltip help">{{ entry.action.tooltip|trans({}, 'items')|raw }}</div>
                     {% endif %}
                 </li>
             {% endfor %}
