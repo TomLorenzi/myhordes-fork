@@ -1460,7 +1460,7 @@ class ActionHandler
         $t_inv = $citizen->getTown()->getBank();
 
         switch ( $recipe->getType() ) {
-            case Recipe::WorkshopType:case Recipe::ManualInside:
+            case Recipe::WorkshopType:case Recipe::WorkshopTypeShamanSpecific:case Recipe::ManualInside:
                 if ($citizen->getZone()) return ErrorHelper::ErrorActionNotAvailable;
                 break;
             case Recipe::ManualOutside:
@@ -1479,7 +1479,7 @@ class ActionHandler
         } else $ap = 0;
 
 
-        if ( $recipe->getType() == Recipe::WorkshopType && (($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen )) )
+        if ( in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]) && (($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen )) )
             return ErrorHelper::ErrorNoAP;
 
         $source_inv = in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]) ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv] : [$c_inv, $citizen->getHome()->getChest() ]);

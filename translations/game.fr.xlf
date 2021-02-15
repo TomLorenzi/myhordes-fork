@@ -18145,5 +18145,14 @@
         <target>Reiseleiter-Ratgeber</target>
       </segment>
     </unit>
+    <unit id="m0B311V" name="7fd4518">
+      <notes>
+        <note category="german">Du kannst &lt;strong&gt;pro Tag eine Heldentat&lt;/strong&gt; vollbringen und jede dieser Aktionen kann nur &lt;strong&gt;einmal&lt;/strong&gt; pro Partie ausgeführt werden:</note>
+      </notes>
+      <segment>
+        <source>Du kannst &lt;strong&gt;pro Tag eine Heldentat&lt;/strong&gt; vollbringen und jede dieser Aktionen kann nur &lt;strong&gt;einmal&lt;/strong&gt; pro Partie ausgeführt werden:</source>
+        <target><![CDATA[Vous pouvez effectuer <strong>une action héroïque par jour</strong> et chacune de ces actions <strong>1 seule fois</strong> par partie :]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

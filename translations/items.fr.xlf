@@ -7642,5 +7642,23 @@
         <target>Vous essayez de rassembler vos forces pour tenir le coup ce soir. La tension se lit sur votre visage, vous transpirez, tremblez...{hr}Vous ne subirez pas les effets de la Soif, de l'Infection et de l'Addiction lors de l'attaque de ce soir.</target>
       </segment>
     </unit>
+    <unit id="IhPwkzs" name="Stellt deine AP wieder her und beseitigt deine Müdigkeit.">
+      <notes>
+        <note category="german">Stellt deine AP wieder her und beseitigt deine Müdigkeit.</note>
+      </notes>
+      <segment>
+        <source>Stellt deine AP wieder her und beseitigt deine Müdigkeit.</source>
+        <target>Régénère vos PA et retire la Fatigue.</target>
+      </segment>
+    </unit>
+    <unit id="R.doQQs" name="a48c5f0">
+      <notes>
+        <note category="german">Beim nächsten Angriff wird der Durst-, Infektions- und Abhängigkeitszustand außer Kraft gesetzt.</note>
+      </notes>
+      <segment>
+        <source>Beim nächsten Angriff wird der Durst-, Infektions- und Abhängigkeitszustand außer Kraft gesetzt.</source>
+        <target>Vous ne subirez pas les effets de la Soif, de l'Infection et de l'Addiction lors de la prochaine attaque.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

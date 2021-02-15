@@ -733,6 +733,16 @@ ul.actions, ul.special_actions, ul.heroic_actions {
       cursor: pointer;
       &:hover { color: white; background: lighten(@myhordes-cell-header-background-color, 10%) }
     }
+
+    &.help {
+      color: white;
+      font-size: 1rem;
+      background: @myhordes-building-complete-header-color;
+      cursor: default;
+      &:hover {
+        background: @myhordes-building-complete-header-color;
+      }
+    }
     &>div.targets {
       position: absolute; display: none; left: 0; right: 0; top: 100%; z-index: 1500; background: #3b3249;
       color: #f0d79e; border: 1px solid #afacc1; outline: 2px solid black;
@@ -754,13 +764,25 @@ ul.actions, ul.special_actions, ul.heroic_actions {
         vertical-align: sub;
         &.unavailable { filter: sepia(100%) opacity(40%) }
       }
+      &.label {
+        color: @myhordes-button-color;
+        text-decoration: underline;
+      }
     }
     &[disabled]>span { text-decoration: line-through; }
     &+li { border-top: 1px solid fade(@myhordes-smalltext,20%) }
   }
 }
 
-ul.heroic_actions { background-color: #3b3249; border: 1px solid #afacc1; }
+ul.heroic_actions {
+  background-color: #3b3249;
+  border: 1px solid #afacc1;
+  &>li {
+    &:hover {
+      background: @myhordes-building-complete-header-color;
+    }
+  }
+}
 
 ul.camping_actions {
   padding: 5px 2px;
