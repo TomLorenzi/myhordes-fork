@@ -1260,12 +1260,14 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') );
     }
 
-    public function zombieKill( Citizen $citizen, ?ItemPrototype $item, int $kills ): TownLogEntry {
-        if ($item) {
+    public function zombieKill( Citizen $citizen, ?ItemPrototype $item, int $kills, ?string $sourceAction = null ): TownLogEntry {
+        if ($sourceAction === "hero_generic_punch") {
+            $variables = array('citizen' => $citizen->getId(), 'kills' => $kills);
+            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'zombieKillHeroPunch']);
+        } else if ($item) {
             $variables = array('citizen' => $citizen->getId(), 'item' => $item->getId(), 'kills' => $kills);
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'zombieKillWeapon']);
-        }
-        else {
+        } else {
             $variables = array('citizen' => $citizen->getId(), 'kills' => $kills);
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'zombieKillHands']);
         }

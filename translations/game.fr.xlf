@@ -18163,5 +18163,14 @@
         <target>Impossible, vous avez besoin de : %list%.</target>
       </segment>
     </unit>
+    <unit id="oT4mkza" name="0b26c24">
+      <notes>
+        <note category="german">Mit Hilfe seiner übermenschlichen Heldenkräfte hat %citizen% %kills% Zombie(s) lauthals schreiend und mit bloßen Händen umgebracht!</note>
+      </notes>
+      <segment>
+        <source>Mit Hilfe seiner übermenschlichen Heldenkräfte hat %citizen% %kills% Zombie(s) lauthals schreiend und mit bloßen Händen umgebracht!</source>
+        <target>Utilisant ses pouvoirs de Héros, %citizen% a exterminé %kills% zombie(s) à mains nues en hurlant comme un forcené !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

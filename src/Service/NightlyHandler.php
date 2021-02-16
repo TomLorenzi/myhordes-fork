@@ -1300,7 +1300,7 @@ class NightlyHandler
 
         /** @var CitizenRole $role */
         foreach ($roles as $role) {
-            $this->log->debug("Processing votes for role {$role->getLabel()}");
+            $this->log->info("Processing votes for role {$role->getLabel()}");
             /** @var SpecialActionPrototype $special_vote */
             $special_vote = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => 'special_vote_' . $role->getName()]);
 
@@ -1322,6 +1322,7 @@ class NightlyHandler
             }
 
             if(empty($votes)) {
+                $this->log->debug("no citizen placed votes for the role !");
                 foreach ($citizens as $citizen) {
                     if($citizen->getAlive()) {
                         $votes[$citizen->getId()] = 0;
@@ -1336,6 +1337,7 @@ class NightlyHandler
                 $voted = $this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($citizen, $role);
                 /** @var CitizenVote $voted */
                 if($voted === null || !$voted->getVotedCitizen()->getAlive()) {
+                    $this->log->debug("Citizen {$citizen->getUser()->getName()} didn't vote, or voted for a dead citizen. We replace the vote.");
                     // He has not voted, or the citizen he voted for is now dead, let's give his vote to someone who has votes
                     $vote_for_id = $this->random->pick(array_keys($votes), 1);
 
@@ -1343,6 +1345,10 @@ class NightlyHandler
                         $votes[$vote_for_id]++;
                     else
                         $votes[$vote_for_id] = 1;
+
+                    $this->log->debug("Citizen {$citizen->getUser()->getName()} then voted for citizen " . $this->entity_manager->getRepository(Citizen::class)->find($vote_for_id)->getUser()->getName());
+                } else {
+                    $this->log->debug("Citizen {$citizen->getUser()->getName()} voted for {$voted->getVotedCitizen()->getUser()->getName()}");
                 }
             }
 
