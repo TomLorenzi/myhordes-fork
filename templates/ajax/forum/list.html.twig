@@ -1,4 +1,5 @@
 {% extends "ajax/game/game.html.twig" %}
+{% block title %}{{ 'Alle Foren'|trans({},'global') }}{% endblock %}
 {% block menu_text %}
     {{parent()}}
     <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
