@@ -16,6 +16,7 @@ use App\Entity\HomeActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemAction;
+use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
 use App\Entity\LogEntryTemplate;
@@ -312,7 +313,7 @@ class InventoryAwareController extends CustomAbstractController
         return [ 'recipes' => $out, 'source_items' => $source_db ];
     }
 
-    protected function renderInventoryAsBank( Inventory $inventory ) {
+    protected function renderInventoryAsBank( Inventory $inventory ): array {
         $qb = $this->entity_manager->createQueryBuilder();
         $qb
             ->select('i.id', 'c.label as l1', 'cr.label as l2', 'SUM(i.count) as n')->from('App:Item','i')
