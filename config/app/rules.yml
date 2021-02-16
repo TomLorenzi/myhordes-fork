@@ -169,6 +169,7 @@ parameters:
         sandball_nastyness: 0.85
 
       features:
+        attacks: 'hard'
         last_death: 'r_suhard_#00'
         survival_picto: 'r_pande_#00'
 
