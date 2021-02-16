@@ -7678,5 +7678,14 @@
         <target><![CDATA[Vous prenez une profonde inspiration et secouez la tête. Bon ! C'est pas le moment de se laisser abattre !{hr}Vous avez <strong>régénéré vos 6 PA</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="h_IEt7t" name="71ee522">
+      <notes>
+        <note category="german">So was nennt man wohl &lt;strong&gt;Glück&lt;/strong&gt;! &lt;t-inside&gt;Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!&lt;/t-inside&gt;&lt;t-outside&gt;Du hast soeben {items_spawn} im Wüstensand gefunden!&lt;/t-outside&gt; Genau das, was du gebraucht hast!</note>
+      </notes>
+      <segment>
+        <source>So was nennt man wohl &lt;strong&gt;Glück&lt;/strong&gt;! &lt;t-inside&gt;Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!&lt;/t-inside&gt;&lt;t-outside&gt;Du hast soeben {items_spawn} im Wüstensand gefunden!&lt;/t-outside&gt; Genau das, was du gebraucht hast!</source>
+        <target><![CDATA[On peut dire que <strong>vous avez de la veine</strong>... <t-inside>Vous découvrez {items_spawn} dans un tas de détritus près de votre taudis !</t-inside><t-outside>Vous découvrez {items_spawn} dans le sable !</t-outside> Pile ce qu'il vous fallait !]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -2388,5 +2388,14 @@
         <target>Suivre</target>
       </segment>
     </unit>
+    <unit id="hWzJnYc" name="und">
+      <notes>
+        <note category="german">und</note>
+      </notes>
+      <segment>
+        <source>und</source>
+        <target>et</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

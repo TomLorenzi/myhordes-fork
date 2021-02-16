@@ -737,9 +737,26 @@ class InventoryAwareController extends CustomAbstractController
         if ($recipe === null || !in_array($recipe->getType(), [Recipe::ManualAnywhere, Recipe::ManualOutside, Recipe::ManualInside]))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if (($error = $handler->execute_recipe( $citizen, $recipe, $remove, $message )) !== ActionHandler::ErrorNone )
-            return AjaxResponse::error( $error );
-        else try {
+        if (($error = $handler->execute_recipe( $citizen, $recipe, $remove, $message )) !== ActionHandler::ErrorNone ) {
+            if ($error === ErrorHelper::ErrorItemsMissing && in_array($recipe->getType(), [Recipe::ManualAnywhere, Recipe::ManualInside, Recipe::ManualOutside])) {
+                $items = "";
+                $count = 0;
+                foreach ($recipe->getSource()->getEntries() as $entry) {
+                    if (!empty($items)) {
+                        if (++$count < $recipe->getSource()->getEntries()->count()-1)
+                            $items .= ", ";
+                        else
+                            $items .= " " . $this->translator->trans("und", [], "global") . " ";
+                    }
+                    $items .= $this->log->wrap($this->log->iconize($entry->getPrototype()));
+                }
+                // Du hast aus diesen Gegenständen: [] Plastiktüte und [] Ration Wasser folgendes gebaut: [] Wasserbombe .
+                $this->addFlash("error", $this->translator->trans('Du brauchst noch folgende Gegenstände: %list%.', ["%list%" => $items], 'game'));
+                return AjaxResponse::success();
+            } else {
+                return AjaxResponse::success($error);
+            }
+        } else try {
 
             if ($trigger_after) $trigger_after($recipe);
 

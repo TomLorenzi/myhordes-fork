@@ -133,7 +133,8 @@ const handleRecipes = function( recipes, api_path, return_path ) {
                     '{{ constant('App\\Service\\ActionHandler::ErrorActionForbidden') }}': function(data) {
                         return data.message ? data.message : '{{ 'Das kannst du zur Zeit nicht tun.'|trans({},'game')|e('js') }}'
                     }
-                } );
+                }
+            );
         });
     }
 }

@@ -18154,5 +18154,14 @@
         <target><![CDATA[Vous pouvez effectuer <strong>une action héroïque par jour</strong> et chacune de ces actions <strong>1 seule fois</strong> par partie :]]></target>
       </segment>
     </unit>
+    <unit id="l8p89Qb" name="Du brauchst noch folgende Gegenstände: %list%.">
+      <notes>
+        <note category="german">Du brauchst noch folgende Gegenstände: %list%.</note>
+      </notes>
+      <segment>
+        <source>Du brauchst noch folgende Gegenstände: %list%.</source>
+        <target>Impossible, vous avez besoin de : %list%.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

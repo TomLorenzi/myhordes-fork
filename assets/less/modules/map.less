@@ -172,6 +172,22 @@ div.map_area {
         &:hover { outline-color: #a4af80; }
       };
 
+      &[x-current-scroll-level="1"] {
+        &>.zone {
+          &>div.count {
+            font-size: 1rem;
+          }
+        }
+      }
+
+      &[x-current-scroll-level="1.5"] {
+        &>.zone {
+          &>div.count {
+            font-size: 1.5rem;
+          }
+        }
+      }
+
       &>.zone {
 
         &.danger-0 { background: none; }

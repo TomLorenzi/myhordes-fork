@@ -759,9 +759,13 @@ class ActionHandler
                 } elseif (is_a($target, ItemPrototype::class)) {
                     if ($target->getHeavy() && $this->inventory_handler->countHeavyItems( $citizen->getInventory() ) > 0)
                         $execute_info_cache['message'][] = $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
-                    if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ),
-                        [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ]
-                        , true)) $execute_info_cache['items_spawn'][] = $target;
+                    if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ], true)) {
+                        $execute_info_cache['items_spawn'][] = $target;
+                        if(!$citizen->getZone())
+                            $tags[] = "inside";
+                        else
+                            $tags[] = "outside";
+                    }
                 }
             }
 
@@ -790,6 +794,10 @@ class ActionHandler
                     if ($proto) {
                         if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ), $target)) {
                             $execute_info_cache['items_spawn'][] = $proto;
+                            if(!$citizen->getZone())
+                                $tags[] = "inside";
+                            else
+                                $tags[] = "outside";
                         } else {
                             return self::ErrorActionImpossible;
                         }
@@ -1432,6 +1440,7 @@ class ActionHandler
 	                '{bury_count}'    => $execute_info_cache['bury_count'],
 	                '{hr}'            => "<hr />",
 	            ], 'items' );
+        		file_put_contents("/tmp/dump.txt", print_r($tags, true));
 	        	do {
 	                $contentMessage = preg_replace_callback( '/<t-(.*?)>(.*?)<\/t-\1>/' , function(array $m) use ($tags): string {
 	                    [, $tag, $text] = $m;
