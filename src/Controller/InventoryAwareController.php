@@ -750,7 +750,6 @@ class InventoryAwareController extends CustomAbstractController
                     }
                     $items .= $this->log->wrap($this->log->iconize($entry->getPrototype()));
                 }
-                // Du hast aus diesen Gegenständen: [] Plastiktüte und [] Ration Wasser folgendes gebaut: [] Wasserbombe .
                 $this->addFlash("error", $this->translator->trans('Du brauchst noch folgende Gegenstände: %list%.', ["%list%" => $items], 'game'));
                 return AjaxResponse::success();
             } else {

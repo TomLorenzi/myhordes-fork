@@ -1440,7 +1440,6 @@ class ActionHandler
 	                '{bury_count}'    => $execute_info_cache['bury_count'],
 	                '{hr}'            => "<hr />",
 	            ], 'items' );
-        		file_put_contents("/tmp/dump.txt", print_r($tags, true));
 	        	do {
 	                $contentMessage = preg_replace_callback( '/<t-(.*?)>(.*?)<\/t-\1>/' , function(array $m) use ($tags): string {
 	                    [, $tag, $text] = $m;
