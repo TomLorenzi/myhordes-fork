@@ -65,12 +65,14 @@
                                 <img src="{{ asset('build/images/item/item_' ~ recipe.provoking[0].icon ~ '.gif') }}" alt="{{ recipe.provoking[0].label|trans({},'items') }}">
                                 <span>{{ 'Zusammenbauen'|trans({},'game') }}:
                                     {{ recipe.provoking[0].label|trans({}, 'items') }}
-                                    {# {% for entry in recipe.source.entries %} #}
+                                    {% if not app.user.expert %}
+                                    {% for entry in recipe.source.entries %}
                                         {# @var entry \App\Entity\ItemGroupEntry #}
-                                        {# {% for n in 1..entry.chance %}
+                                        {% for n in 1..entry.chance %}
                                             <img class="{% if n > recipe_list.source_items[entry.prototype.id] %}unavailable{% endif %}" src="{{ asset('build/images/item/item_' ~ entry.prototype.icon ~ '.gif') }}" alt="{{ entry.prototype.label|trans({},'items') }}">
                                         {% endfor %}
-                                    {% endfor %}#}
+                                    {% endfor %}
+                                    {% endif %}
                                 </span>
                             {% else %}
                                 <img src="{{ asset('build/images/item/item_' ~ recipe.result.entries[0].prototype.icon ~ '.gif') }}" alt="{{ recipe.result.entries[0].prototype.label|trans({},'items') }}">
