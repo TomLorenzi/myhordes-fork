@@ -2397,5 +2397,23 @@
         <target>et</target>
       </segment>
     </unit>
+    <unit id="dotZmBq" name="HINWEIS: Diese Aktion ist nur in der Stadt möglich.">
+      <notes>
+        <note category="german">HINWEIS: Diese Aktion ist nur in der Stadt möglich.</note>
+      </notes>
+      <segment>
+        <source>HINWEIS: Diese Aktion ist nur in der Stadt möglich.</source>
+        <target>NOTE : Cette action est possible uniquement en ville.</target>
+      </segment>
+    </unit>
+    <unit id="GnItekT" name="HINWEIS: Diese Aktion ist nur in Übersee möglich.">
+      <notes>
+        <note category="german">HINWEIS: Diese Aktion ist nur in Übersee möglich.</note>
+      </notes>
+      <segment>
+        <source>HINWEIS: Diese Aktion ist nur in Übersee möglich.</source>
+        <target>NOTE : Cette action est possible uniquement dans l'Outre-Monde.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

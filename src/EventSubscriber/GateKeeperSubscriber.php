@@ -20,6 +20,7 @@ use App\Controller\TownInterfaceController;
 use App\Controller\WebController;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
+use App\Entity\Town;
 use App\Entity\User;
 use App\Exception\DynamicAjaxResetException;
 use App\Service\AntiCheatService;
@@ -39,21 +40,23 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Http\Event\LogoutEvent;
 use Symfony\Component\Security\Http\SecurityEvents;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class GateKeeperSubscriber implements EventSubscriberInterface
 {
-    private $security;
-    private $em;
-    private $locksmith;
-    private $townHandler;
-    private $timeKeeper;
-    private $anti_cheat;
-    private $url_generator;
+    private Security $security;
+    private EntityManagerInterface $em;
+    private Locksmith $locksmith;
+    private TownHandler $townHandler;
+    private TimeKeeperService $timeKeeper;
+    private AntiCheatService $anti_cheat;
+    private UrlGeneratorInterface $url_generator;
+    private TranslatorInterface $translator;
 
     /** @var LockInterface|null  */
     private $current_lock = null;
 
-    public function __construct(EntityManagerInterface $em, Locksmith $locksmith, Security $security, TownHandler $th, TimeKeeperService $tk, AntiCheatService $anti_cheat, UrlGeneratorInterface $url)
+    public function __construct(EntityManagerInterface $em, Locksmith $locksmith, Security $security, TownHandler $th, TimeKeeperService $tk, AntiCheatService $anti_cheat, UrlGeneratorInterface $url, TranslatorInterface $translator)
     {
         $this->em = $em;
         $this->locksmith = $locksmith;
@@ -62,6 +65,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
         $this->timeKeeper = $tk;
         $this->anti_cheat = $anti_cheat;
         $this->url_generator = $url;
+        $this->translator = $translator;
     }
 
     public function holdTheDoor(ControllerEvent $event) {
@@ -122,18 +126,23 @@ class GateKeeperSubscriber implements EventSubscriberInterface
 
             if ($controller instanceof TownInterfaceController) {
                 // This is a town controller; it is not available to players in the world beyond
-                if ($citizen->getZone())
+                if ($citizen->getZone()) {
+                    $controller->pushFlash("error", $this->translator->trans("HINWEIS: Diese Aktion ist nur in der Stadt möglich.", [], 'global'));
                     throw new DynamicAjaxResetException($event->getRequest());
+                }
             }
 
             if ($controller instanceof BeyondInterfaceController) {
                 // This is a beyond controller; it is not available to players inside a town
-                if (!$citizen->getZone())
+                if (!$citizen->getZone()) {
+                    $controller->pushFlash("error", $this->translator->trans("HINWEIS: Diese Aktion ist nur in Übersee möglich.", [], 'global'));
                     throw new DynamicAjaxResetException($event->getRequest());
+                }
 
                 // Check if the exploration status is set
-                if ($controller instanceof ExplorationInterfaceController xor $citizen->activeExplorerStats())
+                if ($controller instanceof ExplorationInterfaceController xor $citizen->activeExplorerStats()) {
                     throw new DynamicAjaxResetException($event->getRequest());
+                }
             }
 
             $citizen->setLastActionTimestamp(time());

@@ -143,4 +143,13 @@ class CustomAbstractController extends AbstractController {
     protected function getTownConf(): TownConf {
         return $this->town_conf ?? ($this->town_conf = $this->conf->getTownConfiguration( $this->getActiveCitizen()->getTown() ));
     }
+
+    /**
+     * Allow to push message from everywhere
+     * @param string $type Type of the flash msg
+     * @param string $message Message to push
+     */
+    public function pushFlash(string $type, $message){
+        $this->addFlash($type, $message);
+    }
 }
