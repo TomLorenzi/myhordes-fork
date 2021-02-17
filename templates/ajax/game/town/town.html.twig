@@ -335,8 +335,8 @@
 
             {% if app.user.expert %}
                 <div class="row">
-                    <div class="cell rw-12 background small center">
-                        {{ 'Brauchst du Hilfe? Benutze den %modelink%!'|trans({'%modelink%': ('<a href="#" x-toggle-expert-mode>' ~ ('Anfängermodus'|trans({},'game')) ~ '</a>')},'game')|raw }}
+                    <div class="cell rw-12 background">
+                        <div class="beginner-link">{{ 'Brauchst du Hilfe? Benutze den %modelink%!'|trans({'%modelink%': ('<a href="#" x-toggle-expert-mode>' ~ ('Anfängermodus'|trans({},'game')) ~ '</a>')},'game')|raw }}</div>
                     </div>
                 </div>
             {% endif %}
