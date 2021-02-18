@@ -277,7 +277,7 @@ class TownHomeController extends TownController
      * @return Response
      */
     public function recipe_house_api(JSONRequestParser $parser, ActionHandler $handler): Response {
-        return $this->generic_recipe_api( $parser, $handler);
+        return $this->generic_recipe_api($parser, $handler);
     }
 
     /**
