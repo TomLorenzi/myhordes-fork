@@ -185,15 +185,34 @@ class TwinoConverterToBlocks {
         let changed: boolean = false;
         let blocks: Array<TwinoInterimBlock> = [];
 
+        let typeToClass = {
+            'admannounce': 'adminAnnounce',
+            'modannounce': 'modAnnounce',
+            'announce': 'oracleAnnounce',
+            'quote': 'blockquote',
+            'aparte': 'sideNote',
+        };
+
         let quotespace = false;
         let nested = false;
+        console.log("current nodetype " + match.nodeType().toLowerCase());
         for (let i = 0; i < parents.length; i++) {
             if (!quotespace && (parents[i].tagName === 'BLOCKQUOTE'))
                 quotespace = true;
 
-            if (!nested && parents[i].hasAttribute( 'x-nested' )) nested = true;
+            let css = typeToClass[match.nodeType()] ?? match.nodeType();
+
+            console.log("nested : " + nested);
+            console.log("has x-nested : " + parents[i].hasAttribute( 'x-nested' ));
+            console.log("parent tagname : " + parents[i].tagName.toLowerCase());
+            console.log("parent classlist");
+            console.log(parents[i].classList);
+            console.log("parent classlist has nodetype " +  parents[i].classList.contains(css));
+
+            if (!nested && parents[i].hasAttribute( 'x-nested' ) && (parents[i].tagName.toLowerCase() === css.toLowerCase() || parents[i].classList.contains(css))) nested = true;
         }
 
+        // We remove useless {br} at the beginning & the end of the text
         let nodeContent = match.nodeContent();
         while(nodeContent.match(/^({br})/g)) {
             nodeContent = nodeContent.replace(/^({br})/g, '')
@@ -201,17 +220,21 @@ class TwinoConverterToBlocks {
         while(nodeContent.match(/({br})$/g)) {
             nodeContent = nodeContent.replace(/({br})$/g, '')
         }
-        console.log(nodeContent);
 
         switch (match.nodeType()) {
             case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li':
-                blocks.push( new TwinoInterimBlock(nodeContent, match.nodeType()) ); changed = true; break;
+                if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
+                else blocks.push( new TwinoInterimBlock(nodeContent, match.nodeType(), [], [['x-nested','1']]) );
+                changed = true; break;
             case 'c':
                 blocks.push( new TwinoInterimBlock(nodeContent, 'span', ['inline-code'], [ ['x-raw','1'] ]) ); changed = true; break;
             case '**': blocks.push( new TwinoInterimBlock(nodeContent, 'b') ); changed = true; break;
             case '//': blocks.push( new TwinoInterimBlock(nodeContent, 'i') ); changed = true; break;
             case '--': blocks.push( new TwinoInterimBlock(nodeContent, 's') ); changed = true; break;
-            case 'spoiler': blocks.push( new TwinoInterimBlock(nodeContent, 'div', match.nodeType()) ); changed = true; break;
+            case 'spoiler':
+                if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
+                else blocks.push( new TwinoInterimBlock(nodeContent, 'div', match.nodeType(), [['x-nested','1']]) );
+                changed = true; break;
             case 'code': blocks.push( new TwinoInterimBlock(nodeContent, 'pre', [], [ ['x-raw','1'] ]) ); changed = true; break;
             case 'quote':
                 if (!quotespace) {
