@@ -742,6 +742,7 @@ class InventoryAwareController extends CustomAbstractController
                 $items = "";
                 $count = 0;
                 foreach ($recipe->getSource()->getEntries() as $entry) {
+                    if ($entry->getPrototype() === $recipe->getProvoking()[0]) continue;
                     if (!empty($items)) {
                         if (++$count < $recipe->getSource()->getEntries()->count()-1)
                             $items .= ", ";
