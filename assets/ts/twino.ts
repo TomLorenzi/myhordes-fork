@@ -194,21 +194,30 @@ class TwinoConverterToBlocks {
             if (!nested && parents[i].hasAttribute( 'x-nested' )) nested = true;
         }
 
+        let nodeContent = match.nodeContent();
+        while(nodeContent.match(/^({br})/g)) {
+            nodeContent = nodeContent.replace(/^({br})/g, '')
+        }
+        while(nodeContent.match(/({br})$/g)) {
+            nodeContent = nodeContent.replace(/({br})$/g, '')
+        }
+        console.log(nodeContent);
+
         switch (match.nodeType()) {
             case 'b': case 'i': case 'u': case 's': case 'ul': case 'ol': case 'li':
-                blocks.push( new TwinoInterimBlock(match.nodeContent(), match.nodeType()) ); changed = true; break;
+                blocks.push( new TwinoInterimBlock(nodeContent, match.nodeType()) ); changed = true; break;
             case 'c':
-                blocks.push( new TwinoInterimBlock(match.nodeContent(), 'span', ['inline-code'], [ ['x-raw','1'] ]) ); changed = true; break;
-            case '**': blocks.push( new TwinoInterimBlock(match.nodeContent(), 'b') ); changed = true; break;
-            case '//': blocks.push( new TwinoInterimBlock(match.nodeContent(), 'i') ); changed = true; break;
-            case '--': blocks.push( new TwinoInterimBlock(match.nodeContent(), 's') ); changed = true; break;
-            case 'spoiler': blocks.push( new TwinoInterimBlock(match.nodeContent(), 'div', match.nodeType()) ); changed = true; break;
-            case 'code': blocks.push( new TwinoInterimBlock(match.nodeContent(), 'pre', [], [ ['x-raw','1'] ]) ); changed = true; break;
+                blocks.push( new TwinoInterimBlock(nodeContent, 'span', ['inline-code'], [ ['x-raw','1'] ]) ); changed = true; break;
+            case '**': blocks.push( new TwinoInterimBlock(nodeContent, 'b') ); changed = true; break;
+            case '//': blocks.push( new TwinoInterimBlock(nodeContent, 'i') ); changed = true; break;
+            case '--': blocks.push( new TwinoInterimBlock(nodeContent, 's') ); changed = true; break;
+            case 'spoiler': blocks.push( new TwinoInterimBlock(nodeContent, 'div', match.nodeType()) ); changed = true; break;
+            case 'code': blocks.push( new TwinoInterimBlock(nodeContent, 'pre', [], [ ['x-raw','1'] ]) ); changed = true; break;
             case 'quote':
                 if (!quotespace) {
                     if ( match.nodeInfo() )
                         blocks.push( new TwinoInterimBlock(match.nodeInfo(), 'span', 'quoteauthor') );
-                    blocks.push( new TwinoInterimBlock(match.nodeContent(), 'blockquote') );
+                    blocks.push( new TwinoInterimBlock(nodeContent, 'blockquote') );
                     changed = true;
                 }
 
@@ -226,43 +235,43 @@ class TwinoConverterToBlocks {
                     blocks.push( new TwinoInterimBlock(match.raw()) );
                     break;
                 }
-                blocks.push( new TwinoInterimBlock(match.nodeContent(), 'a', match.nodeType(), [ ['href', match.nodeInfo()], ['target', '_blank'], ['x-raw','1'] ]) );
+                blocks.push( new TwinoInterimBlock(nodeContent, 'a', match.nodeType(), [ ['href', match.nodeInfo()], ['target', '_blank'], ['x-raw','1'] ]) );
                 changed = true;
                 break;
             case 'bad':
-                if (nested) blocks.push( new TwinoInterimBlock(match.nodeContent()) )
-                else blocks.push( new TwinoInterimBlock(match.nodeContent(), 'span', match.nodeType(), [['x-nested','1']]) );
+                if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
+                else blocks.push( new TwinoInterimBlock(nodeContent, 'span', match.nodeType(), [['x-nested','1']]) );
                 changed = true; break;
             case 'aparte':
-                if (nested) blocks.push( new TwinoInterimBlock(match.nodeContent()) )
-                else blocks.push( new TwinoInterimBlock(match.nodeContent(), 'div', 'sideNote', [['x-nested','1']]) );
+                if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
+                else blocks.push( new TwinoInterimBlock(nodeContent, 'div', 'sideNote', [['x-nested','1']]) );
                 changed = true; break;
             case 'admannounce':
-                if (nested) blocks.push( new TwinoInterimBlock(match.nodeContent()) )
-                else blocks.push( new TwinoInterimBlock(match.nodeContent(), 'div', 'adminAnnounce', [['x-nested','1']]) );
+                if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
+                else blocks.push( new TwinoInterimBlock(nodeContent, 'div', 'adminAnnounce', [['x-nested','1']]) );
                 changed = true; break;
             case 'modannounce':
-                if (nested) blocks.push( new TwinoInterimBlock(match.nodeContent()) )
-                else blocks.push( new TwinoInterimBlock(match.nodeContent(), 'div', 'modAnnounce', [['x-nested','1']]) );
+                if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
+                else blocks.push( new TwinoInterimBlock(nodeContent, 'div', 'modAnnounce', [['x-nested','1']]) );
                 changed = true; break;
             case 'announce':
-                if (nested) blocks.push( new TwinoInterimBlock(match.nodeContent()) )
-                else blocks.push( new TwinoInterimBlock(match.nodeContent(), 'div', 'oracleAnnounce', [['x-nested','1']]) );
+                if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
+                else blocks.push( new TwinoInterimBlock(nodeContent, 'div', 'oracleAnnounce', [['x-nested','1']]) );
                 changed = true; break;
             case 'glory':
-                if (nested) blocks.push( new TwinoInterimBlock(match.nodeContent()) )
-                else blocks.push( new TwinoInterimBlock(match.nodeContent(), 'div', 'glory', [['x-nested','1']]) );
+                if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
+                else blocks.push( new TwinoInterimBlock(nodeContent, 'div', 'glory', [['x-nested','1']]) );
                 changed = true; break;
             case 'rp':
-                if (nested) blocks.push( new TwinoInterimBlock(match.nodeContent()) )
+                if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
                 else {
                     if ( match.nodeInfo() )
                         blocks.push( new TwinoInterimBlock(match.nodeInfo(), 'span', 'rpauthor', [['x-raw','1']]) );
-                    blocks.push( new TwinoInterimBlock(match.nodeContent(), 'div', 'rpText', [['x-nested','1']]) );
+                    blocks.push( new TwinoInterimBlock(nodeContent, 'div', 'rpText', [['x-nested','1']]) );
                 }
                 changed = true; break;
             case 'html':
-                blocks.push( new TwinoInterimBlock(match.nodeContent(), 'html') );
+                blocks.push( new TwinoInterimBlock(nodeContent, 'html') );
                 break;
             default: blocks.push( new TwinoInterimBlock(match.raw()) ); break;
         }
