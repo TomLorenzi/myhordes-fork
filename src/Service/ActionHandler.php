@@ -779,20 +779,23 @@ class ActionHandler
 
                     if ($proto) $tags[] = 'spawned';
 
+                    $force = false;
+
                     switch ($item_spawn->getSpawnTarget()) {
                         case AffectItemSpawn::DropTargetFloor:
                             $target = [ $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
+                            $force = true;
                             break;
                         case AffectItemSpawn::DropTargetRucksack:
-                            $target = [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
+                            $target = [ $citizen->getInventory() ];
                         case AffectItemSpawn::DropTargetDefault:
                         default:
-                            $target = [ $execute_info_cache['source_inv'], $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
+                            $target = $execute_info_cache['source_inv'] !== null ? [$execute_info_cache['source_inv']] : [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
                             break;
                     }
 
                     if ($proto) {
-                        if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ), $target)) {
+                        if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ), $target, $force)) {
                             $execute_info_cache['items_spawn'][] = $proto;
                             if(!$citizen->getZone())
                                 $tags[] = "inside";
