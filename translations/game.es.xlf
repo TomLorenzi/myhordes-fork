@@ -4138,7 +4138,7 @@
       </notes>
       <segment>
         <source>Dieses beeindruckende Gebäude erstreckt sich auf mehrere Hundert Meter. Es enthält zahlreiche Räume, die größtenteils eingestürzt sind. Die große Anzahl an Einschusslöchern in den Wänden und die improvisierten Barrikaden lassen vermuten, dass das Gebäude vor einiger Zeit Schauplatz heftiger Gefechte gewesen ist.</source>
-        <target>Dieses beeindruckende Gebäude erstreckt sich auf mehrere Hundert Meter. Es enthält zahlreiche Räume, die größtenteils eingestürzt sind. Die große Anzahl an Einschusslöchern in den Wänden und die improvisierten Barrikaden lassen vermuten, dass das Gebäude vor einiger Zeit Schauplatz heftiger Gefechte gewesen ist.</target>
+        <target>Este impresionante edificio se extiende por varios cientos de metros. Posee numerosas habitaciones, la mayoría de las cuales se han derrumbado casi por completo. La gran cantidad de agujeros de bala en las paredes y las barricadas improvisadas sugieren que el edificio fue escenario de feroces combates hace ya un tiempo.</target>
       </segment>
     </unit>
     <unit id="ETLKMEi" name="6475f3a">
@@ -7702,7 +7702,7 @@
       </notes>
       <segment>
         <source>Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</source>
-        <target>Habiendo muerto en el Ultramundo, %citizen% no dará a sus vecinos ningún descanso. Seguramente lo veamos de nuevo, quizás alguna de estas noches...</target>
+        <target>Tras morir en el Ultramundo, podemos estar seguros de que %citizen% no dará a sus vecinos ningún descanso. Seguramente lo veamos de nuevo en una de estas noches...</target>
       </segment>
     </unit>
     <unit id="zeR3KvL" name="8c2d7df">
@@ -10062,7 +10062,7 @@
       </notes>
       <segment>
         <source>Meine Nachrichten lesen.</source>
-        <target>Marcar todo como leído</target>
+        <target>Lee tu correspondencia</target>
       </segment>
     </unit>
     <unit id="6KKKVfb" name="Neue Nachricht">
@@ -17193,7 +17193,7 @@
       </notes>
       <segment>
         <source>(Allein)</source>
-        <target>(Allein)</target>
+        <target>(Solo)</target>
       </segment>
     </unit>
     <unit id="WWzkuFQ" name="(Mit Eskorte)">
@@ -17202,7 +17202,7 @@
       </notes>
       <segment>
         <source>(Mit Eskorte)</source>
-        <target>(Mit Eskorte)</target>
+        <target>(Con escolta)</target>
       </segment>
     </unit>
     <unit id="5xLwZCN" name="Du hast dich in einen %role% verwandelt!">
@@ -17625,7 +17625,7 @@
       </notes>
       <segment>
         <source>von %citizen%</source>
-        <target>von %citizen%</target>
+        <target>por %citizen%</target>
       </segment>
     </unit>
     <unit id="jjE2OUe" name="Ansehen">
@@ -17634,7 +17634,7 @@
       </notes>
       <segment>
         <source>Ansehen</source>
-        <target>Ansehen</target>
+        <target>Ver</target>
       </segment>
     </unit>
     <unit id="J.e7pwb" name="Diese Expedition löschen">
@@ -17661,7 +17661,7 @@
       </notes>
       <segment>
         <source>Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...</source>
-        <target>Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...</target>
+        <target>El contenido de esta vivienda está escondido por cortinas en la ventana...</target>
       </segment>
     </unit>
     <unit id="4jN.T2l" name="315dd2d">
@@ -17693,7 +17693,7 @@
       </notes>
       <segment>
         <source>Zeit bis zum nächsten Zombieangriff</source>
-        <target>Zeit bis zum nächsten Zombieangriff</target>
+        <target>Tiempo restante para el próximo ataque zombi.</target>
       </segment>
     </unit>
     <unit id="OZBaq.m" name="Das Register filtern">
@@ -17900,10 +17900,10 @@
                                 benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                                 kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                                 auffüllen.</source>
-        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                                auffüllen.</target>
+        <target>Para muchas acciones, como explorar el Ultramundo o trabajar en construcciones,
+                            necesitas Puntos de Acción. Los Puntos de Acción se regeneran todas las noches después del ataque. Además
+                            puedes recuperarlos una vez al día comiendo y bebiendo o usando ciertos objetos 
+                            como drogas o alcohol.</target>
       </segment>
     </unit>
     <unit id="cNyto3M" name="Du wurdest zum Schamanen gewählt!">
