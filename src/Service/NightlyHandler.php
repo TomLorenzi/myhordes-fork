@@ -624,6 +624,7 @@ class NightlyHandler
                     $this->citizen_handler->inflictStatus($ctz, $status_terror);
                     $this->log->debug("Watcher <info>{$ctz->getUser()->getUsername()}</info> now suffers from <info>{$status_terror->getLabel()}</info>");
                     $gazette->setTerror($gazette->getTerror() + 1);
+                    $this->crow->postAsPM($ctz, '', '', PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_TERROR, $defBonus);
                 }
             }
 

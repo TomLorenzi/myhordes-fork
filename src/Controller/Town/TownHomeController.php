@@ -143,6 +143,7 @@ class TownHomeController extends TownController
                         $thread->setTitle( $trans->trans('Beschwerde zurückgezogen', [], 'game') );
                         break;
                     case PrivateMessage::TEMPLATE_CROW_TERROR:
+                    case PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_TERROR:
                         $thread->setTitle( $trans->trans('Du bist vor Angst erstarrt!!', [], 'game') );
                         break;
                     case PrivateMessage::TEMPLATE_CROW_AVOID_TERROR:
