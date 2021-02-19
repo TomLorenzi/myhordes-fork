@@ -195,19 +195,11 @@ class TwinoConverterToBlocks {
 
         let quotespace = false;
         let nested = false;
-        console.log("current nodetype " + match.nodeType().toLowerCase());
         for (let i = 0; i < parents.length; i++) {
             if (!quotespace && (parents[i].tagName === 'BLOCKQUOTE'))
                 quotespace = true;
 
             let css = typeToClass[match.nodeType()] ?? match.nodeType();
-
-            console.log("nested : " + nested);
-            console.log("has x-nested : " + parents[i].hasAttribute( 'x-nested' ));
-            console.log("parent tagname : " + parents[i].tagName.toLowerCase());
-            console.log("parent classlist");
-            console.log(parents[i].classList);
-            console.log("parent classlist has nodetype " +  parents[i].classList.contains(css));
 
             if (!nested && parents[i].hasAttribute( 'x-nested' ) && (parents[i].tagName.toLowerCase() === css.toLowerCase() || parents[i].classList.contains(css))) nested = true;
         }
