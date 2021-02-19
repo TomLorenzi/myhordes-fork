@@ -802,6 +802,7 @@ class ActionHandler
                             else
                                 $tags[] = "outside";
                         } else {
+                            // TODO: Get the actual error (not enough place, too many heavy items, etc...)
                             return self::ErrorActionImpossible;
                         }
                     }

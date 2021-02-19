@@ -105,7 +105,6 @@ class NightlyHandler
         $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> dies of <info>{$cod->getLabel()}</info>.");
         $this->death_handler->kill($citizen,$cod,$rr);
 
-
         if (!$skip_log) $this->entity_manager->persist( $this->logTemplates->citizenDeath( $citizen, $zombies, null, $day ) );
         foreach ($rr as $r) $this->cleanup[] = $r;
         if ($skip_reanimation) $this->skip_reanimation[] = $citizen->getId();
@@ -133,6 +132,11 @@ class NightlyHandler
 
         foreach ($town->getCitizens() as $citizen)
             if ($citizen->getAlive() && $citizen->getZone()) {
+                $zone = $citizen->getZone();
+                $cp_ok = $this->zone_handler->check_cp($zone);
+
+                // We force the auto-search to be processed
+                $this->zone_handler->updateZone($zone);
 
                 $citizen_hidden = $citizen->getStatus()->contains( $camp_1 ) || $citizen->getStatus()->contains( $camp_2 );
                 if ($citizen_hidden) {
@@ -164,6 +168,8 @@ class NightlyHandler
                   $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> without protection!");
                   $this->kill_wrap($citizen, $cod, false, 0, false, $town->getDay()+1);
                 }
+
+                $this->zone_handler->handleCitizenCountUpdate($zone, $cp_ok);
             }
     }
 

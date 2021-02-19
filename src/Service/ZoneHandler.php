@@ -108,7 +108,6 @@ class ZoneHandler
         }
 
         if ($cp < $zone->getZombies()) {
-
             foreach ($dig_timers as $timer) {
                 $timer->setPassive(true);
                 $this->entity_manager->persist($timer);
@@ -269,6 +268,8 @@ class ZoneHandler
         if(($chances_by_player > 0 || $chances_by_escorts > 0) && $zone->getDigs() <= 0) {
             $ret_str[] = $this->trans->trans("Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.", [], "game");
         }
+
+        $ret_str = array_unique($ret_str);
 
         return empty($ret_str) ? null : implode('<hr />', $ret_str);
 
