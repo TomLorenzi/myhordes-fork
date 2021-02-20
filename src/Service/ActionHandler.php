@@ -875,7 +875,10 @@ class ActionHandler
                         }
 
                 if ($zoneEffect->getUncoverRuin()) {
+                    // If we get 4 the first time, roll again to reduce the chances for 4
                     $count = min(mt_rand(2,4), $base_zone->getBuryCount());
+                    if ($count === 4) $count = min(mt_rand(2,4), $base_zone->getBuryCount());
+
                     $execute_info_cache['bury_count'] = $count;
                     $base_zone->setBuryCount( max(0, $base_zone->getBuryCount() - $count ));
                     if ($base_zone->getPrototype())
