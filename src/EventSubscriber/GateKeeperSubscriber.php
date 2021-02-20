@@ -32,6 +32,8 @@ use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\RedirectController;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
@@ -52,11 +54,14 @@ class GateKeeperSubscriber implements EventSubscriberInterface
     private AntiCheatService $anti_cheat;
     private UrlGeneratorInterface $url_generator;
     private TranslatorInterface $translator;
+    private SessionInterface $session;
 
     /** @var LockInterface|null  */
     private $current_lock = null;
 
-    public function __construct(EntityManagerInterface $em, Locksmith $locksmith, Security $security, TownHandler $th, TimeKeeperService $tk, AntiCheatService $anti_cheat, UrlGeneratorInterface $url, TranslatorInterface $translator)
+    public function __construct(
+        EntityManagerInterface $em, Locksmith $locksmith, Security $security,
+        TownHandler $th, TimeKeeperService $tk, AntiCheatService $anti_cheat, UrlGeneratorInterface $url, TranslatorInterface $translator)
     {
         $this->em = $em;
         $this->locksmith = $locksmith;
@@ -127,7 +132,8 @@ class GateKeeperSubscriber implements EventSubscriberInterface
             if ($controller instanceof TownInterfaceController) {
                 // This is a town controller; it is not available to players in the world beyond
                 if ($citizen->getZone()) {
-                    $controller->pushFlash("error", $this->translator->trans("HINWEIS: Diese Aktion ist nur in der Stadt möglich.", [], 'global'));
+                    if ($event->getRequest()->headers->get('X-Requested-With', 'UndefinedIntent') !== 'WebNavigation')
+                        $event->getRequest()->getSession()->getFlashBag()->add("error", $this->translator->trans("HINWEIS: Diese Aktion ist nur in der Stadt möglich.", [], 'global'));
                     throw new DynamicAjaxResetException($event->getRequest());
                 }
             }
@@ -135,7 +141,8 @@ class GateKeeperSubscriber implements EventSubscriberInterface
             if ($controller instanceof BeyondInterfaceController) {
                 // This is a beyond controller; it is not available to players inside a town
                 if (!$citizen->getZone()) {
-                    $controller->pushFlash("error", $this->translator->trans("HINWEIS: Diese Aktion ist nur in Übersee möglich.", [], 'global'));
+                    if ($event->getRequest()->headers->get('X-Requested-With', 'UndefinedIntent') !== 'WebNavigation')
+                        $event->getRequest()->getSession()->add("error", $this->translator->trans("HINWEIS: Diese Aktion ist nur in Übersee möglich.", [], 'global'));
                     throw new DynamicAjaxResetException($event->getRequest());
                 }
 
