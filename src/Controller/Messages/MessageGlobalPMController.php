@@ -50,10 +50,8 @@ class MessageGlobalPMController extends MessageController
     public function ping_check_new_message(EntityManagerInterface $em, SessionInterface $s): Response {
         $cache = $s->get('cache_ping');
 
-        if ($cache && isset($cache['ts']) && isset($cache['r']) && (new DateTime('-1min')) < $cache['ts'] ) {
-            $cache['r']['cache'] = true;
+        if ($cache && isset($cache['ts']) && isset($cache['r']) && (new DateTime('-1min')) < $cache['ts'] )
             return new AjaxResponse($cache['r']);
-        }
 
         $user = $this->getUser();
         if (!$user) return new AjaxResponse(['new' => 0, 'connected' => false, 'success' => true]);
