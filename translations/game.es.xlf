@@ -17580,7 +17580,7 @@
       </notes>
       <segment>
         <source>Du hast deine tägliche Ration erhalten: %item%</source>
-        <target>Du hast deine tägliche Ration erhalten: %item%</target>
+        <target>Ahhh, refrescante: %item%</target>
       </segment>
     </unit>
     <unit id="T4D33fJ" name="Die Route wurde gelöscht.">
@@ -17694,7 +17694,7 @@
       </notes>
       <segment>
         <source>Zeit bis zum nächsten Zombieangriff</source>
-        <target>Zeit bis zum nächsten Zombieangriff</target>
+        <target>Tiempo restante para el próximo ataque zombie.</target>
       </segment>
     </unit>
     <unit id="OZBaq.m" name="Das Register filtern">
@@ -18112,6 +18112,24 @@
       <segment>
         <source>Reiseleiter-Ratgeber</source>
         <target>Reiseleiter-Ratgeber</target>
+      </segment>
+    </unit>
+    <unit id="9ahpfaF" name="Alle als gelesen markieren">
+      <notes>
+        <note category="german">Alle als gelesen markieren</note>
+      </notes>
+      <segment>
+        <source>Alle als gelesen markieren</source>
+        <target>Marcar todo como leído</target>
+      </segment>
+    </unit>
+    <unit id="PqIRtVW" name="Alle archivieren">
+      <notes>
+        <note category="german">Alle archivieren</note>
+      </notes>
+      <segment>
+        <source>Alle archivieren</source>
+        <target>Archivar todo</target>
       </segment>
     </unit>
   </file>

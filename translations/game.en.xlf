@@ -18116,5 +18116,23 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Reiseleiter-Ratgeber</target>
       </segment>
     </unit>
+    <unit id="9ahpfaF" name="Alle als gelesen markieren">
+      <notes>
+        <note category="german">Alle als gelesen markieren</note>
+      </notes>
+      <segment>
+        <source>Alle als gelesen markieren</source>
+        <target>Mark all as read</target>
+      </segment>
+    </unit>
+    <unit id="PqIRtVW" name="Alle archivieren">
+      <notes>
+        <note category="german">Alle archivieren</note>
+      </notes>
+      <segment>
+        <source>Alle archivieren</source>
+        <target>Archive all</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -18088,7 +18088,7 @@
       </notes>
       <segment>
         <source>Du wurdest zum Reiseleiter in der Außenwelt gewählt!</source>
-        <target>Du wurdest zum Reiseleiter in der Außenwelt gewählt!</target>
+        <target>Vous avez été élu comme Guide de l'Outre-Monde !</target>
       </segment>
     </unit>
     <unit id="lMjxZHr" name="c81e51c">
@@ -18097,7 +18097,7 @@
       </notes>
       <segment>
         <source>Du wachst heute Morgen mit einem Lächeln in deinem Gesicht auf... Ein komisches Gefühl... Du verlässt dein Zelt und... die Leute salutieren dir?</source>
-        <target>Du wachst heute Morgen mit einem Lächeln in deinem Gesicht auf... Ein komisches Gefühl... Du verlässt dein Zelt und... die Leute salutieren dir?</target>
+        <target>Vous vous réveillez avec un sourire sur votre visage... Une sensation étrange par ici... Vous sortez de votre tente et... Des gens vous saluent ?</target>
       </segment>
     </unit>
     <unit id="pwrn2jS" name="20269a1">
@@ -18106,7 +18106,7 @@
       </notes>
       <segment>
         <source>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, spürst du... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du den Blick in Richtung des Stadttors lenkst: Ein wahnsinniges Verlangen nach Abenteuer und Entdeckungen überkommt dich, was eigentlich eher untypisch ist...</source>
-        <target>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, spürst du... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du den Blick in Richtung des Stadttors lenkst: Ein wahnsinniges Verlangen nach Abenteuer und Entdeckungen überkommt dich, was eigentlich eher untypisch ist...</target>
+        <target>Que s'est-il passé la nuit dernière ? Vous devez avoir trop fait la fête. Lorsque vous atteignez l'enceinte de la ville, vous vous sentez... Oui, oui, vous êtes bien l'élu. Le doute disparaît lorsque vous dirigez votre regard en direction de la porte de la ville: vous êtes envahi par une folle envie d'aventure et de découverte, qui est en fait plutôt atypique...</target>
       </segment>
     </unit>
     <unit id="M_Sa.96" name="Du bist nun der Reiseleiter in der Außenwelt.">
@@ -18115,7 +18115,7 @@
       </notes>
       <segment>
         <source>Du bist nun der Reiseleiter in der Außenwelt.</source>
-        <target>Du bist nun der Reiseleiter in der Außenwelt.</target>
+        <target>Vous êtes maintenant le Guide de l'Outre-Monde.</target>
       </segment>
     </unit>
     <unit id="fytWhzm" name="e61a79e">
@@ -18124,7 +18124,7 @@
       </notes>
       <segment>
         <source>Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein Anführer!</source>
-        <target>Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein Anführer!</target>
+        <target>De nouveaux horizons s'ouvrent devant vous, vous n'êtes plus un simple citoyen, mais un leader, un pionnier...</target>
       </segment>
     </unit>
     <unit id="ju_Tduc" name="Schau dir am besten gleich den %guide_help% an.">
@@ -18133,7 +18133,7 @@
       </notes>
       <segment>
         <source>Schau dir am besten gleich den %guide_help% an.</source>
-        <target>Schau dir am besten gleich den %guide_help% an.</target>
+        <target>Jetez un œil au %guide_help%.</target>
       </segment>
     </unit>
     <unit id="xElNBrl" name="Reiseleiter-Ratgeber">
@@ -18142,7 +18142,25 @@
       </notes>
       <segment>
         <source>Reiseleiter-Ratgeber</source>
-        <target>Reiseleiter-Ratgeber</target>
+        <target>guide du jeu pour les Duides de l'Outre-Monde</target>
+      </segment>
+    </unit>
+    <unit id="9ahpfaF" name="Alle als gelesen markieren">
+      <notes>
+        <note category="german">Alle als gelesen markieren</note>
+      </notes>
+      <segment>
+        <source>Alle als gelesen markieren</source>
+        <target>Marquer tous comme lus</target>
+      </segment>
+    </unit>
+    <unit id="PqIRtVW" name="Alle archivieren">
+      <notes>
+        <note category="german">Alle archivieren</note>
+      </notes>
+      <segment>
+        <source>Alle archivieren</source>
+        <target>Tout archiver</target>
       </segment>
     </unit>
   </file>

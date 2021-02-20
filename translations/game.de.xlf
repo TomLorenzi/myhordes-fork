@@ -18133,5 +18133,23 @@
         <target>Reiseleiter-Ratgeber</target>
       </segment>
     </unit>
+    <unit id="9ahpfaF" name="Alle als gelesen markieren">
+      <notes>
+        <note category="german">Alle als gelesen markieren</note>
+      </notes>
+      <segment>
+        <source>Alle als gelesen markieren</source>
+        <target>Alle als gelesen markieren</target>
+      </segment>
+    </unit>
+    <unit id="PqIRtVW" name="Alle archivieren">
+      <notes>
+        <note category="german">Alle archivieren</note>
+      </notes>
+      <segment>
+        <source>Alle archivieren</source>
+        <target>Alle archivieren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

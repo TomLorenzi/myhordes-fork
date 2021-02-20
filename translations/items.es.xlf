@@ -7619,5 +7619,14 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
         <target>Dein Hündchen sieht *müde* aus... Es keucht die ganze Zeit und starrt dich aus erschöpften Augen an.</target>
       </segment>
     </unit>
+    <unit id="ncshu6." name="d8d282d">
+      <notes>
+        <note category="german">Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.</note>
+      </notes>
+      <segment>
+        <source>Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.</source>
+        <target>Recuerda: Ya has bebido para recuperar Puntos de Acción el día de hoy.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
