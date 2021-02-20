@@ -2,40 +2,26 @@
 
 namespace App\Controller\Town;
 
-use App\Controller\InventoryAwareController;
-use App\Controller\TownInterfaceController;
-use App\Entity\Building;
+use App\Annotations\GateKeeperProfile;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradeCosts;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\Complaint;
-use App\Entity\Emotes;
-use App\Entity\ExpeditionRoute;
 use App\Entity\ItemGroupEntry;
-use App\Entity\ItemProperty;
-use App\Entity\ItemPrototype;
-use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
 use App\Entity\PrivateMessageThread;
-use App\Entity\Town;
-use App\Entity\TownLogEntry;
-use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\ActionHandler;
 use App\Service\AdminActionHandler;
 use App\Service\CitizenHandler;
 use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
-use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\TownHandler;
-use App\Structures\ItemRequest;
-use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
-use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
@@ -46,6 +32,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @GateKeeperProfile(only_in_town=true, only_alive=true, only_with_profession=true)
  */
 class TownHomeController extends TownController
 {

@@ -2,6 +2,7 @@
 
 namespace App\Controller\Messages;
 
+use App\Annotations\GateKeeperProfile;
 use App\Entity\AdminReport;
 use App\Entity\Announcement;
 use App\Entity\ForumModerationSnippet;
@@ -30,6 +31,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @GateKeeperProfile(allow_during_attack=true)
  * @method User getUser
  */
 class MessageGlobalPMController extends MessageController
@@ -37,6 +39,7 @@ class MessageGlobalPMController extends MessageController
 
     /**
      * @Route("api/pm/ping", name="api_pm_ping")
+     * @GateKeeperProfile("skip")
      * @param EntityManagerInterface $em
      * @return Response
      */

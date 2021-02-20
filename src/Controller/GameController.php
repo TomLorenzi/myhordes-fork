@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Annotations\GateKeeperProfile;
 use App\Entity\ActionCounter;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
@@ -43,9 +44,10 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @GateKeeperProfile(only_incarnated=true)
  * @method User getUser()
  */
-class GameController extends CustomAbstractController implements GameInterfaceController
+class GameController extends CustomAbstractController
 {
     protected $logTemplateHandler;
     protected TownHandler $town_handler;

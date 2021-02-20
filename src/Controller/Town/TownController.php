@@ -2,8 +2,8 @@
 
 namespace App\Controller\Town;
 
+use App\Annotations\GateKeeperProfile;
 use App\Controller\InventoryAwareController;
-use App\Controller\TownInterfaceController;
 use App\Entity\ActionCounter;
 use App\Entity\Building;
 use App\Entity\BuildingVote;
@@ -52,9 +52,10 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @GateKeeperProfile(only_in_town=true, only_alive=true, only_with_profession=true)
  * @method User getUser()
  */
-class TownController extends InventoryAwareController implements TownInterfaceController
+class TownController extends InventoryAwareController
 {
     const ErrorWellEmpty         = ErrorHelper::BaseTownErrors + 1;
     const ErrorWellLimitHit      = ErrorHelper::BaseTownErrors + 2;

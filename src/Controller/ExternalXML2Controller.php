@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Annotations\GateKeeperProfile;
 use App\Entity\AwardPrototype;
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
@@ -37,6 +38,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class ExternalXML2Controller
+ * @package App\Controller
+ * @GateKeeperProfile(allow_during_attack=true, record_user_activity=false)
+ */
 class ExternalXML2Controller extends ExternalController {
 
     /**

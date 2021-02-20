@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Annotations\GateKeeperProfile;
 use App\Controller\Admin\AdminActionController;
 use App\Controller\CustomAbstractController;
 use App\Entity\AdminAction;
@@ -30,6 +31,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
+/**
+ * Class WebController
+ * @package App\Controller
+ * @GateKeeperProfile(allow_during_attack=true)
+ */
 class WebController extends CustomAbstractController
 {
     private $version_manager;
@@ -42,7 +48,7 @@ class WebController extends CustomAbstractController
         $this->kernel = $k;
     }
 
-    private function render_web_framework(string $ajax_landing) {
+    private function render_web_framework(string $ajax_landing): Response {
         try {
             $version = $this->version_manager->getVersion();
             $is_debug_version =

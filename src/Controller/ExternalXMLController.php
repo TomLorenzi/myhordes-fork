@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Annotations\GateKeeperProfile;
 use App\Entity\Citizen;
 use App\Entity\ExternalApp;
 use App\Entity\Town;
@@ -14,6 +15,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class ExternalXMLController
+ * @package App\Controller
+ * @GateKeeperProfile(allow_during_attack=true, record_user_activity=false)
+ */
 class ExternalXMLController extends ExternalController {
 
     /**

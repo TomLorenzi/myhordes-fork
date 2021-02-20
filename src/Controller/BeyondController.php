@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
+use App\Annotations\GateKeeperProfile;
 use App\Entity\ActionCounter;
 use App\Entity\ChatSilenceTimer;
 use App\Entity\Citizen;
 use App\Entity\CitizenEscortSettings;
-use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\DigRuinMarker;
 use App\Entity\DigTimer;
@@ -19,7 +19,6 @@ use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\RuinExplorerStats;
 use App\Entity\ScoutVisit;
-use App\Entity\Town;
 use App\Entity\Zone;
 use App\Entity\ZoneTag;
 use App\Response\AjaxResponse;
@@ -48,15 +47,15 @@ use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Asset\Packages;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @GateKeeperProfile(only_alive=true, only_beyond=true)
  */
-class BeyondController extends InventoryAwareController implements BeyondInterfaceController
+class BeyondController extends InventoryAwareController
 {
 
     const ErrorNoReturnFromHere     = ErrorHelper::BaseBeyondErrors + 1;

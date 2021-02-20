@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Annotations\GateKeeperProfile;
 use App\Entity\ActionCounter;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
@@ -46,7 +47,6 @@ use App\Structures\BankItem;
 use App\Structures\ItemRequest;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
-use DateTime;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
@@ -54,8 +54,13 @@ use Exception;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
+/**
+ * Class InventoryAwareController
+ * @package App\Controller
+ * @GateKeeperProfile(only_alive=true, only_with_profession=true)
+ */
 class InventoryAwareController extends CustomAbstractController
-    implements GameInterfaceController, GameProfessionInterfaceController, GameAliveInterfaceController, HookedInterfaceController
+    implements HookedInterfaceController
 {
     protected DeathHandler $death_handler;
     protected ActionHandler $action_handler;

@@ -3,24 +3,9 @@
 
 namespace App\EventSubscriber;
 
-
-use App\Controller\Admin\AdminActionController;
-use App\Controller\BeyondController;
-use App\Controller\BeyondInterfaceController;
-use App\Controller\ExplorationInterfaceController;
-use App\Controller\ExternalController;
-use App\Controller\GameAliveInterfaceController;
-use App\Controller\GameInterfaceController;
-use App\Controller\GameProfessionInterfaceController;
-use App\Controller\GhostInterfaceController;
 use App\Controller\HookedInterfaceController;
-use App\Controller\LandingController;
-use App\Controller\Messages\MessageGlobalPMController;
-use App\Controller\TownInterfaceController;
-use App\Controller\WebController;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
-use App\Entity\Town;
 use App\Entity\User;
 use App\Exception\DynamicAjaxResetException;
 use App\Service\AntiCheatService;
@@ -31,9 +16,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\RedirectController;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
@@ -41,8 +23,9 @@ use Symfony\Component\Lock\LockInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Http\Event\LogoutEvent;
-use Symfony\Component\Security\Http\SecurityEvents;
 use Symfony\Contracts\Translation\TranslatorInterface;
+
+use App\Annotations\GateKeeperProfile;
 
 class GateKeeperSubscriber implements EventSubscriberInterface
 {
@@ -54,7 +37,6 @@ class GateKeeperSubscriber implements EventSubscriberInterface
     private AntiCheatService $anti_cheat;
     private UrlGeneratorInterface $url_generator;
     private TranslatorInterface $translator;
-    private SessionInterface $session;
 
     /** @var LockInterface|null  */
     private $current_lock = null;
@@ -74,18 +56,21 @@ class GateKeeperSubscriber implements EventSubscriberInterface
     }
 
     public function holdTheDoor(ControllerEvent $event) {
+
+        $gk_profile = $event->getRequest()->attributes->get('_GateKeeperProfile') ?? new GateKeeperProfile();
+        if ($gk_profile->skipGateKeeper() || $event->getRequest()->attributes->get('_debug_skip_gk')) return;
+
         $controller = $event->getController();
         if (is_array($controller)) $controller = $controller[0];
 
-        if (!($controller instanceof LandingController) && !($controller instanceof WebController) && !($controller instanceof AdminActionController) && !($controller instanceof ExternalController)  && !($controller instanceof MessageGlobalPMController)) {
-            // During the attack, only the landing, web and admin controller shall be made available
-            if ($this->timeKeeper->isDuringAttack())
-                throw new DynamicAjaxResetException($event->getRequest());
-        }
+        // During the attack, only whitelisted controllers and functions are available
+        // This is controlled by the allow_during_attack parameter of @GateKeeperProfile
+        if (!$gk_profile->getAllowDuringAttack() && $this->timeKeeper->isDuringAttack())
+            throw new DynamicAjaxResetException($event->getRequest());
 
         /** @var User $user */
         $user = $this->security->getUser();
-        if ($user) {
+        if ($gk_profile->getRecordUserActivity() && $user) {
             $this->anti_cheat->recordConnection($user, $event->getRequest());
             $this->em->persist( $user->setLastActionTimestamp( new \DateTime() ) );
             try { $this->em->flush(); } catch (Exception $e) {}
@@ -94,13 +79,11 @@ class GateKeeperSubscriber implements EventSubscriberInterface
         if ($user && $user->getLanguage() && $event->getRequest()->getLocale() !== $user->getLanguage())
             $event->getRequest()->getSession()->set('_user_lang', $user->getLanguage());
 
-        if ($controller instanceof GhostInterfaceController) {
+        if ($gk_profile->onlyWhenGhost() && (!$user || $user->getActiveCitizen()))
             // This is a ghost controller; it is not available to players in a game
-            if (!$user || $user->getActiveCitizen())
-                throw new DynamicAjaxResetException($event->getRequest());
-        }
+            throw new DynamicAjaxResetException($event->getRequest());
 
-        if ($controller instanceof GameInterfaceController && !($controller instanceof ExternalController)) {
+        if ($gk_profile->onlyWhenIncarnated()) {
             // This is a game controller; it is not available to players outside of a game
             if (!$user || !$citizen = $user->getActiveCitizen())
                 throw new DynamicAjaxResetException($event->getRequest());
@@ -116,40 +99,34 @@ class GateKeeperSubscriber implements EventSubscriberInterface
             if ($this->townHandler->triggerAlways( $citizen->getTown() ))
                 $this->em->persist( $citizen->getTown() );
 
-            if ($controller instanceof GameAliveInterfaceController) {
+            if ($gk_profile->onlyWhenAlive() && !$citizen->getAlive())
                 // This is a game action controller; it is not available to players who are dead
-                if (!$citizen->getAlive())
-                    throw new DynamicAjaxResetException($event->getRequest());
-            }
+                throw new DynamicAjaxResetException($event->getRequest());
 
-            if ($controller instanceof GameProfessionInterfaceController) {
+            if ($gk_profile->onlyWithProfession() && $citizen->getProfession()->getName() === CitizenProfession::DEFAULT) {
                 // This is a game profession controller; it is not available to players who have not chosen a profession
                 // yet.
-                if ($citizen->getProfession()->getName() === CitizenProfession::DEFAULT)
-                    throw new DynamicAjaxResetException($event->getRequest());
+                throw new DynamicAjaxResetException($event->getRequest());
             }
 
-            if ($controller instanceof TownInterfaceController) {
+            if ($gk_profile->onlyInTown() && $citizen->getZone()) {
                 // This is a town controller; it is not available to players in the world beyond
-                if ($citizen->getZone()) {
-                    if ($event->getRequest()->headers->get('X-Requested-With', 'UndefinedIntent') !== 'WebNavigation')
-                        $event->getRequest()->getSession()->getFlashBag()->add("error", $this->translator->trans("HINWEIS: Diese Aktion ist nur in der Stadt möglich.", [], 'global'));
-                    throw new DynamicAjaxResetException($event->getRequest());
-                }
+                if ($event->getRequest()->headers->get('X-Requested-With', 'UndefinedIntent') !== 'WebNavigation')
+                    $event->getRequest()->getSession()->getFlashBag()->add("error", $this->translator->trans("HINWEIS: Diese Aktion ist nur in der Stadt möglich.", [], 'global'));
+                throw new DynamicAjaxResetException($event->getRequest());
             }
 
-            if ($controller instanceof BeyondInterfaceController) {
+            if ($gk_profile->onlyBeyond()) {
                 // This is a beyond controller; it is not available to players inside a town
                 if (!$citizen->getZone()) {
                     if ($event->getRequest()->headers->get('X-Requested-With', 'UndefinedIntent') !== 'WebNavigation')
-                        $event->getRequest()->getSession()->add("error", $this->translator->trans("HINWEIS: Diese Aktion ist nur in Übersee möglich.", [], 'global'));
+                        $event->getRequest()->getSession()->getFlashBag()->add("error", $this->translator->trans("HINWEIS: Diese Aktion ist nur in Übersee möglich.", [], 'global'));
                     throw new DynamicAjaxResetException($event->getRequest());
                 }
 
                 // Check if the exploration status is set
-                if ($controller instanceof ExplorationInterfaceController xor $citizen->activeExplorerStats()) {
+                if ($gk_profile->onlyInRuin() xor $citizen->activeExplorerStats())
                     throw new DynamicAjaxResetException($event->getRequest());
-                }
             }
 
             $citizen->setLastActionTimestamp(time());
@@ -158,7 +135,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
             $this->em->flush();
 
             // Execute before() on HookedControllers
-            if ($controller instanceof HookedInterfaceController)
+            if ($gk_profile->hasHook() && $controller instanceof HookedInterfaceController)
                 if (!$controller->before())
                     throw new DynamicAjaxResetException($event->getRequest());
         }
@@ -178,7 +155,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            KernelEvents::CONTROLLER => 'holdTheDoor',
+            KernelEvents::CONTROLLER => ['holdTheDoor', -1],
             KernelEvents::RESPONSE   => 'releaseTheDoor',
             LogoutEvent::class => ['removeRememberMeToken',-1],
         ];
