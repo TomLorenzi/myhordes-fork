@@ -670,7 +670,7 @@ class CitizenHandler
         return $camping_values;
     }
 
-    public function getNightwatchProfessionDefenseBonus(Citizen $citizen){
+    public function getNightwatchProfessionDefenseBonus(Citizen $citizen): int{
         if ($citizen->getProfession()->getName() == "guardian") {
             return 30;
         } else if ($citizen->getProfession()->getName() == "tamer") {
@@ -686,23 +686,30 @@ class CitizenHandler
         return 0;
     }
 
-    public function getDeathChances(Citizen $citizen, bool $during_attack = false): float {
-        $baseChance = 0.05;
-        $baseChance -= $this->getNightwatchProfessionSurvivalBonus($citizen);
+    public function getNightwatchBaseFatigue(Citizen $citizen): float{
+        if ($citizen->getProfession()->getName() == "guardian") {
+            return 0.01;
+        }
+        return 0.05;
+    }
 
-        $chances = $baseChance;
+    public function getDeathChances(Citizen $citizen, bool $during_attack = false): float {
+        $fatigue = $this->getNightwatchBaseFatigue($citizen);
+
         for($i = 1 ; $i <= $citizen->getTown()->getDay() - ($during_attack ? 2 : 1); $i++){
             /** @var CitizenWatch|null $previousWatches */
             $previousWatches = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchOfCitizenForADay($citizen, $i);
             if($previousWatches === null || $previousWatches->getSkipped()) {
-                $chances = max($baseChance, $chances - 0.05);
+                $fatigue = max($this->getNightwatchBaseFatigue($citizen), $fatigue - 0.05);
             } else {
-                $factor = 0.1;
-                if($citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'prowatch'))
-                    $factor -= 0.03;
-                $chances = min(1, $chances + $factor);
+                $fatigue += 0.1;
             }
         }
+
+        if($citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'prowatch'))
+            $fatigue /= 2;
+
+        $chances = $fatigue;
 
         $status_effect_list = [
             'drunk'     => -0.04,
@@ -720,7 +727,7 @@ class CitizenHandler
         if($this->isWounded($citizen)) $chances += 0.20;
         if($citizen->hasRole('ghoul')) $chances -= 0.05;
 
-        return $chances;
+        return round($chances, 2, PHP_ROUND_HALF_DOWN);
     }
 
     public function getNightWatchItemDefense( Item $item, bool $shooting_gallery, bool $trebuchet, bool $ikea, bool $armory ): int {

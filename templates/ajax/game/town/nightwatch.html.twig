@@ -21,7 +21,7 @@
 
     {% if is_watcher %}
     <div class="help">
-        {{'Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.'|trans({'%deathChance%': deathChance * 100|round(), '%woundAndTerrorChance%': woundAndTerrorChance * 100|round()}, 'game')}}
+        {{'Und übrigens, uns erscheint die Idee ganz gut dir noch zu sagen, dass du heute zu einer Wahrscheinlichkeit von %deathChance%% sterben und zu einer Wahrscheinlichkeit von %woundAndTerrorChance%% eine Verwundung oder Angststarre während der Wache erleiden wirst.'|trans({'%deathChance%': deathChance * 100, '%woundAndTerrorChance%': woundAndTerrorChance * 100}, 'game')}}
     </div>
     {% endif %}
 

@@ -135,7 +135,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
             $this->em->flush();
 
             // Execute before() on HookedControllers
-            if ($gk_profile->hasHook() && $controller instanceof HookedInterfaceController)
+            if ($gk_profile->executeHook() && $controller instanceof HookedInterfaceController)
                 if (!$controller->before())
                     throw new DynamicAjaxResetException($event->getRequest());
         }
