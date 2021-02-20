@@ -141,11 +141,10 @@ x-message {
 
 #loadzone {
   position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 99998;
-  background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,1) 100%);
+  background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,1) 100%);
   &>div { text-align: center; margin-top: 110px; color: wheat; position: absolute; width: 100% }
-  &>div:nth-child(1) { transform: scale(0.5); }
-  &>div:nth-child(2) {  opacity: 0.2; color: black; filter: blur(4px); transform: scale(1.5); }
-  &>div:nth-child(3) { opacity: 0.5; }
+  &>div:nth-child(1) { opacity: 0.2; color: black; filter: blur(4px); transform: scale(2); }
+  &>div:nth-child(2) { transform: scale(1.25); }
   transition: opacity 0.2s ease-in-out; opacity: 1;
   &[x-stack="0"] { opacity: 0; pointer-events: none; }
 }
