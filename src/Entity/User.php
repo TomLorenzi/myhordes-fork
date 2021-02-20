@@ -62,7 +62,7 @@ class User implements UserInterface, EquatableInterface
     private $validated;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\UserPendingValidation", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\UserPendingValidation", mappedBy="user", cascade={"persist", "remove"}, fetch="EXTRA_LAZY")
      */
     private $pendingValidation;
 
@@ -77,7 +77,7 @@ class User implements UserInterface, EquatableInterface
     private $bannings;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\FoundRolePlayText", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\FoundRolePlayText", mappedBy="user", cascade={"persist", "remove"}, fetch="EXTRA_LAZY")
      */
     private $foundTexts;
 
@@ -87,7 +87,7 @@ class User implements UserInterface, EquatableInterface
     private $soulPoints = 0;
     
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Picto", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Picto", mappedBy="user", cascade={"persist", "remove"}, fetch="EXTRA_LAZY")
      */
     private $pictos;
 
@@ -138,7 +138,7 @@ class User implements UserInterface, EquatableInterface
     private $rightsElevation = 0;
 
     /**
-     * @ORM\OneToMany(targetEntity=CitizenRankingProxy::class, mappedBy="user", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=CitizenRankingProxy::class, mappedBy="user", orphanRemoval=true, fetch="EXTRA_LAZY")
      */
     private $pastLifes;
 
@@ -148,7 +148,7 @@ class User implements UserInterface, EquatableInterface
     private $heroDaysSpent = 0;
 
     /**
-     * @ORM\OneToOne(targetEntity=TwinoidImportPreview::class, mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=TwinoidImportPreview::class, mappedBy="user", cascade={"persist", "remove"}, fetch="EXTRA_LAZY")
      */
     private $twinoidImportPreview;
 
@@ -158,7 +158,7 @@ class User implements UserInterface, EquatableInterface
     private $twinoidID;
 
     /**
-     * @ORM\OneToMany(targetEntity=TwinoidImport::class, mappedBy="user", orphanRemoval=true, cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity=TwinoidImport::class, mappedBy="user", orphanRemoval=true, cascade={"persist", "remove"}, fetch="EXTRA_LAZY")
      */
     private $twinoidImports;
 
@@ -178,7 +178,7 @@ class User implements UserInterface, EquatableInterface
     private $latestChangelog;
 
     /**
-     * @ORM\OneToMany(targetEntity=ConnectionIdentifier::class, mappedBy="user", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=ConnectionIdentifier::class, mappedBy="user", orphanRemoval=true, fetch="EXTRA_LAZY")
      */
     private $connectionIdentifiers;
 
@@ -188,7 +188,7 @@ class User implements UserInterface, EquatableInterface
     private $shadowBan;
 
     /**
-     * @ORM\ManyToMany(targetEntity=ConnectionWhitelist::class, mappedBy="users", cascade={"persist", "remove"})
+     * @ORM\ManyToMany(targetEntity=ConnectionWhitelist::class, mappedBy="users", cascade={"persist", "remove"}, fetch="EXTRA_LAZY")
      */
     private $connectionWhitelists;
 
@@ -228,7 +228,7 @@ class User implements UserInterface, EquatableInterface
     private $expert = false;
 
     /**
-     * @ORM\OneToMany(targetEntity=ForumThreadSubscription::class, mappedBy="user", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=ForumThreadSubscription::class, mappedBy="user", orphanRemoval=true, fetch="EXTRA_LAZY")
      */
     private $forumThreadSubscriptions;
 
