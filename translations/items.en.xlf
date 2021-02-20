@@ -7616,5 +7616,14 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>Your labradoodle seems tired... panting constantly and looking at you with that exhausted stare.</target>
       </segment>
     </unit>
+    <unit id="ncshu6." name="d8d282d">
+      <notes>
+        <note category="german">Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.</note>
+      </notes>
+      <segment>
+        <source>Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.</source>
+        <target>Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

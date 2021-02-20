@@ -7687,5 +7687,14 @@
         <target><![CDATA[On peut dire que <strong>vous avez de la veine</strong>... <t-inside>Vous découvrez {items_spawn} dans un tas de détritus près de votre taudis !</t-inside><t-outside>Vous découvrez {items_spawn} dans le sable !</t-outside> Pile ce qu'il vous fallait !]]></target>
       </segment>
     </unit>
+    <unit id="ncshu6." name="d8d282d">
+      <notes>
+        <note category="german">Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.</note>
+      </notes>
+      <segment>
+        <source>Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.</source>
+        <target>Note: vous avez déjà bu pour récuperer vos Points d'action au cours de la journée.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
