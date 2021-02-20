@@ -863,7 +863,7 @@ class ActionHandler
                         }
 
                 if ($zoneEffect->getUncoverRuin()) {
-                    $count = min(mt_rand(2,5), $base_zone->getBuryCount());
+                    $count = min(mt_rand(2,4), $base_zone->getBuryCount());
                     $execute_info_cache['bury_count'] = $count;
                     $base_zone->setBuryCount( max(0, $base_zone->getBuryCount() - $count ));
                     if ($base_zone->getPrototype())
