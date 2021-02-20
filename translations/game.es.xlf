@@ -8136,7 +8136,7 @@
       </notes>
       <segment>
         <source>Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden %citizen1% und %citizen2% dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.</source>
-        <target>Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden %citizen1% und %citizen2% dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.</target>
+        <target>Ayer fue un día cualquier otro. Según los rumores ,% ciudadano1% y% ciudadano2% fueron vistos bañándose juntos en la fuente. Si mañana todo el mundo está con una infección por hongos, estará claro quiénes fueron los culpables.</target>
       </segment>
     </unit>
     <unit id="HtB.MOi" name="0e485ea">
@@ -11708,7 +11708,7 @@
       </notes>
       <segment>
         <source>Solid Snake war gestern...</source>
-        <target>Solid Snake war gestern...</target>
+        <target>Ayer fue Serpiente Sólida...</target>
       </segment>
     </unit>
     <unit id="kHVMitZ" name="Sandarbeiter">
