@@ -2344,7 +2344,7 @@
       </notes>
       <segment>
         <source>Draußen gestorben</source>
-        <target>Draußen gestorben</target>
+        <target>Muerto fuera</target>
       </segment>
     </unit>
     <unit id="sR9mfkt" name="In der Stadt gestorben">
@@ -2353,7 +2353,7 @@
       </notes>
       <segment>
         <source>In der Stadt gestorben</source>
-        <target>In der Stadt gestorben</target>
+        <target>Muerto en el pueblo</target>
       </segment>
     </unit>
   </file>

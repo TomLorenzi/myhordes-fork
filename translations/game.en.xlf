@@ -17591,7 +17591,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Route wurde gelöscht.</source>
-        <target>Die Route wurde gelöscht.</target>
+        <target>The route has been deleted.</target>
       </segment>
     </unit>
     <unit id="2610l.t" name="999c592">
@@ -17600,7 +17600,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>In diesem Bereich kannst du für deine Mitbürger "Wege" in der Außenwelt markieren. Auf diese Weise könnt ihr Expeditionen in Zonen organisieren, die euch wirklich interessieren..</source>
-        <target>In diesem Bereich kannst du für deine Mitbürger "Wege" in der Außenwelt markieren. Auf diese Weise könnt ihr Expeditionen in Zonen organisieren, die euch wirklich interessieren..</target>
+        <target>This section allows you to show your fellow citiens 'routes' around the World Beyond, and to organise expeditions to areas of interest.</target>
       </segment>
     </unit>
     <unit id="oUzp6eN" name="e9767a0">
@@ -17609,7 +17609,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Achtung: Die Stadt kann nur 16 Expeditionen durchführen. Denke immer daran, nutzlos gewordene Expeditionen abzubrechen!</source>
-        <target>Achtung: Die Stadt kann nur 16 Expeditionen durchführen. Denke immer daran, nutzlos gewordene Expeditionen abzubrechen!</target>
+        <target>Warning: the town is limited to 16 expeditions. Always consider abandoning expeditions which have become pointless!</target>
       </segment>
     </unit>
     <unit id="Zoy_MWF" name="Dauer">
@@ -17618,7 +17618,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Dauer</source>
-        <target>Dauer</target>
+        <target>Long.</target>
       </segment>
     </unit>
     <unit id="mZIzUeE" name="von %citizen%">
@@ -17627,7 +17627,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>von %citizen%</source>
-        <target>von %citizen%</target>
+        <target>by %citizen%</target>
       </segment>
     </unit>
     <unit id="jjE2OUe" name="Ansehen">
@@ -17636,7 +17636,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ansehen</source>
-        <target>Ansehen</target>
+        <target>Show</target>
       </segment>
     </unit>
     <unit id="J.e7pwb" name="Diese Expedition löschen">
@@ -17645,7 +17645,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Diese Expedition löschen</source>
-        <target>Diese Expedition löschen</target>
+        <target>Delete this expedition</target>
       </segment>
     </unit>
     <unit id="d560REt" name="Eine Expedition Erstellen">
@@ -17654,7 +17654,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Eine Expedition Erstellen</source>
-        <target>Eine Expedition Erstellen</target>
+        <target>Create an expedition</target>
       </segment>
     </unit>
     <unit id="9zkVg8p" name="Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...">
@@ -17687,7 +17687,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Cette maison est &lt;strong&gt;protégée&lt;/strong&gt; (verrou ou autre...) et ne peut être cambriolée.</source>
-        <target><![CDATA[Cette maison est <strong>protégée</strong> (verrou ou autre...) et ne peut être cambriolée.]]></target>
+        <target><![CDATA[This house is <strong>protected</strong> (locked or something...) so cannot be robbed.]]></target>
       </segment>
     </unit>
     <unit id="Hre92RP" name="Zeit bis zum nächsten Zombieangriff">
@@ -18059,7 +18059,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du wurdest zum Reiseleiter in der Außenwelt gewählt!</source>
-        <target>Du wurdest zum Reiseleiter in der Außenwelt gewählt!</target>
+        <target>You've been elected as the Guide to the World Beyond!</target>
       </segment>
     </unit>
     <unit id="lMjxZHr" name="c81e51c">
@@ -18068,7 +18068,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du wachst heute Morgen mit einem Lächeln in deinem Gesicht auf... Ein komisches Gefühl... Du verlässt dein Zelt und... die Leute salutieren dir?</source>
-        <target>Du wachst heute Morgen mit einem Lächeln in deinem Gesicht auf... Ein komisches Gefühl... Du verlässt dein Zelt und... die Leute salutieren dir?</target>
+        <target>You wake up with a smile on your face... A strange sensation around here... You walk out of your tent and.. People are saluting you?</target>
       </segment>
     </unit>
     <unit id="pwrn2jS" name="20269a1">
@@ -18077,7 +18077,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, spürst du... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du den Blick in Richtung des Stadttors lenkst: Ein wahnsinniges Verlangen nach Abenteuer und Entdeckungen überkommt dich, was eigentlich eher untypisch ist...</source>
-        <target>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, spürst du... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du den Blick in Richtung des Stadttors lenkst: Ein wahnsinniges Verlangen nach Abenteuer und Entdeckungen überkommt dich, was eigentlich eher untypisch ist...</target>
+        <target>Oh dear... What did do last night? It seems you might have partied a little too hard last night... Yeeeerrrrp it's you who's been named. All vestigaes of dout dissappear as you lay eyes on the town gates: A crazy urge to go exploring comes over you, not at all your thing usually..</target>
       </segment>
     </unit>
     <unit id="M_Sa.96" name="Du bist nun der Reiseleiter in der Außenwelt.">
@@ -18086,7 +18086,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du bist nun der Reiseleiter in der Außenwelt.</source>
-        <target>Du bist nun der Reiseleiter in der Außenwelt.</target>
+        <target>>You are noe the Guide to the World Beyond.</target>
       </segment>
     </unit>
     <unit id="fytWhzm" name="e61a79e">
@@ -18095,7 +18095,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein Anführer!</source>
-        <target>Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein Anführer!</target>
+        <target>New horizons open before you, you're no longer just an ordinary citizen, but a leader, a pioneer...</target>
       </segment>
     </unit>
     <unit id="ju_Tduc" name="Schau dir am besten gleich den %guide_help% an.">
@@ -18104,7 +18104,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Schau dir am besten gleich den %guide_help% an.</source>
-        <target>Schau dir am besten gleich den %guide_help% an.</target>
+        <target>Take a look at %guide_help% !</target>
       </segment>
     </unit>
     <unit id="xElNBrl" name="Reiseleiter-Ratgeber">
@@ -18113,7 +18113,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Reiseleiter-Ratgeber</source>
-        <target>Reiseleiter-Ratgeber</target>
+        <target>the guide to the game for Guides to the World Beyond</target>
       </segment>
     </unit>
     <unit id="9ahpfaF" name="Alle als gelesen markieren">
