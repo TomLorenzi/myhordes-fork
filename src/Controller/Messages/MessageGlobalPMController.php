@@ -24,8 +24,11 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use MongoDB\Driver\Session;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -41,9 +44,17 @@ class MessageGlobalPMController extends MessageController
      * @Route("api/pm/ping", name="api_pm_ping")
      * @GateKeeperProfile("skip")
      * @param EntityManagerInterface $em
+     * @param SessionInterface $s
      * @return Response
      */
-    public function ping_check_new_message(EntityManagerInterface $em): Response {
+    public function ping_check_new_message(EntityManagerInterface $em, SessionInterface $s): Response {
+        $cache = $s->get('cache_ping');
+
+        if ($cache && isset($cache['ts']) && isset($cache['r']) && (new DateTime('-1min')) < $cache['ts'] ) {
+            $cache['r']['cache'] = true;
+            return new AjaxResponse($cache['r']);
+        }
+
         $user = $this->getUser();
         if (!$user) return new AjaxResponse(['new' => 0, 'connected' => false, 'success' => true]);
 
@@ -59,23 +70,28 @@ class MessageGlobalPMController extends MessageController
             $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => in_array($s->getThread()->getForum(), $forums));
         }
 
-        return new AjaxResponse(['new' =>
+        $response = ['new' =>
             count($subscriptions) +
             $em->getRepository(UserGroupAssociation::class)->countUnreadPMsByUser($user) +
             $em->getRepository(UserGroupAssociation::class)->countUnreadInactivePMsByUser($user) +
             $em->getRepository(GlobalPrivateMessage::class)->countUnreadDirectPMsByUser($user) +
             $em->getRepository(Announcement::class)->countUnreadByUser($user, $this->getUserLanguage()),
-            'connected' => 15000, 'success' => true]);
+            'connected' => 60000, 'success' => true];
+
+        $s->set('cache_ping', ['ts' => new DateTime(), 'r' => $response]);
+
+        return new AjaxResponse($response);
     }
 
     /**
      * @Route("api/pm/spring/{domain}/{id<\d+>}", name="api_pm_spring")
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
      * @param string $domain
      * @param int $id
-     * @param EntityManagerInterface $em
      * @return Response
      */
-    public function ping_fetch_new_messages(EntityManagerInterface $em, JSONRequestParser $parser, string $domain = '', int $id = 0): Response {
+    public function ping_fetch_new_messages(EntityManagerInterface $em, JSONRequestParser $parser, SessionInterface $s, string $domain = '', int $id = 0): Response {
 
 
         $user = $this->getUser();
@@ -139,7 +155,7 @@ class MessageGlobalPMController extends MessageController
         }
 
         return new AjaxResponse(['success' => true, 'response_key' => (new DateTime('now'))->getTimestamp(), 'payload' => [
-            'connected' => 10000,
+            'connected' => 60000,
             'index' => $index,
             'focus' => $focus,
         ]]);
