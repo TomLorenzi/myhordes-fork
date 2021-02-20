@@ -2962,12 +2962,12 @@
         <target>Tenue de camouflage</target>
       </segment>
     </unit>
-    <unit id="3yuRr1g" name="Tarnanzug (abgelegt)">
+    <unit id="3yuRr1g" name="Tarnkleidung (nicht wirksam!)">
       <notes>
-        <note category="german">Tarnanzug (abgelegt)</note>
+        <note category="german">Tarnkleidung (nicht wirksam!)</note>
       </notes>
       <segment>
-        <source>Tarnanzug (abgelegt)</source>
+        <source>Tarnkleidung (nicht wirksam!)</source>
         <target>Camouflage (inactif !)</target>
       </segment>
     </unit>
@@ -7694,6 +7694,15 @@
       <segment>
         <source>Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.</source>
         <target>Note: vous avez déjà bu pour récuperer vos Points d'action au cours de la journée.</target>
+      </segment>
+    </unit>
+    <unit id="8vj_Qd7" name="Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!">
+      <notes>
+        <note category="german">Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!</note>
+      </notes>
+      <segment>
+        <source>Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!</source>
+        <target>Vous ne portez pas votre tenue de camouflage, vous ne bénéficiez donc plus de vos avantages de furtivité !</target>
       </segment>
     </unit>
   </file>

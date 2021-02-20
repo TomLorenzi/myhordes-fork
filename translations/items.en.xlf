@@ -2962,12 +2962,12 @@
         <target>Camouflage Vest</target>
       </segment>
     </unit>
-    <unit id="3yuRr1g" name="Tarnanzug (abgelegt)">
+    <unit id="3yuRr1g" name="Tarnkleidung (nicht wirksam!)">
       <notes>
-        <note category="german">Tarnanzug (abgelegt)</note>
+        <note category="german">Tarnkleidung (nicht wirksam!)</note>
       </notes>
       <segment>
-        <source>Tarnanzug (abgelegt)</source>
+        <source>Tarnkleidung (nicht wirksam!)</source>
         <target>Camouflage Vest (not equipped!)</target>
       </segment>
     </unit>

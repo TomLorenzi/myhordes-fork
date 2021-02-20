@@ -2962,13 +2962,13 @@
         <target>Tarnanzug</target>
       </segment>
     </unit>
-    <unit id="3yuRr1g" name="Tarnanzug (abgelegt)">
+    <unit id="3yuRr1g" name="Tarnkleidung (nicht wirksam!)">
       <notes>
-        <note category="german">Tarnanzug (abgelegt)</note>
+        <note category="german">Tarnkleidung (nicht wirksam!)</note>
       </notes>
       <segment>
-        <source>Tarnanzug (abgelegt)</source>
-        <target>Tarnanzug (abgelegt)</target>
+        <source>Tarnkleidung (nicht wirksam!)</source>
+        <target>Tarnkleidung (nicht wirksam!)</target>
       </segment>
     </unit>
     <unit id="zozlCDV" name="Kleine Schaufel">
