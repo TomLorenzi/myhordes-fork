@@ -2962,7 +2962,7 @@
         <target>Tenue de camouflage</target>
       </segment>
     </unit>
-    <unit id="3yuRr1g" name="Tarnkleidung (nicht wirksam!)">
+    <unit id="kQuUqYC" name="Tarnkleidung (nicht wirksam!)">
       <notes>
         <note category="german">Tarnkleidung (nicht wirksam!)</note>
       </notes>
@@ -7703,6 +7703,15 @@
       <segment>
         <source>Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!</source>
         <target>Vous ne portez pas votre tenue de camouflage, vous ne bénéficiez donc plus de vos avantages de furtivité !</target>
+      </segment>
+    </unit>
+    <unit id="3yuRr1g" name="Tarnanzug (abgelegt)">
+      <notes>
+        <note category="german">Tarnanzug (abgelegt)</note>
+      </notes>
+      <segment>
+        <source>Tarnanzug (abgelegt)</source>
+        <target>Tarnanzug (abgelegt)</target>
       </segment>
     </unit>
   </file>
