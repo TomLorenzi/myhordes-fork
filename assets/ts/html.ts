@@ -13,6 +13,10 @@ export default class HTML {
 
     private tutorialStage: [number,string] = null;
 
+    private title_segments: [number,string,string|null] = [0,'MyHordes',null];
+    private title_timer: number = null;
+    private title_alt: boolean = false;
+
     constructor() { this.twinoParser = new TwinoAlikeParser(); }
 
     init(): void {
@@ -413,5 +417,39 @@ export default class HTML {
     conditionalFinishTutorialStage( current_tutorial: number, current_stage: string, complete: boolean = false ): void {
         if (this.tutorialStage !== null && current_tutorial === this.tutorialStage[0] && current_stage === this.tutorialStage[1])
             this.finishTutorialStage( complete );
+    }
+
+    private updateTitle(alt: boolean = false): void {
+        const msg_char =
+            (alt ? [null,'❶۬','❷۬','❸۬','❹۬','❺۬','❻۬','❼۬','❽۬','❾۬','⬤۬'] : [null,'❶','❷','❸','❹','❺','❻','❼','❽','❾','⬤'])
+                [Math.max(0,Math.min(this.title_segments[0], 10))];
+        window.document.title = (msg_char === null) ? this.title_segments[1] : (msg_char + ' ' + this.title_segments[1]);
+        if (this.title_segments[2] !== null) window.document.title += ' | ' + this.title_segments[2];
+    }
+
+    private titleTimer(): void {
+        this.updateTitle(this.title_alt);
+        this.title_alt = !this.title_alt;
+        this.title_timer = window.setTimeout(() => this.titleTimer(), this.title_alt ? 900 : 100);
+    }
+
+    setTitleSegmentCount(num: number): void {
+        this.title_segments[0] = num;
+        if (num > 0 && this.title_timer === null) this.titleTimer();
+        else if (num <= 0 && this.title_timer !== null) {
+            window.clearTimeout( this.title_timer );
+            this.title_timer = null;
+        }
+        this.updateTitle(this.title_alt);
+    }
+
+    setTitleSegmentCore(core: string): void {
+        this.title_segments[1] = core;
+        this.updateTitle(this.title_alt);
+    }
+
+    setTitleSegmentAddendum(add: string|null): void {
+        this.title_segments[2] = add;
+        this.updateTitle(this.title_alt);
     }
 }
