@@ -3281,7 +3281,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Häufig gestellte Fragen</source>
-        <target>Häufig gestellte Fragen</target>
+        <target>Preguntas y respuestas</target>
       </segment>
     </unit>
     <unit id="Wb1EOe6" name="ff5d25d">
@@ -4300,7 +4300,7 @@ Der Schamane weiß, wie man das Nutzlose nutzt und wie man eine nützlichere Rei
       <segment>
         <source>Der Schamane ist ein unglaublich mächtiger Voodoo-Zauberer, der vom Tod anderer Bürger profitieren kann, um seine schwarze Magie auszuführen.
 Der Schamane weiß, wie man das Nutzlose nutzt und wie man eine nützlichere Reinkarnation für unsere Verstorbenen herbeiführt.</source>
-        <target>El Chamán es un poderosísimo sacerdote vudú que aprovecha la muerte de otros abitantes para llevar a cabo su magia negra. El Chamán sabe cómo utilizar a los inútiles y cómo darles una vida más útil a nuestros queridos difuntos.</target>
+        <target>El Chamán es un poderosísimo sacerdote vudú que aprovecha la muerte de otros habitantes para llevar a cabo su magia negra. El Chamán sabe cómo utilizar a los inútiles y cómo darles una vida más útil a nuestros queridos difuntos.</target>
       </segment>
     </unit>
     <unit id="TXxL0zS" name="Wie wirst du der Stadtschamane?">
@@ -6013,7 +6013,7 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
       </notes>
       <segment>
         <source>Die Chance, einen Mitbürger mit der Aktion &lt;strong&gt;Angreifen&lt;/strong&gt; zu verletzten, ist wesentlich höher.</source>
-        <target><![CDATA[as posibilidades de herir a alguien con la acción <strong>agredir</strong> son elevadas.]]></target>
+        <target><![CDATA[Las posibilidades de herir a alguien con la acción <strong>agredir</strong> son elevadas.]]></target>
       </segment>
     </unit>
     <unit id="LEVGJt5" name="2582360">
@@ -7356,7 +7356,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wie soll ich spielen?</source>
-        <target>Wie soll ich spielen?</target>
+        <target>¿Cómo jugar?</target>
       </segment>
     </unit>
     <unit id="BgFPHeo" name="Das Grundprizip des Spiels">
@@ -7529,7 +7529,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Die Spielhilfe stoppen</source>
-        <target>Die Spielhilfe stoppen</target>
+        <target>Salir del tutorial</target>
       </segment>
     </unit>
     <unit id="nXD28aB" name="Drücke auf diesen Knopf, um in dieser Zone zu &lt;strong&gt;graben&lt;/strong&gt;...">
@@ -7610,7 +7610,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Es wäre vielleicht nicht verkehrt etwas &lt;strong&gt;Proviant&lt;/strong&gt; (Nahrung und/oder Wasser) einzupacken, bevor du die Stadt verlässt... Gehe dazu in den Bereich &lt;strong&gt;Mein Zuhause&lt;/strong&gt;.</source>
-        <target><![CDATA[Es wäre vielleicht nicht verkehrt etwas <strong>Proviant</strong> (Nahrung und/oder Wasser) einzupacken, bevor du die Stadt verlässt... Gehe dazu in den Bereich <strong>Mein Zuhause</strong>.]]></target>
+        <target>Puede que sea una buena idea coger algunas &lt;strong&gt;provisiones&lt;/strong&gt; (comida y/o agua) antes de salir del pueblo. Encontrarás estos objetos en &lt;strong&gt;tu casa&lt;/strong&gt;, en &lt;strong&gt;el pozo&lt;/strong&gt; y/o en &lt;strong&gt;el almacén&lt;/strong&gt;.</target>
       </segment>
     </unit>
   </file>
