@@ -260,10 +260,9 @@ class MessageGlobalPMController extends MessageController
                 'obj'    => $subscription->getThread(),
                 'date'   => new DateTime(),
                 'system' => false,
-                'title'  => $this->translator->trans(T::__('Neuer Beitrag in %topic%', 'global'), [
-                    '%topic%' => $subscription->getThread()->getTranslatable()
+                'title'  => $subscription->getThread()->getTranslatable()
                         ? $this->translator->trans($subscription->getThread()->getTitle(), [], 'game') : $subscription->getThread()->getTitle()
-                ], 'global'),
+                ,
                 'closed' => false,
                 'count'  => $subscription->getNum(),
                 'unread' => $subscription->getNum(),
