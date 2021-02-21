@@ -1363,7 +1363,7 @@
       </notes>
       <segment>
         <source>Bist du sicher, dass du hier einbrechen und einen Gegenstand hinterlassen willst?</source>
-        <target>¿Estás seguro de que quieres entrar aquí, y dejar atrás un objeto?</target>
+        <target>¿Estás seguro de que quieres entrar aquí a dejar un objeto?</target>
       </segment>
     </unit>
     <unit id="pZ8LEh0" name="Bist du sicher, dass du hier einbrechen und einen Gegenstand stehlen willst?">
@@ -1372,7 +1372,7 @@
       </notes>
       <segment>
         <source>Bist du sicher, dass du hier einbrechen und einen Gegenstand stehlen willst?</source>
-        <target>¿Estás seguro de que quieres entrar aquí, y robar un objeto?</target>
+        <target>¿Estás seguro de que quieres entrar aquí a robar un objeto?</target>
       </segment>
     </unit>
     <unit id="EB14a2E" name="a4fdb98">
@@ -1600,7 +1600,7 @@
       </notes>
       <segment>
         <source>Wie viele Aktionspunkte möchtest du in den Bau investieren?</source>
-        <target>Cuantoas Pa quieres invertir en esta construcción?</target>
+        <target>¿Cuántos PA quieres invertir en esta construcción?</target>
       </segment>
     </unit>
     <unit id="CNDL68g" name="%rations% Rationen Wasser übrig">
@@ -3310,7 +3310,7 @@
       </notes>
       <segment>
         <source>VERDAMMT! Es scheint, jemand ist bei %victim% eingebrochen und hat %item% gestohlen...</source>
-        <target>¡MIERDA! Parece que alguien se ha metido en la casa de %victim% y ha robado %item%...</target>
+        <target>¡MALDICIÓN! Parece que alguien se ha metido en la casa de %victim% y ha robado %item%...</target>
       </segment>
     </unit>
     <unit id="xFPnTgQ" name="%actor% ist bei %victim% eingebrochen und hat %item% hinterlassen...">
@@ -4138,7 +4138,7 @@
       </notes>
       <segment>
         <source>Dieses beeindruckende Gebäude erstreckt sich auf mehrere Hundert Meter. Es enthält zahlreiche Räume, die größtenteils eingestürzt sind. Die große Anzahl an Einschusslöchern in den Wänden und die improvisierten Barrikaden lassen vermuten, dass das Gebäude vor einiger Zeit Schauplatz heftiger Gefechte gewesen ist.</source>
-        <target>Dieses beeindruckende Gebäude erstreckt sich auf mehrere Hundert Meter. Es enthält zahlreiche Räume, die größtenteils eingestürzt sind. Die große Anzahl an Einschusslöchern in den Wänden und die improvisierten Barrikaden lassen vermuten, dass das Gebäude vor einiger Zeit Schauplatz heftiger Gefechte gewesen ist.</target>
+        <target>Este impresionante edificio se extiende por varios cientos de metros. Posee numerosas habitaciones, la mayoría de las cuales se han derrumbado casi por completo. La gran cantidad de agujeros de bala en las paredes y las barricadas improvisadas sugieren que el edificio fue escenario de feroces combates hace ya un tiempo.</target>
       </segment>
     </unit>
     <unit id="ETLKMEi" name="6475f3a">
@@ -4912,7 +4912,7 @@
       </notes>
       <segment>
         <source>Es ist nicht möglich, unsere Situation angesichts des Angriffs von heute Abend genau einzuschätzen.</source>
-        <target><![CDATA[Nuestras defensas <strong>podrían</strong> resistir parcialmente al ataque de esta noche.>]]></target>
+        <target><![CDATA[Nuestras defensas <strong>podrían</strong> resistir parcialmente al ataque de esta noche.]]></target>
       </segment>
     </unit>
     <unit id="aVClbc0" name="Meine täglichen Aufgaben">
@@ -6667,7 +6667,7 @@
       </notes>
       <segment>
         <source>vor %time%</source>
-        <target>antes de %time%</target>
+        <target>hace %time%</target>
       </segment>
     </unit>
     <unit id="GyH7AP7" name="0b0fadd">
@@ -7702,7 +7702,7 @@
       </notes>
       <segment>
         <source>Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</source>
-        <target>Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</target>
+        <target>Tras morir en el Ultramundo, podemos estar seguros de que %citizen% no dará a sus vecinos ningún descanso. Seguramente lo veamos de nuevo en una de estas noches...</target>
       </segment>
     </unit>
     <unit id="zeR3KvL" name="8c2d7df">
@@ -8136,7 +8136,7 @@
       </notes>
       <segment>
         <source>Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden %citizen1% und %citizen2% dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.</source>
-        <target>Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden %citizen1% und %citizen2% dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.</target>
+        <target>Ayer fue un día cualquier otro. Según los rumores ,% ciudadano1% y% ciudadano2% fueron vistos bañándose juntos en la fuente. Si mañana todo el mundo está con una infección por hongos, estará claro quiénes fueron los culpables.</target>
       </segment>
     </unit>
     <unit id="HtB.MOi" name="0e485ea">
@@ -10062,7 +10062,7 @@
       </notes>
       <segment>
         <source>Meine Nachrichten lesen.</source>
-        <target>Marcar todo como leído</target>
+        <target>Lee tu correspondencia</target>
       </segment>
     </unit>
     <unit id="6KKKVfb" name="Neue Nachricht">
@@ -10852,7 +10852,7 @@
       </notes>
       <segment>
         <source>Lesen und Nutzen des Forums sind in 'MyHordes' überlebensnotwendig! Die wichtigen Entscheidungen der Stadt werden hier gemeinsam von der Community getroffen.</source>
-        <target>¡Leer y escribir en los foros es importante en 'MyHordes'! Ahí se tomarán todas las decisiones importantes, por la misma comunidad.</target>
+        <target>¡Leer y escribir en los foros es importante en 'MyHordes'! Allí es donde la comunidad tomará todas las decisiones importantes.</target>
       </segment>
     </unit>
     <unit id="esKM3_t" name="Deine gesamte Geschichte basiert auf deinen zuvor gespielten Städten...">
@@ -10879,7 +10879,7 @@
       </notes>
       <segment>
         <source>Hast du schon unter "Wie wird gespielt" nachgeschaut? Du findest den Link darauf unter der Karte der Stadt.</source>
-        <target>La Guía «Cómo jugar» sobre el mapa es muy útil</target>
+        <target>¿Ya has mirado debajo de "¿Cómo jugar?". Las guías interactivas pueden resultar muy útiles.</target>
       </segment>
     </unit>
     <unit id="25Kvu55" name="8937cea">
@@ -11438,7 +11438,7 @@
       </notes>
       <segment>
         <source>Du hast &lt;strong&gt;keine neue Privatnachricht&lt;/strong&gt; erhalten. Eine Liste aller Bürger findest du im &lt;span class="link" x-ajax-href="%path%"&gt;Verzeichnis der Stadt&lt;/span&gt;.</source>
-        <target><![CDATA[<strong>No has recibido mensajes privados</strong>. <strong>No has recibido mensajes privados</strong>. Encontrarás la lista de los habitantes en <span class="link" x-ajax-href="%path%" el Anuario del pueblo</span>.>]]></target>
+        <target><![CDATA[<strong>No has recibido mensajes privados</strong>. Encontrarás la lista de los habitantes en <span class="link" x-ajax-href="%path%"> el Anuario del pueblo</span>.]]></target>
       </segment>
     </unit>
     <unit id="HeGRH_q" name="11aee93">
@@ -11708,7 +11708,7 @@
       </notes>
       <segment>
         <source>Solid Snake war gestern...</source>
-        <target>Solid Snake war gestern...</target>
+        <target>Ayer fue Serpiente Sólida...</target>
       </segment>
     </unit>
     <unit id="kHVMitZ" name="Sandarbeiter">
@@ -14795,7 +14795,7 @@
       </notes>
       <segment>
         <source>Das Stadttor von "%townname%"</source>
-        <target>Das Stadttor von "%townname%"</target>
+        <target>El Gran Portal</target>
       </segment>
     </unit>
     <unit id=".i5DFTm" name="Gesamtansicht der Stadt">
@@ -14804,7 +14804,7 @@
       </notes>
       <segment>
         <source>Gesamtansicht der Stadt</source>
-        <target>Gesamtansicht der Stadt</target>
+        <target>Vista general del pueblo</target>
       </segment>
     </unit>
     <unit id="WLvQ7GY" name="Mein Zuhause (Truhe)">
@@ -14813,7 +14813,7 @@
       </notes>
       <segment>
         <source>Mein Zuhause (Truhe)</source>
-        <target>Mein Zuhause (Truhe)</target>
+        <target>Mi Casa (Cofre)</target>
       </segment>
     </unit>
     <unit id="honrhKi" name="Die Bürger">
@@ -14822,7 +14822,7 @@
       </notes>
       <segment>
         <source>Die Bürger</source>
-        <target>Die Bürger</target>
+        <target>Habitantes</target>
       </segment>
     </unit>
     <unit id="STRIX5b" name="Wätcher">
@@ -14867,7 +14867,7 @@
       </notes>
       <segment>
         <source>Die Bank</source>
-        <target>Die Bank</target>
+        <target>El almacén</target>
       </segment>
     </unit>
     <unit id="CGisub9" name="Bauprojekte der Stadt">
@@ -14876,7 +14876,7 @@
       </notes>
       <segment>
         <source>Bauprojekte der Stadt</source>
-        <target>Bauprojekte der Stadt</target>
+        <target>Construcciones</target>
       </segment>
     </unit>
     <unit id="Qs_pglW" name="Der Brunnen">
@@ -14885,7 +14885,7 @@
       </notes>
       <segment>
         <source>Der Brunnen</source>
-        <target>Der Brunnen</target>
+        <target>El pozo</target>
       </segment>
     </unit>
     <unit id="8l_i1Ah" name="Ein neuer Tag bricht an">
@@ -14912,7 +14912,7 @@
       </notes>
       <segment>
         <source>Die Außenwelt</source>
-        <target>Die Außenwelt</target>
+        <target>El Ultramundo</target>
       </segment>
     </unit>
     <unit id="hZyt4RO" name="Ein beunruhigender Sonnenuntergang">
@@ -14939,7 +14939,7 @@
       </notes>
       <segment>
         <source>... allein</source>
-        <target>... allein</target>
+        <target>... solo,</target>
       </segment>
     </unit>
     <unit id="spLHhcB" name="an der Seite von %citizen%">
@@ -14957,7 +14957,7 @@
       </notes>
       <segment>
         <source>irgendwo %location% der Stadt...</source>
-        <target>irgendwo %location% der Stadt...</target>
+        <target>en algún lugar al %location% del pueblo...</target>
       </segment>
     </unit>
     <unit id="FgE68_." name="inmitten eines unentwirrbaren Trümmerhaufens...">
@@ -15002,7 +15002,7 @@
       </notes>
       <segment>
         <source>Das Leichsblatt, Ausgabe vom %day%. Tag</source>
-        <target>Das Leichsblatt, Ausgabe vom %day%. Tag</target>
+        <target>El boletín, edición del día %day%.</target>
       </segment>
     </unit>
     <unit id="iqRYPYk" name="Wiedergeburt: Wähle einen Beruf">
@@ -15083,7 +15083,7 @@
       </notes>
       <segment>
         <source>Die verfluchten Schriften</source>
-        <target>Die verfluchten Schriften</target>
+        <target>Las escrituras malditas</target>
       </segment>
     </unit>
     <unit id="wUzzlwQ" name="Meine Seele">
@@ -15101,7 +15101,7 @@
       </notes>
       <segment>
         <source>Kleine Koalitionen</source>
-        <target>Kleine Koalitionen</target>
+        <target>Alianza</target>
       </segment>
     </unit>
     <unit id="mfY9mWB" name="68142c8">
@@ -15497,7 +15497,7 @@
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</source>
-        <target>¡Felicitaciones! Ahora vives en un %home% verwandelt.</target>
+        <target>¡Felicitaciones! Ahora vives en un %home%.</target>
       </segment>
     </unit>
     <unit id="CZg55p2" name="Folgenden Dinge wurden dazu gebraucht:">
@@ -15515,7 +15515,7 @@
       </notes>
       <segment>
         <source>Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!</source>
-        <target>¡El mejoramiento de %upgrade% ha pasado a nivel %level% con éxito!</target>
+        <target>¡Has mejorado %upgrade% a nivel %level% con éxito!</target>
       </segment>
     </unit>
     <unit id="X.vNUqq" name="Einen Bürger heimbringen:">
@@ -15641,7 +15641,7 @@
       </notes>
       <segment>
         <source>Wähle den &lt;strong&gt;zu stehlenden Gegenstand&lt;/strong&gt; hier oben aus. &lt;strong&gt;Achtung!&lt;/strong&gt; Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.</source>
-        <target><![CDATA[Elige <strong>el objeto que deseas robar</strong> aquí. <strong>¡Pero cuidado!</strong> Puedes ser descubierto y deberás asumir todas las consecuencias.]]></target>
+        <target><![CDATA[Elige <strong>el objeto que deseas robar</strong>. <strong>¡Pero cuidado!</strong> Podrías ser descubierto y deberás asumir todas las consecuencias...]]></target>
       </segment>
     </unit>
     <unit id="tVbgO4A" name="Einen Gegenstand stehlen">
@@ -15722,7 +15722,7 @@
       </notes>
       <segment>
         <source>Du hast dafür %count% Aktionspunkt(e) verbraucht.</source>
-        <target>Du hast dafür %count% Aktionspunkt(e) verbraucht.</target>
+        <target>Has utilizado %count% punto(s) de acción.</target>
       </segment>
     </unit>
     <unit id="Ltkwrh9" name="1a5e7f5">
@@ -17193,7 +17193,7 @@
       </notes>
       <segment>
         <source>(Allein)</source>
-        <target>(Allein)</target>
+        <target>(Solo)</target>
       </segment>
     </unit>
     <unit id="WWzkuFQ" name="(Mit Eskorte)">
@@ -17202,7 +17202,7 @@
       </notes>
       <segment>
         <source>(Mit Eskorte)</source>
-        <target>(Mit Eskorte)</target>
+        <target>(Con escolta)</target>
       </segment>
     </unit>
     <unit id="5xLwZCN" name="Du hast dich in einen %role% verwandelt!">
@@ -17580,7 +17580,7 @@
       </notes>
       <segment>
         <source>Du hast deine tägliche Ration erhalten: %item%</source>
-        <target>Ahhh, refrescante: %item%</target>
+        <target>Has recibido tu ración diaria: %item%</target>
       </segment>
     </unit>
     <unit id="T4D33fJ" name="Die Route wurde gelöscht.">
@@ -17625,7 +17625,7 @@
       </notes>
       <segment>
         <source>von %citizen%</source>
-        <target>von %citizen%</target>
+        <target>por %citizen%</target>
       </segment>
     </unit>
     <unit id="jjE2OUe" name="Ansehen">
@@ -17634,7 +17634,7 @@
       </notes>
       <segment>
         <source>Ansehen</source>
-        <target>Ansehen</target>
+        <target>Ver</target>
       </segment>
     </unit>
     <unit id="J.e7pwb" name="Diese Expedition löschen">
@@ -17661,7 +17661,7 @@
       </notes>
       <segment>
         <source>Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...</source>
-        <target>Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...</target>
+        <target>El contenido de esta vivienda está escondido por cortinas en la ventana...</target>
       </segment>
     </unit>
     <unit id="4jN.T2l" name="315dd2d">
@@ -17674,9 +17674,8 @@
         <source>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
                 Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
                 Nichts, was der Mühe wert wäre.</source>
-        <target>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
-                Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
-                Nichts, was der Mühe wert wäre.</target>
+        <target>Husmeando por la ventana, observas que la casa de %citizen% no contiene ningún objeto interesante.
+                Trapos sucios, mucho polvo y una rata muerta. Nada que valga la pena.</target>
       </segment>
     </unit>
     <unit id="DqKvoHz" name="0ea5fb9">
@@ -17694,7 +17693,7 @@
       </notes>
       <segment>
         <source>Zeit bis zum nächsten Zombieangriff</source>
-        <target>Tiempo restante para el próximo ataque zombie.</target>
+        <target>Tiempo restante para el próximo ataque zombi.</target>
       </segment>
     </unit>
     <unit id="OZBaq.m" name="Das Register filtern">
@@ -17829,7 +17828,7 @@
       </notes>
       <segment>
         <source>Handbuch zur Aussenwelt</source>
-        <target>Handbuch zur Aussenwelt</target>
+        <target>Guía del Ultramundo</target>
       </segment>
     </unit>
     <unit id="RVCVIu." name="05a9ba3">
@@ -17901,10 +17900,10 @@
                                 benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                                 kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                                 auffüllen.</source>
-        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                                auffüllen.</target>
+        <target>Para muchas acciones, como explorar el Ultramundo o trabajar en construcciones,
+                            necesitas Puntos de Acción. Los Puntos de Acción se regeneran todas las noches después del ataque. Además
+                            puedes recuperarlos una vez al día comiendo y bebiendo o usando ciertos objetos
+                            como drogas o alcohol.</target>
       </segment>
     </unit>
     <unit id="cNyto3M" name="Du wurdest zum Schamanen gewählt!">
