@@ -282,12 +282,12 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'ws014' => ['type' => Recipe::WorkshopType, 'in' => 'chest_xl_#00',        'out' => [ 'watergun_opt_part_#00', 'pilegun_upkit_#00', 'pocket_belt_#00', 'cutcut_#00', 'chainsaw_part_#00', 'mixergun_part_#00', 'big_pgun_part_#00', 'lawn_part_#00' ], 'action' => 'Öffnen' ],
         'ws015' => ['type' => Recipe::WorkshopType, 'in' => 'chest_tools_#00',     'out' => [ 'pile_#00', 'meca_parts_#00', 'rustine_#00', 'tube_#00', 'pharma_#00', 'explo_#00', 'lights_#00' ], 'action' => 'Öffnen' ],
         'ws016' => ['type' => Recipe::WorkshopType, 'in' => 'chest_food_#00',      'out' => [ 'food_bag_#00', 'can_#00', 'meat_#00', 'hmeat_#00', 'vegetable_#00' ], 'action' => 'Öffnen' ],
-        'ws017' => ['type' => Recipe::WorkshopType, 'in' => 'deco_box_#00',        'out' => [ 'door_#00', 'chair_basic_#00', 'trestle_#00', 'table_#00', 'chair_#00' ], 'action' => 'Öffnen' ],
+        'ws017' => ['type' => Recipe::WorkshopType, 'in' => 'deco_box_#00',        'out' => [ 'door_#00', 'chair_basic_#00', 'trestle_#00', 'table_#00', 'chair_#00' ], 'action' => 'Wandeln' ],
         'ws018' => ['type' => Recipe::WorkshopType, 'in' => 'catbox_#00',          'out' => [ 'poison_part_#00', 'pet_cat_#00', 'angryc_#00' ], 'action' => 'Öffnen' ],
-        'ws019' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#00',          'out' => 'magneticKey_#00', 'action' => 'Wandeln' ],   // Abdruck vom Magnet-Schlüssel
-        'ws020' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#01',          'out' => 'bumpKey_#00', 'action' => 'Wandeln' ],       // Abdruck vom Schlagschlüssel
-        'ws021' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#02',          'out' => 'classicKey_#00', 'action' => 'Wandeln' ],    // Abdruck vom Flaschenöffner
-        'ws023' => ['type' => Recipe::WorkshopType, 'in' => 'food_xmas_#00',       'out' => 'wood_xmas_#00', 'action' => 'Wandeln' ],    // Krähenelfe
+        'ws019' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#00',          'out' => 'magneticKey_#00', 'action' => 'Wandeln' ],   // Magnetic key
+        'ws020' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#01',          'out' => 'bumpKey_#00', 'action' => 'Wandeln' ],       // Bump key
+        'ws021' => ['type' => Recipe::WorkshopType, 'in' => 'prints_#02',          'out' => 'classicKey_#00', 'action' => 'Wandeln' ],    // Bottle Opener key
+        'ws023' => ['type' => Recipe::WorkshopType, 'in' => 'food_xmas_#00',       'out' => 'wood_xmas_#00', 'action' => 'Wandeln' ],    // Chocolate log food
 
         // Shaman Specific recipes
         'ws022' => ['type' => Recipe::WorkshopTypeShamanSpecific, 'in' => 'soul_blue_#00',      'out' => 'soul_yellow_#00', 'action' => 'Wandeln', "picto"=> "r_mystic2_#00" ],

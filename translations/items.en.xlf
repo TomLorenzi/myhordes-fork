@@ -7622,7 +7622,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.</source>
-        <target>Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.</target>
+        <target>Note: you have already restored your Action Points by drinking today.</target>
       </segment>
     </unit>
   </file>
