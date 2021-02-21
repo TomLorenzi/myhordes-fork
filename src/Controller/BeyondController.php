@@ -634,6 +634,10 @@ class BeyondController extends InventoryAwareController
             $citizen->currentExplorerStats() || $citizen->getZone()->activeExplorerStats())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
+        // Block exploring if currently escorting citizens
+        if (!empty($citizen->getValidLeadingEscorts()))
+            return AjaxResponse::error( self::ErrorEscortFailure );
+
         // Block exploring if the zone is controlled by zombies
         if (!$this->zone_handler->check_cp( $citizen->getZone() ))
             return AjaxResponse::error( self::ErrorZoneBlocked );
