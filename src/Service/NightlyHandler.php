@@ -998,6 +998,10 @@ class NightlyHandler
                     $this->citizen_handler->removeStatus( $citizen, $st );
                 }
             if ($add_hangover) $this->citizen_handler->inflictStatus($citizen, 'hungover');
+
+            if ($this->inventory_handler->countSpecificItems($citizen->getInventory(), "alarm_on_#00") > 0) {
+
+            }
         }
 
         if($town->getDevastated()){
