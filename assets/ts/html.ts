@@ -224,18 +224,22 @@ export default class HTML {
         f(true);
     }
 
-    handleCurrentTime( element: Element ): void {
+    handleCurrentTime( element: Element, offsetInSeconds: number = -1 ): void {
         const show_secs   = !element.getAttribute('x-no-seconds');
         const force_hours =  element.getAttribute('x-force-hours');
         const custom_handler = element.getAttribute('x-handler');
         let interval = element.getAttribute('x-countdown-interval');
         if (!interval) interval = '1000';
 
-        const draw = function() {
+        let offset = 0;
+        if (offsetInSeconds >= 0) offset = 1000 * (offsetInSeconds + ((new Date()).getTimezoneOffset() * 60));
 
-            const h = (new Date()).getHours();
-            const m = (new Date()).getMinutes();
-            const s = (new Date()).getSeconds();
+        const draw = function() {
+            let date = new Date();
+            if (offset != 0) date.setTime( date.getTime() + offset );
+            const h = date.getHours();
+            const m = date.getMinutes();
+            const s = date.getSeconds();
             let html = "";
             // Check if there's a tooltip set
             let tooltip = element.querySelectorAll(".tooltip");

@@ -192,9 +192,8 @@ export default class Ajax {
             }
 
             let current_time = content_source[i].querySelectorAll("*[x-current-time]");
-            for (let c = 0; c < current_time.length; c++) {
-                $.html.handleCurrentTime( current_time[c] );
-            }
+            for (let c = 0; c < current_time.length; c++)
+                $.html.handleCurrentTime( current_time[c],  parseInt(current_time[c].getAttribute('x-current-time')) );
 
             let tooltips = content_source[i].querySelectorAll('div.tooltip');
             for (let t = 0; t < tooltips.length; t++)
