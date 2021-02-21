@@ -18199,5 +18199,14 @@
         <target>Mindestens ein Bürger in deiner Eskorte kann dir nicht folgen. Du musst die Situation in den Griff bekommen... oder die Schwachen zurücklassen.</target>
       </segment>
     </unit>
+    <unit id="RqmtAaX" name="8621e33">
+      <notes>
+        <note category="german">Das ist die bestmögliche Schätzung, die wir für diesen Angriff abgeben konnten.</note>
+      </notes>
+      <segment>
+        <source>Das ist die bestmögliche Schätzung, die wir für diesen Angriff abgeben konnten.</source>
+        <target>Il s'agit de la meilleure estimation que nous puissions avoir pour cette attaque.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
