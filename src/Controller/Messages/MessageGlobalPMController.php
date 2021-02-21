@@ -24,8 +24,6 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use MongoDB\Driver\Session;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -39,7 +37,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class MessageGlobalPMController extends MessageController
 {
-
     /**
      * @Route("api/pm/ping", name="api_pm_ping")
      * @GateKeeperProfile("skip")
@@ -498,7 +495,7 @@ class MessageGlobalPMController extends MessageController
      * @param JSONRequestParser $p
      * @return Response
      */
-    public function pm_conversation_group(int $id, EntityManagerInterface $em, JSONRequestParser $p): Response {
+    public function pm_conversation_group(int $id, EntityManagerInterface $em, JSONRequestParser $p, SessionInterface $s): Response {
 
         $group = $em->getRepository( UserGroup::class )->find($id);
         if (!$group || $group->getType() !== UserGroup::GroupMessageGroup) return new Response('not found');
@@ -521,6 +518,7 @@ class MessageGlobalPMController extends MessageController
         $last = $group_association->getRef2();
 
         try {
+            $s->remove('cache_ping');
             $this->entity_manager->persist( $group_association->setRef1( $read_only ? $group_association->getRef3() : $group->getRef1() )->setRef2( $messages[0]->getId() ) );
             $this->entity_manager->flush();
         } catch (\Exception $e) {}
@@ -542,10 +540,12 @@ class MessageGlobalPMController extends MessageController
     /**
      * @Route("jx/pm/conversation/dm", name="pm_dm")
      * @param EntityManagerInterface $em
+     * @param LogTemplateHandler $th
      * @param JSONRequestParser $p
+     * @param SessionInterface $s
      * @return Response
      */
-    public function pm_direct_messages(EntityManagerInterface $em, LogTemplateHandler $th, JSONRequestParser $p): Response {
+    public function pm_direct_messages(EntityManagerInterface $em, LogTemplateHandler $th, JSONRequestParser $p, SessionInterface $s): Response {
 
         $num = max(5,min($p->get('num', 5),30));
         $last_id = $p->get('last', 0);
@@ -566,6 +566,7 @@ class MessageGlobalPMController extends MessageController
             }
 
         if ($update) try {
+            $s->remove('cache_ping');
             $this->entity_manager->flush();
         } catch (\Exception $e) {}
 
@@ -598,15 +599,17 @@ class MessageGlobalPMController extends MessageController
      * @Route("jx/pm/conversation/announce/{id<\d+>}", name="pm_announce")
      * @param int $id
      * @param EntityManagerInterface $em
+     * @param SessionInterface $s
      * @return Response
      */
-    public function pm_announcement(int $id, EntityManagerInterface $em): Response {
+    public function pm_announcement(int $id, EntityManagerInterface $em, SessionInterface $s): Response {
         $announce = $em->getRepository( Announcement::class )->find($id);
         if (!$announce || $announce->getLang() != $this->getUserLanguage()) return new Response('not found');
 
         $new = !$announce->getReadBy()->contains($this->getUser());
         if ($new)
             try {
+                $s->remove('cache_ping');
                 $announce->getReadBy()->add($this->getUser());
                 $this->entity_manager->persist( $announce );
                 $this->entity_manager->flush();
@@ -625,9 +628,10 @@ class MessageGlobalPMController extends MessageController
      * @Route("jx/pm/conversation/announce/all", name="pm_announce_all")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
+     * @param SessionInterface $s
      * @return Response
      */
-    public function pm_announcement_all(EntityManagerInterface $em, JSONRequestParser $parser): Response {
+    public function pm_announcement_all(EntityManagerInterface $em, JSONRequestParser $parser, SessionInterface $s): Response {
         $skip = $parser->get_array('skip');
         $num = max(1,min(10,$parser->get_num('num', 5)));
 
@@ -645,6 +649,7 @@ class MessageGlobalPMController extends MessageController
 
         if ($new)
             try {
+                $s->remove('cache_ping');
                 $this->entity_manager->flush();
             } catch (\Exception $e) {}
 
