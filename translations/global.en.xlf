@@ -223,7 +223,7 @@
       </notes>
       <segment>
         <source>Achte auf deine Rechtschreibung</source>
-        <target>Check your spelling: sms-language and text-speak are not permitted</target>
+        <target>text-speak is discouraged, it breaks immersion </target>
       </segment>
     </unit>
     <unit id="htYR3Qp" name="Bleibe höflich und freundlich">
@@ -241,7 +241,7 @@
       </notes>
       <segment>
         <source>Werbung ist verboten (Links etc.)</source>
-        <target>Advertising (links etc.) is forbidden.</target>
+        <target>Advertising (links etc.) is forbidden; feel free to link the eternal twin discord though!</target>
       </segment>
     </unit>
     <unit id="58t6egl" name="Heute um">
