@@ -287,7 +287,7 @@ export default class HTML {
            e.preventDefault();
         }, false);
 
-        const fun_tooltip_pos = function(e: PointerEvent) {
+        const fun_tooltip_pos = function(e: PointerEvent|MouseEvent) {
             element.style.top  = e.clientY + 'px';
 
             // Make sure the tooltip does not exit the screen on the right
@@ -304,22 +304,26 @@ export default class HTML {
 
         }
 
-        const fun_tooltip_show = function(e: PointerEvent) {
+        const fun_tooltip_show = function(e: PointerEvent|MouseEvent) {
             element.style.display = 'block';
             container.append( element );
             fun_tooltip_pos(e);
         }
 
-        const fun_tooltip_hide = function(e: PointerEvent|TouchEvent) {
+        const fun_tooltip_hide = function(e: PointerEvent|TouchEvent|MouseEvent) {
             element.style.display = 'none';
             parent.append( element );
         }
 
         parent.addEventListener('pointerenter', fun_tooltip_show);
-        parent.addEventListener('pointermove',  fun_tooltip_pos);
+        parent.addEventListener('mouseenter',   fun_tooltip_show);
+
+        parent.addEventListener('pointermove', fun_tooltip_pos);
+
         parent.addEventListener('pointerleave', fun_tooltip_hide);
         parent.addEventListener('pointerup',    fun_tooltip_hide);
-        parent.addEventListener('touchend',    fun_tooltip_hide);
+        parent.addEventListener('touchend',     fun_tooltip_hide);
+        parent.addEventListener('mouseleave',   fun_tooltip_hide);
     };
 
     addLoadStack( num: number = 1): void {
