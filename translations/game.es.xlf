@@ -18131,5 +18131,41 @@
         <target>Archivar todo</target>
       </segment>
     </unit>
+    <unit id="oT4mkza" name="0b26c24">
+      <notes>
+        <note category="german">Mit Hilfe seiner übermenschlichen Heldenkräfte hat %citizen% %kills% Zombie(s) lauthals schreiend und mit bloßen Händen umgebracht!</note>
+      </notes>
+      <segment>
+        <source>Mit Hilfe seiner übermenschlichen Heldenkräfte hat %citizen% %kills% Zombie(s) lauthals schreiend und mit bloßen Händen umgebracht!</source>
+        <target>Mit Hilfe seiner übermenschlichen Heldenkräfte hat %citizen% %kills% Zombie(s) lauthals schreiend und mit bloßen Händen umgebracht!</target>
+      </segment>
+    </unit>
+    <unit id="l8p89Qb" name="Du brauchst noch folgende Gegenstände: %list%.">
+      <notes>
+        <note category="german">Du brauchst noch folgende Gegenstände: %list%.</note>
+      </notes>
+      <segment>
+        <source>Du brauchst noch folgende Gegenstände: %list%.</source>
+        <target>Du brauchst noch folgende Gegenstände: %list%.</target>
+      </segment>
+    </unit>
+    <unit id="m0B311V" name="7fd4518">
+      <notes>
+        <note category="german">Du kannst &lt;strong&gt;pro Tag eine Heldentat&lt;/strong&gt; vollbringen und jede dieser Aktionen kann nur &lt;strong&gt;einmal&lt;/strong&gt; pro Partie ausgeführt werden:</note>
+      </notes>
+      <segment>
+        <source>Du kannst &lt;strong&gt;pro Tag eine Heldentat&lt;/strong&gt; vollbringen und jede dieser Aktionen kann nur &lt;strong&gt;einmal&lt;/strong&gt; pro Partie ausgeführt werden:</source>
+        <target><![CDATA[Du kannst <strong>pro Tag eine Heldentat</strong> vollbringen und jede dieser Aktionen kann nur <strong>einmal</strong> pro Partie ausgeführt werden:]]></target>
+      </segment>
+    </unit>
+    <unit id="uK7igyD" name="bd642fe">
+      <notes>
+        <note category="german">Mindestens ein Bürger in deiner Eskorte kann dir nicht folgen. Du musst die Situation in den Griff bekommen... oder die Schwachen zurücklassen.</note>
+      </notes>
+      <segment>
+        <source>Mindestens ein Bürger in deiner Eskorte kann dir nicht folgen. Du musst die Situation in den Griff bekommen... oder die Schwachen zurücklassen.</source>
+        <target>Mindestens ein Bürger in deiner Eskorte kann dir nicht folgen. Du musst die Situation in den Griff bekommen... oder die Schwachen zurücklassen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

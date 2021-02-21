@@ -2362,5 +2362,41 @@
         <target>Seguir</target>
       </segment>
     </unit>
+    <unit id="hWzJnYc" name="und">
+      <notes>
+        <note category="german">und</note>
+      </notes>
+      <segment>
+        <source>und</source>
+        <target>und</target>
+      </segment>
+    </unit>
+    <unit id="dotZmBq" name="HINWEIS: Diese Aktion ist nur in der Stadt möglich.">
+      <notes>
+        <note category="german">HINWEIS: Diese Aktion ist nur in der Stadt möglich.</note>
+      </notes>
+      <segment>
+        <source>HINWEIS: Diese Aktion ist nur in der Stadt möglich.</source>
+        <target>HINWEIS: Diese Aktion ist nur in der Stadt möglich.</target>
+      </segment>
+    </unit>
+    <unit id="GnItekT" name="HINWEIS: Diese Aktion ist nur in Übersee möglich.">
+      <notes>
+        <note category="german">HINWEIS: Diese Aktion ist nur in Übersee möglich.</note>
+      </notes>
+      <segment>
+        <source>HINWEIS: Diese Aktion ist nur in Übersee möglich.</source>
+        <target>HINWEIS: Diese Aktion ist nur in Übersee möglich.</target>
+      </segment>
+    </unit>
+    <unit id="u9UzAKC" name="Neuer Beitrag in">
+      <notes>
+        <note category="german">Neuer Beitrag in</note>
+      </notes>
+      <segment>
+        <source>Neuer Beitrag in</source>
+        <target>Neuer Beitrag in</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

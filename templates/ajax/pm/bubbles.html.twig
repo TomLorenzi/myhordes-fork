@@ -6,6 +6,7 @@
     {% set endpoint_trash   = null %}
     {% set endpoint_unread  = null %}
     {% set endpoint_users   = null %}
+    {% set message_title_pre= null %}
     {% set message_title    = entry.title %}
     {% set message_id       = 0 %}
     {% set message_type     = 'un' %}
@@ -37,13 +38,14 @@
         {% set message_type    = 'd' %}
     {% elseif entry.obj|instance_of('App\\Entity\\Thread') %}
         {% set message_id        = entry.obj.id %}
+        {% set message_title_pre = 'Neuer Beitrag in'|trans({},'global') %}
         {% set endpoint_hardlink = path('forum_thread_view', {fid: entry.obj.forum.id, tid: entry.obj.id}) %}
         {% set message_type      = 'f' %}
     {% endif %}
 
     <li x-title="{{ message_title }}" x-domain="{{ message_type }}" x-identifier="{{ message_id }}"
         class="{% if entry.closed %}closed{% endif %} {% if entry.system %}system{% endif %} {% if entry.unread > 0 %}new{% endif %}"
-            {% if endpoint_hardlink is not null %}x-hardlink="{{ endpoint_hardlink }}"{% endif %}
+        {% if endpoint_hardlink is not null %}x-hardlink="{{ endpoint_hardlink }}"{% endif %}
             {% if endpoint_fetch  is not null %}x-endpoint="{{ endpoint_fetch }}"{% endif %}
             {% if endpoint_spring is not null %}x-spring="{{ endpoint_spring }}"{% endif %}
             {% if endpoint_answer is not null %}x-editor="{{ endpoint_answer }}"{% endif %}
@@ -82,7 +84,7 @@
             </div>
         {% endif %}
 
-        <b class="title {% if entry.system %}crow-note{% endif %}">{{ entry.title }}</b>
+        <b class="title {% if entry.system %}crow-note{% endif %}">{% if message_title_pre %}{{ message_title_pre }}<br />{% endif %}{{ entry.title }}</b>
 
         {% if entry.system %}
             <span class="author crow-note">{{ 'Der Rabe'|trans({},'global') }}</span>
@@ -131,10 +133,10 @@
                 <span class="pm-announcement-date float-right">{% if announcement.timestamp >= "today"|to_date %}
                     {{ 'Heute um'|trans({},'global') }} {{ announcement.timestamp|format_datetime('none', 'short') }}
                 {% elseif announcement.timestamp >= "yesterday"|to_date %}
-                    {{ 'Gestern um'|trans({},'global') }} {{ announcement.timestamp|format_datetime('none', 'short') }}
-                {% else %}
-                    {{ announcement.timestamp|format_datetime('medium', 'short') }}
-                {% endif %}</span>
+                        {{ 'Gestern um'|trans({},'global') }} {{ announcement.timestamp|format_datetime('none', 'short') }}
+                    {% else %}
+                        {{ announcement.timestamp|format_datetime('medium', 'short') }}
+                    {% endif %}</span>
             </div>
         </div>
     </li>

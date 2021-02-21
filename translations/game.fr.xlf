@@ -18190,5 +18190,14 @@
         <target>Utilisant ses pouvoirs de Héros, %citizen% a exterminé %kills% zombie(s) à mains nues en hurlant comme un forcené !</target>
       </segment>
     </unit>
+    <unit id="uK7igyD" name="bd642fe">
+      <notes>
+        <note category="german">Mindestens ein Bürger in deiner Eskorte kann dir nicht folgen. Du musst die Situation in den Griff bekommen... oder die Schwachen zurücklassen.</note>
+      </notes>
+      <segment>
+        <source>Mindestens ein Bürger in deiner Eskorte kann dir nicht folgen. Du musst die Situation in den Griff bekommen... oder die Schwachen zurücklassen.</source>
+        <target>Mindestens ein Bürger in deiner Eskorte kann dir nicht folgen. Du musst die Situation in den Griff bekommen... oder die Schwachen zurücklassen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

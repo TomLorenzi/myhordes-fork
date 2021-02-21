@@ -131,9 +131,9 @@
         {% endif %}
         
         {% if block('title') is defined %}
-            window.document.title = 'MyHordes - {{ block('title')|replace({"\n": "", "\r": "", "\t": "", "'": "\\\'", "&amp;":"&"})|raw }}';
+            $.html.setTitleSegmentAddendum( '{{ block('title')|replace({"\n": "", "\r": "", "\t": "", "'": "\\\'", "&amp;":"&"})|raw }}' );
         {% else %}
-            window.document.title = 'MyHordes';
+            $.html.setTitleSegmentAddendum( null );
         {% endif %}
     </script>
 {% endblock %}

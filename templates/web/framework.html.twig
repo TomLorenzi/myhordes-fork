@@ -169,6 +169,7 @@
                 document.getElementById('postbox-new-msg-counter').innerText = data.newMessages;
                 if (data.newMessages > 0) $.html.forEach('#postbox', e => e.classList.add('new-messages'));
                 else $.html.forEach('#postbox', e => e.classList.remove('new-messages'));
+                $.html.setTitleSegmentCount(data.newMessages);
             }
             else $.html.forEach('#postbox', e=>e.classList.add('hidden'));
         }, true);

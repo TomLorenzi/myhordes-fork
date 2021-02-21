@@ -2415,5 +2415,14 @@
         <target>NOTE : Cette action est possible uniquement dans l'Outre-Monde.</target>
       </segment>
     </unit>
+    <unit id="u9UzAKC" name="Neuer Beitrag in">
+      <notes>
+        <note category="german">Neuer Beitrag in</note>
+      </notes>
+      <segment>
+        <source>Neuer Beitrag in</source>
+        <target>Nouvelle réponse dans</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

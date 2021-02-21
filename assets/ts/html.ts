@@ -13,6 +13,10 @@ export default class HTML {
 
     private tutorialStage: [number,string] = null;
 
+    private title_segments: [number,string,string|null] = [0,'MyHordes',null];
+    private title_timer: number = null;
+    private title_alt: boolean = false;
+
     constructor() { this.twinoParser = new TwinoAlikeParser(); }
 
     init(): void {
@@ -220,18 +224,22 @@ export default class HTML {
         f(true);
     }
 
-    handleCurrentTime( element: Element ): void {
+    handleCurrentTime( element: Element, offsetInSeconds: number = -1 ): void {
         const show_secs   = !element.getAttribute('x-no-seconds');
         const force_hours =  element.getAttribute('x-force-hours');
         const custom_handler = element.getAttribute('x-handler');
         let interval = element.getAttribute('x-countdown-interval');
         if (!interval) interval = '1000';
 
-        const draw = function() {
+        let offset = 0;
+        if (offsetInSeconds >= 0) offset = 1000 * (offsetInSeconds + ((new Date()).getTimezoneOffset() * 60));
 
-            const h = (new Date()).getHours();
-            const m = (new Date()).getMinutes();
-            const s = (new Date()).getSeconds();
+        const draw = function() {
+            let date = new Date();
+            if (offset != 0) date.setTime( date.getTime() + offset );
+            const h = date.getHours();
+            const m = date.getMinutes();
+            const s = date.getSeconds();
             let html = "";
             // Check if there's a tooltip set
             let tooltip = element.querySelectorAll(".tooltip");
@@ -283,7 +291,7 @@ export default class HTML {
            e.preventDefault();
         }, false);
 
-        const fun_tooltip_pos = function(e: PointerEvent) {
+        const fun_tooltip_pos = function(e: PointerEvent|MouseEvent) {
             element.style.top  = e.clientY + 'px';
 
             // Make sure the tooltip does not exit the screen on the right
@@ -300,22 +308,26 @@ export default class HTML {
 
         }
 
-        const fun_tooltip_show = function(e: PointerEvent) {
+        const fun_tooltip_show = function(e: PointerEvent|MouseEvent) {
             element.style.display = 'block';
             container.append( element );
             fun_tooltip_pos(e);
         }
 
-        const fun_tooltip_hide = function(e: PointerEvent|TouchEvent) {
+        const fun_tooltip_hide = function(e: PointerEvent|TouchEvent|MouseEvent) {
             element.style.display = 'none';
             parent.append( element );
         }
 
         parent.addEventListener('pointerenter', fun_tooltip_show);
-        parent.addEventListener('pointermove',  fun_tooltip_pos);
+        parent.addEventListener('mouseenter',   fun_tooltip_show);
+
+        parent.addEventListener('pointermove', fun_tooltip_pos);
+
         parent.addEventListener('pointerleave', fun_tooltip_hide);
         parent.addEventListener('pointerup',    fun_tooltip_hide);
-        parent.addEventListener('touchend',    fun_tooltip_hide);
+        parent.addEventListener('touchend',     fun_tooltip_hide);
+        parent.addEventListener('mouseleave',   fun_tooltip_hide);
     };
 
     addLoadStack( num: number = 1): void {
@@ -413,5 +425,39 @@ export default class HTML {
     conditionalFinishTutorialStage( current_tutorial: number, current_stage: string, complete: boolean = false ): void {
         if (this.tutorialStage !== null && current_tutorial === this.tutorialStage[0] && current_stage === this.tutorialStage[1])
             this.finishTutorialStage( complete );
+    }
+
+    private updateTitle(alt: boolean = false): void {
+        const msg_char =
+            (alt ? [null,'❶۬','❷۬','❸۬','❹۬','❺۬','❻۬','❼۬','❽۬','❾۬','⬤۬'] : [null,'❶','❷','❸','❹','❺','❻','❼','❽','❾','⬤'])
+                [Math.max(0,Math.min(this.title_segments[0], 10))];
+        window.document.title = (msg_char === null) ? this.title_segments[1] : (msg_char + ' ' + this.title_segments[1]);
+        if (this.title_segments[2] !== null) window.document.title += ' | ' + this.title_segments[2];
+    }
+
+    private titleTimer(): void {
+        this.updateTitle(this.title_alt);
+        this.title_alt = !this.title_alt;
+        this.title_timer = window.setTimeout(() => this.titleTimer(), this.title_alt ? 900 : 100);
+    }
+
+    setTitleSegmentCount(num: number): void {
+        this.title_segments[0] = num;
+        if (num > 0 && this.title_timer === null) this.titleTimer();
+        else if (num <= 0 && this.title_timer !== null) {
+            window.clearTimeout( this.title_timer );
+            this.title_timer = null;
+        }
+        this.updateTitle(this.title_alt);
+    }
+
+    setTitleSegmentCore(core: string): void {
+        this.title_segments[1] = core;
+        this.updateTitle(this.title_alt);
+    }
+
+    setTitleSegmentAddendum(add: string|null): void {
+        this.title_segments[2] = add;
+        this.updateTitle(this.title_alt);
     }
 }

@@ -7610,7 +7610,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Es wäre vielleicht nicht verkehrt etwas &lt;strong&gt;Proviant&lt;/strong&gt; (Nahrung und/oder Wasser) einzupacken, bevor du die Stadt verlässt... Gehe dazu in den Bereich &lt;strong&gt;Mein Zuhause&lt;/strong&gt;.</source>
-        <target>Puede que sea una buena idea coger algunas &lt;strong&gt;provisiones&lt;/strong&gt; (comida y/o agua) antes de salir del pueblo. Encontrarás estos objetos en &lt;strong&gt;tu casa&lt;/strong&gt;, en &lt;strong&gt;el pozo&lt;/strong&gt; y/o en &lt;strong&gt;el almacén&lt;/strong&gt;.</target>
+        <target><![CDATA[Puede que sea una buena idea coger algunas <strong>provisiones</strong> (comida y/o agua) antes de salir del pueblo. Encontrarás estos objetos en <strong>tu casa</strong>, en <strong>el pozo</strong> y/o en <strong>el almacén</strong>.]]></target>
       </segment>
     </unit>
   </file>
