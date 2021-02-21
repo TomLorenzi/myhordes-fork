@@ -999,8 +999,11 @@ class NightlyHandler
                 }
             if ($add_hangover) $this->citizen_handler->inflictStatus($citizen, 'hungover');
 
-            if ($this->inventory_handler->countSpecificItems($citizen->getInventory(), "alarm_on_#00") > 0) {
-
+            $alarm = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest("alarm_on_#00")]);
+            if (count($alarm) > 0) {
+                $this->citizen_handler->setAP($citizen, true, 1);
+                $alarm[0]->setPrototype($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'alarm_off_#00']));
+                $this->entity_manager->persist($alarm[0]);
             }
         }
 
