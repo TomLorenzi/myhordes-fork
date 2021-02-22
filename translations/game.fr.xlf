@@ -11427,7 +11427,7 @@
       </notes>
       <segment>
         <source>Niemand weiß, wie ein solches Wunder möglich ist, aber %hero% hat %citizen% (der sich auf %pos% befand), auf seinen Schultern heim getragen. Lang leben unsere Helden!</source>
-        <target>Personne ne sait comment un tel miracle est possible, mais %hero% est revenu avec %citizen% (qui était à %pos%), sur ses épaules ! Vive nos héros !</target>
+        <target>Personne ne comprend comment un tel miracle est possible, mais %hero% est revenu(e) avec %citizen% (qui se trouvait en %pos%), sur ses épaules ! Vive notre héros !</target>
       </segment>
     </unit>
     <unit id="9AyM3bj" name="85e8238">
@@ -18206,6 +18206,15 @@
       <segment>
         <source>Das ist die bestmögliche Schätzung, die wir für diesen Angriff abgeben konnten.</source>
         <target>Il s'agit de la meilleure estimation que nous puissions avoir pour cette attaque.</target>
+      </segment>
+    </unit>
+    <unit id="05jR4Sa" name="839740b">
+      <notes>
+        <note category="german">Es weiß zwar keiner wie unser Held %citizen% das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</note>
+      </notes>
+      <segment>
+        <source>Es weiß zwar keiner wie unser Held %citizen% das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</source>
+        <target>Personne ne sait comment, mais le héros %citizen% a réussi à quitter cette zone pour retourner directement en ville... C'est un miracle !</target>
       </segment>
     </unit>
   </file>

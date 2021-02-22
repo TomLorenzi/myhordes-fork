@@ -7750,5 +7750,14 @@
         <target>Vous avez transformé {item_from} en {item_to}.</target>
       </segment>
     </unit>
+    <unit id="ApkAd1P" name="Möchtest du %target% heimbringen?">
+      <notes>
+        <note category="german">Möchtest du %target% heimbringen?</note>
+      </notes>
+      <segment>
+        <source>Möchtest du %target% heimbringen?</source>
+        <target>Ramener %target% en ville ?</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
