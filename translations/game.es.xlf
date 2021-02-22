@@ -15849,5 +15849,15 @@
         <target><![CDATA[Diese Aktion ist während der <strong>Chaosperiode</strong> night erlaubt!]]></target>
       </segment>
     </unit>
+    <unit id="5U6vNQX" name="Du hast aktuell keine Themen abonniert.">
+      <notes>
+        <note category="german">Du hast aktuell keine Themen abonniert.</note>
+      </notes>
+      <segment>
+        <source>Du hast aktuell keine Themen abonniert.</source>
+        <target>Actualmente no estás suscrito a ningún tema.</target>
+      </segment>
+    </unit>
+
   </file>
 </xliff>
