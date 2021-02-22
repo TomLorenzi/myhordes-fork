@@ -18167,6 +18167,23 @@
         <target>Actualmente no estás suscrito a ningún tema.</target>
       </segment>
     </unit>
-
+    <unit id="05jR4Sa" name="839740b">
+      <notes>
+        <note category="german">Es weiß zwar keiner wie unser Held %citizen% das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</note>
+      </notes>
+      <segment>
+        <source>Es weiß zwar keiner wie unser Held %citizen% das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</source>
+        <target>Es weiß zwar keiner wie unser Held %citizen% das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</target>
+      </segment>
+    </unit>
+    <unit id="RqmtAaX" name="8621e33">
+      <notes>
+        <note category="german">Das ist die bestmögliche Schätzung, die wir für diesen Angriff abgeben konnten.</note>
+      </notes>
+      <segment>
+        <source>Das ist die bestmögliche Schätzung, die wir für diesen Angriff abgeben konnten.</source>
+        <target>Das ist die bestmögliche Schätzung, die wir für diesen Angriff abgeben konnten.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
