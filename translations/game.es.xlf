@@ -18041,15 +18041,6 @@
         <target>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. </target>
       </segment>
     </unit>
-    <unit id="5U6vNQX" name="Du hast aktuell keine Themen abonniert.">
-      <notes>
-        <note category="german">Du hast aktuell keine Themen abonniert.</note>
-      </notes>
-      <segment>
-        <source>Du hast aktuell keine Themen abonniert.</source>
-        <target>Du hast aktuell keine Themen abonniert.</target>
-      </segment>
-    </unit>
     <unit id="ZzQ7bDT" name="Du wurdest zum Reiseleiter in der Außenwelt gewählt!">
       <notes>
         <note category="german">Du wurdest zum Reiseleiter in der Außenwelt gewählt!</note>
@@ -18167,5 +18158,15 @@
         <target>Mindestens ein Bürger in deiner Eskorte kann dir nicht folgen. Du musst die Situation in den Griff bekommen... oder die Schwachen zurücklassen.</target>
       </segment>
     </unit>
+    <unit id="5U6vNQX" name="Du hast aktuell keine Themen abonniert.">
+      <notes>
+        <note category="german">Du hast aktuell keine Themen abonniert.</note>
+      </notes>
+      <segment>
+        <source>Du hast aktuell keine Themen abonniert.</source>
+        <target>Actualmente no estás suscrito a ningún tema.</target>
+      </segment>
+    </unit>
+
   </file>
 </xliff>
