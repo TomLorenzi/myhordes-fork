@@ -7705,13 +7705,58 @@
         <target>Vous ne portez pas votre tenue de camouflage, vous ne bénéficiez donc plus de vos avantages de furtivité !</target>
       </segment>
     </unit>
-    <unit id="3yuRr1g" name="Tarnanzug (abgelegt)">
+    <unit id="K5gMU.j" name="Kreischender Wecker (entladen)">
       <notes>
-        <note category="german">Tarnanzug (abgelegt)</note>
+        <note category="german">Kreischender Wecker (entladen)</note>
       </notes>
       <segment>
-        <source>Tarnanzug (abgelegt)</source>
-        <target>Tarnanzug (abgelegt)</target>
+        <source>Kreischender Wecker (entladen)</source>
+        <target>Réveil-Hurleur (éteint)</target>
+      </segment>
+    </unit>
+    <unit id="rigrkZL" name="e192faa">
+      <notes>
+        <note category="german">Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert.</note>
+      </notes>
+      <segment>
+        <source>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert.</source>
+        <target>Rien de tel qu'un bon réveil pour vous stimuler les tympans le matin.</target>
+      </segment>
+    </unit>
+    <unit id="6tPO5Yd" name="Kreischender Wecker (mit Strom)">
+      <notes>
+        <note category="german">Kreischender Wecker (mit Strom)</note>
+      </notes>
+      <segment>
+        <source>Kreischender Wecker (mit Strom)</source>
+        <target>Réveil-Hurleur (allumé)</target>
+      </segment>
+    </unit>
+    <unit id="4h5ljTX" name="b317cb5">
+      <notes>
+        <note category="german">Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei.</note>
+      </notes>
+      <segment>
+        <source>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei.</source>
+        <target>Rien de tel qu'un bon réveil pour vous stimuler les tympans le matin. Il vous permettra de démarrer votre journée en enfer du bon pied en recevant 1 PA supplémentaire après l'attaque.</target>
+      </segment>
+    </unit>
+    <unit id="Y5MBnJg" name="Du hast {item_from} in {item_to} verwandelt.">
+      <notes>
+        <note category="german">Du hast {item_from} in {item_to} verwandelt.</note>
+      </notes>
+      <segment>
+        <source>Du hast {item_from} in {item_to} verwandelt.</source>
+        <target>Vous avez transformé {item_from} en {item_to}.</target>
+      </segment>
+    </unit>
+    <unit id="ApkAd1P" name="Möchtest du %target% heimbringen?">
+      <notes>
+        <note category="german">Möchtest du %target% heimbringen?</note>
+      </notes>
+      <segment>
+        <source>Möchtest du %target% heimbringen?</source>
+        <target>Ramener %target% en ville ?</target>
       </segment>
     </unit>
   </file>

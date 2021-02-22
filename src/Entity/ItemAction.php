@@ -85,6 +85,11 @@ class ItemAction implements NamedEntity
      */
     private $tooltip;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $confirmMsg;
+
     public function __construct()
     {
         $this->requirements = new ArrayCollection();
@@ -264,6 +269,18 @@ class ItemAction implements NamedEntity
     public function setTooltip(?string $tooltip): self
     {
         $this->tooltip = $tooltip;
+
+        return $this;
+    }
+
+    public function getConfirmMsg(): ?string
+    {
+        return $this->confirmMsg;
+    }
+
+    public function setConfirmMsg(?string $confirmMsg): self
+    {
+        $this->confirmMsg = $confirmMsg;
 
         return $this;
     }

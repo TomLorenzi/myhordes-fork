@@ -1073,7 +1073,7 @@ class BeyondController extends InventoryAwareController
         $this->citizen_handler->setAP( $citizen, true, -1 );
         if ($generator->chance( 0.1 )) {
             $zone->setZombies( $zone->getZombies() - 1 );
-            $this->entity_manager->persist( $this->log->zombieKill($citizen, null, 1));
+            $this->entity_manager->persist( $this->log->zombieKill($citizen, null, 1, 'barehand_attack'));
             // Add the picto Bare hands
             $this->picto_handler->give_picto($citizen, 'r_wrestl_#00');
             // Add the picto zed kill

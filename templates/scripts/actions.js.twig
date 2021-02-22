@@ -42,9 +42,12 @@ const handleHeroicActions = function( actions, api_path, return_path ) {
             const target_id = this.getAttribute('x-target-id');
             const action_id = this.getAttribute('x-action-id');
             const do_confirm = this.getAttribute('x-action-confirm') === "1";
+            let confirm_msg = this.getAttribute('x-confirm-msg');
+            console.log(confirm_msg);
+            if(confirm_msg == null) confirm_msg = '{{ 'Bestätigen?'|trans({},'global')|e('js') }}';
             let obj = { action: action_id };
             if (target_id) obj.target = target_id;
-            if (do_confirm && !confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+            if (do_confirm && !confirm(confirm_msg))
                 return;
             $.ajax.easySend( api_path, obj,
                 function () {
