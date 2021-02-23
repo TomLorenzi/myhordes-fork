@@ -496,13 +496,13 @@
         <target>Du kannst für eine Weile keine weiteren Gegenstände aus der Bank entnehmen.</target>
       </segment>
     </unit>
-    <unit id="485Czj9" name="Du kannst heute keinen weiteren Gegenstand stehlen.">
+    <unit id="bqrEaC9" name="Du hast heute schon &lt;strong&gt;einen Diebstahl&lt;/strong&gt; begangen.">
       <notes>
-        <note category="german">Du kannst heute keinen weiteren Gegenstand stehlen.</note>
+        <note category="german">Du hast heute schon &lt;strong&gt;einen Diebstahl&lt;/strong&gt; begangen.</note>
       </notes>
       <segment>
-        <source>Du kannst heute keinen weiteren Gegenstand stehlen.</source>
-        <target>Du kannst heute keinen weiteren Gegenstand stehlen.</target>
+        <source>Du hast heute schon &lt;strong&gt;einen Diebstahl&lt;/strong&gt; begangen.</source>
+        <target><![CDATA[Du hast heute schon <strong>einen Diebstahl</strong> begangen.]]></target>
       </segment>
     </unit>
     <unit id="2BZWXxV" name="Du siehst keine Möglichkeit, hier einzubrechen ...">
@@ -7948,22 +7948,22 @@
         <target>Gesamtzahl der Zombies, die heute Nacht sterben könnten:</target>
       </segment>
     </unit>
-    <unit id="sK.fJbP" name="Was ist mit ihm geschehen?">
+    <unit id="sK.fJbP" name="Was geschieht mit dieser Leiche?">
       <notes>
-        <note category="german">Was ist mit ihm geschehen?</note>
+        <note category="german">Was geschieht mit dieser Leiche?</note>
       </notes>
       <segment>
-        <source>Was ist mit ihm geschehen?</source>
-        <target>Was ist mit ihm geschehen?</target>
+        <source>Was geschieht mit dieser Leiche?</source>
+        <target>Was geschieht mit dieser Leiche?</target>
       </segment>
     </unit>
-    <unit id="56g324h" name="Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.">
+    <unit id="56g324h" name="%citizen% ist in der Wüste gestorben und hat seinen Mitbürgern nichts hinterlassen.">
       <notes>
-        <note category="german">Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</note>
+        <note category="german">%citizen% ist in der Wüste gestorben und hat seinen Mitbürgern nichts hinterlassen.</note>
       </notes>
       <segment>
-        <source>Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</source>
-        <target>Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</target>
+        <source>%citizen% ist in der Wüste gestorben und hat seinen Mitbürgern nichts hinterlassen.</source>
+        <target>%citizen% ist in der Wüste gestorben und hat seinen Mitbürgern nichts hinterlassen.</target>
       </segment>
     </unit>
     <unit id="zeR3KvL" name="8c2d7df">

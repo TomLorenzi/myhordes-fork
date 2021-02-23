@@ -478,13 +478,13 @@
         <target>Cette action est bloquée pendant 15 minutes environ (protection anti-abus). Attention : si vous tentez de répéter cette action avant la fin du délai, la durée de ce blocage sera prolongée !</target>
       </segment>
     </unit>
-    <unit id="485Czj9" name="Du kannst heute keinen weiteren Gegenstand stehlen.">
+    <unit id="bqrEaC9" name="Du hast heute schon &lt;strong&gt;einen Diebstahl&lt;/strong&gt; begangen.">
       <notes>
-        <note category="german">Du kannst heute keinen weiteren Gegenstand stehlen.</note>
+        <note category="german">Du hast heute schon &lt;strong&gt;einen Diebstahl&lt;/strong&gt; begangen.</note>
       </notes>
       <segment>
-        <source>Du kannst heute keinen weiteren Gegenstand stehlen.</source>
-        <target>Vous avez déjà commis une effraction aujourd'hui.</target>
+        <source>Du hast heute schon &lt;strong&gt;einen Diebstahl&lt;/strong&gt; begangen.</source>
+        <target><![CDATA[Vous avez déjà commis <strong>un vol</strong> aujourd'hui.]]></target>
       </segment>
     </unit>
     <unit id="2BZWXxV" name="Du siehst keine Möglichkeit, hier einzubrechen ...">
@@ -7831,21 +7831,21 @@
         <target>Vous avez signalé le message de %username% aux Corbeaux. Qui sait, peut-être que %username% va mourrir ce soâââr...</target>
       </segment>
     </unit>
-    <unit id="sK.fJbP" name="Was ist mit ihm geschehen?">
+    <unit id="2OREl7F" name="Was geschieht mit dieser Leiche?">
       <notes>
-        <note category="german">Was ist mit ihm geschehen?</note>
+        <note category="german">Was geschieht mit dieser Leiche?</note>
       </notes>
       <segment>
-        <source>Was ist mit ihm geschehen?</source>
-        <target>Qu'est-il devenu ?</target>
+        <source>Was geschieht mit dieser Leiche?</source>
+        <target>Qu'est devenu son corps ?</target>
       </segment>
     </unit>
-    <unit id="56g324h" name="Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.">
+    <unit id="2vcukS0" name="ddffbdf">
       <notes>
-        <note category="german">Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</note>
+        <note category="german">%citizen% ist in der Wüste gestorben und hat seinen Mitbürgern nichts hinterlassen.</note>
       </notes>
       <segment>
-        <source>Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.</source>
+        <source>%citizen% ist in der Wüste gestorben und hat seinen Mitbürgern nichts hinterlassen.</source>
         <target>Mort à l'extérieur, %citizen% n'aura offert aucun reste à ses concitoyens.</target>
       </segment>
     </unit>
@@ -18215,6 +18215,114 @@
       <segment>
         <source>Es weiß zwar keiner wie unser Held %citizen% das angestellt hat, aber es ist ihm gelungen aus dieser Zone direkt in die Stadt zurückzukehren... Ein Wunder!</source>
         <target>Personne ne sait comment, mais le héros %citizen% a réussi à quitter cette zone pour retourner directement en ville... C'est un miracle !</target>
+      </segment>
+    </unit>
+    <unit id="KfpZM10" name="Der Leichnam von %citizen% wurde nicht zerstört.">
+      <notes>
+        <note category="german">Der Leichnam von %citizen% wurde nicht zerstört.</note>
+      </notes>
+      <segment>
+        <source>Der Leichnam von %citizen% wurde nicht zerstört.</source>
+        <target>Le cadavre de %citizen% n'a pas été détruit.</target>
+      </segment>
+    </unit>
+    <unit id=".67v4pV" name="0683fbc">
+      <notes>
+        <note category="german">Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.</note>
+      </notes>
+      <segment>
+        <source>Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.</source>
+        <target>Il se pourrait bien qu'il décide de se réveiller cette nuit pour vous dévorer vivant.</target>
+      </segment>
+    </unit>
+    <unit id="BHWG3Xb" name="Haus von %citizen%">
+      <notes>
+        <note category="german">Haus von %citizen%</note>
+      </notes>
+      <segment>
+        <source>Haus von %citizen%</source>
+        <target>Maison de %citizen%</target>
+      </segment>
+    </unit>
+    <unit id="jTjC1Nt" name="Das Grab von %citizen%">
+      <notes>
+        <note category="german">Das Grab von %citizen%</note>
+      </notes>
+      <segment>
+        <source>Das Grab von %citizen%</source>
+        <target>Tombe de %citizen%</target>
+      </segment>
+    </unit>
+    <unit id="J5RUaZZ" name="990a9e7">
+      <notes>
+        <note category="german">Da %citizen% tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;Verfluchte Seelenfänger&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</note>
+      </notes>
+      <segment>
+        <source>Da %citizen% tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;Verfluchte Seelenfänger&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</source>
+        <target><![CDATA[Da %citizen% tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>Verfluchte Seelenfänger</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.]]></target>
+      </segment>
+    </unit>
+    <unit id="X28KXsi" name="Das Haus">
+      <notes>
+        <note category="german">Das Haus</note>
+      </notes>
+      <segment>
+        <source>Das Haus</source>
+        <target>Son habitat</target>
+      </segment>
+    </unit>
+    <unit id="x.bcUzY" name="2900312">
+      <notes>
+        <note category="german">Der Ort (kann man überhaupt von Zuhause reden?), an dem %citizen% lebte, ist keinen Blick wert. Da gibt es nichts zu holen, selbst wenn man alles auseinandernimmt.</note>
+      </notes>
+      <segment>
+        <source>Der Ort (kann man überhaupt von Zuhause reden?), an dem %citizen% lebte, ist keinen Blick wert. Da gibt es nichts zu holen, selbst wenn man alles auseinandernimmt.</source>
+        <target>L'endroit (peut-on parler de maison ?) où vivait %citizen% ne vaut même pas le coup d'oeil. Rien à récupérer, même en démontant tout.</target>
+      </segment>
+    </unit>
+    <unit id="mlyoouR" name="Inventar: %citizen%">
+      <notes>
+        <note category="german">Inventar: %citizen%</note>
+      </notes>
+      <segment>
+        <source>Inventar: %citizen%</source>
+        <target>Inventaire de %citizen%</target>
+      </segment>
+    </unit>
+    <unit id="485Czj9" name="Du kannst heute keinen weiteren Gegenstand stehlen.">
+      <notes>
+        <note category="german">Du kannst heute keinen weiteren Gegenstand stehlen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst heute keinen weiteren Gegenstand stehlen.</source>
+        <target>Vous ne pouvez rien voler d'autre aujourd'hui.</target>
+      </segment>
+    </unit>
+    <unit id="slYhiYZ" name="5d24e48">
+      <notes>
+        <note category="german">Jetzt, da %citizen% tot ist, kannst du ihm einen &lt;strong&gt;Gegenstand klauen&lt;/strong&gt;, wenn du möchtest...</note>
+      </notes>
+      <segment>
+        <source>Jetzt, da %citizen% tot ist, kannst du ihm einen &lt;strong&gt;Gegenstand klauen&lt;/strong&gt;, wenn du möchtest...</source>
+        <target><![CDATA[Maintenant que %citizen% est mort, vous pouvez <strong>voler un objet</strong> si vous le souhaitez...]]></target>
+      </segment>
+    </unit>
+    <unit id="ymlTLkS" name="Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:">
+      <notes>
+        <note category="german">Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:</note>
+      </notes>
+      <segment>
+        <source>Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:</source>
+        <target>En fouillant la baraque du mort vous apercevez les choses suivantes :</target>
+      </segment>
+    </unit>
+    <unit id="SEpgiMa" name="d18c7d1">
+      <notes>
+        <note category="german">Als du ins Fenster schaust, bemerkst du, dass %citizen%s Haus keine wertvollen Gegenständen mehr enthält. Wahrscheinlich haben andere Bürger schon alles, was nicht niet- und nagelfest war, mitgenommen...</note>
+      </notes>
+      <segment>
+        <source>Als du ins Fenster schaust, bemerkst du, dass %citizen%s Haus keine wertvollen Gegenständen mehr enthält. Wahrscheinlich haben andere Bürger schon alles, was nicht niet- und nagelfest war, mitgenommen...</source>
+        <target>En regardant par la fenêtre, vous constatez que la maison de %citizen% semble être vide de tout objet intéressant. Sans doute d'autres citoyens ont-ils déjà tout récupéré ? </target>
       </segment>
     </unit>
   </file>

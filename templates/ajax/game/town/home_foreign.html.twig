@@ -1,4 +1,11 @@
 {% extends "ajax/game/town/town.html.twig" %}
+{% block title %}
+    {% if owner.alive %}
+        {{ 'Haus von %citizen%'|trans({'%citizen%': owner.user.name}, 'game') }}
+    {% else %}
+        {{ 'Das Grab von %citizen%'|trans({'%citizen%': owner.user.name}, 'game') }}
+    {% endif %}
+{% endblock %}
 {% block content %}
     {% set hour = "now"|date("G") %}
     <div class="row">
@@ -82,61 +89,90 @@
                     </div>
                     <div class="row">
                         <div class="cell rw-5 rw-lg-6"><span class="highlight">{{ 'Letzte Worte:'|trans({},'game') }}</span></div>
-                        <div class="cell rw-7 rw-lg-6"> {{ owner.lastWords }}</div>
+                        <div class="cell rw-7 rw-lg-6">{{ owner.lastWords }}</div>
                     </div>
                 {% endif %}
             </div>
-
-
         </div>
     </div>
 
     <div class="row">
         <div class="padded cell rw-6 citizen-home">
-            {% if owner.alive or owner.home.holdsBody %}
+            {% if owner.alive %}
                 <h5>{% trans from 'game' %}Meine Spezialaktionen{% endtrans %}</h5>
-                {% if owner.alive %}
-                    {# @var complaint \App\Entity\Complaint|null #}
-                    {% if complaints|length > 0 %}
-                        <div class="note">
-                            {{ '%citizen% hat bereits %num% Anzeige(n).'|trans({'%citizen%': owner.user.name, '%num%': '<b>' ~ complaints|length ~ '</b>'}, 'game')|raw }}<br />
-                            {% set names = ['', 'Verbannung'|trans({},'game'), 'Todesstrafe'|trans({},'game') ] %}
-                            {% if complaint is not null and complaint.severity > 0 %}
-                                {{ 'Eine davon stammt von dir. Du hast %punishment% gefordert.'|trans({'%punishment%': '<b>' ~ names[complaint.severity] ~ '</b>'}, 'game')|raw }}<br />
-                            {% endif %}
-                        </div>
-                    {% endif %}
-                    <button x-ajax-href="{{ path('soul_visit', {id: owner.user.id}) }}"><img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="" />{{'Seine Seele ansehen'|trans({}, 'game')}}</button>
-                    <button x-ajax-href="{{ path('town_house', {tab: 'messages', subtab: 'write', dest: owner.id}) }}"><img src="{{ asset('build/images/icons/small_mail.gif') }}" alt="" />{{'Eine Nachricht hinterlassen'|trans({}, 'game')}}</button>
-                    {% if not owner.zone %}
-                        <button x-attack-citizen {% if not can_attack %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" /> {{ 'Diesen Bürger angreifen!'|trans({},'game') }} (<div class="ap">{{ attackAP }}</div>)</button>
-                        {% if can_devour %}
-                            <button x-devour-citizen {% if not allow_devour %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" /> {{ 'Diesen Bürger verspeisen!'|trans({},'game') }}</button>
+                {# @var complaint \App\Entity\Complaint|null #}
+                {% if complaints|length > 0 %}
+                    <div class="note">
+                        {{ '%citizen% hat bereits %num% Anzeige(n).'|trans({'%citizen%': owner.user.name, '%num%': '<b>' ~ complaints|length ~ '</b>'}, 'game')|raw }}<br />
+                        {% set names = ['', 'Verbannung'|trans({},'game'), 'Todesstrafe'|trans({},'game') ] %}
+                        {% if complaint is not null and complaint.severity > 0 %}
+                            {{ 'Eine davon stammt von dir. Du hast %punishment% gefordert.'|trans({'%punishment%': '<b>' ~ names[complaint.severity] ~ '</b>'}, 'game')|raw }}<br />
                         {% endif %}
-	                    {% if is_shaman and not banished %}
-	                        <button x-heal-citizen>{{'Nutze deine heilenden Hände'|trans({}, 'game')}} ({% if is_shaman_role %}2 <div class="pm"></div>{% else %}2 <div class="ap"></div>{% endif %})</button>
-	                    {% endif %}
+                    </div>
+                {% endif %}
+                <button x-ajax-href="{{ path('soul_visit', {id: owner.user.id}) }}"><img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="" />{{'Seine Seele ansehen'|trans({}, 'game')}}</button>
+                <button x-ajax-href="{{ path('town_house', {tab: 'messages', subtab: 'write', dest: owner.id}) }}"><img src="{{ asset('build/images/icons/small_mail.gif') }}" alt="" />{{'Eine Nachricht hinterlassen'|trans({}, 'game')}}</button>
+                {% if not owner.zone %}
+                    <button x-attack-citizen {% if not can_attack %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" /> {{ 'Diesen Bürger angreifen!'|trans({},'game') }} (<div class="ap">{{ attackAP }}</div>)</button>
+                    {% if can_devour %}
+                        <button x-devour-citizen {% if not allow_devour %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" /> {{ 'Diesen Bürger verspeisen!'|trans({},'game') }}</button>
                     {% endif %}
-                    {% if can_complain %}
-                        {% if complaint is null or complaint.severity == 0 %}
-                        <button x-show-reason>{{ 'Anzeige erstatten'|trans({},'game') }}</button>
-                        <div class="lightbox" id="complain_reason" style="display: none";>
-                            <label for="reason">{{'Grund:'|trans({}, 'game')}}</label>
-                            <select id="reason">
-                                <option value="0" selected>-- {{'Wählen'|trans({}, 'game')}} --</option>
-                                {% for complaintreason in complaintreasons %}
-                                <option value="{{complaintreason.id}}">{{complaintreason.text|trans({}, 'game')}}</option>
-                                {% endfor %}
-                            </select>
-                            <button x-complaint-severity="1">{{ 'Anzeige erstatten'|trans({},'game') }}</button>
-                        </div>
-                        {% endif %}
-                        {% if complaint is not null and complaint.severity > 0 %}<button x-complaint-severity="0">{{ 'Anzeige zurückziehen'|trans({},'game') }}</button>{% endif %}
-                        <!--{% if complaint is not null and complaint.severity == 1 %}<button x-complaint-severity="2">{{ 'Anzeige: Todesstrafe fordern'|trans({},'game') }}</button>{% endif %}-->
-                        <!--{% if complaint is not null and complaint.severity == 2 %}<button x-complaint-severity="1">{{ 'Anzeige: Verbannung fordern'|trans({},'game') }}</button>{% endif %}-->
+                    {% if is_shaman and not banished %}
+                        <button x-heal-citizen>{{'Nutze deine heilenden Hände'|trans({}, 'game')}} ({% if is_shaman_role %}2 <div class="pm"></div>{% else %}2 <div class="ap"></div>{% endif %})</button>
                     {% endif %}
                 {% endif %}
+                {% if can_complain %}
+                    {% if complaint is null or complaint.severity == 0 %}
+                    <button x-show-reason>{{ 'Anzeige erstatten'|trans({},'game') }}</button>
+                    <div class="lightbox" id="complain_reason" style="display: none";>
+                        <label for="reason">{{'Grund:'|trans({}, 'game')}}</label>
+                        <select id="reason">
+                            <option value="0" selected>-- {{'Wählen'|trans({}, 'game')}} --</option>
+                            {% for complaintreason in complaintreasons %}
+                            <option value="{{complaintreason.id}}">{{complaintreason.text|trans({}, 'game')}}</option>
+                            {% endfor %}
+                        </select>
+                        <button x-complaint-severity="1">{{ 'Anzeige erstatten'|trans({},'game') }}</button>
+                    </div>
+                    {% endif %}
+                    {% if complaint is not null and complaint.severity > 0 %}<button x-complaint-severity="0">{{ 'Anzeige zurückziehen'|trans({},'game') }}</button>{% endif %}
+                    <!--{% if complaint is not null and complaint.severity == 1 %}<button x-complaint-severity="2">{{ 'Anzeige: Todesstrafe fordern'|trans({},'game') }}</button>{% endif %}-->
+                    <!--{% if complaint is not null and complaint.severity == 2 %}<button x-complaint-severity="1">{{ 'Anzeige: Verbannung fordern'|trans({},'game') }}</button>{% endif %}-->
+                {% endif %}
+
+                {% if complaints|length > 0 %}
+                    <h5><img alt="" src="{{ asset('build/images/icons/scout_lv0.gif') }}"> {% trans from 'game' %}Anzeigen{% endtrans %}</h5>
+                    <ul class='gossips'>
+                        {% for complaint in complaints %}
+                            {% if not complaint.linkedReason is null %}
+                                <li>{{complaint.linkedReason.text|trans({}, 'game')}}</li>
+                            {% else %}
+                                <li>{{complaint.reason}}</li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                <h5>{% trans from 'game' %}Gemeinschaft{% endtrans %}</h5>
+                <ul class='gossips'>
+                    {% if owner.lastActionTimestamp == 0 %}
+                        <li>{{'Dieser Bürger wurde noch nie gesehen...'|trans({}, 'game')}}</li>
+                    {% else %}
+                        <li>{{'Der Bürger wurde zuletzt %time% gesehen.'|trans({'%time%': lastActionText}, 'game')}}</li>
+                    {% endif %}
+                    {% if owner.specificActionCounterValue(constant('App\\Entity\\ActionCounter::ActionTypeWell')) > 0 %}<li>{{"Dieser Bürger hat %ration% Wasserration(en) aus dem Brunnen genommen."|trans({'%ration%': owner.specificActionCounterValue(constant('App\\Entity\\ActionCounter::ActionTypeWell'))}, 'game')}}</li>{% endif %}
+                    {% if is_injured %}<li>{{'Dieser Bürger ist ernsthaft verletzt.'|trans({}, 'game')}}</li>{% endif %}
+                    {% if is_infected %}<li>{{'Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.'|trans({}, 'game')}}</li>{% endif %}
+                    {% if is_thirsty %}<li>{{'Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?'|trans({}, 'game')}}</li>{% endif %}
+                    {% if is_addicted %}<li>{{'Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...'|trans({}, 'game')}}</li>{% endif %}
+                    {% if is_terrorised %}<li>{{'Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...'|trans({}, 'game')}}</li>{% endif %}
+                    {% if not has_job %}<li>{{'Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!'|trans({}, 'game')}}</li>{% endif %}
+                    {% if is_admin %}<li>{{'Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?'|trans({}, 'game')}}</li>{% endif %}
+                </ul>
+            {% else %}
+                <h5>{% trans from 'game' %}Was geschieht mit dieser Leiche?{% endtrans %}</h5>
                 {% if owner.home.holdsBody %}
+                    <span class="disposal">{{'Da %citizen% tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>Verfluchte Seelenfänger</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.'|trans({'%citizen%': owner.user.name}, 'game')|raw}}</span>
                     <button x-disposal-id="{{ constant('App\\Entity\\Citizen::Watered') }}"><img alt="" src="{{ asset('build/images/item/item_water.gif') }}" />{{ 'Leiche mit Wasser übergießen'|trans({},'game') }}</button>
                     <button x-disposal-id="{{ constant('App\\Entity\\Citizen::Thrown') }}">{{ 'Leiche aus der Stadt ziehen'|trans({},'game') }} (<div class="ap">2</div>)</button>
                     {% if has_cremato %}
@@ -145,115 +181,102 @@
                     {% if can_devour %}
                         <button x-devour-citizen {% if not allow_devour_corpse %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" />{{ 'Die Leiche verspeisen!'|trans({},'game') }}</button>
                     {% endif %}
-                {% endif %}
-            {% else %}
-                <h5>{% trans from 'game' %}Was ist mit ihm geschehen?{% endtrans %}</h5>
-                {% if owner.disposed is null %}
-                    {{'Nach außen hin tot, wird %citizen% seinen Mitbürgern keine Ruhe geboten haben.'|trans({'%citizen%': "<strong>" ~ owner.user.name ~ "</strong>"}, 'game')|raw}}
-                {% elseif owner.disposed is not null %}
-                <span class="disposal">
-                    {% if owner.disposed == constant('App\\Entity\\Citizen::Thrown') %}
-                        {{'Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.user.name ~ "</em>"}, 'game')|raw}}
-                    {% elseif owner.disposed == constant('App\\Entity\\Citizen::Watered') %}
-                        {{'Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.user.name ~ "</em>"}, 'game')|raw}}
-                    {% elseif owner.disposed == constant('App\\Entity\\Citizen::Cooked') %}
-                        {{'Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.user.name ~ "</em>"}, 'game')|raw}}
-                    {% elseif owner.disposed == constant('App\\Entity\\Citizen::Ghoul') %}
-                        {{ 'Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?'|trans({}, 'game')|raw }}
+                {% else %}
+                    <span class="disposal">
+                    {% if owner.disposed is null %}
+                        {{'%citizen% ist in der Wüste gestorben und hat seinen Mitbürgern nichts hinterlassen.'|trans({'%citizen%': "<strong>" ~ owner.user.name ~ "</strong>"}, 'game')|raw}}
+                    {% else %}
+                        {% if owner.disposed == constant('App\\Entity\\Citizen::Thrown') %}
+                            {{'Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.user.name ~ "</em>"}, 'game')|raw}}
+                        {% elseif owner.disposed == constant('App\\Entity\\Citizen::Watered') %}
+                            {{'Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.user.name ~ "</em>"}, 'game')|raw}}
+                        {% elseif owner.disposed == constant('App\\Entity\\Citizen::Cooked') %}
+                            {{'Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.user.name ~ "</em>"}, 'game')|raw}}
+                        {% elseif owner.disposed == constant('App\\Entity\\Citizen::Ghoul') %}
+                            {{ 'Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?'|trans({}, 'game')|raw }}
+                        {% else %}
+                            {{ 'Unbekannt'|trans({}, 'game') }}
+                        {% endif %}
+                    </span>
                     {% endif %}
-                </span>
+                {% endif %}
+                <h5>{% trans from 'game' %}Das Haus{% endtrans %}</h5>
+                {% if owner.home.prototype.level > 1 %}
+                    {% if owner.home.recycling > 0 and owner.home.recycling < 15 %}
+                        <div class="vote-bar">
+                            <div class="vote-progress" style="width: {{owner.home.recycling / 15 * 100}}%;"></div>
+                        </div>
+                    {% endif %}
+                    <button x-recycle-home="1">{{ 'Behausung wiederverwerten'|trans({},'game') }} (<div class="ap">1</div>)</button>
                 {% else %}
-                    {{ 'Unbekannt'|trans({}, 'game') }}
-                {% endif %}
-            {% endif %}
-            {% if owner.alive %}
-            {% if complaints|length > 0 %}
-            <h5><img alt="" src="{{ asset('build/images/icons/scout_lv0.gif') }}"> {% trans from 'game' %}Anzeigen{% endtrans %}</h5>
-            <ul class='gossips'>
-            {% for complaint in complaints %}
-                {% if not complaint.linkedReason is null %}
-                <li>{{complaint.linkedReason.text|trans({}, 'game')}}</li>
-                {% else %}
-                <li>{{complaint.reason}}</li>
-                {% endif %}
-            {% endfor %}
-            </ul>
-            {% endif %}
-            
-            <h5>{% trans from 'game' %}Gemeinschaft{% endtrans %}</h5>
-            <ul class='gossips'>
-                {% if owner.lastActionTimestamp == 0 %}
-                <li>{{'Dieser Bürger wurde noch nie gesehen...'|trans({}, 'game')}}</li>
-                {% else %}
-                <li>{{'Der Bürger wurde zuletzt %time% gesehen.'|trans({'%time%': lastActionText}, 'game')}}</li>
-                {% endif %}
-                {% if owner.specificActionCounterValue(constant('App\\Entity\\ActionCounter::ActionTypeWell')) > 0 %}<li>{{"Dieser Bürger hat %ration% Wasserration(en) aus dem Brunnen genommen."|trans({'%ration%': owner.specificActionCounterValue(constant('App\\Entity\\ActionCounter::ActionTypeWell'))}, 'game')}}</li>{% endif %}
-                {% if is_injured %}<li>{{'Dieser Bürger ist ernsthaft verletzt.'|trans({}, 'game')}}</li>{% endif %}
-                {% if is_infected %}<li>{{'Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.'|trans({}, 'game')}}</li>{% endif %}
-                {% if is_thirsty %}<li>{{'Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?'|trans({}, 'game')}}</li>{% endif %}
-                {% if is_addicted %}<li>{{'Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...'|trans({}, 'game')}}</li>{% endif %}
-                {% if is_terrorised %}<li>{{'Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...'|trans({}, 'game')}}</li>{% endif %}
-                {% if not has_job %}<li>{{'Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!'|trans({}, 'game')}}</li>{% endif %}
-                {% if is_admin %}<li>{{'Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?'|trans({}, 'game')}}</li>{% endif %}
-            </ul>
-            {% else %}
-                {% if owner.home.prototype.level > 1 and owner.home.recycling < 15 %}
-                <h5>{% trans from 'game' %}Meine Spezialaktionen{% endtrans %}</h5>
-                <button x-recycle-home="1">{{ 'Behausung wiederverwerten'|trans({},'game') }} (<div class="ap">1</div>)</button>
-                {% endif %}
-                {% if owner.home.recycling > 0 and owner.home.recycling < 15 %}
-                <div class="vote-bar">
-                    <div class="vote-progress" style="width: {{owner.home.recycling / 15 * 100}}%;"></div>
-                </div>
+                    <span class="disposal">{{'Der Ort (kann man überhaupt von Zuhause reden?), an dem %citizen% lebte, ist keinen Blick wert. Da gibt es nichts zu holen, selbst wenn man alles auseinandernimmt.'|trans({'%citizen%': owner.user.name}, 'game')}}</span>
                 {% endif %}
             {% endif %}
         </div>
         <div class="padded cell rw-6 citizen-chest">
-            <h5>{{ '%citizen%s Truhe'|trans({'%citizen%': owner.user.name}, 'game') }}</h5>
-            {% if hidden %}
-            <p class="curtain-text">{{ 'Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was %citizen% bei sich aufbewahrt...'|trans({'%citizen%': owner.user.name},'game') }}</p>
-            {% endif %}
-            {# {% if owner.zone %}<p {% if hidden %}class="hidden with-curtains"{% endif %}>{{ '%citizen% ist ausgegangen...'|trans({'%citizen%': owner.user.name}, 'game') }} {% endif %}</p>#}
-            {% if chest.items|length > 0 %}
-                <p {% if hidden %}class="hidden with-curtains"{% endif %}>{{ 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:'|trans({},'game') }}</p>
-                {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items, 'foreignChestMode': true} %}
-                    {% block class %}chest {% if owner.alive %}locked{% endif %} {% if hidden %}hidden with-curtains{% endif %}{% endblock %}
-                    {% block title %}{% endblock %}
-                {% endembed %}
-                <div class="help stealhelp hidden">
-                    {{'Wähle den <strong>zu stehlenden Gegenstand</strong> hier oben aus. <strong>Achtung!</strong> Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.'|trans({}, 'game')|raw}}
-                </div>
-            {% else %}
-                <p {% if hidden %}class="hidden with-curtains"{% endif %}>
-                {{'Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
-                Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
-                Nichts, was der Mühe wert wäre.'|trans({'%citizen%': owner.user.name}, 'game')}}
-                </p>
-            {% endif %}
-            {% if already_stolen %}
-                <div class="notice">{{'Du kannst heute keinen weiteren Gegenstand stehlen.'|trans({},'game')}}</div>
-            {% elseif owner.alive %}
-                <div class="hidden">
-                    {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items} %}
-                        {% block class %}rucksack{% endblock %}
-                        {% block title %}{% trans from 'game' %}Mein Rucksack{% endtrans %}{% endblock %}
+            {% if owner.alive %}
+                <h5>{{ '%citizen%s Truhe'|trans({'%citizen%': owner.user.name}, 'game') }}</h5>
+                {% if hidden %}
+                <p class="curtain-text">{{ 'Als du zum Fenster blickst, stellst du fest, dass ein großer Vorhang dir die Sicht versperrt. Du kannst deshalb nicht sehen, was %citizen% bei sich aufbewahrt...'|trans({'%citizen%': owner.user.name},'game') }}</p>
+                {% endif %}
+                {# {% if owner.zone %}<p {% if hidden %}class="hidden with-curtains"{% endif %}>{{ '%citizen% ist ausgegangen...'|trans({'%citizen%': owner.user.name}, 'game') }} {% endif %}</p>#}
+                {% if chest.items|length > 0 %}
+                    <p {% if hidden %}class="hidden with-curtains"{% endif %}>{{ 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:'|trans({},'game') }}</p>
+                    {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items, 'foreignChestMode': true} %}
+                        {% block class %}chest {% if owner.alive %}locked{% endif %} {% if hidden %}hidden with-curtains{% endif %}{% endblock %}
+                        {% block title %}{% endblock %}
                     {% endembed %}
-                </div>
-                {% if owner.zone and not protect%}
-                    <button x-action-id="enablesteal"><img src="{{asset('build/images/icons/home.gif')}}" alt="" /> {{'Einen Gegenstand stehlen'|trans({}, 'game')}}</button>
-                    {% if not owner.town.chaos  %}
-                        <button x-action-id="enablesneak">{{'Einen Gegenstand hinterlassen'|trans({}, 'game')}}</button>
+                    <div class="help stealhelp hidden">
+                        {{'Wähle den <strong>zu stehlenden Gegenstand</strong> hier oben aus. <strong>Achtung!</strong> Es besteht die Gefahr, dass du dabei gesehen wirst. In diesem Fall musst du dich auf unangenehme Konsequenzen gefasst machen.'|trans({}, 'game')|raw}}
+                    </div>
+                {% else %}
+                    <p {% if hidden %}class="hidden with-curtains"{% endif %}>
+                    {{'Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
+                    Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
+                    Nichts, was der Mühe wert wäre.'|trans({'%citizen%': owner.user.name}, 'game')}}
+                    </p>
+                {% endif %}
+                {% if already_stolen %}
+                    <div class="notice">{{'Du hast heute schon <strong>einen Diebstahl</strong> begangen.'|trans({},'game')|raw}}</div>
+                {% else %}
+                    <div class="hidden">
+                        {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items} %}
+                            {% block class %}rucksack{% endblock %}
+                            {% block title %}{% trans from 'game' %}Mein Rucksack{% endtrans %}{% endblock %}
+                        {% endembed %}
+                    </div>
+                    {% if owner.zone and not protect%}
+                        <button x-action-id="enablesteal"><img src="{{asset('build/images/icons/home.gif')}}" alt="" /> {{'Einen Gegenstand stehlen'|trans({}, 'game')}}</button>
+                        {% if not owner.town.chaos  %}
+                            <button x-action-id="enablesneak">{{'Einen Gegenstand hinterlassen'|trans({}, 'game')}}</button>
+                        {% endif %}
+                    {% endif %}
+
+                    {% if not owner.zone and not hidden %}
+                    <div class="notice">{{'Du kannst nichts von %citizen% stehlen, solange <strong>er (sie) in der Stadt ist</strong>...'|trans({'%citizen%': owner.user.name}, 'game')|raw}}</div>
+                    {% endif %}
+                    {% if protect %}
+                        <div class="notice">{{'Cette maison est <strong>protégée</strong> (verrou ou autre...) et ne peut être cambriolée.'|trans({'%citizen%': owner.user.name}, 'game')|raw}}</div>
                     {% endif %}
                 {% endif %}
-
-                {% if not owner.zone and not hidden %}
-                <div class="notice">{{'Du kannst nichts von %citizen% stehlen, solange <strong>er (sie) in der Stadt ist</strong>...'|trans({'%citizen%': owner.user.name}, 'game')|raw}}</div>
+            {% else %}
+                <h5>{{ 'Inventar: %citizen%'|trans({'%citizen%': owner.user.name}, 'game') }}</h5>
+                {% if chest.items|length > 0 %}
+                    {% if not already_stolen %}
+                    <div class="help">{{'Jetzt, da %citizen% tot ist, kannst du ihm einen <strong>Gegenstand klauen</strong>, wenn du möchtest...'|trans({'%citizen%': owner.user.name}, 'game')|raw}}</div>
+                    {% endif %}
+                    <p>{{'Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:'|trans({}, 'game')}}</p>
+                    {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items, 'foreignChestMode': true} %}
+                        {% block class %}chest {% if already_stolen %}locked{% endif %}{% endblock %}
+                        {% block title %}{% endblock %}
+                    {% endembed %}
+                {% else %}
+                    <div class="help">{{'Als du ins Fenster schaust, bemerkst du, dass %citizen%s Haus keine wertvollen Gegenständen mehr enthält. Wahrscheinlich haben andere Bürger schon alles, was nicht niet- und nagelfest war, mitgenommen...'|trans({'%citizen%': owner.user.name}, 'game')}}</div>
                 {% endif %}
-                {% if protect %}
-                    <div class="notice">{{'Cette maison est <strong>protégée</strong> (verrou ou autre...) et ne peut être cambriolée.'|trans({'%citizen%': owner.user.name}, 'game')|raw}}</div>
+                {% if already_stolen %}
+                    <div class="notice">{{'Du hast heute schon <strong>einen Diebstahl</strong> begangen.'|trans({},'game')|raw}}</div>
                 {% endif %}
             {% endif %}
-
         </div>
     </div>
 
