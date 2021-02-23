@@ -843,7 +843,7 @@ class NightlyHandler
 
     private function stage2_post_attack_buildings(Town &$town){
         $this->log->info('Inflicting damages to buildings after the attack');
-        $fireworks = $this->town_handler->getBuilding($town, 'small_fireworks_#00', true);
+        $fireworks = $this->town_handler->getBuilding($town, 'small_fireworks_#00');
         if($fireworks){
             $fireworks->setHp(max(0, $fireworks->getHp() - 20));
 
@@ -884,15 +884,15 @@ class NightlyHandler
                 	if($km > 10) continue;
 
                     $factor = 1 - max(0, (11 - $km) / 10);
-                    $zone->setZombies($zone->getZombies() * $factor);
+                    $zone->setZombies(max(0, $zone->getZombies() * $factor));
                 }
+                
+                $ratio = 1 - mt_rand(7, 12) / 100;
 
-                for($i = 0 ; $i < 3 ; $i++) {
-                    /** @var ZombieEstimation $est */
-                    $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()+$i);
-                    $est->setZombies($est->getZombies() * (0.7 + ($i / 10)));
-                    $this->entity_manager->persist($est);
-                }
+                /** @var ZombieEstimation $est */
+                $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
+                $est->setZombies($est->getZombies() * $ratio);
+                $this->entity_manager->persist($est);
 
             } else {
                 $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $fireworks->getPrototype(), 20 ));
