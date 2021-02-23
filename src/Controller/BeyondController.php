@@ -737,7 +737,7 @@ class BeyondController extends InventoryAwareController
 
             // Check if escortee wants to go home
             if (count($movers) > 1 && $mover->getEscortSettings() && $mover->getEscortSettings()->getForceDirectReturn() && $away_from_town)
-                return AjaxResponse::errorMessage( $this->translator->trans('%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.', ['%citizen%' => $mover->getUser()->getName()], 'game') );
+                return AjaxResponse::errorMessage( $this->translator->trans('%citizen% möchte nicht in diese Richtung gehen! <strong>Er bittet dich darum, ihn in die Stadt zu bringen...</strong>', ['%citizen%' => "<span>{$mover->getUser()->getName()}</span>"], 'game') );
         }
 
         foreach ($movers as $mover) {

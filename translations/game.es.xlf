@@ -7192,13 +7192,13 @@
         <target>Este edificio ya fue inspeccionado por otro jugador y no contiene ningún plano de obras...</target>
       </segment>
     </unit>
-    <unit id="r0eixUa" name="%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.">
+    <unit id="r0eixUa" name="%citizen% möchte nicht in diese Richtung gehen! &lt;strong&gt;Er bittet dich darum, ihn in die Stadt zu bringen...&lt;/strong&gt;">
       <notes>
-        <note category="german">%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</note>
+        <note category="german">%citizen% möchte nicht in diese Richtung gehen! &lt;strong&gt;Er bittet dich darum, ihn in die Stadt zu bringen...&lt;/strong&gt;</note>
       </notes>
       <segment>
-        <source>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</source>
-        <target>¡%citizen% no quiere ir en esa dirección! Este habitante te pide que lo lleves al pueblo.</target>
+        <source>%citizen% möchte nicht in diese Richtung gehen! &lt;strong&gt;Er bittet dich darum, ihn in die Stadt zu bringen...&lt;/strong&gt;</source>
+        <target><![CDATA[¡%citizen% no quiere ir en esa dirección! <strong>Este habitante te pide que lo lleves al pueblo.</strong>]]></target>
       </segment>
     </unit>
     <unit id="KnJXiGc" name="Die Tarnung von %name% ist aufgeflogen!">

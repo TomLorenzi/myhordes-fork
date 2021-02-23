@@ -7117,13 +7117,13 @@
         <target>Hier wurde bereits ein Bauplan gefunden.</target>
       </segment>
     </unit>
-    <unit id="r0eixUa" name="%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.">
+    <unit id="r0eixUa" name="%citizen% möchte nicht in diese Richtung gehen! &lt;strong&gt;Er bittet dich darum, ihn in die Stadt zu bringen...&lt;/strong&gt;">
       <notes>
-        <note category="german">%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</note>
+        <note category="german">%citizen% möchte nicht in diese Richtung gehen! &lt;strong&gt;Er bittet dich darum, ihn in die Stadt zu bringen...&lt;/strong&gt;</note>
       </notes>
       <segment>
-        <source>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</source>
-        <target>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</target>
+        <source>%citizen% möchte nicht in diese Richtung gehen! &lt;strong&gt;Er bittet dich darum, ihn in die Stadt zu bringen...&lt;/strong&gt;</source>
+        <target><![CDATA[%citizen% möchte nicht in diese Richtung gehen! <strong>Er bittet dich darum, ihn in die Stadt zu bringen...</strong>]]></target>
       </segment>
     </unit>
     <unit id="KnJXiGc" name="Die Tarnung von %name% ist aufgeflogen!">

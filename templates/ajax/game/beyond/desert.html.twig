@@ -545,6 +545,12 @@
                                     {% endif %}
                                 </div>
                             {% endif %}
+
+                            {% if other_citizen.escortSettings.forceDirectReturn %}
+                            <div class="padded cell rw-12">
+                                <span class="small">{{'Dieser Bürger möchte in die Stadt gebracht werden.'|trans({}, 'game')}}</span>
+                            </div>
+                            {% endif %}
                         </div>
                     {% endif %}
                 {% endfor %}

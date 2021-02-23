@@ -7289,13 +7289,13 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Someone has already studied this building so it is no longer possible to obtain the construction blueprint here...</target>
       </segment>
     </unit>
-    <unit id="r0eixUa" name="%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.">
+    <unit id="r0eixUa" name="%citizen% möchte nicht in diese Richtung gehen! &lt;strong&gt;Er bittet dich darum, ihn in die Stadt zu bringen...&lt;/strong&gt;">
       <notes>
-        <note category="german">%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</note>
+        <note category="german">%citizen% möchte nicht in diese Richtung gehen! &lt;strong&gt;Er bittet dich darum, ihn in die Stadt zu bringen...&lt;/strong&gt;</note>
       </notes>
       <segment>
-        <source>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</source>
-        <target>%citizen% wants to go back to the Town and will not follow you in this direction.</target>
+        <source>%citizen% möchte nicht in diese Richtung gehen! &lt;strong&gt;Er bittet dich darum, ihn in die Stadt zu bringen...&lt;/strong&gt;</source>
+        <target><![CDATA[%citizen% wants to go back to the Town and <strong>will not follow you in this direction...</strong>]]></target>
       </segment>
     </unit>
     <unit id="KnJXiGc" name="Die Tarnung von %name% ist aufgeflogen!">

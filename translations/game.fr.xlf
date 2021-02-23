@@ -7234,13 +7234,13 @@
         <target>Actualiser</target>
       </segment>
     </unit>
-    <unit id="r0eixUa" name="%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.">
+    <unit id="AFbiSB4" name="fbbe29a">
       <notes>
-        <note category="german">%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</note>
+        <note category="german">%citizen% möchte nicht in diese Richtung gehen! &lt;strong&gt;Er bittet dich darum, ihn in die Stadt zu bringen...&lt;/strong&gt;</note>
       </notes>
       <segment>
-        <source>%citizen% will zurück zur Stadt und wird dir nicht in diese Richtung folgen.</source>
-        <target>%citizen% refuse d'aller dans cette direction ! Ce citoyen vous demande de le ramener en ville...</target>
+        <source>%citizen% möchte nicht in diese Richtung gehen! &lt;strong&gt;Er bittet dich darum, ihn in die Stadt zu bringen...&lt;/strong&gt;</source>
+        <target><![CDATA[%citizen% refuse d'aller dans cette direction ! <strong>Ce citoyen vous demande de le ramener en ville...</strong>]]></target>
       </segment>
     </unit>
     <unit id="KnJXiGc" name="Die Tarnung von %name% ist aufgeflogen!">
@@ -18323,6 +18323,15 @@
       <segment>
         <source>Als du ins Fenster schaust, bemerkst du, dass %citizen%s Haus keine wertvollen Gegenständen mehr enthält. Wahrscheinlich haben andere Bürger schon alles, was nicht niet- und nagelfest war, mitgenommen...</source>
         <target>En regardant par la fenêtre, vous constatez que la maison de %citizen% semble être vide de tout objet intéressant. Sans doute d'autres citoyens ont-ils déjà tout récupéré ? </target>
+      </segment>
+    </unit>
+    <unit id="MIyP62V" name="Dieser Bürger möchte in die Stadt gebracht werden.">
+      <notes>
+        <note category="german">Dieser Bürger möchte in die Stadt gebracht werden.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger möchte in die Stadt gebracht werden.</source>
+        <target>Ce citoyen souhaites retourner en ville.</target>
       </segment>
     </unit>
   </file>
