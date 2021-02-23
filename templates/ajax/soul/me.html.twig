@@ -65,14 +65,11 @@
 
             <div class="score"><img src="{{ asset('build/images/soul/small_score.gif') }}" alt="" /> {{ 'Seelenpunktzahl'|trans({}, 'global') }} : <strong>{{ '%points% Punkte'|trans({'%points%': app.user.allSoulPoints}, 'global') }}</strong> <a class="help-button"><div class="tooltip help">{{ 'Diese Punkte werden für die Seelenrangliste verwendet.'|trans({},'global') }}<p style="color: #f0d79e;"><i>{{ 'Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.'|trans({},'global') }}</i></p></div>{{ 'Hilfe'|trans({},'global') }}</a></div>
 
-            {% for incarnation in app.user.pastLifes %}
-                {# @var incarnation \App\Entity\CitizenRankingProxy #}
-                {% if incarnation.end is null and incarnation.confirmed == false %}
+            {% if not app.user.activeCitizen is null%}
                     <div class="current">
-                        <em>{{'Aktuelles Leben'|trans({}, 'global')}} : </em><br /><strong><img src="{{ asset('build/images/soul/r_explor.gif') }}" alt="" /> {{ incarnation.town.name }}</strong> ({{ 'Tag %day%'|trans({ '%day%':incarnation.town.days }, 'game') }})
+                        <em>{{'Aktuelles Leben'|trans({}, 'global')}} : </em><br /><strong><img src="{{ asset('build/images/soul/r_explor.gif') }}" alt="" /> {{ app.user.activeCitizen.town.name }}</strong> ({{ 'Tag %day%'|trans({ '%day%':app.user.activeCitizen.town.day }, 'game') }})
                     </div>
-                {% endif %}
-            {% endfor %}
+            {% endif %}
 
             <div class="town-history">
                 <div id="town-list"></div>

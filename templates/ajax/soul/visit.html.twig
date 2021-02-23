@@ -56,13 +56,11 @@
                 <div class="cell padded rw-7 rw-sm-12">
                     <div class="score"><img src="{{ asset('build/images/soul/small_score.gif') }}" alt="" /> {{ 'Seelenpunktzahl'|trans({}, 'global') }} : <strong>{{ '%points% Punkte'|trans({'%points%': user.allSoulPoints}, 'global') }}</strong></div>
                     {# @var user \App\Entity\User #}
-                    {% for incarnation in user.pastLifes %}
-                        {% if incarnation.end is null and incarnation.confirmed == false %}
-                            <div class="current">
-                                <em>{{'Aktuelles Leben'|trans({}, 'global')}} : </em><br /><strong><img src="{{ asset('build/images/soul/r_explor.gif') }}" alt="" /> {{ incarnation.town.name }}</strong> ({{ 'Tag %day%'|trans({'%day%':incarnation.town.days}, 'game') }})
-                            </div>
-                        {% endif %}
-                    {% endfor %}
+                    {% if not user.activeCitizen is null %}
+                        <div class="current">
+                            <em>{{'Aktuelles Leben'|trans({}, 'global')}} : </em><br /><strong><img src="{{ asset('build/images/soul/r_explor.gif') }}" alt="" /> {{ user.activeCitizen.town.name }}</strong> ({{ 'Tag %day%'|trans({'%day%':user.activeCitizen.town.day}, 'game') }})
+                        </div>
+                    {% endif %}
 
                     <div class="town-history">
                         <div id="town-list"></div>
