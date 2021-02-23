@@ -19,6 +19,8 @@
     {% set othername = other_citizens[0].user.name %}
     {% if other_citizens[0].user == app.user %}{% set othername = other_citizens[1].user.name %}{% endif %}
     {{'an der Seite von %citizen%'|trans({"%citizen%": othername}, 'game')|raw}}
+{% else %}
+    {{ 'als Gruppe'|trans({}, 'game') }}
 {% endif %}
 {# Direction #}
 {% set dir = "" %}
