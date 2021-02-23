@@ -7156,15 +7156,6 @@
         <target><![CDATA[<t-stat-up-tg_meta_wound>Ce châton est incroyable, peur de rien, même pas de vous ! Du coup il vous saute à la gorge et trampouille délicatement ses griffes dans les profondeurs de votre chair.</t-stat-up-tg_meta_wound><t-kills>Ce chaton est incroyable, peur de rien, même pas de l'odeur infâme des zombies. Plus fort que les lapins Duracell et des Monty Python réunis, ce chat il vous nettoie la zone.</t-kills>]]></target>
       </segment>
     </unit>
-    <unit id="SJ.JIzZ" name="5e75224">
-      <notes>
-        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</note>
-      </notes>
-      <segment>
-        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-no-room>Vous n'avez pas assez d'espace pour ces objets ...</t-no-room><t-door-closed>La porte de la ville est fermée ...</t-door-closed><t-too-heavy>{item} ne peut pas transporter d'objets lourds ...</t-too-heavy></t-fail><nt-fail>Vous avez envoyé {item} avec vos objets en ville.</nt-fail>]]></target>
-      </segment>
-    </unit>
     <unit id="xWENNfP" name="Gequälte Seele">
       <notes>
         <note category="german">Gequälte Seele</note>
@@ -7516,12 +7507,12 @@
         <target><![CDATA[<nt-fail>Vous avez jeté une boule de sable au visage de {citizen}.</nt-fail><t-fail>Vous ne voyez <strong>aucune cible</strong> à qui envoyer votre boule de sable (soit il n'y a personne, soit vous avez déjà touché tout le monde il y a 30 minutes ou moins)...</t-fail>]]></target>
       </segment>
     </unit>
-    <unit id="L3OUyqa" name="e4855a7">
+    <unit id="sU9PQTX" name="a923db5">
       <notes>
-        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</note>
+        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</note>
       </notes>
       <segment>
-        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</source>
+        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</source>
         <target><![CDATA[<t-kill-latest>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie en utilisant {item}. Ha ! Ha ! Un peu plus de chair étalée... Ça soulage de supprimer du zombie de temps en temps.</t-kills>]]></target>
       </segment>
     </unit>
@@ -7784,6 +7775,42 @@
       <segment>
         <source>Du hast mit dem(r) {item_tool} ein(e) {item} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</source>
         <target>Vous avez ouvert {item} grâce à l'outil {item_tool}. Vous obtenez : {items_spawn}.</target>
+      </segment>
+    </unit>
+    <unit id="Ddujs08" name="1786e8e">
+      <notes>
+        <note category="german">&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail><t-door-closed>La porte de la ville est fermée ...</t-door-closed><t-too-heavy>{tamer_dog} ne peut pas ramener le contenu de votre sac : vous transportez un <strong>objet encombrant</strong> qu'il n'est pas en mesure de déplacer !</t-too-heavy></t-fail><nt-fail>Vous renvoyez {tamer_dog} en direction de la ville avec tout le contenu de votre sac à dos..{hr}<strong>Ce sont vos voisins qui vont être contents quand il vont trouver tout ça dans la banque.</strong></nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="EhU2or6" name="b621fab">
+      <notes>
+        <note category="german">&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail><t-door-closed>La porte de la ville est fermée ...</t-door-closed></t-fail><nt-fail>Vous renvoyez {tamer_dog} en direction de la ville avec tout le contenu de votre sac à dos..{hr}<strong>Ce sont vos voisins qui vont être contents quand il vont trouver tout ça dans la banque.</strong></nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="bmHixif" name="fa98a6f">
+      <notes>
+        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail><t-no-room>Vous n'avez pas assez d'espace pour ces objets ...</t-no-room><t-door-closed>La porte de la ville est fermée ...</t-door-closed><t-too-heavy>{tamer_dog} ne peut pas ramener le contenu de votre sac : vous transportez un <strong>objet encombrant</strong> qu'il n'est pas en mesure de déplacer !</t-too-heavy></t-fail><nt-fail>Vous renvoyez {tamer_dog} en direction de la ville avec tout le contenu de votre sac à dos..{hr}Comme vous le lui avez demandé, <strong>il lâchera tout chez vous, dans votre coffre.</strong>{hr}Brave bête !</nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="qedyN68" name="d429fd8">
+      <notes>
+        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail><t-no-room>Vous n'avez pas assez d'espace pour ces objets ...</t-no-room><t-door-closed>La porte de la ville est fermée ...</t-door-closed></t-fail><nt-fail>Vous renvoyez {tamer_dog} en direction de la ville avec tout le contenu de votre sac à dos..{hr}Comme vous le lui avez demandé, <strong>il lâchera tout chez vous, dans votre coffre.</strong>{hr}Brave bête !</nt-fail>]]></target>
       </segment>
     </unit>
   </file>

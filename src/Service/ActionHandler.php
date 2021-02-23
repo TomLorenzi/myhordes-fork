@@ -105,7 +105,6 @@ class ActionHandler
 
         $current_state = self::ActionValidityFull;
         foreach ($action->getRequirements() as $meta_requirement) {
-
             $last_state = $current_state;
 
             $this_state = self::ActionValidityNone;
@@ -577,6 +576,7 @@ class ActionHandler
             'items_consume' => [],
             'items_spawn' => [],
             'item_tool' => [],
+            'tamer_dog' => [],
             'bp_spawn' => [],
             'bp_parent' => [],
             'rp_text' => '',
@@ -1079,6 +1079,8 @@ class ActionHandler
                             break;
                         }
 
+                        $execute_info_cache['tamer_dog'] = $this->log->generateDogName($citizen->getId());
+
                         $heavy = $result->getCustom() === 5 || $result->getCustom() === 17;
 
                         $source = $citizen->getInventory();
@@ -1457,6 +1459,7 @@ class ActionHandler
 	                '{target_to}'     => $execute_info_cache['item_target_morph'][1] ? ($this->wrap($execute_info_cache['item_target_morph'][1])) : "-",
                     '{item_tool}'     => $execute_info_cache['item_tool'] ? ($this->wrap($execute_info_cache['item_tool'])) : "-",
 	                '{items_consume}' => $this->wrap_concat($execute_info_cache['items_consume']),
+                    '{tamer_dog}'     => $execute_info_cache['tamer_dog'],
 	                '{items_spawn}'   => $this->wrap_concat($execute_info_cache['items_spawn']),
 	                '{bp_spawn}'      => $this->wrap_concat($execute_info_cache['bp_spawn']),
 	                '{bp_parent}'     => $this->wrap_concat_hierarchy($execute_info_cache['bp_parent']),

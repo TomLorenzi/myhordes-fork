@@ -7572,11 +7572,11 @@
     </unit>
     <unit id="L3OUyqa" name="e4855a7">
       <notes>
-        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</note>
+        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</note>
       </notes>
       <segment>
-        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><t-kills>Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!</t-kills>]]></target>
+        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</source>
+        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><t-kills>Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="DJF1Mzv" name="c1c5585">
