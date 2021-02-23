@@ -3088,13 +3088,13 @@
         <target>Ouvrir</target>
       </segment>
     </unit>
-    <unit id=".pqCaKH" name="Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...">
+    <unit id="jidwJvh" name="Du hast nichts, mit dem du dieses Ding aufbekommen könntest..">
       <notes>
-        <note category="german">Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</note>
+        <note category="german">Du hast nichts, mit dem du dieses Ding aufbekommen könntest..</note>
       </notes>
       <segment>
-        <source>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</source>
-        <target>Vous n'avez pas les outils pour ouvrir cet objet...</target>
+        <source>Du hast nichts, mit dem du dieses Ding aufbekommen könntest..</source>
+        <target>Vous n'avez rien pour ouvrir ce truc...</target>
       </segment>
     </unit>
     <unit id="ohJAffK" name="Essen">
@@ -7757,6 +7757,33 @@
       <segment>
         <source>Möchtest du %target% heimbringen?</source>
         <target>Ramener %target% en ville ?</target>
+      </segment>
+    </unit>
+    <unit id="KXJ5rEK" name="1a1dc68">
+      <notes>
+        <note category="german">Du hast mit dem(r) {item_tool} ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</note>
+      </notes>
+      <segment>
+        <source>Du hast mit dem(r) {item_tool} ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
+        <target>Vous avez ouvert {item_from} grâce à l'outil {item_tool}. Vous obtenez : {item_to}.</target>
+      </segment>
+    </unit>
+    <unit id="nYImhFf" name="bf0ac69">
+      <notes>
+        <note category="german">Die Droge zeigt sofort Wirkung: Du bist auf einmal ganz &lt;strong&gt;ruhig&lt;/strong&gt; geworden, so ausgeglichen... Die schrecklichen Ereignisse der letzten Tage erscheinen dir plötzlich bedeutungslos und ganz weit weg... Es geht dir schon viel besser.</note>
+      </notes>
+      <segment>
+        <source>Die Droge zeigt sofort Wirkung: Du bist auf einmal ganz &lt;strong&gt;ruhig&lt;/strong&gt; geworden, so ausgeglichen... Die schrecklichen Ereignisse der letzten Tage erscheinen dir plötzlich bedeutungslos und ganz weit weg... Es geht dir schon viel besser.</source>
+        <target><![CDATA[La drogue fait rapidement effet... Tout vous semble soudainement plus <strong>calme</strong>, plus serein... Même les évènements atroces des derniers jours vous semblent maintenant sans importance... Ca va mieux.]]></target>
+      </segment>
+    </unit>
+    <unit id="ullYTUO" name="bc4370c">
+      <notes>
+        <note category="german">Du hast mit dem(r) {item_tool} ein(e) {item} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</note>
+      </notes>
+      <segment>
+        <source>Du hast mit dem(r) {item_tool} ein(e) {item} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</source>
+        <target>Vous avez ouvert {item} grâce à l'outil {item_tool}. Vous obtenez : {items_spawn}.</target>
       </segment>
     </unit>
   </file>

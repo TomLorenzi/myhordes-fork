@@ -3088,13 +3088,13 @@
         <target>Öffnen</target>
       </segment>
     </unit>
-    <unit id=".pqCaKH" name="Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...">
+    <unit id=".pqCaKH" name="Du hast nichts, mit dem du dieses Ding aufbekommen könntest..">
       <notes>
-        <note category="german">Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</note>
+        <note category="german">Du hast nichts, mit dem du dieses Ding aufbekommen könntest..</note>
       </notes>
       <segment>
-        <source>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</source>
-        <target>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</target>
+        <source>Du hast nichts, mit dem du dieses Ding aufbekommen könntest..</source>
+        <target>Du hast nichts, mit dem du dieses Ding aufbekommen könntest..</target>
       </segment>
     </unit>
     <unit id="ohJAffK" name="Essen">

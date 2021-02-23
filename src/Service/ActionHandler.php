@@ -23,6 +23,7 @@ use App\Entity\FoundRolePlayText;
 use App\Entity\HomeActionPrototype;
 use App\Entity\Item;
 use App\Entity\ItemAction;
+use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
 use App\Entity\LogEntryTemplate;
@@ -575,6 +576,7 @@ class ActionHandler
             'item_target_morph' => [ null, null ],
             'items_consume' => [],
             'items_spawn' => [],
+            'item_tool' => [],
             'bp_spawn' => [],
             'bp_parent' => [],
             'rp_text' => '',
@@ -741,6 +743,21 @@ class ActionHandler
                         $item->setPrototype( $execute_info_cache['item_morph'][1] = $item_result->getMorph() );
                     if ($item_result->getBreak()  !== null) $item->setBroken( $item_result->getBreak() );
                     if ($item_result->getPoison() !== null) $item->setPoison( $item_result->getPoison() );
+                }
+
+                $can_opener_prop = $this->entity_manager->getRepository(ItemProperty::class )->findOneBy(['name' => 'can_opener']);
+                $box_opener_prop = $this->entity_manager->getRepository(ItemProperty::class )->findOneBy(['name' => 'box_opener']);
+
+                foreach ($action->getRequirements() as $req) {
+                    if ($req->getItem() && $req->getItem()->getProperty() == $can_opener_prop) {
+                        $execute_info_cache['item_tool'] = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest('can_opener', 1, false, null, true)])[0]->getPrototype();
+                        break;
+                    }
+
+                    if ($req->getItem() && $req->getItem()->getProperty() == $box_opener_prop) {
+                        $execute_info_cache['item_tool'] = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest('box_opener', 1, false, null, true)])[0]->getPrototype();
+                        break;
+                    }
                 }
             }
 
@@ -1438,6 +1455,7 @@ class ActionHandler
 	                '{item_to}'       => $execute_info_cache['item_morph'][1] ? ($this->wrap($execute_info_cache['item_morph'][1])) : "-",
 	                '{target_from}'   => $execute_info_cache['item_target_morph'][0] ? ($this->wrap($execute_info_cache['item_target_morph'][0])) : "-",
 	                '{target_to}'     => $execute_info_cache['item_target_morph'][1] ? ($this->wrap($execute_info_cache['item_target_morph'][1])) : "-",
+                    '{item_tool}'     => $execute_info_cache['item_tool'] ? ($this->wrap($execute_info_cache['item_tool'])) : "-",
 	                '{items_consume}' => $this->wrap_concat($execute_info_cache['items_consume']),
 	                '{items_spawn}'   => $this->wrap_concat($execute_info_cache['items_spawn']),
 	                '{bp_spawn}'      => $this->wrap_concat($execute_info_cache['bp_spawn']),
