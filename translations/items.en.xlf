@@ -2989,22 +2989,22 @@
         <target>Three-legged Labradoodle</target>
       </segment>
     </unit>
-    <unit id="DcZugEP" name="Dreibeiniger Malteser (gedopt)">
+    <unit id="DcZugEP" name="Malteser Hündchen auf Droge">
       <notes>
-        <note category="german">Dreibeiniger Malteser (gedopt)</note>
+        <note category="german">Malteser Hündchen auf Droge</note>
       </notes>
       <segment>
-        <source>Dreibeiniger Malteser (gedopt)</source>
-        <target>Three-legged Labradoodle (drugged)</target>
+        <source>Malteser Hündchen auf Droge</source>
+        <target>Drugged Labradoodle</target>
       </segment>
     </unit>
-    <unit id="TpCsDff" name="Dreibeiniger Malteser (erschöpft)">
+    <unit id="TpCsDff" name="Müdes Malteser Hündchen">
       <notes>
-        <note category="german">Dreibeiniger Malteser (erschöpft)</note>
+        <note category="german">Müdes Malteser Hündchen</note>
       </notes>
       <segment>
-        <source>Dreibeiniger Malteser (erschöpft)</source>
-        <target>Three-legged Labradoodle (tired)</target>
+        <source>Müdes Malteser Hündchen</source>
+        <target>Tired Labradoodle</target>
       </segment>
     </unit>
     <unit id="iZtaOjI" name="Survivalbuch">

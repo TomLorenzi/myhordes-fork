@@ -365,8 +365,8 @@ class ItemFixtures extends Fixture
         ['label' => 'Tarnkleidung (nicht wirksam!)', 'icon' => 'vest_off', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                   //
         ['label' => 'Kleine Schaufel', 'icon' => 'pelle', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                           // -- ---
         ['label' => 'Dreibeiniger Malteser', 'icon' => 'tamed_pet', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // --
-        ['label' => 'Dreibeiniger Malteser (gedopt)', 'icon' => 'tamed_pet_drug', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                   // --
-        ['label' => 'Dreibeiniger Malteser (erschöpft)', 'icon' => 'tamed_pet_off', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                 // -- ---
+        ['label' => 'Malteser Hündchen auf Droge', 'icon' => 'tamed_pet_drug', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                   // --
+        ['label' => 'Müdes Malteser Hündchen', 'icon' => 'tamed_pet_off', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                 // -- ---
         ['label' => 'Survivalbuch', 'icon' => 'surv_book', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                          // --
         ['label' => 'Schraubenschlüssel', 'icon' => 'keymol', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                       // -- ---
         ['label' => 'Schutzschild', 'icon' => 'shield', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                             // -- ---
@@ -736,8 +736,8 @@ class ItemFixtures extends Fixture
         'vest_off_#00' => 'Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!', // Tarnkleidung (nicht wirksam!)
         'pelle_#00' => 'Mit der kleinen Schaufel musst du in der Wüste nicht so lange graben (automatisch aktiviert). Die Wahrscheinlichkeit einen Gegenstand zu finden ist ebenfalls größer.', // Kleine Schaufel
         'tamed_pet_#00' => 'Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich.', // Dreibeiniger Malteser
-        'tamed_pet_drug_#00' => 'Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich.', // Dreibeiniger Malteser (gedopt)
-        'tamed_pet_off_#00' => 'Dein Hündchen sieht *müde* aus... Es keucht die ganze Zeit und starrt dich aus erschöpften Augen an.', // Dreibeiniger Malteser (erschöpft)
+        'tamed_pet_drug_#00' => 'Nun, da dein Hündchen auf Droge ist, kann es selbst schwere und sperrige Gegenstände in die Stadt schleppen. Dir fällt auf, dass es ohne Ende sabbert. Es sieht aus, als würde er dich jeden Augenblick anspringen.', // Malteser Hündchen auf Droge
+        'tamed_pet_off_#00' => 'Dein Hündchen sieht *müde* aus... Es keucht die ganze Zeit und starrt dich aus erschöpften Augen an.', // Müdes Malteser Hündchen
         'surv_book_#00' => 'Auch wenn der Titel anderes vermuten lässt: "Tick, Trick und Tracks Schlaues Buch" ist von unschätzbarem Wert. Es enthält zahlreiche Tipps und Tricks, wie man in der Natur am besten überleben und Nahrung finden kann.', // Survivalbuch
         'keymol_#00' => 'Unverzichtbar, um auf den Baustellen der Stadt herumzuwuseln, kann der Schraubenschlüssel auch dazu verwendet werden, verschlossene Türen ganz einfach zu öffnen.', // Schraubenschlüssel
         'shield_#00' => ' Ein großer Schutzschild, der keine Wünsche offen lässt, ermöglicht es dir, in der Wüste bis zu 2 zusätzliche Zombies auf Distanz zu halten.', // Schutzschild

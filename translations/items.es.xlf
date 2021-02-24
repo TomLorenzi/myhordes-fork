@@ -2989,21 +2989,21 @@
         <target>Bichón maltés de 3 patas</target>
       </segment>
     </unit>
-    <unit id="DcZugEP" name="Dreibeiniger Malteser (gedopt)">
+    <unit id="DcZugEP" name="Malteser Hündchen auf Droge">
       <notes>
-        <note category="german">Dreibeiniger Malteser (gedopt)</note>
+        <note category="german">Malteser Hündchen auf Droge</note>
       </notes>
       <segment>
-        <source>Dreibeiniger Malteser (gedopt)</source>
-        <target>Bichón maltés de 3 patas</target>
+        <source>Malteser Hündchen auf Droge</source>
+        <target>Bichón maltés eufórico</target>
       </segment>
     </unit>
-    <unit id="TpCsDff" name="Dreibeiniger Malteser (erschöpft)">
+    <unit id="TpCsDff" name="Müdes Malteser Hündchen">
       <notes>
-        <note category="german">Dreibeiniger Malteser (erschöpft)</note>
+        <note category="german">Müdes Malteser Hündchen</note>
       </notes>
       <segment>
-        <source>Dreibeiniger Malteser (erschöpft)</source>
+        <source>Müdes Malteser Hündchen</source>
         <target>Bichón maltés cansado</target>
       </segment>
     </unit>

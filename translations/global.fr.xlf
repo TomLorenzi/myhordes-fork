@@ -2408,7 +2408,7 @@
     </unit>
     <unit id="GnItekT" name="HINWEIS: Diese Aktion ist nur in Übersee möglich.">
       <notes>
-        <note category="german">HINWEIS: Diese Aktion ist nur in Übersee möglich.</note>
+        <note category="german">HINWEIS: Diese Aktion ist nur in der Außenwelt möglich.</note>
       </notes>
       <segment>
         <source>HINWEIS: Diese Aktion ist nur in Übersee möglich.</source>

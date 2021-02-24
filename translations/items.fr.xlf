@@ -2989,21 +2989,21 @@
         <target>Bichon maltais à 3 pattes</target>
       </segment>
     </unit>
-    <unit id="DcZugEP" name="Dreibeiniger Malteser (gedopt)">
+    <unit id="7qHVAxH" name="Malteser Hündchen auf Droge">
       <notes>
-        <note category="german">Dreibeiniger Malteser (gedopt)</note>
+        <note category="german">Malteser Hündchen auf Droge</note>
       </notes>
       <segment>
-        <source>Dreibeiniger Malteser (gedopt)</source>
+        <source>Malteser Hündchen auf Droge</source>
         <target>Bichon maltais shooté</target>
       </segment>
     </unit>
-    <unit id="TpCsDff" name="Dreibeiniger Malteser (erschöpft)">
+    <unit id="xkkzvOV" name="Müdes Malteser Hündchen">
       <notes>
-        <note category="german">Dreibeiniger Malteser (erschöpft)</note>
+        <note category="german">Müdes Malteser Hündchen</note>
       </notes>
       <segment>
-        <source>Dreibeiniger Malteser (erschöpft)</source>
+        <source>Müdes Malteser Hündchen</source>
         <target>Bichon maltais fatigué</target>
       </segment>
     </unit>
@@ -7811,6 +7811,24 @@
       <segment>
         <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
         <target><![CDATA[<t-fail><t-no-room>Vous n'avez pas assez d'espace pour ces objets ...</t-no-room><t-door-closed>La porte de la ville est fermée ...</t-door-closed></t-fail><nt-fail>Vous renvoyez {tamer_dog} en direction de la ville avec tout le contenu de votre sac à dos..{hr}Comme vous le lui avez demandé, <strong>il lâchera tout chez vous, dans votre coffre.</strong>{hr}Brave bête !</nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="sm7LFnd" name="e5e3120">
+      <notes>
+        <note category="german">Nun, da dein Hündchen auf Droge ist, kann es selbst schwere und sperrige Gegenstände in die Stadt schleppen. Dir fällt auf, dass es ohne Ende sabbert. Es sieht aus, als würde er dich jeden Augenblick anspringen.</note>
+      </notes>
+      <segment>
+        <source>Nun, da dein Hündchen auf Droge ist, kann es selbst schwere und sperrige Gegenstände in die Stadt schleppen. Dir fällt auf, dass es ohne Ende sabbert. Es sieht aus, als würde er dich jeden Augenblick anspringen.</source>
+        <target>Maintenant qu'il est sous stéroïde, votre bichon peut ramener un objet encombrant en ville. Vous remarquez qu'il bave maintenant en continu et TRÈS abondamment. Il semble être à deux doigts d'avoir une attaque.</target>
+      </segment>
+    </unit>
+    <unit id="j4fkDlQ" name="2d4b496">
+      <notes>
+        <note category="german">Du gibst deinem {tamer_dog} {items_consume}, die er gierig hinunterschlingt.{hr}Es vergeht keine Minute bis die Drogen Wirkung zeigen: Dein Fifi hat nun leuchtende Augen, ein glänzendes Fell und einen wedelnden Schwanz.</note>
+      </notes>
+      <segment>
+        <source>Du gibst deinem {tamer_dog} {items_consume}, die er gierig hinunterschlingt.{hr}Es vergeht keine Minute bis die Drogen Wirkung zeigen: Dein Fifi hat nun leuchtende Augen, ein glänzendes Fell und einen wedelnden Schwanz.</source>
+        <target>Vous donnez {items_consume} à {tamer_dog} qui n'en fait qu'une bouchée.{hr}Il ne faut que quelques minutes à la drogue pour faire effet : votre bichon a maintenant l'oeil vif, le poil brillant et la queue qui frétille.</target>
       </segment>
     </unit>
   </file>

@@ -576,7 +576,7 @@ class ActionHandler
             'items_consume' => [],
             'items_spawn' => [],
             'item_tool' => [],
-            'tamer_dog' => [],
+            'tamer_dog' => $this->log->generateDogName($citizen->getId()),
             'bp_spawn' => [],
             'bp_parent' => [],
             'rp_text' => '',
@@ -1079,8 +1079,6 @@ class ActionHandler
                             break;
                         }
 
-                        $execute_info_cache['tamer_dog'] = $this->log->generateDogName($citizen->getId());
-
                         $heavy = $result->getCustom() === 5 || $result->getCustom() === 17;
 
                         $source = $citizen->getInventory();
@@ -1439,13 +1437,42 @@ class ActionHandler
             $execute_info_cache['message'] = [];
         }
 
+        file_put_contents("/tmp/dump.txt", "coucou\n");
+
         if(!empty($execute_info_cache['message'])) {
         	// We order the messages
         	ksort($execute_info_cache['message']);
         	// We translate & replace placeholders in each messages
         	$addedContent = [];
         	foreach ($execute_info_cache['message'] as $contentMessage) {
-        		$contentMessage = $this->translator->trans( $contentMessage, [
+                file_put_contents("/tmp/dump.txt", "$contentMessage\n", FILE_APPEND);
+                file_put_contents("/tmp/dump.txt", print_r([
+                    '{ap}'            => $execute_info_cache['ap'],
+                    '{minus_ap}'      => -$execute_info_cache['ap'],
+                    '{well}'          => $execute_info_cache['well'],
+                    '{zombies}'       => $execute_info_cache['zombies'],
+                    '{item}'          => $this->wrap($execute_info_cache['item']),
+                    '{target}'        => $execute_info_cache['target'] ? $this->wrap($execute_info_cache['target']) : "-",
+                    '{citizen}'       => $execute_info_cache['citizen'] ? $this->wrap($execute_info_cache['citizen']) : "-",
+                    '{item_from}'     => $execute_info_cache['item_morph'][0] ? ($this->wrap($execute_info_cache['item_morph'][0])) : "-",
+                    '{item_to}'       => $execute_info_cache['item_morph'][1] ? ($this->wrap($execute_info_cache['item_morph'][1])) : "-",
+                    '{target_from}'   => $execute_info_cache['item_target_morph'][0] ? ($this->wrap($execute_info_cache['item_target_morph'][0])) : "-",
+                    '{target_to}'     => $execute_info_cache['item_target_morph'][1] ? ($this->wrap($execute_info_cache['item_target_morph'][1])) : "-",
+                    '{item_tool}'     => $execute_info_cache['item_tool'] ? ($this->wrap($execute_info_cache['item_tool'])) : "-",
+                    '{items_consume}' => $this->wrap_concat($execute_info_cache['items_consume']),
+                    '{tamer_dog}'     => $execute_info_cache['tamer_dog'],
+                    '{items_spawn}'   => $this->wrap_concat($execute_info_cache['items_spawn']),
+                    '{bp_spawn}'      => $this->wrap_concat($execute_info_cache['bp_spawn']),
+                    '{bp_parent}'     => $this->wrap_concat_hierarchy($execute_info_cache['bp_parent']),
+                    '{rp_text}'       => $this->wrap( $execute_info_cache['rp_text'] ),
+                    '{zone}'          => $execute_info_cache['zone'] ? $this->wrap( "{$execute_info_cache['zone']->getX()} / {$execute_info_cache['zone']->getY()}" ) : '',
+                    '{casino}'        => $execute_info_cache['casino'],
+                    '{kills}'         => $execute_info_cache['kills'],
+                    '{bury_count}'    => $execute_info_cache['bury_count'],
+                    '{hr}'            => "<hr />",
+                ], true), FILE_APPEND);
+
+                $contentMessage = $this->translator->trans( $contentMessage, [
 	                '{ap}'            => $execute_info_cache['ap'],
 	                '{minus_ap}'      => -$execute_info_cache['ap'],
 	                '{well}'          => $execute_info_cache['well'],
