@@ -15677,7 +15677,7 @@
       </notes>
       <segment>
         <source>Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</source>
-        <target>Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</target>
+        <target>Agradezcamos a %disposing_citizen% por haber cocinado a fuego lento el cadáver de %citizen%, convirtiéndolo así en una nutritiva fuente de proteínas...</target>
       </segment>
     </unit>
     <unit id="rEGk1G9" name="Meisterbastler ">
