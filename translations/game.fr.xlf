@@ -11432,20 +11432,20 @@
     </unit>
     <unit id="9AyM3bj" name="85e8238">
       <notes>
-        <note category="german">Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...</note>
+        <note category="german">Nach einem zähen Kampf gelingt es dir endlich &lt;strong&gt;einen Zombie&lt;/strong&gt; gegen einen Felsen zu werfen... Sein Kopf ist &lt;strong&gt;explodiert&lt;/strong&gt; und die ganze Soße klebt jetzt an deinen Füßen! Du torkelst ein paar Meter vom Ort des Geschehens weg und keuchst leise vor dich hin: Einer weniger.. Ha... ha...</note>
       </notes>
       <segment>
-        <source>Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...</source>
-        <target>Au terme d'un effroyable affrontement, vous avez finalement réussi à faire chuter un zombie contre un rocher... Sa tête a littéralement explosé et son contenu s'est répandu sur vos chaussures ! Vous reculez en titubant, essouflé(e) : un de moins... Han ... han ...</target>
+        <source>Nach einem zähen Kampf gelingt es dir endlich &lt;strong&gt;einen Zombie&lt;/strong&gt; gegen einen Felsen zu werfen... Sein Kopf ist &lt;strong&gt;explodiert&lt;/strong&gt; und die ganze Soße klebt jetzt an deinen Füßen! Du torkelst ein paar Meter vom Ort des Geschehens weg und keuchst leise vor dich hin: Einer weniger.. Ha... ha...</source>
+        <target><![CDATA[Au terme d'un effroyable affrontement, vous avez finalement réussi à faire chuter <strong>un zombie</strong> contre un rocher... Sa tête a littéralement <strong>explosé</strong> et son contenu s'est répandu sur vos chaussures ! Vous reculez en titubant, essouflé(e) : un de moins... Han ... han ...]]></target>
       </segment>
     </unit>
     <unit id="uQ9iqg9" name="21d4990">
       <notes>
-        <note category="german">Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!</note>
+        <note category="german">Du stürzt dich auf eine dieser Kreaturen und &lt;strong&gt;umklammerst sie mit beiden Armen&lt;/strong&gt;, um sie zu Fall zu bringen. Der Kontakt mit seiner &lt;strong&gt;verrotteten Haut&lt;/strong&gt; bringt dich fast zum Kotzen... Du kämpfst und versuchst ihn irgendwie umzustoßen, doch ohne Erfolg. &lt;strong&gt;Das Biest hat dich mehrere Male um ein Haar gebissen!&lt;/strong&gt; Erschöpft und demoralisiert lässt du von ihm ab, um dich zurückzuziehen...</note>
       </notes>
       <segment>
-        <source>Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!</source>
-        <target>Vous frappez un zombie de toutes vos forces, plusieurs fois, mais celui-ci ne s'effrondre pas sous vos coups !</target>
+        <source>Du stürzt dich auf eine dieser Kreaturen und &lt;strong&gt;umklammerst sie mit beiden Armen&lt;/strong&gt;, um sie zu Fall zu bringen. Der Kontakt mit seiner &lt;strong&gt;verrotteten Haut&lt;/strong&gt; bringt dich fast zum Kotzen... Du kämpfst und versuchst ihn irgendwie umzustoßen, doch ohne Erfolg. &lt;strong&gt;Das Biest hat dich mehrere Male um ein Haar gebissen!&lt;/strong&gt; Erschöpft und demoralisiert lässt du von ihm ab, um dich zurückzuziehen...</source>
+        <target><![CDATA[Vous agrippez à <strong>pleines mains</strong> l'une des horribles créatures mort-vivantes, le contact poisseux et collant de ses <strong>chairs putréfiées</strong> est insupportable... Vous luttez, tentez de la repousser, mais rien n'y fait... <strong>Elle manque plusieurs fois de vous mordre !</strong> Vous reculez, essouflé(e) et démoralisé(e)...]]></target>
       </segment>
     </unit>
     <unit id="rJtk9d5" name="Die Abschätzung wird durch den Scanner verbessert.">

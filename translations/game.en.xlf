@@ -11364,20 +11364,20 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="9AyM3bj" name="85e8238">
       <notes>
-        <note category="german">Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...</note>
+        <note category="german">Nach einem zähen Kampf gelingt es dir endlich &lt;strong&gt;einen Zombie&lt;/strong&gt; gegen einen Felsen zu werfen... Sein Kopf ist &lt;strong&gt;explodiert&lt;/strong&gt; und die ganze Soße klebt jetzt an deinen Füßen! Du torkelst ein paar Meter vom Ort des Geschehens weg und keuchst leise vor dich hin: Einer weniger.. Ha... ha...</note>
       </notes>
       <segment>
-        <source>Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...</source>
-        <target>During an frightful encounter, you finally managed to throw a zombie against a rock... Its head literally exploded and the contents splattered onto your shoes ! Breathless, you stagger backwards : that's one more down...one...less...</target>
+        <source>Nach einem zähen Kampf gelingt es dir endlich &lt;strong&gt;einen Zombie&lt;/strong&gt; gegen einen Felsen zu werfen... Sein Kopf ist &lt;strong&gt;explodiert&lt;/strong&gt; und die ganze Soße klebt jetzt an deinen Füßen! Du torkelst ein paar Meter vom Ort des Geschehens weg und keuchst leise vor dich hin: Einer weniger.. Ha... ha...</source>
+        <target><![CDATA[During an frightful encounter, you finally managed to throw <strong>a zombie</strong> against a rock... Its head literally <strong>exploded</strong> and the contents splattered onto your shoes ! Breathless, you stagger backwards : that's one more down...one...less...]]></target>
       </segment>
     </unit>
     <unit id="uQ9iqg9" name="21d4990">
       <notes>
-        <note category="german">Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!</note>
+        <note category="german">Du stürzt dich auf eine dieser Kreaturen und &lt;strong&gt;umklammerst sie mit beiden Armen&lt;/strong&gt;, um sie zu Fall zu bringen. Der Kontakt mit seiner &lt;strong&gt;verrotteten Haut&lt;/strong&gt; bringt dich fast zum Kotzen... Du kämpfst und versuchst ihn irgendwie umzustoßen, doch ohne Erfolg. &lt;strong&gt;Das Biest hat dich mehrere Male um ein Haar gebissen!&lt;/strong&gt; Erschöpft und demoralisiert lässt du von ihm ab, um dich zurückzuziehen...</note>
       </notes>
       <segment>
-        <source>Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!</source>
-        <target>You grab one of the wretched automatons with both hands, touching the sticky, putrefied flesh... it's unbearable... You wrestle with it, trying to force it back, but it's not happening... It tries unsuccessfully to bite you several times ! You retreat, out of breath and demoralised...</target>
+        <source>Du stürzt dich auf eine dieser Kreaturen und &lt;strong&gt;umklammerst sie mit beiden Armen&lt;/strong&gt;, um sie zu Fall zu bringen. Der Kontakt mit seiner &lt;strong&gt;verrotteten Haut&lt;/strong&gt; bringt dich fast zum Kotzen... Du kämpfst und versuchst ihn irgendwie umzustoßen, doch ohne Erfolg. &lt;strong&gt;Das Biest hat dich mehrere Male um ein Haar gebissen!&lt;/strong&gt; Erschöpft und demoralisiert lässt du von ihm ab, um dich zurückzuziehen...</source>
+        <target><![CDATA[You grab one of the wretched automatons with both hands, touching the sticky, putrefied flesh... it's unbearable... You wrestle with it, trying to force it back, but it's not happening... It tries unsuccessfully to bite you several times ! You retreat, out of breath and demoralised...]]></target>
       </segment>
     </unit>
     <unit id="rJtk9d5" name="Die Abschätzung wird durch den Scanner verbessert.">

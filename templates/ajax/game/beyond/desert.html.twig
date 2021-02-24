@@ -221,11 +221,26 @@
                     </span>
                         {% if zone_escape <= 0 and not active_scout_mode %}
                             <div class="row">
-                                <div class="padded-small cell rw-6"><button x-ajax-href="{{ url('forum_town_redirect') }}"><img alt="" src="{{ asset('build/images/icons/attacked.gif') }}" />{% trans from 'game' %}Hilfe rufen!{% endtrans %}</button></div>
-                                <div {% if not can_escape %}disabled{% endif %} class="padded-small cell rw-6"><button id="escape-btn"><img alt="" src="{{ asset('build/images/icons/death.gif') }}" />{% trans from 'game' %}Die Flucht wagen!{% endtrans %}</button></div>
+                                <div class="padded-small cell rw-6">
+                                    <button x-ajax-href="{{ url('forum_town_redirect') }}">
+                                        <img alt="" src="{{ asset('build/images/icons/attacked.gif') }}" />{% trans from 'game' %}Hilfe rufen!{% endtrans %}
+                                    </button>
+                                    <div class="tooltip help">{{ 'Du kannst in den Foren um Hilfe bitten!'|trans({}, 'game') }}</div>
+                                </div>
+                                <div {% if not can_escape %}disabled{% endif %} class="padded-small cell rw-6">
+                                    <button id="escape-btn">
+                                        <img alt="" src="{{ asset('build/images/icons/death.gif') }}" />{% trans from 'game' %}Die Flucht wagen!{% endtrans %}
+                                    </button>
+                                    <div class="tooltip help">{{ 'Wenn du flüchtest, werden dich die Zombies verletzen, aber du wirst trotzdem entkommen...'|trans({}, 'game') }}</div>
+                                </div>
                             </div>
                             <div class="row">
-                                <div {% if not can_attack %}disabled{% endif %} class="padded-small cell rw-8"><button id="attack-btn"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" />{% trans from 'game' %}Gegen einen Zombie kämpfen!{% endtrans %} (<div class="ap">1</div>)</button></div>
+                                <div {% if not can_attack %}disabled{% endif %} class="padded-small cell rw-8">
+                                    <button id="attack-btn">
+                                        <img alt="" src="{{ asset('build/images/icons/fist.gif') }}" />{% trans from 'game' %}Gegen einen Zombie kämpfen!{% endtrans %} (<div class="ap">1</div>)
+                                    </button>
+                                    <div class="tooltip help">{{ 'Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.'|trans({}, 'game') }} <br /><em>{{ 'Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.'|trans({}, 'game') }}</em></div>
+                                </div>
                             </div>
                         {% endif %}
                     </div>
@@ -779,7 +794,7 @@
 
         {% if zone_blocked and zone_escape < 0 and not active_scout_mode %}
             $.html.addEventListenerAll('#escape-btn', 'click', function () {
-                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                if (!confirm('{{ 'Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!'|trans({},'global')|e('js') }}'))
                     return;
                 $.ajax.easySend( '{{ path('beyond_desert_escape_controller') }}', {},
                     function () {
@@ -787,7 +802,7 @@
                     } );
             });
             $.html.addEventListenerAll('#attack-btn', 'click', function () {
-                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                if (!confirm('{{ 'Diese Aktion kostet dich 1 AP!'|trans({},'global')|e('js') }}'))
                     return;
                 $.ajax.easySend( '{{ path('beyond_desert_attack_controller') }}', {},
                     function () {

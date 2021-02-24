@@ -1071,7 +1071,11 @@ class BeyondController extends InventoryAwareController
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         $this->citizen_handler->setAP( $citizen, true, -1 );
-        if ($generator->chance( 0.1 )) {
+        $ratio = 0.1;
+        $messages = [];
+        if ($this->citizen_handler->hasStatusEffect($citizen, "drunk"))
+            $ratio /= 2;
+        if ($generator->chance( $ratio )) {
             $zone->setZombies( $zone->getZombies() - 1 );
             $this->entity_manager->persist( $this->log->zombieKill($citizen, null, 1, 'barehand_attack'));
             // Add the picto Bare hands
@@ -1079,9 +1083,17 @@ class BeyondController extends InventoryAwareController
             // Add the picto zed kill
             $this->picto_handler->give_picto($citizen, 'r_killz_#00');
 
-            $this->addFlash('notice', $this->translator->trans('Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...', [], 'game'));
+            $messages[] = $this->translator->trans('Nach einem zähen Kampf gelingt es dir endlich <strong>einen Zombie</strong> gegen einen Felsen zu werfen... Sein Kopf ist <strong>explodiert</strong> und die ganze Soße klebt jetzt an deinen Füßen! Du torkelst ein paar Meter vom Ort des Geschehens weg und keuchst leise vor dich hin: Einer weniger.. Ha... ha...', [], 'game');
+        } else {
+            $this->entity_manager->persist( $this->log->zombieKillHandsFail($citizen));
+            $messages[] = $this->translator->trans('Du stürzt dich auf eine dieser Kreaturen und <strong>umklammerst sie mit beiden Armen</strong>, um sie zu Fall zu bringen. Der Kontakt mit seiner <strong>verrotteten Haut</strong> bringt dich fast zum Kotzen... Du kämpfst und versuchst ihn irgendwie umzustoßen, doch ohne Erfolg. <strong>Das Biest hat dich mehrere Male um ein Haar gebissen!</strong> Erschöpft und demoralisiert lässt du von ihm ab, um dich zurückzuziehen...', [], 'game');
+            if ($this->citizen_handler->hasStatusEffect($citizen, "drunk"))
+                $messages[] = $this->translator->trans('Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst', [], 'game');
+        }
 
-        } else $this->addFlash('notice', $this->translator->trans('Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!', [], 'game'));
+        if (!empty($messages)) {
+            $this->addFlash('notice', implode('<hr />', $messages));
+        }
 
 
         try {
