@@ -67,6 +67,10 @@ class TownController extends InventoryAwareController
     const ErrorComplaintLimitHit = ErrorHelper::BaseTownErrors + 8;
     const ErrorAlreadyFinished   = ErrorHelper::BaseTownErrors + 9;
     const ErrorTownChaos         = ErrorHelper::BaseTownErrors + 10;
+    const ErrorAlreadyThrown     = ErrorHelper::BaseTownErrors + 11;
+    const ErrorAlreadyWatered    = ErrorHelper::BaseTownErrors + 12;
+    const ErrorAlreadyCooked     = ErrorHelper::BaseTownErrors + 13;
+    const ErrorAlreadyGhoul      = ErrorHelper::BaseTownErrors + 14;
 
     protected function get_needed_votes(): array {
         $town = $this->getActiveCitizen()->getTown();
@@ -429,8 +433,22 @@ class TownController extends InventoryAwareController
 
         /** @var Citizen $c */
         $c = $em->getRepository(Citizen::class)->find( $id );
-        if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId() || $c->getAlive() || !$c->getHome()->getHoldsBody())
+        if (!$c || $c->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId() || $c->getAlive())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
+
+        if (!$c->getHome()->getHoldsBody()) {
+            if ($c->getDisposed() === Citizen::Thrown) {
+                return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+            } else if ($c->getDisposed() === Citizen::Watered) {
+                return AjaxResponse::error(self::ErrorAlreadyWatered);
+            } else if ($c->getDisposed() === Citizen::Cooked) {
+                return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+            } else if ($c->getDisposed() === Citizen::Ghoul) {
+                return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+            } else  {
+                return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+            }
+        }
 
         $action = (int)$parser->get('action');
 

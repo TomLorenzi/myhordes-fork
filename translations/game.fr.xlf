@@ -18397,5 +18397,32 @@
         <target>Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.</target>
       </segment>
     </unit>
+    <unit id="tN9xF04" name="32f43f5">
+      <notes>
+        <note category="german">&lt;span&gt;%citizen% hat einen Zombie mit seinen bloßen Händen niedergestreckt!&lt;/span&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;span&gt;%citizen% hat einen Zombie mit seinen bloßen Händen niedergestreckt!&lt;/span&gt;</source>
+        <target><![CDATA[<span>%citizen% hat einen Zombie mit seinen bloßen Händen niedergestreckt!</span>]]></target>
+      </segment>
+    </unit>
+    <unit id="L4sBLhc" name="&lt;span&gt;Wir kontrollieren die Zone ab sofort.&lt;/span&gt;">
+      <notes>
+        <note category="german">&lt;span&gt;Wir kontrollieren die Zone ab sofort.&lt;/span&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;span&gt;Wir kontrollieren die Zone ab sofort.&lt;/span&gt;</source>
+        <target><![CDATA[<span>Wir kontrollieren die Zone ab sofort.</span>]]></target>
+      </segment>
+    </unit>
+    <unit id="RzA6yig" name="75658db">
+      <notes>
+        <note category="german">Diese Leiche wurde bereits mit Wasser übergossen, siehst du denn nicht die Pfütze bei den Füßen?!!</note>
+      </notes>
+      <segment>
+        <source>Diese Leiche wurde bereits mit Wasser übergossen, siehst du denn nicht die Pfütze bei den Füßen?!!</source>
+        <target>Ce cadavre a déjà été arrosé, ne voyez-vous pas la flaque à vos pieds ?!!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
