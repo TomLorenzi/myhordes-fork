@@ -386,6 +386,7 @@ class ZoneHandler
                 if ($entry->getLogEntryTemplate() === null || $entry->getLogEntryTemplate()->getClass() !== LogEntryTemplate::ClassCritical)
                     $this->entity_manager->remove( $entry );
         }
+
         // If zombies can take control after leaving the zone and there are citizens remaining, install a grace escape timer
         elseif ( $cp_ok_before && !$this->check_cp( $zone ) ) {
             $zone->addEscapeTimer( (new EscapeTimer())->setTime( new DateTime('+30min') ) );
@@ -394,6 +395,10 @@ class ZoneHandler
                 $dig_timer->setPassive(true);
                 $this->entity_manager->persist( $dig_timer );
             }
+        }
+        // If we took back control of the zone, logs it
+        elseif (!$cp_ok_before && $this->check_cp($zone)) {
+            $this->entity_manager->persist($this->log->zoneUnderControl($zone));
         }
 
     }

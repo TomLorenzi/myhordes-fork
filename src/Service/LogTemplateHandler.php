@@ -1567,4 +1567,17 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen );
     }
+
+    public function zoneUnderControl( Zone $zone ): TownLogEntry {
+        $variables = array();
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'zoneUnderControl']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $zone->getTown() )
+            ->setDay( $zone->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setZone($zone);
+    }
 }

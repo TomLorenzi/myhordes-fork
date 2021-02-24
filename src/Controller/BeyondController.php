@@ -705,6 +705,8 @@ class BeyondController extends InventoryAwareController
         $new_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $citizen->getTown(), $px, $py );
         if (!$new_zone) return AjaxResponse::error( self::ErrorNotReachableFromHere );
 
+        $cp_ok_new_zone = $this->zone_handler->check_cp($new_zone);
+
         if($this->citizen_handler->hasStatusEffect($citizen, 'wound4') && $this->random_generator->chance(0.20)) {
             $this->addFlash('notice', $this->translator->trans('Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...', [], 'game'));
             $this->citizen_handler->setAP( $citizen, true, -1 );
@@ -835,6 +837,7 @@ class BeyondController extends InventoryAwareController
 
         try {
             $this->zone_handler->handleCitizenCountUpdate($zone, $cp_ok);
+            $this->zone_handler->handleCitizenCountUpdate($new_zone, $cp_ok_new_zone);
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorInternalError );
         }
@@ -1070,6 +1073,8 @@ class BeyondController extends InventoryAwareController
         if ($citizen->getAp() <= 0 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
+        $old_cp_ok = $this->zone_handler->check_cp($zone);
+
         $this->citizen_handler->setAP( $citizen, true, -1 );
         $ratio = 0.1;
         $messages = [];
@@ -1095,6 +1100,7 @@ class BeyondController extends InventoryAwareController
             $this->addFlash('notice', implode('<hr />', $messages));
         }
 
+        $this->zone_handler->handleCitizenCountUpdate($zone, $old_cp_ok);
 
         try {
                 $this->entity_manager->persist( $citizen );
