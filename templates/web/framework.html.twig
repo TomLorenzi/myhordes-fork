@@ -188,6 +188,8 @@
                 $.msg.toggleFetch(true);
                 $.msg.setFetchRK(null);
 
+                $.html.setTitleSegmentCount(0);
+
                 $.ajax.background().load( document.getElementById('post-office-content'),'{{ url('pm_view')|e('js') }}', false )
             }
         });
