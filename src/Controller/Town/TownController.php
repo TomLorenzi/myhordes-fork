@@ -438,7 +438,7 @@ class TownController extends InventoryAwareController
 
         if (!$c->getHome()->getHoldsBody()) {
             if ($c->getDisposed() === Citizen::Thrown) {
-                return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+                return AjaxResponse::error(self::ErrorAlreadyThrown);
             } else if ($c->getDisposed() === Citizen::Watered) {
                 return AjaxResponse::error(self::ErrorAlreadyWatered);
             } else if ($c->getDisposed() === Citizen::Cooked) {
