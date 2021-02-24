@@ -2424,5 +2424,23 @@
         <target>Nouvelle réponse dans</target>
       </segment>
     </unit>
+    <unit id="6QgTFsD" name="Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!">
+      <notes>
+        <note category="german">Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!</note>
+      </notes>
+      <segment>
+        <source>Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!</source>
+        <target>Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!</target>
+      </segment>
+    </unit>
+    <unit id="TvN2VX9" name="Diese Aktion kostet dich 1 AP!">
+      <notes>
+        <note category="german">Diese Aktion kostet dich 1 AP!</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion kostet dich 1 AP!</source>
+        <target>Cette action vous coûtera 1 PA !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
