@@ -612,7 +612,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'open_gamebox'  => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'dice_#00', 'cards_#00' ] ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
             'open_abox'     => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'bplan_r_#00' ] ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
-            'open_cbox'     => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ ['bplan_c_#00',3], ['bplan_u_#00',3], ['bplan_r_#00',2], 'bplan_e_#00' ] ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
+            'open_cbox'     => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ ['bplan_c_#00',50], ['bplan_u_#00',35], ['bplan_r_#00',10], 'bplan_e_#00',5] ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
 
             'open_matbox3'   => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_2_#00' ],  'spawn' => 'matbox' ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
             'open_matbox2'   => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_1_#00' ],  'spawn' => 'matbox' ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
