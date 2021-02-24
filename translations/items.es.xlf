@@ -3621,7 +3621,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar <strong>u
       </notes>
       <segment>
         <source>Wildstyle Uppercut</source>
-        <target>Puñetazo</target>
+        <target>Puñetazo salvaje</target>
       </segment>
     </unit>
     <unit id="zV1VWf6" name="Zweite Lunge">
@@ -7643,7 +7643,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Wenn du 11 km oder weniger von der Stadt entfernt bist, kehrst du sofort in die Stadt zurück!</source>
-        <target>Wenn du 11 km oder weniger von der Stadt entfernt bist, kehrst du sofort in die Stadt zurück!</target>
+        <target>¡Regresas inmediatamente al pueblo si estás a 11km o menos de él!</target>
       </segment>
     </unit>
     <unit id="GQajT3s" name="Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.">
@@ -7652,7 +7652,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.</source>
-        <target>Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.</target>
+        <target>Descubres milagrosamente un objeto útil</target>
       </segment>
     </unit>
     <unit id="gNd6Hdo" name="Damit kannst du mit einem Schlag 2 Zombies umbringen!">
@@ -7661,7 +7661,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Damit kannst du mit einem Schlag 2 Zombies umbringen!</source>
-        <target>Damit kannst du mit einem Schlag 2 Zombies umbringen!</target>
+        <target>¡Extermina 2 zombis con tus propias manos!</target>
       </segment>
     </unit>
     <unit id="IhPwkzs" name="Stellt deine AP wieder her und beseitigt deine Müdigkeit.">
@@ -7670,7 +7670,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Stellt deine AP wieder her und beseitigt deine Müdigkeit.</source>
-        <target>Stellt deine AP wieder her und beseitigt deine Müdigkeit.</target>
+        <target>Regeneras tus puntos de acción y pierdes el estado Cansancio.</target>
       </segment>
     </unit>
     <unit id="R.doQQs" name="a48c5f0">
@@ -7679,7 +7679,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Beim nächsten Angriff wird der Durst-, Infektions- und Abhängigkeitszustand außer Kraft gesetzt.</source>
-        <target>Beim nächsten Angriff wird der Durst-, Infektions- und Abhängigkeitszustand außer Kraft gesetzt.</target>
+        <target>Durante el siguiente ataque, se anula el estado de sed, infección y adicción.</target>
       </segment>
     </unit>
     <unit id="VDnHqpQ" name="e682f2e">
@@ -7688,7 +7688,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du bringst einen anderen Spieler nach Hause (dieser darf max. 2 Felder von der Stadt entfernt sein).</source>
-        <target>Du bringst einen anderen Spieler nach Hause (dieser darf max. 2 Felder von der Stadt entfernt sein).</target>
+        <target>Rescatas a un habitante y lo traes de regreso al pueblo (se debe encontrar como máximo a 2 casillas de distancia del pueblo)</target>
       </segment>
     </unit>
     <unit id="hs9mj9G" name="3c2ba85">
