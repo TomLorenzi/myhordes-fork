@@ -705,6 +705,8 @@ class BeyondController extends InventoryAwareController
         $new_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $citizen->getTown(), $px, $py );
         if (!$new_zone) return AjaxResponse::error( self::ErrorNotReachableFromHere );
 
+        $cp_ok_new_zone = $this->zone_handler->check_cp($new_zone);
+
         if($this->citizen_handler->hasStatusEffect($citizen, 'wound4') && $this->random_generator->chance(0.20)) {
             $this->addFlash('notice', $this->translator->trans('Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...', [], 'game'));
             $this->citizen_handler->setAP( $citizen, true, -1 );
@@ -835,6 +837,7 @@ class BeyondController extends InventoryAwareController
 
         try {
             $this->zone_handler->handleCitizenCountUpdate($zone, $cp_ok);
+            $this->zone_handler->handleCitizenCountUpdate($new_zone, $cp_ok_new_zone);
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorInternalError );
         }
@@ -1070,8 +1073,14 @@ class BeyondController extends InventoryAwareController
         if ($citizen->getAp() <= 0 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
+        $old_cp_ok = $this->zone_handler->check_cp($zone);
+
         $this->citizen_handler->setAP( $citizen, true, -1 );
-        if ($generator->chance( 0.1 )) {
+        $ratio = 0.1;
+        $messages = [];
+        if ($this->citizen_handler->hasStatusEffect($citizen, "drunk"))
+            $ratio /= 2;
+        if ($generator->chance( $ratio )) {
             $zone->setZombies( $zone->getZombies() - 1 );
             $this->entity_manager->persist( $this->log->zombieKill($citizen, null, 1, 'barehand_attack'));
             // Add the picto Bare hands
@@ -1079,10 +1088,19 @@ class BeyondController extends InventoryAwareController
             // Add the picto zed kill
             $this->picto_handler->give_picto($citizen, 'r_killz_#00');
 
-            $this->addFlash('notice', $this->translator->trans('Nach einem harten Kampf gelingt es dir schließlich, einen Zombie gegen einen Felsen fallen zu lassen... Sein Kopf explodiert buchstäblich und sein Inhalt spritz auf deine Schuhe! Du taumelst zurück, außer Atem: einer weniger...', [], 'game'));
+            $messages[] = $this->translator->trans('Nach einem zähen Kampf gelingt es dir endlich <strong>einen Zombie</strong> gegen einen Felsen zu werfen... Sein Kopf ist <strong>explodiert</strong> und die ganze Soße klebt jetzt an deinen Füßen! Du torkelst ein paar Meter vom Ort des Geschehens weg und keuchst leise vor dich hin: Einer weniger.. Ha... ha...', [], 'game');
+        } else {
+            $this->entity_manager->persist( $this->log->zombieKillHandsFail($citizen));
+            $messages[] = $this->translator->trans('Du stürzt dich auf eine dieser Kreaturen und <strong>umklammerst sie mit beiden Armen</strong>, um sie zu Fall zu bringen. Der Kontakt mit seiner <strong>verrotteten Haut</strong> bringt dich fast zum Kotzen... Du kämpfst und versuchst ihn irgendwie umzustoßen, doch ohne Erfolg. <strong>Das Biest hat dich mehrere Male um ein Haar gebissen!</strong> Erschöpft und demoralisiert lässt du von ihm ab, um dich zurückzuziehen...', [], 'game');
+            if ($this->citizen_handler->hasStatusEffect($citizen, "drunk"))
+                $messages[] = $this->translator->trans('Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst', [], 'game');
+        }
 
-        } else $this->addFlash('notice', $this->translator->trans('Du schlägst mehrmals mit aller Kraft auf einen Zombie ein, aber es scheint ihm nichts auszumachen!', [], 'game'));
+        if (!empty($messages)) {
+            $this->addFlash('notice', implode('<hr />', $messages));
+        }
 
+        $this->zone_handler->handleCitizenCountUpdate($zone, $old_cp_ok);
 
         try {
                 $this->entity_manager->persist( $citizen );

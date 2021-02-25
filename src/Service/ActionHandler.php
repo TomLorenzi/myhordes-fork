@@ -576,7 +576,7 @@ class ActionHandler
             'items_consume' => [],
             'items_spawn' => [],
             'item_tool' => [],
-            'tamer_dog' => [],
+            'tamer_dog' => $this->log->generateDogName($citizen->getId()),
             'bp_spawn' => [],
             'bp_parent' => [],
             'rp_text' => '',
@@ -1079,8 +1079,6 @@ class ActionHandler
                             break;
                         }
 
-                        $execute_info_cache['tamer_dog'] = $this->log->generateDogName($citizen->getId());
-
                         $heavy = $result->getCustom() === 5 || $result->getCustom() === 17;
 
                         $source = $citizen->getInventory();
@@ -1445,7 +1443,8 @@ class ActionHandler
         	// We translate & replace placeholders in each messages
         	$addedContent = [];
         	foreach ($execute_info_cache['message'] as $contentMessage) {
-        		$contentMessage = $this->translator->trans( $contentMessage, [
+
+                $contentMessage = $this->translator->trans( $contentMessage, [
 	                '{ap}'            => $execute_info_cache['ap'],
 	                '{minus_ap}'      => -$execute_info_cache['ap'],
 	                '{well}'          => $execute_info_cache['well'],

@@ -1282,6 +1282,20 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
+    public function zombieKillHandsFail( Citizen $citizen): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'zombieKillHandsFail']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setZone( $citizen->getZone() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
     public function zombieKillShaman( Citizen $citizen, int $kills ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(), 'kills' => $kills);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'zombieKillShaman']);
@@ -1552,5 +1566,18 @@ class LogTemplateHandler
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen );
+    }
+
+    public function zoneUnderControl( Zone $zone ): TownLogEntry {
+        $variables = array();
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'zoneUnderControl']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $zone->getTown() )
+            ->setDay( $zone->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setZone($zone);
     }
 }

@@ -929,11 +929,12 @@ class MessageGlobalPMController extends MessageController
         if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         // Check the last 4 posts; if they were all made by the same user, they must wait 5min before they can post again
+        /** @var GlobalPrivateMessage[] $last_posts */
         $last_posts = $this->entity_manager->getRepository(GlobalPrivateMessage::class)->findBy(['receiverGroup' => $group], ['timestamp' => 'DESC'], 4);
         if (count($last_posts) === 4) {
             $all_by_user = true;
             foreach ($last_posts as $last_post) $all_by_user = $all_by_user && ($last_post->getSender() === $user);
-            if ($all_by_user && $last_posts[0]->getDate()->getTimestamp() > (time() - 300) )
+            if ($all_by_user && $last_posts[0]->getTimestamp()->getTimestamp() > (time() - 300) )
                 return AjaxResponse::error( self::ErrorForumLimitHit );
         }
 

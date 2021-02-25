@@ -45,7 +45,7 @@ class AdminTownController extends AdminActionController
      */
     public function town_list(): Response
     {
-        return $this->render( 'ajax/admin/towns/list.html.twig', $this->addDefaultTwigArgs('towns', [
+        return $this->render('ajax/admin/towns/list.html.twig', $this->addDefaultTwigArgs('towns', [
             'towns' => $this->entity_manager->getRepository(Town::class)->findAll(),
             'citizen_stats' => $this->entity_manager->getRepository(Citizen::class)->getStatByLang()
         ]));
@@ -74,10 +74,10 @@ class AdminTownController extends AdminActionController
         $totalItems = count($paginator);
         $pagesCount = ceil($totalItems / $pageSize);
 
-        return $this->render( 'ajax/admin/towns/old_towns_list.html.twig', $this->addDefaultTwigArgs('old_towns', [
+        return $this->render('ajax/admin/towns/old_towns_list.html.twig', $this->addDefaultTwigArgs('old_towns', [
             'towns' => $paginator
                 ->getQuery()
-                ->setFirstResult($pageSize * ($page-1)) // set the offset
+                ->setFirstResult($pageSize * ($page - 1)) // set the offset
                 ->setMaxResults($pageSize)
                 ->getResult(),
             'currentPage' => $page,
@@ -94,44 +94,44 @@ class AdminTownController extends AdminActionController
     public function town_explorer(int $id, ?string $tab): Response
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if ($town === null) $this->redirect( $this->generateUrl( 'admin_town_list' ) );
+        if ($town === null) $this->redirect($this->generateUrl('admin_town_list'));
 
         $explorables = [];
 
         foreach ($town->getZones() as $zone)
             /** @var Zone $zone */
             if ($zone->getPrototype() && $zone->getPrototype()->getExplorable()) {
-                $explorables[ $zone->getId() ] = ['rz' => [], 'z' => $zone, 'x' => $zone->getExplorerStats(), 'ax' => $zone->activeExplorerStats()];
-                if ($zone->activeExplorerStats()) $explorables[ $zone->getId() ][ 'axt' ] = max(0,$zone->activeExplorerStats()->getTimeout()->getTimestamp() - time());
+                $explorables[$zone->getId()] = ['rz' => [], 'z' => $zone, 'x' => $zone->getExplorerStats(), 'ax' => $zone->activeExplorerStats()];
+                if ($zone->activeExplorerStats()) $explorables[$zone->getId()]['axt'] = max(0, $zone->activeExplorerStats()->getTimeout()->getTimestamp() - time());
                 $rz = $zone->getRuinZones();
                 foreach ($rz as $r)
-                    $explorables[ $zone->getId() ]['rz'][] = $r;
+                    $explorables[$zone->getId()]['rz'][] = $r;
             }
-        
+
         $pictoProtos = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
-        usort($pictoProtos, function($a, $b) {
+        usort($pictoProtos, function ($a, $b) {
             return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
         });
 
         $itemPrototypes = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
-        usort($itemPrototypes, function($a, $b) {
+        usort($itemPrototypes, function ($a, $b) {
             return strcmp($this->translator->trans($a->getLabel(), [], 'items'), $this->translator->trans($b->getLabel(), [], 'items'));
         });
 
         $citizenStati = $this->entity_manager->getRepository(CitizenStatus::class)->findAll();
-        usort($citizenStati, function($a, $b) {
-          return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
+        usort($citizenStati, function ($a, $b) {
+            return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
         });
 
         $citizenRoles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
 
-        usort($citizenRoles, function($a, $b) {
+        usort($citizenRoles, function ($a, $b) {
             return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
         });
 
         $complaints = [];
 
-        foreach($town->getCitizens() as $citizen) {
+        foreach ($town->getCitizens() as $citizen) {
             $comp = $this->entity_manager->getRepository(Complaint::class)->findBy(['culprit' => $citizen]);
             if (count($comp) > 0)
                 $complaints[$citizen->getUser()->getName()] = $comp;
@@ -143,7 +143,7 @@ class AdminTownController extends AdminActionController
 
         foreach ($this->entity_manager->getRepository(BuildingPrototype::class)->findAll() as $building) {
             /** @var BuildingPrototype $building */
-            $dict[ $building->getId() ] = [];
+            $dict[$building->getId()] = [];
             if (!$building->getParent())
                 $root[] = $building;
         }
@@ -155,16 +155,16 @@ class AdminTownController extends AdminActionController
             }
 
             $available = $this->entity_manager->getRepository(Building::class)->findOneBy(['town' => $town, 'prototype' => $building]);
-            if($available)
+            if ($available)
                 $inTown[$building->getId()] = $available;
         }
-        return $this->render( 'ajax/admin/towns/explorer.html.twig', $this->addDefaultTwigArgs(null, array_merge([
+        return $this->render('ajax/admin/towns/explorer.html.twig', $this->addDefaultTwigArgs(null, array_merge([
             'town' => $town,
-            'conf' => $this->conf->getTownConfiguration( $town ),
+            'conf' => $this->conf->getTownConfiguration($town),
             'explorables' => $explorables,
-            'log' => $this->renderLog( -1, $town, false )->getContent(),
+            'log' => $this->renderLog(-1, $town, false)->getContent(),
             'day' => $town->getDay(),
-            'bank' => $this->renderInventoryAsBank( $town->getBank() ),
+            'bank' => $this->renderInventoryAsBank($town->getBank()),
             'itemPrototypes' => $itemPrototypes,
             'pictoPrototypes' => $pictoProtos,
             'citizenStati' => $citizenStati,
@@ -172,9 +172,56 @@ class AdminTownController extends AdminActionController
             'tab' => $tab,
             'complaints' => $complaints,
             'dictBuildings' => $dict,
-            'rootBuildings'=> $root,
+            'rootBuildings' => $root,
             'availBuldings' => $inTown,
         ], $this->get_map_blob($town))));
+    }
+
+    public function get_map_blob(Town $town): array
+    {
+        $zones = [];
+        $range_x = [PHP_INT_MAX, PHP_INT_MIN];
+        $range_y = [PHP_INT_MAX, PHP_INT_MIN];
+        $zones_classes = [];
+
+        $soul_zones_ids = array_map(function (Zone $z) {
+            return $z->getId();
+        }, $this->zone_handler->getSoulZones($town));
+
+        foreach ($town->getZones() as $zone) {
+            $x = $zone->getX();
+            $y = $zone->getY();
+
+            $range_x = [min($range_x[0], $x), max($range_x[1], $x)];
+            $range_y = [min($range_y[0], $y), max($range_y[1], $y)];
+
+            if (!isset($zones[$x])) $zones[$x] = [];
+            $zones[$x][$y] = $zone;
+
+            if (!isset($zones_attributes[$x])) $zones_attributes[$x] = [];
+            $zones_classes[$x][$y] = $this->zone_handler->getZoneClasses(
+                $town,
+                $zone,
+                null,
+                in_array($zone->getId(), $soul_zones_ids),
+                true
+            );
+        }
+
+        return [
+            'map_data' => [
+                'zones' => $zones,
+                'zones_classes' => $zones_classes,
+                'town_devast' => $town->getDevastated(),
+                'routes' => $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown($town),
+                'pos_x' => 0,
+                'pos_y' => 0,
+                'map_x0' => $range_x[0],
+                'map_x1' => $range_x[1],
+                'map_y0' => $range_y[0],
+                'map_y1' => $range_y[1],
+            ]
+        ];
     }
 
     /**
@@ -186,14 +233,14 @@ class AdminTownController extends AdminActionController
     public function old_town_explorer(int $id, ?string $tab): Response
     {
         $town = $this->entity_manager->getRepository(TownRankingProxy::class)->find($id);
-        if ($town === null) $this->redirect( $this->generateUrl( 'admin_old_town_list' ) );
+        if ($town === null) $this->redirect($this->generateUrl('admin_old_town_list'));
 
         $pictoProtos = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
-        usort($pictoProtos, function($a, $b) {
+        usort($pictoProtos, function ($a, $b) {
             return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
         });
 
-        return $this->render( 'ajax/admin/towns/old_town_explorer.html.twig', $this->addDefaultTwigArgs('old_explorer', [
+        return $this->render('ajax/admin/towns/old_town_explorer.html.twig', $this->addDefaultTwigArgs('old_explorer', [
             'town' => $town,
             'day' => $town->getDays(),
             'pictoPrototypes' => $pictoProtos,
@@ -213,10 +260,10 @@ class AdminTownController extends AdminActionController
     {
         /** @var Town $town */
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if (!$town) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($action, [ 'release', 'quarantine', 'advance', 'nullify' ]) && !$this->isGranted('ROLE_ADMIN'))
-            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        if (in_array($action, ['release', 'quarantine', 'advance', 'nullify']) && !$this->isGranted('ROLE_ADMIN'))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         switch ($action) {
             case 'release':
@@ -224,7 +271,7 @@ class AdminTownController extends AdminActionController
                     foreach ($town->getCitizens() as $citizen)
                         if ($citizen->getAlive())
                             $this->entity_manager->persist(
-                                $crowService->createPM_townQuarantine( $citizen->getUser(), $town->getName(), false )
+                                $crowService->createPM_townQuarantine($citizen->getUser(), $town->getName(), false)
                             );
                 $town->setAttackFails(0);
                 $this->entity_manager->persist($town);
@@ -234,78 +281,37 @@ class AdminTownController extends AdminActionController
                     foreach ($town->getCitizens() as $citizen)
                         if ($citizen->getAlive())
                             $this->entity_manager->persist(
-                                $crowService->createPM_townQuarantine( $citizen->getUser(), $town->getName(), true )
+                                $crowService->createPM_townQuarantine($citizen->getUser(), $town->getName(), true)
                             );
                 $town->setAttackFails(4);
                 $this->entity_manager->persist($town);
                 break;
             case 'advance':
-                if ($night->advance_day($town, $this->conf->getCurrentEvent( $town ))) {
+                if ($night->advance_day($town, $this->conf->getCurrentEvent($town))) {
                     foreach ($night->get_cleanup_container() as $c) $this->entity_manager->remove($c);
                     $town->setAttackFails(0);
-                    $this->entity_manager->persist( $town );
+                    $this->entity_manager->persist($town);
                 }
                 break;
             case 'nullify':
                 foreach ($town->getCitizens() as $citizen)
                     $this->entity_manager->persist(
-                        $crowService->createPM_townNegated( $citizen->getUser(), $town->getName(), false )
+                        $crowService->createPM_townNegated($citizen->getUser(), $town->getName(), false)
                     );
                 $gameFactory->nullifyTown($town, true);
                 break;
 
-            default: return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+            default:
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
         try {
             $this->entity_manager->flush();
         } catch (Exception $e) {
-            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['message' => $e->getMessage()] );
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException, ['message' => $e->getMessage()]);
         }
 
         return AjaxResponse::success();
-    }
-
-    public function get_map_blob(Town $town): array {
-        $zones = []; $range_x = [PHP_INT_MAX,PHP_INT_MIN]; $range_y = [PHP_INT_MAX,PHP_INT_MIN];
-        $zones_classes = [];
-
-        $soul_zones_ids = array_map(function(Zone $z) { return $z->getId(); },$this->zone_handler->getSoulZones( $town ) );
-
-        foreach ($town->getZones() as $zone) {
-            $x = $zone->getX();
-            $y = $zone->getY();
-
-            $range_x = [ min($range_x[0], $x), max($range_x[1], $x) ];
-            $range_y = [ min($range_y[0], $y), max($range_y[1], $y) ];
-
-            if (!isset($zones[$x])) $zones[$x] = [];
-            $zones[$x][$y] = $zone;
-
-            if (!isset($zones_attributes[$x])) $zones_attributes[$x] = [];
-            $zones_classes[$x][$y] = $this->zone_handler->getZoneClasses(
-                $town,
-                $zone,
-                null,
-                in_array($zone->getId(), $soul_zones_ids),
-                true
-            );
-        }
-
-        return [
-            'map_data' => [
-                'zones' =>  $zones,
-                'zones_classes' =>  $zones_classes,
-                'town_devast' => $town->getDevastated(),
-                'routes' => $this->entity_manager->getRepository(ExpeditionRoute::class)->findByTown( $town ),
-                'pos_x'  => 0,
-                'pos_y'  => 0,
-                'map_x0' => $range_x[0],
-                'map_x1' => $range_x[1],
-                'map_y0' => $range_y[0],
-                'map_y1' => $range_y[1],
-            ]
-        ];
     }
 
     /**
@@ -321,7 +327,7 @@ class AdminTownController extends AdminActionController
     public function bank_item_action(int $id, JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $itemFactory): Response
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if(!$town) {
+        if (!$town) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
@@ -331,7 +337,7 @@ class AdminTownController extends AdminActionController
         $item = $this->entity_manager->getRepository(Item::class)->find($item_id);
 
         if ($change == 'add') {
-            $handler->forceMoveItem( $town->getBank(), $itemFactory->createItem( $item->getPrototype()->getName()) );
+            $handler->forceMoveItem($town->getBank(), $itemFactory->createItem($item->getPrototype()->getName()));
         } else {
             $handler->forceRemoveItem($item);
         }
@@ -355,7 +361,7 @@ class AdminTownController extends AdminActionController
     public function bank_spawn_item(int $id, JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $itemFactory): Response
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if(!$town) {
+        if (!$town) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
@@ -393,7 +399,7 @@ class AdminTownController extends AdminActionController
     public function citizen_spawn_item(int $id, JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $itemFactory): Response
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if(!$town) {
+        if (!$town) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
@@ -404,25 +410,25 @@ class AdminTownController extends AdminActionController
         $broken = $parser->get('broken', false);
         $essential = $parser->get('essential', false);
 
-        if(empty($targets))
+        if (empty($targets))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         /** @var ItemPrototype $itemPrototype */
         $itemPrototype = $this->entity_manager->getRepository(ItemPrototype::class)->find($prototype_id);
-        
+
         $targets = explode(",", $targets);
         foreach ($targets as $target) {
             $infos = explode("-", $target);
             /** @var Citizen $citizen */
             $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
 
-            for ($i = 0 ; $i < $number ; $i++) {
+            for ($i = 0; $i < $number; $i++) {
                 /** @var Item $item */
                 $item = $itemFactory->createItem($itemPrototype->getName(), $broken, $poison);
                 $item->setEssential($essential);
                 $handler->forceMoveItem($infos[0] == "r" ? $citizen->getInventory() : $citizen->getHome()->getChest(), $item);
             }
-            
+
             $this->entity_manager->persist($citizen);
             $this->entity_manager->persist($citizen->getHome()->getChest());
         }
@@ -445,11 +451,11 @@ class AdminTownController extends AdminActionController
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         $townRanking = $this->entity_manager->getRepository(TownRankingProxy::class)->find($id);
         /** @var Town $town */
-        if(!$town && !$townRanking) {
+        if (!$town && !$townRanking) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
-        if(!$town && $townRanking)
+        if (!$town && $townRanking)
             $town = $townRanking;
 
         $prototype_id = $parser->get('prototype');
@@ -458,7 +464,7 @@ class AdminTownController extends AdminActionController
         /** @var PictoPrototype $pictoPrototype */
         $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->find($prototype_id);
 
-        foreach ($town->getCitizens() as $citizen){
+        foreach ($town->getCitizens() as $citizen) {
             /** @var Citizen $citizen */
             // if(!$citizen->getAlive()) continue;
 
@@ -468,7 +474,7 @@ class AdminTownController extends AdminActionController
                 $picto->setPrototype($pictoPrototype)
                     ->setPersisted(2)
                     ->setUser($citizen->getUser());
-                if(is_a($town, Town::class))
+                if (is_a($town, Town::class))
                     $picto->setTown($town);
                 else
                     $picto->setTownEntry($town);
@@ -486,157 +492,159 @@ class AdminTownController extends AdminActionController
         return AjaxResponse::success();
     }
 
-  /**
-   * @Route("/api/admin/town/{id}/status/give", name="admin_town_give_status", requirements={"id"="\d+"})
-   * @Security("is_granted('ROLE_ADMIN')")
-   * Give status to selected citizens of a town
-   * @param int $id Town ID
-   * @param JSONRequestParser $parser The Request Parser
-   * @param CitizenHandler $handler
-   * @return Response
-   */
-  public function town_give_status(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
-  {
-    $town = $this->entity_manager->getRepository(Town::class)->find($id);
-    if(!$town) {
-      return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+    /**
+     * @Route("/api/admin/town/{id}/status/give", name="admin_town_give_status", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Give status to selected citizens of a town
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser The Request Parser
+     * @param CitizenHandler $handler
+     * @return Response
+     */
+    public function town_give_status(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
+    {
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        $status_id = $parser->get('status');
+        $targets = $parser->get('targets', "");
+
+        /** @var CitizenStatus $citizenStatus */
+        $citizenStatus = $this->entity_manager->getRepository(CitizenStatus::class)->find($status_id);
+
+        $targets = explode(",", $targets);
+        foreach ($targets as $target) {
+            $infos = explode("-", $target);
+            /** @var Citizen $citizen */
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
+
+            $citizen->addStatus($citizenStatus);
+
+            $this->entity_manager->persist($citizen);
+        }
+
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
     }
 
-    $status_id = $parser->get('status');
-    $targets = $parser->get('targets', "");
+    /**
+     * @Route("/api/admin/town/{id}/status/take", name="admin_town_take_status", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Give status to selected citizens of a town
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser The Request Parser
+     * @param CitizenHandler $handler
+     * @return Response
+     */
+    public function town_take_status(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
+    {
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
 
-    /** @var CitizenStatus $citizenStatus */
-    $citizenStatus = $this->entity_manager->getRepository(CitizenStatus::class)->find($status_id);
+        $status_id = $parser->get('status');
+        $targets = $parser->get('targets', "");
 
-    $targets = explode(",", $targets);
-    foreach ($targets as $target) {
-      $infos = explode("-", $target);
-      /** @var Citizen $citizen */
-      $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
+        /** @var CitizenStatus $citizenStatus */
+        $citizenStatus = $this->entity_manager->getRepository(CitizenStatus::class)->find($status_id);
 
-      $citizen->addStatus($citizenStatus);
+        $targets = explode(",", $targets);
+        foreach ($targets as $target) {
+            $infos = explode("-", $target);
+            /** @var Citizen $citizen */
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
 
-      $this->entity_manager->persist($citizen);
+            $citizen->removeStatus($citizenStatus);
+
+            $this->entity_manager->persist($citizen);
+        }
+
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
     }
 
-    $this->entity_manager->flush();
+    /**
+     * @Route("/api/admin/town/{id}/role/give", name="admin_town_give_role", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Give status to selected citizens of a town
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser The Request Parser
+     * @param CitizenHandler $handler
+     * @return Response
+     */
+    public function town_give_role(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
+    {
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
 
-    return AjaxResponse::success();
-  }
+        $role_id = $parser->get('role');
+        $targets = $parser->get('targets', "");
 
-  /**
-   * @Route("/api/admin/town/{id}/status/take", name="admin_town_take_status", requirements={"id"="\d+"})
-   * @Security("is_granted('ROLE_ADMIN')")
-   * Give status to selected citizens of a town
-   * @param int $id Town ID
-   * @param JSONRequestParser $parser The Request Parser
-   * @param CitizenHandler $handler
-   * @return Response
-   */
-  public function town_take_status(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
-  {
-    $town = $this->entity_manager->getRepository(Town::class)->find($id);
-    if(!$town) {
-      return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        /** @var CitizenRole $citizenRole */
+        $citizenRole = $this->entity_manager->getRepository(CitizenRole::class)->find($role_id);
+
+        $targets = explode(",", $targets);
+        foreach ($targets as $target) {
+            $infos = explode("-", $target);
+            /** @var Citizen $citizen */
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
+
+            $citizen->addRole($citizenRole);
+            $citizen->setPm($this->citizen_handler->getMaxPM($citizen));
+
+            $this->entity_manager->persist($citizen);
+        }
+
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
     }
 
-    $status_id = $parser->get('status');
-    $targets = $parser->get('targets', "");
+    /**
+     * @Route("/api/admin/town/{id}/role/take", name="admin_town_take_role", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Give status to selected citizens of a town
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser The Request Parser
+     * @param CitizenHandler $handler
+     * @return Response
+     */
+    public function town_take_role(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
+    {
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
 
-    /** @var CitizenStatus $citizenStatus */
-    $citizenStatus = $this->entity_manager->getRepository(CitizenStatus::class)->find($status_id);
+        $role_id = $parser->get('role');
+        $targets = $parser->get('targets', "");
 
-    $targets = explode(",", $targets);
-    foreach ($targets as $target) {
-      $infos = explode("-", $target);
-      /** @var Citizen $citizen */
-      $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
+        /** @var CitizenRole $citizenRole */
+        $citizenRole = $this->entity_manager->getRepository(CitizenRole::class)->find($role_id);
 
-      $citizen->removeStatus($citizenStatus);
+        $targets = explode(",", $targets);
+        foreach ($targets as $target) {
+            $infos = explode("-", $target);
+            /** @var Citizen $citizen */
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
 
-      $this->entity_manager->persist($citizen);
+            $citizen->removeRole($citizenRole);
+            $citizen->setPm($this->citizen_handler->getMaxPM($citizen));
+
+            $this->entity_manager->persist($citizen);
+        }
+
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
     }
-
-    $this->entity_manager->flush();
-
-    return AjaxResponse::success();
-  }
-
-  /**
-   * @Route("/api/admin/town/{id}/role/give", name="admin_town_give_role", requirements={"id"="\d+"})
-   * @Security("is_granted('ROLE_ADMIN')")
-   * Give status to selected citizens of a town
-   * @param int $id Town ID
-   * @param JSONRequestParser $parser The Request Parser
-   * @param CitizenHandler $handler
-   * @return Response
-   */
-  public function town_give_role(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
-  {
-    $town = $this->entity_manager->getRepository(Town::class)->find($id);
-    if(!$town) {
-      return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-    }
-
-    $role_id = $parser->get('role');
-    $targets = $parser->get('targets', "");
-
-    /** @var CitizenRole $citizenRole */
-    $citizenRole = $this->entity_manager->getRepository(CitizenRole::class)->find($role_id);
-
-    $targets = explode(",", $targets);
-    foreach ($targets as $target) {
-      $infos = explode("-", $target);
-      /** @var Citizen $citizen */
-      $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
-
-      $citizen->addRole($citizenRole);
-
-      $this->entity_manager->persist($citizen);
-    }
-
-    $this->entity_manager->flush();
-
-    return AjaxResponse::success();
-  }
-
-  /**
-   * @Route("/api/admin/town/{id}/role/take", name="admin_town_take_role", requirements={"id"="\d+"})
-   * @Security("is_granted('ROLE_ADMIN')")
-   * Give status to selected citizens of a town
-   * @param int $id Town ID
-   * @param JSONRequestParser $parser The Request Parser
-   * @param CitizenHandler $handler
-   * @return Response
-   */
-  public function town_take_role(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
-  {
-    $town = $this->entity_manager->getRepository(Town::class)->find($id);
-    if(!$town) {
-      return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-    }
-
-    $role_id = $parser->get('role');
-    $targets = $parser->get('targets', "");
-
-    /** @var CitizenRole $citizenRole */
-    $citizenRole = $this->entity_manager->getRepository(CitizenRole::class)->find($role_id);
-
-    $targets = explode(",", $targets);
-    foreach ($targets as $target) {
-      $infos = explode("-", $target);
-      /** @var Citizen $citizen */
-      $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
-
-      $citizen->removeRole($citizenRole);
-
-      $this->entity_manager->persist($citizen);
-    }
-
-    $this->entity_manager->flush();
-
-    return AjaxResponse::success();
-  }
 
     /**
      * @Route("/api/admin/town/{id}/ap/alter", name="admin_town_alter_ap", requirements={"id"="\d+"})
@@ -650,7 +658,7 @@ class AdminTownController extends AdminActionController
     public function town_alter_ap(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if(!$town) {
+        if (!$town) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
@@ -679,8 +687,7 @@ class AdminTownController extends AdminActionController
                 case 'remove':
                     if ($number >= $current_ap) {
                         $citizen->setAp(0);
-                    }
-                    else {
+                    } else {
                         $citizen->setAp($current_ap - $number);
                     }
                     break;
@@ -709,9 +716,10 @@ class AdminTownController extends AdminActionController
      * @param TownHandler $th The town handler
      * @return Response
      */
-    public function town_add_building(int $id, JSONRequestParser $parser, TownHandler $th) {
+    public function town_add_building(int $id, JSONRequestParser $parser, TownHandler $th)
+    {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if(!$town) {
+        if (!$town) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
@@ -722,7 +730,7 @@ class AdminTownController extends AdminActionController
         $proto_id = $parser->get("prototype_id");
 
         $proto = $this->entity_manager->getRepository(BuildingPrototype::class)->find($proto_id);
-        if(!$proto)
+        if (!$proto)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $th->addBuilding($town, $proto);
@@ -742,9 +750,10 @@ class AdminTownController extends AdminActionController
      * @param TownHandler $th The town handler
      * @return Response
      */
-    public function town_set_building_ap(int $id, JSONRequestParser $parser, TownHandler $th) {
+    public function town_set_building_ap(int $id, JSONRequestParser $parser, TownHandler $th)
+    {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if(!$town) {
+        if (!$town) {
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
@@ -756,7 +765,7 @@ class AdminTownController extends AdminActionController
 
         /** @var Building $building */
         $building = $this->entity_manager->getRepository(Building::class)->find($building_id);
-        if(!$building)
+        if (!$building)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $ap = intval($parser->get("ap"));
@@ -767,10 +776,11 @@ class AdminTownController extends AdminActionController
 
         $building->setAp($ap);
 
-        $building->setComplete( $building->getAp() >= $building->getPrototype()->getAp() );
+        $building->setComplete($building->getAp() >= $building->getPrototype()->getAp());
 
         if ($building->getAp() >= $building->getPrototype()->getAp()) {
-            $building->setComplete(true);            $th->triggerBuildingCompletion($town, $building);
+            $building->setComplete(true);
+            $th->triggerBuildingCompletion($town, $building);
         }
 
         $this->entity_manager->persist($building);
@@ -793,9 +803,9 @@ class AdminTownController extends AdminActionController
 
         $towns = $em->getRepository(TownRankingProxy::class)->findByNameContains($parser->get('name'));
 
-        return $this->render( 'ajax/admin/towns/townlist.html.twig', $this->addDefaultTwigArgs("admin_towns", [
+        return $this->render('ajax/admin/towns/townlist.html.twig', $this->addDefaultTwigArgs("admin_towns", [
             'towns' => $towns,
-            'nohref' => $parser->get('no-href',false),
+            'nohref' => $parser->get('no-href', false),
             'target' => 'admin_old_town_explorer'
         ]));
     }
@@ -813,9 +823,9 @@ class AdminTownController extends AdminActionController
 
         $towns = $em->getRepository(Town::class)->findByNameContains($parser->get('name'));
 
-        return $this->render( 'ajax/admin/towns/townlist.html.twig', $this->addDefaultTwigArgs("admin_towns", [
+        return $this->render('ajax/admin/towns/townlist.html.twig', $this->addDefaultTwigArgs("admin_towns", [
             'towns' => $towns,
-            'nohref' => $parser->get('no-href',false),
+            'nohref' => $parser->get('no-href', false),
             'target' => 'admin_town_explorer'
         ]));
     }

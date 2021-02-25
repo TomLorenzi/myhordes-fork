@@ -709,6 +709,8 @@ class CitizenHandler
         if($citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'prowatch'))
             $fatigue /= 2;
 
+        $fatigue = max($this->getNightwatchBaseFatigue($citizen), $fatigue);
+
         $chances = $fatigue;
 
         $status_effect_list = [
