@@ -846,6 +846,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
                 array('item' => 'water_can_1_#00','count' => 3),
                 array('item' => 'bed_#00','count' => 2),
                 array('item' => 'bumpKey_#00','count' => 3),
+                array('item' => 'vagoul_#00','count' => 5),
         ], 'desc' => 'Diese heruntergekommene Gebäude scheint einmal ein Hospital gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...'],
     ];
 

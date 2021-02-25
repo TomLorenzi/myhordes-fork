@@ -536,10 +536,16 @@ class GameFactory
         if ($town->isOpen() && !$town->getCitizens()->isEmpty()) return false;
 
         $score = 0;
+        $lastDay = 0;
         foreach ($town->getRankingEntry()->getCitizens() as $r_citizen) {
             /* @var CitizenRankingProxy $citizen */
             $score += $r_citizen->getDay();
+            if($lastDay < $r_citizen->getDay())
+                $lastDay = $r_citizen->getDay();
         }
+        if($lastDay > 0)
+            $town->getRankingEntry()->setDays($lastDay);
+
         $town->getRankingEntry()->setScore($score);
 
         $this->entity_manager->remove($town);

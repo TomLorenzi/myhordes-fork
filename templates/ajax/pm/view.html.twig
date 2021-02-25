@@ -199,6 +199,8 @@
                         fun_msg_loader_control();
                         if (elem.getAttribute('x-spring')) $.msg.overrideFetchEndpoint( elem.getAttribute('x-spring') );
                         else $.msg.restoreFetchEndpoint();
+
+                        $.html.setTitleSegmentCount( document.querySelector('ul.pm-conversation-list>li[x-title][x-endpoint].new') ? 99 : 0 );
                     } );
                 });
 
@@ -255,6 +257,8 @@
                 const index_data = data.index_list.data;
                 const focus_data = data.focus_list.data;
 
+                let new_content = false;
+
                 let newstr = '';
                 for (let i = 0; i < index_data.length; i++) {
 
@@ -271,6 +275,7 @@
                         existing_node.remove();
                     }
                     newstr += elem.outerHTML;
+                    new_content = true;
                 }
 
                 if (newstr !== '' && index_container) {
@@ -290,6 +295,7 @@
                     const existing_node = document.querySelector('.group-conversation>li[x-domain="' + domain + '"][x-identifier="' + id + '"]');
                     if (existing_node) existing_node.remove();
                     newstr += elem.outerHTML;
+                    new_content = true;
                 }
 
                 if (newstr !== '' && focus_container) {
@@ -297,6 +303,8 @@
                     if (preview_node) preview_node.remove();
                     fun_msg_events();
                 }
+
+                if (new_content) $.html.setTitleSegmentCount(99);
 
                 $.msg.registerFetchCallback(fun_conv_updater_control);
             }
@@ -306,6 +314,8 @@
                 conv_list_more = document.querySelector('#pm-conversation-list>.pm-endless-more');
                 fun_conv_events();
                 fun_conv_loader_control();
+
+                $.html.setTitleSegmentCount( document.querySelector('ul.pm-conversation-list>li[x-title][x-endpoint].new') ? 99 : 0 );
             } );
             document.getElementById('pm-conversation-list').addEventListener('scroll', fun_conv_loader_control);
 

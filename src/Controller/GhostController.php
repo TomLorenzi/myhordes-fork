@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Annotations\GateKeeperProfile;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
@@ -29,9 +30,10 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @GateKeeperProfile(only_ghost=true)
  * @method User|null getUser
  */
-class GhostController extends CustomAbstractController implements GhostInterfaceController
+class GhostController extends CustomAbstractController
 {
     private UserHandler $user_handler;
     const ErrorWrongTownPassword          = ErrorHelper::BaseGhostErrors + 1;

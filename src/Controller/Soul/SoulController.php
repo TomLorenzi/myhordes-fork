@@ -2,6 +2,7 @@
 
 namespace App\Controller\Soul;
 
+use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractController;
 use App\Entity\Announcement;
 use App\Entity\CauseOfDeath;
@@ -163,6 +164,7 @@ class SoulController extends CustomAbstractController
 
     /**
      * @Route("jx/soul/fuzzyfind/{url}", name="users_fuzzyfind")
+     * @GateKeeperProfile(allow_during_attack=true,record_user_activity=false)
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @param string $url

@@ -2,6 +2,7 @@
 
 namespace App\Controller\Messages;
 
+use App\Annotations\GateKeeperProfile;
 use App\Entity\AdminReport;
 use App\Entity\Announcement;
 use App\Entity\ForumModerationSnippet;
@@ -25,22 +26,30 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @GateKeeperProfile(allow_during_attack=true)
  * @method User getUser
  */
 class MessageGlobalPMController extends MessageController
 {
-
     /**
      * @Route("api/pm/ping", name="api_pm_ping")
+     * @GateKeeperProfile("skip")
      * @param EntityManagerInterface $em
+     * @param SessionInterface $s
      * @return Response
      */
-    public function ping_check_new_message(EntityManagerInterface $em): Response {
+    public function ping_check_new_message(EntityManagerInterface $em, SessionInterface $s): Response {
+        $cache = $s->get('cache_ping');
+
+        if ($cache && isset($cache['ts']) && isset($cache['r']) && (new DateTime('-1min')) < $cache['ts'] )
+            return new AjaxResponse($cache['r']);
+
         $user = $this->getUser();
         if (!$user) return new AjaxResponse(['new' => 0, 'connected' => false, 'success' => true]);
 
@@ -56,23 +65,28 @@ class MessageGlobalPMController extends MessageController
             $subscriptions =  $subscriptions->filter(fn(ForumThreadSubscription $s) => in_array($s->getThread()->getForum(), $forums));
         }
 
-        return new AjaxResponse(['new' =>
+        $response = ['new' =>
             count($subscriptions) +
             $em->getRepository(UserGroupAssociation::class)->countUnreadPMsByUser($user) +
             $em->getRepository(UserGroupAssociation::class)->countUnreadInactivePMsByUser($user) +
             $em->getRepository(GlobalPrivateMessage::class)->countUnreadDirectPMsByUser($user) +
             $em->getRepository(Announcement::class)->countUnreadByUser($user, $this->getUserLanguage()),
-            'connected' => 15000, 'success' => true]);
+            'connected' => 60000, 'success' => true];
+
+        $s->set('cache_ping', ['ts' => new DateTime(), 'r' => $response]);
+
+        return new AjaxResponse($response);
     }
 
     /**
      * @Route("api/pm/spring/{domain}/{id<\d+>}", name="api_pm_spring")
+     * @param EntityManagerInterface $em
+     * @param JSONRequestParser $parser
      * @param string $domain
      * @param int $id
-     * @param EntityManagerInterface $em
      * @return Response
      */
-    public function ping_fetch_new_messages(EntityManagerInterface $em, JSONRequestParser $parser, string $domain = '', int $id = 0): Response {
+    public function ping_fetch_new_messages(EntityManagerInterface $em, JSONRequestParser $parser, SessionInterface $s, string $domain = '', int $id = 0): Response {
 
 
         $user = $this->getUser();
@@ -136,7 +150,7 @@ class MessageGlobalPMController extends MessageController
         }
 
         return new AjaxResponse(['success' => true, 'response_key' => (new DateTime('now'))->getTimestamp(), 'payload' => [
-            'connected' => 10000,
+            'connected' => 60000,
             'index' => $index,
             'focus' => $focus,
         ]]);
@@ -246,10 +260,9 @@ class MessageGlobalPMController extends MessageController
                 'obj'    => $subscription->getThread(),
                 'date'   => new DateTime(),
                 'system' => false,
-                'title'  => $this->translator->trans(T::__('Neuer Beitrag in %topic%', 'global'), [
-                    '%topic%' => $subscription->getThread()->getTranslatable()
+                'title'  => $subscription->getThread()->getTranslatable()
                         ? $this->translator->trans($subscription->getThread()->getTitle(), [], 'game') : $subscription->getThread()->getTitle()
-                ], 'global'),
+                ,
                 'closed' => false,
                 'count'  => $subscription->getNum(),
                 'unread' => $subscription->getNum(),
@@ -481,7 +494,7 @@ class MessageGlobalPMController extends MessageController
      * @param JSONRequestParser $p
      * @return Response
      */
-    public function pm_conversation_group(int $id, EntityManagerInterface $em, JSONRequestParser $p): Response {
+    public function pm_conversation_group(int $id, EntityManagerInterface $em, JSONRequestParser $p, SessionInterface $s): Response {
 
         $group = $em->getRepository( UserGroup::class )->find($id);
         if (!$group || $group->getType() !== UserGroup::GroupMessageGroup) return new Response('not found');
@@ -504,6 +517,7 @@ class MessageGlobalPMController extends MessageController
         $last = $group_association->getRef2();
 
         try {
+            $s->remove('cache_ping');
             $this->entity_manager->persist( $group_association->setRef1( $read_only ? $group_association->getRef3() : $group->getRef1() )->setRef2( $messages[0]->getId() ) );
             $this->entity_manager->flush();
         } catch (\Exception $e) {}
@@ -525,10 +539,12 @@ class MessageGlobalPMController extends MessageController
     /**
      * @Route("jx/pm/conversation/dm", name="pm_dm")
      * @param EntityManagerInterface $em
+     * @param LogTemplateHandler $th
      * @param JSONRequestParser $p
+     * @param SessionInterface $s
      * @return Response
      */
-    public function pm_direct_messages(EntityManagerInterface $em, LogTemplateHandler $th, JSONRequestParser $p): Response {
+    public function pm_direct_messages(EntityManagerInterface $em, LogTemplateHandler $th, JSONRequestParser $p, SessionInterface $s): Response {
 
         $num = max(5,min($p->get('num', 5),30));
         $last_id = $p->get('last', 0);
@@ -549,6 +565,7 @@ class MessageGlobalPMController extends MessageController
             }
 
         if ($update) try {
+            $s->remove('cache_ping');
             $this->entity_manager->flush();
         } catch (\Exception $e) {}
 
@@ -581,15 +598,17 @@ class MessageGlobalPMController extends MessageController
      * @Route("jx/pm/conversation/announce/{id<\d+>}", name="pm_announce")
      * @param int $id
      * @param EntityManagerInterface $em
+     * @param SessionInterface $s
      * @return Response
      */
-    public function pm_announcement(int $id, EntityManagerInterface $em): Response {
+    public function pm_announcement(int $id, EntityManagerInterface $em, SessionInterface $s): Response {
         $announce = $em->getRepository( Announcement::class )->find($id);
         if (!$announce || $announce->getLang() != $this->getUserLanguage()) return new Response('not found');
 
         $new = !$announce->getReadBy()->contains($this->getUser());
         if ($new)
             try {
+                $s->remove('cache_ping');
                 $announce->getReadBy()->add($this->getUser());
                 $this->entity_manager->persist( $announce );
                 $this->entity_manager->flush();
@@ -608,9 +627,10 @@ class MessageGlobalPMController extends MessageController
      * @Route("jx/pm/conversation/announce/all", name="pm_announce_all")
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
+     * @param SessionInterface $s
      * @return Response
      */
-    public function pm_announcement_all(EntityManagerInterface $em, JSONRequestParser $parser): Response {
+    public function pm_announcement_all(EntityManagerInterface $em, JSONRequestParser $parser, SessionInterface $s): Response {
         $skip = $parser->get_array('skip');
         $num = max(1,min(10,$parser->get_num('num', 5)));
 
@@ -628,6 +648,7 @@ class MessageGlobalPMController extends MessageController
 
         if ($new)
             try {
+                $s->remove('cache_ping');
                 $this->entity_manager->flush();
             } catch (\Exception $e) {}
 
@@ -908,11 +929,12 @@ class MessageGlobalPMController extends MessageController
         if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         // Check the last 4 posts; if they were all made by the same user, they must wait 5min before they can post again
+        /** @var GlobalPrivateMessage[] $last_posts */
         $last_posts = $this->entity_manager->getRepository(GlobalPrivateMessage::class)->findBy(['receiverGroup' => $group], ['timestamp' => 'DESC'], 4);
         if (count($last_posts) === 4) {
             $all_by_user = true;
             foreach ($last_posts as $last_post) $all_by_user = $all_by_user && ($last_post->getSender() === $user);
-            if ($all_by_user && $last_posts[0]->getDate()->getTimestamp() > (time() - 300) )
+            if ($all_by_user && $last_posts[0]->getTimestamp()->getTimestamp() > (time() - 300) )
                 return AjaxResponse::error( self::ErrorForumLimitHit );
         }
 

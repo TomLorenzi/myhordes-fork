@@ -759,9 +759,13 @@ class ActionHandler
                 } elseif (is_a($target, ItemPrototype::class)) {
                     if ($target->getHeavy() && $this->inventory_handler->countHeavyItems( $citizen->getInventory() ) > 0)
                         $execute_info_cache['message'][] = $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
-                    if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ),
-                        [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ]
-                        , true)) $execute_info_cache['items_spawn'][] = $target;
+                    if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ], true)) {
+                        $execute_info_cache['items_spawn'][] = $target;
+                        if(!$citizen->getZone())
+                            $tags[] = "inside";
+                        else
+                            $tags[] = "outside";
+                    }
                 }
             }
 
@@ -775,22 +779,30 @@ class ActionHandler
 
                     if ($proto) $tags[] = 'spawned';
 
+                    $force = false;
+
                     switch ($item_spawn->getSpawnTarget()) {
                         case AffectItemSpawn::DropTargetFloor:
                             $target = [ $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
+                            $force = true;
                             break;
                         case AffectItemSpawn::DropTargetRucksack:
-                            $target = [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
+                            $target = [ $citizen->getInventory() ];
                         case AffectItemSpawn::DropTargetDefault:
                         default:
-                            $target = [ $execute_info_cache['source_inv'], $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
+                            $target = $execute_info_cache['source_inv'] !== null ? [$execute_info_cache['source_inv']] : [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ];
                             break;
                     }
 
                     if ($proto) {
-                        if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ), $target)) {
+                        if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $proto ), $target, $force)) {
                             $execute_info_cache['items_spawn'][] = $proto;
+                            if(!$citizen->getZone())
+                                $tags[] = "inside";
+                            else
+                                $tags[] = "outside";
                         } else {
+                            // TODO: Get the actual error (not enough place, too many heavy items, etc...)
                             return self::ErrorActionImpossible;
                         }
                     }
@@ -820,7 +832,7 @@ class ActionHandler
                     if ($kills > 0) {
                         $citizen->getZone()->setZombies( $citizen->getZone()->getZombies() - $kills );
                         $execute_info_cache['kills'] = $kills;
-                        $this->entity_manager->persist( $this->log->zombieKill( $citizen, $execute_info_cache['item'], $kills ) );
+                        $this->entity_manager->persist( $this->log->zombieKill( $citizen, $execute_info_cache['item'], $kills, $action->getName() ) );
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
                         if($citizen->getZone()->getZombies() <= 0){
                             $tags[] = 'kill-latest';
@@ -836,7 +848,7 @@ class ActionHandler
                         $ruinZone->setZombies( $ruinZone->getZombies() - $kills );
                         $ruinZone->setKilledZombies( $ruinZone->getKilledZombies() + $kills );
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
-                        $this->entity_manager->persist( $this->log->zombieKill( $citizen, $execute_info_cache['item'], $kills ) );
+                        $this->entity_manager->persist( $this->log->zombieKill( $citizen, $execute_info_cache['item'], $kills, $action->getName() ) );
                     }
                 }
             }
@@ -863,7 +875,10 @@ class ActionHandler
                         }
 
                 if ($zoneEffect->getUncoverRuin()) {
+                    // If we get 4 the first time, roll again to reduce the chances for 4
                     $count = min(mt_rand(2,4), $base_zone->getBuryCount());
+                    if ($count === 4) $count = min(mt_rand(2,4), $base_zone->getBuryCount());
+
                     $execute_info_cache['bury_count'] = $count;
                     $base_zone->setBuryCount( max(0, $base_zone->getBuryCount() - $count ));
                     if ($base_zone->getPrototype())
@@ -1174,6 +1189,8 @@ class ActionHandler
                             if ($others_are_here) $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zone, $zero_zone, true ) );
                             $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zero_zone, $zone, false ) );
                         }
+                        if ( $result->getCustom() === 8 )
+                            $this->entity_manager->persist( $this->log->heroicReturnLog( $citizen, $zone ) );
                         if ( $result->getCustom() === 9 )
                             $this->entity_manager->persist( $this->log->heroicRescueLog( $citizen, $jumper, $zone ) );
                         else $this->entity_manager->persist( $this->log->doorPass( $jumper, true ) );
@@ -1460,7 +1477,7 @@ class ActionHandler
         $t_inv = $citizen->getTown()->getBank();
 
         switch ( $recipe->getType() ) {
-            case Recipe::WorkshopType:case Recipe::ManualInside:
+            case Recipe::WorkshopType:case Recipe::WorkshopTypeShamanSpecific:case Recipe::ManualInside:
                 if ($citizen->getZone()) return ErrorHelper::ErrorActionNotAvailable;
                 break;
             case Recipe::ManualOutside:
@@ -1479,7 +1496,7 @@ class ActionHandler
         } else $ap = 0;
 
 
-        if ( $recipe->getType() == Recipe::WorkshopType && (($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen )) )
+        if ( in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]) && (($citizen->getAp() + $citizen->getBp()) < $ap || $this->citizen_handler->isTired( $citizen )) )
             return ErrorHelper::ErrorNoAP;
 
         $source_inv = in_array($recipe->getType(), [Recipe::WorkshopType, Recipe::WorkshopTypeShamanSpecific]) ? [ $t_inv ] : ($citizen->getZone() ? [$c_inv] : [$c_inv, $citizen->getHome()->getChest() ]);

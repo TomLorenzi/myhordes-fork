@@ -339,9 +339,10 @@ for (let i = 0; i < scroll_areas.length; i++) {
                         zone_plane.style.top =  (-200 + dy *  50) + '%';
                         setTimeout(function() { $.ajax.pop_renderblock(); }, 1000)
                         $.ajax.background().push_renderblock().load(null, '{{ path('beyond_dashboard') }}', true);
-                    }, null, function() {
+                    }, null, function(data) {
                         map_area.querySelector('.zone-plane-controls').classList.remove('hide');
-                    } );
+                        $.html.selectErrorMessage( data.error, null, c.errors, data );
+                    }, true );
             });
     }
 

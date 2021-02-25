@@ -464,6 +464,7 @@
                                 <span class="entity">
                                     <img alt="{{ res.prototype.label|trans({},'items') }}" src="{{ asset('build/images/item/item_' ~ res.prototype.icon ~ '.gif' ) }}">
                                     x {{ res.chance }}
+                                    {% embed "ajax/game/item_proto_tooltip.html.twig" with {"item": res.prototype} %}{% endembed %}
                                 </span>
                             {% endfor %}
                         {% else %}

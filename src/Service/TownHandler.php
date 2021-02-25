@@ -570,6 +570,9 @@ class TownHandler
             $min2 = round($est->getZombies() - ($est->getZombies() * $offsetMin / 100));
             $max2 = round($est->getZombies() + ($est->getZombies() * $offsetMax / 100));
 
+            $min2 = round($min2, 2 - strlen(strval($min2)));
+            $max2 = round($max2, 2 - strlen(strval($max2)));
+
             $soulFactor = min(1 + (0.04 * $this->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 
             $min2 = round($min2 * $soulFactor);
@@ -758,7 +761,6 @@ class TownHandler
      * @return bool
      */
     public function is_vote_needed(Town $town, $role, bool $duringNightly = false): bool {
-
         // No votes needed before the town is full or during chaos
         if ($town->getChaos() || $town->isOpen()) return false;
 

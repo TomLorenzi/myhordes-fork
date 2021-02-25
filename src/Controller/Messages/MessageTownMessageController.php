@@ -280,6 +280,7 @@ class MessageTownMessageController extends MessageController
                     $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"', ['%reason%' => $reason ? $this->translator->trans( $reason->getText(), [], 'game' ) : '???'], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_TERROR:
+                case PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_TERROR:
                     $thread->setTitle( $this->translator->trans('Du bist vor Angst erstarrt!!', [], 'game') );
                     $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...', ['%num%' => $post->getForeignID()], 'game' ) );
                     break;

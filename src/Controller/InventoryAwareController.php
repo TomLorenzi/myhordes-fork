@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Annotations\GateKeeperProfile;
 use App\Entity\ActionCounter;
 use App\Entity\CampingActionPrototype;
 use App\Entity\CauseOfDeath;
@@ -16,6 +17,7 @@ use App\Entity\HomeActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemAction;
+use App\Entity\ItemGroupEntry;
 use App\Entity\ItemPrototype;
 use App\Entity\ItemTargetDefinition;
 use App\Entity\LogEntryTemplate;
@@ -45,7 +47,6 @@ use App\Structures\BankItem;
 use App\Structures\ItemRequest;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
-use DateTime;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
@@ -53,8 +54,13 @@ use Exception;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
+/**
+ * Class InventoryAwareController
+ * @package App\Controller
+ * @GateKeeperProfile(only_alive=true, only_with_profession=true)
+ */
 class InventoryAwareController extends CustomAbstractController
-    implements GameInterfaceController, GameProfessionInterfaceController, GameAliveInterfaceController, HookedInterfaceController
+    implements HookedInterfaceController
 {
     protected DeathHandler $death_handler;
     protected ActionHandler $action_handler;
@@ -312,7 +318,7 @@ class InventoryAwareController extends CustomAbstractController
         return [ 'recipes' => $out, 'source_items' => $source_db ];
     }
 
-    protected function renderInventoryAsBank( Inventory $inventory ) {
+    protected function renderInventoryAsBank( Inventory $inventory ): array {
         $qb = $this->entity_manager->createQueryBuilder();
         $qb
             ->select('i.id', 'c.label as l1', 'cr.label as l2', 'SUM(i.count) as n')->from('App:Item','i')
@@ -736,9 +742,25 @@ class InventoryAwareController extends CustomAbstractController
         if ($recipe === null || !in_array($recipe->getType(), [Recipe::ManualAnywhere, Recipe::ManualOutside, Recipe::ManualInside]))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if (($error = $handler->execute_recipe( $citizen, $recipe, $remove, $message )) !== ActionHandler::ErrorNone )
-            return AjaxResponse::error( $error );
-        else try {
+        if (($error = $handler->execute_recipe( $citizen, $recipe, $remove, $message )) !== ActionHandler::ErrorNone ) {
+            if ($error === ErrorHelper::ErrorItemsMissing && in_array($recipe->getType(), [Recipe::ManualAnywhere, Recipe::ManualInside, Recipe::ManualOutside])) {
+                $items = "";
+                $count = 0;
+                foreach ($recipe->getSource()->getEntries() as $entry) {
+                    if (!empty($items)) {
+                        if (++$count < $recipe->getSource()->getEntries()->count()-1)
+                            $items .= ", ";
+                        else
+                            $items .= " " . $this->translator->trans("und", [], "global") . " ";
+                    }
+                    $items .= $this->log->wrap($this->log->iconize($entry->getPrototype()));
+                }
+                $this->addFlash("error", $this->translator->trans('Du brauchst noch folgende Gegenstände: %list%.', ["%list%" => $items], 'game'));
+                return AjaxResponse::success();
+            } else {
+                return AjaxResponse::success($error);
+            }
+        } else try {
 
             if ($trigger_after) $trigger_after($recipe);
 

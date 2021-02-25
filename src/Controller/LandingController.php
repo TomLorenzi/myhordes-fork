@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Annotations\GateKeeperProfile;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\User;
@@ -13,6 +14,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class LandingController
+ * @package App\Controller
+ * @GateKeeperProfile(allow_during_attack=true)
+ */
 class LandingController extends CustomAbstractController
 {
 

@@ -20,6 +20,9 @@ class ActionCounter
     const ActionTypeRemoveLog   = 6;
     const ActionTypeSendPMItem  = 7;
     const ActionTypeSandballHit = 8;
+    const ActionTypeClothes     = 9;
+    const ActionTypeHomeCleanup = 10;
+    const ActionTypeShower      = 11;
 
     const PerGameActionTypes = [
         self::ActionTypeRemoveLog,

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Annotations\GateKeeperProfile;
 use App\Entity\RuinZone;
 use App\Entity\Zone;
 use App\Entity\ZonePrototype;
@@ -36,8 +37,9 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @GateKeeperProfile(only_alive=true, only_in_ruin=true)
  */
-class ExplorationController extends InventoryAwareController implements ExplorationInterfaceController, HookedInterfaceController
+class ExplorationController extends InventoryAwareController implements HookedInterfaceController
 {
     protected $game_factory;
     protected ZoneHandler $zone_handler;

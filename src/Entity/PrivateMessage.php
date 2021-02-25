@@ -22,6 +22,7 @@ class PrivateMessage
     const TEMPLATE_CROW_CATAPULT           = 7;
     const TEMPLATE_CROW_AVOID_TERROR       = 8;
     const TEMPLATE_CROW_NIGHTWATCH_WOUND   = 9;
+    const TEMPLATE_CROW_NIGHTWATCH_TERROR   = 10;
 
 
     /**

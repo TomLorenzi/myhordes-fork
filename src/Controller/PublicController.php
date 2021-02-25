@@ -295,6 +295,8 @@ class PublicController extends CustomAbstractController
                 $error
             );
 
+            $user->setLanguage($this->getUserLanguage());
+
             switch ($error) {
                 case UserFactory::ErrorNone:
                     try {

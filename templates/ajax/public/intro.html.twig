@@ -1,13 +1,15 @@
 {% extends "ajax/ajax.html.twig" %}
 {% block menu_bar %}
-    <div class="header-stats">
-        <ul>
-            <li><span class='count'>{{deadCitizenCount|number_format(0, ',', ' ')}}</span> {{'Bürger gestorben'|trans({}, 'welcome')}}</li>
-            <li><span class='count'>{{zombiesKilled|number_format(0, ',', ' ')}}</span> {{'Zombies gekillt'|trans({}, 'welcome')}}</li>
-            <li><span class='count'>{{canibalismCount|number_format(0, ',', ' ')}}</span> {{'Akte von Kannibalismus'|trans({}, 'welcome')}}</li>
-            <li class="end-stat">{{'Und das wird kaum besser werden...'|trans({}, 'welcome')}}</li>
-        </ul>
-    </div>
+    {% if not app.user %}
+        <div class="header-stats">
+            <ul>
+                <li><span class='count'>{{deadCitizenCount|number_format(0, ',', ' ')}}</span> {{'Bürger gestorben'|trans({}, 'welcome')}}</li>
+                <li><span class='count'>{{zombiesKilled|number_format(0, ',', ' ')}}</span> {{'Zombies gekillt'|trans({}, 'welcome')}}</li>
+                <li><span class='count'>{{canibalismCount|number_format(0, ',', ' ')}}</span> {{'Akte von Kannibalismus'|trans({}, 'welcome')}}</li>
+                <li class="end-stat">{{'Und das wird kaum besser werden...'|trans({}, 'welcome')}}</li>
+            </ul>
+        </div>
+    {% endif %}
 {% endblock %}
 {% block ajax %}
     <div class="row">

@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
+use App\Annotations\GateKeeperProfile;
 use App\Entity\ActionCounter;
 use App\Entity\ChatSilenceTimer;
 use App\Entity\Citizen;
 use App\Entity\CitizenEscortSettings;
-use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\DigRuinMarker;
 use App\Entity\DigTimer;
@@ -19,7 +19,6 @@ use App\Entity\PictoPrototype;
 use App\Entity\Recipe;
 use App\Entity\RuinExplorerStats;
 use App\Entity\ScoutVisit;
-use App\Entity\Town;
 use App\Entity\Zone;
 use App\Entity\ZoneTag;
 use App\Response\AjaxResponse;
@@ -48,15 +47,15 @@ use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Asset\Packages;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @GateKeeperProfile(only_alive=true, only_beyond=true)
  */
-class BeyondController extends InventoryAwareController implements BeyondInterfaceController
+class BeyondController extends InventoryAwareController
 {
 
     const ErrorNoReturnFromHere     = ErrorHelper::BaseBeyondErrors + 1;
@@ -635,6 +634,10 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
             $citizen->currentExplorerStats() || $citizen->getZone()->activeExplorerStats())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
+        // Block exploring if currently escorting citizens
+        if (!empty($citizen->getValidLeadingEscorts()))
+            return AjaxResponse::error( self::ErrorEscortFailure );
+
         // Block exploring if the zone is controlled by zombies
         if (!$this->zone_handler->check_cp( $citizen->getZone() ))
             return AjaxResponse::error( self::ErrorZoneBlocked );
@@ -793,7 +796,6 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
 
             $this->citizen_handler->inflictStatus($mover, "tg_chk_movewb");
 
-            // This text is a newly added one, but it breaks the "Sneak out of town"
             $smokeBombs = $zone->getChatSilenceTimers();
             $hideMove = false;
             foreach ($smokeBombs as $smokeBomb) {
@@ -808,6 +810,8 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
                 }
                 
             }
+
+            // This text is a newly added one, but it breaks the "Sneak out of town"
             if ($others_are_here && !($zone->getX() === 0 && $zone->getY() === 0) && !$hideMove) $this->entity_manager->persist( $this->log->outsideMove( $mover, $zone, $new_zone, true  ) );
             if (!($new_zone->getX() === 0 && $new_zone->getY() === 0)) $this->entity_manager->persist( $this->log->outsideMove( $mover, $new_zone, $zone, false ) );
 
@@ -927,7 +931,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function special_action_house_api(JSONRequestParser $parser): Response {
+    public function special_action_api(JSONRequestParser $parser): Response {
         return $this->generic_special_action_api( $parser );
     }
 
@@ -1069,7 +1073,7 @@ class BeyondController extends InventoryAwareController implements BeyondInterfa
         $this->citizen_handler->setAP( $citizen, true, -1 );
         if ($generator->chance( 0.1 )) {
             $zone->setZombies( $zone->getZombies() - 1 );
-            $this->entity_manager->persist( $this->log->zombieKill($citizen, null, 1));
+            $this->entity_manager->persist( $this->log->zombieKill($citizen, null, 1, 'barehand_attack'));
             // Add the picto Bare hands
             $this->picto_handler->give_picto($citizen, 'r_wrestl_#00');
             // Add the picto zed kill

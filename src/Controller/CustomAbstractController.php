@@ -68,6 +68,7 @@ class CustomAbstractController extends AbstractController {
             'timestamp' => new DateTime('now'),
             'attack'    => $this->time_keeper->secondsUntilNextAttack(null, true),
             'towntype'  => $this->getActiveCitizen() !== null ? $this->getActiveCitizen()->getTown()->getType()->getName() : "",
+            'offset'    => timezone_offset_get( timezone_open( date_default_timezone_get ( ) ), new DateTime() )
         ];
 
         $locale = $this->container->get('request_stack')->getCurrentRequest()->getLocale();

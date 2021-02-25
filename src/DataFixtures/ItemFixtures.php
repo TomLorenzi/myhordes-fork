@@ -362,7 +362,7 @@ class ItemFixtures extends Fixture
         ['label' => 'Bürgerbekleidung', 'icon' => 'basic_suit', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                     // -- ---
         ['label' => 'Dreckige Bürgerbekleidung', 'icon' => 'basic_suit_dirt', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                       // -- ---
         ['label' => 'Tarnanzug', 'icon' => 'vest_on', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                               // -- ---
-        ['label' => 'Tarnanzug (abgelegt)', 'icon' => 'vest_off', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                   //
+        ['label' => 'Tarnkleidung (nicht wirksam!)', 'icon' => 'vest_off', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                   //
         ['label' => 'Kleine Schaufel', 'icon' => 'pelle', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                           // -- ---
         ['label' => 'Dreibeiniger Malteser', 'icon' => 'tamed_pet', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // --
         ['label' => 'Dreibeiniger Malteser (gedopt)', 'icon' => 'tamed_pet_drug', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                   // --
@@ -406,6 +406,8 @@ class ItemFixtures extends Fixture
 		['label' => 'Krähenelfe', 'icon' => 'food_xmas', 'category' => 'Food', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],                              // -- Out
         ['label' => 'Logbuch Schokolade', 'icon' => 'wood_xmas', 'category' => 'Food', 'deco' => 8, 'heavy' => true, 'watchpoint' => 0],                              // -- Out
         ['label' => 'Grüner Kobold-Anzug', 'icon' => 'leprechaun_suit', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0], //
+        ['label' => 'Kreischender Wecker (entladen)', 'icon' => 'alarm_off', 'category' => 'Misc', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
+        ['label' => 'Kreischender Wecker (mit Strom)', 'icon' => 'alarm_on', 'category' => 'Misc', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
     ];
     
     public static $item_desc_data = [
@@ -731,7 +733,7 @@ class ItemFixtures extends Fixture
         'basic_suit_#00' => 'Die Klamotten, die du schon seit ein paar Jahren trägst. Sie sind abgetragen, erfüllen aber ihren Zweck: Sie sind bequem. In diesen Kleidern wirst du auch sterben, soviel steht schon einmal fest.', // Bürgerbekleidung
         'basic_suit_dirt_#00' => 'Schau dich nur an! Deine Kleidung ist vollkommen verdreckt und blutbesprengt! Du solltest sie reinigen, sobald du daheim bist!', // Dreckige Bürgerbekleidung
         'vest_on_#00' => 'Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.', // Tarnanzug
-        'vest_off_#00' => 'Mit dieser Kleidung kannst du dich in der Wüste unerkannt fortbewegen. Dennoch ist Vorsicht geboten: Wenn sich in einer Zone zu viele Zombies aufhalten, kannst du erkannt werden.', // Tarnanzug (abgelegt)
+        'vest_off_#00' => 'Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!', // Tarnkleidung (nicht wirksam!)
         'pelle_#00' => 'Mit der kleinen Schaufel musst du in der Wüste nicht so lange graben (automatisch aktiviert). Die Wahrscheinlichkeit einen Gegenstand zu finden ist ebenfalls größer.', // Kleine Schaufel
         'tamed_pet_#00' => 'Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich.', // Dreibeiniger Malteser
         'tamed_pet_drug_#00' => 'Der kleine kläffende Malteser stinkt nach nassem Fell, humpelt und sabbert ohne Ende. Einmal pro Tag kannst du ihn mit deinem Rucksackinhalt in die Stadt schicken. Dabei spielt es keine Rolle, wo du dich gerade befindest... Dein treuer Begleiter schlägt sich.', // Dreibeiniger Malteser (gedopt)
@@ -756,7 +758,9 @@ class ItemFixtures extends Fixture
         'leprechaun_suit_#00' => 'In dieser Aufmachung sind Sie so auffällig, dass Sie niemand bemerkt oder glaubt, sich das eingebildet zu haben! Sie würden es nicht missbrauchen, oder?',
         'broken_#00' => 'Diese Trümmerstücke waren mal Teil eines Gegenstandes, den du nicht mehr identifizieren kannst. Die Verformung der Teile lassen vermuten, dass dieser Gegenstand mit hoher Geschwindigkeit am Boden aufgeprallt ist...',
         'bullets_#00' => 'Eine Handvoll Munition. Aber was hat das für einen Sinn?',
-        'christmas_candy_#00' => 'Es sieht aus wie eine Art Schokoladenbonbon mit alkoholischem Likör darin. Oder eine andere Füllung...'
+        'christmas_candy_#00' => 'Es sieht aus wie eine Art Schokoladenbonbon mit alkoholischem Likör darin. Oder eine andere Füllung...',
+        'alarm_off_#00' => 'Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert.',
+        'alarm_on_#00' => 'Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei.',
     ];
     
     public static $item_prototype_properties = [

@@ -158,6 +158,13 @@ class DeathHandler
             $citizen->getUser()->addSoulPoints($nbSoulPoints);
         }
 
+        // Give special picto
+        if(($picto = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_SURVIVAL_PICTO, null))) {
+            $days = $citizen->getSurvivedDays();
+            $nbPicto = pow(($days - 3), 1.5);
+            $this->picto_handler->give_validated_picto($citizen, $picto, $nbPicto);
+        }
+
         // Add pictos
         if ($citizen->getSurvivedDays()) {
             // Job picto

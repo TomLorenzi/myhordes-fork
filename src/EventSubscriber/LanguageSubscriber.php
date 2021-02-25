@@ -11,15 +11,6 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 
 class LanguageSubscriber implements EventSubscriberInterface
 {
-    private $em;
-    private $token;
-
-    public function __construct(EntityManagerInterface $em, TokenStorageInterface $tokenStorage)
-    {
-        $this->em = $em;
-        $this->token = $tokenStorage;
-    }
-
     public function onKernelRequest(RequestEvent $event) {
         // try to see if the locale has been set as a _locale routing parameter
         if ($locale = $event->getRequest()->attributes->get('_locale')) {
@@ -38,7 +29,7 @@ class LanguageSubscriber implements EventSubscriberInterface
     /**
      * @inheritDoc
      */
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             KernelEvents::REQUEST => [['onKernelRequest', 20]],

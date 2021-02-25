@@ -34,6 +34,7 @@
         </div>
         <div class="row">
             <div class="padded cell rw-12 center small">
+                {% if z0[4] < 100 %}
                 <div class="watchtower-prediction">
                     <p>{{ 'Qualität der Abschätzung'|trans({},'game') }}</p>
                     <div class="watchtower-prediction-bar">
@@ -41,6 +42,9 @@
                         <div class="watchtower-prediction-text" style="width: {{ z0[4] }}%;">{{ z0[4] }}%</div>
                     </div>
                 </div>
+                {% else %}
+                <p>{{ 'Das ist die bestmögliche Schätzung, die wir für diesen Angriff abgeben konnten.'|trans({}, 'game') }}</p>
+                {% endif %}
             </div>
         </div>
         <div class="row">
@@ -69,6 +73,7 @@
             </div>
             <div class="padded cell rw-12 center small">
                 {% if z1[1] %}
+                    {% if z1[4] < 100 %}
                     <div class="watchtower-prediction">
                         <p>{{ 'Qualität der Abschätzung'|trans({},'game') }}</p>
                         <div class="watchtower-prediction-bar">
@@ -76,6 +81,9 @@
                             <div class="watchtower-prediction-text" style="width: {{ z1[4] }}%;">{{ z1[4] }}%</div>
                         </div>
                     </div>
+                    {% else %}
+                        <p>{{ 'Das ist die bestmögliche Schätzung, die wir für diesen Angriff abgeben konnten.'|trans({}, 'game') }}</p>
+                    {% endif %}
                 {% endif %}
             </div>
             <div class="padded cell rw-12 center small">

@@ -112,6 +112,7 @@ parameters:
         give_all_pictos: true
         give_soulpoints: true
         last_death: 'r_surlst_#00'
+        survival_picto: null
 
       disabled_jobs: ['shaman']
       disabled_roles: []
@@ -168,7 +169,9 @@ parameters:
         sandball_nastyness: 0.85
 
       features:
+        attacks: 'hard'
         last_death: 'r_suhard_#00'
+        survival_picto: 'r_pande_#00'
 
       explorable_ruins: 2
 

@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Annotations\GateKeeperProfile;
 use App\Entity\ExternalApp;
 use App\Entity\ItemPrototype;
 use App\Entity\Town;
@@ -29,6 +30,11 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class ExternalController
+ * @package App\Controller
+ * @GateKeeperProfile(allow_during_attack=true, record_user_activity=false)
+ */
 class ExternalController extends InventoryAwareController {
     protected $game_factory;
     protected ZoneHandler $zone_handler;
