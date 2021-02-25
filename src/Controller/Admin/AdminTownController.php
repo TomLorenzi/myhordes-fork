@@ -591,6 +591,7 @@ class AdminTownController extends AdminActionController
       $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
 
       $citizen->addRole($citizenRole);
+      $citizen->setPm($this->citizen_handler->getMaxPM($citizen));
 
       $this->entity_manager->persist($citizen);
     }
