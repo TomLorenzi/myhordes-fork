@@ -16,6 +16,12 @@
         <div class="cell rw-12 town-banner town-banner-well time-{{ hour }} {% if town.isNight %}night{% endif %}"></div>
     </div>
 
+    {% if rations_left < 15 %}
+        <div class="note note-critical">
+            {{'<strong>Achtung:</strong> Ohne Wasser können bestimmte Verteidigungen (wie z.B. die Wassergeschütztürme) beim Angriff der Zombies nicht eingesetzt werden!'|trans({}, 'game')|raw}}
+        </div>
+    {% endif %}
+
     <div class="row">
         <div class="cell padded rw-3 rw-lg-4 rw-md-6 ro-md-3 rw-sm-8 ro-sm-2">
             <div class="well">
@@ -57,8 +63,12 @@
                 {% else %}
                     <button x-well-confirm="1" x-well-direction="up" {% if not allow_take %}disabled{% endif %}><img alt="" src="{{ asset('build/images/item/item_water.gif') }}" />{% trans from 'game' %}Eine weitere Ration erhalten{% endtrans %}</button>
                 {% endif %}
-            </p>
+
+
             {% if pump is not null %}
+                {% if not first_take %}
+                <div class="note note-critical">{{'Achtung! Wenn du pro Tag <strong>mehr als eine Ration Wasser</strong> nimmst, erfolgt dies auf Kosten der anderen Bürger. Aus diesem Grund werden dementsprechende Aktionen im Großen Register rot vermerkt...'|trans({}, 'game')|raw}}</div>
+                {% endif %}
             <p>
                 <button x-well-confirm="1" x-well-direction="down"><img alt="" src="{{ asset('build/images/icons/small_well.gif') }}" />{% trans from 'game' %}Wasser hinzufügen{% endtrans %}</button>
             </p>
