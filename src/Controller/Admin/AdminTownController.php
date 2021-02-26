@@ -8,6 +8,7 @@ use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
+use App\Entity\CitizenVote;
 use App\Entity\Complaint;
 use App\Entity\ExpeditionRoute;
 use App\Entity\Item;
@@ -130,12 +131,38 @@ class AdminTownController extends AdminActionController
         });
 
         $complaints = [];
+        $votes = [];
+        $roles = [];
+
+        /** @var CitizenRole $votableRole */
+        foreach ($this->entity_manager->getRepository(CitizenRole::class)->findVotable() as $votableRole) {
+            $votes[$votableRole->getId()] = [];
+            $roles[$votableRole->getId()] = $votableRole;
+        }
+
+        file_put_contents("/tmp/dump.txt", "Checking votes");
 
         foreach ($town->getCitizens() as $citizen) {
             $comp = $this->entity_manager->getRepository(Complaint::class)->findBy(['culprit' => $citizen]);
             if (count($comp) > 0)
                 $complaints[$citizen->getUser()->getName()] = $comp;
+
+            foreach ($roles as $roleId => $role) {
+                /** @var CitizenVote $vote */
+                $vote = $this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($citizen, $role);
+                if ($vote) {
+                    file_put_contents("/tmp/dump.txt", "Citizen {$vote->getAutor()->getUser()->getName()} voted for {$vote->getVotedCitizen()->getUser()->getName()}\n", FILE_APPEND);
+                    if(isset($votes[$roleId][$vote->getVotedCitizen()->getId()])) {
+                        $votes[$roleId][$vote->getVotedCitizen()->getUser()->getName()][] = $vote->getAutor();
+                    } else {
+                        $votes[$roleId][$vote->getVotedCitizen()->getUser()->getName()] = [
+                            $vote->getAutor()
+                        ];
+                    }
+                }
+            }
         }
+
 
         $root = [];
         $dict = [];
@@ -174,6 +201,7 @@ class AdminTownController extends AdminActionController
             'dictBuildings' => $dict,
             'rootBuildings' => $root,
             'availBuldings' => $inTown,
+            'votes' => $votes,
         ], $this->get_map_blob($town))));
     }
 

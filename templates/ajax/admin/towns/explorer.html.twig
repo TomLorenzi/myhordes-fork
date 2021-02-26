@@ -382,6 +382,28 @@
                             {% endfor %}
                             </ul>
                         </div>
+                        <div class="padded cell">
+                            <h5>{{ 'Stimmen'|trans({}, 'admin') }}</h5>
+                            <ul>
+                                {% for role in citizenRoles %}
+                                    {% if role.votable %}
+                                    <li>{{ role.label|trans({}, 'game')|raw }}
+                                        <ul>
+                                            {% for target, autors in votes[role.id]|sort %}
+                                                <li>{{ 'Für %target%'|trans({"%target%": target}, 'admin') }}
+                                                    <ul>
+                                                        {% for autor in autors %}
+                                                        <li>{{ autor.user.name }}</li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
                         <br />
                         {% endif %}
                         <button id="townpm">{{ 'Rundmail als Rabe'|trans({},'admin') }}</button>
