@@ -341,7 +341,6 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'com043' => ['type' => Recipe::ManualAnywhere, 'out' => 'gun_#00',                  'provoking' => 'gun_#00',           'in' => ['gun_#00', 'bullets_#00'] ],
         'com044' => ['type' => Recipe::ManualAnywhere, 'out' => 'machine_gun_#00',          'provoking' => 'machine_gun_#00',   'in' => ['machine_gun_#00', 'bullets_#00'] ],
         'com045' => ['type' => Recipe::ManualAnywhere, 'out' => 'christmas_suit_full_#00',  'provoking' => ['christmas_suit_1_#00', 'christmas_suit_2_#00', 'christmas_suit_3_#00'], 'in' => ['christmas_suit_1_#00', 'christmas_suit_2_#00', 'christmas_suit_3_#00'] ],
-        'com046' => ['type' => Recipe::ManualAnywhere, 'out' => 'bgrenade_empty_#00',       'provoking' => 'explo_#00',         'in' => ['explo_#00', 'grenade_empty_#00'] ],
     ];
 
     private $entityManager;
@@ -449,6 +448,14 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         $progress = new ProgressBar( $out->section() );
         $progress->start( count(static::$building_data) );
 
+        $recipes = $this->entityManager->getRepository(Recipe::class)->findAll();
+        foreach ($recipes as $recipe){
+            if (!in_array($recipe->getName(), array_keys(static::$recipe_data))) {
+                $this->entityManager->remove($recipe);
+            }
+        }
+        $this->entityManager->flush();
+
         $cache = [];
         foreach (static::$recipe_data as $name => $recipe_data) {
             $recipe = $manager->getRepository(Recipe::class)->findOneBy( ['name' => $name] );
@@ -534,7 +541,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager) {
 
         $output = new ConsoleOutput();
-        $output->writeln( '<info>Installing fixtures: Buildings</info>' );
+        $output->writeln( '<info>Installing fixtures: Buildings & recipes</info>' );
         $output->writeln("");
 
         try {
