@@ -87,7 +87,7 @@
                                 </div>
                                 {% if zone.x != 0 or zone.y != 0 %}
                                     <div class="row zone-dist note note-light">
-                                        {% if scout_level is not null %}
+                                        {% if scout_level is not null and app.user.expert %}
                                             <div class="row zone-scout">
                                                 <div class="padded cell rw-12">
                                                     {% if scout_level == 0 %}
