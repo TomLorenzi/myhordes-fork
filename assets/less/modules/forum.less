@@ -262,6 +262,16 @@ ul.subscriptions {
     a.link { color: white; text-decoration: none }
   }
 
+  &.forum-post-search-result>.forum-post-header {
+    line-height: 0.8em;
+    &>b { padding: 0; font-size: 0.7em; }
+    &>div.found-in {
+      margin-top: 5px;
+      font-size: 0.7em; overflow: hidden; white-space: nowrap; text-overflow: " [...]";
+      &>a { cursor: pointer }
+    }
+  }
+
   &.forum-post-hidden>.forum-post-header { background: #ff0000; }
   &.forum-post-new { border-left: 2px solid #ffdc00; margin-left: -2px; };
   &.forum-post-selected { border-left: 2px solid #0f0; margin-left: -2px; };
@@ -298,6 +308,12 @@ ul.subscriptions {
 
     .forum-content-format();
     
+  }
+
+  &.forum-post-search-result .forum-post-content {
+    overflow-y: auto; max-height: 100px;
+    &>p:first-child { margin-top: 0; }
+    & span.search-anchor { background: #6e0000; color: #fff500; text-shadow: 0 0 2px black; outline: 1px solid #fff500; box-shadow: 0 0 6px rgba(0,0,0,0.5)}
   }
 
   &>.forum-post-footer {

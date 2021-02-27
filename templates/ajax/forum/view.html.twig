@@ -115,8 +115,11 @@
                             <b><i class="fa fa-scroll"></i> {{ forum.title }}</b>
                         </div>
                         <div class="forum-button-bar">
-                            <div x-ajax-href="{{ url('forum_list') }}" class="forum-button"><img src="{{ asset('build/images/forum/back.png') }}" /><div class="tooltip forum-tooltip">{{ 'Zurück'|trans({},'global') }}</div></div>
-                            <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-button"><img src="{{ asset('build/images/forum/refresh.png') }}" /><div class="tooltip forum-tooltip">{{ 'Liste der Themen aktualisieren'|trans({},'global') }}</div></div>
+                            <div x-ajax-href="{{ url('forum_list') }}" class="forum-button"><img alt="" src="{{ asset('build/images/forum/back.png') }}" /><div class="tooltip forum-tooltip">{{ 'Zurück'|trans({},'global') }}</div></div>
+                            <div x-ajax-href="{{ url('forum_view', {id: forum.id}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/forum/refresh.png') }}" /><div class="tooltip forum-tooltip">{{ 'Liste der Themen aktualisieren'|trans({},'global') }}</div></div>
+                            {% if not permission.only_mod_access %}
+                                <div x-forum-action="search" class="forum-button"><img alt="" src="{{ asset('build/images/forum/search.png') }}" /><div class="tooltip forum-tooltip">{{ 'Nachrichten suchen'|trans({},'global') }}</div></div>
+                            {% endif %}
                             {% if is_granted("ROLE_FORUM_BANNED") or not permission.create_thread() %}
                                 <div class="forum-button-disabled" id="banned">{{ 'Neues Thema'|trans({},'global') }}</div>
                             {% else %}
@@ -197,52 +200,50 @@
         }
 
         {% if not is_granted("ROLE_FORUM_BANNED") and permission.create_thread() %}
-            let new_post_btns = document.querySelectorAll('[x-forum-action=new]');
-            for (let i = 0; i < new_post_btns.length; i++)
-                new_post_btns[i].addEventListener('click', function() {
-                    for (let j = 0; j < thread_buttons.length; j++) thread_buttons[j].classList.remove('selected');
-                    let viewer = document.getElementById('forum-content');
-                    {let c; while ((c = viewer.firstChild)) viewer.removeChild(c);}
-                    $.ajax.no_history().load( get_forum_editor(), '{{ url('forum_thread_editor_controller', {id: forum.id}) }}', false )
-                })            
+            $.html.addEventListenerAll('[x-forum-action=new]', 'click', function() {
+                $.html.forEach('[x-thread-id]', element => element.classList.remove('selected'))
+                let viewer = document.getElementById('forum-content');
+                {let c; while ((c = viewer.firstChild)) viewer.removeChild(c);}
+                $.ajax.no_history().load( get_forum_editor(), '{{ url('forum_thread_editor_controller', {id: forum.id}) }}', false )
+            });
         {% endif %}
 
-        let thread_buttons = document.querySelectorAll('[x-thread-id]');
-        for (let i = 0; i < thread_buttons.length; i++) {
-            thread_buttons[i].addEventListener('click', function () {
-                for (let j = 0; j < thread_buttons.length; j++) thread_buttons[j].classList.remove('selected');
-                this.classList.add('selected');
-                let editor = get_forum_editor();
-                {
-                    let c;
-                    while ((c = editor.firstChild)) editor.removeChild(c);
-                }
-
-                let load_url = this.getAttribute('x-post-source');
-                if (this.getAttribute('x-post-source-next')) {
-                    load_url = this.getAttribute('x-post-source-next');
-                    this.setAttribute('x-post-source-next','');
-                }
-
-                $.ajax.no_history().load(document.getElementById('forum-content'), load_url, false, {}, get_forum_editor)
-                $.ajax.push_history(this.getAttribute('x-public-route'));
+        {% if not permission.only_mod_access %}
+            $.html.addEventListenerAll('[x-forum-action=search]', 'click', function() {
+                $.html.forEach('[x-thread-id]', element => element.classList.remove('selected'))
+                let viewer = document.getElementById('forum-content');
+                {let c; while ((c = viewer.firstChild)) viewer.removeChild(c);}
+                $.ajax.no_history().load( viewer, '{{ url('forum_id_search_controller', {fid: forum.id}) }}', false )
             });
-            thread_buttons[i].addEventListener('mousedown', function (e) {
-                if (e.button === 1) {
-                    e.preventDefault();
-                    window.open(this.getAttribute('x-public-route'), '_blank');
-                }
-            });
-        }
+        {% endif %}
+
+        $.html.addEventListenerAll('[x-thread-id]', 'click', function (e,elem) {
+            $.html.forEach('[x-thread-id]', element => element.classList.remove('selected'))
+            elem.classList.add('selected');
+            let editor = get_forum_editor();
+            { let c; while ((c = editor.firstChild)) editor.removeChild(c); }
+
+            let load_url = elem.getAttribute('x-post-source');
+            if (elem.getAttribute('x-post-source-next')) {
+                load_url = elem.getAttribute('x-post-source-next');
+                elem.setAttribute('x-post-source-next','');
+            }
+
+            $.ajax.no_history().load(document.getElementById('forum-content'), load_url, false, {}, get_forum_editor)
+            $.ajax.push_history(this.getAttribute('x-public-route'));
+        });
+
+        $.html.addEventListenerAll('[x-thread-id]', 'mousedown', function (e,elem) {
+            if (e.button === 1) {
+                e.preventDefault();
+                window.open(elem.getAttribute('x-public-route'), '_blank');
+            }
+        });
 
         let selection_target = document.querySelector('[x-thread-id="{{ select }}"]');
         if (selection_target) selection_target.click();
 
-        let nav_buttons =  document.querySelectorAll('[x-forum-action="thread-pager"][x-to-page]');
-        for (let i = 0; i < nav_buttons.length; i++)
-            nav_buttons[i].addEventListener('click', function() {
-                $.ajax.no_history().load( null, '{{ path('forum_view', {id: forum.id}) }}', false, {page: parseInt( this.getAttribute('x-to-page') )} )
-            })
-
+        $.html.addEventListenerAll( '[x-forum-action="thread-pager"][x-to-page]', 'click',
+            (e,elem) => $.ajax.no_history().load( null, '{{ path('forum_view', {id: forum.id}) }}', false, {page: parseInt( elem.getAttribute('x-to-page') )} ) );
     </script>
 {% endblock %}

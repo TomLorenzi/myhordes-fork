@@ -340,26 +340,28 @@ class MessageController extends CustomAbstractController
 
         $tmp_str = $this->filterLockedEmotes($user, $tmp_str);
         $post->setText( $tmp_str );
-        if ($post instanceof Post && $post->getType() !== 'CROW' && $forum !== null && $forum->getTown()){
 
-            $citizen = $user->getActiveCitizen();
-            if ($citizen && $citizen->getTown() === $forum->getTown()) {
+        if ($post instanceof Post) {
+            $post->setSearchText( strip_tags( $tmp_str ) );
 
-                if ($citizen->getZone() && ($citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0))  {
-                    if($citizen->getTown()->getChaos()){
-                        $note = $this->translator->trans('Draußen', [], 'game');
-                    } else {
-                        $note = "[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]";
+            if ($post->getType() !== 'CROW' && $forum !== null && $forum->getTown()){
+                $citizen = $user->getActiveCitizen();
+                if ($citizen && $citizen->getTown() === $forum->getTown()) {
+
+                    if ($citizen->getZone() && ($citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0))  {
+                        if($citizen->getTown()->getChaos()){
+                            $note = $this->translator->trans('Draußen', [], 'game');
+                        } else {
+                            $note = "[{$citizen->getZone()->getX()}, {$citizen->getZone()->getY()}]";
+                        }
                     }
-                }
-                else {
-                    $note = $this->translator->trans('in der Stadt oder am Stadttor', [], 'game');
-                }
+                    else {
+                        $note = $this->translator->trans('in der Stadt oder am Stadttor', [], 'game');
+                    }
 
-                $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/professions/{$citizen->getProfession()->getIcon()}.gif")}' /> <img alt='' src='{$this->asset->getUrl('build/images/icons/item_map.gif')}' /> <span>$note</span>");
-
+                    $post->setNote("<img alt='' src='{$this->asset->getUrl("build/images/professions/{$citizen->getProfession()->getIcon()}.gif")}' /> <img alt='' src='{$this->asset->getUrl('build/images/icons/item_map.gif')}' /> <span>$note</span>");
+                }
             }
-
         }
 
         return true;
@@ -404,10 +406,8 @@ class MessageController extends CustomAbstractController
     }
 
     protected function filterLockedEmotes(User $user, string $text): string {
-        $lockedEmotes = $this->getLockedEmoteTags($user);
-        foreach($lockedEmotes as $emote) {
+        foreach ($this->getLockedEmoteTags($user) as $emote)
             $text = str_replace($emote, '', $text);
-        }
         return $text;
     }
 

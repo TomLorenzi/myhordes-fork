@@ -1,0 +1,15 @@
+{% extends "ajax/game/game.html.twig" %}
+{% block title %}{{ 'Foren durchsuchen'|trans({},'global') }}{% endblock %}
+{% block menu_text %}
+    {{parent()}}
+    <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
+{% endblock %}
+{% block ajax %}
+    <div class="row"><div class="cell rw-12" id="search_content"></div></div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        (function() { $.ajax.no_history().load( document.getElementById('search_content'), '{{ url('forum_all_search_controller') }}', false ) })();
+    </script>
+{% endblock %}

@@ -22,6 +22,7 @@ use App\Service\PictoHandler;
 use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\QueryBuilder;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Response;
@@ -254,8 +255,8 @@ class MessageForumController extends MessageController
 
         if (!$edit) $post->setEditingMode( Post::EditorLocked );
 
-        $thread->addPost($post)->setLastPost( $post->getDate() );
         $forum->addThread($thread);
+        $thread->addPost($post)->setLastPost( $post->getDate() );
 
         try {
             $em->persist((new ForumThreadSubscription())->setThread($thread)->setUser($user));
@@ -423,6 +424,14 @@ class MessageForumController extends MessageController
         $post
             ->setText( $text )
             ->setEdited( new DateTime() );
+
+        $tx_len = 0;
+        if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+
+        if (!$edit) $post->setEditingMode(Post::EditorLocked);
 
         if ($user !== $post->getOwner()) {
             $post
@@ -629,6 +638,145 @@ class MessageForumController extends MessageController
             'forum' => true,
             'town_controls' => $forum->getTown() !== null,
         ] );
+    }
+
+    /**
+     * @Route("jx/forum/query", name="forum_query_controller")
+     * @param JSONRequestParser $json
+     * @return Response
+     */
+    public function forum_query(JSONRequestParser $json): Response {
+
+        $forum = ($fid = $json->get_num('fid',-1)) > 0 ? $this->entity_manager->getRepository(Forum::class)->find($fid) : null;
+        if ($fid > 0 && ($forum === null || !$this->perm->checkEffectivePermissions( $this->getUser(), $forum,ForumUsagePermissions::PermissionRead )) )
+            return new Response('');
+
+        $domain = $forum === null ? $this->perm->getForumsWithPermission($this->getUser()) : null;
+
+        $search_titles = $json->get_num('opt_title', 0) > 0;
+
+        $query_chars = str_split($json->get('query', ''));
+
+        $q = ''; $in = $not_in = []; $qp = false; $neg = false; $esc = false;
+
+        $commit = function() use (&$q,&$in,&$not_in,&$neg,&$esc) {
+            $q = trim($q);
+            if (strlen($q) >= 2) {
+                if ($neg) $not_in[] = $q;
+                else $in[] = $q;
+            }
+            $q = '';
+            $neg = false; $esc = false;
+        };
+
+        foreach ($query_chars as $char) {
+
+            if ($char == '█') continue;
+
+            if ($char == '\\' && !$esc)
+                $esc = true;
+            elseif ($char == '!' && !$qp && !$esc) $neg = true;
+            elseif ($char == ' ' && !$qp) $commit();
+            elseif ($char == '"' && !$esc) {
+                if (!empty(trim($q))) $commit();
+                $qp = !$qp;
+            } else {
+                $q .= in_array($char, ['%','_']) ? "█$char" : $char;
+                $esc = false;
+            }
+        }
+        $commit();
+
+        $in = array_unique($in);
+        $not_in = array_unique($not_in);
+
+        foreach ($in as $e) if (array_search($e, $not_in) !== false) {
+            $in = $not_in = [];
+            break;
+        }
+
+        $result = [];
+
+        if (!empty($in)) {
+
+            if ($search_titles) {
+
+                /** @var QueryBuilder $queryBuilder */
+                $queryBuilder = $this->entity_manager->getRepository(Thread::class)->createQueryBuilder('t');
+
+                $queryBuilder->andWhere('t.hidden = false OR t.hidden IS NULL');
+                if ($forum) $queryBuilder->andWhere('t.forum = :forum')->setParameter('forum', $forum);
+                else $queryBuilder->andWhere('t.forum IN (:forum)')->setParameter('forum', $domain);
+                foreach ($in as $k => $entry) $queryBuilder->andWhere("t.title LIKE :in{$k} ESCAPE '█'")->setParameter("in{$k}", "%{$entry}%");
+                foreach ($not_in as $k => $entry) $queryBuilder->andWhere("t.title NOT LIKE :nin{$k} ESCAPE '█'")->setParameter("nin{$k}", "%{$entry}%");
+
+                $queryBuilder->orderBy('t.lastPost', 'DESC')->setMaxResults(26);
+
+                foreach ($queryBuilder->getQuery()->execute() as $thread) if ($p = $thread->firstPost()) $result[] = $p;
+            }
+
+            /** @var QueryBuilder $queryBuilder */
+            $queryBuilder = $this->entity_manager->getRepository(Post::class)->createQueryBuilder('p');
+
+            $queryBuilder->andWhere('p.searchText IS NOT NULL');
+            $queryBuilder->andWhere('p.hidden = false OR p.hidden IS NULL');
+            if ($forum) $queryBuilder->andWhere('p.searchForum = :forum')->setParameter('forum', $forum);
+            else $queryBuilder->andWhere('p.searchForum IN (:forum)')->setParameter('forum', $domain);
+            foreach ($in as $k => $entry) $queryBuilder->andWhere("p.searchText LIKE :in{$k} ESCAPE '█'")->setParameter("in{$k}", "%{$entry}%");
+            foreach ($not_in as $k => $entry) $queryBuilder->andWhere("p.searchText NOT LIKE :nin{$k} ESCAPE '█'")->setParameter("nin{$k}", "%{$entry}%");
+
+            $queryBuilder->orderBy('p.date', 'DESC')->setMaxResults(26);
+
+            $result = array_merge($result, $queryBuilder->getQuery()->execute());
+        }
+
+        $more = count($result) > 25;
+        $result = array_slice($result, 0, 25);
+
+        foreach ($in as &$in_entry) $in_entry = str_replace('█', '', $in_entry);
+
+        foreach ($result as $post) $post->setText( str_ireplace($in, array_map(fn(string $i) => "<span class=\"search-anchor\">$i</span>", $in), $this->prepareEmotes( $post->getText() ) ));
+
+        return $this->render( 'ajax/forum/search_result.html.twig', [
+            'posts' => $result,
+            'more' => $more
+        ] );
+    }
+
+    public function forum_search(?Forum $default): Response {
+        return $this->render( 'ajax/forum/search.html.twig', [
+            'forums' => $this->perm->getForumsWithPermission($this->getUser()),
+            'select' => $default ? $default->getId() : -1,
+        ] );
+    }
+
+    /**
+     * @Route("jx/forum/{fid<\d+>}/search", name="forum_id_search_controller")
+     * @param int $fid
+     * @return Response
+     */
+    public function forum_search_id(int $fid): Response {
+        $forum = $this->entity_manager->getRepository(Forum::class)->find($fid);
+        if (!$forum || !$this->perm->checkEffectivePermissions( $this->getUser(), $forum,ForumUsagePermissions::PermissionRead ))
+            return new Response('');
+
+        return $this->forum_search($forum);
+    }
+
+    /**
+     * @Route("jx/forum/global/search", name="forum_all_search_controller")
+     * @return Response
+     */
+    public function forum_search_all(): Response {
+        return $this->forum_search(null);
+    }
+
+    /**
+     * @Route("jx/forum/search", name="forum_search_wrapper_controller")
+     * @return Response
+     */
+    public function forum_search_wrapper(): Response {
+        return $this->render( 'ajax/forum/search_wrapper.html.twig' );
     }
 
     /**

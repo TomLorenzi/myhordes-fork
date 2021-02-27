@@ -2,10 +2,13 @@
 {% block ajax_base %}
     {# @var posts \App\Entity\Post[] #}
 
+    {% if posts is empty %}
+        <div class="note">{{ 'Es wurden keine Nachrichten gefunden, die deiner Suchanfrage entsprechen.'|trans({},'global') }}</div>
+    {% endif %}
+
     <div class="forum-posts">
         {% for post in posts %}
-            {% if not post.hidden or is_granted("ROLE_CROW") %}
-                <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}" id="{{post.id}}">
+            <div class="forum-post forum-post-search-result" id="{{post.id}}">
                     <div class="forum-post-header {% if post.owner.name == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
                         <i>
                             {% if post.date >= 'today'|to_date %}
@@ -27,26 +30,35 @@
                         {% endif %}
                         <b>
                             {% if post.owner.name == 'Der Rabe' %}
-                            	{% if post.translate %}
-                        			{{ 'Der Rabe'|trans({},'global') }}
-                        		{% else %}
-                        			<a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ 'Der Rabe'|trans({},'global') }}</a>
-                        		{% endif %}
+                                {{ 'Der Rabe'|trans({},'global') }}
                             {% elseif post.type == "DEV" %}
-                                <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ post.owner.name }}</a>
-                                <img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}" />
+                                {{ post.owner.name }}
                             {% else %}
-                                <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ post.owner.name }}</a>
+                                {{ post.owner.name }}
                             {% endif %}
                         </b>
-                        {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}
+                        <div class="found-in">{{ post.searchForum.title }} <i class="fa fa-caret-right"></i> <a x-ajax-href="{{ path('forum_jump_view', {pid: post.id}) }}" x-ajax-target="#content">{{ post.thread.title }}</a></div>
                     </div>
                     <div class="forum-post-content">
                         {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
                     </div>
                 </div>
-            {% endif %}
         {% endfor %}
-        <div class="right"><span class="small button" x-ajax-target="default" x-ajax-href="{{ url('forum_thread_view', {fid: fid, tid: tid}) }}" style="width: 12rem;"><img alt="" src="{{ asset('build/images/forum/r_forum.gif') }}"> {{ 'Zum Forum'|trans({},'game') }}</span></div>
     </div>
+
+    {% if more %}
+        <div class="note">{{ 'Deine Suchanfrage hat mehr Ergebnisse geliefert, als hier angezeigt werden können. Versuche, deine Anfrage zu präzisieren, wenn du nicht gefunden hast wonach du suchst.'|trans({},'global') }}</div>
+    {% endif %}
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        $.html.forEach('.forum-post-search-result .forum-post-content', element => {
+            let e = element.clientHeight !== element.scrollHeight ? element.querySelector('span.search-anchor') : null;
+            if (e) {
+                const p = Math.max(0, e.offsetTop - element.offsetTop + e.offsetHeight / 2 - element.clientHeight / 2);
+                element.scrollTo(0, p);
+            }
+        });
+    </script>
 {% endblock %}

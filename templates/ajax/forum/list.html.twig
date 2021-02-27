@@ -64,6 +64,8 @@
             </div>
         </div>
         <div class="cell padded header rw-4 rw-lg-12">
+            <h5>{% trans from 'global' %}Aktionen{% endtrans %}</h5>
+            <button x-ajax-href="{{ path('forum_search_wrapper_controller') }}"><img alt="" src="{{ asset('build/images/forum/search.png') }}"> {{ 'Foren durchsuchen'|trans({},'global') }}</button>
             <h5>{% trans from 'welcome' %}Abonnierte Themen{% endtrans %}</h5>
             <div class="cell rw-12 padded">
                 {% if subscriptions|length == 0 %}

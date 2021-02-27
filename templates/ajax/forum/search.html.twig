@@ -1,0 +1,75 @@
+{% extends "ajax/ajax_plain.html.twig" %}
+{% block ajax_base %}
+    <div class="row">
+        <div class="cell rw-12">
+            <div class="forum-note">
+                <b>{{ 'Nachrichten suchen'|trans({},'global') }}</b>
+
+                <div class="row-flex v-center">
+                    <div class="cell padded rw-3 small">
+                        <label for="search-query">{{'Suchbegriff'|trans({}, 'global')}}</label>
+                    </div>
+                    <div class="cell padded rw-9">
+                        <input type="text" id="search-query" name="search-query" placeholder="{{'Suchbegriffe eingeben'|trans({}, 'global')}}">
+                    </div>
+                </div>
+
+                <div class="row-flex v-center">
+                    <div class="cell padded rw-3 small">
+                        <label for="search-forum">{{'Forum'|trans({}, 'global')}}</label>
+                    </div>
+                    <div class="cell padded rw-9">
+                        <select name="search-forum" id="search-forum">
+                            <option value="-1">- {{ 'Alle Foren'|trans({}, 'global') }} -</option>
+                            {% for forum in forums %}
+                                {# @var forum \App\Entity\Forum #}
+                                <option value="{{ forum.id }}" {% if forum.id == select %}selected{% endif %}>{{ forum.title }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row-flex v-center">
+                    <div class="cell padded rw-3 small">
+                        <label>{{'Optionen'|trans({}, 'global')}}</label>
+                    </div>
+                    <div class="cell padded rw-9">
+                        <label><input type="checkbox" id="search-opt-title" name="search-opt-title">{{'In Titeln suchen'|trans({}, 'global')}}</label>
+                    </div>
+                </div>
+
+                <div class="row-flex">
+                    <div class="cell padded rw-3 small">
+                        <label>{{'Tipps zur Suche'|trans({}, 'global')}}</label>
+                    </div>
+                    <div class="cell padded rw-9">
+                        <ul style="padding-left: 10px; margin: 0;">
+                            <li>{{ 'Benutze Anführungszeichen (" "), um nach einer bestimmten Wortkette zu suchen. Beispiel: "Ration Wasser"'|trans({}, 'global') }}</li>
+                            <li>{{ 'Setze ein Ausrufezeichen (!) vor einen Suchbegriff, um diesen auszuschließen. Beispiel: Wasser !Brunnen'|trans({}, 'global') }}</li>
+                            <li>{{ 'Um nach Anführungszeichen oder Ausrufezeichen zu suchen, schreibe einen Backslash (\\) davor, um zu verhindern, dass sie als Suchbefehl interpretiert werden. Beispiel: Boom\\!'|trans({}, 'global') }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="padded cell rw-4"><button id="search-begin-btn">{{ 'Suchen'|trans({}, 'global') }}</button></div>
+                </div>
+            </div>
+            <br />
+            <div id="search-results"></div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    {{ include('ajax/flash.html.twig') }}
+    <script>
+        $.html.addEventListenerAll('#search-begin-btn', 'click', () => $.ajax.no_history().load( document.getElementById('search-results'), '{{ path('forum_query_controller')|e('js') }}', false, {
+            fid: document.querySelector('#search-forum').value,
+            query: document.querySelector('#search-query').value,
+            opt_title: document.querySelector('#search-opt-title').checked ? 1 : 0,
+        } ) );
+    </script>
+{% endblock %}

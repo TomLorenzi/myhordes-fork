@@ -16,6 +16,7 @@ use App\Entity\ForumUsagePermissions;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Item;
 use App\Entity\Picto;
+use App\Entity\Post;
 use App\Entity\RuinZone;
 use App\Entity\Season;
 use App\Entity\SpecialActionPrototype;
@@ -123,6 +124,7 @@ class MigrateCommand extends Command
             ->addOption('init-item-stacks', null, InputOption::VALUE_NONE, 'Sets item count for items without a counter to 1')
             ->addOption('delete-legacy-logs', null, InputOption::VALUE_NONE, 'Deletes legacy log entries')
             ->addOption('calculate-score', null, InputOption::VALUE_NONE, 'Recalculate the score for each ended town')
+            ->addOption('build-forum-search-index', null, InputOption::VALUE_NONE, 'Initializes search structures for the forum')
 
             ->addOption('set-default-zonetag', null, InputOption::VALUE_NONE, 'Set the default tag to all zones')
             ->addOption('assign-building-hp', null, InputOption::VALUE_NONE, 'Give HP to all buildings (so they can be attacked by zeds)')
@@ -134,6 +136,30 @@ class MigrateCommand extends Command
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
         ;
+    }
+
+    protected function leChunk( OutputInterface $output, string $repository, int $chunkSize, array $filter, bool $manualChain, bool $alwaysPersist, callable $handler) {
+        $tc = $this->entity_manager->getRepository($repository)->count($filter);
+        $tc_chunk = 0;
+
+        $output->writeln("Processing <info>$tc</info> <comment>$repository</comment> entities...");
+        $progress = new ProgressBar( $output->section() );
+        $progress->start($tc);
+
+        while ($tc_chunk < $tc) {
+            $entities = $this->entity_manager->getRepository($repository)->findBy($filter,['id' => 'ASC'], $chunkSize, $manualChain ? $tc_chunk : 0);
+            foreach ($entities as $entity) {
+                if ($alwaysPersist) {
+                    $handler($entity);
+                    $this->entity_manager->persist($entity);
+                } else if ($handler($entity)) $this->entity_manager->persist($entity);
+                $tc_chunk++;
+            }
+            $this->entity_manager->flush();
+            $progress->setProgress($tc_chunk);
+        }
+
+        $output->writeln('OK!');
     }
 
     /**
@@ -518,36 +544,27 @@ class MigrateCommand extends Command
         }
 
         if ($input->getOption('calculate-score')) {
-
-            $tc = $this->entity_manager->getRepository(TownRankingProxy::class)->count(['imported' => false]);
-            $tc_chunk = 0;
-
-            $output->writeln("Processing <info>$tc</info> entries...");
-            $progress = new ProgressBar( $output->section() );
-            $progress->start($tc);
-
-            while ($tc_chunk < $tc) {
-                $towns = $this->entity_manager->getRepository(TownRankingProxy::class)->findBy(['imported' => false],['id' => 'ASC'], 5000, $tc_chunk);
-                foreach ($towns as $town) {
-                    /* @var TownRankingProxy $town */
-                    $score = 0;
-                    $latestDay = 0;
-                    foreach ($town->getCitizens() as $citizen) {
-                        /* @var CitizenRankingProxy $citizen */
-                        $score += $citizen->getDay();
-                        if($latestDay < $citizen->getDay())
-                            $latestDay = $citizen->getDay();
-                    }
-                    $town->setScore($score);
-                    $town->setDays($latestDay);
-                    $this->entity_manager->persist($town);
-                    $tc_chunk++;
+            $this->leChunk($output, TownRankingProxy::class, 5000, ['imported' => false], true, true, function(TownRankingProxy $town) {
+                $score = 0;
+                $latestDay = 0;
+                foreach ($town->getCitizens() as $citizen) {
+                    /* @var CitizenRankingProxy $citizen */
+                    $score += $citizen->getDay();
+                    if($latestDay < $citizen->getDay())
+                        $latestDay = $citizen->getDay();
                 }
-                $this->entity_manager->flush();
-                $progress->setProgress($tc_chunk);
-            }
+                $town->setScore($score);
+                $town->setDays($latestDay);
+            });
+            return 0;
+        }
 
-            $output->writeln('OK!');
+        if ($input->getOption('build-forum-search-index')) {
+            $this->leChunk($output, Post::class, 100, ['translate' => false, 'searchForum' => null, 'searchText' => null], false, true, function(Post $post) {
+                $post->setSearchText( strip_tags( $post->getText() ) );
+                $post->setSearchForum( $post->getThread()->getForum() );
+            });
+
             return 0;
         }
 

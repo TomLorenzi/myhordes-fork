@@ -101,6 +101,17 @@ class Post
      */
     private $originalText;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $searchText = null;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Forum::class)
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
+     */
+    private $searchForum = null;
+
     public function __construct()
     {
         $this->adminReports = new ArrayCollection();
@@ -119,6 +130,7 @@ class Post
     public function setThread(?Thread $thread): self
     {
         $this->thread = $thread;
+        $this->setSearchForum( $thread ? $thread->getForum() : null );
 
         return $this;
     }
@@ -310,6 +322,30 @@ class Post
     public function setOriginalText(?string $originalText): self
     {
         $this->originalText = $originalText;
+
+        return $this;
+    }
+
+    public function getSearchText(): ?string
+    {
+        return $this->searchText;
+    }
+
+    public function setSearchText(?string $searchText): self
+    {
+        $this->searchText = $searchText;
+
+        return $this;
+    }
+
+    public function getSearchForum(): ?Forum
+    {
+        return $this->searchForum;
+    }
+
+    public function setSearchForum(?Forum $searchForum): self
+    {
+        $this->searchForum = $searchForum;
 
         return $this;
     }
