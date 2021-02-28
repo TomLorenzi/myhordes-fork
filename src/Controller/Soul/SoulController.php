@@ -185,7 +185,7 @@ class SoulController extends CustomAbstractController
 
         $data = [
             'var' => $url,
-            'users' => in_array($url, ['soul_visit','soul_invite_coalition','pm_manage_users','pm_add_users']) ? $users : [],
+            'users' => in_array($url, ['soul_visit','soul_invite_coalition','pm_manage_users','pm_add_users','plain']) ? $users : [],
             'route' => in_array($url, ['soul_visit','soul_invite_coalition']) ? $url : ''
         ];
 

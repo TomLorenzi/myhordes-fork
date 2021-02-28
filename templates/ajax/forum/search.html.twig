@@ -16,6 +16,25 @@
 
                 <div class="row-flex v-center">
                     <div class="cell padded rw-3 small">
+                        <label for="search-query">{{'Benutzer (optional)'|trans({}, 'global')}}</label>
+                    </div>
+                    <div class="cell padded rw-9">
+                        <div id="search_selected_user" style="display: none;">
+                            <span class="bold" style="font-size: 1.5rem"></span>
+                            <div class="float-right">
+                                <img class="pointer" alt="" src="{{ asset('build/images/icons/b_close.png') }}">
+                                <div class="tooltip">{{ 'Entfernen'|trans({},'global') }}</div>
+                            </div>
+                        </div>
+                        <div id="users-list-soul">
+                            <div><label><input type="text" id="users-search" class="block" /></label><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
+                            <div id="users-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row-flex v-center">
+                    <div class="cell padded rw-3 small">
                         <label for="search-forum">{{'Forum'|trans({}, 'global')}}</label>
                     </div>
                     <div class="cell padded rw-9">
@@ -70,6 +89,63 @@
             fid: document.querySelector('#search-forum').value,
             query: document.querySelector('#search-query').value,
             opt_title: document.querySelector('#search-opt-title').checked ? 1 : 0,
+            user: document.querySelector('[x-selected-user]') ? parseInt(document.querySelector('[x-selected-user]').getAttribute('x-selected-user')) : -1
         } ) );
+
+        $.html.addEventListenerAll('#search_selected_user img', 'click', () => {
+            let e = document.getElementById('search_selected_user');
+            e.style.display = 'none';
+            e.removeAttribute('x-selected-user');
+
+            let s = document.getElementById('users-list-soul');
+            s.style.display = null;
+
+            searchBox.value = '';
+        })
+
+        let typingTimer, doneTypingInterval = 500;
+        let searchBox = document.getElementById('users-search');
+
+        const userSearchHandler = function() {
+            if (searchBox.value.length >= 3)
+                $.ajax.background().load(
+                    document.getElementById('users-list'),
+                    '{{ path('users_fuzzyfind', {url: 'plain'}) }}',
+                    false,
+                    {'name': searchBox.value},
+                    function () {
+                        document.getElementById('users-list').style.width = searchBox.offsetWidth + 'px';
+                        $.html.addEventListenerAll('#users-list>.users-list-entry>div', 'click', function (e,elem) {
+                            const name = elem.getAttribute('x-soul-name');
+                            const uid = elem.getAttribute('x-soul-id');
+
+                            let es = document.getElementById('search_selected_user');
+                            es.style.display = null;
+                            es.setAttribute('x-selected-user', uid);
+                            es.querySelector('span').innerText = name;
+
+                            let ss = document.getElementById('users-list-soul');
+                            ss.style.display = 'none';
+                        })
+                    }
+                );
+            else document.getElementById('users-list').innerHTML = '';
+        };
+
+        const userSearchHandlerUp = function () {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
+        };
+
+        const userSearchHandlerDown = function () {
+            clearTimeout(typingTimer);
+        };
+
+        if (searchBox) {
+            searchBox.addEventListener('keyup', userSearchHandlerUp);
+            searchBox.addEventListener('keydown', userSearchHandlerDown);
+            searchBox.addEventListener('focus', () => userSearchHandler());
+            searchBox.addEventListener('blur', () => setTimeout( () => document.getElementById('users-list').innerHTML = '', 500));
+        }
     </script>
 {% endblock %}

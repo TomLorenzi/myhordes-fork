@@ -654,6 +654,11 @@ class MessageForumController extends MessageController
         $domain = $forum === null ? $this->perm->getForumsWithPermission($this->getUser()) : null;
 
         $search_titles = $json->get_num('opt_title', 0) > 0;
+        $search_user = $json->get_num('user', 0);
+        if ($search_user > 0) {
+            $search_user = $this->entity_manager->getRepository(User::class)->find($search_user);
+            if ($search_user === null) return new Response('');
+        } else $search_user = null;
 
         $query_chars = str_split($json->get('query', ''));
 
@@ -705,8 +710,13 @@ class MessageForumController extends MessageController
                 $queryBuilder = $this->entity_manager->getRepository(Thread::class)->createQueryBuilder('t');
 
                 $queryBuilder->andWhere('t.hidden = false OR t.hidden IS NULL');
+
+                if ($search_user !== null)
+                    $queryBuilder->andWhere('t.owner = :user')->setParameter('user', $search_user);
+
                 if ($forum) $queryBuilder->andWhere('t.forum = :forum')->setParameter('forum', $forum);
                 else $queryBuilder->andWhere('t.forum IN (:forum)')->setParameter('forum', $domain);
+
                 foreach ($in as $k => $entry) $queryBuilder->andWhere("t.title LIKE :in{$k} ESCAPE '█'")->setParameter("in{$k}", "%{$entry}%");
                 foreach ($not_in as $k => $entry) $queryBuilder->andWhere("t.title NOT LIKE :nin{$k} ESCAPE '█'")->setParameter("nin{$k}", "%{$entry}%");
 
@@ -720,8 +730,13 @@ class MessageForumController extends MessageController
 
             $queryBuilder->andWhere('p.searchText IS NOT NULL');
             $queryBuilder->andWhere('p.hidden = false OR p.hidden IS NULL');
+
+            if ($search_user !== null)
+                $queryBuilder->andWhere('p.owner = :user')->setParameter('user', $search_user);
+
             if ($forum) $queryBuilder->andWhere('p.searchForum = :forum')->setParameter('forum', $forum);
             else $queryBuilder->andWhere('p.searchForum IN (:forum)')->setParameter('forum', $domain);
+
             foreach ($in as $k => $entry) $queryBuilder->andWhere("p.searchText LIKE :in{$k} ESCAPE '█'")->setParameter("in{$k}", "%{$entry}%");
             foreach ($not_in as $k => $entry) $queryBuilder->andWhere("p.searchText NOT LIKE :nin{$k} ESCAPE '█'")->setParameter("nin{$k}", "%{$entry}%");
 
