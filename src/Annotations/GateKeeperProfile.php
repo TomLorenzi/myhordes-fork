@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ConfigurationInterface;
 
 /**
  * @Annotation
+ * @Target({"METHOD","CLASS"})
  */
 class GateKeeperProfile implements ConfigurationInterface
 {

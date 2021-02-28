@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Annotations\GateKeeperProfile;
 use App\Entity\AntiSpamDomains;
 use App\Entity\Changelog;
 use App\Entity\ExternalApp;
@@ -22,6 +23,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @GateKeeperProfile(allow_during_attack=true)
  */
 class AdminAppController extends AdminActionController
 {

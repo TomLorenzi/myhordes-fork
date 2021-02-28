@@ -2,7 +2,6 @@
 
 namespace App\Controller\Admin;
 
-use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractController;
 use App\Entity\AttackSchedule;
 use App\Entity\Inventory;
@@ -33,7 +32,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
-
+use App\Annotations\GateKeeperProfile;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")

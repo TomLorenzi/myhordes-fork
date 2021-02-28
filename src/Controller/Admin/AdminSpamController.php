@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Annotations\GateKeeperProfile;
 use App\Entity\AntiSpamDomains;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
@@ -11,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @GateKeeperProfile(allow_during_attack=true)
  */
 class AdminSpamController extends AdminActionController
 {

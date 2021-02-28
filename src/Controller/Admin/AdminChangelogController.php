@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Annotations\GateKeeperProfile;
 use App\Entity\Announcement;
 use App\Entity\Changelog;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @GateKeeperProfile(allow_during_attack=true)
  */
 class AdminChangelogController extends AdminActionController
 {

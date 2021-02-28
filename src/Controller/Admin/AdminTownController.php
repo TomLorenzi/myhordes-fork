@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Annotations\GateKeeperProfile;
 use App\Controller\Town\TownController;
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
@@ -37,6 +38,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @GateKeeperProfile(allow_during_attack=true)
  */
 class AdminTownController extends AdminActionController
 {

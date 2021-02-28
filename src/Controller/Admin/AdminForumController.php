@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Annotations\GateKeeperProfile;
 use App\Entity\AdminReport;
 use App\Entity\ForumModerationSnippet;
 use App\Entity\ForumUsagePermissions;
@@ -21,6 +22,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
  * @method User getUser
+ * @GateKeeperProfile(allow_during_attack=true)
  */
 class AdminForumController extends AdminActionController
 {

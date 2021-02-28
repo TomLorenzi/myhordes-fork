@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Annotations\GateKeeperProfile;
 use App\Entity\Citizen;
 use App\Entity\ConnectionWhitelist;
 use App\Entity\Picto;
@@ -30,6 +31,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
+ * @GateKeeperProfile(allow_during_attack=true)
  * @method User getUser
  */
 class AdminUserController extends AdminActionController
