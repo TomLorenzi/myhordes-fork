@@ -831,9 +831,11 @@ class BeyondController extends InventoryAwareController
             $this->entity_manager->persist($mover);
         }
 
+        $upgraded_map = $this->town_handler->getBuilding($citizen->getTown(),'item_electro_#00', true);
+
         $new_zone
             ->setDiscoveryStatus( Zone::DiscoveryStateCurrent )
-            ->setZombieStatus( max(Zone::ZombieStateEstimate, $new_zone->getZombieStatus() ) );
+            ->setZombieStatus( max($upgraded_map ? Zone::ZombieStateExact : Zone::ZombieStateEstimate, $new_zone->getZombieStatus() ) );
 
         try {
             $this->zone_handler->handleCitizenCountUpdate($zone, $cp_ok);

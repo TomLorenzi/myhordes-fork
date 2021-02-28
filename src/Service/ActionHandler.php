@@ -880,16 +880,20 @@ class ActionHandler
             }
 
             if (($zoneEffect = $result->getZone()) && $base_zone = $citizen->getZone()) {
-                if ($zoneEffect->getUncoverZones())
+                if ($zoneEffect->getUncoverZones()) {
+                    $upgraded_map = $this->town_handler->getBuilding($citizen->getTown(),'item_electro_#00', true);
                     for ($x = -1; $x <= 1; $x++)
                         for ($y = -1; $y <= 1; $y++) {
                             /** @var Zone $zone */
                             $zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($citizen->getTown(), $base_zone->getX() + $x, $base_zone->getY() + $y);
                             if ($zone) {
                                 $zone->setDiscoveryStatus( Zone::DiscoveryStateCurrent );
-                                $zone->setZombieStatus( max( $zone->getZombieStatus(), Zone::ZombieStateEstimate ) );
+                                if ($upgraded_map) $zone->setZombieStatus( Zone::ZombieStateExact );
+                                else $zone->setZombieStatus( max( $zone->getZombieStatus(), Zone::ZombieStateEstimate ) );
                             }
                         }
+                }
+
 
                 if ($zoneEffect->getUncoverRuin()) {
                     // If we get 4 the first time, roll again to reduce the chances for 4
@@ -1245,9 +1249,12 @@ class ActionHandler
 
                         $selected = $this->random_generator->pick($list);
                         if ($selected) {
+                            $upgraded_map = $this->town_handler->getBuilding($citizen->getTown(),'item_electro_#00', true);
                             $execute_info_cache['zone'] = $selected;
                             $tags[] = 'zone';
                             $selected->setDiscoveryStatus( Zone::DiscoveryStateCurrent );
+                            if ($upgraded_map) $selected->setZombieStatus( Zone::ZombieStateExact );
+                            else $selected->setZombieStatus( max( $selected->getZombieStatus(), Zone::ZombieStateEstimate ) );
                         }
                         break;
 

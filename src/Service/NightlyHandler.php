@@ -1082,6 +1082,8 @@ class NightlyHandler
         $research_tower = $this->town_handler->getBuilding($town, 'small_gather_#02', true);
         $watchtower     = $this->town_handler->getBuilding($town, 'item_tagger_#00',  true);
 
+        $upgraded_map = $this->town_handler->getBuilding($town,'item_electro_#00', true);
+
         $gazette = $town->findGazette($town->getDay());
 
         if ($watchtower) switch ($watchtower->getLevel()) {
@@ -1137,7 +1139,7 @@ class NightlyHandler
                 if ($zone->getDiscoveryStatus() !== Zone::DiscoveryStateCurrent) {
                     $this->log->debug( "Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Set discovery state to <info>current</info>." );
                     $zone->setDiscoveryStatus(Zone::DiscoveryStateCurrent);
-                    $zone->setZombieStatus( Zone::ZombieStateEstimate );
+                    $zone->setZombieStatus( $upgraded_map ? Zone::ZombieStateExact : Zone::ZombieStateEstimate );
                 }
             } elseif ($zone->getDiscoveryStatus() === Zone::DiscoveryStateCurrent) {
                 $this->log->debug( "Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Set discovery state to <info>past</info>." );
