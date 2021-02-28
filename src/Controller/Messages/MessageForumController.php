@@ -26,6 +26,7 @@ use Doctrine\ORM\QueryBuilder;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -507,7 +508,7 @@ class MessageForumController extends MessageController
      * @param int $pid
      * @return Response
      */
-    public function viewer_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, int $pid = -1): Response {
+    public function viewer_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, SessionInterface $session, int $pid = -1): Response {
         $num_per_page = 10;
         $user = $this->getUser();
 
@@ -586,7 +587,10 @@ class MessageForumController extends MessageController
             );
 
             if (!empty($subscriptions)) {
-                foreach ($subscriptions as $s) $em->persist($s->setNum(0));
+                foreach ($subscriptions as $s) if ($s->getNum() > 0) {
+                    $session->remove('cache_ping');
+                    $em->persist($s->setNum(0));
+                }
                 $flush = true;
             }
         }

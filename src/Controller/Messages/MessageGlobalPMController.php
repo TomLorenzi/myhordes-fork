@@ -86,7 +86,7 @@ class MessageGlobalPMController extends MessageController
      * @param int $id
      * @return Response
      */
-    public function ping_fetch_new_messages(EntityManagerInterface $em, JSONRequestParser $parser, SessionInterface $s, string $domain = '', int $id = 0): Response {
+    public function ping_fetch_new_messages(EntityManagerInterface $em, JSONRequestParser $parser, string $domain = '', int $id = 0): Response {
 
 
         $user = $this->getUser();
@@ -486,12 +486,12 @@ class MessageGlobalPMController extends MessageController
     }
 
 
-
     /**
      * @Route("jx/pm/conversation/group/{id<\d+>}", name="pm_conv_group")
      * @param int $id
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $p
+     * @param SessionInterface $s
      * @return Response
      */
     public function pm_conversation_group(int $id, EntityManagerInterface $em, JSONRequestParser $p, SessionInterface $s): Response {
