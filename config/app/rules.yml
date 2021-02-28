@@ -21,7 +21,7 @@ parameters:
         room_spacing: 4
         lock_distance: 10
         item_fillrate: 11
-        max_distance: 12
+        max_distance: 10
         zombies:
           initial: 10
           daily: 3
