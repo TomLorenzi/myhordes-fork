@@ -166,11 +166,13 @@ php composer.phar update
 Update database:
 ```bash
 bin/console app:migrate -u
+bin/console app:migrate -p
 ```
 
 In case the migrations fail, you should try to append `-r` to the previous command:
 ```bash
 bin/console app:migrate -u -r
+bin/console app:migrate -p
 ```
 
 Re-build:

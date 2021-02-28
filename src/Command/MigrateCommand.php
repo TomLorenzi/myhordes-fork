@@ -13,6 +13,7 @@ use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenStatus;
 use App\Entity\Forum;
 use App\Entity\ForumUsagePermissions;
+use App\Entity\GitVersions;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Item;
 use App\Entity\Picto;
@@ -74,6 +75,11 @@ class MigrateCommand extends Command
     private UserFactory $user_factory;
     private PermissionHandler $perm;
 
+    protected static $git_script_repository = [
+        'ce5c1810ee2bde2c10cc694e80955b110bbed010' => [ ['app:migrate', ['--calculate-score' => true] ] ],
+        'e3a28a35e8ade5c767480bb3d8b7fa6daaf69f4e' => [ ['app:migrate', ['--build-forum-search-index' => true] ] ]
+    ];
+
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
                                 RandomGenerator $rg, CitizenHandler $ch, InventoryHandler $ih, ConfMaster $conf,
                                 MazeMaker $maze, ParameterBagInterface $params, UserHandler $uh, PermissionHandler $p,
@@ -115,6 +121,7 @@ class MigrateCommand extends Command
             ->addOption('install-db', 'i', InputOption::VALUE_NONE, 'Creates and performs the creation of the database and fixtures.')
             ->addOption('update-db', 'u', InputOption::VALUE_NONE, 'Creates and performs a doctrine migration, updates fixtures.')
             ->addOption('recover', 'r',   InputOption::VALUE_NONE, 'When used together with --update-db, will clear all previous migrations and try again after an error.')
+            ->addOption('process-db-git', 'p',   InputOption::VALUE_NONE, 'Processes triggers for automated database actions')
 
             ->addOption('update-trans', 't', InputOption::VALUE_REQUIRED, 'Updates all translation files for a single language')
 
@@ -245,13 +252,13 @@ class MigrateCommand extends Command
             } else $output->writeln("Skipping <info>web asset updates</info>.");
 
             $version_lines = $this->bin( 'git describe --tags', $ret );
-            if (count($version_lines) >= 1) {
-                file_put_contents( 'VERSION', $version_lines[0] );
-                $output->writeln("Updated MyHordes to version <info>{$version_lines[0]}</info>");
-            }
+            if (count($version_lines) >= 1) file_put_contents( 'VERSION', $version_lines[0] );
 
             if (!$this->capsule( "cache:clear", $output, 'Clearing cache... ', true )) return 7;
             if (!$this->capsule( "app:migrate -u -r", $output, 'Updating database... ', true )) return 8;
+            if (!$this->capsule( "app:migrate -p", $output, 'Running post-installation scripts... ', true )) return 9;
+
+            if (count($version_lines) >= 1) $output->writeln("Updated MyHordes to version <info>{$version_lines[0]}</info>");
 
             if (!$input->getOption('stay-offline')) {
                 for ($i = 3; $i > 0; --$i) {
@@ -407,6 +414,60 @@ class MigrateCommand extends Command
                 $output->writeln("<error>Unable to update fixtures.</error>");
                 return 3;
             }
+
+            return 0;
+        }
+
+        if ($input->getOption('process-db-git')) {
+
+            $hashes = array_reverse( $this->bin( 'git rev-list HEAD', $ret ) );
+            $output->writeln('Found <info>' . count($hashes) . '</info> installed patches.');
+
+            $new = 0;
+            $git_repo = $this->entity_manager->getRepository(GitVersions::class);
+            foreach ($hashes as $hash)
+                if ($git_repo->count(['version' => trim($hash)]) === 0) {
+                    $new++;
+                    $this->entity_manager->persist((new GitVersions())->setVersion(trim($hash))->setInstalled(false));
+                }
+
+            if ($new > 0) {
+                $this->entity_manager->flush();
+                $output->writeln("<info>$new</info> patches have been newly discovered.");
+            } else $output->writeln("<info>No</info> patches have been newly discovered.");
+
+            /** @var GitVersions[] $uninstalled */
+            $uninstalled = $git_repo->findBy(['installed' => false], ['id' => 'ASC']);
+
+            if (count($uninstalled) > 0) $output->writeln('Completing database setup for <info>' . count($uninstalled) . '</info> patches.');
+            else $output->writeln('No patches marked for installation.');
+
+            foreach ($uninstalled as $version) {
+                if (isset(static::$git_script_repository[$version->getVersion()])) {
+                    $this->entity_manager->flush();
+                    $output->writeln("\tInstalling <comment>{$version->getVersion()}</comment>...");
+                    foreach (static::$git_script_repository[$version->getVersion()] as $script) {
+
+                        $input = new ArrayInput($script[1]);
+                        $input->setInteractive(false);
+
+                        try {
+                            $this->getApplication()->find($script[0])->run($input, $output);
+                        } catch (Exception $e) {
+                            $output->writeln("Error: <error>{$e->getMessage()}</error>");
+                            return 1;
+                        }
+                    }
+
+                    $output->writeln("\t<info>OK!</info>");
+                    $this->entity_manager->persist( $version->setInstalled(true) );
+                    $this->entity_manager->flush();
+                } else {
+                    $this->entity_manager->persist( $version->setInstalled(true) );
+                }
+            }
+
+            $this->entity_manager->flush();
 
             return 0;
         }
