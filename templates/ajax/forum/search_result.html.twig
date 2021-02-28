@@ -56,7 +56,13 @@
         $.html.forEach('.forum-post-search-result .forum-post-content', element => {
             let e = element.clientHeight !== element.scrollHeight ? element.querySelector('span.search-anchor') : null;
             if (e) {
-                const p = Math.max(0, e.offsetTop - element.offsetTop + e.offsetHeight / 2 - element.clientHeight / 2);
+                let ot = 0, op = e;
+                while (op !== element.offsetParent || op === null) {
+                    ot += op.offsetTop;
+                    op = op.offsetParent;
+                }
+
+                const p = Math.max(0, ot - element.offsetTop + e.offsetHeight / 2 - element.clientHeight / 2);
                 element.scrollTo(0, p);
             }
         });
