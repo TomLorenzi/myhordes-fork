@@ -2368,5 +2368,23 @@
         <target>Gib den Namen oder die ID der Stadt ein.</target>
       </segment>
     </unit>
+    <unit id="U4p3p8Q" name="Stimmen">
+      <notes>
+        <note category="german">Stimmen</note>
+      </notes>
+      <segment>
+        <source>Stimmen</source>
+        <target>Stimmen</target>
+      </segment>
+    </unit>
+    <unit id="cLQ9dCO" name="Für %target%">
+      <notes>
+        <note category="german">Für %target%</note>
+      </notes>
+      <segment>
+        <source>Für %target%</source>
+        <target>Für %target%</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

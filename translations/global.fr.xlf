@@ -2442,5 +2442,140 @@
         <target>Cette action vous coûtera 1 PA !</target>
       </segment>
     </unit>
+    <unit id="nyhYCez" name="Nachrichten suchen">
+      <notes>
+        <note category="german">Nachrichten suchen</note>
+      </notes>
+      <segment>
+        <source>Nachrichten suchen</source>
+        <target>Recherer un message</target>
+      </segment>
+    </unit>
+    <unit id="qvbVj_e" name="Suchbegriff">
+      <notes>
+        <note category="german">Suchbegriff</note>
+      </notes>
+      <segment>
+        <source>Suchbegriff</source>
+        <target>Mots clés</target>
+      </segment>
+    </unit>
+    <unit id="m.JFPYg" name="Suchbegriffe eingeben">
+      <notes>
+        <note category="german">Suchbegriffe eingeben</note>
+      </notes>
+      <segment>
+        <source>Suchbegriffe eingeben</source>
+        <target>Entrez les mots-clés</target>
+      </segment>
+    </unit>
+    <unit id="bpR1Iu." name="Benutzer (optional)">
+      <notes>
+        <note category="german">Benutzer (optional)</note>
+      </notes>
+      <segment>
+        <source>Benutzer (optional)</source>
+        <target>Utilisateur</target>
+      </segment>
+    </unit>
+    <unit id="OCg3Wi1" name="Entfernen">
+      <notes>
+        <note category="german">Entfernen</note>
+      </notes>
+      <segment>
+        <source>Entfernen</source>
+        <target>Supprimer</target>
+      </segment>
+    </unit>
+    <unit id="8dquNSH" name="Optionen">
+      <notes>
+        <note category="german">Optionen</note>
+      </notes>
+      <segment>
+        <source>Optionen</source>
+        <target>Paramètres</target>
+      </segment>
+    </unit>
+    <unit id="2E_8DZ9" name="In Titeln suchen">
+      <notes>
+        <note category="german">In Titeln suchen</note>
+      </notes>
+      <segment>
+        <source>In Titeln suchen</source>
+        <target>Recherche dans les titres</target>
+      </segment>
+    </unit>
+    <unit id="gz5au3s" name="Tipps zur Suche">
+      <notes>
+        <note category="german">Tipps zur Suche</note>
+      </notes>
+      <segment>
+        <source>Tipps zur Suche</source>
+        <target>Astuces de recherche</target>
+      </segment>
+    </unit>
+    <unit id="_MSoX5u" name="dd6fd38">
+      <notes>
+        <note category="german">Benutze Anführungszeichen (" "), um nach einer bestimmten Wortkette zu suchen. Beispiel: "Ration Wasser"</note>
+      </notes>
+      <segment>
+        <source>Benutze Anführungszeichen (" "), um nach einer bestimmten Wortkette zu suchen. Beispiel: "Ration Wasser"</source>
+        <target>Utilisez des guillemets (" ") pour chercher une suite de mots cohérente.</target>
+      </segment>
+    </unit>
+    <unit id="tQlAKoR" name="60820fb">
+      <notes>
+        <note category="german">Setze ein Ausrufezeichen (!) vor einen Suchbegriff, um diesen auszuschließen. Beispiel: Wasser !Brunnen</note>
+      </notes>
+      <segment>
+        <source>Setze ein Ausrufezeichen (!) vor einen Suchbegriff, um diesen auszuschließen. Beispiel: Wasser !Brunnen</source>
+        <target>Utilisez le point d'exclamation (!) pour exclure un mot. Exemple : kube !dino</target>
+      </segment>
+    </unit>
+    <unit id="HnC2uQZ" name="57f97d9">
+      <notes>
+        <note category="german">Um nach Anführungszeichen oder Ausrufezeichen zu suchen, schreibe einen Backslash (\) davor, um zu verhindern, dass sie als Suchbefehl interpretiert werden. Beispiel: Boom\!</note>
+      </notes>
+      <segment>
+        <source>Um nach Anführungszeichen oder Ausrufezeichen zu suchen, schreibe einen Backslash (\) davor, um zu verhindern, dass sie als Suchbefehl interpretiert werden. Beispiel: Boom\!</source>
+        <target>Um nach Anführungszeichen oder Ausrufezeichen zu suchen, schreibe einen Backslash (\) davor, um zu verhindern, dass sie als Suchbefehl interpretiert werden. Beispiel: Boom\!</target>
+      </segment>
+    </unit>
+    <unit id="3Ql_d91" name="Suchen">
+      <notes>
+        <note category="german">Suchen</note>
+      </notes>
+      <segment>
+        <source>Suchen</source>
+        <target>Rechercher</target>
+      </segment>
+    </unit>
+    <unit id="OzcaRPo" name="Foren durchsuchen">
+      <notes>
+        <note category="german">Foren durchsuchen</note>
+      </notes>
+      <segment>
+        <source>Foren durchsuchen</source>
+        <target>Recherche dans les forums</target>
+      </segment>
+    </unit>
+    <unit id="ny.mG4P" name="Es wurden keine Nachrichten gefunden, die deiner Suchanfrage entsprechen.">
+      <notes>
+        <note category="german">Es wurden keine Nachrichten gefunden, die deiner Suchanfrage entsprechen.</note>
+      </notes>
+      <segment>
+        <source>Es wurden keine Nachrichten gefunden, die deiner Suchanfrage entsprechen.</source>
+        <target>Es wurden keine Nachrichten gefunden, die deiner Suchanfrage entsprechen.</target>
+      </segment>
+    </unit>
+    <unit id="uvXzw5b" name="c09e87f">
+      <notes>
+        <note category="german">Deine Suchanfrage hat mehr Ergebnisse geliefert, als hier angezeigt werden können. Versuche, deine Anfrage zu präzisieren, wenn du nicht gefunden hast wonach du suchst.</note>
+      </notes>
+      <segment>
+        <source>Deine Suchanfrage hat mehr Ergebnisse geliefert, als hier angezeigt werden können. Versuche, deine Anfrage zu präzisieren, wenn du nicht gefunden hast wonach du suchst.</source>
+        <target>Deine Suchanfrage hat mehr Ergebnisse geliefert, als hier angezeigt werden können. Versuche, deine Anfrage zu präzisieren, wenn du nicht gefunden hast wonach du suchst.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
