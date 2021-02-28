@@ -515,7 +515,7 @@ class TownHandler
         $offsetMin = $est->getOffsetMin();
         $offsetMax = $est->getOffsetMax();
 
-        mt_srand($town->getDay());
+        mt_srand($town->getDay() + $town->getId());
 
         for ($i = 0; $i < $est->getCitizens()->count() * $ratio; $i++) {
             if ($offsetMin + $offsetMax > 10) {
@@ -578,7 +578,7 @@ class TownHandler
             $min2 = round($min2 * $soulFactor);
             $max2 = round($max2 * $soulFactor);
 
-            $quality2 = min($calculateUntil / (24 / $ratio), 1);
+            $quality2 = min($calculateUntil / 24, 1);
             $this->conf->getCurrentEvent($town)->hook_watchtower_estimations($min2,$max2, $town);
 
             $estim2 = new WatchtowerEstimation();

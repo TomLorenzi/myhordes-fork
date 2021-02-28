@@ -88,7 +88,7 @@
             </div>
             <div class="padded cell rw-12 center small">
                 {% if z1[1] %}
-                    <button {% if not z1_av %}disabled{% endif%} x-predict-attack="1"><img src="{{ asset('build/images/soul/r_explor.gif') }}" /> {{ 'Abschätzung verbessern'|trans({},'game') }}</button>
+                    <button {% if not z1_av %}disabled{% endif%} x-predict-attack="1"><img alt="" src="{{ asset('build/images/soul/r_explor.gif') }}" /> {{ 'Abschätzung verbessern'|trans({},'game') }}</button>
                 {% endif %}
             </div>
             {% else %}
@@ -96,7 +96,7 @@
                     {{'Wir haben noch nicht die Technologie, um den morgigen Angriff zu beurteilen.'|trans({}, 'game')}}
                 </div>
                 <div class="padded cell rw-12 center">
-                    <button disabled><img src="{{ asset('build/images/building/item_electro.gif') }}" /> {{ 'Den morgigen Angriff berechnen'|trans({},'game') }}</button>
+                    <button disabled><img alt="" src="{{ asset('build/images/building/item_electro.gif') }}" /> {{ 'Den morgigen Angriff berechnen'|trans({},'game') }}</button>
                 </div>
             {% endif %}
         </div>
@@ -115,8 +115,7 @@
         let buttons = document.querySelectorAll('[x-predict-attack]');
         for (let i = 0; i < buttons.length; i++)
             buttons[i].addEventListener('click', function() {
-                // const day = this.getAttribute('x-predict-attack');
-                $.ajax.easySend( '{{ path('town_watchtower_estimate_controller') }}', {/*day: day*/},
+                $.ajax.easySend( '{{ path('town_watchtower_estimate_controller') }}', {},
                     function () {
                         $.ajax.load(null, '{{ path('town_watchtower') }}', true);
                     } );
