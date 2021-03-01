@@ -99,6 +99,7 @@
                                                     {% else %}
                                                         <img alt="" src="{{ asset('build/images/icons/scout_lv3.gif') }}" /><span>&nbsp;{{ 'Die Zone wurde voll und ganz erforscht und kartographiert'|trans({},'game') }}</span>
                                                     {% endif %}
+                                                    {{ help_btn(('Diese Information gibt dir einen Hinweis darauf, ob Aufklärer gewöhnlicherweise hier vorbeikommen.<br /><em>Je mehr eine Zone erforscht wurde, desto geringer ist die Chance bei <strong>Betreten</strong> entdeckt zu werden (du kennst dann ein paar Schleichwege etc...).</em>')|trans({}, 'game')) }}
                                                 </div>
                                             </div>
                                         {% endif %}
