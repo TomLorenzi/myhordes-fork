@@ -67,6 +67,10 @@ services:
         arguments:
             $translator: '@translator.default'
 
+    App\Command\Town\TownCreateCommand:
+        arguments:
+            $translator: '@translator.default'
+
     App\EventSubscriber\DebugSubscriber:
         tags: []
         autoconfigure: false
