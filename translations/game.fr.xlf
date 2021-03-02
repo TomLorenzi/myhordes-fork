@@ -18448,7 +18448,7 @@
       </notes>
       <segment>
         <source>&lt;em&gt;Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. &lt;strong&gt;Wichtige Anmerkung:&lt;/strong&gt; Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?&lt;/em&gt;</source>
-        <target><![CDATA[<em>Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. <strong>Wichtige Anmerkung:</strong> Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?</em>]]></target>
+        <target><![CDATA[<em>Vous pouvez améliorer votre habitation et ainsi bénéficier d'une meilleure défense. <strong>Note importante :</strong> peut être serait-il judicieux également d'utiliser vos ressources pour l'amélioration de la ville ?</em>]]></target>
       </segment>
     </unit>
     <unit id="h.30SZi" name="b7166cc">
