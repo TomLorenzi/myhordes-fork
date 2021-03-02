@@ -388,19 +388,20 @@ class ZoneHandler
         }
 
         // If zombies can take control after leaving the zone and there are citizens remaining, install a grace escape timer
-        elseif ( $cp_ok_before && !$this->check_cp( $zone ) ) {
-            $zone->addEscapeTimer( (new EscapeTimer())->setTime( new DateTime('+30min') ) );
-            // Disable all dig timers
-            foreach ($zone->getDigTimers() as $dig_timer) {
-                $dig_timer->setPassive(true);
-                $this->entity_manager->persist( $dig_timer );
+        else if ($cp_ok_before !== null) {
+            if ( $cp_ok_before && !$this->check_cp( $zone ) ) {
+                $zone->addEscapeTimer( (new EscapeTimer())->setTime( new DateTime('+30min') ) );
+                // Disable all dig timers
+                foreach ($zone->getDigTimers() as $dig_timer) {
+                    $dig_timer->setPassive(true);
+                    $this->entity_manager->persist( $dig_timer );
+                }
+            }
+            // If we took back control of the zone, logs it
+            elseif (!$cp_ok_before && $this->check_cp($zone)) {
+                $this->entity_manager->persist($this->log->zoneUnderControl($zone));
             }
         }
-        // If we took back control of the zone, logs it
-        elseif (!$cp_ok_before && $this->check_cp($zone)) {
-            $this->entity_manager->persist($this->log->zoneUnderControl($zone));
-        }
-
     }
 
     public function getSoulZones( Town $town ) {

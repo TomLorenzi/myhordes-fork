@@ -32,3 +32,15 @@ parameters:
         hooks:
           night_after: 'App\Structures\Hook::night_xmas'
           night_none: 'App\Structures\Hook::night_xmas'
+    stpatrick:
+      trigger:
+        type: datetime
+        begin: 03-14 00:00
+        end: 03-20 00:00
+      conf:
+        css: 'stpatrick'
+        event_dig:
+          desert:
+            group: 'stpatrick_dig'
+            chance: 0.4
+        hooks:

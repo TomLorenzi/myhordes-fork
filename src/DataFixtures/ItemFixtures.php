@@ -408,6 +408,8 @@ class ItemFixtures extends Fixture
         ['label' => 'Grüner Kobold-Anzug', 'icon' => 'leprechaun_suit', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0], //
         ['label' => 'Kreischender Wecker (entladen)', 'icon' => 'alarm_off', 'category' => 'Misc', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
         ['label' => 'Kreischender Wecker (mit Strom)', 'icon' => 'alarm_on', 'category' => 'Misc', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
+        ['label' => 'Hurlingstock', 'icon' => 'hurling_stick', 'category' => 'Weapon', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
+        ['label' => 'Guiness', 'icon' => 'guiness', 'category' => 'Food', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
     ];
     
     public static $item_desc_data = [
@@ -761,6 +763,8 @@ class ItemFixtures extends Fixture
         'christmas_candy_#00' => 'Es sieht aus wie eine Art Schokoladenbonbon mit alkoholischem Likör darin. Oder eine andere Füllung...',
         'alarm_off_#00' => 'Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert.',
         'alarm_on_#00' => 'Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei.',
+        'hurling_stick_#00' => 'Ein kleiner Ratschlag. Wenn du schon den falschen Kampf wählst... dann wähle wenigstens die richtige Waffe.',
+        'guiness_#00' => 'Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen'
     ];
     
     public static $item_prototype_properties = [
@@ -773,6 +777,7 @@ class ItemFixtures extends Fixture
         'small_knife_#00'            => [ 'impoundable', 'weapon', 'box_opener', 'nw_armory' ],
         'bone_#00'                   => [ 'impoundable', 'weapon', 'box_opener', 'nw_armory' ],
         'cutcut_#00'                 => [ 'impoundable', 'weapon', 'box_opener', 'esc_fixed', 'nw_armory' ],
+        'hurling_stick_#00'          => [ 'weapon', 'box_opener', 'nw_armory' ],
         'chair_basic_#00'            => [ 'box_opener', 'nw_ikea', 'nw_armory' ],
         'chair_#00'                  => [ 'nw_armory' ],
         'staff_#00'                  => [ 'impoundable', 'weapon', 'box_opener', 'nw_armory' ],
@@ -1086,6 +1091,12 @@ class ItemFixtures extends Fixture
         ],
         'easter_dig' => [
             array('item' => 'paques_#00', 'count' => '207'),
+        ],
+        'stpatrick_dig' => [
+            array('item' => 'leprechaun_suit_#00', 'count' => '4'),
+            array('item' => 'guiness_#00', 'count' => '25'),
+            array('item' => 'hurling_stick_#00', 'count' => '25'),
+
         ],
         'trash_good' => [
             array('item' => 'fence_#00', 'count' => '33'),

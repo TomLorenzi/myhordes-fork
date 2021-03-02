@@ -615,7 +615,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'open_gamebox'  => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'dice_#00', 'cards_#00' ] ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
             'open_abox'     => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ 'bplan_r_#00' ] ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
-            'open_cbox'     => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ ['bplan_c_#00',50], ['bplan_u_#00',35], ['bplan_r_#00',10], 'bplan_e_#00',5] ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
+            'open_cbox'     => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ 'consume_item', [ 'spawn' => [ ['bplan_c_#00',50], ['bplan_u_#00',35], ['bplan_r_#00',10], ['bplan_e_#00',5]] ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
 
             'open_matbox3'   => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_2_#00' ],  'spawn' => 'matbox' ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
             'open_matbox2'   => [ 'label' => 'Öffnen', 'meta' => ['is_not_wounded_hands'], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'rsc_pack_1_#00' ],  'spawn' => 'matbox' ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
@@ -719,6 +719,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'throw_b_concrete_wall' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_20'], 'kill_1_zombie' ] ],
             'throw_b_torch_off'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_50'], ['group' => 'g_kill_1z_10'] ] ],
             'throw_b_wrench'        => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_33'], ['group' => 'g_kill_1z_50'] ] ],
+            'throw_hurling_stick'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ ['group' => 'g_break_15'], ['group' => 'g_kill_1z_60'] ] ],
             'throw_phone'           => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', ['spawn' => 'phone'] , 'kill_1_2_zombie' ] ],
             'throw_projector'       => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'consume_item', ['spawn' => 'proj'] , 'kill_1_zombie' ] ],
 
@@ -1101,6 +1102,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'concrete_wall_#00' => ['throw_b_concrete_wall'],
             'torch_off_#00'     => ['throw_b_torch_off'    ],
             'wrench_#00'        => ['throw_b_wrench'       ],
+            'hurling_stick_#00' => ['throw_hurling_stick'  ],
             'iphone_#00'        => ['throw_phone'          ],
             'cinema_#00'        => ['throw_projector'      ],
 
@@ -1136,7 +1138,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'guitar_#00' => ['special_guitar'],
 
             'rhum_#00'     => ['alcohol'],
-            'vodka_#00' => ['alcohol'],
+            'vodka_#00'    => ['alcohol'],
             'vodka_de_#00' => ['alcohol'],
             'fest_#00'     => ['alcohol'],
             'hmbrew_#00'   => ['alcohol_dx'],
@@ -1598,8 +1600,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 $out->writeln( "\t\t\t<comment>Create</comment> condition <info>item/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
             }
             $prototype = empty($data['item']) ? null : $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $data['item']]);
-            if (!empty($data['item']) && ! $prototype)
+            if (!empty($data['item']) && ! $prototype) {
                 throw new Exception('Item prototype not found: ' . $data['item']);
+            }
 
             $property  = empty($data['prop']) ? null : $manager->getRepository(ItemProperty::class )->findOneBy(['name' => $data['prop']]);
             if (!empty($data['prop']) && ! $property)
@@ -2214,7 +2217,11 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 foreach ($actual_data as $entry) {
                     [$p,$c] = is_array($entry) ? $entry : [$entry,1];
                     $prototype = $manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $p]);
-                    if (!$prototype) throw new Exception('Item prototype not found: ' . $p);
+
+                    if (!$prototype) {
+                        print_r($data);
+                        throw new Exception('Item prototype not found4: ' . $p);
+                    }
                     $group->addEntry( (new ItemGroupEntry())->setChance($c)->setPrototype( $prototype ) );
                 }
 

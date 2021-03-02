@@ -1204,12 +1204,12 @@ class ActionHandler
                         $jumper->setZone(null);
                         $zone->removeCitizen( $jumper );
 
-                        if ( $zone->getX() !== 0 || $zone->getY() !== 0 ) {
+                        /*if ( $zone->getX() !== 0 || $zone->getY() !== 0 ) {
                             $zero_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $zone->getTown(), 0, 0 );
 
                             if ($others_are_here) $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zone, $zero_zone, true ) );
                             $this->entity_manager->persist( $this->log->outsideMove( $jumper, $zero_zone, $zone, false ) );
-                        }
+                        }*/
                         if ( $result->getCustom() === 8 )
                             $this->entity_manager->persist( $this->log->heroicReturnLog( $citizen, $zone ) );
                         if ( $result->getCustom() === 9 )
