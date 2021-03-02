@@ -97,7 +97,7 @@ parameters:
         escort:
           enabled: true
           max: 4
-        nightmode: true
+        nightmode: false
         shaman: 'normal'
         xml_feed: true
         ghoul_mode: normal
