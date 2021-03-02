@@ -1096,7 +1096,9 @@ class ItemFixtures extends Fixture
             array('item' => 'leprechaun_suit_#00', 'count' => '4'),
             array('item' => 'guiness_#00', 'count' => '25'),
             array('item' => 'hurling_stick_#00', 'count' => '25'),
-
+        ],
+        'stpatrick_dig_fair' => [
+            array('item' => 'hurling_stick_#00', 'count' => '2'),
         ],
         'trash_good' => [
             array('item' => 'fence_#00', 'count' => '33'),

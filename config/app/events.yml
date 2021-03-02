@@ -43,4 +43,6 @@ parameters:
           desert:
             group: 'stpatrick_dig'
             chance: 0.4
+          ruins:
+            - { name: 'fair', group: 'christmas_dig_fair', chance: 0.5 }
         hooks:
