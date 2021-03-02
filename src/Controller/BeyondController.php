@@ -705,7 +705,8 @@ class BeyondController extends InventoryAwareController
         $new_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $citizen->getTown(), $px, $py );
         if (!$new_zone) return AjaxResponse::error( self::ErrorNotReachableFromHere );
 
-        $cp_ok_new_zone = $this->zone_handler->check_cp($new_zone);
+        $cp_ok_new_zone = $this->zone_handler->check_cp($new_zone, $cp_before_new_zone);
+        if($cp_ok_new_zone <= 0) $cp_ok_new_zone = true;
 
         if($this->citizen_handler->hasStatusEffect($citizen, 'wound4') && $this->random_generator->chance(0.20)) {
             $this->addFlash('notice', $this->translator->trans('Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...', [], 'game'));
