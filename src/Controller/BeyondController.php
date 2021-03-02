@@ -727,7 +727,6 @@ class BeyondController extends InventoryAwareController
         $away_from_town = (abs($zone->getX()) + abs($zone->getY())) < (abs($new_zone->getX()) + abs($new_zone->getY()));
 
         foreach ($movers as $mover) {
-
             // Check if citizen moves as a scout
             $scouts[$mover->getId()] = $this->inventory_handler->countSpecificItems(
                     $mover->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
@@ -776,6 +775,10 @@ class BeyondController extends InventoryAwareController
 
                     $new_zed_count = $new_zone->getZombies();
                     $new_zone_lv = $new_zone->getScoutLevel();
+
+                    if ($this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTMODE, false) && $mover->getTown()->isNight())
+                        $new_zone_lv += 1;
+
                     $factor = pow( max(0, $new_zed_count - 3*$new_zone_lv), 1.0 + (max(0, $new_zed_count - 3*$new_zone_lv))/60.0 ) / 100.0;
 
                     if ($this->random_generator->chance($factor) && $this->uncoverHunter($mover)){
