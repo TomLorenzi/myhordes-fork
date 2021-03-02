@@ -57,7 +57,7 @@
                         <p>&nbsp;</p>
                     {% endif %}
                     {% if vote is null and building.level < building.prototype.maxLevel %}
-                        <button {% if banished %}disabled{% endif%} x-building-id="{{ building.id }}">{% trans from 'game' %}Abstimmen{% endtrans %}</button>
+                        <button {% if banished or is_devastated %}disabled{% endif%} x-building-id="{{ building.id }}">{% trans from 'game' %}Abstimmen{% endtrans %}</button>
                     {% elseif building.level < building.prototype.maxLevel %}
                         {% trans from 'game' %}Stimmen:{% endtrans %} {{ building.dailyUpgradeVotes|length }}
                         {% if building.dailyUpgradeVotes|length == max_votes %}

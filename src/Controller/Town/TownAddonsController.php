@@ -47,8 +47,6 @@ class TownAddonsController extends TownController
             return $this->redirect($this->generateUrl('game_newspaper'));
 
         $town = $this->getActiveCitizen()->getTown();
-        if($town->getDevastated())
-            return $this->redirect($this->generateUrl('town_dashboard'));
 
         $buildings = [];
         $max_votes = 0;
@@ -67,6 +65,7 @@ class TownAddonsController extends TownController
             'max_votes' => $max_votes,
             'total_votes' => $total_votes,
             'vote' => $this->getActiveCitizen()->getDailyUpgradeVote() ? $this->getActiveCitizen()->getDailyUpgradeVote()->getBuilding() : null,
+            'is_devastated' => $town->getDevastated()
         ]) );
     }
 
