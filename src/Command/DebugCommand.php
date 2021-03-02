@@ -217,6 +217,7 @@ class DebugCommand extends Command
             $users = $this->entity_manager->getRepository(User::class)->findAll();
 
             for ($i = 0; $i < $town->getPopulation() - $town->getCitizenCount(); $i++) {
+                /** @var User $user */
                 foreach ($users as $user) {
                     /** @var Citizen $citizen */
 
@@ -249,7 +250,7 @@ class DebugCommand extends Command
                     $this->entity_manager->flush();
 
                     $ii = $i + $town->getCitizenCount() + 1;
-                    $output->writeln("<comment>{$user_name}</comment> joins <comment>{$town->getName()}</comment> and fills slot {$ii}/{$town->getPopulation()} as a <comment>{$pro->getLabel()}</comment>.");
+                    $output->writeln("<comment>{$user->getName()}</comment> joins <comment>{$town->getName()}</comment> and fills slot {$ii}/{$town->getPopulation()} as a <comment>{$pro->getLabel()}</comment>.");
                     break;
                 }
             }
