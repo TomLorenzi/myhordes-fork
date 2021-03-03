@@ -6400,12 +6400,12 @@
         <target>Cette boite contient tout un attirail de produits chimiques hautement toxiques aux noms évocateurs, tels que : Sodium-Fuzz, Carbopotassium Bling Bling ou Rainbow Lithium Cyanurisé.</target>
       </segment>
     </unit>
-    <unit id="57AU2d." name="Kürbis ausgestorben">
+    <unit id=".GF0jrU" name="Ausgeschnitzter weicher Kürbis">
       <notes>
-        <note category="german">Kürbis ausgestorben</note>
+        <note category="german">Ausgeschnitzter weicher Kürbis</note>
       </notes>
       <segment>
-        <source>Kürbis ausgestorben</source>
+        <source>Ausgeschnitzter weicher Kürbis</source>
         <target>Citrouille molle sculptée</target>
       </segment>
     </unit>
@@ -6418,12 +6418,12 @@
         <target>Une sorte de gros légume orange malodorant, comme vous n'en avez jamais vu auparavant. Un visage grimaçant a été taillé dans sa chair : quel genre de tradition barbare se cache derrière ce rituel ?</target>
       </segment>
     </unit>
-    <unit id="qjyJg4a" name="Beleuchteter Kürbis">
+    <unit id="nllAwkr" name="Leuchtender Kürbis">
       <notes>
-        <note category="german">Beleuchteter Kürbis</note>
+        <note category="german">Leuchtender Kürbis</note>
       </notes>
       <segment>
-        <source>Beleuchteter Kürbis</source>
+        <source>Leuchtender Kürbis</source>
         <target>Citrouille allumée</target>
       </segment>
     </unit>
@@ -7883,6 +7883,60 @@
       <segment>
         <source>Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Die Zunge klebt dir noch immer am Gaumen und dein Hals ist noch genauso trocken wie vorher. Du hast deinen Verdurstungstod erfolgreich verhindert.{hr}&lt;strong&gt;Da du davor schon dehydriert warst, hast du keine neuen APs erhalten.&lt;/strong&gt;</source>
         <target><![CDATA[Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Die Zunge klebt dir noch immer am Gaumen und dein Hals ist noch genauso trocken wie vorher. Du hast deinen Verdurstungstod erfolgreich verhindert.{hr}<strong>Da du davor schon dehydriert warst, hast du keine neuen APs erhalten.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="VjR2NCz" name="Hurlingstock">
+      <notes>
+        <note category="german">Hurlingstock</note>
+      </notes>
+      <segment>
+        <source>Hurlingstock</source>
+        <target>Hurlingstock</target>
+      </segment>
+    </unit>
+    <unit id="8dLKyx6" name="01e4f48">
+      <notes>
+        <note category="german">Ein kleiner Ratschlag. Wenn du schon den falschen Kampf wählst... dann wähle wenigstens die richtige Waffe.</note>
+      </notes>
+      <segment>
+        <source>Ein kleiner Ratschlag. Wenn du schon den falschen Kampf wählst... dann wähle wenigstens die richtige Waffe.</source>
+        <target>Ein kleiner Ratschlag. Wenn du schon den falschen Kampf wählst... dann wähle wenigstens die richtige Waffe.</target>
+      </segment>
+    </unit>
+    <unit id="W0wWbGS" name="Guiness">
+      <notes>
+        <note category="german">Guiness</note>
+      </notes>
+      <segment>
+        <source>Guiness</source>
+        <target>Guiness</target>
+      </segment>
+    </unit>
+    <unit id="W05WB_r" name="f4c9ac4">
+      <notes>
+        <note category="german">Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen</note>
+      </notes>
+      <segment>
+        <source>Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen</source>
+        <target>Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen</target>
+      </segment>
+    </unit>
+    <unit id="5N_N9nB" name="Weicher Kürbis">
+      <notes>
+        <note category="german">Weicher Kürbis</note>
+      </notes>
+      <segment>
+        <source>Weicher Kürbis</source>
+        <target>Citrouille molle</target>
+      </segment>
+    </unit>
+    <unit id="C50KixZ" name="ff67b99">
+      <notes>
+        <note category="german">Eine Art großes, stinkendes, orangefarbenes Gemüse, wie du es noch nie gesehen hast. Ein plötzlicher Drang, es auszugraben, ergreift dich, ohne dass du weißt warum...</note>
+      </notes>
+      <segment>
+        <source>Eine Art großes, stinkendes, orangefarbenes Gemüse, wie du es noch nie gesehen hast. Ein plötzlicher Drang, es auszugraben, ergreift dich, ohne dass du weißt warum...</source>
+        <target>Une sorte de gros légume orange malodorant, comme vous n'en avez jamais vu auparavant. Une soudaine envie de le creuser vous prend, sans que vous sachiez pourquoi...</target>
       </segment>
     </unit>
   </file>

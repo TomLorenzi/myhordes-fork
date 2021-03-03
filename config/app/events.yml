@@ -46,3 +46,15 @@ parameters:
           ruins:
             - { name: 'fair', group: 'christmas_dig_fair', chance: 0.5 }
         hooks:
+    halloween:
+      trigger:
+        type: datetime
+        begin: 10-25 00:00
+        end: 11-01 00:00
+      conf:
+        css: 'halloween'
+        event_dig:
+          desert:
+            group: 'halloween_dig'
+            chance: 0.4
+        hooks:

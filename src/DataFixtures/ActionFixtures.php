@@ -803,7 +803,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'alarm_clock' => [ 'label' => 'Benutzen', 'meta' => [  ], 'result' => [ ['item' => ['consume' => false, 'morph' => 'alarm_on_#00'] ] ],  'message' => 'Du hast {item_from} in {item_to} verwandelt.' ],
 
-
+            'pumpkin' => ['label' => 'Einsetzen', 'meta' => [ ], 'result' => [ [ 'item' => ['consume' => false, 'morph' => 'pumpkin_off_#00'] ] ] ],
             'flare' => [ 'label' => 'Benutzen', 'meta' => [], 'result' => [ ['custom' => [21]] ], 'message' => '<t-flare_ok>Du hast die Zone {zone} entdeckt.</t-flare_ok><t-flare_fail>Es gibt keine weitere Zone zu entdecken.</t-flare_fail>' ],
 
             'hero_tamer_1'   => [ 'label' => 'Zur Bank schicken',  'meta' => [ 'must_be_outside_or_exploring' ], 'result' => [ 'hero_tamer_1' ], 'confirm' => true, 'message'  => '<t-fail><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-too-heavy>{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen <strong>sperrigen Gegenstand</strong> mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!</t-too-heavy></t-fail><nt-fail>Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}<strong>Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.</strong></nt-fail>' ],
@@ -1207,6 +1207,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'flare_#00' => ['flare'],
 
             'alarm_off_#00' => ['alarm_clock'],
+
+            'pumpkin_on_#00' => ['pumpkin'],
         ],
 
         'items_nw' => [
