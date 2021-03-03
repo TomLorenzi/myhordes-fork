@@ -18466,7 +18466,7 @@
       </notes>
       <segment>
         <source>Achtung! Wenn du pro Tag &lt;strong&gt;mehr als eine Ration Wasser&lt;/strong&gt; nimmst, erfolgt dies auf Kosten der anderen Bürger. Aus diesem Grund werden dementsprechende Aktionen im Großen Register rot vermerkt...</source>
-        <target><![CDATA[Achtung! Wenn du pro Tag <strong>mehr als eine Ration Wasser</strong> nimmst, erfolgt dies auf Kosten der anderen Bürger. Aus diesem Grund werden dementsprechende Aktionen im Großen Register rot vermerkt...]]></target>
+        <target><![CDATA[Attention ! <strong>Prendre plus d'une ration d'eau par jour</strong> est une action qui se fait au détriment des autres Citoyens. Par conséquent, elle sera consignée en rouge dans le Grand Registre...]]></target>
       </segment>
     </unit>
     <unit id="N0yoB1W" name="235e0ff">
