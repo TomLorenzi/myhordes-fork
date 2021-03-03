@@ -39,3 +39,5 @@ etwin.toml
 .DS_Store
 .vscode/
 .idea/
+
+*:Zone.Identifier
