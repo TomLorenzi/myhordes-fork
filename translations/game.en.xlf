@@ -17795,7 +17795,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Den Lernmodus ausschalten</source>
-        <target>Den Lernmodus ausschalten</target>
+        <target>Deactivate Rookie Mode</target>
       </segment>
     </unit>
     <unit id="LHrC.7H" name="Wie gebraucht man diese Karte?">
@@ -17813,7 +17813,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Brauchst du Hilfe? Benutze den %modelink%!</source>
-        <target>Brauchst du Hilfe? Benutze den %modelink%!</target>
+        <target>Need more help? Try %modelink%!</target>
       </segment>
     </unit>
     <unit id="Ei6.Z0j" name="Anfängermodus">
@@ -17822,7 +17822,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Anfängermodus</source>
-        <target>Anfängermodus</target>
+        <target>Rookie Mode</target>
       </segment>
     </unit>
     <unit id="mw0MdAz" name="Handbuch zur Aussenwelt">
@@ -17842,8 +17842,9 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Wenn du "MyHordes" zum ersten Mal spielst, empfehlen wir dir den Links &lt;strong&gt;Wie soll ich spielen?&lt;/strong&gt; zu folgen,
                 die sich auf der Webseite links befindet. Interaktive Schritt-für-Schritt-Anleitungen erklären dir in 5 Minuten die Grundlagen des Spiels.</source>
-        <target><![CDATA[Wenn du "MyHordes" zum ersten Mal spielst, empfehlen wir dir den Links <strong>Wie soll ich spielen?</strong> zu folgen,
-                die sich auf der Webseite links befindet. Interaktive Schritt-für-Schritt-Anleitungen erklären dir in 5 Minuten die Grundlagen des Spiels.]]></target>
+        <target>
+					<![CDATA[If you are just starting out with Myhordes, take a look at the<strong>How to Play?</strong> links on the left of the page. They offer interactive guides to teach you the basics of the game in just a few minutes! 
+					They offer interactive guides to teach you the basics of the game in just a few minutes!]]></target>
       </segment>
     </unit>
     <unit id="PF899T3" name="Du kannst jederzeit die %helplink% im oberen Abschnitt der Seite aufsuchen.">
@@ -17852,7 +17853,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du kannst jederzeit die %helplink% im oberen Abschnitt der Seite aufsuchen.</source>
-        <target>Du kannst jederzeit die %helplink% im oberen Abschnitt der Seite aufsuchen.</target>
+        <target>You can consult the %helplink% at the top of the page at any time.</target>
       </segment>
     </unit>
     <unit id="333PWhL" name="komplette Spielhilfe">
@@ -17861,7 +17862,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>komplette Spielhilfe</source>
-        <target>komplette Spielhilfe</target>
+        <target>Game Help</target>
       </segment>
     </unit>
     <unit id="D053dcd" name="Zum Anfängermodus zurückkehren">
@@ -17870,7 +17871,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Zum Anfängermodus zurückkehren</source>
-        <target>Zum Anfängermodus zurückkehren</target>
+        <target>Return to the Rookie Interface </target>
       </segment>
     </unit>
     <unit id="qq349uP" name="(Du bist gerade im &lt;strong&gt;Expertenmodus&lt;/strong&gt;)">
@@ -17879,7 +17880,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>(Du bist gerade im &lt;strong&gt;Expertenmodus&lt;/strong&gt;)</source>
-        <target><![CDATA[(Du bist gerade im <strong>Expertenmodus</strong>)]]></target>
+        <target><![CDATA[(You are using the <strong>Expert</strong>) interface]]></target>
       </segment>
     </unit>
     <unit id="_WQ7cjB" name="534d954">
