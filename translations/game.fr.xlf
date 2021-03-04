@@ -8269,7 +8269,7 @@
       </notes>
       <segment>
         <source>Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...</source>
-        <target>Le chantier Tout ou Rien a apporté + [#] points de défense temporaires dans votre ville, mais tout dans la banque a été détruit! Espérons que cela en valait la peine...</target>
+        <target>Le chantier Dernière Chance a apporté + %def% points de défense temporaires dans votre ville, mais tout dans la banque a été détruit! Espérons que cela en valait la peine...</target>
       </segment>
     </unit>
     <unit id="vdpIvG7" name="6b9d94e">
