@@ -141,8 +141,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'have_can_opener'    => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'can_opener' ] ], 'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
             'have_box_opener'    => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'box_opener' ] ], 'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
-            'have_can_opener_hd' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'can_opener' ] ], 'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
-            'have_box_opener_hd' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'box_opener' ] ], 'text' => 'Du hast nichts, mit dem du dieses Ding aufbekommen könntest..' ],
+            'have_can_opener_hd' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'can_opener' ] ] ],
+            'have_box_opener_hd' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'box_opener' ] ] ],
             'not_have_can_opener_hd' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'can_opener', 'count' => 0 ] ] ],
             'not_have_box_opener_hd' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'item' => [ 'item' => null, 'prop' => 'box_opener', 'count' => 0 ] ] ],
             'have_water'      => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'water_#00', 'prop' => null ] ],    'text' => 'Hierfür brauchst du eine Ration Wasser.' ],
