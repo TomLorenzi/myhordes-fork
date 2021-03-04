@@ -3089,7 +3089,7 @@
       </notes>
       <segment>
         <source>Es wurde ein neues Gebäude gebaut: %plan%. Der Bau hat folgende Ressourcen verbraucht: %list%</source>
-        <target>Un nouveau bâtiment a été construit : %plan%. Cette construction a utilisé : %list%</target>
+        <target>La construction de %plan% a utilisé : %list%</target>
       </segment>
     </unit>
     <unit id="T6_1xeh" name="Es wurde ein neues Gebäude gebaut: %plan%.">
