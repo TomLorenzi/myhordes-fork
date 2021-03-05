@@ -6669,8 +6669,8 @@
       <segment>
         <source>Hier kannst du Routen für einen Trip in die Außenwelt planen. Einfache Routen beginnen und enden immer
                     in der Stadt. Komplexe Routen können an beliebigen Punkten beginnen und enden.</source>
-        <target>Ici, vous pouvez planifier des itinéraires pour un voyage vers le monde extérieur. 
-                    Des itinéraires simples commencent et finissent toujours dans la ville. 
+        <target>Ici, vous pouvez planifier des itinéraires pour un voyage vers le monde extérieur.
+                    Des itinéraires simples commencent et finissent toujours dans la ville.
                     Les itinéraires complexes peuvent commencer et se terminer à tout moment.</target>
       </segment>
     </unit>
@@ -8362,12 +8362,12 @@
         <target>Votre blessure à l'œil vous gêne énormément lors de vos fouilles.</target>
       </segment>
     </unit>
-    <unit id="gk3I32J" name="Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst">
+    <unit id="gk3I32J" name="Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.">
       <notes>
-        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</note>
+        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</note>
       </notes>
       <segment>
-        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</source>
+        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</source>
         <target><![CDATA[Votre <strong>état d'ébriété</strong> n'arrange pas vraiment les choses. Pas facile de faire cela quand on n'y voit plus très clair...]]></target>
       </segment>
     </unit>
