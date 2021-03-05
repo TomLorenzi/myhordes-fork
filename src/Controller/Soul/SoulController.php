@@ -189,7 +189,7 @@ class SoulController extends CustomAbstractController
             'route' => in_array($url, ['soul_visit','soul_invite_coalition']) ? $url : ''
         ];
 
-        if ($url === 'pm_add_users') $data['gid'] = $parser->get_num('group', 0);
+        if ($url === 'pm_add_users') $data['gid'] = $parser->get_int('group', 0);
 
         return $this->render( 'ajax/soul/users_list.html.twig', $data);
     }

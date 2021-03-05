@@ -3089,7 +3089,7 @@
       </notes>
       <segment>
         <source>Es wurde ein neues Gebäude gebaut: %plan%. Der Bau hat folgende Ressourcen verbraucht: %list%</source>
-        <target>Un nouveau bâtiment a été construit : %plan%. Cette construction a utilisé : %list%</target>
+        <target>La construction de %plan% a utilisé : %list%</target>
       </segment>
     </unit>
     <unit id="T6_1xeh" name="Es wurde ein neues Gebäude gebaut: %plan%.">
@@ -8269,7 +8269,7 @@
       </notes>
       <segment>
         <source>Der Bau des Gebäudes Alles oder nichts hat der Stadt %def% vorübergehende Verteidungspunkte eingebracht. Allerdings wurde dabei der gesamte Inhalt der Bank zerstört! Hoffen wir, dass es das wert war...</source>
-        <target>Le chantier Tout ou Rien a apporté + [#] points de défense temporaires dans votre ville, mais tout dans la banque a été détruit! Espérons que cela en valait la peine...</target>
+        <target>Le chantier Dernière Chance a apporté + %def% points de défense temporaires dans votre ville, mais tout dans la banque a été détruit! Espérons que cela en valait la peine...</target>
       </segment>
     </unit>
     <unit id="vdpIvG7" name="6b9d94e">

@@ -231,6 +231,24 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
+    public function bankItemStealLog( Citizen $citizen, ItemPrototype $item, bool $anonymous, bool $broken = false ): TownLogEntry {
+        if ($anonymous) {
+            $variables = array('item' => $item->getId(), 'broken' => $broken);
+            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'bankStealSuccess']);
+        } else {
+            $variables = array('citizen' => $citizen->getId(), 'item' => $item->getId(), 'broken' => $broken);
+            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'bankStealFail']);
+        }
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $anonymous ? null : $citizen );
+    }
+
     public function bankItemTamerLog( Citizen $citizen, ItemPrototype $item, bool $broken = false ): TownLogEntry {
 
         $variables = array('citizen' => $citizen->getId(), 'item' => $item->getId(), 'broken' => $broken, 'dogname' => $citizen->getId());

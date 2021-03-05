@@ -164,7 +164,7 @@ class GhostController extends CustomAbstractController
         $lang = $parser->get('lang', '');
         $well = $parser->get('well', '');
 
-        $seed       = $crow_permissions ? (int)$parser->get_num('seed', -1) : -1;
+        $seed       = $crow_permissions ? $parser->get_int('seed', -1) : -1;
         $incarnated = $crow_permissions ? (bool)$parser->get('incarnated', true) : true;
 
         $map_size = []; $ruin_count = [];
@@ -176,9 +176,9 @@ class GhostController extends CustomAbstractController
                 $ruin_count = $crow_permissions ? [30,2] : [];
                 break;
             case 'custom':
-                $s = max(10,min($parser->get_num('mapsize_e', 25),35));
-                $r = max(0,min($parser->get_num('ruins_num', 20),30));
-                $re = max(0,min($parser->get_num('ruins_e_num', 1),5));
+                $s = max(10,min($parser->get_int('mapsize_e', 25),35));
+                $r = max(0,min($parser->get_int('ruins_num', 20),30));
+                $re = max(0,min($parser->get_int('ruins_e_num', 1),5));
                 $map_size = $crow_permissions ? [$s,$s] : [];
                 $ruin_count = [$r,$re]; break;
                 break;

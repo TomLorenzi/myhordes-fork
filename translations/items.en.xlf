@@ -178,7 +178,7 @@
       </notes>
       <segment>
         <source>Handmixer (geladen)</source>
-        <target>Handmixer (loaded)</target>
+        <target>Electric Whisk (loaded)</target>
       </segment>
     </unit>
     <unit id="gFqQVpX" name="Kettensäge (geladen)">
@@ -682,7 +682,7 @@
       </notes>
       <segment>
         <source>Unvollständiger Handmixer</source>
-        <target>Handmixer (incomplete)</target>
+        <target>Electric Whisk (incomplete)</target>
       </segment>
     </unit>
     <unit id="sOILTLw" name="Klebeband">
@@ -970,7 +970,7 @@
       </notes>
       <segment>
         <source>Handmixer (ohne Strom)</source>
-        <target>Handmixer (no battery)</target>
+        <target>Electric Whisk (no battery)</target>
       </segment>
     </unit>
     <unit id="hEtEe9i" name="Kettensäge (ohne Strom)">

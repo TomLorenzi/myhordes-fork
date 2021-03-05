@@ -651,14 +651,14 @@ class MessageForumController extends MessageController
      */
     public function forum_query(JSONRequestParser $json): Response {
 
-        $forum = ($fid = $json->get_num('fid',-1)) > 0 ? $this->entity_manager->getRepository(Forum::class)->find($fid) : null;
+        $forum = ($fid = $json->get_int('fid',-1)) > 0 ? $this->entity_manager->getRepository(Forum::class)->find($fid) : null;
         if ($fid > 0 && ($forum === null || !$this->perm->checkEffectivePermissions( $this->getUser(), $forum,ForumUsagePermissions::PermissionRead )) )
             return new Response('');
 
         $domain = $forum === null ? $this->perm->getForumsWithPermission($this->getUser()) : null;
 
-        $search_titles = $json->get_num('opt_title', 0) > 0;
-        $search_user = $json->get_num('user', 0);
+        $search_titles = $json->get_int('opt_title', 0) > 0;
+        $search_user = $json->get_int('user', 0);
         if ($search_user > 0) {
             $search_user = $this->entity_manager->getRepository(User::class)->find($search_user);
             if ($search_user === null) return new Response('');

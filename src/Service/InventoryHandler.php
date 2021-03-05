@@ -29,18 +29,23 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class InventoryHandler
 {
-    private $container;
-    private $entity_manager;
-    private $item_factory;
-    private $bankAbuseService;
-    private $user_handler;
-    public function __construct( ContainerInterface $c, EntityManagerInterface $em, ItemFactory $if, BankAntiAbuseService $bankAntiAbuseService, UserHandler $uh)
+    private ContainerInterface $container;
+    private EntityManagerInterface $entity_manager;
+    private ItemFactory $item_factory;
+    private BankAntiAbuseService $bankAbuseService;
+    private UserHandler $user_handler;
+    private ConfMaster $conf;
+    private RandomGenerator $rand;
+
+    public function __construct( ContainerInterface $c, EntityManagerInterface $em, ItemFactory $if, BankAntiAbuseService $bankAntiAbuseService, UserHandler $uh, ConfMaster $cm, RandomGenerator $r)
     {
         $this->entity_manager = $em;
         $this->item_factory = $if;
         $this->container = $c;
         $this->bankAbuseService = $bankAntiAbuseService;
         $this->user_handler = $uh;
+        $this->conf = $cm;
+        $this->rand = $r;
     }
 
     public function getSize( Inventory $inventory ): int {
@@ -350,11 +355,13 @@ class InventoryHandler
     const ErrorEscortDropForbidden  = ErrorHelper::BaseInventoryErrors + 11;
     const ErrorEssentialItemBlocked = ErrorHelper::BaseInventoryErrors + 12;
     const ErrorTooManySouls         = ErrorHelper::BaseInventoryErrors + 13;
+    const ErrorBankTheftFailed      = ErrorHelper::BaseInventoryErrors + 14;
 
     const ModalityNone             = 0;
     const ModalityTamer            = 1;
     const ModalityImpound          = 2;
     const ModalityEnforcePlacement = 3;
+    const ModalityBankTheft        = 4;
 
     public function transferItem( ?Citizen &$actor, Item &$item, ?Inventory &$from, ?Inventory &$to, $modality = self::ModalityNone, $allow_extra_bag = false): int {
         // Block Transfer if citizen is hiding
@@ -373,7 +380,7 @@ class InventoryHandler
         if ($modality !== self::ModalityEnforcePlacement && ($to && ($max_size = $this->getSize($to)) > 0 && count($to->getItems()) >= $max_size ) ) return self::ErrorInventoryFull;
 
         // Check exp_b items already in inventory
-        if(!$allow_extra_bag){
+        if (!$allow_extra_bag){
             if (($type_to === self::TransferTypeRucksack || $type_to === self::TransferTypeEscort) &&
               (in_array($item->getPrototype()->getName(), ['bagxl_#00', 'bag_#00', 'cart_#00']) &&
               (
@@ -407,7 +414,7 @@ class InventoryHandler
         }
 
         if ($type_from === self::TransferTypeBank) {
-            if ($actor->getBanished()) return self::ErrorBankBlocked;
+            if ($modality !== self::ModalityBankTheft && $actor->getBanished()) return self::ErrorBankBlocked;
 
             //Bank Anti abuse system
             if (!$this->bankAbuseService->allowedToTake($actor))
@@ -418,6 +425,8 @@ class InventoryHandler
 
             $this->bankAbuseService->increaseBankCount($actor);
 
+            if ($modality === self::ModalityBankTheft && $this->rand->chance(0.6667))
+                return InventoryHandler::ErrorBankTheftFailed;
         }
 
         if ( $type_to === self::TransferTypeSteal && !$to->getHome()->getCitizen()->getAlive())
