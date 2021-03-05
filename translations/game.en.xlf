@@ -8171,7 +8171,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Eine großartige Nacht für einige wohlverdiente Feierlichkeiten. Keine Todesopfer in der Stadt infolge des Angriffs! Eine beträchtliche Horde griff von Osten aus an.</source>
-        <target>Eine großartige Nacht für einige wohlverdiente Feierlichkeiten. Keine Todesopfer in der Stadt infolge des Angriffs! Eine beträchtliche Horde griff von Osten aus an.</target>
+        <target>A great night for some well-earned celebrations. No deaths in town resulting from the attack ! A sizeable horde attacked at the northern wall.</target>
       </segment>
     </unit>
     <unit id="86jQjTU" name="225efed">
@@ -8216,7 +8216,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Es sei darauf hingewiesen, dass unsere Verteidigung nicht weit von der großen Südmauer entfernt dem furchterregenden Angriff der Horden letzte Nacht standgehalten hat. Um die %attack% Zombies versuchten alles, aber keine Verluste an Menschenleben während des Angriffs!</source>
-        <target>Es sei darauf hingewiesen, dass unsere Verteidigung nicht weit von der großen Südmauer entfernt dem furchterregenden Angriff der Horden letzte Nacht standgehalten hat. Um die %attack% Zombies versuchten alles, aber keine Verluste an Menschenleben während des Angriffs!</target>
+        <target>Our defences near the western wall seem satisfactory. The terrifying creatures from the horde were kept at bay... this time!</target>
       </segment>
     </unit>
     <unit id="4Z_UnE1" name="6fad503">
@@ -8261,7 +8261,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Einige Bürger kamen letzte Nacht ins Schwitzen. Eine Welle von etwa %attack% Monstern versuchte, unsere Stadt zu zerstören, wenn auch ohne Erfolg.</source>
-        <target>Einige Bürger kamen letzte Nacht ins Schwitzen. Eine Welle von etwa %attack% Monstern versuchte, unsere Stadt zu zerstören, wenn auch ohne Erfolg.</target>
+        <target>Some citizens were sweating last night. A wave of around %attack% monsters tried to destroy our town, albeit unsuccessfully.</target>
       </segment>
     </unit>
     <unit id="_KcsEZD" name="3b11391">
@@ -9116,7 +9116,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Man kann es nicht oft genug sagen: Ab und zu müsst ihr mal etwas trinken. &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% ist das beste Beispiel, was ansonten passiert.</source>
-        <target><![CDATA[Man kann es nicht oft genug sagen: Ab und zu müsst ihr mal etwas trinken. <i class="dagger">†</i> %cadaver1% ist das beste Beispiel, was ansonten passiert.]]></target>
+        <target><![CDATA[Oh, before you go, yesterday, <i class="dagger">†</i> %cadaver1% finally understood that water has its uses. A fine example of death by dehydration.]]></target>
       </segment>
     </unit>
     <unit id="AGvRvLT" name="324662a">
@@ -11440,7 +11440,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Bauprojekte, die mit dem Symbol "&lt;img alt="(!)" src="%path%" /&gt;" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.</source>
-        <target><![CDATA[Constructions marked with this symbol "<img alt="(!)" src="%path%" />" are tomporary : they will be destroyed at midnight, immediately AFTER the attack. To make use of it again tomorrow, it must be rebuilt again tomorrow.]]></target>
+        <target><![CDATA[Constructions marked with this symbol "<img alt="(!)" src="%path%" />" are temporary : They will be destroyed at midnight, immediately AFTER the attack. To make use of it again tomorrow, it must be rebuilt again tomorrow.]]></target>
       </segment>
     </unit>
     <unit id="rmqJTg6" name="70903c1">
@@ -15049,7 +15049,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).</source>
-        <target>Activating the catapult costs %ap% (this cost canbe reduced by building a better catapult) .</target>
+        <target>Activating the catapult costs %ap% (this cost can be reduced by building a better catapult) .</target>
       </segment>
     </unit>
     <unit id=".SXRDqM" name="Einen zufälligen Bürger als Katapult-Bediener auslosen">
@@ -17663,7 +17663,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...</source>
-        <target>Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...</target>
+        <target>The contents of this house are hidden by the curtains over the windows... How rude!</target>
       </segment>
     </unit>
     <unit id="4jN.T2l" name="315dd2d">
