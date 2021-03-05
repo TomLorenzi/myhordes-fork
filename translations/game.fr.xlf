@@ -18484,7 +18484,7 @@
       </notes>
       <segment>
         <source>Diese Leiche wurde bereits außerhalb der Stadt entsorgt!</source>
-        <target>Diese Leiche wurde bereits außerhalb der Stadt entsorgt!</target>
+        <target>Ce corps a déjà été jeté en dehors de la ville!</target>
       </segment>
     </unit>
     <unit id="lpKOzLM" name="b0171bc">
@@ -18494,6 +18494,78 @@
       <segment>
         <source>Diese Information gibt dir einen Hinweis darauf, ob Aufklärer gewöhnlicherweise hier vorbeikommen.&lt;br /&gt;&lt;em&gt;Je mehr eine Zone erforscht wurde, desto geringer ist die Chance bei &lt;strong&gt;Betreten&lt;/strong&gt; entdeckt zu werden (du kennst dann ein paar Schleichwege etc...).&lt;/em&gt;</source>
         <target><![CDATA[Cette information vous indique si des éclaireurs ont l\'habitude de passer par ici.<br /><em>Plus le secteur est connu, moins vous avez de chances de vous y faire repérer <strong>lorsque vous y entrez</strong> (vous connaissez quelques petits chemins cachés..etc.)</em>]]></target>
+      </segment>
+    </unit>
+    <unit id="sUeYpBF" name="2847540">
+      <notes>
+        <note category="german">%citizen% hat versucht %item% aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat versucht %item% aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.</source>
+        <target>%citizen% a essayé de voler %item% dans les coffres de la Banque mais n'a montré AUCUNE DISCRETION en le faisant.</target>
+      </segment>
+    </unit>
+    <unit id="LWSEhn0" name="ed08c19">
+      <notes>
+        <note category="german">Jemand hat %item% aus der Bank entwendet, aber er (oder sie) konnte nicht identifiziert werden.</note>
+      </notes>
+      <segment>
+        <source>Jemand hat %item% aus der Bank entwendet, aber er (oder sie) konnte nicht identifiziert werden.</source>
+        <target>Quelqu'un a volé %item% dans les coffres de la Banque mais il (ou elle) n'a pas pu être identifié(e).</target>
+      </segment>
+    </unit>
+    <unit id="pygRaEs" name="0a0a304">
+      <notes>
+        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</note>
+      </notes>
+      <segment>
+        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</source>
+        <target><![CDATA[Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst]]></target>
+      </segment>
+    </unit>
+    <unit id="56UUc2e" name="0ed952e">
+      <notes>
+        <note category="german">Du hast soeben %item% aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...</note>
+      </notes>
+      <segment>
+        <source>Du hast soeben %item% aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...</source>
+        <target><![CDATA[Vous venez de <strong>voler</strong> %item% dans la Banque ! Votre nom n'apparait donc pas dans le Registre...!]]></target>
+      </segment>
+    </unit>
+    <unit id="fY8p2vV" name="Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!">
+      <notes>
+        <note category="german">Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!</note>
+      </notes>
+      <segment>
+        <source>Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!</source>
+        <target>Votre tentative de vol a échoué ! Vous avez été découvert !</target>
+      </segment>
+    </unit>
+    <unit id="JxANNhs" name="Versuchen etwas zu stehlen">
+      <notes>
+        <note category="german">Versuchen etwas zu stehlen</note>
+      </notes>
+      <segment>
+        <source>Versuchen etwas zu stehlen</source>
+        <target>Tenter de voler un objet</target>
+      </segment>
+    </unit>
+    <unit id="qZD8YpW" name="efb0a6d">
+      <notes>
+        <note category="german">Diebstahlsversuche können nur &lt;strong&gt;während der Nacht&lt;/strong&gt; unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!</note>
+      </notes>
+      <segment>
+        <source>Diebstahlsversuche können nur &lt;strong&gt;während der Nacht&lt;/strong&gt; unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!</source>
+        <target><![CDATA[Les tentatives de vol ne peuvent s'effectuer que <strong>pendant la nuit</strong> : elles ont une chance réduite de réussir et tout échec sera consigné au Registre !]]></target>
+      </segment>
+    </unit>
+    <unit id="X1jhim7" name="Achtung! Deinen Mitbürgern wird das gar nicht gefallen.">
+      <notes>
+        <note category="german">Achtung! Deinen Mitbürgern wird das gar nicht gefallen.</note>
+      </notes>
+      <segment>
+        <source>Achtung! Deinen Mitbürgern wird das gar nicht gefallen.</source>
+        <target>Attention ! Vos voisins ne vont pas du tout aimer ça !</target>
       </segment>
     </unit>
   </file>
