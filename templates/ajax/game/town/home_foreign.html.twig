@@ -246,7 +246,9 @@
                         {% endembed %}
                     </div>
                     {% if owner.zone and not protect%}
-                        <button x-action-id="enablesteal"><img src="{{asset('build/images/icons/home.gif')}}" alt="" /> {{'Einen Gegenstand stehlen'|trans({}, 'game')}}</button>
+                        {% if chest.items|length > 0 %}
+                            <button x-action-id="enablesteal"><img src="{{asset('build/images/icons/home.gif')}}" alt="" /> {{'Einen Gegenstand stehlen'|trans({}, 'game')}}</button>
+                        {% endif %}
                         {% if not owner.town.chaos  %}
                             <button x-action-id="enablesneak">{{'Einen Gegenstand hinterlassen'|trans({}, 'game')}}</button>
                         {% endif %}
