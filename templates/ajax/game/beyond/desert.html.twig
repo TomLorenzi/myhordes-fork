@@ -750,10 +750,11 @@
             });
         {% if can_explore %}
             $.html.addEventListenerAll( '#enter_ruin_button', 'click', function() {
-                $.ajax.easySend( '{{ path('beyond_desert_enter_ruin_controller') }}', {},
-                    function () {
-                        $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
-                    } );
+                if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                    $.ajax.easySend( '{{ path('beyond_desert_enter_ruin_controller') }}', {},
+                        function () {
+                            $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
+                        } );
             } );
         {% endif %}
         let dig_r_button = document.getElementById('dig_ruin_button');
