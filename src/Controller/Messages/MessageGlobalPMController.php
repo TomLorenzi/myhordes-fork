@@ -91,7 +91,7 @@ class MessageGlobalPMController extends MessageController
 
         $user = $this->getUser();
         if (!$user) return new AjaxResponse(['connected' => false, 'success' => true]);
-        $rk = $parser->get_num('rk',0);
+        $rk = $parser->get_int('rk',0);
 
         if ($rk <= 0 || $rk >= time()) return new AjaxResponse(['connected' => 15000, 'success' => true]);
 
@@ -308,7 +308,7 @@ class MessageGlobalPMController extends MessageController
         $entries = [];
 
         $skip = $p->get_array('skip');
-        $num = max(5,min(30,$p->get_num('num', 30)));
+        $num = max(5,min(30,$p->get_int('num', 30)));
 
         $this->render_group_associations( $em->getRepository(UserGroupAssociation::class)->findByUserAssociation($this->getUser(), [
             UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive
@@ -632,7 +632,7 @@ class MessageGlobalPMController extends MessageController
      */
     public function pm_announcement_all(EntityManagerInterface $em, JSONRequestParser $parser, SessionInterface $s): Response {
         $skip = $parser->get_array('skip');
-        $num = max(1,min(10,$parser->get_num('num', 5)));
+        $num = max(1,min(10,$parser->get_int('num', 5)));
 
         $announces = $em->getRepository( Announcement::class )->findByLang($this->getUserLanguage(), $skip, $num + 1 );
 

@@ -49,9 +49,19 @@ class JSONRequestParser
         return is_array($v) ? $v : $default;
     }
 
-    public function get_num( string $key, $default = -1 ): int {
+    /**
+     * @param string $key
+     * @param int|float $default
+     * @return int|float
+     */
+    public function get_num( string $key, $default = -1 ) {
         $v = $this->get($key, $default);
-        return is_int($v) ? $v : $default;
+        return is_numeric($v) ? $v : $default;
+    }
+
+    public function get_int( string $key, int $default = -1 ): int {
+        $v = $this->get($key, $default);
+        return is_numeric($v) ? intval($v) : $default;
     }
 
     public function get_base64( string $key, $default = null ) {
