@@ -784,4 +784,15 @@ class TownHandler
         }
         return true;
     }
+
+    public function getWorkshopBonus(Town $town, &$constructionBonus, &$repairBonus) {
+        $constructionBonus = 0;
+        $repairBonus = 0;
+        if (($workshop = $this->getBuilding($town, "small_refine_#00")) !== null) {
+            $constructionBonus = 0.06 * $workshop->getLevel();
+            if ($workshop->getLevel() >= 4) {
+                $repairBonus = $workshop->getLevel() - 3;
+            }
+        }
+    }
 }

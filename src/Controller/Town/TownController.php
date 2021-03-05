@@ -1114,30 +1114,10 @@ class TownController extends InventoryAwareController
             $current = $parent;
         }
 
-        $workshopBonus = 1;
-        $hpToAp = 2;
-        if (($workshop = $this->town_handler->getBuilding($town, "small_refine_#00")) !== null) {
-            $level = $workshop->getLevel();
-            switch($level){
-                case 1:
-                    $workshopBonus = 0.94;
-                    break;
-                case 2:
-                    $workshopBonus = 0.88;
-                    break;
-                case 3:
-                    $workshopBonus = 0.82;
-                    break;
-                case 4:
-                    $workshopBonus = 0.76;
-                    $hpToAp = 3;
-                    break;
-                case 5:
-                    $workshopBonus = 0.70;
-                    $hpToAp = 4;
-                    break;
-            }
-        }
+        $this->town_handler->getWorkshopBonus($town, $workshopBonus, $repairBonus);
+
+        $workshopBonus = 1 - $workshopBonus;
+        $hpToAp = 2 + $repairBonus;
 
         // Remember if the building has already been completed (i.e. this is a repair action)
         $was_completed = $building->getComplete();
@@ -1278,31 +1258,10 @@ class TownController extends InventoryAwareController
         $town = $this->getActiveCitizen()->getTown();
         $buildings = $town->getBuildings();
 
-        $workshopBonus = 1;
-        $hpToAp = 2;
+        $this->town_handler->getWorkshopBonus($town, $workshopBonus, $repairBonus);
 
-        if(($workshop = $th->getBuilding($town, "small_refine_#00")) !== null){
-            $level = $workshop->getLevel();
-            switch($level){
-                case 1:
-                    $workshopBonus = 0.94;
-                    break;
-                case 2:
-                    $workshopBonus = 0.88;
-                    break;
-                case 3:
-                    $workshopBonus = 0.82;
-                    break;
-                case 4:
-                    $workshopBonus = 0.76;
-                    $hpToAp = 3;
-                    break;
-                case 5:
-                    $workshopBonus = 0.70;
-                    $hpToAp = 4;
-                    break;
-            }
-        }
+        $workshopBonus = 1 - $workshopBonus;
+        $hpToAp = 2 + $repairBonus;
 
         $root = [];
         $dict = [];
