@@ -780,6 +780,8 @@ class BeyondController extends InventoryAwareController
                         $new_zone_lv += 1;
 
                     $factor = pow( max(0, $new_zed_count - 3*$new_zone_lv), 1.0 + (max(0, $new_zed_count - 3*$new_zone_lv))/60.0 ) / 100.0;
+                    if ($this->conf->getTownConfiguration($mover->getTown())->get(TownConf::CONF_FEATURE_NIGHTMODE, true) && $mover->getTown()->isNight())
+                        $factor *= 0.667;
 
                     if ($this->random_generator->chance($factor) && $this->uncoverHunter($mover)){
                         if ($mover->getId() === $citizen->getId())
