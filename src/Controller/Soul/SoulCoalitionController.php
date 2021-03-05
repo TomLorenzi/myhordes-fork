@@ -429,7 +429,7 @@ class SoulCoalitionController extends SoulController
         if (count($last_chat_entries) === 10 && $last_chat_entries[9]->getTimestamp()->getTimestamp() > (time() - 30))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        $text = mb_substr( $parser->trimmed('text', ''), 0, 190);
+        $text = mb_substr( htmlentities($parser->trimmed('text', '')), 0, 190);
 
         $shoutbox = $this->user_handler->getShoutbox($user);
         $shoutbox->addEntry(
