@@ -6298,12 +6298,12 @@ Después de varios largos minutos de búsqueda, terminas por encontrar <strong>u
         <target>Ésta caja contiene muchos químicos altamente tóxicos con nombres destacables como: Sodio fuzz, carbopotásio bling bling o litio arcoíris ciarunizado.</target>
       </segment>
     </unit>
-    <unit id="57AU2d." name="Kürbis ausgestorben">
+    <unit id="57AU2d." name="Ausgeschnitzter weicher Kürbis">
       <notes>
-        <note category="german">Kürbis ausgestorben</note>
+        <note category="german">Ausgeschnitzter weicher Kürbis</note>
       </notes>
       <segment>
-        <source>Kürbis ausgestorben</source>
+        <source>Ausgeschnitzter weicher Kürbis</source>
         <target>Calabaza suavemente tallada</target>
       </segment>
     </unit>
@@ -6316,12 +6316,12 @@ Después de varios largos minutos de búsqueda, terminas por encontrar <strong>u
         <target>Un tipo de vegetal naranja grande y maloliente como nunca has visto antes. Un rostro adusto está tallado en su carne: ¿cuál es la tradición bárbara detrás de este ritual?</target>
       </segment>
     </unit>
-    <unit id="qjyJg4a" name="Beleuchteter Kürbis">
+    <unit id="qjyJg4a" name="Leuchtender Kürbis">
       <notes>
-        <note category="german">Beleuchteter Kürbis</note>
+        <note category="german">Leuchtender Kürbis</note>
       </notes>
       <segment>
-        <source>Beleuchteter Kürbis</source>
+        <source>Leuchtender Kürbis</source>
         <target>Calabaza encendida</target>
       </segment>
     </unit>

@@ -32,3 +32,29 @@ parameters:
         hooks:
           night_after: 'App\Structures\Hook::night_xmas'
           night_none: 'App\Structures\Hook::night_xmas'
+    stpatrick:
+      trigger:
+        type: datetime
+        begin: 03-14 00:00
+        end: 03-20 00:00
+      conf:
+        css: 'stpatrick'
+        event_dig:
+          desert:
+            group: 'stpatrick_dig'
+            chance: 0.4
+          ruins:
+            - { name: 'fair', group: 'christmas_dig_fair', chance: 0.5 }
+        hooks:
+    halloween:
+      trigger:
+        type: datetime
+        begin: 10-25 00:00
+        end: 11-01 00:00
+      conf:
+        css: 'halloween'
+        event_dig:
+          desert:
+            group: 'halloween_dig'
+            chance: 0.4
+        hooks:

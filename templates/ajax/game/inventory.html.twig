@@ -4,6 +4,9 @@
 {% if show_banished_hidden is not defined %}
     {% set show_banished_hidden = false %}
 {% endif %}
+{% if showFreeSlots is not defined %}
+    {% set showFreeSlots = true %}
+{% endif %}
 {% if bankmode is defined and bankmode %}
     <input type="text" name="banksearch" id="banksearch" placeholder="{{ 'Gegenstände suchen'|trans({},'items') }}"/>
 {% endif %}
@@ -18,7 +21,7 @@
                 {% embed "ajax/game/item.html.twig" with {'item': item, 'escort': escort} %}{% endembed %}
             {% endif %}
         {% endfor %}
-        {% if items|length < size %}
+        {% if items|length < size and showFreeSlots %}
             {% for i in range(0, size - items|length - 1) %}
                 <li class="free"></li>
             {% endfor %}

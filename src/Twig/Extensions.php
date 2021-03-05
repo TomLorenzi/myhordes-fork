@@ -38,6 +38,7 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
             new TwigFunction('to_date',  [$this, 'create_date']),
             new TwigFunction('help_btn', [$this, 'help_btn'], ['is_safe' => array('html')]),
             new TwigFunction('help_lnk', [$this, 'help_lnk'], ['is_safe' => array('html')]),
+            new TwigFunction('tooltip', [$this, 'tooltip'], ['is_safe' => array('html')]),
         ];
     }
 
@@ -66,5 +67,9 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
     public function help_lnk(string $name, string $controller = null, array $args = []): string {
         $link = $controller !== null ? $this->router->generate($controller, $args) : "";
         return "<span class='helpLink'>" . $this->translator->trans("Spielhilfe:", [], "global") . " <a class='link' x-ajax-href='$link' target='_blank'>$name</a></span>";
+    }
+
+    public function tooltip(string $content, string $classes = null): string {
+        return "<div class='tooltip $classes'>$content</div>";
     }
 }

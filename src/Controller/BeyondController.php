@@ -705,7 +705,8 @@ class BeyondController extends InventoryAwareController
         $new_zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition( $citizen->getTown(), $px, $py );
         if (!$new_zone) return AjaxResponse::error( self::ErrorNotReachableFromHere );
 
-        $cp_ok_new_zone = $this->zone_handler->check_cp($new_zone);
+        $cp_ok_new_zone = $this->zone_handler->check_cp($new_zone, $cp_before_new_zone);
+        if($cp_ok_new_zone <= 0) $cp_ok_new_zone = null;
 
         if($this->citizen_handler->hasStatusEffect($citizen, 'wound4') && $this->random_generator->chance(0.20)) {
             $this->addFlash('notice', $this->translator->trans('Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...', [], 'game'));
@@ -726,7 +727,6 @@ class BeyondController extends InventoryAwareController
         $away_from_town = (abs($zone->getX()) + abs($zone->getY())) < (abs($new_zone->getX()) + abs($new_zone->getY()));
 
         foreach ($movers as $mover) {
-
             // Check if citizen moves as a scout
             $scouts[$mover->getId()] = $this->inventory_handler->countSpecificItems(
                     $mover->getInventory(), $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'vest_on_#00'])
@@ -775,6 +775,10 @@ class BeyondController extends InventoryAwareController
 
                     $new_zed_count = $new_zone->getZombies();
                     $new_zone_lv = $new_zone->getScoutLevel();
+
+                    if ($this->getTownConf()->get(TownConf::CONF_FEATURE_NIGHTMODE, false) && $mover->getTown()->isNight())
+                        $new_zone_lv += 1;
+
                     $factor = pow( max(0, $new_zed_count - 3*$new_zone_lv), 1.0 + (max(0, $new_zed_count - 3*$new_zone_lv))/60.0 ) / 100.0;
 
                     if ($this->random_generator->chance($factor) && $this->uncoverHunter($mover)){

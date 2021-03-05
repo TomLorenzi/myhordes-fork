@@ -142,8 +142,6 @@ class AdminTownController extends AdminActionController
             $roles[$votableRole->getId()] = $votableRole;
         }
 
-        file_put_contents("/tmp/dump.txt", "Checking votes");
-
         foreach ($town->getCitizens() as $citizen) {
             $comp = $this->entity_manager->getRepository(Complaint::class)->findBy(['culprit' => $citizen]);
             if (count($comp) > 0)
@@ -153,8 +151,7 @@ class AdminTownController extends AdminActionController
                 /** @var CitizenVote $vote */
                 $vote = $this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($citizen, $role);
                 if ($vote) {
-                    file_put_contents("/tmp/dump.txt", "Citizen {$vote->getAutor()->getUser()->getName()} voted for {$vote->getVotedCitizen()->getUser()->getName()}\n", FILE_APPEND);
-                    if(isset($votes[$roleId][$vote->getVotedCitizen()->getId()])) {
+                    if(isset($votes[$roleId][$vote->getVotedCitizen()->getUser()->getName()])) {
                         $votes[$roleId][$vote->getVotedCitizen()->getUser()->getName()][] = $vote->getAutor();
                     } else {
                         $votes[$roleId][$vote->getVotedCitizen()->getUser()->getName()] = [

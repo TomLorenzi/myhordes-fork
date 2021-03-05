@@ -6292,13 +6292,13 @@
         <target>Diese Schachtel enthält eine ganze Reihe von hochgiftigen Chemikalien mit aufrüttelnden Namen wie: Natrium-Fuzz, Carbopotassium Bling Bling oder Rainbow Lithium Cyanurized.</target>
       </segment>
     </unit>
-    <unit id="57AU2d." name="Kürbis ausgestorben">
+    <unit id="57AU2d." name="Leuchtender Kürbis">
       <notes>
-        <note category="german">Kürbis ausgestorben</note>
+        <note category="german">Leuchtender Kürbis</note>
       </notes>
       <segment>
-        <source>Kürbis ausgestorben</source>
-        <target>Kürbis ausgestorben</target>
+        <source>Leuchtender Kürbis</source>
+        <target>Leuchtender Kürbis</target>
       </segment>
     </unit>
     <unit id="hgy9Tb5" name="4e68aa9">
@@ -6310,13 +6310,13 @@
         <target>Eine Art großes, stinkendes Orangengemüse, wie Sie es noch nie zuvor gesehen haben. Ein grimassierendes Gesicht ist in sein Fleisch geritzt: Was für eine barbarische Tradition steckt hinter diesem Ritual?</target>
       </segment>
     </unit>
-    <unit id="qjyJg4a" name="Beleuchteter Kürbis">
+    <unit id="qjyJg4a" name="Ausgeschnitzter weicher Kürbis">
       <notes>
-        <note category="german">Beleuchteter Kürbis</note>
+        <note category="german">Ausgeschnitzter weicher Kürbis</note>
       </notes>
       <segment>
-        <source>Beleuchteter Kürbis</source>
-        <target>Beleuchteter Kürbis</target>
+        <source>Ausgeschnitzter weicher Kürbis</source>
+        <target>Ausgeschnitzter weicher Kürbis</target>
       </segment>
     </unit>
     <unit id="TQRmRVD" name="def5d68">

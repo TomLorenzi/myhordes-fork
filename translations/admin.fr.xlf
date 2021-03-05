@@ -2383,7 +2383,7 @@
       </notes>
       <segment>
         <source>Stimmen</source>
-        <target>Stimmen</target>
+        <target>Votes</target>
       </segment>
     </unit>
     <unit id="cLQ9dCO" name="Für %target%">
@@ -2392,7 +2392,16 @@
       </notes>
       <segment>
         <source>Für %target%</source>
-        <target>Für %target%</target>
+        <target>Pour %target%</target>
+      </segment>
+    </unit>
+    <unit id="jBGmXFb" name="Ersteller">
+      <notes>
+        <note category="german">Ersteller</note>
+      </notes>
+      <segment>
+        <source>Ersteller</source>
+        <target>Créateur</target>
       </segment>
     </unit>
   </file>

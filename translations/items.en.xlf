@@ -6292,12 +6292,12 @@
         <target>This box contains a lot of highly toxic chemicals with startling names such as: sodium fuzz, carbopotassium bling bling or rainbow lithium cyanurized.</target>
       </segment>
     </unit>
-    <unit id="57AU2d." name="Kürbis ausgestorben">
+    <unit id="57AU2d." name="Ausgeschnitzter weicher Kürbis">
       <notes>
-        <note category="german">Kürbis ausgestorben</note>
+        <note category="german">Ausgeschnitzter weicher Kürbis</note>
       </notes>
       <segment>
-        <source>Kürbis ausgestorben</source>
+        <source>Ausgeschnitzter weicher Kürbis</source>
         <target>Carved Soft Pumpkin</target>
       </segment>
     </unit>
@@ -6310,12 +6310,12 @@
         <target>A kind of big, smelly orange vegetable like you've never seen before. A grimacing face is carved into his flesh: what is the barbaric tradition behind this ritual?</target>
       </segment>
     </unit>
-    <unit id="qjyJg4a" name="Beleuchteter Kürbis">
+    <unit id="qjyJg4a" name="Leuchtender Kürbis">
       <notes>
-        <note category="german">Beleuchteter Kürbis</note>
+        <note category="german">Leuchtender Kürbis</note>
       </notes>
       <segment>
-        <source>Beleuchteter Kürbis</source>
+        <source>Leuchtender Kürbis</source>
         <target>Lit Pumpkin</target>
       </segment>
     </unit>

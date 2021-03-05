@@ -222,7 +222,7 @@
                 {# {% if owner.zone %}<p {% if hidden %}class="hidden with-curtains"{% endif %}>{{ '%citizen% ist ausgegangen...'|trans({'%citizen%': owner.user.name}, 'game') }} {% endif %}</p>#}
                 {% if chest.items|length > 0 %}
                     <p {% if hidden %}class="hidden with-curtains"{% endif %}>{{ 'Wenn Sie aus dem Fenster schauen, können Sie die folgenden Dinge im Haus sehen:'|trans({},'game') }}</p>
-                    {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items, 'foreignChestMode': true} %}
+                    {% embed "ajax/game/inventory.html.twig" with {'size': chest_size, 'items': chest.items, 'foreignChestMode': true, 'showFreeSlots': false} %}
                         {% block class %}chest {% if owner.alive %}locked{% endif %} {% if hidden %}hidden with-curtains{% endif %}{% endblock %}
                         {% block title %}{% endblock %}
                     {% endembed %}

@@ -399,8 +399,9 @@ class ItemFixtures extends Fixture
         ['label' => 'Super-Flaum-Pulver', 'icon' => 'firework_powder', 'category' => 'Furniture', 'deco' => 5, 'heavy' => false, 'watchpoint' => 0],                       // -- ---
         ['label' => 'Flush-Abschussrohr', 'icon' => 'firework_tube', 'category' => 'Furniture', 'deco' => 2, 'heavy' => true, 'watchpoint' => 0],                                 // In Out
         ['label' => 'Feuerwerkskiste', 'icon' => 'firework_box', 'category' => 'Furniture', 'deco' => 3, 'heavy' => true, 'watchpoint' => 0],                                 // In Out
-        ['label' => 'Kürbis ausgestorben', 'icon' => 'pumpkin_off', 'category' => 'Furniture', 'deco' => 5, 'heavy' => true, 'watchpoint' => 0],                              // -- ---
-        ['label' => 'Beleuchteter Kürbis', 'icon' => 'pumpkin_on', 'category' => 'Armor', 'deco' => 15, 'heavy' => true, 'watchpoint' => 0],                                   // -- ---
+        ['label' => 'Ausgeschnitzter weicher Kürbis', 'icon' => 'pumpkin_off', 'category' => 'Furniture', 'deco' => 5, 'heavy' => true, 'watchpoint' => 0],                              // -- ---
+        ['label' => 'Leuchtender Kürbis', 'icon' => 'pumpkin_on', 'category' => 'Armor', 'deco' => 15, 'heavy' => false, 'watchpoint' => 0],                                   // -- ---
+        ['label' => 'Weicher Kürbis', 'icon' => 'pumpkin_raw', 'category' => 'Misc', 'deco' => 0, 'heavy' => true, 'watchpoint' => 0],                                   // -- ---
         ['label' => 'Krähengirlande', 'icon' => 'xmas_gift', 'category' => 'Furniture', 'deco' => 2, 'heavy' => false, 'watchpoint' => 0],                              // -- Out
         ['label' => 'Mystischer Trank', 'icon' => 'potion', 'category' => 'Food', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],                              // -- Out
 		['label' => 'Krähenelfe', 'icon' => 'food_xmas', 'category' => 'Food', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],                              // -- Out
@@ -408,6 +409,8 @@ class ItemFixtures extends Fixture
         ['label' => 'Grüner Kobold-Anzug', 'icon' => 'leprechaun_suit', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0], //
         ['label' => 'Kreischender Wecker (entladen)', 'icon' => 'alarm_off', 'category' => 'Misc', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
         ['label' => 'Kreischender Wecker (mit Strom)', 'icon' => 'alarm_on', 'category' => 'Misc', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
+        ['label' => 'Hurlingstock', 'icon' => 'hurling_stick', 'category' => 'Weapon', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
+        ['label' => 'Guiness', 'icon' => 'guiness', 'category' => 'Food', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
     ];
     
     public static $item_desc_data = [
@@ -745,6 +748,7 @@ class ItemFixtures extends Fixture
         'xmas_gift_#00' => 'Eine Girlande einer scheinbar uralten Tradition. Es wird empfohlen, es zu Hause als Dekoration aufzuhängen, es könnte gut für die Moral der Stadt sein.',
         'pumpkin_on_#00' => 'Hier ist eine verrückte Idee: Dieses große, seltsame Gemüse wurde von seinem Fleisch befreit, geformt und es gibt eine brennende Kerze darin... ',
         'pumpkin_off_#00' => 'Eine Art großes, stinkendes Orangengemüse, wie Sie es noch nie zuvor gesehen haben. Ein grimassierendes Gesicht ist in sein Fleisch geritzt: Was für eine barbarische Tradition steckt hinter diesem Ritual?',
+        'pumpkin_raw_#00' => 'Eine Art großes, stinkendes, orangefarbenes Gemüse, wie du es noch nie gesehen hast. Ein plötzlicher Drang, es auszugraben, ergreift dich, ohne dass du weißt warum...',
         'firework_box_#00' => 'Diese Schachtel enthält eine ganze Reihe von hochgiftigen Chemikalien mit aufrüttelnden Namen wie: Natrium-Fuzz, Carbopotassium Bling Bling oder Rainbow Lithium Cyanurized.',
         'firework_tube_#00' => 'Mehrere lange Plastikschläuche ohne großes Interesse.',
         'firework_powder_#00' => 'Je nach Epoche wurde dieses Pulver nacheinander als Zünder für verschiedene Artilleriegeschütze, dann als billige Droge für bedürftige Bürger und schließlich als Hauptbestandteil von Feuerwerkskörpern verwendet. In allen drei Fällen haben viele Menschen nicht überlebt.',
@@ -761,6 +765,8 @@ class ItemFixtures extends Fixture
         'christmas_candy_#00' => 'Es sieht aus wie eine Art Schokoladenbonbon mit alkoholischem Likör darin. Oder eine andere Füllung...',
         'alarm_off_#00' => 'Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert.',
         'alarm_on_#00' => 'Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei.',
+        'hurling_stick_#00' => 'Ein kleiner Ratschlag. Wenn du schon den falschen Kampf wählst... dann wähle wenigstens die richtige Waffe.',
+        'guiness_#00' => 'Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen'
     ];
     
     public static $item_prototype_properties = [
@@ -773,6 +779,7 @@ class ItemFixtures extends Fixture
         'small_knife_#00'            => [ 'impoundable', 'weapon', 'box_opener', 'nw_armory' ],
         'bone_#00'                   => [ 'impoundable', 'weapon', 'box_opener', 'nw_armory' ],
         'cutcut_#00'                 => [ 'impoundable', 'weapon', 'box_opener', 'esc_fixed', 'nw_armory' ],
+        'hurling_stick_#00'          => [ 'weapon', 'box_opener', 'nw_armory' ],
         'chair_basic_#00'            => [ 'box_opener', 'nw_ikea', 'nw_armory' ],
         'chair_#00'                  => [ 'nw_armory' ],
         'staff_#00'                  => [ 'impoundable', 'weapon', 'box_opener', 'nw_armory' ],
@@ -802,6 +809,7 @@ class ItemFixtures extends Fixture
         'electro_#00'                => [ 'impoundable', 'ressource' ],
         'meca_parts_#00'             => [ 'impoundable', 'ressource' ],
         'explo_#00'                  => [ 'impoundable', 'ressource' ],
+        'pumpkin_on_#00'             => [ 'defence' ],
         'mecanism_#00'               => [ 'impoundable', 'ressource', 'hero_find_lucky' ],
         'grenade_#00'                => [ 'impoundable', 'weapon', 'hero_find', 'esc_fixed', 'nw_armory', 'hero_find_lucky' ],
         'bgrenade_#00'               => [ 'impoundable', 'weapon', 'nw_armory' ],
@@ -1086,6 +1094,17 @@ class ItemFixtures extends Fixture
         ],
         'easter_dig' => [
             array('item' => 'paques_#00', 'count' => '207'),
+        ],
+        'stpatrick_dig' => [
+            array('item' => 'leprechaun_suit_#00', 'count' => '4'),
+            array('item' => 'guiness_#00', 'count' => '25'),
+            array('item' => 'hurling_stick_#00', 'count' => '25'),
+        ],
+        'stpatrick_dig_fair' => [
+            array('item' => 'hurling_stick_#00', 'count' => '2'),
+        ],
+        'halloween_dig' => [
+            array('item' => 'pumpkin_raw_#00', 'count' => '5'),
         ],
         'trash_good' => [
             array('item' => 'fence_#00', 'count' => '33'),

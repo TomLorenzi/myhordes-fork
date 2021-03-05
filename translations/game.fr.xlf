@@ -18448,7 +18448,7 @@
       </notes>
       <segment>
         <source>&lt;em&gt;Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. &lt;strong&gt;Wichtige Anmerkung:&lt;/strong&gt; Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?&lt;/em&gt;</source>
-        <target><![CDATA[<em>Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. <strong>Wichtige Anmerkung:</strong> Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?</em>]]></target>
+        <target><![CDATA[<em>Vous pouvez améliorer votre habitation et ainsi bénéficier d'une meilleure défense. <strong>Note importante :</strong> peut être serait-il judicieux également d'utiliser vos ressources pour l'amélioration de la ville ?</em>]]></target>
       </segment>
     </unit>
     <unit id="h.30SZi" name="b7166cc">
@@ -18466,7 +18466,7 @@
       </notes>
       <segment>
         <source>Achtung! Wenn du pro Tag &lt;strong&gt;mehr als eine Ration Wasser&lt;/strong&gt; nimmst, erfolgt dies auf Kosten der anderen Bürger. Aus diesem Grund werden dementsprechende Aktionen im Großen Register rot vermerkt...</source>
-        <target><![CDATA[Achtung! Wenn du pro Tag <strong>mehr als eine Ration Wasser</strong> nimmst, erfolgt dies auf Kosten der anderen Bürger. Aus diesem Grund werden dementsprechende Aktionen im Großen Register rot vermerkt...]]></target>
+        <target><![CDATA[Attention ! <strong>Prendre plus d'une ration d'eau par jour</strong> est une action qui se fait au détriment des autres Citoyens. Par conséquent, elle sera consignée en rouge dans le Grand Registre...]]></target>
       </segment>
     </unit>
     <unit id="N0yoB1W" name="235e0ff">
@@ -18485,6 +18485,15 @@
       <segment>
         <source>Diese Leiche wurde bereits außerhalb der Stadt entsorgt!</source>
         <target>Diese Leiche wurde bereits außerhalb der Stadt entsorgt!</target>
+      </segment>
+    </unit>
+    <unit id="lpKOzLM" name="b0171bc">
+      <notes>
+        <note category="german">Diese Information gibt dir einen Hinweis darauf, ob Aufklärer gewöhnlicherweise hier vorbeikommen.&lt;br /&gt;&lt;em&gt;Je mehr eine Zone erforscht wurde, desto geringer ist die Chance bei &lt;strong&gt;Betreten&lt;/strong&gt; entdeckt zu werden (du kennst dann ein paar Schleichwege etc...).&lt;/em&gt;</note>
+      </notes>
+      <segment>
+        <source>Diese Information gibt dir einen Hinweis darauf, ob Aufklärer gewöhnlicherweise hier vorbeikommen.&lt;br /&gt;&lt;em&gt;Je mehr eine Zone erforscht wurde, desto geringer ist die Chance bei &lt;strong&gt;Betreten&lt;/strong&gt; entdeckt zu werden (du kennst dann ein paar Schleichwege etc...).&lt;/em&gt;</source>
+        <target><![CDATA[Cette information vous indique si des éclaireurs ont l\'habitude de passer par ici.<br /><em>Plus le secteur est connu, moins vous avez de chances de vous y faire repérer <strong>lorsque vous y entrez</strong> (vous connaissez quelques petits chemins cachés..etc.)</em>]]></target>
       </segment>
     </unit>
   </file>

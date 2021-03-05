@@ -161,7 +161,7 @@ class ZoneHandler
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'camper' )) $factor += 0.1;
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'wound5' )) $factor -= 0.3; // Totally arbitrary
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'drunk'  )) $factor -= 0.3; // Totally arbitrary
-                    if ($conf->get(TownConf::CONF_FEATURE_NIGHTMODE) && $timer->getCitizen()->getTown()->isNight() && $this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) $factor -= 0.2;
+                    if ($conf->get(TownConf::CONF_FEATURE_NIGHTMODE, false) && $timer->getCitizen()->getTown()->isNight() && $this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) $factor -= 0.2;
 
                     $total_dig_chance = max(0.1, $factor * ($zone->getDigs() > 0 ? 0.6 : 0.3 ));
 
@@ -388,19 +388,20 @@ class ZoneHandler
         }
 
         // If zombies can take control after leaving the zone and there are citizens remaining, install a grace escape timer
-        elseif ( $cp_ok_before && !$this->check_cp( $zone ) ) {
-            $zone->addEscapeTimer( (new EscapeTimer())->setTime( new DateTime('+30min') ) );
-            // Disable all dig timers
-            foreach ($zone->getDigTimers() as $dig_timer) {
-                $dig_timer->setPassive(true);
-                $this->entity_manager->persist( $dig_timer );
+        else if ($cp_ok_before !== null) {
+            if ( $cp_ok_before && !$this->check_cp( $zone ) ) {
+                $zone->addEscapeTimer( (new EscapeTimer())->setTime( new DateTime('+30min') ) );
+                // Disable all dig timers
+                foreach ($zone->getDigTimers() as $dig_timer) {
+                    $dig_timer->setPassive(true);
+                    $this->entity_manager->persist( $dig_timer );
+                }
+            }
+            // If we took back control of the zone, logs it
+            elseif (!$cp_ok_before && $this->check_cp($zone)) {
+                $this->entity_manager->persist($this->log->zoneUnderControl($zone));
             }
         }
-        // If we took back control of the zone, logs it
-        elseif (!$cp_ok_before && $this->check_cp($zone)) {
-            $this->entity_manager->persist($this->log->zoneUnderControl($zone));
-        }
-
     }
 
     public function getSoulZones( Town $town ) {

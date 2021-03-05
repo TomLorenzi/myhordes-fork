@@ -4,13 +4,16 @@
 namespace App\Command\Town;
 
 use App\Entity\TownClass;
+use App\Entity\Zone;
 use App\Service\ConfMaster;
 use App\Service\GameFactory;
 use App\Service\GameValidator;
 use App\Service\Locksmith;
 use App\Service\TownHandler;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -27,15 +30,18 @@ class TownCreateCommand extends Command
     private GameValidator $gameValidator;
     private ConfMaster $conf;
     private TownHandler $townHandler;
+    private Translator $trans;
+
 
     public function __construct(EntityManagerInterface $em, GameFactory $f, GameValidator $v, ConfMaster $conf,
-                                TownHandler $th)
+                                TownHandler $th,  Translator $translator)
     {
         $this->entityManager = $em;
         $this->gameFactory = $f;
         $this->gameValidator = $v;
         $this->conf = $conf;
         $this->townHandler = $th;
+        $this->trans = $translator;
         parent::__construct();
     }
 
@@ -63,6 +69,8 @@ class TownCreateCommand extends Command
         $town_citizens = (int)$input->getArgument('citizens');
         $town_name = $input->getArgument('name');
         $town_lang = $input->getArgument('lang');
+
+        $this->trans->setLocale($town_lang !== 'multi' ? $town_lang : 'en');
 
         $output->writeln("<info>Creating a new '$town_type' town " . ($town_name === null ? '' : "called '$town_name' ") . " (" . $town_lang . ") with $town_citizens unlucky inhabitants.</info>");
         $town = $this->gameFactory->createTown($town_name, $town_lang, $town_citizens, $town_type);
@@ -116,6 +124,16 @@ class TownCreateCommand extends Command
         $table->setHeaders(['Class','Property','ID']);
         $table->addRow( ['Town',      'town',      $town->getId()] );
         $table->addRow( ['Inventory', 'town.bank', $town->getBank()->getId()] );
+
+        $table->render();
+
+        $table = new Table($output);
+        $table->setHeaders(['Ruin', 'Location', 'Distance', 'Theorical Min', 'Theorical Max']);
+        /** @var Zone $zone */
+        foreach ($town->getZones() as $zone) {
+            if($zone->getPrototype() === null) continue;
+            $table->addRow( [$this->trans->trans($zone->getPrototype()->getLabel(), [], 'game'), "[{$zone->getX()}, {$zone->getY()}]", $zone->getDistance(), $zone->getPrototype()->getMinDistance(), $zone->getPrototype()->getMaxDistance()] );
+        }
 
         $table->render();
 
