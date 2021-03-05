@@ -619,8 +619,10 @@ class GameController extends CustomAbstractController
         }
 
         if($this->picto_handler->has_picto($citizen, 'r_armag_#00')) {
-            $armag = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_armag"]);
-            $citizen->addSpecialAction($armag);
+            $armag_day   = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_armag_d"]);
+            $armag_night = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_armag_n"]);
+            $citizen->addSpecialAction($armag_day);
+            $citizen->addSpecialAction($armag_night);
             $this->inventory_handler->forceMoveItem($citizen->getHome()->getChest(), $if->createItem( 'food_armag_#00' ));
             $doggy = $this->inventory_handler->fetchSpecificItems( $citizen->getHome()->getChest(), [new ItemRequest('food_bag_#00')] );
             if (!empty($doggy)) $this->inventory_handler->forceRemoveItem($doggy[0]);
