@@ -247,8 +247,8 @@ class ZoneHandler
                 if ($this->citizen_handler->hasStatusEffect( $active, 'wound5' ))
                     array_unshift($ret_str, $this->trans->trans( 'Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.', [], 'game'));
                 if ($this->citizen_handler->hasStatusEffect( $active, 'drunk' ))
-                    array_unshift($ret_str, $this->trans->trans( 'Deine Trunkenheit macht dir die Suche nicht gerade leichter.', [], 'game'));
-
+                    array_unshift($ret_str, $this->trans->trans( 'Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.', [], 'game'));
+                $messages[] = $this->translator->trans('', [], 'game');
                 array_unshift($ret_str, $this->trans->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));
             }
             elseif (count($found_by_player) === 1)
