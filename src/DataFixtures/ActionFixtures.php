@@ -917,6 +917,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         'specials' => [
             ['name' => 'special_armag', 'icon' => 'armag', 'consumable' => true],
+            ['name' => 'special_armag_d', 'icon' => 'armag', 'consumable' => true],
+            ['name' => 'special_armag_n', 'icon' => 'armag', 'consumable' => true],
             ['name' => 'special_vote_shaman', 'icon' => 'hero', 'consumable' => false],
             ['name' => 'special_vote_guide', 'icon' => 'hero', 'consumable' => false],
         ],
