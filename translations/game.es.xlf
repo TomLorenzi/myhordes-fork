@@ -9117,7 +9117,7 @@
       </notes>
       <segment>
         <source>Man kann es nicht oft genug sagen: Ab und zu müsst ihr mal etwas trinken. &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% ist das beste Beispiel, was ansonten passiert.</source>
-        <target><![CDATA[Man kann es nicht oft genug sagen: Ab und zu müsst ihr mal etwas trinken. <i class="dagger">†</i> %cadaver1% ist das beste Beispiel, was ansonten passiert.]]></target>
+        <target><![CDATA[No se puede decir con suficiente frecuencia: de vez en cuando hay que tomar una copa. <i class="dagger">†</i> %cadaver1% es un buen ejemplo de lo que sucede cuando no lo haces.]]></target>
       </segment>
     </unit>
     <unit id="AGvRvLT" name="324662a">
@@ -18370,7 +18370,7 @@
       </notes>
       <segment>
         <source>Der Ort (kann man überhaupt von Zuhause reden?), an dem %citizen% lebte, ist keinen Blick wert. Da gibt es nichts zu holen, selbst wenn man alles auseinandernimmt.</source>
-        <target>Der Ort (kann man überhaupt von Zuhause reden?), an dem %citizen% lebte, ist keinen Blick wert. Da gibt es nichts zu holen, selbst wenn man alles auseinandernimmt.</target>
+        <target>No vale la pena mirar el lugar (¿se puede llamar siquiera hogar?) Donde vivía %citizen%. No hay nada que valga la pena allí, incluso si se lo desarma todo.</target>
       </segment>
     </unit>
     <unit id="mlyoouR" name="Inventar: %citizen%">
