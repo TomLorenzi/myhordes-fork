@@ -544,7 +544,7 @@ class InventoryAwareController extends CustomAbstractController
     }
 
     public function generic_item_api(Inventory &$up_target, Inventory &$down_target, bool $allow_down_all, JSONRequestParser $parser, InventoryHandler $handler, Citizen $citizen = null, $hide = false): Response {
-        $item_id = (int)$parser->get('item', -1);
+        $item_id = $parser->get_int('item', -1);
         $direction = $parser->get('direction', '');
         $allowed_directions = ['up','down'];
         if ($allow_down_all) $allowed_directions[] = 'down-all';
@@ -578,6 +578,10 @@ class InventoryAwareController extends CustomAbstractController
             $bank_up = null;
             if ($inv_source->getTown()) $bank_up = true;
             if ($inv_target->getTown()) $bank_up = false;
+            $bank_theft = $parser->get_int('theft', 0) > 0;
+
+            if ($bank_theft && ($citizen->getTown()->getChaos() || !$this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_NIGHTMODE, true) || !$citizen->getTown()->isNight() ))
+                return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
             $floor_up = null;
             if ($inv_source->getZone() || $inv_source->getRuinZone() || $inv_source->getRuinZoneRoom() ) $floor_up = true;
@@ -611,13 +615,21 @@ class InventoryAwareController extends CustomAbstractController
                 if(!$dead){
                     if (($error = $handler->transferItem(
                             $citizen,
-                            $current_item, $inv_source, $inv_target, InventoryHandler::ModalityNone, $this->getTownConf()->get(TownConf::CONF_MODIFIER_CARRY_EXTRA_BAG, false)
+                            $current_item, $inv_source, $inv_target, $bank_theft ? InventoryHandler::ModalityBankTheft : InventoryHandler::ModalityNone, $this->getTownConf()->get(TownConf::CONF_MODIFIER_CARRY_EXTRA_BAG, false)
                         )) === InventoryHandler::ErrorNone) {
 
                         if ($bank_up !== null) {
-                            $this->entity_manager->persist( $this->log->bankItemLog( $target_citizen, $current_item->getPrototype(), !$bank_up, $current_item->getBroken() ) );
-                            if ($bank_up) {
-                                $this->addFlash('notice',$this->translator->trans('Du hast soeben folgenden Gegenstand aus der Bank genommen: %item%. <strong>Sei nicht zu gierig</strong> oder deine Mitbürger könnten dich für einen <strong>Egoisten</strong> halten...', ['%item%' => $this->log->wrap($this->log->iconize($current_item), 'tool')], "game"));
+
+                            if ($bank_theft) {
+
+                                // If transferItem has not returned an error, the theft was successful
+                                $this->entity_manager->persist( $this->log->bankItemStealLog( $citizen, $current_item->getPrototype(), true, $current_item->getBroken() ) );
+                                $this->addFlash('notice',$this->translator->trans('Du hast soeben %item% aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...', ['%item%' => $this->log->wrap($this->log->iconize($current_item), 'tool')], "game"));
+
+                            } else {
+                                $this->entity_manager->persist( $this->log->bankItemLog( $target_citizen, $current_item->getPrototype(), !$bank_up, $current_item->getBroken() ) );
+                                if ($bank_up)
+                                    $this->addFlash('notice',$this->translator->trans('Du hast soeben folgenden Gegenstand aus der Bank genommen: %item%. <strong>Sei nicht zu gierig</strong> oder deine Mitbürger könnten dich für einen <strong>Egoisten</strong> halten...', ['%item%' => $this->log->wrap($this->log->iconize($current_item), 'tool')], "game"));
                             }
                         }
                         if ($floor_up !== null) {
@@ -712,7 +724,11 @@ class InventoryAwareController extends CustomAbstractController
                             $this->entity_manager->persist($current_item);
                         else $this->entity_manager->remove($current_item);
 
-                    } else $errors[] = $error;
+                    } else {
+                        if ($error === InventoryHandler::ErrorBankTheftFailed)
+                            $this->entity_manager->persist( $this->log->bankItemStealLog( $citizen, $current_item->getPrototype(), false, $current_item->getBroken() ) );
+                        $errors[] = $error;
+                    }
                 }
             }
 

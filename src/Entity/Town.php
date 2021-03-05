@@ -687,7 +687,6 @@ class Town
 
     public function isNight(): bool
     {
-        return true;
     	$now = new DateTime();
     	return $now->format('H') < 7 || $now->format('H') > 18;
     }

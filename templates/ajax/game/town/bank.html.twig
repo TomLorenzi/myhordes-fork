@@ -26,7 +26,18 @@
                 {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
             {% endembed %}
 
-            <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}><img alt="" src="{{ asset('build/images/item/item_bag.gif') }}"> {% trans from 'game' %}Rucksack in der Bank ausleeren{% endtrans %}</button>
+            <button id="drop-all-button" {% if rucksack.items|length == 0 %}disabled{% endif %}><img alt="" src="{{ asset('build/images/item/item_bag.gif') }}"> {{ 'Rucksack in der Bank ausleeren'|trans({},'game') }}</button>
+
+            {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_NIGHTMODE'),true) and town.isNight %}
+                <button id="night-steal-button" {% if bank|length == 0 %}disabled{% endif %}>
+                    <img alt="" src="{{ asset('build/images/icons/theft.gif') }}"> {{ 'Versuchen etwas zu stehlen'|trans({},'game') }}
+                    <div class="tooltip">{{ 'Diebstahlsversuche können nur <strong>während der Nacht</strong> unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!'|trans({},'game')|raw }}</div>
+                </button>
+                <div id="night-mode-box" class="hidden">
+                    <div class="help">{{ 'Wähle einen Gegenstand aus der Bank aus...' }}</div>
+                    <button id="night-steal-abort-button">{{ 'Abbrechen'|trans({},'global') }}</button>
+                </div>
+            {% endif %}
 
             {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': bank, 'bankmode': true} %}
                 {% block class %}bank{% endblock %}
@@ -78,5 +89,22 @@
             let container = document.querySelector('.forum-preview-container');
             container.scrollTop = container.scrollHeight;
         } );
+
+        {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_NIGHTMODE'),true) and town.isNight %}
+            $.html.addEventListenerAll('#night-steal-button', 'click', (e,elem) => {
+                if (!confirm('{{ 'Achtung! Deinen Mitbürgern wird das gar nicht gefallen.'|trans({},'game')|e('js') }}')) return;
+                elem.classList.add('hidden');
+                $.html.forEach('#night-mode-box', element => element.classList.remove('hidden'));
+                $.html.forEach('.inventory.bank', element => element.classList.add('theft'));
+                $.html.forEach('.inventory.bank .item[x-item-id]', element => element.setAttribute('x-theft','1'));
+
+            });
+            $.html.addEventListenerAll('#night-steal-abort-button', 'click', () => {
+                $.html.forEach('#night-steal-button', element => element.classList.remove('hidden'));
+                $.html.forEach('#night-mode-box', element => element.classList.add('hidden'));
+                $.html.forEach('.inventory.bank', element => element.classList.remove('theft'));
+                $.html.forEach('.inventory.bank .item[x-item-id]', element => element.setAttribute('x-theft',null));
+            });
+        {% endif %}
     </script>
 {% endblock %}

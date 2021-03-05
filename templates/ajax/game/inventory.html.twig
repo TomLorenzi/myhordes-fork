@@ -8,7 +8,7 @@
     {% set showFreeSlots = true %}
 {% endif %}
 {% if bankmode is defined and bankmode %}
-    <input type="text" name="banksearch" id="banksearch" placeholder="{{ 'Gegenstände suchen'|trans({},'items') }}"/>
+    <p><input type="text" name="banksearch" id="banksearch" placeholder="{{ 'Gegenstände suchen'|trans({},'items') }}"/></p>
 {% endif %}
 {% if foreignChestMode is not defined %}
     {% set foreignChestMode = false %}
