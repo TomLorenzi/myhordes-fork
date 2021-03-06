@@ -942,6 +942,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'ex_drink' => [ 'icon' => 'drink', 'label' => 'Trinken', 'tooltip' => '%citizen% befehlen etwas zu trinken.', 'actions' => [
                 'water_tl0', 'water_tl1a', 'water_tl1b', 'water_tl2',
                 'potion_tl0', 'potion_tl1a', 'potion_tl1b', 'potion_tl2',
+                'potion_g', 'potion_tl0_immune', 'potion_tl1a_immune', 'potion_tl1b_immune', 'potion_tl2_immune', 'potion_g_immune',
                 'watercan3_tl0', 'watercan3_tl1a', 'watercan3_tl1b', 'watercan3_tl2',
                 'watercan2_tl0', 'watercan2_tl1a', 'watercan2_tl1b', 'watercan2_tl2',
                 'watercan1_tl0', 'watercan1_tl1a', 'watercan1_tl1b', 'watercan1_tl2'
