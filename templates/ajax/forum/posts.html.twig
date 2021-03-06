@@ -39,6 +39,7 @@
                         <img alt="" src="{{ asset('build/images/icons/tickOff.gif') }}" />
                     {% endif %}
                     <span>{{ subscribed ? 'Abonniert'|trans({},'global') : 'Abonnieren'|trans({},'global') }}</span>
+                    <div class="tooltip forum-tooltip">{{ subscribed ? 'Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.'|trans({},'global') : 'Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt'|trans({}, 'global')}}</div>
                 </div>
 
                 {% if not locked and not is_granted("ROLE_FORUM_BANNED") and (permission.create_post or permission.moderate) %}

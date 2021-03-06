@@ -2364,7 +2364,7 @@
     </unit>
     <unit id="GnItekT" name="HINWEIS: Diese Aktion ist nur in Übersee möglich.">
       <notes>
-        <note category="german">HINWEIS: Diese Aktion ist nur in Übersee möglich.</note>
+        <note category="german">HINWEIS: Diese Aktion ist nur in der Außenwelt möglich.</note>
       </notes>
       <segment>
         <source>HINWEIS: Diese Aktion ist nur in Übersee möglich.</source>
@@ -2378,6 +2378,42 @@
       <segment>
         <source>Neuer Beitrag in</source>
         <target>Neuer Beitrag in</target>
+      </segment>
+    </unit>
+    <unit id="sXEtGH4" name="Diese Diskussion ist beendet.">
+      <notes>
+        <note category="german">Diese Diskussion ist beendet.</note>
+      </notes>
+      <segment>
+        <source>Diese Diskussion ist beendet.</source>
+        <target>Diese Diskussion ist beendet.</target>
+      </segment>
+    </unit>
+    <unit id="skpOVsR" name="397b841">
+      <notes>
+        <note category="german">Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.</note>
+      </notes>
+      <segment>
+        <source>Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.</source>
+        <target>Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.</target>
+      </segment>
+    </unit>
+    <unit id="LQ_zhhz" name="Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt">
+      <notes>
+        <note category="german">Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt</note>
+      </notes>
+      <segment>
+        <source>Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt</source>
+        <target>Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt</target>
+      </segment>
+    </unit>
+    <unit id="Z.IoaeD" name="7522b5f">
+      <notes>
+        <note category="german">Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.</note>
+      </notes>
+      <segment>
+        <source>Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.</source>
+        <target>Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.</target>
       </segment>
     </unit>
   </file>
