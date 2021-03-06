@@ -335,7 +335,7 @@
                     {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'special_action_list': specials, 'item_action_list': actions, 'recipe_list': recipes, 'scout': (zone_blocked and active_scout_mode), 'hidden': citizen_hidden} %}
                     {% endembed %}
 
-                    {% if banished or town_chaos %}
+                    {% if (banished or town_chaos) and not citizen_hidden %}
                         <button id="bury_rucksack_button">{{ 'Rucksack verstecken'|trans({},'game') }} (<div class="ap">2</div>)</button>
                     {% endif %}
 
