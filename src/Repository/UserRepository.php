@@ -95,6 +95,29 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
     }
 
     /**
+     * @param int $offset
+     * @param int $limit
+     * @param array $skip
+     * @return User[] Returns an array of User objects
+     */
+    public function getGlobalSoulRankingPage(int $offset = 0, int $limit = 10, array $skip = [])
+    {
+        $skip = array_filter(array_map( fn($u) => is_a($u, User::class) ? $u->getId() : $u, $skip));
+
+        $qb = $this->createQueryBuilder('u')
+            ->andWhere('u.email NOT LIKE :crow')->setParameter('crow', 'crow')
+            //->andWhere('u.email NOT LIKE :local')->setParameter('local', "%@localhost")
+            ->andWhere('u.email != u.name')
+            ->orderBy('u.soulPoints', 'DESC');
+
+        if (!empty($skip)) $qb->andWhere('u.id NOT IN (:skip)')->setParameter('skip', $skip);
+        if ($limit > 0) $qb->setMaxResults($limit);
+        if ($offset > 0) $qb->setFirstResult($offset);
+
+        return $qb->getQuery()->getResult();
+    }
+
+    /**
      * @return User[] Returns an array of User objects
      */
     public function findByDisplayNameContains(string $value)

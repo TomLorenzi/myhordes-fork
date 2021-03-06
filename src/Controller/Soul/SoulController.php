@@ -350,6 +350,55 @@ class SoulController extends CustomAbstractController
     }
 
     /**
+     * @Route("jx/soul/ranking/{type}/{page}", name="soul_season_solo")
+     * @param null $type Type of ranking to display
+     * @return Response
+     */
+    public function soul_season_solo($type = null, $page = 1, JSONRequestParser $parser): Response
+    {
+        $resultsPerPage = 30;
+        $offset = $resultsPerPage * ($page - 1);
+
+        $user = $this->getUser();
+        //if($user->getRightsElevation() <= User::ROLE_CROW)
+        //    return $this->redirect($this->generateUrl('soul_me'));
+
+        $seasonId = $parser->get('season', null);
+
+        /** @var CitizenRankingProxy $nextDeath */
+        if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
+            return $this->redirect($this->generateUrl( 'soul_death' ));
+
+        $seasons = $this->entity_manager->getRepository(Season::class)->findBy(['subNumber' => null]);
+        if ($seasonId === null) {
+            $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
+        } else {
+            $currentSeason = $this->entity_manager->getRepository(Season::class)->find($seasonId);
+        }
+
+        $ranking = null;
+        if ($type === "soul") {
+            $ranking = $this->entity_manager->getRepository(User::class)->getGlobalSoulRankingPage($offset, $resultsPerPage);
+        } else {
+            return $this->redirect($this->generateUrl( 'soul_ranking' ));
+        }
+        if(!$ranking) {
+            return $this->redirect($this->generateUrl( 'soul_ranking' ));
+        }
+
+        return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season_solo", [
+            'seasons' => $seasons,
+            'currentSeason' => $currentSeason,
+            'ranking' => $ranking,
+            'currentType' => 0,
+            'soloType' => $type,
+            'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true]),
+            'offset' => $offset,
+            'user' => $user
+        ]) );
+    }
+
+    /**
      * @Route("jx/soul/rps", name="soul_rps")
      * @return Response
      */
