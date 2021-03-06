@@ -2393,5 +2393,23 @@
         <target>Villes Privées</target>
       </segment>
     </unit>
+    <unit id="vXPHpS0" name="Zugriff auf die Rangliste einer bestimmten Saison:">
+      <notes>
+        <note category="german">Zugriff auf die Rangliste einer bestimmten Saison:</note>
+      </notes>
+      <segment>
+        <source>Zugriff auf die Rangliste einer bestimmten Saison:</source>
+        <target>Accès aux classement d'une saison particulière :</target>
+      </segment>
+    </unit>
+    <unit id="haNfUqH" name="Alle Saisons">
+      <notes>
+        <note category="german">Alle Saisons</note>
+      </notes>
+      <segment>
+        <source>Alle Saisons</source>
+        <target>Toutes les saisons</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
