@@ -2697,7 +2697,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         foreach ($all_prototypes as $prototype) {
 
             if ($prototype->getWatchpoint() !== 0 && !isset(static::$item_actions['items_nw'][$prototype->getName()]))
-                $out->writeln("<error>Item prototype '{$prototype->getName()}' ({$prototype->getLabel()}) has {$prototype->getWatchpoint()} watch points, but no night watch action!</error>");
+                throw new Exception("Item prototype '{$prototype->getName()}' ({$prototype->getLabel()}) has {$prototype->getWatchpoint()} watch points, but no night watch action!");
             else if (isset(static::$item_actions['items_nw'][$prototype->getName()])) {
                 $prototype->setNightWatchAction( $this->generate_action( $manager, $out, static::$item_actions['items_nw'][$prototype->getName()], $set_meta_requirements, $set_sub_requirements, $set_meta_results, $set_sub_results, $set_actions ) );
                 $this->entityManager->persist($prototype);
@@ -2727,11 +2727,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         $output->writeln( '<info>Installing fixtures: Actions</info>' );
         $output->writeln("");
 
-        try {
-            $this->insert_item_actions( $manager, $output );
-        } catch (Exception $e) {
-            $output->writeln("<error>{$e->getMessage()}</error>");
-        }
+        $this->insert_item_actions( $manager, $output );
 
         $output->writeln("");
     }
