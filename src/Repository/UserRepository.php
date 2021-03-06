@@ -106,7 +106,7 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
 
         $qb = $this->createQueryBuilder('u')
             ->andWhere('u.email NOT LIKE :crow')->setParameter('crow', 'crow')
-            //->andWhere('u.email NOT LIKE :local')->setParameter('local', "%@localhost")
+            ->andWhere('u.email NOT LIKE :local')->setParameter('local', "%@localhost")
             ->andWhere('u.email != u.name')
             ->orderBy('u.soulPoints', 'DESC');
 

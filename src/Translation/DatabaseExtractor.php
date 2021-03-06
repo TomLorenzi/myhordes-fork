@@ -225,6 +225,11 @@ class DatabaseExtractor implements ExtractorInterface
                 $this->insert( $c, $reason->getText(), 'game' );
         }
 
+        foreach ($this->em->getRepository(TownClass::class)->findAll() as $town)
+            /** @var TownClass $town */
+            if ($town->getLabel())
+                $this->insert( $c, $town->getLabel(), 'soul' );
+
         foreach ($this->em->getRepository(Season::class)->findAll() as $season) {
             /** @var Season $season */
             $this->insert( $c, "Saison {$season->getNumber()}.{$season->getSubNumber()}", 'season' );

@@ -371,7 +371,7 @@ class SoulController extends CustomAbstractController
 
         $seasons = $this->entity_manager->getRepository(Season::class)->findBy(['subNumber' => null]);
         if ($seasonId === null) {
-            $currentSeason = $this->entity_manager->getRepository(Season::class)->findOneBy(['current' => true]);
+            $currentSeason = "all";
         } else {
             $currentSeason = $this->entity_manager->getRepository(Season::class)->find($seasonId);
         }
