@@ -386,7 +386,7 @@ class SoulController extends CustomAbstractController
             return $this->redirect($this->generateUrl( 'soul_ranking' ));
         }
 
-        return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season_solo", [
+        return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season", [
             'seasons' => $seasons,
             'currentSeason' => $currentSeason,
             'ranking' => $ranking,
