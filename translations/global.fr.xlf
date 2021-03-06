@@ -2538,7 +2538,7 @@
       </notes>
       <segment>
         <source>Um nach Anführungszeichen oder Ausrufezeichen zu suchen, schreibe einen Backslash (\) davor, um zu verhindern, dass sie als Suchbefehl interpretiert werden. Beispiel: Boom\!</source>
-        <target>Um nach Anführungszeichen oder Ausrufezeichen zu suchen, schreibe einen Backslash (\) davor, um zu verhindern, dass sie als Suchbefehl interpretiert werden. Beispiel: Boom\!</target>
+        <target>Pour utiliser des guillemets ou des points d'exclamation, mettez une barre oblique inversée (\) devant eux pour éviter qu'ils ne soient interprétés comme une commande de recherche. Exemple : Boom \!</target>
       </segment>
     </unit>
     <unit id="3Ql_d91" name="Suchen">
@@ -2565,7 +2565,7 @@
       </notes>
       <segment>
         <source>Es wurden keine Nachrichten gefunden, die deiner Suchanfrage entsprechen.</source>
-        <target>Es wurden keine Nachrichten gefunden, die deiner Suchanfrage entsprechen.</target>
+        <target>Aucun message correspondant à votre recherche n'a été trouvé.</target>
       </segment>
     </unit>
     <unit id="uvXzw5b" name="c09e87f">
@@ -2574,7 +2574,16 @@
       </notes>
       <segment>
         <source>Deine Suchanfrage hat mehr Ergebnisse geliefert, als hier angezeigt werden können. Versuche, deine Anfrage zu präzisieren, wenn du nicht gefunden hast wonach du suchst.</source>
-        <target>Deine Suchanfrage hat mehr Ergebnisse geliefert, als hier angezeigt werden können. Versuche, deine Anfrage zu präzisieren, wenn du nicht gefunden hast wonach du suchst.</target>
+        <target>Davantage de résultats ont été trouvés, mais il n'est pas possible de tous les afficher. Si vous n'avez pas trouvé, essayez de préciser votre recherche.</target>
+      </segment>
+    </unit>
+    <unit id="C6zNngv" name="Es wurde noch keine Stadt in die Rangliste aufgenommen!">
+      <notes>
+        <note category="german">Es wurde noch keine Stadt in die Rangliste aufgenommen!</note>
+      </notes>
+      <segment>
+        <source>Es wurde noch keine Stadt in die Rangliste aufgenommen!</source>
+        <target>Aucune ville n'est encore dans le classement!</target>
       </segment>
     </unit>
   </file>

@@ -344,7 +344,8 @@ class SoulController extends CustomAbstractController
             'towns' => $towns,
             'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true]),
             'currentType' => $currentType,
-            'played' => $played
+            'played' => $played,
+            'user' => $user
         ]) );
     }
 

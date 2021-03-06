@@ -59,33 +59,36 @@
             <div class="town-container">
                 {% set pos = 1 %}
                 {% for town in towns %}
-                    <div class="row-flex stretch {% if played[town.id] is defined %}played{% endif %}">
+                    <div class="row-flex stretch season_entry {% if pos is not odd %}even{% endif %} {% if played[town.id] is defined %}played{% endif %}">
                         {# @var town \src\Entity\TownRankingProxy #}
-                        <div class="cell rw-1 center"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></div>
-                        <div class="cell rw-1 center">{{ pos }}</div>
-                        <div class="cell rw-6 center"><div class="inline-block"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div> {{ town.name }}</div>
-                        <div class="cell rw-2 center">{{ town.days }}</div>
-                        <div class="cell rw-2 center">{{ town.score }}</div>
+                        <div class="cell rw-1 season_entry_td center"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></div>
+                        <div class="cell rw-1 season_entry_td center">{{ pos }}</div>
+                        <div class="cell rw-6 season_entry_td left"><div class="inline-block"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div> {{ town.name }}</div>
+                        <div class="cell rw-2 season_entry_td center" style="color: #f0d79e">{{ town.days }}</div>
+                        <div class="cell rw-2 season_entry_td center"><strong>{{ town.score }}</strong></div>
                     </div>
                     {% if pos == 1 %}
-                        <div class="row-flex stretch" x-town-latest="{{ town.id }}">
-                            <div class="cell rw-8 ro-2">
+                        <div class="row-flex stretch season_entry_container" x-town-latest="">
+                            <div class="cell rw-1 center" style="border-right: 1px solid #7e4d2a;"></div>
+                            <div class="cell rw-7 ro-1">
                             {% for denizen in town.citizens|sort((a,b) => b.day <=> a.day) %}
                             {% if denizen.day == town.days %}
-                                <a href="{{ path('soul_visit', {id: denizen.user.id}) }}"><b>{{ denizen.user.name }}</b></a> ({{ denizen.day }})
+                                <a href="{{ path('soul_visit', {id: denizen.user.id}) }}"><b>{{ denizen.user.name }}</b></a> <span style="color: #f0d79e">({{ denizen.day }})</span>
                             {% endif %}
                             {% endfor %}
                             </div>
+                            <div class="cell rw-4 center"></div>
                         </div>
                     {% endif %}
-                    <div class="row-flex stretch">
-                        <div x-town-details="{{ town.id }}" class="padded cell rw-12 hidden" style="background-color: #3b3249;">
+                    <div x-town-tohide="{{ town.id }}" class="row-flex stretch season_entry_container hidden" style="background-color: #5c2b20">
+                        <div class="cell rw-1" style="border-right: 1px solid #7e4d2a;"></div>
+                        <div class="cell rw-1"></div>
+                        <div x-town-details="{{ town.id }}" class="cell rw-8">
                             <ul class="citizen-list">
                                 {% for denizen in town.citizens|sort((a,b) => b.day <=> a.day) %}
                                     {# @var denizen \App\Entity\CitizenRankingProxy #}
-                                    <li class="row">
-                                        <div class="cell padded rw-2"></div>
-                                        <div class="cell padded rw-3">
+                                    <li class="row" style="border-bottom: 1px dashed #ddab76;{% if denizen.user.id == user.id %}background-color: #3b3249;{% endif %}">
+                                        <div class="cell padded rw-4">
                                             {% if denizen.cod.ref == constant("App\\Entity\\CauseOfDeath::Vanished") %}
                                                 <div class="inline-block"><img src="{{ asset("build/images/death/outside.gif") }}" alt="" /> <div class="tooltip">{{ 'Draußen gestorben'|trans({}, 'soul') }}</div></div>
                                             {% else %}
@@ -93,19 +96,24 @@
                                             {% endif %}
                                             <a class="link" href="{{ path('soul_visit', {id: denizen.user.id}) }}">{{ denizen.user.name }}</a>
                                         </div>
-                                        <div class="cell padded rw-1">{{ denizen.day }}</div>
-                                        <div class="cell padded rw-6"><em>{{ denizen.lastWords }}</em></div>
+                                        <div class="cell padded rw-1" style="color:#f8eacb">{{ denizen.day }}</div>
+                                        <div class="cell padded rw-4"><em>{{ denizen.lastWords }}</em></div>
                                     </li>
                                 {% endfor %}
                             </ul>
                             <div class="right"><span class="small pointer" x-town-toggle="{{ town.id }}">{{ 'Schließen'|trans({},'global') }}</span></div>
                         </div>
+                        <div class="cell rw-2"></div>
+                    </div>
+                    <!-- to compensate even/odd coloring (2 rows per town makes them all even and it's incorrect, so we need 3) -->
+                    <!-- (also helps with a border issue) -->
+                    <div class="row-flex stretch"> 
                     </div>
                     {% set pos = pos + 1 %}
                 {% endfor %}
             </div>
             {% else %}
-                <div class="note note-critical">Es wurde noch keine Stadt in die Rangliste aufgenommen! </div>
+                <div class="note note-critical">{{ 'Es wurde noch keine Stadt in die Rangliste aufgenommen!'|trans({},'global') }}</div>
             {% endif %}
         </div>
     </div>
@@ -127,6 +135,29 @@
         </div>
     </div>
     {% endif %}
+<style>
+.citizen-list {
+    margin: 0;
+    padding: 0;
+}
+.citizen-list > .li {
+    font-size: 1.2rem; font-weight: bold;
+}
+
+.citizen-list > .li > .img {
+	vertical-align: middle;
+}
+
+.season_entry_td {
+    border-right: 1px solid #7e4d2a;
+    border-bottom: 1px solid #7e4d2a;
+}
+
+.season_entry_container {
+    border-bottom: 1px solid #7e4d2a;
+}
+
+</style>
 {% endblock %}
 {% block js %}
     {{ parent() }}
@@ -138,13 +169,15 @@
 
         $.html.addEventListenerAll( '[x-town-toggle]', 'click', function(e,elem) {
             const id = elem.getAttribute('x-town-toggle');
-            document.querySelectorAll('[x-town-details="' + id + '"]').forEach(function( target ) {
+            document.querySelectorAll('[x-town-tohide="' + id + '"]').forEach(function( target ) {
                 if (target.classList.contains('hidden')) target.classList.remove('hidden');
                 else target.classList.add('hidden');
+                // todo: hide other town lists when selecting a new one ? hordes works this way
             })
-            document.querySelectorAll('[x-town-latest="' + id + '"]').forEach(function( target ) {
-                if (target.classList.contains('hidden')) target.classList.remove('hidden');
-                else target.classList.add('hidden');
+            document.querySelectorAll('[x-town-latest=""]').forEach(function( target ) {
+                if (!target.classList.contains('hidden')) target.classList.add('hidden');
+                // opening and closing a town won't restore the x-town-latest, but not a problem imo ! 
+                // allows to display the rankings without it which is good
             })
         } );
     </script>
