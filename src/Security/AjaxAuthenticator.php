@@ -50,7 +50,7 @@ class AjaxAuthenticator extends AbstractGuardAuthenticator
         if (!$request->isXmlHttpRequest())
             return new RedirectResponse($this->url_generator->generate('app_web_framework'));
 
-        $intent = $request->headers->get('X-Requested-With', 'UndefinedIntent');
+        $intent = $request->headers->get('X-Request-Intent', 'UndefinedIntent');
         switch ($intent) {
             case 'WebNavigation':
                 return new RedirectResponse($this->url_generator->generate('public_login'));
@@ -101,7 +101,7 @@ class AjaxAuthenticator extends AbstractGuardAuthenticator
      */
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
-        $intent = $request->headers->get('X-Requested-With', 'UndefinedIntent');
+        $intent = $request->headers->get('X-Request-Intent', 'UndefinedIntent');
         switch ($intent) {
             case 'WebNavigation':
                 return new RedirectResponse($this->url_generator->generate('public_login'));

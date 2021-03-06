@@ -111,7 +111,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
 
             if ($gk_profile->onlyInTown() && $citizen->getZone()) {
                 // This is a town controller; it is not available to players in the world beyond
-                if ($event->getRequest()->headers->get('X-Requested-With', 'UndefinedIntent') !== 'WebNavigation')
+                if ($event->getRequest()->headers->get('X-Request-Intent', 'UndefinedIntent') !== 'WebNavigation')
                     $event->getRequest()->getSession()->getFlashBag()->add("error", $this->translator->trans("HINWEIS: Diese Aktion ist nur in der Stadt möglich.", [], 'global'));
                 throw new DynamicAjaxResetException($event->getRequest());
             }
@@ -119,7 +119,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
             if ($gk_profile->onlyBeyond()) {
                 // This is a beyond controller; it is not available to players inside a town
                 if (!$citizen->getZone()) {
-                    if ($event->getRequest()->headers->get('X-Requested-With', 'UndefinedIntent') !== 'WebNavigation')
+                    if ($event->getRequest()->headers->get('X-Request-Intent', 'UndefinedIntent') !== 'WebNavigation')
                         $event->getRequest()->getSession()->getFlashBag()->add("error", $this->translator->trans("HINWEIS: Diese Aktion ist nur in Übersee möglich.", [], 'global'));
                     throw new DynamicAjaxResetException($event->getRequest());
                 }

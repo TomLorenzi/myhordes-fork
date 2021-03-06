@@ -293,7 +293,6 @@ export default class Ajax {
         request.open('POST', url);
         request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         request.setRequestHeader('X-Request-Intent', 'WebNavigation');
-        request.setRequestHeader('X-Request-Intent', 'WebNavigation');
 
         const target_id = target.getAttribute('x-target-id') ?? target.getAttribute('id') ?? '';
         if (target_id) request.setRequestHeader('X-Render-Target', target_id);
