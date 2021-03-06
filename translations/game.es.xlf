@@ -8679,12 +8679,12 @@
         <target>Tu herida en los ojos no facilita las cosas...</target>
       </segment>
     </unit>
-    <unit id="gk3I32J" name="Deine Trunkenheit macht dir die Suche nicht gerade leichter.">
+    <unit id="gk3I32J" name="Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.">
       <notes>
-        <note category="german">Deine Trunkenheit macht dir die Suche nicht gerade leichter.</note>
+        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</note>
       </notes>
       <segment>
-        <source>Deine Trunkenheit macht dir die Suche nicht gerade leichter.</source>
+        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</source>
         <target>Tu borrachera no te facilita las cosas...</target>
       </segment>
     </unit>
