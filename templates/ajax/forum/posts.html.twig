@@ -48,6 +48,12 @@
                 {% endif %}
             </div>
         </div>
+        <div class="cell padded rw-6 center {% if locked %}infoThread{% endif %}">
+            {% if locked %}
+                <img alt="" src="{{ asset('build/images/icons/lock.gif') }}" /> {{ 'Diese Diskussion ist beendet.'|trans({},'global') }}
+            {% endif %}
+            {# TODO : if thread is resolved with "OK", it display "Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt)." #}
+        </div>
     {% endblock %}
     {% macro pagenav(pages,current_page,id) %}
         {% if pages > 1 %}
