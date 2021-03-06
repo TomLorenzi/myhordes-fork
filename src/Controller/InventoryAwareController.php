@@ -759,6 +759,17 @@ class InventoryAwareController extends CustomAbstractController
         if ($recipe === null || !in_array($recipe->getType(), [Recipe::ManualAnywhere, Recipe::ManualOutside, Recipe::ManualInside]))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
+        if ($recipe->getName() === 'com027' && !$citizen->getZone() ) {
+
+            $lab = $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('lab');
+            $home_lab_upgrade = $lab ? $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($citizen->getHome(), $lab) : null;
+            if ($home_lab_upgrade) {
+                $this->addFlash("error", $this->translator->trans('Dafür solltest du dein Labor verwenden...', [], 'game'));
+                return AjaxResponse::success();
+            }
+
+        }
+
         if (($error = $handler->execute_recipe( $citizen, $recipe, $remove, $message )) !== ActionHandler::ErrorNone ) {
             if ($error === ErrorHelper::ErrorItemsMissing && in_array($recipe->getType(), [Recipe::ManualAnywhere, Recipe::ManualInside, Recipe::ManualOutside])) {
                 $items = "";
