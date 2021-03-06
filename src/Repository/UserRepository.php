@@ -105,10 +105,11 @@ class UserRepository extends ServiceEntityRepository implements UserLoaderInterf
         $skip = array_filter(array_map( fn($u) => is_a($u, User::class) ? $u->getId() : $u, $skip));
 
         $qb = $this->createQueryBuilder('u')
+            ->select('(u.soulPoints + COALESCE(u.importedSoulPoints, 0)) as allPoints, u')
             ->andWhere('u.email NOT LIKE :crow')->setParameter('crow', 'crow')
             ->andWhere('u.email NOT LIKE :local')->setParameter('local', "%@localhost")
             ->andWhere('u.email != u.name')
-            ->orderBy('u.soulPoints', 'DESC');
+            ->orderBy('allPoints', 'DESC');
 
         if (!empty($skip)) $qb->andWhere('u.id NOT IN (:skip)')->setParameter('skip', $skip);
         if ($limit > 0) $qb->setMaxResults($limit);
