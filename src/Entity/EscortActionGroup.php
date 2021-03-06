@@ -46,6 +46,11 @@ class EscortActionGroup implements NamedEntity
      */
     private $actions;
 
+    /**
+     * @ORM\Column(type="string", length=190, nullable=true)
+     */
+    private $tooltip;
+
     public function __construct()
     {
         $this->actions = new ArrayCollection();
@@ -114,6 +119,18 @@ class EscortActionGroup implements NamedEntity
         if ($this->actions->contains($action)) {
             $this->actions->removeElement($action);
         }
+
+        return $this;
+    }
+
+    public function getTooltip(): ?string
+    {
+        return $this->tooltip;
+    }
+
+    public function setTooltip(?string $tooltip): self
+    {
+        $this->tooltip = $tooltip;
 
         return $this;
     }

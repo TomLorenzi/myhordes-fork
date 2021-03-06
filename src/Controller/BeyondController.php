@@ -996,14 +996,14 @@ class BeyondController extends InventoryAwareController
      */
     public function item_desert_api(JSONRequestParser $parser, InventoryHandler $handler): Response {
         $down_inv = $this->getActiveCitizen()->getZone()->getFloor();
-        $escort = $parser->get('escort', null);
+        $escort = $parser->get_int('escort', null);
 
         if ($this->getActiveCitizen()->getZone()->isTownZone())
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         if ($escort !== null) {
             /** @var Citizen $citizen */
-            $citizen = $this->entity_manager->getRepository(Citizen::class)->find((int)$escort);
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($escort);
             if ($citizen && ($es = $citizen->getEscortSettings()) && $es->getLeader() && $es->getLeader()->getId() === $this->getActiveCitizen()->getId() && $es->getAllowInventoryAccess()) {
                 $up_inv   = $citizen->getInventory();
             }

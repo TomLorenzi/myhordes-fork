@@ -55,6 +55,7 @@ use App\Entity\RequireZone;
 use App\Entity\Result;
 use App\Entity\SpecialActionPrototype;
 use App\Structures\TownConf;
+use App\Translation\T;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -938,14 +939,14 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         ],
 
         'escort' => [
-            'ex_drink' => [ 'icon' => 'drink', 'label' => 'Trinken', 'actions' => [
+            'ex_drink' => [ 'icon' => 'drink', 'label' => 'Trinken', 'tooltip' => '%citizen% befehlen etwas zu trinken.', 'actions' => [
                 'water_tl0', 'water_tl1a', 'water_tl1b', 'water_tl2',
                 'potion_tl0', 'potion_tl1a', 'potion_tl1b', 'potion_tl2',
                 'watercan3_tl0', 'watercan3_tl1a', 'watercan3_tl1b', 'watercan3_tl2',
                 'watercan2_tl0', 'watercan2_tl1a', 'watercan2_tl1b', 'watercan2_tl2',
                 'watercan1_tl0', 'watercan1_tl1a', 'watercan1_tl1b', 'watercan1_tl2'
             ]],
-            'ex_eat'   => [ 'icon' => 'eat', 'label' => 'Essen', 'actions' => [
+            'ex_eat'   => [ 'icon' => 'eat', 'label' => 'Essen', 'tooltip' => '%citizen% befehlen etwas zu essen.', 'actions' => [
                 'eat_6ap', 'eat_7ap'
             ]],
         ],
@@ -2680,6 +2681,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 ->setName( $escort_key )
                 ->setIcon( $escort_group['icon'] )
                 ->setLabel( $escort_group['label'] )
+                ->setTooltip( $escort_group['tooltip'] ?? null )
                 ->getActions()->clear();
 
             foreach ($escort_group['actions'] as $action_id)

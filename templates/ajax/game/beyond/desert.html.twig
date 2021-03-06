@@ -1,60 +1,60 @@
 {% extends "ajax/game/beyond/beyond.html.twig" %}
 {% block title %}
-{# Time of day #}
-{% if "now"|date('H') >= 6 and "now"|date('H') < 9 %}
-    {{'Ein neuer Tag bricht an'|trans({}, 'game')|raw}}
-{% elseif "now"|date('H') < 12 %}
-    {{'An einem kalten Morgen'|trans({}, 'game')|raw}}
-{% elseif "now"|date('H') < 18 %}
-    {{"Die Außenwelt"|trans({}, 'game')|raw}}
-{% elseif "now"|date('H') < 20 %}
-    {{"Ein beunruhigender Sonnenuntergang"|trans({}, 'game')|raw}}
-{% else %}
-    {{"Eine eisige Nacht"|trans({}, 'game')|raw}}
-{% endif %}
-{# Alone or not #}
-{% if other_citizens|length == 1 %}
-    {{'... allein'|trans({}, 'game')|raw}}
-{% elseif other_citizens|length == 2 %}
-    {% set othername = other_citizens[0].user.name %}
-    {% if other_citizens[0].user == app.user %}{% set othername = other_citizens[1].user.name %}{% endif %}
-    {{'an der Seite von %citizen%'|trans({"%citizen%": othername}, 'game')|raw}}
-{% else %}
-    {{ 'als Gruppe'|trans({}, 'game') }}
-{% endif %}
-{# Direction #}
-{% set dir = "" %}
-{% if zone.getDirection == constant('App\\Entity\\Zone::DirectionNorthWest') %}
-    {% set dir = "im Nordwesten"|trans({},'game') %}
-{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionNorth') %}
-    {% set dir = "im Norden"|trans({},'game') %}
-{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionNorthEast') %}
-    {% set dir = "im Nordosten"|trans({},'game') %}
-{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionWest') %}
-    {% set dir = "im Westen"|trans({},'game') %}
-{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionEast') %}
-    {% set dir = "im Osten"|trans({},'game') %}
-{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthWest') %}
-    {% set dir = "im Südwesten"|trans({},'game') %}
-{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouth') %}
-    {% set dir = "im Süden"|trans({},'game') %}
-{% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthEast') %}
-    {% set dir = 'im Südosten'|trans({},'game') %}
-{% endif %}
-{% if dir != "" %}
-    {% if not zone.prototype %}
-        , {{'irgendwo %location% der Stadt...'|trans({'%location%': dir}, 'game')|raw}}
-    {% elseif zone.buryCount > 0 %}
-        {{"inmitten eines unentwirrbaren Trümmerhaufens"|trans({'%location%': dir}, 'game')|raw}}
+    {# Time of day #}
+    {% if "now"|date('H') >= 6 and "now"|date('H') < 9 %}
+        {{'Ein neuer Tag bricht an'|trans({}, 'game')|raw}}
+    {% elseif "now"|date('H') < 12 %}
+        {{'An einem kalten Morgen'|trans({}, 'game')|raw}}
+    {% elseif "now"|date('H') < 18 %}
+        {{"Die Außenwelt"|trans({}, 'game')|raw}}
+    {% elseif "now"|date('H') < 20 %}
+        {{"Ein beunruhigender Sonnenuntergang"|trans({}, 'game')|raw}}
     {% else %}
-        {{"in einer unheimlichen Ruine %location%"|trans({'%location%': dir}, 'game')|raw}}
-    {% endif %}    
-{% else %}
-    {{'an den Toren der Stadt'|trans({}, 'game')|raw}}
-{% endif %}
-{% if zone_blocked %}
-    , {{'sitzt in der Falle und wartet auf den Tod...'|trans({}, 'game')|raw}}
-{% endif %}
+        {{"Eine eisige Nacht"|trans({}, 'game')|raw}}
+    {% endif %}
+    {# Alone or not #}
+    {% if other_citizens|length == 1 %}
+        {{'... allein'|trans({}, 'game')|raw}}
+    {% elseif other_citizens|length == 2 %}
+        {% set othername = other_citizens[0].user.name %}
+        {% if other_citizens[0].user == app.user %}{% set othername = other_citizens[1].user.name %}{% endif %}
+        {{'an der Seite von %citizen%'|trans({"%citizen%": othername}, 'game')|raw}}
+    {% else %}
+        {{ 'als Gruppe'|trans({}, 'game') }}
+    {% endif %}
+    {# Direction #}
+    {% set dir = "" %}
+    {% if zone.getDirection == constant('App\\Entity\\Zone::DirectionNorthWest') %}
+        {% set dir = "im Nordwesten"|trans({},'game') %}
+    {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionNorth') %}
+        {% set dir = "im Norden"|trans({},'game') %}
+    {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionNorthEast') %}
+        {% set dir = "im Nordosten"|trans({},'game') %}
+    {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionWest') %}
+        {% set dir = "im Westen"|trans({},'game') %}
+    {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionEast') %}
+        {% set dir = "im Osten"|trans({},'game') %}
+    {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthWest') %}
+        {% set dir = "im Südwesten"|trans({},'game') %}
+    {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouth') %}
+        {% set dir = "im Süden"|trans({},'game') %}
+    {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthEast') %}
+        {% set dir = 'im Südosten'|trans({},'game') %}
+    {% endif %}
+    {% if dir != "" %}
+        {% if not zone.prototype %}
+            , {{'irgendwo %location% der Stadt...'|trans({'%location%': dir}, 'game')|raw}}
+        {% elseif zone.buryCount > 0 %}
+            {{"inmitten eines unentwirrbaren Trümmerhaufens"|trans({'%location%': dir}, 'game')|raw}}
+        {% else %}
+            {{"in einer unheimlichen Ruine %location%"|trans({'%location%': dir}, 'game')|raw}}
+        {% endif %}
+    {% else %}
+        {{'an den Toren der Stadt'|trans({}, 'game')|raw}}
+    {% endif %}
+    {% if zone_blocked %}
+        , {{'sitzt in der Falle und wartet auf den Tod...'|trans({}, 'game')|raw}}
+    {% endif %}
 {% endblock %}
 {% block menu_text %}
     {{ parent() }}
@@ -64,42 +64,42 @@
     <div x-tutorial-content="10.text4" class="toplevel text arrow-down">
         <div class="help">
             <p>{% trans from "help" %}
-                Drücke auf diesen Knopf, um in dieser Zone zu <strong>graben</strong>...
-            {% endtrans %}</p>
+                    Drücke auf diesen Knopf, um in dieser Zone zu <strong>graben</strong>...
+                {% endtrans %}</p>
         </div>
     </div>
     <div x-tutorial-content="10.text5" class="toplevel text arrow-down">
         <div class="help">
             <p>{% trans from "help" %}
-                Wenn du einen Gegenstand findest, wird er automatisch in deinem <strong>Rucksack</strong> verräumt (sofern du noch Platz hast) <strong>oder am Boden abgelegt</strong> (wenn du keinen Platz mehr hast).
-            {% endtrans %}</p>
+                    Wenn du einen Gegenstand findest, wird er automatisch in deinem <strong>Rucksack</strong> verräumt (sofern du noch Platz hast) <strong>oder am Boden abgelegt</strong> (wenn du keinen Platz mehr hast).
+                {% endtrans %}</p>
             <button x-advance-tutorial="10.text6">{{ 'Weiter...'|trans({},'help') }}</button>
         </div>
     </div>
     <div x-tutorial-content="10.text6" class="toplevel text arrow-down">
         <div class="help">
             <p>{% trans from "help" %}
-                Wenn du für ein paar Stunden in der Zone verharrst, in der du schon einmal gegraben hast, kannst du dort noch einmal <strong>umsonst graben</strong>.
-            {% endtrans %}</p>
+                    Wenn du für ein paar Stunden in der Zone verharrst, in der du schon einmal gegraben hast, kannst du dort noch einmal <strong>umsonst graben</strong>.
+                {% endtrans %}</p>
             <p><strong><i>{% trans from "help" %}
-                Der Zähler, der die nächste automatische Ausgrabung anzeigt, ist hier sichtbar.
-            {% endtrans %}</i></strong></p>
+                            Der Zähler, der die nächste automatische Ausgrabung anzeigt, ist hier sichtbar.
+                        {% endtrans %}</i></strong></p>
             <button x-advance-tutorial="10.text7">{{ 'Weiter...'|trans({},'help') }}</button>
         </div>
     </div>
     <div x-tutorial-content="10.text7" class="toplevel text">
         <div class="help">
             <p>{% trans from "help" %}
-                Du kannst dich weiterhin im Freien bewegen oder auf die nächste automatische Grabungsaktion warten. Egal wie du dich entscheidest, <strong>du MUSST ZUSEHEN, dass du vor dem Zombieangriffum Mitternacht nach Hause kommst</strong>!
-            {% endtrans %}</p>
+                    Du kannst dich weiterhin im Freien bewegen oder auf die nächste automatische Grabungsaktion warten. Egal wie du dich entscheidest, <strong>du MUSST ZUSEHEN, dass du vor dem Zombieangriffum Mitternacht nach Hause kommst</strong>!
+                {% endtrans %}</p>
             <button x-advance-tutorial="10.text8">{{ 'Weiter...'|trans({},'help') }}</button>
         </div>
     </div>
     <div x-tutorial-content="10.text8" class="toplevel text arrow-up">
         <div class="help">
             <p>{% trans from "help" %}
-                Deine im Freien verwendbaren <strong>Aktionspunkte</strong> werden hier angezeigt. <strong>Wenn du keine Aktionspunkte mehr hast, bist du Erschöpft</strong>. Um dein Punktekonto wieder aufzufüllen, kannst du etwas essen, trinken oder Drogen zu dir nehmen (je nachdem was dir zur Verfügung steht).
-            {% endtrans %}</p>
+                    Deine im Freien verwendbaren <strong>Aktionspunkte</strong> werden hier angezeigt. <strong>Wenn du keine Aktionspunkte mehr hast, bist du Erschöpft</strong>. Um dein Punktekonto wieder aufzufüllen, kannst du etwas essen, trinken oder Drogen zu dir nehmen (je nachdem was dir zur Verfügung steht).
+                {% endtrans %}</p>
             <button x-advance-tutorial="complete">{{ 'Weiter...'|trans({},'help') }}</button>
         </div>
     </div>
@@ -263,8 +263,8 @@
                         <a class="help-button">
                             <div class="tooltip help">
                                 {% trans from 'global' %}
-                                Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>
+                                    Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                    <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>
                                 {% endtrans %}
                             </div>
                             {{ 'Hilfe'|trans({},'global') }}
@@ -417,15 +417,15 @@
                 {% endif %}
 
                 {% if zone.x != 0 or zone.y != 0 %}
-                <h5>{{"Zonenmarkierer"|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
-                {% if not zone.tag is null and zone.tag.ref > 0 %}
-                    <img src="{{ asset("build/images/tags/" ~ zone.tag.icon ~ ".gif") }}" />
-                {% endif %}
-                <select id="zone-marker">
-                    {% for tag in zone_tags %}
-                        <option value="{{tag.ref}}" {% if tag == zone.tag %}selected{% endif %}>{{tag.label|trans({}, 'game')}}</option>
-                    {% endfor %}
-                </select>
+                    <h5>{{"Zonenmarkierer"|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
+                    {% if not zone.tag is null and zone.tag.ref > 0 %}
+                        <img src="{{ asset("build/images/tags/" ~ zone.tag.icon ~ ".gif") }}" />
+                    {% endif %}
+                    <select id="zone-marker">
+                        {% for tag in zone_tags %}
+                            <option value="{{tag.ref}}" {% if tag == zone.tag %}selected{% endif %}>{{tag.label|trans({}, 'game')}}</option>
+                        {% endfor %}
+                    </select>
                 {% endif %}
             </div>
         </div>
@@ -433,256 +433,272 @@
 
     <div class="other_citizens">
         {% if other_citizens|length == 1 %}
-        <em>{{"Sie sind allein in dieser Gegend..."|trans({}, 'game')}}</em>
-    {% elseif citizen.escortSettings is null or citizen.escortSettings.leader is null %}
-        {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) and citizen.validLeadingEscorts|length > 0 %}
-            <h5>{% trans from 'game' %}Deine Eskorte{% endtrans %}</h5>
-            <div class="row-table">
-                {% set not_digging = 0 %}
-                {% for other_citizen in other_citizens %}
-                    {# @var other_citizen \App\Entity\Citizen #}
-                    {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader == citizen %}
-                        {% if not other_citizen.digging %}
-                            {% set not_digging = not_digging+1 %}
-                        {% endif %}
-                        <div class="row beyond-escort-on">
-                            <div class="padded cell rw-4">
-                                {% if other_citizen.online %}
-                                    <img src="{{ asset('build/images/icons/player_online.gif') }}" alt="{{ 'Online'|trans({},'global') }}">
-                                {% else %}
-                                    <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
-                                {% endif %}
-                                <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
-                                {% if other_citizen != citizen %}
-                                    <a target="_blank" href="{{ path('soul_visit', {id: other_citizen.user.id}) }}"><b>{{ other_citizen.user.name }}</b></a>
-                                {% else %}
-                                    <b>{{ other_citizen.user.name }}</b>
-                                {% endif %}
-                            </div>
-                            <div class="padded cell rw-3">
-                                <ul class="status">
-                                    {% if zone.x != 0 or zone.y != 0 %}
-                                        {% if not other_citizen.digging %}
-                                            {% if other_citizen.digTimeout > 0 and conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) %}
+            <em>{{"Sie sind allein in dieser Gegend..."|trans({}, 'game')}}</em>
+        {% elseif citizen.escortSettings is null or citizen.escortSettings.leader is null %}
+            {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) and citizen.validLeadingEscorts|length > 0 %}
+                <h5>{% trans from 'game' %}Deine Eskorte{% endtrans %}</h5>
+                <div class="row-table">
+                    {% set not_digging = 0 %}
+                    {% for other_citizen in other_citizens %}
+                        {# @var other_citizen \App\Entity\Citizen #}
+                        {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader == citizen %}
+                            {% if not other_citizen.digging %}
+                                {% set not_digging = not_digging+1 %}
+                            {% endif %}
+                            <div class="row beyond-escort-on">
+                                <div class="padded cell rw-4">
+                                    {% if other_citizen.online %}
+                                        <img src="{{ asset('build/images/icons/player_online.gif') }}" alt="{{ 'Online'|trans({},'global') }}">
+                                    {% else %}
+                                        <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
+                                    {% endif %}
+                                    <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
+                                    {% if other_citizen != citizen %}
+                                        <a target="_blank" href="{{ path('soul_visit', {id: other_citizen.user.id}) }}"><b>{{ other_citizen.user.name }}</b></a>
+                                    {% else %}
+                                        <b>{{ other_citizen.user.name }}</b>
+                                    {% endif %}
+                                </div>
+                                <div class="padded cell rw-3">
+                                    <ul class="status">
+                                        {% if zone.x != 0 or zone.y != 0 %}
+                                            {% if not other_citizen.digging %}
+                                                {% if other_citizen.digTimeout > 0 and conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) %}
+                                                    <li class="status">
+                                                        <img src="{{ asset('build/images/icons/small_nogather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
+                                                        <div class="tooltip">
+                                                            {% trans from 'game' %}Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:{% endtrans %}
+                                                            <div class="center"><span x-countdown="{{ other_citizen.digTimeout }}" x-on-expire="">...</span></div>
+                                                        </div>
+                                                    </li>
+                                                {% elseif other_citizen.passiveDigTimer and not conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) %}
+                                                    <li class="status">
+                                                        <img src="{{ asset('build/images/icons/small_nogather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
+                                                        <div class="tooltip">
+                                                            {% trans from 'game' %}Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.{% endtrans %}
+                                                        </div>
+                                                    </li>
+                                                {% endif %}
+                                            {% else %}
                                                 <li class="status">
-                                                    <img src="{{ asset('build/images/icons/small_nogather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
+                                                    <img src="{{ asset('build/images/icons/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
                                                     <div class="tooltip">
-                                                        {% trans from 'game' %}Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist möglich in:{% endtrans %}
+                                                        <b>{% trans from 'game' %}Nächste automatische Ausgrabung:{% endtrans %}</b>
                                                         <div class="center"><span x-countdown="{{ other_citizen.digTimeout }}" x-on-expire="">...</span></div>
                                                     </div>
                                                 </li>
-                                            {% elseif other_citizen.passiveDigTimer and not conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) %}
+                                            {% endif %}
+                                        {% endif %}
+                                        {% for stat in other_citizen.status %}
+                                            {# @var stat \App\Entity\CitizenStatus #}
+                                            {% if not stat.hidden %}
                                                 <li class="status">
-                                                    <img src="{{ asset('build/images/icons/small_nogather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
-                                                    <div class="tooltip">
-                                                        {% trans from 'game' %}Diese Bürger hat hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.{% endtrans %}
-                                                    </div>
+                                                    <img src="{{ asset('build/images/status/status_' ~ stat.name ~ '.gif') }}" alt="{{ stat.label|trans({},'game') }}">
+                                                    {% if stat.description %}
+                                                        <div class="tooltip temp-building">{{ stat.description|trans({}, 'game')}}</div>
+                                                    {% endif %}
                                                 </li>
                                             {% endif %}
-                                        {% else %}
-                                            <li class="status">
-                                                <img src="{{ asset('build/images/icons/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
-                                                <div class="tooltip">
-                                                    <b>{% trans from 'game' %}Nächste automatische Ausgrabung:{% endtrans %}</b>
-                                                    <div class="center"><span x-countdown="{{ other_citizen.digTimeout }}" x-on-expire="">...</span></div>
-                                                </div>
-                                            </li>
-                                        {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="padded cell rw-2">
+                                    <div class="ap small">{{ other_citizen.ap }}</div>
+                                </div>
+                                <div class="padded cell rw-3 right">
+                                    {% if other_citizen.escortSettings.allowInventoryAccess and allow_floor_access %}
+                                        {% for escort_action in escort_actions[other_citizen.id] %}
+                                            {# @var \App\Structures\EscortItemActionSet escort_action #}
+                                            <button {% if not escort_action.hasAvailableActions %}disabled{% endif%} class="small inline" x-escort-meta-group x-escort-meta-action="{{ escort_action.group.id }}" x-citizen="{{ other_citizen.id }}" ><img alt="" src="{{ asset('build/images/actions/' ~ escort_action.group.icon ~ '.gif') }}" style="margin-right: 0;" />
+                                                {% if escort_action.group.tooltip is not null %}<div class="tooltip">{{ escort_action.group.tooltip|trans({'%citizen%': other_citizen.user.name},'items') }}</div>{% endif %}
+                                            </button>
+                                        {% endfor %}
                                     {% endif %}
-                                    {% for stat in other_citizen.status %}
-                                        {# @var stat \App\Entity\CitizenStatus #}
-                                        {% if not stat.hidden %}
-                                            <li class="status">
-                                                <img src="{{ asset('build/images/status/status_' ~ stat.name ~ '.gif') }}" alt="{{ stat.label|trans({},'game') }}">
-                                                {% if stat.description %}
-                                                <div class="tooltip temp-building">
-                                                {{ stat.description|trans({}, 'game')}}
+                                    {% if zone.x != 0 or zone.y != 0 %}
+                                        <button {% if other_citizen.digging or zone_blocked or other_citizen.digTimeout > 0 %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: other_citizen.id}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/icons/small_gather.gif') }}" style="margin-right: 0;" />
+                                            <div class="tooltip">{{ '%citizen% befehlen die Umgebung abzusuchen.'|trans({'%citizen%': other_citizen.user.name},'game') }}</div>
+                                        </button>
+                                    {% endif %}
+
+                                    <button {% if not can_attack_citizen %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" style="margin-right: 0;"/>
+                                        <div class="tooltip">{{ '%citizen% angreifen. Diese Aktion kostet dich %ap%.'|trans({'%citizen%': other_citizen.user.name,'%ap%': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),true) ~ '</div>'},'game')|raw }}</div>
+                                    </button>
+                                    {% if can_devour_citizen %}
+                                        <button {% if not allow_devour_citizen %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" style="margin-right: 0;" /></button>
+                                    {% endif %}
+                                    <button x-toggle-escort="0" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}" class="small inline" ><img alt="" src="{{ asset('build/images/icons/escort_off.gif') }}" style="margin-right: 0;" />
+                                        <div class="tooltip">{{ '%citizen% sagen mir nicht mehr zu folgen.'|trans({'%citizen%': other_citizen.user.name},'game') }}</div>
+                                    </button>
+
+                                    {% if escort_actions[other_citizen.id] is defined %}
+                                        {% for escort_action in escort_actions[other_citizen.id] %}
+                                            {# @var \App\Structures\EscortItemActionSet escort_action #}
+                                            <div class="tooltip-dummy hidden _ec _ec_{{ other_citizen.id }}_{{ escort_action.group.id }}">
+                                                <div class="tooltip-dummy-container">
+                                                    <h4>{{ escort_action.group.label|trans({},'items') }}</h4>
+                                                    <ul class="escort-action-list">
+                                                        {% for item in escort_action.items %}
+                                                            {# @var \App\Entity\Item item #}
+                                                            {% for action in escort_action.availableActions(item) %}
+                                                                <li x-provoking-id="{{ item.id }}" x-citizen="{{ other_citizen.id }}" x-action-id="{{ action.id }}" x-escort-meta-action="{{ escort_action.group.id }}"><img alt="" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}"></li>
+                                                            {% endfor %}
+                                                            {% for action in escort_action.crossedActions(item) %}
+                                                                <li disabled><img alt="" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}"></li>
+                                                            {% endfor %}
+                                                        {% endfor %}
+                                                    </ul>
                                                 </div>
-                                                {% endif %}
-                                            </li>
-                                        {% endif %}
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                            <div class="padded cell rw-2">
-                                <div class="ap small">{{ other_citizen.ap }}</div>
-                            </div>
-                            <div class="padded cell rw-3 right">
-                                {% if other_citizen.escortSettings.allowInventoryAccess and allow_floor_access %}
-                                    {% for escort_action in escort_actions[other_citizen.id] %}
-                                        {# @var \App\Structures\EscortItemActionSet escort_action #}
-                                        <button {% if not escort_action.hasAvailableActions %}disabled{% endif%} class="small inline" x-escort-meta-group x-escort-meta-action="{{ escort_action.group.id }}" x-citizen="{{ other_citizen.id }}" ><img alt="" src="{{ asset('build/images/actions/' ~ escort_action.group.icon ~ '.gif') }}" style="margin-right: 0;" /></button>
-                                    {% endfor %}
-                                {% endif %}
-                                {% if zone.x != 0 or zone.y != 0 %}
-                                    <button {% if other_citizen.digging or zone_blocked or other_citizen.digTimeout > 0 %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: other_citizen.id}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/icons/small_gather.gif') }}" style="margin-right: 0px;" /></button>
-                                {% endif %}
 
-                                <button {% if not can_attack_citizen %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" style="margin-right: 0px;"/></button>
-                                {% if can_devour_citizen %}
-                                    <button {% if not allow_devour_citizen %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" style="margin-right: 0px;" /></button>
-                                {% endif %}
-                                <button x-toggle-escort="0" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}" class="small inline" ><img alt="" src="{{ asset('build/images/icons/escort_off.gif') }}" style="margin-right: 0px;" /></button>
-
-                                {% if escort_actions[other_citizen.id] is defined %}
-                                {% for escort_action in escort_actions[other_citizen.id] %}
-                                    {# @var \App\Structures\EscortItemActionSet escort_action #}
-                                    <div class="tooltip-dummy hidden _ec _ec_{{ other_citizen.id }}_{{ escort_action.group.id }}">
-                                        <div class="tooltip-dummy-container">
-                                            <h4>{{ escort_action.group.label|trans({},'items') }}</h4>
-                                            <ul class="escort-action-list">
-                                                {% for item in escort_action.items %}
-                                                    {# @var \App\Entity\Item item #}
-                                                    {% for action in escort_action.availableActions(item) %}
-                                                        <li x-provoking-id="{{ item.id }}" x-citizen="{{ other_citizen.id }}" x-action-id="{{ action.id }}" x-escort-meta-action="{{ escort_action.group.id }}"><img alt="" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}"></li>
-                                                    {% endfor %}
-                                                    {% for action in escort_action.crossedActions(item) %}
-                                                        <li disabled><img alt="" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}"></li>
-                                                    {% endfor %}
-                                                {% endfor %}
-                                            </ul>
-                                        </div>
-
-                                    </div>
-                                {% endfor %}
-                                {% endif %}
-                            </div>
-
-                            {% if other_citizen.escortSettings.allowInventoryAccess %}
-                                <div class="padded cell ro-4 rw-8">
-                                    {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_sizes[other_citizen.id], 'items': other_citizen.inventory.items, 'escort': other_citizen.id, 'plus': allow_floor_access} %}
-                                        {% block class %}rucksack-escort{% endblock %}
-                                    {% endembed %}
-                                    {% if allow_floor_access %}
-                                        <div class="tooltip-dummy hidden _lf _lf_{{ other_citizen.id }}">
-                                            {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': floor.items, 'escort': other_citizen.id} %}
-                                                {% block class %}desert-escort{% endblock %}
-                                            {% endembed %}
-                                        </div>
+                                            </div>
+                                        {% endfor %}
                                     {% endif %}
                                 </div>
-                            {% endif %}
 
-                            {% if other_citizen.escortSettings.forceDirectReturn %}
-                            <div class="padded cell rw-12">
-                                <span class="small">{{'Dieser Bürger möchte in die Stadt gebracht werden.'|trans({}, 'game')}}</span>
+                                {% if other_citizen.escortSettings.allowInventoryAccess %}
+                                    <div class="padded cell ro-4 rw-8">
+                                        {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_sizes[other_citizen.id], 'items': other_citizen.inventory.items, 'escort': other_citizen.id, 'plus': allow_floor_access and floor.items is not empty, 'owner': other_citizen} %}
+                                            {% block class %}rucksack-escort{% endblock %}
+                                        {% endembed %}
+                                        {% if allow_floor_access %}
+                                            <div class="tooltip-dummy hidden _lf _lf_{{ other_citizen.id }}">
+                                                {% embed "ajax/game/inventory.html.twig" with {'size': 0, 'items': floor.items, 'escort': other_citizen.id} %}
+                                                    {% block class %}desert-escort{% endblock %}
+                                                {% endembed %}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+
+                                {% if other_citizen.escortSettings.forceDirectReturn %}
+                                    <div class="padded cell rw-12">
+                                        <span class="small">{{'Dieser Bürger möchte in die Stadt gebracht werden.'|trans({}, 'game')}}</span>
+                                    </div>
+                                {% endif %}
                             </div>
-                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if citizen.validLeadingEscorts|length > 1 %}
+                        <div class="row beyond-escort-on beyond-escort-on-all">
+                            <div class="padded cell rw-4">
+                                <b>{{ 'Gesamte Eskorte'|trans({},'game') }}</b>
+                            </div>
+                            <div class="padded cell rw-8 right">
+                                {% if not_digging > 1 and (zone.x != 0 or zone.y != 0) %}
+                                    <button {% if zone_blocked %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: 'all'}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/icons/small_gather.gif') }}" style="margin-right: 0;" />
+                                        <div class="tooltip">{{ 'Allen befehlen, die Umgebung abzusuchen.'|trans({},'game') }}</div>
+                                    </button>
+                                {% endif %}
+                                <button x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_escort_drop_controller') }}" class="small inline" ><img alt="" src="{{ asset('build/images/icons/escort_off.gif') }}" style="margin-right: 0;" />
+                                    <div class="tooltip">{{ 'Allen sagen mir nicht mehr zu folgen.'|trans({},'game') }}</div>
+                                </button>
+                            </div>
                         </div>
                     {% endif %}
-                {% endfor %}
-                {% if citizen.validLeadingEscorts|length > 1 %}
-                    <div class="row beyond-escort-on beyond-escort-on-all">
-                        <div class="padded cell rw-4">
-                            <b>{{ 'Gesamte Eskorte'|trans({},'game') }}</b>
+                </div>
+            {% endif %}
+
+            {% if other_citizens|length - citizen.validLeadingEscorts|length > 0 %}
+                <h5>{% trans from 'game' %}Bürger in dieser Zone{% endtrans %}</h5>
+                <div class="row-table">
+                    {% for other_citizen in other_citizens %}
+                        {# @var other_citizen \App\Entity\Citizen #}
+                        {% if other_citizen.escortSettings is null or other_citizen.escortSettings.leader != citizen %}
+                            <div class="row beyond-escort-off">
+                                <div class="padded cell rw-4">
+                                    {% if other_citizen.online %}
+                                        <img src="{{ asset('build/images/icons/player_online.gif') }}" alt="{{ 'Online'|trans({},'global') }}">
+                                    {% else %}
+                                        <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
+                                    {% endif %}
+                                    <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
+                                    {% if other_citizen != citizen %}
+                                        <a target="_blank" href="{{ path('soul_visit', {id: other_citizen.user.id}) }}"><b>{{ other_citizen.user.name }}</b></a>
+                                    {% else %}
+                                        <b>{{ other_citizen.user.name }}</b>
+                                    {% endif %}
+                                </div>
+                                <div class="padded cell rw-4">
+                                    <ul class="status">
+                                        {% if other_citizen.camping %}
+                                            <li class="status"><img src="{{ asset('build/images/status/status_camper.gif') }}" alt="{{ 'Camping'|trans({},'game') }}"></li>
+                                        {% endif %}
+                                        {% if other_citizen.digging %}
+                                            <li class="status"><img src="{{ asset('build/images/icons/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
+                                                <div class="tooltip">{{ 'Dieser Bürger gräbt gerade in einer Zone.'|trans({},'game') }}</div>
+                                            </li>
+                                        {% endif %}
+                                        {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader is not null %}
+                                            <li class="status">
+                                                <img src="{{ asset('build/images/icons/escort_other.gif') }}" alt="{{ 'Eskorte'|trans({},'game') }}">
+                                                <div class="tooltip">
+                                                    {{ 'Dieser Bürger wird aktuell von %leader% eskortiert.'|trans({'%leader%': other_citizen.escortSettings.leader.user.name},'game') }}
+                                                </div>
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                                <div class="padded cell rw-4 right">
+                                    {% if not other_citizen.activeExplorerStats and other_citizen != citizen %}
+                                        <button {% if not can_attack_citizen %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" style="margin-right: 0;" />
+                                            <div class="tooltip">{{ '%citizen% angreifen. Diese Aktion kostet dich %ap%.'|trans({'%citizen%': other_citizen.user.name,'%ap%': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),true) ~ '</div>'},'game')|raw }}</div>
+                                        </button>
+                                        {% if can_devour_citizen %}
+                                            <button {% if not allow_devour_citizen %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" style="margin-right: 0;" /></button>
+                                        {% endif %}
+                                        {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader is null %}
+                                            <button {% if not citizen.profession.heroic %}disabled{% else %}x-toggle-escort="1" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}"{% endif%} class="small inline" ><img alt="" src="{{ asset('build/images/icons/escort_in.gif') }}" style="margin-right: 0;" />
+                                                <div class="tooltip">{{ '%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.'|trans({'%citizen%': other_citizen.user.name},'game') }}</div>
+                                            </button>
+                                        {% endif %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endif %}
+
+        {% if not citizen.camping and conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) %}
+            <div class="row">
+                {% if citizen.escortSettings is null and citizen.validLeadingEscorts|length == 0 %}
+                    <div class="cell padded rw-12"><button x-toggle-escort="1"><img alt="" src="{{ asset('build/images/icons/escort_on.gif') }}" />{{ 'Eskorte aktivieren'|trans({},'game') }}</button></div>
+                {% elseif citizen.escortSettings is not null %}
+                    <div class="cell padded rw-12">
+                        <div class="note note-lightest">
+                            <input type="checkbox" {% if citizen.escortSettings.forceDirectReturn %}checked{% endif%} x-toggle-escort="1" id="escort_force_return" />&nbsp;<label for="escort_force_return">{{ 'Ich will auf direktem Weg zurück zur Stadt'|trans({},'game') }}</label>
+                            <a class="help-button"><div class="tooltip help">{{ 'Wenn diese Option aktiviert ist, kann dich ein anderer Bürger nicht weiter von der Stadt entfernen. Er darf dich in diesem Fall nur näher bringen.'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
                         </div>
-                        <div class="padded cell rw-8 right">
-                            {% if not_digging > 1 and (zone.x != 0 or zone.y != 0) %}
-                                <button {% if zone_blocked %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: 'all'}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/icons/small_gather.gif') }}" style="margin-right: 0px;" /></button>
-                            {% endif %}
-                            <button x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_escort_drop_controller') }}" class="small inline" ><img alt="" src="{{ asset('build/images/icons/escort_off.gif') }}" style="margin-right: 0px;" /></button>
+                    </div>
+                    <div class="cell padded rw-12">
+                        <div class="note note-lightest">
+                            <input type="checkbox" {% if citizen.escortSettings.allowInventoryAccess %}checked{% endif%} x-toggle-escort="1" id="escort_allow_rucksack" />&nbsp;<label for="escort_allow_rucksack">{{ 'Zugriff auf meinen Rucksack zulassen'|trans({},'game') }}</label>
+                            <a class="help-button"><div class="tooltip help">{{ 'Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
                         </div>
+                    </div>
+                    <div class="cell rw-12 padded left">
+                        <button x-toggle-escort="0"><img alt="" src="{{ asset('build/images/icons/escort_off.gif') }}" /><span class="left">{{ 'Eskorte deaktivieren'|trans({},'game') }}</span></button>
                     </div>
                 {% endif %}
             </div>
         {% endif %}
 
-        {% if other_citizens|length - citizen.validLeadingEscorts|length > 0 %}
-            <h5>{% trans from 'game' %}Bürger in dieser Zone{% endtrans %}</h5>
-            <div class="row-table">
-                {% for other_citizen in other_citizens %}
-                    {# @var other_citizen \App\Entity\Citizen #}
-                    {% if other_citizen.escortSettings is null or other_citizen.escortSettings.leader != citizen %}
-                        <div class="row beyond-escort-off">
-                            <div class="padded cell rw-4">
-                                {% if other_citizen.online %}
-                                    <img src="{{ asset('build/images/icons/player_online.gif') }}" alt="{{ 'Online'|trans({},'global') }}">
-                                {% else %}
-                                    <img src="{{ asset('build/images/icons/player_offline.gif') }}" alt="{{ 'Offline'|trans({},'global') }}">
-                                {% endif %}
-                                <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
-                                {% if other_citizen != citizen %}
-                                    <a target="_blank" href="{{ path('soul_visit', {id: other_citizen.user.id}) }}"><b>{{ other_citizen.user.name }}</b></a>
-                                {% else %}
-                                    <b>{{ other_citizen.user.name }}</b>
-                                {% endif %}
-                            </div>
-                            <div class="padded cell rw-4">
-                                <ul class="status">
-                                    {% if other_citizen.camping %}
-                                        <li class="status"><img src="{{ asset('build/images/status/status_camper.gif') }}" alt="{{ 'Camping'|trans({},'game') }}"></li>
-                                    {% endif %}
-                                    {% if other_citizen.digging %}
-                                        <li class="status"><img src="{{ asset('build/images/icons/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}"></li>
-                                    {% endif %}
-                                    {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader is not null %}
-                                        <li class="status">
-                                            <img src="{{ asset('build/images/icons/escort_other.gif') }}" alt="{{ 'Eskorte'|trans({},'game') }}">
-                                            <div class="tooltip">
-                                                {{ 'Dieser Bürger wird aktuell von %leader% eskortiert.'|trans({'%leader%': other_citizen.escortSettings.leader.user.name},'game') }}
-                                            </div>
-                                        </li>
-                                    {% endif %}
-                                </ul>
-                            </div>
-                            <div class="padded cell rw-4 right">
-                                {% if not other_citizen.activeExplorerStats and other_citizen != citizen %}
-                                    <button {% if not can_attack_citizen %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" style="margin-right: 0px;" /></button>
-                                    {% if can_devour_citizen %}
-                                        <button {% if not allow_devour_citizen %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" style="margin-right: 0px;" /></button>
-                                    {% endif %}
-                                    {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader is null %}
-                                        <button {% if not citizen.profession.heroic %}disabled{% else %}x-toggle-escort="1" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}"{% endif%} class="small inline" ><img alt="" src="{{ asset('build/images/icons/escort_in.gif') }}" style="margin-right: 0px;" /></button>
-                                    {% endif %}
-                                {% endif %}
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
+        {% if zone.x != 0 or zone.y != 0 %}
+            <div class="row">
+                <h5><span class="float-right link" x-ajax-sticky x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{{ 'Zonenregister'|trans({},'game') }} <a class="help-button"><div class="tooltip help">{{ 'Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
+                <div class="cell rw-12">
+                    <div class="row">
+                        <div class="padded cell rw-10 rw-lg-10 rw-md-9 rw-sm-8"><input id="beyond_chat" type="text" placeholder="{{ 'Deine Nachricht'|trans({},'global') }}" /></div>
+                        <div class="padded cell rw-2 rw-lg-2 rw-md-3 rw-sm-4"><button id="chat_button">{{ 'Senden'|trans({},'game') }}</button></div>
+                    </div>
+
+                </div>
+                <div class="cell rw-12">
+                    {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('beyond_desert_log_controller') } %}
+                    {% endembed %}
+                </div>
             </div>
         {% endif %}
-    {% endif %}
-
-        {% if not citizen.camping and conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) %}
-        <div class="row">
-            {% if citizen.escortSettings is null and citizen.validLeadingEscorts|length == 0 %}
-                <div class="cell padded rw-12"><button x-toggle-escort="1"><img alt="" src="{{ asset('build/images/icons/escort_on.gif') }}" />{{ 'Eskorte aktivieren'|trans({},'game') }}</button></div>
-            {% elseif citizen.escortSettings is not null %}
-                <div class="cell padded rw-12">
-                    <div class="note note-lightest">
-                        <input type="checkbox" {% if citizen.escortSettings.forceDirectReturn %}checked{% endif%} x-toggle-escort="1" id="escort_force_return" />&nbsp;<label for="escort_force_return">{{ 'Ich will auf direktem Weg zurück zur Stadt'|trans({},'game') }}</label>
-                        <a class="help-button"><div class="tooltip help">{{ 'Wenn diese Option aktiviert ist, kann dich ein anderer Bürger nicht weiter von der Stadt entfernen. Er darf dich in diesem Fall nur näher bringen.'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
-                    </div>
-                </div>
-                <div class="cell padded rw-12">
-                    <div class="note note-lightest">
-                        <input type="checkbox" {% if citizen.escortSettings.allowInventoryAccess %}checked{% endif%} x-toggle-escort="1" id="escort_allow_rucksack" />&nbsp;<label for="escort_allow_rucksack">{{ 'Zugriff auf meinen Rucksack zulassen'|trans({},'game') }}</label>
-                        <a class="help-button"><div class="tooltip help">{{ 'Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
-                    </div>
-                </div>
-                <div class="cell rw-12 padded left">
-                    <button x-toggle-escort="0"><img alt="" src="{{ asset('build/images/icons/escort_off.gif') }}" /><span class="left">{{ 'Eskorte deaktivieren'|trans({},'game') }}</span></button>
-                </div>
-            {% endif %}
-        </div>
-    {% endif %}
-
-        {% if zone.x != 0 or zone.y != 0 %}
-        <div class="row">
-            <h5><span class="float-right link" x-ajax-sticky x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{{ 'Zonenregister'|trans({},'game') }} <a class="help-button"><div class="tooltip help">{{ 'Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
-            <div class="cell rw-12">
-                <div class="row">
-                    <div class="padded cell rw-10 rw-lg-10 rw-md-9 rw-sm-8"><input id="beyond_chat" type="text" placeholder="{{ 'Deine Nachricht'|trans({},'global') }}" /></div>
-                    <div class="padded cell rw-2 rw-lg-2 rw-md-3 rw-sm-4"><button id="chat_button">{{ 'Senden'|trans({},'game') }}</button></div>
-                </div>
-
-            </div>
-            <div class="cell rw-12">
-                {% embed "ajax/game/log.html.twig" with {'log_content': log, 'log_source': path('beyond_desert_log_controller') } %}
-                {% endembed %}
-            </div>
-        </div>
-    {% endif %}
     </div>
 {% endblock %}
 {% block js %}
@@ -690,17 +706,17 @@
     <script>
         {% embed "scripts/actions.js.twig" %}{% endembed %};
         {% if zone.x != 0 or zone.y != 0 %}
-            {% embed "scripts/log.js.twig" %}{% endembed %}
+        {% embed "scripts/log.js.twig" %}{% endembed %}
         {% endif %}
 
         $.html.addEventListenerAll( '[x-toggle-escort]:not([x-escort-control-endpoint])', 'click', function(e,elem) {
             const allow_rucksack = document.getElementById('escort_allow_rucksack') ? document.getElementById('escort_allow_rucksack').checked : false;
             const force_return = document.getElementById('escort_force_return') ? document.getElementById('escort_force_return').checked : {% if zone.x == 0 and zone.y == 0 %}false{% else %}true{% endif %};
             $.ajax.easySend( '{{ path('beyond_desert_escort_self_controller') }}', {
-                on: elem.getAttribute('x-toggle-escort') === '1',
-                cf_ruc: allow_rucksack,
-                cf_ret: force_return,
-            },
+                    on: elem.getAttribute('x-toggle-escort') === '1',
+                    cf_ruc: allow_rucksack,
+                    cf_ret: force_return,
+                },
                 function () {
                     $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
                 } );
@@ -734,11 +750,11 @@
 
         let beyond_chat = document.getElementById('beyond_chat');
         if (chat_button)
-          beyond_chat.addEventListener('keypress', function(e) {
-            if (e.key === "Enter") {
-              sendLog();
-            }
-          });
+            beyond_chat.addEventListener('keypress', function(e) {
+                if (e.key === "Enter") {
+                    sendLog();
+                }
+            });
 
         let dig_button = document.getElementById('dig_button');
         if (dig_button)
@@ -749,13 +765,13 @@
                     } );
             });
         {% if can_explore %}
-            $.html.addEventListenerAll( '#enter_ruin_button', 'click', function() {
-                if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                    $.ajax.easySend( '{{ path('beyond_desert_enter_ruin_controller') }}', {},
-                        function () {
-                            $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
-                        } );
-            } );
+        $.html.addEventListenerAll( '#enter_ruin_button', 'click', function() {
+            if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                $.ajax.easySend( '{{ path('beyond_desert_enter_ruin_controller') }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
+                    } );
+        } );
         {% endif %}
         let dig_r_button = document.getElementById('dig_ruin_button');
         if (dig_r_button)
@@ -785,93 +801,93 @@
             })
 
         {% if zone.x == 0 and zone.y == 0 and not lock_trash %}
-            let trash_button = document.getElementById('trash_button');
-            if (trash_button)
-                trash_button.addEventListener('click', function() {
-                    $.ajax.easySend( '{{ path('beyond_trash_controller') }}', {},
-                        function () {
-                            $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
-                        } );
-                });
+        let trash_button = document.getElementById('trash_button');
+        if (trash_button)
+            trash_button.addEventListener('click', function() {
+                $.ajax.easySend( '{{ path('beyond_trash_controller') }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                    } );
+            });
         {% endif %}
 
         {% if zone_blocked and zone_escape < 0 and not active_scout_mode %}
-            $.html.addEventListenerAll('#escape-btn', 'click', function () {
-                if (!confirm('{{ 'Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!'|trans({},'global')|e('js') }}'))
-                    return;
-                $.ajax.easySend( '{{ path('beyond_desert_escape_controller') }}', {},
-                    function () {
-                        $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
-                    } );
-            });
-            $.html.addEventListenerAll('#attack-btn', 'click', function () {
-                if (!confirm('{{ 'Diese Aktion kostet dich 1 AP!'|trans({},'global')|e('js') }}'))
-                    return;
-                $.ajax.easySend( '{{ path('beyond_desert_attack_controller') }}', {},
-                    function () {
-                        $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
-                    } );
-            });
+        $.html.addEventListenerAll('#escape-btn', 'click', function () {
+            if (!confirm('{{ 'Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!'|trans({},'global')|e('js') }}'))
+                return;
+            $.ajax.easySend( '{{ path('beyond_desert_escape_controller') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                } );
+        });
+        $.html.addEventListenerAll('#attack-btn', 'click', function () {
+            if (!confirm('{{ 'Diese Aktion kostet dich 1 AP!'|trans({},'global')|e('js') }}'))
+                return;
+            $.ajax.easySend( '{{ path('beyond_desert_attack_controller') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                } );
+        });
         {% endif %}
 
         {% if allow_floor_access %}
-            {% embed "scripts/inventory.js.twig" %}{% endembed %}
+        {% embed "scripts/inventory.js.twig" %}{% endembed %}
 
-            {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) %}
-                $.html.addEventListenerAll( '.rucksack-escort>.item.plus[x-escort-id]:not(.locked)', 'click', function(e,elem) {
-                    const eid = elem.getAttribute('x-escort-id');
+        {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) %}
+        $.html.addEventListenerAll( '.rucksack-escort>.item.plus[x-escort-id]:not(.locked)', 'click', function(e,elem) {
+            const eid = elem.getAttribute('x-escort-id');
 
-                    let inv = document.querySelector('._lf_' + eid);
-                    if (inv.classList.contains('hidden')) {
-                        let tt = document.querySelectorAll('.tooltip-dummy');
-                        for (let i = 0; i < tt.length; i++) tt[i].classList.add('hidden');
-                        inv.classList.remove('hidden');
-                    }
-                    else inv.classList.add('hidden');
-                });
+            let inv = document.querySelector('._lf_' + eid);
+            if (inv.classList.contains('hidden')) {
+                let tt = document.querySelectorAll('.tooltip-dummy');
+                for (let i = 0; i < tt.length; i++) tt[i].classList.add('hidden');
+                inv.classList.remove('hidden');
+            }
+            else inv.classList.add('hidden');
+        });
 
-                $.html.addEventListenerAll( '[x-escort-meta-group][x-escort-meta-action][x-citizen]', 'click', function(e,elem) {
-                    let pp = document.querySelector('._ec_' + elem.getAttribute('x-citizen') + '_' + elem.getAttribute('x-escort-meta-action'));
-                    if (pp.classList.contains('hidden')) {
-                        let tt = document.querySelectorAll('.tooltip-dummy');
-                        for (let i = 0; i < tt.length; i++) tt[i].classList.add('hidden');
-                        pp.classList.remove('hidden');
-                    } else pp.classList.add('hidden')
-                });
-            {% endif %}
+        $.html.addEventListenerAll( '[x-escort-meta-group][x-escort-meta-action][x-citizen]', 'click', function(e,elem) {
+            let pp = document.querySelector('._ec_' + elem.getAttribute('x-citizen') + '_' + elem.getAttribute('x-escort-meta-action'));
+            if (pp.classList.contains('hidden')) {
+                let tt = document.querySelectorAll('.tooltip-dummy');
+                for (let i = 0; i < tt.length; i++) tt[i].classList.add('hidden');
+                pp.classList.remove('hidden');
+            } else pp.classList.add('hidden')
+        });
+        {% endif %}
 
+        handleItems(
+            document.querySelectorAll('.rucksack>.item[x-item-id]:not(.locked),.rucksack-escort>.item[x-item-id]:not(.locked)'),
+            '{{ path('beyond_desert_item_controller') }}',
+            'down', '{{ path('beyond_dashboard') }}'
+        );
+
+        handleItems(
+            document.querySelectorAll('#drop-all-button'),
+            '{{ path('beyond_desert_item_controller') }}',
+            'down-all', '{{ path('beyond_dashboard') }}'
+        );
+
+        handleItems(
+            document.querySelectorAll('.desert>.item[x-item-id]:not(.locked),.desert-escort>.item[x-item-id]:not(.locked)'),
+            '{{ path('beyond_desert_item_controller') }}',
+            'up', '{{ path('beyond_dashboard') }}'
+        );
+
+        handleCampingActions(
+            document.querySelectorAll('ul.camping_actions li[x-action-id]:not([disabled])'),
+            '{{ path('beyond_desert_camping_controller') }}', '{{ path('beyond_dashboard', {sect: 'ca'}) }}'
+        );
+
+        {% if banished or town_chaos %}
+        if (document.getElementById("bury_rucksack_button")) {
             handleItems(
-                document.querySelectorAll('.rucksack>.item[x-item-id]:not(.locked),.rucksack-escort>.item[x-item-id]:not(.locked)'),
-                '{{ path('beyond_desert_item_controller') }}',
-                'down', '{{ path('beyond_dashboard') }}'
-            );
-
-            handleItems(
-                document.querySelectorAll('#drop-all-button'),
-                '{{ path('beyond_desert_item_controller') }}',
+                document.querySelectorAll('#bury_rucksack_button'),
+                '{{ path('beyond_bury_rucksack_controller') }}',
                 'down-all', '{{ path('beyond_dashboard') }}'
             );
-
-            handleItems(
-                document.querySelectorAll('.desert>.item[x-item-id]:not(.locked),.desert-escort>.item[x-item-id]:not(.locked)'),
-                '{{ path('beyond_desert_item_controller') }}',
-                'up', '{{ path('beyond_dashboard') }}'
-            );
-
-            handleCampingActions(
-              document.querySelectorAll('ul.camping_actions li[x-action-id]:not([disabled])'),
-              '{{ path('beyond_desert_camping_controller') }}', '{{ path('beyond_dashboard', {sect: 'ca'}) }}'
-            );
-
-            {% if banished or town_chaos %}
-                if (document.getElementById("bury_rucksack_button")) {
-                    handleItems(
-                        document.querySelectorAll('#bury_rucksack_button'),
-                        '{{ path('beyond_bury_rucksack_controller') }}',
-                        'down-all', '{{ path('beyond_dashboard') }}'
-                    );
-                }
-            {% endif %}
+        }
+        {% endif %}
 
         {% endif %}
 
@@ -905,52 +921,52 @@
         );
 
         {% if allow_enter_town %}
-            let townEnterBtn = document.getElementById('town-enter');
-            if(townEnterBtn) townEnterBtn.addEventListener('click', function() {
-                $.ajax.easySend( '{{ path('beyond_desert_exit_controller') }}', {},
-                    function () {
-                        $.ajax.load(null, '{{ path('game_landing') }}', true);
-                    } );
-            });
+        let townEnterBtn = document.getElementById('town-enter');
+        if(townEnterBtn) townEnterBtn.addEventListener('click', function() {
+            $.ajax.easySend( '{{ path('beyond_desert_exit_controller') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('game_landing') }}', true);
+                } );
+        });
 
-            let townEnterEscortBtn = document.getElementById('town-enter-escort');
-            if(townEnterEscortBtn) townEnterEscortBtn.addEventListener('click', function() {
-                $.ajax.easySend( '{{ path('beyond_desert_exit_controller', {'special': 'normal-escort'}) }}', {},
-                    function () {
-                        $.ajax.load(null, '{{ path('game_landing') }}', true);
-                    } );
-            });
+        let townEnterEscortBtn = document.getElementById('town-enter-escort');
+        if(townEnterEscortBtn) townEnterEscortBtn.addEventListener('click', function() {
+            $.ajax.easySend( '{{ path('beyond_desert_exit_controller', {'special': 'normal-escort'}) }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('game_landing') }}', true);
+                } );
+        });
         {% endif %}
         {% if show_ventilation and allow_ventilation %}
-            let townEnterVentBtn = document.getElementById('town-enter-hero');
-            if(townEnterVentBtn) townEnterVentBtn.addEventListener('click', function() {
-                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                    return;
-                $.ajax.easySend( '{{ path('beyond_desert_exit_controller', {'special': 'hero'}) }}', {},
-                    function () {
-                        $.ajax.load(null, '{{ path('game_landing') }}', true);
-                    } );
-            });
+        let townEnterVentBtn = document.getElementById('town-enter-hero');
+        if(townEnterVentBtn) townEnterVentBtn.addEventListener('click', function() {
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                return;
+            $.ajax.easySend( '{{ path('beyond_desert_exit_controller', {'special': 'hero'}) }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('game_landing') }}', true);
+                } );
+        });
         {% endif %}
         {% if show_sneaky %}
-            let townEnterSneakBtn = document.getElementById('town-enter-sneak');
-            if(townEnterSneakBtn) townEnterSneakBtn.addEventListener('click', function() {
-                $.ajax.easySend( '{{ path('beyond_desert_exit_controller', {'special': 'sneak'}) }}', {},
-                    function () {
-                        $.ajax.load(null, '{{ path('game_landing') }}', true);
-                    } );
-            });
+        let townEnterSneakBtn = document.getElementById('town-enter-sneak');
+        if(townEnterSneakBtn) townEnterSneakBtn.addEventListener('click', function() {
+            $.ajax.easySend( '{{ path('beyond_desert_exit_controller', {'special': 'sneak'}) }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('game_landing') }}', true);
+                } );
+        });
         {% endif %}
 
         {% if can_attack_citizen %}
-            $.html.addEventListenerAll('[x-attack-citizen]', 'click', function(e,elem) {
-                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                    return;
-                $.ajax.easySend( elem.getAttribute('x-attack-citizen'), {},
-                    function () {
-                        $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
-                    } );
-            });
+        $.html.addEventListenerAll('[x-attack-citizen]', 'click', function(e,elem) {
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                return;
+            $.ajax.easySend( elem.getAttribute('x-attack-citizen'), {},
+                function () {
+                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                } );
+        });
         {% endif %}
 
         {% if can_devour_citizen and allow_devour_citizen %}
@@ -965,20 +981,20 @@
         {% endif %}
 
         {% if is_shaman %}
-            $.html.addEventListenerAll('#fall_rain', 'click', function() {
-                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
-                    return;
-                $.ajax.easySend( '{{ path('beyond_desert_shaman_rain') }}', {},
-                    function () {
-                        $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
-                    } );
-            });
+        $.html.addEventListenerAll('#fall_rain', 'click', function() {
+            if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                return;
+            $.ajax.easySend( '{{ path('beyond_desert_shaman_rain') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
+                } );
+        });
         {% endif %}
 
         {% if not app.user.expert %}
-            $.html.addEventListenerAll('#dig_button', 'click', function() {
-                $.html.conditionalSetTutorialStage(10,'text4',10,'text5');
-            });
+        $.html.addEventListenerAll('#dig_button', 'click', function() {
+            $.html.conditionalSetTutorialStage(10,'text4',10,'text5');
+        });
         {% endif %}
     </script>
 {% endblock %}

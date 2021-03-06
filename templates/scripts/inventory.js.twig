@@ -3,11 +3,11 @@ const handleItems = function( items, api_path, direction, return_path, warning )
         items[i].addEventListener('click', function() {
             if (warning && !confirm(warning)) return;
 
-            const item_id = this.getAttribute('x-item-id');
+            const item_id = parseInt(this.getAttribute('x-item-id'));
             let data = {item: item_id, direction: direction};
 
             if (this.hasAttribute('x-escort-id'))
-                data.escort_id = this.getAttribute('x-escort-id');
+                data.escort = parseInt(this.getAttribute('x-escort-id'));
             if (this.hasAttribute('x-theft') && this.getAttribute('x-theft'))
                 data.theft = this.getAttribute('x-theft');
 

@@ -59,7 +59,7 @@ class JSONRequestParser
         return is_numeric($v) ? $v : $default;
     }
 
-    public function get_int( string $key, int $default = -1 ): int {
+    public function get_int( string $key, ?int $default = -1 ): ?int {
         $v = $this->get($key, $default);
         return is_numeric($v) ? intval($v) : $default;
     }

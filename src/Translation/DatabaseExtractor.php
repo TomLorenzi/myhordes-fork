@@ -80,9 +80,11 @@ class DatabaseExtractor implements ExtractorInterface
             }
         }
 
-        // Get the escort action labels
-        foreach ($this->em->getRepository(EscortActionGroup::class)->findAll() as $escort_action)
+        // Get the escort action labels and tooltips
+        foreach ($this->em->getRepository(EscortActionGroup::class)->findAll() as $escort_action) {
             $this->insert($c, $escort_action->getLabel(), 'items');
+            $this->insert($c, $escort_action->getTooltip(), 'items');
+        }
 
         foreach ($this->em->getRepository(Recipe::class)->findAll() as $recipe)
             /** @var Recipe $recipe */
