@@ -80,7 +80,7 @@
                                             {% else %}
                                                 <div class="inline-block"><img src="{{ asset("build/images/death/inside.gif") }}" alt="" /> <div class="tooltip">{{ 'In der Stadt gestorben'|trans({}, 'soul') }}</div></div>
                                             {% endif %}
-                                            <a class="link" href="{{ path('soul_visit', {id: denizen.user.id}) }}">{{ denizen.user.name }}</a>
+                                            <a class="link username" href="{{ path('soul_visit', {id: denizen.user.id}) }}">{{ denizen.user.name }}</a>
                                         </div>
                                         <div class="cell padded rw-1">{{ denizen.day }}</div>
                                         <div class="cell padded rw-6"><em>{{ denizen.lastWords }}</em></div>

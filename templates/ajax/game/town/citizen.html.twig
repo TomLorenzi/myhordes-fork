@@ -75,7 +75,7 @@
                                     </span>
                                 {% endif %}
                             {% endif %}
-                            <a class="link" href="{{ path('soul_visit', {id: citizen.user.id}) }}"><b class="citizen-name">{{ citizen.user.name }}</b></a>
+                            <a class="link username" href="{{ path('soul_visit', {id: citizen.user.id}) }}"><b class="citizen-name">{{ citizen.user.name }}</b></a>
                             {% if citizen.alive %}
                                 {% for role in citizen.roles %}
                                     {% if not role.secret and not role.hidden %}

@@ -1061,7 +1061,19 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
     &::after {display: block; height: 0;}
   }
 
-  h4.soul-name { margin: 2px 4px; display: inline-block; }
+  h4.soul-name { 
+    margin: 8px 4px; display: inline-block; 
+    .username { 
+        text-decoration: none;
+        background-color: #5C0000 !important;
+        border-top: 1px solid #98341c !important;
+        border-radius: 4px !important;
+        padding-right: 5px !important;
+        padding-left: 5px !important;
+        color: #f0d79e !important;
+        font-weight: bold !important;
+      }
+    }
 
   .tab {
     &.inline { display: inline; }
@@ -1307,6 +1319,16 @@ div.tooltip {
 
 ul.citizen-list li {
   list-style: none; color: @myhordes-smalltext;
+  .username { 
+    text-decoration: none;
+    background-color: #5C0000 !important;
+    border-top: 1px solid #98341c !important;
+    border-radius: 4px !important;
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+    color: #f0d79e !important;
+    font-weight: bold !important;
+  }
 }
 
 span.language {
