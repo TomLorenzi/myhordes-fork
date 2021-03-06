@@ -230,7 +230,7 @@
             }
 
             $.ajax.no_history().load(document.getElementById('forum-content'), load_url, false, {}, get_forum_editor)
-            $.ajax.push_history(this.getAttribute('x-public-route'));
+            $.ajax.push_history(elem.getAttribute('x-public-route'));
         });
 
         $.html.addEventListenerAll('[x-thread-id]', 'mousedown', function (e,elem) {

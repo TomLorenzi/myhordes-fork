@@ -36,6 +36,12 @@ export default class HTML {
         } )
     }
 
+    createElement(html: string): HTMLElement {
+        const e = document.createElement('div');
+        e.innerHTML = html;
+        return <HTMLElement>e.firstChild;
+    }
+
     serializeForm(form: ParentNode): object {
         let data: object = {};
 

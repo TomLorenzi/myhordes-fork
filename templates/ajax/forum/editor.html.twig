@@ -87,7 +87,7 @@
                     <div x-forum-action="edit" x-text-wrap-node="glory" class="forum-button"><i class="fa fa-crown"></i><span class="forum-button-tooltip">{{ 'Ruhm'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="code" class="forum-button"><i class="fa fa-code"></i><span class="forum-button-tooltip">{{ 'Code'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i><span class="forum-button-tooltip">{{ 'Linie'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="rp" class="forum-button"><i class="fas fa-scroll"></i><span class="forum-button-tooltip">{{ 'Rollenspiel'|trans({},'global') }}</span></div>
+                    <div x-forum-action="modal" x-text-modal-node="rp" class="forum-button"><i class="fas fa-scroll"></i><span class="forum-button-tooltip">{{ 'Rollenspiel'|trans({},'global') }}</span></div>
                 </div>
             </div>
 
@@ -289,98 +289,105 @@
                 e.preventDefault();
                 e.stopPropagation();
 
-                let tag = elem.getAttribute('x-text-modal-node');
-                let content = node_transfer_source.value;
-                let s_start = node_transfer_source.selectionStart;
-                let s_end = node_transfer_source.selectionEnd;
-                let title, form, formType, label1, label2, input1, input2;
+                const tag = elem.getAttribute('x-text-modal-node');
+                const before = node_transfer_source.value.substr( 0, node_transfer_source.selectionStart );
+                const selected = node_transfer_source.value.substr( node_transfer_source.selectionStart,  node_transfer_source.selectionEnd - node_transfer_source.selectionStart );
+                const after = node_transfer_source.value.substr( node_transfer_source.selectionEnd );
+                let title;
 
-                form = document.createElement('div');
-                form.setAttribute('id', 'modal-form');
-                form.classList.add('modal-form');
-                formType = document.createElement('input');
-                formType.setAttribute('id', 'form-type');
-                formType.setAttribute('type', 'hidden');
-                formType.value = tag;
+                let form = $.html.createElement('<div class="modal-form" id="modal-form" />');
+                form.append($.html.createElement( '<input id="form-type" type="hidden" value="' + tag + '" />' ));
+
+                let textInput, urlInput;
 
                 if (tag === 'link') {
                     title = "{{ 'Link einfügen'|trans({},'global') }}";
-                    label1 = document.createElement('label');
-                    label1.setAttribute('for', 'link-text');
-                    label1.innerText = "{{ 'Link-Text'|trans({},'global') }}";
-                    input1 = document.createElement('input');
-                    input1.setAttribute('id', 'link-text');
-                    input1.setAttribute('type', 'text');
-                    input1.value = content.substr( s_start, s_end - s_start );
 
-                    label2 = document.createElement('label');
-                    label2.setAttribute('for', 'link-link');
-                    label2.innerText = "{{ 'Link-URL'|trans({},'global') }}";
-                    input2 = document.createElement('input');
-                    input2.setAttribute('id', 'link-link');
-                    input2.setAttribute('type', 'text');
+                    let label = $.html.createElement('<label for="link-text">{{ 'Link-Text'|trans({},'global')|e('js') }}</label>');
+                    let input = textInput = $.html.createElement('<input type="text" id="link-text" />');
+                    input.value = selected;
+                    form.append(label,input);
 
-                }
-                else if (tag === 'image') {
+                    label = $.html.createElement('<label for="link-link">{{ 'Link-URL'|trans({},'global')|e('js') }}</label>');
+                    input = urlInput = $.html.createElement('<input type="url" id="link-link" />');
+                    form.append(label,input);
+                } else if (tag === 'image') {
                     title = "{{ 'Bild einfügen'|trans({},'global') }}";
-                    label1 = document.createElement('label');
-                    label1.setAttribute('for', 'image-text');
-                    label1.innerText = "{{ 'Bildtitel'|trans({},'global') }}";
-                    input1 = document.createElement('input');
-                    input1.setAttribute('id', 'image-text');
-                    input1.setAttribute('type', 'text');
-                    input1.value = content.substr( s_start, s_end - s_start );
 
-                    label2 = document.createElement('label');
-                    label2.setAttribute('for', 'image-link');
-                    label2.innerText = "{{ 'Bild-URL'|trans({},'global') }}";
-                    input2 = document.createElement('input');
-                    input2.setAttribute('id', 'image-link');
-                    input2.setAttribute('type', 'text');
+                    let label = $.html.createElement('<label for="image-text">{{ 'Bildtitel'|trans({},'global')|e('js') }}</label>');
+                    let input = textInput = $.html.createElement('<input type="text" id="image-text" />');
+                    input.value = selected;
+                    form.append(label,input);
+
+                    label = $.html.createElement('<label for="image-link">{{ 'Bild-URL'|trans({},'global')|e('js') }}</label>');
+                    input = urlInput = $.html.createElement('<input type="url" id="image-link" />');
+                    form.append(label,input);
+                } else if (tag === 'rp') {
+                    title = "{{ 'Wer?'|trans({},'global') }}";
+
+                    let label = $.html.createElement('<label for="rp-text">{{ 'Namen eingeben'|trans({},'global')|e('js') }}</label>');
+                    let input = textInput = $.html.createElement('<input type="text" id="rp-text" />');
+                    form.append(label,input);
                 }
-
-                form.append(formType, label1, input1, label2, input2);
 
                 const processModal = function(e,elem) {
-                    let tagText, tagUrl;
 
-                    let doc = new DOMParser().parseFromString(input1.value ? input1.value : input2.value, 'text/html');
-                    tagText = doc.body.textContent || "";
+                    if (tag === 'link' || tag === 'image') {
+                        let tagText, tagUrl;
 
-                    tagUrl = decodeURI(input2.value ? input2.value : input1.value);
-                    if (!/[a-zA-Z]+:\/\//.test(tagUrl)) tagUrl = 'https://' + tagUrl;
+                        let doc = new DOMParser().parseFromString(textInput.value ? textInput.value : urlInput.value, 'text/html');
+                        tagText = doc.body.textContent || "";
 
-                    const components = /([a-zA-Z]+:\/\/)([^/?#\[\]@:$&'()*+,;=\t\r\n]{2,256})\.([^/?#\[\]@:$&'()*+,;=\t\r\n]{2,})([/?#\[\]@:$&'()*+,;=])?(.*)/g.exec(tagUrl);
-                    if (!components) {
-                        // Apparently not an Url.
-                        // TODO: Add error message to Url field.
-                        input1.classList.add('error');
-                        input2.classList.add('error');
-                    }
-                    else {
-                        tagUrl = components[1] + $.vendor.punycode.toASCII(components[2] + '.' + components[3]) + ( components[4] ? encodeURI(components[4] + components[5]) : '' );
+                        tagUrl = decodeURI(urlInput.value ? urlInput.value : textInput.value);
+                        if (!/[a-zA-Z]+:\/\//.test(tagUrl)) tagUrl = 'https://' + tagUrl;
+
+                        const components = /([a-zA-Z]+:\/\/)([^/?#\[\]@:$&'()*+,;=\t\r\n]{2,256})\.([^/?#\[\]@:$&'()*+,;=\t\r\n]{2,})([/?#\[\]@:$&'()*+,;=])?(.*)/g.exec(tagUrl);
+                        if (!components) {
+                            // Apparently not an Url.
+                            // TODO: Add error message to Url field.
+                            textInput.classList.add('error');
+                            urlInput.classList.add('error');
+                        }
+                        else {
+                            tagUrl = components[1] + $.vendor.punycode.toASCII(components[2] + '.' + components[3]) + ( components[4] ? encodeURI(components[4] + components[5]) : '' );
+
+                            $.html.triggerPopupPop(elem);
+                            textInput.classList.remove('error');
+                            urlInput.classList.remove('error');
+
+                            node_transfer_source.value =
+                                before + '[' + tag + '=' + tagUrl + ']' + tagText + '[/' + tag + ']' + after;
+
+                            node_transfer_source.setSelectionRange(
+                                before.length + tag.length + 3 + tagUrl.length,
+                                before.length + tag.length + 3 + tagUrl.length + tagText.length);
+                            node_transfer_source.focus()
+                            transfer_to_preview();
+                        }
+                    } else if (tag === 'rp') {
+                        let tagText;
+
+                        let doc = new DOMParser().parseFromString(textInput.value ? textInput.value : '', 'text/html');
+                        tagText = doc.body.textContent || "";
 
                         $.html.triggerPopupPop(elem);
-                        input1.classList.remove('error');
-                        input2.classList.remove('error');
 
                         node_transfer_source.value =
-                            content.substr(0, s_start) +
-                            '[' + tag + '=' + tagUrl + ']' +
-                            tagText + '[/' + tag + ']' +
-                            content.substr(s_end);
+                            before + '[' + tag + (tagText ? ('=' + tagText) : '') + ']' + selected + '[/' + tag + ']' + after;
 
-                        node_transfer_source.setSelectionRange(s_start + tag.length + 2, s_end + tag.length + 2);
+                        node_transfer_source.setSelectionRange(
+                            before.length + tag.length + 2 + (tagText ? tagText.length + 1 : 0),
+                            before.length + tag.length + 2 + (tagText ? tagText.length + 1 : 0) + selected.length);
                         node_transfer_source.focus()
                         transfer_to_preview();
                     }
                 }
 
-                input1.addEventListener('keypress', function(e) {
-                    if (e.key === "Enter") processModal(e,input1);
+                textInput.addEventListener('keypress', function(e) {
+                    if (e.key === "Enter") processModal(e,textInput);
                 });
-                input2.addEventListener('keypress', function(e) {
-                    if (e.key === "Enter") processModal(e,input2);
+                if (urlInput) urlInput.addEventListener('keypress', function(e) {
+                    if (e.key === "Enter") processModal(e,urlInput);
                 });
 
                 $.html.popup(title, form, 'tag'+tag, [
@@ -388,9 +395,10 @@
                     [ '{{ 'Abbrechen'|trans({},'global')|e('js') }}', [ ['click', (e,elem) => $.html.triggerPopupPop(elem)] ] ]
                 ] );
 
-                if (!input1.value) input1.focus();
-                else input2.focus();
+                if (!textInput.value || !urlInput) textInput.focus();
+                else urlInput.focus();
             } );
+
             $.html.addEventListenerAll( '[x-forum-action="edit"][x-text-wrap-node]', 'click', function (e,elem) {
                 e.preventDefault();
                 e.stopPropagation();
