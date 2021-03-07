@@ -8,23 +8,31 @@
     <div class="row">
         <div class="cell rw-12 seasonHeader">
             <span class="seasonName">
-                {% if currentSeason is not null %}
-                {{ ('Saison ' ~ currentSeason.number ~ '.' ~ currentSeason.subNumber)|trans({}, "season")}}
+                {% if currentSeason is not null and currentSeason != "all" %}
+                    {{ ('Saison ' ~ currentSeason.number ~ '.' ~ currentSeason.subNumber)|trans({}, "season")}}
                 {% else %}
-                    {{'Alte Städte'|trans({}, "soul")}}
+                    {% if soloType is defined %}
+
+                    {% else %}
+                        {{'Alte Städte'|trans({}, "soul")}}
+                    {% endif %}
                 {% endif %}
             </span>
             <span class="seasonNumber">
-                {% if currentSeason is not null %}
-                    {% if currentSeason.subNumber > 0 %}
-                        {% set curNumber = currentSeason.number ~ '.' ~ currentSeason.subNumber %}
-                    {% else %}
-                        {% set curNumber = currentSeason.number %}
-                    {% endif %}
+                {% if soloType is defined %}
+                    {{'ALLE SAISONS'|trans({}, "soul")}}
                 {% else %}
-                    {% set curNumber = 0 %}
+                    {% if currentSeason is not null %}
+                        {% if currentSeason.subNumber > 0 %}
+                            {% set curNumber = currentSeason.number ~ '.' ~ currentSeason.subNumber %}
+                        {% else %}
+                            {% set curNumber = currentSeason.number %}
+                        {% endif %}
+                    {% else %}
+                        {% set curNumber = 0 %}
+                    {% endif %}
+                        {{ 'Saison %number%'|trans({"%number%": '<span class="number">' ~ curNumber ~ '</span>'}, "soul")|raw}}
                 {% endif %}
-                {{ 'Saison %number%'|trans({"%number%": '<span class="number">' ~ curNumber ~ '</span>'}, "soul")|raw}}
             </span>
         </div>
     </div>
@@ -33,89 +41,140 @@
         <div class="cell rw-12">
             <ul class="type-list">
                 {% for type in townTypes %}
-                    <li x-ajax-sticky x-ajax-href="{{ path('soul_season', {'type': type.id}) }}" class="type {% if type.id == currentType.id %}selected{% endif %}" x-type-id="{{ type.id }}"><img src="{{ asset('build/images/towntypes/' ~ type.name ~ '.gif') }}" alt="" /> <span class="link">{{ type.label|trans({}, 'game') }}</span></li>
+                    <li x-ajax-sticky x-ajax-href="{{ path('soul_season', {'type': type.id}) }}" class="type {% if currentType and type.id == currentType.id %}selected{% endif %}" x-type-id="{{ type.id }}"><img src="{%if type.name == 'remote' %}{{ asset('build/images/pictos/r_surlst.gif') }}{% else %}{{ asset('build/images/towntypes/' ~ type.name ~ '.gif') }}{% endif %}" alt="" /> <span class="link soul_season_link">{{ type.label|trans({}, 'soul') }}</span></li>
                 {% endfor %}
+                <li x-ajax-sticky x-ajax-href="{{ path('soul_season_solo', {'type': 'soul'}) }}" class="type {% if soloType is defined and soloType == 'soul' %}selected{% endif %}" x-type-id="soul"><img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="" /> <span class="link soul_season_link">{{ 'Seelenpunkte'|trans({}, 'soul') }}</span></li>
             </ul>
         </div>
-        <div class="cell padded rw-12">
-            {% if towns|length > 0 %}
-            <div class="row-flex header">
-                <div class="cell padded rw-1 center">
-                    {{'Lang.'|trans({}, 'soul')}}
-                </div>
-                <div class="cell padded rw-1 center">
-                    {{'Pos.'|trans({}, 'soul')}}
-                </div>
-                <div class="cell padded rw-6 center">
-                    {{'Stadt'|trans({}, 'game')}}
-                </div>
-                <div class="cell padded rw-2 center">
-                    {{'Überlebte Tage'|trans({}, 'soul')}}
-                </div>
-                <div class="cell padded rw-2 center">
-                    {{'Score'|trans({}, 'soul')}} <a class="help-button"><div class="tooltip help">{{ 'Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
-                </div>
-            </div>
-            <div class="town-container">
-                {% set pos = 1 %}
-                {% for town in towns %}
-                    <div class="row-flex stretch season_entry {% if pos is not odd %}even{% endif %} {% if played[town.id] is defined %}played{% endif %}">
-                        {# @var town \src\Entity\TownRankingProxy #}
-                        <div class="cell rw-1 season_entry_td center"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></div>
-                        <div class="cell rw-1 season_entry_td center">{{ pos }}</div>
-                        <div class="cell rw-6 season_entry_td left"><div class="inline-block"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div> {{ town.name }}</div>
-                        <div class="cell rw-2 season_entry_td center" style="color: #f0d79e">{{ town.days }}</div>
-                        <div class="cell rw-2 season_entry_td center"><strong>{{ town.score }}</strong></div>
+        {% if currentType %}
+            <div class="cell padded rw-12">
+                {% if towns|length > 0 %}
+                <div class="row-flex header">
+                    <div class="cell padded rw-1 center">
+                        {{'Lang.'|trans({}, 'soul')}}
                     </div>
-                    {% if pos == 1 %}
-                        <div class="row-flex stretch season_entry_container" x-town-latest="">
-                            <div class="cell rw-1 center" style="border-right: 1px solid #7e4d2a;"></div>
-                            <div class="cell rw-7 ro-1">
-                            {% for denizen in town.citizens|sort((a,b) => b.day <=> a.day) %}
-                            {% if denizen.day == town.days %}
-                                <a href="{{ path('soul_visit', {id: denizen.user.id}) }}"><b>{{ denizen.user.name }}</b></a> <span style="color: #f0d79e">({{ denizen.day }})</span>
-                            {% endif %}
-                            {% endfor %}
-                            </div>
-                            <div class="cell rw-4 center"></div>
+                    <div class="cell padded rw-1 center">
+                        {{'Pos.'|trans({}, 'soul')}}
+                    </div>
+                    <div class="cell padded rw-6 center">
+                        {{'Stadt'|trans({}, 'game')}}
+                    </div>
+                    <div class="cell padded rw-2 center">
+                        {{'Überlebte Tage'|trans({}, 'soul')}}
+                    </div>
+                    <div class="cell padded rw-2 center">
+                        {{'Score'|trans({}, 'soul')}} <a class="help-button"><div class="tooltip help">{{ 'Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
+                    </div>
+                </div>
+                <div class="town-container">
+                    {% set pos = 1 %}
+                    {% for town in towns %}
+                        <div class="row-flex stretch season_entry {% if pos is not odd %}even{% endif %} {% if played[town.id] is defined %}played{% endif %}">
+                            {# @var town \src\Entity\TownRankingProxy #}
+                            <div class="cell rw-1 season_entry_td center"><img src="{{ asset("build/images/lang/" ~ town.language ~".png") }}" alt="{{ town.language }}" /></div>
+                            <div class="cell rw-1 season_entry_td center">{{ pos }}</div>
+                            <div class="cell rw-6 season_entry_td left"><div class="inline-block"><img x-town-details="{{ town.id }}" x-town-toggle="{{ town.id }}" class="pointer" alt="+" src="{{ asset('build/images/icons/small_more.gif') }}" /><div class="tooltip help">{{ 'Die Liste der eingeschriebenen Spieler ansehen.'|trans({},'game') }}</div></div> {{ town.name }}</div>
+                            <div class="cell rw-2 season_entry_td center" style="color: #f0d79e">{{ town.days }}</div>
+                            <div class="cell rw-2 season_entry_td center"><strong>{{ town.score }}</strong></div>
                         </div>
-                    {% endif %}
-                    <div x-town-tohide="{{ town.id }}" class="row-flex stretch season_entry_container hidden" style="background-color: #5c2b20">
-                        <div class="cell rw-1" style="border-right: 1px solid #7e4d2a;"></div>
-                        <div class="cell rw-1"></div>
-                        <div x-town-details="{{ town.id }}" class="cell rw-8">
-                            <ul class="citizen-list">
+                        {% if pos == 1 %}
+                            <div class="row-flex stretch season_entry_container" x-town-latest="">
+                                <div class="cell rw-1 center" style="border-right: 1px solid #7e4d2a;"></div>
+                                <div class="cell rw-7 ro-1">
                                 {% for denizen in town.citizens|sort((a,b) => b.day <=> a.day) %}
-                                    {# @var denizen \App\Entity\CitizenRankingProxy #}
-                                    <li class="row" style="border-bottom: 1px dashed #ddab76;{% if denizen.user.id == user.id %}background-color: #3b3249;{% endif %}">
-                                        <div class="cell padded rw-4">
-                                            {% if denizen.cod.ref == constant("App\\Entity\\CauseOfDeath::Vanished") %}
-                                                <div class="inline-block"><img src="{{ asset("build/images/death/outside.gif") }}" alt="" /> <div class="tooltip">{{ 'Draußen gestorben'|trans({}, 'soul') }}</div></div>
-                                            {% else %}
-                                                <div class="inline-block"><img src="{{ asset("build/images/death/inside.gif") }}" alt="" /> <div class="tooltip">{{ 'In der Stadt gestorben'|trans({}, 'soul') }}</div></div>
-                                            {% endif %}
-                                            <a class="link username" href="{{ path('soul_visit', {id: denizen.user.id}) }}">{{ denizen.user.name }}</a>
-                                        </div>
-                                        <div class="cell padded rw-1" style="color:#f8eacb">{{ denizen.day }}</div>
-                                        <div class="cell padded rw-4"><em>{{ denizen.lastWords }}</em></div>
-                                    </li>
+                                {% if denizen.day == town.days %}
+                                    <a href="{{ path('soul_visit', {id: denizen.user.id}) }}"><b>{{ denizen.user.name }}</b></a> <span style="color: #f0d79e">({{ denizen.day }})</span>
+                                {% endif %}
                                 {% endfor %}
-                            </ul>
-                            <div class="right"><span class="small pointer" x-town-toggle="{{ town.id }}">{{ 'Schließen'|trans({},'global') }}</span></div>
+                                </div>
+                                <div class="cell rw-4 center"></div>
+                            </div>
+                        {% endif %}
+                        <div x-town-tohide="{{ town.id }}" class="row-flex stretch season_entry_container hidden" style="background-color: #5c2b20">
+                            <div class="cell rw-1" style="border-right: 1px solid #7e4d2a;"></div>
+                            <div class="cell rw-1"></div>
+                            <div x-town-details="{{ town.id }}" class="cell rw-8">
+                                <ul class="citizen-list">
+                                    {% for denizen in town.citizens|sort((a,b) => b.day <=> a.day) %}
+                                        {# @var denizen \App\Entity\CitizenRankingProxy #}
+                                        <li class="row" style="border-bottom: 1px dashed #ddab76;{% if denizen.user.id == user.id %}background-color: #3b3249;{% endif %}">
+                                            <div class="cell padded rw-4">
+                                                {% if denizen.cod.ref == constant("App\\Entity\\CauseOfDeath::Vanished") %}
+                                                    <div class="inline-block"><img src="{{ asset("build/images/death/outside.gif") }}" alt="" /> <div class="tooltip">{{ 'Draußen gestorben'|trans({}, 'soul') }}</div></div>
+                                                {% else %}
+                                                    <div class="inline-block"><img src="{{ asset("build/images/death/inside.gif") }}" alt="" /> <div class="tooltip">{{ 'In der Stadt gestorben'|trans({}, 'soul') }}</div></div>
+                                                {% endif %}
+                                                <a class="link username" href="{{ path('soul_visit', {id: denizen.user.id}) }}">{{ denizen.user.name }}</a>
+                                            </div>
+                                            <div class="cell padded rw-1" style="color:#f8eacb">{{ denizen.day }}</div>
+                                            <div class="cell padded rw-4"><em>{{ denizen.lastWords }}</em></div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                <div class="right"><span class="small pointer" x-town-toggle="{{ town.id }}">{{ 'Schließen'|trans({},'global') }}</span></div>
+                            </div>
+                            <div class="cell rw-2"></div>
                         </div>
-                        <div class="cell rw-2"></div>
-                    </div>
-                    <!-- to compensate even/odd coloring (2 rows per town makes them all even and it's incorrect, so we need 3) -->
-                    <!-- (also helps with a border issue) -->
-                    <div class="row-flex stretch"> 
-                    </div>
-                    {% set pos = pos + 1 %}
-                {% endfor %}
+                        <!-- to compensate even/odd coloring (2 rows per town makes them all even and it's incorrect, so we need 3) -->
+                        <!-- (also helps with a border issue) -->
+                        <div class="row-flex stretch">
+                        </div>
+                        {% set pos = pos + 1 %}
+                    {% endfor %}
+                </div>
+                {% else %}
+                    <div class="note note-critical">{{ 'Es wurde noch keine Stadt in die Rangliste aufgenommen!'|trans({},'global') }}</div>
+                {% endif %}
             </div>
-            {% else %}
-                <div class="note note-critical">{{ 'Es wurde noch keine Stadt in die Rangliste aufgenommen!'|trans({},'global') }}</div>
-            {% endif %}
-        </div>
+        {% endif %}
+        {% if soloType is defined %}
+            <div class="cell rw-12">
+                <div class="row season_access_text">{{'Zugriff auf die Rangliste einer bestimmten Saison:'|trans({}, 'soul')}}</div>
+                <div class="row season_access_select">
+                    <div class="cell rw-4">
+                        <select name="season" id="season">
+                            <option value="null">{{'Alle Saisons'|trans({}, "soul")}}</option>
+                        </select>
+                    </div>
+                    <div class="cell rw-8">
+                    </div>
+                </div>
+            </div>
+            <div class="cell padded rw-12">
+                {% if ranking|length > 0 %}
+                <div class="row-flex header">
+                    <div class="cell padded rw-1 center">
+                        {{'Lang.'|trans({}, 'soul')}}
+                    </div>
+                    <div class="cell padded rw-1 center">
+                        {{'Pos.'|trans({}, 'soul')}}
+                    </div>
+                    <div class="cell padded rw-6 center">
+                        {{'Spieler'|trans({}, 'soul')}}
+                    </div>
+                    <div class="cell padded rw-4 center">
+                        {{'Seelenpunkte'|trans({}, 'soul')}}
+                    </div>
+                </div>
+                <div class="town-container">
+                    {% set pos = offset %}
+                    {% for info in ranking %}
+                        {% set player = info[0] %}
+                        {% set points = info.allPoints %}
+                        {% set pos = pos + 1 %}
+                        <div class="row-flex stretch season_entry_solo{% if player.id == user.id %} played{% endif %}{% if pos <= 5 %} top5{% else %} top5plus{% endif %}">
+                            <div class="cell rw-1 season_entry_td center soul_season_flag"><img src="{% if player.language %} {{ asset("build/images/lang/" ~ player.language ~".png") }} {% else %} {{ asset("build/images/lang/multi.png") }} {% endif %}" alt="{{ user.language }}" /></div>
+                            <div class="cell rw-1 season_entry_td center">{{ pos }}</div>
+                            <div class="cell rw-6 season_entry_td left soul_season_name"><a class="link" href="{{ path('soul_visit', {id: player.id}) }}">{{ player.name }}</a></div>
+                            <div class="cell rw-4 season_entry_td center soul_season_points">{{ points }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    <div class="note note-critical">Aucun joueur ne figure au classement!</div> <!-- TODO: missing translation -->
+                {% endif %}
+            </div>
+        {% endif %}
     </div>
     {% if seasons|length > 0 %}
     <div class="row">
@@ -136,6 +195,16 @@
     </div>
     {% endif %}
 <style>
+.season_access_text {
+    margin-top: 20px;
+    margin-left: 8px;
+    font-size: 85%;
+}
+
+.season_access_select {
+    margin-left: 10px;
+}
+
 .citizen-list {
     margin: 0;
     padding: 0;
@@ -157,15 +226,67 @@
     border-bottom: 1px solid #7e4d2a;
 }
 
+.season_entry_solo.top5 {
+    max-height: 25px;
+}
+.season_entry_solo.top5plus {
+    max-height: 18px;
+}
+
+.soul_season_flag {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.top5 > .soul_season_flag > img {
+    width: 32px;
+    height: 25px;
+}
+
+.top5plus > .soul_season_flag > img {
+    width: 23px;
+    height: 18px;
+}
+
+.soul_season_link {
+    text-decoration: none !important;
+    font-size: 120%;
+    padding-top: 5px;
+    color: #ddab76;
+    font-weight: bold;
+}
+
+.soul_season_name {
+    padding-left: 5px;
+}
+
+.season_entry_solo {
+    font-size: 80%;
+}
+
+.top5 > .soul_season_name {
+    font-size: 120%;
+}
+
+.top5 > .soul_season_points {
+    font-size: 150%; /* on hordes, normal is 10pt and major 14pt */
+}
+
 </style>
 {% endblock %}
 {% block js %}
     {{ parent() }}
     <script>
         let season = document.getElementById("season");
-        if(season) season.addEventListener("change", function(){
-            $.ajax.load(null, '{{ path("soul_season", {'type': currentType.id}) }}', true, {'season': season.value});
-        })
+        {% if soloType is defined %}
+            if(season) season.addEventListener("change", function(){
+                $.ajax.load(null, '{{ path("soul_season_solo", {'type': soloType}) }}', true, {'season': season.value});
+            })
+        {% else %}
+            if(season) season.addEventListener("change", function(){
+                $.ajax.load(null, '{{ path("soul_season", {'type': currentType.id}) }}', true, {'season': season.value});
+            })
+        {% endif %}
 
         $.html.addEventListenerAll( '[x-town-toggle]', 'click', function(e,elem) {
             const id = elem.getAttribute('x-town-toggle');
