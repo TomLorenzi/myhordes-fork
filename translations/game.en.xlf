@@ -18330,7 +18330,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Achtung! Wenn du pro Tag &lt;strong&gt;mehr als eine Ration Wasser&lt;/strong&gt; nimmst, erfolgt dies auf Kosten der anderen Bürger. Aus diesem Grund werden dementsprechende Aktionen im Großen Register rot vermerkt...</source>
-        <target><![CDATA[Achtung! Wenn du pro Tag <strong>mehr als eine Ration Wasser</strong> nimmst, erfolgt dies auf Kosten der anderen Bürger. Aus diesem Grund werden dementsprechende Aktionen im Großen Register rot vermerkt...]]></target>
+        <target><![CDATA[Warning! <strong>Taking more than one water ration per day</strong> is detrimental to the well-being of the other citizens. This act will therefore be recorded in the Town Register...]]></target>
       </segment>
     </unit>
     <unit id="BHWG3Xb" name="Haus von %citizen%">

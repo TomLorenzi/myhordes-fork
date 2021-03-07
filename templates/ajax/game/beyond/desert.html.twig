@@ -241,7 +241,7 @@
                                     <button id="attack-btn">
                                         <img alt="" src="{{ asset('build/images/icons/fist.gif') }}" />{% trans from 'game' %}Gegen einen Zombie kämpfen!{% endtrans %} (<div class="ap">1</div>)
                                     </button>
-                                    <div class="tooltip help">{{ 'Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.'|trans({}, 'game') }} <br /><em>{{ 'Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.'|trans({}, 'game') }}</em></div>
+                                    <div class="tooltip help">{{ 'Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.'|trans({}, 'game')|raw }} <br /><em>{{ 'Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.'|trans({}, 'game')|raw }}</em></div>
                                 </div>
                             </div>
                         {% endif %}

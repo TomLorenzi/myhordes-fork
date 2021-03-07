@@ -7397,7 +7397,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Durchgang in Kraft</source>
-        <target>Durchgang in Kraft</target>
+        <target>Break Trough</target>
       </segment>
     </unit>
     <unit id="KXx_GUV" name="Den Shamane wählen">
@@ -7694,7 +7694,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du hast die Chance, 1 Zombie in der Zone zu töten; wenn du erfolgreich bist, erhältst du die Kontrolle über die Zone für 10 Minuten.&lt;br /&gt;&lt;em&gt;Angesichts des &lt;strong&gt;Armageddon&lt;/strong&gt; kannst du diese Spezialaktion &lt;strong&gt;einmal pro Spiel&lt;/strong&gt; durchführen.&lt;/em&gt;</source>
-        <target><![CDATA[Du hast die Chance, 1 Zombie in der Zone zu töten; wenn du erfolgreich bist, erhältst du die Kontrolle über die Zone für 10 Minuten.<br /><em>Angesichts des <strong>Armageddon</strong> kannst du diese Spezialaktion <strong>einmal pro Spiel</strong> durchführen.</em>]]></target>
+        <target><![CDATA[You have one chance to kill a zombie in a given zone; if you succeed, you gain control of the zone for 10 minutes.<br /><em>Having seen the <strong>Armageddon</strong>, you can use this special skill <strong>once per game</strong>.</em>]]></target>
       </segment>
     </unit>
     <unit id="h_IEt7t" name="71ee522">
