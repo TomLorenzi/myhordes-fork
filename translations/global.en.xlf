@@ -2570,5 +2570,41 @@
         <target>Diese Aktion kostet dich 1 AP!</target>
       </segment>
     </unit>
+    <unit id="sXEtGH4" name="Diese Diskussion ist beendet.">
+      <notes>
+        <note category="german">Diese Diskussion ist beendet.</note>
+      </notes>
+      <segment>
+        <source>Diese Diskussion ist beendet.</source>
+        <target>This discussion is closed.</target>
+      </segment>
+    </unit>
+    <unit id="skpOVsR" name="397b841">
+      <notes>
+        <note category="german">Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.</note>
+      </notes>
+      <segment>
+        <source>Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.</source>
+        <target>This score represents the total number of days survived by all the citizens in the town. It represents therefore the town's ability to organise itself to survive.</target>
+      </segment>
+    </unit>
+    <unit id="LQ_zhhz" name="Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt">
+      <notes>
+        <note category="german">Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt</note>
+      </notes>
+      <segment>
+        <source>Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt</source>
+        <target>Click to be informed of any replies in this discussion.</target>
+      </segment>
+    </unit>
+    <unit id="Z.IoaeD" name="7522b5f">
+      <notes>
+        <note category="german">Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.</note>
+      </notes>
+      <segment>
+        <source>Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.</source>
+        <target>Click to no longer be informed of new replies.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -39,6 +39,7 @@
                         <img alt="" src="{{ asset('build/images/icons/tickOff.gif') }}" />
                     {% endif %}
                     <span>{{ subscribed ? 'Abonniert'|trans({},'global') : 'Abonnieren'|trans({},'global') }}</span>
+                    <div class="tooltip forum-tooltip">{{ subscribed ? 'Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.'|trans({},'global') : 'Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt'|trans({}, 'global')}}</div>
                 </div>
 
                 {% if not locked and not is_granted("ROLE_FORUM_BANNED") and (permission.create_post or permission.moderate) %}
@@ -47,6 +48,12 @@
                     <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/lock.gif') }}" /><span>{{ 'Antworten'|trans({},'global') }}</span></div>
                 {% endif %}
             </div>
+        </div>
+        <div class="cell padded rw-6 center {% if locked %}infoThread{% endif %}">
+            {% if locked %}
+                <img alt="" src="{{ asset('build/images/icons/lock.gif') }}" /> {{ 'Diese Diskussion ist beendet.'|trans({},'global') }}
+            {% endif %}
+            {# TODO : if thread is resolved with "OK", it display "Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt)." #}
         </div>
     {% endblock %}
     {% macro pagenav(pages,current_page,id) %}
