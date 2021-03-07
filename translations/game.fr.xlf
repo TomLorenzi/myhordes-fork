@@ -18367,7 +18367,7 @@
       </notes>
       <segment>
         <source>Du kannst in den Foren um Hilfe bitten!</source>
-        <target>Du kannst in den Foren um Hilfe bitten!</target>
+        <target>Vous pouvez lancer un appel à l'aide sur le forum!</target>
       </segment>
     </unit>
     <unit id="Eb0twff" name="114340a">
@@ -18376,7 +18376,7 @@
       </notes>
       <segment>
         <source>Wenn du flüchtest, werden dich die Zombies verletzen, aber du wirst trotzdem entkommen...</source>
-        <target>Wenn du flüchtest, werden dich die Zombies verletzen, aber du wirst trotzdem entkommen...</target>
+        <target>Si vous fuyez, vous serez blessé(e) par les zombies, mais vous pourrez quitter la zone en contrepartie...</target>
       </segment>
     </unit>
     <unit id="OSOrpL9" name="Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.">
@@ -18385,7 +18385,7 @@
       </notes>
       <segment>
         <source>Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.</source>
-        <target>Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.</target>
+        <target>Vous pouvez tenter d'attaquer un zombie au corps à corps sans arme pour vous en débarrasser.</target>
       </segment>
     </unit>
     <unit id="H0.Za4t" name="Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.">
@@ -18394,7 +18394,7 @@
       </notes>
       <segment>
         <source>Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.</source>
-        <target>Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.</target>
+        <target>![CDATA[<em>Cette action coûte 1 PA et a une chance réduite de fonctionner.</em>]]</target>
       </segment>
     </unit>
     <unit id="tN9xF04" name="32f43f5">
@@ -18430,7 +18430,7 @@
       </notes>
       <segment>
         <source>Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;&lt;strong&gt;Dieser Gegenstand wurde in deiner Truhe abgelegt.&lt;/strong&gt;</source>
-        <target><![CDATA[Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...<hr /><strong>Dieser Gegenstand wurde in deiner Truhe abgelegt.</strong>]]></target>
+        <target><![CDATA[Vous récupérez: %item%. Toutefois, votre petite visite chez † %victim% n'est pas passée inaperçue...<hr />Cet objet a été placé <strong>dans votre Coffre</strong>, chez vous.]]></target>
       </segment>
     </unit>
     <unit id="HSAEnDG" name="als Gruppe">
@@ -18475,7 +18475,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Achtung&lt;/strong&gt;: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</source>
-        <target><![CDATA[<strong>Achtung</strong>: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!]]></target>
+        <target><![CDATA[<strong>Attention</strong>: sans eau, certaines évolutions (comme les Aqua-tourelles) ne fonctionneront pas lors de l'attaque !]]></target>
       </segment>
     </unit>
     <unit id="5sc0Prt" name="Diese Leiche wurde bereits außerhalb der Stadt entsorgt!">
