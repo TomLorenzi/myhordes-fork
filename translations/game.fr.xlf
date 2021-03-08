@@ -18412,7 +18412,7 @@
       </notes>
       <segment>
         <source>&lt;span&gt;Wir kontrollieren die Zone ab sofort.&lt;/span&gt;</source>
-        <target><![CDATA[<span>Wir kontrollieren die Zone ab sofort.</span>]]></target>
+        <target><![CDATA[<span>La zône est maintenant sous contrôle.</span>]]></target>
       </segment>
     </unit>
     <unit id="RzA6yig" name="75658db">
