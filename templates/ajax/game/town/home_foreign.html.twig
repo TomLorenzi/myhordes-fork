@@ -172,7 +172,7 @@
             {% else %}
                 <h5>{% trans from 'game' %}Was geschieht mit dieser Leiche?{% endtrans %}</h5>
                 {% if owner.home.holdsBody %}
-                    <span class="disposal">{{'Da %citizen% tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>Verfluchte Seelenfänger</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.'|trans({'%citizen%': owner.user.name}, 'game')|raw}}</span>
+                    <span class="disposal">{{'Da %citizen% tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>%townname%</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.'|trans({'%citizen%': owner.user.name, '%townname%': owner.town.name}, 'game')|raw}}</span>
                     <button x-disposal-id="{{ constant('App\\Entity\\Citizen::Watered') }}"><img alt="" src="{{ asset('build/images/item/item_water.gif') }}" />{{ 'Leiche mit Wasser übergießen'|trans({},'game') }}</button>
                     <button x-disposal-id="{{ constant('App\\Entity\\Citizen::Thrown') }}">{{ 'Leiche aus der Stadt ziehen'|trans({},'game') }} (<div class="ap">2</div>)</button>
                     {% if has_cremato %}
