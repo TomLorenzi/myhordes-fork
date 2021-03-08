@@ -22,6 +22,9 @@
                                 <div class="cell padded rw-4">
                                     <button id="x-pm">{{ 'PM vom Raben'|trans({}, 'admin') }}</button>
                                 </div>
+                                <div class="cell padded rw-4">
+                                    <button x-ajax-href="{{ path("admin_town_explorer", {id: town.id}) }}">{{ 'Stadt ansehen'|trans({}, 'admin') }}</button>
+                                </div>
                             {% else %}
                                 {% if is_granted("ROLE_ADMIN") %}
                                     <div class="cell padded rw-4">

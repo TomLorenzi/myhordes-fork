@@ -207,7 +207,9 @@
                             <div class="vote-progress" style="width: {{owner.home.recycling / 15 * 100}}%;"></div>
                         </div>
                     {% endif %}
+                    {% if can_recycle  %}
                     <button x-recycle-home="1">{{ 'Behausung wiederverwerten'|trans({},'game') }} (<div class="ap">1</div>)</button>
+                    {% endif %}
                 {% else %}
                     <span class="disposal">{{'Der Ort (kann man überhaupt von Zuhause reden?), an dem %citizen% lebte, ist keinen Blick wert. Da gibt es nichts zu holen, selbst wenn man alles auseinandernimmt.'|trans({'%citizen%': owner.user.name}, 'game')}}</span>
                 {% endif %}

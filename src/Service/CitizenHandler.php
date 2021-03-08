@@ -545,6 +545,7 @@ class CitizenHandler
             14 => -7,
             15 => -6,
         ];
+
         $zone_distance = round(sqrt( pow($zone->getX(),2) + pow($zone->getY(),2) ));
         if ($zone_distance >= 16) {
             $camping_values['distance'] = -5;
@@ -616,6 +617,14 @@ class CitizenHandler
         ];
 
         $camping_values['campings'] = $campings_map[$config->get(TownConf::CONF_MODIFIER_CAMPING_CHANCE_MAP, 'normal')][$has_pro_camper ? 'pro' : 'nonpro'][$citizen->getCampingCounter()];
+
+        $camping_values['campings'] = -0.835 * pow($citizen->getCampingCounter(), 2) - 1.269 * $citizen->getCampingCounter();
+
+        if ($config->get(TownConf::CONF_MODIFIER_CAMPING_CHANCE_MAP, 'normal') == "hard")
+            $camping_values['campings'] *= 2;
+
+        if ($has_pro_camper)
+            $camping_values['campings'] /= 2;
 
         // Campers that are already hidden.
         $campers_map = [
