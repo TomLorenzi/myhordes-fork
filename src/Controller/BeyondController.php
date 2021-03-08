@@ -1485,6 +1485,7 @@ class BeyondController extends InventoryAwareController
         $citizen = $this->getActiveCitizen();
 
         foreach ($citizen->getValidLeadingEscorts() as $escort) {
+            $this->entity_manager->persist($this->log->beyondEscortReleaseCitizen($citizen, $escort->getCitizen()));
             $escort->setLeader(null);
             $this->entity_manager->persist($escort);
         }
