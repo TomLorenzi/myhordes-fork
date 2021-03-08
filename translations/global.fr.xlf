@@ -2622,5 +2622,35 @@
         <target>Cliquez pour ne plus être informé(e) des nouvelles réponses.</target>
       </segment>
     </unit>
+    <unit id="sYDz8ku" name="Wer?">
+      <notes>
+        <note category="german">Wer?</note>
+      </notes>
+      <segment>
+        <source>Wer?</source>
+        <target>Wer?</target>
+      </segment>
+    </unit>
+    <unit id="HVAzjFA" name="Namen eingeben">
+      <notes>
+        <note category="german">Namen eingeben</note>
+      </notes>
+      <segment>
+        <source>Namen eingeben</source>
+        <target>Namen eingeben</target>
+      </segment>
+    </unit>
+    <unit id="HAtmchb" name="246b2a2">
+      <notes>
+        <note category="german">Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                    &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</note>
+      </notes>
+      <segment>
+        <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                    &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
+        <target><![CDATA[Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                    <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

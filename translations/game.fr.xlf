@@ -6957,7 +6957,7 @@
     </unit>
     <unit id="Tzmt5qh" name="d848698">
       <notes>
-        <note category="german">Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</note>
+        <note category="german">Du hast heute bereits getrunken. Eine weitere Ration Wasser erlaubt dir heute nicht weitere AP.</note>
       </notes>
       <segment>
         <source>Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</source>
@@ -18566,6 +18566,87 @@
       <segment>
         <source>Achtung! Deinen Mitbürgern wird das gar nicht gefallen.</source>
         <target>Attention ! Vos voisins ne vont pas du tout aimer ça !</target>
+      </segment>
+    </unit>
+    <unit id="glz6Ktw" name="Dafür solltest du dein Labor verwenden...">
+      <notes>
+        <note category="german">Dafür solltest du dein Labor verwenden...</note>
+      </notes>
+      <segment>
+        <source>Dafür solltest du dein Labor verwenden...</source>
+        <target>Dafür solltest du dein Labor verwenden...</target>
+      </segment>
+    </unit>
+    <unit id="JEn24as" name="%citizen% bitten etwas aufzuheben.">
+      <notes>
+        <note category="german">%citizen% bitten etwas aufzuheben.</note>
+      </notes>
+      <segment>
+        <source>%citizen% bitten etwas aufzuheben.</source>
+        <target>%citizen% bitten etwas aufzuheben.</target>
+      </segment>
+    </unit>
+    <unit id="9URgee0" name="%citizen% befehlen die Umgebung abzusuchen.">
+      <notes>
+        <note category="german">%citizen% befehlen die Umgebung abzusuchen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% befehlen die Umgebung abzusuchen.</source>
+        <target>%citizen% befehlen die Umgebung abzusuchen.</target>
+      </segment>
+    </unit>
+    <unit id="joeoHly" name="%citizen% angreifen. Diese Aktion kostet dich %ap%.">
+      <notes>
+        <note category="german">%citizen% angreifen. Diese Aktion kostet dich %ap%.</note>
+      </notes>
+      <segment>
+        <source>%citizen% angreifen. Diese Aktion kostet dich %ap%.</source>
+        <target>%citizen% angreifen. Diese Aktion kostet dich %ap%.</target>
+      </segment>
+    </unit>
+    <unit id="H7wLj6X" name="%citizen% sagen mir nicht mehr zu folgen.">
+      <notes>
+        <note category="german">%citizen% sagen mir nicht mehr zu folgen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% sagen mir nicht mehr zu folgen.</source>
+        <target>%citizen% sagen mir nicht mehr zu folgen.</target>
+      </segment>
+    </unit>
+    <unit id="Iir2qAh" name="Allen befehlen, die Umgebung abzusuchen.">
+      <notes>
+        <note category="german">Allen befehlen, die Umgebung abzusuchen.</note>
+      </notes>
+      <segment>
+        <source>Allen befehlen, die Umgebung abzusuchen.</source>
+        <target>Allen befehlen, die Umgebung abzusuchen.</target>
+      </segment>
+    </unit>
+    <unit id="_G5UAQ0" name="Allen sagen mir nicht mehr zu folgen.">
+      <notes>
+        <note category="german">Allen sagen mir nicht mehr zu folgen.</note>
+      </notes>
+      <segment>
+        <source>Allen sagen mir nicht mehr zu folgen.</source>
+        <target>Allen sagen mir nicht mehr zu folgen.</target>
+      </segment>
+    </unit>
+    <unit id="v4V0uch" name="Dieser Bürger gräbt gerade in einer Zone.">
+      <notes>
+        <note category="german">Dieser Bürger gräbt gerade in einer Zone.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger gräbt gerade in einer Zone.</source>
+        <target>Dieser Bürger gräbt gerade in einer Zone.</target>
+      </segment>
+    </unit>
+    <unit id="Bh1Gj16" name="%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.">
+      <notes>
+        <note category="german">%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</note>
+      </notes>
+      <segment>
+        <source>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</source>
+        <target>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</target>
       </segment>
     </unit>
   </file>

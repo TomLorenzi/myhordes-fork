@@ -2404,5 +2404,14 @@
         <target>Créateur</target>
       </segment>
     </unit>
+    <unit id="Fz9FcFZ" name="Stadt ansehen">
+      <notes>
+        <note category="german">Stadt ansehen</note>
+      </notes>
+      <segment>
+        <source>Stadt ansehen</source>
+        <target>Voir la ville</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
