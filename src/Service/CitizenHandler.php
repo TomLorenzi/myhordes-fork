@@ -339,6 +339,15 @@ class CitizenHandler
 
         if ($citizen->getRoles()->contains($role)) {
             $citizen->removeRole($role);
+            switch($role->getName()){
+                case "ghoul":
+                    $citizen->setWalkingDistance(0);
+                    break;
+                case "shaman":
+                    $this->removeStatus($citizen, 'tg_shaman_immune');
+                    $this->setPM($citizen, false, 0); // We remove him his PM
+                    break;
+            }
             return true;
         } else return true;
     }
