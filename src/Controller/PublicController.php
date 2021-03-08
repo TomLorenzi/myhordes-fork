@@ -520,6 +520,12 @@ class PublicController extends CustomAbstractController
             $flush = true;
         }
 
+        if ($user->getLanguage() === null) {
+            $user->setLanguage($this->getUserLanguage());
+            $this->entity_manager->persist($user);
+            $flush = true;
+        }
+
         if ($flush) try {
             $this->entity_manager->flush();
         } catch(Exception $e) {}
