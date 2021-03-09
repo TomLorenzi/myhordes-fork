@@ -1818,7 +1818,7 @@
       </notes>
       <segment>
         <source>Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:</source>
-        <target>C'est votre chance ! Saisissez-la et fuyez ! Bientôt, les zombies reprendront le contrôle de la zone. Il vous reste :</target>
+        <target>Vous avez réussi à vous extirper de ce danger, mais les zombies vous regardent maintenant avec envie et s'approchent dangereusement en grognant... FUYEZ ! Il vous reste :</target>
       </segment>
     </unit>
     <unit id="1lHHd11" name="c57da02">
@@ -1845,7 +1845,7 @@
       </notes>
       <segment>
         <source>Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Wenn du nichts unternimmst und dir niemand zu Hilfe eilt, wirst du ohne Zweifel heute Abend hier verrecken ...</source>
-        <target>Vous avez été surpris et maintenant vous êtes entouré de zombies ! Si vous ne faites rien, vous allez mourir ici ce soir...</target>
+        <target>Vous avez été submergé(e) et vous êtes maintenant bloqué(e) par les hordes de zombies qui vous entourent ! Si vous ne faites rien ou si personne ne vient vous secourir, vous mourrez sans aucun doute ce soir !</target>
       </segment>
     </unit>
     <unit id="EV7eyTa" name="Hilfe rufen!">
@@ -1854,7 +1854,7 @@
       </notes>
       <segment>
         <source>Hilfe rufen!</source>
-        <target>Demander de l'aide !</target>
+        <target>Appeler à l'aide !</target>
       </segment>
     </unit>
     <unit id="9IuEojL" name="Die Flucht wagen!">
@@ -1863,7 +1863,7 @@
       </notes>
       <segment>
         <source>Die Flucht wagen!</source>
-        <target>Prendre la fuite !</target>
+        <target>Tenter de fuir !</target>
       </segment>
     </unit>
     <unit id="vTDaFPO" name="Gegen einen Zombie kämpfen!">
@@ -1872,7 +1872,7 @@
       </notes>
       <segment>
         <source>Gegen einen Zombie kämpfen!</source>
-        <target>Attaquer un zombie !</target>
+        <target>Lutter contre un zombie !</target>
       </segment>
     </unit>
     <unit id="seBLTh9" name="Diese Zone">
@@ -6943,7 +6943,7 @@
       </notes>
       <segment>
         <source>Während Zombies die Zone kontrollieren, kannst du nicht graben.</source>
-        <target>Les zombies contrôlent la zone, vous ne pouvez pas creuser.</target>
+        <target>Impossible de creuser dans une zone sous contrôle des zombies !</target>
       </segment>
     </unit>
     <unit id="EZeEFMF" name="Du kannst diesen Gegenstand nicht stehlen.">
@@ -18253,7 +18253,7 @@
         <target>Tombe de %citizen%</target>
       </segment>
     </unit>
-    <unit id="J5RUaZZ" name="990a9e7">
+    <unit id="l9RZq.z" name="4bd2b92">
       <notes>
         <note category="german">Da %citizen% tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;%townname%&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</note>
       </notes>
@@ -18331,7 +18331,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger möchte in die Stadt gebracht werden.</source>
-        <target>Ce citoyen souhaites retourner en ville.</target>
+        <target>Ce citoyen souhaite retourner en ville.</target>
       </segment>
     </unit>
     <unit id="kXRmY0k" name="%citizen% hat einen Zombie mit seinen bloßen Händen niedergestreckt!">
@@ -18340,7 +18340,7 @@
       </notes>
       <segment>
         <source>%citizen% hat einen Zombie mit seinen bloßen Händen niedergestreckt!</source>
-        <target>%citizen% hat einen Zombie mit seinen bloßen Händen niedergestreckt!</target>
+        <target><![CDATA[<span>%citizen% a foncé à mains nues contre un zombie et l'a mis au tapis !</span>]]></target>
       </segment>
     </unit>
     <unit id="1_rcdLL" name="25675c1">
@@ -18349,7 +18349,7 @@
       </notes>
       <segment>
         <source>%citizen% hat versucht einen Zombie niederzustrecken und ist dabei fast draufgegangen...</source>
-        <target>%citizen% hat versucht einen Zombie niederzustrecken und ist dabei fast draufgegangen...</target>
+        <target>%citizen% a failli se faire dévorer en attaquant un zombie à mains nues...</target>
       </segment>
     </unit>
     <unit id="20wAGQf" name="6489b1a">
@@ -18403,7 +18403,7 @@
       </notes>
       <segment>
         <source>&lt;span&gt;%citizen% hat einen Zombie mit seinen bloßen Händen niedergestreckt!&lt;/span&gt;</source>
-        <target><![CDATA[<span>%citizen% hat einen Zombie mit seinen bloßen Händen niedergestreckt!</span>]]></target>
+        <target><![CDATA[<span>%citizen% a foncé à mains nues contre un zombie et l'a mis au tapis !</span>]]></target>
       </segment>
     </unit>
     <unit id="L4sBLhc" name="&lt;span&gt;Wir kontrollieren die Zone ab sofort.&lt;/span&gt;">
