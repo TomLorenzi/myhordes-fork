@@ -4,6 +4,7 @@
 namespace App\EventSubscriber;
 
 use App\Controller\HookedInterfaceController;
+use App\Entity\AccountRestriction;
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
 use App\Entity\User;
@@ -12,6 +13,7 @@ use App\Service\AntiCheatService;
 use App\Service\Locksmith;
 use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
+use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\RedirectController;
@@ -37,12 +39,13 @@ class GateKeeperSubscriber implements EventSubscriberInterface
     private AntiCheatService $anti_cheat;
     private UrlGeneratorInterface $url_generator;
     private TranslatorInterface $translator;
+    private UserHandler $userHandler;
 
     /** @var LockInterface|null  */
     private $current_lock = null;
 
     public function __construct(
-        EntityManagerInterface $em, Locksmith $locksmith, Security $security,
+        EntityManagerInterface $em, Locksmith $locksmith, Security $security, UserHandler $uh,
         TownHandler $th, TimeKeeperService $tk, AntiCheatService $anti_cheat, UrlGeneratorInterface $url, TranslatorInterface $translator)
     {
         $this->em = $em;
@@ -53,6 +56,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
         $this->anti_cheat = $anti_cheat;
         $this->url_generator = $url;
         $this->translator = $translator;
+        $this->userHandler = $uh;
     }
 
     public function holdTheDoor(ControllerEvent $event) {
@@ -89,7 +93,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
                 throw new DynamicAjaxResetException($event->getRequest());
 
             // Redirect shadow-banned users
-            if ($user->getShadowBan()) {
+            if ($this->userHandler->isRestricted( $user, AccountRestriction::RestrictionGameplay )) {
                 $event->setController(function() use ($event) { return (new RedirectController($this->url_generator))->redirectAction($event->getRequest(), 'soul_disabled'); });
                 return;
             }

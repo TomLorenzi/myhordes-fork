@@ -2,6 +2,7 @@
 
 namespace App\Controller\Soul;
 
+use App\Entity\AccountRestriction;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\Shoutbox;
 use App\Entity\ShoutboxEntry;
@@ -109,7 +110,7 @@ class SoulCoalitionController extends SoulController
     public function api_soul_create_coalitions(TranslatorInterface $trans, PermissionHandler $perm): Response
     {
         $user = $this->getUser();
-        if ($user->getIsBanned()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        if ($this->user_handler->isRestricted( $user, AccountRestriction::RestrictionOrganization )) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         /** @var UserGroupAssociation|null $user_coalition */
         $user_coalitions = $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
@@ -241,7 +242,7 @@ class SoulCoalitionController extends SoulController
     public function api_soul_join_coalition(int $coalition, TranslatorInterface $trans): Response
     {
         $user = $this->getUser();
-        if ($user->getIsBanned()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        if ($this->user_handler->isRestricted( $user, AccountRestriction::RestrictionOrganization )) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         /** @var UserGroupAssociation|null $user_coalition */
         $user_coalition = $this->entity_manager->getRepository(UserGroupAssociation::class)->find($coalition);
@@ -293,7 +294,7 @@ class SoulCoalitionController extends SoulController
     public function api_soul_kick_coalition(int $coalition): Response
     {
         $user = $this->getUser();
-        if ($user->getIsBanned()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        if ($this->user_handler->isRestricted( $user, AccountRestriction::RestrictionOrganization )) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         /** @var UserGroupAssociation|null $user_coalition */
         $user_coalition = $this->user_handler->getCoalitionMembership($user);
@@ -344,7 +345,7 @@ class SoulCoalitionController extends SoulController
     {
         $user = $this->getUser();
 
-        if ($user->getIsBanned()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        if ($this->user_handler->isRestricted( $user, AccountRestriction::RestrictionOrganization )) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if ($id === $user->getId()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
@@ -421,7 +422,7 @@ class SoulCoalitionController extends SoulController
         $user = $this->getUser();
         $shoutbox = $this->user_handler->getShoutbox($user);
 
-        if (!$shoutbox || $user->getIsBanned()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        if (!$shoutbox || $this->user_handler->isRestricted( $user, AccountRestriction::RestrictionOrganization )) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $last_chat_entries = $this->entity_manager->getRepository(ShoutboxEntry::class)->findBy(
             ['type' => ShoutboxEntry::SBEntryTypeChat], ['timestamp' => 'DESC'], 10

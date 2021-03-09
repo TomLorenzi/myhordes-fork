@@ -3,6 +3,7 @@
 namespace App\Controller\Messages;
 
 use App\Annotations\GateKeeperProfile;
+use App\Entity\AccountRestriction;
 use App\Entity\AdminReport;
 use App\Entity\Announcement;
 use App\Entity\ForumModerationSnippet;
@@ -848,7 +849,7 @@ class MessageGlobalPMController extends MessageController
     public function new_thread_api(JSONRequestParser $parser, EntityManagerInterface $em, UserHandler $userHandler, PermissionHandler $perm): Response {
 
         $user = $this->getUser();
-        if ($user->getIsBanned())
+        if ($this->userHandler->isRestricted( $user, AccountRestriction::RestrictionGlobalCommunication ))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (!$parser->has_all(['title','content','users'], true))
@@ -914,7 +915,7 @@ class MessageGlobalPMController extends MessageController
     public function new_post_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, UserHandler $userHandler): Response {
 
         $user = $this->getUser();
-        if ($user->getIsBanned())
+        if ($this->userHandler->isRestricted( $user, AccountRestriction::RestrictionGlobalCommunication ))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (!$parser->has('content', true))

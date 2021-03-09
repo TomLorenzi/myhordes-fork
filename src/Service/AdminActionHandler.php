@@ -82,61 +82,6 @@ class AdminActionHandler
         return $message;
     }
 
-    public function liftAllBans(int $sourceUser, int $targetUser): bool
-    {
-        if(!$this->hasRights($sourceUser, 'liftAllBans'))
-            return false;
-            
-        $sourceUser = $this->entity_manager->getRepository(User::class)->find($sourceUser);
-        $bans = $this->entity_manager->getRepository(User::class)->find($targetUser)->getActiveBans();
-        
-        foreach ($bans as $ban){
-            $ban->setLifted(true);
-            $ban->setLiftUser($sourceUser);  
-            $this->entity_manager->persist($ban);
-        }
-        try {
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return false;
-        }
-        return true;   
-    }
-
-    public function ban(int $sourceUser, int $targetUser, string $reason, int $duration): bool
-    {
-        if(!$this->hasRights($sourceUser, 'ban'))
-            return false;
-
-        if (!($duration < 31 && $duration > 0)) return false;
-        $sourceUser = $this->entity_manager->getRepository(User::class)->find($sourceUser);
-        $targetUser = $this->entity_manager->getRepository(User::class)->find($targetUser);
-        $banStart = new DateTime('now');
-        $banEnd = new DateTime('now');
-        $interval = ('P' . strval($duration) . 'D');
-        
-        $banInterval = new DateInterval($interval);
-        $banEnd->add($banInterval);
-        $newban = (new AdminBan())
-            ->setSourceUser( $sourceUser )
-            ->setUser( $targetUser )           
-            ->setReason( $reason )
-            ->setBanStart( $banStart )
-            ->setBanEnd( $banEnd )
-            ->setType(0);
-
-        $this->entity_manager->persist($newban);
-        $n = $this->crow->createPM_moderation( $targetUser, CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetForumBan, CrowService::ModerationActionImpose, $duration * 86400, $reason );
-        if ($n) $this->entity_manager->persist($n);
-
-        try {
-            $this->entity_manager->flush();
-        } catch (Exception $e) {
-            return false;
-        }
-        return true;
-    }
-
     public function confirmDeath(int $sourceUser, int $targetUser): bool {
         if(!$this->hasRights($sourceUser, 'confirmDeath'))
             return false;

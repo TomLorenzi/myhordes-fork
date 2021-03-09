@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Annotations\GateKeeperProfile;
+use App\Entity\AccountRestriction;
 use App\Entity\Citizen;
 use App\Entity\ConnectionWhitelist;
 use App\Entity\Picto;
@@ -13,6 +14,7 @@ use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserPendingValidation;
+use App\Exception\DynamicAjaxResetException;
 use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
 use App\Service\AntiCheatService;
@@ -25,6 +27,7 @@ use App\Service\UserFactory;
 use App\Service\UserHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -95,7 +98,7 @@ class AdminUserController extends AdminActionController
 
         if (in_array($action, [
             'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'delete', 'rename',
-            'shadow', 'unshadow', 'whitelist', 'unwhitelist', 'etwin_reset', 'overwrite_pw', 'initiate_pw_reset',
+            'shadow', 'whitelist', 'unwhitelist', 'etwin_reset', 'overwrite_pw', 'initiate_pw_reset',
             'enforce_pw_reset', 'change_mail' ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
@@ -224,23 +227,22 @@ class AdminUserController extends AdminActionController
                 break;
 
             case 'shadow':
-                if (empty($param) || $user->getShadowBan()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                if (empty($param)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-                $user->setShadowBan( (new ShadowBan())->setAdmin( $this->getUser() )->setCreated( new \DateTime() )->setReason($param) );
-                $this->entity_manager->persist($user);
+                $this->entity_manager->persist(
+                    (new AccountRestriction())
+                        ->setActive(true)
+                        ->setConfirmed(true)
+                        ->setPublicReason($param)
+                        ->setOriginalDuration(-1)
+                        ->setExpires(null)
+                        ->setModerator( $this->getUser() )
+                        ->addConfirmedBy( $this->getUser() )
+                        ->setCreated( new \DateTime() )
+                        ->setRestriction( AccountRestriction::RestrictionGameplay )
+                );
 
                 $n = $crow->createPM_moderation( $user, CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetGameBan, CrowService::ModerationActionImpose, -1, $param );
-                if ($n) $this->entity_manager->persist($n);
-                break;
-
-            case 'unshadow':
-                if (!$user->getShadowBan()) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-
-                $this->entity_manager->remove($user->getShadowBan());
-                $user->setShadowBan( null );
-
-                $this->entity_manager->persist($user);
-                $n = $crow->createPM_moderation( $user, CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetGameBan, CrowService::ModerationActionRevoke, -1, '' );
                 if ($n) $this->entity_manager->persist($n);
                 break;
 
@@ -340,51 +342,157 @@ class AdminUserController extends AdminActionController
      */
     public function users_ban_view(int $id): Response
     {
-
         $user = $this->entity_manager->getRepository(User::class)->find($id);
-        $banned = $user->getIsBanned();
-        
-        $longestActiveBan = $user->getLongestActiveBan();
-        $bannings = $user->getBannings();
-        $banCount = $bannings->count();
-        $lastBan = null;
-        if ($banCount > 1)
-            $lastBan = $bannings[$banCount - 1];
-        else $lastBan = $bannings[0];
+        if (!$user) throw new DynamicAjaxResetException(Request::createFromGlobals());
 
         return $this->render( 'ajax/admin/users/ban.html.twig', $this->addDefaultTwigArgs("admin_users_ban", [
             'user' => $user,
-            'banned' => $banned,
-            'activeBan' => $longestActiveBan,
-            'bannings' => $bannings,
-            'banCount' => $banCount,
-            'lastBan' => $lastBan,
-        ]));        
+            'existing' => $this->entity_manager->getRepository(AccountRestriction::class)->findBy(['user' => $user], ['active' => 'ASC', 'confirmed' => 'ASC', 'created' => 'ASC'])
+        ]));
+    }
+
+    private function requires_crow_confirmation(AccountRestriction $a): bool {
+        return $a->getOriginalDuration() > 2592000;
+    }
+
+    private function requires_admin_confirmation(AccountRestriction $a): bool {
+        return $a->getOriginalDuration() >= 31536000 || ($a->getRestriction() & AccountRestriction::RestrictionGameplay) === AccountRestriction::RestrictionGameplay;
+    }
+
+    private function check_ban_confirmation(AccountRestriction $a): bool {
+
+        if ($a->getConfirmed()) return true;
+
+        if (!$this->user_handler->hasRole( $this->getUser(), 'ROLE_ADMIN' )) {
+
+            if ($this->requires_crow_confirmation($a) && count($a->getConfirmedBy()) < 2) return false;
+            if ($this->requires_admin_confirmation($a)) {
+                $confirmed_by_admin = false;
+                foreach ($a->getConfirmedBy() as $u) if ($this->user_handler->hasRole( $u, 'ROLE_ADMIN' )) $confirmed_by_admin = true;
+                if (!$confirmed_by_admin) return false;
+            }
+        }
+
+        $a->setConfirmed(true)->setExpires( $a->getOriginalDuration() < 0 ? null : (new \DateTime())->setTimestamp( time() + $a->getOriginalDuration() ) );
+        if ($a->getRestriction() & AccountRestriction::RestrictionSocial)
+            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetForumBan, CrowService::ModerationActionImpose, $a->getOriginalDuration() < 0 ? null : $a->getOriginalDuration(), $a->getPublicReason() ));
+        if ($a->getRestriction() & AccountRestriction::RestrictionGameplay)
+            $this->entity_manager->persist($this->crow_service->createPM_moderation( $a->getUser(), CrowService::ModerationActionDomainAccount, CrowService::ModerationActionTargetGameBan, CrowService::ModerationActionRevoke, -1, $a->getPublicReason() ));
+        return true;
+    }
+
+    /**
+     * @Route("api/admin/users/{uid}/ban/{bid}/confirm", name="admin_users_ban_confirm", requirements={"uid"="\d+","bid"="\d+"})
+     * @param int $uid
+     * @param int $bid
+     * @return Response
+     */
+    public function users_confirm_ban(int $uid, int $bid): Response
+    {
+        $a = $this->entity_manager->getRepository(AccountRestriction::class)->find($bid);
+        if ($a === null || $a->getUser()->getId() !== $uid) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if (!$a->getActive() || $a->getExpires() && $a->getExpires() < new \DateTime()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if ($a->getConfirmedBy()->contains($this->getUser())) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $a->addConfirmedBy($this->getUser());
+        $this->check_ban_confirmation($a);
+
+        $this->entity_manager->persist($a);
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/admin/users/{uid}/ban/{bid}/disable", name="admin_users_ban_disable", requirements={"uid"="\d+","bid"="\d+"})
+     * @param int $uid
+     * @param int $bid
+     * @return Response
+     */
+    public function users_disable_ban(int $uid, int $bid): Response
+    {
+        $a = $this->entity_manager->getRepository(AccountRestriction::class)->find($bid);
+        if ($a === null || $a->getUser()->getId() !== $uid) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if (!$a->getActive() || $a->getExpires() && $a->getExpires() < new \DateTime()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $is_admin_confirmed = $is_super_confirmed = false;
+        foreach ($a->getConfirmedBy() as $confirmer) {
+            if ($this->user_handler->hasRole($confirmer, 'ROLE_ADMIN')) $is_admin_confirmed = true;
+            if ($this->user_handler->hasRole($confirmer, 'ROLE_SUPER')) $is_super_confirmed = true;
+        }
+
+        if ($is_super_confirmed && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_SUPER' )) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+        if ($is_admin_confirmed && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_ADMIN' )) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $a->setActive(false)->setInternalReason($a->getInternalReason() . " ~ [DISABLED BY {$this->getUser()->getName()}]");
+        $this->entity_manager->persist($a);
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
     }
 
     /**
      * @Route("api/admin/users/{id}/ban", name="admin_users_ban", requirements={"id"="\d+"})
      * @param int $id
      * @param JSONRequestParser $parser
-     * @param EntityManagerInterface $em
-     * @param AdminActionHandler $admh
      * @return Response
      */
-    public function users_ban(int $id, JSONRequestParser $parser, EntityManagerInterface $em, AdminActionHandler $admh): Response
+    public function users_ban(int $id, JSONRequestParser $parser): Response
     {
-        
-        if (!$parser->has_all(['reason'], true))
+        if (!$parser->has_all(['reason','duration','restriction'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        if (!$parser->has_all(['duration'], true))
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        
-        $reason  = $parser->get('reason');
-        $duration  = intval($parser->get('duration'));
-        
-        if ($admh->ban($this->getUser()->getId(), $id, $reason, $duration))
-            return AjaxResponse::success();
 
-        return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        $user = $this->entity_manager->getRepository(User::class)->find($id);
+        if (!$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if ($this->user_handler->hasRole( $user, 'ROLE_CROW' ) && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_ADMIN' ))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+        if ($this->user_handler->hasRole( $user, 'ROLE_ADMIN' ) && !$this->user_handler->hasRole( $this->getUser(), 'ROLE_SUPER' ))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+        if ($this->user_handler->hasRole( $user, 'ROLE_SUPER' ))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $reason    = trim($parser->get('reason'));
+        $note      = trim($parser->get('note'));
+        $duration  = $parser->get_int('duration');
+        $mask      = $parser->get_int('restriction', 0);
+
+        if ($duration === 0 || $mask <= 0 || ($mask & ~(AccountRestriction::RestrictionSocial | AccountRestriction::RestrictionGameplay)))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $a = (new AccountRestriction())
+            ->setUser($user)
+            ->setRestriction( $mask )
+            ->setOriginalDuration( $duration )
+            ->setCreated( new \DateTime() )
+            ->setActive( true )
+            ->setConfirmed( false )
+            ->setModerator( $this->getUser() )
+            ->setPublicReason( $reason )
+            ->setInternalReason( $note )
+            ->addConfirmedBy( $this->getUser() );
+        $this->check_ban_confirmation($a);
+        $this->entity_manager->persist($a);
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        }
+
+        return AjaxResponse::success();
     }
 
     /**
@@ -446,7 +554,6 @@ class AdminUserController extends AdminActionController
             case 'et': $users = $em->getRepository(User::class)->findBy(['eternalID' => $searchName]); break; // EternalTwin ID
             case 'v0': $users = $em->getRepository(User::class)->findBy(['validated' => false]); break; // Non-validated
             case 'x':  $users = $em->getRepository(User::class)->findAboutToBeDeleted(); break; // Non-validated
-            case 'b':  $users = $em->getRepository(User::class)->findByBanned(); break; // Banned
             case 'ro': $users = $em->getRepository(User::class)->findBy(['rightsElevation' => [User::ROLE_ORACLE]]); break; // Is Oracle
             case 'rc': $users = $em->getRepository(User::class)->findBy(['rightsElevation' => [User::ROLE_CROW]]);   break; // Is Crow
             case 'ra': $users = $em->getRepository(User::class)->findBy(['rightsElevation' => [User::ROLE_ADMIN, User::ROLE_SUPER]]);  break; // Is Admin

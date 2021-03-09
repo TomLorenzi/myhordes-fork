@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Annotations\GateKeeperProfile;
+use App\Entity\AccountRestriction;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
@@ -53,7 +54,7 @@ class GhostController extends CustomAbstractController
     {
         $user = $this->getUser();
 
-        if ($user->getShadowBan())
+        if ($this->user_handler->isRestricted( $user, AccountRestriction::RestrictionGameplay ))
             return $this->redirect($this->generateUrl( 'soul_disabled' ));
 
         /** @var CitizenRankingProxy $nextDeath */
@@ -335,7 +336,8 @@ class GhostController extends CustomAbstractController
         /** @var User $user */
         $user = $this->getUser();
 
-        if ($user->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+        if ($this->user_handler->isRestricted( $user, AccountRestriction::RestrictionGameplay ))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         /** @var CitizenRankingProxy $nextDeath */
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))

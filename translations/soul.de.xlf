@@ -2356,5 +2356,86 @@
         <target>In der Stadt gestorben</target>
       </segment>
     </unit>
+    <unit id="MJMhV5L" name="Kleine Stadt">
+      <notes>
+        <note category="german">Kleine Stadt</note>
+      </notes>
+      <segment>
+        <source>Kleine Stadt</source>
+        <target>Kleine Stadt</target>
+      </segment>
+    </unit>
+    <unit id="bElrYkF" name="Entfernte Regionen">
+      <notes>
+        <note category="german">Entfernte Regionen</note>
+      </notes>
+      <segment>
+        <source>Entfernte Regionen</source>
+        <target>Entfernte Regionen</target>
+      </segment>
+    </unit>
+    <unit id="7H7gGH1" name="Pandämonium">
+      <notes>
+        <note category="german">Pandämonium</note>
+      </notes>
+      <segment>
+        <source>Pandämonium</source>
+        <target>Pandämonium</target>
+      </segment>
+    </unit>
+    <unit id="2ZxNAfn" name="Private Stadt">
+      <notes>
+        <note category="german">Private Stadt</note>
+      </notes>
+      <segment>
+        <source>Private Stadt</source>
+        <target>Private Stadt</target>
+      </segment>
+    </unit>
+    <unit id="4KXz4lN" name="ALLE SAISONS">
+      <notes>
+        <note category="german">ALLE SAISONS</note>
+      </notes>
+      <segment>
+        <source>ALLE SAISONS</source>
+        <target>ALLE SAISONS</target>
+      </segment>
+    </unit>
+    <unit id="9cNHWGl" name="Seelenpunkte">
+      <notes>
+        <note category="german">Seelenpunkte</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte</source>
+        <target>Seelenpunkte</target>
+      </segment>
+    </unit>
+    <unit id="vXPHpS0" name="Zugriff auf die Rangliste einer bestimmten Saison:">
+      <notes>
+        <note category="german">Zugriff auf die Rangliste einer bestimmten Saison:</note>
+      </notes>
+      <segment>
+        <source>Zugriff auf die Rangliste einer bestimmten Saison:</source>
+        <target>Zugriff auf die Rangliste einer bestimmten Saison:</target>
+      </segment>
+    </unit>
+    <unit id="haNfUqH" name="Alle Saisons">
+      <notes>
+        <note category="german">Alle Saisons</note>
+      </notes>
+      <segment>
+        <source>Alle Saisons</source>
+        <target>Alle Saisons</target>
+      </segment>
+    </unit>
+    <unit id="9DAxndj" name="Spieler">
+      <notes>
+        <note category="german">Spieler</note>
+      </notes>
+      <segment>
+        <source>Spieler</source>
+        <target>Spieler</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

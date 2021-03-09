@@ -12,7 +12,7 @@
                     <div class="cell padded rw-6">{{ 'Andere Accounts'|trans({},'admin') }}</div>
                 </div>
                 {% for table in ma_report %}
-                    {% if not table.principal.shadowBan %}
+                    {% if not table.principal|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGameplay')) %}
                     {# @var table \App\Structures\CheatTable #}
                         <div class="row">
                             <div class="cell rw-4 padded">
@@ -28,7 +28,7 @@
                                 {% set group = [] %}
                                 {% for multi in table.users %}
                                     {% set group = group|merge([multi.id]) %}
-                                    <span class="small pointer" x-whitelist-alt="{{ url('admin_users_account_view', {id: multi.id}) }}" x-whitelist="{{ group|join('|') }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'whitelist', id: table.principal.id}) }}" {% if multi.shadowBan %}style="color:red; font-weight: bold"{% endif%} >
+                                    <span class="small pointer" x-whitelist-alt="{{ url('admin_users_account_view', {id: multi.id}) }}" x-whitelist="{{ group|join('|') }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'whitelist', id: table.principal.id}) }}" {% if multi|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGameplay')) %}style="color:red; font-weight: bold"{% endif%} >
                                         {{ multi.name }}
                                         {% if is_granted('ROLE_ADMIN') %}
                                             <div class="tooltip">

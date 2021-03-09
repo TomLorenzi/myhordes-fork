@@ -305,6 +305,7 @@ class User implements UserInterface, EquatableInterface
 
     /**
      * @return Collection|AdminBan[]
+     * @deprecated
      */
     public function getBannings(): Collection
     {
@@ -360,9 +361,6 @@ class User implements UserInterface, EquatableInterface
         if ($this->validated) $roles[] = 'ROLE_USER';
         else $roles[] = 'ROLE_REGISTERED';
 
-        if ($this->getIsBanned()) $roles[] = 'ROLE_FORUM_BANNED';
-
-        if ($this->getShadowBan()) $roles[] = 'ROLE_SHADOW_BANNED';
         if ($this->getEternalID()) $roles[] = 'ROLE_ETERNAL';
 
         return array_unique($roles);
@@ -407,40 +405,6 @@ class User implements UserInterface, EquatableInterface
         } else return $b1;
     }
 
-    public function getIsBanned(): bool {
-        foreach ($this->getBannings() as $b)
-            if ($b->getActive())
-                return true;
-        return false;
-    }
-
-    public function getLongestActiveBan(): ?AdminBan {
-        $ban = null;
-        foreach ($this->getBannings() as $b){
-            if ($b->getActive()) {
-                if (!isset($ban)) {
-                    $ban = $b;                       
-                }
-                else if ($b->getBanEnd() > $ban->getBanEnd())
-                    $ban = $b;     
-            }
-        }            
-        if (isset($ban))
-            return $ban;
-        return null;
-    }
-
-    /**
-     * @return Collection|AdminBan[]
-     */
-    public function getActiveBans(): Collection {
-        $bans = $this->getBannings();
-        foreach ($bans as $ban){
-                if (!($ban->getActive()))
-                    $bans->remove($ban->getId());  
-            }            
-        return $bans;
-    }
 
     public function getActiveCitizen(): ?Citizen {
         foreach ($this->getCitizens() as $c)
@@ -861,6 +825,10 @@ class User implements UserInterface, EquatableInterface
         return $this;
     }
 
+    /**
+     * @deprecated
+     * @return ShadowBan|null
+     */
     public function getShadowBan(): ?ShadowBan
     {
         return $this->shadowBan;

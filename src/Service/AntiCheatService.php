@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Entity\AccountRestriction;
 use App\Entity\ConnectionIdentifier;
 use App\Entity\User;
 use App\Structures\CheatTable;
@@ -109,7 +110,7 @@ class AntiCheatService {
                     if ($wl->getUsers()->contains( $fun_get_user($multi) )) continue 2;
                 $struct->addUser( $fun_get_user($multi) );
                 foreach ($time_list as $time_dif)
-                    $struct->addLikeliness( $fun_score_time($time_dif) * ($fun_get_user($multi)->getShadowBan() ? 2 : 1) );
+                    $struct->addLikeliness( $fun_score_time($time_dif) * ($this->user_handler->isRestricted( $fun_get_user($multi), AccountRestriction::RestrictionGameplay ) ? 2 : 1) );
             }
             $ret[$principal] = $struct;
         }

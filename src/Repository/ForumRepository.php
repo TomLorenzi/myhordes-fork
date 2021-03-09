@@ -24,9 +24,8 @@ class ForumRepository extends ServiceEntityRepository
     {
         $towns = [];
 
-        if (!$user->getShadowBan())
-            foreach ($user->getCitizens() as $citizen)
-                if ($citizen->getActive() && $citizen->getAlive()) $towns[] = $citizen->getTown();
+        foreach ($user->getCitizens() as $citizen)
+            if ($citizen->getActive() && $citizen->getAlive()) $towns[] = $citizen->getTown();
 
         $q = $this->createQueryBuilder('f')
             ->andWhere('f.town IN (:towns) OR f.town IS NULL')->setParameter('towns', $towns)

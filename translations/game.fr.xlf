@@ -18394,7 +18394,7 @@
       </notes>
       <segment>
         <source>Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.</source>
-        <target>![CDATA[<em>Cette action coûte 1 PA et a une chance réduite de fonctionner.</em>]]</target>
+        <target><![CDATA[<em>Cette action coûte 1 PA et a une chance réduite de fonctionner.</em>]]></target>
       </segment>
     </unit>
     <unit id="tN9xF04" name="32f43f5">

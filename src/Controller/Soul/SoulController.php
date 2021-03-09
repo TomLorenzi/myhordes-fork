@@ -4,6 +4,7 @@ namespace App\Controller\Soul;
 
 use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractController;
+use App\Entity\AccountRestriction;
 use App\Entity\Announcement;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
@@ -126,9 +127,23 @@ class SoulController extends CustomAbstractController
     public function soul_disabled(): Response
     {
         $user = $this->getUser();
-        if (!$user->getShadowBan())
+        if (!$this->user_handler->isRestricted( $user, AccountRestriction::RestrictionGameplay ))
             return $this->redirect($this->generateUrl( 'soul_me' ));
-        return $this->render( 'ajax/soul/acc_disabled.html.twig', ['ban' => $user->getShadowBan()]);
+
+        $largest = null;
+        $comment = null;
+
+        /** @var AccountRestriction[] $restrictions */
+        $restrictions = $this->entity_manager->getRepository(AccountRestriction::class)->findBy(['user' => $user, 'active' => true, 'confirmed' => true]);
+        foreach ($restrictions as $restriction) {
+            if (($restriction & AccountRestriction::RestrictionGameplay) === AccountRestriction::RestrictionGameplay) {
+                if ($largest === null || $restriction->getExpires() === null || ($largest->getExpires() !== null && $restriction->getExpires() > $largest->getExpires()))
+                    $largest = $restriction;
+            }
+        }
+
+
+        return $this->render( 'ajax/soul/acc_disabled.html.twig', ['restriction' => $largest]);
     }
 
     /**
@@ -173,7 +188,6 @@ class SoulController extends CustomAbstractController
     public function users_fuzzyfind(JSONRequestParser $parser, EntityManagerInterface $em, $url = 'soul_visit'): Response
     {
         $user = $this->getUser();
-        if ($user->getShadowBan()) return $this->render( 'ajax/soul/users_list.html.twig', [ 'users' => [] ]);
 
         if (!$parser->has_all(['name'], true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -517,7 +531,7 @@ class SoulController extends CustomAbstractController
     {
         $user = $this->getUser();
 
-        if ($this->getUser()->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+        if ($this->user_handler->isRestricted( $user, AccountRestriction::RestrictionComments )) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $id = $parser->get("id");
         /** @var CitizenRankingProxy $citizenProxy */
@@ -544,8 +558,6 @@ class SoulController extends CustomAbstractController
         $user = $this->getUser();
         if (!$user)
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
-
-        if ($this->getUser()->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $user->setExternalId(md5($user->getEmail() . mt_rand()));
         $entityManager->persist( $user );
@@ -653,7 +665,6 @@ class SoulController extends CustomAbstractController
         $user = $this->getUser();
 
         if ($upload) {
-            if ($this->getUser()->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
             if (!$payload) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
             
             $raw_processing = $conf->getGlobalConf()->get(MyHordesConf::CONF_RAW_AVATARS, false);
@@ -693,7 +704,6 @@ class SoulController extends CustomAbstractController
         $dy = (int)floor((float)$parser->get('dy', 0));
 
         $user = $this->getUser();
-        if ($this->getUser()->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $error = $this->user_handler->setUserSmallAvatar($user, null, $x, $y, $dx, $dy);
         if ($error !== UserHandler::NoError) return AjaxResponse::error( $error );
@@ -780,7 +790,7 @@ class SoulController extends CustomAbstractController
     {
         $user = $this->getUser();
 
-        if ($this->getUser()->getShadowBan() || $this->isGranted('ROLE_ETERNAL') || $this->isGranted('ROLE_DUMMY'))
+        if ($this->user_handler->getActiveRestrictions( $user ) !== AccountRestriction::RestrictionNone || $this->isGranted('ROLE_ETERNAL') || $this->isGranted('ROLE_DUMMY'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         if (!$passwordEncoder->isPasswordValid( $user, $parser->trimmed('pw') ))
@@ -875,7 +885,7 @@ class SoulController extends CustomAbstractController
 
         if ($active = $nextDeath->getCitizen()) {
             $active->setActive(false);
-            $active->setLastWords( $user->getShadowBan() ? '' : $last_words);
+            $active->setLastWords( $this->user_handler->isRestricted( $user, AccountRestriction::RestrictionComments ) ? '' : $last_words);
             $nextDeath = CitizenRankingProxy::fromCitizen( $active, true );
             $this->entity_manager->persist( $active );
         }

@@ -2,6 +2,7 @@
 
 namespace App\Controller\Messages;
 
+use App\Entity\AccountRestriction;
 use App\Entity\AdminDeletion;
 use App\Entity\AdminReport;
 use App\Entity\Citizen;
@@ -37,7 +38,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class MessageForumController extends MessageController
 {
-
     private function default_forum_renderer(int $fid, int $tid, int $pid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
         $num_per_page = 20;
 
@@ -220,7 +220,7 @@ class MessageForumController extends MessageController
 
         $user = $this->getUser();
         $permission = $this->perm->getEffectivePermissions($user,$forum);
-        if ($user->getIsBanned() || !$this->perm->isPermitted( $permission, ForumUsagePermissions::PermissionCreateThread ))
+        if ($this->userHandler->isRestricted( $user, AccountRestriction::RestrictionForum ) || !$this->perm->isPermitted( $permission, ForumUsagePermissions::PermissionCreateThread ))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (!$parser->has_all(['title','text'], true))
@@ -291,7 +291,7 @@ class MessageForumController extends MessageController
 
         $permissions = $this->perm->getEffectivePermissions($user, $forum);
 
-        if ($user->getIsBanned())
+        if ($this->userHandler->isRestricted( $user, AccountRestriction::RestrictionForum ))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $mod_post = false;
@@ -388,7 +388,7 @@ class MessageForumController extends MessageController
      */
     public function edit_post_api(int $fid, int $tid, int $pid, JSONRequestParser $parser, EntityManagerInterface $em, CrowService $crow): Response {
         $user = $this->getUser();
-        if ($user->getIsBanned()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        if ($this->userHandler->isRestricted( $user, AccountRestriction::RestrictionForum )) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $post = $em->getRepository(Post::class)->find($pid);
         if (!$post) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );

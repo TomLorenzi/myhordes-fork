@@ -9,7 +9,11 @@
 
             <p>
                 {{ 'Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.'|trans({},'soul') }}
-                <b>{{ 'Diese Sperre ist permanent.'|trans({},'soul') }}</b>
+                {% if restriction is null or restriction.expires is null %}
+                    <b>{{ 'Diese Sperre ist permanent.'|trans({},'soul') }}</b>
+                {% else %}
+                    <b>{{ 'Diese Sperre ist bis zu folgendem Zeitpunkt gültig:'|trans({},'soul') }} {{ restriction.expires|format_datetime('medium', 'short') }}</b>
+                {% endif %}
             </p>
 
             <p>
@@ -17,14 +21,13 @@
                 {{ 'Du kannst auch keiner neuen Stadt mehr beitreten.'|trans({},'soul') }}
             </p>
             <p>
-                {# @var ban \App\Entity\ShadowBan #}
-                {% if ban.reason is not null %}
-                    {{ 'Folgende Begründung wurde für deine Sperre hinterlegt: '|trans({},'soul') }} <i>"{{ ban.reason }}".</i>
+                {% if restriction.publicReason is not empty %}
+                    {{ 'Folgende Begründung wurde für deine Sperre hinterlegt: '|trans({},'soul') }} <i>"{{ restriction.publicReason }}".</i>
                 {% else %}
                     {{ 'Es wurde keine Begründung für diese Sperre hinterlegt.'|trans({},'soul') }}
                 {% endif %}
 
-                {{ 'Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.' }}
+                {{ 'Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.'|trans({},'soul') }}
             </p>
         </div>
     </div>

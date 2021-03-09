@@ -29,8 +29,6 @@ class SoulImportController extends SoulController
      */
     public function soul_import(TwinoidHandler $twin, string $code = ''): Response
     {
-        if ($this->getUser()->getShadowBan()) return $this->redirect($this->generateUrl( 'soul_disabled' ));
-
         $user = $this->getUser();
         $main = $this->entity_manager->getRepository(TwinoidImport::class)->findOneBy(['user' => $user, 'main' => true]);
 
@@ -57,8 +55,6 @@ class SoulImportController extends SoulController
     public function soul_import_viewer(int $id): Response
     {
         $user = $this->getUser();
-
-        if ($this->getUser()->getShadowBan()) return $this->redirect($this->generateUrl( 'soul_disabled' ));
 
         $import = $this->entity_manager->getRepository(TwinoidImport::class)->find( $id );
         if (!$import || $import->getUser() !== $user) return $this->redirect($this->generateUrl('soul_import'));
@@ -113,8 +109,6 @@ class SoulImportController extends SoulController
     public function soul_import_loader(string $code, JSONRequestParser $json, TwinoidHandler $twin, LoggerInterface $logger): Response
     {
         $user = $this->getUser();
-
-        if ($this->getUser()->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         if ($this->isGranted('ROLE_DUMMY'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
@@ -219,8 +213,6 @@ class SoulImportController extends SoulController
     public function soul_import_confirm(JSONRequestParser $json, TwinoidHandler $twin, int $id = -1): Response
     {
         $user = $this->getUser();
-
-        if ($this->getUser()->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $to_main = (bool)$json->get('main', false);
         $pending = null; $selected = null;
