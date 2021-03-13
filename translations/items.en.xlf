@@ -7253,7 +7253,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...</source>
-        <target>Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...</target>
+        <target>This has a truly bizarre taste, it's difficult to define. It does the job though: fills your stomach. On the other hand, it doesn't give you any extra energy...</target>
       </segment>
     </unit>
     <unit id="wt_Avmu" name="742d658">
