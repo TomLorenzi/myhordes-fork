@@ -18156,7 +18156,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du kannst &lt;strong&gt;pro Tag eine Heldentat&lt;/strong&gt; vollbringen und jede dieser Aktionen kann nur &lt;strong&gt;einmal&lt;/strong&gt; pro Partie ausgeführt werden:</source>
-        <target><![CDATA[Du kannst <strong>pro Tag eine Heldentat</strong> vollbringen und jede dieser Aktionen kann nur <strong>einmal</strong> pro Partie ausgeführt werden:]]></target>
+        <target><![CDATA[You can perform <strong>one heroic action per day</strong> and each of these actions <strong>one time only</strong> per game:]]></target>
       </segment>
     </unit>
     <unit id="uK7igyD" name="bd642fe">
