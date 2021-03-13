@@ -18372,7 +18372,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Ort (kann man überhaupt von Zuhause reden?), an dem %citizen% lebte, ist keinen Blick wert. Da gibt es nichts zu holen, selbst wenn man alles auseinandernimmt.</source>
-        <target>Der Ort (kann man überhaupt von Zuhause reden?), an dem %citizen% lebte, ist keinen Blick wert. Da gibt es nichts zu holen, selbst wenn man alles auseinandernimmt.</target>
+        <target>The place (can we call it a home?) where %citizen% lived isn't even worth looking at. There's nothing to recover, even after dismantling everything.</target>
       </segment>
     </unit>
     <unit id="mlyoouR" name="Inventar: %citizen%">
