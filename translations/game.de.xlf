@@ -8695,13 +8695,13 @@
         <target>Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.</target>
       </segment>
     </unit>
-    <unit id="yvgmhoy" name="3439ccb">
+    <unit id="gk3I32J" name="Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.">
       <notes>
-        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</note>
+        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</note>
       </notes>
       <segment>
-        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</source>
-        <target><![CDATA[Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.]]></target>
+        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</source>
+        <target><![CDATA[Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.]]></target>
       </segment>
     </unit>
     <unit id="UhCUwjo" name="Du kannst heute keine weiteren Beschwerden vorbringen.">
@@ -15838,13 +15838,13 @@
         <target>Die Revolte steht bevor!</target>
       </segment>
     </unit>
-    <unit id="o66h7gA" name="Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!">
+    <unit id="o66h7gA" name="Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; nicht erlaubt!">
       <notes>
-        <note category="german">Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!</note>
+        <note category="german">Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; nicht erlaubt!</note>
       </notes>
       <segment>
-        <source>Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!</source>
-        <target><![CDATA[Diese Aktion ist während der <strong>Chaosperiode</strong> night erlaubt!]]></target>
+        <source>Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; nicht erlaubt!</source>
+        <target><![CDATA[Diese Aktion ist während der <strong>Chaosperiode</strong> nicht erlaubt!]]></target>
       </segment>
     </unit>
     <unit id="RtIKPqy" name="Meisterkoch der Sterne">
@@ -18234,11 +18234,11 @@
     </unit>
     <unit id="20wAGQf" name="6489b1a">
       <notes>
-        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</note>
+        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</note>
       </notes>
       <segment>
-        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</source>
-        <target><![CDATA[Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst]]></target>
+        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</source>
+        <target><![CDATA[Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst]]></target>
       </segment>
     </unit>
     <unit id="bPobZD0" name="b1b989e">
