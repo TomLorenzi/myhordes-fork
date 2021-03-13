@@ -44,7 +44,7 @@ parameters:
             group: 'stpatrick_dig'
             chance: 0.4
           ruins:
-            - { name: 'fair', group: 'christmas_dig_fair', chance: 0.5 }
+            - { name: 'fair', group: 'stpatrick_dig_fair', chance: 0.5 }
         hooks:
     halloween:
       trigger:
