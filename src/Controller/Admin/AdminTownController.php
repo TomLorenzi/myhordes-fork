@@ -623,9 +623,7 @@ class AdminTownController extends AdminActionController
             /** @var Citizen $citizen */
             $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
 
-            $citizen->addRole($citizenRole);
-            $citizen->setPm($this->citizen_handler->getMaxPM($citizen));
-
+            $this->citizen_handler->addRole($citizen, $citizenRole);
             $this->entity_manager->persist($citizen);
         }
 
@@ -662,9 +660,7 @@ class AdminTownController extends AdminActionController
             /** @var Citizen $citizen */
             $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
 
-            $citizen->removeRole($citizenRole);
-            $citizen->setPm($this->citizen_handler->getMaxPM($citizen));
-
+            $this->citizen_handler->removeRole($citizen, $citizenRole);
             $this->entity_manager->persist($citizen);
         }
 

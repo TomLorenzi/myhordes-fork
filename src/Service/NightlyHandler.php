@@ -149,6 +149,8 @@ class NightlyHandler
                     }
                     else {
                         $citizen->setCampingCounter($citizen->getCampingCounter() + 1);
+                        $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> survived camping at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> with a survival chance of <info>" . ($survival_chance * 100) . "%</info>.");
+
                         // Grant blueprint if first camping on a ruin.
                         if ($citizen->getZone()->getBlueprint() === Zone::BlueprintAvailable && $citizen->getZone()->getBuryCount() <= 0) {
                             // Spawn BP.
@@ -160,8 +162,9 @@ class NightlyHandler
                             $citizen->getZone()->getFloor()->addItem($bp_item);
                             // Set zone blueprint.
                             $citizen->getZone()->setBlueprint(Zone::BlueprintFound);
+                            $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> dropped a blueprint <info>{$bp_name}</info>.");
+
                         }
-                        $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> survived camping at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> with a survival chance of <info>" . ($survival_chance * 100) . "%</info>.");
                     }
                 }
                 else {

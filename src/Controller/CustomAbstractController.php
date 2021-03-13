@@ -47,7 +47,7 @@ class CustomAbstractController extends AbstractController {
     public function getUserLanguage(): string {
         if ($this->getUser() && $this->getUser()->getLanguage())
             return $this->getUser()->getLanguage();
-        $l = Request::createFromGlobals()->getLocale();
+        $l = $this->container->get('request_stack')->getCurrentRequest()->getLocale();;
         if ($l) $l = explode('_', $l)[0];
         return in_array($l, ['en','de','es','fr']) ? $l : 'de';
     }

@@ -736,7 +736,7 @@ class SoulController extends CustomAbstractController
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $new_pw = $parser->trimmed('pw_new', '');
-        if (mb_strlen($new_pw) < 6) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        if (mb_strlen($new_pw) < 6) return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect);
 
         if (!$passwordEncoder->isPasswordValid( $user, $parser->trimmed('pw') ))
             return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );

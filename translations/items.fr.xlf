@@ -7940,5 +7940,23 @@
         <target>Une sorte de gros légume orange malodorant, comme vous n'en avez jamais vu auparavant. Une soudaine envie de le creuser vous prend, sans que vous sachiez pourquoi...</target>
       </segment>
     </unit>
+    <unit id="Cp5Hvee" name="%citizen% befehlen etwas zu trinken.">
+      <notes>
+        <note category="german">%citizen% befehlen etwas zu trinken.</note>
+      </notes>
+      <segment>
+        <source>%citizen% befehlen etwas zu trinken.</source>
+        <target>%citizen% befehlen etwas zu trinken.</target>
+      </segment>
+    </unit>
+    <unit id="M83i5Y." name="%citizen% befehlen etwas zu essen.">
+      <notes>
+        <note category="german">%citizen% befehlen etwas zu essen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% befehlen etwas zu essen.</source>
+        <target>%citizen% befehlen etwas zu essen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
