@@ -78,6 +78,9 @@ parameters:
           ap: 5
           injury: 0.5
           protection: false
+        complaints:
+          shun: 7
+          kill: 8
         carry_extra_bag: false
         meaty_bones_within_town: false
         building_attack_damage: false

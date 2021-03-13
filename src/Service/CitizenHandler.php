@@ -188,21 +188,22 @@ class CitizenHandler
 
         $nbComplaint = $this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen, Complaint::SeverityBanish);
 
-        $complaintNeeded = 8;
+        $conf = $this->conf->getTownConfiguration( $citizen->getTown() );
+        $complaintNeeded = $conf->get(TownConf::CONF_MODIFIER_COMPLAINTS_SHUN, 7);  
+        $complaintNeededKill = $conf->get(TownConf::CONF_MODIFIER_COMPLAINTS_SHUN, 8); 
+        $shunningEnabled = $conf->get(TownConf::CONF_FEATURE_SHUN, true);
 
-        $shunningEnabled = $this->conf->getTownConfiguration( $citizen->getTown() )->get(TownConf::CONF_FEATURE_SHUN, true);
-
-        // If the citizen is already shunned, we need 6 more complains to hang him
+        // If the citizen is already shunned, we need 1 more complains to hang him
         // If the citizen is already shunned and cage/gallows is not built, do nothing
         if ($citizen->getBanished()) {
             if (!$gallows && !$cage) return false;
-            $complaintNeeded = 6;
+            $complaintNeeded = $complaintNeededKill;
         }
 
         if (($shunningEnabled || $gallows || $cage) && $nbComplaint >= $complaintNeeded)
             $action = true;
 
-        if ($action && ($gallows || $cage)) {
+        if ($nbComplaint >= $complaintNeededKill && $action && ($gallows || $cage)) {
             $kill = true;
         }
 
