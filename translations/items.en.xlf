@@ -7829,7 +7829,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</source>
-        <target>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</target>
+        <target>You have nothing to open it with...</target>
       </segment>
     </unit>
     <unit id="L3OUyqa" name="e4855a7">

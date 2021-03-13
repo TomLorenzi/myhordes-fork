@@ -3274,7 +3274,7 @@
       </notes>
       <segment>
         <source>Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</source>
-        <target>Il vibre, vous titille et vous chatouille et vous fait oublier tous vos soucis pendant quelques instants (nécessite 1 pile par utilisation).</target>
+        <target>Vous vous installez confortablement chez vous et vous vous laissez aller... Mauvaise surprise : l'outil se révèle effroyablement douloureux à l'usage ! Néanmoins, vous finissez par y prendre goût. Et au bout de quelques instants, l'effet est radical: vous êtes en sueur, mais vous vous sentez plus... "zen". La pile à l'intérieur a été entièrement utilisée.</target>
       </segment>
     </unit>
     <unit id="EoaSigx" name="Das brauchst du gerade nicht ...">
@@ -7837,7 +7837,7 @@
       </notes>
       <segment>
         <source>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</source>
-        <target>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</target>
+        <target>Vous n'avez rien pour ouvrir ce truc...</target>
       </segment>
     </unit>
     <unit id="SJ.JIzZ" name="5e75224">
@@ -7864,7 +7864,7 @@
       </notes>
       <segment>
         <source>Du hast {item} eingenommen, verspürst aber keine nennenswerte Wirkung... Vielleicht hast du das gar nicht gebraucht?</source>
-        <target>Du hast {item} eingenommen, verspürst aber keine nennenswerte Wirkung... Vielleicht hast du das gar nicht gebraucht?</target>
+        <target>Vous utilisez {item}, mais ce produit ne semble avoir aucun effet immédiat notable... Peut-être n'en aviez vous pas vraiment besoin ?</target>
       </segment>
     </unit>
     <unit id="lXVMIpX" name="9f73205">
@@ -7891,7 +7891,7 @@
       </notes>
       <segment>
         <source>Hurlingstock</source>
-        <target>Hurlingstock</target>
+        <target>Crosse de Hockey</target>
       </segment>
     </unit>
     <unit id="8dLKyx6" name="01e4f48">
@@ -7900,7 +7900,7 @@
       </notes>
       <segment>
         <source>Ein kleiner Ratschlag. Wenn du schon den falschen Kampf wählst... dann wähle wenigstens die richtige Waffe.</source>
-        <target>Ein kleiner Ratschlag. Wenn du schon den falschen Kampf wählst... dann wähle wenigstens die richtige Waffe.</target>
+        <target>Un petit conseil. Si vous choisissez le mauvais combat... Au moins, choisissez la bonne arme.</target>
       </segment>
     </unit>
     <unit id="W0wWbGS" name="Guiness">
@@ -7918,7 +7918,8 @@
       </notes>
       <segment>
         <source>Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen</source>
-        <target>Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen</target>
+        <target>Rien de mieux qu’une pinte d'un breuvage noir pour inspirer la poésie, le rire et le combat contre les zombies... *Approuvé par Charlie Sheen
+</target>
       </segment>
     </unit>
     <unit id="5N_N9nB" name="Weicher Kürbis">
