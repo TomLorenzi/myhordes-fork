@@ -759,14 +759,13 @@ class ActionHandler
                 $box_opener_prop = $this->entity_manager->getRepository(ItemProperty::class )->findOneBy(['name' => 'box_opener']);
 
                 foreach ($action->getRequirements() as $req) {
-                    if ($req->getItem() === null) continue;
-                    if ($req->getItem()->getCount() <= 0) continue;
-
-                    if ($req->getItem()->getProperty() == $can_opener_prop) {
-                        $execute_info_cache['item_tool'] = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest('can_opener', 1, false, null, true)])[0]->getPrototype();
+                    if ($req->getItem() && $req->getItem()->getProperty() == $can_opener_prop) {
+                        $execute_info_cache['item_tool'] = $this->inventory_handler->fetchSpecificItems($citizen->getZone() ? $citizen->getInventory() : [$citizen->getInventory(),$citizen->getHome()->getChest()], [new ItemRequest('can_opener', 1, false, null, true)])[0]->getPrototype();
                         break;
-                    } else if ($req->getItem()->getProperty() == $box_opener_prop) {
-                        $execute_info_cache['item_tool'] = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest('box_opener', 1, false, null, true)])[0]->getPrototype();
+                    }
+
+                    if ($req->getItem() && $req->getItem()->getProperty() == $box_opener_prop) {
+                        $execute_info_cache['item_tool'] = $this->inventory_handler->fetchSpecificItems($citizen->getZone() ? $citizen->getInventory() : [$citizen->getInventory(),$citizen->getHome()->getChest()], [new ItemRequest('box_opener', 1, false, null, true)])[0]->getPrototype();
                         break;
                     }
                 }
