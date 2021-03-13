@@ -2430,7 +2430,7 @@
       </notes>
       <segment>
         <source>Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!</source>
-        <target>Wenn du deine Flucht erzwingst, wirst du zwangsläufig verletzt!</target>
+        <target>Vous serez blessé(e) si vous tentez de passer en force !</target>
       </segment>
     </unit>
     <unit id="TvN2VX9" name="Diese Aktion kostet dich 1 AP!">
