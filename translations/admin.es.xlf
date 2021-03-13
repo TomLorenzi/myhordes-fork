@@ -2368,5 +2368,356 @@
         <target>Für %target%</target>
       </segment>
     </unit>
+    <unit id="jBGmXFb" name="Ersteller">
+      <notes>
+        <note category="german">Ersteller</note>
+      </notes>
+      <segment>
+        <source>Ersteller</source>
+        <target>Ersteller</target>
+      </segment>
+    </unit>
+    <unit id="Fz9FcFZ" name="Stadt ansehen">
+      <notes>
+        <note category="german">Stadt ansehen</note>
+      </notes>
+      <segment>
+        <source>Stadt ansehen</source>
+        <target>Stadt ansehen</target>
+      </segment>
+    </unit>
+    <unit id="HQAYQ7y" name="Existierende Beschränkungen">
+      <notes>
+        <note category="german">Existierende Beschränkungen</note>
+      </notes>
+      <segment>
+        <source>Existierende Beschränkungen</source>
+        <target>Existierende Beschränkungen</target>
+      </segment>
+    </unit>
+    <unit id="d.ixmWC" name="Dieser Spieler hat eine weiße Weste.">
+      <notes>
+        <note category="german">Dieser Spieler hat eine weiße Weste.</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler hat eine weiße Weste.</source>
+        <target>Dieser Spieler hat eine weiße Weste.</target>
+      </segment>
+    </unit>
+    <unit id="FwMioy8" name="Info">
+      <notes>
+        <note category="german">Info</note>
+      </notes>
+      <segment>
+        <source>Info</source>
+        <target>Info</target>
+      </segment>
+    </unit>
+    <unit id="qvAoyVN" name="Bestätigt von">
+      <notes>
+        <note category="german">Bestätigt von</note>
+      </notes>
+      <segment>
+        <source>Bestätigt von</source>
+        <target>Bestätigt von</target>
+      </segment>
+    </unit>
+    <unit id="kTWILTI" name="Datum">
+      <notes>
+        <note category="german">Datum</note>
+      </notes>
+      <segment>
+        <source>Datum</source>
+        <target>Datum</target>
+      </segment>
+    </unit>
+    <unit id="hrvEXJr" name="Endet">
+      <notes>
+        <note category="german">Endet</note>
+      </notes>
+      <segment>
+        <source>Endet</source>
+        <target>Endet</target>
+      </segment>
+    </unit>
+    <unit id="DJfkxFo" name="Nicht bestätigt!">
+      <notes>
+        <note category="german">Nicht bestätigt!</note>
+      </notes>
+      <segment>
+        <source>Nicht bestätigt!</source>
+        <target>Nicht bestätigt!</target>
+      </segment>
+    </unit>
+    <unit id="jpPy6FB" name="Abgelaufen">
+      <notes>
+        <note category="german">Abgelaufen</note>
+      </notes>
+      <segment>
+        <source>Abgelaufen</source>
+        <target>Abgelaufen</target>
+      </segment>
+    </unit>
+    <unit id="ifwhezW" name="Deaktiviert">
+      <notes>
+        <note category="german">Deaktiviert</note>
+      </notes>
+      <segment>
+        <source>Deaktiviert</source>
+        <target>Deaktiviert</target>
+      </segment>
+    </unit>
+    <unit id="IvHcoEk" name="Interner Vermerk">
+      <notes>
+        <note category="german">Interner Vermerk</note>
+      </notes>
+      <segment>
+        <source>Interner Vermerk</source>
+        <target>Interner Vermerk</target>
+      </segment>
+    </unit>
+    <unit id="dd81ecc" name="Art">
+      <notes>
+        <note category="german">Art</note>
+      </notes>
+      <segment>
+        <source>Art</source>
+        <target>Art</target>
+      </segment>
+    </unit>
+    <unit id="Dm3TgUa" name="Sozial">
+      <notes>
+        <note category="german">Sozial</note>
+      </notes>
+      <segment>
+        <source>Sozial</source>
+        <target>Sozial</target>
+      </segment>
+    </unit>
+    <unit id="3a9NlWd" name="Stadt-Kom.">
+      <notes>
+        <note category="german">Stadt-Kom.</note>
+      </notes>
+      <segment>
+        <source>Stadt-Kom.</source>
+        <target>Stadt-Kom.</target>
+      </segment>
+    </unit>
+    <unit id="gIfLcdm" name="Globale Kom.">
+      <notes>
+        <note category="german">Globale Kom.</note>
+      </notes>
+      <segment>
+        <source>Globale Kom.</source>
+        <target>Globale Kom.</target>
+      </segment>
+    </unit>
+    <unit id="4L8kPem" name="Kommentare">
+      <notes>
+        <note category="german">Kommentare</note>
+      </notes>
+      <segment>
+        <source>Kommentare</source>
+        <target>Kommentare</target>
+      </segment>
+    </unit>
+    <unit id="mQVpay." name="Org.">
+      <notes>
+        <note category="german">Org.</note>
+      </notes>
+      <segment>
+        <source>Org.</source>
+        <target>Org.</target>
+      </segment>
+    </unit>
+    <unit id="aE.gAX6" name="Spiel">
+      <notes>
+        <note category="german">Spiel</note>
+      </notes>
+      <segment>
+        <source>Spiel</source>
+        <target>Spiel</target>
+      </segment>
+    </unit>
+    <unit id="FbY7TeM" name="Bestätigen">
+      <notes>
+        <note category="german">Bestätigen</note>
+      </notes>
+      <segment>
+        <source>Bestätigen</source>
+        <target>Bestätigen</target>
+      </segment>
+    </unit>
+    <unit id="ymT9mze" name="%d% Tage">
+      <notes>
+        <note category="german">%d% Tage</note>
+      </notes>
+      <segment>
+        <source>%d% Tage</source>
+        <target>%d% Tage</target>
+      </segment>
+    </unit>
+    <unit id="R9HFTdn" name="Neue Beschränkung hinzufügen">
+      <notes>
+        <note category="german">Neue Beschränkung hinzufügen</note>
+      </notes>
+      <segment>
+        <source>Neue Beschränkung hinzufügen</source>
+        <target>Neue Beschränkung hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id="o.gLHi8" name="24 Stunden">
+      <notes>
+        <note category="german">24 Stunden</note>
+      </notes>
+      <segment>
+        <source>24 Stunden</source>
+        <target>24 Stunden</target>
+      </segment>
+    </unit>
+    <unit id="YvnlIm5" name="Bestätigung erforderlich">
+      <notes>
+        <note category="german">Bestätigung erforderlich</note>
+      </notes>
+      <segment>
+        <source>Bestätigung erforderlich</source>
+        <target>Bestätigung erforderlich</target>
+      </segment>
+    </unit>
+    <unit id="j.lIpae" name="1 Jahr">
+      <notes>
+        <note category="german">1 Jahr</note>
+      </notes>
+      <segment>
+        <source>1 Jahr</source>
+        <target>1 Jahr</target>
+      </segment>
+    </unit>
+    <unit id="vFTx03L" name="Admin-Bestätigung erforderlich">
+      <notes>
+        <note category="german">Admin-Bestätigung erforderlich</note>
+      </notes>
+      <segment>
+        <source>Admin-Bestätigung erforderlich</source>
+        <target>Admin-Bestätigung erforderlich</target>
+      </segment>
+    </unit>
+    <unit id="rX0oy40" name="2 Jahre">
+      <notes>
+        <note category="german">2 Jahre</note>
+      </notes>
+      <segment>
+        <source>2 Jahre</source>
+        <target>2 Jahre</target>
+      </segment>
+    </unit>
+    <unit id="NhpWriw" name="Dauerhaft">
+      <notes>
+        <note category="german">Dauerhaft</note>
+      </notes>
+      <segment>
+        <source>Dauerhaft</source>
+        <target>Dauerhaft</target>
+      </segment>
+    </unit>
+    <unit id="VBYHRyg" name="Art der Beschränkung">
+      <notes>
+        <note category="german">Art der Beschränkung</note>
+      </notes>
+      <segment>
+        <source>Art der Beschränkung</source>
+        <target>Art der Beschränkung</target>
+      </segment>
+    </unit>
+    <unit id="t5PuA4i" name="Soziale Interaktion verbieten">
+      <notes>
+        <note category="german">Soziale Interaktion verbieten</note>
+      </notes>
+      <segment>
+        <source>Soziale Interaktion verbieten</source>
+        <target>Soziale Interaktion verbieten</target>
+      </segment>
+    </unit>
+    <unit id="N35nJiR" name="Posten in Foren verbieten">
+      <notes>
+        <note category="german">Posten in Foren verbieten</note>
+      </notes>
+      <segment>
+        <source>Posten in Foren verbieten</source>
+        <target>Posten in Foren verbieten</target>
+      </segment>
+    </unit>
+    <unit id="S.Z0svV" name="Stadt-interne Kommunikation verbieten">
+      <notes>
+        <note category="german">Stadt-interne Kommunikation verbieten</note>
+      </notes>
+      <segment>
+        <source>Stadt-interne Kommunikation verbieten</source>
+        <target>Stadt-interne Kommunikation verbieten</target>
+      </segment>
+    </unit>
+    <unit id="TofCy.V" name="Stadtübergreifende Kommunikation verbieten">
+      <notes>
+        <note category="german">Stadtübergreifende Kommunikation verbieten</note>
+      </notes>
+      <segment>
+        <source>Stadtübergreifende Kommunikation verbieten</source>
+        <target>Stadtübergreifende Kommunikation verbieten</target>
+      </segment>
+    </unit>
+    <unit id="4Ih2_KV" name="Kommentare verbieten">
+      <notes>
+        <note category="german">Kommentare verbieten</note>
+      </notes>
+      <segment>
+        <source>Kommentare verbieten</source>
+        <target>Kommentare verbieten</target>
+      </segment>
+    </unit>
+    <unit id="Hk8oxc5" name="Organisation in Gruppen verbieten">
+      <notes>
+        <note category="german">Organisation in Gruppen verbieten</note>
+      </notes>
+      <segment>
+        <source>Organisation in Gruppen verbieten</source>
+        <target>Organisation in Gruppen verbieten</target>
+      </segment>
+    </unit>
+    <unit id="IdwEk1H" name="Spielen verbieten">
+      <notes>
+        <note category="german">Spielen verbieten</note>
+      </notes>
+      <segment>
+        <source>Spielen verbieten</source>
+        <target>Spielen verbieten</target>
+      </segment>
+    </unit>
+    <unit id="67OtxCl" name="3e3c02a">
+      <notes>
+        <note category="german">Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.</note>
+      </notes>
+      <segment>
+        <source>Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.</source>
+        <target>Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.</target>
+      </segment>
+    </unit>
+    <unit id="6q.DKYz" name="Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.">
+      <notes>
+        <note category="german">Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.</note>
+      </notes>
+      <segment>
+        <source>Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.</source>
+        <target>Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.</target>
+      </segment>
+    </unit>
+    <unit id="3Bzuyaj" name="e76fc50">
+      <notes>
+        <note category="german">Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.</note>
+      </notes>
+      <segment>
+        <source>Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.</source>
+        <target>Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

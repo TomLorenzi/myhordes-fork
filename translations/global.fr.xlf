@@ -2652,5 +2652,14 @@
                                     <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>]]></target>
       </segment>
     </unit>
+    <unit id="qplNLmy" name="Bitte wähle die Art der Beschränkung.">
+      <notes>
+        <note category="german">Bitte wähle die Art der Beschränkung.</note>
+      </notes>
+      <segment>
+        <source>Bitte wähle die Art der Beschränkung.</source>
+        <target>Bitte wähle die Art der Beschränkung.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

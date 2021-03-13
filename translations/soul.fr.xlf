@@ -2411,5 +2411,176 @@
         <target>Toutes les saisons</target>
       </segment>
     </unit>
+    <unit id="G9tS6ug" name="Diese Sperre ist bis zu folgendem Zeitpunkt gültig:">
+      <notes>
+        <note category="german">Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</note>
+      </notes>
+      <segment>
+        <source>Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</source>
+        <target>Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</target>
+      </segment>
+    </unit>
+    <unit id="gLe5bOG" name="4e75a01">
+      <notes>
+        <note category="german">Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.</note>
+      </notes>
+      <segment>
+        <source>Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.</source>
+        <target>Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.</target>
+      </segment>
+    </unit>
+    <unit id="PBVB79s" name="Dein Account ist eingeschränkt!">
+      <notes>
+        <note category="german">Dein Account ist eingeschränkt!</note>
+      </notes>
+      <segment>
+        <source>Dein Account ist eingeschränkt!</source>
+        <target>Dein Account ist eingeschränkt!</target>
+      </segment>
+    </unit>
+    <unit id="6K1dKKS" name="a29022a">
+      <notes>
+        <note category="german">Einschränkungen werden von Moderatoren aufgrund von Fehlverhalten auferlegt. Im Folgenden siehst du eine Liste mit Funktionen, die dir aktuell nicht zur Verfügung stehen.</note>
+      </notes>
+      <segment>
+        <source>Einschränkungen werden von Moderatoren aufgrund von Fehlverhalten auferlegt. Im Folgenden siehst du eine Liste mit Funktionen, die dir aktuell nicht zur Verfügung stehen.</source>
+        <target>Einschränkungen werden von Moderatoren aufgrund von Fehlverhalten auferlegt. Im Folgenden siehst du eine Liste mit Funktionen, die dir aktuell nicht zur Verfügung stehen.</target>
+      </segment>
+    </unit>
+    <unit id="IHRCYe1" name="In Foren posten">
+      <notes>
+        <note category="german">In Foren posten</note>
+      </notes>
+      <segment>
+        <source>In Foren posten</source>
+        <target>In Foren posten</target>
+      </segment>
+    </unit>
+    <unit id="uNF4FkZ" name="Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.">
+      <notes>
+        <note category="german">Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.</note>
+      </notes>
+      <segment>
+        <source>Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.</source>
+        <target>Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.</target>
+      </segment>
+    </unit>
+    <unit id="AHcu..1" name="Kommunikation in der Stadt">
+      <notes>
+        <note category="german">Kommunikation in der Stadt</note>
+      </notes>
+      <segment>
+        <source>Kommunikation in der Stadt</source>
+        <target>Kommunikation in der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="6yvyO_B" name="7935937">
+      <notes>
+        <note category="german">Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.</note>
+      </notes>
+      <segment>
+        <source>Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.</source>
+        <target>Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.</target>
+      </segment>
+    </unit>
+    <unit id="74vPalP" name="Stadtübergreifende Kommunikation">
+      <notes>
+        <note category="german">Stadtübergreifende Kommunikation</note>
+      </notes>
+      <segment>
+        <source>Stadtübergreifende Kommunikation</source>
+        <target>Stadtübergreifende Kommunikation</target>
+      </segment>
+    </unit>
+    <unit id="EKVv6mi" name="Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.">
+      <notes>
+        <note category="german">Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.</note>
+      </notes>
+      <segment>
+        <source>Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.</source>
+        <target>Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.</target>
+      </segment>
+    </unit>
+    <unit id="4L8kPem" name="Kommentare">
+      <notes>
+        <note category="german">Kommentare</note>
+      </notes>
+      <segment>
+        <source>Kommentare</source>
+        <target>Kommentare</target>
+      </segment>
+    </unit>
+    <unit id="wY7rEv4" name="Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.">
+      <notes>
+        <note category="german">Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.</source>
+        <target>Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.</target>
+      </segment>
+    </unit>
+    <unit id="cnYKFrt" name="Gruppenorganisation">
+      <notes>
+        <note category="german">Gruppenorganisation</note>
+      </notes>
+      <segment>
+        <source>Gruppenorganisation</source>
+        <target>Gruppenorganisation</target>
+      </segment>
+    </unit>
+    <unit id="hzqTzKz" name="Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.">
+      <notes>
+        <note category="german">Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.</note>
+      </notes>
+      <segment>
+        <source>Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.</source>
+        <target>Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.</target>
+      </segment>
+    </unit>
+    <unit id="WPixbld" name="Spielen">
+      <notes>
+        <note category="german">Spielen</note>
+      </notes>
+      <segment>
+        <source>Spielen</source>
+        <target>Spielen</target>
+      </segment>
+    </unit>
+    <unit id="VNOZ2rq" name="9afe3a8">
+      <notes>
+        <note category="german">Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</note>
+      </notes>
+      <segment>
+        <source>Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</source>
+        <target>Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</target>
+      </segment>
+    </unit>
+    <unit id="wEtk74c" name="b6b8ea4">
+      <notes>
+        <note category="german">Dieser Hinweis ist nur für dich, nicht aber für Besucher auf deiner Seelenseite sichtbar.</note>
+      </notes>
+      <segment>
+        <source>Dieser Hinweis ist nur für dich, nicht aber für Besucher auf deiner Seelenseite sichtbar.</source>
+        <target>Dieser Hinweis ist nur für dich, nicht aber für Besucher auf deiner Seelenseite sichtbar.</target>
+      </segment>
+    </unit>
+    <unit id="cKxZipz" name="Dauerhafte Beschränkung">
+      <notes>
+        <note category="german">Dauerhafte Beschränkung</note>
+      </notes>
+      <segment>
+        <source>Dauerhafte Beschränkung</source>
+        <target>Dauerhafte Beschränkung</target>
+      </segment>
+    </unit>
+    <unit id="JH6DUBR" name="Ende der Beschränkung: %date%">
+      <notes>
+        <note category="german">Ende der Beschränkung: %date%</note>
+      </notes>
+      <segment>
+        <source>Ende der Beschränkung: %date%</source>
+        <target>Ende der Beschränkung: %date%</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

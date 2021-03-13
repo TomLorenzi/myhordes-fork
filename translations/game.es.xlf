@@ -6879,7 +6879,7 @@
     </unit>
     <unit id="Tzmt5qh" name="d848698">
       <notes>
-        <note category="german">Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</note>
+        <note category="german">Du hast heute bereits getrunken. Eine weitere Ration Wasser erlaubt dir heute nicht weitere AP.</note>
       </notes>
       <segment>
         <source>Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</source>
@@ -8679,7 +8679,7 @@
         <target>Tu herida en los ojos no facilita las cosas...</target>
       </segment>
     </unit>
-    <unit id="gk3I32J" name="Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.">
+    <unit id="yvgmhoy" name="3439ccb">
       <notes>
         <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</note>
       </notes>
@@ -18443,6 +18443,177 @@
       <segment>
         <source>Diese Leiche wurde bereits außerhalb der Stadt entsorgt!</source>
         <target>Diese Leiche wurde bereits außerhalb der Stadt entsorgt!</target>
+      </segment>
+    </unit>
+    <unit id="sUeYpBF" name="2847540">
+      <notes>
+        <note category="german">%citizen% hat versucht %item% aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat versucht %item% aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.</source>
+        <target>%citizen% hat versucht %item% aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.</target>
+      </segment>
+    </unit>
+    <unit id="LWSEhn0" name="ed08c19">
+      <notes>
+        <note category="german">Jemand hat %item% aus der Bank entwendet, aber er (oder sie) konnte nicht identifiziert werden.</note>
+      </notes>
+      <segment>
+        <source>Jemand hat %item% aus der Bank entwendet, aber er (oder sie) konnte nicht identifiziert werden.</source>
+        <target>Jemand hat %item% aus der Bank entwendet, aber er (oder sie) konnte nicht identifiziert werden.</target>
+      </segment>
+    </unit>
+    <unit id="pygRaEs" name="0a0a304">
+      <notes>
+        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</note>
+      </notes>
+      <segment>
+        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</source>
+        <target><![CDATA[Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst]]></target>
+      </segment>
+    </unit>
+    <unit id="56UUc2e" name="0ed952e">
+      <notes>
+        <note category="german">Du hast soeben %item% aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...</note>
+      </notes>
+      <segment>
+        <source>Du hast soeben %item% aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...</source>
+        <target>Du hast soeben %item% aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...</target>
+      </segment>
+    </unit>
+    <unit id="glz6Ktw" name="Dafür solltest du dein Labor verwenden...">
+      <notes>
+        <note category="german">Dafür solltest du dein Labor verwenden...</note>
+      </notes>
+      <segment>
+        <source>Dafür solltest du dein Labor verwenden...</source>
+        <target>Dafür solltest du dein Labor verwenden...</target>
+      </segment>
+    </unit>
+    <unit id="JEn24as" name="%citizen% bitten etwas aufzuheben.">
+      <notes>
+        <note category="german">%citizen% bitten etwas aufzuheben.</note>
+      </notes>
+      <segment>
+        <source>%citizen% bitten etwas aufzuheben.</source>
+        <target>%citizen% bitten etwas aufzuheben.</target>
+      </segment>
+    </unit>
+    <unit id="9URgee0" name="%citizen% befehlen die Umgebung abzusuchen.">
+      <notes>
+        <note category="german">%citizen% befehlen die Umgebung abzusuchen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% befehlen die Umgebung abzusuchen.</source>
+        <target>%citizen% befehlen die Umgebung abzusuchen.</target>
+      </segment>
+    </unit>
+    <unit id="joeoHly" name="%citizen% angreifen. Diese Aktion kostet dich %ap%.">
+      <notes>
+        <note category="german">%citizen% angreifen. Diese Aktion kostet dich %ap%.</note>
+      </notes>
+      <segment>
+        <source>%citizen% angreifen. Diese Aktion kostet dich %ap%.</source>
+        <target>%citizen% angreifen. Diese Aktion kostet dich %ap%.</target>
+      </segment>
+    </unit>
+    <unit id="H7wLj6X" name="%citizen% sagen mir nicht mehr zu folgen.">
+      <notes>
+        <note category="german">%citizen% sagen mir nicht mehr zu folgen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% sagen mir nicht mehr zu folgen.</source>
+        <target>%citizen% sagen mir nicht mehr zu folgen.</target>
+      </segment>
+    </unit>
+    <unit id="Iir2qAh" name="Allen befehlen, die Umgebung abzusuchen.">
+      <notes>
+        <note category="german">Allen befehlen, die Umgebung abzusuchen.</note>
+      </notes>
+      <segment>
+        <source>Allen befehlen, die Umgebung abzusuchen.</source>
+        <target>Allen befehlen, die Umgebung abzusuchen.</target>
+      </segment>
+    </unit>
+    <unit id="_G5UAQ0" name="Allen sagen mir nicht mehr zu folgen.">
+      <notes>
+        <note category="german">Allen sagen mir nicht mehr zu folgen.</note>
+      </notes>
+      <segment>
+        <source>Allen sagen mir nicht mehr zu folgen.</source>
+        <target>Allen sagen mir nicht mehr zu folgen.</target>
+      </segment>
+    </unit>
+    <unit id="v4V0uch" name="Dieser Bürger gräbt gerade in einer Zone.">
+      <notes>
+        <note category="german">Dieser Bürger gräbt gerade in einer Zone.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger gräbt gerade in einer Zone.</source>
+        <target>Dieser Bürger gräbt gerade in einer Zone.</target>
+      </segment>
+    </unit>
+    <unit id="Bh1Gj16" name="%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.">
+      <notes>
+        <note category="german">%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</note>
+      </notes>
+      <segment>
+        <source>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</source>
+        <target>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</target>
+      </segment>
+    </unit>
+    <unit id="lpKOzLM" name="b0171bc">
+      <notes>
+        <note category="german">Diese Information gibt dir einen Hinweis darauf, ob Aufklärer gewöhnlicherweise hier vorbeikommen.&lt;br /&gt;&lt;em&gt;Je mehr eine Zone erforscht wurde, desto geringer ist die Chance bei &lt;strong&gt;Betreten&lt;/strong&gt; entdeckt zu werden (du kennst dann ein paar Schleichwege etc...).&lt;/em&gt;</note>
+      </notes>
+      <segment>
+        <source>Diese Information gibt dir einen Hinweis darauf, ob Aufklärer gewöhnlicherweise hier vorbeikommen.&lt;br /&gt;&lt;em&gt;Je mehr eine Zone erforscht wurde, desto geringer ist die Chance bei &lt;strong&gt;Betreten&lt;/strong&gt; entdeckt zu werden (du kennst dann ein paar Schleichwege etc...).&lt;/em&gt;</source>
+        <target><![CDATA[Diese Information gibt dir einen Hinweis darauf, ob Aufklärer gewöhnlicherweise hier vorbeikommen.<br /><em>Je mehr eine Zone erforscht wurde, desto geringer ist die Chance bei <strong>Betreten</strong> entdeckt zu werden (du kennst dann ein paar Schleichwege etc...).</em>]]></target>
+      </segment>
+    </unit>
+    <unit id="JxANNhs" name="Versuchen etwas zu stehlen">
+      <notes>
+        <note category="german">Versuchen etwas zu stehlen</note>
+      </notes>
+      <segment>
+        <source>Versuchen etwas zu stehlen</source>
+        <target>Versuchen etwas zu stehlen</target>
+      </segment>
+    </unit>
+    <unit id="qZD8YpW" name="efb0a6d">
+      <notes>
+        <note category="german">Diebstahlsversuche können nur &lt;strong&gt;während der Nacht&lt;/strong&gt; unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!</note>
+      </notes>
+      <segment>
+        <source>Diebstahlsversuche können nur &lt;strong&gt;während der Nacht&lt;/strong&gt; unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!</source>
+        <target><![CDATA[Diebstahlsversuche können nur <strong>während der Nacht</strong> unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!]]></target>
+      </segment>
+    </unit>
+    <unit id="X1jhim7" name="Achtung! Deinen Mitbürgern wird das gar nicht gefallen.">
+      <notes>
+        <note category="german">Achtung! Deinen Mitbürgern wird das gar nicht gefallen.</note>
+      </notes>
+      <segment>
+        <source>Achtung! Deinen Mitbürgern wird das gar nicht gefallen.</source>
+        <target>Achtung! Deinen Mitbürgern wird das gar nicht gefallen.</target>
+      </segment>
+    </unit>
+    <unit id="l9RZq.z" name="4bd2b92">
+      <notes>
+        <note category="german">Da %citizen% tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;%townname%&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</note>
+      </notes>
+      <segment>
+        <source>Da %citizen% tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;%townname%&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</source>
+        <target><![CDATA[Da %citizen% tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>%townname%</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.]]></target>
+      </segment>
+    </unit>
+    <unit id="fY8p2vV" name="Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!">
+      <notes>
+        <note category="german">Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!</note>
+      </notes>
+      <segment>
+        <source>Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!</source>
+        <target>Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!</target>
       </segment>
     </unit>
   </file>

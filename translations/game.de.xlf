@@ -8695,7 +8695,7 @@
         <target>Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.</target>
       </segment>
     </unit>
-    <unit id="gk3I32J" name="Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.">
+    <unit id="3YClH4I" name="584c8f5">
       <notes>
         <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</note>
       </notes>
@@ -15838,7 +15838,7 @@
         <target>Die Revolte steht bevor!</target>
       </segment>
     </unit>
-    <unit id="o66h7gA" name="Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; nicht erlaubt!">
+    <unit id="p.fy7Bk" name="Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; nicht erlaubt!">
       <notes>
         <note category="german">Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; nicht erlaubt!</note>
       </notes>
@@ -18232,7 +18232,7 @@
         <target><![CDATA[<span>Wir kontrollieren die Zone ab sofort.</span>]]></target>
       </segment>
     </unit>
-    <unit id="20wAGQf" name="6489b1a">
+    <unit id="pygRaEs" name="0a0a304">
       <notes>
         <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</note>
       </notes>
@@ -18484,15 +18484,6 @@
         <target>Jemand hat %item% aus der Bank entwendet, aber er (oder sie) konnte nicht identifiziert werden.</target>
       </segment>
     </unit>
-    <unit id="pygRaEs" name="0a0a304">
-      <notes>
-        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</note>
-      </notes>
-      <segment>
-        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</source>
-        <target><![CDATA[Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst]]></target>
-      </segment>
-    </unit>
     <unit id="56UUc2e" name="0ed952e">
       <notes>
         <note category="german">Du hast soeben %item% aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...</note>
@@ -18626,6 +18617,33 @@
       <segment>
         <source>Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!</source>
         <target>Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!</target>
+      </segment>
+    </unit>
+    <unit id="yvgmhoy" name="3439ccb">
+      <notes>
+        <note category="german">Your &lt;strong&gt;sobriety, or lack thereof,&lt;/strong&gt; is quite inconvenient. Things become pretty tricky pretty quickly when you're completely wasted...</note>
+      </notes>
+      <segment>
+        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</source>
+        <target><![CDATA[Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.]]></target>
+      </segment>
+    </unit>
+    <unit id="l9RZq.z" name="4bd2b92">
+      <notes>
+        <note category="german">Da %citizen% tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;%townname%&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</note>
+      </notes>
+      <segment>
+        <source>Da %citizen% tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;%townname%&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</source>
+        <target><![CDATA[Da %citizen% tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>%townname%</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.]]></target>
+      </segment>
+    </unit>
+    <unit id="o66h7gA" name="Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!">
+      <notes>
+        <note category="german">Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!</source>
+        <target><![CDATA[Diese Aktion ist während der <strong>Chaosperiode</strong> night erlaubt!]]></target>
       </segment>
     </unit>
   </file>

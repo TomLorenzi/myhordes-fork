@@ -2629,5 +2629,113 @@
         <target>Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.</target>
       </segment>
     </unit>
+    <unit id="Fz9FcFZ" name="Stadt ansehen">
+      <notes>
+        <note category="german">Stadt ansehen</note>
+      </notes>
+      <segment>
+        <source>Stadt ansehen</source>
+        <target>Stadt ansehen</target>
+      </segment>
+    </unit>
+    <unit id="DJfkxFo" name="Nicht bestätigt!">
+      <notes>
+        <note category="german">Nicht bestätigt!</note>
+      </notes>
+      <segment>
+        <source>Nicht bestätigt!</source>
+        <target>Nicht bestätigt!</target>
+      </segment>
+    </unit>
+    <unit id="jpPy6FB" name="Abgelaufen">
+      <notes>
+        <note category="german">Abgelaufen</note>
+      </notes>
+      <segment>
+        <source>Abgelaufen</source>
+        <target>Abgelaufen</target>
+      </segment>
+    </unit>
+    <unit id="ifwhezW" name="Deaktiviert">
+      <notes>
+        <note category="german">Deaktiviert</note>
+      </notes>
+      <segment>
+        <source>Deaktiviert</source>
+        <target>Deaktiviert</target>
+      </segment>
+    </unit>
+    <unit id="dd81ecc" name="Art">
+      <notes>
+        <note category="german">Art</note>
+      </notes>
+      <segment>
+        <source>Art</source>
+        <target>Art</target>
+      </segment>
+    </unit>
+    <unit id="Dm3TgUa" name="Sozial">
+      <notes>
+        <note category="german">Sozial</note>
+      </notes>
+      <segment>
+        <source>Sozial</source>
+        <target>Sozial</target>
+      </segment>
+    </unit>
+    <unit id="3a9NlWd" name="Stadt-Kom.">
+      <notes>
+        <note category="german">Stadt-Kom.</note>
+      </notes>
+      <segment>
+        <source>Stadt-Kom.</source>
+        <target>Stadt-Kom.</target>
+      </segment>
+    </unit>
+    <unit id="gIfLcdm" name="Globale Kom.">
+      <notes>
+        <note category="german">Globale Kom.</note>
+      </notes>
+      <segment>
+        <source>Globale Kom.</source>
+        <target>Globale Kom.</target>
+      </segment>
+    </unit>
+    <unit id="4L8kPem" name="Kommentare">
+      <notes>
+        <note category="german">Kommentare</note>
+      </notes>
+      <segment>
+        <source>Kommentare</source>
+        <target>Kommentare</target>
+      </segment>
+    </unit>
+    <unit id="mQVpay." name="Org.">
+      <notes>
+        <note category="german">Org.</note>
+      </notes>
+      <segment>
+        <source>Org.</source>
+        <target>Org.</target>
+      </segment>
+    </unit>
+    <unit id="aE.gAX6" name="Spiel">
+      <notes>
+        <note category="german">Spiel</note>
+      </notes>
+      <segment>
+        <source>Spiel</source>
+        <target>Spiel</target>
+      </segment>
+    </unit>
+    <unit id="FbY7TeM" name="Bestätigen">
+      <notes>
+        <note category="german">Bestätigen</note>
+      </notes>
+      <segment>
+        <source>Bestätigen</source>
+        <target>Bestätigen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
