@@ -190,7 +190,7 @@ class CitizenHandler
 
         $conf = $this->conf->getTownConfiguration( $citizen->getTown() );
         $complaintNeeded = $conf->get(TownConf::CONF_MODIFIER_COMPLAINTS_SHUN, 7);  
-        $complaintNeededKill = $conf->get(TownConf::CONF_MODIFIER_COMPLAINTS_SHUN, 8); 
+        $complaintNeededKill = $conf->get(TownConf::CONF_MODIFIER_COMPLAINTS_KILL, 8); 
         $shunningEnabled = $conf->get(TownConf::CONF_FEATURE_SHUN, true);
 
         // If the citizen is already shunned, we need 1 more complains to hang him
