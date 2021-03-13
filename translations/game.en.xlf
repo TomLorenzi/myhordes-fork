@@ -18453,7 +18453,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>%citizen% hat versucht %item% aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.</source>
-        <target>%citizen% hat versucht %item% aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.</target>
+        <target>%citizen% tried to steal %item% from the bank without any sense of DISCRETION.</target>
       </segment>
     </unit>
     <unit id="LWSEhn0" name="ed08c19">
@@ -18462,7 +18462,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Jemand hat %item% aus der Bank entwendet, aber er (oder sie) konnte nicht identifiziert werden.</source>
-        <target>Jemand hat %item% aus der Bank entwendet, aber er (oder sie) konnte nicht identifiziert werden.</target>
+        <target>Someone stole %item% from the bank, but he (or she) couldn't be identified by anyone.</target>
       </segment>
     </unit>
     <unit id="pygRaEs" name="0a0a304">
@@ -18480,7 +18480,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du hast soeben %item% aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...</source>
-        <target>Du hast soeben %item% aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...</target>
+        <target>You succesfully stole %item% from the bank. Your name won't show up in the registery!</target>
       </segment>
     </unit>
     <unit id="glz6Ktw" name="Dafür solltest du dein Labor verwenden...">
@@ -18579,7 +18579,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Versuchen etwas zu stehlen</source>
-        <target>Versuchen etwas zu stehlen</target>
+        <target>Try to steal something</target>
       </segment>
     </unit>
     <unit id="qZD8YpW" name="efb0a6d">
@@ -18588,7 +18588,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Diebstahlsversuche können nur &lt;strong&gt;während der Nacht&lt;/strong&gt; unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!</source>
-        <target><![CDATA[Diebstahlsversuche können nur <strong>während der Nacht</strong> unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!]]></target>
+        <target><![CDATA[You may only try to steal <strong>during the night</strong>! The chance of success is low, and failure will be noted in the great registry!]]></target>
       </segment>
     </unit>
     <unit id="X1jhim7" name="Achtung! Deinen Mitbürgern wird das gar nicht gefallen.">
@@ -18597,7 +18597,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Achtung! Deinen Mitbürgern wird das gar nicht gefallen.</source>
-        <target>Achtung! Deinen Mitbürgern wird das gar nicht gefallen.</target>
+        <target>Attention! Your fellow citizen won't like it!</target>
       </segment>
     </unit>
     <unit id="l9RZq.z" name="4bd2b92">
@@ -18615,7 +18615,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!</source>
-        <target>Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!</target>
+        <target>Your attempted theft hasn't gone unnoticed! The town was warned!</target>
       </segment>
     </unit>
   </file>
