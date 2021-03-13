@@ -14509,7 +14509,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die &lt;strong&gt;Explosion des %plan%&lt;/strong&gt; hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...</source>
-        <target><![CDATA[Die <strong>Explosion des %plan%</strong> hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...]]></target>
+        <target><![CDATA[The whole region has been affected by the <strong>destruction of the %plan%</strong> ! This will certainly leave its mark...]]></target>
       </segment>
     </unit>
     <unit id="G93YC9H" name="8f993e1">
@@ -15764,7 +15764,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du wurdest verbannt!</source>
-        <target>Du wurdest verbannt!</target>
+        <target>You've been banished!</target>
       </segment>
     </unit>
     <unit id="dVyLKp_" name="Status:">
@@ -15782,7 +15782,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Eine Revolte liegt in weiter Ferne...</source>
-        <target>Eine Revolte liegt in weiter Ferne...</target>
+        <target>An uprising won't happen over night.</target>
       </segment>
     </unit>
     <unit id="x_WVlWR" name="Erste Spannungen bilden sich.">
@@ -15791,7 +15791,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Erste Spannungen bilden sich.</source>
-        <target>Erste Spannungen bilden sich.</target>
+        <target>The strains are starting to show.</target>
       </segment>
     </unit>
     <unit id="LL.dGkI" name="Wir machen Fortschritte.">
@@ -15800,7 +15800,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wir machen Fortschritte.</source>
-        <target>Wir machen Fortschritte.</target>
+        <target>We are making progress.</target>
       </segment>
     </unit>
     <unit id="id8VuDJ" name="Das Ende ist nah.">
@@ -15809,7 +15809,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das Ende ist nah.</source>
-        <target>Das Ende ist nah.</target>
+        <target>The end is near!</target>
       </segment>
     </unit>
     <unit id="DqJn30N" name="Die Revolte steht bevor!">
@@ -15818,7 +15818,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Revolte steht bevor!</source>
-        <target>Die Revolte steht bevor!</target>
+        <target>The insurrection is nearly upon us!</target>
       </segment>
     </unit>
     <unit id="o66h7gA" name="Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!">
@@ -16493,7 +16493,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>gering</source>
-        <target>gering</target>
+        <target>low</target>
       </segment>
     </unit>
     <unit id=".CQK_8d" name="hoch">
@@ -16502,7 +16502,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>hoch</source>
-        <target>hoch</target>
+        <target>high</target>
       </segment>
     </unit>
     <unit id="ssHCx3q" name="1d82f8e">
@@ -16511,7 +16511,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</source>
-        <target>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</target>
+        <target><![CDATA[The chance to be seen, while devouring a citizen, is <strong>%chances%]]></strong>...</target>
       </segment>
     </unit>
     <unit id="qD3lUP9" name="dc1e0ac">
@@ -17267,7 +17267,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Stadt hat folgende Gegenstände in Folge der Verbannung von %shunned% zurückerhalten: %list%</source>
-        <target>Die Stadt hat folgende Gegenstände in Folge der Verbannung von %shunned% zurückerhalten: %list%</target>
+        <target>The town received following item(s) after shunning %shunned% : %list%</target>
       </segment>
     </unit>
     <unit id="jjgpeoi" name="eef0357">
@@ -17904,10 +17904,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
                                 benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                                 kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                                 auffüllen.</source>
-        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                                auffüllen.</target>
+        <target>These are used to move around the World Beyond, the desert which surrounds the town...</target>
       </segment>
     </unit>
     <unit id="cNyto3M" name="Du wurdest zum Schamanen gewählt!">
@@ -18339,7 +18336,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Haus von %citizen%</source>
-        <target>Haus von %citizen%</target>
+        <target>House of %citizen%</target>
       </segment>
     </unit>
     <unit id="jTjC1Nt" name="Das Grab von %citizen%">
@@ -18348,7 +18345,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das Grab von %citizen%</source>
-        <target>Das Grab von %citizen%</target>
+        <target>The grave of %citizen%</target>
       </segment>
     </unit>
     <unit id="J5RUaZZ" name="990a9e7">
@@ -18366,7 +18363,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das Haus</source>
-        <target>Das Haus</target>
+        <target>The House</target>
       </segment>
     </unit>
     <unit id="x.bcUzY" name="2900312">
@@ -18384,7 +18381,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Inventar: %citizen%</source>
-        <target>Inventar: %citizen%</target>
+        <target>Inventory: %citizen%</target>
       </segment>
     </unit>
     <unit id="slYhiYZ" name="5d24e48">
@@ -18402,7 +18399,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:</source>
-        <target>Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:</target>
+        <target>After rummaging through his house, you find the following item(s):</target>
       </segment>
     </unit>
     <unit id="SEpgiMa" name="d18c7d1">

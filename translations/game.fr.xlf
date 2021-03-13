@@ -277,7 +277,7 @@
       </notes>
       <segment>
         <source>Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</source>
-        <target>La dernière plainte a été celle de trop. %citizen% a été bannis de la ville !</target>
+        <target>La dernière plainte a été celle de trop. %citizen% a été banni de la ville !</target>
       </segment>
     </unit>
     <unit id="gaDgdbl" name="Du kannst die Stadt von hier aus nicht betreten.">
@@ -1818,7 +1818,7 @@
       </notes>
       <segment>
         <source>Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:</source>
-        <target>C'est votre chance ! Saisissez-la et fuyez ! Bientôt, les zombies reprendront le contrôle de la zone. Il vous reste :</target>
+        <target><![CDATA[Vous avez <strong>perdu le contrôle</strong> de cette zone (par exemple si un citoyen a quitté la zone sans vous) ! Pour fuir avant de vous retrouver bloqué(e), il vous reste :]]></target>
       </segment>
     </unit>
     <unit id="1lHHd11" name="c57da02">
@@ -4340,7 +4340,7 @@
       </notes>
       <segment>
         <source>Deine Tarnung ist aufgeflogen!</source>
-        <target>Votre camouflage a été repéré !</target>
+        <target>Vous n'êtes plus camouflé(e) !</target>
       </segment>
     </unit>
     <unit id="K6Bt5zV" name="Müllhalde">
@@ -8305,7 +8305,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %target_citizen% aus der Eskorte entlassen.</source>
-        <target>%citizen% a laissé tomber %target_citizen%.</target>
+        <target>Finalement, %citizen% a décidé de planter %target_citizen% là.</target>
       </segment>
     </unit>
     <unit id="bkMZ85E" name="Horizont">
@@ -18259,7 +18259,7 @@
       </notes>
       <segment>
         <source>Da %citizen% tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;Verfluchte Seelenfänger&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</source>
-        <target><![CDATA[Da %citizen% tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>Verfluchte Seelenfänger</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.]]></target>
+        <target><![CDATA[%citizen% étant mort(e), il y a des fortes chances que son corps puisse être contaminé par les agents infectieux de <em>%townname%</em>. Il faut donc soit l'arroser, soit le jeter, sous peine de le voir se lever pour attaquer ses ex-concitoyens le soir même ...]]></target>
       </segment>
     </unit>
     <unit id="X28KXsi" name="Das Haus">
