@@ -3625,7 +3625,7 @@
       </notes>
       <segment>
         <source>Zweite Lunge</source>
-        <target>Second Wind</target>
+        <target>Second Lease of Life</target>
       </segment>
     </unit>
     <unit id="dIXELzM" name="Den Tod besiegen">
@@ -7649,7 +7649,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.</source>
-        <target>Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.</target>
+        <target>Miraculously discover a useful object.</target>
       </segment>
     </unit>
     <unit id="gNd6Hdo" name="Damit kannst du mit einem Schlag 2 Zombies umbringen!">
@@ -7658,7 +7658,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Damit kannst du mit einem Schlag 2 Zombies umbringen!</source>
-        <target>Damit kannst du mit einem Schlag 2 Zombies umbringen!</target>
+        <target>Kill 2 zombies with your bare hands!</target>
       </segment>
     </unit>
     <unit id="IhPwkzs" name="Stellt deine AP wieder her und beseitigt deine Müdigkeit.">
@@ -7667,7 +7667,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Stellt deine AP wieder her und beseitigt deine Müdigkeit.</source>
-        <target>Stellt deine AP wieder her und beseitigt deine Müdigkeit.</target>
+        <target>Restore your APs and recover from exhaustion.</target>
       </segment>
     </unit>
     <unit id="R.doQQs" name="a48c5f0">
@@ -7676,7 +7676,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Beim nächsten Angriff wird der Durst-, Infektions- und Abhängigkeitszustand außer Kraft gesetzt.</source>
-        <target>Beim nächsten Angriff wird der Durst-, Infektions- und Abhängigkeitszustand außer Kraft gesetzt.</target>
+        <target>As of the next attack, you will no longer be affected by thirst, infection or addiction.</target>
       </segment>
     </unit>
     <unit id="VDnHqpQ" name="e682f2e">
@@ -7685,7 +7685,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du bringst einen anderen Spieler nach Hause (dieser darf max. 2 Felder von der Stadt entfernt sein).</source>
-        <target>Du bringst einen anderen Spieler nach Hause (dieser darf max. 2 Felder von der Stadt entfernt sein).</target>
+        <target>Escort another player back to the town (from a maximum of 2 km).</target>
       </segment>
     </unit>
     <unit id="hs9mj9G" name="3c2ba85">
