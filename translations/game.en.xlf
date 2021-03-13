@@ -16511,7 +16511,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</source>
-        <target><![CDATA[The chance to be seen, while devouring a citizen, is <strong>%chances%]]></strong>...</target>
+        <target><![CDATA[The chance to be seen, while devouring a citizen, is <strong>%chances%</strong>...]]></target>
       </segment>
     </unit>
     <unit id="qD3lUP9" name="dc1e0ac">
