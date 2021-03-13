@@ -2,6 +2,8 @@
 
 namespace App\Controller\Messages;
 
+use App\Command\ResolveCommand;
+use App\Entity\AccountRestriction;
 use App\Entity\ActionCounter;
 use App\Entity\AdminReport;
 use App\Entity\Citizen;
@@ -39,9 +41,13 @@ class MessageTownMessageController extends MessageController
      * @param EntityManagerInterface $em
      * @param JSONRequestParser $parser
      * @param TranslatorInterface $t
+     * @param UserHandler $userHandler
      * @return Response
      */
     public function send_pm_api(EntityManagerInterface $em, JSONRequestParser $parser, TranslatorInterface $t, UserHandler $userHandler): Response {
+        if ($userHandler->isRestricted($this->getUser(), AccountRestriction::RestrictionTownCommunication))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
         $type      = $parser->get('type', "");
         $recipient = $parser->get('recipient', '');
         $title     = $parser->get('title', '');
@@ -408,6 +414,9 @@ class MessageTownMessageController extends MessageController
     public function home_answer_editor_post_api(int $tid, EntityManagerInterface $em): Response {
         $user = $this->getUser();
 
+        if ($this->userHandler->isRestricted($user, AccountRestriction::RestrictionTownCommunication))
+            return new Response("");
+
         $thread = $em->getRepository( PrivateMessageThread::class )->find( $tid );
         if ($thread === null) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
@@ -434,6 +443,9 @@ class MessageTownMessageController extends MessageController
      */
     public function home_new_editor_post_api(string $type): Response {
         $user = $this->getUser();
+
+        if ($this->userHandler->isRestricted($user, AccountRestriction::RestrictionTownCommunication))
+            return new Response("");
 
         $allowed_types = ['pm', 'global'];
         if(!in_array($type, $allowed_types)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );

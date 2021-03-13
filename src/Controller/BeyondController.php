@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Annotations\GateKeeperProfile;
+use App\Entity\AccountRestriction;
 use App\Entity\ActionCounter;
 use App\Entity\ChatSilenceTimer;
 use App\Entity\Citizen;
@@ -495,6 +496,9 @@ class BeyondController extends InventoryAwareController
      * @return Response
      */
     public function chat_desert_api(JSONRequestParser $parser): Response {
+        if ($this->user_handler->isRestricted($this->getActiveCitizen()->getUser(), AccountRestriction::RestrictionTownCommunication))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
         if ($this->getActiveCitizen()->getZone()->isTownZone())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 

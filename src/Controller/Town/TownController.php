@@ -4,6 +4,7 @@ namespace App\Controller\Town;
 
 use App\Annotations\GateKeeperProfile;
 use App\Controller\InventoryAwareController;
+use App\Entity\AccountRestriction;
 use App\Entity\ActionCounter;
 use App\Entity\Building;
 use App\Entity\BuildingVote;
@@ -1637,6 +1638,9 @@ class TownController extends InventoryAwareController
 
         if ($this->getActiveCitizen()->getBanished())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
+
+        if ($this->user_handler->isRestricted($this->getActiveCitizen()->getUser(), AccountRestriction::RestrictionTownCommunication))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         // Get town
         $town = $this->getActiveCitizen()->getTown();

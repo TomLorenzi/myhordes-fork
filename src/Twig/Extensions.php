@@ -36,6 +36,7 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
             new TwigFilter('bin_contains',  [$this, 'check_flag_1']),
             new TwigFilter('bin_overlaps',  [$this, 'check_flag_2']),
             new TwigFilter('restricted',  [$this, 'user_is_restricted']),
+            new TwigFilter('restricted_until',  [$this, 'user_restricted_until']),
         ];
     }
 
@@ -98,7 +99,11 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
         return $val & $mask;
     }
 
-    public function user_is_restricted(User $user, int $mask): bool {
+    public function user_is_restricted(User $user, ?int $mask = null): bool {
         return $this->userHandler->isRestricted($user,$mask);
+    }
+
+    public function user_restricted_until(User $user, ?int $mask = null): ?DateTime {
+        return $this->userHandler->getActiveRestrictionExpiration($user,$mask);
     }
 }

@@ -89,7 +89,6 @@ class MessageGlobalPMController extends MessageController
      */
     public function ping_fetch_new_messages(EntityManagerInterface $em, JSONRequestParser $parser, string $domain = '', int $id = 0): Response {
 
-
         $user = $this->getUser();
         if (!$user) return new AjaxResponse(['connected' => false, 'success' => true]);
         $rk = $parser->get_int('rk',0);
@@ -422,9 +421,14 @@ class MessageGlobalPMController extends MessageController
      * @param int $gid
      * @param int $uid
      * @param EntityManagerInterface $em
+     * @param UserHandler $userHandler
+     * @param PermissionHandler $perm
      * @return Response
      */
     public function pm_conversation_group_user_add(int $gid, int $uid, EntityManagerInterface $em, UserHandler $userHandler, PermissionHandler $perm): Response {
+
+        if ($userHandler->isRestricted($this->getUser(), AccountRestriction::RestrictionGlobalCommunication))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $group = $em->getRepository( UserGroup::class )->find($gid);
         if (!$group || $group->getType() !== UserGroup::GroupMessageGroup) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -793,6 +797,9 @@ class MessageGlobalPMController extends MessageController
      * @return Response
      */
     public function editor_pm_thread_api(EntityManagerInterface $em): Response {
+        if ($this->userHandler->isRestricted($this->getUser(), AccountRestriction::RestrictionGlobalCommunication))
+            return new Response("");
+
         if ($em->getRepository(UserGroupAssociation::class)->countRecentRecipients($this->getUser()) > 100)
             return $this->render( 'ajax/pm/non-editor.html.twig');
 
@@ -820,6 +827,9 @@ class MessageGlobalPMController extends MessageController
      * @return Response
      */
     public function editor_pm_post_api(int $id, EntityManagerInterface $em): Response {
+        if ($this->userHandler->isRestricted($this->getUser(), AccountRestriction::RestrictionGlobalCommunication))
+            return new Response("");
+
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => null,
             'tid' => null,
@@ -968,12 +978,11 @@ class MessageGlobalPMController extends MessageController
     /**
      * @Route("api/pm/{pid<\d+>}/report", name="pm_report_post_controller")
      * @param int $pid
-     * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @param TranslatorInterface $ti
      * @return Response
      */
-    public function report_post_api(int $pid, JSONRequestParser $parser, EntityManagerInterface $em, TranslatorInterface $ti): Response {
+    public function report_post_api(int $pid, EntityManagerInterface $em, TranslatorInterface $ti): Response {
         $user = $this->getUser();
 
         $message = $em->getRepository( GlobalPrivateMessage::class )->find( $pid );

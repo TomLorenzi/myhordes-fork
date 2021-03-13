@@ -89,7 +89,9 @@
     {% endfor %}
 
     {% if not thread.archived and not thread.locked and thread.sender %}
-        <button id="replybtn">{{ 'Antworten'|trans({},'global') }}</button>
+        {% if not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionTownCommunication')) %}
+            <button id="replybtn">{{ 'Antworten'|trans({},'global') }}</button>
+        {% endif %}
         <div id="pm-forum-editor"></div>
     {% endif %}
 </div>

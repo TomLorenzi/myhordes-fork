@@ -627,7 +627,7 @@ class UserHandler
         $r = AccountRestriction::RestrictionNone;
 
         /** @var QueryBuilder $qb */
-        $qb = $this->entity_manager->getRepository(AccountRestriction::class)->createQueryBuilder('p');
+        $qb = $this->entity_manager->getRepository(AccountRestriction::class)->createQueryBuilder('a');
         foreach ($qb
                      ->select('a.restriction AS r')
                      ->andWhere('a.user = :user' )->setParameter('user', $user)
@@ -640,8 +640,28 @@ class UserHandler
         return $r;
     }
 
-    public function isRestricted(User $user, int $restriction): bool {
+    public function getActiveRestrictionExpiration(User $user, ?int $restriction): ?DateTime {
+        $dt = null;
+
+        $qb = $this->entity_manager->getRepository(AccountRestriction::class)->createQueryBuilder('a');
+        foreach ($qb
+                     ->andWhere('a.user = :user' )->setParameter('user', $user)
+                     ->andWhere('(a.active = TRUE AND a.confirmed = true)')
+                     ->andWhere('a.restriction != :nores')->setParameter('nores', AccountRestriction::RestrictionNone)
+                     ->andWhere('(a.expires IS NULL or a.expires > :now)')->setParameter('now', new DateTime())
+                     ->getQuery()->getResult() as $entry)
+            /** @var AccountRestriction $entry */
+            if ( $restriction === null || ($entry->getRestriction() & $restriction) === $restriction ) {
+                if ($entry->getExpires() === null) return null;
+                if ($dt === null || $entry->getExpires() > $dt)
+                    $dt = $entry->getExpires();
+            }
+
+        return $dt;
+    }
+
+    public function isRestricted(User $user, ?int $restriction = null): bool {
         $r = $this->getActiveRestrictions($user);
-        return ($r & $restriction) === $restriction;
+        return $restriction === null ? ($r !== AccountRestriction::RestrictionNone) : (($r & $restriction) === $restriction);
     }
 }

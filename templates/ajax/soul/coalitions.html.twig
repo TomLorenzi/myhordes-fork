@@ -274,7 +274,8 @@
                             ref.removeAttribute('disabled');
                             fun_send_working = false;
                         });
-                    }, null,  () => {
+                    }, null,  (data) => {
+                        $.html.selectErrorMessage( data.error, {}, c.errors, data )
                         box.removeAttribute('disabled');
                         button.removeAttribute('disabled');
                         ref.removeAttribute('disabled');

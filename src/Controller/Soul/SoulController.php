@@ -136,12 +136,11 @@ class SoulController extends CustomAbstractController
         /** @var AccountRestriction[] $restrictions */
         $restrictions = $this->entity_manager->getRepository(AccountRestriction::class)->findBy(['user' => $user, 'active' => true, 'confirmed' => true]);
         foreach ($restrictions as $restriction) {
-            if (($restriction & AccountRestriction::RestrictionGameplay) === AccountRestriction::RestrictionGameplay) {
+            if (($restriction->getRestriction() & AccountRestriction::RestrictionGameplay) === AccountRestriction::RestrictionGameplay) {
                 if ($largest === null || $restriction->getExpires() === null || ($largest->getExpires() !== null && $restriction->getExpires() > $largest->getExpires()))
                     $largest = $restriction;
             }
         }
-
 
         return $this->render( 'ajax/soul/acc_disabled.html.twig', ['restriction' => $largest]);
     }
