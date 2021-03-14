@@ -46,6 +46,15 @@ parameters:
           ruins:
             - { name: 'fair', group: 'stpatrick_dig_fair', chance: 0.5 }
         hooks:
+    easter:
+      trigger:
+        type: easter
+        before: 4
+        after: 4
+      conf:
+        css: 'easter'
+        event_dig:
+        hooks:
     halloween:
       trigger:
         type: datetime

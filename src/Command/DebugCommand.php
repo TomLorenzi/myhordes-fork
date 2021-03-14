@@ -37,6 +37,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Validator\Constraints\Date;
 
 
 class DebugCommand extends Command
@@ -109,6 +110,7 @@ class DebugCommand extends Command
             ->addOption('reapply-twinoid-data', null, InputOption::VALUE_NONE, 'Re-applies the stored twinoid data for all users')
 
             ->addOption('current-event', null, InputOption::VALUE_OPTIONAL, 'Shows the current event.', false)
+            ->addOption('all-events', null, InputOption::VALUE_OPTIONAL, 'Shows the current event. Can take a year value.', false)
         ;
     }
 
@@ -497,6 +499,34 @@ class DebugCommand extends Command
             $event = $this->conf->getCurrentEvent(null,$m, $dateTime);
             if ($event->active()) $output->writeln("<comment>{$dateTime->format('c')}:</comment> Current event: <info>{$event->name()}</info>");
             else $output->writeln("<comment>{$dateTime->format('c')}:</comment> There is <info>no current event</info>.");
+        }
+
+        if (($y = $input->getOption('all-events')) !== false) {
+
+            $y = is_numeric($y) ? (int)$y : (int)(new DateTime())->format('Y');
+            $start = (new DateTime())->setDate( $y, 1, 1 );
+            $end = (new DateTime())->setDate( $y, 12, 31 );
+
+            $schedule = $this->conf->getAllScheduledEvents($start,$end);
+
+            $now = new DateTime();
+            $last = (new DateTime())->setDate( $y-1, 12, 31 );
+
+            if (!empty($schedule) && $now < $schedule[0][1])
+                $output->writeln( "<comment>{$now->format('c')} <-- We are here</comment>" );
+
+            foreach ($schedule as $entry) {
+                if ($now > $last && $now <= $entry[1])
+                    $output->writeln( "<comment>{$now->format('c')} <-- We are here</comment>" );
+                if ($entry[2])
+                    $output->writeln( "<comment>{$entry[1]->format('c')}</comment> <info>[start]</info> of event <info>{$entry[0]}</info>." );
+                else $output->writeln( "<comment>{$entry[1]->format('c')}</comment> <info> [end] </info> of event <info>{$entry[0]}</info>." );
+                $last = clone $entry[1];
+            }
+
+            if (!empty($schedule) && $now > end($schedule)[1])
+                $output->writeln( "<comment>{$now->format('c')} <-- We are here</comment>" );
+
         }
 
         return 0;

@@ -10,6 +10,9 @@ use App\Entity\Town;
 use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use DateInterval;
+use DateTime;
+use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 
 class ConfMaster
@@ -47,13 +50,56 @@ class ConfMaster
             : (new EventConf())->complete());
     }
 
+    public function getEventSchedule(array $trigger, DateTime $curDate, ?DateTime &$begin = null, ?DateTime &$end = null): bool {
+        $begin = $end = null;
+        if (empty($trigger['type'])) return false;
+
+        switch ($trigger['type']) {
+            case 'on':
+                return true;
+            case 'datetime':
+                list($beginDate, $beginTime) = explode(' ', $trigger['begin']);
+                list($endDate, $endTime) = explode(' ', $trigger['end']);
+
+                $begin = (new DateTime())->setDate((int)$curDate->format('Y'), explode('-', $beginDate)[0], explode('-', $beginDate)[1])->setTime(explode(':', $beginTime)[0], explode(':', $beginTime)[1], 0);
+                $end = (new DateTime())->setDate((int)$curDate->format('Y'), explode('-', $endDate)[0], explode('-', $endDate)[1])->setTime(explode(':', $endTime)[0], explode(':', $endTime)[1], 0);
+
+                break;
+            case 'easter':
+                $y = (int)$curDate->format('Y');
+
+                $k = floor( $y / 100 );
+                $q = floor( $k /   4 );
+                $d = (19 * ($y % 19) + ((15 + $k - ( floor( (8*$k + 13) / 25 ) ) - $q) % 30)) % 30;
+
+                $d_offset = $d + ((2 * ($y % 4) + 4 * ($y % 7) + 6 * $d + ((4  + $k - $q) % 7)) % 7);
+
+                $origin = DateTimeImmutable::createFromMutable((new DateTime( "$y-3-22"))->add( new DateInterval("P{$d_offset}D") ));
+
+                $begin = DateTime::createFromImmutable($origin->sub( new DateInterval("P{$trigger['before']}D") ));
+                $end = DateTime::createFromImmutable($origin->add( new DateInterval("P{$trigger['after']}D") ));
+
+                break;
+        }
+
+        if ($begin > $end) {
+            if ($curDate < $end) $begin->modify("-1 year");
+            else $end->modify("+1 year");
+        }
+
+        if ($curDate >= $begin && $curDate < $end)
+            return true;
+
+        return false;
+    }
+
     /**
      * @param Town|Citizen|null $ref
      * @param EventActivationMarker|null $marker
      * @param \DateTime|null $query_date
      * @return EventConf
      */
-    public function getCurrentEvent( $ref = null, ?EventActivationMarker &$marker = null, ?\DateTime $query_date = null): EventConf {
+    public function getCurrentEvent( $ref = null, ?EventActivationMarker &$marker = null, ?DateTime $query_date = null): EventConf {
         $marker = null;
         if ($ref !== null) {
 
@@ -69,33 +115,53 @@ class ConfMaster
         if ($this->event_conf !== null)
             return $this->event_conf;
 
-        $curDate = $query_date ?? new \DateTime();
+        $curDate = $query_date ?? new DateTime();
 
-        foreach($this->events as $id => $conf){
+        foreach($this->events as $id => $conf) {
 
-            if (empty($conf['trigger']) || empty($conf['trigger']['type'])) continue;
+            if (empty($conf['trigger'])) continue;
 
-            switch ($conf['trigger']['type']) {
-                case 'on':
-                    return $this->event_conf = $this->getEvent($id);
-                case 'datetime':
-                    list($beginDate, $beginTime) = explode(' ', $conf['trigger']['begin']);
-                    list($endDate, $endTime) = explode(' ', $conf['trigger']['end']);
+            if ($this->getEventSchedule($conf['trigger'], $curDate))
+                return $this->event_conf = $this->getEvent($id);
 
-                    $begin = (new \DateTime())->setDate((int)$curDate->format('Y'), explode('-', $beginDate)[0], explode('-', $beginDate)[1])->setTime(explode(':', $beginTime)[0], explode(':', $beginTime)[1], 0);
-                    $end = (new \DateTime())->setDate((int)$curDate->format('Y'), explode('-', $endDate)[0], explode('-', $endDate)[1])->setTime(explode(':', $endTime)[0], explode(':', $endTime)[1], 0);
-
-                    if ($begin > $end) {
-                        if ($curDate < $end) $begin->modify("-1 year");
-                        else $end->modify("+1 year");
-                    }
-
-                    if ($curDate >= $begin && $curDate < $end)
-                        return $this->event_conf = $this->getEvent($id);
-                    break;
-            }
         }
 
         return ($this->event_conf = (new EventConf())->complete());
+    }
+
+    public function getAllScheduledEvents(DateTime $from, DateTime $to, string $interval = '1D'): array {
+
+        $cache = [[],[]];
+
+        while ($from < $to) {
+
+            foreach($this->events as $id => $conf) {
+                if (empty($conf['trigger'])) continue;
+
+                $this->getEventSchedule($conf['trigger'], $from, $begin, $end);
+
+                if ($begin !== null && $end !== null) {
+
+                    if (!isset($cache[0][$id])) {
+                        $cache[0][$id] = [$begin];
+                        $cache[1][$id] = [$end];
+                    } elseif (($begin <> end( $cache[0][$id] ) || $end <> end( $cache[1][$id] )) && $begin < $to) {
+                        $cache[0][$id][] = $begin;
+                        $cache[1][$id][] = $end;
+                    }
+
+                }
+
+                $from->add(new DateInterval("P{$interval}"));
+            }
+
+        }
+
+        $result = [];
+        foreach ($cache[0] as $id => $dates) foreach ($dates as $date) $result[] = [ $id, $date, true ];
+        foreach ($cache[1] as $id => $dates) foreach ($dates as $date) $result[] = [ $id, $date, false ];
+
+        usort($result, fn(array $a, array $b) => $a[1] <=> $b[1] ?: $a[2] <=> $b[2] ?: strcmp($a[0],$b[0]) );
+        return $result;
     }
 }
