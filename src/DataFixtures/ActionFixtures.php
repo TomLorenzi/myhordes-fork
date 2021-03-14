@@ -440,7 +440,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'proj'   => [ 'lens_#00' ],
                 'empty_battery' => [ 'what' => ['pile_broken_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
                 'battery' => [ 'what' => ['pile_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
-                'safe'  => [ 'watergun_opt_part_#00', 'big_pgun_part_#00', 'lawn_part_#00', 'chainsaw_part_#00', 'mixergun_part_#00', 'cutcut_#00', 'pilegun_upkit_#00', 'book_gen_letter_#00', 'pocket_belt_#00', 'meca_parts_#00' ],
+                'safe'  => [ ['watergun_opt_part_#00',10], ['big_pgun_part_#00',5], ['lawn_part_#00',10], ['chainsaw_part_#00',10], ['mixergun_part_#00',10], ['cutcut_#00',10], ['pilegun_upkit_#00',10], ['book_gen_letter_#00',5], ['pocket_belt_#00',15], ['meca_parts_#00',10] ],
                 'asafe' => [ 'bplan_e_#00' ],
 
                 'lab_fail_drugs'    => [ 'what' => ['drug_#00', 'xanax_#00', 'drug_random_#00', 'drug_water_#00', 'water_cleaner_#00'], "where" => AffectItemSpawn::DropTargetFloor  ],
