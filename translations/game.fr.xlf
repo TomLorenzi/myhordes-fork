@@ -7666,7 +7666,8 @@
       </notes>
       <segment>
         <source>%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</source>
-        <target>%citizen% a fait tomber la pluie ! Le puits a gagné %num% rations d'eau !</target>
+        <target>%citizen% fait tomber de la pluie et grâce à lui le puits a regagné %num% rations d'eau potable !
+</target>
       </segment>
     </unit>
     <unit id="8c.i3q2" name="Zone reinigen">
