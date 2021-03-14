@@ -1150,6 +1150,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'vodka_#00'    => ['alcohol'],
             'vodka_de_#00' => ['alcohol'],
             'fest_#00'     => ['alcohol'],
+            'guiness_#00'  => ['alcohol'],
             'hmbrew_#00'   => ['alcohol_dx'],
 
             'coffee_#00'   => ['coffee'],
