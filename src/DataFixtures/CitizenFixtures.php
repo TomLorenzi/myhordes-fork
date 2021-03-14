@@ -220,7 +220,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         [
             'ref' => CauseOfDeath::ChocolateCross,
             'label' => 'Schokoladenkreuz',
-            'icon' => 'unknown',
+            'icon' => 'crucifixion',
             'desc' => '???',
             'pictos' => ['r_paques_#00']
         ],

@@ -375,7 +375,7 @@ class TownController extends InventoryAwareController
             'allow_devour_corpse' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_corpse'),
             'home' => $home,
             'actions' => $this->getItemActions(),
-            'can_complain' => !$this->getActiveCitizen()->getBanished() && ( !$c->getBanished() || $this->town_handler->getBuilding( $this->getActiveCitizen()->getTown(), 'r_dhang_#00', true ) || $this->town_handler->getBuilding( $this->getActiveCitizen()->getTown(), 'small_fleshcage_#00', true )),
+            'can_complain' => !$this->getActiveCitizen()->getBanished() && ( !$c->getBanished() || $this->town_handler->getBuilding( $this->getActiveCitizen()->getTown(), 'r_dhang_#00', true ) || $this->town_handler->getBuilding( $this->getActiveCitizen()->getTown(), 'small_fleshcage_#00', true ) || $this->town_handler->getBuilding( $this->getActiveCitizen()->getTown(), 'small_eastercross_#00', true )),
             'complaint' => $this->entity_manager->getRepository(Complaint::class)->findByCitizens( $this->getActiveCitizen(), $c ),
             'complaints' => $this->entity_manager->getRepository(Complaint::class)->matching( $criteria ),
             'complaintreasons' => $this->entity_manager->getRepository(ComplaintReason::class)->findAll(),
@@ -556,7 +556,7 @@ class TownController extends InventoryAwareController
         if ($severity != Complaint::SeverityNone && !$complaintReason)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $has_gallows = $th->getBuilding( $this->getActiveCitizen()->getTown(), 'r_dhang_#00', true );
+        $has_gallows = $th->getBuilding( $this->getActiveCitizen()->getTown(), 'r_dhang_#00', true ) ?? $th->getBuilding( $this->getActiveCitizen()->getTown(), 'small_eastercross_#00', true );
         $has_cage = $th->getBuilding( $this->getActiveCitizen()->getTown(), 'small_fleshcage_#00', true );
 
         $author = $this->getActiveCitizen();

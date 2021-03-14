@@ -55,6 +55,8 @@ parameters:
         css: 'easter'
         event_dig:
         hooks:
+          enable_town: 'App\Structures\Hook::enable_easter'
+          disable_town: 'App\Structures\Hook::disable_easter'
     halloween:
       trigger:
         type: datetime

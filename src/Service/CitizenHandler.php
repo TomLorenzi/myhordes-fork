@@ -268,7 +268,13 @@ class CitizenHandler
         if ($kill) {
             $rem = [];
             // The gallow is used before the cage
-            if ($gallows) {
+            // Since the gallow building can also be a chocolate cross, we need to check the type
+            if ($gallows && $gallows->getPrototype()->getName() === 'small_eastercross_#00') {
+                $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::ChocolateCross, $rem );
+
+                // The chocolate cross gets destroyed
+                $gallows->setComplete(false)->setAp(0)->setDefense(0)->setHp(0);
+            } elseif ($gallows) {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Hanging, $rem );
 
                 // The gallow gets destroyed
