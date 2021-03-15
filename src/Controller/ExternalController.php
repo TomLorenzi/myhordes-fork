@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Annotations\GateKeeperProfile;
 use App\Entity\ExternalApp;
+use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Entity\Town;
 use App\Entity\User;
@@ -430,7 +431,6 @@ class ExternalController extends InventoryAwareController {
         $user_data = [];
         file_put_contents("/tmp/dump.txt", "getUserdata\n");
         foreach($SURLL_request['user']['fields'] as $field) {
-            file_put_contents("/tmp/dump.txt", print_r($field, true) ."\n", FILE_APPEND);
             switch(true) {
                 case $field==="id":
                     $user_data['id']= $user->getId();
@@ -494,7 +494,7 @@ class ExternalController extends InventoryAwareController {
                         foreach($field as $ProtoFieldName => $ProtoFieldValue) {
                             switch(true) {
                                 case ($current_citizen && $ProtoFieldName==="map"):
-                                    if(!isset($ProtoFieldValue['languages'])) $field['map']['languages']= ['fr','en','de','es'];
+                                    if(!isset($ProtoFieldValue['languages'])) $field['map']['languages'] = ['fr','en','de','es'];
                                     if(!isset($ProtoFieldValue['fields'])) $field['map']['fields']= ['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom'];
                                     $field['map']['filters']= $current_citizen->getTown()->getId();
                                     $user_data['map'] = $this->getMapData($field, $originalUserID);
@@ -553,6 +553,60 @@ class ExternalController extends InventoryAwareController {
                 case $field==="days":
                     $data['days']= $town->getDay();
                 break;
+                default:
+                    if(is_array($field)) {
+                        foreach($field as $ProtoFieldName => $ProtoFieldValue) {
+                            switch(true) {
+                                case ($ProtoFieldName==="city"):
+                                    foreach ($ProtoFieldValue["fields"] as $innerFieldName) {
+                                        if(is_array($innerFieldName))continue;
+                                        file_put_contents("/tmp/dump.txt", print_r($innerFieldName, true), FILE_APPEND);
+
+                                        $data["city"][$innerFieldName] = [];
+                                        switch($innerFieldName){
+                                            case "bank":
+                                                // The town bank
+                                                foreach($town->getBank()->getItems() as $bankItem) {
+                                                    /** @var Item $bankItem */
+                                                    $str = "{$bankItem->getPrototype()->getId()}-" . intval($bankItem->getBroken());
+                                                    if (!isset($data["city"]["bank"][$str])) {
+                                                        $cat = $bankItem->getPrototype()->getCategory();
+                                                        while ($cat->getParent()) $cat = $cat->getParent();
+
+                                                        $item = [
+                                                            'deco' => $bankItem->getPrototype()->getDeco(),
+                                                            'count' => $bankItem->getCount(),
+                                                            'id' => $bankItem->getPrototype()->getId(),
+                                                            'cat' => $cat->getName(),
+                                                            'img' => $this->getIconPath($this->asset->getUrl("build/images/item/item_{$bankItem->getPrototype()->getIcon()}.gif")),
+                                                            'broken' => $bankItem->getBroken(),
+                                                            'heavy' => $bankItem->getPrototype()->getHeavy()
+                                                        ];
+                                                        if (!is_array($SURLL_request['map']['languages']) && $field['map']['languages'] !== 'all') {
+                                                            $item['name'] = $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items');
+                                                        } else if (is_array($SURLL_request['map']['languages'])){
+                                                            foreach ($SURLL_request['map']['languages'] as $lang) {
+                                                                $item["name-$lang"] = $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items', $lang);
+                                                            }
+                                                        } else {
+                                                            foreach ($this->available_langs as $lang) {
+                                                                $item["name-$lang"] = $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items', $lang);
+                                                            }
+                                                        }
+                                                        $data["city"]["bank"][$str] = $item;
+
+                                                    } else $data["city"]["bank"][$str]['count'] += $bankItem->getCount();
+                                                }
+                                                usort( $data['city']['bank'],
+                                                    fn($a,$b) => $a['id'] <=> $b['id'] ?? $b['broken'] <=> $a['broken']);
+                                                break;
+                                        }
+                                    }
+                                    break;
+                            }
+                        }
+                    }
+                    break;
             }
         }
         return $data;
