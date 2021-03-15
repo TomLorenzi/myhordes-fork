@@ -15657,11 +15657,11 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="uEhXFSv" name="3cb07f6">
       <notes>
-        <note category="german">Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</note>
+        <note category="german">%disposing_citizen% hat %citizen% ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.</note>
       </notes>
       <segment>
-        <source>Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</source>
-        <target>Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</target>
+        <source>%disposing_citizen% hat %citizen% ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.</source>
+        <target>%disposing_citizen% put %citizen% on fire. You weren't aware a party was about to start ! Smokin' !</target>
       </segment>
     </unit>
     <unit id="krk9RGq" name="%citizen% ist ausgegangen...">

@@ -15723,13 +15723,13 @@
         <target><![CDATA[Du haut de la tour, vous examinez le désert environnant, puis tentez de compter les zombies présents, pour enfin essayer de prévoir leurs déplacements... <br />Après quelques minutes d'intense réflexion, vous consignez ces informations dans le <strong>registre de la Tour de Guet</strong>.<hr />Avec ces informations et celles d'autres citoyens, on devrait pouvoir faire une estimation correcte de l'attaque...]]></target>
       </segment>
     </unit>
-    <unit id="uEhXFSv" name="3cb07f6">
+    <unit id="BRQ3HAz" name="4427aca">
       <notes>
-        <note category="german">Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</note>
+        <note category="german">%disposing_citizen% hat %citizen% ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.</note>
       </notes>
       <segment>
-        <source>Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</source>
-        <target>Grâce aux efforts de %disposing_citizen%, le corps de %citizen% a été cuisiné en bon p'tit plat.</target>
+        <source>%disposing_citizen% hat %citizen% ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.</source>
+        <target>%disposing_citizen% a mis %citizen%, son pote, au feu. Vous vous disiez bien que ça sentait bon...</target>
       </segment>
     </unit>
     <unit id="GH4aDYM" name="feb2e53">
@@ -18647,6 +18647,15 @@
       <segment>
         <source>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</source>
         <target>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</target>
+      </segment>
+    </unit>
+    <unit id="xJvvYYd" name="89244b5">
+      <notes>
+        <note category="german">Die Bürger der Stadt haben entschieden, %citizen% zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!</note>
+      </notes>
+      <segment>
+        <source>Die Bürger der Stadt haben entschieden, %citizen% zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!</source>
+        <target>Les citoyens ont décidé de crucifier %citizen% ! La croix en chocolat a été mangée par les citoyens au cours de ce tragique évènement !</target>
       </segment>
     </unit>
   </file>

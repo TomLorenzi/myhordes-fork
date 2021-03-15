@@ -15672,10 +15672,10 @@
     </unit>
     <unit id="uEhXFSv" name="3cb07f6">
       <notes>
-        <note category="german">Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</note>
+        <note category="german">%disposing_citizen% hat %citizen% ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.</note>
       </notes>
       <segment>
-        <source>Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</source>
+        <source>%disposing_citizen% hat %citizen% ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.</source>
         <target>Agradezcamos a %disposing_citizen% por haber cocinado a fuego lento el cadáver de %citizen%, convirtiéndolo así en una nutritiva fuente de proteínas...</target>
       </segment>
     </unit>

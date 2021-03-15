@@ -3268,5 +3268,14 @@
         <target>Clôture</target>
       </segment>
     </unit>
+    <unit id="i0KuVv1" name="Schokoladenkreuz">
+      <notes>
+        <note category="german">Schokoladenkreuz</note>
+      </notes>
+      <segment>
+        <source>Schokoladenkreuz</source>
+        <target>Croix en chocolat</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
