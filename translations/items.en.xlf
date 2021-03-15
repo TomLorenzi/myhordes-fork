@@ -7757,7 +7757,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!</source>
-        <target>Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!</target>
+        <target>You're not wearing your camouflage vest, so you will no longer receive your stealth bonus !</target>
       </segment>
     </unit>
     <unit id="K5gMU.j" name="Kreischender Wecker (entladen)">
@@ -7820,7 +7820,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Nun, da dein Hündchen auf Droge ist, kann es selbst schwere und sperrige Gegenstände in die Stadt schleppen. Dir fällt auf, dass es ohne Ende sabbert. Es sieht aus, als würde er dich jeden Augenblick anspringen.</source>
-        <target>Nun, da dein Hündchen auf Droge ist, kann es selbst schwere und sperrige Gegenstände in die Stadt schleppen. Dir fällt auf, dass es ohne Ende sabbert. Es sieht aus, als würde er dich jeden Augenblick anspringen.</target>
+        <target>Now the labradoodle is on steroids, it can carry heavy stuff to the town. You notice that he is now drooling constantly and in increasing quantities. It looks like an attack is a matter of minutes away.</target>
       </segment>
     </unit>
     <unit id=".pqCaKH" name="Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...">
