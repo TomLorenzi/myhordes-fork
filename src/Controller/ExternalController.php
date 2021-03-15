@@ -312,7 +312,7 @@ class ExternalController extends InventoryAwareController {
         if(trim($val)==='') {
             $val = $request->query->get($param);
         }
-        
+
         if(trim($val)==='') {
             return false;
         } else {
@@ -428,7 +428,9 @@ class ExternalController extends InventoryAwareController {
         }
         $current_citizen= $user->getActiveCitizen();
         $user_data = [];
+        file_put_contents("/tmp/dump.txt", "getUserdata\n");
         foreach($SURLL_request['user']['fields'] as $field) {
+            file_put_contents("/tmp/dump.txt", print_r($field, true) ."\n", FILE_APPEND);
             switch(true) {
                 case $field==="id":
                     $user_data['id']= $user->getId();
@@ -442,14 +444,14 @@ class ExternalController extends InventoryAwareController {
                         $user_data['avatar']= $this->generateUrl('app_web_avatar', ['uid' => $user->getId(), 'name' => $has_avatar->getFilename(), 'ext' => $has_avatar->getFormat()], UrlGeneratorInterface::ABSOLUTE_URL);
                     } else $user_data['avatar'] = false;
                     break;
-                //case $field==="homeMessage": // It's a future feature because isn't existe now
-                    //  $user_data['homeMessage']= $user->getHomeMessage();
-                    //break;
                 case $field==="isGhost":
                     $user_data['isGhost']= ($current_citizen === null);
                 break;
+                case ($current_citizen && $field==="homeMessage"):
+                    $user_data['homeMessage']= $current_citizen->getHome()->getDescription();
+                    break;
                 case ($current_citizen && $field==="hero"):
-                    $user_data['hero']= $current_citizen->getProfession()->getHeroic();
+                    $user_data['hero'] = $current_citizen->getProfession()->getHeroic();
                 break;
                 case ($current_citizen && $field==="dead"):
                     $user_data['dead']= !$current_citizen->getAlive();
@@ -474,6 +476,9 @@ class ExternalController extends InventoryAwareController {
                     $zone = $current_citizen->getTown()->getChaos() ? null : $current_citizen->getZone();
                     $user_data['y']= $zone ? $zone->getY() : 0;
                 break;
+                case ($current_citizen && $field==="mapId"):
+                    $user_data['mapId']= $current_citizen->getTown()->getId();
+                    break;
                 case ($current_citizen && $field==="map"):
                     $user_data['map']= $this->getMapData(['map' => [
                         'filters' => $current_citizen->getTown()->getId(),
@@ -489,10 +494,10 @@ class ExternalController extends InventoryAwareController {
                         foreach($field as $ProtoFieldName => $ProtoFieldValue) {
                             switch(true) {
                                 case ($current_citizen && $ProtoFieldName==="map"):
-                                    if(!isset($ProtoFieldValue['languages'])) $ProtoFieldValue['languages']= ['fr','en','de','es'];
-                                    if(!isset($ProtoFieldValue['fields'])) $ProtoFieldValue['fields']= ['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom'];
-                                    $ProtoFieldValue['filters']= $current_citizen->getTown()->getId();
-                                    $user_data['map']= $this->getMapData($ProtoFieldValue, $originalUserID);
+                                    if(!isset($ProtoFieldValue['languages'])) $field['map']['languages']= ['fr','en','de','es'];
+                                    if(!isset($ProtoFieldValue['fields'])) $field['map']['fields']= ['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom'];
+                                    $field['map']['filters']= $current_citizen->getTown()->getId();
+                                    $user_data['map'] = $this->getMapData($field, $originalUserID);
                                 break;
                             }
                         }
@@ -505,6 +510,7 @@ class ExternalController extends InventoryAwareController {
             
     private function getMapData($SURLL_request, $originalUserID): array {
         /** @var Town $town */
+        //file_put_contents("/tmp/dump.txt", print_r($SURLL_request, true));
         $town= $this->entity_manager->getRepository(Town::class)->findOneBy(['id' => $SURLL_request['map']['filters']]);
         if (!$town) {
             return ["error" => "UnknownMap"];
