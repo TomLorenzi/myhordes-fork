@@ -7766,7 +7766,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Kreischender Wecker (entladen)</source>
-        <target>Kreischender Wecker (entladen)</target>
+        <target>Screaming Alarm Clock (incomplete)</target>
       </segment>
     </unit>
     <unit id="rigrkZL" name="e192faa">
@@ -7775,7 +7775,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert.</source>
-        <target>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert.</target>
+        <target>There's nothing quite like a good alarm to stimulate the old ear drums of a morning.</target>
       </segment>
     </unit>
     <unit id="6tPO5Yd" name="Kreischender Wecker (mit Strom)">
@@ -7784,7 +7784,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Kreischender Wecker (mit Strom)</source>
-        <target>Kreischender Wecker (mit Strom)</target>
+        <target>Screaming Alarm Clock (ready)</target>
       </segment>
     </unit>
     <unit id="4h5ljTX" name="b317cb5">
@@ -7793,7 +7793,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei.</source>
-        <target>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei.</target>
+        <target>There's nothing quite like it to stimulate the old eardrums of a morning (It's ready to use). It lets you start the day on the right foot with a bonus of 1 extra AP given after the attack. It must be kept in you rucksack to work.</target>
       </segment>
     </unit>
     <unit id="ApkAd1P" name="Möchtest du %target% heimbringen?">
