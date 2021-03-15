@@ -18408,7 +18408,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Als du ins Fenster schaust, bemerkst du, dass %citizen%s Haus keine wertvollen Gegenständen mehr enthält. Wahrscheinlich haben andere Bürger schon alles, was nicht niet- und nagelfest war, mitgenommen...</source>
-        <target>Looking through the window, you decide that %citizen%'s house is to all intents and purposes void of anything of interest. No doubt the other citizens have already recovered everything of any value./target>
+        <target>Looking through the window, you decide that %citizen%'s house is to all intents and purposes void of anything of interest. No doubt the other citizens have already recovered everything of any value.</target>
       </segment>
     </unit>
     <unit id="N0yoB1W" name="235e0ff">
