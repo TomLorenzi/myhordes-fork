@@ -760,7 +760,7 @@ class ActionHandler
 
                 foreach ($action->getRequirements() as $req) {
                     if (!$req->getItem() || $req->getItem()->getCount() <= 0) continue;
-                    
+
                     if ($req->getItem() && $req->getItem()->getProperty() == $can_opener_prop) {
                         $execute_info_cache['item_tool'] = $this->inventory_handler->fetchSpecificItems($citizen->getZone() ? $citizen->getInventory() : [$citizen->getInventory(),$citizen->getHome()->getChest()], [new ItemRequest('can_opener', 1, false, null, true)])[0]->getPrototype();
                         break;
