@@ -5018,7 +5018,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.</source>
-        <target>Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.</target>
+        <target>Due to your banishment you can no longer use the dump.</target>
       </segment>
     </unit>
     <unit id="j88Eyne" name="Gesamt: %def%">
@@ -5054,7 +5054,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wie viele Gegenstände möchtest du auf den Müll werfen?</source>
-        <target>Wie viele Gegenstände möchtest du auf den Müll werfen?</target>
+        <target>How many items do you want to throw in the dump?</target>
       </segment>
     </unit>
     <unit id="6Ds9C1i" name="Du kannst keine Aktionen ausführen, während du dich versteckst.">
