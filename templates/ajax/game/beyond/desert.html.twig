@@ -370,7 +370,12 @@
                     <button id="town-enter-hero"{% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}</button>
                 {% endif %}
                 {% if show_sneaky %}
-                    <button id="town-enter-sneak"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}">{% trans from 'game' %}In die Stadt schleichen{% endtrans %}</button>
+                    <button id="town-enter-sneak">
+                        <img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}">{% trans from 'game' %}In die Stadt schleichen{% endtrans %}
+                        {% if enter_costs_ap %}
+                            (<div class="ap">1</div>)
+                        {% endif %}
+                    </button>
                 {% endif %}
 
                 {% if zone.x != 0 or zone.y != 0 %}
