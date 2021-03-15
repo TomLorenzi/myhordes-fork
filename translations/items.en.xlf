@@ -7901,7 +7901,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du hast mit dem(r) {item_tool} ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
-        <target>Du hast mit dem(r) {item_tool} ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</target>
+        <target>You managed to open the {item_from} with the {item_tool}. You have obtained: {item_to}.</target>
       </segment>
     </unit>
     <unit id="nYImhFf" name="bf0ac69">
@@ -7928,7 +7928,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du hast mit dem(r) {item_tool} ein(e) {item} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</source>
-        <target>Du hast mit dem(r) {item_tool} ein(e) {item} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</target>
+        <target>You managed to open the {item} with the {item_tool}. You have obtained: {items_spawn}.</target>
       </segment>
     </unit>
     <unit id="lXVMIpX" name="9f73205">
