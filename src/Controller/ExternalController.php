@@ -383,25 +383,25 @@ class ExternalController extends InventoryAwareController {
             $icon = $ItemProto->getIcon();
             $item = [];
             foreach($SURLL_request['items']['fields'] as $field) {
-                switch(true) {
-                    case $field==='hid':
+                switch($field) {
+                    case 'hid':
                         $item['hid']= $ItemProto->getId();
-                    break; 
-                    case $field==='img':
+                        break;
+                    case 'img':
                         $item['img']= $icon;
-                    break;
-                    case $field==='uid':
+                        break;
+                    case 'uid':
                         $item['uid']= $icon;
-                    break;
-                    case $field==='heavy':
+                        break;
+                    case 'heavy':
                         $item['heavy']= $ItemProto->getHeavy();
-                    break;
-                    case $field==='deco':
+                        break;
+                    case 'deco':
                         $item['deco']= $ItemProto->getDeco();
-                    break;
-                    case $field==='guard':
+                        break;
+                    case 'guard':
                         $item['guard']= $ItemProto->getWatchpoint();
-                    break;
+                        break;
                 }
             }
             foreach($SURLL_request['items']['languages'] as $lang) {
