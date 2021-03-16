@@ -427,7 +427,6 @@ class ExternalController extends InventoryAwareController {
         }
         $current_citizen= $user->getActiveCitizen();
         $user_data = [];
-        file_put_contents("/tmp/dump.txt", "getUserdata\n");
         foreach($SURLL_request['user']['fields'] as $field) {
             switch(true) {
                 case $field==="id":
@@ -508,7 +507,6 @@ class ExternalController extends InventoryAwareController {
             
     private function getMapData($SURLL_request, $originalUserID): array {
         /** @var Town $town */
-        //file_put_contents("/tmp/dump.txt", print_r($SURLL_request, true));
         $town= $this->entity_manager->getRepository(Town::class)->findOneBy(['id' => $SURLL_request['map']['filters']]);
         if (!$town) {
             return ["error" => "UnknownMap"];
@@ -552,7 +550,6 @@ class ExternalController extends InventoryAwareController {
                                 case ($ProtoFieldName==="city"):
                                     foreach ($ProtoFieldValue["fields"] as $innerFieldName) {
                                         if(is_array($innerFieldName))continue;
-                                        file_put_contents("/tmp/dump.txt", print_r($innerFieldName, true), FILE_APPEND);
 
                                         $data["city"][$innerFieldName] = [];
                                         switch($innerFieldName){
