@@ -544,15 +544,9 @@ class ExternalController extends InventoryAwareController {
                 case $field==="conspiracy":
                     $data['conspiracy']= $town->getInsurrectionProgress() >= 100;
                 break;
-                case $field==="chaos":
-                    $data['chaos']= $town->getChaos();
-                    break;
-                case $field==="devast":
-                    $data['devast']= $town->getDevastated();
-                    break;
                 case $field==="days":
                     $data['days']= $town->getDay();
-                break;
+                    break;
                 default:
                     if(is_array($field)) {
                         foreach($field as $ProtoFieldName => $ProtoFieldValue) {
@@ -599,6 +593,45 @@ class ExternalController extends InventoryAwareController {
                                                 }
                                                 usort( $data['city']['bank'],
                                                     fn($a,$b) => $a['id'] <=> $b['id'] ?? $b['broken'] <=> $a['broken']);
+                                                break;
+                                            case "door":
+                                                $data['city']['door']= $town->getDoor();
+                                                break;
+                                            case "hard":
+                                                $data['city']['hard']= $town->getType()->getName() == 'panda';
+                                                break;
+                                            case "water":
+                                                $data['city']['water']= $town->getWell();
+                                                break;
+                                            case "name":
+                                                $data['city']['name']= $town->getName();
+                                                break;
+                                            case "chaos":
+                                                $data['town']['chaos']= $town->getChaos();
+                                                break;
+                                            case "devast":
+                                                $data['town']['devast']= $town->getDevastated();
+                                                break;
+                                            case "estimations":
+                                                $estim = $this->town_handler->get_zombie_estimation($town);
+                                                $data['city']['estimations'] = [
+                                                    'day' => $town->getDay(),
+                                                    'max' => $estim[0]->getMax(),
+                                                    'min' => $estim[0]->getMin(),
+                                                    'maxed' => $estim[0]->getEstimation() >= 1
+                                                ];
+                                                break;
+                                            case "estimationsNext":
+                                                $estim = $this->town_handler->get_zombie_estimation($town);
+                                                if(isset($estim[1]))
+                                                    $data['city']['estimationsNext'] = [
+                                                        'day' => $town->getDay() + 1,
+                                                        'max' => $estim[1]->getMax(),
+                                                        'min' => $estim[1]->getMin(),
+                                                        'maxed' => $estim[1]->getEstimation() >= 1
+                                                    ];
+                                                else
+                                                    $data['city']['estimationsNext'] = [];
                                                 break;
                                         }
                                     }
