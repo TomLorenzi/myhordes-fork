@@ -655,7 +655,7 @@ class CitizenHandler
             }
         }
         if ($previous_campers >= 7) {
-            $camping_values['campers'] = -20;
+            $camping_values['campers'] = -26;
         }
         else {
             $camping_values['campers'] = $campers_map[$previous_campers];
