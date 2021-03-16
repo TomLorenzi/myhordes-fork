@@ -162,29 +162,29 @@ class ExternalController extends InventoryAwareController {
             $data = ["error" => "invalid_appkey"];
             $type = 'internalerror';
         }
-        
-        switch(true) {
-            case $type === 'internalerror':
-                if(!isset($data)) {
+
+        switch($type) {
+            case 'internalerror':
+                if(empty($data)) {
                     $data = [
                         "error" => "server_error",
                         "error_description" => "UnknownAction(default)"
                     ];
                 }
                 break;
-            case $type === '':
+            case '':
                 $data = [
                     "error" => "server_error",
                     "error_description" => "UnknownAction(default)"
                 ];
                 break;
-            case $type === 'status':
+            case 'status':
                 $data = [
                     "attack" => $this->time_keeper->isDuringAttack(),
                     "maintain" => is_file($this->getParameter('kernel.project_dir')."/public/maintenance/.active")
                 ];
                 break;
-            case $type === 'items':
+            case 'items':
                 $SURLL_request = ['items' => [
                     'languages' => ['de', 'en', 'es', 'fr'],
                     'fields' => [
@@ -197,8 +197,7 @@ class ExternalController extends InventoryAwareController {
                 $fields = $this->getRequestParam('fields');
                 $filter = $this->getRequestParam('filters');
                 $langue = $this->getRequestParam('languages');
-                
-                
+
                 if($fields!=false) {
                     $SURLL_request['items']['fields'] = $this->SURLL_preparser($fields);
                 }
@@ -211,98 +210,97 @@ class ExternalController extends InventoryAwareController {
                         
                 $data = $this->getItemsData($SURLL_request);
                 break;
-            case $type === 'debug': $data = $this->getDebugdata(); break;
-            default:
-                $USER_KEY = $this->getRequestParam('userkey');
-                if($USER_KEY===false) {
-                    $data = ["error" => "invalid_userkey"];
+            case 'debug':
+                $data = $this->getDebugdata();
+                break;
+            case "user":
+            case "me":
+                $user_key = $this->getRequestParam('userkey');
+                $user = null;
+                if($user_key===false) {
+                    return $this->json(["error" => "invalid_userkey"]);
                 } else {
-                    $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $USER_KEY]);
+                    $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $user_key]);
                     if (!$user) {
-                        $data = ["error" => "invalid_userkey"];
-                    } else {
-                        switch(true) {
-                            case $type==="me":
-                                $SURLL_request = ['user' => [
-                                    'filters' => $user->getId(),
-                                    'languages' => ['de', 'en', 'es', 'fr'],
-                                    'fields' => [
-                                        'id',
-                                        'isGhost'
-                                        ]
-                                    ]
-                                ];
-                                        
-                                $fields = $this->getRequestParam('fields');
-                                $langue = $this->getRequestParam('languages');
-                                
-                                if($fields!=false) {
-                                    $SURLL_request['user']['fields'] = $this->SURLL_preparser($fields);
-                                }
-                                if($langue!=false) {
-                                    $SURLL_request['user']['languages'] = $this->SURLL_preparser($langue);
-                                }
-                                
-                                $data = $this->getUserData($SURLL_request, $user->getId());
-                                break;
-                            case $type==="user":
-                                $user_id = intval($this->getRequestParam('id'));
-                                if($user_id!=false||$user_id>0) {
-                                    $SURLL_request = ['user' => [
-                                        'filters' => $user_id,
-                                        'languages' => ['de', 'en', 'es', 'fr'],
-                                        'fields' => [
-                                            'id',
-                                            'isGhost'
-                                            ]
-                                        ]
-                                    ];
-                                            
-                                    $fields = $this->getRequestParam('fields');
-                                    $langue = $this->getRequestParam('languages');
-                                    
-                                    if($fields!=false) {
-                                        $SURLL_request['user']['fields'] = $this->SURLL_preparser($fields);
-                                    }
-                                    if($langue!=false) {
-                                        $SURLL_request['user']['languages'] = $this->SURLL_preparser($langue);
-                                    }
-                                    
-                                    $data = $this->getUserData($SURLL_request, $user->getId());
-                                } else {
-                                    $data = ["error" => "invalid_userid"];
-                                }
-                                break;
-                            case $type==="map":
-                                $map_id = intval($this->getRequestParam('mapId'));
-                                if($map_id!=false||$map_id>0) {
-                                    $SURLL_request = ['map' => [
-                                        'filters' => $map_id,
-                                        'languages' => ['de', 'en', 'es', 'fr'],
-                                        'fields' => ['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom']
-                                        ]
-                                    ];
-                                        
-                                    $fields = $this->getRequestParam('fields');
-                                    $langue = $this->getRequestParam('languages');
-                                    
-                                    if($fields!=false) {
-                                        $SURLL_request['map']['fields'] = $this->SURLL_preparser($fields);
-                                    }
-                                    if($langue!=false) {
-                                        $SURLL_request['map']['languages'] = $this->SURLL_preparser($langue);
-                                    }
-                                    
-                                    $data = $this->getMapData($SURLL_request, $user->getId());
-                                } else {
-                                    $data = ["error" => "invalid_mapid"];
-                                }
-                                break;
-                            }
-                        }
+                        return $this->json(["error" => "invalid_userkey"]);
                     }
                 }
-                return $this->json( $data );
+
+                $SURLL_request = [
+                    'user' => [
+                        'languages' => ['de', 'en', 'es', 'fr'],
+                        'fields' => [
+                            'id',
+                            'isGhost'
+                        ]
+                    ]
+                ];
+
+                if($type === "me") {
+                    $SURLL_request['user']["filters"] = $user->getId();
+                } else {
+                    $user_id = intval($this->getRequestParam('id'));
+                    if($user_id!=false||$user_id>0) {
+                        $SURLL_request['user']["filters"] = $user_id;
+                    } else {
+                        return $this->json(["error" => "invalid_userid"]);
+                    }
+                }
+                $fields = $this->getRequestParam('fields');
+                $lang = $this->getRequestParam('languages');
+
+                if($fields!=false) {
+                    $SURLL_request['user']['fields'] = $this->SURLL_preparser($fields);
+                }
+                if($lang!=false) {
+                    $SURLL_request['user']['languages'] = $this->SURLL_preparser($lang);
+                }
+
+                $data = $this->getUserData($SURLL_request, $user->getId());
+                break;
+            case "map":
+                $user_key = $this->getRequestParam('userkey');
+                $user = null;
+                if($user_key===false) {
+                    return $this->json(["error" => "invalid_userkey"]);
+                } else {
+                    $user = $this->entity_manager->getRepository(User::class)->findOneBy(['externalId' => $user_key]);
+                    if (!$user) {
+                        return $this->json(["error" => "invalid_userkey"]);
+                    }
+                }
+
+                $map_id = intval($this->getRequestParam('mapId'));
+                if($map_id!=false||$map_id>0) {
+                    $SURLL_request = [
+                        'map' => [
+                            'filters' => $map_id,
+                            'languages' => ['de', 'en', 'es', 'fr'],
+                            'fields' => ['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom']
+                        ]
+                    ];
+
+                    $fields = $this->getRequestParam('fields');
+                    $lang = $this->getRequestParam('languages');
+
+                    if($fields!=false) {
+                        $SURLL_request['map']['fields'] = $this->SURLL_preparser($fields);
+                    }
+                    if($lang!=false) {
+                        $SURLL_request['map']['languages'] = $this->SURLL_preparser($lang);
+                    }
+
+                    $data = $this->getMapData($SURLL_request, $user->getId());
+                } else {
+                    return $this->json(["error" => "invalid_mapid"]);
+                }
+                break;
+        }
+
+        if (!empty($data))
+            return $this->json($data);
+
+        return $this->json( $data );
     }
             
     private function getRequestParam($param) {
@@ -355,15 +353,15 @@ class ExternalController extends InventoryAwareController {
     }
     
     private function getItemVal(ItemPrototype $item, $key) {
-        switch(true) {
-            case $key==="name":
+        switch($key) {
+            case "name":
                 return $item->getLabel();
-            case $key==="desc":
+            case "desc":
                 return $item->getDescription();
-            case $key==="cat":
+            case "cat":
                 return $item->getCategory()->getLabel();
             default:
-            return false;
+                return false;
         }
     }
                     
@@ -631,7 +629,7 @@ class ExternalController extends InventoryAwareController {
                                                         'maxed' => $estim[1]->getEstimation() >= 1
                                                     ];
                                                 else
-                                                    $data['city']['estimationsNext'] = [];
+//                                                    $data['city']['estimationsNext'] = [];
                                                 break;
                                         }
                                     }
