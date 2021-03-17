@@ -282,13 +282,15 @@ class TownInspectorCommand extends Command
 
         if ($chaos = $input->getOption('set-chaos')) {
             $town->setChaos(intval($chaos) !== 0);
+            if($chaos === 0)
+                $town->setDevastated(0);
             $this->entityManager->persist( $town );
             $changes = true;
         }
 
         if ($devast = $input->getOption('set-devastation')) {
             $town->setChaos(intval($devast) !== 0);
-            $town->setDevastated(intval($devast) != 0);
+            $town->setDevastated(intval($devast) !== 0);
             $town->setDoor(true);
             $this->entityManager->persist( $town );
             $changes = true;

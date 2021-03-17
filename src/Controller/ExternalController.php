@@ -523,24 +523,24 @@ class ExternalController extends InventoryAwareController {
         
         $data = [];
         foreach($SURLL_request['map']['fields'] as $field) {
-            switch(true) {
-                case $field==="id":
+            switch($field) {
+                case "id":
                     $data['id']= $town->getId();
                 break;
-                case $field==="date":
+                case "date":
                     $now = new \DateTime();
                     $data['date']= $now->format('Y-m-d H:m:s');
                 break;
-                case $field==="wid":
+                case "wid":
                     $data['wid']= abs($x_min) + abs($x_max) + 1;
                 break;
-                case $field==="hei":
+                case "hei":
                     $data['hei']= abs($y_min) + abs($y_max) + 1;
                 break;
-                case $field==="conspiracy":
+                case "conspiracy":
                     $data['conspiracy']= $town->getInsurrectionProgress() >= 100;
                 break;
-                case $field==="days":
+                case "days":
                     $data['days']= $town->getDay();
                     break;
                 default:
