@@ -523,118 +523,116 @@ class ExternalController extends InventoryAwareController {
         
         $data = [];
         foreach($SURLL_request['map']['fields'] as $field) {
-            switch($field) {
-                case "id":
-                    $data['id']= $town->getId();
-                break;
-                case "date":
-                    $now = new \DateTime();
-                    $data['date']= $now->format('Y-m-d H:m:s');
-                break;
-                case "wid":
-                    $data['wid']= abs($x_min) + abs($x_max) + 1;
-                break;
-                case "hei":
-                    $data['hei']= abs($y_min) + abs($y_max) + 1;
-                break;
-                case "conspiracy":
-                    $data['conspiracy']= $town->getInsurrectionProgress() >= 100;
-                break;
-                case "days":
-                    $data['days']= $town->getDay();
-                    break;
-                default:
-                    if(is_array($field)) {
-                        foreach($field as $ProtoFieldName => $ProtoFieldValue) {
-                            switch(true) {
-                                case ($ProtoFieldName==="city"):
-                                    foreach ($ProtoFieldValue["fields"] as $innerFieldName) {
-                                        if(is_array($innerFieldName))continue;
+            if(is_array($field)) {
+                foreach($field as $ProtoFieldName => $ProtoFieldValue) {
+                    switch($ProtoFieldName) {
+                        case "city":
+                            foreach ($ProtoFieldValue["fields"] as $innerFieldName) {
+                                if(is_array($innerFieldName))continue;
+                                $data["city"][$innerFieldName] = [];
+                                switch($innerFieldName){
+                                    case "bank":
+                                        // The town bank
+                                        foreach($town->getBank()->getItems() as $bankItem) {
+                                            /** @var Item $bankItem */
+                                            $str = "{$bankItem->getPrototype()->getId()}-" . intval($bankItem->getBroken());
+                                            if (!isset($data["city"]["bank"][$str])) {
+                                                $cat = $bankItem->getPrototype()->getCategory();
+                                                while ($cat->getParent()) $cat = $cat->getParent();
 
-                                        $data["city"][$innerFieldName] = [];
-                                        switch($innerFieldName){
-                                            case "bank":
-                                                // The town bank
-                                                foreach($town->getBank()->getItems() as $bankItem) {
-                                                    /** @var Item $bankItem */
-                                                    $str = "{$bankItem->getPrototype()->getId()}-" . intval($bankItem->getBroken());
-                                                    if (!isset($data["city"]["bank"][$str])) {
-                                                        $cat = $bankItem->getPrototype()->getCategory();
-                                                        while ($cat->getParent()) $cat = $cat->getParent();
-
-                                                        $item = [
-                                                            'deco' => $bankItem->getPrototype()->getDeco(),
-                                                            'count' => $bankItem->getCount(),
-                                                            'id' => $bankItem->getPrototype()->getId(),
-                                                            'cat' => $cat->getName(),
-                                                            'img' => $this->getIconPath($this->asset->getUrl("build/images/item/item_{$bankItem->getPrototype()->getIcon()}.gif")),
-                                                            'broken' => $bankItem->getBroken(),
-                                                            'heavy' => $bankItem->getPrototype()->getHeavy()
-                                                        ];
-                                                        if (!is_array($SURLL_request['map']['languages']) && $field['map']['languages'] !== 'all') {
-                                                            $item['name'] = $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items');
-                                                        } else if (is_array($SURLL_request['map']['languages'])){
-                                                            foreach ($SURLL_request['map']['languages'] as $lang) {
-                                                                $item["name-$lang"] = $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items', $lang);
-                                                            }
-                                                        } else {
-                                                            foreach ($this->available_langs as $lang) {
-                                                                $item["name-$lang"] = $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items', $lang);
-                                                            }
-                                                        }
-                                                        $data["city"]["bank"][$str] = $item;
-
-                                                    } else $data["city"]["bank"][$str]['count'] += $bankItem->getCount();
-                                                }
-                                                usort( $data['city']['bank'],
-                                                    fn($a,$b) => $a['id'] <=> $b['id'] ?? $b['broken'] <=> $a['broken']);
-                                                break;
-                                            case "door":
-                                                $data['city']['door']= $town->getDoor();
-                                                break;
-                                            case "hard":
-                                                $data['city']['hard']= $town->getType()->getName() == 'panda';
-                                                break;
-                                            case "water":
-                                                $data['city']['water']= $town->getWell();
-                                                break;
-                                            case "name":
-                                                $data['city']['name']= $town->getName();
-                                                break;
-                                            case "chaos":
-                                                $data['town']['chaos']= $town->getChaos();
-                                                break;
-                                            case "devast":
-                                                $data['town']['devast']= $town->getDevastated();
-                                                break;
-                                            case "estimations":
-                                                $estim = $this->town_handler->get_zombie_estimation($town);
-                                                $data['city']['estimations'] = [
-                                                    'day' => $town->getDay(),
-                                                    'max' => $estim[0]->getMax(),
-                                                    'min' => $estim[0]->getMin(),
-                                                    'maxed' => $estim[0]->getEstimation() >= 1
+                                                $item = [
+                                                    'deco' => $bankItem->getPrototype()->getDeco(),
+                                                    'count' => $bankItem->getCount(),
+                                                    'id' => $bankItem->getPrototype()->getId(),
+                                                    'cat' => $cat->getName(),
+                                                    'img' => $this->getIconPath($this->asset->getUrl("build/images/item/item_{$bankItem->getPrototype()->getIcon()}.gif")),
+                                                    'broken' => $bankItem->getBroken(),
+                                                    'heavy' => $bankItem->getPrototype()->getHeavy()
                                                 ];
-                                                break;
-                                            case "estimationsNext":
-                                                $estim = $this->town_handler->get_zombie_estimation($town);
-                                                if(isset($estim[1]))
-                                                    $data['city']['estimationsNext'] = [
-                                                        'day' => $town->getDay() + 1,
-                                                        'max' => $estim[1]->getMax(),
-                                                        'min' => $estim[1]->getMin(),
-                                                        'maxed' => $estim[1]->getEstimation() >= 1
-                                                    ];
-                                                else
-//                                                    $data['city']['estimationsNext'] = [];
-                                                break;
+                                                if (!is_array($SURLL_request['map']['languages']) && $field['map']['languages'] !== 'all') {
+                                                    $item['name'] = $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items');
+                                                } else if (is_array($SURLL_request['map']['languages'])){
+                                                    foreach ($SURLL_request['map']['languages'] as $lang) {
+                                                        $item["name-$lang"] = $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items', $lang);
+                                                    }
+                                                } else {
+                                                    foreach ($this->available_langs as $lang) {
+                                                        $item["name-$lang"] = $this->translator->trans($bankItem->getPrototype()->getLabel(), [], 'items', $lang);
+                                                    }
+                                                }
+                                                $data["city"]["bank"][$str] = $item;
+
+                                            } else $data["city"]["bank"][$str]['count'] += $bankItem->getCount();
                                         }
-                                    }
-                                    break;
+                                        usort( $data['city']['bank'],
+                                            fn($a,$b) => $a['id'] <=> $b['id'] ?? $b['broken'] <=> $a['broken']);
+                                        break;
+                                    case "door":
+                                        $data['city']['door']= $town->getDoor();
+                                        break;
+                                    case "hard":
+                                        $data['city']['hard']= $town->getType()->getName() == 'panda';
+                                        break;
+                                    case "water":
+                                        $data['city']['water']= $town->getWell();
+                                        break;
+                                    case "name":
+                                        $data['city']['name']= $town->getName();
+                                        break;
+                                    case "chaos":
+                                        $data['town']['chaos']= $town->getChaos();
+                                        break;
+                                    case "devast":
+                                        $data['town']['devast']= $town->getDevastated();
+                                        break;
+                                    case "estimations":
+                                        $estim = $this->town_handler->get_zombie_estimation($town);
+                                        $data['city']['estimations'] = [
+                                            'day' => $town->getDay(),
+                                            'max' => $estim[0]->getMax(),
+                                            'min' => $estim[0]->getMin(),
+                                            'maxed' => $estim[0]->getEstimation() >= 1
+                                        ];
+                                        break;
+                                    case "estimationsNext":
+                                        $estim = $this->town_handler->get_zombie_estimation($town);
+                                        if(isset($estim[1]))
+                                            $data['city']['estimationsNext'] = [
+                                                'day' => $town->getDay() + 1,
+                                                'max' => $estim[1]->getMax(),
+                                                'min' => $estim[1]->getMin(),
+                                                'maxed' => $estim[1]->getEstimation() >= 1
+                                            ];
+                                        else
+//                                                    $data['city']['estimationsNext'] = [];
+                                            break;
+                                }
                             }
-                        }
+                            break;
                     }
-                    break;
+                }
+            } else {
+                switch ($field) {
+                    case "id":
+                        $data['id'] = $town->getId();
+                        break;
+                    case "date":
+                        $now = new \DateTime();
+                        $data['date'] = $now->format('Y-m-d H:m:s');
+                        break;
+                    case "wid":
+                        $data['wid'] = abs($x_min) + abs($x_max) + 1;
+                        break;
+                    case "hei":
+                        $data['hei'] = abs($y_min) + abs($y_max) + 1;
+                        break;
+                    case "conspiracy":
+                        $data['conspiracy'] = $town->getInsurrectionProgress() >= 100;
+                        break;
+                    case "days":
+                        $data['days'] = $town->getDay();
+                        break;
+                }
             }
         }
         return $data;
