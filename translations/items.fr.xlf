@@ -7432,7 +7432,7 @@
       </notes>
       <segment>
         <source>Es sieht aus wie eine Art Schokoladenbonbon mit alkoholischem Likör darin. Oder eine andere Füllung...</source>
-        <target>Ça ressemble à un genre de petit bonbon au chocolat, qui contient de la liqueur alcoolisé. Ou un quelconque autre produit...</target>
+        <target>Ça ressemble à un genre de petit bonbon au chocolat, qui contient de la liqueur alcoolisée. Ou un quelconque autre produit...</target>
       </segment>
     </unit>
     <unit id="1cAIp2n" name="Du hast {item} getrunken, aber scheinbar geschieht nichts...">
