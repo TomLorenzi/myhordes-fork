@@ -18453,7 +18453,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>%citizen% hat versucht %item% aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.</source>
-        <target>%citizen% tried to steal %item% from the bank without any sense of DISCRETION.</target>
+        <target>%citizen% tried to steal %item% from the bank, they embarrassed themselves with a lack of subtlety!</target>
       </segment>
     </unit>
     <unit id="LWSEhn0" name="ed08c19">
