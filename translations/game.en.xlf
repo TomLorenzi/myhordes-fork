@@ -8288,7 +8288,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
-        <target>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</target>
+        <target>This morning, %citizen1% celebrated last night's thwarting of the zombie hordes by running buck naked through the streets. "I wanted to celebrate the dawning of this new day in an appropriate fashion", the citizen explained.</target>
       </segment>
     </unit>
     <unit id=".ArUqcq" name="ed7befb">
@@ -15535,7 +15535,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</source>
-        <target>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</target>
+        <target>Congratulations! You have upgraded your house to a %home%.</target>
       </segment>
     </unit>
     <unit id="CZg55p2" name="Folgenden Dinge wurden dazu gebraucht:">
@@ -15544,7 +15544,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Folgenden Dinge wurden dazu gebraucht:</source>
-        <target>Folgenden Dinge wurden dazu gebraucht:</target>
+        <target>You have used the following item(s):</target>
       </segment>
     </unit>
     <unit id="2VisPD1" name="Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!">
