@@ -7973,7 +7973,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Die Zunge klebt dir noch immer am Gaumen und dein Hals ist noch genauso trocken wie vorher. Du hast deinen Verdurstungstod erfolgreich verhindert.{hr}&lt;strong&gt;Da du davor schon dehydriert warst, hast du keine neuen APs erhalten.&lt;/strong&gt;</source>
-        <target><![CDATA[Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Die Zunge klebt dir noch immer am Gaumen und dein Hals ist noch genauso trocken wie vorher. Du hast deinen Verdurstungstod erfolgreich verhindert.{hr}<strong>Da du davor schon dehydriert warst, hast du keine neuen APs erhalten.</strong>]]></target>
+        <target><![CDATA[You greedily gulp down your ration of water, without tasting it in the least... Your throat still burns as much, but at least you aren't dehydrated anymore...{hr}<strong>Your APs have not been restored because you were dehydrated.</strong>]]></target>
       </segment>
     </unit>
     <unit id="bmHixif" name="fa98a6f">
