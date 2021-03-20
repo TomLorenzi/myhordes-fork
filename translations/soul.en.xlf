@@ -2380,7 +2380,7 @@
       </notes>
       <segment>
         <source>Entfernte Regionen</source>
-        <target>Entfernte Regionen</target>
+        <target>Normal Towns</target>
       </segment>
     </unit>
     <unit id="7H7gGH1" name="Pandämonium">
@@ -2389,7 +2389,7 @@
       </notes>
       <segment>
         <source>Pandämonium</source>
-        <target>Pandämonium</target>
+        <target>Hardcore Towns</target>
       </segment>
     </unit>
     <unit id="2ZxNAfn" name="Private Stadt">
@@ -2434,7 +2434,7 @@
       </notes>
       <segment>
         <source>Seelenpunkte</source>
-        <target>Seelenpunkte</target>
+        <target>Soul points</target>
       </segment>
     </unit>
     <unit id="vXPHpS0" name="Zugriff auf die Rangliste einer bestimmten Saison:">
