@@ -7882,7 +7882,7 @@
       </notes>
       <segment>
         <source>Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Die Zunge klebt dir noch immer am Gaumen und dein Hals ist noch genauso trocken wie vorher. Du hast deinen Verdurstungstod erfolgreich verhindert.{hr}&lt;strong&gt;Da du davor schon dehydriert warst, hast du keine neuen APs erhalten.&lt;/strong&gt;</source>
-        <target><![CDATA[Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Die Zunge klebt dir noch immer am Gaumen und dein Hals ist noch genauso trocken wie vorher. Du hast deinen Verdurstungstod erfolgreich verhindert.{hr}<strong>Da du davor schon dehydriert warst, hast du keine neuen APs erhalten.</strong>]]></target>
+        <target><![CDATA[Vous avalez votre ration d'eau goulûment, sans en laisser filer la moindre goutte... Votre gorge vous brûle toujours autant, mais au moins, vous n'êtes plus en train de vous déshydrater...{hr}<strong>Vous n'avez pas régénéré vos PA car vous étiez déshydraté(e).</strong>]]></target>
       </segment>
     </unit>
     <unit id="VjR2NCz" name="Hurlingstock">
