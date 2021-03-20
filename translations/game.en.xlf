@@ -18309,7 +18309,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>&lt;em&gt;Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. &lt;strong&gt;Wichtige Anmerkung:&lt;/strong&gt; Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?&lt;/em&gt;</source>
-        <target><![CDATA[<em>Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. <strong>Wichtige Anmerkung:</strong> Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?</em>]]></target>
+        <target><![CDATA[<em>You can upgrade your home and benefit from improved defences. <strong>Important :</strong> perhaps it would be wise to use your resources to carry out improvements in the town?</em>]]></target>
       </segment>
     </unit>
     <unit id="h.30SZi" name="b7166cc">
