@@ -18390,7 +18390,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Jetzt, da %citizen% tot ist, kannst du ihm einen &lt;strong&gt;Gegenstand klauen&lt;/strong&gt;, wenn du möchtest...</source>
-        <target><![CDATA[Jetzt, da %citizen% tot ist, kannst du ihm einen <strong>Gegenstand klauen</strong>, wenn du möchtest...]]></target>
+        <target><![CDATA[Now that %citizen% is dead, you can <strong>steal their stuff</strong> if you wish...]]></target>
       </segment>
     </unit>
     <unit id="ymlTLkS" name="Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:">
