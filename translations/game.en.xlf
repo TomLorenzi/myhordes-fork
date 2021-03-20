@@ -15517,7 +15517,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... &lt;br /&gt;Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das &lt;strong&gt;Wachturmregister&lt;/strong&gt;.&lt;hr /&gt;Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.</source>
-        <target><![CDATA[From the top of the tower, your study the surrounding desert and try to count the zombies to predict their movements...<br />After a few minutes of intense consideration, your register your observations in the <strong>Watchtower register</strong>.<hr />Using this information and that of other citizens, it should be possible to make a reasonable estimation of the attack...]]></target>
+        <target><![CDATA[From the top of the tower, your study the surrounding desert and try to count the zombies to predict their movements...<hr />After a few minutes of intense consideration, your register your observations in the <strong>Watchtower register</strong>.<hr />Using this information and that of other citizens, it should be possible to make a reasonable estimation of the attack...]]></target>
       </segment>
     </unit>
     <unit id="Bhi4A01" name="Du hast am Bauprojekt %plan% mitgeholfen.">
