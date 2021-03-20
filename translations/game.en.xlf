@@ -15598,7 +15598,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</source>
-        <target>%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</target>
+        <target>%citizen% had started to deal with their raging hunger by munching on parts of their fellow citizens. Next time, get rid of the dead to ensure they don't get up again the next day...</target>
       </segment>
     </unit>
     <unit id="zLJ.A.A" name="Anzeigen">
