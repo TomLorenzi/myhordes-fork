@@ -3073,7 +3073,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es wurde ein neues Gebäude gebaut: %plan%. Der Bau hat folgende Ressourcen verbraucht: %list%</source>
-        <target>A new building has been constructed: %plan%. This construction used: %list%</target>
+        <target>The construction of the %plan% used the following items: %list%</target>
       </segment>
     </unit>
     <unit id="T6_1xeh" name="Es wurde ein neues Gebäude gebaut: %plan%.">
