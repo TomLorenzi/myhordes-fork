@@ -8015,5 +8015,32 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
         <target>%citizen% befehlen etwas zu essen.</target>
       </segment>
     </unit>
+    <unit id="P9ubaaO" name="Schwarzer Zervixschleim">
+      <notes>
+        <note category="german">Schwarzer Zervixschleim</note>
+      </notes>
+      <segment>
+        <source>Schwarzer Zervixschleim</source>
+        <target>Schwarzer Zervixschleim</target>
+      </segment>
+    </unit>
+    <unit id="M3k3jYb" name="7f67ddf">
+      <notes>
+        <note category="german">Ein Gift welches bei der Einnahme EXTREM virulent wirkt, wenn man dem Etikett Glauben schenken darf: Die Ingestion des Zervixschleim führt zu Tod, spontaner Verbrennung, Explosion der Lunge und zum Austritt des Gehirns aus allen Körperöffnungen. Aber nicht unbedingt in dieser Reihenfolge.</note>
+      </notes>
+      <segment>
+        <source>Ein Gift welches bei der Einnahme EXTREM virulent wirkt, wenn man dem Etikett Glauben schenken darf: Die Ingestion des Zervixschleim führt zu Tod, spontaner Verbrennung, Explosion der Lunge und zum Austritt des Gehirns aus allen Körperöffnungen. Aber nicht unbedingt in dieser Reihenfolge.</source>
+        <target>Ein Gift welches bei der Einnahme EXTREM virulent wirkt, wenn man dem Etikett Glauben schenken darf: Die Ingestion des Zervixschleim führt zu Tod, spontaner Verbrennung, Explosion der Lunge und zum Austritt des Gehirns aus allen Körperöffnungen. Aber nicht unbedingt in dieser Reihenfolge.</target>
+      </segment>
+    </unit>
+    <unit id="mas1mGO" name="c796b36">
+      <notes>
+        <note category="german">Merkwürdig... anscheinend ist der erwartete Effekt ausgeblieben. Du sagst dir selbst, das dies eine unglaubliche Chance ist...</note>
+      </notes>
+      <segment>
+        <source>Merkwürdig... anscheinend ist der erwartete Effekt ausgeblieben. Du sagst dir selbst, das dies eine unglaubliche Chance ist...</source>
+        <target>Merkwürdig... anscheinend ist der erwartete Effekt ausgeblieben. Du sagst dir selbst, das dies eine unglaubliche Chance ist...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

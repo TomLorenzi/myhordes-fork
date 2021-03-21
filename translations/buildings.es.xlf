@@ -3286,5 +3286,14 @@
         <target>Valla</target>
       </segment>
     </unit>
+    <unit id="i0KuVv1" name="Schokoladenkreuz">
+      <notes>
+        <note category="german">Schokoladenkreuz</note>
+      </notes>
+      <segment>
+        <source>Schokoladenkreuz</source>
+        <target>Schokoladenkreuz</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

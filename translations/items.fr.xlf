@@ -7958,5 +7958,32 @@
         <target>%citizen% befehlen etwas zu essen.</target>
       </segment>
     </unit>
+    <unit id="P9ubaaO" name="Schwarzer Zervixschleim">
+      <notes>
+        <note category="german">Schwarzer Zervixschleim</note>
+      </notes>
+      <segment>
+        <source>Schwarzer Zervixschleim</source>
+        <target>Suintement cervical noir</target>
+      </segment>
+    </unit>
+    <unit id="M3k3jYb" name="7f67ddf">
+      <notes>
+        <note category="german">Ein Gift welches bei der Einnahme EXTREM virulent wirkt, wenn man dem Etikett Glauben schenken darf: Die Ingestion des Zervixschleim führt zu Tod, spontaner Verbrennung, Explosion der Lunge und zum Austritt des Gehirns aus allen Körperöffnungen. Aber nicht unbedingt in dieser Reihenfolge.</note>
+      </notes>
+      <segment>
+        <source>Ein Gift welches bei der Einnahme EXTREM virulent wirkt, wenn man dem Etikett Glauben schenken darf: Die Ingestion des Zervixschleim führt zu Tod, spontaner Verbrennung, Explosion der Lunge und zum Austritt des Gehirns aus allen Körperöffnungen. Aber nicht unbedingt in dieser Reihenfolge.</source>
+        <target>Un poison à ingérer d'une EXTRÊME virulence, si on en croit l'étiquette : l'ingestion du Suintement Cervical provoque la mort, une combustion spontanée, une explosion des poumons et un écoulement du cerveau par tous les orifices. Mais pas nécessairement dans cet ordre là.</target>
+      </segment>
+    </unit>
+    <unit id="mas1mGO" name="c796b36">
+      <notes>
+        <note category="german">Merkwürdig... anscheinend ist der erwartete Effekt ausgeblieben. Du sagst dir selbst, das dies eine unglaubliche Chance ist...</note>
+      </notes>
+      <segment>
+        <source>Merkwürdig... anscheinend ist der erwartete Effekt ausgeblieben. Du sagst dir selbst, das dies eine unglaubliche Chance ist...</source>
+        <target>Tiens, c'est étrange... On dirait que la drogue n'a pas eu l'effet escompté. Vous vous dites que vous avez une chance incroyable...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
