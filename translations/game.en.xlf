@@ -17447,7 +17447,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...</source>
-        <target>Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...</target>
+        <target>You have decided to put yourself in harm's way to protect the other townsfolk... highly commendable, citizen!</target>
       </segment>
     </unit>
     <unit id="k23__KG" name="7d8dbe4">
@@ -17456,7 +17456,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Zur Information: Sobald du Wächter bist, kannst du danach wieder einfacher Bürger werden.</source>
-        <target>Zur Information: Sobald du Wächter bist, kannst du danach wieder einfacher Bürger werden.</target>
+        <target>Just to let you know, if you sign up for the watchmen, you can change your mind at any time.</target>
       </segment>
     </unit>
     <unit id="zzRDqeC" name="52c1a7d">
@@ -17465,7 +17465,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...</source>
-        <target>Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...</target>
+        <target>Warning: Once you confirm this, the other watchmen will almost certainly make fun of you...</target>
       </segment>
     </unit>
     <unit id="rqIPcqm" name="%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!">
