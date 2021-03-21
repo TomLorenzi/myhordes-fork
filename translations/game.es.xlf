@@ -18622,7 +18622,7 @@
       </notes>
       <segment>
         <source>Die Bürger der Stadt haben entschieden, %citizen% zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!</source>
-        <target>Die Bürger der Stadt haben entschieden, %citizen% zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!</target>
+        <target><![CDATA[¡Los habitantes han decidido <strong>CRUCIFICAR a %citizen%</strong>! ¡La cruz de chocolate fue comida durante este trágico evento!]]></target>
       </segment>
     </unit>
     <unit id="ES1J_Lh" name="Hängt %user%!">

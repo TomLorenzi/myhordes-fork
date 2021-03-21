@@ -18624,7 +18624,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Bürger der Stadt haben entschieden, %citizen% zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!</source>
-        <target>Die Bürger der Stadt haben entschieden, %citizen% zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!</target>
+        <target><![CDATA[The citizens have decided to <strong>CRUCIFY %citizen%</strong>!! The chocolate cross was eaten during this tragic event!]]></target>
       </segment>
     </unit>
     <unit id="ES1J_Lh" name="Hängt %user%!">

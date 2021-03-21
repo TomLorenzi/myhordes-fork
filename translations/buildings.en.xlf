@@ -3295,5 +3295,14 @@
         <target>Schokoladenkreuz</target>
       </segment>
     </unit>
+    <unit id="fDHJWJh" name="79667b6">
+      <notes>
+        <note category="german">Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...</note>
+      </notes>
+      <segment>
+        <source>Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...</source>
+        <target>Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
