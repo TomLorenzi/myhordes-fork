@@ -6,22 +6,31 @@ parameters:
         begin: 12-04 00:00
         end: 12-05 00:00
       conf:
+        priority: 10
         css: 'arma'
-        event_dig:
-          desert:
-            group: ~
-            chance: ~
-          ruins:
         hooks:
           watchtower: 'App\Structures\Hook::watchtower_arma'
           door: 'App\Structures\Hook::door_arma'
           night_before: 'App\Structures\Hook::night_arma'
+    afools:
+      trigger:
+        #type: datetime
+        type: on
+        begin: 04-01 00:00
+        end: 04-02 00:00
+      conf:
+        priority: 11
+        hooks:
+          door: 'App\Structures\Hook::door_april'
+          night_before: 'App\Structures\Hook::night_arma'
+          enable_citizen: 'App\Structures\Hook::enable_april'
     christmas:
       trigger:
         type: datetime
         begin: 12-20 00:00
         end: 01-07 00:00
       conf:
+        priority: 101
         css: 'christmas'
         event_dig:
           desert:
@@ -38,22 +47,27 @@ parameters:
         begin: 03-14 00:00
         end: 03-20 00:00
       conf:
+        priority: 102
         css: 'stpatrick'
         event_dig:
           desert:
             group: 'stpatrick_dig'
-            chance: 0.4
+            chance: 0.15
           ruins:
             - { name: 'fair', group: 'stpatrick_dig_fair', chance: 0.5 }
-        hooks:
     easter:
       trigger:
-        type: easter
+        #type: easter
+        type: on
         before: 4
         after: 4
       conf:
+        priority: 103
         css: 'easter'
         event_dig:
+          desert:
+            group: 'easter_dig'
+            chance: 0.15
         hooks:
           enable_town: 'App\Structures\Hook::enable_easter'
           disable_town: 'App\Structures\Hook::disable_easter'
@@ -63,9 +77,9 @@ parameters:
         begin: 10-25 00:00
         end: 11-01 00:00
       conf:
+        priority: 104
         css: 'halloween'
         event_dig:
           desert:
             group: 'halloween_dig'
             chance: 0.4
-        hooks:

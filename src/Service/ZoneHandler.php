@@ -126,8 +126,20 @@ class ZoneHandler
         $event_group = null;
 
         // Get event specific items
-        $event = $this->conf->getCurrentEvent($zone->getTown())->get(EventConf::EVENT_DIG_DESERT_GROUP, null);
-        $event_chance = $this->conf->getCurrentEvent($zone->getTown())->get(EventConf::EVENT_DIG_DESERT_CHANCE, 1.0);
+        $events = [];
+        foreach ($this->conf->getCurrentEvents($zone->getTown()) as $e)
+            if ($e->get(EventConf::EVENT_DIG_DESERT_GROUP, null) && $e->get(EventConf::EVENT_DIG_DESERT_CHANCE, 1.0) > 0)
+                $events[] = $e;
+
+        if (!empty($events)) {
+            $e = $this->random_generator->pick( $events );
+            $event = $e->get(EventConf::EVENT_DIG_DESERT_GROUP, null);
+            $event_chance = $e->get(EventConf::EVENT_DIG_DESERT_CHANCE, 1.0);
+        } else {
+            $event = null;
+            $event_chance = 0.0;
+        }
+
         if ($event && $event_chance > 0) $event_group = $this->entity_manager->getRepository(ItemGroup::class)->findOneBy(['name' => $event]);
 
         $wrap = function(array $a) {
@@ -572,26 +584,6 @@ class ZoneHandler
 
     public function getZoneAp(Zone $zone): int {
         return abs($zone->getX()) + abs($zone->getY());
-    }
-
-    public function getDigGroupEventName(): ?string {
-        /*// Test for easter
-        $year = date('Y');
-        $base = new \DateTime("$year-03-21");
-        $days = easter_days($year);
-        $endEaster = new \DateTime("$year-03-21");
-        $endEaster = $endEaster->add(new \DateInterval("P{$days}D"));
-        $beginEaster = $base->add(new \DateInterval("P" . ($days-2) . "D"));
-
-        $now = new \DateTime();
-        if($now >= $beginEaster && $now <= $endEaster)
-            return 'easter_dig';
-
-        // Test for christmas
-        if($now >= new \DateTime("$year-12-20") && $now <= new \DateTime("$year-12-25"))
-            return 'christmas_dig';
-*/
-        return null;
     }
 
     public function getZonesWithExplorableRuin($zones): array {

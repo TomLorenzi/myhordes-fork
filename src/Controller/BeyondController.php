@@ -1218,12 +1218,13 @@ class BeyondController extends InventoryAwareController
 
             $zone->setRuinDigs( $zone->getRuinDigs() - 1 );
 
-            $event_conf_list = $this->conf->getCurrentEvent($zone->getTown())->get(EventConf::EVENT_DIG_RUINS, []);
-            $event_conf = null;
-            foreach ($event_conf_list as $e)
-                if ($e['name'] === $zone->getPrototype()->getIcon())
-                    $event_conf = $e;
+            $event_conf = null; $event_confs = [];
+            foreach ($this->conf->getCurrentEvents($zone->getTown()) as $ev)
+                foreach ($ev->get(EventConf::EVENT_DIG_RUINS, []) as $e)
+                    if ($e['name'] === $zone->getPrototype()->getIcon())
+                        $event_confs[] = $e;
 
+            if (!empty($event_confs)) $event_conf = $this->random_generator->pick( $event_confs );
 
             $group = $event_conf
                 ? ( $this->random_generator->chance($event_conf['chance'])

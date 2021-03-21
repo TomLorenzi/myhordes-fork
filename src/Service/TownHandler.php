@@ -538,7 +538,8 @@ class TownHandler
         $max = round($max * $soulFactor);
 
         $quality = min($est->getCitizens()->count() / (24 / $ratio), 1);
-        $this->conf->getCurrentEvent($town)->hook_watchtower_estimations($min,$max, $town);
+        foreach ($this->conf->getCurrentEvents($town) as $e)
+            $e->hook_watchtower_estimations($min,$max, $town);
 
         $estim = new WatchtowerEstimation();
         $estim->setMin($min);
@@ -583,7 +584,9 @@ class TownHandler
             $max2 = round($max2 * $soulFactor);
 
             $quality2 = min($calculateUntil / 24, 1);
-            $this->conf->getCurrentEvent($town)->hook_watchtower_estimations($min2,$max2, $town);
+
+            foreach ($this->conf->getCurrentEvents($town) as $e)
+                $e->hook_watchtower_estimations($min2,$max2, $town);
 
             $estim2 = new WatchtowerEstimation();
             $estim2->setMin($min2);
@@ -711,49 +714,92 @@ class TownHandler
         return $redSoulsCount;
     }
 
-    protected function updateCurrentCitizenEvent( Citizen $citizen, EventConf $event): bool {
-        /** @var EventActivationMarker $citizen_marker */
-        $old_event = $this->conf->getCurrentEvent($citizen, $citizen_marker);
-        if ($old_event->name() !== $event->name()) {
+    /**
+     * @param Citizen $citizen
+     * @param EventConf[] $events
+     * @return bool
+     */
+    protected function updateCurrentCitizenEvents( Citizen $citizen, array $events): bool {
+        // Names of events that should be active after calling this function
+        $active_names = array_map( fn(EventConf $e) => $e->name(), array_filter( $events, fn(EventConf $e) => $e->active() ));
 
-            if ($old_event->active()) {
+        /** @var EventActivationMarker[] $citizen_markers */
+        $old_events = $this->conf->getCurrentEvents($citizen, $citizen_markers);
+
+        // Names of events that are currently active
+        $current_names = array_map( fn(EventConf $e) => $e->name(), array_filter( $old_events, fn(EventConf $e) => $e->active() ));
+
+        $pc = [];
+
+        // Disable all old events that are not in the list of the new events
+        foreach ($old_events as $old_event)
+            if (!in_array($old_event->name(), $active_names) && $old_event->active()) {
                 if (!$old_event->hook_disable_citizen($citizen)) return false;
-                if ($citizen_marker) $this->entity_manager->persist($citizen_marker->setActive(false));
+                foreach ($citizen_markers as $marker)
+                    if ($marker->getEvent() === $old_event->name())
+                        $pc[] = $marker->setActive(false);
             }
 
-            if ($event->active()) {
+        // Enable all new events that are not in the list of the old events
+        foreach ($events as $event)
+            if (!in_array($event->name(), $current_names) && $event->active()) {
                 if (!$event->hook_enable_citizen($citizen)) return false;
-                $this->entity_manager->persist( (new EventActivationMarker())
+                $pc[] = ( (new EventActivationMarker())
                     ->setCitizen($citizen)
                     ->setActive(true)
                     ->setEvent( $event->name() )
                 );
             }
-        }
+
+        // We're persisting all changes at the end, when it is sure that no activation failed
+        foreach ($pc as $p) $this->entity_manager->persist($p);
 
         return true;
     }
 
-    public function updateCurrentEvent(Town $town, EventConf $event): bool {
-        /** @var EventActivationMarker $town_marker */
-        $old_event = $this->conf->getCurrentEvent($town, $town_marker);
+    /**
+     * @param Town $town
+     * @param EventConf[] $events
+     * @return bool
+     */
+    public function updateCurrentEvents(Town $town, array $events): bool {
+        // Names of events that should be active after calling this function
+        $active_names = array_map( fn(EventConf $e) => $e->name(), array_filter( $events, fn(EventConf $e) => $e->active() ));
 
+        /** @var EventActivationMarker[] $town_markers */
+        $old_events = $this->conf->getCurrentEvents($town, $town_markers);
+
+        // Names of events that are currently active
+        $current_names = array_map( fn(EventConf $e) => $e->name(), array_filter( $old_events, fn(EventConf $e) => $e->active() ));
+
+        // First, toggle the events for all citizens
         foreach ($town->getCitizens() as $citizen)
-            if (!$this->updateCurrentCitizenEvent( $citizen, $event )) return false;
+            if (!$this->updateCurrentCitizenEvents( $citizen, $events )) return false;
 
-        if ($old_event->active()) {
-            if (!$old_event->hook_disable_town($town)) return false;
-            if ($town_marker) $this->entity_manager->persist($town_marker->setActive(false));
-        }
+        $pc = [];
 
-        if ($event->active()) {
-            if (!$event->hook_enable_town($town)) return false;
-            $this->entity_manager->persist( (new EventActivationMarker())
-                ->setTown($town)
-                ->setActive(true)
-                ->setEvent( $event->name() )
-            );
-        }
+        // Disable all old events that are not in the list of the new events
+        foreach ($old_events as $old_event)
+            if (!in_array($old_event->name(), $active_names) && $old_event->active()) {
+                if (!$old_event->hook_disable_town($town)) return false;
+                foreach ($town_markers as $marker)
+                    if ($marker->getEvent() === $old_event->name())
+                        $pc[] = $marker->setActive(false);
+            }
+
+        // Enable all new events that are not in the list of the old events
+        foreach ($events as $event)
+            if (!in_array($event->name(), $current_names) && $event->active()) {
+                if (!$event->hook_enable_town($town)) return false;
+                $pc[] = ( (new EventActivationMarker())
+                    ->setTown($town)
+                    ->setActive(true)
+                    ->setEvent( $event->name() )
+                );
+            }
+
+        // We're persisting all changes at the end, when it is sure that no activation failed
+        foreach ($pc as $p) $this->entity_manager->persist($p);
 
         return true;
     }
