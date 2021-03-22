@@ -8680,7 +8680,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="yvgmhoy" name="3439ccb">
       <notes>
-        <note category="german">Your &lt;strong&gt;sobriety, or lack thereof,&lt;/strong&gt; is quite inconvenient. Things become pretty tricky pretty quickly when you're completely wasted...</note>
+        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</note>
       </notes>
       <segment>
         <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</source>
@@ -18616,6 +18616,33 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!</source>
         <target>Your attempted theft hasn't gone unnoticed! The town was warned!</target>
+      </segment>
+    </unit>
+    <unit id="xJvvYYd" name="89244b5">
+      <notes>
+        <note category="german">Die Bürger der Stadt haben entschieden, %citizen% zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!</note>
+      </notes>
+      <segment>
+        <source>Die Bürger der Stadt haben entschieden, %citizen% zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!</source>
+        <target><![CDATA[The citizens have decided to <strong>CRUCIFY %citizen%</strong>!! The chocolate cross was eaten during this tragic event!]]></target>
+      </segment>
+    </unit>
+    <unit id="ES1J_Lh" name="Hängt %user%!">
+      <notes>
+        <note category="german">Hängt %user%!</note>
+      </notes>
+      <segment>
+        <source>Hängt %user%!</source>
+        <target>Hang %user%!</target>
+      </segment>
+    </unit>
+    <unit id="lPQWXZ3" name="%user% wir kriegen dich!">
+      <notes>
+        <note category="german">%user% wir kriegen dich!</note>
+      </notes>
+      <segment>
+        <source>%user% wir kriegen dich!</source>
+        <target>%user%, we will have your skin!</target>
       </segment>
     </unit>
   </file>

@@ -610,6 +610,10 @@ class LogTemplateHandler
                 $variables = array('citizen' => $citizen->getId(), 'cod' => $citizen->getCauseOfDeath()->getId());
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'citizenDeathHanging']);
                 break;
+            case CauseOfDeath::ChocolateCross:
+                $variables = array('citizen' => $citizen->getId(), 'cod' => $citizen->getCauseOfDeath()->getId());
+                $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'citizenDeathCross']);
+                break;
             case CauseOfDeath::Headshot:
                 $variables = array('citizen' => $citizen->getId());
                 $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'citizenDeathHeadshot']);

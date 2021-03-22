@@ -25,6 +25,7 @@ use App\Service\RandomGenerator;
 use App\Service\TownHandler;
 use App\Service\TwinoidHandler;
 use App\Service\UserHandler;
+use App\Structures\EventConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -37,6 +38,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Validator\Constraints\Date;
 
 
 class DebugCommand extends Command
@@ -109,6 +111,7 @@ class DebugCommand extends Command
             ->addOption('reapply-twinoid-data', null, InputOption::VALUE_NONE, 'Re-applies the stored twinoid data for all users')
 
             ->addOption('current-event', null, InputOption::VALUE_OPTIONAL, 'Shows the current event.', false)
+            ->addOption('all-events', null, InputOption::VALUE_OPTIONAL, 'Shows the current event. Can take a year value.', false)
         ;
     }
 
@@ -310,7 +313,7 @@ class DebugCommand extends Command
                 $count[$openTown->getLanguage()][$openTown->getType()->getName()]++;
             }
 
-            $current_event = $this->conf->getCurrentEvent();
+            $current_events = $this->conf->getCurrentEvents();
             foreach ($count as $townLang => $array) {
                 foreach ($array as $townClass => $openCount) {
                     if($openCount < 1){
@@ -318,8 +321,8 @@ class DebugCommand extends Command
                         $this->entity_manager->persist($newTown);
                         $this->entity_manager->flush();
 
-                        if ($current_event->active()) {
-                            if (!$this->townHandler->updateCurrentEvent($newTown, $current_event))
+                        if (!empty(array_filter($current_events, fn(EventConf $e) => $e->active())))  {
+                            if (!$this->townHandler->updateCurrentEvents($newTown, $current_events))
                                 $this->entity_manager->clear();
                             else {
                                 $this->entity_manager->persist($newTown);
@@ -332,15 +335,17 @@ class DebugCommand extends Command
         }
 
         if ($input->getOption('update-events')) {
-            $current_event = $this->conf->getCurrentEvent();
+            $current_events = $this->conf->getCurrentEvents();
             $towns = $this->entity_manager->getRepository(Town::class)->findAll();
             foreach ($towns as $town) {
 
-                $town_event = $this->conf->getCurrentEvent($town);
-                if ($town_event->name() !== $current_event->name()) {
+                $must_enable  = [];
+                $must_disable = [];
 
-                    $output->write("Town '<info>{$town->getName()}</info>' (<info>{$town->getId()}</info>): Changing currently registered event '<info>{$town_event->name()}</info>' to '<info>{$current_event->name()}</info>'... ");
-                    if (!$this->townHandler->updateCurrentEvent($town, $current_event)) {
+                if (!$this->conf->checkEventActivation($town, $must_enable, $must_disable)) {
+
+                    $output->write("Town '<info>{$town->getName()}</info>' (<info>{$town->getId()}</info>): Disable events [<info>" . implode('</info>,<info>', $must_disable) . "</info>] and enable [<info>" . implode('</info>,<info>', $must_enable) . "</info>]... ");
+                    if (!$this->townHandler->updateCurrentEvents($town, $current_events)) {
                         $this->entity_manager->clear();
                         $output->writeln('<error>Failed!</error>');
                     } else {
@@ -493,10 +498,37 @@ class DebugCommand extends Command
                 return 1;
             }
 
+            $events = array_map(fn(EventConf $e) => $e->name(), array_filter( $this->conf->getCurrentEvents(null,$m, $dateTime), fn(EventConf $e) => $e->active() ));
+            if (!empty($events)) $output->writeln("<comment>{$dateTime->format('c')}:</comment> Current events: [<info>" . implode('</info>,<info>', $events) . "</info>]");
+            else $output->writeln("<comment>{$dateTime->format('c')}:</comment> There are <info>no current events</info>.");
+        }
 
-            $event = $this->conf->getCurrentEvent(null,$m, $dateTime);
-            if ($event->active()) $output->writeln("<comment>{$dateTime->format('c')}:</comment> Current event: <info>{$event->name()}</info>");
-            else $output->writeln("<comment>{$dateTime->format('c')}:</comment> There is <info>no current event</info>.");
+        if (($y = $input->getOption('all-events')) !== false) {
+
+            $y = is_numeric($y) ? (int)$y : (int)(new DateTime())->format('Y');
+            $start = (new DateTime())->setDate( $y, 1, 1 );
+            $end = (new DateTime())->setDate( $y, 12, 31 );
+
+            $schedule = $this->conf->getAllScheduledEvents($start,$end);
+
+            $now = new DateTime();
+            $last = (new DateTime())->setDate( $y-1, 12, 31 );
+
+            if (!empty($schedule) && $now < $schedule[0][1])
+                $output->writeln( "<comment>{$now->format('c')} <-- We are here</comment>" );
+
+            foreach ($schedule as $entry) {
+                if ($now > $last && $now <= $entry[1])
+                    $output->writeln( "<comment>{$now->format('c')} <-- We are here</comment>" );
+                if ($entry[2])
+                    $output->writeln( "<comment>{$entry[1]->format('c')}</comment> <info>[start]</info> of event <info>{$entry[0]}</info>." );
+                else $output->writeln( "<comment>{$entry[1]->format('c')}</comment> <info> [end] </info> of event <info>{$entry[0]}</info>." );
+                $last = clone $entry[1];
+            }
+
+            if (!empty($schedule) && $now > end($schedule)[1])
+                $output->writeln( "<comment>{$now->format('c')} <-- We are here</comment>" );
+
         }
 
         return 0;

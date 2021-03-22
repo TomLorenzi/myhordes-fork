@@ -3268,5 +3268,23 @@
         <target>Clôture</target>
       </segment>
     </unit>
+    <unit id="i0KuVv1" name="Schokoladenkreuz">
+      <notes>
+        <note category="german">Schokoladenkreuz</note>
+      </notes>
+      <segment>
+        <source>Schokoladenkreuz</source>
+        <target>Croix en Chocolat</target>
+      </segment>
+    </unit>
+    <unit id="fDHJWJh" name="79667b6">
+      <notes>
+        <note category="german">Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...</note>
+      </notes>
+      <segment>
+        <source>Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...</source>
+        <target>Une belle croix réalisée en chocolat pour y placer les citoyens indésirables plutôt que de se contenter de les bannir de la communsuté...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

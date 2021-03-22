@@ -48,6 +48,9 @@ class TownConf extends Conf
     const CONF_BANK_ABUSE_BASE        = 'bank_abuse.base_range_min';
     const CONF_BANK_ABUSE_LOCK        = 'bank_abuse.lock_range_min';
 
+    const CONF_MODIFIER_COMPLAINTS_SHUN     = 'modifiers.complaints.shun';
+    const CONF_MODIFIER_COMPLAINTS_KILL     = 'modifiers.complaints.kill';
+
     const CONF_MODIFIER_POISON_STACK         = 'modifiers.poison.stack_poisoned_items';
     const CONF_MODIFIER_POISON_TRANS         = 'modifiers.poison.transgress';
     const CONF_MODIFIER_WT_THRESHOLD         = 'modifiers.watchtower_estimation_threshold';

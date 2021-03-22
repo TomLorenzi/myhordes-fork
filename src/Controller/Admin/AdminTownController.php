@@ -314,7 +314,7 @@ class AdminTownController extends AdminActionController
                 $this->entity_manager->persist($town);
                 break;
             case 'advance':
-                if ($night->advance_day($town, $this->conf->getCurrentEvent($town))) {
+                if ($night->advance_day($town, $this->conf->getCurrentEvents($town))) {
                     foreach ($night->get_cleanup_container() as $c) $this->entity_manager->remove($c);
                     $town->setAttackFails(0);
                     $this->entity_manager->persist($town);

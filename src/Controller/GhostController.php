@@ -22,6 +22,7 @@ use App\Service\LogTemplateHandler;
 use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
+use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -290,9 +291,10 @@ class GhostController extends CustomAbstractController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        $current_event = $this->conf->getCurrentEvent();
-        if ($current_event->active()) {
-            if (!$townHandler->updateCurrentEvent($town, $current_event)) {
+        $current_events = $this->conf->getCurrentEvents();
+
+        if (!empty(array_filter($current_events, fn(EventConf $e) => $e->active()))) {
+            if (!$townHandler->updateCurrentEvents($town, $current_events)) {
                 $em->clear();
             } else try {
                 $em->persist($town);
@@ -381,9 +383,9 @@ class GhostController extends CustomAbstractController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        $current_town_event = $this->conf->getCurrentEvent($town);
-        if ($current_town_event->active()) {
-            if (!$townHandler->updateCurrentEvent($town, $current_town_event))
+        $current_town_events = $this->conf->getCurrentEvents($town);
+        if (!empty(array_filter($current_town_events,fn(EventConf $e) => $e->active()))) {
+            if (!$townHandler->updateCurrentEvents($town, $current_town_events))
                 $this->entity_manager->clear();
             else {
                 $this->entity_manager->persist($town);
@@ -460,9 +462,9 @@ class GhostController extends CustomAbstractController
                         $this->entity_manager->persist($newTown);
                         $this->entity_manager->flush();
 
-                        $current_event = $this->conf->getCurrentEvent();
-                        if ($current_event->active()) {
-                            if (!$townHandler->updateCurrentEvent($newTown, $current_event))
+                        $current_events = $this->conf->getCurrentEvents();
+                        if (!empty(array_filter($current_town_events,fn(EventConf $e) => $e->active()))) {
+                            if (!$townHandler->updateCurrentEvents($newTown, $current_events))
                                 $this->entity_manager->clear();
                             else {
                                 $this->entity_manager->persist($newTown);
