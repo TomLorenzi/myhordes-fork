@@ -3,7 +3,6 @@
 
 namespace App\Service;
 
-
 use App\Entity\Citizen;
 use App\Entity\EventActivationMarker;
 use App\Entity\Town;
@@ -24,7 +23,7 @@ class ConfMaster
     private array $events;
 
     private ?MyHordesConf $global_conf = null;
-    private ?EventConf $event_conf = null;
+    private ?array $event_conf = null;
     private array $event_cache = [];
 
     public function __construct( array $global, array $local, array $rules, array $events, EntityManagerInterface $em) {
@@ -95,38 +94,67 @@ class ConfMaster
 
     /**
      * @param Town|Citizen|null $ref
-     * @param EventActivationMarker|null $marker
-     * @param \DateTime|null $query_date
-     * @return EventConf
+     * @param array|null $markers
+     * @param DateTime|null $query_date
+     * @return EventConf[]
      */
-    public function getCurrentEvent( $ref = null, ?EventActivationMarker &$marker = null, ?DateTime $query_date = null): EventConf {
-        $marker = null;
+    public function getCurrentEvents( $ref = null, ?array &$markers = [], ?DateTime $query_date = null): array {
+        $markers = [];
         if ($ref !== null) {
 
             if (is_a($ref, Town::class))
-                $marker = $this->entityManager->getRepository(EventActivationMarker::class)->findOneBy(['town' => $ref, 'active' => true]);
+                $markers = $this->entityManager->getRepository(EventActivationMarker::class)->findBy(['town' => $ref, 'active' => true]);
             elseif (is_a($ref, Citizen::class))
-                $marker = $this->entityManager->getRepository(EventActivationMarker::class)->findOneBy(['citizen' => $ref, 'active' => true]);
+                $markers = $this->entityManager->getRepository(EventActivationMarker::class)->findBy(['citizen' => $ref, 'active' => true]);
             else throw new \LogicException('Queried current event from an object that is not referenced by EventActivationMarker.');
 
-            return $marker ? $this->getEvent( $marker->getEvent() ) : new EventConf();
+            if (empty($markers)) return [new EventConf()];
+
+            $conf = array_map( fn(EventActivationMarker $m) => $this->getEvent( $m->getEvent() ), $markers );
+            usort($conf, fn(EventConf $a, EventConf $b) => $b->priority() <=> $a->priority());
+            return $conf;
         }
 
-        if ($this->event_conf !== null)
-            return $this->event_conf;
+        if ($this->event_conf !== null) return $this->event_conf;
 
         $curDate = $query_date ?? new DateTime();
 
-        foreach($this->events as $id => $conf) {
+        $conf = [];
+        foreach($this->events as $id => $config) {
 
-            if (empty($conf['trigger'])) continue;
+            if (empty($config['trigger'])) continue;
 
-            if ($this->getEventSchedule($conf['trigger'], $curDate))
-                return $this->event_conf = $this->getEvent($id);
+            if ($this->getEventSchedule($config['trigger'], $curDate))
+                $conf[] = $this->getEvent($id);
 
         }
 
-        return ($this->event_conf = (new EventConf())->complete());
+        return $this->event_conf = (empty($conf) ? [(new EventConf())->complete()] : $conf);
+    }
+
+    /**
+     * @param Town $town
+     * @param array $must_enable
+     * @param array $must_disable
+     * @param array $must_keep
+     * @return bool Returns false if the current event configuration of the town does not match the scheduled event config
+     */
+    public function checkEventActivation( Town $town, array &$must_enable = [], array &$must_disable = [], array &$must_keep = [] ): bool {
+        $current_events = $this->getCurrentEvents();
+
+        // Check which events need to be configured
+        $town_events = $this->getCurrentEvents($town);
+        $ce = [];
+        foreach ($current_events as $event) if ($event->active()) $ce[$event->name()] = 1;
+        foreach ($town_events as $event) if ($event->active())
+            if (isset($ce[$event->name()])) $ce[$event->name()] = 0;
+            else $ce[$event->name()] = -1;
+
+        $must_enable  = array_keys(array_filter($ce, fn(int $v) => $v > 0));
+        $must_keep    = array_keys(array_filter($ce, fn(int $v) => $v === 0));
+        $must_disable = array_keys(array_filter($ce, fn(int $v) => $v < 0));
+
+        return empty($must_enable) && empty($must_disable);
     }
 
     public function getAllScheduledEvents(DateTime $from, DateTime $to, string $interval = '1D'): array {

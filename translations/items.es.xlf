@@ -7481,7 +7481,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Weihnachts-Süßigkeiten</source>
-        <target>Weihnachts-Süßigkeiten</target>
+        <target>Dulce de Navidad</target>
       </segment>
     </unit>
     <unit id="ijOQByU" name="309fa3e">
@@ -7490,7 +7490,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Es sieht aus wie eine Art Schokoladenbonbon mit alkoholischem Likör darin. Oder eine andere Füllung...</source>
-        <target>Es sieht aus wie eine Art Schokoladenbonbon mit alkoholischem Likör darin. Oder eine andere Füllung...</target>
+        <target>Parece una especie de pequeño caramelo de chocolate, que contiene licor alcohólico. O cualquier otro producto...</target>
       </segment>
     </unit>
     <unit id="MDcK7Yw" name="Geschenkpaket">
@@ -7499,7 +7499,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Geschenkpaket</source>
-        <target>Geschenkpaket</target>
+        <target>Paquete postal</target>
       </segment>
     </unit>
     <unit id="kdGOsHH" name="cfe7609">
@@ -7508,7 +7508,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Die Adresse ist nicht mehr lesbar. Es scheint etwas drin zu sein... Frohe Weihnachten!</source>
-        <target>Die Adresse ist nicht mehr lesbar. Es scheint etwas drin zu sein... Frohe Weihnachten!</target>
+        <target>La dirección se ha vuelto ilegible, pero definitivamente hay algo dentro... ¡Feliz Navidad!</target>
       </segment>
     </unit>
     <unit id="YqfUhZc" name="Großes Geschenkpaket">
@@ -7517,7 +7517,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Großes Geschenkpaket</source>
-        <target>Großes Geschenkpaket</target>
+        <target>Gran paquete postal</target>
       </segment>
     </unit>
     <unit id="1cAIp2n" name="Du hast {item} getrunken, aber scheinbar geschieht nichts...">
@@ -7769,7 +7769,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Kreischender Wecker (entladen)</source>
-        <target>Kreischender Wecker (entladen)</target>
+        <target>Despertador chillón (apagado)</target>
       </segment>
     </unit>
     <unit id="rigrkZL" name="e192faa">
@@ -7787,7 +7787,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Kreischender Wecker (mit Strom)</source>
-        <target>Kreischender Wecker (mit Strom)</target>
+        <target>Despertador chillón (encendido)</target>
       </segment>
     </unit>
     <unit id="4h5ljTX" name="b317cb5">
@@ -7850,7 +7850,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Weicher Kürbis</source>
-        <target>Weicher Kürbis</target>
+        <target>Calabaza suave</target>
       </segment>
     </unit>
     <unit id="C50KixZ" name="ff67b99">
@@ -7859,7 +7859,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Eine Art großes, stinkendes, orangefarbenes Gemüse, wie du es noch nie gesehen hast. Ein plötzlicher Drang, es auszugraben, ergreift dich, ohne dass du weißt warum...</source>
-        <target>Eine Art großes, stinkendes, orangefarbenes Gemüse, wie du es noch nie gesehen hast. Ein plötzlicher Drang, es auszugraben, ergreift dich, ohne dass du weißt warum...</target>
+        <target>Un tipo de verdura naranja grande y maloliente, como nunca has visto antes. Tienes un repentino impulso de tallarla, sin saber por qué...</target>
       </segment>
     </unit>
     <unit id="VjR2NCz" name="Hurlingstock">
@@ -7868,7 +7868,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Hurlingstock</source>
-        <target>Hurlingstock</target>
+        <target>Palo de hockey</target>
       </segment>
     </unit>
     <unit id="8dLKyx6" name="01e4f48">
@@ -7886,7 +7886,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Guiness</source>
-        <target>Guiness</target>
+        <target>Winness</target>
       </segment>
     </unit>
     <unit id="W05WB_r" name="f4c9ac4">
@@ -8013,6 +8013,33 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <segment>
         <source>%citizen% befehlen etwas zu essen.</source>
         <target>%citizen% befehlen etwas zu essen.</target>
+      </segment>
+    </unit>
+    <unit id="P9ubaaO" name="Schwarzer Zervixschleim">
+      <notes>
+        <note category="german">Schwarzer Zervixschleim</note>
+      </notes>
+      <segment>
+        <source>Schwarzer Zervixschleim</source>
+        <target>Exudación Cervical Negra</target>
+      </segment>
+    </unit>
+    <unit id="M3k3jYb" name="7f67ddf">
+      <notes>
+        <note category="german">Ein Gift welches bei der Einnahme EXTREM virulent wirkt, wenn man dem Etikett Glauben schenken darf: Die Ingestion des Zervixschleim führt zu Tod, spontaner Verbrennung, Explosion der Lunge und zum Austritt des Gehirns aus allen Körperöffnungen. Aber nicht unbedingt in dieser Reihenfolge.</note>
+      </notes>
+      <segment>
+        <source>Ein Gift welches bei der Einnahme EXTREM virulent wirkt, wenn man dem Etikett Glauben schenken darf: Die Ingestion des Zervixschleim führt zu Tod, spontaner Verbrennung, Explosion der Lunge und zum Austritt des Gehirns aus allen Körperöffnungen. Aber nicht unbedingt in dieser Reihenfolge.</source>
+        <target>Un veneno que es EXTREMADAMENTE virulento cuando se ingiere, si se debe creer en la etiqueta: la ingestión de la exudación cervical causa la muerte, combustión espontánea, explosión de los pulmones y fuga del cerebro por todos los orificios. Pero no necesariamente en ese orden.</target>
+      </segment>
+    </unit>
+    <unit id="mas1mGO" name="c796b36">
+      <notes>
+        <note category="german">Merkwürdig... anscheinend ist der erwartete Effekt ausgeblieben. Du sagst dir selbst, das dies eine unglaubliche Chance ist...</note>
+      </notes>
+      <segment>
+        <source>Merkwürdig... anscheinend ist der erwartete Effekt ausgeblieben. Du sagst dir selbst, das dies eine unglaubliche Chance ist...</source>
+        <target>Merkwürdig... anscheinend ist der erwartete Effekt ausgeblieben. Du sagst dir selbst, das dies eine unglaubliche Chance ist...</target>
       </segment>
     </unit>
   </file>

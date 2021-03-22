@@ -299,6 +299,15 @@ class ActionHandler
                             $current_state = min($current_state, Requirement::HideOnFail);
                         break;
 
+                    // Event - April Fools
+                    case 3:
+                        /** @var EventActivationMarker[] $eam */
+                        $eam = $this->entity_manager->getRepository(EventActivationMarker::class)->findBy(['citizen' => $citizen, 'active' => true]);
+                        $b = false;
+                        foreach ($eam as $m) if ($m->getEvent() === 'afools') $b = true;
+                        if (!$b) $current_state = min($current_state, Requirement::CrossOnFail);
+                        break;
+
                     // Vote
                     case 18: case 19:
                         if (!$citizen->getProfession()->getHeroic()) {
@@ -1366,9 +1375,11 @@ class ActionHandler
 
                         } else $sandball_target = $target;
 
-                        /** @var EventActivationMarker $eam */
-                        $eam = $this->entity_manager->getRepository(EventActivationMarker::class)->findOneBy(['citizen' => $citizen, 'active' => true]);
-                        if (!$eam || $eam->getEvent() !== 'christmas') $sandball_target = null;
+                        /** @var EventActivationMarker[] $eam */
+                        $eam = $this->entity_manager->getRepository(EventActivationMarker::class)->findBy(['citizen' => $citizen, 'active' => true]);
+                        $b = false;
+                        foreach ($eam as $m) if ($m->getEvent() === 'christmas') $b = true;
+                        if (!$b) $sandball_target = null;
 
                         if ($sandball_target !== null) {
                             $this->picto_handler->give_picto($citizen, 'r_sandb_#00');

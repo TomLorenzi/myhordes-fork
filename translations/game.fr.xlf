@@ -2129,10 +2129,7 @@
                             benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                             kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                             auffüllen.</source>
-        <target>Pour de nombreuses actions, comme explorer le monde extérieur ou travailler sur un chantier de construction,
-                            vous avez besoin de points d'action. Vos points d'action sont rechargés tous les soirs après l'attaque. 
-                            Vous pouvez également les recharger en utilisant certains objets et une fois par jour en mangeant
-                            et en buvant.</target>
+        <target>Ces points sont notamment utilisés pour vos déplacements dans l'Outre-Monde, le désert entourant la ville...</target>
       </segment>
     </unit>
     <unit id="bfXTcH6" name="Baupunkte">
@@ -7666,7 +7663,8 @@
       </notes>
       <segment>
         <source>%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</source>
-        <target>%citizen% a fait tomber la pluie ! Le puits a gagné %num% rations d'eau !</target>
+        <target>%citizen% fait tomber de la pluie et grâce à lui le puits a regagné %num% rations d'eau potable !
+</target>
       </segment>
     </unit>
     <unit id="8c.i3q2" name="Zone reinigen">
@@ -17932,10 +17930,7 @@
                                 benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                                 kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                                 auffüllen.</source>
-        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                                auffüllen.</target>
+        <target>Ces points sont notamment utilisés pour vos déplacements dans l'Outre-Monde, le désert entourant la ville...</target>
       </segment>
     </unit>
     <unit id="cNyto3M" name="Du wurdest zum Schamanen gewählt!">
@@ -18656,6 +18651,24 @@
       <segment>
         <source>Die Bürger der Stadt haben entschieden, %citizen% zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!</source>
         <target>Les citoyens ont décidé de crucifier %citizen% ! La croix en chocolat a été mangée par les citoyens au cours de ce tragique évènement !</target>
+      </segment>
+    </unit>
+    <unit id="ES1J_Lh" name="Hängt %user%!">
+      <notes>
+        <note category="german">Hängt %user%!</note>
+      </notes>
+      <segment>
+        <source>Hängt %user%!</source>
+        <target>Pendez %user%!</target>
+      </segment>
+    </unit>
+    <unit id="lPQWXZ3" name="%user% wir kriegen dich!">
+      <notes>
+        <note category="german">%user% wir kriegen dich!</note>
+      </notes>
+      <segment>
+        <source>%user% wir kriegen dich!</source>
+        <target>%user% on aura ta peau !!</target>
       </segment>
     </unit>
   </file>

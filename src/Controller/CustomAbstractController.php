@@ -116,13 +116,16 @@ class CustomAbstractController extends AbstractController {
     protected function render(string $view, array $parameters = [], Response $response = null): Response
     {
         if ($this->getUser() && $this->getUser()->getActiveCitizen())
-            $current_event = $this->conf->getCurrentEvent($this->getUser()->getActiveCitizen()->getTown());
-        else $current_event = $this->conf->getCurrentEvent();
+            $current_events = $this->conf->getCurrentEvents($this->getUser()->getActiveCitizen()->getTown());
+        else $current_events = $this->conf->getCurrentEvents();
 
-        if ($current_event->active()) {
-            $parameters = array_merge($parameters, [
-                'custom_css' => $current_event->get(EventConf::EVENT_CSS, 'event')
-            ]);
+        foreach ($current_events as $current_event) {
+            if ($current_event->active() && ($css = $current_event->get(EventConf::EVENT_CSS, null))) {
+                $parameters = array_merge($parameters, [
+                    'custom_css' => $current_event->get(EventConf::EVENT_CSS, $css)
+                ]);
+                break;
+            }
         }
 
         return parent::render($view, $parameters, $response);
@@ -132,7 +135,6 @@ class CustomAbstractController extends AbstractController {
      * @return Citizen|null The current citizen for the current user
      */
     protected function getActiveCitizen(): ?Citizen {
-        /** @var User $user */
         $user = $this->getUser();
         if($user === null) return null;
         return $this->cache_active_citizen ?? ($this->cache_active_citizen = $this->entity_manager->getRepository(Citizen::class)->findActiveByUser($user));

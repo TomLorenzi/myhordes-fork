@@ -197,6 +197,14 @@
 
                     <div class="forum-post-content" x-post-content-id="{{ post.id }}" x-post-content-author="{{ author_name }}">
                         {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
+                        {% if not post.translate and paranoid and post.owner.name != 'Der Rabe' %}
+                            {% set mode = (app.user.id + post.id + post.owner.id) % 12 %}
+                            {% if mode == 0 %}
+                                <br/>{{ 'Hängt %user%!'|trans({'%user%': app.user.name},'game') }}
+                            {% elseif mode == 1 %}
+                                <br/>{{ '%user% wir kriegen dich!'|trans({'%user%': app.user.name},'game') }}
+                            {% endif %}
+                        {% endif %}
                     </div>
                     <div class="forum-post-footer">
                         <div class="float-left small">

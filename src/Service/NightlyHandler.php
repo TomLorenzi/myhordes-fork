@@ -923,7 +923,11 @@ class NightlyHandler
 
         $status_wound_infection = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'tg_meta_winfect'] );
 
-        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drunk','drugged','healed','hungover','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_chk_workshop', 'tg_chk_build', 'tg_chk_movewb', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff', 'tg_rested', 'tg_shaman_heal', 'tg_ghoul_eat', 'tg_no_hangover', 'tg_ghoul_corpse', 'tg_betadrug', 'tg_build_vote', 'tg_insurrection'];
+        /* April fools states */
+        $status_ooze = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'tg_april_ooze'] );
+        $status_paranoid = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'tg_paranoid'] );
+
+        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drunk','drugged','healed','hungover','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_chk_workshop', 'tg_chk_build', 'tg_chk_movewb', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff', 'tg_rested', 'tg_shaman_heal', 'tg_ghoul_eat', 'tg_no_hangover', 'tg_ghoul_corpse', 'tg_betadrug', 'tg_build_vote', 'tg_insurrection', 'tg_april_ooze'];
 
         $aliveCitizenInTown = 0;
         $aliveCitizen = 0;
@@ -961,6 +965,15 @@ class NightlyHandler
                     $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is <info>wounded</info>. Adding an <info>infection</info>.");
                     $this->citizen_handler->inflictStatus($citizen, $status_wound_infection);
                 }
+                if (!$citizen->getStatus()->contains($status_infection) && $citizen->getStatus()->contains($status_ooze)) {
+                    $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has consumed the <info>ooze</info>. Adding an <info>infection</info>.");
+                    $this->citizen_handler->inflictStatus($citizen, $status_wound_infection);
+                }
+            }
+
+            if (!$citizen->getStatus()->contains($status_paranoid) && $citizen->getStatus()->contains($status_ooze)) {
+                $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has consumed the <info>ooze</info>. Adding the <info>paranoid</info> state.");
+                $this->citizen_handler->inflictStatus($citizen, $status_paranoid);
             }
 
             if ($citizen->hasRole('ghoul')) {
@@ -994,6 +1007,7 @@ class NightlyHandler
                 $this->cleanup[] = $et;
             foreach ($this->entity_manager->getRepository( DigRuinMarker::class )->findAllByCitizen( $citizen ) as $drm)
                 $this->cleanup[] = $drm;
+
             $add_hangover = ($this->citizen_handler->hasStatusEffect($citizen, 'drunk') && !$this->citizen_handler->hasStatusEffect($citizen, 'tg_no_hangover'));
             foreach ($citizen->getStatus() as $st)
                 if (in_array($st->getName(),$status_clear_list)) {
@@ -1380,7 +1394,12 @@ class NightlyHandler
         }
     }
 
-    public function advance_day(Town $town, EventConf $event): bool {
+    /**
+     * @param Town $town
+     * @param EventConf[] $events
+     * @return bool
+     */
+    public function advance_day(Town $town, array $events): bool {
         $this->skip_reanimation = [];
 
         $this->log->info( "Nightly attack request received for town <info>{$town->getId()}</info> (<info>{$town->getName()}</info>)." );
@@ -1390,7 +1409,7 @@ class NightlyHandler
             return false;
         } else $this->log->info("Precondition checks passed. Attack can <info>commence</info>.");
 
-        $event->hook_nightly_pre($town);
+        foreach ($events as $event) $event->hook_nightly_pre($town);
 
         $this->town_handler->triggerAlways( $town );
 
@@ -1415,7 +1434,7 @@ class NightlyHandler
         $this->stage3_items($town);
         $this->stage3_pictos($town);
 
-        $event->hook_nightly_post($town);
+        foreach ($events as $event) $event->hook_nightly_post($town);
 
         TownRankingProxy::fromTown( $town, true );
         foreach ($town->getCitizens() as $citizen) CitizenRankingProxy::fromCitizen( $citizen, true );
@@ -1429,7 +1448,7 @@ class NightlyHandler
         return true;
     }
 
-    public function get_cleanup_container() {
+    public function get_cleanup_container(): array {
         $cc = $this->cleanup;
         $this->cleanup = [];
         return $cc;
