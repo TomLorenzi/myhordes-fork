@@ -66,13 +66,13 @@ class ExternalController extends InventoryAwareController {
      * @param Packages $a
      * @param TownHandler $th
      */
-    
+
     public function __construct( EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch,
-    ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh,
-    PictoHandler $ph, TranslatorInterface $translator, GameFactory $gf,
-    RandomGenerator $rg, ItemFactory $if, LogTemplateHandler $lh,
-    ConfMaster $conf, ZoneHandler $zh, UserHandler $uh,
-    CrowService $armbrust, Packages $a, TownHandler $th) {
+                                 ActionHandler $ah, TimeKeeperService $tk, DeathHandler $dh,
+                                 PictoHandler $ph, TranslatorInterface $translator, GameFactory $gf,
+                                 RandomGenerator $rg, ItemFactory $if, LogTemplateHandler $lh,
+                                 ConfMaster $conf, ZoneHandler $zh, UserHandler $uh,
+                                 CrowService $armbrust, Packages $a, TownHandler $th) {
         parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th);
         $this->game_factory = $gf;
         $this->item_factory = $if;
@@ -80,15 +80,15 @@ class ExternalController extends InventoryAwareController {
         $this->entity_manager = $em;
         $this->asset = $a;
     }
-    
+
     /**
-    * @var Request
-    */
+     * @var Request
+     */
     private $request;
-    
+
     /**
-    * @var SURLLobj
-    */
+     * @var SURLLobj
+     */
     private $SURLLobj;
 
     protected function getRequestLanguage(Request $request, ?User $user = null): string {
@@ -112,10 +112,10 @@ class ExternalController extends InventoryAwareController {
     }
 
     /**
-    * @Route("/jx/disclaimer/{id}", name="disclaimer", condition="request.isXmlHttpRequest()")
-    * @param int $id
-    * @return Response
-    */
+     * @Route("/jx/disclaimer/{id}", name="disclaimer", condition="request.isXmlHttpRequest()")
+     * @param int $id
+     * @return Response
+     */
     public function disclaimer(int $id): Response {
         /** @var ExternalApp $app */
         $app = $this->entity_manager->getRepository(ExternalApp::class)->find($id);
@@ -124,27 +124,27 @@ class ExternalController extends InventoryAwareController {
             return $this->redirect($this->generateUrl('initial_landing'));
 
         $key = $user->getExternalId();
-        
+
         return $this->render('ajax/public/disclaimer.html.twig', [
-            'ex' => $app,
-            'key' => $key
-            ]
+                                                                   'ex' => $app,
+                                                                   'key' => $key
+                                                               ]
         );
     }
-    
+
     /**
-    * @Route("/jx/docs", name="docs", condition="request.isXmlHttpRequest()")
-    * @return Response
-    */
+     * @Route("/jx/docs", name="docs", condition="request.isXmlHttpRequest()")
+     * @return Response
+     */
     public function documentation(Request $request): Response {
         return $this->render('ajax/public/apidocs.html.twig', []);
     }
-    
-    
+
+
     /**
-    * @Route("/api/x/json/{type}", methods={"GET", "POST"})
-    * @return Response
-    */
+     * @Route("/api/x/json/{type}", methods={"GET", "POST"})
+     * @return Response
+     */
     public function api_json($type = ''): Response {
 
         $data = [];
@@ -154,10 +154,10 @@ class ExternalController extends InventoryAwareController {
             $data = ["error" => "invalid_appkey"];
             $type = 'internalerror';
         }
-        
+
         /** @var ExternalApp $app */
         $app = $this->entity_manager->getRepository(ExternalApp::class)->findOneBy(['secret' => $APP_KEY]);
-        
+
         if(!$app) {
             $data = ["error" => "invalid_appkey"];
             $type = 'internalerror';
@@ -190,10 +190,10 @@ class ExternalController extends InventoryAwareController {
                     'fields' => [
                         'img',
                         'name'
-                        ]
                     ]
+                ]
                 ];
-                        
+
                 $fields = $this->getRequestParam('fields');
                 $filter = $this->getRequestParam('filters');
                 $langue = $this->getRequestParam('languages');
@@ -207,7 +207,7 @@ class ExternalController extends InventoryAwareController {
                 if($langue!=false) {
                     $SURLL_request['items']['languages'] = $this->SURLL_preparser($langue);
                 }
-                        
+
                 $data = $this->getItemsData($SURLL_request);
                 break;
             case 'debug':
@@ -302,11 +302,11 @@ class ExternalController extends InventoryAwareController {
 
         return $this->json( $data );
     }
-            
+
     private function getRequestParam($param) {
         $request = Request::createFromGlobals();
         $this->request = $request;
-        
+
         $val = $request->request->get($param);
         if(trim($val)==='') {
             $val = $request->query->get($param);
@@ -318,13 +318,13 @@ class ExternalController extends InventoryAwareController {
             return $val;
         }
     }
-    
+
     private function SURLL_preparser($surll_str): array {
         preg_match_all('/\.[a-z0-9\-]+|[a-z0-9\-]+|\(|\)/i', $surll_str, $surll_arr);
         $this->SURLLobj = $surll_arr[0];
         return $this->SURLL_parser();
     }
-    
+
     private function SURLL_parser(): array {
         $parsed = [];
         while(count($this->SURLLobj)>0) {
@@ -351,7 +351,7 @@ class ExternalController extends InventoryAwareController {
         }
         return $parsed;
     }
-    
+
     private function getItemVal(ItemPrototype $item, $key) {
         switch($key) {
             case "name":
@@ -364,7 +364,7 @@ class ExternalController extends InventoryAwareController {
                 return false;
         }
     }
-                    
+
     private function getItemsData($SURLL_request): array {
         $data = [];
         if(isset($SURLL_request['items']['filters'])&&is_array($SURLL_request['items']['filters'])) {
@@ -418,7 +418,7 @@ class ExternalController extends InventoryAwareController {
         }
         return $data;
     }
-    
+
     private function getUserData($SURLL_request, $originalUserID): array {
         /** @var User $user */
         $user= $this->entity_manager->getRepository(User::class)->findOneBy(['id' => $SURLL_request['user']['filters']]);
@@ -431,10 +431,10 @@ class ExternalController extends InventoryAwareController {
             switch(true) {
                 case $field==="id":
                     $user_data['id']= $user->getId();
-                break;
+                    break;
                 case $field==="name":
                     $user_data['name']= $user->getName();
-                break;
+                    break;
                 case $field==="avatar":
                     $has_avatar = $user->getAvatar();
                     if($has_avatar) {
@@ -443,36 +443,36 @@ class ExternalController extends InventoryAwareController {
                     break;
                 case $field==="isGhost":
                     $user_data['isGhost']= ($current_citizen === null);
-                break;
+                    break;
                 case ($current_citizen && $field==="homeMessage"):
                     $user_data['homeMessage']= $current_citizen->getHome()->getDescription();
                     break;
                 case ($current_citizen && $field==="hero"):
                     $user_data['hero'] = $current_citizen->getProfession()->getHeroic();
-                break;
+                    break;
                 case ($current_citizen && $field==="dead"):
                     $user_data['dead']= !$current_citizen->getAlive();
-                break;
+                    break;
                 case ($current_citizen && $field==="job"):
                     $user_data['job']= $current_citizen->getProfession()->getName();
-                break;
+                    break;
                 case ($current_citizen && $field==="out"):
                     $user_data['out']= $current_citizen->getZone() ? true : false;
-                break;
+                    break;
                 case ($current_citizen && $field==="baseDef"):
                     $user_data['baseDef']= $current_citizen->getHome()->getAdditionalDefense();
-                break;
+                    break;
                 case ($current_citizen && $field==="ban"):
                     $user_data['ban']= $current_citizen->getBanished();
-                break;
+                    break;
                 case ($current_citizen && $field==="x"):
                     $zone = $current_citizen->getTown()->getChaos() ? null : $current_citizen->getZone();
                     $user_data['x']= $zone ? $zone->getX() : 0;
-                break;
+                    break;
                 case ($current_citizen && $field==="y"):
                     $zone = $current_citizen->getTown()->getChaos() ? null : $current_citizen->getZone();
                     $user_data['y']= $zone ? $zone->getY() : 0;
-                break;
+                    break;
                 case ($current_citizen && $field==="mapId"):
                     $user_data['mapId']= $current_citizen->getTown()->getId();
                     break;
@@ -481,7 +481,7 @@ class ExternalController extends InventoryAwareController {
                         'filters' => $current_citizen->getTown()->getId(),
                         'languages' => ['de', 'en', 'es', 'fr'],
                         'fields' => ['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom']
-                        ]], $originalUserID);
+                    ]], $originalUserID);
                     break;
                 case ($user->getId()===$originalUserID && $field==="playedMaps"):
                     $user_data['playedMaps']= "playedMaps";
@@ -495,7 +495,7 @@ class ExternalController extends InventoryAwareController {
                                     if(!isset($ProtoFieldValue['fields'])) $field['map']['fields']= ['date', 'days', 'season', 'id', 'hei', 'wid', 'bonusPts', 'conspiracy', 'custom'];
                                     $field['map']['filters']= $current_citizen->getTown()->getId();
                                     $user_data['map'] = $this->getMapData($field, $originalUserID);
-                                break;
+                                    break;
                             }
                         }
                     }
@@ -504,14 +504,14 @@ class ExternalController extends InventoryAwareController {
         }
         return $user_data;
     }
-            
+
     private function getMapData($SURLL_request, $originalUserID): array {
         /** @var Town $town */
         $town= $this->entity_manager->getRepository(Town::class)->findOneBy(['id' => $SURLL_request['map']['filters']]);
         if (!$town) {
             return ["error" => "UnknownMap"];
         }
-        
+
         $x_min = $x_max = $y_min = $y_max = 0;
         foreach ( $town->getZones() as $zone ) {
             /** @var Zone $zone */
@@ -520,7 +520,7 @@ class ExternalController extends InventoryAwareController {
             $y_min = min($zone->getY(), $y_min);
             $y_max = max($zone->getY(), $y_max);
         }
-        
+
         $data = [];
         foreach($SURLL_request['map']['fields'] as $field) {
             if(is_array($field)) {
@@ -604,7 +604,7 @@ class ExternalController extends InventoryAwareController {
                                                 'maxed' => $estim[1]->getEstimation() >= 1
                                             ];
                                         else
-//                                                    $data['city']['estimationsNext'] = [];
+                                            //                                                    $data['city']['estimationsNext'] = [];
                                             break;
                                 }
                             }
@@ -637,7 +637,7 @@ class ExternalController extends InventoryAwareController {
         }
         return $data;
     }
-            
+
     private function getDebugdata(): array {
         $town_id = intval($this->getRequestParam('tid'));
         if($town_id!=false||$town_id>0) {
@@ -686,9 +686,9 @@ class ExternalController extends InventoryAwareController {
                 $item_buffer = [];
                 foreach ($zone->getFloor()->getItems() as $item) {
                     $item_uid = implode('_', [
-                        $item->getPrototype()->getIcon(),
-                        $item->getBroken()
-                        ]
+                                               $item->getPrototype()->getIcon(),
+                                               $item->getBroken()
+                                           ]
                     );
                     if(!isset($item_buffer[$item_uid])) {
                         $item_buffer[$item_uid] = [
@@ -734,7 +734,7 @@ class ExternalController extends InventoryAwareController {
         }
 
         if($app_key == '') {
-           return false;
+            return false;
         }
 
         // Get the app.
@@ -746,5 +746,5 @@ class ExternalController extends InventoryAwareController {
         }
         return true;
     }
-}  
+}
 ?>
