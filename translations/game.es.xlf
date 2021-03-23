@@ -6712,7 +6712,7 @@
       </notes>
       <segment>
         <source>Der Bürger wurde zuletzt %time% gesehen.</source>
-        <target>ha sido visto por última vez %time%.</target>
+        <target>Ha sido visto por última vez %time%.</target>
       </segment>
     </unit>
     <unit id="y2ljklH" name="Dieser Bürger hat %ration% Wasserration(en) aus dem Brunnen genommen.">
@@ -18641,6 +18641,15 @@
       <segment>
         <source>%user% wir kriegen dich!</source>
         <target>%user% wir kriegen dich!</target>
+      </segment>
+    </unit>
+    <unit id="cwdaQ_b" name="am %d%.%m%.%Y%, um %H%:%i%">
+      <notes>
+        <note category="german">am %d%.%m%.%Y%, um %H%:%i%</note>
+      </notes>
+      <segment>
+        <source>am %d%.%m%.%Y%, um %H%:%i%</source>
+        <target>en %d%/%m%/%Y% a las %H%:%i%</target>
       </segment>
     </unit>
   </file>

@@ -6710,7 +6710,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Der Bürger wurde zuletzt %time% gesehen.</source>
-        <target>was seen last around %time%.</target>
+        <target>Was seen last %time%.</target>
       </segment>
     </unit>
     <unit id="y2ljklH" name="Dieser Bürger hat %ration% Wasserration(en) aus dem Brunnen genommen.">
@@ -18643,6 +18643,15 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>%user% wir kriegen dich!</source>
         <target>%user%, we will have your skin!</target>
+      </segment>
+    </unit>
+    <unit id="cwdaQ_b" name="am %d%.%m%.%Y%, um %H%:%i%">
+      <notes>
+        <note category="german">am %d%.%m%.%Y%, um %H%:%i%</note>
+      </notes>
+      <segment>
+        <source>am %d%.%m%.%Y%, um %H%:%i%</source>
+        <target>around %H%:%i%, on the %d%.%m%.%Y%</target>
       </segment>
     </unit>
   </file>

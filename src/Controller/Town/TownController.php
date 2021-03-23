@@ -302,7 +302,13 @@ class TownController extends InventoryAwareController
 
         if ($time > 10800 || $date->format('d') !== (new DateTime())->format('d')) {
             // If it was more than 3 hours, or if the day changed, let's get the full date/time format
-            $lastActionText =$this->translator->trans('am', [], 'game') . ' '. date('d/m/Y, H:i', $lastActionTimestamp);
+            $lastActionText = $this->translator->trans('am %d%.%m%.%Y%, um %H%:%i%', [
+                '%d%' => date('d', $lastActionTimestamp),
+                '%m%' => date('m', $lastActionTimestamp),
+                '%Y%' => date('Y', $lastActionTimestamp),
+                '%H%' => date('H', $lastActionTimestamp),
+                '%i%' => date('i', $lastActionTimestamp),
+            ], 'game');
         } else {
             // Tableau des unités et de leurs valeurs en secondes
             $times = array( 3600     =>  T::__('Stunde(n)', 'game'),
