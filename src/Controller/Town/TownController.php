@@ -6,6 +6,7 @@ use App\Annotations\GateKeeperProfile;
 use App\Controller\InventoryAwareController;
 use App\Entity\AccountRestriction;
 use App\Entity\ActionCounter;
+use App\Entity\BlackboardEdit;
 use App\Entity\Building;
 use App\Entity\BuildingVote;
 use App\Entity\Citizen;
@@ -1653,6 +1654,14 @@ class TownController extends InventoryAwareController
         $new_words_of_heroes = mb_substr($parser->get('content', ''), 0, 500);
 
         $town->setWordsOfHeroes($new_words_of_heroes);
+
+        $this->entity_manager->persist(
+            (new BlackboardEdit())
+                ->setUser( $this->getActiveCitizen()->getUser() )
+                ->setTime( new DateTime() )
+                ->setText( $new_words_of_heroes )
+                ->setTown( $town )
+        );
 
         // Persist
         try {

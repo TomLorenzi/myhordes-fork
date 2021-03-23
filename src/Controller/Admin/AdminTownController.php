@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Annotations\GateKeeperProfile;
 use App\Controller\Town\TownController;
+use App\Entity\BlackboardEdit;
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
@@ -201,6 +202,7 @@ class AdminTownController extends AdminActionController
             'rootBuildings' => $root,
             'availBuldings' => $inTown,
             'votes' => $votes,
+            'blackboards' => $this->entity_manager->getRepository(BlackboardEdit::class)->findBy([ 'town' => $town ], ['time' => 'DESC'], 100)
         ], $this->get_map_blob($town))));
     }
 
