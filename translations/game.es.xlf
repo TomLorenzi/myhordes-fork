@@ -18649,7 +18649,7 @@
       </notes>
       <segment>
         <source>am %d%.%m%.%Y%, um %H%:%i%</source>
-        <target>en %d%/%m%/%Y% a las %H%:%i%</target>
+        <target>el %d%/%m%/%Y% a las %H%:%i%</target>
       </segment>
     </unit>
   </file>
