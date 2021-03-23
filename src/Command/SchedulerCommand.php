@@ -187,7 +187,7 @@ class SchedulerCommand extends Command
 
                             // Enable or disable events
                             $running_events = $town_events;
-                            if (!$this->conf_master->checkEventActivation($town)) {
+                            if (!$town->getManagedEvents() && !$this->conf_master->checkEventActivation($town)) {
                                 $this->entityManager->flush();
                                 $last_op = 'ev_s';
                                 if ($this->townHandler->updateCurrentEvents($town, $events)) {
