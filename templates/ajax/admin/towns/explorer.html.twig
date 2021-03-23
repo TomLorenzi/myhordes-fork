@@ -24,6 +24,7 @@
                     <li class="tab" x-tab-id="bank"><div class="tab-link">{{ 'Bank'|trans({},'admin') }}</div></li>
                     <li class="tab" x-tab-id="citizens"><div class="tab-link">{{ 'Bürger'|trans({},'admin') }}</div></li>
                     <li class="tab" x-tab-id="register"><div class="tab-link">{{ 'Stadtregister'|trans({},'admin') }}</div></li>
+                    <li class="tab" x-tab-id="blackboard"><div class="tab-link">{{ 'Schwarzes Brett'|trans({},'admin') }}</div></li>
                     <li class="tab" x-tab-id="estimations"><div class="tab-link">{{ 'Admin-Wachturm'|trans({},'admin') }}</div></li>
                 {% if is_granted("ROLE_ADMIN") %}
                     <li class="tab" x-tab-id="buildings"><div class="tab-link">{{ 'Konstruktionen'|trans({},'admin') }}</div></li>
@@ -418,6 +419,27 @@
             <div x-tab-group="admin-town" x-tab-id="register" x-tab-target>
                 {% embed "ajax/admin/towns/log.html.twig" with {'log_content': log, 'log_source': path('admin_newspaper_log_controller') } %}
                 {% endembed %}
+            </div>
+
+            <div x-tab-group="admin-town" x-tab-id="blackboard" x-tab-target>
+                <div class="row-table">
+                    <div class="row header">
+                        <div class="padded cell rw-3">{{ 'Benutzername'|trans({},'admin') }}</div>
+                        <div class="padded cell rw-9">{{ 'Info'|trans({},'admin') }}</div>
+                    </div>
+                    {% for entry in blackboards %}
+                        <div class="row">
+                            <div class="padded cell rw-3">
+                                <a class="link" target="_blank" href="{{ url('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.user.name }}</a><br />
+                                <i>{{ entry.time|format_datetime('medium', 'short') }}</i>
+                            </div>
+                            <div class="padded cell rw-9 pointer" x-blackboard-short="{{ entry.id }}">{{ entry.text }}</div>
+                            <div class="padded cell rw-9 pointer" x-blackboard-preview="{{ entry.id }}" style="display:none">
+                                <div class="words-of-heroes"><div class="content">{{ entry.text|nl2br }}</div></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
 
             <div x-tab-group="admin-town" x-tab-id="estimations" x-tab-target>
@@ -838,6 +860,15 @@
             }
             {% endif %}
         })();
+
+        $.html.addEventListenerAll('[x-blackboard-short]','click', (e,elem) => {
+            elem.style.display = 'none';
+            document.querySelector('[x-blackboard-preview="' + elem.getAttribute('x-blackboard-short') + '"]').style.display = null;
+        });
+        $.html.addEventListenerAll('[x-blackboard-preview]','click', (e,elem) => {
+            elem.style.display = 'none';
+            document.querySelector('[x-blackboard-short="' + elem.getAttribute('x-blackboard-preview') + '"]').style.display = null;
+        })
 
     </script>
 {% endblock %}
