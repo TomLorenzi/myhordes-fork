@@ -17429,7 +17429,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</source>
-        <target>Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</target>
+        <target>Once again, we have good and bad news for you. The good news is that you managed to stop %count% zombies! The bad news is that you got hurt...</target>
       </segment>
     </unit>
     <unit id="zKN7f_C" name="Du verlässt deinen Posten?...">
