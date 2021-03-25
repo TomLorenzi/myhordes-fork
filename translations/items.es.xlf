@@ -7823,7 +7823,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Nun, da dein Hündchen auf Droge ist, kann es selbst schwere und sperrige Gegenstände in die Stadt schleppen. Dir fällt auf, dass es ohne Ende sabbert. Es sieht aus, als würde er dich jeden Augenblick anspringen.</source>
-        <target>Nun, da dein Hündchen auf Droge ist, kann es selbst schwere und sperrige Gegenstände in die Stadt schleppen. Dir fällt auf, dass es ohne Ende sabbert. Es sieht aus, als würde er dich jeden Augenblick anspringen.</target>
+        <target>Bajo los efectos de los esteroides, tu perrito puede llevar objetos voluminosos al pueblo. Notarás que babea demasiado. Parece que está a un pelo de un ataque.</target>
       </segment>
     </unit>
     <unit id=".pqCaKH" name="Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...">
@@ -7868,7 +7868,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Hurlingstock</source>
-        <target>Palo de hockey</target>
+        <target>Palo de Hockey</target>
       </segment>
     </unit>
     <unit id="8dLKyx6" name="01e4f48">
@@ -7877,7 +7877,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Ein kleiner Ratschlag. Wenn du schon den falschen Kampf wählst... dann wähle wenigstens die richtige Waffe.</source>
-        <target>Ein kleiner Ratschlag. Wenn du schon den falschen Kampf wählst... dann wähle wenigstens die richtige Waffe.</target>
+        <target>Solo un consejo. Si nada en este mundo es lógico no le busques razón a usar un arma como esta.</target>
       </segment>
     </unit>
     <unit id="W0wWbGS" name="Guiness">
