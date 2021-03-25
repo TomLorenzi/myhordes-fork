@@ -2120,7 +2120,7 @@
                     benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                     kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                     auffüllen.</source>
-        <target>Para muchas acciones, como explorar el mundo exterior o trabajar en las construcciones, necesitas puntos de acción. Tus puntos de acción se restablecen todas las noches luego del ataque. También puedes recuperarlos usando ciertos items o una vez al día al comer y beber.</target>
+        <target>Estos puntos sirven principalmente para desplazarte en el Ultramundo, el desierto que rodea al pueblo.</target>
       </segment>
     </unit>
     <unit id="bfXTcH6" name="Baupunkte">
@@ -10969,10 +10969,7 @@
                             benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                             kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                             auffüllen.</source>
-        <target>Para muchas acciones, como explorar el Ultramundo o trabajar en construcciones,
-                            necesitas Puntos de Acción. Los Puntos de Acción se regeneran todas las noches después del ataque. Además
-                            puedes recuperarlos una vez al día comiendo y bebiendo, o usando ciertos objetos 
-                            como drogas y alcohol.</target>
+        <target>Estos puntos sirven principalmente para desplazarte en el Ultramundo, el desierto que rodea al pueblo.</target>
       </segment>
     </unit>
     <unit id="NAC.Ln5" name="c85efc4">
