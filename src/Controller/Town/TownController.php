@@ -6,6 +6,7 @@ use App\Annotations\GateKeeperProfile;
 use App\Controller\InventoryAwareController;
 use App\Entity\AccountRestriction;
 use App\Entity\ActionCounter;
+use App\Entity\BlackboardEdit;
 use App\Entity\Building;
 use App\Entity\BuildingVote;
 use App\Entity\Citizen;
@@ -302,7 +303,13 @@ class TownController extends InventoryAwareController
 
         if ($time > 10800 || $date->format('d') !== (new DateTime())->format('d')) {
             // If it was more than 3 hours, or if the day changed, let's get the full date/time format
-            $lastActionText =$this->translator->trans('am', [], 'game') . ' '. date('d/m/Y, H:i', $lastActionTimestamp);
+            $lastActionText = $this->translator->trans('am %d%.%m%.%Y%, um %H%:%i%', [
+                '%d%' => date('d', $lastActionTimestamp),
+                '%m%' => date('m', $lastActionTimestamp),
+                '%Y%' => date('Y', $lastActionTimestamp),
+                '%H%' => date('H', $lastActionTimestamp),
+                '%i%' => date('i', $lastActionTimestamp),
+            ], 'game');
         } else {
             // Tableau des unités et de leurs valeurs en secondes
             $times = array( 3600     =>  T::__('Stunde(n)', 'game'),
@@ -1654,6 +1661,14 @@ class TownController extends InventoryAwareController
         $new_words_of_heroes = mb_substr($parser->get('content', ''), 0, 500);
 
         $town->setWordsOfHeroes($new_words_of_heroes);
+
+        $this->entity_manager->persist(
+            (new BlackboardEdit())
+                ->setUser( $this->getActiveCitizen()->getUser() )
+                ->setTime( new DateTime() )
+                ->setText( $new_words_of_heroes )
+                ->setTown( $town )
+        );
 
         // Persist
         try {

@@ -204,6 +204,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'must_have_canteen'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_cafet_#01', 'complete' => true  ] ]],
             'must_not_have_canteen' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_cafet_#01', 'complete' => false  ] ]],
 
+            'must_not_have_valve'  => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_valve_#00', 'complete' => false  ] ], 'text' => 'Vielleicht solltest du das mithilfe des Wasserhahns füllen...' ],
+
             'must_have_upgraded_home' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'home' => [ 'min_level' => 1 ] ]],
 
             'must_have_home_lab_v1' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 1, 'max_level' => 1, 'upgrade' => 'lab' ] ]],
@@ -673,12 +675,18 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'light_cig' => [ 'label' => 'Rauchen', 'allow_when_terrorized' => true, 'meta' => [ 'have_matches', 'must_be_terrorized' ], 'result' => [ ['group' => [ [['do_nothing'],20], [['consume_matches'],80]]], ['group' => [ [['do_nothing'],90], [['consume_item'],10]]], 'unterrorize' ] ],
 
-            'fill_asplash'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'watergun_opt_5_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
-            'fill_splash'    => [ 'label' => 'Befüllen', 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'watergun_3_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
             'fill_jsplash'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_canister' ], 'result' => [ 'consume_jerrycan', [ 'item' => [ 'consume' => false, 'morph' => 'jerrygun_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
-            'fill_ksplash'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'kalach_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
-            'fill_grenade'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'grenade_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
-            'fill_exgrenade' => [ 'label' => 'Befüllen', 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'bgrenade_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+
+            'fill_asplash1'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'watergun_opt_5_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+            'fill_asplash2'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'watergun_opt_5_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+            'fill_splash1'    => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'watergun_3_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+            'fill_splash2'    => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'watergun_3_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+            'fill_ksplash1'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'kalach_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+            'fill_ksplash2'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'kalach_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+            'fill_grenade1'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'grenade_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+            'fill_grenade2'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'grenade_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+            'fill_exgrenade1' => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'bgrenade_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+            'fill_exgrenade2' => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'bgrenade_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
 
             'fill_watercan0' => [ 'label' => 'Befüllen', 'poison' => ItemAction::PoisonHandlerTransgress, 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', 'produce_watercan1' ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
             'fill_watercan1' => [ 'label' => 'Befüllen', 'poison' => ItemAction::PoisonHandlerTransgress, 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', 'produce_watercan2' ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
@@ -1057,13 +1065,13 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'radio_off_#00'        => [ 'load_radio' ],
             'sport_elec_empty_#00' => [ 'load_emt' ],
 
-            'watergun_opt_empty_#00' => [ 'fill_asplash' ],
-            'watergun_empty_#00'     => [ 'fill_splash' ],
+            'watergun_opt_empty_#00' => [ 'fill_asplash1','fill_asplash2' ],
+            'watergun_empty_#00'     => [ 'fill_splash1', 'fill_splash2' ],
             'jerrygun_off_#00'       => [ 'fill_jsplash'],
             'jerrygun_#00'           => [ 'throw_jerrygun'],
-            'kalach_#01'             => [ 'fill_ksplash'],
-            'grenade_empty_#00'      => [ 'fill_grenade'],
-            'bgrenade_empty_#00'     => [ 'fill_exgrenade'],
+            'kalach_#01'             => [ 'fill_ksplash1', 'fill_ksplash2'],
+            'grenade_empty_#00'      => [ 'fill_grenade1', 'fill_grenade2'],
+            'bgrenade_empty_#00'     => [ 'fill_exgrenade1', 'fill_exgrenade2'],
 
             'grenade_#00'      => [ 'throw_grenade'],
             'bgrenade_#00'     => [ 'throw_exgrenade'],

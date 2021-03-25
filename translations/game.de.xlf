@@ -18673,5 +18673,14 @@
         <target>%user% wir kriegen dich!</target>
       </segment>
     </unit>
+    <unit id="cwdaQ_b" name="am %d%.%m%.%Y%, um %H%:%i%">
+      <notes>
+        <note category="german">am %d%.%m%.%Y%, um %H%:%i%</note>
+      </notes>
+      <segment>
+        <source>am %d%.%m%.%Y%, um %H%:%i%</source>
+        <target>am %d%.%m%.%Y%, um %H%:%i%</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

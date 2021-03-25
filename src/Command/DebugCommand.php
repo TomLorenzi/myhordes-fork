@@ -321,7 +321,7 @@ class DebugCommand extends Command
                         $this->entity_manager->persist($newTown);
                         $this->entity_manager->flush();
 
-                        if (!empty(array_filter($current_events, fn(EventConf $e) => $e->active())))  {
+                        if (!$newTown->getManagedEvents() && !empty(array_filter($current_events, fn(EventConf $e) => $e->active())))  {
                             if (!$this->townHandler->updateCurrentEvents($newTown, $current_events))
                                 $this->entity_manager->clear();
                             else {
@@ -338,6 +338,9 @@ class DebugCommand extends Command
             $current_events = $this->conf->getCurrentEvents();
             $towns = $this->entity_manager->getRepository(Town::class)->findAll();
             foreach ($towns as $town) {
+
+                // The town's events are managed manually; skip auto-updating it!
+                if ($town->getManagedEvents()) continue;
 
                 $must_enable  = [];
                 $must_disable = [];

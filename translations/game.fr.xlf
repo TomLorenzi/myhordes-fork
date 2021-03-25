@@ -18671,5 +18671,14 @@
         <target>%user% on aura ta peau !!</target>
       </segment>
     </unit>
+    <unit id="cwdaQ_b" name="am %d%.%m%.%Y%, um %H%:%i%">
+      <notes>
+        <note category="german">am %d%.%m%.%Y%, um %H%:%i%</note>
+      </notes>
+      <segment>
+        <source>am %d%.%m%.%Y%, um %H%:%i%</source>
+        <target>le %d%/%m%/%Y% à %H%:%i%</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -7051,7 +7051,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Ausgerüstete Gegenstände werden in deinem &lt;strong&gt;Rucksack&lt;/strong&gt; aufbewahrt.</source>
-        <target><![CDATA[Ausgerüstete Gegenstände werden in deinem <strong>Rucksack</strong> aufbewahrt.]]></target>
+        <target><![CDATA[Objects you are carrying go in your <strong>rucksack</strong>.]]></target>
       </segment>
     </unit>
     <unit id="e1TAOYF" name="c1dece3">
