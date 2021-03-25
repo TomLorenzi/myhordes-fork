@@ -890,7 +890,7 @@ class NightlyHandler
                     $zone->setZombies(max(0, $zone->getZombies() * $factor));
                 }
                 
-                $ratio = 1 - mt_rand(7, 12) / 100;
+                $ratio = 1 - mt_rand(13, 16) / 100;
 
                 /** @var ZombieEstimation $est */
                 $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
