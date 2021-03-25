@@ -2143,9 +2143,7 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                     zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                     werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Los Puntos de Construcción puedes utilizarse en el taller y en las construcciones, donde cuentan como puntos
-                            de acción. Los puntos de construcción siempre se usarán primero que los puntos de
-                            acción. También se pueden usar para abrir contenendores (como cajas) en el Ultramundo ¡Recuerda que los puntos de construcción no se podrán usar si estás cansado!</target>
+        <target>Estos puntos sirven exclusivamente para la construcción de obras en el pueblo.</target>
       </segment>
     </unit>
     <unit id="6UFJBEW" name="Verbannt">
@@ -10982,9 +10980,7 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                             zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                             werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Los Puntos de Construcción puedes utilizarse en el taller y en las construcciones, donde cuentan como puntos
-                            de acción. Los puntos de construcción siempre se usarán primero que los puntos de
-                            acción. También se pueden usar para abrir contenendores (como cajas) en el Ultramundo ¡Recuerda que los puntos de construcción no se podrán usar si estás cansado!</target>
+        <target>Estos puntos sirven exclusivamente para la construcción de obras en el pueblo.</target>
       </segment>
     </unit>
     <unit id="ANGnefx" name="Stadtrat">
