@@ -7616,7 +7616,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Dein Hündchen sieht *müde* aus... Es keucht die ganze Zeit und starrt dich aus erschöpften Augen an.</source>
-        <target>Dein Hündchen sieht *müde* aus... Es keucht die ganze Zeit und starrt dich aus erschöpften Augen an.</target>
+        <target>Tu bichón parece cansado... Jadea constantemente y te mira con ojos agotados.</target>
       </segment>
     </unit>
     <unit id="ncshu6." name="d8d282d">
@@ -7778,7 +7778,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert.</source>
-        <target>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert.</target>
+        <target>Nada mejor que perforarte los tímpanos para empezar la mañana.</target>
       </segment>
     </unit>
     <unit id="6tPO5Yd" name="Kreischender Wecker (mit Strom)">
@@ -7796,7 +7796,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei.</source>
-        <target>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei.</target>
+        <target>Nada mejor que perforarte los tímpanos para empezar la mañana y recibir 1 PA adicional después del ataque.</target>
       </segment>
     </unit>
     <unit id="ApkAd1P" name="Möchtest du %target% heimbringen?">
@@ -7823,7 +7823,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Nun, da dein Hündchen auf Droge ist, kann es selbst schwere und sperrige Gegenstände in die Stadt schleppen. Dir fällt auf, dass es ohne Ende sabbert. Es sieht aus, als würde er dich jeden Augenblick anspringen.</source>
-        <target>Nun, da dein Hündchen auf Droge ist, kann es selbst schwere und sperrige Gegenstände in die Stadt schleppen. Dir fällt auf, dass es ohne Ende sabbert. Es sieht aus, als würde er dich jeden Augenblick anspringen.</target>
+        <target>Bajo los efectos de los esteroides, tu perrito puede llevar objetos voluminosos al pueblo. Notarás que babea demasiado. Parece que está a un pelo de un ataque.</target>
       </segment>
     </unit>
     <unit id=".pqCaKH" name="Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...">
@@ -7868,7 +7868,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Hurlingstock</source>
-        <target>Palo de hockey</target>
+        <target>Palo de Hockey</target>
       </segment>
     </unit>
     <unit id="8dLKyx6" name="01e4f48">
@@ -7877,7 +7877,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Ein kleiner Ratschlag. Wenn du schon den falschen Kampf wählst... dann wähle wenigstens die richtige Waffe.</source>
-        <target>Ein kleiner Ratschlag. Wenn du schon den falschen Kampf wählst... dann wähle wenigstens die richtige Waffe.</target>
+        <target>Solo un consejo. Si nada en este mundo es lógico no le busques razón a usar un arma como esta.</target>
       </segment>
     </unit>
     <unit id="W0wWbGS" name="Guiness">
@@ -7949,7 +7949,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-too-heavy>{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen <strong>sperrigen Gegenstand</strong> mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!</t-too-heavy></t-fail><nt-fail>Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}<strong>Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.</strong></nt-fail>]]></target>
+        <target><![CDATA[<t-fail><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-too-heavy>{tamer_dog} no puede llevar el contenido de tu mochila: ¡tienes un objeto voluminoso que no podrá transportar!</t-too-heavy></t-fail><nt-fail>Envías a {tamer_dog} con dirección al pueblo llevando todo el contenido de tu mochila.{hr}<strong>Tus vecinos estarán contentos cuando encuentren todo eso en el Almacén.</strong></nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="EGAZUcO" name="7a1a880">
@@ -7958,7 +7958,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du gibst deinem {tamer_dog} {items_consume}, die er gierig hinunterschlingt.{hr}Es vergeht keine Minute bis die Drogen Wirkung zeigen: Dein Fifi hat nun leuchtende Augen, ein glänzendes Fell und einen wedelnden Schwanz.</source>
-        <target>Du gibst deinem {tamer_dog} {items_consume}, die er gierig hinunterschlingt.{hr}Es vergeht keine Minute bis die Drogen Wirkung zeigen: Dein Fifi hat nun leuchtende Augen, ein glänzendes Fell und einen wedelnden Schwanz.</target>
+        <target>Le das {items_consume} a {tamer_dog} en un solo bocado.{hr}En unos minutos la sustancia hará efecto: tu animal tendrá una vista prodigiosa, el pelo más brillante que nunca y la cola sacudiente.</target>
       </segment>
     </unit>
     <unit id="EhU2or6" name="b621fab">
@@ -7985,7 +7985,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-no-room>Du hast nicht genug Platz für diese Gegenstände...</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-too-heavy>{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen <strong>sperrigen Gegenstand</strong> mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!</t-too-heavy></t-fail><nt-fail>Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, <strong>hat er alles zur Truhe in deinem Haus gebracht</strong>.{hr}Braver Junge!</nt-fail>]]></target>
+        <target><![CDATA[<t-fail><t-no-room>Du hast nicht genug Platz für diese Gegenstände...</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-too-heavy>{tamer_dog} no puede llevar el contenido de tu mochila: ¡tienes un <strong>objeto voluminoso</strong> que no podrá transportar!</t-too-heavy></t-fail><nt-fail>Envias a {tamer_dog} con dirección al pueblo llevando todo el contenido de tu mochila.{hr}Como se lo pediste, <strong>dejará todo en tu casa, en tu baúl</strong>.{hr}¡Ese es mi compañero!</nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="qedyN68" name="d429fd8">

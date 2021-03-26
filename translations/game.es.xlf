@@ -2120,7 +2120,7 @@
                     benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                     kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                     auffüllen.</source>
-        <target>Para muchas acciones, como explorar el mundo exterior o trabajar en las construcciones, necesitas puntos de acción. Tus puntos de acción se restablecen todas las noches luego del ataque. También puedes recuperarlos usando ciertos items o una vez al día al comer y beber.</target>
+        <target>Estos puntos sirven principalmente para desplazarte en el Ultramundo, el desierto que rodea al pueblo.</target>
       </segment>
     </unit>
     <unit id="bfXTcH6" name="Baupunkte">
@@ -2143,9 +2143,7 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                     zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                     werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Los Puntos de Construcción puedes utilizarse en el taller y en las construcciones, donde cuentan como puntos
-                            de acción. Los puntos de construcción siempre se usarán primero que los puntos de
-                            acción. También se pueden usar para abrir contenendores (como cajas) en el Ultramundo ¡Recuerda que los puntos de construcción no se podrán usar si estás cansado!</target>
+        <target>Estos puntos sirven exclusivamente para la construcción de obras en el pueblo.</target>
       </segment>
     </unit>
     <unit id="6UFJBEW" name="Verbannt">
@@ -10969,10 +10967,7 @@
                             benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                             kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                             auffüllen.</source>
-        <target>Para muchas acciones, como explorar el Ultramundo o trabajar en construcciones,
-                            necesitas Puntos de Acción. Los Puntos de Acción se regeneran todas las noches después del ataque. Además
-                            puedes recuperarlos una vez al día comiendo y bebiendo, o usando ciertos objetos 
-                            como drogas y alcohol.</target>
+        <target>Estos puntos sirven principalmente para desplazarte en el Ultramundo, el desierto que rodea al pueblo.</target>
       </segment>
     </unit>
     <unit id="NAC.Ln5" name="c85efc4">
@@ -10985,9 +10980,7 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                             zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                             werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Los Puntos de Construcción puedes utilizarse en el taller y en las construcciones, donde cuentan como puntos
-                            de acción. Los puntos de construcción siempre se usarán primero que los puntos de
-                            acción. También se pueden usar para abrir contenendores (como cajas) en el Ultramundo ¡Recuerda que los puntos de construcción no se podrán usar si estás cansado!</target>
+        <target>Estos puntos sirven exclusivamente para la construcción de obras en el pueblo.</target>
       </segment>
     </unit>
     <unit id="ANGnefx" name="Stadtrat">
