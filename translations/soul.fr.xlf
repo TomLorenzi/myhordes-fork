@@ -2582,5 +2582,32 @@
         <target>Ende der Beschränkung: %date%</target>
       </segment>
     </unit>
+    <unit id="_33rQU1" name="Durch deinen Weggang hast du deine Koalition soeben aufgelöst.">
+      <notes>
+        <note category="german">Durch deinen Weggang hast du deine Koalition soeben aufgelöst.</note>
+      </notes>
+      <segment>
+        <source>Durch deinen Weggang hast du deine Koalition soeben aufgelöst.</source>
+        <target>Vous venez de dissoudre votre coalition en la quittant.</target>
+      </segment>
+    </unit>
+    <unit id="pxDv8GV" name="Möchtest du diese Koalition verlassen und somit auflösen?">
+      <notes>
+        <note category="german">Möchtest du diese Koalition verlassen und somit auflösen?</note>
+      </notes>
+      <segment>
+        <source>Möchtest du diese Koalition verlassen und somit auflösen?</source>
+        <target>Confirmez-vous vouloir quitter et dissoudre cette coalition ?</target>
+      </segment>
+    </unit>
+    <unit id="TDZXLoY" name="Möchtest du diese Koalition verlassen?">
+      <notes>
+        <note category="german">Möchtest du diese Koalition verlassen?</note>
+      </notes>
+      <segment>
+        <source>Möchtest du diese Koalition verlassen?</source>
+        <target>Confirmez-vous vouloir quitter cette coalition ?</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

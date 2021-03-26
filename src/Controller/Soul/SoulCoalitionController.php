@@ -230,6 +230,8 @@ class SoulCoalitionController extends SoulController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
+        if ($destroy) $this->addFlash('notice', $this->translator->trans('Durch deinen Weggang hast du deine Koalition soeben aufgelöst.', [], 'soul'));
+
         return AjaxResponse::success();
     }
 

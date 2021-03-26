@@ -833,7 +833,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'hero_surv_1' => [ 'label' => 'Wasser suchen', 'meta' => [ 'must_be_outside_3km', 'not_yet_sbook' ],                         'result' => [ 'hero_surv_0', 'hero_surv_1' ], 'message' => '{casino}' ],
             'hero_surv_2' => [ 'label' => 'Essen suchen',  'meta' => [ 'no_full_ap', 'must_be_outside_3km', 'not_yet_sbook', 'eat_ap' ], 'result' => [ 'hero_surv_0', 'hero_surv_2' ], 'message' => '{casino}' ],
 
-            'hero_hunter_1' => [ 'label' => 'Tarnen', 'meta' => [ 'must_be_outside', 'must_have_control' ], 'result' => [ 'hero_hunter' ], 'message' => 'Du bist nun getarnt.' ],
+            'hero_hunter_1' => [ 'label' => 'Tarnen', 'meta' => [ 'must_be_outside', [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 0, 'block' => false, 'temp' => true ] ], 'text' => 'Das kannst die <strong>Tarnkleidung</strong> nicht verwenden, solange die Zombies diese Zone kontrollieren!'] ], 'result' => [ 'hero_hunter' ], 'message' => 'Du bist ab sofort getarnt.' ],
             'hero_hunter_2' => [ 'label' => 'Tarnen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'hero_hunter' ], 'message' => 'Du bist nun getarnt.' ],
 
             'hero_generic_return'       => [ 'label' => 'Die Rückkehr des Helden', 'tooltip' => 'Wenn du 11 km oder weniger von der Stadt entfernt bist, kehrst du sofort in die Stadt zurück!', 'cover' => true, 'meta' => [ 'must_be_outside_or_exploring', 'must_be_outside_within_11km', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [8]] ] ],

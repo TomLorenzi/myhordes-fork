@@ -15655,7 +15655,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Choose</target>
       </segment>
     </unit>
-    <unit id="uEhXFSv" name="3cb07f6">
+    <unit id="BRQ3HAz" name="4427aca">
       <notes>
         <note category="german">%disposing_citizen% hat %citizen% ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.</note>
       </notes>
@@ -18652,6 +18652,150 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>am %d%.%m%.%Y%, um %H%:%i%</source>
         <target>around %H%:%i%, on the %d%.%m%.%Y%</target>
+      </segment>
+    </unit>
+    <unit id="_hvDFgE" name="b263344">
+      <notes>
+        <note category="german">Du wurdest von einem &lt;strong&gt;Zombie in der Zone entdeckt&lt;/strong&gt;! Er hat sich in deine Richtung gedreht!&lt;hr/&gt;Deine Tarnung ist aufgeflogen!</note>
+      </notes>
+      <segment>
+        <source>Du wurdest von einem &lt;strong&gt;Zombie in der Zone entdeckt&lt;/strong&gt;! Er hat sich in deine Richtung gedreht!&lt;hr/&gt;Deine Tarnung ist aufgeflogen!</source>
+        <target><![CDATA[Du wurdest von einem <strong>Zombie in der Zone entdeckt</strong>! Er hat sich in deine Richtung gedreht!<hr/>Deine Tarnung ist aufgeflogen!]]></target>
+      </segment>
+    </unit>
+    <unit id="fBI9kz3" name="Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!">
+      <notes>
+        <note category="german">Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!</source>
+        <target><![CDATA[Deine <strong>Tarnung ist aufgeflogen</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="HXDfH_p" name="Manuelles Event-Management:">
+      <notes>
+        <note category="german">Manuelles Event-Management:</note>
+      </notes>
+      <segment>
+        <source>Manuelles Event-Management:</source>
+        <target>Manuelles Event-Management:</target>
+      </segment>
+    </unit>
+    <unit id="lYRernR" name="7714838">
+      <notes>
+        <note category="german">Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</note>
+      </notes>
+      <segment>
+        <source>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</source>
+        <target>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</target>
+      </segment>
+    </unit>
+    <unit id="cznvzLK" name="Kein Event:">
+      <notes>
+        <note category="german">Kein Event:</note>
+      </notes>
+      <segment>
+        <source>Kein Event:</source>
+        <target>Kein Event:</target>
+      </segment>
+    </unit>
+    <unit id="nHRZ69P" name="Startet die Stadt ohne Event-Inhalte">
+      <notes>
+        <note category="german">Startet die Stadt ohne Event-Inhalte</note>
+      </notes>
+      <segment>
+        <source>Startet die Stadt ohne Event-Inhalte</source>
+        <target>Startet die Stadt ohne Event-Inhalte</target>
+      </segment>
+    </unit>
+    <unit id="jQ18AzU" name="1. April">
+      <notes>
+        <note category="german">1. April</note>
+      </notes>
+      <segment>
+        <source>1. April</source>
+        <target>1. April</target>
+      </segment>
+    </unit>
+    <unit id="5kvPhGt" name="St. Patrick">
+      <notes>
+        <note category="german">St. Patrick</note>
+      </notes>
+      <segment>
+        <source>St. Patrick</source>
+        <target>St. Patrick</target>
+      </segment>
+    </unit>
+    <unit id="r3k99Bz" name="Ostern">
+      <notes>
+        <note category="german">Ostern</note>
+      </notes>
+      <segment>
+        <source>Ostern</source>
+        <target>Ostern</target>
+      </segment>
+    </unit>
+    <unit id="BJVmtrE" name="Halloween">
+      <notes>
+        <note category="german">Halloween</note>
+      </notes>
+      <segment>
+        <source>Halloween</source>
+        <target>Halloween</target>
+      </segment>
+    </unit>
+    <unit id="9mZMqtI" name="Armageddon">
+      <notes>
+        <note category="german">Armageddon</note>
+      </notes>
+      <segment>
+        <source>Armageddon</source>
+        <target>Armageddon</target>
+      </segment>
+    </unit>
+    <unit id="mbCP3jI" name="Weihnachten">
+      <notes>
+        <note category="german">Weihnachten</note>
+      </notes>
+      <segment>
+        <source>Weihnachten</source>
+        <target>Weihnachten</target>
+      </segment>
+    </unit>
+    <unit id="iiUUud." name="935109f">
+      <notes>
+        <note category="german">Du hast die &lt;strong&gt;Kontrolle über diese Zone verloren&lt;/strong&gt; (dies kann passieren, wenn ein anderer Bürger ohne dich gegangen ist)! Wenn du nicht festsitzen möchtest, kannst du noch flüchten. Es bleiben dir :</note>
+      </notes>
+      <segment>
+        <source>Du hast die &lt;strong&gt;Kontrolle über diese Zone verloren&lt;/strong&gt; (dies kann passieren, wenn ein anderer Bürger ohne dich gegangen ist)! Wenn du nicht festsitzen möchtest, kannst du noch flüchten. Es bleiben dir :</source>
+        <target><![CDATA[Du hast die <strong>Kontrolle über diese Zone verloren</strong> (dies kann passieren, wenn ein anderer Bürger ohne dich gegangen ist)! Wenn du nicht festsitzen möchtest, kannst du noch flüchten. Es bleiben dir :]]></target>
+      </segment>
+    </unit>
+    <unit id="9r.yyfK" name="f193d19">
+      <notes>
+        <note category="german">Glücklicherweise kannst du dich dank deines %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; unerkannt weiterbewegen.</note>
+      </notes>
+      <segment>
+        <source>Glücklicherweise kannst du dich dank deines %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; unerkannt weiterbewegen.</source>
+        <target><![CDATA[Glücklicherweise kannst du dich dank deines %img_scout% <strong>Tarnanzug</strong> unerkannt weiterbewegen.]]></target>
+      </segment>
+    </unit>
+    <unit id="vd3qaKS" name="c6b1411">
+      <notes>
+        <note category="german">Achtung: Jede Aktion in der Zone sorgt dafür, dass deine &lt;strong&gt;Tarnung auffliegt&lt;/strong&gt;. (Es können nur Aktionen ausgeführt werden, die mit einem Icon %img_scout_ok% gekennzeichnet sind)!</note>
+      </notes>
+      <segment>
+        <source>Achtung: Jede Aktion in der Zone sorgt dafür, dass deine &lt;strong&gt;Tarnung auffliegt&lt;/strong&gt;. (Es können nur Aktionen ausgeführt werden, die mit einem Icon %img_scout_ok% gekennzeichnet sind)!</source>
+        <target><![CDATA[Achtung: Jede Aktion in der Zone sorgt dafür, dass deine <strong>Tarnung auffliegt</strong>. (Es können nur Aktionen ausgeführt werden, die mit einem Icon %img_scout_ok% gekennzeichnet sind)!]]></target>
+      </segment>
+    </unit>
+    <unit id="xIw6O1B" name="d7dddf6">
+      <notes>
+        <note category="german">Mit deinem %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; kannst du dich bewegen ohne dabei entdeckt zu werden.</note>
+      </notes>
+      <segment>
+        <source>Mit deinem %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; kannst du dich bewegen ohne dabei entdeckt zu werden.</source>
+        <target><![CDATA[Mit deinem %img_scout% <strong>Tarnanzug</strong> kannst du dich bewegen ohne dabei entdeckt zu werden.]]></target>
       </segment>
     </unit>
   </file>

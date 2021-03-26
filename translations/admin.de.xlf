@@ -2737,5 +2737,14 @@
         <target>Bestätigen</target>
       </segment>
     </unit>
+    <unit id="vsOyofZ" name="Schwarzes Brett">
+      <notes>
+        <note category="german">Schwarzes Brett</note>
+      </notes>
+      <segment>
+        <source>Schwarzes Brett</source>
+        <target>Schwarzes Brett</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

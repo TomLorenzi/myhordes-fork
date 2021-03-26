@@ -789,7 +789,7 @@ class BeyondController extends InventoryAwareController
 
                     if ($this->random_generator->chance($factor) && $this->uncoverHunter($mover)){
                         if ($mover->getId() === $citizen->getId())
-                            $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!', [], 'game' ));
+                            $this->addFlash( 'notice', $this->translator->trans('Du wurdest von einem <strong>Zombie in der Zone entdeckt</strong>! Er hat sich in deine Richtung gedreht!<hr/>Deine Tarnung ist aufgeflogen!', [], 'game' ));
                         else 
                             $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $mover->getUser()->getName()], 'game' ));
                     }
@@ -882,7 +882,7 @@ class BeyondController extends InventoryAwareController
         $uncover_fun = function(ItemAction &$a) {
 
             if (!$a->getKeepsCover() && !$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
-                $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
+                $this->addFlash( 'notice', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
         };
 
         return $this->generic_action_api($parser, $uncover_fun);
@@ -935,7 +935,7 @@ class BeyondController extends InventoryAwareController
 
         $uncover_fun = function(ItemAction &$a) use ($zone) {
             if (!$a->getKeepsCover() && !$this->zone_handler->check_cp( $zone ) && $this->uncoverHunter($this->getActiveCitizen()))
-                $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
+                $this->addFlash( 'notice', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
         };
 
         return $this->generic_heroic_action_api( $parser, $uncover_fun);
@@ -986,7 +986,7 @@ class BeyondController extends InventoryAwareController
 
         $uncover_fun = function(Recipe &$r) {
             if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
-                $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
+                $this->addFlash( 'notice', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
         };
 
         return $this->generic_recipe_api( $parser, $handler, $uncover_fun);
@@ -1015,7 +1015,7 @@ class BeyondController extends InventoryAwareController
         } else $up_inv   = $this->getActiveCitizen()->getInventory();
 
         if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
-            $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
+            $this->addFlash( 'notice', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
         return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler, $this->getActiveCitizen());
     }
 
@@ -1210,7 +1210,7 @@ class BeyondController extends InventoryAwareController
             return AjaxResponse::error( self::ErrorNotDiggable );
 
         if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
-            $this->addFlash( 'notice', $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game') );
+            $this->addFlash( 'notice', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
 
         if ($zone->getRuinDigs() > 0) {
             $dm = (new DigRuinMarker())->setCitizen( $citizen )->setZone( $zone );
@@ -1314,7 +1314,7 @@ class BeyondController extends InventoryAwareController
         $str[] = $this->translator->trans("Du hast %count% Aktionspunkt(e) benutzt.", ['%count%' => 1], 'game');
 
         if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
-            $str[] = $this->translator->trans('Deine Tarnung ist aufgeflogen!',[], 'game');
+            $str[] = $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game');
 
 
         if(!empty($str))

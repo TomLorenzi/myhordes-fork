@@ -2719,5 +2719,14 @@
         <target>Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.</target>
       </segment>
     </unit>
+    <unit id="vsOyofZ" name="Schwarzes Brett">
+      <notes>
+        <note category="german">Schwarzes Brett</note>
+      </notes>
+      <segment>
+        <source>Schwarzes Brett</source>
+        <target>Black Board</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

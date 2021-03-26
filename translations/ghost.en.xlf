@@ -1234,5 +1234,14 @@
         <target>Raben-Optionen</target>
       </segment>
     </unit>
+    <unit id="jRT25y3" name="Events">
+      <notes>
+        <note category="german">Events</note>
+      </notes>
+      <segment>
+        <source>Events</source>
+        <target>Events</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
