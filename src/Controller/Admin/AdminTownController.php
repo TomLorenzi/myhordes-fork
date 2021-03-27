@@ -8,11 +8,13 @@ use App\Entity\BlackboardEdit;
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
+use App\Entity\CitizenHome;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\CitizenVote;
 use App\Entity\Complaint;
 use App\Entity\ExpeditionRoute;
+use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
@@ -378,7 +380,7 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{id}/bank/spawn_item", name="admin_bank_spawn_item", requirements={"id"="\d+"})
+     * @Route("/api/admin/town/{id}/spawn_item", name="admin_spawn_item", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Add or remove an item from the bank
      * @param int $id Town ID
@@ -387,79 +389,68 @@ class AdminTownController extends AdminActionController
      * @param ItemFactory $itemFactory
      * @return Response
      */
-    public function bank_spawn_item(int $id, JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $itemFactory): Response
+    public function spawn_item(int $id, JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $itemFactory): Response
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if (!$town) {
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        }
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $prototype_id = $parser->get('prototype');
-        $number = $parser->get('number');
-        $poison = $parser->get('poison', false);
-        $broken = $parser->get('broken', false);
-        $essential = $parser->get('essential', false);
+        $prototype_id = $parser->get_int('prototype');
+        $number = $parser->get_int('number');
+        $targets = $parser->get_array('targets');
 
-        /** @var ItemPrototype $itemPrototype */
-        $itemPrototype = $this->entity_manager->getRepository(ItemPrototype::class)->find($prototype_id);
-
-        /** @var Item $item */
-        $item = $itemFactory->createItem($itemPrototype->getName(), $broken, $poison);
-        $item->setEssential($essential);
-        $item->setCount($number);
-        $handler->forceMoveItem($town->getBank(), $item);
-
-        $this->entity_manager->persist($town->getBank());
-        $this->entity_manager->flush();
-
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("/api/admin/town/{id}/citizen/spawn_item", name="admin_citizen_spawn_item", requirements={"id"="\d+"})
-     * @Security("is_granted('ROLE_ADMIN')")
-     * Add or remove an item from the bank
-     * @param int $id Town ID
-     * @param JSONRequestParser $parser
-     * @param InventoryHandler $handler
-     * @param ItemFactory $itemFactory
-     * @return Response
-     */
-    public function citizen_spawn_item(int $id, JSONRequestParser $parser, InventoryHandler $handler, ItemFactory $itemFactory): Response
-    {
-        $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if (!$town) {
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        }
-
-        $prototype_id = $parser->get('prototype');
-        $number = $parser->get('number');
-        $targets = $parser->get('targets', "");
-        $poison = $parser->get('poison', false);
-        $broken = $parser->get('broken', false);
-        $essential = $parser->get('essential', false);
+        $conf = $parser->get_array('conf');
+        $poison = $conf['poison'] ?? false;
+        $broken = $conf['broken'] ?? false;
+        $essential = $conf['essential'] ?? false;
+        $hidden = $conf['hidden'] ?? false;
 
         if (empty($targets))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         /** @var ItemPrototype $itemPrototype */
         $itemPrototype = $this->entity_manager->getRepository(ItemPrototype::class)->find($prototype_id);
+        if (!$itemPrototype) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $targets = explode(",", $targets);
-        foreach ($targets as $target) {
-            $infos = explode("-", $target);
+        /** @var Inventory[] $inventories */
+        $inventories = [];
+
+        foreach (array_unique($targets['chest'] ?? []) as $target) {
+            /** @var CitizenHome $home */
+            $home = $this->entity_manager->getRepository(CitizenHome::class)->find($target);
+            if (!$home || $home->getCitizen()->getTown() !== $town)
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+            $inventories[] = $home->getChest();
+        }
+
+        foreach (array_unique($targets['rucksack'] ?? []) as $target) {
             /** @var Citizen $citizen */
-            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($target);
+            if (!$citizen || $citizen->getTown() !== $town)
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-            for ($i = 0; $i < $number; $i++) {
-                /** @var Item $item */
-                $item = $itemFactory->createItem($itemPrototype->getName(), $broken, $poison);
-                $item->setEssential($essential);
-                $handler->forceMoveItem($infos[0] == "r" ? $citizen->getInventory() : $citizen->getHome()->getChest(), $item);
-            }
+            $inventories[] = $citizen->getInventory();
+        }
 
-            $this->entity_manager->persist($citizen);
-            $this->entity_manager->persist($citizen->getHome()->getChest());
+        foreach (array_unique($targets['zone'] ?? []) as $target) {
+            /** @var Zone $zone */
+            $zone = $this->entity_manager->getRepository(Zone::class)->find($target);
+            if (!$zone || $zone->getTown() !== $town)
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+            $inventories[] = $zone->getFloor();
+        }
+
+        foreach (array_unique($targets['bank'] ?? []) as $target) {
+            if ($target !== $town->getId()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+            $inventories[] = $town->getBank();
+        }
+
+        foreach ($inventories as $inventory) {
+            for ($i = 0; $i < $number; $i++)
+                $handler->forceMoveItem($inventory, $itemFactory->createItem($itemPrototype->getName(), $broken, $poison)->setEssential($essential)->setHidden($hidden && $inventory->getZone()));
+            $this->entity_manager->persist($inventory);
         }
 
         $this->entity_manager->flush();
@@ -522,213 +513,126 @@ class AdminTownController extends AdminActionController
     }
 
     /**
-     * @Route("/api/admin/town/{id}/status/give", name="admin_town_give_status", requirements={"id"="\d+"})
+     * @Route("/api/admin/town/{id}/status/manage", name="admin_town_manage_status", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
-     * Give status to selected citizens of a town
+     * Give or take status from selected citizens of a town
      * @param int $id Town ID
      * @param JSONRequestParser $parser The Request Parser
      * @param CitizenHandler $handler
      * @return Response
      */
-    public function town_give_status(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
+    public function town_manage_status(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if (!$town) {
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        }
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $status_id = $parser->get('status');
-        $targets = $parser->get('targets', "");
+        $status_id = $parser->get_int('status');
+        $targets = $parser->get_array('targets', []);
+
+        $control = $parser->get_int('control', 0) > 0;
 
         /** @var CitizenStatus $citizenStatus */
         $citizenStatus = $this->entity_manager->getRepository(CitizenStatus::class)->find($status_id);
+        if (!$citizenStatus) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $targets = explode(",", $targets);
         foreach ($targets as $target) {
-            $infos = explode("-", $target);
             /** @var Citizen $citizen */
-            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($target);
+            if (!$citizen || $citizen->getTown() !== $town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-            $citizen->addStatus($citizenStatus);
+            if (!$citizen->getActive()) continue;
+
+            if ($control) $this->citizen_handler->inflictStatus( $citizen, $citizenStatus );
+            else $this->citizen_handler->removeStatus( $citizen, $citizenStatus );
 
             $this->entity_manager->persist($citizen);
         }
 
         $this->entity_manager->flush();
-
         return AjaxResponse::success();
     }
 
     /**
-     * @Route("/api/admin/town/{id}/status/take", name="admin_town_take_status", requirements={"id"="\d+"})
+     * @Route("/api/admin/town/{id}/role/manage", name="admin_town_manage_role", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
-     * Give status to selected citizens of a town
+     * Give or take role from selected citizens of a town
      * @param int $id Town ID
      * @param JSONRequestParser $parser The Request Parser
      * @param CitizenHandler $handler
      * @return Response
      */
-    public function town_take_status(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
+    public function town_manage_role(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if (!$town) {
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        }
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $status_id = $parser->get('status');
-        $targets = $parser->get('targets', "");
+        $role_id = $parser->get_int('role');
+        $targets = $parser->get_array('targets');
 
-        /** @var CitizenStatus $citizenStatus */
-        $citizenStatus = $this->entity_manager->getRepository(CitizenStatus::class)->find($status_id);
-
-        $targets = explode(",", $targets);
-        foreach ($targets as $target) {
-            $infos = explode("-", $target);
-            /** @var Citizen $citizen */
-            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
-
-            $citizen->removeStatus($citizenStatus);
-
-            $this->entity_manager->persist($citizen);
-        }
-
-        $this->entity_manager->flush();
-
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("/api/admin/town/{id}/role/give", name="admin_town_give_role", requirements={"id"="\d+"})
-     * @Security("is_granted('ROLE_ADMIN')")
-     * Give status to selected citizens of a town
-     * @param int $id Town ID
-     * @param JSONRequestParser $parser The Request Parser
-     * @param CitizenHandler $handler
-     * @return Response
-     */
-    public function town_give_role(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
-    {
-        $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if (!$town) {
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        }
-
-        $role_id = $parser->get('role');
-        $targets = $parser->get('targets', "");
+        $control = $parser->get_int('control', 0) > 0;
 
         /** @var CitizenRole $citizenRole */
         $citizenRole = $this->entity_manager->getRepository(CitizenRole::class)->find($role_id);
+        if (!$citizenRole) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $targets = explode(",", $targets);
         foreach ($targets as $target) {
-            $infos = explode("-", $target);
             /** @var Citizen $citizen */
-            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($target);
+            if (!$citizen || $citizen->getTown() !== $town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-            $this->citizen_handler->addRole($citizen, $citizenRole);
+            if (!$citizen->getActive()) continue;
+
+            if ($control) $this->citizen_handler->addRole($citizen, $citizenRole);
+            else $this->citizen_handler->removeRole($citizen, $citizenRole);
+
             $this->entity_manager->persist($citizen);
         }
 
         $this->entity_manager->flush();
-
         return AjaxResponse::success();
     }
 
     /**
-     * @Route("/api/admin/town/{id}/role/take", name="admin_town_take_role", requirements={"id"="\d+"})
+     * @Route("/api/admin/town/{id}/pp/alter", name="admin_town_alter_pp", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
-     * Give status to selected citizens of a town
+     * Change AP/CP/MP of selected citizens of a town
      * @param int $id Town ID
      * @param JSONRequestParser $parser The Request Parser
-     * @param CitizenHandler $handler
      * @return Response
      */
-    public function town_take_role(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
+    public function town_alter_points(int $id, JSONRequestParser $parser): Response
     {
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if (!$town) {
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        }
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $role_id = $parser->get('role');
-        $targets = $parser->get('targets', "");
+        $point = $parser->get('point', '');
+        if (!in_array($point, ['ap','bp','mp'])) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        /** @var CitizenRole $citizenRole */
-        $citizenRole = $this->entity_manager->getRepository(CitizenRole::class)->find($role_id);
+        $number = $parser->get_int('num', 6);
 
-        $targets = explode(",", $targets);
+        $control = $parser->get_int('control', 0);
+        if (!in_array($point, [-1,0,1])) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $targets = $parser->get_array('targets');
+
         foreach ($targets as $target) {
-            $infos = explode("-", $target);
             /** @var Citizen $citizen */
-            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($target);
+            if (!$citizen || $citizen->getTown() !== $town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-            $this->citizen_handler->removeRole($citizen, $citizenRole);
-            $this->entity_manager->persist($citizen);
-        }
+            if (!$citizen->getActive()) continue;
 
-        $this->entity_manager->flush();
-
-        return AjaxResponse::success();
-    }
-
-    /**
-     * @Route("/api/admin/town/{id}/ap/alter", name="admin_town_alter_ap", requirements={"id"="\d+"})
-     * @Security("is_granted('ROLE_ADMIN')")
-     * Change AP of selected citizens of a town
-     * @param int $id Town ID
-     * @param JSONRequestParser $parser The Request Parser
-     * @param CitizenHandler $handler
-     * @return Response
-     */
-    public function town_alter_ap(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
-    {
-        $town = $this->entity_manager->getRepository(Town::class)->find($id);
-        if (!$town) {
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        }
-
-        $number = $parser->get('number', 6);
-        $action = $parser->get('action', 'set');
-        $targets = $parser->get('targets', "");
-
-        $targets = explode(",", $targets);
-        foreach ($targets as $target) {
-            $infos = explode("-", $target);
-            /** @var Citizen $citizen */
-            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($infos[1]);
-
-            $current_ap = $citizen->getAp();
-
-            switch ($action) {
-                case 'set':
-                    if ($number < 0) $number = 0;
-                    $citizen->setAp($number);
-                    break;
-
-                case 'add':
-                    $citizen->setAp($current_ap + $number);
-                    break;
-
-                case 'remove':
-                    if ($number >= $current_ap) {
-                        $citizen->setAp(0);
-                    } else {
-                        $citizen->setAp($current_ap - $number);
-                    }
-                    break;
-            }
-
-            if ($citizen->getAp() <= 0) {
-                $this->citizen_handler->inflictStatus($citizen, "tired");
-            } else {
-                $this->citizen_handler->removeStatus($citizen, "tired");
+            switch ($point) {
+                case 'ap': $this->citizen_handler->setAP($citizen, false, ($control === 0) ? $number : $citizen->getAp() + $control * $number); break;
+                case 'bp': $this->citizen_handler->setBP($citizen, false, ($control === 0) ? $number : $citizen->getBp() + $control * $number); break;
+                case 'mp': $this->citizen_handler->setPM($citizen, false, ($control === 0) ? $number : $citizen->getPm() + $control * $number); break;
+                default: break;
             }
 
             $this->entity_manager->persist($citizen);
         }
 
         $this->entity_manager->flush();
-
         return AjaxResponse::success();
     }
 

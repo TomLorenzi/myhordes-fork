@@ -5,7 +5,10 @@ namespace App\Controller\Admin;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AccountRestriction;
 use App\Entity\Citizen;
+use App\Entity\CitizenRole;
+use App\Entity\CitizenStatus;
 use App\Entity\ConnectionWhitelist;
+use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\ShadowBan;
@@ -593,12 +596,33 @@ class AdminUserController extends AdminActionController
             $alive = false;
             $town = null;
         }
-        
+
+        $pictoProtos = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
+        usort($pictoProtos, function ($a, $b) {
+            return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
+        });
+
+        $itemPrototypes = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
+        usort($itemPrototypes, function ($a, $b) {
+            return strcmp($this->translator->trans($a->getLabel(), [], 'items'), $this->translator->trans($b->getLabel(), [], 'items'));
+        });
+
+        $citizenStati = $this->entity_manager->getRepository(CitizenStatus::class)->findAll();
+        usort($citizenStati, function ($a, $b) {
+            return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
+        });
+
+        $citizenRoles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
+
         return $this->render( 'ajax/admin/users/citizen.html.twig', $this->addDefaultTwigArgs("admin_users_citizen", [
             'town' => $town,
             'active' => $active,
             'alive' => $alive,
             'user' => $user,
+            'itemPrototypes' => $itemPrototypes,
+            'pictoPrototypes' => $pictoProtos,
+            'citizenStati' => $citizenStati,
+            'citizenRoles' => $citizenRoles,
             'citizen_id' => $citizen ? $citizen->getId() : -1,
         ]));        
     }

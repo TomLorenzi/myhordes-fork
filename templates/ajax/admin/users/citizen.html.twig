@@ -1,4 +1,13 @@
 {% extends "ajax/ajax.html.twig" %}
+
+{% from "ajax/admin/widget/displays.twig" import widget_citizen %}
+
+{% from "ajax/admin/widget/controls.twig" import widget_item_creator as item_creator, widget_item_creator_js as item_creator_js %}
+{% from "ajax/admin/widget/controls.twig" import widget_picto_creator as picto_creator, widget_picto_creator_js as picto_creator_js %}
+{% from "ajax/admin/widget/controls.twig" import widget_status_control as status_control, widget_status_control_js as status_control_js %}
+{% from "ajax/admin/widget/controls.twig" import widget_role_control as role_control, widget_role_control_js as role_control_js %}
+{% from "ajax/admin/widget/controls.twig" import widget_point_control as point_control, widget_point_control_js as point_control_js %}
+
 {% block title %}{% trans from 'admin' %}Bürger{% endtrans %}{%  endblock %}
 {% block ajax %}
     <div class="row soul">
@@ -10,6 +19,9 @@
                     <div class="row">
                         <div class="cell padded rw-12">
                             {{ 'Derzeitiges Leben'|trans({}, 'admin') }}
+                            {% if alive %}
+                                <div class="tooltip">{{ widget_citizen(citizen) }}</div>
+                            {% endif %}
                         </div>
                         <div class="cell padded rw-12">
                             <input disabled style="width: 25em;" value="{% if active %}{{ town.name }}{% if not alive %}{{ " -- " }}{{ 'TOD NICHT BESTÄTIGT'|trans({}, 'admin') }}{% endif %}{% else %}{{ "--" }}{% endif %}" />
@@ -25,6 +37,13 @@
                                 <div class="cell padded rw-4">
                                     <button x-ajax-href="{{ path("admin_town_explorer", {id: town.id}) }}">{{ 'Stadt ansehen'|trans({}, 'admin') }}</button>
                                 </div>
+
+                                {% if is_granted("ROLE_ADMIN") %}
+                                    <div class="cell padded rw-6">{{ point_control() }}</div>
+                                    <div class="cell padded rw-6">{{ picto_creator(pictoPrototypes) }}</div>
+                                    <div class="cell padded rw-6">{{ status_control(citizenStati) }}</div>
+                                    <div class="cell padded rw-6">{{ role_control(citizenRoles) }}</div>
+                                {% endif %}
                             {% else %}
                                 {% if is_granted("ROLE_ADMIN") %}
                                     <div class="cell padded rw-4">
