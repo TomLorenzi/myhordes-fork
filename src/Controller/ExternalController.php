@@ -166,8 +166,6 @@ class ExternalController extends InventoryAwareController {
                 break;
         }
 
-        dump($data);
-
         if (!empty($data)) {
             return $this->json($data);
         }
