@@ -707,7 +707,7 @@ class ExternalController extends InventoryAwareController {
 
         if (empty($fields)) {
             $fields =
-                ["total", "base", "buildings", "upgrades", "items", "itemsMul", "citizen_homes", "citizen_guardians", "watchmen", "souls", "temp",
+                ["total", "base", "buildings", "upgrades", "items", "itemsMul", "citizenHomes", "citizenGuardians", "watchmen", "souls", "temp",
                  "cadavers", "guardiansInfos", "bonus"
                 ];
         }
@@ -755,10 +755,10 @@ class ExternalController extends InventoryAwareController {
                     case "itemsMul":
                         $data[$field] = $item_factor_def;
                         break;
-                    case "citizen_homes":
+                    case "citizenHomes":
                         $data[$field] = $def->house_defense;
                         break;
-                    case "citizen_guardians":
+                    case "citizenGuardians":
                         $data[$field] = $def->guardian_defense;
                         break;
                     case "watchmen":
