@@ -1038,7 +1038,7 @@ class ExternalController extends InventoryAwareController {
                 case "level":
                     $data[$field] = $level;
                     break;
-                case "upgrade":
+                case "update":
                     $data[$field] = $this->getTranslate($buildingPrototype->getUpgradeTexts()[$level - 1], 'buildings');
                     break;
                 case "buildingId":
