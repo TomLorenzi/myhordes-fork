@@ -1433,7 +1433,7 @@ class ExternalController extends InventoryAwareController {
                             $offset = $this->yTown;
                             $sens = -1;
                         }
-                        $user_data[$field] = $zone ? $offset + $zone->$method() * $sens : 0;
+                        $user_data[$field] = $zone ? $offset + $zone->$method() * $sens : $offset;
                         break;
                     case "mapId":
                         $user_data[$field] = $current_citizen->getTown()->getId();
