@@ -1268,16 +1268,19 @@ class ExternalController extends InventoryAwareController {
                 continue;
             }
 
-            $data_town = $this->getCadaversInformation($pastLife->getCitizen(),$fields);
-            if(in_array('origin',$fields)){
-                $codeOrigin = '';
-                if($pastLife->getTown()->getImported()){
-                    $codeOrigin = $mainAccount . "-" . ($pastLife->getTown()->getSeason()) ? ($pastLife->getTown()->getSeason()->getNumber() === 0) ? $pastLife->getTown()->getSeason()->getSubNumber() : $pastLife->getTown()->getSeason()->getNumber() : 0;
+            if($pastLife->getCitizen() != null){
+                $data_town = $this->getCadaversInformation($pastLife->getUser()->getCitizens(),$fields);
+                if(in_array('origin',$fields)){
+                    $codeOrigin = '';
+                    if($pastLife->getTown()->getImported()){
+                        $codeOrigin = $mainAccount . "-" . ($pastLife->getTown()->getSeason()) ? ($pastLife->getTown()->getSeason()->getNumber() === 0) ? $pastLife->getTown()->getSeason()->getSubNumber() : $pastLife->getTown()->getSeason()->getNumber() : 0;
+                    }
+                    $data_town['origin'] = $codeOrigin;
                 }
-                $data_town['origin'] = $codeOrigin;
+
+                $data[] = $data_town;
             }
 
-            $data[] = $data_town;
         }
 
         return $data;
