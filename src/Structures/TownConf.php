@@ -8,6 +8,7 @@ class TownConf extends Conf
     const CONF_ALLOW_LOCAL           = 'allow_local_conf';
 
     const CONF_CLOSE_TOWN_AFTER      = 'open_town_limit';
+    const CONF_CLOSE_TOWN_GRACE      = 'open_town_grace';
     const CONF_LOCK_UNTIL_FULL       = 'lock_door_until_full';
 
     const CONF_WELL_MIN              = 'well.min';

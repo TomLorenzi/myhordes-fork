@@ -166,8 +166,9 @@ class SchedulerCommand extends Command
                         $this->entityManager->flush();
 
                         $limit = (int)$town_conf->get( TownConf::CONF_CLOSE_TOWN_AFTER, -1 );
+                        $grace = (int)$town_conf->get( TownConf::CONF_CLOSE_TOWN_GRACE, 40 );
 
-                        if ($town->isOpen() && $limit >= 0 && $town->getDayWithoutAttack() > $limit) {
+                        if ($town->isOpen() && $limit >= 0 && $town->getDayWithoutAttack() > $limit && $town->getCitizenCount() < $grace) {
                             $last_op = 'del';
                             foreach ($town->getCitizens() as $citizen)
                                 $this->entityManager->persist(
