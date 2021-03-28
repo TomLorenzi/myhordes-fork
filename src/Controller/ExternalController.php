@@ -166,8 +166,6 @@ class ExternalController extends InventoryAwareController {
                 break;
         }
 
-        dump($data);
-
         if (!empty($data)) {
             return $this->json($data);
         }
@@ -709,7 +707,7 @@ class ExternalController extends InventoryAwareController {
 
         if (empty($fields)) {
             $fields =
-                ["total", "base", "buildings", "upgrades", "items", "itemsMul", "citizen_homes", "citizen_guardians", "watchmen", "souls", "temp",
+                ["total", "base", "buildings", "upgrades", "items", "itemsMul", "citizenHomes", "citizenGuardians", "watchmen", "souls", "temp",
                  "cadavers", "guardiansInfos", "bonus"
                 ];
         }
@@ -757,10 +755,10 @@ class ExternalController extends InventoryAwareController {
                     case "itemsMul":
                         $data[$field] = $item_factor_def;
                         break;
-                    case "citizen_homes":
+                    case "citizenHomes":
                         $data[$field] = $def->house_defense;
                         break;
-                    case "citizen_guardians":
+                    case "citizenGuardians":
                         $data[$field] = $def->guardian_defense;
                         break;
                     case "watchmen":
@@ -1040,7 +1038,7 @@ class ExternalController extends InventoryAwareController {
                 case "level":
                     $data[$field] = $level;
                     break;
-                case "upgrade":
+                case "update":
                     $data[$field] = $this->getTranslate($buildingPrototype->getUpgradeTexts()[$level - 1], 'buildings');
                     break;
                 case "buildingId":
@@ -1270,16 +1268,19 @@ class ExternalController extends InventoryAwareController {
                 continue;
             }
 
-            $data_town = $this->getCadaversInformation($pastLife->getCitizen(),$fields);
-            if(in_array('origin',$fields)){
-                $codeOrigin = '';
-                if($pastLife->getTown()->getImported()){
-                    $codeOrigin = $mainAccount . "-" . ($pastLife->getTown()->getSeason()) ? ($pastLife->getTown()->getSeason()->getNumber() === 0) ? $pastLife->getTown()->getSeason()->getSubNumber() : $pastLife->getTown()->getSeason()->getNumber() : 0;
+            if($pastLife->getCitizen() != null){
+                $data_town = $this->getCadaversInformation($pastLife->getUser()->getCitizens(),$fields);
+                if(in_array('origin',$fields)){
+                    $codeOrigin = '';
+                    if($pastLife->getTown()->getImported()){
+                        $codeOrigin = $mainAccount . "-" . ($pastLife->getTown()->getSeason()) ? ($pastLife->getTown()->getSeason()->getNumber() === 0) ? $pastLife->getTown()->getSeason()->getSubNumber() : $pastLife->getTown()->getSeason()->getNumber() : 0;
+                    }
+                    $data_town['origin'] = $codeOrigin;
                 }
-                $data_town['origin'] = $codeOrigin;
+
+                $data[] = $data_town;
             }
 
-            $data[] = $data_town;
         }
 
         return $data;
@@ -1435,7 +1436,7 @@ class ExternalController extends InventoryAwareController {
                             $offset = $this->yTown;
                             $sens = -1;
                         }
-                        $user_data[$field] = $zone ? $offset + $zone->$method() * $sens : 0;
+                        $user_data[$field] = $zone ? $offset + $zone->$method() * $sens : $offset;
                         break;
                     case "mapId":
                         $user_data[$field] = $current_citizen->getTown()->getId();
