@@ -7,6 +7,7 @@
 {% from "ajax/admin/widget/controls.twig" import widget_status_control as status_control, widget_status_control_js as status_control_js %}
 {% from "ajax/admin/widget/controls.twig" import widget_role_control as role_control, widget_role_control_js as role_control_js %}
 {% from "ajax/admin/widget/controls.twig" import widget_point_control as point_control, widget_point_control_js as point_control_js %}
+{% from "ajax/admin/widget/controls.twig" import widget_profession_control as profession_control, widget_profession_control_js as profession_control_js %}
 
 {% block title %}{{'Stadt %townname%'|trans({'%townname%': town.name}, 'admin')|raw}}{% endblock %}
 {% block ajax %}
@@ -76,9 +77,34 @@
                                                 <option value="{{ url('admin_town_manage', {action: 'advance', id: town.id}) }}">{{ 'Manueller Tageswechsel'|trans({},'admin') }}</option>
                                             {% endif %}
                                         </optgroup>
-                                    <optgroup label="{{ 'Verwaltung'|trans({},'admin') }}">
-                                        <option x-alt-url="{{ path('admin_town_list') }}" value="{{ url('admin_town_manage', {action: 'nullify', id: town.id}) }}">{{ 'Annulieren'|trans({},'admin') }}</option>
-                                    </optgroup>
+                                        <optgroup label="{{ 'Verwaltung'|trans({},'admin') }}">
+                                            <option x-alt-url="{{ path('admin_town_list') }}" value="{{ url('admin_town_manage', {action: 'nullify', id: town.id}) }}">{{ 'Annulieren'|trans({},'admin') }}</option>
+                                        </optgroup>
+                                        {% if app.environment == 'dev' %}
+                                            <optgroup label="Debug">
+                                                {% set ctz_engaged = 0 %}
+                                                {% set ctz_disengaged = 0 %}
+                                                {% for cur_citizen in town.citizens %}
+                                                    {% if cur_citizen.alive and cur_citizen.active %}
+                                                        {% set ctz_engaged = ctz_engaged + 1 %}
+                                                    {% elseif cur_citizen.alive and not cur_citizen.active %}
+                                                        {% set ctz_disengaged = ctz_disengaged + 1 %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                                {% if town.population > town.citizenCount %}
+                                                    <option value="{{ url('admin_town_manage', {action: 'dbg_fill_town', id: town.id}) }}">{{ 'Stadt füllen'|trans({},'admin') }}</option>
+                                                {% endif %}
+                                                <option value="{{ url('admin_town_manage', {action: 'dbg_fill_bank', id: town.id}) }}">{{ 'Bank füllen'|trans({},'admin') }}</option>
+                                                <option value="{{ url('admin_town_manage', {action: 'dbg_unlock_bank', id: town.id}) }}">{{ 'Banksperre aufheben'|trans({},'admin') }}</option>
+                                                <option value="{{ url('admin_town_manage', {action: 'dbg_hydrate', id: town.id}) }}">{{ 'Durst aufheben'|trans({},'admin') }}</option>
+                                                {% if ctz_engaged > 0 %}
+                                                    <option value="{{ url('admin_town_manage', {action: 'dbg_disengage', id: town.id}) }}">{{ 'Alle Spieler entkoppeln'|trans({},'admin') }}</option>
+                                                {% endif %}
+                                                {% if ctz_disengaged > 0 %}
+                                                    <option value="{{ url('admin_town_manage', {action: 'dbg_engage', id: town.id}) }}">{{ 'Alle Spieler koppeln'|trans({},'admin') }}</option>
+                                                {% endif %}
+                                            </optgroup>
+                                        {% endif %}
                                     {% endif %}
                                 </select>
                                 <div id="execute_button" class="button inline small">{{ 'Ausführen'|trans({},'admin') }}</div>
@@ -224,7 +250,7 @@
                                 <div class="row-flex stretch pointer" style="max-height: 100px;">
                                     <div class="cell rw-1">
                                     {% if citizen.alive %}
-                                        <label><input type="checkbox" x-id="{{ citizen.id }}" x-target="rucksack" target='rucksack' id="r-{{citizen.id}}" /></label>
+                                        <label><input type="checkbox" x-id="{{ citizen.id }}" x-target="rucksack" /></label>
                                         <div class="tooltip normal">
                                             <em>{{ 'Rucksack'|trans({},'admin') }}</em><br />
                                             {% for item in citizen.inventory.items %}
@@ -235,7 +261,7 @@
                                     {% endif %}
                                     </div>
                                     <div class="cell rw-1">
-                                        <label><input type="checkbox" x-id="{{ citizen.home.id }}" x-target="chest" target='chest' id="t-{{citizen.id}}" /></label>
+                                        <label><input type="checkbox" x-id="{{ citizen.home.id }}" x-target="chest" /></label>
                                         <div class="tooltip normal">
                                             {% if citizen.home.chest.items|length == 0 %}
                                                 <em>{{ 'Leere Truhe'|trans({},'admin') }}</em>
@@ -250,7 +276,7 @@
                                     </div>
                                     <div class="cell rw-1">
                                         {% if citizen.alive and citizen.zone and (citizen.zone.x != 0 or citizen.zone.y != 0) %}
-                                            <label><input type="checkbox" x-id="{{ citizen.zone.id }}" x-target="zone" target='zone' id="z-{{citizen.id}}" /></label>
+                                            <label><input type="checkbox" x-id="{{ citizen.zone.id }}" x-target="zone" /></label>
                                             <div class="tooltip normal">
                                                 {% if citizen.zone.floor.items|length == 0 %}
                                                     <em>{{ 'Leere Zone'|trans({},'admin') }}</em>
@@ -266,7 +292,7 @@
                                     </div>
                                     <div class="cell rw-1">
                                         {% if citizen.alive %}
-                                            <label><input type="checkbox" x-id="{{ citizen.id }}" x-target="status" target='status' id="b-{{citizen.id}}" /></label>
+                                            <label><input type="checkbox" x-id="{{ citizen.id }}" x-target="status" /></label>
                                             <div class="tooltip normal">{{ widget_citizen(citizen) }}</div>
                                         {% endif %}
                                     </div>
@@ -318,6 +344,8 @@
                             {{ item_creator(itemPrototypes, 'ctz') }}
                             <hr />
                             {{ picto_creator(pictoPrototypes) }}
+                            <hr />
+                            {{ profession_control(citizenProfessions) }}
                             <hr />
                             <div class="row">
                                 <div class="cell rw-6 rw-md-12">{{ status_control(citizenStati) }}</div>
@@ -496,6 +524,7 @@
         {{ status_control_js('input[x-target="status"]:checked', path('admin_town_manage_status', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
         {{ role_control_js('input[x-target="status"]:checked', path('admin_town_manage_role', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
         {{ point_control_js('input[x-target="status"]:checked', path('admin_town_alter_pp', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
+        {{ profession_control_js('input[x-target="status"]:checked', path('admin_modify_profession', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
     {% endif %}
     <script>
         (function() {

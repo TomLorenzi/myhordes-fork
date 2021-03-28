@@ -455,7 +455,7 @@ class NightlyHandler
 
         foreach ($town->getCitizens() as $citizen) {
             /** @var Citizen $citizen */
-            if ($citizen->getAlive() && !$citizen->getZone() && $citizen->getUser()->getName() !== "user_001")
+            if ($citizen->getAlive() && !$citizen->getZone())
                 $targets[] = $citizen;
             elseif (!$citizen->getAlive() && $citizen->getHome()->getHoldsBody() && !in_array($citizen->getId(), $this->skip_reanimation))
                 $houses[] = $citizen;

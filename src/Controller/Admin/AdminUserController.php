@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AccountRestriction;
 use App\Entity\Citizen;
+use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\ConnectionWhitelist;
@@ -28,6 +29,7 @@ use App\Service\PermissionHandler;
 use App\Service\TwinoidHandler;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
+use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
@@ -584,12 +586,7 @@ class AdminUserController extends AdminActionController
         if ($citizen) {
             $active = true;
             $town = $citizen->getTown();
-            if ($citizen->getAlive()) {
-                $alive = true;
-            }           
-            else {
-                $alive = false;
-            }               
+            $alive = $citizen->getAlive();
         }                    
         else {
             $active = false;
@@ -612,6 +609,11 @@ class AdminUserController extends AdminActionController
             return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
         });
 
+        $disabled_profs = $town ? $this->conf->getTownConfiguration($town)->get(TownConf::CONF_DISABLED_JOBS, []) : [];
+        $professions = array_filter($this->entity_manager->getRepository( CitizenProfession::class )->findSelectable(),
+            fn(CitizenProfession $p) => !in_array($p->getName(),$disabled_profs)
+        );
+
         $citizenRoles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
 
         return $this->render( 'ajax/admin/users/citizen.html.twig', $this->addDefaultTwigArgs("admin_users_citizen", [
@@ -619,16 +621,20 @@ class AdminUserController extends AdminActionController
             'active' => $active,
             'alive' => $alive,
             'user' => $user,
+            'user_citizen' => $citizen,
             'itemPrototypes' => $itemPrototypes,
             'pictoPrototypes' => $pictoProtos,
             'citizenStati' => $citizenStati,
             'citizenRoles' => $citizenRoles,
+            'citizenProfessions' => $professions,
             'citizen_id' => $citizen ? $citizen->getId() : -1,
         ]));        
     }
 
     /**
      * @Route("api/admin/users/{id}/citizen/headshot", name="admin_users_citizen_headshot", requirements={"id"="\d+"})
+     * @param int $id
+     * @param AdminActionHandler $admh
      * @return Response
      */
     public function users_citizen_headshot(int $id, AdminActionHandler $admh): Response
@@ -637,6 +643,31 @@ class AdminUserController extends AdminActionController
             return AjaxResponse::success();
 
         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+    }
+
+    /**
+     * @Route("api/admin/users/{id}/citizen/engagement/{cid}", name="admin_users_citizen_engage", requirements={"id"="\d+","cid"="\d+"})
+     * @param int $id
+     * @param int $cid
+     * @return Response
+     */
+    public function users_update_engagement(int $id, int $cid): Response
+    {
+        /** @var User $user */
+        $user = $this->entity_manager->getRepository(User::class)->find($id);
+        if (!$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if ($user->getActiveCitizen()) $this->entity_manager->persist($user->getActiveCitizen()->setActive(false));
+
+        if ($cid !== 0) {
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($cid);
+            if (!$citizen || $citizen->getUser() !== $user || !$citizen->getAlive())
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+            $this->entity_manager->persist($citizen->setActive(true));
+        }
+
+        $this->entity_manager->flush();
+        return AjaxResponse::success();
     }
 
     /**

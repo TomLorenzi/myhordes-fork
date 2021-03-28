@@ -4,11 +4,13 @@ namespace App\Controller\Admin;
 
 use App\Annotations\GateKeeperProfile;
 use App\Controller\Town\TownController;
+use App\Entity\BankAntiAbuse;
 use App\Entity\BlackboardEdit;
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
 use App\Entity\CitizenHome;
+use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\CitizenVote;
@@ -21,6 +23,7 @@ use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
+use App\Entity\User;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\CrowService;
@@ -31,11 +34,14 @@ use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
 use App\Service\JSONRequestParser;
 use App\Service\NightlyHandler;
+use App\Service\RandomGenerator;
 use App\Service\TownHandler;
+use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -135,6 +141,11 @@ class AdminTownController extends AdminActionController
             return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
         });
 
+        $disabled_profs = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_DISABLED_JOBS, []);
+        $professions = array_filter($this->entity_manager->getRepository( CitizenProfession::class )->findSelectable(),
+            fn(CitizenProfession $p) => !in_array($p->getName(),$disabled_profs)
+        );
+
         $complaints = [];
         $votes = [];
         $roles = [];
@@ -198,6 +209,7 @@ class AdminTownController extends AdminActionController
             'pictoPrototypes' => $pictoProtos,
             'citizenStati' => $citizenStati,
             'citizenRoles' => $citizenRoles,
+            'citizenProfessions' => $professions,
             'tab' => $tab,
             'complaints' => $complaints,
             'dictBuildings' => $dict,
@@ -283,17 +295,24 @@ class AdminTownController extends AdminActionController
      * @Route("api/admin/town/{id}/do/{action}", name="admin_town_manage", requirements={"id"="\d+"})
      * @param int $id The ID of the town
      * @param string $action The action to perform
+     * @param ItemFactory $itemFactory
+     * @param RandomGenerator $random
      * @param NightlyHandler $night
      * @param GameFactory $gameFactory
+     * @param CrowService $crowService
+     * @param KernelInterface $kernel
      * @return Response
      */
-    public function town_manager(int $id, string $action, NightlyHandler $night, GameFactory $gameFactory, CrowService $crowService): Response
+    public function town_manager(int $id, string $action, ItemFactory $itemFactory, RandomGenerator $random, NightlyHandler $night, GameFactory $gameFactory, CrowService $crowService, KernelInterface $kernel): Response
     {
         /** @var Town $town */
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($action, ['release', 'quarantine', 'advance', 'nullify']) && !$this->isGranted('ROLE_ADMIN'))
+        if (str_starts_with($action, 'dbg_') && $kernel->getEnvironment() !== 'dev')
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if (in_array($action, ['release', 'quarantine', 'advance', 'nullify', 'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage']) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         switch ($action) {
@@ -330,6 +349,86 @@ class AdminTownController extends AdminActionController
                         $crowService->createPM_townNegated($citizen->getUser(), $town->getName(), false)
                     );
                 $gameFactory->nullifyTown($town, true);
+                break;
+
+            case 'dbg_disengage':
+                foreach ($town->getCitizens() as $citizen)
+                    if ($citizen->getAlive() && $citizen->getActive())
+                        $this->entity_manager->persist($citizen->setActive(false));
+                break;
+
+            case 'dbg_engage':
+                foreach ($town->getCitizens() as $citizen)
+                    if ($citizen->getAlive() && !$citizen->getActive()) {
+                        if ($citizen->getUser()->getActiveCitizen())
+                            $this->entity_manager->persist($citizen->getUser()->getActiveCitizen()->setActive(false));
+                        $this->entity_manager->persist($citizen->setActive(true));
+                    }
+                break;
+
+            case 'dbg_fill_town':
+                $missing = $town->getPopulation() - $town->getCitizenCount();
+                if ($missing <= 0) break;
+
+                $users = []; $backup = [];
+                for ($i = 1; $i <= 80; $i++) if (count($users) < $missing) {
+                    $user_name = 'user_' . str_pad($i, 3, '0', STR_PAD_LEFT);
+
+                    /** @var User $selected_user */
+                    $selected_user = $this->entity_manager->getRepository(User::class)->findOneBy(['name' => $user_name]);
+                    if ($selected_user === null) continue;
+                    if ($selected_user->getActiveCitizen()) $backup[] = $selected_user;
+                    else $users[] = $selected_user;
+                }
+
+                $disabled_profs = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_DISABLED_JOBS, []);
+                $professions = array_filter($this->entity_manager->getRepository( CitizenProfession::class )->findSelectable(),
+                    fn(CitizenProfession $p) => !in_array($p->getName(),$disabled_profs)
+                );
+
+                while ($town->getPopulation() > ($town->getCitizenCount() + count($users)) && !empty($backup)) {
+                    /** @var User $selected_user */
+                    $selected_user = $backup[0]; $backup = array_slice($backup, 1);
+                    $this->entity_manager->persist($selected_user->getActiveCitizen()->setActive(false));
+                    $users[] = $selected_user;
+                }
+
+                foreach ($users as $selected_user) {
+                    $citizen = $gameFactory->createCitizen($town, $selected_user, $error);
+                    $this->entity_manager->persist($town);
+                    $this->entity_manager->persist($citizen);
+                    $this->entity_manager->flush();
+
+                    $pro = $random->pick($professions);
+                    $this->citizen_handler->applyProfession($citizen, $pro);
+                    $this->entity_manager->persist($citizen);
+                    $this->entity_manager->persist($town);
+                    $this->entity_manager->flush();
+                }
+
+                break;
+
+            case 'dbg_fill_bank':
+                $bank = $town->getBank();
+                foreach ($this->entity_manager->getRepository(ItemPrototype::class)->findAll() as $repo)
+                    $this->inventory_handler->forceMoveItem( $bank, ($itemFactory->createItem( $repo ))->setCount(500) );
+
+                $this->entity_manager->persist( $bank );
+                break;
+
+            case 'dbg_unlock_bank':
+                foreach ($town->getCitizens() as $citizen) if ($citizen->getBankAntiAbuse())
+                    $this->entity_manager->persist($citizen->getBankAntiAbuse()->setNbItemTaken(0));
+                break;
+
+            case 'dbg_hydrate':
+                $thirst1 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('thirst1');
+                $thirst2 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('thirst2');
+                foreach ($town->getCitizens() as $citizen) {
+                    $this->citizen_handler->removeStatus( $citizen, $thirst1 );
+                    $this->citizen_handler->removeStatus( $citizen, $thirst2 );
+                    $this->entity_manager->persist($citizen);
+                }
                 break;
 
             default:
@@ -457,6 +556,56 @@ class AdminTownController extends AdminActionController
 
         return AjaxResponse::success();
     }
+
+    /**
+     * @Route("/api/admin/town/{id}/modify_prof", name="admin_modify_profession", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Changes the profession of citizens
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser
+     * @param CitizenHandler $handler
+     * @return Response
+     */
+    public function modify_profession(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
+    {
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $pro_id = $parser->get_int('profession');
+        $targets = $parser->get_array('targets');
+
+        $disabled_profs = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_DISABLED_JOBS, []);
+
+        if (empty($targets))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var CitizenProfession $profession */
+        $profession = $this->entity_manager->getRepository(CitizenProfession::class)->find($pro_id);
+        if (!$profession || $profession->getName() === CitizenProfession::DEFAULT || in_array($profession->getName(), $disabled_profs))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var Inventory[] $inventories */
+        $inventories = [];
+
+        foreach (array_unique($targets) as $target) {
+            /** @var Citizen $citizen */
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($target);
+            if (!$citizen || $citizen->getTown() !== $town)
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+            if ($citizen->getProfession() !== $profession) {
+                $handler->applyProfession($citizen, $profession);
+                $this->entity_manager->persist($citizen);
+            }
+
+        }
+
+
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
 
     /**
      * @Route("/api/admin/town/{id}/picto/give", name="admin_town_give_picto", requirements={"id"="\d+"})
