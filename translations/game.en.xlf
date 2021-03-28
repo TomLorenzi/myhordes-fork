@@ -15737,7 +15737,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <source>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
                     Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
                     Nichts, was der Mühe wert wäre.</source>
-        <target>Looking throught the window, you see that %citizen%'s house seems to be bereft of anything interesting. Some rough pettery, more dust than on Dayan's desk and a very dead rat. Nothing worth stealing.</target>
+        <target>Looking through the window, you see that %citizen%'s house seems to be bereft of anything interesting. Some rough pottery, more dust than on Dayan's desk, and a very dead rat. Nothing worth stealing.</target>
       </segment>
     </unit>
     <unit id="lo3tdoY" name="Was für eine schreckliche Nacht!">
