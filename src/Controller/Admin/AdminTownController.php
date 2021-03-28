@@ -36,6 +36,7 @@ use App\Service\JSONRequestParser;
 use App\Service\NightlyHandler;
 use App\Service\RandomGenerator;
 use App\Service\TownHandler;
+use App\Structures\EventConf;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Pagination\Paginator;
@@ -439,6 +440,46 @@ class AdminTownController extends AdminActionController
             $this->entity_manager->flush();
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException, ['message' => $e->getMessage()]);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/admin/town/new", name="admin_new_town")
+     * @param JSONRequestParser $parser
+     * @param GameFactory $gameFactory
+     * @param TownHandler $townHandler
+     * @return Response
+     */
+    public function add_default_town( JSONRequestParser $parser, GameFactory $gameFactory, TownHandler $townHandler): Response {
+
+        $town_name = $parser->get('name', null) ?: null;
+        $town_type = $parser->get('type', '');
+        $town_lang = $parser->get('lang', 'de');
+
+        if (!in_array($town_lang, ['de','en','es','fr','multi']))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $town = $gameFactory->createTown($town_name, $town_lang, null, $town_type);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInternalError);
+
+        try {
+            $this->entity_manager->persist( $town );
+            $this->entity_manager->flush();
+        } catch (Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        $current_events = $this->conf->getCurrentEvents();
+        $current_event_names = array_map(fn(EventConf $e) => $e->name(), array_filter($current_events, fn(EventConf $e) => $e->active()));
+        if (!empty($current_event_names)) {
+            if (!$townHandler->updateCurrentEvents($town, $current_events)) {
+                $this->entity_manager->clear();
+            } else {
+                $this->entity_manager->persist($town);
+                $this->entity_manager->flush();
+            }
         }
 
         return AjaxResponse::success();

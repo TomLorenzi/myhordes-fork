@@ -2908,5 +2908,14 @@
         <target>Einen Beruf auswählen:</target>
       </segment>
     </unit>
+    <unit id="_Kc4j.e" name="Stadt anlegen">
+      <notes>
+        <note category="german">Stadt anlegen</note>
+      </notes>
+      <segment>
+        <source>Stadt anlegen</source>
+        <target>Stadt anlegen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
