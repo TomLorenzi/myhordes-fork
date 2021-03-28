@@ -2,28 +2,30 @@
 
 <!-- <editor-fold desc="Item Creator Widget"> -->
 {% macro widget_item_creator(itemPrototypes, prefix = '') %}
-    <div class="row">
-        <div class="cell rw-12"><label for="{{ _self.gen_id(prefix,'itemwidget','select')}}">{{'Einen Gegenstand erzeugen:'|trans({}, 'admin')}}</label></div>
-    </div>
-    <div class="row-flex">
-        <div class="padded cell grow-1 shrink-1">
-            <select id="{{ _self.gen_id(prefix,'itemwidget','select')}}">
-                {% for itemPrototype in itemPrototypes %}
-                    <option value="{{itemPrototype.id}}">{{ itemPrototype.label|trans({}, 'items') }}</option>
-                {% endfor %}
-            </select>
+    <div class="lightbox">
+        <div class="row">
+            <div class="cell rw-12"><label for="{{ _self.gen_id(prefix,'itemwidget','select')}}">{{'Einen Gegenstand erzeugen:'|trans({}, 'admin')}}</label></div>
         </div>
-        <div class="padded cell grow-0 shrink-0"><label for="{{ _self.gen_id(prefix,'itemwidget','number')}}">X</label></div>
-        <div class="padded cell grow-3 shrink-3"> <input type="number" id="{{ _self.gen_id(prefix,'itemwidget','number')}}" value="1"/> </div>
-        <div class="padded cell grow-0 shrink-0 right">
-            <label>{{'Vergiftet:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_poison')}}" /></label><br />
-            <label>{{'Zerstört:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_broken')}}" /></label><br />
-            <label>{{'Essentiell:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_essential')}}" /></label><br />
-            <label>{{'Versteckt:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_hidden')}}" /></label><br />
+        <div class="row-flex">
+            <div class="padded cell grow-1 shrink-1">
+                <select id="{{ _self.gen_id(prefix,'itemwidget','select')}}">
+                    {% for itemPrototype in itemPrototypes %}
+                        <option value="{{itemPrototype.id}}">{{ itemPrototype.label|trans({}, 'items') }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="padded cell grow-0 shrink-0"><label for="{{ _self.gen_id(prefix,'itemwidget','number')}}">X</label></div>
+            <div class="padded cell grow-3 shrink-3"> <input type="number" id="{{ _self.gen_id(prefix,'itemwidget','number')}}" value="1"/> </div>
+            <div class="padded cell grow-0 shrink-0 right">
+                <label>{{'Vergiftet:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_poison')}}" /></label><br />
+                <label>{{'Zerstört:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_broken')}}" /></label><br />
+                <label>{{'Essentiell:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_essential')}}" /></label><br />
+                <label>{{'Versteckt:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_hidden')}}" /></label><br />
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="padded cell rw-12"><button id="{{ _self.gen_id(prefix,'itemwidget','spawn')}}">{{'Erzeugen!'|trans({}, 'admin')}}</button></div>
+        <div class="row">
+            <div class="padded cell rw-12"><button id="{{ _self.gen_id(prefix,'itemwidget','spawn')}}">{{'Erzeugen!'|trans({}, 'admin')}}</button></div>
+        </div>
     </div>
 {% endmacro %}
 {% macro widget_item_creator_js(selector, api_url, load_url, prefix = '') %}
@@ -63,25 +65,27 @@
 
 <!-- <editor-fold desc="Picto Creator Widget"> -->
 {% macro widget_picto_creator(pictoPrototypes, prefix = '') %}
-    <div class="row">
-        <div class="padded cell rw-12">
-            <label for="{{ _self.gen_id(prefix,'pictowidget','select')}}">{{'Eine Auszeichnungen auswählen:'|trans({}, 'admin')}}</label>
+    <div class="lightbox">
+        <div class="row">
+            <div class="padded cell rw-12">
+                <label for="{{ _self.gen_id(prefix,'pictowidget','select')}}">{{'Eine Auszeichnungen auswählen:'|trans({}, 'admin')}}</label>
+            </div>
         </div>
-    </div>
-    <div class="row-flex">
-        <div class="padded cell grow-2 shrink-1">
-            <select id="{{ _self.gen_id(prefix,'pictowidget','select')}}">
-                {% for pictoPrototype in pictoPrototypes %}
-                    <option value="{{pictoPrototype.id}}">{{ pictoPrototype.label|trans({}, 'game') }}</option>
-                {% endfor %}
-            </select>
+        <div class="row-flex">
+            <div class="padded cell grow-2 shrink-1">
+                <select id="{{ _self.gen_id(prefix,'pictowidget','select')}}">
+                    {% for pictoPrototype in pictoPrototypes %}
+                        <option value="{{pictoPrototype.id}}">{{ pictoPrototype.label|trans({}, 'game') }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="padded cell grow-0 shrink-0"><label for="{{ _self.gen_id(prefix,'pictowidget','number')}}">X</label></div>
+            <div class="padded cell grow-1 shrink-1"><input type="number" id="{{ _self.gen_id(prefix,'pictowidget','number')}}" value="1"/></div>
         </div>
-        <div class="padded cell grow-0 shrink-0"><label for="{{ _self.gen_id(prefix,'pictowidget','number')}}">X</label></div>
-        <div class="padded cell grow-1 shrink-1"><input type="number" id="{{ _self.gen_id(prefix,'pictowidget','number')}}" value="1"/></div>
-    </div>
-    <div class="row">
-        <div class="padded cell rw-12">
-            <button id="{{ _self.gen_id(prefix,'pictowidget','give')}}">{{'Vergeben!'|trans({}, 'admin')}}</button>
+        <div class="row">
+            <div class="padded cell rw-12">
+                <button id="{{ _self.gen_id(prefix,'pictowidget','give')}}">{{'Vergeben!'|trans({}, 'admin')}}</button>
+            </div>
         </div>
     </div>
 {% endmacro %}
@@ -100,19 +104,21 @@
 
 <!-- <editor-fold desc="Status Manager Widget"> -->
 {% macro widget_status_control(citizenStati, prefix = '') %}
-    <div class="row">
-        <div class="padded cell rw-12"><label for="{{ _self.gen_id(prefix,'statuswidget','select')}}">{{'Einen Status auswählen:'|trans({}, 'admin')}}</label></div>
-    </div>
-    <div class="row-flex">
-        <div class="padded cell grow-1 shrink-1">
-            <select id="{{ _self.gen_id(prefix,'statuswidget','select')}}">
-                {% for status in citizenStati %}
-                    <option value="{{status.id}}">{{ status.label|trans({}, 'game') }}</option>
-                {% endfor %}
-            </select>
+    <div class="lightbox">
+        <div class="row">
+            <div class="padded cell rw-12"><label for="{{ _self.gen_id(prefix,'statuswidget','select')}}">{{'Einen Status auswählen:'|trans({}, 'admin')}}</label></div>
         </div>
-        <div class="padded cell grow-0 shrink-0"><button x-control="1" id="{{ _self.gen_id(prefix,'statuswidget','give')}}"><i class="fa fa-plus"></i><div class="tooltip">{{'Status vergeben'|trans({}, 'admin')}}</div></button></div>
-        <div class="padded cell grow-0 shrink-0"><button x-control="0" id="{{ _self.gen_id(prefix,'statuswidget','take')}}"><i class="fa fa-minus"></i><div class="tooltip">{{'Status entfernen'|trans({}, 'admin')}}</div></button></div>
+        <div class="row-flex">
+            <div class="padded cell grow-1 shrink-1">
+                <select id="{{ _self.gen_id(prefix,'statuswidget','select')}}">
+                    {% for status in citizenStati %}
+                        <option value="{{status.id}}">{{ status.label|trans({}, 'game') }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="1" id="{{ _self.gen_id(prefix,'statuswidget','give')}}"><i class="fa fa-plus"></i><div class="tooltip">{{'Status vergeben'|trans({}, 'admin')}}</div></button></div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="0" id="{{ _self.gen_id(prefix,'statuswidget','take')}}"><i class="fa fa-minus"></i><div class="tooltip">{{'Status entfernen'|trans({}, 'admin')}}</div></button></div>
+        </div>
     </div>
 {% endmacro %}
 {% macro widget_status_control_js(selector, api_url, load_url, prefix = '') %}
@@ -138,19 +144,21 @@
 
 <!-- <editor-fold desc="Role Manager Widget"> -->
 {% macro widget_role_control(citizenRoles, prefix = '') %}
-    <div class="row">
-        <div class="padded cell rw-12"><label for="{{ _self.gen_id(prefix,'rolewidget','select')}}">{{'Eine Rolle auswählen:'|trans({}, 'admin')}}</label></div>
-    </div>
-    <div class="row-flex">
-        <div class="padded cell grow-1 shrink-1">
-            <select id="{{ _self.gen_id(prefix,'rolewidget','select')}}">
-                {% for status in citizenRoles %}
-                    <option value="{{status.id}}">{{ status.label|trans({}, 'game') }}</option>
-                {% endfor %}
-            </select>
+    <div class="lightbox">
+        <div class="row">
+            <div class="padded cell rw-12"><label for="{{ _self.gen_id(prefix,'rolewidget','select')}}">{{'Eine Rolle auswählen:'|trans({}, 'admin')}}</label></div>
         </div>
-        <div class="padded cell grow-0 shrink-0"><button x-control="1" id="{{ _self.gen_id(prefix,'rolewidget','give')}}"><i class="fa fa-plus"></i><div class="tooltip">{{'Rolle vergeben'|trans({}, 'admin')}}</div></button></div>
-        <div class="padded cell grow-0 shrink-0"><button x-control="0" id="{{ _self.gen_id(prefix,'rolewidget','take')}}"><i class="fa fa-minus"></i><div class="tooltip">{{'Rolle entfernen'|trans({}, 'admin')}}</div></button></div>
+        <div class="row-flex">
+            <div class="padded cell grow-1 shrink-1">
+                <select id="{{ _self.gen_id(prefix,'rolewidget','select')}}">
+                    {% for status in citizenRoles %}
+                        <option value="{{status.id}}">{{ status.label|trans({}, 'game') }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="1" id="{{ _self.gen_id(prefix,'rolewidget','give')}}"><i class="fa fa-plus"></i><div class="tooltip">{{'Rolle vergeben'|trans({}, 'admin')}}</div></button></div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="0" id="{{ _self.gen_id(prefix,'rolewidget','take')}}"><i class="fa fa-minus"></i><div class="tooltip">{{'Rolle entfernen'|trans({}, 'admin')}}</div></button></div>
+        </div>
     </div>
 {% endmacro %}
 {% macro widget_role_control_js(selector, api_url, load_url, prefix = '') %}
@@ -177,20 +185,22 @@
 
 <!-- <editor-fold desc="Point Manager Widget"> -->
 {% macro widget_point_control(prefix = '') %}
-    <div class="row-flex">
-        <div class="padded cell grow-1 shrink-1">
-            <label><select id="{{ _self.gen_id(prefix,'pointwidget','select')}}">
-                <option value="ap">{{'AP'|trans({}, 'admin')}}</option>
-                <option value="bp">{{'BP'|trans({}, 'admin')}}</option>
-                <option value="mp">{{'MP'|trans({}, 'admin')}}</option>
-            </select></label>
+    <div class="lightbox">
+        <div class="row-flex">
+            <div class="padded cell grow-1 shrink-1">
+                <label><select id="{{ _self.gen_id(prefix,'pointwidget','select')}}">
+                        <option value="ap">{{'AP'|trans({}, 'admin')}}</option>
+                        <option value="bp">{{'BP'|trans({}, 'admin')}}</option>
+                        <option value="mp">{{'MP'|trans({}, 'admin')}}</option>
+                    </select></label>
+            </div>
+            <div class="padded cell grow-1 shrink-1">
+                <label><input type="number" id="{{ _self.gen_id(prefix,'pointwidget','number')}}" value="6"/></label>
+            </div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="1"  id="{{ _self.gen_id(prefix,'pointwidget','give')}}"><i class="fa fa-plus"></i><div class="tooltip">{{'Hinzufügen'|trans({}, 'admin')}}</div></button></div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="0"  id="{{ _self.gen_id(prefix,'pointwidget','set')}}"> <i class="fa fa-hand-point-down"></i><div class="tooltip">{{'Setzen'|trans({}, 'admin')}}</div></button></div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="-1" id="{{ _self.gen_id(prefix,'pointwidget','take')}}"><i class="fa fa-minus"></i><div class="tooltip">{{'Abziehen'|trans({}, 'admin')}}</div></button></div>
         </div>
-        <div class="padded cell grow-1 shrink-1">
-            <label><input type="number" id="{{ _self.gen_id(prefix,'pointwidget','number')}}" value="6"/></label>
-        </div>
-        <div class="padded cell grow-0 shrink-0"><button x-control="1"  id="{{ _self.gen_id(prefix,'pointwidget','give')}}"><i class="fa fa-plus"></i><div class="tooltip">{{'Hinzufügen'|trans({}, 'admin')}}</div></button></div>
-        <div class="padded cell grow-0 shrink-0"><button x-control="0"  id="{{ _self.gen_id(prefix,'pointwidget','set')}}"> <i class="fa fa-hand-point-down"></i><div class="tooltip">{{'Setzen'|trans({}, 'admin')}}</div></button></div>
-        <div class="padded cell grow-0 shrink-0"><button x-control="-1" id="{{ _self.gen_id(prefix,'pointwidget','take')}}"><i class="fa fa-minus"></i><div class="tooltip">{{'Abziehen'|trans({}, 'admin')}}</div></button></div>
     </div>
 {% endmacro %}
 {% macro widget_point_control_js(selector, api_url, load_url, prefix = '') %}

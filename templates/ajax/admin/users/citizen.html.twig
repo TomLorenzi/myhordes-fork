@@ -23,7 +23,7 @@
                                 <div class="tooltip">{{ widget_citizen(citizen) }}</div>
                             {% endif %}
                         </div>
-                        <div class="cell padded rw-12">
+                        <div class="cell padded rw-12" id="citizen_base_selector" x-id="{{ citizen.id }}">
                             <input disabled style="width: 25em;" value="{% if active %}{{ town.name }}{% if not alive %}{{ " -- " }}{{ 'TOD NICHT BESTÄTIGT'|trans({}, 'admin') }}{% endif %}{% else %}{{ "--" }}{% endif %}" />
                         </div>
                         {% if active %}
@@ -39,8 +39,7 @@
                                 </div>
 
                                 {% if is_granted("ROLE_ADMIN") %}
-                                    <div class="cell padded rw-6">{{ point_control() }}</div>
-                                    <div class="cell padded rw-6">{{ picto_creator(pictoPrototypes) }}</div>
+                                    <div class="cell padded rw-12">{{ point_control() }}</div>
                                     <div class="cell padded rw-6">{{ status_control(citizenStati) }}</div>
                                     <div class="cell padded rw-6">{{ role_control(citizenRoles) }}</div>
                                 {% endif %}
@@ -56,22 +55,22 @@
                     <div class="row">
                         <div class="cell padded rw-12">
                             <input type="hidden" id="pmidrecipient" value="{{ citizen_id }}">
-                            <div id="forum-content">
-
-                            </div>
+                            <div id="forum-content"></div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </div>
     {% embed "ajax/admin/users/footer.html.twig" %}{% endembed %}
 {% endblock %}
 {% block js %}
     {{ parent() }}
+    {% if is_granted("ROLE_ADMIN") and alive %}
+        {{ status_control_js('#citizen_base_selector', path('admin_town_manage_status', {id: citizen.town.id}), path('admin_users_citizen_view', {id: user.id})) }}
+        {{ role_control_js('#citizen_base_selector', path('admin_town_manage_role', {id: citizen.town.id}), path('admin_users_citizen_view', {id: user.id})) }}
+        {{ point_control_js('#citizen_base_selector', path('admin_town_alter_pp', {id: citizen.town.id}), path('admin_users_citizen_view', {id: user.id})) }}
+    {% endif %}
     <script>
         {% if active %}
             {% if alive %}
