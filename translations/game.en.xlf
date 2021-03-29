@@ -11305,7 +11305,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>%citizen% hat seinen Hund mit %count% Gegenständen in die Stadt geschickt.</source>
-        <target>%citizen% sent his dog to town with %count% items.</target>
+        <target>%citizen% has sent their animal companion back to town with %count% object(s) on its back.</target>
       </segment>
     </unit>
     <unit id="ALk3xHN" name="a65f146">
