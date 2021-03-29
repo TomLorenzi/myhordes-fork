@@ -403,7 +403,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du klares Wasser (keine Kanister)!</source>
-        <target>Vous avez besoin d'Eau Pure (celle d'une gourde par exemple).</target>
+        <target>Vous devez avoir de l'eau pure (pas un jerrycan par exemple) dans votre sac à dos.</target>
       </segment>
     </unit>
     <unit id="TEo9cyt" name="Das Tor ist bereits geschlossen.">
