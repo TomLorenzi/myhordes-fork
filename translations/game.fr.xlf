@@ -17360,7 +17360,7 @@
       </notes>
       <segment>
         <source>Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</source>
-        <target>Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</target>
+        <target>Nous avons deux nouvelles à vous annoncer. La bonne : vous avez réussi à arrêter %count% zombie(s) ! La mauvaise : vous avez été blessé...</target>
       </segment>
     </unit>
     <unit id="IuqDnZY" name="%citizen% hat %items% in der Müllhalde zerstört (+%def% Verteidigung)">
