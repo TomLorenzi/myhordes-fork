@@ -35,8 +35,10 @@
                             {% elseif post.type == "DEV" %}
                                 <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ post.owner.name }}</a>
                                 <img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}" />
+                                {% if post.owner.activeTitle %}<br /><span class="small float-left" style="font-size: 0.7em">{{ post.owner.activeTitle.prototype.title|trans({},'game') }}</span>{% endif %}
                             {% else %}
                                 <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ post.owner.name }}</a>
+                                {% if post.owner.activeTitle %}<br /><span class="small float-left" style="font-size: 0.7em">{{ post.owner.activeTitle.prototype.title|trans({},'game') }}</span>{% endif %}
                             {% endif %}
                         </b>
                         {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}

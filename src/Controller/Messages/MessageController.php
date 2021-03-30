@@ -424,12 +424,12 @@ class MessageController extends CustomAbstractController
             $results[] = $emote->getTag();
         }
 
-        if($unlocks != null) {
-            foreach($unlocks as $entry) {
-                /** @var $entry Award */
-                if(in_array($entry->getPrototype()->getAssociatedTag(), $results)) {
-                    unset($results[array_search($entry, $results)]);
-                }
+        $results = array_unique($results);
+
+        foreach($unlocks as $entry) {
+            /** @var $entry Award */
+            if (in_array($entry->getPrototype()->getAssociatedTag(), $results)) {
+                unset($results[array_search($entry->getPrototype()->getAssociatedTag(), $results)]);
             }
         }
 

@@ -29,7 +29,7 @@ class Award {
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\AwardPrototype")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $prototype;
 
@@ -37,16 +37,22 @@ class Award {
         return  $this->user;
     }
 
+    public function getId(): ?int {
+        return $this->id;
+    }
+
     public function getPrototype(): ?AwardPrototype {
         return $this->prototype;
     }
 
-    public function setPrototype(AwardPrototype $value) {
+    public function setPrototype(AwardPrototype $value): self {
         $this->prototype = $value;
+        return $this;
     }
 
-    public function setUser(User $value) {
+    public function setUser(User $value): self {
         $this->user = $value;
+        return $this;
     }
 
 }

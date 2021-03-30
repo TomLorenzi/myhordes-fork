@@ -6,6 +6,7 @@ use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractController;
 use App\Entity\AccountRestriction;
 use App\Entity\Announcement;
+use App\Entity\Award;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\CitizenRankingProxy;
@@ -280,6 +281,7 @@ class SoulController extends CustomAbstractController
 
     /**
      * @Route("jx/soul/settings", name="soul_settings")
+     * @param EternalTwinHandler $etwin
      * @return Response
      */
     public function soul_settings(EternalTwinHandler $etwin): Response
@@ -300,11 +302,38 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("jx/soul/ranking/{type<\d+>}", name="soul_season")
-     * @param null $type Type of town we're looking the ranking for
+     * @Route("api/soul/settings/header", name="api_soul_header")
+     * @param JSONRequestParser $parser
      * @return Response
      */
-    public function soul_season($type = null, JSONRequestParser $parser): Response
+    public function soul_set_header(JSONRequestParser $parser) {
+        $user = $this->getUser();
+
+        $aid = $parser->get_int('title', -1);
+        if ($aid < 0)
+            $user->setActiveTitle(null);
+        else {
+            $award = $this->entity_manager->getRepository(Award::class)->find( $aid );
+            if ($award === null || $award->getUser() !== $user)
+                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+            $user->setActiveTitle($award);
+        }
+
+        $this->entity_manager->persist($user);
+        $this->entity_manager->persist( $user );
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("jx/soul/ranking/{type<\d+>}", name="soul_season")
+     * @param null $type Type of town we're looking the ranking for
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function soul_season(JSONRequestParser $parser, $type = null): Response
     {
         $user = $this->getUser();
         //if($user->getRightsElevation() <= User::ROLE_CROW)
