@@ -1946,7 +1946,7 @@
       </notes>
       <segment>
         <source>Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:</source>
-        <target>Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:</target>
+        <target>This site has a secure link to MyHordes:</target>
       </segment>
     </unit>
     <unit id="ECkSDC0" name="43e696a">
@@ -1955,7 +1955,7 @@
       </notes>
       <segment>
         <source>Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.</source>
-        <target>Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.</target>
+        <target>this means that if you click "Continue" below, the site will automatically know your nickname on MyHordes without you having to input any information.</target>
       </segment>
     </unit>
     <unit id="0oUM0cs" name="Bürger! Seid auf inoffiziellen Webseiten wachsam!">
