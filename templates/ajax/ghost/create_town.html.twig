@@ -230,13 +230,27 @@
                     </div>
                     <div class="row">
                         <div class="cell padded rw-3 note note-lightest">
+                            <label for="nightMode">{{'Nachtmodus:'|trans({}, 'ghost')}}</label>
+                        </div>
+                        <div class="cell padded rw-3">
+                            <select name="nightMode" id="nightMode" x-payload="nightmode">
+                                <option value="myhordes" title="{{'Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.'|trans({}, 'ghost')}}">{{'Erweitert'|trans({}, 'ghost')}}</option>
+                                <option value="hordes" title="{{'Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.'|trans({}, 'ghost')}}">{{'Normal'|trans({}, 'ghost')}}</option>
+                                <option value="none" title="{{'Der Nachtmodus ist deaktiviert.'|trans({}, 'ghost')}}">{{'Deaktiviert'|trans({}, 'ghost')}}</option>
+                            </select>
+                        </div>
+                        <div class="cell padded rw-6">
+                            <div class="help" id="helpNightMode"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell padded rw-3 note note-lightest">
                             <label>{{'Spielmodifikationen:'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell padded rw-9 mod">
                             <div><input type="checkbox" name="explorableruins" id="explorableruins" x-payload="ruins" checked/> <label for="explorableruins"><strong>{{'Exploration:'|trans({}, 'ghost')}}</strong> {{'Begehbare Ruinen aktivieren'|trans({}, 'ghost')}}</label></div>
                             <div><input type="checkbox" name="escorts" id="escorts" x-payload="escorts" checked/> <label for="escorts"><strong>{{'Eskorte:'|trans({}, 'ghost')}}</strong> {{'Eskorten aktivieren'|trans({}, 'ghost')}}</label></div>
                             <div><input type="checkbox" name="shun" id="shun" x-payload="shun" checked/> <label for="shun"><strong>{{'Verbannung:'|trans({}, 'ghost')}}</strong> {{'Verbannung aktivieren'|trans({}, 'ghost')}}</label></div>
-                            <div><input type="checkbox" name="nightmode" id="nightmode" x-payload="nightmode" checked/> <label for="nightmode"><strong>{{'Nachtmodus:'|trans({}, 'ghost')}}</strong> {{'Nachtmodus aktivieren (schwerer)'|trans({}, 'ghost')}}</label></div>
                             <div><input type="checkbox" name="camp" id="camp" x-payload="camp" checked/> <label for="camp"><strong>{{'Camping:'|trans({}, 'ghost')}}</strong> {{'Camping in der Wildnis aktivieren'|trans({}, 'ghost')}}</label></div>
                             <div><input type="checkbox" name="ghouls" id="ghouls" x-payload="ghouls" checked/> <label for="ghouls"><strong>{{'Ghule:'|trans({}, 'ghost')}}</strong> {{'Ghule aktivieren'|trans({}, 'ghost')}}</label></div>
                             <div><input type="checkbox" name="buildingdamages" id="buildingdamages" x-payload="buildingdamages" checked/> <label for="buildingdamages"><strong>{{'Gebäudeschaden:'|trans({}, 'ghost')}}</strong> {{'Gebäudeschaden aktivieren'|trans({}, 'ghost')}}</label></div>
@@ -362,6 +376,7 @@
 
         fun_link_help('ghoulType','helpGhoul');
         fun_link_help('nightWatchMode','helpNightWatch');
+        fun_link_help('nightMode','helpNightMode');
         fun_link_help('shamanMode','helpShaman', v => {
             if (document.getElementById('shaman')) document.getElementById('shaman').checked = (v === 'job')
         });

@@ -126,6 +126,7 @@ class GhostController extends CustomAbstractController
         $crow_permissions = $this->isGranted('ROLE_CROW');
 
         $nightwatch = $parser->get('nightWatchMode', 'normal', ['normal','instant','none']);
+        $nightmode = $parser->get('nightmode', 'myhordes', ['myhordes','hordes','none']);
 
         $customConf = [
             'open_town_limit'      => ($crow_permissions && !(bool)$parser->get('negate', true)) ? -1 : 2,
@@ -137,7 +138,7 @@ class GhostController extends CustomAbstractController
                 'ghoul_mode'    => $parser->get('ghoulType', 'normal'),
                 'shaman'    => $parser->get('shamanMode', 'normal', ['normal','job','none']),
                 'shun'          => (bool)$parser->get('shun', true),
-                'nightmode'     => (bool)$parser->get('nightmode', true),
+                'nightmode'     => $nightmode !== 'none',
                 'camping'       => (bool)$parser->get('camp', true),
                 'ghoul'         => (bool)$parser->get('ghouls', true),
                 'improveddump'  => (bool)$parser->get('improveddump', true),
@@ -238,6 +239,8 @@ class GhostController extends CustomAbstractController
         $disabled_jobs   = [];
         $disabled_builds = [];
         $disabled_roles  = [];
+
+        if ($nightmode !== 'myhordes') $disabled_builds[] = 'small_novlamps_#00';
 
         if($customConf['features']['shaman'] == "normal" || $customConf['features']['shaman'] == "none")
             $disabled_jobs[] = 'shaman';
