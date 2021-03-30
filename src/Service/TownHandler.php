@@ -11,6 +11,7 @@ use App\Entity\CitizenHome;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenRole;
+use App\Entity\CitizenStatus;
 use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\EventActivationMarker;
@@ -224,6 +225,15 @@ class TownHandler
                 break;
             case "item_courroie_#00":
                 $this->assignCatapultMaster($town);
+                break;
+            case "small_novlamps_#00":
+                // If the novelty lamps are built, it's effect must be applied immediately
+                $novlamp_status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('tg_novlamps');
+                foreach ($town->getCitizens() as $citizen) {
+                    if ($citizen->getAlive()) $this->citizen_handler->inflictStatus($citizen, $novlamp_status);
+                    $this->entity_manager->persist($citizen);
+                }
+
                 break;
             default: break;
         }

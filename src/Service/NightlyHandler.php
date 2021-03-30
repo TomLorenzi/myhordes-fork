@@ -927,7 +927,7 @@ class NightlyHandler
         $status_ooze = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'tg_april_ooze'] );
         $status_paranoid = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'tg_paranoid'] );
 
-        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drunk','drugged','healed','hungover','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_chk_workshop', 'tg_chk_build', 'tg_chk_movewb', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff', 'tg_rested', 'tg_shaman_heal', 'tg_ghoul_eat', 'tg_no_hangover', 'tg_ghoul_corpse', 'tg_betadrug', 'tg_build_vote', 'tg_insurrection', 'tg_april_ooze'];
+        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drunk','drugged','healed','hungover','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_chk_workshop', 'tg_chk_build', 'tg_chk_movewb', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff', 'tg_rested', 'tg_shaman_heal', 'tg_ghoul_eat', 'tg_no_hangover', 'tg_ghoul_corpse', 'tg_betadrug', 'tg_build_vote', 'tg_insurrection', 'tg_april_ooze', 'tg_novlamps'];
 
         $aliveCitizenInTown = 0;
         $aliveCitizen = 0;
@@ -1394,6 +1394,44 @@ class NightlyHandler
         }
     }
 
+    private function stage3_building_effects(Town $town) {
+        $this->log->info('<info>Processing post-attack building functions</info> ...');
+
+        $novelty_lamps = $this->town_handler->getBuilding( $town, 'small_novlamps_#00', true );
+
+        if ($novelty_lamps) {
+            $bats = $novelty_lamps->getLevel() > 0 ? ($novelty_lamps->getLevel() > 2 ? 2 : 1) : 0;
+
+            $ok = $bats === 0;
+
+            $this->log->debug("Novelty Lamps: Building needs <info>{$bats}</info> batteries to operate.");
+
+            if ($bats > 0) {
+                $n = $bats;
+                $items = $this->inventory_handler->fetchSpecificItems( $town->getBank(), [new ItemRequest('pile_#00', $bats)] );
+
+                if ($items) {
+                    while (!empty($items) && $n > 0) {
+                        $item = array_pop($items);
+                        $c = $item->getCount();
+                        $this->inventory_handler->forceRemoveItem( $item, $n );
+                        $n -= $c;
+                    }
+                    $this->entity_manager->persist( $this->logTemplates->nightlyAttackBuildingBatteries( $novelty_lamps, $bats ) );
+                    $ok = true;
+                } else $this->log->debug("Novelty Lamps: Not enough batteries in the bank, building is <info>disabled</info>.");
+
+            }
+
+            if ($ok) {
+                $this->log->debug("Novelty Lamps: Building is <info>enabled</info>, setting status for all citizens.");
+                $novlamp_status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('tg_novlamps');
+                foreach ($town->getCitizens() as $citizen)
+                    if ($citizen->getAlive()) $this->citizen_handler->inflictStatus($citizen, $novlamp_status);
+            }
+        }
+    }
+
     /**
      * @param Town $town
      * @param EventConf[] $events
@@ -1433,6 +1471,7 @@ class NightlyHandler
         $this->stage3_zones($town);
         $this->stage3_items($town);
         $this->stage3_pictos($town);
+        $this->stage3_building_effects($town);
 
         foreach ($events as $event) $event->hook_nightly_post($town);
 
