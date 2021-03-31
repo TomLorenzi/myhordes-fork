@@ -35,7 +35,7 @@ CREATE USER 'hordes'@'localhost' IDENTIFIED BY 'hordes_pwd';
 
 Then give it all privileges for the wanted database name
 ```sql
-GRANT ALL PRIVILEGES ON 'myhordes'.*  TO 'hordes'@'localhost';
+GRANT ALL PRIVILEGES ON myhordes.*  TO 'hordes'@'localhost';
 ```
 
 Then flush the privileges so MySQL/MariaDB knows your latest changes
