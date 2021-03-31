@@ -26,6 +26,14 @@ Install the following packages:
 * mariadb (>= 10.1.44)
 * php-mysql
 
+#### Starting the database server
+
+Before working with the database, you need to start the database server:
+
+```bash
+sudo service mysql start
+```
+
 #### Adding a new user
 Log in to your database with `sudo mysql -u root` (specify `-p` if you have a local password) and create a new local user, for example :
 
