@@ -99,7 +99,11 @@ Copy the example config file to the one we will be using
 cp .env .env.local
 ```
 
-Edit `.env.local` with your favorite text editor.
+Edit `.env.local` with your favorite text editor (like nano or gedit):
+
+```bash
+nano .env.local
+```
 
 You need to set the `DATABASE_URL` variable depending on the database engine you want to use.
 
