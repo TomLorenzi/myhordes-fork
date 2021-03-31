@@ -171,6 +171,8 @@ class LogEntryTemplateFixtures extends Fixture
         ['text'=>'Ein Moderator hat deinen Account mit einer Spielsperre belegt. Grund: "%reason%". Dauer: %duration%', 'name'=>'gpm_mod_gameBanOn', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"ne-string",'name'=>'reason'], ['type'=>"duration",'name'=>'duration'])],
         ['text'=>'Ein Moderator hat die Forensperre deines Accounts aufgehoben.', 'name'=>'gpm_mod_forumBanOff', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array()],
         ['text'=>'Ein Moderator hat die Spielsperre deines Accounts aufgehoben.', 'name'=>'gpm_mod_gameBanOff', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array()],
+
+        ['text'=>'<strong>Herzlichen Glückwunsch</strong>, du hast folgende Titel freigeschaltet: %list-i% %list-t%', 'name'=>'gpm_unlock_titles', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"title-list",'name'=>'list-t'],['type'=>"title-icon-list",'name'=>'list-i'])],
     ];
 
     private $entityManager;

@@ -187,6 +187,16 @@ class LogTemplateHandler
                 elseif ($typeEntry['type'] === 'ne-string') {
                     $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun(empty($variables[$typeEntry['name']]) ? '-' : $variables[$typeEntry['name']]);
                 }
+                elseif ($typeEntry['type'] === 'title-list') {
+                    $transParams['%'.$typeEntry['name'].'%'] = "<div class='list'>";
+                    $transParams['%'.$typeEntry['name'].'%'] .= implode('', array_map( fn($e) => $this->wrap($this->trans->trans($e, [], 'game')), $variables[$typeEntry['name']] ));
+                    $transParams['%'.$typeEntry['name'].'%'] .= "</div>";
+                }
+                elseif ($typeEntry['type'] === 'title-icon-list') {
+                    $transParams['%'.$typeEntry['name'].'%'] = "<div class='list'>";
+                    $transParams['%'.$typeEntry['name'].'%'] .= implode('', array_map( fn($e) => "<img alt='$e' src='{$this->asset->getUrl( "build/images/icons/title/$e.gif" )}' />", $variables[$typeEntry['name']] ));
+                    $transParams['%'.$typeEntry['name'].'%'] .= "</div>";
+                }
                 elseif ($typeEntry['type'] === 'duration') {
                     $i = (int)$variables[$typeEntry['name']];
                     if ($i <= 0) $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun($this->trans->trans('Dauerhaft', [], 'global'));

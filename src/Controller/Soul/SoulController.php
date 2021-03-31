@@ -934,6 +934,9 @@ class SoulController extends CustomAbstractController
         $this->entity_manager->persist( $nextDeath );
         $this->entity_manager->flush();
 
+        $this->user_handler->computePictoUnlocks($user);
+        $this->entity_manager->flush();
+
         if ($session->has('_town_lang')) {
             $session->remove('_town_lang');
             return AjaxResponse::success()->setAjaxControl(AjaxResponse::AJAX_CONTROL_RESET);
