@@ -5,7 +5,6 @@ namespace App\Translation;
 
 use App\Entity\AffectMessage;
 use App\Entity\AwardPrototype;
-use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\CitizenHomePrototype;

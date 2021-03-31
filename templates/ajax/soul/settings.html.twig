@@ -29,14 +29,43 @@
             <div class="row">
                 <div class="padded cell rw-3 rw-md-4 rw-sm-12">
                     <div class="note note-lightest">
+                        <label>{{ 'Dein Icon'|trans({}, 'global') }}</label>
+                    </div>
+                </div>
+                <div class="padded cell rw-9 rw-md-8 rw-sm-12">
+                    <input  id="user_icon" type="hidden" value="{% if app.user.activeIcon is null %}-1{% else %}{{ app.user.activeIcon.id }}{% endif %}">
+                    {% if app.user.activeIcon is not null %}
+                        <img id="user_current_icon" alt="" src="{{ asset('build/images/icons/title/' ~ app.user.activeIcon.prototype.icon ~ '.gif') }}" />
+                    {% else %}
+                        <img id="user_current_icon" alt="" src="" style="display: none" />
+                    {% endif %}
+                    <span id="show_icon_sel" class="pointer small">{{ 'Auswählen'|trans({},'global') }}</span>
+                    <div id="icon_sel" style="display: none">
+                        {% set has_icon = false %}
+                        {% for award in app.user.awards %}
+                            {% if award.prototype is not null and award.prototype.icon is not null %}
+                                {% set has_icon = true %}
+                                <img class="pointer" x-title-icon="{{ award.id }}" alt="" src="{{ asset('build/images/icons/title/' ~ award.prototype.icon ~ '.gif') }}" />
+                            {% endif %}
+                        {% endfor %}
+                        {% if has_icon %}
+                            <span x-title-icon="-1" class="small pointer">[{{ 'Kein Icon'|trans({},'soul') }}]</span>
+                        {% else %}<span class="small bold">{{ 'Du hast noch kein Icon freigeschaltet!'|trans({},'soul') }}</span>{% endif %}
+                        <br /><span id="hide_icon_sel" class="pointer small">{{ 'Abbrechen'|trans({},'global') }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                    <div class="note note-lightest">
                         <label for="user_title">{{ 'Dein Titel'|trans({}, 'global') }}</label>
                     </div>
                 </div>
                 <div class="padded cell rw-9 rw-md-8 rw-sm-12">
                     <select id="user_title">
+                        <option {% if app.user.activeTitle is null %}selected{% endif %} value="-1">--- {{ 'Kein Titel'|trans({},'soul') }} ---</option>
                         {% for award in app.user.awards %}
-                            <option {% if app.user.activeTitle is null %}selected{% endif %} value="-1">--- {{ 'Kein Titel'|trans({},'soul') }} ---</option>
-                            {% if award.prototype is not null %}
+                            {% if award.prototype is not null and award.prototype.title is not null %}
                                 <option {% if app.user.activeTitle == award %}selected{% endif %} value="{{ award.id }}">{{ award.prototype.title|trans({},'game') }}</option>
                             {% endif %}
                         {% endfor %}
@@ -507,11 +536,35 @@
 
         $.html.addEventListenerAll('#save_profile_header', 'click', () => {
             $.ajax.easySend('{{ path('api_soul_header')|e('js') }}', {
-                title: parseInt(document.getElementById('user_title').value)
+                title: parseInt(document.getElementById('user_title').value),
+                icon: parseInt(document.getElementById('user_icon').value)
             }, () => {
                 $.html.notice('{{ 'Deine Einstellung wurde gespeichert.'|trans({},'soul')|e('js') }}');
                 $.ajax.load(null, '{{ path('soul_settings')|e('js') }}');
             });
+        });
+
+        $.html.addEventListenerAll('#show_icon_sel', 'click', (e,elem) => {
+            elem.style.display = 'none';
+            document.getElementById('icon_sel').style.display = null;
+        });
+        $.html.addEventListenerAll('#hide_icon_sel', 'click', () => {
+            document.getElementById('show_icon_sel').style.display = null;
+            document.getElementById('icon_sel').style.display = 'none';
+        });
+        $.html.addEventListenerAll('[x-title-icon]', 'click', (e,elem) => {
+            const id = parseInt(elem.getAttribute('x-title-icon'));
+            let target = document.getElementById('user_current_icon');
+            if (id < 0) {
+                target.setAttribute('src','');
+                target.style.display = 'none';
+            } else {
+                target.setAttribute('src',elem.getAttribute('src'));
+                target.style.display = null;
+            }
+            document.getElementById('user_icon').value = id;
+            document.getElementById('show_icon_sel').style.display = null;
+            document.getElementById('icon_sel').style.display = 'none';
         });
     </script>
 {% endblock %}

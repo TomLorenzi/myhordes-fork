@@ -163,7 +163,13 @@
                             <b>{{ author_name }}</b>
                         {% else %}
                             <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}"><b>{{ author_name }}</b></a>
-                            {% if post.owner.activeTitle %}<br /><span class="small float-left">{{ post.owner.activeTitle.prototype.title|trans({},'game') }}</span>{% endif %}
+                            {% if post.owner.activeTitle or post.owner.activeIcon %}
+                                <br />
+                                <span class="small float-left">
+                                    {% if post.owner.activeIcon %}<img alt="" src="{{ asset('build/images/icons/title/' ~ post.owner.activeIcon.prototype.icon ~ '.gif') }}" />{% endif %}
+                                    {% if post.owner.activeTitle %}{{ post.owner.activeTitle.prototype.title|trans({},'game') }}{% endif %}
+                                </span>
+                            {% endif %}
                         {% endif %}
                         {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}
                     </div>

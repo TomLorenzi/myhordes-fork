@@ -309,19 +309,30 @@ class SoulController extends CustomAbstractController
     public function soul_set_header(JSONRequestParser $parser) {
         $user = $this->getUser();
 
-        $aid = $parser->get_int('title', -1);
-        if ($aid < 0)
+        $title = $parser->get_int('title', -1);
+        $icon  = $parser->get_int('icon', -1);
+
+        if ($title < 0)
             $user->setActiveTitle(null);
         else {
-            $award = $this->entity_manager->getRepository(Award::class)->find( $aid );
-            if ($award === null || $award->getUser() !== $user)
+            $award = $this->entity_manager->getRepository(Award::class)->find( $title );
+            if ($award === null || $award->getUser() !== $user || $award->getPrototype()->getTitle() === null)
                 return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
             $user->setActiveTitle($award);
         }
 
+        if ($icon < 0)
+            $user->setActiveIcon(null);
+        else {
+            $award = $this->entity_manager->getRepository(Award::class)->find( $icon );
+            if ($award === null || $award->getUser() !== $user || $award->getPrototype()->getIcon() === null)
+                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+            $user->setActiveIcon($award);
+        }
+
         $this->entity_manager->persist($user);
-        $this->entity_manager->persist( $user );
         $this->entity_manager->flush();
 
         return AjaxResponse::success();

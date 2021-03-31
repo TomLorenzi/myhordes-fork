@@ -428,7 +428,7 @@ class MessageController extends CustomAbstractController
 
         foreach($unlocks as $entry) {
             /** @var $entry Award */
-            if (in_array($entry->getPrototype()->getAssociatedTag(), $results)) {
+            if ($entry->getPrototype()->getAssociatedTag() && in_array($entry->getPrototype()->getAssociatedTag(), $results)) {
                 unset($results[array_search($entry->getPrototype()->getAssociatedTag(), $results)]);
             }
         }
