@@ -88,7 +88,7 @@ wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902c
 Update it:
 
 ```bash
-php composer.phar update
+php composer.phar install
 ```
 
 ## Configuration
