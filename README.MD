@@ -246,7 +246,7 @@ a2ensite hordes1.myhordes
 ```
 
 ```
-service apache2 reload
+sudo service apache2 restart
 ```
 
 The server is now accessible from the address you configured (direct IP, or domain if applicable)
