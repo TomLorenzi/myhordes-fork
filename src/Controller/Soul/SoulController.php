@@ -943,29 +943,6 @@ class SoulController extends CustomAbstractController
         } else return AjaxResponse::success();
     }
 
-    private function checkAwards(User $user, string $award) {
-        //$repo = $this->entity_manager->getRepository(Award::class);
-        //$awardList = $this->entity_manager->getRepository(AwardPrototype::class)->getAwardsByPicto($award);
-        //$pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByLabel($award);
-        //$numPicto = 0;
-
-        //foreach($this->entity_manager->getRepository(Picto::class)->getAllByUserAndPicto($user, $pictoPrototype) as $item) {
-        //    /** @var Picto $item */
-        //    $numPicto += $item->getCount();
-        //}
-
-        //foreach($awardList as $item) {
-        //    /** @var AwardPrototype $item */
-        //    if($numPicto >= $item->getUnlockQuantity() && !$repo->hasAward($user, $item)) {
-        //        $newAward = new Award();
-        //        $newAward->setUser($user);
-        //        $newAward->setPrototype($item);
-        //        $this->entity_manager->persist($newAward);
-        //    }
-        //}
-    }
-
-
     /**
      * @Route("jx/soul/welcomeToNowhere", name="soul_death")
      * @return Response
