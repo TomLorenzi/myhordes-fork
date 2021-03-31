@@ -281,6 +281,12 @@ Save the file, e-mail verification is now disabled.
 
 To create an account, simply access your server URL, example:  `http://6.6.6.6/` (or your configured domain) and follow the same steps as a regular user. Once you create your account, you should see a town, everything is set.
 
+Remember, when you re-start your PC or server, you need to these two commands to start MySQL and Apache
+```bash
+sudo service apache2 start
+sudo service mysql start
+```
+
 ## Using Docker
 You can also setup a development environment using Docker:
 * Run *./docker/setup.sh* wait for completion.
