@@ -15,6 +15,7 @@ The rest of the project, is under [AGPL3 license](https://spdx.org/licenses/AGPL
 * php-intl
 * php-zip
 * php-imagick
+* php-curl
 * nodejs (>=14.13.1)
 * yarn
 * apache2
@@ -26,6 +27,14 @@ Install the following packages:
 * mariadb (>= 10.1.44)
 * php-mysql
 
+#### Starting the database server
+
+Before working with the database, you need to start the database server:
+
+```bash
+sudo service mysql start
+```
+
 #### Adding a new user
 Log in to your database with `sudo mysql -u root` (specify `-p` if you have a local password) and create a new local user, for example :
 
@@ -35,7 +44,7 @@ CREATE USER 'hordes'@'localhost' IDENTIFIED BY 'hordes_pwd';
 
 Then give it all privileges for the wanted database name
 ```sql
-GRANT ALL PRIVILEGES ON 'myhordes'.*  TO 'hordes'@'localhost';
+GRANT ALL PRIVILEGES ON myhordes.*  TO 'hordes'@'localhost';
 ```
 
 Then flush the privileges so MySQL/MariaDB knows your latest changes
@@ -66,7 +75,7 @@ You can also install pgAdmin to access the database.
 Clone the project inside any directory
 
 ```bash
-git clone https://gitlab.com/eternal-twin/myhordes.git
+git clone https://gitlab.com/eternal-twin/myhordes/myhordes.git
 ```
 
 ## Composer
@@ -80,7 +89,7 @@ wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902c
 Update it:
 
 ```bash
-php composer.phar update
+php composer.phar install
 ```
 
 ## Configuration
@@ -91,7 +100,11 @@ Copy the example config file to the one we will be using
 cp .env .env.local
 ```
 
-Edit `.env.local` with your favorite text editor.
+Edit `.env.local` with your favorite text editor (like nano or gedit):
+
+```bash
+nano .env.local
+```
 
 You need to set the `DATABASE_URL` variable depending on the database engine you want to use.
 
@@ -238,7 +251,7 @@ a2ensite hordes1.myhordes
 ```
 
 ```
-service apache2 reload
+sudo service apache2 restart
 ```
 
 The server is now accessible from the address you configured (direct IP, or domain if applicable)
@@ -272,6 +285,12 @@ Right after, create a new line and write `$validated = true;`
 Save the file, e-mail verification is now disabled.
 
 To create an account, simply access your server URL, example:  `http://6.6.6.6/` (or your configured domain) and follow the same steps as a regular user. Once you create your account, you should see a town, everything is set.
+
+Remember, when you re-start your PC or server, you need to run these two commands to start the database and Apache:
+```bash
+sudo service apache2 start
+sudo service mysql start
+```
 
 ## Using Docker
 You can also setup a development environment using Docker:
