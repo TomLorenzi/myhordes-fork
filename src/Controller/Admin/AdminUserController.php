@@ -16,6 +16,7 @@ use App\Entity\ShadowBan;
 use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
+use App\Entity\UserDescription;
 use App\Entity\UserGroup;
 use App\Entity\UserPendingValidation;
 use App\Exception\DynamicAjaxResetException;
@@ -24,6 +25,7 @@ use App\Service\AdminActionHandler;
 use App\Service\AntiCheatService;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
+use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\PermissionHandler;
 use App\Service\TwinoidHandler;
@@ -62,16 +64,18 @@ class AdminUserController extends AdminActionController
      * @param int $id
      * @return Response
      */
-    public function users_account_view(int $id): Response
+    public function users_account_view(int $id, HTMLService $html): Response
     {
         /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->find($id);
         if (!$user) return $this->redirect( $this->generateUrl('admin_users') );
 
         $validations = $this->isGranted('ROLE_ADMIN') ? $this->entity_manager->getRepository(UserPendingValidation::class)->findByUser($user) : [];
+        $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
 
         return $this->render( 'ajax/admin/users/account.html.twig', $this->addDefaultTwigArgs("admin_users_account", [
             'user' => $user,
+            'user_desc' => $desc ? $html->prepareEmotes($desc->getText()) : null,
             'validations' => $validations,
         ]));
     }

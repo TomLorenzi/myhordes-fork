@@ -21,8 +21,8 @@
                     </div>
                 </div>
             {% endif %}
-            <h5>{{ 'Aktionen'|trans({}, 'admin') }}</h5>
 
+            <h5>{{ 'Aktionen'|trans({}, 'admin') }}</h5>
             <div class="row">
                 <div class="cell padded rw-3 rw-sm-12">
                     <b><label for="administer-user">{{ 'User administrieren'|trans({}, 'admin') }}</label></b>
@@ -94,8 +94,48 @@
                 </div>
             </div>
 
-            <h5>{{ 'Kartei'|trans({}, 'admin') }}</h5>
+            <h5>{{ 'Info'|trans({}, 'admin') }}</h5>
+            <div class="row">
+                <div class="cell padded rw-3 rw-sm-12">
+                    <b><label>{{ 'Avatar'|trans({}, 'admin') }}</label></b>
+                </div>
+                <div class="cell padded rw-3 rw-sm-12">
+                    {% if app.user.avatar is not null %}
+                        <div class="avatar no-arma">
+                            <img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.filename, 'ext': user.avatar.format}) }}">
+                        </div>
+                        {% if not app.user.avatar.classic %}
+                            <br/><br />
+                            <div class="avatar small no-arma">
+                                <img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.smallName, 'ext': user.avatar.format}) }}">
+                            </div>
+                        {% endif %}
 
+                    {% else %}
+                        ---
+                    {% endif %}
+                </div>
+
+                <div class="cell padded rw-3 rw-sm-12">
+                    <b><label>{{ 'Titel'|trans({}, 'admin') }}</label></b>
+                </div>
+
+                <div class="cell padded rw-3 rw-sm-12">
+                    {% if user.activeTitle or user.activeIcon %}
+                        <div>
+                            {% if user.activeIcon %}<img alt="" src="{{ asset('build/images/icons/title/' ~ user.activeIcon.prototype.icon ~ '.gif') }}" />{% endif %}
+                            {% if user.activeTitle %} {{ user.activeTitle.prototype.title|trans({},'game') }}{% endif %}
+                        </div><br />
+                    {% endif %}
+                </div>
+                {% if user_desc %}
+                    <div class="cell padded rw-6 rw-sm-12">
+                        <div class="personal_desc"><div>{{ 'Persönliche Beschreibung' }}</div><div>"{{ user_desc|raw }}"</div></div>
+                    </div>
+                {% endif %}
+            </div>
+
+            <h5>{{ 'Kartei'|trans({}, 'admin') }}</h5>
             <div class="row">
                 <div class="cell padded rw-3 rw-sm-12">
                     <b>{{ 'Benutzername'|trans({}, 'admin') }}</b>
