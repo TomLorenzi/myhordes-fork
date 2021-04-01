@@ -499,7 +499,7 @@ class MessageForumController extends MessageController
             $paranoid = $ch->hasStatusEffect($user->getActiveCitizen(),'tg_paranoid');
         else $paranoid = false;
 
-        foreach ($posts as $post) $post->setText( $this->prepareEmotes( $post->getText() ) );
+        foreach ($posts as $post) $post->setText( $this->html->prepareEmotes( $post->getText() ) );
         return $this->render( 'ajax/forum/posts_small.html.twig', [
             'posts' => $posts,
             'fid' => $fid,
@@ -606,7 +606,7 @@ class MessageForumController extends MessageController
 
         if ($flush) try { $em->flush(); } catch (Exception $e) {}
 
-        foreach ($posts as &$post) $post->setText( $this->prepareEmotes( $post->getText() ) );
+        foreach ($posts as &$post) $post->setText( $this->html->prepareEmotes( $post->getText() ) );
 
         // Check for paranoia
         if ($forum->getTown() && $user->getActiveCitizen() && $user->getActiveCitizen()->getTown() === $forum->getTown())
@@ -771,7 +771,7 @@ class MessageForumController extends MessageController
 
         foreach ($in as &$in_entry) $in_entry = str_replace('█', '', $in_entry);
 
-        foreach ($result as $post) $post->setText( str_ireplace($in, array_map(fn(string $i) => "<span class=\"search-anchor\">$i</span>", $in), $this->prepareEmotes( $post->getText() ) ));
+        foreach ($result as $post) $post->setText( str_ireplace($in, array_map(fn(string $i) => "<span class=\"search-anchor\">$i</span>", $in), $this->html->prepareEmotes( $post->getText() ) ));
 
         return $this->render( 'ajax/forum/search_result.html.twig', [
             'posts' => $result,

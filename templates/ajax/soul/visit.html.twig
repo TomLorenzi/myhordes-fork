@@ -61,6 +61,9 @@
                             <em>{{'Aktuelles Leben'|trans({}, 'global')}} : </em><br /><strong><img src="{{ asset('build/images/soul/r_explor.gif') }}" alt="" /> {{ user.activeCitizen.town.name }}</strong> ({{ 'Tag %day%'|trans({'%day%':user.activeCitizen.town.day}, 'game') }})
                         </div>
                     {% endif %}
+                    {% if user_desc %}
+                        <div class="personal_desc"><div>{{ 'Persönliche Beschreibung' }}</div><div>"{{ user_desc|raw }}"</div></div>
+                    {% endif %}
 
                     <div class="town-history">
                         <div id="town-list"></div>

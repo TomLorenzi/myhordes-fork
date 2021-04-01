@@ -474,7 +474,7 @@ class AdminUserController extends AdminActionController
         $duration  = $parser->get_int('duration');
         $mask      = $parser->get_int('restriction', 0);
 
-        if ($duration === 0 || $mask <= 0 || ($mask & ~(AccountRestriction::RestrictionSocial | AccountRestriction::RestrictionGameplay)))
+        if ($duration === 0 || $mask <= 0 || ($mask & ~(AccountRestriction::RestrictionSocial | AccountRestriction::RestrictionGameplay | AccountRestriction::RestrictionProfile)))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $a = (new AccountRestriction())
