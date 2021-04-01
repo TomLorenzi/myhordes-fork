@@ -384,7 +384,7 @@ class ItemFixtures extends Fixture
 		['label' => 'Kanisterpumpe (zerlegt)', 'icon' => 'jerrygun_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                          // -- ---
 		['label' => 'Unvollständige Kettensäge', 'icon' => 'chainsaw_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                         // -- ---
 		['label' => 'Unvollständiger Handmixer', 'icon' => 'mixergun_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                        // -- ---
-		['label' => 'Zerlegter Rasenmäher', 'icon' => 'lawn_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // -- ---
+		['label' => 'Zerlegter Rasenmäher', 'icon' => 'lawn_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                 // -- ---
 		['label' => 'Unvollständiger Zerstörer', 'icon' => 'big_pgun_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                        // -- ---
 		['label' => 'Aqua-Splash (zerlegt)', 'icon' => 'watergun_opt_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                        // -- ---
 		['label' => 'Beschädigte Autotür', 'icon' => 'car_door_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                               // -- ---
