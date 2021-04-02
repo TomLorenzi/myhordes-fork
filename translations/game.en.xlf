@@ -3010,7 +3010,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>ZomBIER Bar</source>
-        <target>Shady Barrikaden</target>
+        <target>Shady Bar</target>
       </segment>
     </unit>
     <unit id="ZWfE2Vb" name="%citizen% hat der Stadt folgendes gespendet: %item%">
