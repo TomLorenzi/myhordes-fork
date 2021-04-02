@@ -2124,7 +2124,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
                     benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                     kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                     auffüllen.</note>
-        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle, benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu auffüllen.</note>
+        <note category="german">Du brauchst diese Punkte, um dich in der Außenwelt zu bewegen oder um an Bauprojekten mitzuarbeiten.</note>
       </notes>
       <segment>
         <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
@@ -18796,6 +18796,24 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Mit deinem %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; kannst du dich bewegen ohne dabei entdeckt zu werden.</source>
         <target><![CDATA[Mit deinem %img_scout% <strong>Tarnanzug</strong> kannst du dich bewegen ohne dabei entdeckt zu werden.]]></target>
+      </segment>
+    </unit>
+    <unit id="CYBKQzY" name="%building% hat %num% Batterien verbraucht.">
+      <notes>
+        <note category="german">%building% hat %num% Batterien verbraucht.</note>
+      </notes>
+      <segment>
+        <source>%building% hat %num% Batterien verbraucht.</source>
+        <target>%building% has used %num% Battery.</target>
+      </segment>
+    </unit>
+    <unit id="dqDx75c" name="c728704">
+      <notes>
+        <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: %list-i% %list-t%</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: %list-i% %list-t%</source>
+        <target><![CDATA[<strong>Congratulations</strong>, you have unlocked the following titles: %list-i% %list-t%]]></target>
       </segment>
     </unit>
   </file>

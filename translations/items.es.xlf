@@ -8051,5 +8051,23 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
         <target>Vielleicht solltest du das mithilfe des Wasserhahns füllen...</target>
       </segment>
     </unit>
+    <unit id="NVMPUn." name="Du bist ab sofort getarnt.">
+      <notes>
+        <note category="german">Du bist ab sofort getarnt.</note>
+      </notes>
+      <segment>
+        <source>Du bist ab sofort getarnt.</source>
+        <target>Du bist ab sofort getarnt.</target>
+      </segment>
+    </unit>
+    <unit id="x.8gDqz" name="17bda63">
+      <notes>
+        <note category="german">Das kannst die &lt;strong&gt;Tarnkleidung&lt;/strong&gt; nicht verwenden, solange die Zombies diese Zone kontrollieren!</note>
+      </notes>
+      <segment>
+        <source>Das kannst die &lt;strong&gt;Tarnkleidung&lt;/strong&gt; nicht verwenden, solange die Zombies diese Zone kontrollieren!</source>
+        <target><![CDATA[Das kannst die <strong>Tarnkleidung</strong> nicht verwenden, solange die Zombies diese Zone kontrollieren!]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

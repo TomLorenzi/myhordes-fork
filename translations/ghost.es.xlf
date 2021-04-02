@@ -1232,7 +1232,43 @@
       </notes>
       <segment>
         <source>Events</source>
-        <target>Events</target>
+        <target>Eventos</target>
+      </segment>
+    </unit>
+    <unit id="dctQQtZ" name="Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.">
+      <notes>
+        <note category="german">Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.</note>
+      </notes>
+      <segment>
+        <source>Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.</source>
+        <target>El modo nocturno está activado y Luces públicas están disponibles.</target>
+      </segment>
+    </unit>
+    <unit id="JeVu4ox" name="Erweitert">
+      <notes>
+        <note category="german">Erweitert</note>
+      </notes>
+      <segment>
+        <source>Erweitert</source>
+        <target>Extendido</target>
+      </segment>
+    </unit>
+    <unit id="kKT9.CK" name="e8c1841">
+      <notes>
+        <note category="german">Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.</note>
+      </notes>
+      <segment>
+        <source>Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.</source>
+        <target>El modo nocturno está activado. Luces públicas no está disponible.</target>
+      </segment>
+    </unit>
+    <unit id="1dCs8Np" name="Der Nachtmodus ist deaktiviert.">
+      <notes>
+        <note category="german">Der Nachtmodus ist deaktiviert.</note>
+      </notes>
+      <segment>
+        <source>Der Nachtmodus ist deaktiviert.</source>
+        <target>El modo nocturno está desactivado.</target>
       </segment>
     </unit>
   </file>
