@@ -112,6 +112,8 @@ class DatabaseExtractor implements ExtractorInterface
             if ($building->getUpgradeTexts())
                 foreach ($building->getUpgradeTexts() as $text)
                     $this->insert( $c, $text, 'buildings' );
+            if ($building->getZeroLevelText())
+                $this->insert( $c, $building->getZeroLevelText(), 'buildings' );
         }
 
         // Get home upgrade labels

@@ -216,6 +216,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             ]],
             ["name" => "Krähennest",'desc' => 'Weniger ein Turm als ein seeeeehr hoher Mast, der fast bis in die Wolken reicht. Aufklärer können ihn erklimmen und so Gebäude in der Außenwelt erspähen (1x pro Tag und Held).', "temporary" => 0,"img" => "small_watchmen","vp" => 10,"ap" => 36, "hp" => 36,"bp" => 2,"rsc" => ["meca_parts_#00" => 1,"wood_beam_#00" => 5,"metal_beam_#00" => 1,], "orderby" => 7],
             ["name" => "Straßenbeleuchtung","maxLevel" => 4,'desc' => 'Die Straßenbeleuchtung bringt Licht ins Dunkel - und verbessert die Fundchancen für Gegenstände bei nächtlichen Wüstenausflügen.', "temporary" => 0,"img" => "small_novlamps","vp" => 0,"ap" => 25, "hp" => 25,"bp" => 1,"rsc" => ["meca_parts_#00" => 2,"metal_#00" => 5,"metal_beam_#00" => 15,"tube_#00" => 5], "orderby" => 16,
+                "lv0text" => 'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert.',
                 "upgradeTexts" => [
                     'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.',
                     'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.',
@@ -399,6 +400,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
 
         if (isset($data['maxLevel'])) {
             $object->setMaxLevel( $data['maxLevel'] );
+            $object->setZeroLevelText( $data['lv0text'] ?? null );
             if ($data['upgradeTexts']) $object->setUpgradeTexts( $data['upgradeTexts'] );
         }
 

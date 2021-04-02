@@ -36,12 +36,16 @@
                 <div class="padded cell rw-10 rw-md-12">
                     <strong>{{ building.prototype.label|trans({},'buildings') }}{% if building.level > 0 %} ({% trans with {'%lv%': building.level} from 'game' %}Level %lv%{% endtrans %}/{{building.prototype.maxLevel}}){% endif %}</strong>
                     {% if building.prototype.upgradeTexts %}
-                        {% if building.level > 0 %}
-                            <p>
-                                <b>{% trans from 'game' %}Aktuelles Level:{% endtrans %}</b>
+                        <p>
+                            <b>{% trans from 'game' %}Aktuelles Level:{% endtrans %}</b>
+                            {% if building.level > 0 %}
                                 {{ building.prototype.upgradeTexts[min(building.prototype.upgradeTexts|length,building.level-1)]|trans({},'buildings') }}
-                            </p>
-                        {% endif %}
+                            {% elseif building.prototype.zeroLevelText is not null %}
+                                {{ building.prototype.zeroLevelText|trans({},'buildings') }}
+                            {% else %}
+                                {{ 'Kein besonderer Bonus'|trans({},'buildings') }}
+                            {% endif %}
+                        </p>
                         {% if building.level < building.prototype.maxLevel %}
                             <p>
                                 <b>{% trans from 'game' %}Nächstes Level:{% endtrans %}</b>
