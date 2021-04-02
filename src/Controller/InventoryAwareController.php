@@ -406,6 +406,7 @@ class InventoryAwareController extends CustomAbstractController
 
             $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 65) );
             $this->picto_handler->give_picto($aggressor, 'r_cannib_#00');
+            $this->citizen_handler->removeStatus($aggressor, 'tg_air_ghoul');
 
             $stat_down = false;
             if (!$this->citizen_handler->hasStatusEffect($aggressor, 'drugged') && $this->citizen_handler->hasStatusEffect($victim, 'drugged')) {

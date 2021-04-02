@@ -419,9 +419,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'increase_kitchen_counter' => [ 'counter' => ActionCounter::ActionTypeHomeKitchen ],
 
                 'become_ghoul'    => [ 'role' => 'ghoul', 'enabled' => true  ],
-                'become_ghoul_5'  => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 5  ],
-                'become_ghoul_25' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 25 ],
-                'heal_ghoul'   => [ 'role' => 'ghoul', 'enabled' => false, 'hunger' => -9999999 ],
+                'become_ghoul_5'  => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 5, 'force' => true  ],
+                'become_ghoul_25' => [ 'role' => 'ghoul', 'enabled' => true, 'hunger' => 25, 'force' => true ],
+                'heal_ghoul'   => [ 'role' => 'ghoul', 'enabled' => false, 'hunger' => -9999999, 'force' => true ],
                 'satisfy_ghoul_50' => [ 'hunger' => -50 ],
                 'satisfy_ghoul_30' => [ 'hunger' => -30 ],
                 'satisfy_ghoul_10' => [ 'hunger' => -15 ],
@@ -1997,6 +1997,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             $result
                 ->setResetThirstCounter( $data['reset_thirst'] ?? null )
                 ->setCitizenHunger( $data['hunger'] ?? null )
+                ->setForced( $data['force'] ?? false )
                 ->setCounter( $data['counter'] ?? null );
 
             if (!$status_from && !$status_to && !$result->getResetThirstCounter() && !$result->getCitizenHunger() && $result->getCounter() === null && $role === null) {

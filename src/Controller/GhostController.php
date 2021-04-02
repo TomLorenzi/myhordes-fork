@@ -127,6 +127,7 @@ class GhostController extends CustomAbstractController
 
         $nightwatch = $parser->get('nightWatchMode', 'normal', ['normal','instant','none']);
         $nightmode = $parser->get('nightmode', 'myhordes', ['myhordes','hordes','none']);
+        $ghoulmode = $parser->get('ghoulType', 'normal', ['normal', 'childtown', 'bloodthirst', 'airborne', 'airbnb']);
 
         $customConf = [
             'open_town_limit'      => ($crow_permissions && !(bool)$parser->get('negate', true)) ? -1 : 2,
@@ -135,8 +136,8 @@ class GhostController extends CustomAbstractController
             'features' => [
                 'xml_feed' => !(bool)$parser->get('disablexml', false),
 
-                'ghoul_mode'    => $parser->get('ghoulType', 'normal'),
-                'shaman'    => $parser->get('shamanMode', 'normal', ['normal','job','none']),
+                'ghoul_mode'    => $ghoulmode,
+                'shaman'        => $parser->get('shamanMode', 'normal', ['normal','job','none']),
                 'shun'          => (bool)$parser->get('shun', true),
                 'nightmode'     => $nightmode !== 'none',
                 'camping'       => (bool)$parser->get('camp', true),

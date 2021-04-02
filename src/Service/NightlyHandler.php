@@ -550,14 +550,15 @@ class NightlyHandler
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
         $zombies = $est ? $est->getZombies() : 0;
 
-        $soulFactor = min(1 + (0.04 * $this->town_handler->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
+        $redsouls = $this->town_handler->get_red_soul_count($town);
+        $soulFactor = min(1 + (0.04 * $redsouls), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 
         $zombies *= $soulFactor;
         $zombies = round($zombies);
         $gazette->setAttack($zombies);
 
         $overflow = !$town->getDoor() ? max(0, $zombies - $def) : $zombies;
-        $this->log->debug("The town has <info>{$def}</info> defense and is attacked by <info>{$zombies}</info> Zombies. The door is <info>" . ($town->getDoor() ? 'open' : 'closed') . "</info>!", $def_summary ? $def_summary->toArray() : []);
+        $this->log->debug("The town has <info>{$def}</info> defense and is attacked by <info>{$zombies}</info> Zombies (<info>{$est->getZombies()}</info> x <info>{$soulFactor}</info>, from <info>{$redsouls}</info> red souls). The door is <info>" . ($town->getDoor() ? 'open' : 'closed') . "</info>!", $def_summary ? $def_summary->toArray() : []);
         $this->log->debug("<info>{$overflow}</info> Zombies have entered the town!");
 
         $gazette->setInvasion($overflow);
@@ -931,6 +932,22 @@ class NightlyHandler
 
         $aliveCitizenInTown = 0;
         $aliveCitizen = 0;
+
+        $ghoul_mode  = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_GHOUL_MODE, 'normal');
+        $ghoul_begin = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_AUTOGHOUL_FROM, 5);
+
+        // Check if we need to ghoulify someone
+        if (in_array($ghoul_mode, ['airborne', 'airbnb']) && $town->getDay() >= $ghoul_begin) {
+
+            // Starting with the auto ghoul begin day, every 3 days a new ghoul is added
+            if (($town->getDay() - $ghoul_begin) % 3 === 0) {
+                $this->log->debug("Distributing the <info>airborne ghoul infection</info>!");
+                $this->citizen_handler->pass_airborne_ghoul_infection(null,$town);
+            }
+
+
+        }
+
         foreach ($town->getCitizens() as $citizen) {
 
             if ($citizen->getDailyUpgradeVote()) {
@@ -1021,6 +1038,13 @@ class NightlyHandler
                 $this->citizen_handler->setAP($citizen, true, 1);
                 $alarm[0]->setPrototype($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'alarm_off_#00']));
                 $this->entity_manager->persist($alarm[0]);
+            }
+
+            if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_air_infected')) {
+                $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has been infected by the <info>airborne ghoul disease</info>!: Turning them into a <info>ghoul</info>!");
+                $this->citizen_handler->removeStatus($citizen, 'tg_air_infected');
+                $this->citizen_handler->addRole($citizen, 'ghoul');
+                $this->citizen_handler->inflictStatus($citizen, 'tg_air_ghoul');
             }
         }
 

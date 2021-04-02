@@ -64,11 +64,10 @@ class AdminActionHandler
     {
         if(!$this->hasRights($sourceUser, 'headshot'))
             return $this->translator->trans('Dazu hast Du kein Recht.', [], 'game');        
+        /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->find($targetUserId);
-        /**
-        * @var Citizen
-        */
-        $citizen = $user->getAliveCitizen();
+
+        $citizen = $user->getActiveCitizen();
         if (isset($citizen)) {
             $rem = [];
             $this->death_handler->kill( $citizen, CauseOfDeath::Headshot, $rem );

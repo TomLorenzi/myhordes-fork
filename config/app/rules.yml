@@ -94,6 +94,7 @@ parameters:
         strict_picto_distribution: false
         sandball_nastyness: 0.1
         massive_respawn_factor: 1
+        ghoul_infection_begin: 5
 
       features:
         camping: true
@@ -107,7 +108,6 @@ parameters:
         ghoul_mode: normal
         all_poison: false
         shun: true
-        ghoul: true
         nightwatch:
           enabled: true
           instant: false
@@ -147,6 +147,7 @@ parameters:
         strict_picto_distribution: true
         sandball_nastyness: 0.0
         massive_respawn_factor: 0.5
+        ghoul_infection_begin: 15
 
       features:
         shaman: 'none'
@@ -171,6 +172,7 @@ parameters:
           map: 'hard'
         red_soul_max_factor: 666
         sandball_nastyness: 0.85
+        ghoul_infection_begin: 2
 
       features:
         attacks: 'hard'

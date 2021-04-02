@@ -394,8 +394,12 @@ class AdminTownController extends AdminActionController
                     $users[] = $selected_user;
                 }
 
+                $this->entity_manager->flush();
+
+                $null = null;
                 foreach ($users as $selected_user) {
-                    $citizen = $gameFactory->createCitizen($town, $selected_user, $error);
+                    $citizen = $gameFactory->createCitizen($town, $selected_user, $error, $null, true);
+                    if ($citizen === null) continue;
                     $this->entity_manager->persist($town);
                     $this->entity_manager->persist($citizen);
                     $this->entity_manager->flush();

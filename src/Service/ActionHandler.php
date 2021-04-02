@@ -633,8 +633,12 @@ class ActionHandler
                 if ($status->getCounter() !== null)
                     $citizen->getSpecificActionCounter( $status->getCounter() )->increment();
 
-                if ($status->getCitizenHunger())
-                    $citizen->setGhulHunger( max(0,$citizen->getGhulHunger() + $status->getCitizenHunger()) );
+                if ($status->getCitizenHunger()) {
+                    $ghoul_mode = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GHOUL_MODE, 'normal');
+                    if ($status->getForced() || !in_array($ghoul_mode, ['bloodthirst','airbnb']))
+                        $citizen->setGhulHunger( max(0,$citizen->getGhulHunger() + $status->getCitizenHunger()) );
+                }
+
 
                 if ($status->getRole() !== null && $status->getRoleAdd() !== null) {
                     if ($status->getRoleAdd()) {

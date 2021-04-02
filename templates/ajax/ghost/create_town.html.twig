@@ -74,22 +74,6 @@
 
                     <div class="row">
                         <div class="cell padded rw-3 note note-lightest">
-                            <label for="ghoulType">{{'Ghule'|trans({}, 'ghost')}}</label>
-                        </div>
-                        <div class="cell padded rw-3">
-                            <select name="ghoulType" id="ghoulType" x-payload="ghoulType">
-                                <option value="normal" title="{{'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.'|trans({}, 'ghost')}}">{{'Normal'|trans({}, 'ghost')}}</option>
-                                <option value="bloodthirst" title="{{'Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.'|trans({}, 'ghost')}}">{{'Blutdurst'|trans({}, 'ghost')}}</option>
-                                <option value="childtown" title="{{'Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.'|trans({}, 'ghost')}}">{{'Stadt der Kuscheltiere'|trans({}, 'ghost')}}</option>
-                            </select>
-                        </div>
-                        <div class="cell padded rw-6">
-                            <div class="help" id="helpGhoul"></div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="cell padded rw-3 note note-lightest">
                             <label for="water">{{"Wasservorrat"|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell padded rw-3">
@@ -200,6 +184,24 @@
                     <h5>{{'Stadtmodifikationen'|trans({}, 'ghost')}}</h5>
                     <div class="row">
                         <div class="cell padded rw-3 note note-lightest">
+                            <label for="ghoulType">{{'Ghule'|trans({}, 'ghost')}}</label>
+                        </div>
+                        <div class="cell padded rw-3">
+                            <select name="ghoulType" id="ghoulType" x-payload="ghoulType">
+                                <option value="normal" title="{{'Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.'|trans({}, 'ghost')}}">{{'Normal'|trans({}, 'ghost')}}</option>
+                                <option value="childtown" title="{{'Ghule sind deaktiviert.'|trans({}, 'ghost')}}">{{'Stadt der Kuscheltiere'|trans({}, 'ghost')}}</option>
+                                <option value="bloodthirst" title="{{'Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.'|trans({}, 'ghost')}}">{{'Blutdurst'|trans({}, 'ghost')}}</option>
+                                <option value="airborne" title="{{'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.'|trans({}, 'ghost')}}">{{'Aerogen'|trans({}, 'ghost')}}</option>
+                                <option value="airbnb" title="{{'Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.'|trans({}, 'ghost')}}">{{'Blutdurst und Aerogen'|trans({}, 'ghost')}}</option>
+                            </select>
+                        </div>
+                        <div class="cell padded rw-6">
+                            <div class="help" id="helpGhoul"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell padded rw-3 note note-lightest">
                             <label for="shamanMode">{{'Seelen & Schamane:'|trans({}, 'ghost')}}</label>
                         </div>
                         <div class="cell padded rw-3">
@@ -252,7 +254,6 @@
                             <div><input type="checkbox" name="escorts" id="escorts" x-payload="escorts" checked/> <label for="escorts"><strong>{{'Eskorte:'|trans({}, 'ghost')}}</strong> {{'Eskorten aktivieren'|trans({}, 'ghost')}}</label></div>
                             <div><input type="checkbox" name="shun" id="shun" x-payload="shun" checked/> <label for="shun"><strong>{{'Verbannung:'|trans({}, 'ghost')}}</strong> {{'Verbannung aktivieren'|trans({}, 'ghost')}}</label></div>
                             <div><input type="checkbox" name="camp" id="camp" x-payload="camp" checked/> <label for="camp"><strong>{{'Camping:'|trans({}, 'ghost')}}</strong> {{'Camping in der Wildnis aktivieren'|trans({}, 'ghost')}}</label></div>
-                            <div><input type="checkbox" name="ghouls" id="ghouls" x-payload="ghouls" checked/> <label for="ghouls"><strong>{{'Ghule:'|trans({}, 'ghost')}}</strong> {{'Ghule aktivieren'|trans({}, 'ghost')}}</label></div>
                             <div><input type="checkbox" name="buildingdamages" id="buildingdamages" x-payload="buildingdamages" checked/> <label for="buildingdamages"><strong>{{'Gebäudeschaden:'|trans({}, 'ghost')}}</strong> {{'Gebäudeschaden aktivieren'|trans({}, 'ghost')}}</label></div>
                             <div><input type="checkbox" name="improveddump" id="improveddump" x-payload="improveddump" checked/> <label for="improveddump"><strong>{{'Verbesserte Müllhalde:'|trans({}, 'ghost')}}</strong> {{'Verbesserte Müllhalde aktivieren'|trans({}, 'ghost')}}</label></div>
                         </div>

@@ -405,13 +405,13 @@ class GameFactory
         return $town;
     }
 
-    public function createCitizen( Town &$town, User &$user, ?int &$error, ?array &$all_citizens = null ): ?Citizen {
+    public function createCitizen( Town &$town, User &$user, ?int &$error, ?array &$all_citizens = null, bool $internal = false ): ?Citizen {
         $error = self::ErrorNone;
         $lock = $this->locksmith->waitForLock('join-town');
 
-        $followers = $town->getPassword() ? [] : $this->user_handler->getAvailableCoalitionMembers( $user );
+        $followers = ($internal || $town->getPassword()) ? [] : $this->user_handler->getAvailableCoalitionMembers( $user );
 
-        if ($this->user_handler->getConsecutiveDeathLock($user)) {
+        if (!$internal && $this->user_handler->getConsecutiveDeathLock($user)) {
             $error = ErrorHelper::ErrorPermissionError;
             return null;
         }
