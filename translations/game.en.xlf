@@ -1027,7 +1027,7 @@
       </notes>
       <segment>
         <source>Mein Haus ausbauen</source>
-        <target>Upgrading your home</target>
+        <target>Upgrade your home</target>
       </segment>
     </unit>
     <unit id="J53z_38" name="10e9370">
@@ -4856,7 +4856,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</source>
-        <target>Work on a construction site at the workshop, or go outside and scavenge (your choice).</target>
+        <target>Work at the construction sites, at the workshop, or go outside and scavenge (your choice).</target>
       </segment>
     </unit>
     <unit id="4tgoaqE" name="Heldentafel">
