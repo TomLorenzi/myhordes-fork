@@ -33,6 +33,7 @@ use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -228,6 +229,12 @@ class AdminUserController extends AdminActionController
                 $this->entity_manager->persist($user);
                 break;
 
+            case 'rename_pseudo':
+                if (empty($param)) $user->setDisplayName( null );
+                else $user->setDisplayName( $param );
+                $this->entity_manager->persist($user);
+                break;
+
             case 'delete':
                 if ($user->getEternalID())
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -240,6 +247,7 @@ class AdminUserController extends AdminActionController
 
                 $this->entity_manager->persist(
                     (new AccountRestriction())
+                        ->setUser($user)
                         ->setActive(true)
                         ->setConfirmed(true)
                         ->setPublicReason($param)
@@ -284,6 +292,20 @@ class AdminUserController extends AdminActionController
                     foreach ($user->getConnectionWhitelists() as $wl)
                         if ($wl->getUsers()->count() < 2) $this->entity_manager->remove($wl);
                         else $this->entity_manager->persist($wl);
+                }
+                break;
+
+            case 'clear_title':
+                $user->setActiveIcon(null)->setActiveTitle(null);
+                break;
+            case 'clear_desc':
+                $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
+                if ($desc) $this->entity_manager->remove($desc);
+                break;
+            case 'clear_avatar':
+                if ($user->getAvatar()) {
+                    $this->entity_manager->remove($user->getAvatar());
+                    $user->setAvatar(null);
                 }
                 break;
 
@@ -337,7 +359,7 @@ class AdminUserController extends AdminActionController
 
         try {
             $this->entity_manager->flush();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, [$e->getMessage()] );
         }
 
