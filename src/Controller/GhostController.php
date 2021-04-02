@@ -210,7 +210,7 @@ class GhostController extends CustomAbstractController
             $customConf['explorable_ruins'] = $ruin_count[1];
         }
 
-        if(!empty($well) && is_numeric($well) && $well <= 300){
+        if(!empty($well) && is_numeric($well) && $well <= ($crow_permissions ? 9999 : 300)){
             $customConf['well'] = [
                 'min' => $well,
                 'max' => $well
