@@ -18120,7 +18120,7 @@
       </notes>
       <segment>
         <source>Mit Hilfe seiner übermenschlichen Heldenkräfte hat %citizen% %kills% Zombie(s) lauthals schreiend und mit bloßen Händen umgebracht!</source>
-        <target>Mit Hilfe seiner übermenschlichen Heldenkräfte hat %citizen% %kills% Zombie(s) lauthals schreiend und mit bloßen Händen umgebracht!</target>
+        <target>¡Utilizando sus poderes de Héroe, %citizen% ha exterminado %kills% zombie(s) con sus propias manos gritando como un salvaje!</target>
       </segment>
     </unit>
     <unit id="l8p89Qb" name="Du brauchst noch folgende Gegenstände: %list%.">
