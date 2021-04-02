@@ -934,7 +934,7 @@
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</target>
+        <target>Die AP-Kosten aller Bauprojekte werden um 6% gesenkt.</target>
       </segment>
     </unit>
     <unit id="RpqPbZr" name="Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.">
@@ -943,7 +943,7 @@
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</target>
+        <target>Die AP-Kosten aller Bauprojekte werden um 12% gesenkt.</target>
       </segment>
     </unit>
     <unit id="xQHKrzW" name="Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.">
@@ -952,7 +952,7 @@
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</target>
+        <target>Die AP-Kosten aller Bauprojekte werden um 18% gesenkt.</target>
       </segment>
     </unit>
     <unit id="SAknSq2" name="Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.">
@@ -961,7 +961,7 @@
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</target>
+        <target>Die AP-Kosten aller Bauprojekte werden um 24% gesenkt.</target>
       </segment>
     </unit>
     <unit id="1dzbsZW" name="Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.">
@@ -970,7 +970,7 @@
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</target>
+        <target>Die AP-Kosten aller Bauprojekte werden um 30% gesenkt.</target>
       </segment>
     </unit>
     <unit id="cdTPlT5" name="Scanner">
@@ -3265,7 +3265,7 @@
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</target>
+        <target>Die AP-Kosten aller Bauprojekte werden um 24% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</target>
       </segment>
     </unit>
     <unit id="JLugykh" name="124a889">
@@ -3274,7 +3274,7 @@
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</source>
-        <target>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</target>
+        <target>Die AP-Kosten aller Bauprojekte werden um 30% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</target>
       </segment>
     </unit>
     <unit id="OK7fp_k" name="Zaun (Haus)">
