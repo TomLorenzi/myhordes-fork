@@ -321,8 +321,8 @@ class TownHandler
         return null;
     }
 
-    public function getBuildingPrototype(string $prototype): ?BuildingPrototype {
-        return $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName($prototype);
+    public function getBuildingPrototype(string $prototype, bool $cache = false): ?BuildingPrototype {
+        return $this->entity_manager->getRepository(BuildingPrototype::class)->findOneByName($prototype, $cache);
     }
 
     /**
