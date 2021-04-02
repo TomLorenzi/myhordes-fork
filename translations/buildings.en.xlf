@@ -3292,7 +3292,7 @@
       </notes>
       <segment>
         <source>Schokoladenkreuz</source>
-        <target>Schokoladenkreuz</target>
+        <target>Chocolate Cross</target>
       </segment>
     </unit>
     <unit id="fDHJWJh" name="79667b6">
@@ -3301,7 +3301,52 @@
       </notes>
       <segment>
         <source>Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...</source>
-        <target>Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...</target>
+        <target>A beautiful cross made of chocolate to place unwanted citizens there rather than just banning them from the community...</target>
+      </segment>
+    </unit>
+    <unit id="pGiSLDk" name="Straßenbeleuchtung">
+      <notes>
+        <note category="german">Straßenbeleuchtung</note>
+      </notes>
+      <segment>
+        <source>Straßenbeleuchtung</source>
+        <target>Public lights</target>
+      </segment>
+    </unit>
+    <unit id="p8Ajeue" name="cd33594">
+      <notes>
+        <note category="german">Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.</note>
+      </notes>
+      <segment>
+        <source>Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.</source>
+        <target>When the deep night has come, the wan gleams of the lampposts will allow you to continue your excavations of the desert. No more excuses for going to bed.</target>
+      </segment>
+    </unit>
+    <unit id="ZLkYC3_" name="e3784de">
+      <notes>
+        <note category="german">Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</source>
+        <target>The reduction in the chance of searchs at night is canceled within a 6 km radius of town, 1 battery is consumed per day.</target>
+      </segment>
+    </unit>
+    <unit id="sLA35Ek" name="7f700fb">
+      <notes>
+        <note category="german">Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</source>
+        <target>The reduction in the chance of searchs at night is canceled within a 10 km radius of town, 1 battery is consumed per day.</target>
+      </segment>
+    </unit>
+    <unit id="9Yp1S0O" name="163fb9e">
+      <notes>
+        <note category="german">Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.</source>
+        <target>The reduction in the chance of searchs at night is canceled on the whole map, 2 batteries are consumed per day.</target>
       </segment>
     </unit>
   </file>
