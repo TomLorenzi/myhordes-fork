@@ -205,7 +205,7 @@ yarn encore dev
 
 ## Setting up the apache server
 
-This part will allow you and potentially other user to access the game from a browser via the apache2 web server.
+This part will allow you and potentially other users to access the game from a browser via the apache2 web server.
 
 #### Optional: Allowing access through the web
 
@@ -256,8 +256,16 @@ Make sure to replace every instance (2) of `/MyHordes/public` with your own corr
 Now, tell apache2 that a new site has been configured :
 
 ```bash
-a2ensite hordes1.myhordes
+sudo a2ensite hordes1.myhordes
 ```
+
+MyHordes requires the "rewrite" apache module, which must be enabled manually be running
+
+```bash
+sudo a2enmod rewrite
+```
+
+Afterwards, the server must be restarted:
 
 ```
 sudo service apache2 restart
