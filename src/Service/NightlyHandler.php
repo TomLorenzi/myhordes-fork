@@ -1328,10 +1328,9 @@ class NightlyHandler
 
             // Giving picto camper if he camped
             if ($citizen->getStatus()->contains($status_camping)) {
+                $this->picto_handler->give_picto($citizen, $picto_camping);
                 if ($town->getDevastated() && $town->getDay() >= 10){
                     $this->picto_handler->give_picto($citizen, $picto_camping_devastated);
-                } else {
-                    $this->picto_handler->give_picto($citizen, $picto_camping);
                 }
             }
 
