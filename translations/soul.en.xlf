@@ -2746,5 +2746,23 @@
                                                     Move the section with the mouse and enlarge or reduce it with the mouse wheel.</target>
       </segment>
     </unit>
+    <unit id="ff37B3l" name="Du hast aktuell noch keine Plätze reserviert.">
+      <notes>
+        <note category="german">Du hast aktuell noch keine Plätze reserviert.</note>
+      </notes>
+      <segment>
+        <source>Du hast aktuell noch keine Plätze reserviert.</source>
+        <target>You have not yet reserved any places.</target>
+      </segment>
+    </unit>
+    <unit id="Zk.3Qol" name="Reservierte Plätze:">
+      <notes>
+        <note category="german">Reservierte Plätze:</note>
+      </notes>
+      <segment>
+        <source>Reservierte Plätze:</source>
+        <target>Reserved places:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

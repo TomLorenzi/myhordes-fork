@@ -2680,5 +2680,23 @@
         <target>Avatar</target>
       </segment>
     </unit>
+    <unit id="hDhyhlE" name="Gruppe aus %num% Spielern">
+      <notes>
+        <note category="german">Gruppe aus %num% Spielern</note>
+      </notes>
+      <segment>
+        <source>Gruppe aus %num% Spielern</source>
+        <target>Grupo de %num% jugadores</target>
+      </segment>
+    </unit>
+    <unit id="o8cBnVX" name="5048423">
+      <notes>
+        <note category="german">Wenn Bürger deine Stadt betreten möchten, wird ein Zugangsdode abgefragt. Nur mit korrektem Zugangscode erhalten sie Zutritt. Verteile den Zugangscode darum an die Spieler, die du einladen möchtest. &lt;strong&gt;Und benutze nicht dein privates Passwort als Zugangscode!!!&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Wenn Bürger deine Stadt betreten möchten, wird ein Zugangsdode abgefragt. Nur mit korrektem Zugangscode erhalten sie Zutritt. Verteile den Zugangscode darum an die Spieler, die du einladen möchtest. &lt;strong&gt;Und benutze nicht dein privates Passwort als Zugangscode!!!&lt;/strong&gt;</source>
+        <target><![CDATA[Los habitantes que deseen ingresar a este pueblo deben usar esta contraseña. Dásela a las personas que quieras invitar. <strong>¡Sobre todo no uses tu contraseña personal!</strong>]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -2737,5 +2737,23 @@
                                                     Mueva la sección con el ratón y amplíela o redúzcala con la rueda del ratón.</target>
       </segment>
     </unit>
+    <unit id="ff37B3l" name="Du hast aktuell noch keine Plätze reserviert.">
+      <notes>
+        <note category="german">Du hast aktuell noch keine Plätze reserviert.</note>
+      </notes>
+      <segment>
+        <source>Du hast aktuell noch keine Plätze reserviert.</source>
+        <target>Aún no has reservado ningún lugar.</target>
+      </segment>
+    </unit>
+    <unit id="Zk.3Qol" name="Reservierte Plätze:">
+      <notes>
+        <note category="german">Reservierte Plätze:</note>
+      </notes>
+      <segment>
+        <source>Reservierte Plätze:</source>
+        <target>Lugares reservados:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
