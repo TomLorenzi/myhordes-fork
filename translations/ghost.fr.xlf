@@ -1218,5 +1218,41 @@
         <target>Events</target>
       </segment>
     </unit>
+    <unit id="dctQQtZ" name="Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.">
+      <notes>
+        <note category="german">Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.</note>
+      </notes>
+      <segment>
+        <source>Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.</source>
+        <target>Le mode nuit est activé et l'Éclairage public est disponible.</target>
+      </segment>
+    </unit>
+    <unit id="JeVu4ox" name="Erweitert">
+      <notes>
+        <note category="german">Erweitert</note>
+      </notes>
+      <segment>
+        <source>Erweitert</source>
+        <target>Élargi</target>
+      </segment>
+    </unit>
+    <unit id="kKT9.CK" name="e8c1841">
+      <notes>
+        <note category="german">Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.</note>
+      </notes>
+      <segment>
+        <source>Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.</source>
+        <target>Le mode nuit est activé. L'Éclairage public n'est pas disponible.</target>
+      </segment>
+    </unit>
+    <unit id="1dCs8Np" name="Der Nachtmodus ist deaktiviert.">
+      <notes>
+        <note category="german">Der Nachtmodus ist deaktiviert.</note>
+      </notes>
+      <segment>
+        <source>Der Nachtmodus ist deaktiviert.</source>
+        <target>Le mode nuit est désactivé.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -3304,5 +3304,50 @@
         <target>Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...</target>
       </segment>
     </unit>
+    <unit id="pGiSLDk" name="Straßenbeleuchtung">
+      <notes>
+        <note category="german">Straßenbeleuchtung</note>
+      </notes>
+      <segment>
+        <source>Straßenbeleuchtung</source>
+        <target>Straßenbeleuchtung</target>
+      </segment>
+    </unit>
+    <unit id="p8Ajeue" name="cd33594">
+      <notes>
+        <note category="german">Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.</note>
+      </notes>
+      <segment>
+        <source>Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.</source>
+        <target>Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.</target>
+      </segment>
+    </unit>
+    <unit id="ZLkYC3_" name="e3784de">
+      <notes>
+        <note category="german">Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</source>
+        <target>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</target>
+      </segment>
+    </unit>
+    <unit id="sLA35Ek" name="7f700fb">
+      <notes>
+        <note category="german">Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</source>
+        <target>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</target>
+      </segment>
+    </unit>
+    <unit id="9Yp1S0O" name="163fb9e">
+      <notes>
+        <note category="german">Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.</source>
+        <target>Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

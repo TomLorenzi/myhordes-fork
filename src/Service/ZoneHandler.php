@@ -195,7 +195,7 @@ class ZoneHandler
                             // Novelty Lamps are at lv2 and the zone distance is above 10km; apply malus
                             elseif ($novelty_lamps->getLevel() === 2 && $zone->getDistance() > 10.0) $factor -= $night_mode_malue;
                             // Novelty Lamps are at lv4 and the zone distance is within 10km; apply bonus
-                            elseif ($novelty_lamps->getLevel() === 4 && $zone->getDistance() <= 10.0) $factor += 0.2;
+                            // elseif ($novelty_lamps->getLevel() === 4 && $zone->getDistance() <= 10.0) $factor += 0.2;
 
                         } else $factor -= $night_mode_malue; // Night mode is active; apply malus
 

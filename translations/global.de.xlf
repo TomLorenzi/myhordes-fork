@@ -2617,5 +2617,50 @@
                                     <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>]]></target>
       </segment>
     </unit>
+    <unit id="mU.wJHS" name="Dein Icon">
+      <notes>
+        <note category="german">Dein Icon</note>
+      </notes>
+      <segment>
+        <source>Dein Icon</source>
+        <target>Dein Icon</target>
+      </segment>
+    </unit>
+    <unit id="C.Ht2yK" name="Auswählen">
+      <notes>
+        <note category="german">Auswählen</note>
+      </notes>
+      <segment>
+        <source>Auswählen</source>
+        <target>Auswählen</target>
+      </segment>
+    </unit>
+    <unit id="GeX4GPW" name="Dein Titel">
+      <notes>
+        <note category="german">Dein Titel</note>
+      </notes>
+      <segment>
+        <source>Dein Titel</source>
+        <target>Dein Titel</target>
+      </segment>
+    </unit>
+    <unit id="DDEgVcC" name="Deine Beschreibung">
+      <notes>
+        <note category="german">Deine Beschreibung</note>
+      </notes>
+      <segment>
+        <source>Deine Beschreibung</source>
+        <target>Deine Beschreibung</target>
+      </segment>
+    </unit>
+    <unit id="yo6CbZw" name="Avatar">
+      <notes>
+        <note category="german">Avatar</note>
+      </notes>
+      <segment>
+        <source>Avatar</source>
+        <target>Avatar</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

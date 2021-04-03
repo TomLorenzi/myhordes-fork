@@ -3286,5 +3286,50 @@
         <target>Une belle croix réalisée en chocolat pour y placer les citoyens indésirables plutôt que de se contenter de les bannir de la communauté...</target>
       </segment>
     </unit>
+    <unit id="pGiSLDk" name="Straßenbeleuchtung">
+      <notes>
+        <note category="german">Straßenbeleuchtung</note>
+      </notes>
+      <segment>
+        <source>Straßenbeleuchtung</source>
+        <target>Éclairage public</target>
+      </segment>
+    </unit>
+    <unit id="p8Ajeue" name="cd33594">
+      <notes>
+        <note category="german">Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.</note>
+      </notes>
+      <segment>
+        <source>Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.</source>
+        <target>Quand la nuit profonde sera venue, la lueur blafarde des lampadaires vous permettra de poursuivre vos fouilles du désert. Plus d'excuses pour aller au lit.</target>
+      </segment>
+    </unit>
+    <unit id="ZLkYC3_" name="e3784de">
+      <notes>
+        <note category="german">Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</source>
+        <target>La réduction des chances de fouilles la nuit est annulée dans un rayon de 6 km autour de la ville, 1 pile est consommée par jour.</target>
+      </segment>
+    </unit>
+    <unit id="sLA35Ek" name="7f700fb">
+      <notes>
+        <note category="german">Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</source>
+        <target>La réduction des chances de fouilles la nuit est annulée dans un rayon de 10 km autour de la ville, 1 pile est consommée par jour.</target>
+      </segment>
+    </unit>
+    <unit id="9Yp1S0O" name="163fb9e">
+      <notes>
+        <note category="german">Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.</source>
+        <target>La réduction des chances de fouilles la nuit est annulée sur toute la carte, 2 piles sont consommées par jour.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

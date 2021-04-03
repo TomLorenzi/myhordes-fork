@@ -2609,5 +2609,107 @@
         <target>Confirmez-vous vouloir quitter cette coalition ?</target>
       </segment>
     </unit>
+    <unit id="e5CjO7g" name="Ändern des Avatars">
+      <notes>
+        <note category="german">Ändern des Avatars</note>
+      </notes>
+      <segment>
+        <source>Ändern des Avatars</source>
+        <target>Changer l'avatar</target>
+      </segment>
+    </unit>
+    <unit id="Ag772xl" name="c97e118">
+      <notes>
+        <note category="german">Du kannst deinen Avatar nicht mehr bearbeiten. Falls du aktuell einen Avatar hast, kannst du diesen jedoch löschen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Avatar nicht mehr bearbeiten. Falls du aktuell einen Avatar hast, kannst du diesen jedoch löschen.</source>
+        <target>Vous ne pouvez plus modifier votre avatar. Cependant, si vous possédez actuellement un avatar, vous pouvez le supprimer.</target>
+      </segment>
+    </unit>
+    <unit id="sXIofxl" name="Ändern des Profiltitels">
+      <notes>
+        <note category="german">Ändern des Profiltitels</note>
+      </notes>
+      <segment>
+        <source>Ändern des Profiltitels</source>
+        <target>Changer mon titre</target>
+      </segment>
+    </unit>
+    <unit id="Gw1mlg1" name="0a58461">
+      <notes>
+        <note category="german">Du kannst deinen deinen Profil-Titel sowie Icon nicht länger ändern. Wenn du aktuell einen Titel oder ein Icon gesetzt hast, kannst du diese jedoch entfernen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen deinen Profil-Titel sowie Icon nicht länger ändern. Wenn du aktuell einen Titel oder ein Icon gesetzt hast, kannst du diese jedoch entfernen.</source>
+        <target>Vous ne pouvez plus modifier le titre et l'icône de votre profil. Cependant, si vous avez actuellement défini un titre ou une icône, vous pouvez le supprimer.</target>
+      </segment>
+    </unit>
+    <unit id="U8rWfCJ" name="Ändern der Profilbeschreibung">
+      <notes>
+        <note category="german">Ändern der Profilbeschreibung</note>
+      </notes>
+      <segment>
+        <source>Ändern der Profilbeschreibung</source>
+        <target>Changer ma description de profil</target>
+      </segment>
+    </unit>
+    <unit id="Z7.2LZ_" name="17aace6">
+      <notes>
+        <note category="german">Du kannst deine Profilbeschreibung nicht länger ändern. Eine bestehende Profilbeschreibung kann jedoch gelöscht werden.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deine Profilbeschreibung nicht länger ändern. Eine bestehende Profilbeschreibung kann jedoch gelöscht werden.</source>
+        <target>Vous ne pouvez plus modifier la description de votre profil. Cependant, une description de profil existante peut être supprimée.</target>
+      </segment>
+    </unit>
+    <unit id="j5yXkX6" name="Kein Icon">
+      <notes>
+        <note category="german">Kein Icon</note>
+      </notes>
+      <segment>
+        <source>Kein Icon</source>
+        <target>Aucune icône</target>
+      </segment>
+    </unit>
+    <unit id="FjAvXSr" name="Du hast noch kein Icon freigeschaltet!">
+      <notes>
+        <note category="german">Du hast noch kein Icon freigeschaltet!</note>
+      </notes>
+      <segment>
+        <source>Du hast noch kein Icon freigeschaltet!</source>
+        <target>Vous n'avez pas encore déverrouillé d'icône!</target>
+      </segment>
+    </unit>
+    <unit id="s98CmDi" name="Kein Titel">
+      <notes>
+        <note category="german">Kein Titel</note>
+      </notes>
+      <segment>
+        <source>Kein Titel</source>
+        <target>Pas de titre</target>
+      </segment>
+    </unit>
+    <unit id="UWvnfeW" name="Dein Avatar">
+      <notes>
+        <note category="german">Dein Avatar</note>
+      </notes>
+      <segment>
+        <source>Dein Avatar</source>
+        <target>Votre avatar</target>
+      </segment>
+    </unit>
+    <unit id="FFE77tY" name="fd22293">
+      <notes>
+        <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
+      </notes>
+      <segment>
+        <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
+        <target>Sélectionnez la partie de votre photo de profil à utiliser pour l'affichage réduit.
+                                                    Déplacez la section avec la souris et agrandissez-la ou réduisez-la avec la molette de la souris.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

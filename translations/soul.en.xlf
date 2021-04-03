@@ -2614,7 +2614,7 @@
       </notes>
       <segment>
         <source>Ende der Beschränkung: %date%</source>
-        <target>Ende der Beschränkung: %date%</target>
+        <target>End of the restriction: %date%</target>
       </segment>
     </unit>
     <unit id="_33rQU1" name="Durch deinen Weggang hast du deine Koalition soeben aufgelöst.">
@@ -2642,6 +2642,108 @@
       <segment>
         <source>Möchtest du diese Koalition verlassen?</source>
         <target>Möchtest du diese Koalition verlassen?</target>
+      </segment>
+    </unit>
+    <unit id="e5CjO7g" name="Ändern des Avatars">
+      <notes>
+        <note category="german">Ändern des Avatars</note>
+      </notes>
+      <segment>
+        <source>Ändern des Avatars</source>
+        <target>Change my avatar</target>
+      </segment>
+    </unit>
+    <unit id="Ag772xl" name="c97e118">
+      <notes>
+        <note category="german">Du kannst deinen Avatar nicht mehr bearbeiten. Falls du aktuell einen Avatar hast, kannst du diesen jedoch löschen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Avatar nicht mehr bearbeiten. Falls du aktuell einen Avatar hast, kannst du diesen jedoch löschen.</source>
+        <target>You can no longer edit your avatar. However, if you currently have an avatar, you can delete it.</target>
+      </segment>
+    </unit>
+    <unit id="sXIofxl" name="Ändern des Profiltitels">
+      <notes>
+        <note category="german">Ändern des Profiltitels</note>
+      </notes>
+      <segment>
+        <source>Ändern des Profiltitels</source>
+        <target>Change my title</target>
+      </segment>
+    </unit>
+    <unit id="Gw1mlg1" name="0a58461">
+      <notes>
+        <note category="german">Du kannst deinen deinen Profil-Titel sowie Icon nicht länger ändern. Wenn du aktuell einen Titel oder ein Icon gesetzt hast, kannst du diese jedoch entfernen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen deinen Profil-Titel sowie Icon nicht länger ändern. Wenn du aktuell einen Titel oder ein Icon gesetzt hast, kannst du diese jedoch entfernen.</source>
+        <target>You can no longer change your profile title and icon. However, if you have currently set a title or an icon, you can remove it.</target>
+      </segment>
+    </unit>
+    <unit id="U8rWfCJ" name="Ändern der Profilbeschreibung">
+      <notes>
+        <note category="german">Ändern der Profilbeschreibung</note>
+      </notes>
+      <segment>
+        <source>Ändern der Profilbeschreibung</source>
+        <target>Change my profile description</target>
+      </segment>
+    </unit>
+    <unit id="Z7.2LZ_" name="17aace6">
+      <notes>
+        <note category="german">Du kannst deine Profilbeschreibung nicht länger ändern. Eine bestehende Profilbeschreibung kann jedoch gelöscht werden.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deine Profilbeschreibung nicht länger ändern. Eine bestehende Profilbeschreibung kann jedoch gelöscht werden.</source>
+        <target>You can no longer change your profile description. However, an existing profile description can be deleted.</target>
+      </segment>
+    </unit>
+    <unit id="j5yXkX6" name="Kein Icon">
+      <notes>
+        <note category="german">Kein Icon</note>
+      </notes>
+      <segment>
+        <source>Kein Icon</source>
+        <target>No icon</target>
+      </segment>
+    </unit>
+    <unit id="FjAvXSr" name="Du hast noch kein Icon freigeschaltet!">
+      <notes>
+        <note category="german">Du hast noch kein Icon freigeschaltet!</note>
+      </notes>
+      <segment>
+        <source>Du hast noch kein Icon freigeschaltet!</source>
+        <target>You haven't unlocked an icon yet!</target>
+      </segment>
+    </unit>
+    <unit id="s98CmDi" name="Kein Titel">
+      <notes>
+        <note category="german">Kein Titel</note>
+      </notes>
+      <segment>
+        <source>Kein Titel</source>
+        <target>No title</target>
+      </segment>
+    </unit>
+    <unit id="UWvnfeW" name="Dein Avatar">
+      <notes>
+        <note category="german">Dein Avatar</note>
+      </notes>
+      <segment>
+        <source>Dein Avatar</source>
+        <target>My avatar</target>
+      </segment>
+    </unit>
+    <unit id="FFE77tY" name="fd22293">
+      <notes>
+        <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
+      </notes>
+      <segment>
+        <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
+        <target>Select which part of your profile picture should be used for the reduced display.
+                                                    Move the section with the mouse and enlarge or reduce it with the mouse wheel.</target>
       </segment>
     </unit>
   </file>
