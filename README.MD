@@ -24,7 +24,7 @@ Depending on the database engine you want to use you will need the following:
 
 ### Using mariadb
 Install the following packages:
-* mariadb (>= 10.1.44)
+* mariadb-server (>= 10.1.44)
 * php-mysql
 
 #### Starting the database server
@@ -78,18 +78,29 @@ Clone the project inside any directory
 git clone https://gitlab.com/eternal-twin/myhordes/myhordes.git
 ```
 
-## Composer
+## NodeJS, Yarn and Composer
 
-You need to fetch the `composer.phar` file:
+First, go to the MyHordes directory (`cd myhordes`). 
+
+Install NodeJS and yarn:
+
+```bash
+curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt-get install -y nodejs
+npm install --global yarn
+```
+
+Afterwards, you may need to *restart your machine*. Then, you need to fetch the `composer.phar` file:
 
 ```bash
 wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet
 ```
 
-Update it:
+Update yarn and composer:
 
 ```bash
 php composer.phar install
+yarn install
 ```
 
 ## Configuration
@@ -169,11 +180,11 @@ git pull
 
 You can now redo the changes you liked in the sources. If you don't want to redo all your usual modifications after each maintenance and you know git, create a local branch (or your own forked remote when we migrate to gitlab) in which you will store the changes, and on which you will merge the latest version each time before pulling. You might need to handle conflicts in this case, we do not recommend doing this if you are not familiar with git.
 
-Now you have the latest changes and the site is in an unstable state, users could encounter errors until the maintenance is over. If possible for you, we recommend closing access to the site since we did not yet prepare a way to block it in this project, yet.
+Now you have the latest changes, and the site is in an unstable state, users could encounter errors until the maintenance is over. If possible for you, we recommend closing access to the site since we did not yet prepare a way to block it in this project, yet.
 
 Update composer:
 ```bash
-php composer.phar update
+php composer.phar install
 ```
 
 Update database:
