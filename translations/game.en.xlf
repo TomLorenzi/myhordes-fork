@@ -1027,7 +1027,7 @@
       </notes>
       <segment>
         <source>Mein Haus ausbauen</source>
-        <target>Upgrading your home</target>
+        <target>Upgrade your home</target>
       </segment>
     </unit>
     <unit id="J53z_38" name="10e9370">
@@ -3010,7 +3010,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>ZomBIER Bar</source>
-        <target>Shady Barrikaden</target>
+        <target>Shady Bar</target>
       </segment>
     </unit>
     <unit id="ZWfE2Vb" name="%citizen% hat der Stadt folgendes gespendet: %item%">
@@ -4856,7 +4856,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</source>
-        <target>Work on a construction site at the workshop, or go outside and scavenge (your choice).</target>
+        <target>Work at the construction sites, at the workshop, or go outside and scavenge (your choice).</target>
       </segment>
     </unit>
     <unit id="4tgoaqE" name="Heldentafel">
@@ -18570,7 +18570,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Diese Information gibt dir einen Hinweis darauf, ob Aufklärer gewöhnlicherweise hier vorbeikommen.&lt;br /&gt;&lt;em&gt;Je mehr eine Zone erforscht wurde, desto geringer ist die Chance bei &lt;strong&gt;Betreten&lt;/strong&gt; entdeckt zu werden (du kennst dann ein paar Schleichwege etc...).&lt;/em&gt;</source>
-        <target><![CDATA[Diese Information gibt dir einen Hinweis darauf, ob Aufklärer gewöhnlicherweise hier vorbeikommen.<br /><em>Je mehr eine Zone erforscht wurde, desto geringer ist die Chance bei <strong>Betreten</strong> entdeckt zu werden (du kennst dann ein paar Schleichwege etc...).</em>]]></target>
+        <target><![CDATA[This information tells you if scouts regularly pass through this sector.<br /><em>The better known the sector is, the less likely you are to be discovered <strong>when you enter it</strong> (because you know some concealed paths through the zone; etc...)</em>]]></target>
       </segment>
     </unit>
     <unit id="JxANNhs" name="Versuchen etwas zu stehlen">

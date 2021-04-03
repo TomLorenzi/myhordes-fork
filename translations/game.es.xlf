@@ -18120,7 +18120,7 @@
       </notes>
       <segment>
         <source>Mit Hilfe seiner übermenschlichen Heldenkräfte hat %citizen% %kills% Zombie(s) lauthals schreiend und mit bloßen Händen umgebracht!</source>
-        <target>Mit Hilfe seiner übermenschlichen Heldenkräfte hat %citizen% %kills% Zombie(s) lauthals schreiend und mit bloßen Händen umgebracht!</target>
+        <target>¡Utilizando sus poderes de Héroe, %citizen% ha exterminado %kills% zombie(s) con sus propias manos gritando como un salvaje!</target>
       </segment>
     </unit>
     <unit id="l8p89Qb" name="Du brauchst noch folgende Gegenstände: %list%.">
@@ -18138,7 +18138,7 @@
       </notes>
       <segment>
         <source>Du kannst &lt;strong&gt;pro Tag eine Heldentat&lt;/strong&gt; vollbringen und jede dieser Aktionen kann nur &lt;strong&gt;einmal&lt;/strong&gt; pro Partie ausgeführt werden:</source>
-        <target><![CDATA[Du kannst <strong>pro Tag eine Heldentat</strong> vollbringen und jede dieser Aktionen kann nur <strong>einmal</strong> pro Partie ausgeführt werden:]]></target>
+        <target><![CDATA[Puedes realizar <strong>una acción heróica al día</strong> y cada una de estas acciones <strong>solo 1 vez</strong> por partida:]]></target>
       </segment>
     </unit>
     <unit id="uK7igyD" name="bd642fe">
