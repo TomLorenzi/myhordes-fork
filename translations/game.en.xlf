@@ -17842,7 +17842,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Wenn du "MyHordes" zum ersten Mal spielst, empfehlen wir dir den Links &lt;strong&gt;Wie soll ich spielen?&lt;/strong&gt; zu folgen,
                 die sich auf der Webseite links befindet. Interaktive Schritt-für-Schritt-Anleitungen erklären dir in 5 Minuten die Grundlagen des Spiels.</source>
-        <target><![CDATA[If you are just starting out with MyHordes, take a look at the <strong>How do I play?</strong> links on the left of the page. They offer interactive guides to teach you the basics of the game in just a few minutes!]]></target>
+        <target><![CDATA[If you are just starting out with MyHordes, take a look at the <strong>How do I play ?</strong> links on the left of the page. They offer interactive guides to teach you the basics of the game in just a few minutes!]]></target>
       </segment>
     </unit>
     <unit id="PF899T3" name="Du kannst jederzeit die %helplink% im oberen Abschnitt der Seite aufsuchen.">
