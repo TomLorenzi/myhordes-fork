@@ -1490,7 +1490,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Jede Verarbeitung kostet %ap% (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).</source>
-        <target>Each transformation cost %ap%</target>
+        <target>Each transformation costs %ap%</target>
       </segment>
     </unit>
     <unit id="pVNCjNA" name="Du trägst eine Säge bei dir.">
