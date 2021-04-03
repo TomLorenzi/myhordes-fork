@@ -112,7 +112,7 @@ class GameFactory
                 ['Waterhole', 'Hospital', 'Training camp', 'Pony', 'No man\'s land', 'Court', 'Empire', 'Shithole', 'Brain', 'Rathole', 'Area', 'Camp', 'Garbage Mountain', 'Soul Catcher', 'Monarch', 'Rock', 'Fall', 'Forest', 'Torture Basement', 'District', 'Bunker', 'Table', 'Cough', 'Truck', 'Butchers', 'Zombie researchers', 'Figures', 'Guardians', 'Death songs', 'Conductor', 'Soldiers', 'Twins', 'Regions', 'Surface', 'Parasites', 'Developers', 'Skool'],
             ],
             [  // Suffixed
-                ['Ghoul bones', 'Songs', 'Pain', 'Screams', 'Rooms', 'Mob', 'Ghetto', 'Citizens', 'Legacy', 'Territory', 'Torture chamber', 'Alcohol adulterator'],
+                ['Ghoul bones', 'Songs', 'Pain', 'Screams', 'Rooms', 'Mob', 'Ghetto', 'Citizens', 'Legacy', 'Territory', 'Torture chamber', 'Alcohol Adulterator'],
                 ['of Death', 'of Damnation', 'without Future', 'at the Abyss', 'of the Confused', 'without Ideas', 'of the Failures', 'of the Ghouls', 'of the Superheroes', 'of the Discouraged', 'of the Cheerful', 'of the Revolutionaries', 'of the Deepnight'],
             ],
         ],

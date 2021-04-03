@@ -4,11 +4,11 @@
 namespace App\Command;
 
 
+use App\Entity\AccountRestriction;
+use App\Entity\AdminBan;
 use App\Entity\AffectStatus;
 use App\Entity\Building;
-use App\Entity\CauseOfDeath;
 use App\Entity\Citizen;
-use App\Entity\CitizenProfession;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenStatus;
 use App\Entity\Forum;
@@ -20,6 +20,7 @@ use App\Entity\Picto;
 use App\Entity\Post;
 use App\Entity\RuinZone;
 use App\Entity\Season;
+use App\Entity\ShadowBan;
 use App\Entity\SpecialActionPrototype;
 use App\Entity\Town;
 use App\Entity\TownLogEntry;
@@ -41,17 +42,13 @@ use App\Service\UserHandler;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
-use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
-use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
@@ -77,7 +74,8 @@ class MigrateCommand extends Command
 
     protected static $git_script_repository = [
         'ce5c1810ee2bde2c10cc694e80955b110bbed010' => [ ['app:migrate', ['--calculate-score' => true] ] ],
-        'e3a28a35e8ade5c767480bb3d8b7fa6daaf69f4e' => [ ['app:migrate', ['--build-forum-search-index' => true] ] ]
+        'e3a28a35e8ade5c767480bb3d8b7fa6daaf69f4e' => [ ['app:migrate', ['--build-forum-search-index' => true] ] ],
+        'd9960996e6d39ecc6431ef576470a048e4b43774' => [ ['app:migrate', ['--migrate-account-bans' => true] ] ]
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -132,6 +130,7 @@ class MigrateCommand extends Command
             ->addOption('delete-legacy-logs', null, InputOption::VALUE_NONE, 'Deletes legacy log entries')
             ->addOption('calculate-score', null, InputOption::VALUE_NONE, 'Recalculate the score for each ended town')
             ->addOption('build-forum-search-index', null, InputOption::VALUE_NONE, 'Initializes search structures for the forum')
+            ->addOption('migrate-account-bans', null, InputOption::VALUE_NONE, 'Migrates old account bans to the new system')
 
             ->addOption('set-default-zonetag', null, InputOption::VALUE_NONE, 'Set the default tag to all zones')
             ->addOption('assign-building-hp', null, InputOption::VALUE_NONE, 'Give HP to all buildings (so they can be attacked by zeds)')
@@ -624,6 +623,50 @@ class MigrateCommand extends Command
             $this->leChunk($output, Post::class, 100, ['translate' => false, 'searchForum' => null, 'searchText' => null], false, true, function(Post $post) {
                 $post->setSearchText( strip_tags( $post->getText() ) );
                 $post->setSearchForum( $post->getThread()->getForum() );
+            });
+
+            return 0;
+        }
+
+        if ($input->getOption('migrate-account-bans')) {
+            $this->leChunk($output, AdminBan::class, 100, [], false, false, function(AdminBan $ban): bool {
+                $this->entity_manager->remove($ban);
+                $this->entity_manager->persist( (new AccountRestriction())
+                    ->setUser( $ban->getUser() )
+                    ->setCreated( $ban->getBanStart() )
+                    ->setExpires( $ban->getBanEnd() )
+                    ->setOriginalDuration($ban->getBanEnd()->getTimestamp() - $ban->getBanStart()->getTimestamp() )
+                    ->setRestriction( AccountRestriction::RestrictionSocial )
+                    ->setPublicReason( $ban->getReason() )
+                    ->setInternalReason("[migrated from deprecated AdminBan instance (#{$ban->getId()})]" . ($ban->getLifted() && $ban->getLiftUser() ? " [lifted by {$ban->getLiftUser()->getName()}]" : ""))
+                    ->setModerator( $ban->getSourceUser() )
+                    ->addConfirmedBy( $ban->getSourceUser() )
+                    ->setActive( !$ban->getLifted() )
+                    ->setConfirmed( true )
+                );
+                $ban->getUser()->getBannings()->removeElement($ban);
+                $this->entity_manager->persist($ban->getUser());
+                return false;
+            });
+
+            $this->leChunk($output, ShadowBan::class, 100, [], false, false, function(ShadowBan $ban): bool {
+                $this->entity_manager->remove($ban);
+                $this->entity_manager->persist( (new AccountRestriction())
+                    ->setUser( $ban->getUser() )
+                    ->setCreated( $ban->getCreated() )
+                    ->setExpires( null )
+                    ->setOriginalDuration(-1 )
+                    ->setRestriction( AccountRestriction::RestrictionGameplay )
+                    ->setPublicReason( $ban->getReason() )
+                    ->setInternalReason("[migrated from deprecated ShadowBan instance (#{$ban->getId()})]")
+                    ->setModerator( $ban->getAdmin() )
+                    ->addConfirmedBy( $ban->getAdmin() )
+                    ->setActive( true )
+                    ->setConfirmed( true )
+                );
+                $ban->getUser()->setShadowBan(null);
+                $this->entity_manager->persist($ban->getUser());
+                return false;
             });
 
             return 0;

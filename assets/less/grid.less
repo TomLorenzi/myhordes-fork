@@ -83,19 +83,19 @@
 
 .flex-grid(@n;@class:'';@i:0) when (@i = 0) and (@class = '') {
   &.rw-@{i} {display: none}
-  .grid(@n, @class, (@i + 1))
+  .flex-grid(@n, @class, (@i + 1))
 }
 .flex-grid(@n;@class:'';@i:0) when (@i <= @n) and (@class = '') {
   &.rw-@{i} {flex-basis: (@i * 100% / @n);}
-  .grid(@n, @class, (@i + 1))
+  .flex-grid(@n, @class, (@i + 1))
 }
 .flex-grid(@n;@class:'';@i:0) when (@i = 0) and not (@class = '') {
   &.rw-@{class}-@{i} {display: none}
-  .grid(@n, @class, (@i + 1))
+  .flex-grid(@n, @class, (@i + 1))
 }
 .flex-grid(@n;@class:'';@i:0) when (@i <= @n) and not (@class = '') {
   &.rw-@{class}-@{i} {flex-basis: (@i * 100% / @n);}
-  .grid(@n, @class, (@i + 1))
+  .flex-grid(@n, @class, (@i + 1))
 }
 
 .row-flex {

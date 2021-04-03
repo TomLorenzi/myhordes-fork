@@ -295,12 +295,10 @@ class PublicController extends CustomAbstractController
                 $error
             );
 
-            $user->setLanguage($this->getUserLanguage());
-
             switch ($error) {
                 case UserFactory::ErrorNone:
                     try {
-
+                        $user->setLanguage($this->getUserLanguage());
                         $entityManager->persist( (new RegistrationLog())
                             ->setUser($user)
                             ->setDate(new \DateTime())
@@ -517,6 +515,12 @@ class PublicController extends CustomAbstractController
             $user->setDeleteAfter(null);
             $this->entity_manager->persist($user);
             $this->addFlash('notice', $trans->trans('Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.', [], 'login'));
+            $flush = true;
+        }
+
+        if ($user->getLanguage() === null) {
+            $user->setLanguage($this->getUserLanguage());
+            $this->entity_manager->persist($user);
             $flush = true;
         }
 

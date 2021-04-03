@@ -8,7 +8,7 @@
 {# @var forum \App\Entity\Forum #}
 {# @var permission \App\Structures\ForumPermissionAccessor #}
 
-{% macro display_thread_list( list, fid, icon, title, select, jump, permission, add_seperators = false ) %}
+{% macro display_thread_list( list, fid, icon, title, select, jump, permission, add_seperators = false, paranoid = false ) %}
     <div class="forum-note">
         <b><i class="fa {{ icon }}"></i> {{ title }}</b>
         {% set last_day = 'today'|to_date %}
@@ -44,7 +44,18 @@
                         {% if thread.translatable %}
                             {{ thread.title|trans({},'game') }}
                         {% else %}
-                            {{ thread.title }}
+                            {% if paranoid and thread.owner and thread.owner != app.user %}
+                                {% set mode = (app.user.id + thread.id + thread.owner.id) % 12 %}
+                                {% if mode == 0 %}
+                                    {{ 'Hängt %user%!'|trans({'%user%': app.user.name},'game') }}
+                                {% elseif mode == 1 %}
+                                    {{ '%user% wir kriegen dich!'|trans({'%user%': app.user.name},'game') }}
+                                {% else %}
+                                    {{ thread.title }}
+                                {% endif %}
+                            {% else %}
+                                {{ thread.title }}
+                            {% endif %}
                         {% endif %}
                         {% if permission.moderate and thread.reportedPosts %}
                             <span class="float-right">
@@ -120,7 +131,7 @@
                             {% if not permission.only_mod_access %}
                                 <div x-forum-action="search" class="forum-button"><img alt="" src="{{ asset('build/images/forum/search.png') }}" /><div class="tooltip forum-tooltip">{{ 'Nachrichten suchen'|trans({},'global') }}</div></div>
                             {% endif %}
-                            {% if is_granted("ROLE_FORUM_BANNED") or not permission.create_thread() %}
+                            {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionForum')) or not permission.create_thread() %}
                                 <div class="forum-button-disabled" id="banned">{{ 'Neues Thema'|trans({},'global') }}</div>
                             {% else %}
                                 <div x-forum-action="new" class="forum-button" id="new-thread-button"><span>{{ 'Neues Thema'|trans({},'global') }}</span></div>
@@ -150,7 +161,7 @@
                         <br />
                     {% endif %}
 
-                    {{ _self.display_thread_list(threads, forum.id, 'fa-scroll', forum.title, select, jump, permission, true) }}
+                    {{ _self.display_thread_list(threads, forum.id, 'fa-scroll', forum.title, select, jump, permission, true, paranoid) }}
                     {% if pages > 1 %}
                         <div class="row">
                             <div class="cell rw-12 padded center">
@@ -199,7 +210,7 @@
             return editor;
         }
 
-        {% if not is_granted("ROLE_FORUM_BANNED") and permission.create_thread() %}
+        {% if not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionForum')) and permission.create_thread() %}
             $.html.addEventListenerAll('[x-forum-action=new]', 'click', function() {
                 $.html.forEach('[x-thread-id]', element => element.classList.remove('selected'))
                 let viewer = document.getElementById('forum-content');

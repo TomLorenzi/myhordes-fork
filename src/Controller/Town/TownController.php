@@ -4,7 +4,9 @@ namespace App\Controller\Town;
 
 use App\Annotations\GateKeeperProfile;
 use App\Controller\InventoryAwareController;
+use App\Entity\AccountRestriction;
 use App\Entity\ActionCounter;
+use App\Entity\BlackboardEdit;
 use App\Entity\Building;
 use App\Entity\BuildingVote;
 use App\Entity\Citizen;
@@ -147,9 +149,6 @@ class TownController extends InventoryAwareController
 
         $town = $this->getActiveCitizen()->getTown();
 
-        $has_zombie_est_today    = !empty($this->town_handler->getBuilding($town, 'item_tagger_#00'));
-        $has_zombie_est_tomorrow = !empty($this->town_handler->getBuilding($town, 'item_tagger_#02'));
-
         $citizens = $town->getCitizens();
         $alive = 0;
         foreach ($citizens as $citizen) {
@@ -180,9 +179,6 @@ class TownController extends InventoryAwareController
 
         $item_def_count = $this->inventory_handler->countSpecificItems($town->getBank(),$this->inventory_handler->resolveItemProperties( 'defence' ), false, false);
 
-        $est0 = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
-        $has_estimated = $est0 && ($est0->getCitizens()->contains($this->getActiveCitizen()));
-
         $display_home_upgrade = false;
         foreach ($citizens as $citizen) {
             if($citizen->getHome()->getPrototype()->getLevel() > $this->getActiveCitizen()->getHome()->getPrototype()->getLevel()){
@@ -210,6 +206,9 @@ class TownController extends InventoryAwareController
             }
         }
 
+        $has_zombie_est_today    = !empty($this->town_handler->getBuilding($town, 'item_tagger_#00'));
+        $has_zombie_est_tomorrow = !empty($this->town_handler->getBuilding($town, 'item_tagger_#02'));
+
         $estims = $this->town_handler->get_zombie_estimation($town);
         $zeds_today = [
             $has_zombie_est_today, // Can see
@@ -223,6 +222,11 @@ class TownController extends InventoryAwareController
             isset($estims[1]) ? $estims[1]->getMax() : 0,
             isset($estims[1]) ? round($estims[1]->getEstimation()*100) : 0
         ];
+
+        $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
+        $has_estimated = ($est && ($est->getCitizens()->contains($this->getActiveCitizen()))) || (!$has_zombie_est_tomorrow && $zeds_today[3] >= 100) || ($has_zombie_est_tomorrow && $zeds_tomorrow[3] >= 100);
+
+        file_put_contents("/tmp/dump.txt", "has_estimated:$has_estimated");
 
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
@@ -239,7 +243,7 @@ class TownController extends InventoryAwareController
             'has_voted' => $has_voted,
             'has_levelable_building' => $has_levelable_building,
             'active_citizen' => $this->getActiveCitizen(),
-            'has_estimated' => $has_estimated || $zeds_today[3] >= 100,
+            'has_estimated' => $has_estimated,
             'has_visited_forum' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_forum'),
             'has_been_active' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_chk_active'),
             'display_home_upgrade' => $display_home_upgrade,
@@ -299,7 +303,13 @@ class TownController extends InventoryAwareController
 
         if ($time > 10800 || $date->format('d') !== (new DateTime())->format('d')) {
             // If it was more than 3 hours, or if the day changed, let's get the full date/time format
-            $lastActionText =$this->translator->trans('am', [], 'game') . ' '. date('d/m/Y, H:i', $lastActionTimestamp);
+            $lastActionText = $this->translator->trans('am %d%.%m%.%Y%, um %H%:%i%', [
+                '%d%' => date('d', $lastActionTimestamp),
+                '%m%' => date('m', $lastActionTimestamp),
+                '%Y%' => date('Y', $lastActionTimestamp),
+                '%H%' => date('H', $lastActionTimestamp),
+                '%i%' => date('i', $lastActionTimestamp),
+            ], 'game');
         } else {
             // Tableau des unités et de leurs valeurs en secondes
             $times = array( 3600     =>  T::__('Stunde(n)', 'game'),
@@ -361,6 +371,8 @@ class TownController extends InventoryAwareController
         $criteria->andWhere($criteria->expr()->gte('severity', Complaint::SeverityBanish));
         $criteria->andWhere($criteria->expr()->eq('culprit', $c));
 
+        $can_recycle = !$c->getAlive() && $c->getHome()->getPrototype()->getLevel() > 1 && $c->getHome()->getRecycling() < 15;
+
         return $this->render( 'ajax/game/town/home_foreign.html.twig', $this->addDefaultTwigArgs('citizens', [
             'owner' => $c,
             'can_attack' => !$this->getActiveCitizen()->getBanished() && !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5,
@@ -370,7 +382,7 @@ class TownController extends InventoryAwareController
             'allow_devour_corpse' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_corpse'),
             'home' => $home,
             'actions' => $this->getItemActions(),
-            'can_complain' => !$this->getActiveCitizen()->getBanished() && ( !$c->getBanished() || $this->town_handler->getBuilding( $this->getActiveCitizen()->getTown(), 'r_dhang_#00', true ) || $this->town_handler->getBuilding( $this->getActiveCitizen()->getTown(), 'small_fleshcage_#00', true )),
+            'can_complain' => !$this->getActiveCitizen()->getBanished() && ( !$c->getBanished() || $this->town_handler->getBuilding( $this->getActiveCitizen()->getTown(), 'r_dhang_#00', true ) || $this->town_handler->getBuilding( $this->getActiveCitizen()->getTown(), 'small_fleshcage_#00', true ) || $this->town_handler->getBuilding( $this->getActiveCitizen()->getTown(), 'small_eastercross_#00', true )),
             'complaint' => $this->entity_manager->getRepository(Complaint::class)->findByCitizens( $this->getActiveCitizen(), $c ),
             'complaints' => $this->entity_manager->getRepository(Complaint::class)->matching( $criteria ),
             'complaintreasons' => $this->entity_manager->getRepository(ComplaintReason::class)->findAll(),
@@ -395,7 +407,8 @@ class TownController extends InventoryAwareController
             'protect' => $this->citizen_handler->houseIsProtected($c, true),
             'hasClairvoyance' => $hasClairvoyance,
             'clairvoyanceLevel' => $clairvoyanceLevel,
-            'attackAP' => $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 4 )
+            'attackAP' => $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 4 ),
+            'can_recycle' => $can_recycle,
         ]) );
     }
 
@@ -550,7 +563,7 @@ class TownController extends InventoryAwareController
         if ($severity != Complaint::SeverityNone && !$complaintReason)
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $has_gallows = $th->getBuilding( $this->getActiveCitizen()->getTown(), 'r_dhang_#00', true );
+        $has_gallows = $th->getBuilding( $this->getActiveCitizen()->getTown(), 'r_dhang_#00', true ) ?? $th->getBuilding( $this->getActiveCitizen()->getTown(), 'small_eastercross_#00', true );
         $has_cage = $th->getBuilding( $this->getActiveCitizen()->getTown(), 'small_fleshcage_#00', true );
 
         $author = $this->getActiveCitizen();
@@ -1377,8 +1390,9 @@ class TownController extends InventoryAwareController
         if ($citizen->getAp() < 1 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
-        if ($result = $this->conf->getCurrentEvent($town)->hook_door($action))
-            return $result;
+        foreach ($this->conf->getCurrentEvents($town) as $e)
+            if ($result = $e->hook_door($action))
+                return $result;
 
         $this->citizen_handler->setAP($citizen, true, -1);
         $town->setDoor( $action === 'open' );
@@ -1638,12 +1652,23 @@ class TownController extends InventoryAwareController
         if ($this->getActiveCitizen()->getBanished())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
 
+        if ($this->user_handler->isRestricted($this->getActiveCitizen()->getUser(), AccountRestriction::RestrictionTownCommunication))
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
         // Get town
         $town = $this->getActiveCitizen()->getTown();
 
         $new_words_of_heroes = mb_substr($parser->get('content', ''), 0, 500);
 
         $town->setWordsOfHeroes($new_words_of_heroes);
+
+        $this->entity_manager->persist(
+            (new BlackboardEdit())
+                ->setUser( $this->getActiveCitizen()->getUser() )
+                ->setTime( new DateTime() )
+                ->setText( $new_words_of_heroes )
+                ->setTown( $town )
+        );
 
         // Persist
         try {

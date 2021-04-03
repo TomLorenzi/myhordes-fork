@@ -97,7 +97,7 @@ class DeathHandler
         $died_outside = $citizen->getZone() !== null;
         if (!$died_outside) {
             $zone = null;
-            $justice = in_array($cod->getRef(), [CauseOfDeath::Hanging, CauseOfDeath::FleshCage]);
+            $justice = in_array($cod->getRef(), [CauseOfDeath::Hanging, CauseOfDeath::FleshCage, CauseOfDeath::ChocolateCross]);
             $citizen->getHome()->setHoldsBody( true );
             if ($justice || $this->conf->getTownConfiguration( $citizen->getTown() )->get(TownConf::CONF_MODIFIER_BONES_IN_TOWN, false))
                 $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'),

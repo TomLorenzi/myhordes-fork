@@ -1,6 +1,7 @@
 {% extends "ajax/ajax.html.twig" %}
 {% block title %}{{ 'Aktuelle Städte'|trans({}, 'admin')|raw }}{% endblock %}
 {% block ajax %}
+    {% embed "ajax/admin/towns/header.html.twig" with {'search_controller': 'admin_towns_fuzzyfind'} %}{% endembed %}
     <div class="row">
         <div class="cell padded rw-12">
             <ul class="tabs plain">
@@ -53,6 +54,24 @@
                     </div>
                 {% endfor %}
             </div>
+
+            <h5>{{ 'Stadt anlegen'|trans({},'admin') }}</h5>
+            <div class="row-flex">
+                <div class="padded cell grow-0 shrink-0"><label><select id="new_town_lang">
+                            <option value="de">DE</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                            <option value="multi">MULTI</option>
+                </select></label></div>
+                <div class="padded cell grow-1 shrink-1"><label><input id="new_town_name" type="text" placeholder="{{ 'Stadtname'|trans({},'admin') }}" /></label></div>
+                <div class="padded cell grow-0 shrink-0"><label><select id="new_town_type">
+                            <option value="small">{{ 'Kleine Stadt'|trans({},'game') }}</option>
+                            <option value="remote">{{ 'Entfernte Regionen'|trans({},'game') }}</option>
+                            <option value="panda">{{ 'Pandämonium'|trans({},'game') }}</option>
+                </select></label></div>
+                <div class="padded cell grow-0 shrink-0"><button id="new_town_button">{{ 'Stadt anlegen'|trans({},'admin') }}</button></div>
+            </div>
         </div>
     </div>
     {% embed "ajax/admin/towns/footer.html.twig" with {'search_controller': 'admin_towns_fuzzyfind'} %}{% endembed %}
@@ -60,5 +79,15 @@
 {% block js %}
     {{ parent() }}
     <script>
+        $.html.addEventListenerAll('#new_town_button', 'click', () => {
+            let name = document.getElementById('new_town_name').value;
+            if (!name) name = null;
+
+            $.ajax.easySend('{{ path('admin_new_town') }}', {
+                name: name,
+                type: document.getElementById('new_town_type').value,
+                lang: document.getElementById('new_town_lang').value
+            }, () => $.ajax.load(null, '{{ path('admin_town_list') }}'));
+        });
     </script>
 {% endblock %}

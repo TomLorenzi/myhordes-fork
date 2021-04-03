@@ -2,36 +2,25 @@
 
 namespace App\Service;
 
-use App\Entity\Avatar;
-use App\Entity\CauseOfDeath;
-use App\Entity\Changelog;
+use App\Entity\AccountRestriction;
 use App\Entity\Forum;
-use App\Entity\ForumThreadSubscription;
 use App\Entity\ForumUsagePermissions;
-use App\Entity\HeroSkillPrototype;
-use App\Entity\Picto;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
-use Doctrine\ORM\NonUniqueResultException;
-use Doctrine\ORM\NoResultException;
-use Doctrine\ORM\Query\Expr\GroupBy;
 use Doctrine\ORM\QueryBuilder;
-use Imagick;
-use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
-use Exception;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Security\Core\Role\RoleHierarchyInterface;
 
 class PermissionHandler
 {
 
-    private $entity_manager;
+    private EntityManagerInterface $entity_manager;
+    private UserHandler $user_handler;
 
-    public function __construct( EntityManagerInterface $em)
+    public function __construct( EntityManagerInterface $em, UserHandler $uh)
     {
         $this->entity_manager = $em;
+        $this->user_handler = $uh;
     }
 
     private function get_assoc( User $user, UserGroup $group): ?UserGroupAssociation {
@@ -126,7 +115,10 @@ class PermissionHandler
 
             /** @var QueryBuilder $qb */
             $qb = $this->entity_manager->getRepository(Forum::class)->createQueryBuilder('f');
-            return $qb->where('f.id NOT IN (:denied)')->setParameter('denied', $denied_forums)->getQuery()->getResult();
+            $qb->andWhere('f.id NOT IN (:denied)')->setParameter('denied', $denied_forums);
+            if ($this->user_handler->isRestricted($user, AccountRestriction::RestrictionGameplay))
+                $qb->andWhere('f.town IS NULL');
+            return $qb->getQuery()->getResult();
 
         } else {
 
@@ -202,6 +194,9 @@ class PermissionHandler
     public function getEffectivePermissions( User $user, ?Forum $forum ): int {
         $grant = $deny = 0;
         if ($forum === null) return ForumUsagePermissions::PermissionNone;
+
+        if ($forum->getTown() && $this->user_handler->isRestricted($user, AccountRestriction::RestrictionGameplay))
+            return ForumUsagePermissions::PermissionNone;
 
         /** @var QueryBuilder $qb */
         $qb = $this->entity_manager->getRepository(ForumUsagePermissions::class)->createQueryBuilder('p');

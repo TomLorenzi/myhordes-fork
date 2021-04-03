@@ -384,7 +384,7 @@ class ItemFixtures extends Fixture
 		['label' => 'Kanisterpumpe (zerlegt)', 'icon' => 'jerrygun_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                          // -- ---
 		['label' => 'Unvollständige Kettensäge', 'icon' => 'chainsaw_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                         // -- ---
 		['label' => 'Unvollständiger Handmixer', 'icon' => 'mixergun_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                        // -- ---
-		['label' => 'Zerlegter Rasenmäher', 'icon' => 'lawn_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // -- ---
+		['label' => 'Zerlegter Rasenmäher', 'icon' => 'lawn_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                 // -- ---
 		['label' => 'Unvollständiger Zerstörer', 'icon' => 'big_pgun_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                        // -- ---
 		['label' => 'Aqua-Splash (zerlegt)', 'icon' => 'watergun_opt_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                        // -- ---
 		['label' => 'Beschädigte Autotür', 'icon' => 'car_door_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                               // -- ---
@@ -411,6 +411,7 @@ class ItemFixtures extends Fixture
         ['label' => 'Kreischender Wecker (mit Strom)', 'icon' => 'alarm_on', 'category' => 'Misc', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
         ['label' => 'Hurlingstock', 'icon' => 'hurling_stick', 'category' => 'Weapon', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
         ['label' => 'Guiness', 'icon' => 'guiness', 'category' => 'Food', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
+        ['label' => 'Schwarzer Zervixschleim', 'icon' => 'april_drug', 'category' => 'Drug', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
     ];
     
     public static $item_desc_data = [
@@ -766,7 +767,8 @@ class ItemFixtures extends Fixture
         'alarm_off_#00' => 'Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert.',
         'alarm_on_#00' => 'Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei.',
         'hurling_stick_#00' => 'Ein kleiner Ratschlag. Wenn du schon den falschen Kampf wählst... dann wähle wenigstens die richtige Waffe.',
-        'guiness_#00' => 'Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen'
+        'guiness_#00' => 'Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen',
+        'april_drug_#00' => 'Ein Gift welches bei der Einnahme EXTREM virulent wirkt, wenn man dem Etikett Glauben schenken darf: Die Ingestion des Zervixschleim führt zu Tod, spontaner Verbrennung, Explosion der Lunge und zum Austritt des Gehirns aus allen Körperöffnungen. Aber nicht unbedingt in dieser Reihenfolge.'
     ];
     
     public static $item_prototype_properties = [
@@ -855,6 +857,7 @@ class ItemFixtures extends Fixture
         'pharma_#00'                 => [ 'impoundable', 'drug' ],
         'pharma_part_#00'            => [ 'impoundable', 'drug' ],
         'lsd_#00'                    => [ 'impoundable', 'drug' ],
+        'april_drug_#00'             => [ 'drug', 'can_cook' ],
         'radio_on_#00'               => [ 'impoundable', 'nw_ikea' ],
         'water_#00'                  => [ 'can_poison', 'hero_find', 'esc_fixed', 'hero_find_lucky',  'found_poisoned', 'is_water' ],
         'can_open_#00'               => [ 'can_poison', 'food', 'can_cook' ],
@@ -1107,20 +1110,21 @@ class ItemFixtures extends Fixture
             array('item' => 'pumpkin_raw_#00', 'count' => '5'),
         ],
         'trash_good' => [
-            array('item' => 'fence_#00', 'count' => '33'),
-            array('item' => 'chest_#00', 'count' => '6'),
-            array('item' => 'wood2_#00', 'count' => '15'),
-            array('item' => 'metal_#00', 'count' => '2'),
+            array('item' => 'fence_#00', 'count' => '65'),
+            array('item' => 'chest_#00', 'count' => '8'),
+            array('item' => 'wood2_#00', 'count' => '21'),
+            array('item' => 'metal_#00', 'count' => '5'),
             array('item' => 'repair_one_#00', 'count' => '7'),
-            array('item' => 'home_def_#00', 'count' => '9'),
-            array('item' => 'home_box_#00', 'count' => '4'),
+            array('item' => 'home_def_#00', 'count' => '10'),
+            array('item' => 'home_box_#00', 'count' => '7'),
+            array('item' => 'chain_#00', 'count' => '4'),
         ],
         'trash_bad' => [
-            array('item' => 'fruit_sub_part_#00', 'count' => '205'),
-            array('item' => 'fruit_part_#00', 'count' => '54'),
-            array('item' => 'pharma_part_#00', 'count' => '148'),
-            array('item' => 'flesh_part_#00', 'count' => '311'),
-            array('item' => 'water_cup_part_#00', 'count' => '16'),
+            array('item' => 'fruit_sub_part_#00', 'count' => '316'),
+            array('item' => 'fruit_part_#00', 'count' => '83'),
+            array('item' => 'pharma_part_#00', 'count' => '252'),
+            array('item' => 'flesh_part_#00', 'count' => '471'),
+            array('item' => 'water_cup_part_#00', 'count' => '25'),
         ],
     ];
 

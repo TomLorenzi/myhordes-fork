@@ -1,0 +1,266 @@
+{% macro gen_id(prefix,domain,name) %}{% if prefix is not empty %}{{ prefix }}-{% endif %}{{ domain }}_{{ name }}{% endmacro %}
+
+<!-- <editor-fold desc="Item Creator Widget"> -->
+{% macro widget_item_creator(itemPrototypes, prefix = '') %}
+    <div class="lightbox">
+        <div class="row">
+            <div class="cell rw-12"><label for="{{ _self.gen_id(prefix,'itemwidget','select')}}">{{'Einen Gegenstand erzeugen:'|trans({}, 'admin')}}</label></div>
+        </div>
+        <div class="row-flex">
+            <div class="padded cell grow-1 shrink-1">
+                <select id="{{ _self.gen_id(prefix,'itemwidget','select')}}">
+                    {% for itemPrototype in itemPrototypes %}
+                        <option value="{{itemPrototype.id}}">{{ itemPrototype.label|trans({}, 'items') }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="padded cell grow-0 shrink-0"><label for="{{ _self.gen_id(prefix,'itemwidget','number')}}">X</label></div>
+            <div class="padded cell grow-3 shrink-3"> <input type="number" id="{{ _self.gen_id(prefix,'itemwidget','number')}}" value="1"/> </div>
+            <div class="padded cell grow-0 shrink-0 right">
+                <label>{{'Vergiftet:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_poison')}}" /></label><br />
+                <label>{{'Zerstört:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_broken')}}" /></label><br />
+                <label>{{'Essentiell:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_essential')}}" /></label><br />
+                <label>{{'Versteckt:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_hidden')}}" /></label><br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="padded cell rw-12"><button id="{{ _self.gen_id(prefix,'itemwidget','spawn')}}">{{'Erzeugen!'|trans({}, 'admin')}}</button></div>
+        </div>
+    </div>
+{% endmacro %}
+{% macro widget_item_creator_js(selector, api_url, load_url, prefix = '') %}
+    <script>
+        $.html.addEventListenerAll('#{{ _self.gen_id(prefix,'itemwidget','spawn')}}', 'click', function(){
+            const number = parseInt(document.getElementById("{{ _self.gen_id(prefix,'itemwidget','number')}}").value);
+            const item = parseInt(document.getElementById('{{ _self.gen_id(prefix,'itemwidget','select')}}').value);
+
+            const conf = {
+                poison: document.getElementById('{{ _self.gen_id(prefix,'itemwidget','opt_poison')}}').checked,
+                broken: document.getElementById('{{ _self.gen_id(prefix,'itemwidget','opt_broken')}}').checked,
+                essential: document.getElementById('{{ _self.gen_id(prefix,'itemwidget','opt_essential')}}').checked,
+                hidden: document.getElementById('{{ _self.gen_id(prefix,'itemwidget','opt_hidden')}}').checked
+            }
+
+            let targets = {
+                chest: [], rucksack: [], zone: [], bank: []
+            }
+
+            document.querySelectorAll('{{ selector|e('js') }}').forEach(element => {
+                switch (element.getAttribute('x-target')) {
+                    case 'chest'   : targets.chest.push(parseInt(element.getAttribute('x-id'))); break;
+                    case 'rucksack': targets.rucksack.push(parseInt(element.getAttribute('x-id'))); break;
+                    case 'zone'    : targets.zone.push(parseInt(element.getAttribute('x-id'))); break;
+                    case 'bank'    : targets.bank.push(parseInt(element.getAttribute('x-id'))); break;
+                    default: break;
+                }
+            });
+
+            $.ajax.easySend('{{ api_url }}', { prototype: item, number: number, conf: conf, targets: targets},
+                () => $.ajax.load(null, '{{ load_url }}', true)
+            );
+        });
+    </script>
+{% endmacro %}
+<!-- </editor-fold> -->
+
+<!-- <editor-fold desc="Picto Creator Widget"> -->
+{% macro widget_picto_creator(pictoPrototypes, prefix = '') %}
+    <div class="lightbox">
+        <div class="row">
+            <div class="padded cell rw-12">
+                <label for="{{ _self.gen_id(prefix,'pictowidget','select')}}">{{'Eine Auszeichnungen auswählen:'|trans({}, 'admin')}}</label>
+            </div>
+        </div>
+        <div class="row-flex">
+            <div class="padded cell grow-2 shrink-1">
+                <select id="{{ _self.gen_id(prefix,'pictowidget','select')}}">
+                    {% for pictoPrototype in pictoPrototypes %}
+                        <option value="{{pictoPrototype.id}}">{{ pictoPrototype.label|trans({}, 'game') }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="padded cell grow-0 shrink-0"><label for="{{ _self.gen_id(prefix,'pictowidget','number')}}">X</label></div>
+            <div class="padded cell grow-1 shrink-1"><input type="number" id="{{ _self.gen_id(prefix,'pictowidget','number')}}" value="1"/></div>
+        </div>
+        <div class="row">
+            <div class="padded cell rw-12">
+                <button id="{{ _self.gen_id(prefix,'pictowidget','give')}}">{{'Vergeben!'|trans({}, 'admin')}}</button>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+{% macro widget_picto_creator_js(api_url, load_url, prefix = '') %}
+<script>
+    $.html.addEventListenerAll('#{{ _self.gen_id(prefix,'pictowidget','give')}}', 'click', function(){
+        const number = parseInt(document.getElementById("{{ _self.gen_id(prefix,'pictowidget','number')}}").value);
+        $.ajax.easySend('{{ api_url }}',
+            {prototype: parseInt(document.getElementById('{{ _self.gen_id(prefix,'pictowidget','select')}}').value), number: isNaN(number) ? 1 : number},
+            () => $.ajax.load(null, '{{ load_url }}', true)
+        );
+    });
+</script>
+{% endmacro %}
+<!-- </editor-fold> -->
+
+<!-- <editor-fold desc="Status Manager Widget"> -->
+{% macro widget_status_control(citizenStati, prefix = '') %}
+    <div class="lightbox">
+        <div class="row">
+            <div class="padded cell rw-12"><label for="{{ _self.gen_id(prefix,'statuswidget','select')}}">{{'Einen Status auswählen:'|trans({}, 'admin')}}</label></div>
+        </div>
+        <div class="row-flex">
+            <div class="padded cell grow-1 shrink-1">
+                <select id="{{ _self.gen_id(prefix,'statuswidget','select')}}">
+                    {% for status in citizenStati %}
+                        <option value="{{status.id}}">{{ status.label|trans({}, 'game') }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="1" id="{{ _self.gen_id(prefix,'statuswidget','give')}}"><i class="fa fa-plus"></i><div class="tooltip">{{'Status vergeben'|trans({}, 'admin')}}</div></button></div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="0" id="{{ _self.gen_id(prefix,'statuswidget','take')}}"><i class="fa fa-minus"></i><div class="tooltip">{{'Status entfernen'|trans({}, 'admin')}}</div></button></div>
+        </div>
+    </div>
+{% endmacro %}
+{% macro widget_status_control_js(selector, api_url, load_url, prefix = '') %}
+    <script>
+        $.html.addEventListenerAll('#{{ _self.gen_id(prefix,'statuswidget','give')}},#{{ _self.gen_id(prefix,'statuswidget','take')}}','click', function(e,elem){
+            const status = document.getElementById('{{ _self.gen_id(prefix,'statuswidget','select')}}').value;
+
+            let targets = [];
+            document.querySelectorAll('{{ selector|e('js') }}').forEach( element => targets.push(parseInt(element.getAttribute('x-id'))) );
+            if (targets.length === 0) {
+                $.html.error('{{ 'Kein Bürger ausgewählt!'|trans({}, 'admin') }}');
+                return;
+            }
+
+            $.ajax.easySend('{{ api_url }}', {
+                    status: status, targets: targets, control: parseInt(elem.getAttribute('x-control'))
+                }, () => $.ajax.load(null, '{{ load_url }}', true)
+            );
+        });
+    </script>
+{% endmacro %}
+<!-- </editor-fold> -->
+
+<!-- <editor-fold desc="Role Manager Widget"> -->
+{% macro widget_role_control(citizenRoles, prefix = '') %}
+    <div class="lightbox">
+        <div class="row">
+            <div class="padded cell rw-12"><label for="{{ _self.gen_id(prefix,'rolewidget','select')}}">{{'Eine Rolle auswählen:'|trans({}, 'admin')}}</label></div>
+        </div>
+        <div class="row-flex">
+            <div class="padded cell grow-1 shrink-1">
+                <select id="{{ _self.gen_id(prefix,'rolewidget','select')}}">
+                    {% for status in citizenRoles %}
+                        <option value="{{status.id}}">{{ status.label|trans({}, 'game') }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="1" id="{{ _self.gen_id(prefix,'rolewidget','give')}}"><i class="fa fa-plus"></i><div class="tooltip">{{'Rolle vergeben'|trans({}, 'admin')}}</div></button></div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="0" id="{{ _self.gen_id(prefix,'rolewidget','take')}}"><i class="fa fa-minus"></i><div class="tooltip">{{'Rolle entfernen'|trans({}, 'admin')}}</div></button></div>
+        </div>
+    </div>
+{% endmacro %}
+{% macro widget_role_control_js(selector, api_url, load_url, prefix = '') %}
+    <script>
+        $.html.addEventListenerAll('#{{ _self.gen_id(prefix,'rolewidget','give')}},#{{ _self.gen_id(prefix,'rolewidget','take')}}','click', function(e,elem){
+            const role = document.getElementById('{{ _self.gen_id(prefix,'rolewidget','select')}}').value;
+
+            let targets = [];
+
+            document.querySelectorAll('{{ selector|e('js') }}').forEach( element => targets.push(parseInt(element.getAttribute('x-id'))) );
+            if (targets.length === 0) {
+                $.html.error('{{ 'Kein Bürger ausgewählt!'|trans({}, 'admin') }}');
+                return;
+            }
+
+            $.ajax.easySend('{{ api_url }}', {
+                role: role, targets: targets, control: parseInt(elem.getAttribute('x-control'))
+                }, () => $.ajax.load(null, '{{ load_url }}', true)
+            );
+        });
+    </script>
+{% endmacro %}
+<!-- </editor-fold> -->
+
+<!-- <editor-fold desc="Point Manager Widget"> -->
+{% macro widget_point_control(prefix = '') %}
+    <div class="lightbox">
+        <div class="row-flex">
+            <div class="padded cell grow-1 shrink-1">
+                <label><select id="{{ _self.gen_id(prefix,'pointwidget','select')}}">
+                        <option value="ap">{{'AP'|trans({}, 'admin')}}</option>
+                        <option value="bp">{{'BP'|trans({}, 'admin')}}</option>
+                        <option value="mp">{{'MP'|trans({}, 'admin')}}</option>
+                    </select></label>
+            </div>
+            <div class="padded cell grow-1 shrink-1">
+                <label><input type="number" id="{{ _self.gen_id(prefix,'pointwidget','number')}}" value="6"/></label>
+            </div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="1"  id="{{ _self.gen_id(prefix,'pointwidget','give')}}"><i class="fa fa-plus"></i><div class="tooltip">{{'Hinzufügen'|trans({}, 'admin')}}</div></button></div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="0"  id="{{ _self.gen_id(prefix,'pointwidget','set')}}"> <i class="fa fa-hand-point-down"></i><div class="tooltip">{{'Setzen'|trans({}, 'admin')}}</div></button></div>
+            <div class="padded cell grow-0 shrink-0"><button x-control="-1" id="{{ _self.gen_id(prefix,'pointwidget','take')}}"><i class="fa fa-minus"></i><div class="tooltip">{{'Abziehen'|trans({}, 'admin')}}</div></button></div>
+        </div>
+    </div>
+{% endmacro %}
+{% macro widget_point_control_js(selector, api_url, load_url, prefix = '') %}
+    <script>
+        $.html.addEventListenerAll('#{{ _self.gen_id(prefix,'pointwidget','give')}},#{{ _self.gen_id(prefix,'pointwidget','set')}},#{{ _self.gen_id(prefix,'pointwidget','take')}}','click', function(e,elem){
+            const point = document.getElementById('{{ _self.gen_id(prefix,'pointwidget','select')}}').value;
+            const num = parseInt(document.getElementById('{{ _self.gen_id(prefix,'pointwidget','number')}}').value);
+
+            let targets = [];
+            document.querySelectorAll('{{ selector|e('js') }}').forEach( element => targets.push(parseInt(element.getAttribute('x-id'))) );
+            if (targets.length === 0) {
+                $.html.error('{{ 'Kein Bürger ausgewählt!'|trans({}, 'admin') }}');
+                return;
+            }
+
+            $.ajax.easySend('{{ api_url }}', {
+                    point: point, num: num, targets: targets, control: parseInt(elem.getAttribute('x-control'))
+                }, () => $.ajax.load(null, '{{ load_url }}', true)
+            );
+        });
+    </script>
+{% endmacro %}
+<!-- </editor-fold> -->
+
+<!-- <editor-fold desc="Profession Manager Widget"> -->
+{% macro widget_profession_control(citizenProfessions, prefix = '') %}
+    <div class="lightbox">
+        <div class="row">
+            <div class="padded cell rw-12"><label for="{{ _self.gen_id(prefix,'prowidget','select')}}">{{'Einen Beruf auswählen:'|trans({}, 'admin')}}</label></div>
+        </div>
+        <div class="row-flex">
+            <div class="padded cell grow-1 shrink-1">
+                <select id="{{ _self.gen_id(prefix,'prowidget','select')}}">
+                    {% for pro in citizenProfessions %}
+                        <option value="{{pro.id}}">{{ pro.label|trans({}, 'game') }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="padded cell grow-0 shrink-0"><button id="{{ _self.gen_id(prefix,'prowidget','set')}}"><i class="fa fa-hand-point-down"></i><div class="tooltip">{{'Setzen'|trans({}, 'admin')}}</div></button></div>
+        </div>
+    </div>
+{% endmacro %}
+{% macro widget_profession_control_js(selector, api_url, load_url, prefix = '') %}
+    <script>
+        $.html.addEventListenerAll('#{{ _self.gen_id(prefix,'prowidget','set')}}','click', function(e,elem){
+            const profession = parseInt(document.getElementById('{{ _self.gen_id(prefix,'prowidget','select')}}').value);
+
+            let targets = [];
+
+            document.querySelectorAll('{{ selector|e('js') }}').forEach( element => targets.push(parseInt(element.getAttribute('x-id'))) );
+            if (targets.length === 0) {
+                $.html.error('{{ 'Kein Bürger ausgewählt!'|trans({}, 'admin') }}');
+                return;
+            }
+
+            $.ajax.easySend('{{ api_url }}', {
+                profession: profession, targets: targets
+                }, () => $.ajax.load(null, '{{ load_url }}', true)
+            );
+        });
+    </script>
+{% endmacro %}
+<!-- </editor-fold> -->

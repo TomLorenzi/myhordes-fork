@@ -14,17 +14,6 @@
         <div class="cell padded header rw-12">
             {% embed "ajax/admin/users/tabs.html.twig" %}{% endembed %}
 
-            {% if user.shadowBan %}
-                <div class="row">
-                    <div class="cell padded rw-12">
-                        <b style="color: red">{{ 'Durch %admin% vom Spiel ausgeschlossen!'|trans({'%admin%': user.shadowBan.admin.name}, 'admin') }}</b>
-                        {% if user.shadowBan.reason is not null %}
-                            <br /><i style="color: red">"{{ user.shadowBan.reason }}"</i>
-                        {% endif %}
-                    </div>
-                </div>
-            {% endif %}
-
             {% if user.deleteAfter is not null %}
                 <div class="row">
                     <div class="cell padded rw-12">
@@ -63,11 +52,6 @@
                                     {% if user.eternalID is null %}
                                         <option value="{{ url('admin_users_account_manage', {action: 'delete', id: user.id}) }}" x-confirm="DELETE">{{ 'Löschen'|trans({},'admin') }}</option>
                                         <option value="{{ url('admin_users_account_manage', {action: 'change_mail', id: user.id}) }}" x-query="{{ 'E-Mail eingeben.'|trans({},'admin') }}">{{ 'E-Mail ändern'|trans({},'admin') }}</option>
-                                    {% endif %}
-                                    {% if user.shadowBan is null %}
-                                        <option value="{{ url('admin_users_account_manage', {action: 'shadow', id: user.id}) }}" x-confirm="SHADOW" x-query="{{ 'Grund angeben'|trans({},'admin') }}">{{ 'Spielbann'|trans({},'admin') }}</option>
-                                    {% else %}
-                                        <option value="{{ url('admin_users_account_manage', {action: 'unshadow', id: user.id}) }}" x-confirm="UNSHADOW">{{ 'Spielbann aufheben'|trans({},'admin') }}</option>
                                     {% endif %}
                                     <option value="{{ url('admin_users_account_manage', {action: 'whitelist', id: user.id}) }}" x-confirm="WHITELIST" x-query="{{ 'Spieler-ID'|trans({},'admin') }}">{{ 'Multi-Account Whitelist-Eintrag hinzufügen'|trans({},'admin') }}</option>
                                 </optgroup>

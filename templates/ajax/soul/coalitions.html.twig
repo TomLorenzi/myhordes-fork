@@ -159,7 +159,11 @@
                     <span class="small">{% trans from "soul" %}Du stehst <strong>nicht zur Verfügung</strong>.{% endtrans %}</span>
                 {% endif %}
                 <button x-api-endpoint="{{ path('soul_toggle_coalition') }}">{{ 'Meinen Status ändern'|trans({},'soul') }}<div class="tooltip help">{{ 'Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.'|trans({},'soul') }}</div></button>
-                <button x-confirm="{{ (membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') ? 'Möchtest du diese Koalition verlassen und somit auflösen?' : 'Möchtest du diese Koalition verlassen?')|trans({},'soul') }}" x-api-endpoint="{{ path('soul_leave_coalition', {'coalition': membership.id}) }}">{{ membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') ? 'Verlassen UND auflösen'|trans({},'soul') : 'Verlassen'|trans({},'soul') }}</button>
+                {% if membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') %}
+                    <button x-confirm="{{ 'Möchtest du diese Koalition verlassen und somit auflösen?'|trans({},'soul') }}" x-api-endpoint="{{ path('soul_leave_coalition', {'coalition': membership.id}) }}">{{ 'Verlassen UND auflösen'|trans({},'soul') }}</button>
+                {% else %}
+                    <button x-confirm="{{ 'Möchtest du diese Koalition verlassen?'|trans({},'soul') }}" x-api-endpoint="{{ path('soul_leave_coalition', {'coalition': membership.id}) }}">{{ 'Verlassen'|trans({},'soul') }}</button>
+                {% endif %}
                 <span class="small"></span>
             </div>
         {% endif %}
@@ -274,7 +278,8 @@
                             ref.removeAttribute('disabled');
                             fun_send_working = false;
                         });
-                    }, null,  () => {
+                    }, null,  (data) => {
+                        $.html.selectErrorMessage( data.error, {}, c.errors, data )
                         box.removeAttribute('disabled');
                         button.removeAttribute('disabled');
                         ref.removeAttribute('disabled');

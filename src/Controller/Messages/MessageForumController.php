@@ -2,6 +2,7 @@
 
 namespace App\Controller\Messages;
 
+use App\Entity\AccountRestriction;
 use App\Entity\AdminDeletion;
 use App\Entity\AdminReport;
 use App\Entity\Citizen;
@@ -37,7 +38,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class MessageForumController extends MessageController
 {
-
     private function default_forum_renderer(int $fid, int $tid, int $pid, EntityManagerInterface $em, JSONRequestParser $parser, CitizenHandler $ch): Response {
         $num_per_page = 20;
 
@@ -61,9 +61,11 @@ class MessageForumController extends MessageController
         if ($forum->getTown() && $user->getActiveCitizen() && $user->getActiveCitizen()->getTown() === $forum->getTown()) {
             $c = $user->getActiveCitizen();
             if ($c) $ch->inflictStatus($c, 'tg_chk_forum');
+            $paranoid = $ch->hasStatusEffect($c,'tg_paranoid');
             $em->persist( $c );
             $em->flush();
-        }
+        } else $paranoid = false;
+
 
         $show_hidden_threads = $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionModerate );
 
@@ -127,6 +129,7 @@ class MessageForumController extends MessageController
             'jump' => $pid,
             'pages' => $pages,
             'current_page' => $page,
+            'paranoid' => $paranoid
         ] ));
     }
 
@@ -220,7 +223,7 @@ class MessageForumController extends MessageController
 
         $user = $this->getUser();
         $permission = $this->perm->getEffectivePermissions($user,$forum);
-        if ($user->getIsBanned() || !$this->perm->isPermitted( $permission, ForumUsagePermissions::PermissionCreateThread ))
+        if ($this->userHandler->isRestricted( $user, AccountRestriction::RestrictionForum ) || !$this->perm->isPermitted( $permission, ForumUsagePermissions::PermissionCreateThread ))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (!$parser->has_all(['title','text'], true))
@@ -291,7 +294,7 @@ class MessageForumController extends MessageController
 
         $permissions = $this->perm->getEffectivePermissions($user, $forum);
 
-        if ($user->getIsBanned())
+        if ($this->userHandler->isRestricted( $user, AccountRestriction::RestrictionForum ))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $mod_post = false;
@@ -388,7 +391,7 @@ class MessageForumController extends MessageController
      */
     public function edit_post_api(int $fid, int $tid, int $pid, JSONRequestParser $parser, EntityManagerInterface $em, CrowService $crow): Response {
         $user = $this->getUser();
-        if ($user->getIsBanned()) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+        if ($this->userHandler->isRestricted( $user, AccountRestriction::RestrictionForum )) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $post = $em->getRepository(Post::class)->find($pid);
         if (!$post) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -475,7 +478,7 @@ class MessageForumController extends MessageController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    public function small_viewer_api( int $fid, int $sem, EntityManagerInterface $em) {
+    public function small_viewer_api( int $fid, int $sem, EntityManagerInterface $em, CitizenHandler $ch) {
         $user = $this->getUser();
 
         if ($sem === 0) return new Response('');
@@ -491,11 +494,17 @@ class MessageForumController extends MessageController
 
         $posts = $em->getRepository(Post::class)->findUnhiddenByThread($thread, 5, -5);
 
+        // Check for paranoia
+        if ($forum->getTown() && $user->getActiveCitizen() && $user->getActiveCitizen()->getTown() === $forum->getTown())
+            $paranoid = $ch->hasStatusEffect($user->getActiveCitizen(),'tg_paranoid');
+        else $paranoid = false;
+
         foreach ($posts as $post) $post->setText( $this->prepareEmotes( $post->getText() ) );
         return $this->render( 'ajax/forum/posts_small.html.twig', [
             'posts' => $posts,
             'fid' => $fid,
             'tid' => $thread->getId(),
+            'paranoid' => $paranoid
         ] );
     }
 
@@ -508,7 +517,7 @@ class MessageForumController extends MessageController
      * @param int $pid
      * @return Response
      */
-    public function viewer_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, SessionInterface $session, int $pid = -1): Response {
+    public function viewer_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser, SessionInterface $session, CitizenHandler $ch, int $pid = -1): Response {
         $num_per_page = 10;
         $user = $this->getUser();
 
@@ -598,6 +607,12 @@ class MessageForumController extends MessageController
         if ($flush) try { $em->flush(); } catch (Exception $e) {}
 
         foreach ($posts as &$post) $post->setText( $this->prepareEmotes( $post->getText() ) );
+
+        // Check for paranoia
+        if ($forum->getTown() && $user->getActiveCitizen() && $user->getActiveCitizen()->getTown() === $forum->getTown())
+            $paranoid = $ch->hasStatusEffect($user->getActiveCitizen(),'tg_paranoid');
+        else $paranoid = false;
+
         return $this->render( 'ajax/forum/posts.html.twig', [
             'posts' => $posts,
             'owned' => $thread->getOwner() === $user,
@@ -612,7 +627,9 @@ class MessageForumController extends MessageController
             'pages' => $pages,
             'announces' => $announces,
             'markedPost' => $pid,
-            'subscribed' => $em->getRepository(ForumThreadSubscription::class)->count( ['user' => $user, 'thread' => $thread] )
+            'subscribed' => $em->getRepository(ForumThreadSubscription::class)->count( ['user' => $user, 'thread' => $thread] ),
+
+            'paranoid' => $paranoid
         ] );
     }
 

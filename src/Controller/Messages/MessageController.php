@@ -18,6 +18,7 @@ use App\Service\PermissionHandler;
 use App\Service\RandomGenerator;
 use App\Service\TimeKeeperService;
 use App\Service\ConfMaster;
+use App\Service\UserHandler;
 use App\Structures\ForumPermissionAccessor;
 use Doctrine\ORM\EntityManagerInterface;
 use DOMDocument;
@@ -47,13 +48,15 @@ class MessageController extends CustomAbstractController
     protected RandomGenerator $rand;
     protected Packages $asset;
     protected PermissionHandler $perm;
+    protected UserHandler $userHandler;
 
-    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p, ConfMaster $conf, CitizenHandler $ch)
+    public function __construct(RandomGenerator $r, TranslatorInterface $t, Packages $a, EntityManagerInterface $em, InventoryHandler $ih, TimeKeeperService $tk, PermissionHandler $p, ConfMaster $conf, CitizenHandler $ch, UserHandler $uh)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $t);
         $this->asset = $a;
         $this->rand = $r;
         $this->perm = $p;
+        $this->userHandler = $uh;
     }
 
     protected const HTML_ALLOWED = [

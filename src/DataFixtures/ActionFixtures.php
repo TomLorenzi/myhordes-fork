@@ -204,6 +204,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'must_have_canteen'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_cafet_#01', 'complete' => true  ] ]],
             'must_not_have_canteen' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_cafet_#01', 'complete' => false  ] ]],
 
+            'must_not_have_valve'  => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'building' => [ 'prototype' => 'small_valve_#00', 'complete' => false  ] ], 'text' => 'Vielleicht solltest du das mithilfe des Wasserhahns füllen...' ],
+
             'must_have_upgraded_home' => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'home' => [ 'min_level' => 1 ] ]],
 
             'must_have_home_lab_v1' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'home' => [ 'min_level' => 1, 'max_level' => 1, 'upgrade' => 'lab' ] ]],
@@ -230,6 +232,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'must_be_day' => [ 'collection' =>    [ 'custom' => [1] ] ],
             'must_be_night'  => [ 'collection' => [ 'custom' => [2] ] ],
+            'must_be_aprils_fools'  => [ 'collection' => [ 'custom' => [3] ] ],
 
             'custom_vote_shaman' => [ 'collection' => [ 'custom' => [18] ] ],
             'custom_vote_guide'  => [ 'collection' => [ 'custom' => [19] ] ],
@@ -303,6 +306,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'just_ap7'     => [ 'ap' => 'to_max_plus_1' ],
             'just_ap8'     => [ 'ap' => 'to_max_plus_2' ],
             'plus_ap8_30'  => [ 'ap' => 'plus_8_30' ],
+
+            'april' => [ 'status' => [ 'from' => null, 'to' => 'tg_april_ooze' ] ],
 
             'produce_watercan3' => [ 'item' => [ 'consume' => false, 'morph' => 'water_can_3_#00' ] ],
             'produce_watercan2' => [ 'item' => [ 'consume' => false, 'morph' => 'water_can_2_#00' ] ],
@@ -440,7 +445,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 'proj'   => [ 'lens_#00' ],
                 'empty_battery' => [ 'what' => ['pile_broken_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
                 'battery' => [ 'what' => ['pile_#00'], 'where' => AffectItemSpawn::DropTargetFloor ],
-                'safe'  => [ 'watergun_opt_part_#00', 'big_pgun_part_#00', 'lawn_part_#00', 'chainsaw_part_#00', 'mixergun_part_#00', 'cutcut_#00', 'pilegun_upkit_#00', 'book_gen_letter_#00', 'pocket_belt_#00', 'drug_hero_#00', 'meca_parts_#00' ],
+                'safe'  => [ ['watergun_opt_part_#00',10], ['big_pgun_part_#00',5], ['lawn_part_#00',10], ['chainsaw_part_#00',10], ['mixergun_part_#00',10], ['cutcut_#00',10], ['pilegun_upkit_#00',10], ['book_gen_letter_#00',5], ['pocket_belt_#00',15], ['meca_parts_#00',10] ],
                 'asafe' => [ 'bplan_e_#00' ],
 
                 'lab_fail_drugs'    => [ 'what' => ['drug_#00', 'xanax_#00', 'drug_random_#00', 'drug_water_#00', 'water_cleaner_#00'], "where" => AffectItemSpawn::DropTargetFloor  ],
@@ -575,6 +580,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'drug_8ap_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'drug_any', 'just_ap8', 'consume_item' ] ],
             'drug_8ap_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'drug_addict', 'just_ap8', 'consume_item' ] ],
 
+            'drug_april_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1', 'must_be_aprils_fools' ], 'result' => [ 'drug_any', 'just_ap8', 'april', 'consume_item' ], 'message' => 'Merkwürdig... anscheinend ist der erwartete Effekt ausgeblieben. Du sagst dir selbst, das dies eine unglaubliche Chance ist...' ],
+            'drug_april_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'must_be_aprils_fools' ], 'result' => [ 'drug_addict', 'just_ap8', 'april', 'consume_item' ], 'message' => 'Merkwürdig... anscheinend ist der erwartete Effekt ausgeblieben. Du sagst dir selbst, das dies eine unglaubliche Chance ist...' ],
+
             'drug_hyd_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1', 'drink_tl0a', 'drink_tl0b' ], 'result' => [ 'reset_thirst_counter', 'drug_any', 'consume_item' ], 'message' => 'Du hast {item} eingenommen, verspürst aber keine nennenswerte Wirkung... Vielleicht hast du das gar nicht gebraucht?' ],
             'drug_hyd_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'drink_tl0a', 'drink_tl0b' ], 'result' => [ 'reset_thirst_counter', 'drug_addict', 'consume_item' ], 'message' => 'Du hast {item} eingenommen, verspürst aber keine nennenswerte Wirkung... Vielleicht hast du das gar nicht gebraucht?' ],
             'drug_hyd_3' => [ 'label' => 'Einnehmen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1', 'drink_tl1' ], 'result' => [ 'reset_thirst_counter', 'drug_any', 'drink_ap_2', 'consume_item' ] ],
@@ -667,12 +675,18 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'light_cig' => [ 'label' => 'Rauchen', 'allow_when_terrorized' => true, 'meta' => [ 'have_matches', 'must_be_terrorized' ], 'result' => [ ['group' => [ [['do_nothing'],20], [['consume_matches'],80]]], ['group' => [ [['do_nothing'],90], [['consume_item'],10]]], 'unterrorize' ] ],
 
-            'fill_asplash'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'watergun_opt_5_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
-            'fill_splash'    => [ 'label' => 'Befüllen', 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'watergun_3_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
             'fill_jsplash'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_canister' ], 'result' => [ 'consume_jerrycan', [ 'item' => [ 'consume' => false, 'morph' => 'jerrygun_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
-            'fill_ksplash'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'kalach_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
-            'fill_grenade'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'grenade_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
-            'fill_exgrenade' => [ 'label' => 'Befüllen', 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'bgrenade_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+
+            'fill_asplash1'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'watergun_opt_5_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+            'fill_asplash2'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'watergun_opt_5_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+            'fill_splash1'    => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'watergun_3_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+            'fill_splash2'    => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'watergun_3_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+            'fill_ksplash1'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'kalach_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+            'fill_ksplash2'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'kalach_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+            'fill_grenade1'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'grenade_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+            'fill_grenade2'   => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'grenade_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+            'fill_exgrenade1' => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_not_have_valve', 'must_be_inside' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'bgrenade_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
+            'fill_exgrenade2' => [ 'label' => 'Befüllen', 'meta' => [ 'have_water', 'must_be_outside_or_exploring' ], 'result' => [ 'consume_water', [ 'item' => [ 'consume' => false, 'morph' => 'bgrenade_#00' ] ] ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
 
             'fill_watercan0' => [ 'label' => 'Befüllen', 'poison' => ItemAction::PoisonHandlerTransgress, 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', 'produce_watercan1' ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
             'fill_watercan1' => [ 'label' => 'Befüllen', 'poison' => ItemAction::PoisonHandlerTransgress, 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', 'produce_watercan2' ], 'message' => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!' ],
@@ -819,7 +833,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'hero_surv_1' => [ 'label' => 'Wasser suchen', 'meta' => [ 'must_be_outside_3km', 'not_yet_sbook' ],                         'result' => [ 'hero_surv_0', 'hero_surv_1' ], 'message' => '{casino}' ],
             'hero_surv_2' => [ 'label' => 'Essen suchen',  'meta' => [ 'no_full_ap', 'must_be_outside_3km', 'not_yet_sbook', 'eat_ap' ], 'result' => [ 'hero_surv_0', 'hero_surv_2' ], 'message' => '{casino}' ],
 
-            'hero_hunter_1' => [ 'label' => 'Tarnen', 'meta' => [ 'must_be_outside', 'must_have_control' ], 'result' => [ 'hero_hunter' ], 'message' => 'Du bist nun getarnt.' ],
+            'hero_hunter_1' => [ 'label' => 'Tarnen', 'meta' => [ 'must_be_outside', [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 0, 'block' => false, 'temp' => true ] ], 'text' => 'Das kannst die <strong>Tarnkleidung</strong> nicht verwenden, solange die Zombies diese Zone kontrollieren!'] ], 'result' => [ 'hero_hunter' ], 'message' => 'Du bist ab sofort getarnt.' ],
             'hero_hunter_2' => [ 'label' => 'Tarnen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'hero_hunter' ], 'message' => 'Du bist nun getarnt.' ],
 
             'hero_generic_return'       => [ 'label' => 'Die Rückkehr des Helden', 'tooltip' => 'Wenn du 11 km oder weniger von der Stadt entfernt bist, kehrst du sofort in die Stadt zurück!', 'cover' => true, 'meta' => [ 'must_be_outside_or_exploring', 'must_be_outside_within_11km', 'not_yet_hero'], 'result' => [ 'hero_act', ['custom' => [8]] ] ],
@@ -1004,6 +1018,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'beta_drug_#00'       => [ 'drug_beta' ],
             'xanax_#00'           => [ 'drug_xana1', 'drug_xana2', 'drug_xana3', 'drug_xana4' ],
             'drug_water_#00'      => [ 'drug_hyd_1', 'drug_hyd_2', 'drug_hyd_3', 'drug_hyd_4', 'drug_hyd_5', 'drug_hyd_6' ],
+            'april_drug_#00'      => [ 'drug_april_1', 'drug_april_2' ],
 
             'food_bag_#00'        => [ 'open_doggybag' ],
             'food_armag_#00'      => [ 'open_lunchbag' ],
@@ -1050,13 +1065,13 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'radio_off_#00'        => [ 'load_radio' ],
             'sport_elec_empty_#00' => [ 'load_emt' ],
 
-            'watergun_opt_empty_#00' => [ 'fill_asplash' ],
-            'watergun_empty_#00'     => [ 'fill_splash' ],
+            'watergun_opt_empty_#00' => [ 'fill_asplash1','fill_asplash2' ],
+            'watergun_empty_#00'     => [ 'fill_splash1', 'fill_splash2' ],
             'jerrygun_off_#00'       => [ 'fill_jsplash'],
             'jerrygun_#00'           => [ 'throw_jerrygun'],
-            'kalach_#01'             => [ 'fill_ksplash'],
-            'grenade_empty_#00'      => [ 'fill_grenade'],
-            'bgrenade_empty_#00'     => [ 'fill_exgrenade'],
+            'kalach_#01'             => [ 'fill_ksplash1', 'fill_ksplash2'],
+            'grenade_empty_#00'      => [ 'fill_grenade1', 'fill_grenade2'],
+            'bgrenade_empty_#00'     => [ 'fill_exgrenade1', 'fill_exgrenade2'],
 
             'grenade_#00'      => [ 'throw_grenade'],
             'bgrenade_#00'     => [ 'throw_exgrenade'],
@@ -1150,6 +1165,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'vodka_#00'    => ['alcohol'],
             'vodka_de_#00' => ['alcohol'],
             'fest_#00'     => ['alcohol'],
+            'guiness_#00'  => ['alcohol'],
             'hmbrew_#00'   => ['alcohol_dx'],
 
             'coffee_#00'   => ['coffee'],

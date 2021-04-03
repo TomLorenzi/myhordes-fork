@@ -178,6 +178,11 @@ class Town
      */
     private $insurrectionProgress = 0;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $managedEvents = false;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -763,5 +768,17 @@ class Town
     public function getQuarantine(): bool
     {
         return $this->getAttackFails() >= 3;
+    }
+
+    public function getManagedEvents(): ?bool
+    {
+        return $this->managedEvents;
+    }
+
+    public function setManagedEvents(bool $managedEvents): self
+    {
+        $this->managedEvents = $managedEvents;
+
+        return $this;
     }
 }

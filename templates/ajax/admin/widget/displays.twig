@@ -1,0 +1,37 @@
+<!-- <editor-fold desc="Citizen Overview Widget"> -->
+{% macro widget_citizen(citizen) %}
+    <div class="row">
+        <div class="cell rw-12"><strong>{{ 'Status'|trans({},'admin') }}</strong></div>
+        <div class="padded cell rw-12">
+            {% for status in citizen.status %}
+                {# @var \App\Entity\CitizenStatus status #}
+                {% if not status.hidden %}
+                    <img alt="{{ status.label|trans({},'game') }}" src="{{ asset('build/images/status/status_' ~ status.icon ~ '.gif') }}" />
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div><br />
+    <div class="row">
+        <div class="cell rw-12"><strong>{{ 'Punkte'|trans({},'admin') }}</strong></div>
+        <div class="cell rw-4"><div class="ap">{{ citizen.ap }}</div></div>
+        <div class="cell rw-4"><div class="bp">{{ citizen.bp }}</div></div>
+        <div class="cell rw-4"><div class="pm">{{ citizen.pm }}</div></div>
+    </div><br />
+    <div class="row">
+        <div class="cell rw-12"><strong>{{ 'Rollen'|trans({},'admin') }}</strong></div>
+        {% for role in citizen.roles %}
+            {# @var \App\Entity\CitizenRole role #}
+            <div class="cell rw-6">{{ role.label }}</div>
+        {% endfor %}
+    </div><br />
+    <div class="row">
+        <div class="cell rw-12"><strong>{{ 'Versteckter Status'|trans({},'admin') }}</strong></div>
+        {% for status in citizen.status %}
+            {# @var \App\Entity\CitizenStatus status #}
+            {% if status.hidden %}
+                <div class="cell rw-6">{{ status.label }}</div>
+            {% endif %}
+        {% endfor %}
+    </div><br />
+{% endmacro %}
+<!-- </editor-fold> -->

@@ -3,7 +3,8 @@ parameters:
     default:
       allow_local_conf: true
 
-      open_town_limit: 5
+      open_town_limit: 7
+      open_town_grace: 30
       lock_door_until_full: false
 
       well:       { min: 90, max: 180 }
@@ -78,6 +79,9 @@ parameters:
           ap: 5
           injury: 0.5
           protection: false
+        complaints:
+          shun: 8
+          kill: 6
         carry_extra_bag: false
         meaty_bones_within_town: false
         building_attack_damage: false
@@ -185,6 +189,7 @@ parameters:
 
     custom:
       open_town_limit: 2
+      open_town_grace: 40
       lock_door_until_full: true
       give_all_pictos: false
       give_soulpoints: false

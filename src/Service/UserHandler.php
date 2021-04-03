@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Entity\AccountRestriction;
 use App\Entity\Avatar;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
@@ -13,6 +14,7 @@ use App\Entity\ShoutboxEntry;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
+use Doctrine\ORM\QueryBuilder;
 use Imagick;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -619,5 +621,47 @@ class UserHandler
 
 
         return $active ? $valid_members : [];
+    }
+
+    public function getActiveRestrictions(User $user): int {
+        $r = AccountRestriction::RestrictionNone;
+
+        /** @var QueryBuilder $qb */
+        $qb = $this->entity_manager->getRepository(AccountRestriction::class)->createQueryBuilder('a');
+        foreach ($qb
+                     ->select('a.restriction AS r')
+                     ->andWhere('a.user = :user' )->setParameter('user', $user)
+                     ->andWhere('(a.active = TRUE AND a.confirmed = true)')
+                     ->andWhere('(a.expires IS NULL or a.expires > :now)')->setParameter('now', new DateTime())
+                     ->getQuery()->getResult() as $entry)
+
+            $r |= $entry['r'];
+
+        return $r;
+    }
+
+    public function getActiveRestrictionExpiration(User $user, ?int $restriction): ?DateTime {
+        $dt = null;
+
+        $qb = $this->entity_manager->getRepository(AccountRestriction::class)->createQueryBuilder('a');
+        foreach ($qb
+                     ->andWhere('a.user = :user' )->setParameter('user', $user)
+                     ->andWhere('(a.active = TRUE AND a.confirmed = true)')
+                     ->andWhere('a.restriction != :nores')->setParameter('nores', AccountRestriction::RestrictionNone)
+                     ->andWhere('(a.expires IS NULL or a.expires > :now)')->setParameter('now', new DateTime())
+                     ->getQuery()->getResult() as $entry)
+            /** @var AccountRestriction $entry */
+            if ( $restriction === null || ($entry->getRestriction() & $restriction) === $restriction ) {
+                if ($entry->getExpires() === null) return null;
+                if ($dt === null || $entry->getExpires() > $dt)
+                    $dt = $entry->getExpires();
+            }
+
+        return $dt;
+    }
+
+    public function isRestricted(User $user, ?int $restriction = null): bool {
+        $r = $this->getActiveRestrictions($user);
+        return $restriction === null ? ($r !== AccountRestriction::RestrictionNone) : (($r & $restriction) === $restriction);
     }
 }

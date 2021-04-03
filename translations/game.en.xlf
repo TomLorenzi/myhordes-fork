@@ -1027,7 +1027,7 @@
       </notes>
       <segment>
         <source>Mein Haus ausbauen</source>
-        <target>Upgrading your home</target>
+        <target>Upgrade your home</target>
       </segment>
     </unit>
     <unit id="J53z_38" name="10e9370">
@@ -3010,7 +3010,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>ZomBIER Bar</source>
-        <target>Shady Barrikaden</target>
+        <target>Shady Bar</target>
       </segment>
     </unit>
     <unit id="ZWfE2Vb" name="%citizen% hat der Stadt folgendes gespendet: %item%">
@@ -3073,7 +3073,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es wurde ein neues Gebäude gebaut: %plan%. Der Bau hat folgende Ressourcen verbraucht: %list%</source>
-        <target>A new building has been constructed: %plan%. This construction used: %list%</target>
+        <target>The construction of the %plan% used the following items: %list%</target>
       </segment>
     </unit>
     <unit id="T6_1xeh" name="Es wurde ein neues Gebäude gebaut: %plan%.">
@@ -3253,7 +3253,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>... das OFFEN stand! %num% Zombies sind in die Stadt eingedrungen!</source>
-        <target>... which were LEFT OPEN !! %num% zombies entered in the Town !</target>
+        <target>... which were LEFT OPEN !! The zombie horde swept mercilessly over the citizens. The town's defences were completely useless!</target>
       </segment>
     </unit>
     <unit id="4ETWhR_" name="%num% Zombies sind durch unsere Verteidigung gebrochen!">
@@ -4856,7 +4856,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Auf der Baustelle arbeiten, in der Werkstatt arbeiten oder in die Außenwelt gehen (optional).</source>
-        <target>Work on a construction site at the workshop, or go outside and scavenge (your choice).</target>
+        <target>Work at the construction sites, at the workshop, or go outside and scavenge (your choice).</target>
       </segment>
     </unit>
     <unit id="4tgoaqE" name="Heldentafel">
@@ -5018,7 +5018,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.</source>
-        <target>Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.</target>
+        <target>Due to your banishment you can no longer use the dump.</target>
       </segment>
     </unit>
     <unit id="j88Eyne" name="Gesamt: %def%">
@@ -5054,7 +5054,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wie viele Gegenstände möchtest du auf den Müll werfen?</source>
-        <target>Wie viele Gegenstände möchtest du auf den Müll werfen?</target>
+        <target>How many items do you want to throw in the dump?</target>
       </segment>
     </unit>
     <unit id="6Ds9C1i" name="Du kannst keine Aktionen ausführen, während du dich versteckst.">
@@ -6710,7 +6710,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Der Bürger wurde zuletzt %time% gesehen.</source>
-        <target>was seen last around %time%.</target>
+        <target>Was seen last %time%.</target>
       </segment>
     </unit>
     <unit id="y2ljklH" name="Dieser Bürger hat %ration% Wasserration(en) aus dem Brunnen genommen.">
@@ -6877,7 +6877,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="Tzmt5qh" name="d848698">
       <notes>
-        <note category="german">Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</note>
+        <note category="german">Du hast heute bereits getrunken. Eine weitere Ration Wasser erlaubt dir heute nicht weitere AP.</note>
       </notes>
       <segment>
         <source>Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</source>
@@ -7376,7 +7376,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ob durch deine Kräfte oder unverschämtes Wetterglück, dicke Regentropfen fallen auf die Stadt herab und füllen ein wenig den Brunnen auf.</source>
-        <target>and be it mastery of the spirit world or blind meteorological fortune, drops of rain fall on the town, adding fresh drinking water to the well.</target>
+        <target>And be it mastery of the spirit world or blind meteorological fortune, drops of rain fall on the town, adding fresh drinking water to the well.</target>
       </segment>
     </unit>
     <unit id="bWnfo2a" name="Das ist keine gute Idee, das ist dir doch wohl klar!">
@@ -8288,7 +8288,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
-        <target>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</target>
+        <target>This morning, %citizen1% celebrated last night's thwarting of the zombie hordes by running buck naked through the streets. "I wanted to celebrate the dawning of this new day in an appropriate fashion", the citizen explained.</target>
       </segment>
     </unit>
     <unit id=".ArUqcq" name="ed7befb">
@@ -8678,7 +8678,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Your eye injury doesn't exactly make your search easier.</target>
       </segment>
     </unit>
-    <unit id="gk3I32J" name="Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.">
+    <unit id="yvgmhoy" name="3439ccb">
       <notes>
         <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</note>
       </notes>
@@ -10421,7 +10421,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>%actor% hat bei der Plünderung von † %victim% Haus diesen Gegenstand gestohlen: %item%</source>
-        <target>%actor% aquired the %item% during the pillaging of † %victim%'s house!</target>
+        <target>%actor% acquired the %item% during the pillaging of † %victim%'s house!</target>
       </segment>
     </unit>
     <unit id="n19gYuh" name="Das folgende Bauprojekt wurde empfohlen:">
@@ -11008,7 +11008,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!</source>
-        <target>Es ist Zeit, sich seinen Mitmenschen in der Hölle anschließen!</target>
+        <target>It is time to join your fellow degenerates in hell!</target>
       </segment>
     </unit>
     <unit id="EEkc8Fs" name="Anzahl der Tage, die du als Schamane gespielt hast.">
@@ -11305,7 +11305,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>%citizen% hat seinen Hund mit %count% Gegenständen in die Stadt geschickt.</source>
-        <target>%citizen% sent his dog to town with %count% items.</target>
+        <target>%citizen% has sent their animal companion back to town with %count% object(s) on its back.</target>
       </segment>
     </unit>
     <unit id="ALk3xHN" name="a65f146">
@@ -14509,7 +14509,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die &lt;strong&gt;Explosion des %plan%&lt;/strong&gt; hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...</source>
-        <target><![CDATA[Die <strong>Explosion des %plan%</strong> hat den ganzen Sektor in Mitleidenschaft gezogen! Das wird sicher Spuren hinterlassen ...]]></target>
+        <target><![CDATA[The whole region has been affected by the <strong>destruction of the %plan%</strong> ! This will certainly leave its mark...]]></target>
       </segment>
     </unit>
     <unit id="G93YC9H" name="8f993e1">
@@ -15355,7 +15355,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>&lt;i class="dagger"&gt;†&lt;/i&gt; %zombie% ist gestern hungrig zum Haus von %victim% gestapft. Nachdem er die Tür mit voller Wucht eingetreten hatte, packte er sein Opfer am Haar und schleuderte es mit voller Wucht gegen die Wand... Einige Schädelsplitter wurden sogar im Schlafzimmer gefunden. Vergesst nie die Leichen zu recyclen. Nie!!</source>
-        <target><![CDATA[<i class="dagger">†</i> %zombie% ist gestern hungrig zum Haus von %victim% gestapft. Nachdem er die Tür mit voller Wucht eingetreten hatte, packte er sein Opfer am Haar und schleuderte es mit voller Wucht gegen die Wand... Einige Schädelsplitter wurden sogar im Schlafzimmer gefunden. Vergesst nie die Leichen zu recyclen. Nie!!]]></target>
+        <target><![CDATA[<i class="dagger">†</i> %zombie% dragged their hunger-driven corpse to %victim%'s house, smashed their door in rage, grabbed their head and smashed it against the wall in a bloody display of cerebral fireworks. Never forget to recycle dead citizens. Never!!]]></target>
       </segment>
     </unit>
     <unit id="HABjCVJ" name="955146b">
@@ -15517,7 +15517,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... &lt;br /&gt;Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das &lt;strong&gt;Wachturmregister&lt;/strong&gt;.&lt;hr /&gt;Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.</source>
-        <target><![CDATA[From the top of the tower, your study the surrounding desert and try to count the zombies to predict their movements...<br />After a few minutes of intense consideration, your register your observations in the <strong>Watchtower register</strong>.<hr />Using this information and that of other citizens, it should be possible to make a reasonable estimation of the attack...]]></target>
+        <target><![CDATA[From the top of the tower, your study the surrounding desert and try to count the zombies to predict their movements...<hr />After a few minutes of intense consideration, your register your observations in the <strong>Watchtower register</strong>.<hr />Using this information and that of other citizens, it should be possible to make a reasonable estimation of the attack...]]></target>
       </segment>
     </unit>
     <unit id="Bhi4A01" name="Du hast am Bauprojekt %plan% mitgeholfen.">
@@ -15526,7 +15526,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du hast am Bauprojekt %plan% mitgeholfen.</source>
-        <target>Du hast am Bauprojekt %plan% mitgeholfen.</target>
+        <target>You have participated in the construction of the %plan%.</target>
       </segment>
     </unit>
     <unit id="U9LSFlB" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.">
@@ -15535,7 +15535,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</source>
-        <target>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) %home% verwandelt.</target>
+        <target>Congratulations! You have upgraded your house to a %home%.</target>
       </segment>
     </unit>
     <unit id="CZg55p2" name="Folgenden Dinge wurden dazu gebraucht:">
@@ -15544,7 +15544,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Folgenden Dinge wurden dazu gebraucht:</source>
-        <target>Folgenden Dinge wurden dazu gebraucht:</target>
+        <target>You have used the following item(s):</target>
       </segment>
     </unit>
     <unit id="2VisPD1" name="Mit dem Bau der(s) %upgrade% hat dein Haus Stufe %level% erreicht!">
@@ -15598,7 +15598,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</source>
-        <target>%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...</target>
+        <target>%citizen% had started to deal with their raging hunger by munching on parts of their fellow citizens. Next time, get rid of the dead to ensure they don't get up again the next day...</target>
       </segment>
     </unit>
     <unit id="zLJ.A.A" name="Anzeigen">
@@ -15655,13 +15655,13 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target>Choose</target>
       </segment>
     </unit>
-    <unit id="uEhXFSv" name="3cb07f6">
+    <unit id="BRQ3HAz" name="4427aca">
       <notes>
-        <note category="german">Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</note>
+        <note category="german">%disposing_citizen% hat %citizen% ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.</note>
       </notes>
       <segment>
-        <source>Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</source>
-        <target>Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</target>
+        <source>%disposing_citizen% hat %citizen% ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.</source>
+        <target>%disposing_citizen% put %citizen% on fire. You weren't aware a party was about to start ! Smokin' !</target>
       </segment>
     </unit>
     <unit id="krk9RGq" name="%citizen% ist ausgegangen...">
@@ -15724,7 +15724,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du hast dafür %count% Aktionspunkt(e) verbraucht.</source>
-        <target>Du hast dafür %count% Aktionspunkt(e) verbraucht.</target>
+        <target>You have used %count% action point(s).</target>
       </segment>
     </unit>
     <unit id="Ltkwrh9" name="1a5e7f5">
@@ -15737,7 +15737,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <source>Als du durch das Fenster blickst, stellst du fest, dass das Haus von %citizen% keinerlei interessante
                     Gegenstände enthält. Ein paar Tonscherben, viel Staub und eine tote Ratte ist alles, was du erkennen kannst.
                     Nichts, was der Mühe wert wäre.</source>
-        <target>Looking throught the window, you see that %citizen%'s house seems to be bereft of anything interesting. Some rough pettery, more dust than on Dayan's desk and a very dead rat. Nothing worth stealing.</target>
+        <target>Looking through the window, you see that %citizen%'s house seems to be bereft of anything interesting. Some rough pottery, more dust than on Dayan's desk, and a very dead rat. Nothing worth stealing.</target>
       </segment>
     </unit>
     <unit id="lo3tdoY" name="Was für eine schreckliche Nacht!">
@@ -15764,7 +15764,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du wurdest verbannt!</source>
-        <target>Du wurdest verbannt!</target>
+        <target>You've been banished!</target>
       </segment>
     </unit>
     <unit id="dVyLKp_" name="Status:">
@@ -15782,7 +15782,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Eine Revolte liegt in weiter Ferne...</source>
-        <target>Eine Revolte liegt in weiter Ferne...</target>
+        <target>An uprising won't happen over night.</target>
       </segment>
     </unit>
     <unit id="x_WVlWR" name="Erste Spannungen bilden sich.">
@@ -15791,7 +15791,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Erste Spannungen bilden sich.</source>
-        <target>Erste Spannungen bilden sich.</target>
+        <target>The strains are starting to show.</target>
       </segment>
     </unit>
     <unit id="LL.dGkI" name="Wir machen Fortschritte.">
@@ -15800,7 +15800,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wir machen Fortschritte.</source>
-        <target>Wir machen Fortschritte.</target>
+        <target>We are making progress.</target>
       </segment>
     </unit>
     <unit id="id8VuDJ" name="Das Ende ist nah.">
@@ -15809,7 +15809,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das Ende ist nah.</source>
-        <target>Das Ende ist nah.</target>
+        <target>The end is near!</target>
       </segment>
     </unit>
     <unit id="DqJn30N" name="Die Revolte steht bevor!">
@@ -15818,7 +15818,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Revolte steht bevor!</source>
-        <target>Die Revolte steht bevor!</target>
+        <target>The insurrection is nearly upon us!</target>
       </segment>
     </unit>
     <unit id="o66h7gA" name="Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!">
@@ -16502,7 +16502,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>hoch</source>
-        <target>significant</target>
+        <target>high</target>
       </segment>
     </unit>
     <unit id="ssHCx3q" name="1d82f8e">
@@ -16511,7 +16511,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</source>
-        <target>If you devour a citizen, your chances of being discovered are %chances%...</target>
+        <target><![CDATA[The chance to be seen, while devouring a citizen, is <strong>%chances%</strong>...]]></target>
       </segment>
     </unit>
     <unit id="qD3lUP9" name="dc1e0ac">
@@ -17267,7 +17267,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Stadt hat folgende Gegenstände in Folge der Verbannung von %shunned% zurückerhalten: %list%</source>
-        <target>Die Stadt hat folgende Gegenstände in Folge der Verbannung von %shunned% zurückerhalten: %list%</target>
+        <target>The town received following item(s) after shunning %shunned% : %list%</target>
       </segment>
     </unit>
     <unit id="jjgpeoi" name="eef0357">
@@ -17429,7 +17429,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</source>
-        <target>Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</target>
+        <target>Once again, we have good and bad news for you. The good news is that you managed to stop %count% zombies! The bad news is that you got hurt...</target>
       </segment>
     </unit>
     <unit id="zKN7f_C" name="Du verlässt deinen Posten?...">
@@ -17438,7 +17438,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du verlässt deinen Posten?...</source>
-        <target>Du verlässt deinen Posten?...</target>
+        <target>So, you've decided to abandon ship? Well, that's your call...</target>
       </segment>
     </unit>
     <unit id="81G6y92" name="2bec6b6">
@@ -17447,7 +17447,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...</source>
-        <target>Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...</target>
+        <target>You have decided to put yourself in harm's way to protect the other townsfolk... highly commendable, citizen!</target>
       </segment>
     </unit>
     <unit id="k23__KG" name="7d8dbe4">
@@ -17456,7 +17456,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Zur Information: Sobald du Wächter bist, kannst du danach wieder einfacher Bürger werden.</source>
-        <target>Zur Information: Sobald du Wächter bist, kannst du danach wieder einfacher Bürger werden.</target>
+        <target>Just to let you know, if you sign up for the watchmen, you can change your mind at any time.</target>
       </segment>
     </unit>
     <unit id="zzRDqeC" name="52c1a7d">
@@ -17465,7 +17465,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...</source>
-        <target>Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...</target>
+        <target>Warning: Once you confirm this, the other watchmen will almost certainly make fun of you...</target>
       </segment>
     </unit>
     <unit id="rqIPcqm" name="%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!">
@@ -17804,7 +17804,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wie gebraucht man diese Karte?</source>
-        <target>Wie gebraucht man diese Karte?</target>
+        <target>How does the map work ?</target>
       </segment>
     </unit>
     <unit id="Gu2qWPY" name="Brauchst du Hilfe? Benutze den %modelink%!">
@@ -17831,7 +17831,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Handbuch zur Aussenwelt</source>
-        <target>Handbuch zur Aussenwelt</target>
+        <target>The pocket guide to the World Beyond</target>
       </segment>
     </unit>
     <unit id="RVCVIu." name="05a9ba3">
@@ -17842,8 +17842,8 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Wenn du "MyHordes" zum ersten Mal spielst, empfehlen wir dir den Links &lt;strong&gt;Wie soll ich spielen?&lt;/strong&gt; zu folgen,
                 die sich auf der Webseite links befindet. Interaktive Schritt-für-Schritt-Anleitungen erklären dir in 5 Minuten die Grundlagen des Spiels.</source>
-        <target>
-					<![CDATA[If you are just starting out with Myhordes, take a look at the<strong>How to Play?</strong> links on the left of the page. They offer interactive guides to teach you the basics of the game in just a few minutes! 
+        <target><![CDATA[
+					If you are just starting out with Myhordes, take a look at the<strong>How to Play?</strong> links on the left of the page. They offer interactive guides to teach you the basics of the game in just a few minutes! 
 					They offer interactive guides to teach you the basics of the game in just a few minutes!]]></target>
       </segment>
     </unit>
@@ -17889,7 +17889,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du besitzt eine &lt;strong&gt;Karte&lt;/strong&gt;. Benutze den Knopf hier oben, um nicht verloren zu gehen!</source>
-        <target><![CDATA[Du besitzt eine <strong>Karte</strong>. Benutze den Knopf hier oben, um nicht verloren zu gehen!]]></target>
+        <target><![CDATA[You have a <strong>map</strong>. Use it well so that you don't get lost - don't forget the buttons underneath it!]]></target>
       </segment>
     </unit>
     <unit id="Cm7opZK" name="877bae7">
@@ -17904,10 +17904,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
                                 benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                                 kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                                 auffüllen.</source>
-        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                                auffüllen.</target>
+        <target>These are used to move around the World Beyond, the desert which surrounds the town...</target>
       </segment>
     </unit>
     <unit id="cNyto3M" name="Du wurdest zum Schamanen gewählt!">
@@ -18159,7 +18156,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du kannst &lt;strong&gt;pro Tag eine Heldentat&lt;/strong&gt; vollbringen und jede dieser Aktionen kann nur &lt;strong&gt;einmal&lt;/strong&gt; pro Partie ausgeführt werden:</source>
-        <target><![CDATA[Du kannst <strong>pro Tag eine Heldentat</strong> vollbringen und jede dieser Aktionen kann nur <strong>einmal</strong> pro Partie ausgeführt werden:]]></target>
+        <target><![CDATA[You can perform <strong>one heroic action per day</strong> and each of these actions <strong>one time only</strong> per game:]]></target>
       </segment>
     </unit>
     <unit id="uK7igyD" name="bd642fe">
@@ -18294,7 +18291,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Leichnam von %citizen% wurde nicht zerstört.</source>
-        <target>Der Leichnam von %citizen% wurde nicht zerstört.</target>
+        <target>%citizen%'s corpse has not been destroyed.</target>
       </segment>
     </unit>
     <unit id=".67v4pV" name="0683fbc">
@@ -18303,7 +18300,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.</source>
-        <target>Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.</target>
+        <target>It's entirely possible that it'll decide to wake up and eat you alive tonight.</target>
       </segment>
     </unit>
     <unit id=".eKZbiD" name="e38ba9e">
@@ -18312,7 +18309,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>&lt;em&gt;Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. &lt;strong&gt;Wichtige Anmerkung:&lt;/strong&gt; Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?&lt;/em&gt;</source>
-        <target><![CDATA[<em>Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. <strong>Wichtige Anmerkung:</strong> Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?</em>]]></target>
+        <target><![CDATA[<em>You can upgrade your home and benefit from improved defences. <strong>Important :</strong> perhaps it would be wise to use your resources to carry out improvements in the town?</em>]]></target>
       </segment>
     </unit>
     <unit id="h.30SZi" name="b7166cc">
@@ -18321,7 +18318,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Ohne Wasser können bestimmte Verteidigungen (wie z.B. die Wassergeschütztürme) beim Angriff der Zombies nicht eingesetzt werden!</source>
-        <target><![CDATA[<strong>Achtung:</strong> Ohne Wasser können bestimmte Verteidigungen (wie z.B. die Wassergeschütztürme) beim Angriff der Zombies nicht eingesetzt werden!]]></target>
+        <target><![CDATA[<strong>Warning:</strong> without water, certain defences (like the water turrets) will not function during the attack!]]></target>
       </segment>
     </unit>
     <unit id="8Gt_nOq" name="bf5f2fc">
@@ -18339,7 +18336,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Haus von %citizen%</source>
-        <target>Haus von %citizen%</target>
+        <target>House of %citizen%</target>
       </segment>
     </unit>
     <unit id="jTjC1Nt" name="Das Grab von %citizen%">
@@ -18348,7 +18345,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das Grab von %citizen%</source>
-        <target>Das Grab von %citizen%</target>
+        <target>The grave of %citizen%</target>
       </segment>
     </unit>
     <unit id="J5RUaZZ" name="990a9e7">
@@ -18366,7 +18363,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das Haus</source>
-        <target>Das Haus</target>
+        <target>The House</target>
       </segment>
     </unit>
     <unit id="x.bcUzY" name="2900312">
@@ -18375,7 +18372,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Ort (kann man überhaupt von Zuhause reden?), an dem %citizen% lebte, ist keinen Blick wert. Da gibt es nichts zu holen, selbst wenn man alles auseinandernimmt.</source>
-        <target>Der Ort (kann man überhaupt von Zuhause reden?), an dem %citizen% lebte, ist keinen Blick wert. Da gibt es nichts zu holen, selbst wenn man alles auseinandernimmt.</target>
+        <target>The place (can we call it a home?) where %citizen% lived isn't even worth looking at. There's nothing to recover, even after dismantling everything.</target>
       </segment>
     </unit>
     <unit id="mlyoouR" name="Inventar: %citizen%">
@@ -18384,7 +18381,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Inventar: %citizen%</source>
-        <target>Inventory of %citizen%</target>
+        <target>Inventory: %citizen%</target>
       </segment>
     </unit>
     <unit id="slYhiYZ" name="5d24e48">
@@ -18393,7 +18390,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Jetzt, da %citizen% tot ist, kannst du ihm einen &lt;strong&gt;Gegenstand klauen&lt;/strong&gt;, wenn du möchtest...</source>
-        <target><![CDATA[Jetzt, da %citizen% tot ist, kannst du ihm einen <strong>Gegenstand klauen</strong>, wenn du möchtest...]]></target>
+        <target><![CDATA[Now that %citizen% is dead, you can <strong>steal their stuff</strong> if you wish...]]></target>
       </segment>
     </unit>
     <unit id="ymlTLkS" name="Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:">
@@ -18402,7 +18399,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:</source>
-        <target>Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:</target>
+        <target>After rummaging through his house, you find the following item(s):</target>
       </segment>
     </unit>
     <unit id="SEpgiMa" name="d18c7d1">
@@ -18411,7 +18408,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Als du ins Fenster schaust, bemerkst du, dass %citizen%s Haus keine wertvollen Gegenständen mehr enthält. Wahrscheinlich haben andere Bürger schon alles, was nicht niet- und nagelfest war, mitgenommen...</source>
-        <target>Als du ins Fenster schaust, bemerkst du, dass %citizen%s Haus keine wertvollen Gegenständen mehr enthält. Wahrscheinlich haben andere Bürger schon alles, was nicht niet- und nagelfest war, mitgenommen...</target>
+        <target>Looking through the window, you decide that %citizen%'s house is to all intents and purposes void of anything of interest. No doubt the other citizens have already recovered everything of any value.</target>
       </segment>
     </unit>
     <unit id="N0yoB1W" name="235e0ff">
@@ -18448,6 +18445,357 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Diese Leiche wurde bereits außerhalb der Stadt entsorgt!</source>
         <target>Diese Leiche wurde bereits außerhalb der Stadt entsorgt!</target>
+      </segment>
+    </unit>
+    <unit id="sUeYpBF" name="2847540">
+      <notes>
+        <note category="german">%citizen% hat versucht %item% aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat versucht %item% aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.</source>
+        <target>%citizen% tried to steal %item% from the bank, they embarrassed themselves with a lack of subtlety!</target>
+      </segment>
+    </unit>
+    <unit id="LWSEhn0" name="ed08c19">
+      <notes>
+        <note category="german">Jemand hat %item% aus der Bank entwendet, aber er (oder sie) konnte nicht identifiziert werden.</note>
+      </notes>
+      <segment>
+        <source>Jemand hat %item% aus der Bank entwendet, aber er (oder sie) konnte nicht identifiziert werden.</source>
+        <target>Someone stole %item% from the bank, but he (or she) couldn't be identified by anyone.</target>
+      </segment>
+    </unit>
+    <unit id="pygRaEs" name="0a0a304">
+      <notes>
+        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</note>
+      </notes>
+      <segment>
+        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</source>
+        <target><![CDATA[Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst]]></target>
+      </segment>
+    </unit>
+    <unit id="56UUc2e" name="0ed952e">
+      <notes>
+        <note category="german">Du hast soeben %item% aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...</note>
+      </notes>
+      <segment>
+        <source>Du hast soeben %item% aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...</source>
+        <target>You succesfully stole %item% from the bank. Your name won't show up in the registery!</target>
+      </segment>
+    </unit>
+    <unit id="glz6Ktw" name="Dafür solltest du dein Labor verwenden...">
+      <notes>
+        <note category="german">Dafür solltest du dein Labor verwenden...</note>
+      </notes>
+      <segment>
+        <source>Dafür solltest du dein Labor verwenden...</source>
+        <target>Dafür solltest du dein Labor verwenden...</target>
+      </segment>
+    </unit>
+    <unit id="JEn24as" name="%citizen% bitten etwas aufzuheben.">
+      <notes>
+        <note category="german">%citizen% bitten etwas aufzuheben.</note>
+      </notes>
+      <segment>
+        <source>%citizen% bitten etwas aufzuheben.</source>
+        <target>%citizen% bitten etwas aufzuheben.</target>
+      </segment>
+    </unit>
+    <unit id="9URgee0" name="%citizen% befehlen die Umgebung abzusuchen.">
+      <notes>
+        <note category="german">%citizen% befehlen die Umgebung abzusuchen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% befehlen die Umgebung abzusuchen.</source>
+        <target>%citizen% befehlen die Umgebung abzusuchen.</target>
+      </segment>
+    </unit>
+    <unit id="joeoHly" name="%citizen% angreifen. Diese Aktion kostet dich %ap%.">
+      <notes>
+        <note category="german">%citizen% angreifen. Diese Aktion kostet dich %ap%.</note>
+      </notes>
+      <segment>
+        <source>%citizen% angreifen. Diese Aktion kostet dich %ap%.</source>
+        <target>%citizen% angreifen. Diese Aktion kostet dich %ap%.</target>
+      </segment>
+    </unit>
+    <unit id="H7wLj6X" name="%citizen% sagen mir nicht mehr zu folgen.">
+      <notes>
+        <note category="german">%citizen% sagen mir nicht mehr zu folgen.</note>
+      </notes>
+      <segment>
+        <source>%citizen% sagen mir nicht mehr zu folgen.</source>
+        <target>%citizen% sagen mir nicht mehr zu folgen.</target>
+      </segment>
+    </unit>
+    <unit id="Iir2qAh" name="Allen befehlen, die Umgebung abzusuchen.">
+      <notes>
+        <note category="german">Allen befehlen, die Umgebung abzusuchen.</note>
+      </notes>
+      <segment>
+        <source>Allen befehlen, die Umgebung abzusuchen.</source>
+        <target>Allen befehlen, die Umgebung abzusuchen.</target>
+      </segment>
+    </unit>
+    <unit id="_G5UAQ0" name="Allen sagen mir nicht mehr zu folgen.">
+      <notes>
+        <note category="german">Allen sagen mir nicht mehr zu folgen.</note>
+      </notes>
+      <segment>
+        <source>Allen sagen mir nicht mehr zu folgen.</source>
+        <target>Allen sagen mir nicht mehr zu folgen.</target>
+      </segment>
+    </unit>
+    <unit id="v4V0uch" name="Dieser Bürger gräbt gerade in einer Zone.">
+      <notes>
+        <note category="german">Dieser Bürger gräbt gerade in einer Zone.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger gräbt gerade in einer Zone.</source>
+        <target>Dieser Bürger gräbt gerade in einer Zone.</target>
+      </segment>
+    </unit>
+    <unit id="Bh1Gj16" name="%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.">
+      <notes>
+        <note category="german">%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</note>
+      </notes>
+      <segment>
+        <source>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</source>
+        <target>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</target>
+      </segment>
+    </unit>
+    <unit id="lpKOzLM" name="b0171bc">
+      <notes>
+        <note category="german">Diese Information gibt dir einen Hinweis darauf, ob Aufklärer gewöhnlicherweise hier vorbeikommen.&lt;br /&gt;&lt;em&gt;Je mehr eine Zone erforscht wurde, desto geringer ist die Chance bei &lt;strong&gt;Betreten&lt;/strong&gt; entdeckt zu werden (du kennst dann ein paar Schleichwege etc...).&lt;/em&gt;</note>
+      </notes>
+      <segment>
+        <source>Diese Information gibt dir einen Hinweis darauf, ob Aufklärer gewöhnlicherweise hier vorbeikommen.&lt;br /&gt;&lt;em&gt;Je mehr eine Zone erforscht wurde, desto geringer ist die Chance bei &lt;strong&gt;Betreten&lt;/strong&gt; entdeckt zu werden (du kennst dann ein paar Schleichwege etc...).&lt;/em&gt;</source>
+        <target><![CDATA[This information tells you if scouts regularly pass through this sector.<br /><em>The better known the sector is, the less likely you are to be discovered <strong>when you enter it</strong> (because you know some concealed paths through the zone; etc...)</em>]]></target>
+      </segment>
+    </unit>
+    <unit id="JxANNhs" name="Versuchen etwas zu stehlen">
+      <notes>
+        <note category="german">Versuchen etwas zu stehlen</note>
+      </notes>
+      <segment>
+        <source>Versuchen etwas zu stehlen</source>
+        <target>Try to steal something</target>
+      </segment>
+    </unit>
+    <unit id="qZD8YpW" name="efb0a6d">
+      <notes>
+        <note category="german">Diebstahlsversuche können nur &lt;strong&gt;während der Nacht&lt;/strong&gt; unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!</note>
+      </notes>
+      <segment>
+        <source>Diebstahlsversuche können nur &lt;strong&gt;während der Nacht&lt;/strong&gt; unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!</source>
+        <target><![CDATA[You may only try to steal <strong>during the night</strong>! The chance of success is low, and failure will be noted in the great registry!]]></target>
+      </segment>
+    </unit>
+    <unit id="X1jhim7" name="Achtung! Deinen Mitbürgern wird das gar nicht gefallen.">
+      <notes>
+        <note category="german">Achtung! Deinen Mitbürgern wird das gar nicht gefallen.</note>
+      </notes>
+      <segment>
+        <source>Achtung! Deinen Mitbürgern wird das gar nicht gefallen.</source>
+        <target>Attention! Your fellow citizen won't like it!</target>
+      </segment>
+    </unit>
+    <unit id="l9RZq.z" name="4bd2b92">
+      <notes>
+        <note category="german">Da %citizen% tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;%townname%&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</note>
+      </notes>
+      <segment>
+        <source>Da %citizen% tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;%townname%&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</source>
+        <target><![CDATA[%citizen%, dead though they are, there is a good chance that their body could be contaminated by infectious agents from <em>%townname%</em>. Therefore the corpse has to be watered or thrown out before it gets back up and attacks its fellow former citizens this very evening...]]></target>
+      </segment>
+    </unit>
+    <unit id="fY8p2vV" name="Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!">
+      <notes>
+        <note category="german">Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!</note>
+      </notes>
+      <segment>
+        <source>Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!</source>
+        <target>Your attempted theft hasn't gone unnoticed! The town was warned!</target>
+      </segment>
+    </unit>
+    <unit id="xJvvYYd" name="89244b5">
+      <notes>
+        <note category="german">Die Bürger der Stadt haben entschieden, %citizen% zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!</note>
+      </notes>
+      <segment>
+        <source>Die Bürger der Stadt haben entschieden, %citizen% zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!</source>
+        <target><![CDATA[The citizens have decided to <strong>CRUCIFY %citizen%</strong>!! The chocolate cross was eaten during this tragic event!]]></target>
+      </segment>
+    </unit>
+    <unit id="ES1J_Lh" name="Hängt %user%!">
+      <notes>
+        <note category="german">Hängt %user%!</note>
+      </notes>
+      <segment>
+        <source>Hängt %user%!</source>
+        <target>Hang %user%!</target>
+      </segment>
+    </unit>
+    <unit id="lPQWXZ3" name="%user% wir kriegen dich!">
+      <notes>
+        <note category="german">%user% wir kriegen dich!</note>
+      </notes>
+      <segment>
+        <source>%user% wir kriegen dich!</source>
+        <target>%user%, we will have your skin!</target>
+      </segment>
+    </unit>
+    <unit id="cwdaQ_b" name="am %d%.%m%.%Y%, um %H%:%i%">
+      <notes>
+        <note category="german">am %d%.%m%.%Y%, um %H%:%i%</note>
+      </notes>
+      <segment>
+        <source>am %d%.%m%.%Y%, um %H%:%i%</source>
+        <target>around %H%:%i%, on the %d%.%m%.%Y%</target>
+      </segment>
+    </unit>
+    <unit id="_hvDFgE" name="b263344">
+      <notes>
+        <note category="german">Du wurdest von einem &lt;strong&gt;Zombie in der Zone entdeckt&lt;/strong&gt;! Er hat sich in deine Richtung gedreht!&lt;hr/&gt;Deine Tarnung ist aufgeflogen!</note>
+      </notes>
+      <segment>
+        <source>Du wurdest von einem &lt;strong&gt;Zombie in der Zone entdeckt&lt;/strong&gt;! Er hat sich in deine Richtung gedreht!&lt;hr/&gt;Deine Tarnung ist aufgeflogen!</source>
+        <target><![CDATA[Du wurdest von einem <strong>Zombie in der Zone entdeckt</strong>! Er hat sich in deine Richtung gedreht!<hr/>Deine Tarnung ist aufgeflogen!]]></target>
+      </segment>
+    </unit>
+    <unit id="fBI9kz3" name="Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!">
+      <notes>
+        <note category="german">Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!</source>
+        <target><![CDATA[Deine <strong>Tarnung ist aufgeflogen</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="HXDfH_p" name="Manuelles Event-Management:">
+      <notes>
+        <note category="german">Manuelles Event-Management:</note>
+      </notes>
+      <segment>
+        <source>Manuelles Event-Management:</source>
+        <target>Manuelles Event-Management:</target>
+      </segment>
+    </unit>
+    <unit id="lYRernR" name="7714838">
+      <notes>
+        <note category="german">Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</note>
+      </notes>
+      <segment>
+        <source>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</source>
+        <target>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</target>
+      </segment>
+    </unit>
+    <unit id="cznvzLK" name="Kein Event:">
+      <notes>
+        <note category="german">Kein Event:</note>
+      </notes>
+      <segment>
+        <source>Kein Event:</source>
+        <target>Kein Event:</target>
+      </segment>
+    </unit>
+    <unit id="nHRZ69P" name="Startet die Stadt ohne Event-Inhalte">
+      <notes>
+        <note category="german">Startet die Stadt ohne Event-Inhalte</note>
+      </notes>
+      <segment>
+        <source>Startet die Stadt ohne Event-Inhalte</source>
+        <target>Startet die Stadt ohne Event-Inhalte</target>
+      </segment>
+    </unit>
+    <unit id="jQ18AzU" name="1. April">
+      <notes>
+        <note category="german">1. April</note>
+      </notes>
+      <segment>
+        <source>1. April</source>
+        <target>1. April</target>
+      </segment>
+    </unit>
+    <unit id="5kvPhGt" name="St. Patrick">
+      <notes>
+        <note category="german">St. Patrick</note>
+      </notes>
+      <segment>
+        <source>St. Patrick</source>
+        <target>St. Patrick</target>
+      </segment>
+    </unit>
+    <unit id="r3k99Bz" name="Ostern">
+      <notes>
+        <note category="german">Ostern</note>
+      </notes>
+      <segment>
+        <source>Ostern</source>
+        <target>Ostern</target>
+      </segment>
+    </unit>
+    <unit id="BJVmtrE" name="Halloween">
+      <notes>
+        <note category="german">Halloween</note>
+      </notes>
+      <segment>
+        <source>Halloween</source>
+        <target>Halloween</target>
+      </segment>
+    </unit>
+    <unit id="9mZMqtI" name="Armageddon">
+      <notes>
+        <note category="german">Armageddon</note>
+      </notes>
+      <segment>
+        <source>Armageddon</source>
+        <target>Armageddon</target>
+      </segment>
+    </unit>
+    <unit id="mbCP3jI" name="Weihnachten">
+      <notes>
+        <note category="german">Weihnachten</note>
+      </notes>
+      <segment>
+        <source>Weihnachten</source>
+        <target>Weihnachten</target>
+      </segment>
+    </unit>
+    <unit id="iiUUud." name="935109f">
+      <notes>
+        <note category="german">Du hast die &lt;strong&gt;Kontrolle über diese Zone verloren&lt;/strong&gt; (dies kann passieren, wenn ein anderer Bürger ohne dich gegangen ist)! Wenn du nicht festsitzen möchtest, kannst du noch flüchten. Es bleiben dir :</note>
+      </notes>
+      <segment>
+        <source>Du hast die &lt;strong&gt;Kontrolle über diese Zone verloren&lt;/strong&gt; (dies kann passieren, wenn ein anderer Bürger ohne dich gegangen ist)! Wenn du nicht festsitzen möchtest, kannst du noch flüchten. Es bleiben dir :</source>
+        <target><![CDATA[Du hast die <strong>Kontrolle über diese Zone verloren</strong> (dies kann passieren, wenn ein anderer Bürger ohne dich gegangen ist)! Wenn du nicht festsitzen möchtest, kannst du noch flüchten. Es bleiben dir :]]></target>
+      </segment>
+    </unit>
+    <unit id="9r.yyfK" name="f193d19">
+      <notes>
+        <note category="german">Glücklicherweise kannst du dich dank deines %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; unerkannt weiterbewegen.</note>
+      </notes>
+      <segment>
+        <source>Glücklicherweise kannst du dich dank deines %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; unerkannt weiterbewegen.</source>
+        <target><![CDATA[Glücklicherweise kannst du dich dank deines %img_scout% <strong>Tarnanzug</strong> unerkannt weiterbewegen.]]></target>
+      </segment>
+    </unit>
+    <unit id="vd3qaKS" name="c6b1411">
+      <notes>
+        <note category="german">Achtung: Jede Aktion in der Zone sorgt dafür, dass deine &lt;strong&gt;Tarnung auffliegt&lt;/strong&gt;. (Es können nur Aktionen ausgeführt werden, die mit einem Icon %img_scout_ok% gekennzeichnet sind)!</note>
+      </notes>
+      <segment>
+        <source>Achtung: Jede Aktion in der Zone sorgt dafür, dass deine &lt;strong&gt;Tarnung auffliegt&lt;/strong&gt;. (Es können nur Aktionen ausgeführt werden, die mit einem Icon %img_scout_ok% gekennzeichnet sind)!</source>
+        <target><![CDATA[Achtung: Jede Aktion in der Zone sorgt dafür, dass deine <strong>Tarnung auffliegt</strong>. (Es können nur Aktionen ausgeführt werden, die mit einem Icon %img_scout_ok% gekennzeichnet sind)!]]></target>
+      </segment>
+    </unit>
+    <unit id="xIw6O1B" name="d7dddf6">
+      <notes>
+        <note category="german">Mit deinem %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; kannst du dich bewegen ohne dabei entdeckt zu werden.</note>
+      </notes>
+      <segment>
+        <source>Mit deinem %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; kannst du dich bewegen ohne dabei entdeckt zu werden.</source>
+        <target><![CDATA[Mit deinem %img_scout% <strong>Tarnanzug</strong> kannst du dich bewegen ohne dabei entdeckt zu werden.]]></target>
       </segment>
     </unit>
   </file>

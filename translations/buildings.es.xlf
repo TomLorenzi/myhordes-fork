@@ -3286,5 +3286,23 @@
         <target>Valla</target>
       </segment>
     </unit>
+    <unit id="i0KuVv1" name="Schokoladenkreuz">
+      <notes>
+        <note category="german">Schokoladenkreuz</note>
+      </notes>
+      <segment>
+        <source>Schokoladenkreuz</source>
+        <target>Cruz de chocolate</target>
+      </segment>
+    </unit>
+    <unit id="fDHJWJh" name="79667b6">
+      <notes>
+        <note category="german">Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...</note>
+      </notes>
+      <segment>
+        <source>Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...</source>
+        <target>Una hermosa cruz hecha de chocolate para colocar a los habitantes no deseados allí en lugar de simplemente desterrarlos de la comunidad...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

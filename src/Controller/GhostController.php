@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Annotations\GateKeeperProfile;
+use App\Entity\AccountRestriction;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
@@ -21,6 +22,7 @@ use App\Service\LogTemplateHandler;
 use App\Service\TimeKeeperService;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
+use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -53,7 +55,7 @@ class GhostController extends CustomAbstractController
     {
         $user = $this->getUser();
 
-        if ($user->getShadowBan())
+        if ($this->user_handler->isRestricted( $user, AccountRestriction::RestrictionGameplay ))
             return $this->redirect($this->generateUrl( 'soul_disabled' ));
 
         /** @var CitizenRankingProxy $nextDeath */
@@ -242,19 +244,21 @@ class GhostController extends CustomAbstractController
         else if ($customConf['features']['shaman'] == "job" || $customConf['features']['shaman'] == "none")
             $disabled_roles[] = 'shaman';
 
-        if(!(bool)$parser->get('basic', true)) $disabled_jobs[] = 'basic';
-        if(!(bool)$parser->get('collec', true)) $disabled_jobs[] = 'collec';
-        if(!(bool)$parser->get('guardian', true)) $disabled_jobs[] = 'guardian';
-        if(!(bool)$parser->get('hunter', true)) $disabled_jobs[] = 'hunter';
-        if(!(bool)$parser->get('tamer', true)) $disabled_jobs[] = 'tamer';
-        if(!(bool)$parser->get('tech', true)) $disabled_jobs[] = 'tech';
-        if(!(bool)$parser->get('survivalist', true)) $disabled_jobs[] = 'survivalist';
+        if ($crow_permissions) {
+            if(!(bool)$parser->get('basic', true)) $disabled_jobs[] = 'basic';
+            if(!(bool)$parser->get('collec', true)) $disabled_jobs[] = 'collec';
+            if(!(bool)$parser->get('guardian', true)) $disabled_jobs[] = 'guardian';
+            if(!(bool)$parser->get('hunter', true)) $disabled_jobs[] = 'hunter';
+            if(!(bool)$parser->get('tamer', true)) $disabled_jobs[] = 'tamer';
+            if(!(bool)$parser->get('tech', true)) $disabled_jobs[] = 'tech';
+            if(!(bool)$parser->get('survivalist', true)) $disabled_jobs[] = 'survivalist';
 
-        if(!(bool)$parser->get('shaman', false))
-            $disabled_jobs[] = 'shaman';
-        else if (in_array('shaman', $disabled_jobs)) {
-            // If the shaman is disabled, but we enforced its activation, remove it from the disabled array
-            $disabled_jobs = array_diff($disabled_jobs, ['shaman']);
+            if(!(bool)$parser->get('shaman', false))
+                $disabled_jobs[] = 'shaman';
+            else if (in_array('shaman', $disabled_jobs)) {
+                // If the shaman is disabled, but we enforced its activation, remove it from the disabled array
+                $disabled_jobs = array_diff($disabled_jobs, ['shaman']);
+            }
         }
 
         if ($customConf['features']['shaman'] !== 'job') {
@@ -275,7 +279,7 @@ class GhostController extends CustomAbstractController
         $customConf['disabled_roles']['replace']     = $disabled_roles;
 
         $type = $parser->get('townType', 'remote', array_map(fn(TownClass $t) => $t->getName(), $em->getRepository(TownClass::class)->findBy(['hasPreset' => true])));
-        if ($crow_permissions && (bool)$parser->get('unprivate', false))
+        if ($crow_permissions && $parser->get('unprivate', false))
             $town = $gf->createTown($townname, $lang, null, $type, $customConf, $seed);
         else $town = ($gf->createTown($townname, $lang, null, 'custom', $customConf, $seed))->setDeriveConfigFrom( $type );
 
@@ -289,14 +293,34 @@ class GhostController extends CustomAbstractController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        $current_event = $this->conf->getCurrentEvent();
-        if ($current_event->active()) {
-            if (!$townHandler->updateCurrentEvent($town, $current_event)) {
-                $em->clear();
-            } else try {
-                $em->persist($town);
-                $em->flush();
-            } catch (Exception $e) {}
+        if ($crow_permissions && $parser->get('event-management', true))
+            $town->setManagedEvents(true);
+
+        if (!$town->getManagedEvents()) {
+            $current_events = $this->conf->getCurrentEvents();
+            if (!empty(array_filter($current_events, fn(EventConf $e) => $e->active()))) {
+                if (!$townHandler->updateCurrentEvents($town, $current_events)) {
+                    $em->clear();
+                } else try {
+                    $em->persist($town);
+                    $em->flush();
+                } catch (Exception $e) {}
+            }
+        } else {
+
+            $event = $parser->get('event-name', 'none');
+            if (!in_array($event, ['afools','stpatrick','easter','halloween','arma','christmas']))
+                $event = 'none';
+
+            if ($event !== 'none') {
+                if (!$townHandler->updateCurrentEvents($town, [$this->conf->getEvent($event)])) {
+                    $em->clear();
+                } else try {
+                    $em->persist($town);
+                    $em->flush();
+                } catch (Exception $e) {}
+            }
+
         }
 
         if ($incarnated) {
@@ -306,7 +330,7 @@ class GhostController extends CustomAbstractController
                 $em->persist($citizen);
                 $em->flush();
             } catch (Exception $e) {
-                return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+              return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
             }
 
             $em->persist( $log->citizenJoin( $citizen ) );
@@ -317,7 +341,7 @@ class GhostController extends CustomAbstractController
             }
         }
 
-        return AjaxResponse::success( true, ['url' => $this->generateUrl('game_jobs')] );
+        return AjaxResponse::success( true, ['url' => $incarnated ? $this->generateUrl('game_jobs') : $this->generateUrl('ghost_welcome')] );
     }
 
     /**
@@ -335,7 +359,8 @@ class GhostController extends CustomAbstractController
         /** @var User $user */
         $user = $this->getUser();
 
-        if ($user->getShadowBan()) return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+        if ($this->user_handler->isRestricted( $user, AccountRestriction::RestrictionGameplay ))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         /** @var CitizenRankingProxy $nextDeath */
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
@@ -379,9 +404,9 @@ class GhostController extends CustomAbstractController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        $current_town_event = $this->conf->getCurrentEvent($town);
-        if ($current_town_event->active()) {
-            if (!$townHandler->updateCurrentEvent($town, $current_town_event))
+        $current_town_events = $this->conf->getCurrentEvents($town);
+        if (!empty(array_filter($current_town_events,fn(EventConf $e) => $e->active()))) {
+            if (!$townHandler->updateCurrentEvents($town, $current_town_events))
                 $this->entity_manager->clear();
             else {
                 $this->entity_manager->persist($town);
@@ -458,9 +483,9 @@ class GhostController extends CustomAbstractController
                         $this->entity_manager->persist($newTown);
                         $this->entity_manager->flush();
 
-                        $current_event = $this->conf->getCurrentEvent();
-                        if ($current_event->active()) {
-                            if (!$townHandler->updateCurrentEvent($newTown, $current_event))
+                        $current_events = $this->conf->getCurrentEvents();
+                        if (!empty(array_filter($current_town_events,fn(EventConf $e) => $e->active()))) {
+                            if (!$townHandler->updateCurrentEvents($newTown, $current_events))
                                 $this->entity_manager->clear();
                             else {
                                 $this->entity_manager->persist($newTown);

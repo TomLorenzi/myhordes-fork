@@ -282,20 +282,22 @@ class TownInspectorCommand extends Command
 
         if ($chaos = $input->getOption('set-chaos')) {
             $town->setChaos(intval($chaos) !== 0);
+            if($chaos === 0)
+                $town->setDevastated(0);
             $this->entityManager->persist( $town );
             $changes = true;
         }
 
         if ($devast = $input->getOption('set-devastation')) {
             $town->setChaos(intval($devast) !== 0);
-            $town->setDevastated(intval($devast) != 0);
+            $town->setDevastated(intval($devast) !== 0);
             $town->setDoor(true);
             $this->entityManager->persist( $town );
             $changes = true;
         }
 
         if ($input->getOption('advance-day')) {
-            if ($this->nighthandler->advance_day($town, $this->conf->getCurrentEvent( $town )) && !$input->getOption('dry')) {
+            if ($this->nighthandler->advance_day($town, $this->conf->getCurrentEvents( $town )) && !$input->getOption('dry')) {
                 foreach ($this->nighthandler->get_cleanup_container() as $c) $this->entityManager->remove($c);
                 $town->setAttackFails(0);
                 $this->entityManager->persist( $town );

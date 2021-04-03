@@ -2569,5 +2569,53 @@
         <target>Diese Aktion kostet dich 1 AP!</target>
       </segment>
     </unit>
+    <unit id="C6zNngv" name="Es wurde noch keine Stadt in die Rangliste aufgenommen!">
+      <notes>
+        <note category="german">Es wurde noch keine Stadt in die Rangliste aufgenommen!</note>
+      </notes>
+      <segment>
+        <source>Es wurde noch keine Stadt in die Rangliste aufgenommen!</source>
+        <target>Es wurde noch keine Stadt in die Rangliste aufgenommen!</target>
+      </segment>
+    </unit>
+    <unit id="qplNLmy" name="Bitte wähle die Art der Beschränkung.">
+      <notes>
+        <note category="german">Bitte wähle die Art der Beschränkung.</note>
+      </notes>
+      <segment>
+        <source>Bitte wähle die Art der Beschränkung.</source>
+        <target>Bitte wähle die Art der Beschränkung.</target>
+      </segment>
+    </unit>
+    <unit id="sYDz8ku" name="Wer?">
+      <notes>
+        <note category="german">Wer?</note>
+      </notes>
+      <segment>
+        <source>Wer?</source>
+        <target>Wer?</target>
+      </segment>
+    </unit>
+    <unit id="HVAzjFA" name="Namen eingeben">
+      <notes>
+        <note category="german">Namen eingeben</note>
+      </notes>
+      <segment>
+        <source>Namen eingeben</source>
+        <target>Namen eingeben</target>
+      </segment>
+    </unit>
+    <unit id="HAtmchb" name="246b2a2">
+      <notes>
+        <note category="german">Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                    &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</note>
+      </notes>
+      <segment>
+        <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                    &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
+        <target><![CDATA[Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
+                                    <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

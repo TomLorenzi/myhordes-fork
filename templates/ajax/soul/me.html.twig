@@ -63,6 +63,36 @@
         </div>
         <div class="cell padded rw-7 rw-sm-12">
 
+            {% if app.user|restricted %}
+
+                {% macro restriction_info(mask,name,desc) %}
+                    {% if app.user|restricted(mask) %}
+                        {% set end_date = app.user|restricted_until(mask) %}
+                        {% if end_date is null %}
+                            <li>{{ name }} {{ help_btn(desc ~ '<p><br/><i class="small">' ~ 'Dauerhafte Beschränkung'|trans({},'soul') ~ '</i></p>') }}</li>
+                        {% else %}
+                            <li>{{ name }} {{ help_btn(desc ~ '<p><br/><i class="small">' ~ 'Ende der Beschränkung: %date%'|trans({'%date%': '<br/>' ~ end_date|date },'soul') ~ '</i></p>') }}</li>
+                        {% endif %}
+                    {% endif %}
+                {% endmacro %}
+
+                <div class="note note-warning">
+                    <b>{{ 'Dein Account ist eingeschränkt!'|trans({},'soul') }}</b><br />
+                    {{ 'Einschränkungen werden von Moderatoren aufgrund von Fehlverhalten auferlegt. Im Folgenden siehst du eine Liste mit Funktionen, die dir aktuell nicht zur Verfügung stehen.'|trans({},'soul') }}
+                    <ul>
+                        {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionForum'), 'In Foren posten'|trans({},'soul'), 'Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.'|trans({},'soul')) }}
+                        {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionTownCommunication'), 'Kommunikation in der Stadt'|trans({},'soul'), 'Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.'|trans({},'soul')) }}
+                        {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionGlobalCommunication'), 'Stadtübergreifende Kommunikation'|trans({},'soul'), 'Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.'|trans({},'soul')) }}
+                        {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionComments'), 'Kommentare'|trans({},'soul'), 'Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.'|trans({},'soul')) }}
+                        {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionOrganization'), 'Gruppenorganisation'|trans({},'soul'), 'Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.'|trans({},'soul')) }}
+                        {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionGameplay'), 'Spielen'|trans({},'soul'), 'Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.'|trans({},'soul')) }}
+                    </ul>
+                    <i>{{ 'Dieser Hinweis ist nur für dich, nicht aber für Besucher auf deiner Seelenseite sichtbar.'|trans({},'soul') }}</i>
+                </div>
+
+
+            {% endif %}
+
             <div class="score"><img src="{{ asset('build/images/soul/small_score.gif') }}" alt="" /> {{ 'Seelenpunktzahl'|trans({}, 'global') }} : <strong>{{ '%points% Punkte'|trans({'%points%': app.user.allSoulPoints}, 'global') }}</strong> <a class="help-button"><div class="tooltip help">{{ 'Diese Punkte werden für die Seelenrangliste verwendet.'|trans({},'global') }}<p style="color: #f0d79e;"><i>{{ 'Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.'|trans({},'global') }}</i></p></div>{{ 'Hilfe'|trans({},'global') }}</a></div>
 
             {% if not app.user.activeCitizen is null%}
@@ -100,17 +130,15 @@
                 </div>
             </div>
         </div>
-        {% if app.user.shadowBan is null %}
-            <div class="row">
-                <div class="cell padded rw-12 rw-sm-12">
-                    <div id="users-list-soul">
-                    	<h5>{{'Seele suchen'|trans({}, "soul")}}</h5>
-                        <div><label><input type="text" id="users-search" style="margin-top: 5px" /></label><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
-                        <div id="users-list"></div>
-                    </div>
+        <div class="row">
+            <div class="cell padded rw-12 rw-sm-12">
+                <div id="users-list-soul">
+                    <h5>{{'Seele suchen'|trans({}, "soul")}}</h5>
+                    <div><label><input type="text" id="users-search" style="margin-top: 5px" /></label><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
+                    <div id="users-list"></div>
                 </div>
             </div>
-        {% endif %}
+        </div>
     </div>
 {% endblock %}
 {% block js %}
