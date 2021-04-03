@@ -143,7 +143,6 @@ class GhostController extends CustomAbstractController
                 'nightmode'     => $nightmode !== 'none',
                 'camping'       => (bool)$parser->get('camp', true),
                 'ghoul'         => (bool)$parser->get('ghouls', true),
-                'improveddump'  => (bool)$parser->get('improveddump', true),
                 'attacks'       => $parser->get('attacks', 'normal', ['easy','normal','hard']),
 
                 'nightwatch' => [
@@ -264,6 +263,17 @@ class GhostController extends CustomAbstractController
                 // If the shaman is disabled, but we enforced its activation, remove it from the disabled array
                 $disabled_jobs = array_diff($disabled_jobs, ['shaman']);
             }
+        }
+
+        if (!(bool)$parser->get('improveddump', true)) {
+            $disabled_builds[] = 'small_trash_#01';
+            $disabled_builds[] = 'small_trash_#02';
+            $disabled_builds[] = 'small_trash_#03';
+            $disabled_builds[] = 'small_trash_#04';
+            $disabled_builds[] = 'small_trash_#05';
+            $disabled_builds[] = 'small_trash_#06';
+            $disabled_builds[] = 'small_howlingbait_#00';
+            $disabled_builds[] = 'small_trashclean_#00';
         }
 
         if ($customConf['features']['shaman'] !== 'job') {

@@ -88,7 +88,6 @@ class TownConf extends Conf
     const CONF_FEATURE_SHUN            = 'features.shun';
     const CONF_FEATURE_NIGHTWATCH      = 'features.nightwatch.enabled';
     const CONF_FEATURE_NIGHTWATCH_INSTANT = 'features.nightwatch.instant';
-    const CONF_FEATURE_IMPROVEDDUMP    = 'features.improveddump';
     const CONF_FEATURE_ATTACKS         = 'features.attacks';
     const CONF_FEATURE_GIVE_ALL_PICTOS = 'features.give_all_pictos';
     const CONF_FEATURE_GIVE_SOULPOINTS = 'features.give_soulpoints';
