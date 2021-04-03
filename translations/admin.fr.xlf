@@ -2419,7 +2419,7 @@
       </notes>
       <segment>
         <source>Existierende Beschränkungen</source>
-        <target>Existierende Beschränkungen</target>
+        <target>Sanctions existantes</target>
       </segment>
     </unit>
     <unit id="d.ixmWC" name="Dieser Spieler hat eine weiße Weste.">
@@ -2428,7 +2428,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler hat eine weiße Weste.</source>
-        <target>Dieser Spieler hat eine weiße Weste.</target>
+        <target>Ce joueur n'a aucune sanction existante.</target>
       </segment>
     </unit>
     <unit id="FwMioy8" name="Info">
@@ -2500,7 +2500,7 @@
       </notes>
       <segment>
         <source>Interner Vermerk</source>
-        <target>Interner Vermerk</target>
+        <target>Note interne</target>
       </segment>
     </unit>
     <unit id="dd81ecc" name="Art">
@@ -2581,7 +2581,7 @@
       </notes>
       <segment>
         <source>%d% Tage</source>
-        <target>%d% Tage</target>
+        <target>%d% Jours</target>
       </segment>
     </unit>
     <unit id="R9HFTdn" name="Neue Beschränkung hinzufügen">
@@ -2590,7 +2590,7 @@
       </notes>
       <segment>
         <source>Neue Beschränkung hinzufügen</source>
-        <target>Neue Beschränkung hinzufügen</target>
+        <target>Ajouter une sanction</target>
       </segment>
     </unit>
     <unit id="o.gLHi8" name="24 Stunden">
@@ -2599,7 +2599,7 @@
       </notes>
       <segment>
         <source>24 Stunden</source>
-        <target>24 Stunden</target>
+        <target>24 Heures</target>
       </segment>
     </unit>
     <unit id="YvnlIm5" name="Bestätigung erforderlich">
@@ -2617,7 +2617,7 @@
       </notes>
       <segment>
         <source>1 Jahr</source>
-        <target>1 Jahr</target>
+        <target>1 Année</target>
       </segment>
     </unit>
     <unit id="vFTx03L" name="Admin-Bestätigung erforderlich">
@@ -2635,7 +2635,7 @@
       </notes>
       <segment>
         <source>2 Jahre</source>
-        <target>2 Jahre</target>
+        <target>2 Ans</target>
       </segment>
     </unit>
     <unit id="NhpWriw" name="Dauerhaft">
@@ -2644,7 +2644,7 @@
       </notes>
       <segment>
         <source>Dauerhaft</source>
-        <target>Dauerhaft</target>
+        <target>Permanent</target>
       </segment>
     </unit>
     <unit id="VBYHRyg" name="Art der Beschränkung">
@@ -2653,7 +2653,7 @@
       </notes>
       <segment>
         <source>Art der Beschränkung</source>
-        <target>Art der Beschränkung</target>
+        <target>Type de restriction</target>
       </segment>
     </unit>
     <unit id="t5PuA4i" name="Soziale Interaktion verbieten">
@@ -2662,7 +2662,7 @@
       </notes>
       <segment>
         <source>Soziale Interaktion verbieten</source>
-        <target>Soziale Interaktion verbieten</target>
+        <target>Empêcher les intéractions sociales</target>
       </segment>
     </unit>
     <unit id="N35nJiR" name="Posten in Foren verbieten">
@@ -2671,7 +2671,7 @@
       </notes>
       <segment>
         <source>Posten in Foren verbieten</source>
-        <target>Posten in Foren verbieten</target>
+        <target>Poster sur les forums</target>
       </segment>
     </unit>
     <unit id="S.Z0svV" name="Stadt-interne Kommunikation verbieten">
@@ -2680,7 +2680,7 @@
       </notes>
       <segment>
         <source>Stadt-interne Kommunikation verbieten</source>
-        <target>Stadt-interne Kommunikation verbieten</target>
+        <target>Communiquer en ville</target>
       </segment>
     </unit>
     <unit id="TofCy.V" name="Stadtübergreifende Kommunikation verbieten">
@@ -2689,7 +2689,7 @@
       </notes>
       <segment>
         <source>Stadtübergreifende Kommunikation verbieten</source>
-        <target>Stadtübergreifende Kommunikation verbieten</target>
+        <target>Communiquer en dehors des villes</target>
       </segment>
     </unit>
     <unit id="4Ih2_KV" name="Kommentare verbieten">
@@ -2698,7 +2698,7 @@
       </notes>
       <segment>
         <source>Kommentare verbieten</source>
-        <target>Kommentare verbieten</target>
+        <target>Commentaires sur les villes</target>
       </segment>
     </unit>
     <unit id="Hk8oxc5" name="Organisation in Gruppen verbieten">
@@ -2707,7 +2707,7 @@
       </notes>
       <segment>
         <source>Organisation in Gruppen verbieten</source>
-        <target>Organisation in Gruppen verbieten</target>
+        <target>Organisation de coalitions</target>
       </segment>
     </unit>
     <unit id="IdwEk1H" name="Spielen verbieten">
@@ -2716,7 +2716,7 @@
       </notes>
       <segment>
         <source>Spielen verbieten</source>
-        <target>Spielen verbieten</target>
+        <target>Interdiction de jouer</target>
       </segment>
     </unit>
     <unit id="67OtxCl" name="3e3c02a">
