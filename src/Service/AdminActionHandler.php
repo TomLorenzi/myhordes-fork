@@ -162,12 +162,10 @@ class AdminActionHandler
         if(!$this->hasRights($sourceUser, 'suicid'))
             return $this->translator->trans('Dazu hast Du kein Recht.', [], 'game');   
 
+        /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->find($sourceUser);
-        /**
-        * @var Citizen
-        */
-        $citizen = $user->getAliveCitizen();
-        if (isset($citizen)) {
+        $citizen = $user->getActiveCitizen();
+        if ($citizen !== null && $citizen->getAlive()) {
             $rem = [];
             $this->death_handler->kill( $citizen, CauseOfDeath::Strangulation, $rem );
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );

@@ -21,6 +21,7 @@ use App\Entity\ShoutboxReadMarker;
 use App\Entity\Thread;
 use App\Entity\Town;
 use App\Entity\TownClass;
+use App\Entity\TownSlotReservation;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\Zone;
@@ -409,9 +410,17 @@ class GameFactory
         $error = self::ErrorNone;
         $lock = $this->locksmith->waitForLock('join-town');
 
-        $followers = ($internal || $town->getPassword()) ? [] : $this->user_handler->getAvailableCoalitionMembers( $user );
+        $whitelist_enabled = $this->entity_manager->getRepository(TownSlotReservation::class)->count(['town' => $town]) > 0;
+
+        $followers = ($internal || $town->getPassword() || $whitelist_enabled) ? [] : $this->user_handler->getAvailableCoalitionMembers( $user );
 
         if (!$internal && $this->user_handler->getConsecutiveDeathLock($user)) {
+            $error = ErrorHelper::ErrorPermissionError;
+            return null;
+        }
+
+        $whitelist = $whitelist_enabled ? $this->entity_manager->getRepository(TownSlotReservation::class)->findOneBy(['town' => $town, 'user' => $user]) : null;
+        if ($whitelist_enabled && $whitelist === null && $user !== $town->getCreator()) {
             $error = ErrorHelper::ErrorPermissionError;
             return null;
         }
@@ -532,6 +541,8 @@ class GameFactory
                         $this->entity_manager->persist($marker->setEntry( $entry_cache[$sb->getId()] ));
                 }
             }
+
+        if ($whitelist !== null) $this->entity_manager->remove($whitelist);
 
         return $main_citizen;
     }

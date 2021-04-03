@@ -10,6 +10,7 @@ use App\Entity\CitizenRole;
 use App\Entity\SpecialActionPrototype;
 use App\Entity\Town;
 use App\Entity\TownClass;
+use App\Entity\TownSlotReservation;
 use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
@@ -290,6 +291,17 @@ class GhostController extends CustomAbstractController
         $town->setCreator($user);
         if(!empty($password)) $town->setPassword($password);
         $em->persist($town);
+
+
+        $user_slots = array_filter($this->entity_manager->getRepository(User::class)->findBy(['id' => array_map(fn($a) => (int)$a, $parser->get_array('reserved_slots'))]), function(User $u) {
+            return $u->getEmail() !== 'crow' && $u->getEmail() !== $u->getUsername() && !str_ends_with($u->getName(), '@localhost');
+        });
+
+        if (count($user_slots) !== count($parser->get_array('reserved_slots')))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        foreach ($user_slots as $user_slot)
+            $this->entity_manager->persist((new TownSlotReservation())->setTown($town)->setUser($user_slot));
 
         try {
             $em->flush();
