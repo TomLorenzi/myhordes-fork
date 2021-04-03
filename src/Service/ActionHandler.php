@@ -1425,6 +1425,34 @@ class ActionHandler
                             $tags[] = 'flare_fail';
                         }
                         break;
+
+                    // Chance to infect in a contaminated zone
+                    case 22:
+                        if ($town_conf->get(TownConf::CONF_FEATURE_ALL_POISON, false)) {
+
+                            if ($this->random_generator->chance(0.05) && !$this->citizen_handler->hasStatusEffect($citizen, 'infection')) {
+
+                                $inflict = true;
+                                if ($this->citizen_handler->hasStatusEffect($citizen, "tg_infect_wtns")) {
+                                    $inflict = $this->random_generator->chance(0.5);
+                                    $this->citizen_handler->removeStatus( $citizen, 'tg_infect_wtns' );
+                                    if ($inflict){
+                                        $execute_info_cache['message'][] = T::__("Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...", "items");
+                                    } else {
+                                        $execute_info_cache['message'][] = T::__("Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.", "items");
+                                    }
+                                } else {
+                                    $execute_info_cache['message'][] = T::__("Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!", "items");
+                                }
+
+                                if ($inflict && $this->citizen_handler->inflictStatus($citizen, 'infection')) {
+                                    $tags[] = 'stat-up';
+                                    $tags[] = "stat-up-infection";
+                                }
+
+                            }
+
+                        }
                 }
 
                 if ($ap) {
