@@ -16,8 +16,6 @@ The rest of the project, is under [AGPL3 license](https://spdx.org/licenses/AGPL
 * php-zip
 * php-imagick
 * php-curl
-* nodejs (>=14.13.1)
-* yarn
 * apache2
 
 Depending on the database engine you want to use you will need the following:
