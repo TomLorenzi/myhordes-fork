@@ -332,6 +332,9 @@ class SoulController extends CustomAbstractController
         $icon  = $parser->get_int('icon', -1);
         $desc  = substr(trim($parser->get('desc')) ?? '', 0, 256);
 
+        if ($title < 0 && $icon >= 0)
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
         if ($title < 0)
             $user->setActiveTitle(null);
         else {

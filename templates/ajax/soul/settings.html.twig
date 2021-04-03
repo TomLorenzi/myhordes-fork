@@ -547,9 +547,17 @@
         {% endif %}
 
         $.html.addEventListenerAll('#save_profile_header', 'click', () => {
+            const title = parseInt(document.getElementById('user_title').value);
+            const icon = parseInt(document.getElementById('user_icon').value);
+
+            if (icon >= 0 && title < 0) {
+                $.html.error('{{ 'Du kannst kein Icon ohne einen Titel wählen.'|trans({},'soul')|e('js') }}');
+                return;
+            }
+
             $.ajax.easySend('{{ path('api_soul_header')|e('js') }}', {
-                title: parseInt(document.getElementById('user_title').value),
-                icon: parseInt(document.getElementById('user_icon').value),
+                title: title,
+                icon: icon,
                 desc: $.html.twinoParser.parseToString(document.getElementById('user_desc').value, s => [null,s])
             }, () => {
                 $.html.notice('{{ 'Deine Einstellung wurde gespeichert.'|trans({},'soul')|e('js') }}');
