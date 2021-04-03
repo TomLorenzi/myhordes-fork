@@ -7190,7 +7190,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>&lt;t-stat-up-tg_meta_wound&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.&lt;/t-stat-up-tg_meta_wound&gt;&lt;t-kills&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-stat-up-tg_meta_wound>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.</t-stat-up-tg_meta_wound><t-kills>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.</t-kills>]]></target>
+        <target><![CDATA[<t-stat-up-tg_meta_wound>This kitten is incredible, no fear whatsoever, not even of you! It jumps at your throat and delicately buries its claws deep in your flesh.</t-stat-up-tg_meta_wound><t-kills>This kitten is incredible, no fear whatsoever, not even of the unworldly stench of Zombies. Stronger than the Duracell Bunny and the Killer Rabbit of Caerbannog combined, it has completely cleared the zone.</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="HpUrD8S" name="Vielleicht solltest du stattdessen dein Labor benutzen...">

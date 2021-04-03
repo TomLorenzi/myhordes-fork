@@ -7922,7 +7922,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du hast {item} eingenommen, verspürst aber keine nennenswerte Wirkung... Vielleicht hast du das gar nicht gebraucht?</source>
-        <target>Du hast {item} eingenommen, verspürst aber keine nennenswerte Wirkung... Vielleicht hast du das gar nicht gebraucht?</target>
+        <target>Estás usando {item}, pero no parece estar haciendo ningún efecto. ¿Será que no era necesario?</target>
       </segment>
     </unit>
     <unit id="ullYTUO" name="bc4370c">
