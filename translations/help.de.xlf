@@ -6257,8 +6257,7 @@ Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</n
         <source>Du kannst hier eine Liste mit mindestens 39 Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
 Alle Pseudonyme müssen korrekt geschrieben und mit einem Komma getrennt sein (Leerzeichen werden ignoriert).
 Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</source>
-        <target>Du kannst hier eine Liste mit mindestens 39 Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
-Alle Pseudonyme müssen korrekt geschrieben und mit einem Komma getrennt sein (Leerzeichen werden ignoriert).
+        <target>Du kannst hier eine Liste Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
 Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</target>
       </segment>
     </unit>
@@ -6268,7 +6267,7 @@ Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</t
       </notes>
       <segment>
         <source>Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;</source>
-        <target><![CDATA[Beispiel: <em>spieler01, spieler02, blafasel_99</em>]]></target>
+        <target><![CDATA[Statt alle Spieler einzeln auszuwählen kannst du auch eine Liste mit Namen in das Suchfeld eingeben. Beispiel: <em>spieler01, spieler02, blafasel_99</em>]]></target>
       </segment>
     </unit>
     <unit id="NyknCVn" name="4a21474">

@@ -6179,7 +6179,7 @@ Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</n
         <source>Du kannst hier eine Liste mit mindestens 39 Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
 Alle Pseudonyme müssen korrekt geschrieben und mit einem Komma getrennt sein (Leerzeichen werden ignoriert).
 Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</source>
-        <target>Puedes ingresar una lista de 39 nombres de jugadores (como mínimo) cuando creas un pueblo privado para reservarles un lugar. Los nombres de cada jugador deben estar correctamente escritos y separados por comas (los espacios son ignorados). ¡No podrás modificar esta lista después de que el pueblo haya sido creado!</target>
+        <target>Puedes ingresar una lista de jugadores (como mínimo) cuando creas un pueblo privado para reservarles un lugar. ¡No podrás modificar esta lista después de que el pueblo haya sido creado!</target>
       </segment>
     </unit>
     <unit id="lWrXfCk" name="Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;">
@@ -6188,7 +6188,7 @@ Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</s
       </notes>
       <segment>
         <source>Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;</source>
-        <target><![CDATA[Ejemplo: <em>Pepe, Tito10, El_gran_lucho</em>]]></target>
+        <target><![CDATA[En lugar de añadir cada nombre individualmente, puede introducir una lista de nombres en el cuadro de búsqueda. Ejemplo: <em>Pepe, Tito10, El_gran_lucho</em>]]></target>
       </segment>
     </unit>
     <unit id="NyknCVn" name="4a21474">

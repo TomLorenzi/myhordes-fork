@@ -6180,7 +6180,7 @@ Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</n
         <source>Du kannst hier eine Liste mit mindestens 39 Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
 Alle Pseudonyme müssen korrekt geschrieben und mit einem Komma getrennt sein (Leerzeichen werden ignoriert).
 Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</source>
-        <target>Vous pouvez entrer une liste 39 noms de joueurs (minimum) lorsque vous créez une ville privée pour leur réserver à chacun une place. Chaque pseudonyme doit être correctement écrit et séparé par une virgule (les espaces sont ignorés). Vous ne pourrez plus modifier cette liste une fois la ville créée !</target>
+        <target>Vous pouvez entrer une liste de joueurs lorsque vous créez une ville privée pour leur réserver à chacun une place. Vous ne pourrez plus modifier cette liste une fois la ville créée !</target>
       </segment>
     </unit>
     <unit id="lWrXfCk" name="Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;">
@@ -6189,7 +6189,7 @@ Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</s
       </notes>
       <segment>
         <source>Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;</source>
-        <target><![CDATA[Exemple : <em>joueur01, joueur02, bidule_du_33</em>]]></target>
+        <target><![CDATA[Au lieu d'ajouter chaque nom individuellement, vous pouvez saisir une liste de noms dans le champ de recherche. Exemple : <em>joueur01, joueur02, bidule_du_33</em>]]></target>
       </segment>
     </unit>
     <unit id="NyknCVn" name="4a21474">

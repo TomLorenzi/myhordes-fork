@@ -201,11 +201,21 @@ class SoulController extends CustomAbstractController
         $searchSkip = $parser->get_array('exclude', []);
         $searchSkip[] = $user->getId();
 
-        $users = mb_strlen($searchName) >= 3 ? $em->getRepository(User::class)->findBySoulSearchQuery($searchName, 10, $searchSkip) : [];
+        $selected_group = false;
+        if ($url === 'town_add_users' && str_contains($searchName,',')) {
+            $searchNames = explode(',', $searchName);
+            $users = [];
+            foreach ($searchNames as $searchName) {
+                $r = mb_strlen($searchName) >= 3 ? $em->getRepository(User::class)->findOneByNameOrDisplayName(trim($searchName)) : null;
+                if ($r && !in_array($r->getId(), $searchSkip)) $users[] = $r;
+            }
+            $selected_group = true;
+        } else $users = mb_strlen($searchName) >= 3 ? $em->getRepository(User::class)->findBySoulSearchQuery($searchName, 10, $searchSkip) : [];
 
         $data = [
             'var' => $url,
-            'users' => in_array($url, ['soul_visit','soul_invite_coalition','pm_manage_users','pm_add_users','plain']) ? $users : [],
+            'single_entry' => $selected_group,
+            'users' => in_array($url, ['soul_visit','soul_invite_coalition','pm_manage_users','pm_add_users','town_add_users','plain']) ? $users : [],
             'route' => in_array($url, ['soul_visit','soul_invite_coalition']) ? $url : ''
         ];
 
