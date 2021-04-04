@@ -2953,5 +2953,50 @@
         <target>Ändern des Titels verbieten</target>
       </segment>
     </unit>
+    <unit id="nXkHd12" name="Anzeigenamen ändern">
+      <notes>
+        <note category="german">Anzeigenamen ändern</note>
+      </notes>
+      <segment>
+        <source>Anzeigenamen ändern</source>
+        <target>Anzeigenamen ändern</target>
+      </segment>
+    </unit>
+    <unit id="zX2Ikki" name="Anzeigenamen entfernen">
+      <notes>
+        <note category="german">Anzeigenamen entfernen</note>
+      </notes>
+      <segment>
+        <source>Anzeigenamen entfernen</source>
+        <target>Anzeigenamen entfernen</target>
+      </segment>
+    </unit>
+    <unit id="ZBGzbqz" name="Avatar entfernen">
+      <notes>
+        <note category="german">Avatar entfernen</note>
+      </notes>
+      <segment>
+        <source>Avatar entfernen</source>
+        <target>Avatar entfernen</target>
+      </segment>
+    </unit>
+    <unit id="5yzpFRy" name="Profilbeschreibung entfernen">
+      <notes>
+        <note category="german">Profilbeschreibung entfernen</note>
+      </notes>
+      <segment>
+        <source>Profilbeschreibung entfernen</source>
+        <target>Profilbeschreibung entfernen</target>
+      </segment>
+    </unit>
+    <unit id="R1lleS7" name="Titel &amp; Icon entfernen">
+      <notes>
+        <note category="german">Titel &amp; Icon entfernen</note>
+      </notes>
+      <segment>
+        <source>Titel &amp; Icon entfernen</source>
+        <target><![CDATA[Titel & Icon entfernen]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

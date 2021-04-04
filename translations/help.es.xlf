@@ -6171,8 +6171,7 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
     </unit>
     <unit id="AsXSh2V" name="9eaeadf">
       <notes>
-        <note category="german">Du kannst hier eine Liste mit mindestens 39 Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
-Alle Pseudonyme müssen korrekt geschrieben und mit einem Komma getrennt sein (Leerzeichen werden ignoriert).
+        <note category="german">Du kannst hier eine Liste Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
 Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</note>
       </notes>
       <segment>
@@ -6184,7 +6183,7 @@ Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</s
     </unit>
     <unit id="lWrXfCk" name="Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;">
       <notes>
-        <note category="german">Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;</note>
+        <note category="german">Statt alle Spieler einzeln auszuwählen kannst du auch eine Liste mit Namen in das Suchfeld eingeben. Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;</note>
       </notes>
       <segment>
         <source>Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;</source>

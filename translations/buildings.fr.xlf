@@ -921,7 +921,7 @@
     </unit>
     <unit id="FXAUu02" name="Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.">
       <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 6% gesenkt.</note>
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</source>
@@ -930,7 +930,7 @@
     </unit>
     <unit id="RpqPbZr" name="Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.">
       <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 12% gesenkt.</note>
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</source>
@@ -939,7 +939,7 @@
     </unit>
     <unit id="xQHKrzW" name="Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.">
       <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 18% gesenkt.</note>
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</source>
@@ -3243,7 +3243,7 @@
     </unit>
     <unit id="R.TLWup" name="aed3fec">
       <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 24% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</note>
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</source>
@@ -3252,7 +3252,7 @@
     </unit>
     <unit id="JLugykh" name="124a889">
       <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 30% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</note>
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</source>
@@ -3329,6 +3329,24 @@
       <segment>
         <source>Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.</source>
         <target>La réduction des chances de fouilles la nuit est annulée sur toute la carte, 2 piles sont consommées par jour.</target>
+      </segment>
+    </unit>
+    <unit id="nvB5DhN" name="c783d04">
+      <notes>
+        <note category="german">Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert.</note>
+      </notes>
+      <segment>
+        <source>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert.</source>
+        <target>La réduction des chances de fouilles la nuit est annulée dans un rayon de 2 km autour de la ville.</target>
+      </segment>
+    </unit>
+    <unit id="i9EymZs" name="Kein besonderer Bonus">
+      <notes>
+        <note category="german">Kein besonderer Bonus</note>
+      </notes>
+      <segment>
+        <source>Kein besonderer Bonus</source>
+        <target>Aucun bonus spécial</target>
       </segment>
     </unit>
   </file>

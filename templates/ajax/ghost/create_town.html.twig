@@ -41,7 +41,7 @@
 
                     <div class="row">
                         <div class="cell padded rw-3 rw-md-6 rw-sm-12 note note-lightest">
-                            <label for="password">{{'Zugangscode'|trans({}, 'ghost')}}</label>
+                            <label for="password">{{'Zugangscode'|trans({}, 'ghost')}} <a class="help-button"><div class="tooltip help">{{ 'Wenn Bürger deine Stadt betreten möchten, wird ein Zugangsdode abgefragt. Nur mit korrektem Zugangscode erhalten sie Zutritt. Verteile den Zugangscode darum an die Spieler, die du einladen möchtest. <strong>Und benutze nicht dein privates Passwort als Zugangscode!!!</strong>'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a></label>
                         </div>
                         <div class="cell padded rw-3 rw-md-6 rw-sm-12">
                             <input type="text" x-payload="password" name="password" id="password"/>

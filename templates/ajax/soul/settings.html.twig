@@ -39,7 +39,7 @@
                     {% else %}
                         <img id="user_current_icon" alt="" src="" style="display: none" />
                     {% endif %}
-                    <span id="show_icon_sel" class="pointer small">{{ 'Auswählen'|trans({},'global') }}</span>
+                    <span id="show_icon_sel" class="pointer small"><img alt="" src="{{ asset('build/images/forum/edit.png') }}"><div class="tooltip help">{{ 'Auswählen'|trans({},'global')|raw }}</div></span>
                     <div id="icon_sel" style="display: none">
                         {% set has_icon = false %}
                         {% for award in app.user.awards %}
@@ -51,7 +51,7 @@
                         {% if has_icon %}
                             <span x-title-icon="-1" class="small pointer">[{{ 'Kein Icon'|trans({},'soul') }}]</span>
                         {% else %}<span class="small bold">{{ 'Du hast noch kein Icon freigeschaltet!'|trans({},'soul') }}</span>{% endif %}
-                        <br /><span id="hide_icon_sel" class="pointer small">{{ 'Abbrechen'|trans({},'global') }}</span>
+                        <br /><span id="hide_icon_sel" class="pointer small"><img alt="" src="{{ asset('build/images/icons/small_remove.gif') }}"><div class="tooltip help">{{ 'Abbrechen'|trans({},'global')|raw }}</div></span>
                     </div>
                 </div>
             </div>
