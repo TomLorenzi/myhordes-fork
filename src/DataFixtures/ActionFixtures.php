@@ -560,7 +560,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'special_card'   => [ 'label' => 'Karte ziehen', 'cover' => true, 'meta' => [ 'not_yet_card', 'no_bonus_ap' ],      'result' => [ 'casino_card'   ], 'message' => '{casino}' ],
             'special_guitar' => [ 'label' => 'Spielen',      'meta' => [ 'not_yet_guitar', 'must_be_inside' ], 'result' => [ 'casino_guitar' ], 'message' => '{casino}' ],
 
-            'can'       => [ 'label' => 'Öffnen',  'meta' => [ 'have_can_opener', 'is_not_wounded_hands' ], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'can_open_#00' ] ] ], 'message' => 'Du hast mit dem(r) {item_tool} ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.' ],
+            'can'       => [ 'label' => 'Öffnen',  'meta' => [ 'not_profession_tech', 'have_can_opener', 'is_not_wounded_hands' ], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'can_open_#00' ] ] ], 'message' => 'Du hast mit dem(r) {item_tool} ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.' ],
+            'can_t1'    => [ 'label' => 'Öffnen',  'meta' => [ 'profession_tech', 'have_can_opener_hd', 'is_not_wounded_hands' ], 'result' => [ [ 'item' => [ 'consume' => false, 'morph' => 'can_open_#00' ] ] ], 'message' => 'Du hast mit dem(r) {item_tool} ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.' ],
+            'can_t2'    => [ 'label' => 'Öffnen (1 BP)',  'meta' => [ 'profession_tech', 'not_have_can_opener_hd', 'min_1_cp', 'is_not_wounded_hands' ], 'result' => [ 'minus_1cp', [ 'item' => [ 'consume' => false, 'morph' => 'can_open_#00' ] ] ], 'message' => 'Du hast die {item} geöffnet und darin {items_spawn} gefunden!' ],
 
             'eat_6ap'   => [ 'label' => 'Essen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap' ], 'result' => [ 'eat_ap6', 'consume_item' ] ],
             'eat_7ap'   => [ 'label' => 'Essen', 'cover' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'no_full_ap' ], 'result' => [ 'eat_ap7', 'consume_item' ] ],
