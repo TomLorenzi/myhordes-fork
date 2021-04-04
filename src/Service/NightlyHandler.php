@@ -651,7 +651,7 @@ class NightlyHandler
         }
 
         if ($total_watch_def > 0 && $overflow > 0) {
-            $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieStopped($town, min($overflow, $total_watch_def)));
+            $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieStopped($town, min($overflow, $total_watch_def), count($watchers)));
         }
 
         $initial_overflow = $overflow;

@@ -3289,7 +3289,7 @@
       </notes>
       <segment>
         <source>%num% Zombies sind durch unsere Verteidigung gebrochen!</source>
-        <target>%num% Zombies sind durch unsere Verteidigung gebrochen!</target>
+        <target>%num% Zombies sind in die Stadt eingedrungen!</target>
       </segment>
     </unit>
     <unit id="IT1iVPi" name="Nicht ein Zombie hat die Stadt betreten!">

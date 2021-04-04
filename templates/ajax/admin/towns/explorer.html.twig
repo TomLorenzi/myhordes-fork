@@ -169,10 +169,7 @@
                             {% elseif fromTown.complete and fromTown.hp < building.hp %}
                                 <div class="ap-bar">
                                     <div class="bar" style="width: {{ 100*(fromTown.hp/((building.hp)|round)) }}%"></div>
-                                    <div class="tooltip"><em>{{"Zustand:"|trans({}, 'game')}}</em> {{fromTown.hp}}/{{building.hp}}<br />
-                                        {{"Jeder %divap%, der in die Reparatur investiert wird, beseitigt %hprepair% Schadenspunkte an einem Bauwerk."|trans({"%divap%": "<div class='ap'></div>", "%hprepair%": "<b>" ~ hpToAp ~ "</b>"}, "game")|raw}}<br /><br />
-                                        {{"Die Reparatur verbraucht keine Ressourcen."|trans({}, 'game')}}
-                                    </div>
+                                    <div class="tooltip"><em>{{"Zustand:"|trans({}, 'game')}}</em> {{fromTown.hp}}/{{building.hp}}</div>
                                 </div>
                             {% endif %}
 

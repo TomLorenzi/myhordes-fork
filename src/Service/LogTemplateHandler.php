@@ -164,7 +164,7 @@ class LogTemplateHandler
                         $transParams['%'.$typeEntry['name'].'%'] = "null";
                 }
                 elseif ($typeEntry['type'] === 'num' || $typeEntry['type'] === 'string') {
-                    $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun($variables[$typeEntry['name']]);
+                    $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun($variables[$typeEntry['name']] ?? 0);
                 }
                 elseif ($typeEntry['type'] === 'transString') {
                     $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun( $this->trans->trans($variables[$typeEntry['name']], [], 'game') );
@@ -980,8 +980,8 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') );
     }
 
-    public function nightlyAttackWatchersZombieStopped( Town $town, int $zombies ): TownLogEntry {
-        $variables = array('zombies' => $zombies);
+    public function nightlyAttackWatchersZombieStopped( Town $town, int $zombies, int $watchers ): TownLogEntry {
+        $variables = array('zombies' => $zombies, 'watchers' => $watchers);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackWatchersZombieStopped']);
 
         return (new TownLogEntry())
