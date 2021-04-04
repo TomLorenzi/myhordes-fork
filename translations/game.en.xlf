@@ -15715,7 +15715,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</source>
-        <target>Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</target>
+        <target>Hurrah! Construction of the %plan% is complete!</target>
       </segment>
     </unit>
     <unit id="8UrChKd" name="Du hast dafür %count% Aktionspunkt(e) verbraucht.">
