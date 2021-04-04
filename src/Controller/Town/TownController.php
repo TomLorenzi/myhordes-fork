@@ -1873,7 +1873,8 @@ class TownController extends InventoryAwareController
                 $entries = $home->getPrototype()->getResources()->getEntries();
                 foreach ($entries as $entry) {
                     for($i = 0 ; $i < $entry->getChance(); $i++){
-                        $this->inventory_handler->forceMoveItem( $citizen->getTown()->getBank(), $if->createItem($entry->getPrototype()->getName()));
+                        if ($this->random_generator->chance(0.4))
+                            $this->inventory_handler->forceMoveItem( $citizen->getTown()->getBank(), $if->createItem($entry->getPrototype()->getName()));
                     }
                 }
             }
