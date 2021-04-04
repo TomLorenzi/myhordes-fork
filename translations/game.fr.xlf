@@ -17454,7 +17454,7 @@
       </notes>
       <segment>
         <source>%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!</source>
-        <target>%watchers% veilleurs se sont postés aux extrémités de la ville pour contenir les attaques de la Horde !</target>
+        <target>%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!</target>
       </segment>
     </unit>
     <unit id="lDKOiMz" name="d1143ea">

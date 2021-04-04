@@ -17474,7 +17474,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!</source>
-        <target>%watchers% watchmen were posted to the furthest corners of the town to contain the Horde's attack!</target>
+        <target>%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!</target>
       </segment>
     </unit>
     <unit id="lDKOiMz" name="d1143ea">
