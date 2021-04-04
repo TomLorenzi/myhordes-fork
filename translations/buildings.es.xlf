@@ -655,7 +655,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</source>
-        <target>Cada objeto de defensa en el Almacén aporta 1 punto de defensa adicional al pueblo.</target>
+        <target>Los objetos de defensa del almacén aportan un 100% de puntos de defensa adicionales para el pueblo.</target>
       </segment>
     </unit>
     <unit id="GLo_FzK" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.">
@@ -664,7 +664,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</source>
-        <target>Cada objeto de defensa en el Almacén aporta 1.5 puntos de defensa adicionales al pueblo.</target>
+        <target>Los objetos de defensa del almacén aportan un 150% de puntos de defensa adicionales para el pueblo.</target>
       </segment>
     </unit>
     <unit id="l3tFIbP" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.">
@@ -673,7 +673,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</source>
-        <target>Cada objeto de defensa en el Almacén aporta 2 puntos de defensa adicionales al pueblo.</target>
+        <target>Los objetos de defensa del almacén aportan un 200% de puntos de defensa adicionales para el pueblo.</target>
       </segment>
     </unit>
     <unit id="FXvZuCC" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.">
@@ -682,7 +682,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</source>
-        <target>Cada objeto de defensa en el Almacén aporta 2.5 puntos de defensa adicionales al pueblo.</target>
+        <target>Los objetos de defensa del almacén aportan un 250% de puntos de defensa adicionales para el pueblo.</target>
       </segment>
     </unit>
     <unit id="fPl.xwk" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.">
@@ -691,7 +691,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</source>
-        <target>Cada objeto de defensa en el Almacén aporta 3 puntos de defensa adicionales al pueblo.</target>
+        <target>Los objetos de defensa del almacén aportan un 300% de puntos de defensa adicionales para el pueblo.</target>
       </segment>
     </unit>
     <unit id="Vln90x5" name="Steinkanone">
