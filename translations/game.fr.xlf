@@ -18824,5 +18824,14 @@
         <target><![CDATA[Votre %img_scout% <strong>Tenue de camouflage</strong> vous permet de vous déplacer sans être vu(e)]]></target>
       </segment>
     </unit>
+    <unit id="CN1z1xe" name="58ec9c9">
+      <notes>
+        <note category="german">%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</note>
+      </notes>
+      <segment>
+        <source>%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</source>
+        <target>%watchers% veilleurs se sont postés aux extrémités de la ville pour contenir les attaques de la Horde !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
