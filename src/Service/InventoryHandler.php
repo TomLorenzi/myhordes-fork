@@ -17,6 +17,8 @@ use App\Entity\Item;
 use App\Entity\ItemGroup;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
+use App\Entity\RuinZone;
+use App\Entity\Town;
 use App\Structures\ItemRequest;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
@@ -529,6 +531,72 @@ class InventoryHandler
             $item->getInventory()->removeItem($item);
             $this->entity_manager->remove( $item );
         }
+    }
+
+    public function getAllInventoryIDs( Town $town, bool $bank = true, bool $homes = true, bool $rucksack = true, bool $floor = true, bool $ruinFloor = true ): array {
+        // Get all inventory IDs
+        // We're just getting IDs, because we don't want to actually hydrate the inventory instances
+        $q = $this->entity_manager->createQueryBuilder()
+            ->select('i.id')
+            ->from(Inventory::class, 'i');
+        if ($bank) $q->leftJoin('i.town', 't')->orWhere('t = :town' )->setParameter('town', $town);
+        if ($homes) $q->leftJoin('i.home', 'h')->orWhere('h IN (:homes)')->setParameter('homes', array_map( fn(Citizen $c) => $c->getHome(), $town->getCitizens()->getValues()) );
+        if ($rucksack) $q->leftJoin('i.citizen', 'c')->orWhere('c IN (:citizens)')->setParameter('citizens', $town->getCitizens());
+        if ($floor) $q->leftJoin('i.zone', 'z')->orWhere('z IN (:zones)')->setParameter('zones', $town->getZones());
+        if ($ruinFloor) $q
+            ->leftJoin('i.ruinZone', 'rz')->orWhere('rz IN (:ruinZones)')->setParameter('ruinZones', $this->entity_manager->getRepository(RuinZone::class)->findBy(['zone' => $town->getZones()->getValues()]) )
+            ->leftJoin('i.ruinZoneRoom', 'rzr')->orWhere('rzr IN (:ruinZones)');
+        return array_column($q->getQuery()->getScalarResult(), 'id');
+    }
+
+    /**
+     * @param Town $town
+     * @param ItemPrototype|ItemProperty[]|string|string[] $prototype
+     * @param bool $bank
+     * @param bool $homes
+     * @param bool $rucksack
+     * @param bool $floor
+     * @param bool $ruinFloor
+     * @return Item[]
+     */
+    public function getAllItems( Town $town, $prototype, bool $bank = true, bool $homes = true, bool $rucksack = true, bool $floor = true, bool $ruinFloor = true ): array {
+        if (!is_array($prototype)) $prototype = [$prototype];
+        $prototype = array_map( fn($a) => is_string($a) ? $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($a) : $a, $prototype );
+
+        // Get all items
+        return $this->entity_manager->createQueryBuilder()
+            ->select('i')
+            ->from(Item::class, 'i')
+            ->andWhere('i.inventory IN (:invs)')->setParameter('invs', $this->getAllInventoryIDs($town, $bank, $homes, $rucksack, $floor, $ruinFloor))
+            ->andWhere('i.prototype IN (:protos)')->setParameter('protos', $prototype)
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @param Town $town
+     * @param ItemPrototype|ItemProperty[]|string|string[] $prototype
+     * @param bool $bank
+     * @param bool $homes
+     * @param bool $rucksack
+     * @param bool $floor
+     * @param bool $ruinFloor
+     * @return int
+     */
+    public function countAllItems( Town $town, $prototype, bool $bank = true, bool $homes = true, bool $rucksack = true, bool $floor = true, bool $ruinFloor = true ): int {
+        if (!is_array($prototype)) $prototype = [$prototype];
+        $prototype = array_map( fn($a) => is_string($a) ? $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($a) : $a, $prototype );
+
+        // Get all items
+        try {
+            return $this->entity_manager->createQueryBuilder()
+                ->select('SUM(i.count)')
+                ->from(Item::class, 'i')
+                ->andWhere('i.inventory IN (:invs)')->setParameter('invs', $this->getAllInventoryIDs($town, $bank, $homes, $rucksack, $floor, $ruinFloor))
+                ->andWhere('i.prototype IN (:protos)')->setParameter('protos', $prototype)
+                ->getQuery()->getSingleScalarResult();
+        } catch (Exception $e) { return 0; }
+
     }
 
 }

@@ -16,6 +16,7 @@ use App\Entity\GazetteLogEntry;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
+use App\Entity\ItemInfoAttachment;
 use App\Entity\ItemPrototype;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\LogEntryTemplate;
@@ -579,6 +580,9 @@ class NightlyHandler
         }
 
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow, count($watchers) > 0 && $has_nightwatch));
+
+        if ($overflow > 0 && count($watchers) > 0 && $has_nightwatch)
+            $this->entity_manager->persist( $this->logTemplates->nightlyAttackWatchersCount($town, count($watchers)) );
 
         $def_scale = $def_summary ? $def_summary->overall_scale : 1.0;
         $total_watch_def = floor($this->town_handler->calculate_watch_def($town, $town->getDay() - 1) * $def_scale);
@@ -1213,54 +1217,25 @@ class NightlyHandler
 
         if($this->conf->getTownConfiguration($town)->get( TownConf::CONF_FEATURE_SHAMAN_MODE, 'normal' ) == 'normal') {
             $this->log->debug("Processing <info>souls</info> mutations.");
-            foreach ($this->zone_handler->getSoulZones($town) as $zone) {
-                foreach ($zone->getFloor()->getItems() as $item) {
-                    /** @var Item $item */
-                    if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
-                    if($this->random->chance(0.25)){
-                        $this->log->debug("Mutating soul in zone [<info>{$zone->getX()},{$zone->getY()}</info>].");
-                        $this->inventory_handler->forceRemoveItem($item);
-                        $redsoul = $this->item_factory->createItem('soul_red_#00');
-                        if($item->getFirstPick())
-                            $redsoul->setFirstPick($item->getFirstPick());
-                            
-                        $this->inventory_handler->forceMoveItem($zone->getFloor(), $redsoul);
-                        $this->entity_manager->persist($zone);
 
-                    }
-                }
-            }
+            $blue_souls = $this->inventory_handler->getAllItems($town, 'soul_blue_#00');
 
-            foreach ($town->getBank()->getItems() as $item) {
-                if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
-                // In the bank, the count is > 1, we must loop through each soul
-                for($i = 0 ; $i < $item->getCount() ; $i++) {
-                    if($this->random->chance(0.1)){
-                        $this->log->debug("Mutating soul in bank.");
-                        $this->inventory_handler->forceRemoveItem($item);
-                        $this->inventory_handler->forceMoveItem($town->getBank(), $this->item_factory->createItem('soul_red_#00'));
-                    }
-                }
-            }
-    
-            foreach ($town->getCitizens() as $citizen) {
-                foreach ($citizen->getHome()->getChest()->getItems() as $item) {
-                    if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
-                    if($this->random->chance(0.1)){
-                        $this->log->debug("Mutating soul in chest of citizen <info>{$citizen->getUser()->getUsername()}</info>");
-                        $this->inventory_handler->forceRemoveItem($item);
-                        $this->inventory_handler->forceMoveItem($citizen->getHome()->getChest(), $this->item_factory->createItem('soul_red_#00'));
-                        $this->entity_manager->persist($citizen->getHome()->getChest());
-                    }
-                }
-                foreach ($citizen->getInventory()->getItems() as $item) {
-                    if($item->getPrototype()->getName() !== 'soul_blue_#00') continue;
-                    if($this->random->chance(0.1)){
-                        $this->log->debug("Mutating soul in rucksack of citizen <info>{$citizen->getUser()->getUsername()}</info>");
-                        $this->inventory_handler->forceRemoveItem($item);
-                        $this->inventory_handler->forceMoveItem($citizen->getHome()->getChest(), $this->item_factory->createItem('soul_red_#00'));
-                        $this->entity_manager->persist($citizen->getHome()->getChest());
-                    }
+            $red_soul_proto = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('soul_red_#00');
+            if (!$red_soul_proto) throw new \Exception('No red soul prototype!');
+
+            $soul_transformation_rate = [0.10,0.25,0.50,0.75,1.00];
+            foreach ($blue_souls as $soul) {
+
+                $data = $this->entity_manager->getRepository(ItemInfoAttachment::class)->findOneBy(['item' => $soul]) ?? (new ItemInfoAttachment)->setItem($soul);
+                $survived_nights = max(0, min( $data->get('blue_soul_survival_count', 0), 4 ) );
+
+                if ($this->random->chance($soul_transformation_rate[$survived_nights])) {
+                    $this->log->debug("Mutation: <info>Mutating</info> a soul! Mutation chance was <info>{$soul_transformation_rate[$survived_nights]}</info>.");
+                    $this->entity_manager->persist( $soul->setPrototype( $red_soul_proto ) );
+                } else {
+                    $this->log->debug("Mutation: <info>Ignoring</info> a soul! Mutation chance was <info>{$soul_transformation_rate[$survived_nights]}</info>.");
+                    $data->set('blue_soul_survival_count', $survived_nights + 1);
+                    $this->entity_manager->persist( $data );
                 }
             }
         }

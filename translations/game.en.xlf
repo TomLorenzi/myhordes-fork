@@ -1490,7 +1490,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Jede Verarbeitung kostet %ap% (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).</source>
-        <target>Each transformation cost %ap%</target>
+        <target>Each transformation costs %ap%</target>
       </segment>
     </unit>
     <unit id="pVNCjNA" name="Du trägst eine Säge bei dir.">
@@ -3956,7 +3956,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ermordung durch Gift</source>
-        <target>Injected with a poison !</target>
+        <target>Injected with a poison!</target>
       </segment>
     </unit>
     <unit id="q6r0JuY" name="283aad7">
@@ -14365,7 +14365,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.</source>
-        <target>Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.</target>
+        <target>The resident is basically a normal citizen, with no remarkable abilities to speak of...</target>
       </segment>
     </unit>
     <unit id="1sFu13W" name="6d96558">
@@ -14374,7 +14374,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Buddler können eine Zone im Vergleich zu den normalen Einwohnern schneller absuchen. Darüber hinaus haben sie eine höhere Chance, wertvolle Gegenstände zu finden.</source>
-        <target>Buddler können eine Zone im Vergleich zu den normalen Einwohnern schneller absuchen. Darüber hinaus haben sie eine höhere Chance, wertvolle Gegenstände zu finden.</target>
+        <target>Scavengers are much quicker than any other citizen when it comes to looking for objects in the desert. Furthermore, their chances of finding something are significantly higher.</target>
       </segment>
     </unit>
     <unit id="BusTGgv" name="ca16d49">
@@ -14383,7 +14383,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Wächter ist der geborener Kämpfer. In der Wüste kann er es mit weitaus mehr Zombies aufnehmen als jeder andere durchschnittliche Einwohner.</source>
-        <target>Der Wächter ist der geborener Kämpfer. In der Wüste kann er es mit weitaus mehr Zombies aufnehmen als jeder andere durchschnittliche Einwohner.</target>
+        <target>When in the desert, the guardian is able to face many more zombies than an average citizen.</target>
       </segment>
     </unit>
     <unit id="7hINRyx" name="59298e1">
@@ -14392,7 +14392,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Aufklärer weiß sich geschickt zu tarnen, um sich mühelos selbst durch große Zombieansammlungen zu schleichen und Zonen aufzusuchen, in die sich keiner alleine trauen würde.</source>
-        <target>Der Aufklärer weiß sich geschickt zu tarnen, um sich mühelos selbst durch große Zombieansammlungen zu schleichen und Zonen aufzusuchen, in die sich keiner alleine trauen würde.</target>
+        <target>Scouts know how to move in the shadows like Hank Marvin. This allows them to sneak past zombies in the desert and go where nobody dare venture alone...</target>
       </segment>
     </unit>
     <unit id="U1ZJKmn" name="798e354">
@@ -14401,7 +14401,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Dompteur setzt seinen treuen Hund dazu ein, um in der Wüste gefundene Gegenstände in die Stadt zu bringen.</source>
-        <target>Der Dompteur setzt seinen treuen Hund dazu ein, um in der Wüste gefundene Gegenstände in die Stadt zu bringen.</target>
+        <target>Always accompanied by their trusty 3-legged labradoodle, the tamer can load up their trusty hound with objects they've found in the World Beyond and send it back to the town.</target>
       </segment>
     </unit>
     <unit id="cPQAM2U" name="f829667">
@@ -14410,7 +14410,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Techniker kann besser als jeder andere Einwohner an Bauprojekten mitwirken. Außerdem ist er sehr geübt darin, Schlösser und versperrte Türen zu öffnen.</source>
-        <target>Der Techniker kann besser als jeder andere Einwohner an Bauprojekten mitwirken. Außerdem ist er sehr geübt darin, Schlösser und versperrte Türen zu öffnen.</target>
+        <target>The technician is better at leading construction projects than your average citizen, and is also very useful for opening locked doors.</target>
       </segment>
     </unit>
     <unit id="2Cxepy1" name="719ff91">
@@ -14419,7 +14419,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Schamane verfügt über mystische Fähigkeiten. Er kann die Seelen kürzlich verstorbener Bürger orten, die in der Außenwelt umher irren.</source>
-        <target>Der Schamane verfügt über mystische Fähigkeiten. Er kann die Seelen kürzlich verstorbener Bürger orten, die in der Außenwelt umher irren.</target>
+        <target>The shaman has mystical abilities. He can locate the souls of recently deceased citizens wandering around the outside world.</target>
       </segment>
     </unit>
     <unit id="W8fp4NH" name="7b13048">
@@ -14428,7 +14428,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Einsiedler ist ein Typ, mit dem seit Jahren niemand mehr geredet hat. Ganz auf sich allein gestellt, lebt er still vor sich hin. Wenn es ums Überleben geht, weiß sich der Einsiedler seit jeher zu helfen: Er findet immer etwas Ess- oder Trinkbares in der Wüste - egal, wo er sich gerade befindet.</source>
-        <target>Der Einsiedler ist ein Typ, mit dem seit Jahren niemand mehr geredet hat. Ganz auf sich allein gestellt, lebt er still vor sich hin. Wenn es ums Überleben geht, weiß sich der Einsiedler seit jeher zu helfen: Er findet immer etwas Ess- oder Trinkbares in der Wüste - egal, wo er sich gerade befindet.</target>
+        <target>The survivalist is always able to find enough food or water to survive in the desert. He is also particularly talented when it comes to camping...</target>
       </segment>
     </unit>
     <unit id="4UUmkln" name="Katapult-Bediener">
@@ -15715,7 +15715,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</source>
-        <target>Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</target>
+        <target>Hurrah! Construction of the %plan% is complete!</target>
       </segment>
     </unit>
     <unit id="8UrChKd" name="Du hast dafür %count% Aktionspunkt(e) verbraucht.">
@@ -16520,7 +16520,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</source>
-        <target>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</target>
+        <target>This risk depends directly on the number of citizens that have gone into the world beyond: The smaller the number of citizens remaining in town, the lower your chances of being seen will be.</target>
       </segment>
     </unit>
     <unit id="8yLsMnc" name="1f8ca6f">
@@ -16574,7 +16574,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wasserwaffen-Spezialist</source>
-        <target>"H2Operative</target>
+        <target>H2Operative</target>
       </segment>
     </unit>
     <unit id="dNzdcfT" name="Hydraulik-Engineering">
@@ -17213,7 +17213,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du hast dich in einen %role% verwandelt!</source>
-        <target>Du hast dich in einen %role% verwandelt!</target>
+        <target>You have been transformed into a %role%!</target>
       </segment>
     </unit>
     <unit id="41EQiml" name="Erzähle niemandem davon oder du wirst sofort erschossen!">
@@ -17222,7 +17222,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Erzähle niemandem davon oder du wirst sofort erschossen!</source>
-        <target>Erzähle niemandem davon oder du wirst sofort erschossen!</target>
+        <target>Don't tell anyone as you will just as soon be killed!</target>
       </segment>
     </unit>
     <unit id=".S3ibaS" name="Wie man als Ghul spielt ?">
@@ -17231,7 +17231,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Wie man als Ghul spielt ?</source>
-        <target>Wie man als Ghul spielt ?</target>
+        <target>How do I play as a ghoul?</target>
       </segment>
     </unit>
     <unit id="sZoC__." name="Der Bürger weigert sich, dies zu tun...">
@@ -17842,9 +17842,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Wenn du "MyHordes" zum ersten Mal spielst, empfehlen wir dir den Links &lt;strong&gt;Wie soll ich spielen?&lt;/strong&gt; zu folgen,
                 die sich auf der Webseite links befindet. Interaktive Schritt-für-Schritt-Anleitungen erklären dir in 5 Minuten die Grundlagen des Spiels.</source>
-        <target><![CDATA[
-					If you are just starting out with Myhordes, take a look at the<strong>How to Play?</strong> links on the left of the page. They offer interactive guides to teach you the basics of the game in just a few minutes! 
-					They offer interactive guides to teach you the basics of the game in just a few minutes!]]></target>
+        <target><![CDATA[If you are just starting out with MyHordes, take a look at the <strong>How do I play ?</strong> links on the left of the page. They offer interactive guides to teach you the basics of the game in just a few minutes!]]></target>
       </segment>
     </unit>
     <unit id="PF899T3" name="Du kannst jederzeit die %helplink% im oberen Abschnitt der Seite aufsuchen.">
@@ -18138,7 +18136,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Mit Hilfe seiner übermenschlichen Heldenkräfte hat %citizen% %kills% Zombie(s) lauthals schreiend und mit bloßen Händen umgebracht!</source>
-        <target>Mit Hilfe seiner übermenschlichen Heldenkräfte hat %citizen% %kills% Zombie(s) lauthals schreiend und mit bloßen Händen umgebracht!</target>
+        <target>Using their Heroic powers, %citizen% has exterminated %kills% zombie(s) with their bare hands, screaming like a banshee!</target>
       </segment>
     </unit>
     <unit id="l8p89Qb" name="Du brauchst noch folgende Gegenstände: %list%.">
@@ -18147,7 +18145,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du brauchst noch folgende Gegenstände: %list%.</source>
-        <target>Du brauchst noch folgende Gegenstände: %list%.</target>
+        <target>You still need the following items: %list%.</target>
       </segment>
     </unit>
     <unit id="m0B311V" name="7fd4518">
@@ -18165,7 +18163,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Mindestens ein Bürger in deiner Eskorte kann dir nicht folgen. Du musst die Situation in den Griff bekommen... oder die Schwachen zurücklassen.</source>
-        <target>Mindestens ein Bürger in deiner Eskorte kann dir nicht folgen. Du musst die Situation in den Griff bekommen... oder die Schwachen zurücklassen.</target>
+        <target>One or more of the citizens in your group cannot follow you. You will need to check out the situation... or leave the weak behind.</target>
       </segment>
     </unit>
     <unit id="05jR4Sa" name="839740b">
@@ -18183,7 +18181,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Das ist die bestmögliche Schätzung, die wir für diesen Angriff abgeben konnten.</source>
-        <target>Das ist die bestmögliche Schätzung, die wir für diesen Angriff abgeben konnten.</target>
+        <target>This is the best possible estimate we can give for this attack.</target>
       </segment>
     </unit>
     <unit id="tN9xF04" name="32f43f5">
@@ -18192,7 +18190,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>&lt;span&gt;%citizen% hat einen Zombie mit seinen bloßen Händen niedergestreckt!&lt;/span&gt;</source>
-        <target><![CDATA[<span>%citizen% hat einen Zombie mit seinen bloßen Händen niedergestreckt!</span>]]></target>
+        <target><![CDATA[<span>%citizen% took down a zombie with their bare hands!</span>]]></target>
       </segment>
     </unit>
     <unit id="1_rcdLL" name="25675c1">
@@ -18210,7 +18208,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>&lt;span&gt;Wir kontrollieren die Zone ab sofort.&lt;/span&gt;</source>
-        <target><![CDATA[<span>Wir kontrollieren die Zone ab sofort.</span>]]></target>
+        <target><![CDATA[<span>We control the zone from now on.</span>]]></target>
       </segment>
     </unit>
     <unit id="20wAGQf" name="6489b1a">
@@ -18219,7 +18217,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</source>
-        <target><![CDATA[Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst]]></target>
+        <target><![CDATA[Your <strong>sobriety</strong>, or lack thereof, is quite inconvenient. Things become pretty tricky pretty quickly when you're completely wasted...]]></target>
       </segment>
     </unit>
     <unit id="bPobZD0" name="b1b989e">
@@ -18246,7 +18244,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du kannst in den Foren um Hilfe bitten!</source>
-        <target>Du kannst in den Foren um Hilfe bitten!</target>
+        <target>You can ask for help on the forums!</target>
       </segment>
     </unit>
     <unit id="Eb0twff" name="114340a">
@@ -18273,7 +18271,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.</source>
-        <target>Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.</target>
+        <target>This action costs you 1 AP and the chances of success are pretty low.</target>
       </segment>
     </unit>
     <unit id="MIyP62V" name="Dieser Bürger möchte in die Stadt gebracht werden.">
@@ -18814,6 +18812,15 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: %list-i% %list-t%</source>
         <target><![CDATA[<strong>Congratulations</strong>, you have unlocked the following titles: %list-i% %list-t%]]></target>
+      </segment>
+    </unit>
+    <unit id="CN1z1xe" name="58ec9c9">
+      <notes>
+        <note category="german">%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</note>
+      </notes>
+      <segment>
+        <source>%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</source>
+        <target>%watchers% watchmen were posted to the furthest corners of the town to contain the Horde's attack!</target>
       </segment>
     </unit>
   </file>

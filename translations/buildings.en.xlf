@@ -655,7 +655,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</source>
-        <target>Each defence object in the bank gives 1 defence points to the town.</target>
+        <target>The defence points given by objects in the bank are increased by 100%.</target>
       </segment>
     </unit>
     <unit id="GLo_FzK" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.">
@@ -664,7 +664,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</source>
-        <target>Each defence object in the bank gives 1.5 defence points to the town.</target>
+        <target>The defence points given by objects in the bank are increased by 150%.</target>
       </segment>
     </unit>
     <unit id="l3tFIbP" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.">
@@ -673,7 +673,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</source>
-        <target>Each defence object in the bank gives 2 defence points to the town.</target>
+        <target>The defence points given by objects in the bank are increased by 200%.</target>
       </segment>
     </unit>
     <unit id="FXvZuCC" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.">
@@ -682,7 +682,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</source>
-        <target>Each defence object in the bank gives 2.5 defence points to the town.</target>
+        <target>The defence points given by objects in the bank are increased by 250%.</target>
       </segment>
     </unit>
     <unit id="fPl.xwk" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.">
@@ -691,7 +691,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</source>
-        <target>Each defence object in the bank gives 3 defence points to the town.</target>
+        <target>The defence points given by objects in the bank are increased by 300%.</target>
       </segment>
     </unit>
     <unit id="Vln90x5" name="Steinkanone">
@@ -2806,7 +2806,7 @@
       </notes>
       <segment>
         <source>Diese Waffenwerkstatt ist euer Trumpf für die Nachtwache. Wird sie gebaut, wird jede Waffe, die während der Wacht zum Einsatz kommt um 20% verstärkt.</source>
-        <target>This armory is a genuine top trump for watchmen. By building it, every weapon used during the nights watcjh will have its effectiveness boosted by 20%!</target>
+        <target>This armory is a genuine top trump for watchmen. By building it, every weapon used during the night's watch will have its effectiveness boosted by 20%!</target>
       </segment>
     </unit>
     <unit id="gpk5Kg3" name="f9257d7">
@@ -2815,7 +2815,7 @@
       </notes>
       <segment>
         <source>Dieser kleine Laden verbessert die Effektivität jedes Möbelstücks, das auf der Wache benutzt wird um 20%. Hach ja, die Schweden... Nie gab es bessere Billigmöbel!</source>
-        <target>This small store allows all furniture being used on the nights watch to become 20% more effective. Ah the Swedes... DIY masters of the universe!</target>
+        <target>This small store allows all furniture being used on the night's watch to become 20% more effective. Ah the Swedes... DIY masters of the universe!</target>
       </segment>
     </unit>
     <unit id="sZyLLG6" name="2612909">

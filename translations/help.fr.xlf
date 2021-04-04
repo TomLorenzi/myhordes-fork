@@ -4878,7 +4878,7 @@ müssen durchdacht geplant werden.</source>
       </notes>
       <segment>
         <source>Jede Nacht um Mitternacht greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</source>
-        <target>Chaque soir, à minuit, les Hordes de morts-vivants attaquent la ville. Chaque attaque comporte un nombre fixe de zombies.</target>
+        <target>Chaque soir, à minuit (UTC+1), les Hordes de morts-vivants attaquent la ville. Chaque attaque comporte un nombre fixe de zombies.</target>
       </segment>
     </unit>
     <unit id="D4X9Djo" name="España: 01h00">

@@ -2419,7 +2419,7 @@
       </notes>
       <segment>
         <source>Existierende Beschränkungen</source>
-        <target>Restrictions existantes</target>
+        <target>Sanctions existantes</target>
       </segment>
     </unit>
     <unit id="d.ixmWC" name="Dieser Spieler hat eine weiße Weste.">
@@ -2428,7 +2428,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler hat eine weiße Weste.</source>
-        <target>Dieser Spieler hat eine weiße Weste.</target>
+        <target>Ce joueur n'a aucune sanction existante.</target>
       </segment>
     </unit>
     <unit id="FwMioy8" name="Info">
@@ -2581,7 +2581,7 @@
       </notes>
       <segment>
         <source>%d% Tage</source>
-        <target>%d% Jour</target>
+        <target>%d% Jours</target>
       </segment>
     </unit>
     <unit id="R9HFTdn" name="Neue Beschränkung hinzufügen">
@@ -2590,7 +2590,7 @@
       </notes>
       <segment>
         <source>Neue Beschränkung hinzufügen</source>
-        <target>Ajouter une nouvelle restriction</target>
+        <target>Ajouter une sanction</target>
       </segment>
     </unit>
     <unit id="o.gLHi8" name="24 Stunden">
@@ -2599,7 +2599,7 @@
       </notes>
       <segment>
         <source>24 Stunden</source>
-        <target>24 heures</target>
+        <target>24 Heures</target>
       </segment>
     </unit>
     <unit id="YvnlIm5" name="Bestätigung erforderlich">

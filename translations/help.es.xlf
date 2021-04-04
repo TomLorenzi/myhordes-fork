@@ -4877,7 +4877,7 @@ müssen durchdacht geplant werden.</source>
       </notes>
       <segment>
         <source>Jede Nacht um Mitternacht greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</source>
-        <target>Cada noche, a la misma hora, las turbas de muertos vivientes embisten contra el pueblo.</target>
+        <target>Cada noche (0:00, UTC+1), a la misma hora, las turbas de muertos vivientes embisten contra el pueblo.</target>
       </segment>
     </unit>
     <unit id="D4X9Djo" name="España: 01h00">
