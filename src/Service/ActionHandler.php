@@ -1119,7 +1119,10 @@ class ActionHandler
                                     $heavy_break = true;
                             }
 
-                        if ($heavy_break) {
+                        if ($item_count <= 0) {
+                            $tags[] = 'fail';
+                            $tags[] = 'no-items';
+                        } elseif ($heavy_break) {
                             $tags[] = 'fail';
                             $tags[] = 'too-heavy';
                         } elseif ($this->inventory_handler->getFreeSize( $bank ) < $item_count) {
