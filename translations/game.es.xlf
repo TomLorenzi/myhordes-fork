@@ -520,7 +520,7 @@
       </notes>
       <segment>
         <source>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</source>
-        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes tomar ningún objeto del Almacén!]]></target>
+        <target>¡Has sido desterrado de la comunidad, y por ello no puedes tomar ningún objeto del Almacén!</target>
       </segment>
     </unit>
     <unit id="2HhqG76" name="Diese Aktion ist ungültig.">
@@ -673,7 +673,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</source>
-        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes ni abrir ni cerrar <em>El Gran Portal</em>!]]></target>
+        <target>¡Has sido deterrado de la comunidad, y por ello no puedes ni abrir ni cerrar El Gran Portal!</target>
       </segment>
     </unit>
     <unit id="_rfFVtg" name="Meine Aktionen">
@@ -763,7 +763,7 @@
       </notes>
       <segment>
         <source>Qualität der Abschätzung</source>
-        <target></target>
+        <target>Calidad del pronóstico:</target>
       </segment>
     </unit>
     <unit id="GHVvmus" name="Abschätzung verbessern">
@@ -1390,7 +1390,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher nicht länger für eine Verbesserung des Tages abstimmen.</source>
-        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes votar por la Mejora Del Día!]]></target>
+        <target>¡Has sido deterrado de la comunidad, y por ello no puedes votar por la Mejora del Día!</target>
       </segment>
     </unit>
     <unit id="_LKq1VW" name="Du hast bereits für folgendes Projekt abgestimmt:">
@@ -1471,7 +1471,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.</source>
-        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes trabajar en el Taller!]]></target>
+        <target>¡Has sido deterrado de la comunidad, y por ello no puedes trabajar en el Taller!</target>
       </segment>
     </unit>
     <unit id="x01nfA5" name="ea122a1">
@@ -1582,7 +1582,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher nicht länger auf einer Baustelle arbeiten.</source>
-        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes trabajar en una Obra!]]></target>
+        <target>¡Has sido deterrado de la comunidad, y por ello no puedes trabajar en una Obra!</target>
       </segment>
     </unit>
     <unit id="m_7J.WC" name="Baustellenregister">
@@ -1618,7 +1618,7 @@
       </notes>
       <segment>
         <source>Aufgrund deiner Verbannung kannst du maximal eine Ration Wasser pro Tag entnehmen.</source>
-        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello sólo puedes tomar una ración de agua al día!]]></target>
+        <target>¡Has sido deterrado de la comunidad, y por ello sólo puedes tomar una ración de agua al día!</target>
       </segment>
     </unit>
     <unit id="6KUjC8g" name="Die Stadt verfügt über eine %pumpname%.">
@@ -3146,7 +3146,7 @@
       </notes>
       <segment>
         <source>%citizen% (%profession%) ist Richtung %direction% aufgebrochen.</source>
-        <target>%citizen% (%profession%) se ha movido al %direction%.</target>
+        <target>%citizen% (%profession%) se fue hacia el %direction%...</target>
       </segment>
     </unit>
     <unit id="07sRf7u" name="%citizen% (%profession%) ist aus dem %direction% angekommen.">
@@ -3335,7 +3335,7 @@
       </notes>
       <segment>
         <source>%citizen% hat mit dem Gegenstand %item% %kills% Zombie(s) getötet.</source>
-        <target>¡%citizen% ha masacrado %kills% zombi(s) con %item%!</target>
+        <target>¡%citizen% ha masacrado %kills% zombie(s) con %item%!</target>
       </segment>
     </unit>
     <unit id="41pWf5b" name="%citizen% hat %kills% Zombies getötet.">
@@ -4883,7 +4883,7 @@
       </notes>
       <segment>
         <source>Unbekannt</source>
-        <target>Desconocida</target>
+        <target>Desconocido</target>
       </segment>
     </unit>
     <unit id="I9U6Iz0" name="Morgiger Angriff :">
@@ -5126,7 +5126,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.</source>
-        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes utilizar el Vertedero Público!]]></target>
+        <target>¡Has sido deterrado de la comunidad, y por ello no puedes utilizar el Vertedero Público!</target>
       </segment>
     </unit>
     <unit id="j88Eyne" name="Gesamt: %def%">
@@ -7574,7 +7574,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</source>
-        <target><![CDATA[<strong>¡No tenemos las defensas necesarias para resistir al ataque de esta noche!.</strong>]]></target>
+        <target>¡No tenemos las defensas necesarias para resistir al ataque de esta noche!</target>
       </segment>
     </unit>
     <unit id="dGfxw4F" name="2242ddb">
@@ -7583,7 +7583,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</source>
-        <target><![CDATA[Nuestras defensas podrían resistir <strong>parcialmente</strong> al ataque de esta noche.]]></target>
+        <target>Nuestras defensas podrían resistir parcialmente al ataque de esta noche.</target>
       </segment>
     </unit>
     <unit id="u_UqXok" name="Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:">
@@ -9331,7 +9331,7 @@
       </notes>
       <segment>
         <source>Zombies sind eingedrungen.</source>
-        <target>Los zombies han entrado...</target>
+        <target>Zombies han entrado...</target>
       </segment>
     </unit>
     <unit id="ojehKlj" name="vor Angst erstarrt">
@@ -17545,7 +17545,7 @@
       </notes>
       <segment>
         <source>%citizen% wurde in die Stadt &lt;span&gt;teleportiert&lt;/span&gt;</source>
-        <target><![CDATA[%citizen% wurde in die Stadt <span>teleportiert</span>]]></target>
+        <target><![CDATA[¡%citizen% ha <span>regresado</span> al pueblo!]]></target>
       </segment>
     </unit>
     <unit id="nSErwiZ" name="584c3c5">
@@ -18129,7 +18129,7 @@
       </notes>
       <segment>
         <source>Du brauchst noch folgende Gegenstände: %list%.</source>
-        <target>Du brauchst noch folgende Gegenstände: %list%.</target>
+        <target>Todavía necesitas los siguientes objetos: %list%.</target>
       </segment>
     </unit>
     <unit id="m0B311V" name="7fd4518">
@@ -18174,7 +18174,7 @@
       </notes>
       <segment>
         <source>Das ist die bestmögliche Schätzung, die wir für diesen Angriff abgeben konnten.</source>
-        <target>Das ist die bestmögliche Schätzung, die wir für diesen Angriff abgeben konnten.</target>
+        <target>Esta es la mejor estimación posible que hemos podido obtener para este ataque.</target>
       </segment>
     </unit>
     <unit id="tN9xF04" name="32f43f5">
@@ -18372,7 +18372,7 @@
       </notes>
       <segment>
         <source>Inventar: %citizen%</source>
-        <target>Inventar: %citizen%</target>
+        <target>Inventario de %citizen%</target>
       </segment>
     </unit>
     <unit id="slYhiYZ" name="5d24e48">
