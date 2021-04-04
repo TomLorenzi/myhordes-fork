@@ -4862,7 +4862,7 @@ müssen durchdacht geplant werden.</source>
       </notes>
       <segment>
         <source>Jede Nacht um Mitternacht greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</source>
-        <target>Every night, at 23h00 (server time), the hordes of living dead attack the town. Each attack consists of a certain number of zombies.</target>
+        <target>Every night at midnight (server time, UTC+1), the hordes of living dead attack the town. Each attack consists of a certain number of zombies.</target>
       </segment>
     </unit>
     <unit id="D4X9Djo" name="España: 01h00">
