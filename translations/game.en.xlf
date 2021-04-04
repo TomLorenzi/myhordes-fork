@@ -1490,7 +1490,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Jede Verarbeitung kostet %ap% (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).</source>
-        <target>Each transformation cost %ap%</target>
+        <target>Each transformation costs %ap%</target>
       </segment>
     </unit>
     <unit id="pVNCjNA" name="Du trägst eine Säge bei dir.">
@@ -14365,7 +14365,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.</source>
-        <target>Der Einwohner ist einfacher Bürger. Er verfügt über keine spezielle Fähigkeit.</target>
+        <target>The resident is basically a normal citizen, with no remarkable abilities to speak of...</target>
       </segment>
     </unit>
     <unit id="1sFu13W" name="6d96558">
@@ -14374,7 +14374,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Buddler können eine Zone im Vergleich zu den normalen Einwohnern schneller absuchen. Darüber hinaus haben sie eine höhere Chance, wertvolle Gegenstände zu finden.</source>
-        <target>Buddler können eine Zone im Vergleich zu den normalen Einwohnern schneller absuchen. Darüber hinaus haben sie eine höhere Chance, wertvolle Gegenstände zu finden.</target>
+        <target>Scavengers are much quicker than any other citizen when it comes to looking for objects in the desert. Furthermore, their chances of finding something are significantly higher.</target>
       </segment>
     </unit>
     <unit id="BusTGgv" name="ca16d49">
@@ -14383,7 +14383,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Wächter ist der geborener Kämpfer. In der Wüste kann er es mit weitaus mehr Zombies aufnehmen als jeder andere durchschnittliche Einwohner.</source>
-        <target>Der Wächter ist der geborener Kämpfer. In der Wüste kann er es mit weitaus mehr Zombies aufnehmen als jeder andere durchschnittliche Einwohner.</target>
+        <target>When in the desert, the guardian is able to face many more zombies than an average citizen.</target>
       </segment>
     </unit>
     <unit id="7hINRyx" name="59298e1">
@@ -14392,7 +14392,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Aufklärer weiß sich geschickt zu tarnen, um sich mühelos selbst durch große Zombieansammlungen zu schleichen und Zonen aufzusuchen, in die sich keiner alleine trauen würde.</source>
-        <target>Der Aufklärer weiß sich geschickt zu tarnen, um sich mühelos selbst durch große Zombieansammlungen zu schleichen und Zonen aufzusuchen, in die sich keiner alleine trauen würde.</target>
+        <target>Scouts know how to move in the shadows like Hank Marvin. This allows them to sneak past zombies in the desert and go where nobody dare venture alone...</target>
       </segment>
     </unit>
     <unit id="U1ZJKmn" name="798e354">
@@ -14401,7 +14401,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Dompteur setzt seinen treuen Hund dazu ein, um in der Wüste gefundene Gegenstände in die Stadt zu bringen.</source>
-        <target>Der Dompteur setzt seinen treuen Hund dazu ein, um in der Wüste gefundene Gegenstände in die Stadt zu bringen.</target>
+        <target>Always accompanied by their trusty 3-legged labradoodle, the tamer can load up their trusty hound with objects they've found in the World Beyond and send it back to the town.</target>
       </segment>
     </unit>
     <unit id="cPQAM2U" name="f829667">
@@ -14410,7 +14410,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Techniker kann besser als jeder andere Einwohner an Bauprojekten mitwirken. Außerdem ist er sehr geübt darin, Schlösser und versperrte Türen zu öffnen.</source>
-        <target>Der Techniker kann besser als jeder andere Einwohner an Bauprojekten mitwirken. Außerdem ist er sehr geübt darin, Schlösser und versperrte Türen zu öffnen.</target>
+        <target>The technician is better at leading construction projects than your average citizen, and is also very useful for opening locked doors.</target>
       </segment>
     </unit>
     <unit id="2Cxepy1" name="719ff91">
@@ -14419,7 +14419,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Schamane verfügt über mystische Fähigkeiten. Er kann die Seelen kürzlich verstorbener Bürger orten, die in der Außenwelt umher irren.</source>
-        <target>Der Schamane verfügt über mystische Fähigkeiten. Er kann die Seelen kürzlich verstorbener Bürger orten, die in der Außenwelt umher irren.</target>
+        <target>The shaman has mystical abilities. He can locate the souls of recently deceased citizens wandering around the outside world.</target>
       </segment>
     </unit>
     <unit id="W8fp4NH" name="7b13048">
@@ -14428,7 +14428,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Der Einsiedler ist ein Typ, mit dem seit Jahren niemand mehr geredet hat. Ganz auf sich allein gestellt, lebt er still vor sich hin. Wenn es ums Überleben geht, weiß sich der Einsiedler seit jeher zu helfen: Er findet immer etwas Ess- oder Trinkbares in der Wüste - egal, wo er sich gerade befindet.</source>
-        <target>Der Einsiedler ist ein Typ, mit dem seit Jahren niemand mehr geredet hat. Ganz auf sich allein gestellt, lebt er still vor sich hin. Wenn es ums Überleben geht, weiß sich der Einsiedler seit jeher zu helfen: Er findet immer etwas Ess- oder Trinkbares in der Wüste - egal, wo er sich gerade befindet.</target>
+        <target>The survivalist is always able to find enough food or water to survive in the desert. He is also particularly talented when it comes to camping...</target>
       </segment>
     </unit>
     <unit id="4UUmkln" name="Katapult-Bediener">
@@ -15715,7 +15715,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</source>
-        <target>Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</target>
+        <target>Hurrah! Construction of the %plan% is complete!</target>
       </segment>
     </unit>
     <unit id="8UrChKd" name="Du hast dafür %count% Aktionspunkt(e) verbraucht.">
@@ -17842,9 +17842,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Wenn du "MyHordes" zum ersten Mal spielst, empfehlen wir dir den Links &lt;strong&gt;Wie soll ich spielen?&lt;/strong&gt; zu folgen,
                 die sich auf der Webseite links befindet. Interaktive Schritt-für-Schritt-Anleitungen erklären dir in 5 Minuten die Grundlagen des Spiels.</source>
-        <target><![CDATA[
-					If you are just starting out with Myhordes, take a look at the<strong>How to Play?</strong> links on the left of the page. They offer interactive guides to teach you the basics of the game in just a few minutes! 
-					They offer interactive guides to teach you the basics of the game in just a few minutes!]]></target>
+        <target><![CDATA[If you are just starting out with MyHordes, take a look at the <strong>How do I play ?</strong> links on the left of the page. They offer interactive guides to teach you the basics of the game in just a few minutes!]]></target>
       </segment>
     </unit>
     <unit id="PF899T3" name="Du kannst jederzeit die %helplink% im oberen Abschnitt der Seite aufsuchen.">
