@@ -400,7 +400,7 @@ class TownController extends InventoryAwareController
             'is_terrorised' => $is_terrorised,
             'has_job' => $has_job,
             'is_admin' => $is_admin,
-            'log' => $this->renderLog( -1, $c, false, null, 10 )->getContent(),
+            'log' =>  $c->getAlive() ? $this->renderLog( -1, $c, false, null, 10 )->getContent() : '',
             'day' => $c->getTown()->getDay(),
             'already_stolen' => $already_stolen,
             'hidden' => $hidden,

@@ -18226,7 +18226,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;&lt;strong&gt;Dieser Gegenstand wurde in deiner Truhe abgelegt.&lt;/strong&gt;</source>
-        <target><![CDATA[Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...<hr /><strong>Dieser Gegenstand wurde in deiner Truhe abgelegt.</strong>]]></target>
+        <target><![CDATA[You got the %item%. Nonetheless, your little visit to † %victim%'s house didn't go unnoticed......<hr /><strong>This object has been placed in your chest.</strong>]]></target>
       </segment>
     </unit>
     <unit id="HSAEnDG" name="als Gruppe">

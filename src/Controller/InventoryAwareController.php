@@ -697,8 +697,8 @@ class InventoryAwareController extends CustomAbstractController
                                     $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
                                     $this->citizen_handler->inflictStatus( $citizen, 'terror' );
                                     $this->addFlash( 'notice', $this->translator->trans('%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!', ['%victim%' => $victim_home->getCitizen()->getUser()->getName()], 'game') );
-                                } elseif (($victim_home->getCitizen()->getAlive() && $this->random_generator->chance(0.5)) || !$victim_home->getCitizen()->getAlive()) {
-                                    if($victim_home->getCitizen()->getAlive()){
+                                } elseif ($this->random_generator->chance(0.5) || !$victim_home->getCitizen()->getAlive()) {
+                                    if ($victim_home->getCitizen()->getAlive()){
                                         $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
                                         $this->addFlash( 'notice', $this->translator->trans('Mist, dein Einbruch bei %victim% ist aufgeflogen...', ['%victim%' => $this->log->wrap($victim_home->getCitizen()->getUser()->getName())], 'game') );
                                     } else {

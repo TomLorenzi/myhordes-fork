@@ -150,7 +150,6 @@ parameters:
           - item: 'firework_box_#00'
             min: 3
             max: 90
-        ]
 
       instant_pictos:
         merge: ['r_guide_#00', 'r_guard_#00']

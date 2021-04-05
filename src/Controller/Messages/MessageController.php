@@ -359,7 +359,6 @@ class MessageController extends CustomAbstractController
                         }
                     }
                     else {
-                        //$note = $this->translator->trans('in der Stadt oder am Stadttor', [], 'game');
                         $note = '%at_00%';
                     }
 
