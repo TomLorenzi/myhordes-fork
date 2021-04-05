@@ -557,7 +557,7 @@ class ActionHandler
      * @param bool $force Do not check if the action is valid
      * @return int
      */
-    public function execute( Citizen &$citizen, ?Item &$item, &$target, ItemAction $action, ?string &$message, ?array &$remove, bool $force = false ): int {
+    public function execute( Citizen &$citizen, ?Item &$item, &$target, ItemAction $action, ?string &$message, ?array &$remove, bool $force = false, bool $escort_mode = false ): int {
 
         $remove = [];
         $tags = [];
@@ -589,6 +589,7 @@ class ActionHandler
             'item'   => $item ? $item->getPrototype() : null,
             'target' => $target_item_prototype,
             'source_inv' => $item ? $item->getInventory() : null,
+            'user' => $citizen,
             'citizen' => is_a($target, Citizen::class) ? $target : null,
             'item_morph' => [ null, null ],
             'item_target_morph' => [ null, null ],
@@ -604,7 +605,7 @@ class ActionHandler
             'well' => 0,
             'zombies' => 0,
             'message' => [
-            	$action->getMessage()
+                $escort_mode ? $action->getEscortMessage() : $action->getMessage(),
             ],
             'kills' => 0,
             'bury_count' => 0
@@ -624,7 +625,7 @@ class ActionHandler
         else
             $floor_inventory = $ruinZone->getFloor();
 
-        $execute_result = function(Result $result) use ($citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$spread_poison, $town_conf, &$floor_inventory, &$ruinZone) {
+        $execute_result = function(Result $result) use ($citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$spread_poison, $town_conf, &$floor_inventory, &$ruinZone, $escort_mode) {
             /** @var Citizen $citizen */
             if ($status = $result->getStatus()) {
                 if ($status->getResetThirstCounter())
@@ -1443,11 +1444,15 @@ class ActionHandler
             }
 
             if($result->getMessage()){
-            	$index = $result->getMessage()->getOrdering();
-            	while(isset($execute_info_cache['message'][$index]) && !empty($execute_info_cache['message'][$index])) {
-            		$index++;
-            	}
-                $execute_info_cache['message'][$index] = $result->getMessage()->getText();
+
+                if ($result->getMessage()->getEscort() === null || $result->getMessage()->getEscort() === $escort_mode) {
+                    $index = $result->getMessage()->getOrdering();
+                    while(isset($execute_info_cache['message'][$index]) && !empty($execute_info_cache['message'][$index])) {
+                        $index++;
+                    }
+                    $execute_info_cache['message'][$index] = $result->getMessage()->getText();
+                }
+
             }
 
             return self::ErrorNone;
@@ -1485,6 +1490,7 @@ class ActionHandler
 	                '{item}'          => $this->wrap($execute_info_cache['item']),
 	                '{target}'        => $execute_info_cache['target'] ? $this->wrap($execute_info_cache['target']) : "-",
 	                '{citizen}'       => $execute_info_cache['citizen'] ? $this->wrap($execute_info_cache['citizen']) : "-",
+	                '{user}'          => $execute_info_cache['user'] ? $this->wrap($execute_info_cache['user']) : "-",
 	                '{item_from}'     => $execute_info_cache['item_morph'][0] ? ($this->wrap($execute_info_cache['item_morph'][0])) : "-",
 	                '{item_to}'       => $execute_info_cache['item_morph'][1] ? ($this->wrap($execute_info_cache['item_morph'][1])) : "-",
 	                '{target_from}'   => $execute_info_cache['item_target_morph'][0] ? ($this->wrap($execute_info_cache['item_target_morph'][0])) : "-",

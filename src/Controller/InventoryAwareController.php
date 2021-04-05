@@ -1098,8 +1098,9 @@ class InventoryAwareController extends CustomAbstractController
         /** @var ItemAction|null $action */
         $action = ($action_id < 0) ? null : $this->entity_manager->getRepository(ItemAction::class)->find( $action_id );
 
+        $escort_mode = $base_citizen !== null;
         if ( !$item || !$action || $item->getBroken() ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        if ( $base_citizen !== null && $item->getPoison() ) return AjaxResponse::error( BeyondController::ErrorEscortActionRefused );
+        if ( $escort_mode && $item->getPoison() ) return AjaxResponse::error( BeyondController::ErrorEscortActionRefused );
         $citizen = $base_citizen ?? $this->getActiveCitizen();
 
         $zone = $citizen->getZone();
@@ -1112,7 +1113,7 @@ class InventoryAwareController extends CustomAbstractController
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         $url = null;
 
-        if (($error = $this->action_handler->execute( $citizen, $item, $target, $action, $msg, $remove )) === ActionHandler::ErrorNone) {
+        if (($error = $this->action_handler->execute( $citizen, $item, $target, $action, $msg, $remove, false, $escort_mode )) === ActionHandler::ErrorNone) {
 
             if ($trigger_after) $trigger_after($action);
 

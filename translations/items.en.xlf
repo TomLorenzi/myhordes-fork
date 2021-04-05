@@ -8129,5 +8129,32 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.</target>
       </segment>
     </unit>
+    <unit id="WZjQ7F6" name="37207b3">
+      <notes>
+        <note category="german">Du befielst diesem Bürger sich zu &lt;strong&gt;stärken&lt;/strong&gt;, damit ihr gemeinsam weiterziehen könnt. Er ist einverstanden und holt eine(e,n) {item} aus seinem Sack... Ihr macht ne kleine Brotzeit...{hr}{user} hat seine AP aufgefüllt!</note>
+      </notes>
+      <segment>
+        <source>Du befielst diesem Bürger sich zu &lt;strong&gt;stärken&lt;/strong&gt;, damit ihr gemeinsam weiterziehen könnt. Er ist einverstanden und holt eine(e,n) {item} aus seinem Sack... Ihr macht ne kleine Brotzeit...{hr}{user} hat seine AP aufgefüllt!</source>
+        <target><![CDATA[Du befielst diesem Bürger sich zu <strong>stärken</strong>, damit ihr gemeinsam weiterziehen könnt. Er ist einverstanden und holt eine(e,n) {item} aus seinem Sack... Ihr macht ne kleine Brotzeit...{hr}{user} hat seine AP aufgefüllt!]]></target>
+      </segment>
+    </unit>
+    <unit id="gVu_1LO" name="Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!">
+      <notes>
+        <note category="german">Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!</note>
+      </notes>
+      <segment>
+        <source>Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!</source>
+        <target>Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!</target>
+      </segment>
+    </unit>
+    <unit id="sRDEqVL" name="7ee43be">
+      <notes>
+        <note category="german">Der Bürger hat den mystischen Trank in einem Zug ausgetrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</note>
+      </notes>
+      <segment>
+        <source>Der Bürger hat den mystischen Trank in einem Zug ausgetrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</source>
+        <target>Der Bürger hat den mystischen Trank in einem Zug ausgetrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
