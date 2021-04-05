@@ -8054,7 +8054,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du bist ab sofort getarnt.</source>
-        <target>Du bist ab sofort getarnt.</target>
+        <target>You are now camouflaged.</target>
       </segment>
     </unit>
     <unit id="x.8gDqz" name="17bda63">
