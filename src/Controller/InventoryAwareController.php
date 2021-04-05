@@ -815,6 +815,8 @@ class InventoryAwareController extends CustomAbstractController
             ? array_map(function(Zone $z) { return $z->getId(); },$this->zone_handler->getSoulZones( $this->getActiveCitizen()->getTown() ) )
             : [];
 
+        $upgraded_map = $this->town_handler->getBuilding($this->getActiveCitizen()->getTown(), 'item_electro_#00', true) !== null;
+
         foreach ($this->getActiveCitizen()->getTown()->getZones() as $zone) {
             $x = $zone->getX();
             $y = $zone->getY();
@@ -830,7 +832,9 @@ class InventoryAwareController extends CustomAbstractController
                 $this->getActiveCitizen()->getTown(),
                 $zone,
                 $this->getActiveCitizen(),
-                in_array($zone->getId(), $soul_zones_ids)
+                in_array($zone->getId(), $soul_zones_ids),
+                false,
+                $upgraded_map
             );
         }
 

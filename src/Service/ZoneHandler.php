@@ -476,7 +476,7 @@ class ZoneHandler
         return array_values($cache);
     }
 
-    public function getZoneClasses(Town $town, Zone $zone, ?Citizen $citizen = null, bool $soul = false, bool $admin = false) {
+    public function getZoneClasses(Town $town, Zone $zone, ?Citizen $citizen = null, bool $soul = false, bool $admin = false, $map_upgrade = false): array {
         $attributes = ['zone'];
 
         if ($zone->getX() == 0 && $zone->getY() == 0) {
@@ -511,8 +511,11 @@ class ZoneHandler
             else if ($zone->getZombies() <= 5) {
                 $attributes[] = 'danger-2';
             }
-            else {
+            elseif ($zone->getZombies() <= 8 || (!$map_upgrade && !$admin)) {
                 $attributes[] = 'danger-3';
+            }
+            else {
+                $attributes[] = 'danger-4';
             }
         }
 
