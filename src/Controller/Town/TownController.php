@@ -936,7 +936,7 @@ class TownController extends InventoryAwareController
             'hidden' => $hidden,
             'prof_count' => $prof_count,
             'death_count' => $death_count,
-            'has_omniscience' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
+            'has_omniscience' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
             'is_ghoul' => $this->getActiveCitizen()->hasRole('ghoul'),
             'caught_chance' => $cc
         ]) );
@@ -973,7 +973,7 @@ class TownController extends InventoryAwareController
             'me' => $this->getActiveCitizen(),
             'selectedRole' => $role,
             'vote' => $vote,
-            'has_omniscience' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
+            'has_omniscience' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
         ]) );
     }
 
@@ -1046,6 +1046,9 @@ class TownController extends InventoryAwareController
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
 
+        if (!$this->getActiveCitizen()->getProfession()->getHeroic() || !$this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'))
+            return $this->redirect($this->generateUrl('town_citizens'));
+
         $citizens = [];
         $hidden = [];
 
@@ -1078,7 +1081,7 @@ class TownController extends InventoryAwareController
 
         return $this->render( 'ajax/game/town/citizen_omniscience.html.twig', $this->addDefaultTwigArgs('citizens', [
             'citizens' => $citizens,
-            'has_omniscience' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
+            'has_omniscience' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
             'me' => $this->getActiveCitizen(),
             'hidden' => $hidden
         ]) );
@@ -1311,7 +1314,7 @@ class TownController extends InventoryAwareController
             'hpToAp' => $hpToAp,
             'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeConstruction, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
-            'canvote' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), "dictator") && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_build_vote'),
+            'canvote' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), "dictator") && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_build_vote'),
             'voted_building' => $votedBuilding,
         ]) );
     }
@@ -1324,6 +1327,9 @@ class TownController extends InventoryAwareController
     public function constructions_votes_api(JSONRequestParser $parser): Response {
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
+
+        if (!$this->getActiveCitizen()->getProfession()->getHeroic() || !$this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'dictator'))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         if ($citizen->getBuildingVote() || $citizen->getBanished())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
