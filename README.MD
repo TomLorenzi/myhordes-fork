@@ -56,7 +56,7 @@ Exit the mariadb command prompt with CTRL+C or `exit;`
 In case you ever need to access the database :
 
 ```bash
-mysql -u hordes -phordes_pwd hordes
+mysql -u hordes -p hordes_pwd hordes
 ```
 
 The first `hordes` is the db user, `hordes_pwd` is the username and the second `hordes` is the database name (following the previous example)
