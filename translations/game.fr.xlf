@@ -115,7 +115,7 @@
       </notes>
       <segment>
         <source>Das Stadttor wurde automatisch %action%.</source>
-        <target>La porte a été %action% automatiquement.</target>
+        <target>La porte a été fermée automatiquement.</target>
       </segment>
     </unit>
     <unit id="lnVaJJH" name="%citizen% hat die Stadt %action%.">
