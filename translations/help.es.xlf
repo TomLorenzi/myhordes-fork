@@ -7592,7 +7592,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Achtung, du hast bereits &lt;strong&gt;die Hälfte deiner &lt;span class="ap"&gt;&lt;/span&gt;&lt;/strong&gt; verbraucht. Denke immer daran, dir genügend AP aufzuheben, um in die Stadt zurückkehren zu können!</source>
-        <target><![CDATA[Achtung, du hast bereits <strong>die Hälfte deiner <span class="ap"></span></strong> verbraucht. Denke immer daran, dir genügend AP aufzuheben, um in die Stadt zurückkehren zu können!]]></target>
+        <target><![CDATA[Atención, has usado <strong>la mitad de tus <span class="ap"></span></strong>. ¡No olvides guardar algunos para volver al pueblo!]]></target>
       </segment>
     </unit>
     <unit id="KeA0.Fl" name="Diese Nachricht verbergen">
@@ -7601,7 +7601,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Diese Nachricht verbergen</source>
-        <target>Diese Nachricht verbergen</target>
+        <target>Ocultar este mensaje</target>
       </segment>
     </unit>
     <unit id="Jod5rXM" name="3e769c0">
