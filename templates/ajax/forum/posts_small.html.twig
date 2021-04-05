@@ -39,7 +39,7 @@
                                 <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ post.owner.name }}</a>
                             {% endif %}
                         </b>
-                        {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}
+                        {% if post.note is not null %}<div class="right post-note">{{ post.note|replace({'%at_00%': 'in der Stadt oder am Stadttor'|trans({},'game')})|raw }}</div>{% endif %}
                     </div>
                     <div class="forum-post-content">
                         {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
