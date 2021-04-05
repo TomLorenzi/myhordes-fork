@@ -165,7 +165,7 @@ class InventoryAwareController extends CustomAbstractController
         $targets = [];
 
         switch ($definition->getSpawner()) {
-            case ItemTargetDefinition::ItemSelectionType:
+            case ItemTargetDefinition::ItemSelectionType: case ItemTargetDefinition::ItemSelectionTypePoison:
                 foreach ($inventories as &$inv)
                     foreach ($inv->getItems() as &$item)
                         if ($this->action_handler->targetDefinitionApplies($item,$definition))
@@ -862,7 +862,7 @@ class InventoryAwareController extends CustomAbstractController
         if (!$target) return true;
 
         switch ($target->getSpawner()) {
-            case ItemTargetDefinition::ItemSelectionType:
+            case ItemTargetDefinition::ItemSelectionType: case ItemTargetDefinition::ItemSelectionTypePoison:
                 $return = $this->entity_manager->getRepository(Item::class)->find( $id );
                 if (!$return) return false;
 

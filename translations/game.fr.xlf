@@ -18851,5 +18851,14 @@
         <target>Vous pouvez essayer de soigner ce citoyen, mais rien n'est garanti... et attention aux effets secondaires !</target>
       </segment>
     </unit>
+    <unit id="Zn7yLPx" name="d8e98d6">
+      <notes>
+        <note category="german">Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:&lt;br /&gt;%list_head% oder %list_tail%.</note>
+      </notes>
+      <segment>
+        <source>Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:&lt;br /&gt;%list_head% oder %list_tail%.</source>
+        <target><![CDATA[Vous ne pouvez pas combiner %poison% avec ceci. Vous pouvez le faire avec un des objets suivants :<br />%list_head% ou %list_tail%.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -4,9 +4,12 @@
 namespace App\Twig;
 
 
+use App\Entity\ItemProperty;
+use App\Entity\ItemPrototype;
 use App\Entity\User;
 use App\Service\UserHandler;
 use DateTime;
+use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -20,11 +23,13 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
     private TranslatorInterface $translator;
     private UrlGeneratorInterface $router;
     private UserHandler $userHandler;
+    private EntityManagerInterface $entityManager;
 
-    public function __construct(TranslatorInterface $ti, UrlGeneratorInterface $r, UserHandler $uh) {
+    public function __construct(TranslatorInterface $ti, UrlGeneratorInterface $r, UserHandler $uh, EntityManagerInterface $em) {
         $this->translator = $ti;
         $this->router = $r;
         $this->userHandler = $uh;
+        $this->entityManager = $em;
     }
 
     public function getFilters(): array
@@ -37,6 +42,7 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
             new TwigFilter('bin_overlaps',  [$this, 'check_flag_2']),
             new TwigFilter('restricted',  [$this, 'user_is_restricted']),
             new TwigFilter('restricted_until',  [$this, 'user_restricted_until']),
+            new TwigFilter('items',  [$this, 'item_prototypes_with']),
         ];
     }
 
@@ -105,5 +111,16 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
 
     public function user_restricted_until(User $user, ?int $mask = null): ?DateTime {
         return $this->userHandler->getActiveRestrictionExpiration($user,$mask);
+    }
+
+    /**
+     * @param string $tag
+     * @return ItemPrototype[]
+     */
+    public function item_prototypes_with(string $tag): array {
+        /** @var ItemProperty|null $p */
+        $p = $this->entityManager->getRepository(ItemProperty::class)->findOneByName($tag);
+        if ($p === null) return [];
+        return $p->getItemPrototypes()->getValues();
     }
 }
