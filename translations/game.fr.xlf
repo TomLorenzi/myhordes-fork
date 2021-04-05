@@ -18349,7 +18349,7 @@
     </unit>
     <unit id="20wAGQf" name="6489b1a">
       <notes>
-        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</note>
+        <note category="german">Your &lt;strong&gt;sobriety&lt;/strong&gt;, or lack thereof, is quite inconvenient. Things become pretty tricky pretty quickly when you're completely wasted...</note>
       </notes>
       <segment>
         <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</source>
@@ -18831,6 +18831,24 @@
       <segment>
         <source>%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</source>
         <target>%watchers% veilleurs se sont postés aux extrémités de la ville pour contenir les attaques de la Horde !</target>
+      </segment>
+    </unit>
+    <unit id="wX7RkO4" name="6de7154">
+      <notes>
+        <note category="german">Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</source>
+        <target>Cette action permet de purifier la zone en faisant tomber de la pluie. Cette pluie peut remplir un peu le puits en ville ou encore avoir un effet dévastateur sur les zombies environnants.</target>
+      </segment>
+    </unit>
+    <unit id="vScXMoh" name="020238b">
+      <notes>
+        <note category="german">Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</note>
+      </notes>
+      <segment>
+        <source>Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</source>
+        <target>Vous pouvez essayer de soigner ce citoyen, mais rien n'est garanti... et attention aux effets secondaires !</target>
       </segment>
     </unit>
   </file>

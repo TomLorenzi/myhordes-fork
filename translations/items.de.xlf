@@ -6843,11 +6843,11 @@
     </unit>
     <unit id="TinIUAB" name="Herstellung eines Mystischern Trank">
       <notes>
-        <note category="german">Herstellung eines Mystischern Trank</note>
+        <note category="german">Mystischen Trank herstellen</note>
       </notes>
       <segment>
         <source>Herstellung eines Mystischern Trank</source>
-        <target>Herstellung eines Mystischern Trank</target>
+        <target>Mystischen Trank herstellen</target>
       </segment>
     </unit>
     <unit id="rQB150u" name="Nickerchen machen">
@@ -8108,6 +8108,33 @@
       <segment>
         <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
         <target><![CDATA[<t-fail><t-no-room>Du hast nicht genug Platz für diese Gegenstände...</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-no-items>{tamer_dog} kann nichts mitnehmen, da du <strong>nichts im Rucksack hast</strong>.</t-no-items></t-fail><nt-fail>Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, <strong>hat er alles zur Truhe in deinem Haus gebracht</strong>.{hr}Braver Junge!</nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="Zvxrii3" name="c6f76ba">
+      <notes>
+        <note category="german">Du kannst einen schamanischen Trank zubereiten, der den Rezipienten vor bösen Geistern schützt.</note>
+      </notes>
+      <segment>
+        <source>Du kannst einen schamanischen Trank zubereiten, der den Rezipienten vor bösen Geistern schützt.</source>
+        <target>Du kannst einen schamanischen Trank zubereiten, der den Rezipienten vor bösen Geistern schützt.</target>
+      </segment>
+    </unit>
+    <unit id="U42wDJN" name="de445d9">
+      <notes>
+        <note category="german">Das ist ein Musterbeispiel eines schamanischen Tranks! Nun liegt es an die, der Stadt dessen Wirksamkeit zu vermitteln und sie von deinen schamanischen Fähigkeiten zu überzeugen.</note>
+      </notes>
+      <segment>
+        <source>Das ist ein Musterbeispiel eines schamanischen Tranks! Nun liegt es an die, der Stadt dessen Wirksamkeit zu vermitteln und sie von deinen schamanischen Fähigkeiten zu überzeugen.</source>
+        <target>Das ist ein Musterbeispiel eines schamanischen Tranks! Nun liegt es an die, der Stadt dessen Wirksamkeit zu vermitteln und sie von deinen schamanischen Fähigkeiten zu überzeugen.</target>
+      </segment>
+    </unit>
+    <unit id="1VR4tvz" name="Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.">
+      <notes>
+        <note category="german">Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.</note>
+      </notes>
+      <segment>
+        <source>Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.</source>
+        <target>Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.</target>
       </segment>
     </unit>
   </file>

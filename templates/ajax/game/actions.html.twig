@@ -120,14 +120,20 @@
                         <b>
                             {{ entry.action.label|trans({},'items') }}
                             {% if entry.action.results|length > 0 %}
-                                {% set ap = 0 %}
+                                {% set ap = 0 %}{% set pm = 0 %}
                                 {% for result in entry.action.results %}
                                     {% if not result.ap is null %}
                                         {% set ap = ap + result.ap.ap|abs %}
                                     {% endif %}
+                                    {% if not result.pm is null %}
+                                        {% set pm = pm + result.pm.pm|abs %}
+                                    {% endif %}
                                 {% endfor %}
                                 {% if ap > 0 %}
-                                    ({{ap}} <div class="ap"></div>)
+                                    (<div class="ap">{{ap}}</div>)
+                                {% endif %}
+                                {% if pm > 0 %}
+                                    (<div class="pm">{{pm}}</div>{% if entry.action.name == 'brew_shamanic_potion' %}+<img src="{{ asset('build/images/item/item_water.gif') }}">{% endif %})
                                 {% endif %}
                             {% endif %}
                         </b>
