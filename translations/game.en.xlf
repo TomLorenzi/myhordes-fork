@@ -18667,7 +18667,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!</source>
-        <target><![CDATA[Deine <strong>Tarnung ist aufgeflogen</strong>!]]></target>
+        <target><![CDATA[You are <strong>no longer camouflaged</strong>!]]></target>
       </segment>
     </unit>
     <unit id="HXDfH_p" name="Manuelles Event-Management:">
