@@ -8114,7 +8114,7 @@
       </notes>
       <segment>
         <source>Du kannst diesen Bürger nicht heilen. Entweder bedarf er keiner Heilung, ist nicht in der Stadt oder hat heute bereits eine mystische Heilung erfahren.</source>
-        <target>Vous ne pouvez pas soigner ce citoyen. Soit son état ne réclame pas de soins, soit il n'est pas en ville ou bien il a déjà subit une tentative de soin aujourd'hui.</target>
+        <target>Vous ne pouvez pas soigner ce citoyen. Soit son état ne réclame pas de soins, soit il n'est pas en ville ou bien il a déjà subi une tentative de soin aujourd'hui.</target>
       </segment>
     </unit>
     <unit id="yKYNmZu" name="356ee99">
