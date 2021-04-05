@@ -18651,7 +18651,7 @@
       </notes>
       <segment>
         <source>Du wurdest von einem &lt;strong&gt;Zombie in der Zone entdeckt&lt;/strong&gt;! Er hat sich in deine Richtung gedreht!&lt;hr/&gt;Deine Tarnung ist aufgeflogen!</source>
-        <target><![CDATA[Du wurdest von einem <strong>Zombie in der Zone entdeckt</strong>! Er hat sich in deine Richtung gedreht!<hr/>Deine Tarnung ist aufgeflogen!]]></target>
+        <target><![CDATA[¡Cuando avanzas furtivamente, un <strong>zombi de la zona te ha oído arrastrarte</strong> y va hacia ti!<hr/>¡Ya te vieron!<hr/>¡Ya no estás <strong>camuflado</strong>!]]></target>
       </segment>
     </unit>
     <unit id="fBI9kz3" name="Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!">
@@ -18660,7 +18660,7 @@
       </notes>
       <segment>
         <source>Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!</source>
-        <target><![CDATA[Deine <strong>Tarnung ist aufgeflogen</strong>!]]></target>
+        <target><![CDATA[¡Ya no estás <strong>camuflado</strong>!]]></target>
       </segment>
     </unit>
     <unit id="HXDfH_p" name="Manuelles Event-Management:">
@@ -18759,7 +18759,7 @@
       </notes>
       <segment>
         <source>Du hast die &lt;strong&gt;Kontrolle über diese Zone verloren&lt;/strong&gt; (dies kann passieren, wenn ein anderer Bürger ohne dich gegangen ist)! Wenn du nicht festsitzen möchtest, kannst du noch flüchten. Es bleiben dir :</source>
-        <target><![CDATA[Du hast die <strong>Kontrolle über diese Zone verloren</strong> (dies kann passieren, wenn ein anderer Bürger ohne dich gegangen ist)! Wenn du nicht festsitzen möchtest, kannst du noch flüchten. Es bleiben dir :]]></target>
+        <target><![CDATA[¡Has <strong>perdido el control</strong> de esta zona! (por ejemplo si un habitante ha salido de la zona sin ti) Para huir antes de quedarte atrapado, te queda:]]></target>
       </segment>
     </unit>
     <unit id="9r.yyfK" name="f193d19">
@@ -18768,7 +18768,7 @@
       </notes>
       <segment>
         <source>Glücklicherweise kannst du dich dank deines %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; unerkannt weiterbewegen.</source>
-        <target><![CDATA[Glücklicherweise kannst du dich dank deines %img_scout% <strong>Tarnanzug</strong> unerkannt weiterbewegen.]]></target>
+        <target><![CDATA[Felizmente, tu %img_scout% <strong>Traje de camuflaje</strong> te permite seguir tu camino sin ser visto.]]></target>
       </segment>
     </unit>
     <unit id="vd3qaKS" name="c6b1411">

@@ -18686,7 +18686,7 @@
       </notes>
       <segment>
         <source>Du wurdest von einem &lt;strong&gt;Zombie in der Zone entdeckt&lt;/strong&gt;! Er hat sich in deine Richtung gedreht!&lt;hr/&gt;Deine Tarnung ist aufgeflogen!</source>
-        <target><![CDATA[Du wurdest von einem <strong>Zombie in der Zone entdeckt</strong>! Er hat sich in deine Richtung gedreht!<hr/>Deine Tarnung ist aufgeflogen!]]></target>
+        <target><![CDATA[Alors que vous avanciez furtivement, <strong>un zombie de la zone vous a entendu</strong> et s'est retourné dans votre direction !<hr/>Vous avez été <strong>repéré(e)</strong> !<hr/>Vous n'êtes <strong>plus camouflé(e)</strong> !]]></target>
       </segment>
     </unit>
     <unit id="fBI9kz3" name="Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!">
@@ -18695,7 +18695,7 @@
       </notes>
       <segment>
         <source>Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!</source>
-        <target><![CDATA[Deine <strong>Tarnung ist aufgeflogen</strong>!]]></target>
+        <target><![CDATA[Vous n'êtes <strong>plus camouflé(e)</strong> !]]></target>
       </segment>
     </unit>
     <unit id="HXDfH_p" name="Manuelles Event-Management:">
