@@ -2113,7 +2113,7 @@
                     benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                     kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                     auffüllen.</note>
-        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle, benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu auffüllen.</note>
+        <note category="german">Du brauchst diese Punkte, um dich in der Außenwelt zu bewegen oder um an Bauprojekten mitzuarbeiten.</note>
       </notes>
       <segment>
         <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
@@ -18824,6 +18824,42 @@
       <segment>
         <source>Mit deinem %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; kannst du dich bewegen ohne dabei entdeckt zu werden.</source>
         <target><![CDATA[Mit deinem %img_scout% <strong>Tarnanzug</strong> kannst du dich bewegen ohne dabei entdeckt zu werden.]]></target>
+      </segment>
+    </unit>
+    <unit id="CN1z1xe" name="58ec9c9">
+      <notes>
+        <note category="german">%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</note>
+      </notes>
+      <segment>
+        <source>%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</source>
+        <target>%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</target>
+      </segment>
+    </unit>
+    <unit id="wX7RkO4" name="6de7154">
+      <notes>
+        <note category="german">Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</source>
+        <target>Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</target>
+      </segment>
+    </unit>
+    <unit id="vScXMoh" name="020238b">
+      <notes>
+        <note category="german">Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</note>
+      </notes>
+      <segment>
+        <source>Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</source>
+        <target>Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</target>
+      </segment>
+    </unit>
+    <unit id="Zn7yLPx" name="d8e98d6">
+      <notes>
+        <note category="german">Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:&lt;br /&gt;%list_head% oder %list_tail%.</note>
+      </notes>
+      <segment>
+        <source>Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:&lt;br /&gt;%list_head% oder %list_tail%.</source>
+        <target><![CDATA[Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:<br />%list_head% oder %list_tail%.]]></target>
       </segment>
     </unit>
   </file>

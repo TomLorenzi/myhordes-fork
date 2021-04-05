@@ -416,34 +416,23 @@ class ZoneHandler
     }
 
     public function getSoulZones( Town $town ) {
-        // Get all zone inventory IDs
-        // We're just getting IDs, because we don't want to actually hydrate the inventory instances
-        $zone_invs = array_column($this->entity_manager->createQueryBuilder()
-            ->select('i.id')
-            ->from(Inventory::class, 'i')
-            ->join("i.zone", "z")
-            ->andWhere('z.id IN (:zones)')->setParameter('zones', $town->getZones())
-            ->getQuery()
-            ->getScalarResult(), 'id');
-
         // Get all soul items within these inventories
-        $soul_items = $this->entity_manager->createQueryBuilder()
-            ->select('i')
-            ->from(Item::class, 'i')
-            ->andWhere('i.inventory IN (:invs)')->setParameter('invs', $zone_invs)
-            ->andWhere('i.prototype IN (:protos)')->setParameter('protos', [
-                $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('soul_blue_#00'),
-                $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('soul_blue_#01'),
-                $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('soul_red_#00')
-            ])
-            ->getQuery()
-            ->getResult();
+        $soul_items = $this->inventory_handler->getAllItems($town, ['soul_blue_#00','soul_blue_#01','soul_red_#00'], false, false, false, true, true);
 
-        $cache = [];
-        /** @var Item $item */
+        $cache = []; $found_zone_ids = [];
         foreach ($soul_items as $item)
-            if (!isset($cache[$item->getInventory()->getId()]))
-                $cache[$item->getInventory()->getId()] = $item->getInventory()->getZone();
+            if (!isset($cache[$item->getInventory()->getId()])) {
+                $z = null;
+                if ($item->getInventory()->getZone()) $z = $item->getInventory()->getZone();
+                elseif ($item->getInventory()->getRuinZone()) $z = $item->getInventory()->getRuinZone()->getZone();
+                elseif ($item->getInventory()->getRuinZoneRoom()) $z = $item->getInventory()->getRuinZoneRoom()->getZone();
+
+                if ($z !== null && !isset($found_zone_ids[$z->getId()])) {
+                    $cache[$item->getInventory()->getId()] = $z;
+                    $found_zone_ids[$z->getId()] = true;
+                }
+            }
+
         return array_values($cache);
     }
 
@@ -487,7 +476,7 @@ class ZoneHandler
         return array_values($cache);
     }
 
-    public function getZoneClasses(Town $town, Zone $zone, ?Citizen $citizen = null, bool $soul = false, bool $admin = false) {
+    public function getZoneClasses(Town $town, Zone $zone, ?Citizen $citizen = null, bool $soul = false, bool $admin = false, $map_upgrade = false): array {
         $attributes = ['zone'];
 
         if ($zone->getX() == 0 && $zone->getY() == 0) {
@@ -522,8 +511,11 @@ class ZoneHandler
             else if ($zone->getZombies() <= 5) {
                 $attributes[] = 'danger-2';
             }
-            else {
+            elseif ($zone->getZombies() <= 8 || (!$map_upgrade && !$admin)) {
                 $attributes[] = 'danger-3';
+            }
+            else {
+                $attributes[] = 'danger-4';
             }
         }
 

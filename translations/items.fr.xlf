@@ -6780,7 +6780,7 @@
     </unit>
     <unit id="TinIUAB" name="Herstellung eines Mystischern Trank">
       <notes>
-        <note category="german">Herstellung eines Mystischern Trank</note>
+        <note category="german">Mystischen Trank herstellen</note>
       </notes>
       <segment>
         <source>Herstellung eines Mystischern Trank</source>
@@ -7846,7 +7846,7 @@
       </notes>
       <segment>
         <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-no-room>Du hast nicht genug Platz für diese Gegenstände...</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-too-heavy>{item} kann keine schweren Gegenstände tragen...</t-too-heavy></t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
+        <target><![CDATA[<t-fail><t-no-room>Vous n'avez pas assez d'espace pour ces objets ...</t-no-room><t-door-closed>La porte de la ville est fermée ...</t-door-closed><t-too-heavy>{item} kann keine schweren Gegenstände tragen...</t-too-heavy></t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="L3OUyqa" name="e4855a7">
@@ -7992,6 +7992,114 @@
       <segment>
         <source>Vielleicht solltest du das mithilfe des Wasserhahns füllen...</source>
         <target>Vielleicht solltest du das mithilfe des Wasserhahns füllen...</target>
+      </segment>
+    </unit>
+    <unit id="NVMPUn." name="Du bist ab sofort getarnt.">
+      <notes>
+        <note category="german">Du bist ab sofort getarnt.</note>
+      </notes>
+      <segment>
+        <source>Du bist ab sofort getarnt.</source>
+        <target>Du bist ab sofort getarnt.</target>
+      </segment>
+    </unit>
+    <unit id="x.8gDqz" name="17bda63">
+      <notes>
+        <note category="german">Das kannst die &lt;strong&gt;Tarnkleidung&lt;/strong&gt; nicht verwenden, solange die Zombies diese Zone kontrollieren!</note>
+      </notes>
+      <segment>
+        <source>Das kannst die &lt;strong&gt;Tarnkleidung&lt;/strong&gt; nicht verwenden, solange die Zombies diese Zone kontrollieren!</source>
+        <target><![CDATA[Impossible d'utiliser le <strong>Camouflage</strong> tant que la zone est sous contrôle des zombies !]]></target>
+      </segment>
+    </unit>
+    <unit id="1j7AoDM" name="5784480">
+      <notes>
+        <note category="german">&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail><t-door-closed>La porte de la ville est fermée ...</t-door-closed><t-no-items>{tamer_dog} n'a rien à ramener, votre sac à dos est <strong>vide</strong>.</t-no-items><t-too-heavy>{tamer_dog} ne peut pas ramener le contenu de votre sac : vous transportez un <strong>objet encombrant</strong> qu'il n'est pas en mesure de déplacer !</t-too-heavy></t-fail><nt-fail>Vous renvoyez {tamer_dog} en direction de la ville avec tout le contenu de votre sac à dos..{hr}<strong>Ce sont vos voisins qui vont être contents quand il vont trouver tout ça dans la banque.</strong></nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="BAyi5eR" name="4e6a31e">
+      <notes>
+        <note category="german">&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail><t-door-closed>La porte de la ville est fermée ...</t-door-closed><t-no-items>{tamer_dog} n'a rien à ramener, votre sac à dos est <strong>vide</strong>.</t-no-items></t-fail><nt-fail>Vous renvoyez {tamer_dog} en direction de la ville avec tout le contenu de votre sac à dos..{hr}<strong>Ce sont vos voisins qui vont être contents quand il vont trouver tout ça dans la banque.</strong></nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="JN1w0ES" name="8d4ec3e">
+      <notes>
+        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail><t-no-room>Vous n'avez pas assez d'espace pour ces objets ...</t-no-room><t-door-closed>La porte de la ville est fermée ...</t-door-closed><t-no-items>{tamer_dog} n'a rien à ramener, votre sac à dos est <strong>vide</strong>.</t-no-items><t-too-heavy>{tamer_dog} ne peut pas ramener le contenu de votre sac : vous transportez un <strong>objet encombrant</strong> qu'il n'est pas en mesure de déplacer !</t-too-heavy></t-fail><nt-fail>Vous renvoyez {tamer_dog} en direction de la ville avec tout le contenu de votre sac à dos..{hr}Comme vous le lui avez demandé, <strong>il lâchera tout chez vous, dans votre coffre.</strong>{hr}Brave bête !</nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="QkZTWLf" name="88dd0a3">
+      <notes>
+        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail><t-no-room>Vous n'avez pas assez d'espace pour ces objets ...</t-no-room><t-door-closed>La porte de la ville est fermée ...</t-door-closed><t-no-items>{tamer_dog} n'a rien à ramener, votre sac à dos est <strong>vide</strong>.</t-no-items></t-fail><nt-fail>Vous renvoyez {tamer_dog} en direction de la ville avec tout le contenu de votre sac à dos..{hr}Comme vous le lui avez demandé, <strong>il lâchera tout chez vous, dans votre coffre.</strong>{hr}Brave bête !</nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="Zvxrii3" name="c6f76ba">
+      <notes>
+        <note category="german">Du kannst einen schamanischen Trank zubereiten, der den Rezipienten vor bösen Geistern schützt.</note>
+      </notes>
+      <segment>
+        <source>Du kannst einen schamanischen Trank zubereiten, der den Rezipienten vor bösen Geistern schützt.</source>
+        <target>Vous pouvez préparer une potion chamanique protégeant son bénéficiaire des mauvais esprits.</target>
+      </segment>
+    </unit>
+    <unit id="U42wDJN" name="de445d9">
+      <notes>
+        <note category="german">Das ist ein Musterbeispiel eines schamanischen Tranks! Nun liegt es an die, der Stadt dessen Wirksamkeit zu vermitteln und sie von deinen schamanischen Fähigkeiten zu überzeugen.</note>
+      </notes>
+      <segment>
+        <source>Das ist ein Musterbeispiel eines schamanischen Tranks! Nun liegt es an die, der Stadt dessen Wirksamkeit zu vermitteln und sie von deinen schamanischen Fähigkeiten zu überzeugen.</source>
+        <target>Voilà une jolie préparation de potion chamanique. A vous de la partager avec la ville et faire preuve de toute votre force de conviction pour rassurer sur son efficacité !</target>
+      </segment>
+    </unit>
+    <unit id="1VR4tvz" name="Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.">
+      <notes>
+        <note category="german">Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.</note>
+      </notes>
+      <segment>
+        <source>Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.</source>
+        <target>Vous devez avoir une ration d'eau à transformer pour préparer la potion.</target>
+      </segment>
+    </unit>
+    <unit id="WZjQ7F6" name="37207b3">
+      <notes>
+        <note category="german">Du befielst diesem Bürger sich zu &lt;strong&gt;stärken&lt;/strong&gt;, damit ihr gemeinsam weiterziehen könnt. Er ist einverstanden und holt eine(e,n) {item} aus seinem Sack... Ihr macht ne kleine Brotzeit...{hr}{user} hat seine AP aufgefüllt!</note>
+      </notes>
+      <segment>
+        <source>Du befielst diesem Bürger sich zu &lt;strong&gt;stärken&lt;/strong&gt;, damit ihr gemeinsam weiterziehen könnt. Er ist einverstanden und holt eine(e,n) {item} aus seinem Sack... Ihr macht ne kleine Brotzeit...{hr}{user} hat seine AP aufgefüllt!</source>
+        <target><![CDATA[Vous demandez à ce citoyen de manger quelque chose avant de continuer. Il acquiesce puis sort {item}... Petite pause repas...{hr}{user} a récupéré tout ses PA !]]></target>
+      </segment>
+    </unit>
+    <unit id="gVu_1LO" name="Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!">
+      <notes>
+        <note category="german">Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!</note>
+      </notes>
+      <segment>
+        <source>Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!</source>
+        <target>Le citoyen avale d'une traite votre ration d'eau... Ça fait du bien !</target>
+      </segment>
+    </unit>
+    <unit id="sRDEqVL" name="7ee43be">
+      <notes>
+        <note category="german">Der Bürger hat den mystischen Trank in einem Zug ausgetrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</note>
+      </notes>
+      <segment>
+        <source>Der Bürger hat den mystischen Trank in einem Zug ausgetrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</source>
+        <target>Le citoyen vient de boire la potion chamanique ! Il ne reste plus qu'à espérer que ce chaman sache un peu ce qu'il fait...</target>
       </segment>
     </unit>
   </file>

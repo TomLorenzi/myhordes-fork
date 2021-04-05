@@ -15,16 +15,23 @@ The rest of the project, is under [AGPL3 license](https://spdx.org/licenses/AGPL
 * php-intl
 * php-zip
 * php-imagick
-* nodejs (>=14.13.1)
-* yarn
+* php-curl
 * apache2
 
 Depending on the database engine you want to use you will need the following:
 
 ### Using mariadb
 Install the following packages:
-* mariadb (>= 10.1.44)
+* mariadb-server (>= 10.1.44)
 * php-mysql
+
+#### Starting the database server
+
+Before working with the database, you need to start the database server:
+
+```bash
+sudo service mysql start
+```
 
 #### Adding a new user
 Log in to your database with `sudo mysql -u root` (specify `-p` if you have a local password) and create a new local user, for example :
@@ -35,7 +42,7 @@ CREATE USER 'hordes'@'localhost' IDENTIFIED BY 'hordes_pwd';
 
 Then give it all privileges for the wanted database name
 ```sql
-GRANT ALL PRIVILEGES ON 'myhordes'.*  TO 'hordes'@'localhost';
+GRANT ALL PRIVILEGES ON myhordes.*  TO 'hordes'@'localhost';
 ```
 
 Then flush the privileges so MySQL/MariaDB knows your latest changes
@@ -49,7 +56,7 @@ Exit the mariadb command prompt with CTRL+C or `exit;`
 In case you ever need to access the database :
 
 ```bash
-mysql -u hordes -phordes_pwd hordes
+mysql -u hordes -p hordes_pwd hordes
 ```
 
 The first `hordes` is the db user, `hordes_pwd` is the username and the second `hordes` is the database name (following the previous example)
@@ -66,21 +73,32 @@ You can also install pgAdmin to access the database.
 Clone the project inside any directory
 
 ```bash
-git clone https://gitlab.com/eternal-twin/myhordes.git
+git clone https://gitlab.com/eternal-twin/myhordes/myhordes.git
 ```
 
-## Composer
+## NodeJS, Yarn and Composer
 
-You need to fetch the `composer.phar` file:
+First, go to the MyHordes directory (`cd myhordes`). 
+
+Install NodeJS and yarn:
+
+```bash
+curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt-get install -y nodejs
+npm install --global yarn
+```
+
+Afterwards, you may need to *restart your machine*. Then, you need to fetch the `composer.phar` file:
 
 ```bash
 wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet
 ```
 
-Update it:
+Update yarn and composer:
 
 ```bash
-php composer.phar update
+php composer.phar install
+yarn install
 ```
 
 ## Configuration
@@ -91,7 +109,11 @@ Copy the example config file to the one we will be using
 cp .env .env.local
 ```
 
-Edit `.env.local` with your favorite text editor.
+Edit `.env.local` with your favorite text editor (like nano or gedit):
+
+```bash
+nano .env.local
+```
 
 You need to set the `DATABASE_URL` variable depending on the database engine you want to use.
 
@@ -156,11 +178,11 @@ git pull
 
 You can now redo the changes you liked in the sources. If you don't want to redo all your usual modifications after each maintenance and you know git, create a local branch (or your own forked remote when we migrate to gitlab) in which you will store the changes, and on which you will merge the latest version each time before pulling. You might need to handle conflicts in this case, we do not recommend doing this if you are not familiar with git.
 
-Now you have the latest changes and the site is in an unstable state, users could encounter errors until the maintenance is over. If possible for you, we recommend closing access to the site since we did not yet prepare a way to block it in this project, yet.
+Now you have the latest changes, and the site is in an unstable state, users could encounter errors until the maintenance is over. If possible for you, we recommend closing access to the site since we did not yet prepare a way to block it in this project, yet.
 
 Update composer:
 ```bash
-php composer.phar update
+php composer.phar install
 ```
 
 Update database:
@@ -183,7 +205,7 @@ yarn encore dev
 
 ## Setting up the apache server
 
-This part will allow you and potentially other user to access the game from a browser via the apache2 web server.
+This part will allow you and potentially other users to access the game from a browser via the apache2 web server.
 
 #### Optional: Allowing access through the web
 
@@ -234,11 +256,19 @@ Make sure to replace every instance (2) of `/MyHordes/public` with your own corr
 Now, tell apache2 that a new site has been configured :
 
 ```bash
-a2ensite hordes1.myhordes
+sudo a2ensite hordes1.myhordes
 ```
 
+MyHordes requires the "rewrite" apache module, which must be enabled manually be running
+
+```bash
+sudo a2enmod rewrite
 ```
-service apache2 reload
+
+Afterwards, the server must be restarted:
+
+```
+sudo service apache2 restart
 ```
 
 The server is now accessible from the address you configured (direct IP, or domain if applicable)
@@ -272,6 +302,12 @@ Right after, create a new line and write `$validated = true;`
 Save the file, e-mail verification is now disabled.
 
 To create an account, simply access your server URL, example:  `http://6.6.6.6/` (or your configured domain) and follow the same steps as a regular user. Once you create your account, you should see a town, everything is set.
+
+Remember, when you re-start your PC or server, you need to run these two commands to start the database and Apache:
+```bash
+sudo service apache2 start
+sudo service mysql start
+```
 
 ## Using Docker
 You can also setup a development environment using Docker:

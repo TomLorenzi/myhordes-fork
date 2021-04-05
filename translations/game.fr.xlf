@@ -115,7 +115,7 @@
       </notes>
       <segment>
         <source>Das Stadttor wurde automatisch %action%.</source>
-        <target>La porte a été %action% automatiquement.</target>
+        <target>La porte a été fermée automatiquement.</target>
       </segment>
     </unit>
     <unit id="lnVaJJH" name="%citizen% hat die Stadt %action%.">
@@ -403,7 +403,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du klares Wasser (keine Kanister)!</source>
-        <target>Vous avez besoin d'Eau Pure (celle d'une gourde par exemple).</target>
+        <target>Vous devez avoir de l'eau pure (pas un jerrycan par exemple) dans votre sac à dos.</target>
       </segment>
     </unit>
     <unit id="TEo9cyt" name="Das Tor ist bereits geschlossen.">
@@ -6583,7 +6583,7 @@
     </unit>
     <unit id="dWg5UEc" name="0e07264">
       <notes>
-        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle, benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu auffüllen.</note>
+        <note category="german">Du brauchst diese Punkte, um dich in der Außenwelt zu bewegen oder um an Bauprojekten mitzuarbeiten.</note>
       </notes>
       <segment>
         <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
@@ -17360,7 +17360,7 @@
       </notes>
       <segment>
         <source>Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</source>
-        <target>Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</target>
+        <target>Nous avons deux nouvelles à vous annoncer. La bonne : vous avez réussi à arrêter %count% zombie(s) ! La mauvaise : vous avez été blessé...</target>
       </segment>
     </unit>
     <unit id="IuqDnZY" name="%citizen% hat %items% in der Müllhalde zerstört (+%def% Verteidigung)">
@@ -18349,7 +18349,7 @@
     </unit>
     <unit id="20wAGQf" name="6489b1a">
       <notes>
-        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</note>
+        <note category="german">Your &lt;strong&gt;sobriety&lt;/strong&gt;, or lack thereof, is quite inconvenient. Things become pretty tricky pretty quickly when you're completely wasted...</note>
       </notes>
       <segment>
         <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</source>
@@ -18686,7 +18686,7 @@
       </notes>
       <segment>
         <source>Du wurdest von einem &lt;strong&gt;Zombie in der Zone entdeckt&lt;/strong&gt;! Er hat sich in deine Richtung gedreht!&lt;hr/&gt;Deine Tarnung ist aufgeflogen!</source>
-        <target><![CDATA[Du wurdest von einem <strong>Zombie in der Zone entdeckt</strong>! Er hat sich in deine Richtung gedreht!<hr/>Deine Tarnung ist aufgeflogen!]]></target>
+        <target><![CDATA[Alors que vous avanciez furtivement, <strong>un zombie de la zone vous a entendu</strong> et s'est retourné dans votre direction !<hr/>Vous avez été <strong>repéré(e)</strong> !<hr/>Vous n'êtes <strong>plus camouflé(e)</strong> !]]></target>
       </segment>
     </unit>
     <unit id="fBI9kz3" name="Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!">
@@ -18695,7 +18695,7 @@
       </notes>
       <segment>
         <source>Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!</source>
-        <target><![CDATA[Deine <strong>Tarnung ist aufgeflogen</strong>!]]></target>
+        <target><![CDATA[Vous n'êtes <strong>plus camouflé(e)</strong> !]]></target>
       </segment>
     </unit>
     <unit id="HXDfH_p" name="Manuelles Event-Management:">
@@ -18822,6 +18822,42 @@
       <segment>
         <source>Mit deinem %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; kannst du dich bewegen ohne dabei entdeckt zu werden.</source>
         <target><![CDATA[Votre %img_scout% <strong>Tenue de camouflage</strong> vous permet de vous déplacer sans être vu(e)]]></target>
+      </segment>
+    </unit>
+    <unit id="CN1z1xe" name="58ec9c9">
+      <notes>
+        <note category="german">%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</note>
+      </notes>
+      <segment>
+        <source>%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</source>
+        <target>%watchers% veilleurs se sont postés aux extrémités de la ville pour contenir les attaques de la Horde !</target>
+      </segment>
+    </unit>
+    <unit id="wX7RkO4" name="6de7154">
+      <notes>
+        <note category="german">Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</source>
+        <target>Cette action permet de purifier la zone en faisant tomber de la pluie. Cette pluie peut remplir un peu le puits en ville ou encore avoir un effet dévastateur sur les zombies environnants.</target>
+      </segment>
+    </unit>
+    <unit id="vScXMoh" name="020238b">
+      <notes>
+        <note category="german">Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</note>
+      </notes>
+      <segment>
+        <source>Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</source>
+        <target>Vous pouvez essayer de soigner ce citoyen, mais rien n'est garanti... et attention aux effets secondaires !</target>
+      </segment>
+    </unit>
+    <unit id="Zn7yLPx" name="d8e98d6">
+      <notes>
+        <note category="german">Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:&lt;br /&gt;%list_head% oder %list_tail%.</note>
+      </notes>
+      <segment>
+        <source>Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:&lt;br /&gt;%list_head% oder %list_tail%.</source>
+        <target><![CDATA[Vous ne pouvez pas combiner %poison% avec ceci. Vous pouvez le faire avec un des objets suivants :<br />%list_head% ou %list_tail%.]]></target>
       </segment>
     </unit>
   </file>

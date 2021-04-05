@@ -28,7 +28,7 @@ class BankAntiAbuseService {
             );
             $citizen->setBankAntiAbuse($bankAntiAbuse);
         } else {
-            if ($this->inRangeOfTaking($citizen, $bankAntiAbuse->getUpdated()))
+            if (!$this->allowedToTake($citizen) || $this->inRangeOfTaking($citizen, $bankAntiAbuse->getUpdated()))
                 $bankAntiAbuse->increaseNbItemTaken();
             else
                 $bankAntiAbuse->setNbItemTaken(1);

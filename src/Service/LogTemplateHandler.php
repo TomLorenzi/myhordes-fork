@@ -952,6 +952,18 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') );
     }
 
+    public function nightlyAttackWatchersCount( Town $town, int $watchers ): TownLogEntry {
+        $variables = array('zombies' => $watchers);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackWatcherCount']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
     public function nightlyAttackWatchers( Town $town, $watchers ): TownLogEntry {
         $citizenList = [];
         foreach ($watchers as $watcher) {
