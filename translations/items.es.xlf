@@ -7706,7 +7706,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>So was nennt man wohl &lt;strong&gt;Glück&lt;/strong&gt;! &lt;t-inside&gt;Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!&lt;/t-inside&gt;&lt;t-outside&gt;Du hast soeben {items_spawn} im Wüstensand gefunden!&lt;/t-outside&gt; Genau das, was du gebraucht hast!</source>
-        <target><![CDATA[So was nennt man wohl <strong>Glück</strong>! <t-inside>Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!</t-inside><t-outside>Du hast soeben {items_spawn} im Wüstensand gefunden!</t-outside> Genau das, was du gebraucht hast!]]></target>
+        <target><![CDATA[<t-inside><strong>¡Pero qué suerte tienes!</strong>... ¡Has encontrado {items_spawn} en un montículo de basura junto a tu pocilga, justo lo que te hacía falta!</t-inside><t-outside><strong>¡Qué suerte tienen los que no se bañan!</strong>... ¡Has descubierto {items_spawn} en la arena, justo lo que necesitabas!</t-outside>]]></target>
       </segment>
     </unit>
     <unit id="Y65IL58" name="0632b2c">
