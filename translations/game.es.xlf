@@ -1807,7 +1807,7 @@
       </notes>
       <segment>
         <source>%z% Zombies kontrollieren diese Zone!</source>
-        <target>%z% Zombies controlan esta zona!</target>
+        <target>%z% Zombies controlan esta zona</target>
       </segment>
     </unit>
     <unit id="5GwqUxA" name="d4294d0">
@@ -1870,7 +1870,7 @@
       </notes>
       <segment>
         <source>Gegen einen Zombie kämpfen!</source>
-        <target>¡Luchar contra un Zombie!</target>
+        <target>Luchar contra un Zombie</target>
       </segment>
     </unit>
     <unit id="seBLTh9" name="Diese Zone">
