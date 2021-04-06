@@ -8063,7 +8063,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Das kannst die &lt;strong&gt;Tarnkleidung&lt;/strong&gt; nicht verwenden, solange die Zombies diese Zone kontrollieren!</source>
-        <target><![CDATA[Das kannst die <strong>Tarnkleidung</strong> nicht verwenden, solange die Zombies diese Zone kontrollieren!]]></target>
+        <target><![CDATA[It is impossible to use <strong>camouflage</strong> when the zone is controlled by zombies! ]]></target>
       </segment>
     </unit>
     <unit id="1j7AoDM" name="5784480">
