@@ -4955,7 +4955,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Grundbefestigungsmauer</source>
-        <target>Basic defences</target>
+        <target>Basic Defences</target>
       </segment>
     </unit>
     <unit id="8UxoSSm" name="Verteidigungsgegenstände">
@@ -4964,7 +4964,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Verteidigungsgegenstände</source>
-        <target>Defensive objects</target>
+        <target>Defensive Objects</target>
       </segment>
     </unit>
     <unit id="FAUZkS8" name="Häuser">
@@ -6791,7 +6791,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Gereinigte Seelen</source>
-        <target>Purified souls</target>
+        <target>Purified Souls</target>
       </segment>
     </unit>
     <unit id="JATCrdR" name="0e9540e">
