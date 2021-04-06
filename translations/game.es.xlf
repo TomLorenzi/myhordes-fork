@@ -18219,7 +18219,7 @@
       </notes>
       <segment>
         <source>Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;&lt;strong&gt;Dieser Gegenstand wurde in deiner Truhe abgelegt.&lt;/strong&gt;</source>
-        <target><![CDATA[Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...<hr /><strong>Dieser Gegenstand wurde in deiner Truhe abgelegt.</strong>]]></target>
+        <target><![CDATA[Ahora tienes %item%. Pero tu paso por la casa de † %victim% no ha pasado desapercibida...<hr />Este objeto ha sido colocado <strong>en el baúl</strong> de tu casa.]]></target>
       </segment>
     </unit>
     <unit id="HSAEnDG" name="als Gruppe">
