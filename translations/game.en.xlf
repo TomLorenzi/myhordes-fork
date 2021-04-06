@@ -4991,7 +4991,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.</source>
-        <target>Note: defensive objects (wooden boards, etc...) should be placed in the Bank.</target>
+        <target>Note: Defensive objects (wooden boards, etc...) should be placed in the Bank.</target>
       </segment>
     </unit>
     <unit id="p7WJjEO" name="cabb91e">
