@@ -6307,7 +6307,7 @@
       </notes>
       <segment>
         <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
-        <target><![CDATA[<t-bp_ok>Après examen du plan, vous découvrez qu'il décrit précisément la construction de {bp_spawn}.</t-bp_ok><t-bp_parent>{hr}Ce projet nécessite la construction préalable de : {bp_parent}.</t-bp_parent><t-bp_fail>Vous essayez de lire le {item} mais vous ne comprenez pas un mot de ce qui est écrit...</t-bp_fail>]]></target>
+        <target><![CDATA[<t-bp_ok>Après examen du plan, vous découvrez qu'il décrit précisément la construction de {bp_spawn}.</t-bp_ok><t-bp_parent>{hr}Ce projet nécessite la construction préalable de : {bp_parent}.</t-bp_parent><t-bp_fail>Votre ville a déjà débloqué l'ensemble des chantiers de cette catégorie ! Ce plan est donc inutile : vous décidez de le jeter.</t-bp_fail>]]></target>
       </segment>
     </unit>
     <unit id="77.Cp5H" name="Verteidigung">
