@@ -3293,7 +3293,7 @@
       </notes>
       <segment>
         <source>%citizen% hat die Leiche von %disposed% aus der Stadt gezerrt.</source>
-        <target>%citizen% s'est débarrassé du corps de %disposed%.</target>
+        <target>Et un cadavre de moins ! %disposed% a été jeté dehors par %citizen% !</target>
       </segment>
     </unit>
     <unit id="33.BZ8y" name="3f16555">
@@ -3302,7 +3302,7 @@
       </notes>
       <segment>
         <source>%citizen% hat die Leiche von %disposed% vernichtet, indem er sie mit Wasser übergossen hat.</source>
-        <target>%citizen% s'est débarrassé du corps de %disposed% en l'arrosant d'eau.</target>
+        <target>%citizen% a utilisé de l'eau pour brûler le corps de %disposed%.</target>
       </segment>
     </unit>
     <unit id="SS1lJ6A" name="f02d89f">
@@ -10346,7 +10346,7 @@
       </notes>
       <segment>
         <source>Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</source>
-        <target>%citizen% s'est débarrassé du corps de † %disposed%.</target>
+        <target>Et un cadavre de moins ! %disposed% a été jeté dehors par † %citizen% !</target>
       </segment>
     </unit>
     <unit id="E0yx4Bm" name="%citizen% hat mit etwas Wasser † %disposed% &quot;verbrannt&quot;.">
@@ -10355,7 +10355,7 @@
       </notes>
       <segment>
         <source>%citizen% hat mit etwas Wasser † %disposed% "verbrannt".</source>
-        <target>%citizen% s'est débarrassé du corps de † %disposed% en l'arrosant d'eau.</target>
+        <target>%citizen% a utilisé de l'eau pour brûler le corps de † %disposed%.</target>
       </segment>
     </unit>
     <unit id="UA1vSp." name="Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!">
