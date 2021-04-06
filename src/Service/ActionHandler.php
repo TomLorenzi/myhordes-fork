@@ -1120,10 +1120,7 @@ class ActionHandler
                                     $heavy_break = true;
                             }
 
-                        if ($item_count <= 0) {
-                            $tags[] = 'fail';
-                            $tags[] = 'no-items';
-                        } elseif ($heavy_break) {
+                        if ($heavy_break) {
                             $tags[] = 'fail';
                             $tags[] = 'too-heavy';
                         } elseif ($this->inventory_handler->getFreeSize( $bank ) < $item_count) {
@@ -1143,7 +1140,10 @@ class ActionHandler
                                 if ($item->getPrototype()->getName() === 'tamed_pet_#00' || $item->getPrototype()->getName() === 'tamed_pet_drug_#00' )
                                     $item->setPrototype( $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_off_#00']) );
                                 $this->entity_manager->persist($this->log->beyondTamerSendLog($citizen, $success_count));
-                            } else $tags[] = 'fail';
+                            } else {
+                                $tags[] = 'no-items';
+                                $tags[] = 'fail';
+                            }
                         }
 
                         break;
