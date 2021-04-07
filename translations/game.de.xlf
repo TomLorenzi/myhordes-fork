@@ -7150,7 +7150,7 @@
       </notes>
       <segment>
         <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
-        <target>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</target>
+        <target><![CDATA[Du hast einen Teil der Zone <strong>freigeräumt</strong>, allerdings versperren noch <strong>allerlei Trümmer</strong> den Zugang...]]></target>
       </segment>
     </unit>
     <unit id="AL6LzU0" name="9a476a3">
