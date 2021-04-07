@@ -7168,7 +7168,7 @@
       </notes>
       <segment>
         <source>Du hast %count% Aktionspunkt(e) benutzt.</source>
-        <target>Du hast %count% Aktionspunkt(e) benutzt.</target>
+        <target><![CDATA[Du hast dafür <strong>%count% Aktionspunkt(e)</strong> verbraucht.]]></target>
       </segment>
     </unit>
     <unit id="7Tv2eKD" name="8d60c8e">
