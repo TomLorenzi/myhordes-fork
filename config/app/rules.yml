@@ -130,10 +130,25 @@ parameters:
       unlocked_buildings: ['small_gather_#02']
 
       distribute_items:
-        replace: ['bplan_box_e_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00']
+        replace: ['bplan_box_e_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'firework_powder_#00','firework_tube_#00','firework_box_#00']
 
       distribution_distance:
-        replace: []
+        replace:
+          - item: 'bplan_box_e_#00'
+            min: 4
+            max: 90
+          - item: 'bplan_box_#00'
+            min: 3
+            max: 90
+          - item: 'firework_powder_#00'
+            min: 3
+            max: 90
+          - item: 'firework_tube_#00'
+            min: 3
+            max: 90
+          - item: 'firework_box_#00'
+            min: 3
+            max: 90
 
       instant_pictos:
         merge: ['r_guide_#00', 'r_guard_#00']

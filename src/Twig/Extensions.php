@@ -6,6 +6,8 @@ namespace App\Twig;
 
 use App\Entity\Town;
 use App\Entity\TownSlotReservation;
+use App\Entity\ItemProperty;
+use App\Entity\ItemPrototype;
 use App\Entity\User;
 use App\Service\UserHandler;
 use DateTime;
@@ -43,6 +45,7 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
             new TwigFilter('restricted',  [$this, 'user_is_restricted']),
             new TwigFilter('restricted_until',  [$this, 'user_restricted_until']),
             new TwigFilter('whitelisted',  [$this, 'town_whitelisted']),
+            new TwigFilter('items',  [$this, 'item_prototypes_with']),
         ];
     }
 
@@ -117,5 +120,16 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
 
     public function user_restricted_until(User $user, ?int $mask = null): ?DateTime {
         return $this->userHandler->getActiveRestrictionExpiration($user,$mask);
+    }
+
+    /**
+     * @param string $tag
+     * @return ItemPrototype[]
+     */
+    public function item_prototypes_with(string $tag): array {
+        /** @var ItemProperty|null $p */
+        $p = $this->entityManager->getRepository(ItemProperty::class)->findOneByName($tag);
+        if ($p === null) return [];
+        return $p->getItemPrototypes()->getValues();
     }
 }

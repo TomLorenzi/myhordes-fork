@@ -73,6 +73,8 @@ class DatabaseExtractor implements ExtractorInterface
                 $this->insert($c, $action->getConfirmMsg(), 'items');
             if (!empty($action->getMessage()))
                 $this->insert($c, $action->getMessage(), 'items');
+            if (!empty($action->getEscortMessage()))
+                $this->insert($c, $action->getEscortMessage(), 'items');
             foreach ($action->getRequirements() as $requirement) {
                 if ($requirement->getFailureText())
                     $this->insert($c, $requirement->getFailureText(), 'items');

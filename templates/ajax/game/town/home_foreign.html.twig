@@ -121,7 +121,10 @@
                         <button x-devour-citizen {% if not allow_devour %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" /> {{ 'Diesen Bürger verspeisen!'|trans({},'game') }}</button>
                     {% endif %}
                     {% if is_shaman and not banished %}
-                        <button x-heal-citizen>{{'Nutze deine heilenden Hände'|trans({}, 'game')}} ({% if is_shaman_role %}2 <div class="pm"></div>{% else %}2 <div class="ap"></div>{% endif %})</button>
+                        <button x-heal-citizen>
+                            {{'Nutze deine heilenden Hände'|trans({}, 'game')}} ({% if is_shaman_role %}<div class="pm">2</div>{% else %}<div class="ap">2</div>{% endif %})
+                            <div class="tooltip">{{ 'Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!'|trans({},'game') }}</div>
+                        </button>
                     {% endif %}
                 {% endif %}
                 {% if can_complain %}

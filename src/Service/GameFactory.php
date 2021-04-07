@@ -364,8 +364,8 @@ class GameFactory
                 $max_distance = $distribution[$item]['max'];
             }
             else {
-                $min_distance = 6;
-                $max_distance = 15;
+                $min_distance = 1;
+                $max_distance = 100;
             }
 
             $spawnZone = $this->random_generator->pickLocationBetweenFromList($zone_list, $min_distance, $max_distance);

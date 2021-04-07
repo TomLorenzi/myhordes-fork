@@ -165,7 +165,7 @@ class InventoryAwareController extends CustomAbstractController
         $targets = [];
 
         switch ($definition->getSpawner()) {
-            case ItemTargetDefinition::ItemSelectionType:
+            case ItemTargetDefinition::ItemSelectionType: case ItemTargetDefinition::ItemSelectionTypePoison:
                 foreach ($inventories as &$inv)
                     foreach ($inv->getItems() as &$item)
                         if ($this->action_handler->targetDefinitionApplies($item,$definition))
@@ -698,8 +698,8 @@ class InventoryAwareController extends CustomAbstractController
                                     $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
                                     $this->citizen_handler->inflictStatus( $citizen, 'terror' );
                                     $this->addFlash( 'notice', $this->translator->trans('%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!', ['%victim%' => $victim_home->getCitizen()->getUser()->getName()], 'game') );
-                                } elseif (($victim_home->getCitizen()->getAlive() && $this->random_generator->chance(0.5)) || !$victim_home->getCitizen()->getAlive()) {
-                                    if($victim_home->getCitizen()->getAlive()){
+                                } elseif ($this->random_generator->chance(0.5) || !$victim_home->getCitizen()->getAlive()) {
+                                    if ($victim_home->getCitizen()->getAlive()){
                                         $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
                                         $this->addFlash( 'notice', $this->translator->trans('Mist, dein Einbruch bei %victim% ist aufgeflogen...', ['%victim%' => $this->log->wrap($victim_home->getCitizen()->getUser()->getName())], 'game') );
                                     } else {
@@ -816,6 +816,8 @@ class InventoryAwareController extends CustomAbstractController
             ? array_map(function(Zone $z) { return $z->getId(); },$this->zone_handler->getSoulZones( $this->getActiveCitizen()->getTown() ) )
             : [];
 
+        $upgraded_map = $this->town_handler->getBuilding($this->getActiveCitizen()->getTown(), 'item_electro_#00', true) !== null;
+
         foreach ($this->getActiveCitizen()->getTown()->getZones() as $zone) {
             $x = $zone->getX();
             $y = $zone->getY();
@@ -831,7 +833,9 @@ class InventoryAwareController extends CustomAbstractController
                 $this->getActiveCitizen()->getTown(),
                 $zone,
                 $this->getActiveCitizen(),
-                in_array($zone->getId(), $soul_zones_ids)
+                in_array($zone->getId(), $soul_zones_ids),
+                false,
+                $upgraded_map
             );
         }
 
@@ -863,7 +867,7 @@ class InventoryAwareController extends CustomAbstractController
         if (!$target) return true;
 
         switch ($target->getSpawner()) {
-            case ItemTargetDefinition::ItemSelectionType:
+            case ItemTargetDefinition::ItemSelectionType: case ItemTargetDefinition::ItemSelectionTypePoison:
                 $return = $this->entity_manager->getRepository(Item::class)->find( $id );
                 if (!$return) return false;
 
@@ -1099,8 +1103,9 @@ class InventoryAwareController extends CustomAbstractController
         /** @var ItemAction|null $action */
         $action = ($action_id < 0) ? null : $this->entity_manager->getRepository(ItemAction::class)->find( $action_id );
 
+        $escort_mode = $base_citizen !== null;
         if ( !$item || !$action || $item->getBroken() ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        if ( $base_citizen !== null && $item->getPoison() ) return AjaxResponse::error( BeyondController::ErrorEscortActionRefused );
+        if ( $escort_mode && $item->getPoison() ) return AjaxResponse::error( BeyondController::ErrorEscortActionRefused );
         $citizen = $base_citizen ?? $this->getActiveCitizen();
 
         $zone = $citizen->getZone();
@@ -1113,7 +1118,7 @@ class InventoryAwareController extends CustomAbstractController
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         $url = null;
 
-        if (($error = $this->action_handler->execute( $citizen, $item, $target, $action, $msg, $remove )) === ActionHandler::ErrorNone) {
+        if (($error = $this->action_handler->execute( $citizen, $item, $target, $action, $msg, $remove, false, $escort_mode )) === ActionHandler::ErrorNone) {
 
             if ($trigger_after) $trigger_after($action);
 

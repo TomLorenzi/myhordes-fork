@@ -41,7 +41,7 @@
                                 {% if post.owner.activeTitle %}<br /><span class="small float-left" style="font-size: 0.7em">{{ post.owner.activeTitle.prototype.title|trans({},'game') }}</span>{% endif %}
                             {% endif %}
                         </b>
-                        {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}
+                        {% if post.note is not null %}<div class="right post-note">{{ post.note|replace({'%at_00%': 'in der Stadt oder am Stadttor'|trans({},'game')})|raw }}</div>{% endif %}
                     </div>
                     <div class="forum-post-content">
                         {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
