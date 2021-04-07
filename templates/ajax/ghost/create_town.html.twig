@@ -6,9 +6,30 @@
 {% endblock %}
 
 {% block ajax %}
-    <div class="row form">
-        <div class="cell header rw-12">
-            <h4>{{'Privatstadt gründen'|trans({}, 'ghost')}}</h4>
+    <div class="row form soul">
+        <div class="cell header rw-8 ro-2 rw-lg-10 ro-lg-1 rw-md-12 ro-md-0">
+
+            <div class="tabs">
+                <div class="tab-floater">
+                    <div class="tab left inline">
+                        {% if app.user.avatar %}
+                            <div class="avatar small ua-{{ app.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}"></div>
+                        {% endif %}
+                        <h4 class="soul-name">
+                            <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> <a class="username">{{ app.user.name }}</a>
+                        </h4>
+                    </div>
+                    <div class="tab tab-floater">
+                        <div class="tab selected">
+                            <div class="tab-link"><img src="{{ asset('build/images/item/item_chair.gif') }}" alt=""/><span class="hide-md hide-sm"> {% trans from 'ghost' %}Privatstadt gründen{% endtrans %}</span></div>
+                        </div>
+                        <div class="tab">
+                            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('ghost_welcome') }}"><img src="{{ asset('build/images/icons/small_world.gif') }}" alt="" /><span class="hide-md hide-sm"> {% trans from 'ghost' %}Einer Stadt beitreten{% endtrans %}</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="cell padded rw-12">
                     <div class="help">{{'In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.'|trans({}, 'ghost')}}</div>
