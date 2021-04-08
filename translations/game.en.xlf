@@ -4667,7 +4667,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Katapult</source>
-        <target>Catap</target>
+        <target>Catapult</target>
       </segment>
     </unit>
     <unit id="T04hD_3" name="Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...">
@@ -14436,7 +14436,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Katapult-Bediener</source>
-        <target>Katapult-Bediener</target>
+        <target>Catapult operator</target>
       </segment>
     </unit>
     <unit id="X7RHtVg" name="UFC">
