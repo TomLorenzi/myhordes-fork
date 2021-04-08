@@ -8125,8 +8125,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Was ist mit der Leiche passiert? Der leblose Körper ist spurlos verschwunden... Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
-        <target>WHAT HAPPENED TO THE BODY?
-No idea! The body has disappeared without trace...They must be rotting somewhere outside... Perhaps they'll get back up and visit you during the night.</target>
+        <target><![CDATA[No Idea where <strong>the corpse went, it disappeard without a trace...</strong> It's probably laying outside the town and is rotting away... but maybe it will come back this night to visit us?]]></target>
       </segment>
     </unit>
     <unit id=".vM_crK" name="7733da4">
