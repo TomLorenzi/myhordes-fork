@@ -2131,7 +2131,7 @@
       </notes>
       <segment>
         <source>Status vergeben</source>
-        <target>Status vergeben</target>
+        <target>Give the status</target>
       </segment>
     </unit>
     <unit id="PLdhbVW" name="Status entfernen">
@@ -2140,7 +2140,7 @@
       </notes>
       <segment>
         <source>Status entfernen</source>
-        <target>Status entfernen</target>
+        <target>Remove the status</target>
       </segment>
     </unit>
     <unit id="YkT2Odb" name="Eine Rolle auswählen:">
@@ -2149,7 +2149,7 @@
       </notes>
       <segment>
         <source>Eine Rolle auswählen:</source>
-        <target>Eine Rolle auswählen:</target>
+        <target>Select role :</target>
       </segment>
     </unit>
     <unit id="v6OJxnk" name="Rolle vergeben">
@@ -2158,7 +2158,7 @@
       </notes>
       <segment>
         <source>Rolle vergeben</source>
-        <target>Rolle vergeben</target>
+        <target>Give the role</target>
       </segment>
     </unit>
     <unit id="sOLeN_J" name="Rolle entfernen">
@@ -2167,7 +2167,7 @@
       </notes>
       <segment>
         <source>Rolle entfernen</source>
-        <target>Rolle entfernen</target>
+        <target>Remove the role</target>
       </segment>
     </unit>
     <unit id="x8Xk.ym" name="Bürger nach Sprache">
@@ -2293,7 +2293,7 @@
       </notes>
       <segment>
         <source>Setzen</source>
-        <target>Setzen</target>
+        <target>Set</target>
       </segment>
     </unit>
     <unit id="wM4Qh3r" name="Abziehen">
@@ -2302,7 +2302,7 @@
       </notes>
       <segment>
         <source>Abziehen</source>
-        <target>Abziehen</target>
+        <target>Remove</target>
       </segment>
     </unit>
     <unit id="lEIUlKS" name="Changelogs">
@@ -2338,7 +2338,7 @@
       </notes>
       <segment>
         <source>Konstruktionen</source>
-        <target>Konstruktionen</target>
+        <target>Construction sites</target>
       </segment>
     </unit>
     <unit id="JgVl7oE" name="Gib den Namen oder die ID der Stadt ein.">
@@ -2383,7 +2383,7 @@
       </notes>
       <segment>
         <source>Stadt ansehen</source>
-        <target>Stadt ansehen</target>
+        <target>See the town</target>
       </segment>
     </unit>
     <unit id="HQAYQ7y" name="Existierende Beschränkungen">
