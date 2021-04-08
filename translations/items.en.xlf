@@ -7919,7 +7919,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du hast {item} eingenommen, verspürst aber keine nennenswerte Wirkung... Vielleicht hast du das gar nicht gebraucht?</source>
-        <target>Du hast {item} eingenommen, verspürst aber keine nennenswerte Wirkung... Vielleicht hast du das gar nicht gebraucht?</target>
+        <target>You take the {item}, but it seems to have no notable effect... Maybe you didn't need it?</target>
       </segment>
     </unit>
     <unit id="ullYTUO" name="bc4370c">
