@@ -7715,7 +7715,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Mit Hilfe deiner übermenschlichen Heldenkräfte hast du &lt;strong&gt;{kills} Zombie(s)&lt;/strong&gt; platt gemacht!</source>
-        <target><![CDATA[Mit Hilfe deiner übermenschlichen Heldenkräfte hast du <strong>{kills} Zombie(s)</strong> platt gemacht!]]></target>
+        <target><![CDATA[¡Con tu fuerza de Héroe y tus puños, hiciste pedazos a <strong>{kills} Zombie(s)</strong>!]]></target>
       </segment>
     </unit>
     <unit id="Pd1i68n" name="5bbcfac">
