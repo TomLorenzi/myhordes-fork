@@ -8116,7 +8116,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%attacker% ist %defender% an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</source>
-        <target>%attacker% jumped on %defender% on the throat and ate them without batting an eyelid</target>
+        <target>%attacker% jumped %defender% on the throat and ate them without batting an eyelid</target>
       </segment>
     </unit>
     <unit id="Qlh.l61" name="a9b83b9">
