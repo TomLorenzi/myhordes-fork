@@ -286,7 +286,7 @@
       </notes>
       <segment>
         <source>Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%</source>
-        <target>Durante el ataque la construcción %building% ha dado los sigueintes objetos: %items%</target>
+        <target>Durante el ataque la construcción %building% ha dado los siguientes objetos: %items%</target>
       </segment>
     </unit>
     <unit id="ThZ6eEv" name="55b2af4">
@@ -18570,7 +18570,7 @@
       </notes>
       <segment>
         <source>Versuchen etwas zu stehlen</source>
-        <target>Versuchen etwas zu stehlen</target>
+        <target>Intentar robar un objeto</target>
       </segment>
     </unit>
     <unit id="qZD8YpW" name="efb0a6d">
@@ -18579,7 +18579,7 @@
       </notes>
       <segment>
         <source>Diebstahlsversuche können nur &lt;strong&gt;während der Nacht&lt;/strong&gt; unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!</source>
-        <target><![CDATA[Diebstahlsversuche können nur <strong>während der Nacht</strong> unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!]]></target>
+        <target><![CDATA[Los intentos de robo solo se pueden realizar <strong>durante la noche</strong>: sus probabilidades de éxito son reducidas ¡y todo caso descubierto aparecerá en el Registro!]]></target>
       </segment>
     </unit>
     <unit id="X1jhim7" name="Achtung! Deinen Mitbürgern wird das gar nicht gefallen.">
@@ -18588,7 +18588,7 @@
       </notes>
       <segment>
         <source>Achtung! Deinen Mitbürgern wird das gar nicht gefallen.</source>
-        <target>Achtung! Deinen Mitbürgern wird das gar nicht gefallen.</target>
+        <target>¡Cuidado, a tus vecinos no les va a gustar eso!</target>
       </segment>
     </unit>
     <unit id="l9RZq.z" name="4bd2b92">
