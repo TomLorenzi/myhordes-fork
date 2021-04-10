@@ -18903,5 +18903,14 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target><![CDATA[You clear a path through the debris, take a few measurements, rub the earth from your grimy hands...<hr/>After several long minutes of investigation, you can confirm, without a shadow of a doubt, that this building is: <strong>%building%</strong>!]]></target>
       </segment>
     </unit>
+    <unit id="gmanddb" name="Persönliche Beschreibung">
+      <notes>
+        <note category="german">Persönliche Beschreibung</note>
+      </notes>
+      <segment>
+        <source>Persönliche Beschreibung</source>
+        <target>Persönliche Beschreibung</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
