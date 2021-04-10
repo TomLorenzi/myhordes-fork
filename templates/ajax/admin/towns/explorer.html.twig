@@ -104,6 +104,7 @@
                                                     <option value="{{ url('admin_town_manage', {action: 'dbg_engage', id: town.id}) }}">{{ 'Alle Spieler koppeln'|trans({},'admin') }}</option>
                                                 {% endif %}
                                                 <option value="{{ url('admin_town_manage', {action: 'dbg_set_well', id: town.id}) }}" x-query="{{ 'Neuer Füllstand:'|trans({},'admin') }}">{{ 'Brunnen-Füllstand setzen'|trans({},'admin') }}</option>
+                                                <option value="{{ url('admin_town_manage', {action: 'dbg_unlock_buildings', id: town.id}) }}">{{ 'Alle Gebäude freischalten'|trans({},'admin') }}</option>
 
                                             </optgroup>
                                         {% endif %}
