@@ -3025,5 +3025,68 @@
         <target>Supprimer le titre et l'icône</target>
       </segment>
     </unit>
+    <unit id="BaVbT2z" name="Neuer Füllstand:">
+      <notes>
+        <note category="german">Neuer Füllstand:</note>
+      </notes>
+      <segment>
+        <source>Neuer Füllstand:</source>
+        <target>Nouveau niveau:</target>
+      </segment>
+    </unit>
+    <unit id="dIVIxL." name="Brunnen-Füllstand setzen">
+      <notes>
+        <note category="german">Brunnen-Füllstand setzen</note>
+      </notes>
+      <segment>
+        <source>Brunnen-Füllstand setzen</source>
+        <target>Régler le niveau de remplissage du puits</target>
+      </segment>
+    </unit>
+    <unit id="2xHk8Wn" name="Alle Gebäude freischalten">
+      <notes>
+        <note category="german">Alle Gebäude freischalten</note>
+      </notes>
+      <segment>
+        <source>Alle Gebäude freischalten</source>
+        <target>Déverrouillez tous les chantiers</target>
+      </segment>
+    </unit>
+    <unit id="IurwAt2" name="Baufortschritt setzen:">
+      <notes>
+        <note category="german">Baufortschritt setzen:</note>
+      </notes>
+      <segment>
+        <source>Baufortschritt setzen:</source>
+        <target>Définir la progression du chantier:</target>
+      </segment>
+    </unit>
+    <unit id="C0IagjD" name="Integrität setzen:">
+      <notes>
+        <note category="german">Integrität setzen:</note>
+      </notes>
+      <segment>
+        <source>Integrität setzen:</source>
+        <target>Définir l'intégrité:</target>
+      </segment>
+    </unit>
+    <unit id="PmdlsrB" name="Neue Anzahl:">
+      <notes>
+        <note category="german">Neue Anzahl:</note>
+      </notes>
+      <segment>
+        <source>Neue Anzahl:</source>
+        <target>Nouveau nombre:</target>
+      </segment>
+    </unit>
+    <unit id="VxMIE8o" name="Heldentage setzen">
+      <notes>
+        <note category="german">Heldentage setzen</note>
+      </notes>
+      <segment>
+        <source>Heldentage setzen</source>
+        <target>Définir l'expérience héroïque</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
