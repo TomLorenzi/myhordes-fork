@@ -12663,7 +12663,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Huldigt den riesigen KVF!</source>
-        <target>Huldigt den riesigen KVF!</target>
+        <target>BRDs for everyone! The people demand BRDs</target>
       </segment>
     </unit>
     <unit id="tEgszOf" name="Durazell">
@@ -13446,7 +13446,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Macht der Proteine</source>
-        <target>"Full of protein.</target>
+        <target>Full of protein.</target>
       </segment>
     </unit>
     <unit id="WE9IWrB" name="Zombieliebling">
@@ -14130,7 +14130,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Pandämonium? Hah. Einfach.</source>
-        <target>Hardcore? Candy from babies...</target>
+        <target>Hardcore? Candy for babies...</target>
       </segment>
     </unit>
     <unit id="RAheQ6X" name="Rauch? Welcher Rauch?">

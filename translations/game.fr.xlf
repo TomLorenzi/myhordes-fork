@@ -15691,7 +15691,7 @@
       </notes>
       <segment>
         <source>Keine Fehler hi&amp;e%12;r</source>
-        <target><![CDATA[Plus d&apos;erreurs ici]]></target>
+        <target><![CDATA[Plus d&amp;apos;erreurs ici]]></target>
       </segment>
     </unit>
     <unit id="y013sMW" name="Patient Null">
