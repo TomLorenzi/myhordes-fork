@@ -303,7 +303,7 @@ class AdminTownController extends AdminActionController
      * @param KernelInterface $kernel
      * @return Response
      */
-    public function town_manager(int $id, string $action, ItemFactory $itemFactory, RandomGenerator $random, NightlyHandler $night, GameFactory $gameFactory, CrowService $crowService, KernelInterface $kernel, JSONRequestParser $parser): Response
+    public function town_manager(int $id, string $action, ItemFactory $itemFactory, RandomGenerator $random, NightlyHandler $night, GameFactory $gameFactory, CrowService $crowService, KernelInterface $kernel, JSONRequestParser $parser, TownHandler $townHandler): Response
     {
         /** @var Town $town */
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
@@ -312,7 +312,7 @@ class AdminTownController extends AdminActionController
         if (str_starts_with($action, 'dbg_') && $kernel->getEnvironment() !== 'dev')
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($action, ['release', 'quarantine', 'advance', 'nullify', 'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage', 'dbg_set_well']) && !$this->isGranted('ROLE_ADMIN'))
+        if (in_array($action, ['release', 'quarantine', 'advance', 'nullify', 'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage', 'dbg_set_well', 'dbg_unlock_buildings']) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $param = $parser->get('param');
@@ -443,6 +443,15 @@ class AdminTownController extends AdminActionController
                 if (!is_numeric($param)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
                 $town->setWell( max(0,$param));
                 $this->entity_manager->persist($town);
+                break;
+
+            case 'dbg_unlock_buildings':
+                do {
+                    $possible = array_filter( $this->entity_manager->getRepository(BuildingPrototype::class)->findProspectivePrototypes( $town ), fn(BuildingPrototype $p) => $p->getBlueprint() === null || $p->getBlueprint() < 5 );
+                    $found = !empty($possible);
+                    foreach ($possible as $proto) $townHandler->addBuilding( $town, $proto );
+                } while ($found);
+                $this->entity_manager->persist( $town );
                 break;
 
             default:
