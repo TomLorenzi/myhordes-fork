@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.</source>
-        <target><![CDATA[%citizen% ha ha añadido <strong>%item%</strong>, y con ello obtuvimos <strong>%num% Raciones de Agua.</strong>]]></target>
+        <target><![CDATA[%citizen% ha añadido <strong>%item%</strong>, y con ello obtuvimos <strong>%num% Raciones de Agua.</strong>]]></target>
       </segment>
     </unit>
     <unit id="uHRiWHu" name="%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.">
