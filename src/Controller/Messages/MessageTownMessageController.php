@@ -277,22 +277,22 @@ class MessageTownMessageController extends MessageController
                     /** @var Complaint $complaint */
                     $reason = $this->entity_manager->getRepository(ComplaintReason::class)->find( $post->getForeignID() );
                     $thread->setTitle( $this->translator->trans('Anonyme Beschwerde', [], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"', ['%reason%' => $reason ? $this->translator->trans( $reason->getText(), [], 'game' ) : '???'], 'game' ) );
+                    $post->setText( $this->html->prepareEmotes($post->getText()) . $this->translator->trans( 'Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "%reason%"', ['%reason%' => $reason ? $this->translator->trans( $reason->getText(), [], 'game' ) : '???'], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF:
                     /** @var Complaint $complaint */
                     $reason = $this->entity_manager->getRepository(ComplaintReason::class)->find( $post->getForeignID() );
                     $thread->setTitle( $this->translator->trans('Beschwerde zurückgezogen', [], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"', ['%reason%' => $reason ? $this->translator->trans( $reason->getText(), [], 'game' ) : '???'], 'game' ) );
+                    $post->setText( $this->html->prepareEmotes($post->getText()) . $this->translator->trans( 'Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "%reason%"', ['%reason%' => $reason ? $this->translator->trans( $reason->getText(), [], 'game' ) : '???'], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_TERROR:
                 case PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_TERROR:
                     $thread->setTitle( $this->translator->trans('Du bist vor Angst erstarrt!!', [], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...', ['%num%' => $post->getForeignID()], 'game' ) );
+                    $post->setText( $this->html->prepareEmotes($post->getText()) . $this->translator->trans( 'Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...', ['%num%' => $post->getForeignID()], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_AVOID_TERROR:
                     $thread->setTitle( $this->translator->trans('Was für eine schreckliche Nacht!', [], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.', [], 'game' ) );
+                    $post->setText( $this->html->prepareEmotes($post->getText()) . $this->translator->trans( 'Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.', [], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_THEFT:
                     /** @var ItemPrototype $item */
@@ -301,30 +301,30 @@ class MessageTownMessageController extends MessageController
 
                     $img = "<img src='{$this->asset->getUrl('build/images/item/item_' . ($item ? $item->getIcon() : 'none') . '.gif')}' alt='' />";
                     $name = $this->translator->trans( $item ? $item->getLabel() : '', [], 'items' );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%', ['%icon%' => $img, '%item%' => $name], 'game' ) );
+                    $post->setText( $this->html->prepareEmotes($post->getText()) . $this->translator->trans( 'Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: %icon% %item%', ['%icon%' => $img, '%item%' => $name], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_CATAPULT:
                     $thread->setTitle( $this->translator->trans('Du bist für das Katapult verantwortlich', [], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.', [], 'game' ) );
+                    $post->setText( $this->html->prepareEmotes($post->getText()) . $this->translator->trans( 'Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.', [], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_AGGRESSION_FAIL:
                     /** @var Citizen $aggressor */
                     $aggressor = $this->entity_manager->getRepository(Citizen::class)->find( $post->getForeignID() );
                     $thread->setTitle( $this->translator->trans('%username% hat dich angegriffen!', ['%username%' => $aggressor->getUser()->getName()], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.', ['%username%' => $aggressor->getUser()->getName()], 'game' ) );
+                    $post->setText( $this->html->prepareEmotes($post->getText()) . $this->translator->trans( 'Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.', ['%username%' => $aggressor->getUser()->getName()], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_AGGRESSION_SUCCESS:
                     /** @var Citizen $aggressor */
                     $aggressor = $this->entity_manager->getRepository(Citizen::class)->find( $post->getForeignID() );
                     $thread->setTitle( $this->translator->trans('%username% hat dich angegriffen und verletzt!', ['%username%' => $aggressor->getUser()->getName()], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!', ['%username%' => $aggressor->getUser()->getName()], 'game' ) );
+                    $post->setText( $this->html->prepareEmotes($post->getText()) . $this->translator->trans( 'Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!', ['%username%' => $aggressor->getUser()->getName()], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_WOUND:
                     $thread->setTitle( $this->translator->trans('Verletzt', [], 'game') );
-                    $post->setText( $this->prepareEmotes($post->getText()) . $this->translator->trans( 'Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...', ['%count%' => $post->getForeignID()], 'game' ) );
+                    $post->setText( $this->html->prepareEmotes($post->getText()) . $this->translator->trans( 'Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...', ['%count%' => $post->getForeignID()], 'game' ) );
                     break;
                 default:
-                    $post->setText($this->prepareEmotes($post->getText()));
+                    $post->setText($this->html->prepareEmotes($post->getText()));
             }
 
         }

@@ -662,6 +662,12 @@ export default class TwinoAlikeParser {
             target.appendChild(c);
     }
 
+    parseToString( text: string, resolver: emoteResolver ): string {
+        let proxy = document.createElement( 'div' );
+        this.parseTo( text, proxy, resolver );
+        return proxy.innerHTML;
+    }
+
     private static parsePlainBlock( elem: HTMLElement, content: string|null = null ): TwinoInterimBlock {
 
         if (elem.nodeType === Node.ELEMENT_NODE) {

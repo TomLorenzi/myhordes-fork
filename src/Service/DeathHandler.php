@@ -81,6 +81,12 @@ class DeathHandler
             $remove[] = $dt;
         foreach ($this->entity_manager->getRepository(EscapeTimer::class)->findAllByCitizen($citizen) as $et)
             $remove[] = $et;
+
+        // If the citizen is marked to become a ghoul after the next attack, pass the mark on to another
+        // citizen
+        if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_air_infected') || $this->citizen_handler->hasStatusEffect($citizen, 'tg_air_ghoul'))
+            $this->citizen_handler->pass_airborne_ghoul_infection($citizen);
+
         $citizen->getStatus()->clear();
 
         foreach ($citizen->getCitizenWatch() as $cw) {
@@ -97,7 +103,7 @@ class DeathHandler
         $died_outside = $citizen->getZone() !== null;
         if (!$died_outside) {
             $zone = null;
-            $justice = in_array($cod->getRef(), [CauseOfDeath::Hanging, CauseOfDeath::FleshCage]);
+            $justice = in_array($cod->getRef(), [CauseOfDeath::Hanging, CauseOfDeath::FleshCage, CauseOfDeath::ChocolateCross]);
             $citizen->getHome()->setHoldsBody( true );
             if ($justice || $this->conf->getTownConfiguration( $citizen->getTown() )->get(TownConf::CONF_MODIFIER_BONES_IN_TOWN, false))
                 $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'),
@@ -162,7 +168,7 @@ class DeathHandler
         if(($picto = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_SURVIVAL_PICTO, null))) {
             $days = $citizen->getSurvivedDays();
             $nbPicto = pow(($days - 3), 1.5);
-            $this->picto_handler->give_validated_picto($citizen, $picto, $nbPicto);
+            $this->picto_handler->give_validated_picto($citizen, $picto, (int)floor($nbPicto));
         }
 
         // Add pictos

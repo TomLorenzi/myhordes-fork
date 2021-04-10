@@ -4874,11 +4874,11 @@ müssen durchdacht geplant werden.</source>
     </unit>
     <unit id="jdns.Il" name="dae39d1">
       <notes>
-        <note category="german">Jede Nacht um Mitternacht greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</note>
+        <note category="german">Jede Nacht um Mitternacht (UTC+1) greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</note>
       </notes>
       <segment>
         <source>Jede Nacht um Mitternacht greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</source>
-        <target>Chaque soir, à minuit, les Hordes de morts-vivants attaquent la ville. Chaque attaque comporte un nombre fixe de zombies.</target>
+        <target>Chaque soir, à minuit (UTC+1), les Hordes de morts-vivants attaquent la ville. Chaque attaque comporte un nombre fixe de zombies.</target>
       </segment>
     </unit>
     <unit id="D4X9Djo" name="España: 01h00">
@@ -6172,24 +6172,23 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
     </unit>
     <unit id="AsXSh2V" name="9eaeadf">
       <notes>
-        <note category="german">Du kannst hier eine Liste mit mindestens 39 Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
-Alle Pseudonyme müssen korrekt geschrieben und mit einem Komma getrennt sein (Leerzeichen werden ignoriert).
+        <note category="german">Du kannst hier eine Liste Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
 Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</note>
       </notes>
       <segment>
         <source>Du kannst hier eine Liste mit mindestens 39 Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
 Alle Pseudonyme müssen korrekt geschrieben und mit einem Komma getrennt sein (Leerzeichen werden ignoriert).
 Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</source>
-        <target>Vous pouvez entrer une liste 39 noms de joueurs (minimum) lorsque vous créez une ville privée pour leur réserver à chacun une place. Chaque pseudonyme doit être correctement écrit et séparé par une virgule (les espaces sont ignorés). Vous ne pourrez plus modifier cette liste une fois la ville créée !</target>
+        <target>Vous pouvez entrer une liste de joueurs lorsque vous créez une ville privée pour leur réserver à chacun une place. Vous ne pourrez plus modifier cette liste une fois la ville créée !</target>
       </segment>
     </unit>
     <unit id="lWrXfCk" name="Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;">
       <notes>
-        <note category="german">Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;</note>
+        <note category="german">Statt alle Spieler einzeln auszuwählen kannst du auch eine Liste mit Namen in das Suchfeld eingeben. Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;</note>
       </notes>
       <segment>
         <source>Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;</source>
-        <target><![CDATA[Exemple : <em>joueur01, joueur02, bidule_du_33</em>]]></target>
+        <target><![CDATA[Au lieu d'ajouter chaque nom individuellement, vous pouvez saisir une liste de noms dans le champ de recherche. Exemple : <em>joueur01, joueur02, bidule_du_33</em>]]></target>
       </segment>
     </unit>
     <unit id="NyknCVn" name="4a21474">

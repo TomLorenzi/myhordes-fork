@@ -165,7 +165,7 @@ class InventoryAwareController extends CustomAbstractController
         $targets = [];
 
         switch ($definition->getSpawner()) {
-            case ItemTargetDefinition::ItemSelectionType:
+            case ItemTargetDefinition::ItemSelectionType: case ItemTargetDefinition::ItemSelectionTypePoison:
                 foreach ($inventories as &$inv)
                     foreach ($inv->getItems() as &$item)
                         if ($this->action_handler->targetDefinitionApplies($item,$definition))
@@ -406,6 +406,7 @@ class InventoryAwareController extends CustomAbstractController
 
             $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 65) );
             $this->picto_handler->give_picto($aggressor, 'r_cannib_#00');
+            $this->citizen_handler->removeStatus($aggressor, 'tg_air_ghoul');
 
             $stat_down = false;
             if (!$this->citizen_handler->hasStatusEffect($aggressor, 'drugged') && $this->citizen_handler->hasStatusEffect($victim, 'drugged')) {
@@ -543,7 +544,7 @@ class InventoryAwareController extends CustomAbstractController
         return AjaxResponse::success( );
     }
 
-    public function generic_item_api(Inventory &$up_target, Inventory &$down_target, bool $allow_down_all, JSONRequestParser $parser, InventoryHandler $handler, Citizen $citizen = null, $hide = false): Response {
+    public function generic_item_api(Inventory &$up_target, Inventory &$down_target, bool $allow_down_all, JSONRequestParser $parser, InventoryHandler $handler, Citizen $citizen = null, $hide = false, ?int &$processed = null): AjaxResponse {
         $item_id = $parser->get_int('item', -1);
         $direction = $parser->get('direction', '');
         $allowed_directions = ['up','down'];
@@ -597,6 +598,8 @@ class InventoryAwareController extends CustomAbstractController
 
             $target_citizen = $inv_target->getCitizen() ?? $inv_source->getCitizen() ?? $citizen;
 
+            $has_hidden = false;
+
             foreach ($items as $current_item){
                 if($current_item->getPrototype()->getName() == 'soul_red_#00' && $floor_up) {
                     // We pick a read soul in the World Beyond
@@ -636,7 +639,7 @@ class InventoryAwareController extends CustomAbstractController
                             if($floor_up && $current_item->getPrototype()->getName() == 'soul_blue_#00' && $current_item->getFirstPick()) {
                                 $current_item->setFirstPick(false);
                                 // In the "Job" version of the shaman, the one that pick a blue soul for the 1st time gets the "r_collec" picto
-                                if ($this->getTownConf()->get(TownConf::CONF_FEATURE_SHAMAN_MODE, "normal") == "job")
+                                if ($this->getTownConf()->get(TownConf::CONF_FEATURE_SHAMAN_MODE, "normal") === "job")
                                     $this->picto_handler->give_picto($target_citizen, "r_collec2_#00");
                                 $this->entity_manager->persist($current_item);
                             }
@@ -697,8 +700,8 @@ class InventoryAwareController extends CustomAbstractController
                                     $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
                                     $this->citizen_handler->inflictStatus( $citizen, 'terror' );
                                     $this->addFlash( 'notice', $this->translator->trans('%victim%s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!', ['%victim%' => $victim_home->getCitizen()->getUser()->getName()], 'game') );
-                                } elseif (($victim_home->getCitizen()->getAlive() && $this->random_generator->chance(0.5)) || !$victim_home->getCitizen()->getAlive()) {
-                                    if($victim_home->getCitizen()->getAlive()){
+                                } elseif ($this->random_generator->chance(0.5) || !$victim_home->getCitizen()->getAlive()) {
+                                    if ($victim_home->getCitizen()->getAlive()){
                                         $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
                                         $this->addFlash( 'notice', $this->translator->trans('Mist, dein Einbruch bei %victim% ist aufgeflogen...', ['%victim%' => $this->log->wrap($victim_home->getCitizen()->getUser()->getName())], 'game') );
                                     } else {
@@ -716,6 +719,7 @@ class InventoryAwareController extends CustomAbstractController
                             }
                         }
                         if(!$floor_up && $hide) {
+                            $has_hidden = true;
                             $current_item->setHidden(true);
                         } else {
                             $current_item->setHidden(false);
@@ -732,13 +736,20 @@ class InventoryAwareController extends CustomAbstractController
                 }
             }
 
+            if ($has_hidden) {
+                $this->citizen_handler->setAP($citizen, true, -2);
+                $this->entity_manager->persist($citizen);
+            }
+
             try {
                 $this->entity_manager->flush();
             } catch (Exception $e) {
                 return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
             }
 
-            if (count($errors) < $item_count) {
+            $processed = max(0, $item_count - count($errors));
+
+            if (count($errors) < $item_count || ($item_count === 0 && empty($error))) {
                 return AjaxResponse::success();
             } else if (count($errors) > 0)
                 return AjaxResponse::error($errors[0]);
@@ -815,6 +826,8 @@ class InventoryAwareController extends CustomAbstractController
             ? array_map(function(Zone $z) { return $z->getId(); },$this->zone_handler->getSoulZones( $this->getActiveCitizen()->getTown() ) )
             : [];
 
+        $upgraded_map = $this->town_handler->getBuilding($this->getActiveCitizen()->getTown(), 'item_electro_#00', true) !== null;
+
         foreach ($this->getActiveCitizen()->getTown()->getZones() as $zone) {
             $x = $zone->getX();
             $y = $zone->getY();
@@ -830,7 +843,9 @@ class InventoryAwareController extends CustomAbstractController
                 $this->getActiveCitizen()->getTown(),
                 $zone,
                 $this->getActiveCitizen(),
-                in_array($zone->getId(), $soul_zones_ids)
+                in_array($zone->getId(), $soul_zones_ids),
+                false,
+                $upgraded_map
             );
         }
 
@@ -862,7 +877,7 @@ class InventoryAwareController extends CustomAbstractController
         if (!$target) return true;
 
         switch ($target->getSpawner()) {
-            case ItemTargetDefinition::ItemSelectionType:
+            case ItemTargetDefinition::ItemSelectionType: case ItemTargetDefinition::ItemSelectionTypePoison:
                 $return = $this->entity_manager->getRepository(Item::class)->find( $id );
                 if (!$return) return false;
 
@@ -1098,8 +1113,9 @@ class InventoryAwareController extends CustomAbstractController
         /** @var ItemAction|null $action */
         $action = ($action_id < 0) ? null : $this->entity_manager->getRepository(ItemAction::class)->find( $action_id );
 
+        $escort_mode = $base_citizen !== null;
         if ( !$item || !$action || $item->getBroken() ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-        if ( $base_citizen !== null && $item->getPoison() ) return AjaxResponse::error( BeyondController::ErrorEscortActionRefused );
+        if ( $escort_mode && $item->getPoison() ) return AjaxResponse::error( BeyondController::ErrorEscortActionRefused );
         $citizen = $base_citizen ?? $this->getActiveCitizen();
 
         $zone = $citizen->getZone();
@@ -1112,7 +1128,7 @@ class InventoryAwareController extends CustomAbstractController
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         $url = null;
 
-        if (($error = $this->action_handler->execute( $citizen, $item, $target, $action, $msg, $remove )) === ActionHandler::ErrorNone) {
+        if (($error = $this->action_handler->execute( $citizen, $item, $target, $action, $msg, $remove, false, $escort_mode )) === ActionHandler::ErrorNone) {
 
             if ($trigger_after) $trigger_after($action);
 

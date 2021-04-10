@@ -106,6 +106,11 @@ class BuildingPrototype implements NamedEntity
      */
     private $impervious;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $zeroLevelText;
+
     public function __construct()
     {
         $this->children = new ArrayCollection();
@@ -323,6 +328,18 @@ class BuildingPrototype implements NamedEntity
     public function setImpervious(bool $impervious): self
     {
         $this->impervious = $impervious;
+
+        return $this;
+    }
+
+    public function getZeroLevelText(): ?string
+    {
+        return $this->zeroLevelText;
+    }
+
+    public function setZeroLevelText(?string $zeroLevelText): self
+    {
+        $this->zeroLevelText = $zeroLevelText;
 
         return $this;
     }

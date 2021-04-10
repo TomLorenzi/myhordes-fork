@@ -114,7 +114,7 @@
     background: url('../../img/forum/rp.png') left top no-repeat;
     height: 27px; padding-left: 24px; display: block;
     font-style: italic; font-size: 1.25rem;
-    font-weight: bold;
+    font-weight: bold; clear: left;
   }
 
   .rpText {
@@ -253,7 +253,7 @@ ul.subscriptions {
   &>.forum-post-header {
     display: block;
     padding: 4px;
-    min-height: 40px;
+    min-height: 48px;
     &>b { padding: 5px; &>img { vertical-align: revert; } }
     &>i { float: right; font-size: 0.7em; opacity: 0.5; }
     &>div.post-note { font-size: 0.8em; span { opacity: 1.0; } }
@@ -750,6 +750,13 @@ ul.subscriptions {
           &>div.pm-message-content {
             font-size: 1.5rem;
             &>p { margin: 0; }
+            div.list {
+              margin: 10px 0;
+              &>span, &>img {
+                margin: 2px 5px; padding: 3px; background: rgba(255,255,255,0.1); font-size: 0.75em; color: @myhordes-smalltext;
+                display: inline-block; border: 1px solid rgba(255,255,255,0.2); border-radius: 3px;
+              }
+            }
           }
           &>div.pm-message-footer {
             margin-top: 4px; padding-top: 4px; font-size: 0.8em; opacity: 0.6; border-top: 1px solid rgba(0,0,0,0.2);

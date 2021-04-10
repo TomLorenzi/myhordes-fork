@@ -573,10 +573,14 @@ class GameController extends CustomAbstractController
         if($new_profession->getHeroic()) {
             $skills = $this->entity_manager->getRepository(HeroSkillPrototype::class)->getUnlocked($citizen->getUser()->getAllHeroDaysSpent());
             $inventory = $citizen->getInventory();
-            $item = $if->createItem( "photo_3_#00" );
-            $item->setEssential(true);
             $null = null;
+
+            $item = ($if->createItem( "photo_3_#00" ))->setEssential(true);
             $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
+
+            $item = ($if->createItem( "alarm_off_#00" ))->setEssential(true);
+            $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
+
             foreach ($skills as $skill) {
                 switch($skill->getName()){
                     case "brothers":

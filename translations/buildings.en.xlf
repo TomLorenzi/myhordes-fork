@@ -655,7 +655,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</source>
-        <target>Each defence object in the bank gives 1 defence points to the town.</target>
+        <target>The defence points given by objects in the bank are increased by 100%.</target>
       </segment>
     </unit>
     <unit id="GLo_FzK" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.">
@@ -664,7 +664,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</source>
-        <target>Each defence object in the bank gives 1.5 defence points to the town.</target>
+        <target>The defence points given by objects in the bank are increased by 150%.</target>
       </segment>
     </unit>
     <unit id="l3tFIbP" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.">
@@ -673,7 +673,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</source>
-        <target>Each defence object in the bank gives 2 defence points to the town.</target>
+        <target>The defence points given by objects in the bank are increased by 200%.</target>
       </segment>
     </unit>
     <unit id="FXvZuCC" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.">
@@ -682,7 +682,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</source>
-        <target>Each defence object in the bank gives 2.5 defence points to the town.</target>
+        <target>The defence points given by objects in the bank are increased by 250%.</target>
       </segment>
     </unit>
     <unit id="fPl.xwk" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.">
@@ -691,7 +691,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</source>
-        <target>Each defence object in the bank gives 3 defence points to the town.</target>
+        <target>The defence points given by objects in the bank are increased by 300%.</target>
       </segment>
     </unit>
     <unit id="Vln90x5" name="Steinkanone">
@@ -930,47 +930,47 @@
     </unit>
     <unit id="FXAUu02" name="Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.">
       <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 6% gesenkt.</note>
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</source>
-        <target>The cost (AP) of all construction projects is reduced by 5%.</target>
+        <target>The cost (AP) of all construction projects is reduced by 6%.</target>
       </segment>
     </unit>
     <unit id="RpqPbZr" name="Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.">
       <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 12% gesenkt.</note>
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</source>
-        <target>The cost (AP) of all construction projects is reduced by 10%.</target>
+        <target>The cost (AP) of all construction projects is reduced by 12%.</target>
       </segment>
     </unit>
     <unit id="xQHKrzW" name="Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.">
       <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 18% gesenkt.</note>
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</source>
-        <target>The cost (AP) of all construction projects is reduced by 15%.</target>
+        <target>The cost (AP) of all construction projects is reduced by 18%.</target>
       </segment>
     </unit>
     <unit id="SAknSq2" name="Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.">
       <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 24% gesenkt.</note>
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt.</source>
-        <target>The cost (AP) of all construction projects is reduced by 20%.</target>
+        <target>The cost (AP) of all construction projects is reduced by 24%.</target>
       </segment>
     </unit>
     <unit id="1dzbsZW" name="Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.">
       <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 30% gesenkt.</note>
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt.</source>
-        <target>The cost (AP) of all construction projects is reduced by 25%.</target>
+        <target>The cost (AP) of all construction projects is reduced by 30%.</target>
       </segment>
     </unit>
     <unit id="cdTPlT5" name="Scanner">
@@ -2806,7 +2806,7 @@
       </notes>
       <segment>
         <source>Diese Waffenwerkstatt ist euer Trumpf für die Nachtwache. Wird sie gebaut, wird jede Waffe, die während der Wacht zum Einsatz kommt um 20% verstärkt.</source>
-        <target>This armory is a genuine top trump for watchmen. By building it, every weapon used during the nights watcjh will have its effectiveness boosted by 20%!</target>
+        <target>This armory is a genuine top trump for watchmen. By building it, every weapon used during the night's watch will have its effectiveness boosted by 20%!</target>
       </segment>
     </unit>
     <unit id="gpk5Kg3" name="f9257d7">
@@ -2815,7 +2815,7 @@
       </notes>
       <segment>
         <source>Dieser kleine Laden verbessert die Effektivität jedes Möbelstücks, das auf der Wache benutzt wird um 20%. Hach ja, die Schweden... Nie gab es bessere Billigmöbel!</source>
-        <target>This small store allows all furniture being used on the nights watch to become 20% more effective. Ah the Swedes... DIY masters of the universe!</target>
+        <target>This small store allows all furniture being used on the night's watch to become 20% more effective. Ah the Swedes... DIY masters of the universe!</target>
       </segment>
     </unit>
     <unit id="sZyLLG6" name="2612909">
@@ -3261,20 +3261,20 @@
     </unit>
     <unit id="R.TLWup" name="aed3fec">
       <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 24% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</note>
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</source>
-        <target>The building cost (AP) of all construction projects is reduced by 20%.</target>
+        <target>The building cost (AP) of all construction projects is reduced by 24%.</target>
       </segment>
     </unit>
     <unit id="JLugykh" name="124a889">
       <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 30% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</note>
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</source>
-        <target>The building cost (AP) of all construction projects is reduced by 25%.</target>
+        <target>The building cost (AP) of all construction projects is reduced by 30%.</target>
       </segment>
     </unit>
     <unit id="OK7fp_k" name="Zaun (Haus)">
@@ -3284,6 +3284,87 @@
       <segment>
         <source>Zaun (Haus)</source>
         <target>Fence</target>
+      </segment>
+    </unit>
+    <unit id="i0KuVv1" name="Schokoladenkreuz">
+      <notes>
+        <note category="german">Schokoladenkreuz</note>
+      </notes>
+      <segment>
+        <source>Schokoladenkreuz</source>
+        <target>Chocolate Cross</target>
+      </segment>
+    </unit>
+    <unit id="fDHJWJh" name="79667b6">
+      <notes>
+        <note category="german">Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...</note>
+      </notes>
+      <segment>
+        <source>Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...</source>
+        <target>A beautiful cross made of chocolate to place unwanted citizens there rather than just banning them from the community...</target>
+      </segment>
+    </unit>
+    <unit id="pGiSLDk" name="Straßenbeleuchtung">
+      <notes>
+        <note category="german">Straßenbeleuchtung</note>
+      </notes>
+      <segment>
+        <source>Straßenbeleuchtung</source>
+        <target>Public lights</target>
+      </segment>
+    </unit>
+    <unit id="p8Ajeue" name="cd33594">
+      <notes>
+        <note category="german">Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.</note>
+      </notes>
+      <segment>
+        <source>Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.</source>
+        <target>When the deep night has come, the wan gleams of the lampposts will allow you to continue your excavations of the desert. No more excuses for going to bed.</target>
+      </segment>
+    </unit>
+    <unit id="ZLkYC3_" name="e3784de">
+      <notes>
+        <note category="german">Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</source>
+        <target>The reduction in the chance of searchs at night is canceled within a 6 km radius of town, 1 battery is consumed per day.</target>
+      </segment>
+    </unit>
+    <unit id="sLA35Ek" name="7f700fb">
+      <notes>
+        <note category="german">Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</source>
+        <target>The reduction in the chance of searchs at night is canceled within a 10 km radius of town, 1 battery is consumed per day.</target>
+      </segment>
+    </unit>
+    <unit id="9Yp1S0O" name="163fb9e">
+      <notes>
+        <note category="german">Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.</source>
+        <target>The reduction in the chance of searchs at night is canceled on the whole map, 2 batteries are consumed per day.</target>
+      </segment>
+    </unit>
+    <unit id="nvB5DhN" name="c783d04">
+      <notes>
+        <note category="german">Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert.</note>
+      </notes>
+      <segment>
+        <source>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert.</source>
+        <target>The reduction in the chance of searchs at night is canceled within a 2 km radius of town.</target>
+      </segment>
+    </unit>
+    <unit id="i9EymZs" name="Kein besonderer Bonus">
+      <notes>
+        <note category="german">Kein besonderer Bonus</note>
+      </notes>
+      <segment>
+        <source>Kein besonderer Bonus</source>
+        <target>No special bonus</target>
       </segment>
     </unit>
   </file>

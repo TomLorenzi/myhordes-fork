@@ -53,4 +53,16 @@ class AwardPrototypeRepository extends ServiceEntityRepository {
             return null;
         }
     }
+
+    public function getAwardByIcon(string $value): ?AwardPrototype {
+        try {
+            return $this->createQueryBuilder('a')
+                ->andWhere('a.icon = :val')
+                ->setParameter('val', $value)
+                ->getQuery()
+                ->getOneOrNullResult();
+        } catch(NonUniqueResultException $e) {
+            return null;
+        }
+    }
 }

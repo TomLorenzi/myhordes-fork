@@ -21,6 +21,7 @@ use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessageThread;
+use App\Entity\Town;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
 use DateTime;
@@ -268,7 +269,13 @@ class CitizenHandler
         if ($kill) {
             $rem = [];
             // The gallow is used before the cage
-            if ($gallows) {
+            // Since the gallow building can also be a chocolate cross, we need to check the type
+            if ($gallows && $gallows->getPrototype()->getName() === 'small_eastercross_#00') {
+                $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::ChocolateCross, $rem );
+
+                // The chocolate cross gets destroyed
+                $gallows->setComplete(false)->setAp(0)->setDefense(0)->setHp(0);
+            } elseif ($gallows) {
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::Hanging, $rem );
 
                 // The gallow gets destroyed
@@ -289,6 +296,17 @@ class CitizenHandler
         return $action;
     }
 
+    public function pass_airborne_ghoul_infection(?Citizen $citizen, ?Town $town = null) {
+        $cc = [];
+        foreach (($citizen ? $citizen->getTown() : $town)->getCitizens() as $c)
+            if ($c !== $citizen && $c->getAlive() && !$this->hasRole($c, 'ghoul') && !$this->hasStatusEffect($c, 'tg_air_infected'))
+                $cc[] = $c;
+
+        if (!empty($cc)) $c = $this->random_generator->pick($cc);
+        $this->inflictStatus($c, 'tg_air_infected');
+        $this->entity_manager->persist($c);
+    }
+
     /**
      * @param Citizen $citizen
      * @param CitizenRole|string $role
@@ -302,7 +320,7 @@ class CitizenHandler
 
         if (!$citizen->getRoles()->contains($role)) {
 
-            if ($role->getName() === 'ghoul' && $this->hasStatusEffect($citizen, 'immune'))
+            if ($role->getName() === 'ghoul' && ($this->hasStatusEffect($citizen, 'immune') || $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GHOUL_MODE, 'normal') === 'childtown'))
                 return false;
 
             $citizen->addRole($role);
@@ -315,6 +333,14 @@ class CitizenHandler
                     $this->removeStatus($citizen, 'tg_meta_wound');
                     $this->removeStatus($citizen, 'tg_meta_winfect');
                     $citizen->setWalkingDistance(0);
+
+                    // If the citizen is marked to become a ghoul after the next attack, pass the mark on to another
+                    // citizen
+                    if ($this->hasStatusEffect($citizen, 'tg_air_infected')) {
+                        $this->pass_airborne_ghoul_infection($citizen);
+                        $this->removeStatus($citizen, 'tg_air_infected');
+                    }
+
                     break;
                 case "shaman":
                     $this->inflictStatus($citizen, "tg_shaman_immune"); // Shaman is immune to red souls
@@ -343,6 +369,7 @@ class CitizenHandler
             switch($role->getName()){
                 case "ghoul":
                     $citizen->setWalkingDistance(0);
+                    $this->removeStatus($citizen, 'tg_air_ghoul');
                     break;
                 case "shaman":
                     $this->removeStatus($citizen, 'tg_shaman_immune');
@@ -649,7 +676,7 @@ class CitizenHandler
             }
         }
         if ($previous_campers >= 7) {
-            $camping_values['campers'] = -20;
+            $camping_values['campers'] = -26;
         }
         else {
             $camping_values['campers'] = $campers_map[$previous_campers];
@@ -736,7 +763,7 @@ class CitizenHandler
             'drunk'     => -0.04,
             'hungover'  =>  0.05,
             'terror'    =>  0.45,
-            'addict'    =>  0.15,
+            'addict'    =>  0.10,
             'healed'    =>  0.10,
             'infection' =>  0.20,
         ];

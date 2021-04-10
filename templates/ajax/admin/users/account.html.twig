@@ -21,8 +21,8 @@
                     </div>
                 </div>
             {% endif %}
-            <h5>{{ 'Aktionen'|trans({}, 'admin') }}</h5>
 
+            <h5>{{ 'Aktionen'|trans({}, 'admin') }}</h5>
             <div class="row">
                 <div class="cell padded rw-3 rw-sm-12">
                     <b><label for="administer-user">{{ 'User administrieren'|trans({}, 'admin') }}</label></b>
@@ -46,15 +46,32 @@
                                     {% endif %}
                                 </optgroup>
                             {% endif %}
-                            {% if is_granted("ROLE_ADMIN") %}
-                                <optgroup label="{{ 'Profil'|trans({},'admin') }}">
+                            <optgroup label="{{ 'Profil'|trans({},'admin') }}">
+                                {% if is_granted("ROLE_ADMIN") %}
                                     <option value="{{ url('admin_users_account_manage', {action: 'rename', id: user.id}) }}" x-confirm="RENAME" x-query="{{ 'Neuen Namen eingeben.'|trans({},'admin') }}">{{ 'Umbenennen'|trans({},'admin') }}</option>
+                                {% endif %}
+                                <option value="{{ url('admin_users_account_manage', {action: 'rename_pseudo', id: user.id}) }}" x-confirm="RENAME PSEUDO" x-query="{{ 'Neuen Namen eingeben.'|trans({},'admin') }}">{{ 'Anzeigenamen ändern'|trans({},'admin') }}</option>
+                                {% if user.displayName %}
+                                    <option value="{{ url('admin_users_account_manage', {action: 'rename_pseudo', id: user.id}) }}" x-confirm="REMOVE PSEUDO">{{ 'Anzeigenamen entfernen'|trans({},'admin') }}</option>
+                                {% endif %}
+                                {% if is_granted("ROLE_ADMIN") %}
                                     {% if user.eternalID is null %}
                                         <option value="{{ url('admin_users_account_manage', {action: 'delete', id: user.id}) }}" x-confirm="DELETE">{{ 'Löschen'|trans({},'admin') }}</option>
                                         <option value="{{ url('admin_users_account_manage', {action: 'change_mail', id: user.id}) }}" x-query="{{ 'E-Mail eingeben.'|trans({},'admin') }}">{{ 'E-Mail ändern'|trans({},'admin') }}</option>
                                     {% endif %}
                                     <option value="{{ url('admin_users_account_manage', {action: 'whitelist', id: user.id}) }}" x-confirm="WHITELIST" x-query="{{ 'Spieler-ID'|trans({},'admin') }}">{{ 'Multi-Account Whitelist-Eintrag hinzufügen'|trans({},'admin') }}</option>
+                                {% endif %}
+                                {% if user.avatar is not null %}
+                                    <option value="{{ url('admin_users_account_manage', {action: 'clear_avatar', id: user.id}) }}" x-confirm="CLEAR AVATAR">{{ 'Avatar entfernen'|trans({},'admin') }}</option>
+                                {% endif %}
+                                {% if user_desc %}
+                                    <option value="{{ url('admin_users_account_manage', {action: 'clear_desc', id: user.id}) }}" x-confirm="CLEAR DESCRIPTION">{{ 'Profilbeschreibung entfernen'|trans({},'admin') }}</option>
+                                {% endif %}
+                                {% if user.activeTitle or user.activeIcon %}
+                                    <option value="{{ url('admin_users_account_manage', {action: 'clear_title', id: user.id}) }}" x-confirm="CLEAR TITLE">{{ 'Titel & Icon entfernen'|trans({},'admin') }}</option>
+                                {% endif %}
                                 </optgroup>
+                            {% if is_granted("ROLE_ADMIN") %}
                                 <optgroup label="{{ 'Sicherheit'|trans({},'admin') }}">
                                     <option value="{{ url('admin_users_account_manage', {action: 'initiate_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset auslösen'|trans({},'admin') }}</option>
                                     <option value="{{ url('admin_users_account_manage', {action: 'enforce_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset erzwingen'|trans({},'admin') }}</option>
@@ -94,8 +111,50 @@
                 </div>
             </div>
 
-            <h5>{{ 'Kartei'|trans({}, 'admin') }}</h5>
+            <h5>{{ 'Info'|trans({}, 'admin') }}</h5>
+            <div class="row">
+                <div class="cell padded rw-3 rw-sm-12">
+                    <b><label>{{ 'Avatar'|trans({}, 'admin') }}</label></b>
+                </div>
+                <div class="cell padded rw-3 rw-sm-12">
+                    {% if user.avatar is not null %}
+                        <div class="avatar no-arma">
+                            <img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.filename, 'ext': user.avatar.format}) }}">
+                        </div>
+                        {% if not user.avatar.classic %}
+                            <br/><br />
+                            <div class="avatar small no-arma">
+                                <img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.smallName, 'ext': user.avatar.format}) }}">
+                            </div>
+                        {% endif %}
 
+                    {% else %}
+                        ---
+                    {% endif %}
+                </div>
+
+                <div class="cell padded rw-3 rw-sm-12">
+                    <b><label>{{ 'Titel'|trans({}, 'admin') }}</label></b>
+                </div>
+
+                <div class="cell padded rw-3 rw-sm-12">
+                    {% if user.activeTitle or user.activeIcon %}
+                        <div>
+                            {% if user.activeIcon %}<img alt="" src="{{ asset('build/images/icons/title/' ~ user.activeIcon.prototype.icon ~ '.gif') }}" />{% endif %}
+                            {% if user.activeTitle %} {{ user.activeTitle.prototype.title|trans({},'game') }}{% endif %}
+                        </div>
+                    {% else %}
+                        <div>---</div>
+                    {% endif %}
+                </div>
+                {% if user_desc %}
+                    <div class="cell padded {% if user.avatar is null %}ro-6 ro-sm-0{% endif%} rw-6 rw-sm-12">
+                        <div class="personal_desc"><div>{{ 'Persönliche Beschreibung' }}</div><div>"{{ user_desc|raw }}"</div></div>
+                    </div>
+                {% endif %}
+            </div>
+
+            <h5>{{ 'Kartei'|trans({}, 'admin') }}</h5>
             <div class="row">
                 <div class="cell padded rw-3 rw-sm-12">
                     <b>{{ 'Benutzername'|trans({}, 'admin') }}</b>

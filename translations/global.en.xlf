@@ -1946,7 +1946,7 @@
       </notes>
       <segment>
         <source>Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:</source>
-        <target>Diese Seite ist durch eine verschlüsselte Verbindung mit dem Spiel verbunden:</target>
+        <target>This site has a secure link to MyHordes:</target>
       </segment>
     </unit>
     <unit id="ECkSDC0" name="43e696a">
@@ -1955,7 +1955,7 @@
       </notes>
       <segment>
         <source>Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.</source>
-        <target>Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.</target>
+        <target>this means that if you click "Continue" below, the site will automatically know your nickname on MyHordes without you having to input any information.</target>
       </segment>
     </unit>
     <unit id="0oUM0cs" name="Bürger! Seid auf inoffiziellen Webseiten wachsam!">
@@ -2630,7 +2630,7 @@
       </notes>
       <segment>
         <source>Wer?</source>
-        <target>Wer?</target>
+        <target>Who?</target>
       </segment>
     </unit>
     <unit id="HVAzjFA" name="Namen eingeben">
@@ -2639,7 +2639,7 @@
       </notes>
       <segment>
         <source>Namen eingeben</source>
-        <target>Namen eingeben</target>
+        <target>Enter a name</target>
       </segment>
     </unit>
     <unit id="HAtmchb" name="246b2a2">
@@ -2652,6 +2652,69 @@
                                     &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
         <target><![CDATA[Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
                                     <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>]]></target>
+      </segment>
+    </unit>
+    <unit id="mU.wJHS" name="Dein Icon">
+      <notes>
+        <note category="german">Dein Icon</note>
+      </notes>
+      <segment>
+        <source>Dein Icon</source>
+        <target>Your Icon</target>
+      </segment>
+    </unit>
+    <unit id="C.Ht2yK" name="Auswählen">
+      <notes>
+        <note category="german">Auswählen</note>
+      </notes>
+      <segment>
+        <source>Auswählen</source>
+        <target>Choose</target>
+      </segment>
+    </unit>
+    <unit id="GeX4GPW" name="Dein Titel">
+      <notes>
+        <note category="german">Dein Titel</note>
+      </notes>
+      <segment>
+        <source>Dein Titel</source>
+        <target>Your Title</target>
+      </segment>
+    </unit>
+    <unit id="DDEgVcC" name="Deine Beschreibung">
+      <notes>
+        <note category="german">Deine Beschreibung</note>
+      </notes>
+      <segment>
+        <source>Deine Beschreibung</source>
+        <target>Your description</target>
+      </segment>
+    </unit>
+    <unit id="yo6CbZw" name="Avatar">
+      <notes>
+        <note category="german">Avatar</note>
+      </notes>
+      <segment>
+        <source>Avatar</source>
+        <target>Avatar</target>
+      </segment>
+    </unit>
+    <unit id="hDhyhlE" name="Gruppe aus %num% Spielern">
+      <notes>
+        <note category="german">Gruppe aus %num% Spielern</note>
+      </notes>
+      <segment>
+        <source>Gruppe aus %num% Spielern</source>
+        <target>Group of %num% players</target>
+      </segment>
+    </unit>
+    <unit id="o8cBnVX" name="5048423">
+      <notes>
+        <note category="german">Wenn Bürger deine Stadt betreten möchten, wird ein Zugangsdode abgefragt. Nur mit korrektem Zugangscode erhalten sie Zutritt. Verteile den Zugangscode darum an die Spieler, die du einladen möchtest. &lt;strong&gt;Und benutze nicht dein privates Passwort als Zugangscode!!!&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Wenn Bürger deine Stadt betreten möchten, wird ein Zugangsdode abgefragt. Nur mit korrektem Zugangscode erhalten sie Zutritt. Verteile den Zugangscode darum an die Spieler, die du einladen möchtest. &lt;strong&gt;Und benutze nicht dein privates Passwort als Zugangscode!!!&lt;/strong&gt;</source>
+        <target><![CDATA[Every citizen wishing to join the town will be asked for this password. Only give this password to those you wish to participate. <strong>Don't use your personal password!!!</strong>]]></target>
       </segment>
     </unit>
   </file>

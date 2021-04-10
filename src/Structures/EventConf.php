@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class EventConf extends Conf
 {
+    const EVENT_PRIORITY = 'priority';
+
     const EVENT_CSS = 'css';
 
     const EVENT_DIG_DESERT_GROUP  = 'event_dig.desert.group';
@@ -40,6 +42,10 @@ class EventConf extends Conf
 
     public function name(): ?string {
         return $this->eventName;
+    }
+
+    public function priority(): int {
+        return (int)$this->get(self::EVENT_PRIORITY, 0);
     }
 
     public static function Void(): ?object { return null; }

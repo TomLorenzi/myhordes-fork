@@ -90,6 +90,11 @@ class ItemAction implements NamedEntity
      */
     private $confirmMsg;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $escortMessage;
+
     public function __construct()
     {
         $this->requirements = new ArrayCollection();
@@ -281,6 +286,18 @@ class ItemAction implements NamedEntity
     public function setConfirmMsg(?string $confirmMsg): self
     {
         $this->confirmMsg = $confirmMsg;
+
+        return $this;
+    }
+
+    public function getEscortMessage(): ?string
+    {
+        return $this->escortMessage;
+    }
+
+    public function setEscortMessage(?string $escortMessage): self
+    {
+        $this->escortMessage = $escortMessage;
 
         return $this;
     }

@@ -299,6 +299,15 @@ class ActionHandler
                             $current_state = min($current_state, Requirement::HideOnFail);
                         break;
 
+                    // Event - April Fools
+                    case 3:
+                        /** @var EventActivationMarker[] $eam */
+                        $eam = $this->entity_manager->getRepository(EventActivationMarker::class)->findBy(['citizen' => $citizen, 'active' => true]);
+                        $b = false;
+                        foreach ($eam as $m) if ($m->getEvent() === 'afools') $b = true;
+                        if (!$b) $current_state = min($current_state, Requirement::CrossOnFail);
+                        break;
+
                     // Vote
                     case 18: case 19:
                         if (!$citizen->getProfession()->getHeroic()) {
@@ -468,7 +477,7 @@ class ActionHandler
     public function targetDefinitionApplies($target, ItemTargetDefinition $definition): bool {
 
         switch ($definition->getSpawner()) {
-            case ItemTargetDefinition::ItemSelectionType:
+            case ItemTargetDefinition::ItemSelectionType:case ItemTargetDefinition::ItemSelectionTypePoison:
                 if (!is_a( $target, Item::class )) return false;
                 if ($definition->getHeavy() !== null && $target->getPrototype()->getHeavy() !== $definition->getHeavy()) return false;
                 if ($definition->getBroken() !== null && $target->getBroken() !== $definition->getBroken()) return false;
@@ -548,7 +557,7 @@ class ActionHandler
      * @param bool $force Do not check if the action is valid
      * @return int
      */
-    public function execute( Citizen &$citizen, ?Item &$item, &$target, ItemAction $action, ?string &$message, ?array &$remove, bool $force = false ): int {
+    public function execute( Citizen &$citizen, ?Item &$item, &$target, ItemAction $action, ?string &$message, ?array &$remove, bool $force = false, bool $escort_mode = false ): int {
 
         $remove = [];
         $tags = [];
@@ -580,6 +589,7 @@ class ActionHandler
             'item'   => $item ? $item->getPrototype() : null,
             'target' => $target_item_prototype,
             'source_inv' => $item ? $item->getInventory() : null,
+            'user' => $citizen,
             'citizen' => is_a($target, Citizen::class) ? $target : null,
             'item_morph' => [ null, null ],
             'item_target_morph' => [ null, null ],
@@ -595,7 +605,7 @@ class ActionHandler
             'well' => 0,
             'zombies' => 0,
             'message' => [
-            	$action->getMessage()
+                $escort_mode ? $action->getEscortMessage() : $action->getMessage(),
             ],
             'kills' => 0,
             'bury_count' => 0
@@ -615,7 +625,7 @@ class ActionHandler
         else
             $floor_inventory = $ruinZone->getFloor();
 
-        $execute_result = function(Result $result) use ($citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$spread_poison, $town_conf, &$floor_inventory, &$ruinZone) {
+        $execute_result = function(Result $result) use ($citizen, &$item, &$target, &$action, &$message, &$remove, &$execute_result, &$execute_info_cache, &$tags, &$kill_by_poison, &$spread_poison, $town_conf, &$floor_inventory, &$ruinZone, $escort_mode) {
             /** @var Citizen $citizen */
             if ($status = $result->getStatus()) {
                 if ($status->getResetThirstCounter())
@@ -624,8 +634,12 @@ class ActionHandler
                 if ($status->getCounter() !== null)
                     $citizen->getSpecificActionCounter( $status->getCounter() )->increment();
 
-                if ($status->getCitizenHunger())
-                    $citizen->setGhulHunger( max(0,$citizen->getGhulHunger() + $status->getCitizenHunger()) );
+                if ($status->getCitizenHunger()) {
+                    $ghoul_mode = $this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_GHOUL_MODE, 'normal');
+                    if ($status->getForced() || !in_array($ghoul_mode, ['bloodthirst','airbnb']))
+                        $citizen->setGhulHunger( max(0,$citizen->getGhulHunger() + $status->getCitizenHunger()) );
+                }
+
 
                 if ($status->getRole() !== null && $status->getRoleAdd() !== null) {
                     if ($status->getRoleAdd()) {
@@ -759,6 +773,8 @@ class ActionHandler
                 $box_opener_prop = $this->entity_manager->getRepository(ItemProperty::class )->findOneBy(['name' => 'box_opener']);
 
                 foreach ($action->getRequirements() as $req) {
+                    if (!$req->getItem() || $req->getItem()->getCount() <= 0) continue;
+
                     if ($req->getItem() && $req->getItem()->getProperty() == $can_opener_prop) {
                         $execute_info_cache['item_tool'] = $this->inventory_handler->fetchSpecificItems($citizen->getZone() ? $citizen->getInventory() : [$citizen->getInventory(),$citizen->getHome()->getChest()], [new ItemRequest('can_opener', 1, false, null, true)])[0]->getPrototype();
                         break;
@@ -1128,7 +1144,10 @@ class ActionHandler
                                 if ($item->getPrototype()->getName() === 'tamed_pet_#00' || $item->getPrototype()->getName() === 'tamed_pet_drug_#00' )
                                     $item->setPrototype( $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'tamed_pet_off_#00']) );
                                 $this->entity_manager->persist($this->log->beyondTamerSendLog($citizen, $success_count));
-                            } else $tags[] = 'fail';
+                            } else {
+                                $tags[] = 'no-items';
+                                $tags[] = 'fail';
+                            }
                         }
 
                         break;
@@ -1364,9 +1383,11 @@ class ActionHandler
 
                         } else $sandball_target = $target;
 
-                        /** @var EventActivationMarker $eam */
-                        $eam = $this->entity_manager->getRepository(EventActivationMarker::class)->findOneBy(['citizen' => $citizen, 'active' => true]);
-                        if (!$eam || $eam->getEvent() !== 'christmas') $sandball_target = null;
+                        /** @var EventActivationMarker[] $eam */
+                        $eam = $this->entity_manager->getRepository(EventActivationMarker::class)->findBy(['citizen' => $citizen, 'active' => true]);
+                        $b = false;
+                        foreach ($eam as $m) if ($m->getEvent() === 'christmas') $b = true;
+                        if (!$b) $sandball_target = null;
 
                         if ($sandball_target !== null) {
                             $this->picto_handler->give_picto($citizen, 'r_sandb_#00');
@@ -1408,6 +1429,34 @@ class ActionHandler
                             $tags[] = 'flare_fail';
                         }
                         break;
+
+                    // Chance to infect in a contaminated zone
+                    case 22:
+                        if ($town_conf->get(TownConf::CONF_FEATURE_ALL_POISON, false)) {
+
+                            if ($this->random_generator->chance(0.05) && !$this->citizen_handler->hasStatusEffect($citizen, 'infection')) {
+
+                                $inflict = true;
+                                if ($this->citizen_handler->hasStatusEffect($citizen, "tg_infect_wtns")) {
+                                    $inflict = $this->random_generator->chance(0.5);
+                                    $this->citizen_handler->removeStatus( $citizen, 'tg_infect_wtns' );
+                                    if ($inflict){
+                                        $execute_info_cache['message'][] = T::__("Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...", "items");
+                                    } else {
+                                        $execute_info_cache['message'][] = T::__("Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.", "items");
+                                    }
+                                } else {
+                                    $execute_info_cache['message'][] = T::__("Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!", "items");
+                                }
+
+                                if ($inflict && $this->citizen_handler->inflictStatus($citizen, 'infection')) {
+                                    $tags[] = 'stat-up';
+                                    $tags[] = "stat-up-infection";
+                                }
+
+                            }
+
+                        }
                 }
 
                 if ($ap) {
@@ -1427,11 +1476,15 @@ class ActionHandler
             }
 
             if($result->getMessage()){
-            	$index = $result->getMessage()->getOrdering();
-            	while(isset($execute_info_cache['message'][$index]) && !empty($execute_info_cache['message'][$index])) {
-            		$index++;
-            	}
-                $execute_info_cache['message'][$index] = $result->getMessage()->getText();
+
+                if ($result->getMessage()->getEscort() === null || $result->getMessage()->getEscort() === $escort_mode) {
+                    $index = $result->getMessage()->getOrdering();
+                    while(isset($execute_info_cache['message'][$index]) && !empty($execute_info_cache['message'][$index])) {
+                        $index++;
+                    }
+                    $execute_info_cache['message'][$index] = $result->getMessage()->getText();
+                }
+
             }
 
             return self::ErrorNone;
@@ -1469,6 +1522,7 @@ class ActionHandler
 	                '{item}'          => $this->wrap($execute_info_cache['item']),
 	                '{target}'        => $execute_info_cache['target'] ? $this->wrap($execute_info_cache['target']) : "-",
 	                '{citizen}'       => $execute_info_cache['citizen'] ? $this->wrap($execute_info_cache['citizen']) : "-",
+	                '{user}'          => $execute_info_cache['user'] ? $this->wrap($execute_info_cache['user']) : "-",
 	                '{item_from}'     => $execute_info_cache['item_morph'][0] ? ($this->wrap($execute_info_cache['item_morph'][0])) : "-",
 	                '{item_to}'       => $execute_info_cache['item_morph'][1] ? ($this->wrap($execute_info_cache['item_morph'][1])) : "-",
 	                '{target_from}'   => $execute_info_cache['item_target_morph'][0] ? ($this->wrap($execute_info_cache['item_target_morph'][0])) : "-",

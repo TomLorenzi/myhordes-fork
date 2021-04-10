@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="cell padded rw-12 rw-sm-12">
+        <div id="towns-list-admin">
+            <h5>{{'Suche:'|trans({}, "admin")}}</h5>
+            {% include 'ajax/admin/snippets/town_search.html.twig' %}
+        </div>
+    </div>
+</div>
+{% block js %}
+    <script>
+        let typingTimer, doneTypingInterval = 500;
+        let searchBox = document.getElementById('town-search');
+
+        const userSearchHandler = function() {
+            $.ajax.background().load(
+                document.getElementById('towns-list'),
+                '{{ path(search_controller) }}',
+                false,
+                {'name': searchBox.value}
+            );
+        };
+
+        const townSearchHandlerUp = function () {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
+        };
+
+        const townSearchHandlerDown = function () {
+            clearTimeout(typingTimer);
+        };
+
+        searchBox.addEventListener('keyup', townSearchHandlerUp);
+        searchBox.addEventListener('keydown', townSearchHandlerDown);
+    </script>
+{% endblock %}

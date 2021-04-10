@@ -53,13 +53,14 @@ class CitizenInspectorCommand extends Command
             ->setHelp('This command allows you work on single citizen.')
             ->addArgument('CitizenID', InputArgument::REQUIRED, 'The citizen ID')
 
-            ->addOption('set-ap', 'ap',InputOption::VALUE_REQUIRED, 'Sets the current AP.', -1)
-            ->addOption('set-pm', 'pm',InputOption::VALUE_REQUIRED, 'Sets the current PM.', -1)
+            ->addOption('set-ap', 'a',InputOption::VALUE_REQUIRED, 'Sets the current AP.', -1)
+            ->addOption('set-pm', 'm',InputOption::VALUE_REQUIRED, 'Sets the current PM.', -1)
+            ->addOption('set-cp', 'c',InputOption::VALUE_REQUIRED, 'Sets the current CP.', -1)
 
-            ->addOption('add-status','sn',InputOption::VALUE_REQUIRED, 'Adds a new status.', '')
+            ->addOption('add-status','s',InputOption::VALUE_REQUIRED, 'Adds a new status.', '')
             ->addOption('remove-status',null,InputOption::VALUE_REQUIRED, 'Removes an existing status.', '')
 
-            ->addOption('add-role','sr',InputOption::VALUE_REQUIRED, 'Adds a new role.', '')
+            ->addOption('add-role','r',InputOption::VALUE_REQUIRED, 'Adds a new role.', '')
             ->addOption('remove-role',null,InputOption::VALUE_REQUIRED, 'Removes an existing role.', '')
 
             ->addOption('set-banned', null, InputOption::VALUE_OPTIONAL, 'Bans a citizen', '')
@@ -119,6 +120,12 @@ class CitizenInspectorCommand extends Command
         $set_pm = $input->getOption('set-pm');
         if ($set_pm >= 0 && $citizen->hasRole('shaman')) {
             $citizen->setPm( $set_pm );
+            $updated = true;
+        }
+
+        $set_cp = $input->getOption('set-cp');
+        if ($set_cp >= 0 && $citizen->getProfession()->getName() == "tech") {
+            $citizen->setBp( $set_cp );
             $updated = true;
         }
 

@@ -85,7 +85,7 @@ class PictoRepository extends ServiceEntityRepository
      * @param User $user
      * @return Picto[]
      */
-    public function findNotPendingByUser(User $user)
+    public function findNotPendingByUser(User $user): array
     {
         return $this->createQueryBuilder('i')
             ->select('SUM(i.count) as c', 'pp.id', 'pp.rare', 'pp.icon', 'pp.label', 'pp.description', 'pp.name')

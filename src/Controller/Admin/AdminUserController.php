@@ -5,13 +5,18 @@ namespace App\Controller\Admin;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AccountRestriction;
 use App\Entity\Citizen;
+use App\Entity\CitizenProfession;
+use App\Entity\CitizenRole;
+use App\Entity\CitizenStatus;
 use App\Entity\ConnectionWhitelist;
+use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
 use App\Entity\ShadowBan;
 use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
+use App\Entity\UserDescription;
 use App\Entity\UserGroup;
 use App\Entity\UserPendingValidation;
 use App\Exception\DynamicAjaxResetException;
@@ -20,12 +25,15 @@ use App\Service\AdminActionHandler;
 use App\Service\AntiCheatService;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
+use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\PermissionHandler;
 use App\Service\TwinoidHandler;
 use App\Service\UserFactory;
 use App\Service\UserHandler;
+use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -57,16 +65,18 @@ class AdminUserController extends AdminActionController
      * @param int $id
      * @return Response
      */
-    public function users_account_view(int $id): Response
+    public function users_account_view(int $id, HTMLService $html): Response
     {
         /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->find($id);
         if (!$user) return $this->redirect( $this->generateUrl('admin_users') );
 
         $validations = $this->isGranted('ROLE_ADMIN') ? $this->entity_manager->getRepository(UserPendingValidation::class)->findByUser($user) : [];
+        $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
 
         return $this->render( 'ajax/admin/users/account.html.twig', $this->addDefaultTwigArgs("admin_users_account", [
             'user' => $user,
+            'user_desc' => $desc ? $html->prepareEmotes($desc->getText()) : null,
             'validations' => $validations,
         ]));
     }
@@ -219,6 +229,12 @@ class AdminUserController extends AdminActionController
                 $this->entity_manager->persist($user);
                 break;
 
+            case 'rename_pseudo':
+                if (empty($param)) $user->setDisplayName( null );
+                else $user->setDisplayName( $param );
+                $this->entity_manager->persist($user);
+                break;
+
             case 'delete':
                 if ($user->getEternalID())
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -231,6 +247,7 @@ class AdminUserController extends AdminActionController
 
                 $this->entity_manager->persist(
                     (new AccountRestriction())
+                        ->setUser($user)
                         ->setActive(true)
                         ->setConfirmed(true)
                         ->setPublicReason($param)
@@ -275,6 +292,20 @@ class AdminUserController extends AdminActionController
                     foreach ($user->getConnectionWhitelists() as $wl)
                         if ($wl->getUsers()->count() < 2) $this->entity_manager->remove($wl);
                         else $this->entity_manager->persist($wl);
+                }
+                break;
+
+            case 'clear_title':
+                $user->setActiveIcon(null)->setActiveTitle(null);
+                break;
+            case 'clear_desc':
+                $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
+                if ($desc) $this->entity_manager->remove($desc);
+                break;
+            case 'clear_avatar':
+                if ($user->getAvatar()) {
+                    $this->entity_manager->remove($user->getAvatar());
+                    $user->setAvatar(null);
                 }
                 break;
 
@@ -328,7 +359,7 @@ class AdminUserController extends AdminActionController
 
         try {
             $this->entity_manager->flush();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, [$e->getMessage()] );
         }
 
@@ -469,7 +500,7 @@ class AdminUserController extends AdminActionController
         $duration  = $parser->get_int('duration');
         $mask      = $parser->get_int('restriction', 0);
 
-        if ($duration === 0 || $mask <= 0 || ($mask & ~(AccountRestriction::RestrictionSocial | AccountRestriction::RestrictionGameplay)))
+        if ($duration === 0 || $mask <= 0 || ($mask & ~(AccountRestriction::RestrictionSocial | AccountRestriction::RestrictionGameplay | AccountRestriction::RestrictionProfile)))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $a = (new AccountRestriction())
@@ -581,30 +612,55 @@ class AdminUserController extends AdminActionController
         if ($citizen) {
             $active = true;
             $town = $citizen->getTown();
-            if ($citizen->getAlive()) {
-                $alive = true;
-            }           
-            else {
-                $alive = false;
-            }               
+            $alive = $citizen->getAlive();
         }                    
         else {
             $active = false;
             $alive = false;
             $town = null;
         }
-        
+
+        $pictoProtos = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
+        usort($pictoProtos, function ($a, $b) {
+            return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
+        });
+
+        $itemPrototypes = $this->entity_manager->getRepository(ItemPrototype::class)->findAll();
+        usort($itemPrototypes, function ($a, $b) {
+            return strcmp($this->translator->trans($a->getLabel(), [], 'items'), $this->translator->trans($b->getLabel(), [], 'items'));
+        });
+
+        $citizenStati = $this->entity_manager->getRepository(CitizenStatus::class)->findAll();
+        usort($citizenStati, function ($a, $b) {
+            return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
+        });
+
+        $disabled_profs = $town ? $this->conf->getTownConfiguration($town)->get(TownConf::CONF_DISABLED_JOBS, []) : [];
+        $professions = array_filter($this->entity_manager->getRepository( CitizenProfession::class )->findSelectable(),
+            fn(CitizenProfession $p) => !in_array($p->getName(),$disabled_profs)
+        );
+
+        $citizenRoles = $this->entity_manager->getRepository(CitizenRole::class)->findAll();
+
         return $this->render( 'ajax/admin/users/citizen.html.twig', $this->addDefaultTwigArgs("admin_users_citizen", [
             'town' => $town,
             'active' => $active,
             'alive' => $alive,
             'user' => $user,
+            'user_citizen' => $citizen,
+            'itemPrototypes' => $itemPrototypes,
+            'pictoPrototypes' => $pictoProtos,
+            'citizenStati' => $citizenStati,
+            'citizenRoles' => $citizenRoles,
+            'citizenProfessions' => $professions,
             'citizen_id' => $citizen ? $citizen->getId() : -1,
         ]));        
     }
 
     /**
      * @Route("api/admin/users/{id}/citizen/headshot", name="admin_users_citizen_headshot", requirements={"id"="\d+"})
+     * @param int $id
+     * @param AdminActionHandler $admh
      * @return Response
      */
     public function users_citizen_headshot(int $id, AdminActionHandler $admh): Response
@@ -613,6 +669,31 @@ class AdminUserController extends AdminActionController
             return AjaxResponse::success();
 
         return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+    }
+
+    /**
+     * @Route("api/admin/users/{id}/citizen/engagement/{cid}", name="admin_users_citizen_engage", requirements={"id"="\d+","cid"="\d+"})
+     * @param int $id
+     * @param int $cid
+     * @return Response
+     */
+    public function users_update_engagement(int $id, int $cid): Response
+    {
+        /** @var User $user */
+        $user = $this->entity_manager->getRepository(User::class)->find($id);
+        if (!$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if ($user->getActiveCitizen()) $this->entity_manager->persist($user->getActiveCitizen()->setActive(false));
+
+        if ($cid !== 0) {
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($cid);
+            if (!$citizen || $citizen->getUser() !== $user || !$citizen->getAlive())
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+            $this->entity_manager->persist($citizen->setActive(true));
+        }
+
+        $this->entity_manager->flush();
+        return AjaxResponse::success();
     }
 
     /**

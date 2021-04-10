@@ -98,6 +98,11 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         ['name' => 'tg_infect_wtns' ],
         ['name' => 'tg_insurrection'],
         ['name' => 'tg_got_xmas_gift'],
+        ['name' => 'tg_april_ooze'],
+        ['name' => 'tg_paranoid'],
+        ['name' => 'tg_novlamps'],
+        ['name' => 'tg_air_ghoul'],
+        ['name' => 'tg_air_infected'],
     ];
 
     public static $causes_of_death = [
@@ -220,7 +225,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         [
             'ref' => CauseOfDeath::ChocolateCross,
             'label' => 'Schokoladenkreuz',
-            'icon' => 'unknown',
+            'icon' => 'crucifixion',
             'desc' => '???',
             'pictos' => ['r_paques_#00']
         ],

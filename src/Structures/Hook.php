@@ -3,12 +3,15 @@
 
 namespace App\Structures;
 
+use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
 use App\Entity\Town;
 use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
+use App\Service\ErrorHelper;
 use App\Service\InventoryHandler;
 use App\Service\ItemFactory;
+use App\Service\TownHandler;
 use Doctrine\ORM\EntityManagerInterface;
 
 class Hook
@@ -37,7 +40,19 @@ class Hook
     }
 
     /**
-     * For the armageddon, we automatically close the door
+     * For aprils fools, we prevent the door being closed by citizens (different error message than arma)
+     *
+     * @param [type] $action
+     * @return AjaxResponse|null
+     */
+    public static function door_april($action): ?AjaxResponse {
+        if ($action === "close")
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+        return null;
+    }
+
+    /**
+     * For the armageddon and aprils fools, we automatically close the door
      *
      * @param Town $town
      */
@@ -65,5 +80,64 @@ class Hook
             $citizen_handler->inflictStatus( $citizen, 'tg_got_xmas_gift' );
             $inventory_handler->forceMoveItem( $citizen->getHome()->getChest(), $item_factory->createItem( 'chest_christmas_3_#00' ) );
         }
+    }
+
+    /**
+     * For easter, we enable the chocolate cross once the event begins
+     *
+     * @param Town $town
+     * @return bool
+     */
+    public static function enable_easter(Town $town): bool {
+        global $kernel;
+
+        $town_handler = $kernel->getContainer()->get(TownHandler::class);
+
+        $cross = $town_handler->getBuildingPrototype('small_eastercross_#00');
+        if (!$cross) return false;
+
+        $gallows = $town_handler->getBuilding($town,'r_dhang_#00', false);
+        if ($gallows) $gallows->setPrototype( $cross );
+
+        return true;
+    }
+
+    /**
+     * For aprils fools, we deposit the black cervical oozing
+     *
+     * @param Citizen $citizen
+     * @return bool
+     */
+    public static function enable_april(Citizen $citizen): bool {
+        global $kernel;
+
+        if (!$citizen->getActive()) return true;
+
+        $inv_handler  = $kernel->getContainer()->get(InventoryHandler::class);
+        $item_factory = $kernel->getContainer()->get(ItemFactory::class);
+
+        $inv_handler->forceMoveItem( $citizen->getHome()->getChest(), $item_factory->createItem( 'april_drug_#00' ) );
+
+        return true;
+    }
+
+    /**
+     * For easter, we enable the chocolate cross once the event begins
+     *
+     * @param Town $town
+     * @return bool
+     */
+    public static function disable_easter(Town $town): bool {
+        global $kernel;
+
+        $town_handler = $kernel->getContainer()->get(TownHandler::class);
+
+        $gallows = $town_handler->getBuildingPrototype('r_dhang_#00');
+        if (!$gallows) return false;
+
+        $cross = $town_handler->getBuilding($town,'small_eastercross_#00', false);
+        if ($cross) $cross->setPrototype( $gallows );
+
+        return true;
     }
 }

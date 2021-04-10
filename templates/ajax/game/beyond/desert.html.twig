@@ -201,26 +201,25 @@
                             {% endif %}
                         </b><br />
                         <span>
-                        {% if zone_escape > 0 %}
-                            {% trans from 'game' %}
-                                Das ist deine Chance - ergreife sie und fliehe! In Kürze werden die Zombies die Kontrolle über die Zone zurückerlangen. Dir verbleiden:
-                            {% endtrans %}
-                            <span x-countdown="{{ zone_escape }}" x-on-expire="reload">...</span>
-                        {% elseif active_scout_mode %}
-                            <br />
-                            {% trans from 'game' %}
-                                Dank deiner Tarnung kannst du dich dennoch bewegen - werde nur nicht zu übermütig...
-                            {% endtrans %}
-                            <br /><br />
-                            <b>{{ 'Achtung'|trans({},'global') }}</b>: {% trans from 'game' %}
-                                Bestimmte Aktionen können deine Tarnung auffliegen lassen!
-                            {% endtrans %}
-                        {% else %}
-                            {% trans from 'game' %}
-                                Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Wenn du nichts unternimmst und dir niemand zu Hilfe eilt, wirst du ohne Zweifel heute Abend hier verrecken ...
-                            {% endtrans %}
-                        {% endif %}
-                    </span>
+                            {% if zone_escape > 0 %}
+                                {% trans from 'game' %}
+                                    Du hast die <strong>Kontrolle über diese Zone verloren</strong> (dies kann passieren, wenn ein anderer Bürger ohne dich gegangen ist)! Wenn du nicht festsitzen möchtest, kannst du noch flüchten. Es bleiben dir :
+                                {% endtrans %}
+                                <span x-countdown="{{ zone_escape }}" x-on-expire="reload">...</span>
+                                {% if active_scout_mode %}
+                                    {{ 'Glücklicherweise kannst du dich dank deines %img_scout% <strong>Tarnanzug</strong> unerkannt weiterbewegen.'|trans({'%img_scout%': '<img alt="" src="' ~ asset('build/images/item/item_vest_on.gif') ~ '" />'},'game')|raw }}
+                                    {{ 'Achtung: Jede Aktion in der Zone sorgt dafür, dass deine <strong>Tarnung auffliegt</strong>. (Es können nur Aktionen ausgeführt werden, die mit einem Icon %img_scout_ok% gekennzeichnet sind)!'|trans({'%img_scout_ok%': '<img alt="" src="' ~ asset('build/images/icons/small_stealthy.gif') ~ '" />'},'game')|raw }}
+                                {% endif %}
+                            {% elseif active_scout_mode %}
+                                <br />
+                                {{ 'Mit deinem %img_scout% <strong>Tarnanzug</strong> kannst du dich bewegen ohne dabei entdeckt zu werden.'|trans({'%img_scout%': '<img alt="" src="' ~ asset('build/images/item/item_vest_on.gif') ~ '" />'},'game')|raw }}
+                                {{ 'Achtung: Jede Aktion in der Zone sorgt dafür, dass deine <strong>Tarnung auffliegt</strong>. (Es können nur Aktionen ausgeführt werden, die mit einem Icon %img_scout_ok% gekennzeichnet sind)!'|trans({'%img_scout_ok%': '<img alt="" src="' ~ asset('build/images/icons/small_stealthy.gif') ~ '" />'},'game')|raw }}
+                            {% else %}
+                                {% trans from 'game' %}
+                                    Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Wenn du nichts unternimmst und dir niemand zu Hilfe eilt, wirst du ohne Zweifel heute Abend hier verrecken ...
+                                {% endtrans %}
+                            {% endif %}
+                        </span>
                         {% if zone_escape <= 0 and not active_scout_mode %}
                             <div class="row">
                                 <div class="padded-small cell rw-6">
@@ -245,6 +244,8 @@
                                 </div>
                             </div>
                         {% endif %}
+                        <br />
+                        {{ help_lnk('Die Kontrollpunkte'|trans({}, 'help'), 'help', {'name': 'control_points'}) }}
                     </div>
                 </div>
             </div>
@@ -370,7 +371,12 @@
                     <button id="town-enter-hero"{% if not allow_ventilation %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/star.gif') }}">{% trans from 'game' %}Durch die Lüftungsschächte klettern{% endtrans %}</button>
                 {% endif %}
                 {% if show_sneaky %}
-                    <button id="town-enter-sneak"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}">{% trans from 'game' %}In die Stadt schleichen{% endtrans %}</button>
+                    <button id="town-enter-sneak">
+                        <img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}">{% trans from 'game' %}In die Stadt schleichen{% endtrans %}
+                        {% if enter_costs_ap %}
+                            (<div class="ap">1</div>)
+                        {% endif %}
+                    </button>
                 {% endif %}
 
                 {% if zone.x != 0 or zone.y != 0 %}
@@ -386,6 +392,7 @@
                         {% else %}
                             <img alt="" src="{{ asset('build/images/icons/water.gif') }}">{{'Regentanz ausführen'|trans({}, 'game')}} ({% if is_shaman_role %}3 <div class="pm"></div>{% else %}1 <div class="ap"></div> + 1 <img style="float: none;vertical-align: baseline;" src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="" />{% endif %})
                         {% endif %}
+                        <div class="tooltip">{{ 'Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.'|trans({},'game') }}</div>
                     </button>
                 {% endif %}
 

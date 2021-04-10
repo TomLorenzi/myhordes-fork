@@ -3,7 +3,8 @@ parameters:
     default:
       allow_local_conf: true
 
-      open_town_limit: 5
+      open_town_limit: 7
+      open_town_grace: 30
       lock_door_until_full: false
 
       well:       { min: 90, max: 180 }
@@ -79,8 +80,8 @@ parameters:
           injury: 0.5
           protection: false
         complaints:
-          shun: 7
-          kill: 8
+          shun: 8
+          kill: 6
         carry_extra_bag: false
         meaty_bones_within_town: false
         building_attack_damage: false
@@ -93,6 +94,7 @@ parameters:
         strict_picto_distribution: false
         sandball_nastyness: 0.1
         massive_respawn_factor: 1
+        ghoul_infection_begin: 5
 
       features:
         camping: true
@@ -106,11 +108,9 @@ parameters:
         ghoul_mode: normal
         all_poison: false
         shun: true
-        ghoul: true
         nightwatch:
           enabled: true
           instant: false
-        improveddump: true
         attacks: 'normal'
         give_all_pictos: true
         give_soulpoints: true
@@ -130,10 +130,25 @@ parameters:
       unlocked_buildings: ['small_gather_#02']
 
       distribute_items:
-        replace: ['bplan_box_e_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00']
+        replace: ['bplan_box_e_#00', 'bplan_box_#00', 'bplan_box_#00', 'bplan_box_#00', 'firework_powder_#00','firework_tube_#00','firework_box_#00']
 
       distribution_distance:
-        replace: []
+        replace:
+          - item: 'bplan_box_e_#00'
+            min: 4
+            max: 90
+          - item: 'bplan_box_#00'
+            min: 3
+            max: 90
+          - item: 'firework_powder_#00'
+            min: 3
+            max: 90
+          - item: 'firework_tube_#00'
+            min: 3
+            max: 90
+          - item: 'firework_box_#00'
+            min: 3
+            max: 90
 
       instant_pictos:
         merge: ['r_guide_#00', 'r_guard_#00']
@@ -146,6 +161,7 @@ parameters:
         strict_picto_distribution: true
         sandball_nastyness: 0.0
         massive_respawn_factor: 0.5
+        ghoul_infection_begin: 15
 
       features:
         shaman: 'none'
@@ -170,6 +186,7 @@ parameters:
           map: 'hard'
         red_soul_max_factor: 666
         sandball_nastyness: 0.85
+        ghoul_infection_begin: 2
 
       features:
         attacks: 'hard'
@@ -188,6 +205,7 @@ parameters:
 
     custom:
       open_town_limit: 2
+      open_town_grace: 40
       lock_door_until_full: true
       give_all_pictos: false
       give_soulpoints: false

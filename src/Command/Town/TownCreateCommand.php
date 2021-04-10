@@ -10,6 +10,7 @@ use App\Service\GameFactory;
 use App\Service\GameValidator;
 use App\Service\Locksmith;
 use App\Service\TownHandler;
+use App\Structures\EventConf;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -92,10 +93,11 @@ class TownCreateCommand extends Command
             }
             $output->writeln('<info>OK!</info>');
 
-            $current_event = $this->conf->getCurrentEvent();
-            if ($current_event->active()) {
-                $output->write("Applying current event '{$current_event->name()}' ... ");
-                if (!$this->townHandler->updateCurrentEvent($town, $current_event)) {
+            $current_events = $this->conf->getCurrentEvents();
+            $current_event_names = array_map(fn(EventConf $e) => $e->name(), array_filter($current_events, fn(EventConf $e) => $e->active()));
+            if (!empty($current_event_names)) {
+                $output->write("Applying current events [<info>" . implode('</info>,<info>', $current_event_names) . "</info>] ... ");
+                if (!$this->townHandler->updateCurrentEvents($town, $current_events)) {
                     $this->entityManager->clear();
                     $output->writeln('<error>Failed!</error>');
                 } else {
