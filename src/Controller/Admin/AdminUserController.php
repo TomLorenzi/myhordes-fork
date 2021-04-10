@@ -361,7 +361,7 @@ class AdminUserController extends AdminActionController
 
             case 'dbg_herodays':
                 if (empty($param) || !is_numeric($param)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-                $user->setHeroDaysSpent( $param );
+                $user->setHeroDaysSpent( max(0,$param) );
                 $this->entity_manager->persist($user);
                 break;
 

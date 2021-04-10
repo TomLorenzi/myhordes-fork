@@ -441,7 +441,7 @@ class AdminTownController extends AdminActionController
 
             case 'dbg_set_well':
                 if (!is_numeric($param)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-                $town->setWell($param);
+                $town->setWell( max(0,$param));
                 $this->entity_manager->persist($town);
                 break;
 
