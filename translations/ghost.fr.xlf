@@ -1017,7 +1017,7 @@
       </notes>
       <segment>
         <source>Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</source>
-        <target>Attention: vous n'êtes pas en mode "DISPONIBLE" dans votre coalition : Si vous rejoignez une ville maintenant, vous le ferez seul(e) !</target>
+        <target>Vous n'êtes pas en mode "DISPONIBLE" dans votre coalition : Si vous rejoignez une ville maintenant, vous le ferez seul(e) !</target>
       </segment>
     </unit>
     <unit id="cglpSDE" name="6b90743">
