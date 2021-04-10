@@ -2,7 +2,7 @@
 {% block title %}{{'Wiedergeburt: Wahl der Partie'|trans({}, 'ghost')|raw}}{% endblock %}
 {% block ajax %}
     <div class="row soul">
-        <div class="cell header rw-8 ro-2 rw-lg-10 ro-lg-1 rw-md-12 ro-md-0">
+        <div class="cell-small header rw-17 ro-4 rw-lg-20 ro-lg-2 rw-md-24 ro-md-0">
             <div class="tabs">
                 <div class="tab-floater">
                     <div class="tab left inline">
@@ -23,6 +23,20 @@
                             </div>
 
                         {% endif %}
+                    </div>
+                    <div class="tab tab-floater hide-sm">
+                        <div class="town-join-rp">
+                            <span class="town-join-rp-head">
+                                {% trans from 'ghost' %}
+                                    Ein neues Leben beginnen
+                                {% endtrans %}
+                            </span>
+                            <span class="town-join-rp-text">
+                                {% trans from 'ghost' %}
+                                    ...und mit 39 Mitbürgern in der Hölle schmoren
+                                {% endtrans %}
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
