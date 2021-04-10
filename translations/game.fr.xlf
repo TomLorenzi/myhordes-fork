@@ -18932,5 +18932,14 @@
         <target><![CDATA[Vous vous frayez un passage au milieu des débris, relevez de multiples indices, grattez le sol de vos mains crasseuses...<hr />Après de longues minutes d'investigation, vous pouvez affirmer sans l'ombre d'un doute que ces débris cachent : <strong>%building%</strong> !]]></target>
       </segment>
     </unit>
+    <unit id="gmanddb" name="Persönliche Beschreibung">
+      <notes>
+        <note category="german">Persönliche Beschreibung</note>
+      </notes>
+      <segment>
+        <source>Persönliche Beschreibung</source>
+        <target>Persönliche Beschreibung</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
