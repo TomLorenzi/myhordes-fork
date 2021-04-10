@@ -3124,22 +3124,22 @@
         <target>Use</target>
       </segment>
     </unit>
-    <unit id="0yUwJX." name="Du hast dein {item} ausgepackt und {items_spawn} erhalten!">
+    <unit id="6J5aQUR" name="ffc22b0">
       <notes>
-        <note category="german">Du hast dein {item} ausgepackt und {items_spawn} erhalten!</note>
+        <note category="german">Du hast dein &lt;span class="tool"&gt;{item}&lt;/span&gt; ausgepackt und &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt; erhalten!</note>
       </notes>
       <segment>
-        <source>Du hast dein {item} ausgepackt und {items_spawn} erhalten!</source>
-        <target>You unpacked your {item} and received {items_spawn}!</target>
+        <source>Du hast dein &lt;span class="tool"&gt;{item}&lt;/span&gt; ausgepackt und &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt; erhalten!</source>
+        <target><![CDATA[You unpacked your <span class="tool">{item}</span> and received <span class="tool">{items_spawn}</span> !]]></target>
       </segment>
     </unit>
-    <unit id="v4TehoJ" name="Du hast die {item} geöffnet und darin {items_spawn} gefunden!">
+    <unit id="RG55Xgx" name="8730474">
       <notes>
-        <note category="german">Du hast die {item} geöffnet und darin {items_spawn} gefunden!</note>
+        <note category="german">Du hast die &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt; gefunden!</note>
       </notes>
       <segment>
-        <source>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</source>
-        <target>You have opened the {item}, you have found the: {items_spawn} inside.</target>
+        <source>Du hast die &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt; gefunden!</source>
+        <target><![CDATA[You have opened the <span class="tool">{item}</span>, you have found the: <span class="tool">{items_spawn}</span> inside.]]></target>
       </segment>
     </unit>
     <unit id="TbNnR3t" name="2055760">
@@ -7247,13 +7247,13 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>This has a truly bizarre taste, it's difficult to define. It does the job though: fills your stomach. On the other hand, it doesn't give you any extra energy...</target>
       </segment>
     </unit>
-    <unit id="wt_Avmu" name="742d658">
+    <unit id="QIX9KqQ" name="2ea8b31">
       <notes>
-        <note category="german">Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast &lt;strong&gt;1 zusätzlichen AP erhalten!&lt;/strong&gt;</note>
+        <note category="german">Einmal ist zwar keinmal, dennoch genießt du dein(e) &lt;span class="tool"&gt;{item}&lt;/span&gt;. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast &lt;strong&gt;1 zusätzlichen AP erhalten!&lt;/strong&gt;</note>
       </notes>
       <segment>
-        <source>Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast &lt;strong&gt;1 zusätzlichen AP erhalten!&lt;/strong&gt;</source>
-        <target><![CDATA[Just this once does no harm, you enjoy devouring the {item}. It makes a change from the usual disgusting slop... it perks you right up.{hr}You get <strong>a bonus of 1 AP !</strong>]]></target>
+        <source>Einmal ist zwar keinmal, dennoch genießt du dein(e) &lt;span class="tool"&gt;{item}&lt;/span&gt;. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast &lt;strong&gt;1 zusätzlichen AP erhalten!&lt;/strong&gt;</source>
+        <target><![CDATA[Just this once does no harm, you enjoy devouring the <span class="tool">{item}</span>. It makes a change from the usual disgusting slop... it perks you right up.{hr}You get <strong>a bonus of 1 AP !</strong>]]></target>
       </segment>
     </unit>
     <unit id="wDKaGfq" name="Krähenelfe">
@@ -7913,13 +7913,13 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>You take the {item}, but it seems to have no notable effect... Maybe you didn't need it?</target>
       </segment>
     </unit>
-    <unit id="ullYTUO" name="bc4370c">
+    <unit id="NU_DTOa" name="5f55a13">
       <notes>
-        <note category="german">Du hast mit dem(r) {item_tool} ein(e) {item} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</note>
+        <note category="german">Du hast mit dem(r) &lt;span class="tool"&gt;{item_tool}&lt;/span&gt; ein(e) &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin folgenden Gegenstand gefunden: &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt;.</note>
       </notes>
       <segment>
-        <source>Du hast mit dem(r) {item_tool} ein(e) {item} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</source>
-        <target>You managed to open the {item} with the {item_tool}. You have obtained: {items_spawn}.</target>
+        <source>Du hast mit dem(r) &lt;span class="tool"&gt;{item_tool}&lt;/span&gt; ein(e) &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin folgenden Gegenstand gefunden: &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt;.</source>
+        <target><![CDATA[You managed to open the <span class="tool">{item}</span> with the <span class="tool">{item_tool}</span> . You have obtained: <span class="tool">{items_spawn}</span>.]]></target>
       </segment>
     </unit>
     <unit id="lXVMIpX" name="9f73205">
