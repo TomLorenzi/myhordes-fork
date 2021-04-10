@@ -3022,7 +3022,7 @@
       </notes>
       <segment>
         <source>Titel &amp; Icon entfernen</source>
-        <target><![CDATA[Supprimer le titre et l'icône]]></target>
+        <target>Supprimer le titre et l'icône</target>
       </segment>
     </unit>
   </file>

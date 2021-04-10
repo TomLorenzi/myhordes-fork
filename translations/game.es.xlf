@@ -3178,7 +3178,7 @@
     </unit>
     <unit id="J84MRtT" name="%citizen% hat etwas Schutt entfernt.">
       <notes>
-        <note category="german">%citizen% hat etwas Schutt entfernt.</note>
+        <note category="german">%citizen% hat die Zone ein wenig gesäubert...</note>
       </notes>
       <segment>
         <source>%citizen% hat etwas Schutt entfernt.</source>
@@ -3187,7 +3187,7 @@
     </unit>
     <unit id="WmDHw.1" name="%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!">
       <notes>
-        <note category="german">%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</note>
+        <note category="german">Diese Zone wurde komplett gesäubert und freigeschaufelt, dabei wurde folgendes Gebäude entdeckt: %type%.</note>
       </notes>
       <segment>
         <source>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</source>
@@ -7219,7 +7219,7 @@
     </unit>
     <unit id="2MBbf8L" name="416726b">
       <notes>
-        <note category="german">Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</note>
+        <note category="german">Du hast einen Teil der Zone &lt;strong&gt;freigeräumt&lt;/strong&gt;, allerdings versperren noch &lt;strong&gt;allerlei Trümmer&lt;/strong&gt; den Zugang...</note>
       </notes>
       <segment>
         <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
@@ -7228,7 +7228,7 @@
     </unit>
     <unit id="AL6LzU0" name="9a476a3">
       <notes>
-        <note category="german">Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</note>
+        <note category="german">Herzlichen Glückwunsch, du hast die Zone freigeräumt und kannst nun damit anfangen folgendes Gebäude zu durchsuchen : %ruin%.</note>
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</source>
@@ -7237,7 +7237,7 @@
     </unit>
     <unit id="RbYmYJb" name="Du hast %count% Aktionspunkt(e) benutzt.">
       <notes>
-        <note category="german">Du hast %count% Aktionspunkt(e) benutzt.</note>
+        <note category="german">Du hast dafür &lt;strong&gt;%count% Aktionspunkt(e)&lt;/strong&gt; verbraucht.</note>
       </notes>
       <segment>
         <source>Du hast %count% Aktionspunkt(e) benutzt.</source>
@@ -18215,7 +18215,7 @@
     </unit>
     <unit id="bPobZD0" name="b1b989e">
       <notes>
-        <note category="german">Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;&lt;strong&gt;Dieser Gegenstand wurde in deiner Truhe abgelegt.&lt;/strong&gt;</note>
+        <note category="german">Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;Dieser Gegenstand wurde &lt;strong&gt;in deiner Truhe&lt;/strong&gt; abgelegt.</note>
       </notes>
       <segment>
         <source>Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;&lt;strong&gt;Dieser Gegenstand wurde in deiner Truhe abgelegt.&lt;/strong&gt;</source>
@@ -18841,6 +18841,33 @@
       <segment>
         <source>Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:&lt;br /&gt;%list_head% oder %list_tail%.</source>
         <target><![CDATA[Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:<br />%list_head% oder %list_tail%.]]></target>
+      </segment>
+    </unit>
+    <unit id="91d4rG_" name="Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...">
+      <notes>
+        <note category="german">Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</note>
+      </notes>
+      <segment>
+        <source>Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</source>
+        <target>Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</target>
+      </segment>
+    </unit>
+    <unit id="wyxCVNs" name="Du hast keine Gegenstände, die du verstecken könntest.">
+      <notes>
+        <note category="german">Du hast keine Gegenstände, die du verstecken könntest.</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Gegenstände, die du verstecken könntest.</source>
+        <target>Du hast keine Gegenstände, die du verstecken könntest.</target>
+      </segment>
+    </unit>
+    <unit id="wKNx07Y" name="Wähle einen Gegenstand aus der Bank aus...">
+      <notes>
+        <note category="german">Wähle einen Gegenstand aus der Bank aus...</note>
+      </notes>
+      <segment>
+        <source>Wähle einen Gegenstand aus der Bank aus...</source>
+        <target>Wähle einen Gegenstand aus der Bank aus...</target>
       </segment>
     </unit>
   </file>

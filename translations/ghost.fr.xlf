@@ -1362,5 +1362,23 @@
         <target>Une réservation de place est disponible pour cette ville.</target>
       </segment>
     </unit>
+    <unit id="WhL1uY." name="Einer Stadt beitreten">
+      <notes>
+        <note category="german">Einer Stadt beitreten</note>
+      </notes>
+      <segment>
+        <source>Einer Stadt beitreten</source>
+        <target>Einer Stadt beitreten</target>
+      </segment>
+    </unit>
+    <unit id="tnT0nBQ" name="Wähle dein nächstes Leben:">
+      <notes>
+        <note category="german">Wähle dein nächstes Leben:</note>
+      </notes>
+      <segment>
+        <source>Wähle dein nächstes Leben:</source>
+        <target>Wähle dein nächstes Leben:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

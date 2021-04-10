@@ -2764,5 +2764,14 @@
         <target>Reserved places:</target>
       </segment>
     </unit>
+    <unit id="DFJoP7h" name="Du kannst kein Icon ohne einen Titel wählen.">
+      <notes>
+        <note category="german">Du kannst kein Icon ohne einen Titel wählen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst kein Icon ohne einen Titel wählen.</source>
+        <target>Du kannst kein Icon ohne einen Titel wählen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

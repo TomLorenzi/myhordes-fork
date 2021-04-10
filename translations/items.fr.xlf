@@ -8081,7 +8081,7 @@
       </notes>
       <segment>
         <source>Du befielst diesem Bürger sich zu &lt;strong&gt;stärken&lt;/strong&gt;, damit ihr gemeinsam weiterziehen könnt. Er ist einverstanden und holt eine(e,n) {item} aus seinem Sack... Ihr macht ne kleine Brotzeit...{hr}{user} hat seine AP aufgefüllt!</source>
-        <target><![CDATA[Vous demandez à ce citoyen de manger quelque chose avant de continuer. Il acquiesce puis sort {item}... Petite pause repas...{hr}{user} a récupéré tout ses PA !]]></target>
+        <target>Vous demandez à ce citoyen de manger quelque chose avant de continuer. Il acquiesce puis sort {item}... Petite pause repas...{hr}{user} a récupéré tout ses PA !</target>
       </segment>
     </unit>
     <unit id="gVu_1LO" name="Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!">
@@ -8100,6 +8100,24 @@
       <segment>
         <source>Der Bürger hat den mystischen Trank in einem Zug ausgetrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</source>
         <target>Le citoyen vient de boire la potion chamanique ! Il ne reste plus qu'à espérer que ce chaman sache un peu ce qu'il fait...</target>
+      </segment>
+    </unit>
+    <unit id="q2jfZzs" name="5db32a5">
+      <notes>
+        <note category="german">Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: &lt;strong&gt;du bist nun verletzt&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: &lt;strong&gt;du bist nun verletzt&lt;/strong&gt;.</source>
+        <target><![CDATA[Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: <strong>du bist nun verletzt</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="GUA4Vaf" name="8f08b00">
+      <notes>
+        <note category="german">Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</note>
+      </notes>
+      <segment>
+        <source>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</source>
+        <target>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</target>
       </segment>
     </unit>
   </file>
