@@ -1004,7 +1004,7 @@
         });
         {% endif %}
 
-        {% if scout %}
+        {% if scout and zone.prototype and zone.buryCount > 0 %}
             $.html.addEventListenerAll('#scout_ruin_discover', 'click', function() {
                 $.html.notice('{{ 'Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: <strong>%building%</strong>!'|trans({'%building%': zone.prototype.label|trans({}, 'game')},'game')|e('js') }}');
             });
