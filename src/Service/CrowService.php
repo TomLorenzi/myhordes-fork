@@ -3,7 +3,6 @@
 namespace App\Service;
 
 use App\Entity\Award;
-use App\Entity\BankAntiAbuse;
 use App\Entity\Citizen;
 use App\Entity\Forum;
 use App\Entity\GlobalPrivateMessage;

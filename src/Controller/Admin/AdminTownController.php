@@ -3,8 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Annotations\GateKeeperProfile;
-use App\Controller\Town\TownController;
-use App\Entity\BankAntiAbuse;
+use App\Entity\ActionEventLog;
 use App\Entity\BlackboardEdit;
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
@@ -422,8 +421,10 @@ class AdminTownController extends AdminActionController
                 break;
 
             case 'dbg_unlock_bank':
-                foreach ($town->getCitizens() as $citizen) if ($citizen->getBankAntiAbuse())
-                    $this->entity_manager->persist($citizen->getBankAntiAbuse()->setNbItemTaken(0));
+                foreach ($town->getCitizens() as $citizen) {
+                    $bank_lock = $this->entity_manager->getRepository(ActionEventLog::class)->findBy(['citizen' => $citizen, 'type' => [ActionEventLog::ActionEventTypeBankTaken, ActionEventLog::ActionEventTypeBankLock]]);
+                    foreach ($bank_lock as $lock) $this->entity_manager->remove($lock);
+                }
                 break;
 
             case 'dbg_hydrate':
