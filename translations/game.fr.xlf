@@ -18578,7 +18578,7 @@
       </notes>
       <segment>
         <source>%citizen% bitten etwas aufzuheben.</source>
-        <target>%citizen% bitten etwas aufzuheben.</target>
+        <target>Demander à %citizen% de ramasser un objet.</target>
       </segment>
     </unit>
     <unit id="9URgee0" name="%citizen% befehlen die Umgebung abzusuchen.">
@@ -18587,7 +18587,7 @@
       </notes>
       <segment>
         <source>%citizen% befehlen die Umgebung abzusuchen.</source>
-        <target>%citizen% befehlen die Umgebung abzusuchen.</target>
+        <target>Demander à %citizen% de fouiller les environs.</target>
       </segment>
     </unit>
     <unit id="joeoHly" name="%citizen% angreifen. Diese Aktion kostet dich %ap%.">
@@ -18605,7 +18605,7 @@
       </notes>
       <segment>
         <source>%citizen% sagen mir nicht mehr zu folgen.</source>
-        <target>%citizen% sagen mir nicht mehr zu folgen.</target>
+        <target>Demander à %citizen% d'arrêter de me suivre.</target>
       </segment>
     </unit>
     <unit id="Iir2qAh" name="Allen befehlen, die Umgebung abzusuchen.">
@@ -18614,7 +18614,7 @@
       </notes>
       <segment>
         <source>Allen befehlen, die Umgebung abzusuchen.</source>
-        <target>Allen befehlen, die Umgebung abzusuchen.</target>
+        <target>Demander au groupe de fouiller les environs.</target>
       </segment>
     </unit>
     <unit id="_G5UAQ0" name="Allen sagen mir nicht mehr zu folgen.">
@@ -18623,7 +18623,7 @@
       </notes>
       <segment>
         <source>Allen sagen mir nicht mehr zu folgen.</source>
-        <target>Allen sagen mir nicht mehr zu folgen.</target>
+        <target>Demander au groupe d'arrêter de me suivre.</target>
       </segment>
     </unit>
     <unit id="v4V0uch" name="Dieser Bürger gräbt gerade in einer Zone.">
@@ -18641,7 +18641,7 @@
       </notes>
       <segment>
         <source>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</source>
-        <target>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</target>
+        <target>%citizen% est en attente d'escorte. Cliquez sur ce bouton pour lui demander de vous suivre.</target>
       </segment>
     </unit>
     <unit id="xJvvYYd" name="89244b5">
