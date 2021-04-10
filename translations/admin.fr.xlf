@@ -2671,7 +2671,7 @@
       </notes>
       <segment>
         <source>Posten in Foren verbieten</source>
-        <target>Interdire la publication dans les forums</target>
+        <target>Publication dans les forums</target>
       </segment>
     </unit>
     <unit id="S.Z0svV" name="Stadt-interne Kommunikation verbieten">
@@ -2680,7 +2680,7 @@
       </notes>
       <segment>
         <source>Stadt-interne Kommunikation verbieten</source>
-        <target>Interdire la communication interne à la ville</target>
+        <target>Communication interne à la ville</target>
       </segment>
     </unit>
     <unit id="TofCy.V" name="Stadtübergreifende Kommunikation verbieten">
@@ -2689,7 +2689,7 @@
       </notes>
       <segment>
         <source>Stadtübergreifende Kommunikation verbieten</source>
-        <target>Interdire la publication sur le forum ville</target>
+        <target>Publication sur le forum ville</target>
       </segment>
     </unit>
     <unit id="4Ih2_KV" name="Kommentare verbieten">
@@ -2698,7 +2698,7 @@
       </notes>
       <segment>
         <source>Kommentare verbieten</source>
-        <target>Interdire les commentaires</target>
+        <target>Commentaires</target>
       </segment>
     </unit>
     <unit id="Hk8oxc5" name="Organisation in Gruppen verbieten">
@@ -2707,7 +2707,7 @@
       </notes>
       <segment>
         <source>Organisation in Gruppen verbieten</source>
-        <target>Interdire l'organisation en groupe</target>
+        <target>Organisation en groupe</target>
       </segment>
     </unit>
     <unit id="IdwEk1H" name="Spielen verbieten">
@@ -2959,7 +2959,7 @@
       </notes>
       <segment>
         <source>Ändern des Avatars verbieten</source>
-        <target>Interdire le changement d'avatar</target>
+        <target>Changement d'avatar</target>
       </segment>
     </unit>
     <unit id="es9o32g" name="Ändern der Profilbeschreibung verbieten">
@@ -2968,7 +2968,7 @@
       </notes>
       <segment>
         <source>Ändern der Profilbeschreibung verbieten</source>
-        <target>Interdire la modification de la description du profil</target>
+        <target>Modification de la description du profil</target>
       </segment>
     </unit>
     <unit id="tJ4N6CO" name="Ändern des Titels verbieten">
@@ -2977,7 +2977,7 @@
       </notes>
       <segment>
         <source>Ändern des Titels verbieten</source>
-        <target>Interdire de changer de titre</target>
+        <target>Changer de titre</target>
       </segment>
     </unit>
     <unit id="nXkHd12" name="Anzeigenamen ändern">
