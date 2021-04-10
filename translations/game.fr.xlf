@@ -18905,5 +18905,32 @@
         <target>Wähle einen Gegenstand aus der Bank aus...</target>
       </segment>
     </unit>
+    <unit id="B5sYzl." name="Aufklärer: Ruinen erkunden">
+      <notes>
+        <note category="german">Aufklärer: Ruinen erkunden</note>
+      </notes>
+      <segment>
+        <source>Aufklärer: Ruinen erkunden</source>
+        <target>Éclaireur: Examiner ruines</target>
+      </segment>
+    </unit>
+    <unit id="_izB74m" name="Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</source>
+        <target>Cette action vous permet de déterminer la nature du bâtiment enfoui ici.</target>
+      </segment>
+    </unit>
+    <unit id="pqX0mgo" name="855fd56">
+      <notes>
+        <note category="german">Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</source>
+        <target><![CDATA[Vous vous frayez un passage au milieu des débris, relevez de multiples indices, grattez le sol de vos mains crasseuses...<hr />Après de longues minutes d'investigation, vous pouvez affirmer sans l'ombre d'un doute que ces débris cachent : <strong>%building%</strong> !]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
