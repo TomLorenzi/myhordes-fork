@@ -2914,7 +2914,7 @@
       </notes>
       <segment>
         <source>Profilbeschreibung</source>
-        <target>Profilbeschreibung</target>
+        <target>Profile description</target>
       </segment>
     </unit>
     <unit id="5AoQtM8" name="Änderungen am Profil verbieten">
@@ -2923,7 +2923,7 @@
       </notes>
       <segment>
         <source>Änderungen am Profil verbieten</source>
-        <target>Änderungen am Profil verbieten</target>
+        <target>Profile modifications</target>
       </segment>
     </unit>
     <unit id="o2BjdF6" name="Ändern des Avatars verbieten">
@@ -2932,7 +2932,7 @@
       </notes>
       <segment>
         <source>Ändern des Avatars verbieten</source>
-        <target>Ändern des Avatars verbieten</target>
+        <target>Avatar change</target>
       </segment>
     </unit>
     <unit id="es9o32g" name="Ändern der Profilbeschreibung verbieten">
@@ -2941,7 +2941,7 @@
       </notes>
       <segment>
         <source>Ändern der Profilbeschreibung verbieten</source>
-        <target>Ändern der Profilbeschreibung verbieten</target>
+        <target>Profile description modifications</target>
       </segment>
     </unit>
     <unit id="tJ4N6CO" name="Ändern des Titels verbieten">
@@ -2950,7 +2950,7 @@
       </notes>
       <segment>
         <source>Ändern des Titels verbieten</source>
-        <target>Ändern des Titels verbieten</target>
+        <target>Title change</target>
       </segment>
     </unit>
     <unit id="nXkHd12" name="Anzeigenamen ändern">
@@ -2959,7 +2959,7 @@
       </notes>
       <segment>
         <source>Anzeigenamen ändern</source>
-        <target>Anzeigenamen ändern</target>
+        <target>Change the display name</target>
       </segment>
     </unit>
     <unit id="zX2Ikki" name="Anzeigenamen entfernen">
@@ -2968,7 +2968,7 @@
       </notes>
       <segment>
         <source>Anzeigenamen entfernen</source>
-        <target>Anzeigenamen entfernen</target>
+        <target>Remove the display name</target>
       </segment>
     </unit>
     <unit id="ZBGzbqz" name="Avatar entfernen">
@@ -2977,7 +2977,7 @@
       </notes>
       <segment>
         <source>Avatar entfernen</source>
-        <target>Avatar entfernen</target>
+        <target>Remove the avatar</target>
       </segment>
     </unit>
     <unit id="5yzpFRy" name="Profilbeschreibung entfernen">
@@ -2986,7 +2986,7 @@
       </notes>
       <segment>
         <source>Profilbeschreibung entfernen</source>
-        <target>Profilbeschreibung entfernen</target>
+        <target>Remove profile description</target>
       </segment>
     </unit>
     <unit id="R1lleS7" name="Titel &amp; Icon entfernen">
@@ -2995,7 +2995,7 @@
       </notes>
       <segment>
         <source>Titel &amp; Icon entfernen</source>
-        <target><![CDATA[Titel & Icon entfernen]]></target>
+        <target>Remove the title and the icon</target>
       </segment>
     </unit>
   </file>
