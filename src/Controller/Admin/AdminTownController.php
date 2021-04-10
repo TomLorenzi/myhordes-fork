@@ -917,11 +917,62 @@ class AdminTownController extends AdminActionController
 
         $building->setAp($ap);
 
-        $building->setComplete($building->getAp() >= $building->getPrototype()->getAp());
-
         if ($building->getAp() >= $building->getPrototype()->getAp()) {
             $building->setComplete(true);
             $th->triggerBuildingCompletion($town, $building);
+        } elseif ($building->getAp() <= 0) {
+            $building->setComplete(false);
+            $th->destroy_building($town, $building);
+        }
+
+        $this->entity_manager->persist($building);
+        $this->entity_manager->persist($town);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("/api/admin/town/{id}/buildings/set-hp", name="admin_town_set_building_hp", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Set HP to a building of a town
+     * @param int $id ID of the town
+     * @param JSONRequestParser $parser The JSON request parser
+     * @param TownHandler $th The town handler
+     * @return Response
+     */
+    public function town_set_building_hp(int $id, JSONRequestParser $parser, TownHandler $th)
+    {
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        if (!$parser->has_all(['building', 'hp'])) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        $building_id = $parser->get("building");
+
+        /** @var Building $building */
+        $building = $this->entity_manager->getRepository(Building::class)->find($building_id);
+        if (!$building)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $hp = $parser->get_int("hp");
+
+        if ($hp >= $building->getPrototype()->getHp()) {
+            $hp = $building->getPrototype()->getHp();
+        }
+
+        if (!$building->getComplete() || ($hp < $building->getPrototype()->getHp() && $building->getPrototype()->getImpervious()))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $building->setHp($hp);
+
+        if ($building->getHp() <= 0) {
+            $building->setComplete(false);
+            $th->destroy_building($town, $building);
         }
 
         $this->entity_manager->persist($building);
