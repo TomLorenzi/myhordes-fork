@@ -1537,7 +1537,7 @@
       </notes>
       <segment>
         <source>Reparatur Fix</source>
-        <target>Repair Kit</target>
+        <target>Kwik-fix</target>
       </segment>
     </unit>
     <unit id="1homVRE" name="Unvollständiger Motor">
@@ -7703,7 +7703,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>So was nennt man wohl &lt;strong&gt;Glück&lt;/strong&gt;! &lt;t-inside&gt;Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!&lt;/t-inside&gt;&lt;t-outside&gt;Du hast soeben {items_spawn} im Wüstensand gefunden!&lt;/t-outside&gt; Genau das, was du gebraucht hast!</source>
-        <target><![CDATA[Looks like <strong>you're in luck</strong>... <t-inside>You have found {items_spawn} in the sand! Exactly what you were looking for!</t-inside><t-outside>Du hast soeben {items_spawn} im Wüstensand gefunden!</t-outside> Exactly what you were looking for!]]></target>
+        <target><![CDATA[Looks like <strong>you're in luck</strong>... <t-inside>You have found {items_spawn} in the sand! Exactly what you were looking for!</t-inside><t-outside>You have found {items_spawn} in a pile of rubbish near your house!</t-outside> Exactly what you were looking for!]]></target>
       </segment>
     </unit>
     <unit id="Y65IL58" name="0632b2c">
@@ -7919,7 +7919,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du hast {item} eingenommen, verspürst aber keine nennenswerte Wirkung... Vielleicht hast du das gar nicht gebraucht?</source>
-        <target>Du hast {item} eingenommen, verspürst aber keine nennenswerte Wirkung... Vielleicht hast du das gar nicht gebraucht?</target>
+        <target>You take the {item}, but it seems to have no notable effect... Maybe you didn't need it?</target>
       </segment>
     </unit>
     <unit id="ullYTUO" name="bc4370c">
@@ -8054,7 +8054,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du bist ab sofort getarnt.</source>
-        <target>Du bist ab sofort getarnt.</target>
+        <target>You are now camouflaged.</target>
       </segment>
     </unit>
     <unit id="x.8gDqz" name="17bda63">
@@ -8063,7 +8063,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Das kannst die &lt;strong&gt;Tarnkleidung&lt;/strong&gt; nicht verwenden, solange die Zombies diese Zone kontrollieren!</source>
-        <target><![CDATA[Das kannst die <strong>Tarnkleidung</strong> nicht verwenden, solange die Zombies diese Zone kontrollieren!]]></target>
+        <target><![CDATA[It is impossible to use <strong>camouflage</strong> when the zone is controlled by zombies! ]]></target>
       </segment>
     </unit>
     <unit id="1j7AoDM" name="5784480">

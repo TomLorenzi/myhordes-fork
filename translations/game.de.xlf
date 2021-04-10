@@ -3226,7 +3226,7 @@
       </notes>
       <segment>
         <source>%citizen% hat etwas Schutt entfernt.</source>
-        <target>%citizen% hat etwas Schutt entfernt.</target>
+        <target>%citizen% hat die Zone ein wenig gesäubert...</target>
       </segment>
     </unit>
     <unit id="WmDHw.1" name="%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!">
@@ -3235,7 +3235,7 @@
       </notes>
       <segment>
         <source>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</source>
-        <target>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</target>
+        <target>Diese Zone wurde komplett gesäubert und freigeschaufelt, dabei wurde folgendes Gebäude entdeckt: %type%.</target>
       </segment>
     </unit>
     <unit id="zTh0a4e" name="a30f81a">
@@ -7150,7 +7150,7 @@
       </notes>
       <segment>
         <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
-        <target>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</target>
+        <target><![CDATA[Du hast einen Teil der Zone <strong>freigeräumt</strong>, allerdings versperren noch <strong>allerlei Trümmer</strong> den Zugang...]]></target>
       </segment>
     </unit>
     <unit id="AL6LzU0" name="9a476a3">
@@ -7159,7 +7159,7 @@
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</source>
-        <target>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</target>
+        <target>Herzlichen Glückwunsch, du hast die Zone freigeräumt und kannst nun damit anfangen folgendes Gebäude zu durchsuchen : %ruin%.</target>
       </segment>
     </unit>
     <unit id="RbYmYJb" name="Du hast %count% Aktionspunkt(e) benutzt.">
@@ -7168,7 +7168,7 @@
       </notes>
       <segment>
         <source>Du hast %count% Aktionspunkt(e) benutzt.</source>
-        <target>Du hast %count% Aktionspunkt(e) benutzt.</target>
+        <target><![CDATA[Du hast dafür <strong>%count% Aktionspunkt(e)</strong> verbraucht.]]></target>
       </segment>
     </unit>
     <unit id="7Tv2eKD" name="8d60c8e">
@@ -18247,7 +18247,7 @@
       </notes>
       <segment>
         <source>Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;&lt;strong&gt;Dieser Gegenstand wurde in deiner Truhe abgelegt.&lt;/strong&gt;</source>
-        <target><![CDATA[Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...<hr /><strong>Dieser Gegenstand wurde in deiner Truhe abgelegt.</strong>]]></target>
+        <target><![CDATA[Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...<hr />Dieser Gegenstand wurde <strong>in deiner Truhe</strong> abgelegt.]]></target>
       </segment>
     </unit>
     <unit id="HSAEnDG" name="als Gruppe">

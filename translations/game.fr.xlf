@@ -3293,7 +3293,7 @@
       </notes>
       <segment>
         <source>%citizen% hat die Leiche von %disposed% aus der Stadt gezerrt.</source>
-        <target>%citizen% s'est débarrassé du corps de %disposed%.</target>
+        <target>Et un cadavre de moins ! %disposed% a été jeté dehors par %citizen% !</target>
       </segment>
     </unit>
     <unit id="33.BZ8y" name="3f16555">
@@ -3302,7 +3302,7 @@
       </notes>
       <segment>
         <source>%citizen% hat die Leiche von %disposed% vernichtet, indem er sie mit Wasser übergossen hat.</source>
-        <target>%citizen% s'est débarrassé du corps de %disposed% en l'arrosant d'eau.</target>
+        <target>%citizen% a utilisé de l'eau pour brûler le corps de %disposed%.</target>
       </segment>
     </unit>
     <unit id="SS1lJ6A" name="f02d89f">
@@ -8114,7 +8114,7 @@
       </notes>
       <segment>
         <source>Du kannst diesen Bürger nicht heilen. Entweder bedarf er keiner Heilung, ist nicht in der Stadt oder hat heute bereits eine mystische Heilung erfahren.</source>
-        <target>Vous ne pouvez pas soigner ce citoyen. Soit son état ne réclame pas de soins, soit il n'est pas en ville ou bien il a déjà subit une tentative de soin aujourd'hui.</target>
+        <target>Vous ne pouvez pas soigner ce citoyen. Soit son état ne réclame pas de soins, soit il n'est pas en ville ou bien il a déjà subi une tentative de soin aujourd'hui.</target>
       </segment>
     </unit>
     <unit id="yKYNmZu" name="356ee99">
@@ -10346,7 +10346,7 @@
       </notes>
       <segment>
         <source>Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</source>
-        <target>%citizen% s'est débarrassé du corps de † %disposed%.</target>
+        <target>Et un cadavre de moins ! %disposed% a été jeté dehors par † %citizen% !</target>
       </segment>
     </unit>
     <unit id="E0yx4Bm" name="%citizen% hat mit etwas Wasser † %disposed% &quot;verbrannt&quot;.">
@@ -10355,7 +10355,7 @@
       </notes>
       <segment>
         <source>%citizen% hat mit etwas Wasser † %disposed% "verbrannt".</source>
-        <target>%citizen% s'est débarrassé du corps de † %disposed% en l'arrosant d'eau.</target>
+        <target>%citizen% a utilisé de l'eau pour brûler le corps de † %disposed%.</target>
       </segment>
     </unit>
     <unit id="UA1vSp." name="Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!">
@@ -18578,7 +18578,7 @@
       </notes>
       <segment>
         <source>%citizen% bitten etwas aufzuheben.</source>
-        <target>%citizen% bitten etwas aufzuheben.</target>
+        <target>Demander à %citizen% de ramasser un objet.</target>
       </segment>
     </unit>
     <unit id="9URgee0" name="%citizen% befehlen die Umgebung abzusuchen.">
@@ -18587,7 +18587,7 @@
       </notes>
       <segment>
         <source>%citizen% befehlen die Umgebung abzusuchen.</source>
-        <target>%citizen% befehlen die Umgebung abzusuchen.</target>
+        <target>Demander à %citizen% de fouiller les environs.</target>
       </segment>
     </unit>
     <unit id="joeoHly" name="%citizen% angreifen. Diese Aktion kostet dich %ap%.">
@@ -18596,7 +18596,7 @@
       </notes>
       <segment>
         <source>%citizen% angreifen. Diese Aktion kostet dich %ap%.</source>
-        <target>%citizen% angreifen. Diese Aktion kostet dich %ap%.</target>
+        <target>Agresser %citizen% ! Cette action coûtera %ap%.</target>
       </segment>
     </unit>
     <unit id="H7wLj6X" name="%citizen% sagen mir nicht mehr zu folgen.">
@@ -18605,7 +18605,7 @@
       </notes>
       <segment>
         <source>%citizen% sagen mir nicht mehr zu folgen.</source>
-        <target>%citizen% sagen mir nicht mehr zu folgen.</target>
+        <target>Demander à %citizen% d'arrêter de me suivre.</target>
       </segment>
     </unit>
     <unit id="Iir2qAh" name="Allen befehlen, die Umgebung abzusuchen.">
@@ -18614,7 +18614,7 @@
       </notes>
       <segment>
         <source>Allen befehlen, die Umgebung abzusuchen.</source>
-        <target>Allen befehlen, die Umgebung abzusuchen.</target>
+        <target>Demander au groupe de fouiller les environs.</target>
       </segment>
     </unit>
     <unit id="_G5UAQ0" name="Allen sagen mir nicht mehr zu folgen.">
@@ -18623,7 +18623,7 @@
       </notes>
       <segment>
         <source>Allen sagen mir nicht mehr zu folgen.</source>
-        <target>Allen sagen mir nicht mehr zu folgen.</target>
+        <target>Demander au groupe d'arrêter de me suivre.</target>
       </segment>
     </unit>
     <unit id="v4V0uch" name="Dieser Bürger gräbt gerade in einer Zone.">
@@ -18632,7 +18632,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger gräbt gerade in einer Zone.</source>
-        <target>Dieser Bürger gräbt gerade in einer Zone.</target>
+        <target>Ce citoyen est en train de fouiller la zone.</target>
       </segment>
     </unit>
     <unit id="Bh1Gj16" name="%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.">
@@ -18641,7 +18641,7 @@
       </notes>
       <segment>
         <source>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</source>
-        <target>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</target>
+        <target>%citizen% est en attente d'escorte. Cliquez sur ce bouton pour lui demander de vous suivre.</target>
       </segment>
     </unit>
     <unit id="xJvvYYd" name="89244b5">

@@ -4667,7 +4667,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Katapult</source>
-        <target>Catap</target>
+        <target>Catapult</target>
       </segment>
     </unit>
     <unit id="T04hD_3" name="Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...">
@@ -4955,7 +4955,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Grundbefestigungsmauer</source>
-        <target>Basic defences</target>
+        <target>Basic Defences</target>
       </segment>
     </unit>
     <unit id="8UxoSSm" name="Verteidigungsgegenstände">
@@ -4964,7 +4964,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Verteidigungsgegenstände</source>
-        <target>Defensive objects</target>
+        <target>Defensive Objects</target>
       </segment>
     </unit>
     <unit id="FAUZkS8" name="Häuser">
@@ -4991,7 +4991,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.</source>
-        <target>Note: defensive objects (wooden boards, etc...) should be placed in the Bank.</target>
+        <target>Note: Defensive objects (wooden boards, etc...) should be placed in the Bank.</target>
       </segment>
     </unit>
     <unit id="p7WJjEO" name="cabb91e">
@@ -6791,7 +6791,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Gereinigte Seelen</source>
-        <target>Purified souls</target>
+        <target>Purified Souls</target>
       </segment>
     </unit>
     <unit id="JATCrdR" name="0e9540e">
@@ -8116,7 +8116,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%attacker% ist %defender% an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</source>
-        <target>%attacker% jumped on %defender% on the throat and ate them without batting an eyelid</target>
+        <target>%attacker% jumped %defender% on the throat and ate them without batting an eyelid</target>
       </segment>
     </unit>
     <unit id="Qlh.l61" name="a9b83b9">
@@ -8125,8 +8125,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Was ist mit der Leiche passiert? Der leblose Körper ist spurlos verschwunden... Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
-        <target>WHAT HAPPENED TO THE BODY?
-No idea! The body has disappeared without trace...They must be rotting somewhere outside... Perhaps they'll get back up and visit you during the night.</target>
+        <target><![CDATA[No Idea where <strong>the corpse went, it disappeard without a trace...</strong> It's probably laying outside the town and is rotting away... but maybe it will come back this night to visit us?]]></target>
       </segment>
     </unit>
     <unit id=".vM_crK" name="7733da4">
@@ -9206,7 +9205,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Jeder %divap%, der in die Reparatur investiert wird, beseitigt %hprepair% Schadenspunkte an einem Bauwerk.</source>
-        <target>Each 1 %divap% invested in reparation will repare %hprepair% damage points on this construction.</target>
+        <target>Each 1 %divap% invested in repairs will fix %hprepair% damage points.</target>
       </segment>
     </unit>
     <unit id="8atbEzY" name="Die Reparatur verbraucht keine Ressourcen.">
@@ -9215,7 +9214,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Reparatur verbraucht keine Ressourcen.</source>
-        <target>Reparations doesn't consume ressources.</target>
+        <target>Repairs don't consume resources.</target>
       </segment>
     </unit>
     <unit id="BjwWH4y" name="Erhaltene Nachrichten">
@@ -14437,7 +14436,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Katapult-Bediener</source>
-        <target>Katapult-Bediener</target>
+        <target>Catapult operator</target>
       </segment>
     </unit>
     <unit id="X7RHtVg" name="UFC">
@@ -17878,7 +17877,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>(Du bist gerade im &lt;strong&gt;Expertenmodus&lt;/strong&gt;)</source>
-        <target><![CDATA[(You are using the <strong>Expert</strong>) interface]]></target>
+        <target><![CDATA[(You are using the <strong>Expert</strong> Interface)]]></target>
       </segment>
     </unit>
     <unit id="_WQ7cjB" name="534d954">
@@ -18213,7 +18212,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="20wAGQf" name="6489b1a">
       <notes>
-        <note category="german">Your &lt;strong&gt;sobriety&lt;/strong&gt;, or lack thereof, is quite inconvenient. Things become pretty tricky pretty quickly when you're completely wasted...</note>
+        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</note>
       </notes>
       <segment>
         <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</source>
@@ -18226,7 +18225,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;&lt;strong&gt;Dieser Gegenstand wurde in deiner Truhe abgelegt.&lt;/strong&gt;</source>
-        <target><![CDATA[You got the %item%. Nonetheless, your little visit to † %victim%'s house didn't go unnoticed......<hr /><strong>This object has been placed in your chest.</strong>]]></target>
+        <target><![CDATA[You got the %item%. Nonetheless, your little visit to † %victim%'s house didn't go unnoticed...<hr />This object has been placed <strong>in your chest</strong>.]]></target>
       </segment>
     </unit>
     <unit id="HSAEnDG" name="als Gruppe">
@@ -18415,7 +18414,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>&lt;strong&gt;Achtung&lt;/strong&gt;: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</source>
-        <target><![CDATA[<strong>Achtung</strong>: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!]]></target>
+        <target><![CDATA[<strong>Warning</strong>: without water, certain upgrades (such as water turrets) will not work during the attack!]]></target>
       </segment>
     </unit>
     <unit id="485Czj9" name="Du kannst heute keinen weiteren Gegenstand stehlen.">
@@ -18667,7 +18666,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!</source>
-        <target><![CDATA[Deine <strong>Tarnung ist aufgeflogen</strong>!]]></target>
+        <target><![CDATA[You are <strong>no longer camouflaged</strong>!]]></target>
       </segment>
     </unit>
     <unit id="HXDfH_p" name="Manuelles Event-Management:">

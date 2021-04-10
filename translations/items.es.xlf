@@ -3274,7 +3274,7 @@
       </notes>
       <segment>
         <source>Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</source>
-        <target>Vibra, hace cosquillas, y te hace olvidar tus pequeños problemas por unos instantes (necesita 1 pila).</target>
+        <target>Te instalas cómodamente en tu casa y te dejas llevar... Mala sorpresa: ¡la máquina es horriblemente dolorosa de usar! Sin embargo, terminas por cogerle el gusto. Y al cabo de unos instantes, el efecto es radical: transpiras, pero te sientes más... "relajado". La pila ha sido totalmente agotada.</target>
       </segment>
     </unit>
     <unit id="EoaSigx" name="Das brauchst du gerade nicht ...">
@@ -7706,7 +7706,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>So was nennt man wohl &lt;strong&gt;Glück&lt;/strong&gt;! &lt;t-inside&gt;Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!&lt;/t-inside&gt;&lt;t-outside&gt;Du hast soeben {items_spawn} im Wüstensand gefunden!&lt;/t-outside&gt; Genau das, was du gebraucht hast!</source>
-        <target><![CDATA[So was nennt man wohl <strong>Glück</strong>! <t-inside>Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!</t-inside><t-outside>Du hast soeben {items_spawn} im Wüstensand gefunden!</t-outside> Genau das, was du gebraucht hast!]]></target>
+        <target><![CDATA[<t-inside><strong>¡Pero qué suerte tienes!</strong>... ¡Has encontrado {items_spawn} en un montículo de basura junto a tu pocilga, justo lo que te hacía falta!</t-inside><t-outside><strong>¡Qué suerte tienen los que no se bañan!</strong>... ¡Has descubierto {items_spawn} en la arena, justo lo que necesitabas!</t-outside>]]></target>
       </segment>
     </unit>
     <unit id="Y65IL58" name="0632b2c">
@@ -7715,7 +7715,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Mit Hilfe deiner übermenschlichen Heldenkräfte hast du &lt;strong&gt;{kills} Zombie(s)&lt;/strong&gt; platt gemacht!</source>
-        <target><![CDATA[Mit Hilfe deiner übermenschlichen Heldenkräfte hast du <strong>{kills} Zombie(s)</strong> platt gemacht!]]></target>
+        <target><![CDATA[¡Con tu fuerza de Héroe y tus puños, hiciste pedazos a <strong>{kills} Zombie(s)</strong>!]]></target>
       </segment>
     </unit>
     <unit id="Pd1i68n" name="5bbcfac">
@@ -7760,7 +7760,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!</source>
-        <target>Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!</target>
+        <target>No llevas puesto tu traje de camuflaje, serás visto en el paraje... ¡Me salió una rima!</target>
       </segment>
     </unit>
     <unit id="K5gMU.j" name="Kreischender Wecker (entladen)">
@@ -7895,7 +7895,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen</source>
-        <target>Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen</target>
+        <target>No hay nada mejor como una pinta de cerveza oscura para inspirar poesía, risas y lucha de zombies... *Aprobado por Charlie Sheen</target>
       </segment>
     </unit>
     <unit id="KXJ5rEK" name="1a1dc68">
@@ -8057,7 +8057,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du bist ab sofort getarnt.</source>
-        <target>Du bist ab sofort getarnt.</target>
+        <target>Ahora estás camuflado.</target>
       </segment>
     </unit>
     <unit id="x.8gDqz" name="17bda63">
