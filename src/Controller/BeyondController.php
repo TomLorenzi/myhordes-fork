@@ -477,17 +477,23 @@ class BeyondController extends InventoryAwareController
         if ($citizen->getAp() < 2 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
-        $this->citizen_handler->setAP($citizen, true, -2);
-
         $hide_items = true;
         foreach ($citizen->getZone()->getCitizens() as $fellow_citizen) {
             if(!$fellow_citizen->getBanished() && !$town->getChaos()) // If there's a non-banished citizen on the zone during a non-chaos town, the items are not hidden
                 $hide_items = false;
         }
 
-        $this->addFlash('notice', $this->translator->trans('Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.', [], 'game'));
+        $r = $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler, $citizen, $hide_items, $processed);
+        if ($r->isSuccessResponse() && $hide_items && $processed > 0)
+            $this->addFlash('notice', $this->translator->trans('Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.', [], 'game'));
+        elseif ($r->isSuccessResponse() && !$hide_items && $processed > 0)
+            $this->addFlash('notice', $this->translator->trans('Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...', [], 'game'));
+        elseif ($r->isSuccessResponse() && $hide_items && $processed === 0) {
+            $this->addFlash('notice', $this->translator->trans('Du hast keine Gegenstände, die du verstecken könntest.', [], 'game'));
+            return AjaxResponse::success();
+        }
 
-        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler, $citizen, $hide_items);
+        return $r;
     }
 
     /**

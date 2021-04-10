@@ -35,6 +35,16 @@ class AjaxResponse extends JsonResponse
         return new AjaxResponse($additional);
     }
 
+    public function isErrorResponse(?int $check = null): bool {
+        $data = $this->data ? json_decode($this->data, true) : [];
+        return isset($data['error']) && ($check === null || $data['error'] === "$check");
+    }
+
+    public function isSuccessResponse(): bool {
+        $data = $this->data ? json_decode($this->data, true) : [];
+        return isset($data['success']);
+    }
+
     protected function update()
     {
         $r = parent::update();
