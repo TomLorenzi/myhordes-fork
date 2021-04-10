@@ -234,7 +234,7 @@
 
             <div x-tab-group="admin-town" x-tab-id="citizens" x-tab-target>
                 <div class="row">
-                    <div class="cell padded rw-6 rw-sm-12">
+                    <div class="cell padded rw-6 rw-md-12">
                         <div class="row-table citizens-list">
                             <div class="row header">
                                 <div class="padded cell rw-1">{{'Rucksack'|trans({}, 'admin')|slice(0,1)}}<div class="tooltip help">{{'Rucksack'|trans({}, 'admin')}}</div></div>
@@ -335,7 +335,7 @@
                             {% endfor %}
                         </div>
                     </div>
-                    <div class="cell rw-6 rw-sm-12 padded">
+                    <div class="cell rw-6 rw-md-12 padded">
                         {% if is_granted("ROLE_ADMIN") %}
                         <div class="padded cell">
                             {{ item_creator(itemPrototypes, 'ctz') }}
