@@ -18870,5 +18870,32 @@
         <target>Wähle einen Gegenstand aus der Bank aus...</target>
       </segment>
     </unit>
+    <unit id="B5sYzl." name="Aufklärer: Ruinen erkunden">
+      <notes>
+        <note category="german">Aufklärer: Ruinen erkunden</note>
+      </notes>
+      <segment>
+        <source>Aufklärer: Ruinen erkunden</source>
+        <target>Explorador: Examinar ruinas</target>
+      </segment>
+    </unit>
+    <unit id="_izB74m" name="Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</source>
+        <target>Esta acción te permite determinar el tipo de construcción enterrada aquí.</target>
+      </segment>
+    </unit>
+    <unit id="pqX0mgo" name="855fd56">
+      <notes>
+        <note category="german">Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</source>
+        <target><![CDATA[Te abres camino entre los escombros, recoges múltiples indicios, limpias el suelo con tus manos mugrientas...<hr />Después de varios minutos de investigación, ¡no te quedan dudas de que esos escombros esconden: ¡<strong>%building%</strong>!]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
