@@ -303,7 +303,7 @@ class AdminTownController extends AdminActionController
      * @param KernelInterface $kernel
      * @return Response
      */
-    public function town_manager(int $id, string $action, ItemFactory $itemFactory, RandomGenerator $random, NightlyHandler $night, GameFactory $gameFactory, CrowService $crowService, KernelInterface $kernel): Response
+    public function town_manager(int $id, string $action, ItemFactory $itemFactory, RandomGenerator $random, NightlyHandler $night, GameFactory $gameFactory, CrowService $crowService, KernelInterface $kernel, JSONRequestParser $parser): Response
     {
         /** @var Town $town */
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
@@ -312,8 +312,10 @@ class AdminTownController extends AdminActionController
         if (str_starts_with($action, 'dbg_') && $kernel->getEnvironment() !== 'dev')
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($action, ['release', 'quarantine', 'advance', 'nullify', 'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage']) && !$this->isGranted('ROLE_ADMIN'))
+        if (in_array($action, ['release', 'quarantine', 'advance', 'nullify', 'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage', 'dbg_set_well']) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $param = $parser->get('param');
 
         switch ($action) {
             case 'release':
@@ -435,6 +437,12 @@ class AdminTownController extends AdminActionController
                     $this->citizen_handler->removeStatus( $citizen, $thirst2 );
                     $this->entity_manager->persist($citizen);
                 }
+                break;
+
+            case 'dbg_set_well':
+                if (!is_numeric($param)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                $town->setWell($param);
+                $this->entity_manager->persist($town);
                 break;
 
             default:

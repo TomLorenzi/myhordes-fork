@@ -13,8 +13,8 @@
 {% block ajax %}
     {% macro valuelist(prop,val) %}
         <div class="row">
-            <div class="cell rw-4"><b>{{ prop }}</b></div>
-            <div class="cell rw-8">
+            <div class="padded cell rw-4 note note-lightest">{{ prop }}</div>
+            <div class="padded cell rw-8">
                 {% if val is same as(true) %}
                     {{ 'Ja'|trans({},'admin') }}
                 {% elseif val is same as(false)  %}
@@ -62,8 +62,8 @@
                         {{ _self.valuelist('Quarantäne'|trans({},'game'),  town.attackFails >= 3) }}
 
                         <div class="row">
-                            <div class="cell rw-4"><b><label for="administer-town">{{ 'Stadt administrieren'|trans({},'admin') }}</label></b></div>
-                            <div class="cell rw-8">
+                            <div class="padded cell rw-4 note note-lightest"><label for="administer-town">{{ 'Stadt administrieren'|trans({},'admin') }}</label></div>
+                            <div class="padded cell rw-8">
                                 <select id="administer-town" style="width: 30rem;">
                                     <option value="">-</option>
                                     {% if is_granted("ROLE_ADMIN") %}
@@ -103,6 +103,8 @@
                                                 {% if ctz_disengaged > 0 %}
                                                     <option value="{{ url('admin_town_manage', {action: 'dbg_engage', id: town.id}) }}">{{ 'Alle Spieler koppeln'|trans({},'admin') }}</option>
                                                 {% endif %}
+                                                <option value="{{ url('admin_town_manage', {action: 'dbg_set_well', id: town.id}) }}" x-query="{{ 'Neuer Füllstand:'|trans({},'admin') }}">{{ 'Brunnen-Füllstand setzen'|trans({},'admin') }}</option>
+
                                             </optgroup>
                                         {% endif %}
                                     {% endif %}
@@ -528,8 +530,16 @@
 
             document.getElementById('execute_button').addEventListener('click', function() {
                 if (!document.getElementById('administer-town').value) return;
-                let url = document.querySelector('#administer-town option:checked').getAttribute('x-alt-url');
-                $.ajax.easySend( document.getElementById('administer-town').value, {},
+                const url = document.querySelector('#administer-town option:checked').getAttribute('x-alt-url');
+                const query = document.querySelector('#administer-town option:checked').getAttribute('x-query');
+
+                let q_param = null;
+                if (query) {
+                    q_param = prompt(query, '');
+                    if (q_param === null) return;
+                }
+
+                $.ajax.easySend( document.getElementById('administer-town').value, {param: q_param},
                     function () {
                         $.ajax.load(null, url ? url : '{{ path('admin_town_explorer', {id: town.id}) }}', true);
                     } );
