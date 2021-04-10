@@ -36,6 +36,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -97,7 +98,7 @@ class AdminUserController extends AdminActionController
      */
     public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf,
                                          TwinoidHandler $twin, UserHandler $userHandler, PermissionHandler $perm,
-                                         UserPasswordEncoderInterface $passwordEncoder, CrowService $crow,
+                                         UserPasswordEncoderInterface $passwordEncoder, CrowService $crow, KernelInterface $kernel,
                                          string $param = ''): Response
     {
         /** @var User $user */
@@ -109,8 +110,12 @@ class AdminUserController extends AdminActionController
         if (in_array($action, [
             'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'delete', 'rename',
             'shadow', 'whitelist', 'unwhitelist', 'etwin_reset', 'overwrite_pw', 'initiate_pw_reset',
-            'enforce_pw_reset', 'change_mail' ]) && !$this->isGranted('ROLE_ADMIN'))
+            'enforce_pw_reset', 'change_mail',
+        ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if (str_starts_with($action, 'dbg_') && (!$this->isGranted('ROLE_ADMIN') || $kernel->getEnvironment() !== 'dev') )
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if ($action === 'grant' && $param !== 'NONE' && !$userHandler->admin_canGrant( $this->getUser(), $param ))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -353,6 +358,13 @@ class AdminUserController extends AdminActionController
                 }
                 $this->entity_manager->persist($user);
                 break;
+
+            case 'dbg_herodays':
+                if (empty($param) || !is_numeric($param)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                $user->setHeroDaysSpent( $param );
+                $this->entity_manager->persist($user);
+                break;
+
 
             default: return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         }

@@ -159,17 +159,18 @@
                         {% else %}
                             <div class="avatar small"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                         {% endif %}
-                        {% if post.translate %}
-                            <b>{{ author_name }}</b>
-                        {% else %}
-                            <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}"><b>{{ author_name }}</b></a>
-                            {% if post.owner.activeTitle or post.owner.activeIcon %}
-                                <br />
-                                <span class="small float-left">
-                                    {% if post.owner.activeIcon %}<img alt="" src="{{ asset('build/images/icons/title/' ~ post.owner.activeIcon.prototype.icon ~ '.gif') }}" />{% endif %}
-                                    {% if post.owner.activeTitle %}{{ post.owner.activeTitle.prototype.title|trans({},'game') }}{% endif %}
-                                </span>
-                            {% endif %}
+                        <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}"><b>{{ author_name }}</b></a>
+                        {% if post.owner.name == 'Der Rabe' %}
+                            <br />
+                            <span class="small float-left">
+                                {{ 'Ich beobachte euch...'|trans({},'game') }}
+                            </span>
+                        {% elseif post.owner.activeTitle or post.owner.activeIcon %}
+                            <br />
+                            <span class="small float-left">
+                                {% if post.owner.activeIcon %}<img alt="" src="{{ asset('build/images/icons/title/' ~ post.owner.activeIcon.prototype.icon ~ '.gif') }}" />{% endif %}
+                                {% if post.owner.activeTitle %}{{ post.owner.activeTitle.prototype.title|trans({},'game') }}{% endif %}
+                            </span>
                         {% endif %}
                         {% if post.note is not null %}<div class="right post-note">{{ post.note|replace({'%at_00%': 'in der Stadt oder am Stadttor'|trans({},'game')})|raw }}</div>{% endif %}
                     </div>
