@@ -11,6 +11,7 @@ use App\Entity\CitizenHome;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenRole;
+use App\Entity\CitizenStatus;
 use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\EventActivationMarker;
@@ -224,6 +225,15 @@ class TownHandler
                 break;
             case "item_courroie_#00":
                 $this->assignCatapultMaster($town);
+                break;
+            case "small_novlamps_#00":
+                // If the novelty lamps are built, it's effect must be applied immediately
+                $novlamp_status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('tg_novlamps');
+                foreach ($town->getCitizens() as $citizen) {
+                    if ($citizen->getAlive()) $this->citizen_handler->inflictStatus($citizen, $novlamp_status);
+                    $this->entity_manager->persist($citizen);
+                }
+
                 break;
             default: break;
         }
@@ -674,7 +684,7 @@ class TownHandler
         if($trigger_after) $trigger_after();
     }
 
-    public function get_red_soul_count(Town &$town){
+    public function get_red_soul_count(Town &$town): int {
         // Get all inventory IDs from the town
         // We're just getting IDs, because we don't want to actually hydrate the inventory instances
         $zone_invs = array_column($this->entity_manager->createQueryBuilder()
@@ -700,18 +710,14 @@ class TownHandler
             ->getQuery()->getScalarResult(), 'id');
 
         // Get all red soul items within these inventories
-        $query = $this->entity_manager->createQueryBuilder()
+        return $this->entity_manager->createQueryBuilder()
             ->select('SUM(i.count)')
             ->from(Item::class, 'i')
             ->andWhere('i.inventory IN (:invs)')->setParameter('invs', array_merge($zone_invs, [$town->getBank()->getId()], $chest_invs, $citizens_inv))
             ->andWhere('i.prototype IN (:protos)')->setParameter('protos', [
                 $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('soul_red_#00')
             ])
-            ->getQuery();
-
-        $redSoulsCount = $query->getSingleScalarResult();
-
-        return $redSoulsCount;
+            ->getQuery()->getSingleScalarResult() ?? 0;
     }
 
     /**

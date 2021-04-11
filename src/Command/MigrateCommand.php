@@ -75,7 +75,8 @@ class MigrateCommand extends Command
     protected static $git_script_repository = [
         'ce5c1810ee2bde2c10cc694e80955b110bbed010' => [ ['app:migrate', ['--calculate-score' => true] ] ],
         'e3a28a35e8ade5c767480bb3d8b7fa6daaf69f4e' => [ ['app:migrate', ['--build-forum-search-index' => true] ] ],
-        'd9960996e6d39ecc6431ef576470a048e4b43774' => [ ['app:migrate', ['--migrate-account-bans' => true] ] ]
+        'd9960996e6d39ecc6431ef576470a048e4b43774' => [ ['app:migrate', ['--migrate-account-bans' => true] ] ],
+        '2fd50ce43146b72886d94077a044bc22b94f3ef6' => [ ['app:migrate', ['--assign-awards' => true] ] ]
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -127,18 +128,15 @@ class MigrateCommand extends Command
             ->addOption('assign-special-actions-all', null, InputOption::VALUE_NONE, 'Resets the special actions for all citizens in all towns.')
             ->addOption('assign-town-season', null, InputOption::VALUE_NONE, 'Assigns the towns with no season to the latest available.')
             ->addOption('init-item-stacks', null, InputOption::VALUE_NONE, 'Sets item count for items without a counter to 1')
-            ->addOption('delete-legacy-logs', null, InputOption::VALUE_NONE, 'Deletes legacy log entries')
             ->addOption('calculate-score', null, InputOption::VALUE_NONE, 'Recalculate the score for each ended town')
             ->addOption('build-forum-search-index', null, InputOption::VALUE_NONE, 'Initializes search structures for the forum')
             ->addOption('migrate-account-bans', null, InputOption::VALUE_NONE, 'Migrates old account bans to the new system')
 
-            ->addOption('set-default-zonetag', null, InputOption::VALUE_NONE, 'Set the default tag to all zones')
-            ->addOption('assign-building-hp', null, InputOption::VALUE_NONE, 'Give HP to all buildings (so they can be attacked by zeds)')
-            ->addOption('assign-building-defense', null, InputOption::VALUE_NONE, 'Give defense to all buildings (so they can be attacked by zeds)')
             ->addOption('update-ranking-entries', null, InputOption::VALUE_NONE, 'Update ranking values')
             ->addOption('fix-ruin-inventories', null, InputOption::VALUE_NONE, 'Move each items belonging to a RuinRoom to its corresponding RuinZone')
             ->addOption('update-shaman-immune', null, InputOption::VALUE_NONE, 'Changes status tg_immune to tg_shaman_immune')
             ->addOption('place-explorables', null, InputOption::VALUE_NONE, 'Adds explorable ruins to all towns')
+            ->addOption('assign-awards', null, InputOption::VALUE_NONE, 'Adds explorable ruins to all towns')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
         ;
@@ -591,18 +589,6 @@ class MigrateCommand extends Command
             return 0;
         }
 
-        if ($input->getOption('delete-legacy-logs')) {
-            /** @var TownLogEntry[] $log_entries */
-            $log_entries = $this->entity_manager->getRepository(TownLogEntry::class)->findAll();
-            foreach ($log_entries as $entry)
-                if ($entry->getLogEntryTemplate() === null)
-                $this->entity_manager->remove( $entry );
-            $this->entity_manager->flush();
-            $output->writeln('OK!');
-
-            return 0;
-        }
-
         if ($input->getOption('calculate-score')) {
             $this->leChunk($output, TownRankingProxy::class, 5000, ['imported' => false], true, true, function(TownRankingProxy $town) {
                 $score = 0;
@@ -623,6 +609,14 @@ class MigrateCommand extends Command
             $this->leChunk($output, Post::class, 100, ['translate' => false, 'searchForum' => null, 'searchText' => null], false, true, function(Post $post) {
                 $post->setSearchText( strip_tags( $post->getText() ) );
                 $post->setSearchForum( $post->getThread()->getForum() );
+            });
+
+            return 0;
+        }
+
+        if ($input->getOption('assign-awards')) {
+            $this->leChunk($output, User::class, 100, [], true, true, function(User $user) {
+                $this->user_handler->computePictoUnlocks($user);
             });
 
             return 0;
@@ -668,49 +662,6 @@ class MigrateCommand extends Command
                 $this->entity_manager->persist($ban->getUser());
                 return false;
             });
-
-            return 0;
-        }
-
-        if ($input->getOption('set-default-zonetag')) {
-            /** @var Zone[] $zones */
-            $zones = $this->entity_manager->getRepository(Zone::class)->findAll();
-            $defaultTag = $this->entity_manager->getRepository(ZoneTag::class)->findOneByRef(0);
-            foreach ($zones as $entry)
-                if ($entry->getTag() === null){
-                    $entry->setTag($defaultTag);
-                    $this->entity_manager->persist($entry);
-                }
-            $this->entity_manager->flush();
-            $output->writeln('OK!');
-
-            return 0;
-        }
-
-        if ($input->getOption('assign-building-hp')) {
-            /** @var Building[] $buildings */
-            $building = $this->entity_manager->getRepository(Building::class)->findAll();
-            foreach ($building as $entry)
-                if ($entry->getComplete()){
-                    $entry->setHp($entry->getPrototype()->getHp());
-                    $this->entity_manager->persist($entry);
-                }
-            $this->entity_manager->flush();
-            $output->writeln('OK!');
-
-            return 0;
-        }
-
-        if ($input->getOption('assign-building-defense')) {
-            /** @var Building[] $buildings */
-            $building = $this->entity_manager->getRepository(Building::class)->findAll();
-            foreach ($building as $entry)
-                if ($entry->getComplete()){
-                    $entry->setDefense($entry->getPrototype()->getDefense());
-                    $this->entity_manager->persist($entry);
-                }
-            $this->entity_manager->flush();
-            $output->writeln('OK!');
 
             return 0;
         }

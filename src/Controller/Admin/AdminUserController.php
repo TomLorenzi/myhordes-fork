@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AccountRestriction;
 use App\Entity\Citizen;
+use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
@@ -16,6 +17,7 @@ use App\Entity\ShadowBan;
 use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
 use App\Entity\User;
+use App\Entity\UserDescription;
 use App\Entity\UserGroup;
 use App\Entity\UserPendingValidation;
 use App\Exception\DynamicAjaxResetException;
@@ -24,6 +26,7 @@ use App\Service\AdminActionHandler;
 use App\Service\AntiCheatService;
 use App\Service\CrowService;
 use App\Service\ErrorHelper;
+use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\PermissionHandler;
 use App\Service\TwinoidHandler;
@@ -31,8 +34,10 @@ use App\Service\UserFactory;
 use App\Service\UserHandler;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -62,16 +67,18 @@ class AdminUserController extends AdminActionController
      * @param int $id
      * @return Response
      */
-    public function users_account_view(int $id): Response
+    public function users_account_view(int $id, HTMLService $html): Response
     {
         /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->find($id);
         if (!$user) return $this->redirect( $this->generateUrl('admin_users') );
 
         $validations = $this->isGranted('ROLE_ADMIN') ? $this->entity_manager->getRepository(UserPendingValidation::class)->findByUser($user) : [];
+        $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
 
         return $this->render( 'ajax/admin/users/account.html.twig', $this->addDefaultTwigArgs("admin_users_account", [
             'user' => $user,
+            'user_desc' => $desc ? $html->prepareEmotes($desc->getText()) : null,
             'validations' => $validations,
         ]));
     }
@@ -92,7 +99,7 @@ class AdminUserController extends AdminActionController
      */
     public function user_account_manager(int $id, string $action, JSONRequestParser $parser, UserFactory $uf,
                                          TwinoidHandler $twin, UserHandler $userHandler, PermissionHandler $perm,
-                                         UserPasswordEncoderInterface $passwordEncoder, CrowService $crow,
+                                         UserPasswordEncoderInterface $passwordEncoder, CrowService $crow, KernelInterface $kernel,
                                          string $param = ''): Response
     {
         /** @var User $user */
@@ -104,8 +111,12 @@ class AdminUserController extends AdminActionController
         if (in_array($action, [
             'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'delete', 'rename',
             'shadow', 'whitelist', 'unwhitelist', 'etwin_reset', 'overwrite_pw', 'initiate_pw_reset',
-            'enforce_pw_reset', 'change_mail' ]) && !$this->isGranted('ROLE_ADMIN'))
+            'enforce_pw_reset', 'change_mail',
+        ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if (str_starts_with($action, 'dbg_') && (!$this->isGranted('ROLE_ADMIN') || $kernel->getEnvironment() !== 'dev') )
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if ($action === 'grant' && $param !== 'NONE' && !$userHandler->admin_canGrant( $this->getUser(), $param ))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -224,6 +235,12 @@ class AdminUserController extends AdminActionController
                 $this->entity_manager->persist($user);
                 break;
 
+            case 'rename_pseudo':
+                if (empty($param)) $user->setDisplayName( null );
+                else $user->setDisplayName( $param );
+                $this->entity_manager->persist($user);
+                break;
+
             case 'delete':
                 if ($user->getEternalID())
                     return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -236,6 +253,7 @@ class AdminUserController extends AdminActionController
 
                 $this->entity_manager->persist(
                     (new AccountRestriction())
+                        ->setUser($user)
                         ->setActive(true)
                         ->setConfirmed(true)
                         ->setPublicReason($param)
@@ -280,6 +298,20 @@ class AdminUserController extends AdminActionController
                     foreach ($user->getConnectionWhitelists() as $wl)
                         if ($wl->getUsers()->count() < 2) $this->entity_manager->remove($wl);
                         else $this->entity_manager->persist($wl);
+                }
+                break;
+
+            case 'clear_title':
+                $user->setActiveIcon(null)->setActiveTitle(null);
+                break;
+            case 'clear_desc':
+                $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
+                if ($desc) $this->entity_manager->remove($desc);
+                break;
+            case 'clear_avatar':
+                if ($user->getAvatar()) {
+                    $this->entity_manager->remove($user->getAvatar());
+                    $user->setAvatar(null);
                 }
                 break;
 
@@ -328,12 +360,19 @@ class AdminUserController extends AdminActionController
                 $this->entity_manager->persist($user);
                 break;
 
+            case 'dbg_herodays':
+                if (empty($param) || !is_numeric($param)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                $user->setHeroDaysSpent( max(0,$param) );
+                $this->entity_manager->persist($user);
+                break;
+
+
             default: return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         }
 
         try {
             $this->entity_manager->flush();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, [$e->getMessage()] );
         }
 
@@ -474,7 +513,7 @@ class AdminUserController extends AdminActionController
         $duration  = $parser->get_int('duration');
         $mask      = $parser->get_int('restriction', 0);
 
-        if ($duration === 0 || $mask <= 0 || ($mask & ~(AccountRestriction::RestrictionSocial | AccountRestriction::RestrictionGameplay)))
+        if ($duration === 0 || $mask <= 0 || ($mask & ~(AccountRestriction::RestrictionSocial | AccountRestriction::RestrictionGameplay | AccountRestriction::RestrictionProfile)))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $a = (new AccountRestriction())
@@ -622,6 +661,7 @@ class AdminUserController extends AdminActionController
             'alive' => $alive,
             'user' => $user,
             'user_citizen' => $citizen,
+            'home_upgrades' => $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findAll(),
             'itemPrototypes' => $itemPrototypes,
             'pictoPrototypes' => $pictoProtos,
             'citizenStati' => $citizenStati,

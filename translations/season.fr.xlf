@@ -145,5 +145,14 @@
         <target>Corps vidés</target>
       </segment>
     </unit>
+    <unit id="znXJy5h" name="Saison 1.">
+      <notes>
+        <note category="german">Saison 1.</note>
+      </notes>
+      <segment>
+        <source>Saison 1.</source>
+        <target>Saison 1.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

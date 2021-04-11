@@ -28,6 +28,14 @@ class AccountRestriction
     // Gameplay restrictions
     const RestrictionGameplay            = 1 << 10;
 
+    // Profile restrictions
+    const RestrictionProfileAvatar       = 1 << 20;
+    const RestrictionProfileDescription  = 1 << 21;
+    const RestrictionProfileTitle        = 1 << 22;
+    const RestrictionProfile             = AccountRestriction::RestrictionProfileAvatar |
+                                           AccountRestriction::RestrictionProfileDescription |
+                                           AccountRestriction::RestrictionProfileTitle;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue

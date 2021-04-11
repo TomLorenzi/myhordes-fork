@@ -551,14 +551,15 @@ class NightlyHandler
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay()-1);
         $zombies = $est ? $est->getZombies() : 0;
 
-        $soulFactor = min(1 + (0.04 * $this->town_handler->get_red_soul_count($town)), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
+        $redsouls = $this->town_handler->get_red_soul_count($town);
+        $soulFactor = min(1 + (0.04 * $redsouls), (float)$this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RED_SOUL_FACTOR, 1.2));
 
         $zombies *= $soulFactor;
         $zombies = round($zombies);
         $gazette->setAttack($zombies);
 
         $overflow = !$town->getDoor() ? max(0, $zombies - $def) : $zombies;
-        $this->log->debug("The town has <info>{$def}</info> defense and is attacked by <info>{$zombies}</info> Zombies. The door is <info>" . ($town->getDoor() ? 'open' : 'closed') . "</info>!", $def_summary ? $def_summary->toArray() : []);
+        $this->log->debug("The town has <info>{$def}</info> defense and is attacked by <info>{$zombies}</info> Zombies (<info>{$est->getZombies()}</info> x <info>{$soulFactor}</info>, from <info>{$redsouls}</info> red souls). The door is <info>" . ($town->getDoor() ? 'open' : 'closed') . "</info>!", $def_summary ? $def_summary->toArray() : []);
         $this->log->debug("<info>{$overflow}</info> Zombies have entered the town!");
 
         $gazette->setInvasion($overflow);
@@ -931,10 +932,26 @@ class NightlyHandler
         $status_ooze = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'tg_april_ooze'] );
         $status_paranoid = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'tg_paranoid'] );
 
-        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drunk','drugged','healed','hungover','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_chk_workshop', 'tg_chk_build', 'tg_chk_movewb', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff', 'tg_rested', 'tg_shaman_heal', 'tg_ghoul_eat', 'tg_no_hangover', 'tg_ghoul_corpse', 'tg_betadrug', 'tg_build_vote', 'tg_insurrection', 'tg_april_ooze'];
+        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drunk','drugged','healed','hungover','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_chk_workshop', 'tg_chk_build', 'tg_chk_movewb', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff', 'tg_rested', 'tg_shaman_heal', 'tg_ghoul_eat', 'tg_no_hangover', 'tg_ghoul_corpse', 'tg_betadrug', 'tg_build_vote', 'tg_insurrection', 'tg_april_ooze', 'tg_novlamps'];
 
         $aliveCitizenInTown = 0;
         $aliveCitizen = 0;
+
+        $ghoul_mode  = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_FEATURE_GHOUL_MODE, 'normal');
+        $ghoul_begin = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_AUTOGHOUL_FROM, 5);
+
+        // Check if we need to ghoulify someone
+        if (in_array($ghoul_mode, ['airborne', 'airbnb']) && $town->getDay() >= $ghoul_begin) {
+
+            // Starting with the auto ghoul begin day, every 3 days a new ghoul is added
+            if (($town->getDay() - $ghoul_begin) % 3 === 0) {
+                $this->log->debug("Distributing the <info>airborne ghoul infection</info>!");
+                $this->citizen_handler->pass_airborne_ghoul_infection(null,$town);
+            }
+
+
+        }
+
         foreach ($town->getCitizens() as $citizen) {
 
             if ($citizen->getDailyUpgradeVote()) {
@@ -1025,6 +1042,13 @@ class NightlyHandler
                 $this->citizen_handler->setAP($citizen, true, 1);
                 $alarm[0]->setPrototype($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'alarm_off_#00']));
                 $this->entity_manager->persist($alarm[0]);
+            }
+
+            if ($this->citizen_handler->hasStatusEffect($citizen, 'tg_air_infected')) {
+                $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> has been infected by the <info>airborne ghoul disease</info>!: Turning them into a <info>ghoul</info>!");
+                $this->citizen_handler->removeStatus($citizen, 'tg_air_infected');
+                $this->citizen_handler->addRole($citizen, 'ghoul');
+                $this->citizen_handler->inflictStatus($citizen, 'tg_air_ghoul');
             }
         }
 
@@ -1368,6 +1392,44 @@ class NightlyHandler
         }
     }
 
+    private function stage3_building_effects(Town $town) {
+        $this->log->info('<info>Processing post-attack building functions</info> ...');
+
+        $novelty_lamps = $this->town_handler->getBuilding( $town, 'small_novlamps_#00', true );
+
+        if ($novelty_lamps) {
+            $bats = $novelty_lamps->getLevel() > 0 ? ($novelty_lamps->getLevel() > 2 ? 2 : 1) : 0;
+
+            $ok = $bats === 0;
+
+            $this->log->debug("Novelty Lamps: Building needs <info>{$bats}</info> batteries to operate.");
+
+            if ($bats > 0) {
+                $n = $bats;
+                $items = $this->inventory_handler->fetchSpecificItems( $town->getBank(), [new ItemRequest('pile_#00', $bats)] );
+
+                if ($items) {
+                    while (!empty($items) && $n > 0) {
+                        $item = array_pop($items);
+                        $c = $item->getCount();
+                        $this->inventory_handler->forceRemoveItem( $item, $n );
+                        $n -= $c;
+                    }
+                    $this->entity_manager->persist( $this->logTemplates->nightlyAttackBuildingBatteries( $novelty_lamps, $bats ) );
+                    $ok = true;
+                } else $this->log->debug("Novelty Lamps: Not enough batteries in the bank, building is <info>disabled</info>.");
+
+            }
+
+            if ($ok) {
+                $this->log->debug("Novelty Lamps: Building is <info>enabled</info>, setting status for all citizens.");
+                $novlamp_status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('tg_novlamps');
+                foreach ($town->getCitizens() as $citizen)
+                    if ($citizen->getAlive()) $this->citizen_handler->inflictStatus($citizen, $novlamp_status);
+            }
+        }
+    }
+
     /**
      * @param Town $town
      * @param EventConf[] $events
@@ -1407,6 +1469,7 @@ class NightlyHandler
         $this->stage3_zones($town);
         $this->stage3_items($town);
         $this->stage3_pictos($town);
+        $this->stage3_building_effects($town);
 
         foreach ($events as $event) $event->hook_nightly_post($town);
 

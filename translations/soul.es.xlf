@@ -2635,5 +2635,134 @@
         <target>¿Confirmas abandonar esta alianza?</target>
       </segment>
     </unit>
+    <unit id="e5CjO7g" name="Ändern des Avatars">
+      <notes>
+        <note category="german">Ändern des Avatars</note>
+      </notes>
+      <segment>
+        <source>Ändern des Avatars</source>
+        <target>Cambiar el avatar</target>
+      </segment>
+    </unit>
+    <unit id="Ag772xl" name="c97e118">
+      <notes>
+        <note category="german">Du kannst deinen Avatar nicht mehr bearbeiten. Falls du aktuell einen Avatar hast, kannst du diesen jedoch löschen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Avatar nicht mehr bearbeiten. Falls du aktuell einen Avatar hast, kannst du diesen jedoch löschen.</source>
+        <target>Ya no puede editar tu avatar. Sin embargo, si actualmente tiene un avatar, puede eliminarlo.</target>
+      </segment>
+    </unit>
+    <unit id="sXIofxl" name="Ändern des Profiltitels">
+      <notes>
+        <note category="german">Ändern des Profiltitels</note>
+      </notes>
+      <segment>
+        <source>Ändern des Profiltitels</source>
+        <target>Cambiar mi título</target>
+      </segment>
+    </unit>
+    <unit id="Gw1mlg1" name="0a58461">
+      <notes>
+        <note category="german">Du kannst deinen deinen Profil-Titel sowie Icon nicht länger ändern. Wenn du aktuell einen Titel oder ein Icon gesetzt hast, kannst du diese jedoch entfernen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen deinen Profil-Titel sowie Icon nicht länger ändern. Wenn du aktuell einen Titel oder ein Icon gesetzt hast, kannst du diese jedoch entfernen.</source>
+        <target>Ya no puede cambiar el título ni el icono de tu perfil. Sin embargo, si ha establecido un título o un icono, puede eliminarlo.</target>
+      </segment>
+    </unit>
+    <unit id="U8rWfCJ" name="Ändern der Profilbeschreibung">
+      <notes>
+        <note category="german">Ändern der Profilbeschreibung</note>
+      </notes>
+      <segment>
+        <source>Ändern der Profilbeschreibung</source>
+        <target>Cambiar la descripción de tu perfil</target>
+      </segment>
+    </unit>
+    <unit id="Z7.2LZ_" name="17aace6">
+      <notes>
+        <note category="german">Du kannst deine Profilbeschreibung nicht länger ändern. Eine bestehende Profilbeschreibung kann jedoch gelöscht werden.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deine Profilbeschreibung nicht länger ändern. Eine bestehende Profilbeschreibung kann jedoch gelöscht werden.</source>
+        <target>Ya no puede cambiar la descripción de su perfil. Sin embargo, se puede eliminar una descripción de perfil existente.</target>
+      </segment>
+    </unit>
+    <unit id="j5yXkX6" name="Kein Icon">
+      <notes>
+        <note category="german">Kein Icon</note>
+      </notes>
+      <segment>
+        <source>Kein Icon</source>
+        <target>Sin icono</target>
+      </segment>
+    </unit>
+    <unit id="FjAvXSr" name="Du hast noch kein Icon freigeschaltet!">
+      <notes>
+        <note category="german">Du hast noch kein Icon freigeschaltet!</note>
+      </notes>
+      <segment>
+        <source>Du hast noch kein Icon freigeschaltet!</source>
+        <target>¡Aún no has desbloqueado un ícono!</target>
+      </segment>
+    </unit>
+    <unit id="s98CmDi" name="Kein Titel">
+      <notes>
+        <note category="german">Kein Titel</note>
+      </notes>
+      <segment>
+        <source>Kein Titel</source>
+        <target>Sin título</target>
+      </segment>
+    </unit>
+    <unit id="UWvnfeW" name="Dein Avatar">
+      <notes>
+        <note category="german">Dein Avatar</note>
+      </notes>
+      <segment>
+        <source>Dein Avatar</source>
+        <target>Tu avatar</target>
+      </segment>
+    </unit>
+    <unit id="FFE77tY" name="fd22293">
+      <notes>
+        <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
+      </notes>
+      <segment>
+        <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</source>
+        <target>Seleccione qué parte de su foto de perfil debe usarse para la visualización reducida.
+                                                    Mueva la sección con el ratón y amplíela o redúzcala con la rueda del ratón.</target>
+      </segment>
+    </unit>
+    <unit id="ff37B3l" name="Du hast aktuell noch keine Plätze reserviert.">
+      <notes>
+        <note category="german">Du hast aktuell noch keine Plätze reserviert.</note>
+      </notes>
+      <segment>
+        <source>Du hast aktuell noch keine Plätze reserviert.</source>
+        <target>Aún no has reservado ningún lugar.</target>
+      </segment>
+    </unit>
+    <unit id="Zk.3Qol" name="Reservierte Plätze:">
+      <notes>
+        <note category="german">Reservierte Plätze:</note>
+      </notes>
+      <segment>
+        <source>Reservierte Plätze:</source>
+        <target>Lugares reservados:</target>
+      </segment>
+    </unit>
+    <unit id="DFJoP7h" name="Du kannst kein Icon ohne einen Titel wählen.">
+      <notes>
+        <note category="german">Du kannst kein Icon ohne einen Titel wählen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst kein Icon ohne einen Titel wählen.</source>
+        <target>Du kannst kein Icon ohne einen Titel wählen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -106,7 +106,7 @@ class ItemFixtures extends Fixture
         ['label' => 'Alte Tür', 'icon' => 'door', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 10],                                                   // -- ---
         ['label' => 'Unförmige Zementblöcke', 'icon' => 'concrete_wall', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                            // -- Out
         ['label' => 'Holzbock', 'icon' => 'trestle', 'category' => 'Armor', 'deco' =>1, 'heavy' =>true, 'watchpoint' => 4],                                                // -- ---
-        ['label' => 'Järpen-Tisch', 'icon' => 'table', 'category' => 'Armor', 'deco' =>3, 'heavy' =>true, 'watchpoint' => 15],                                              // -- ---
+        ['label' => 'Järpen-Tisch', 'icon' => 'table', 'category' => 'Armor', 'deco' =>3, 'heavy' =>true, 'watchpoint' => 8],                                              // -- ---
         ['label' => 'Solide Holzplatte', 'icon' => 'wood_plate', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                    // -- ---
         ['label' => 'Autotür', 'icon' => 'car_door', 'category' => 'Armor', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 40],                                                // -- ---
         ['label' => 'Fackel', 'icon' => 'torch', 'category' => 'Armor', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 15],                                                   // -- Out
@@ -155,9 +155,9 @@ class ItemFixtures extends Fixture
         ['label' => 'Zerstörer (geladen)', 'icon' => 'big_pgun', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 10],                                  // -- Out
         ['label' => 'Kanisterpumpe (einsatzbereit)', 'icon' => 'jerrygun', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                        // -- Out
         ['label' => 'Angeknackster menschlicher Knochen', 'icon' => 'bone', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 10],                       // -- Out
-        ['label' => 'Wasserpistole (3 Ladungen)', 'icon' => 'watergun_3', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 9],                         // -- Out
-        ['label' => 'Wasserpistole (2 Ladungen)', 'icon' => 'watergun_2', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 9],                         // -- Out
-        ['label' => 'Wasserpistole (1 Ladung)', 'icon' => 'watergun_1', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 9],                           // -- Out
+        ['label' => 'Wasserpistole (3 Ladungen)', 'icon' => 'watergun_3', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8],                         // -- Out
+        ['label' => 'Wasserpistole (2 Ladungen)', 'icon' => 'watergun_2', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8],                         // -- Out
+        ['label' => 'Wasserpistole (1 Ladung)', 'icon' => 'watergun_1', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8],                           // -- Out
         ['label' => 'Aqua-Splash (5 Ladungen)', 'icon' => 'watergun_opt_5', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8],                       // -- Out
         ['label' => 'Aqua-Splash (4 Ladungen)', 'icon' => 'watergun_opt_4', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8],                       // -- Out
         ['label' => 'Batteriewerfer Mark II (geladen)', 'icon' => 'pilegun_up', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 11],                   // -- Out
@@ -254,9 +254,9 @@ class ItemFixtures extends Fixture
         ['label' => 'Verschimmelte Stulle', 'icon' => 'food_sandw', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // In Out
         ['label' => 'Chinesische Nudeln', 'icon' => 'food_noodles', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // In Out
         ['label' => 'Verdächtige Speise', 'icon' => 'dish', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 4],                                         // In Out
-        ['label' => 'Wasserspender (1 Ration)', 'icon' => 'water_can_1', 'category' => 'Food', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 20],                             // In Out
-        ['label' => 'Wasserspender (2 Rationen)', 'icon' => 'water_can_2', 'category' => 'Food', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 20],                           // In Out
-        ['label' => 'Wasserspender (3 Rationen)', 'icon' => 'water_can_3', 'category' => 'Food', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 20],                           // In Out
+        ['label' => 'Wasserspender (1 Ration)', 'icon' => 'water_can_1', 'category' => 'Food', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 11],                             // In Out
+        ['label' => 'Wasserspender (2 Rationen)', 'icon' => 'water_can_2', 'category' => 'Food', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 11],                           // In Out
+        ['label' => 'Wasserspender (3 Rationen)', 'icon' => 'water_can_3', 'category' => 'Food', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 11],                           // In Out
         ['label' => 'Aasbeerenbrei', 'icon' => 'fruit', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                             // In Out
         ['label' => 'Gereinigtes modriges Wasser', 'icon' => 'water_cup', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                           // In Out
         ['label' => 'Brezel', 'icon' => 'bretz', 'category' => 'Food', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                                    // In Out
@@ -292,7 +292,7 @@ class ItemFixtures extends Fixture
 		
         ['label' => 'Staubiges Buch', 'icon' => 'rp_book', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                           // In Out
         ['label' => 'Ein paar Würfel', 'icon' => 'dice', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                             // In Out
-        ['label' => 'Motor', 'icon' => 'engine', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 40],                                                      // -- ---
+        ['label' => 'Motor', 'icon' => 'engine', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 30],                                                      // -- ---
         ['label' => 'Vibrator (geladen)', 'icon' => 'vibr', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => -5],                                          // In ---
         ['label' => 'Wackliger Einkaufswagen', 'icon' => 'cart_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                 // -- ---
         ['label' => 'Unvollständiger Kaffeekocher', 'icon' => 'coffee_machine_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                  // -- ---
@@ -378,7 +378,7 @@ class ItemFixtures extends Fixture
 		['label' => 'Huhn', 'icon' => 'pet_chick', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8, 'fragile' => true],                                                // -- Out
         ['label' => 'Übelriechendes Schwein', 'icon' => 'pet_pig', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 20, 'fragile' => true],                                 // -- Out
         ['label' => 'Riesige Ratte', 'icon' => 'pet_rat', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 4, 'fragile' => true],                                         // -- Out
-        ['label' => 'Zwei-Meter Schlange', 'icon' => 'pet_snake', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 20, 'fragile' => true],                                  // -- Out
+        ['label' => 'Zwei-Meter Schlange', 'icon' => 'pet_snake', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 15, 'fragile' => true],                                  // -- Out
 		['label' => 'Holzkistendeckel', 'icon' => 'wood_plate_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                                // -- ---
 		['label' => 'Unverarbeitete Blechplatten', 'icon' => 'plate_raw', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0],                           // -- ---
 		['label' => 'Kanisterpumpe (zerlegt)', 'icon' => 'jerrygun_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                          // -- ---
@@ -783,7 +783,7 @@ class ItemFixtures extends Fixture
         'cutcut_#00'                 => [ 'impoundable', 'weapon', 'box_opener', 'esc_fixed', 'nw_armory' ],
         'hurling_stick_#00'          => [ 'weapon', 'box_opener', 'nw_armory' ],
         'chair_basic_#00'            => [ 'box_opener', 'nw_ikea', 'nw_armory' ],
-        'chair_#00'                  => [ 'nw_armory' ],
+        'chair_#00'                  => [ 'nw_ikea', 'nw_armory' ],
         'staff_#00'                  => [ 'impoundable', 'weapon', 'box_opener', 'nw_armory' ],
         'chain_#00'                  => [ 'impoundable', 'weapon', 'box_opener', 'esc_fixed', 'nw_armory' ],
         'pc_#00'                     => [ 'box_opener', 'nw_ikea', 'nw_armory' ],
@@ -794,8 +794,8 @@ class ItemFixtures extends Fixture
         'torch_#00'                  => [ 'impoundable', 'defence', 'weapon', 'nw_ikea', 'nw_armory', 'prevent_night' ],
         'tekel_#00'                  => [ 'impoundable', 'defence', 'lock', 'pet' ],
         'trestle_#00'                => [ 'impoundable', 'defence' ],
-        'table_#00'                  => [ 'impoundable', 'defence' ],
-        'bed_#00'                    => [ 'impoundable', 'defence' ],
+        'table_#00'                  => [ 'impoundable', 'defence', 'nw_ikea' ],
+        'bed_#00'                    => [ 'impoundable', 'defence', 'nw_ikea' ],
         'wood_plate_#00'             => [ 'impoundable', 'defence' ],
         'concrete_wall_#00'          => [ 'impoundable', 'defence' ],
         'wood_bad_#00'               => [ 'impoundable', 'ressource' ],
@@ -813,8 +813,8 @@ class ItemFixtures extends Fixture
         'explo_#00'                  => [ 'impoundable', 'ressource' ],
         'pumpkin_on_#00'             => [ 'defence' ],
         'mecanism_#00'               => [ 'impoundable', 'ressource', 'hero_find_lucky' ],
-        'grenade_#00'                => [ 'impoundable', 'weapon', 'hero_find', 'esc_fixed', 'nw_armory', 'hero_find_lucky' ],
-        'bgrenade_#00'               => [ 'impoundable', 'weapon', 'nw_armory' ],
+        'grenade_#00'                => [ 'impoundable', 'weapon', 'hero_find', 'esc_fixed', 'nw_armory', 'hero_find_lucky', 'nw_shooting' ],
+        'bgrenade_#00'               => [ 'impoundable', 'weapon', 'nw_armory', 'nw_shooting' ],
         'boomfruit_#00'              => [ 'impoundable', 'weapon', 'nw_armory' ],
         'pilegun_#00'                => [ 'impoundable', 'weapon', 'nw_armory' ],
         'pilegun_up_#00'             => [ 'impoundable', 'weapon', 'esc_fixed', 'nw_armory' ],
@@ -900,7 +900,7 @@ class ItemFixtures extends Fixture
         'egg_#00'                    => [ 'food', 'esc_fixed' ],
         'apple_#00'                  => [ 'food', 'esc_fixed' ],
         'angryc_#00'                 => [ 'pet', 'weapon' ],
-        'pet_cat_#00'                => [ 'pet', 'esc_fixed', 'nw_trebuchet', 'nw_ikea' ],
+        'pet_cat_#00'                => [ 'pet', 'esc_fixed', 'nw_trebuchet' ],
         'pet_chick_#00'              => [ 'pet', 'nw_trebuchet' ],
         'pet_pig_#00'                => [ 'pet', 'nw_trebuchet' ],
         'pet_rat_#00'                => [ 'pet', 'nw_trebuchet' ],

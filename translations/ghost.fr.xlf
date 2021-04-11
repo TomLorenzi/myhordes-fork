@@ -244,7 +244,7 @@
       </notes>
       <segment>
         <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</source>
-        <target>La goule a un fonctionnement normal et apparaîtra selon les règles propres au type de ville choisie.</target>
+        <target>Selon le type de ville sélectionné, les goules apparaissent selon les règles habituelles.</target>
       </segment>
     </unit>
     <unit id="pySO60X" name="Normal">
@@ -280,7 +280,7 @@
       </notes>
       <segment>
         <source>Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.</source>
-        <target>Ville de bisounours : pas de goule possible.</target>
+        <target>Les goules n'apparaissent pas automatiquement, mais d'autres choses peuvent transformer les gens en goules.</target>
       </segment>
     </unit>
     <unit id="iE_uBzc" name="Stadt der Kuscheltiere">
@@ -1017,7 +1017,7 @@
       </notes>
       <segment>
         <source>Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</source>
-        <target>Attention: vous n'êtes pas en mode "DISPONIBLE" dans votre coalition : Si vous rejoignez une ville maintenant, vous le ferez seul(e) !</target>
+        <target>Vous n'êtes pas en mode "DISPONIBLE" dans votre coalition : Si vous rejoignez une ville maintenant, vous le ferez seul(e) !</target>
       </segment>
     </unit>
     <unit id="cglpSDE" name="6b90743">
@@ -1216,6 +1216,186 @@
       <segment>
         <source>Events</source>
         <target>Events</target>
+      </segment>
+    </unit>
+    <unit id="dctQQtZ" name="Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.">
+      <notes>
+        <note category="german">Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.</note>
+      </notes>
+      <segment>
+        <source>Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.</source>
+        <target>Le mode nuit est activé et l'Éclairage public est disponible.</target>
+      </segment>
+    </unit>
+    <unit id="JeVu4ox" name="Erweitert">
+      <notes>
+        <note category="german">Erweitert</note>
+      </notes>
+      <segment>
+        <source>Erweitert</source>
+        <target>Étendu</target>
+      </segment>
+    </unit>
+    <unit id="kKT9.CK" name="e8c1841">
+      <notes>
+        <note category="german">Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.</note>
+      </notes>
+      <segment>
+        <source>Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.</source>
+        <target>Le mode nuit est activé. L'Éclairage public n'est pas disponible.</target>
+      </segment>
+    </unit>
+    <unit id="1dCs8Np" name="Der Nachtmodus ist deaktiviert.">
+      <notes>
+        <note category="german">Der Nachtmodus ist deaktiviert.</note>
+      </notes>
+      <segment>
+        <source>Der Nachtmodus ist deaktiviert.</source>
+        <target>Le mode nuit est désactivé.</target>
+      </segment>
+    </unit>
+    <unit id="YgGsjbm" name="Eine Reservierung hinzufügen">
+      <notes>
+        <note category="german">Eine Reservierung hinzufügen</note>
+      </notes>
+      <segment>
+        <source>Eine Reservierung hinzufügen</source>
+        <target>Ajouter une réservation</target>
+      </segment>
+    </unit>
+    <unit id="HU4iMjQ" name="84a9e56">
+      <notes>
+        <note category="german">Du kannst hier festlegen, welche Spieler in deiner Privatstadt spielen dürfen. Andere Spieler können die Stadt nicht betreten! Als Stadtgründer kannst du in deiner Privatstadt immer auch selber mitspielen. Gibst du nur 39 Spieler an, wärst du der also der 40. Bürger.</note>
+      </notes>
+      <segment>
+        <source>Du kannst hier festlegen, welche Spieler in deiner Privatstadt spielen dürfen. Andere Spieler können die Stadt nicht betreten! Als Stadtgründer kannst du in deiner Privatstadt immer auch selber mitspielen. Gibst du nur 39 Spieler an, wärst du der also der 40. Bürger.</source>
+        <target>Ici, vous pouvez déterminer quels joueurs sont autorisés à jouer dans votre ville privée. Les autres joueurs ne peuvent pas entrer dans la ville! En tant que fondateur de la ville, vous pouvez toujours jouer avec vous-même dans votre ville privée. Si vous n'entriez que 39 joueurs, vous seriez le 40e citoyen.</target>
+      </segment>
+    </unit>
+    <unit id="KgvbGLh" name="d6ad9fa">
+      <notes>
+        <note category="german">So geht's: Tippe einen Spielernamen in das Feld ein. Wähle ihn dann aus den angezeigten Namen aus. Klicke dann auf "Hinzufügen". Wiederhole das für alle Spieler, die du auf die Liste setzen möchtest. Alternativ kannst du auch eine mit Komma getrennte Liste von Spielernamen eingeben, um mehrere Spieler auf einmal hiinzuzufügen. Falls du ein Passwort vergeben hast, vergiss nicht, es den Spielern zu schicken (z.B. in einer privaten Nachricht).</note>
+      </notes>
+      <segment>
+        <source>So geht's: Tippe einen Spielernamen in das Feld ein. Wähle ihn dann aus den angezeigten Namen aus. Klicke dann auf "Hinzufügen". Wiederhole das für alle Spieler, die du auf die Liste setzen möchtest. Alternativ kannst du auch eine mit Komma getrennte Liste von Spielernamen eingeben, um mehrere Spieler auf einmal hiinzuzufügen. Falls du ein Passwort vergeben hast, vergiss nicht, es den Spielern zu schicken (z.B. in einer privaten Nachricht).</source>
+        <target>Voici comment cela fonctionne: Tapez un nom de joueur dans le champ. Ensuite, sélectionnez-le parmi les noms qui apparaissent. Cliquez ensuite sur "Ajouter". Répétez pour tous les joueurs que vous souhaitez ajouter à la liste. Vous pouvez également entrer une liste de noms de joueurs séparés par des virgules pour ajouter plusieurs joueurs à la fois. Si vous avez attribué un mot de passe, n'oubliez pas de l'envoyer aux joueurs (par exemple dans un message privé).</target>
+      </segment>
+    </unit>
+    <unit id="VsZ8wM4" name="3e2e16b">
+      <notes>
+        <note category="german">&lt;strong&gt;Hinweis:&lt;/strong&gt; Beachte, dass sich diese Liste nicht nachträglich ändern lässt. Es ist darum empfehlenwert, &lt;strong&gt;mehr als nur 39 Spieler&lt;/strong&gt; anzugeben. Dann hast du eine Reserve, falls ein oder mehrere Spieler nicht teilnehmen können.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Hinweis:&lt;/strong&gt; Beachte, dass sich diese Liste nicht nachträglich ändern lässt. Es ist darum empfehlenwert, &lt;strong&gt;mehr als nur 39 Spieler&lt;/strong&gt; anzugeben. Dann hast du eine Reserve, falls ein oder mehrere Spieler nicht teilnehmen können.</source>
+        <target><![CDATA[<strong>Remarque:</strong> Notez que cette liste ne peut pas être modifiée ultérieurement. Ainsi, il est fortement recommandé d'indiquer <strong>plus de 39 noms</strong> pour disposer de joueurs de réserve.]]></target>
+      </segment>
+    </unit>
+    <unit id="t6F_Rrm" name="2322f34">
+      <notes>
+        <note category="german">&lt;strong&gt;Hinweis:&lt;/strong&gt; Wenn du &lt;strong&gt;weniger als 39 Spieler&lt;/strong&gt; angibst, wird die Stadt automatisch für alle Spieler geöffnet, sobald alle Spieler auf der Liste die Stadt betreten haben.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Hinweis:&lt;/strong&gt; Wenn du &lt;strong&gt;weniger als 39 Spieler&lt;/strong&gt; angibst, wird die Stadt automatisch für alle Spieler geöffnet, sobald alle Spieler auf der Liste die Stadt betreten haben.</source>
+        <target><![CDATA[<strong>Remarque:</strong> si vous saisissez <strong>moins de 39 noms</strong>, la ville s'ouvrira automatiquement pour tous les joueurs dès que tous les joueurs de la liste auront pénétré dans la ville.]]></target>
+      </segment>
+    </unit>
+    <unit id="PrhBm6y" name="e5fb135">
+      <notes>
+        <note category="german">&lt;strong&gt;Falls bis Mitternacht des übernächsten Tags nicht 40 Spieler die Stadt betreten haben, wird sie automatisch negiert. Alle Spieler, die sich dann bereits in der Stadt eingefunden haben, sind dann wieder frei für andere Städte.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Falls bis Mitternacht des übernächsten Tags nicht 40 Spieler die Stadt betreten haben, wird sie automatisch negiert. Alle Spieler, die sich dann bereits in der Stadt eingefunden haben, sind dann wieder frei für andere Städte.&lt;/strong&gt;</source>
+        <target><![CDATA[<strong>Si 40 joueurs ne sont pas entrés dans la ville avant minuit le lendemain, elle sera automatiquement annulée. Tous les joueurs déjà arrivés dans la ville sont à nouveau libres pour les autres villes.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="YHB3zxO" name="Ghule sind deaktiviert.">
+      <notes>
+        <note category="german">Ghule sind deaktiviert.</note>
+      </notes>
+      <segment>
+        <source>Ghule sind deaktiviert.</source>
+        <target>Ville de bisounours : pas de goule possible.</target>
+      </segment>
+    </unit>
+    <unit id="Az4lDWu" name="Aerogen">
+      <notes>
+        <note category="german">Aerogen</note>
+      </notes>
+      <segment>
+        <source>Aerogen</source>
+        <target>Aérogène</target>
+      </segment>
+    </unit>
+    <unit id="AostWDd" name="63a3b72">
+      <notes>
+        <note category="german">Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</note>
+      </notes>
+      <segment>
+        <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</source>
+        <target>Selon le type de ville sélectionné, les goules apparaissent selon les règles habituelles. De plus, une goule ne peut satisfaire sa faim qu'en mangeant un concitoyen.</target>
+      </segment>
+    </unit>
+    <unit id="F4.K1yp" name="Blutdurst und Aerogen">
+      <notes>
+        <note category="german">Blutdurst und Aerogen</note>
+      </notes>
+      <segment>
+        <source>Blutdurst und Aerogen</source>
+        <target>Soif de sang et Aérogène</target>
+      </segment>
+    </unit>
+    <unit id="6rgCZ72" name="Diese Stadt ist durch ein Passwort geschützt.">
+      <notes>
+        <note category="german">Diese Stadt ist durch ein Passwort geschützt.</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt ist durch ein Passwort geschützt.</source>
+        <target>Cette ville est protégée par mot de passe.</target>
+      </segment>
+    </unit>
+    <unit id="n5Q6CYy" name="Für diese Stadt gilt eine Platzreservierung.">
+      <notes>
+        <note category="german">Für diese Stadt gilt eine Platzreservierung.</note>
+      </notes>
+      <segment>
+        <source>Für diese Stadt gilt eine Platzreservierung.</source>
+        <target>Une réservation de place est disponible pour cette ville.</target>
+      </segment>
+    </unit>
+    <unit id="WhL1uY." name="Einer Stadt beitreten">
+      <notes>
+        <note category="german">Einer Stadt beitreten</note>
+      </notes>
+      <segment>
+        <source>Einer Stadt beitreten</source>
+        <target>Rejoindre une ville</target>
+      </segment>
+    </unit>
+    <unit id="tnT0nBQ" name="Wähle dein nächstes Leben:">
+      <notes>
+        <note category="german">Wähle dein nächstes Leben:</note>
+      </notes>
+      <segment>
+        <source>Wähle dein nächstes Leben:</source>
+        <target>Choisissez votre prochaine existence :</target>
+      </segment>
+    </unit>
+    <unit id="mm_OH8u" name="Ein neues Leben beginnen">
+      <notes>
+        <note category="german">Ein neues Leben beginnen</note>
+      </notes>
+      <segment>
+        <source>Ein neues Leben beginnen</source>
+        <target>Rejoindre une nouvelle existence</target>
+      </segment>
+    </unit>
+    <unit id="NH1qMKw" name="...und mit 39 Mitbürgern in der Hölle schmoren">
+      <notes>
+        <note category="german">...und mit 39 Mitbürgern in der Hölle schmoren</note>
+      </notes>
+      <segment>
+        <source>...und mit 39 Mitbürgern in der Hölle schmoren</source>
+        <target>... et souffrir avec 39 autres citoyens en enfer.</target>
       </segment>
     </unit>
   </file>

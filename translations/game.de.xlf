@@ -3222,20 +3222,20 @@
     </unit>
     <unit id="J84MRtT" name="%citizen% hat etwas Schutt entfernt.">
       <notes>
-        <note category="german">%citizen% hat etwas Schutt entfernt.</note>
+        <note category="german">%citizen% hat die Zone ein wenig gesäubert...</note>
       </notes>
       <segment>
         <source>%citizen% hat etwas Schutt entfernt.</source>
-        <target>%citizen% hat etwas Schutt entfernt.</target>
+        <target>%citizen% hat die Zone ein wenig gesäubert...</target>
       </segment>
     </unit>
     <unit id="WmDHw.1" name="%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!">
       <notes>
-        <note category="german">%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</note>
+        <note category="german">Diese Zone wurde komplett gesäubert und freigeschaufelt, dabei wurde folgendes Gebäude entdeckt: %type%.</note>
       </notes>
       <segment>
         <source>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</source>
-        <target>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</target>
+        <target>Diese Zone wurde komplett gesäubert und freigeschaufelt, dabei wurde folgendes Gebäude entdeckt: %type%.</target>
       </segment>
     </unit>
     <unit id="zTh0a4e" name="a30f81a">
@@ -7065,11 +7065,11 @@
     </unit>
     <unit id="tCm7v0d" name="Den %rolename% wählen">
       <notes>
-        <note category="german">Den %rolename% wählen</note>
+        <note category="german">Wählen: %rolename%</note>
       </notes>
       <segment>
         <source>Den %rolename% wählen</source>
-        <target>Den %rolename% wählen</target>
+        <target>Wählen: %rolename%</target>
       </segment>
     </unit>
     <unit id="o_HaY0_" name="Dazu hast Du kein Recht.">
@@ -7146,29 +7146,29 @@
     </unit>
     <unit id="2MBbf8L" name="416726b">
       <notes>
-        <note category="german">Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</note>
+        <note category="german">Du hast einen Teil der Zone &lt;strong&gt;freigeräumt&lt;/strong&gt;, allerdings versperren noch &lt;strong&gt;allerlei Trümmer&lt;/strong&gt; den Zugang...</note>
       </notes>
       <segment>
         <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
-        <target>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</target>
+        <target><![CDATA[Du hast einen Teil der Zone <strong>freigeräumt</strong>, allerdings versperren noch <strong>allerlei Trümmer</strong> den Zugang...]]></target>
       </segment>
     </unit>
     <unit id="AL6LzU0" name="9a476a3">
       <notes>
-        <note category="german">Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</note>
+        <note category="german">Herzlichen Glückwunsch, du hast die Zone freigeräumt und kannst nun damit anfangen folgendes Gebäude zu durchsuchen : %ruin%.</note>
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</source>
-        <target>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</target>
+        <target>Herzlichen Glückwunsch, du hast die Zone freigeräumt und kannst nun damit anfangen folgendes Gebäude zu durchsuchen : %ruin%.</target>
       </segment>
     </unit>
     <unit id="RbYmYJb" name="Du hast %count% Aktionspunkt(e) benutzt.">
       <notes>
-        <note category="german">Du hast %count% Aktionspunkt(e) benutzt.</note>
+        <note category="german">Du hast dafür &lt;strong&gt;%count% Aktionspunkt(e)&lt;/strong&gt; verbraucht.</note>
       </notes>
       <segment>
         <source>Du hast %count% Aktionspunkt(e) benutzt.</source>
-        <target>Du hast %count% Aktionspunkt(e) benutzt.</target>
+        <target><![CDATA[Du hast dafür <strong>%count% Aktionspunkt(e)</strong> verbraucht.]]></target>
       </segment>
     </unit>
     <unit id="7Tv2eKD" name="8d60c8e">
@@ -13962,11 +13962,11 @@
     </unit>
     <unit id="9r9G9Tw" name="Personalisierter Titel - Dompteur (T-ID: 1725642)">
       <notes>
-        <note category="german">Personalisierter Titel - Dompteur (T-ID: 1725642)</note>
+        <note category="german">Zertifizierter Werpudel</note>
       </notes>
       <segment>
         <source>Personalisierter Titel - Dompteur (T-ID: 1725642)</source>
-        <target>Personalisierter Titel - Dompteur (T-ID: 1725642)</target>
+        <target>Zertifizierter Werpudel</target>
       </segment>
     </unit>
     <unit id="Bjh4Mcf" name="Gepanzerter Fakir">
@@ -13989,11 +13989,11 @@
     </unit>
     <unit id="W6KG1Kx" name="Personalisierter Titel - Techniker (T-ID: 631944)">
       <notes>
-        <note category="german">Personalisierter Titel - Techniker (T-ID: 631944)</note>
+        <note category="german">Nie ohne Schlüssel unterwegs</note>
       </notes>
       <segment>
         <source>Personalisierter Titel - Techniker (T-ID: 631944)</source>
-        <target>Personalisierter Titel - Techniker (T-ID: 631944)</target>
+        <target>Nie ohne Schlüssel unterwegs</target>
       </segment>
     </unit>
     <unit id="k._y0h1" name="Holy F***ing Iceberg">
@@ -18243,11 +18243,11 @@
     </unit>
     <unit id="bPobZD0" name="b1b989e">
       <notes>
-        <note category="german">Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;&lt;strong&gt;Dieser Gegenstand wurde in deiner Truhe abgelegt.&lt;/strong&gt;</note>
+        <note category="german">Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;Dieser Gegenstand wurde &lt;strong&gt;in deiner Truhe&lt;/strong&gt; abgelegt.</note>
       </notes>
       <segment>
         <source>Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;&lt;strong&gt;Dieser Gegenstand wurde in deiner Truhe abgelegt.&lt;/strong&gt;</source>
-        <target><![CDATA[Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...<hr /><strong>Dieser Gegenstand wurde in deiner Truhe abgelegt.</strong>]]></target>
+        <target><![CDATA[Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...<hr />Dieser Gegenstand wurde <strong>in deiner Truhe</strong> abgelegt.]]></target>
       </segment>
     </unit>
     <unit id="HSAEnDG" name="als Gruppe">
@@ -18826,6 +18826,24 @@
         <target><![CDATA[Mit deinem %img_scout% <strong>Tarnanzug</strong> kannst du dich bewegen ohne dabei entdeckt zu werden.]]></target>
       </segment>
     </unit>
+    <unit id="CYBKQzY" name="%building% hat %num% Batterien verbraucht.">
+      <notes>
+        <note category="german">%building% hat %num% Batterien verbraucht.</note>
+      </notes>
+      <segment>
+        <source>%building% hat %num% Batterien verbraucht.</source>
+        <target>%building% hat %num% Batterien verbraucht.</target>
+      </segment>
+    </unit>
+    <unit id="dqDx75c" name="c728704">
+      <notes>
+        <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: %list-i% %list-t%</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: %list-i% %list-t%</source>
+        <target><![CDATA[<strong>Herzlichen Glückwunsch</strong>, du hast folgende Titel freigeschaltet: %list-i% %list-t%]]></target>
+      </segment>
+    </unit>
     <unit id="CN1z1xe" name="58ec9c9">
       <notes>
         <note category="german">%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</note>
@@ -18860,6 +18878,78 @@
       <segment>
         <source>Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:&lt;br /&gt;%list_head% oder %list_tail%.</source>
         <target><![CDATA[Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:<br />%list_head% oder %list_tail%.]]></target>
+      </segment>
+    </unit>
+    <unit id="91d4rG_" name="Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...">
+      <notes>
+        <note category="german">Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</note>
+      </notes>
+      <segment>
+        <source>Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</source>
+        <target>Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</target>
+      </segment>
+    </unit>
+    <unit id="wyxCVNs" name="Du hast keine Gegenstände, die du verstecken könntest.">
+      <notes>
+        <note category="german">Du hast keine Gegenstände, die du verstecken könntest.</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Gegenstände, die du verstecken könntest.</source>
+        <target>Du hast keine Gegenstände, die du verstecken könntest.</target>
+      </segment>
+    </unit>
+    <unit id="wKNx07Y" name="Wähle einen Gegenstand aus der Bank aus...">
+      <notes>
+        <note category="german">Wähle einen Gegenstand aus der Bank aus...</note>
+      </notes>
+      <segment>
+        <source>Wähle einen Gegenstand aus der Bank aus...</source>
+        <target>Wähle einen Gegenstand aus der Bank aus...</target>
+      </segment>
+    </unit>
+    <unit id="B5sYzl." name="Aufklärer: Ruinen erkunden">
+      <notes>
+        <note category="german">Aufklärer: Ruinen erkunden</note>
+      </notes>
+      <segment>
+        <source>Aufklärer: Ruinen erkunden</source>
+        <target>Aufklärer: Ruinen erkunden</target>
+      </segment>
+    </unit>
+    <unit id="_izB74m" name="Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</source>
+        <target>Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</target>
+      </segment>
+    </unit>
+    <unit id="pqX0mgo" name="855fd56">
+      <notes>
+        <note category="german">Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</source>
+        <target><![CDATA[Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: <strong>%building%</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="gmanddb" name="Persönliche Beschreibung">
+      <notes>
+        <note category="german">Persönliche Beschreibung</note>
+      </notes>
+      <segment>
+        <source>Persönliche Beschreibung</source>
+        <target>Persönliche Beschreibung</target>
+      </segment>
+    </unit>
+    <unit id="jTUz2Oq" name="Ich beobachte euch...">
+      <notes>
+        <note category="german">Ich beobachte euch...</note>
+      </notes>
+      <segment>
+        <source>Ich beobachte euch...</source>
+        <target>Ich beobachte euch...</target>
       </segment>
     </unit>
   </file>

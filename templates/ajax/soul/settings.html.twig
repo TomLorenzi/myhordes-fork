@@ -27,63 +27,144 @@
         <div class="cell rw-12 padded">
             <h5>{{ 'Dein Profil'|trans({},'soul') }}</h5>
             <div class="row">
-                <div class="padded cell rw-3 rw-lg-4 rw-md-12">
-                    {% if app.user.avatar is not null %}
-                        <div class="center">
-                            {% if not app.user.avatar.classic %}
-                                <span class="small">{{ 'Normale Anzeige'|trans({},'soul') }}</span><br />
-                            {% endif %}
-                            <div class="avatar no-arma">
-                                <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.filename, 'ext': app.user.avatar.format}) }}">
-                            </div>
-                            {% if not app.user.avatar.classic %}
-                                <br /><br />
-                                <span class="small">{{ 'Komprimierte Anzeige'|trans({},'soul') }}</span><br />
-                                <div class="avatar small no-arma">
-                                    <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}">
-                                </div>
-                            {% endif %}
-                        </div>
-                    {% else %}
-                        <div class="help">
-                            {{ 'Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen'|trans({},'soul') }}
-                        </div>
-                    {% endif %}
+                <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                    <div class="note note-lightest">
+                        <label>{{ 'Dein Icon'|trans({}, 'global') }}</label>
+                    </div>
                 </div>
-                <div class="padded cell rw-9 rw-lg-8 rw-md-12">
-                    <input class="hidden" type="file" id="avatar_file_select" accept=".gif,.jpg,.jpeg,.jif,.jfif,.png,.webp,.bmp">
+                <div class="padded cell rw-9 rw-md-8 rw-sm-12">
+                    <input  id="user_icon" type="hidden" value="{% if app.user.activeIcon is null %}-1{% else %}{{ app.user.activeIcon.id }}{% endif %}">
+                    {% if app.user.activeIcon is not null %}
+                        <img id="user_current_icon" alt="" src="{{ asset('build/images/icons/title/' ~ app.user.activeIcon.prototype.icon ~ '.gif') }}" />
+                    {% else %}
+                        <img id="user_current_icon" alt="" src="" style="display: none" />
+                    {% endif %}
+                    <span id="show_icon_sel" class="pointer small"><img alt="" src="{{ asset('build/images/forum/edit.png') }}"><div class="tooltip help">{{ 'Auswählen'|trans({},'global')|raw }}</div></span>
+                    <div id="icon_sel" style="display: none">
+                        {% set has_icon = false %}
+                        {% for award in app.user.awards %}
+                            {% if award.prototype is not null and award.prototype.icon is not null %}
+                                {% set has_icon = true %}
+                                <img {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeIcon != award %}disabled{% endif %} class="pointer" x-title-icon="{{ award.id }}" alt="" src="{{ asset('build/images/icons/title/' ~ award.prototype.icon ~ '.gif') }}" />
+                            {% endif %}
+                        {% endfor %}
+                        {% if has_icon %}
+                            <span x-title-icon="-1" class="small pointer">[{{ 'Kein Icon'|trans({},'soul') }}]</span>
+                        {% else %}<span class="small bold">{{ 'Du hast noch kein Icon freigeschaltet!'|trans({},'soul') }}</span>{% endif %}
+                        <br /><span id="hide_icon_sel" class="pointer small"><img alt="" src="{{ asset('build/images/icons/small_remove.gif') }}"><div class="tooltip help">{{ 'Abbrechen'|trans({},'global')|raw }}</div></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                    <div class="note note-lightest">
+                        <label for="user_title">{{ 'Dein Titel'|trans({}, 'global') }}</label>
+                    </div>
+                </div>
+                <div class="padded cell rw-9 rw-md-8 rw-sm-12">
+                    <select id="user_title">
+                        <option {% if app.user.activeTitle is null %}selected{% endif %} value="-1">--- {{ 'Kein Titel'|trans({},'soul') }} ---</option>
+                        {% for award in app.user.awards %}
+                            {% if award.prototype is not null and award.prototype.title is not null %}
+                                <option {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeTitle != award %}disabled{% endif %} {% if app.user.activeTitle == award %}selected{% endif %} value="{{ award.id }}">{{ award.prototype.title|trans({},'game') }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                    <div class="note note-lightest">
+                        <label for="user_desc">{{ 'Deine Beschreibung'|trans({}, 'global') }}</label>
+                    </div>
+                </div>
+                <div class="padded cell rw-9 rw-md-8 rw-sm-12">
+                    <textarea id="user_desc" style="min-height: 100px;"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12">
+                    <button id="save_profile_header">{{ 'Speichern'|trans({},'global') }}</button>
+                </div>
+            </div>
 
-                    {% if app.user.avatar is not null %}
-                        <label class="button" for="avatar_file_select">{{ 'Neues Profilbild hochladen'|trans({},'soul') }}</label>
-                        <button id="avatar_del">{{ 'Profilbild löschen'|trans({},'soul') }}</button>
-
-                        {% if not app.user.avatar.classic %}
-                            <button class="hide-mobile" id="avatar_com" x-avatar-com-toggle>{{ 'Komprimierte Anzeige bearbeiten'|trans({},'soul') }}</button>
-                            <div id="avatar_com_edit" class="row hidden hide-mobile">
-                                <div class="padded cell rw-6">
-                                    <div class="help">
-                                        {% trans from 'soul' %}
-                                            Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
-                                            Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.
-                                        {% endtrans %}
-                                    </div>
-                                </div>
-                                <div class="padded cell rw-6 center">
-                                    <div class="avatar no-arma full">
-                                        <div class="crop" id="crop_bar"><div id="crop-bar-inner"></div></div>
+            <h5>{{ 'Dein Avatar'|trans({},'soul') }}</h5>
+            <div class="row">
+                <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                    <div class="note note-lightest">
+                        <label for="user_title">{{ 'Avatar'|trans({}, 'global') }}</label>
+                    </div>
+                </div>
+                <div class="padded cell rw-9 rw-md-8 rw-sm-12">
+                    <div class="row">
+                        <div class="padded cell rw-3 rw-lg-4 rw-md-12">
+                            {% if app.user.avatar is not null %}
+                                <div class="center">
+                                    {% if not app.user.avatar.classic %}
+                                        <span class="small">{{ 'Normale Anzeige'|trans({},'soul') }}</span><br />
+                                    {% endif %}
+                                    <div class="avatar no-arma">
                                         <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.filename, 'ext': app.user.avatar.format}) }}">
                                     </div>
-                                    <div class="right">
-                                        <button id="avatar_com_save" class="inline small">{{ 'Speichern'|trans({},'global') }}</button>
-                                        <button x-avatar-com-toggle class="inline small">{{ 'Abbrechen'|trans({},'global') }}</button>
+                                </div>
+                            {% else %}
+                                <div class="help">
+                                    {{ 'Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen'|trans({},'soul') }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="padded cell rw-9 rw-lg-8 rw-md-12">
+                            {% if app.user.avatar is not null and not app.user.avatar.classic %}
+                                <div class="hide-md hide-sm">
+                                    <span class="small">{{ 'Komprimierte Anzeige'|trans({},'soul') }}</span><br />
+                                    <div class="avatar small no-arma">
+                                        <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}">
                                     </div>
                                 </div>
-                            </div>
+                                <div class="hide-desktop hide-lg center">
+                                    <span class="small">{{ 'Komprimierte Anzeige'|trans({},'soul') }}</span><br />
+                                    <div class="avatar small no-arma">
+                                        <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}">
+                                    </div>
+                                </div>
+                                <br />
+                            {% endif %}
 
-                        {% endif %}
-                    {% else %}
-                        <label class="button" for="avatar_file_select">{{ 'Profilbild hochladen'|trans({},'soul') }}</label>
-                    {% endif %}
+                            <input class="hidden" type="file" id="avatar_file_select" accept=".gif,.jpg,.jpeg,.jif,.jfif,.png,.webp,.bmp">
+
+                            {% if app.user.avatar is not null %}
+                                <label {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileAvatar')) %}disabled{% endif %} class="button" for="avatar_file_select">{{ 'Neues Profilbild hochladen'|trans({},'soul') }}</label>
+                                <button id="avatar_del">{{ 'Profilbild löschen'|trans({},'soul') }}</button>
+
+                                {% if not app.user.avatar.classic %}
+                                    <button {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileAvatar')) %}disabled{% endif %} class="hide-mobile" id="avatar_com" x-avatar-com-toggle>{{ 'Komprimierte Anzeige bearbeiten'|trans({},'soul') }}</button>
+                                    <div id="avatar_com_edit" class="row hidden hide-mobile">
+                                        <div class="padded cell rw-6">
+                                            <div class="help">
+                                                {% trans from 'soul' %}
+                                                    Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
+                                                    Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.
+                                                {% endtrans %}
+                                            </div>
+                                        </div>
+                                        <div class="padded cell rw-6 center">
+                                            <div class="avatar no-arma full">
+                                                <div class="crop" id="crop_bar"><div id="crop-bar-inner"></div></div>
+                                                <img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.filename, 'ext': app.user.avatar.format}) }}">
+                                            </div>
+                                            <div class="right">
+                                                <button id="avatar_com_save" class="inline small">{{ 'Speichern'|trans({},'global') }}</button>
+                                                <button x-avatar-com-toggle class="inline small">{{ 'Abbrechen'|trans({},'global') }}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                {% endif %}
+                            {% else %}
+                                <label {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileAvatar')) %}disabled{% endif %} class="button" for="avatar_file_select">{{ 'Profilbild hochladen'|trans({},'soul') }}</label>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -180,7 +261,7 @@
                 <h5>{{ 'Login und Sicherheit'|trans({},'soul') }}</h5>
                 <div class="row">
                     <div class="cell padded rw-4 rw-sm-12">
-                        <label for="app_mail">{% trans from 'soul' %}E-Mail-Adresse{% endtrans %}</label>
+                        <div class="note note-lightest"><label for="app_mail">{% trans from 'soul' %}E-Mail-Adresse{% endtrans %}</label></div>
                     </div>
                     <div class="cell padded rw-8 rw-sm-12">
                         <input id="app_mail" type="text" disabled value="{{ app.user.email }}" />
@@ -188,7 +269,7 @@
                 </div>
                 <div class="row">
                     <div class="cell padded rw-4 rw-sm-12">
-                        {% trans from 'soul' %}Passwort ändern{% endtrans %}
+                        <div class="note note-lightest">{% trans from 'soul' %}Passwort ändern{% endtrans %}</div>
                     </div>
                     <div class="cell rw-8 rw-sm-12">
                         <div class="row">
@@ -202,7 +283,7 @@
                 <br />
                 <div class="row">
                     <div class="cell padded rw-4 rw-sm-12">
-                        {% trans from 'soul' %}Überall ausloggen{% endtrans %}
+                        <div class="note note-lightest">{% trans from 'soul' %}Überall ausloggen{% endtrans %}</div>
                     </div>
                     <div class="cell padded rw-8 rw-sm-12">
                         <button id="acc_unremember_me">{{ 'Auf allen Browsern & Geräten abmelden'|trans({},'soul') }}</button>
@@ -214,7 +295,7 @@
             <h5>{{ 'Externe Anwendungen'|trans({},'soul') }}</h5>
             <div class="row">
                 <div class="cell padded rw-4 rw-sm-12">
-                    <label for="app_ext">{% trans from 'soul' %}Externe ID für Apps{% endtrans %}</label> <a class="help-button"><div class="tooltip help">{{ 'Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
+                    <div class="note note-lightest"><label for="app_ext">{% trans from 'soul' %}Externe ID für Apps{% endtrans %}</label> <a class="help-button"><div class="tooltip help">{{ 'Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></div>
                 </div>
                 <div class="cell padded rw-4 rw-sm-12">
                     <input id="app_ext" type="text" readonly value="{% if app.user.externalId != '' %}{{ app.user.externalId }}{% else %}not set{% endif %}" />
@@ -229,7 +310,9 @@
             {% if not is_granted('ROLE_ETERNAL') %}
                 <h5>{{ 'Account löschen'|trans({},'soul') }}</h5>
                 <div class="row">
-                    <div class="padded cell rw-4"><label for="acc_del_input">{{ 'Aktuelles Passwort'|trans({},'login') }}</label></div>
+                    <div class="padded cell rw-4">
+                        <div class="note note-lightest"><label for="acc_del_input">{{ 'Aktuelles Passwort'|trans({},'login') }}</label></div>
+                    </div>
                     <div class="padded cell rw-4"><input id="acc_del_input" type="password" /></div>
                     <div class="padded cell rw-4"><button id="acc_del_btn"><i class="fa fa-trash"></i> {{ 'Meinen Account löschen'|trans({},'soul') }}</button></div>
                 </div>
@@ -462,5 +545,48 @@
                 }
             } )
         {% endif %}
+
+        $.html.addEventListenerAll('#save_profile_header', 'click', () => {
+            const title = parseInt(document.getElementById('user_title').value);
+            const icon = parseInt(document.getElementById('user_icon').value);
+
+            if (icon >= 0 && title < 0) {
+                $.html.error('{{ 'Du kannst kein Icon ohne einen Titel wählen.'|trans({},'soul')|e('js') }}');
+                return;
+            }
+
+            $.ajax.easySend('{{ path('api_soul_header')|e('js') }}', {
+                title: title,
+                icon: icon,
+                desc: $.html.twinoParser.parseToString(document.getElementById('user_desc').value, s => [null,s])
+            }, () => {
+                $.html.notice('{{ 'Deine Einstellung wurde gespeichert.'|trans({},'soul')|e('js') }}');
+                $.ajax.load(null, '{{ path('soul_settings')|e('js') }}');
+            });
+        });
+
+        $.html.addEventListenerAll('#show_icon_sel', 'click', (e,elem) => {
+            elem.style.display = 'none';
+            document.getElementById('icon_sel').style.display = null;
+        });
+        $.html.addEventListenerAll('#hide_icon_sel', 'click', () => {
+            document.getElementById('show_icon_sel').style.display = null;
+            document.getElementById('icon_sel').style.display = 'none';
+        });
+        $.html.addEventListenerAll('[x-title-icon]', 'click', (e,elem) => {
+            const id = parseInt(elem.getAttribute('x-title-icon'));
+            let target = document.getElementById('user_current_icon');
+            if (id < 0) {
+                target.setAttribute('src','');
+                target.style.display = 'none';
+            } else {
+                target.setAttribute('src',elem.getAttribute('src'));
+                target.style.display = null;
+            }
+            document.getElementById('user_icon').value = id;
+            document.getElementById('show_icon_sel').style.display = null;
+            document.getElementById('icon_sel').style.display = 'none';
+        });
+        document.getElementById('user_desc').value = $.html.twinoParser.parseFrom('{{ user_desc|e('js') }}', $.html.twinoParser.OpModeRaw);
     </script>
 {% endblock %}

@@ -4,6 +4,8 @@
 namespace App\Twig;
 
 
+use App\Entity\Town;
+use App\Entity\TownSlotReservation;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\User;
@@ -42,6 +44,7 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
             new TwigFilter('bin_overlaps',  [$this, 'check_flag_2']),
             new TwigFilter('restricted',  [$this, 'user_is_restricted']),
             new TwigFilter('restricted_until',  [$this, 'user_restricted_until']),
+            new TwigFilter('whitelisted',  [$this, 'town_whitelisted']),
             new TwigFilter('items',  [$this, 'item_prototypes_with']),
         ];
     }
@@ -107,6 +110,12 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
 
     public function user_is_restricted(User $user, ?int $mask = null): bool {
         return $this->userHandler->isRestricted($user,$mask);
+    }
+
+    public function town_whitelisted(Town $town, ?User $user = null): bool {
+        return $user
+            ? ($this->entityManager->getRepository(TownSlotReservation::class)->count(['town' => $town, 'user' => $user]) === 1)
+            : ($this->entityManager->getRepository(TownSlotReservation::class)->count(['town' => $town]) > 0);
     }
 
     public function user_restricted_until(User $user, ?int $mask = null): ?DateTime {

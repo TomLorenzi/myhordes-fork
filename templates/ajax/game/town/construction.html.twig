@@ -79,17 +79,21 @@
                         {% elseif not building.complete%}
                         	{{ building.prototype.defense }}
                         {% endif %}
-                        {% if building.complete and building.defense != building.prototype.defense %}
+                        {% if building.complete and building.defense != building.prototype.defense and building.prototype.description is empty %}
                             <div class="tooltip">
                                 {{"Beschädigte Verteidigung: %defense% / %max%"|trans({"%defense%": building.defense, "%max%": building.prototype.defense}, 'game')}}
                             </div>
                         {% endif %}
                     </div>
                 {% endif %}
-                {% if building.prototype.description %}
-                <div class="tooltip help">
-                    {{ building.prototype.description|trans({}, 'buildings') }}
-                </div>
+                {% if building.prototype.description is not empty %}
+                    <div class="tooltip help">
+                        {% if building.complete and building.defense != building.prototype.defense %}
+                            <b>{{"Beschädigte Verteidigung: %defense% / %max%"|trans({"%defense%": building.defense, "%max%": building.prototype.defense}, 'game')}}</b>
+                            <hr />
+                        {% endif %}
+                        {{ building.prototype.description|trans({}, 'buildings') }}
+                    </div>
                 {% endif %}
             </div>
             <div class="padded cell rw-6 rw-lg-10 rw-sm-12 no-ws">

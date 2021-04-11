@@ -30,22 +30,23 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ZoneHandler
 {
-    private $entity_manager;
-    private $item_factory;
-    private $status_factory;
-    private $random_generator;
-    private $inventory_handler;
-    private $citizen_handler;
-    private $picto_handler;
-    private $trans;
-    private $log;
-    private $conf;
-    private $asset;
+    private EntityManagerInterface $entity_manager;
+    private ItemFactory $item_factory;
+    private StatusFactory $status_factory;
+    private RandomGenerator $random_generator;
+    private InventoryHandler $inventory_handler;
+    private CitizenHandler $citizen_handler;
+    private PictoHandler $picto_handler;
+    private TranslatorInterface $trans;
+    private LogTemplateHandler $log;
+    private ConfMaster $conf;
+    private Packages $asset;
+    private TownHandler $town_handler;
 
     public function __construct(
         EntityManagerInterface $em, ItemFactory $if, LogTemplateHandler $lh, TranslatorInterface $t,
         StatusFactory $sf, RandomGenerator $rg, InventoryHandler $ih, CitizenHandler $ch, PictoHandler $ph, Packages $a,
-        ConfMaster $conf)
+        ConfMaster $conf, TownHandler $th)
     {
         $this->entity_manager = $em;
         $this->item_factory = $if;
@@ -58,6 +59,7 @@ class ZoneHandler
         $this->log = $lh;
         $this->asset = $a;
         $this->conf = $conf;
+        $this->town_handler = $th;
     }
 
     public function updateRuinZone(?RuinExplorerStats $ex) {
@@ -175,7 +177,31 @@ class ZoneHandler
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'drunk'  )) $factor -= 0.3; // Totally arbitrary
                     if ($conf->get(TownConf::CONF_FEATURE_NIGHTMODE, true) && $timer->getCitizen()->getTown()->isNight() && $this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) $factor -= 0.2;
 
-                    $total_dig_chance = max(0.1, $factor * ($zone->getDigs() > 0 ? 0.6 : 0.3 ));
+                    if ($conf->get(TownConf::CONF_FEATURE_NIGHTMODE, true) && $timer->getCitizen()->getTown()->isNight()) {
+
+                        // If there are items that prevent night mode present, the night malus is set to 0
+                        $night_mode_malue = ($this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) ? 0.2 : 0.0;
+
+                        if ($timer->getCitizen()->hasStatus('tg_novlamps')) {
+                            // Night mode is active, but so are the Novelty Lamps; we must check if they apply
+                            $novelty_lamps = $this->town_handler->getBuilding( $timer->getCitizen()->getTown(), 'small_novlamps_#00', true );
+
+                            // Novelty Lamps are not built; apply malus
+                            if (!$novelty_lamps) $factor -= $night_mode_malue;
+                            // Novelty Lamps are at lv0 and the zone distance is above 2km; apply malus
+                            elseif ($novelty_lamps->getLevel() === 0 && $zone->getDistance() > 2.0) $factor -= $night_mode_malue;
+                            // Novelty Lamps are at lv1 and the zone distance is above 6km; apply malus
+                            elseif ($novelty_lamps->getLevel() === 1 && $zone->getDistance() > 6.0) $factor -= $night_mode_malue;
+                            // Novelty Lamps are at lv2 and the zone distance is above 10km; apply malus
+                            elseif ($novelty_lamps->getLevel() === 2 && $zone->getDistance() > 10.0) $factor -= $night_mode_malue;
+                            // Novelty Lamps are at lv4 and the zone distance is within 10km; apply bonus
+                            // elseif ($novelty_lamps->getLevel() === 4 && $zone->getDistance() <= 10.0) $factor += 0.2;
+
+                        } else $factor -= $night_mode_malue; // Night mode is active; apply malus
+
+                    }
+
+                    $total_dig_chance = min(max(0.1, $factor * ($zone->getDigs() > 0 ? 0.6 : 0.3 )), 0.9);
 
                     $item_prototype = $this->random_generator->chance($total_dig_chance)
                         ? $this->random_generator->pickItemPrototypeFromGroup( $zone->getDigs() > 0 ? $base_group : $empty_group )

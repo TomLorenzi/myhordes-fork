@@ -538,7 +538,7 @@
       </notes>
       <segment>
         <source>Admin-Wachturm</source>
-        <target>Tour de guet de l'administrateur</target>
+        <target>TDG de l'administrateur</target>
       </segment>
     </unit>
     <unit id="OEOXHc." name="ID">
@@ -2446,7 +2446,7 @@
       </notes>
       <segment>
         <source>Bestätigt von</source>
-        <target>Bestätigt von</target>
+        <target>Confirmé par</target>
       </segment>
     </unit>
     <unit id="kTWILTI" name="Datum">
@@ -2455,7 +2455,7 @@
       </notes>
       <segment>
         <source>Datum</source>
-        <target>Datum</target>
+        <target>Date</target>
       </segment>
     </unit>
     <unit id="hrvEXJr" name="Endet">
@@ -2464,7 +2464,7 @@
       </notes>
       <segment>
         <source>Endet</source>
-        <target>Endet</target>
+        <target>Prend fin</target>
       </segment>
     </unit>
     <unit id="DJfkxFo" name="Nicht bestätigt!">
@@ -2473,7 +2473,7 @@
       </notes>
       <segment>
         <source>Nicht bestätigt!</source>
-        <target>Nicht bestätigt!</target>
+        <target>Pas confirmé!</target>
       </segment>
     </unit>
     <unit id="jpPy6FB" name="Abgelaufen">
@@ -2482,7 +2482,7 @@
       </notes>
       <segment>
         <source>Abgelaufen</source>
-        <target>Abgelaufen</target>
+        <target>Expiré</target>
       </segment>
     </unit>
     <unit id="ifwhezW" name="Deaktiviert">
@@ -2491,7 +2491,7 @@
       </notes>
       <segment>
         <source>Deaktiviert</source>
-        <target>Deaktiviert</target>
+        <target>Désactivé</target>
       </segment>
     </unit>
     <unit id="IvHcoEk" name="Interner Vermerk">
@@ -2509,7 +2509,7 @@
       </notes>
       <segment>
         <source>Art</source>
-        <target>Art</target>
+        <target>Type</target>
       </segment>
     </unit>
     <unit id="Dm3TgUa" name="Sozial">
@@ -2518,7 +2518,7 @@
       </notes>
       <segment>
         <source>Sozial</source>
-        <target>Sozial</target>
+        <target>Social</target>
       </segment>
     </unit>
     <unit id="3a9NlWd" name="Stadt-Kom.">
@@ -2527,7 +2527,7 @@
       </notes>
       <segment>
         <source>Stadt-Kom.</source>
-        <target>Stadt-Kom.</target>
+        <target>Com. ville</target>
       </segment>
     </unit>
     <unit id="gIfLcdm" name="Globale Kom.">
@@ -2536,7 +2536,7 @@
       </notes>
       <segment>
         <source>Globale Kom.</source>
-        <target>Globale Kom.</target>
+        <target>Com. global</target>
       </segment>
     </unit>
     <unit id="4L8kPem" name="Kommentare">
@@ -2545,7 +2545,7 @@
       </notes>
       <segment>
         <source>Kommentare</source>
-        <target>Kommentare</target>
+        <target>Commentaire</target>
       </segment>
     </unit>
     <unit id="mQVpay." name="Org.">
@@ -2563,7 +2563,7 @@
       </notes>
       <segment>
         <source>Spiel</source>
-        <target>Spiel</target>
+        <target>Jeu</target>
       </segment>
     </unit>
     <unit id="FbY7TeM" name="Bestätigen">
@@ -2572,7 +2572,7 @@
       </notes>
       <segment>
         <source>Bestätigen</source>
-        <target>Bestätigen</target>
+        <target>Confirmer</target>
       </segment>
     </unit>
     <unit id="ymT9mze" name="%d% Tage">
@@ -2608,7 +2608,7 @@
       </notes>
       <segment>
         <source>Bestätigung erforderlich</source>
-        <target>Bestätigung erforderlich</target>
+        <target>Confirmation nécessaire</target>
       </segment>
     </unit>
     <unit id="j.lIpae" name="1 Jahr">
@@ -2617,7 +2617,7 @@
       </notes>
       <segment>
         <source>1 Jahr</source>
-        <target>1 Année</target>
+        <target>1 An</target>
       </segment>
     </unit>
     <unit id="vFTx03L" name="Admin-Bestätigung erforderlich">
@@ -2626,7 +2626,7 @@
       </notes>
       <segment>
         <source>Admin-Bestätigung erforderlich</source>
-        <target>Admin-Bestätigung erforderlich</target>
+        <target>Confirmation de l'administrateur requise</target>
       </segment>
     </unit>
     <unit id="rX0oy40" name="2 Jahre">
@@ -2662,7 +2662,7 @@
       </notes>
       <segment>
         <source>Soziale Interaktion verbieten</source>
-        <target>Empêcher les intéractions sociales</target>
+        <target>Interdire les interactions sociales</target>
       </segment>
     </unit>
     <unit id="N35nJiR" name="Posten in Foren verbieten">
@@ -2671,7 +2671,7 @@
       </notes>
       <segment>
         <source>Posten in Foren verbieten</source>
-        <target>Poster sur les forums</target>
+        <target>Interdire la publication dans les forums</target>
       </segment>
     </unit>
     <unit id="S.Z0svV" name="Stadt-interne Kommunikation verbieten">
@@ -2680,7 +2680,7 @@
       </notes>
       <segment>
         <source>Stadt-interne Kommunikation verbieten</source>
-        <target>Communiquer en ville</target>
+        <target>Interdire la communication interne à la ville</target>
       </segment>
     </unit>
     <unit id="TofCy.V" name="Stadtübergreifende Kommunikation verbieten">
@@ -2689,7 +2689,7 @@
       </notes>
       <segment>
         <source>Stadtübergreifende Kommunikation verbieten</source>
-        <target>Communiquer en dehors des villes</target>
+        <target>Interdire la publication sur le forum ville</target>
       </segment>
     </unit>
     <unit id="4Ih2_KV" name="Kommentare verbieten">
@@ -2698,7 +2698,7 @@
       </notes>
       <segment>
         <source>Kommentare verbieten</source>
-        <target>Commentaires sur les villes</target>
+        <target>Interdire les commentaires</target>
       </segment>
     </unit>
     <unit id="Hk8oxc5" name="Organisation in Gruppen verbieten">
@@ -2707,7 +2707,7 @@
       </notes>
       <segment>
         <source>Organisation in Gruppen verbieten</source>
-        <target>Organisation de coalitions</target>
+        <target>Interdire l'organisation en groupe</target>
       </segment>
     </unit>
     <unit id="IdwEk1H" name="Spielen verbieten">
@@ -2716,7 +2716,7 @@
       </notes>
       <segment>
         <source>Spielen verbieten</source>
-        <target>Interdiction de jouer</target>
+        <target>Interdire le jeu</target>
       </segment>
     </unit>
     <unit id="67OtxCl" name="3e3c02a">
@@ -2725,7 +2725,7 @@
       </notes>
       <segment>
         <source>Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.</source>
-        <target>Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.</target>
+        <target>Cette restriction de compte doit être confirmée par un autre modérateur avant qu'elle ne devienne active.</target>
       </segment>
     </unit>
     <unit id="6q.DKYz" name="Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.">
@@ -2734,7 +2734,7 @@
       </notes>
       <segment>
         <source>Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.</source>
-        <target>Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.</target>
+        <target>La durée de la restriction ne compte qu'à partir du moment où elle est activée.</target>
       </segment>
     </unit>
     <unit id="3Bzuyaj" name="e76fc50">
@@ -2743,7 +2743,7 @@
       </notes>
       <segment>
         <source>Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.</source>
-        <target>Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.</target>
+        <target>Cette restriction de compte doit être confirmée par un administrateur avant qu'elle ne devienne active.</target>
       </segment>
     </unit>
     <unit id="vsOyofZ" name="Schwarzes Brett">
@@ -2926,5 +2926,176 @@
         <target>Créer une ville</target>
       </segment>
     </unit>
+    <unit id="yo6CbZw" name="Avatar">
+      <notes>
+        <note category="german">Avatar</note>
+      </notes>
+      <segment>
+        <source>Avatar</source>
+        <target>Avatar</target>
+      </segment>
+    </unit>
+    <unit id="A2Ihk63" name="Profilbeschreibung">
+      <notes>
+        <note category="german">Profilbeschreibung</note>
+      </notes>
+      <segment>
+        <source>Profilbeschreibung</source>
+        <target>Description du profil</target>
+      </segment>
+    </unit>
+    <unit id="5AoQtM8" name="Änderungen am Profil verbieten">
+      <notes>
+        <note category="german">Änderungen am Profil verbieten</note>
+      </notes>
+      <segment>
+        <source>Änderungen am Profil verbieten</source>
+        <target>Interdire les modifications du profil</target>
+      </segment>
+    </unit>
+    <unit id="o2BjdF6" name="Ändern des Avatars verbieten">
+      <notes>
+        <note category="german">Ändern des Avatars verbieten</note>
+      </notes>
+      <segment>
+        <source>Ändern des Avatars verbieten</source>
+        <target>Interdire le changement d'avatar</target>
+      </segment>
+    </unit>
+    <unit id="es9o32g" name="Ändern der Profilbeschreibung verbieten">
+      <notes>
+        <note category="german">Ändern der Profilbeschreibung verbieten</note>
+      </notes>
+      <segment>
+        <source>Ändern der Profilbeschreibung verbieten</source>
+        <target>Interdire la modification de la description du profil</target>
+      </segment>
+    </unit>
+    <unit id="tJ4N6CO" name="Ändern des Titels verbieten">
+      <notes>
+        <note category="german">Ändern des Titels verbieten</note>
+      </notes>
+      <segment>
+        <source>Ändern des Titels verbieten</source>
+        <target>Interdire de changer de titre</target>
+      </segment>
+    </unit>
+    <unit id="nXkHd12" name="Anzeigenamen ändern">
+      <notes>
+        <note category="german">Anzeigenamen ändern</note>
+      </notes>
+      <segment>
+        <source>Anzeigenamen ändern</source>
+        <target>Changer le nom d'affichage</target>
+      </segment>
+    </unit>
+    <unit id="zX2Ikki" name="Anzeigenamen entfernen">
+      <notes>
+        <note category="german">Anzeigenamen entfernen</note>
+      </notes>
+      <segment>
+        <source>Anzeigenamen entfernen</source>
+        <target>Supprimer le nom d'affichage</target>
+      </segment>
+    </unit>
+    <unit id="ZBGzbqz" name="Avatar entfernen">
+      <notes>
+        <note category="german">Avatar entfernen</note>
+      </notes>
+      <segment>
+        <source>Avatar entfernen</source>
+        <target>Supprimer l'avatar</target>
+      </segment>
+    </unit>
+    <unit id="5yzpFRy" name="Profilbeschreibung entfernen">
+      <notes>
+        <note category="german">Profilbeschreibung entfernen</note>
+      </notes>
+      <segment>
+        <source>Profilbeschreibung entfernen</source>
+        <target>Supprimer la description du profil</target>
+      </segment>
+    </unit>
+    <unit id="R1lleS7" name="Titel &amp; Icon entfernen">
+      <notes>
+        <note category="german">Titel &amp; Icon entfernen</note>
+      </notes>
+      <segment>
+        <source>Titel &amp; Icon entfernen</source>
+        <target>Supprimer le titre et l'icône</target>
+      </segment>
+    </unit>
+    <unit id="BaVbT2z" name="Neuer Füllstand:">
+      <notes>
+        <note category="german">Neuer Füllstand:</note>
+      </notes>
+      <segment>
+        <source>Neuer Füllstand:</source>
+        <target>Nouveau niveau:</target>
+      </segment>
+    </unit>
+    <unit id="dIVIxL." name="Brunnen-Füllstand setzen">
+      <notes>
+        <note category="german">Brunnen-Füllstand setzen</note>
+      </notes>
+      <segment>
+        <source>Brunnen-Füllstand setzen</source>
+        <target>Régler le niveau de remplissage du puits</target>
+      </segment>
+    </unit>
+    <unit id="2xHk8Wn" name="Alle Gebäude freischalten">
+      <notes>
+        <note category="german">Alle Gebäude freischalten</note>
+      </notes>
+      <segment>
+        <source>Alle Gebäude freischalten</source>
+        <target>Déverrouillez tous les chantiers</target>
+      </segment>
+    </unit>
+    <unit id="IurwAt2" name="Baufortschritt setzen:">
+      <notes>
+        <note category="german">Baufortschritt setzen:</note>
+      </notes>
+      <segment>
+        <source>Baufortschritt setzen:</source>
+        <target>Définir la progression du chantier:</target>
+      </segment>
+    </unit>
+    <unit id="C0IagjD" name="Integrität setzen:">
+      <notes>
+        <note category="german">Integrität setzen:</note>
+      </notes>
+      <segment>
+        <source>Integrität setzen:</source>
+        <target>Définir l'intégrité:</target>
+      </segment>
+    </unit>
+    <unit id="PmdlsrB" name="Neue Anzahl:">
+      <notes>
+        <note category="german">Neue Anzahl:</note>
+      </notes>
+      <segment>
+        <source>Neue Anzahl:</source>
+        <target>Nouveau nombre:</target>
+      </segment>
+    </unit>
+    <unit id="VxMIE8o" name="Heldentage setzen">
+      <notes>
+        <note category="german">Heldentage setzen</note>
+      </notes>
+      <segment>
+        <source>Heldentage setzen</source>
+        <target>Définir l'expérience héroïque</target>
+      </segment>
+    </unit>
+      <unit id="RkHxHq_" name="Hausverbesserungen:">
+          <notes>
+              <note category="german">Hausverbesserungen:</note>
+          </notes>
+          <segment>
+              <source>Hausverbesserungen:</source>
+              <target>Hausverbesserungen:</target>
+          </segment>
+      </unit>
   </file>
 </xliff>

@@ -178,7 +178,6 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
                 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.',
                 'Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.',
             ], "children" => [
-            // TODO: UI
             ["name" => "Katapult",'desc' => 'Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann. Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).', "temporary" => 0,"img" => "item_courroie","vp" => 0,"ap" => 40, "hp" => 40,"bp" => 1,"rsc" => ["wood2_#00" => 2,"metal_#00" => 1,"wood_beam_#00" => 1,"metal_beam_#00" => 1,], "orderby" => 0, "children" => [
                 ["name" => "Verbesserter Katapult",'desc' => 'Dieses erheblich verbesserte Katapult ist einfacher zu bedienen und benötigt weniger AP, um mit einem Gegenstand beladen zu werden!', "temporary" => 0,"img" => "item_courroie","vp" => 0,"ap" => 30, "hp" => 30,"bp" => 2,"rsc" => ["courroie_#00" => 1,"wood2_#00" => 2,"metal_#00" => 2,"electro_#00" => 2,], "orderby" => 0],
             ]],
@@ -216,6 +215,14 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
                 ["name" => "Schwedische Schreinerei",'desc' => 'Dieser kleine Laden verbessert die Effektivität jedes Möbelstücks, das auf der Wache benutzt wird um 20%. Hach ja, die Schweden... Nie gab es bessere Billigmöbel!', "temporary" => 0,"img" => "small_ikea","vp" => 0,"ap" => 50, "hp" => 50,"bp" => 2,"rsc" => ["meca_parts_#00" => 3,"wood2_#00" => 15,"metal_#00" => 10,"plate_#00" => 4,"concrete_wall_#00" => 2,"wood_beam_#00" => 5,], "orderby" => 3],
             ]],
             ["name" => "Krähennest",'desc' => 'Weniger ein Turm als ein seeeeehr hoher Mast, der fast bis in die Wolken reicht. Aufklärer können ihn erklimmen und so Gebäude in der Außenwelt erspähen (1x pro Tag und Held).', "temporary" => 0,"img" => "small_watchmen","vp" => 10,"ap" => 36, "hp" => 36,"bp" => 2,"rsc" => ["meca_parts_#00" => 1,"wood_beam_#00" => 5,"metal_beam_#00" => 1,], "orderby" => 7],
+            ["name" => "Straßenbeleuchtung","maxLevel" => 3,'desc' => 'Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.', "temporary" => 0,"img" => "small_novlamps","vp" => 0,"ap" => 25, "hp" => 25,"bp" => 1,"rsc" => ["meca_parts_#00" => 2,"lens_#00" => 2,"diode_#00" => 2,"metal_beam_#00" => 10,"wire_#00" => 4, "pile_#00" => 5], "orderby" => 16,
+                "lv0text" => 'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert.',
+                "upgradeTexts" => [
+                    'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.',
+                    'Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.',
+                    'Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.',
+                    /* 'Bei Nacht erhöhen sich die Fundchancen im Umkreis von 10km um die Stadt um 20%, pro Tag werden 2 Batterien verbraucht.', */
+                ]],
         ]],
 
         ["name" => "Fundament",'desc' => 'Das Fundament ist die Grundvoraussetzung für "Absurde Projekte" (das sind langwierige und anstrengende Bauten, die jedoch für die Stadt mehr als nützlich sind).', "temporary" => 0,"img" => "small_building","vp" => 0,"ap" => 30, "hp" => 30,"bp" => 0,"rsc" => ["wood2_#00" => 10,"metal_#00" => 8,], "orderby" => 5, "children" => [
@@ -393,6 +400,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
 
         if (isset($data['maxLevel'])) {
             $object->setMaxLevel( $data['maxLevel'] );
+            $object->setZeroLevelText( $data['lv0text'] ?? null );
             if ($data['upgradeTexts']) $object->setUpgradeTexts( $data['upgradeTexts'] );
         }
 

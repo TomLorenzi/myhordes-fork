@@ -3124,22 +3124,22 @@
         <target>Utilizar</target>
       </segment>
     </unit>
-    <unit id="0yUwJX." name="Du hast dein {item} ausgepackt und {items_spawn} erhalten!">
+    <unit id="6J5aQUR" name="ffc22b0">
       <notes>
-        <note category="german">Du hast dein {item} ausgepackt und {items_spawn} erhalten!</note>
+        <note category="german">Du hast dein &lt;span class="tool"&gt;{item}&lt;/span&gt; ausgepackt und &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt; erhalten!</note>
       </notes>
       <segment>
-        <source>Du hast dein {item} ausgepackt und {items_spawn} erhalten!</source>
-        <target>Has abierto {item} y has encontrado {items_spawn}</target>
+        <source>Du hast dein &lt;span class="tool"&gt;{item}&lt;/span&gt; ausgepackt und &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt; erhalten!</source>
+        <target><![CDATA[Has abierto <span class="tool">{item}</span> y has encontrado <span class="tool">{items_spawn}</span>.]]></target>
       </segment>
     </unit>
-    <unit id="v4TehoJ" name="Du hast die {item} geöffnet und darin {items_spawn} gefunden!">
+    <unit id="RG55Xgx" name="8730474">
       <notes>
-        <note category="german">Du hast die {item} geöffnet und darin {items_spawn} gefunden!</note>
+        <note category="german">Du hast die &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt; gefunden!</note>
       </notes>
       <segment>
-        <source>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</source>
-        <target>Abriste {item} y encontraste {items_spawn} en su interior.</target>
+        <source>Du hast die &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt; gefunden!</source>
+        <target><![CDATA[Abriste <span class="tool">{item}</span> y encontraste <span class="tool">{items_spawn}</span> en su interior.]]></target>
       </segment>
     </unit>
     <unit id="TbNnR3t" name="2055760">
@@ -3274,7 +3274,7 @@
       </notes>
       <segment>
         <source>Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</source>
-        <target>Vibra, hace cosquillas, y te hace olvidar tus pequeños problemas por unos instantes (necesita 1 pila).</target>
+        <target>Te instalas cómodamente en tu casa y te dejas llevar... Mala sorpresa: ¡la máquina es horriblemente dolorosa de usar! Sin embargo, terminas por cogerle el gusto. Y al cabo de unos instantes, el efecto es radical: transpiras, pero te sientes más... "relajado". La pila ha sido totalmente agotada.</target>
       </segment>
     </unit>
     <unit id="EoaSigx" name="Das brauchst du gerade nicht ...">
@@ -7009,7 +7009,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
     </unit>
     <unit id="brwfS0V" name="Reinigen (Wasser)">
       <notes>
-        <note category="german">Reinigen (Wasser)</note>
+        <note category="german">Reinigen</note>
       </notes>
       <segment>
         <source>Reinigen (Wasser)</source>
@@ -7018,7 +7018,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
     </unit>
     <unit id="F9ufT7F" name="Reinigen (Kleidung)">
       <notes>
-        <note category="german">Reinigen (Kleidung)</note>
+        <note category="german">Reinigen</note>
       </notes>
       <segment>
         <source>Reinigen (Kleidung)</source>
@@ -7259,13 +7259,13 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
         <target>Tiene un sabor muy raro, difícil de describir. Al menos cumple con su misión: llenar tu estómago. Pero no te da un bonus de energía.</target>
       </segment>
     </unit>
-    <unit id="wt_Avmu" name="742d658">
+    <unit id="QIX9KqQ" name="2ea8b31">
       <notes>
-        <note category="german">Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast &lt;strong&gt;1 zusätzlichen AP erhalten!&lt;/strong&gt;</note>
+        <note category="german">Einmal ist zwar keinmal, dennoch genießt du dein(e) &lt;span class="tool"&gt;{item}&lt;/span&gt;. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast &lt;strong&gt;1 zusätzlichen AP erhalten!&lt;/strong&gt;</note>
       </notes>
       <segment>
-        <source>Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast &lt;strong&gt;1 zusätzlichen AP erhalten!&lt;/strong&gt;</source>
-        <target><![CDATA[Te das un gusto comiendo {item} , de vez en cuando no está mal para cambiar de esas raciones pútridas.{hr}<strong>¡Recibes un bonus de 1 PA!</strong>]]></target>
+        <source>Einmal ist zwar keinmal, dennoch genießt du dein(e) &lt;span class="tool"&gt;{item}&lt;/span&gt;. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast &lt;strong&gt;1 zusätzlichen AP erhalten!&lt;/strong&gt;</source>
+        <target><![CDATA[Te das un gusto comiendo <span class="tool">{item}</span>, de vez en cuando no está mal para cambiar de esas raciones pútridas.{hr}<strong>¡Recibes un bonus de 1 PA!</strong>]]></target>
       </segment>
     </unit>
     <unit id="wDKaGfq" name="Krähenelfe">
@@ -7706,7 +7706,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>So was nennt man wohl &lt;strong&gt;Glück&lt;/strong&gt;! &lt;t-inside&gt;Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!&lt;/t-inside&gt;&lt;t-outside&gt;Du hast soeben {items_spawn} im Wüstensand gefunden!&lt;/t-outside&gt; Genau das, was du gebraucht hast!</source>
-        <target><![CDATA[So was nennt man wohl <strong>Glück</strong>! <t-inside>Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!</t-inside><t-outside>Du hast soeben {items_spawn} im Wüstensand gefunden!</t-outside> Genau das, was du gebraucht hast!]]></target>
+        <target><![CDATA[<t-inside><strong>¡Pero qué suerte tienes!</strong>... ¡Has encontrado {items_spawn} en un montículo de basura junto a tu pocilga, justo lo que te hacía falta!</t-inside><t-outside><strong>¡Qué suerte tienen los que no se bañan!</strong>... ¡Has descubierto {items_spawn} en la arena, justo lo que necesitabas!</t-outside>]]></target>
       </segment>
     </unit>
     <unit id="Y65IL58" name="0632b2c">
@@ -7715,7 +7715,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Mit Hilfe deiner übermenschlichen Heldenkräfte hast du &lt;strong&gt;{kills} Zombie(s)&lt;/strong&gt; platt gemacht!</source>
-        <target><![CDATA[Mit Hilfe deiner übermenschlichen Heldenkräfte hast du <strong>{kills} Zombie(s)</strong> platt gemacht!]]></target>
+        <target><![CDATA[¡Con tu fuerza de Héroe y tus puños, hiciste pedazos a <strong>{kills} Zombie(s)</strong>!]]></target>
       </segment>
     </unit>
     <unit id="Pd1i68n" name="5bbcfac">
@@ -7760,7 +7760,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!</source>
-        <target>Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!</target>
+        <target>No llevas puesto tu traje de camuflaje, serás visto en el paraje... ¡Me salió una rima!</target>
       </segment>
     </unit>
     <unit id="K5gMU.j" name="Kreischender Wecker (entladen)">
@@ -7895,7 +7895,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen</source>
-        <target>Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen</target>
+        <target>No hay nada mejor como una pinta de cerveza oscura para inspirar poesía, risas y lucha de zombies... *Aprobado por Charlie Sheen</target>
       </segment>
     </unit>
     <unit id="KXJ5rEK" name="1a1dc68">
@@ -7925,13 +7925,13 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
         <target>Estás usando {item}, pero no parece estar haciendo ningún efecto. ¿Será que no era necesario?</target>
       </segment>
     </unit>
-    <unit id="ullYTUO" name="bc4370c">
+    <unit id="NU_DTOa" name="5f55a13">
       <notes>
-        <note category="german">Du hast mit dem(r) {item_tool} ein(e) {item} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</note>
+        <note category="german">Du hast mit dem(r) &lt;span class="tool"&gt;{item_tool}&lt;/span&gt; ein(e) &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin folgenden Gegenstand gefunden: &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt;.</note>
       </notes>
       <segment>
-        <source>Du hast mit dem(r) {item_tool} ein(e) {item} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</source>
-        <target>Du hast mit dem(r) {item_tool} ein(e) {item} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</target>
+        <source>Du hast mit dem(r) &lt;span class="tool"&gt;{item_tool}&lt;/span&gt; ein(e) &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin folgenden Gegenstand gefunden: &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt;.</source>
+        <target><![CDATA[Du hast mit dem(r) <span class="tool">{item_tool}</span> ein(e) <span class="tool">{item}</span> geöffnet und darin folgenden Gegenstand gefunden: <span class="tool">{items_spawn}</span>.]]></target>
       </segment>
     </unit>
     <unit id="lXVMIpX" name="9f73205">
@@ -7945,7 +7945,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
     </unit>
     <unit id="Ddujs08" name="1786e8e">
       <notes>
-        <note category="german">&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</note>
+        <note category="german">&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}&lt;strong&gt;Your neighbours will be really happy when they see all that in the bank.&lt;/strong&gt;&lt;/nt-fail&gt;</note>
       </notes>
       <segment>
         <source>&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</source>
@@ -7963,7 +7963,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
     </unit>
     <unit id="EhU2or6" name="b621fab">
       <notes>
-        <note category="german">&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</note>
+        <note category="german">&lt;t-fail&gt;&lt;t-door-closed&gt;The Town gates are closed ...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}&lt;strong&gt;Your neighbours will be really happy when they see all that in the bank.&lt;/strong&gt;&lt;/nt-fail&gt;</note>
       </notes>
       <segment>
         <source>&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</source>
@@ -7976,12 +7976,12 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Die Zunge klebt dir noch immer am Gaumen und dein Hals ist noch genauso trocken wie vorher. Du hast deinen Verdurstungstod erfolgreich verhindert.{hr}&lt;strong&gt;Da du davor schon dehydriert warst, hast du keine neuen APs erhalten.&lt;/strong&gt;</source>
-        <target><![CDATA[Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Die Zunge klebt dir noch immer am Gaumen und dein Hals ist noch genauso trocken wie vorher. Du hast deinen Verdurstungstod erfolgreich verhindert.{hr}<strong>Da du davor schon dehydriert warst, hast du keine neuen APs erhalten.</strong>]]></target>
+        <target><![CDATA[Tragas tu ración de agua como un salvaje, sin dejar ni una sola gota... Tu garganta arde, pero al menos dejarás de deshidratarte.{hr}<strong>No has regenerado tus PA porque estabas deshidratado.</strong>]]></target>
       </segment>
     </unit>
     <unit id="bmHixif" name="fa98a6f">
       <notes>
-        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</note>
+        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;You don't have enough space for these items ...&lt;/t-no-room&gt;&lt;t-door-closed&gt;The Town gates are closed ...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} cannot carry heavy objects ...&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}As you asked, &lt;strong&gt;everything was left at your house&lt;/strong&gt;.{hr}Brave animal!&lt;/nt-fail&gt;</note>
       </notes>
       <segment>
         <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
@@ -7990,7 +7990,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
     </unit>
     <unit id="qedyN68" name="d429fd8">
       <notes>
-        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</note>
+        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;You don't have enough space for these items ...&lt;/t-no-room&gt;&lt;t-door-closed&gt;The Town gates are closed ...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}As you asked, &lt;strong&gt;everything was left at your house.&lt;/strong&gt;.{hr}Brave animal!&lt;/nt-fail&gt;</note>
       </notes>
       <segment>
         <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
@@ -8057,7 +8057,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du bist ab sofort getarnt.</source>
-        <target>Du bist ab sofort getarnt.</target>
+        <target>Ahora estás camuflado.</target>
       </segment>
     </unit>
     <unit id="x.8gDqz" name="17bda63">
@@ -8157,6 +8157,33 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <segment>
         <source>Der Bürger hat den mystischen Trank in einem Zug ausgetrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</source>
         <target>Der Bürger hat den mystischen Trank in einem Zug ausgetrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</target>
+      </segment>
+    </unit>
+    <unit id="q2jfZzs" name="5db32a5">
+      <notes>
+        <note category="german">Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: &lt;strong&gt;du bist nun verletzt&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: &lt;strong&gt;du bist nun verletzt&lt;/strong&gt;.</source>
+        <target><![CDATA[Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: <strong>du bist nun verletzt</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="GUA4Vaf" name="8f08b00">
+      <notes>
+        <note category="german">Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</note>
+      </notes>
+      <segment>
+        <source>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</source>
+        <target>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</target>
+      </segment>
+    </unit>
+    <unit id="stXotvA" name="8c830be">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
+        <target>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</target>
       </segment>
     </unit>
   </file>

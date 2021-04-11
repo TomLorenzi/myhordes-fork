@@ -74,6 +74,7 @@ class TownConf extends Conf
     const CONF_MODIFIER_WIND_DISTANCE        = 'modifiers.wind_distance';
     const CONF_MODIFIER_STRICT_PICTOS        = 'modifiers.strict_picto_distribution';
     const CONF_MODIFIER_RESPAWN_FACTOR       = 'modifiers.massive_respawn_factor';
+    const CONF_MODIFIER_AUTOGHOUL_FROM       = 'modifiers.ghoul_infection_begin';
 
     const CONF_FEATURE_CAMPING         = 'features.camping';
     const CONF_FEATURE_NIGHTMODE       = 'features.nightmode';
@@ -85,10 +86,8 @@ class TownConf extends Conf
     const CONF_FEATURE_GHOUL_MODE      = 'features.ghoul_mode';
     const CONF_FEATURE_ALL_POISON      = 'features.all_poison';
     const CONF_FEATURE_SHUN            = 'features.shun';
-    const CONF_FEATURE_GHOUL           = 'features.ghoul';
     const CONF_FEATURE_NIGHTWATCH      = 'features.nightwatch.enabled';
     const CONF_FEATURE_NIGHTWATCH_INSTANT = 'features.nightwatch.instant';
-    const CONF_FEATURE_IMPROVEDDUMP    = 'features.improveddump';
     const CONF_FEATURE_ATTACKS         = 'features.attacks';
     const CONF_FEATURE_GIVE_ALL_PICTOS = 'features.give_all_pictos';
     const CONF_FEATURE_GIVE_SOULPOINTS = 'features.give_soulpoints';

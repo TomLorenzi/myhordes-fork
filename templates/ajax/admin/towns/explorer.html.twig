@@ -13,8 +13,8 @@
 {% block ajax %}
     {% macro valuelist(prop,val) %}
         <div class="row">
-            <div class="cell rw-4"><b>{{ prop }}</b></div>
-            <div class="cell rw-8">
+            <div class="padded cell rw-4 note note-lightest">{{ prop }}</div>
+            <div class="padded cell rw-8">
                 {% if val is same as(true) %}
                     {{ 'Ja'|trans({},'admin') }}
                 {% elseif val is same as(false)  %}
@@ -62,8 +62,8 @@
                         {{ _self.valuelist('Quarantäne'|trans({},'game'),  town.attackFails >= 3) }}
 
                         <div class="row">
-                            <div class="cell rw-4"><b><label for="administer-town">{{ 'Stadt administrieren'|trans({},'admin') }}</label></b></div>
-                            <div class="cell rw-8">
+                            <div class="padded cell rw-4 note note-lightest"><label for="administer-town">{{ 'Stadt administrieren'|trans({},'admin') }}</label></div>
+                            <div class="padded cell rw-8">
                                 <select id="administer-town" style="width: 30rem;">
                                     <option value="">-</option>
                                     {% if is_granted("ROLE_ADMIN") %}
@@ -103,6 +103,9 @@
                                                 {% if ctz_disengaged > 0 %}
                                                     <option value="{{ url('admin_town_manage', {action: 'dbg_engage', id: town.id}) }}">{{ 'Alle Spieler koppeln'|trans({},'admin') }}</option>
                                                 {% endif %}
+                                                <option value="{{ url('admin_town_manage', {action: 'dbg_set_well', id: town.id}) }}" x-query="{{ 'Neuer Füllstand:'|trans({},'admin') }}">{{ 'Brunnen-Füllstand setzen'|trans({},'admin') }}</option>
+                                                <option value="{{ url('admin_town_manage', {action: 'dbg_unlock_buildings', id: town.id}) }}">{{ 'Alle Gebäude freischalten'|trans({},'admin') }}</option>
+
                                             </optgroup>
                                         {% endif %}
                                     {% endif %}
@@ -161,7 +164,7 @@
                             {% endif %}
                         </div>
                         {% if fromTown is defined %}
-                        <div class="padded cell rw-6 rw-lg-10 rw-sm-12 no-ws">
+                        <div class="padded cell rw-3 rw-lg-5 rw-sm-12 no-ws">
                             {% if fromTown.ap > 0 and not fromTown.complete %}
                                 <div class="ap-bar">
                                     <div class="bar" style="width: {{ 100*(fromTown.ap/building.ap) }}%"></div>
@@ -169,10 +172,7 @@
                             {% elseif fromTown.complete and fromTown.hp < building.hp %}
                                 <div class="ap-bar">
                                     <div class="bar" style="width: {{ 100*(fromTown.hp/((building.hp)|round)) }}%"></div>
-                                    <div class="tooltip"><em>{{"Zustand:"|trans({}, 'game')}}</em> {{fromTown.hp}}/{{building.hp}}<br />
-                                        {{"Jeder %divap%, der in die Reparatur investiert wird, beseitigt %hprepair% Schadenspunkte an einem Bauwerk."|trans({"%divap%": "<div class='ap'></div>", "%hprepair%": "<b>" ~ hpToAp ~ "</b>"}, "game")|raw}}<br /><br />
-                                        {{"Die Reparatur verbraucht keine Ressourcen."|trans({}, 'game')}}
-                                    </div>
+                                    <div class="tooltip"><em>{{"Zustand:"|trans({}, 'game')}}</em> {{fromTown.hp}}/{{building.hp}}</div>
                                 </div>
                             {% endif %}
 
@@ -180,8 +180,13 @@
                                 <div class="ap">{{ fromTown.ap }}/{{ building.ap }}</div>
                             </div>
                         </div>
-                        <div class="padded cell rw-1 rw-lg-2 rw-sm-12 right">
-                            <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="setAp"><i class="fa fa-edit"></i></button>
+                        <div class="padded cell rw-4 rw-lg-7 rw-sm-12 right">
+                            <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="{% if fromTown.complete %}setHp{% else %}setAp{% endif %}"><i class="fa fa-edit"></i></button>
+                            {% if not fromTown.complete %}
+                                <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="complete"><i class="fa fa-check"></i></button>
+                            {% else %}
+                                <button class="inline build-btn" x-building-id="{{ fromTown.id }}" x-building-admin-action="destroy"><i class="fa fa-times"></i></button>
+                            {% endif %}
                         </div>
                         {% endif %}
                     </div>
@@ -237,7 +242,7 @@
 
             <div x-tab-group="admin-town" x-tab-id="citizens" x-tab-target>
                 <div class="row">
-                    <div class="cell padded rw-6 rw-sm-12">
+                    <div class="cell padded rw-6 rw-md-12">
                         <div class="row-table citizens-list">
                             <div class="row header">
                                 <div class="padded cell rw-1">{{'Rucksack'|trans({}, 'admin')|slice(0,1)}}<div class="tooltip help">{{'Rucksack'|trans({}, 'admin')}}</div></div>
@@ -338,7 +343,7 @@
                             {% endfor %}
                         </div>
                     </div>
-                    <div class="cell rw-6 rw-sm-12 padded">
+                    <div class="cell rw-6 rw-md-12 padded">
                         {% if is_granted("ROLE_ADMIN") %}
                         <div class="padded cell">
                             {{ item_creator(itemPrototypes, 'ctz') }}
@@ -531,8 +536,16 @@
 
             document.getElementById('execute_button').addEventListener('click', function() {
                 if (!document.getElementById('administer-town').value) return;
-                let url = document.querySelector('#administer-town option:checked').getAttribute('x-alt-url');
-                $.ajax.easySend( document.getElementById('administer-town').value, {},
+                const url = document.querySelector('#administer-town option:checked').getAttribute('x-alt-url');
+                const query = document.querySelector('#administer-town option:checked').getAttribute('x-query');
+
+                let q_param = null;
+                if (query) {
+                    q_param = prompt(query, '');
+                    if (q_param === null) return;
+                }
+
+                $.ajax.easySend( document.getElementById('administer-town').value, {param: q_param},
                     function () {
                         $.ajax.load(null, url ? url : '{{ path('admin_town_explorer', {id: town.id}) }}', true);
                     } );
@@ -614,19 +627,51 @@
                    let action = buildingBtns[i].getAttribute("x-building-admin-action");
                    switch(action) {
                        case "setAp":
-                           let ap = null, valid = false;
+                           let ap = null, ap_valid = false;
                            do {
-                               ap = window.prompt("{{ 'Wie viele Aktionspunkte möchtest du in den Bau investieren?'|trans({},'game')|e('js') }}", "1");
-                               if (ap === null) valid = true;
+                               ap = window.prompt("{{ 'Baufortschritt setzen:'|trans({},'admin')|e('js') }}", "1");
+                               if (ap === null) ap_valid = true;
                                else {
                                    ap = parseInt(ap);
-                                   valid = !isNaN(ap) && ap >= 0;
+                                   ap_valid = !isNaN(ap) && ap >= 0;
                                }
-                           } while (!valid);
+                           } while (!ap_valid);
 
-                           if (!ap) return;
+                           if (ap === null) return;
 
                            $.ajax.easySend( '{{ path('admin_town_set_building_ap', {id: town.id }) }}', {'building': buildingBtns[i].getAttribute("x-building-id"), 'ap': ap},
+                               function () {
+                                   $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "buildings"}) }}', true);
+                               } );
+                           break;
+
+                       case "setHp":
+                           let hp = null, hp_valid = false;
+                           do {
+                               hp = window.prompt("{{ 'Integrität setzen:'|trans({},'admin')|e('js') }}", "1");
+                               if (hp === null) hp_valid = true;
+                               else {
+                                   hp = parseInt(hp);
+                                   hp_valid = !isNaN(hp) && hp >= 0;
+                               }
+                           } while (!hp_valid);
+
+                           if (hp === null) return;
+
+                           $.ajax.easySend( '{{ path('admin_town_set_building_hp', {id: town.id }) }}', {'building': buildingBtns[i].getAttribute("x-building-id"), 'hp': hp},
+                               function () {
+                                   $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "buildings"}) }}', true);
+                               } );
+                           break;
+
+                       case "complete":
+                           $.ajax.easySend( '{{ path('admin_town_set_building_ap', {id: town.id }) }}', {'building': buildingBtns[i].getAttribute("x-building-id"), 'ap': 99999999},
+                               function () {
+                                   $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "buildings"}) }}', true);
+                               } );
+                           break;
+                       case "destroy":
+                           $.ajax.easySend( '{{ path('admin_town_set_building_ap', {id: town.id }) }}', {'building': buildingBtns[i].getAttribute("x-building-id"), 'ap': 0},
                                function () {
                                    $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: "buildings"}) }}', true);
                                } );

@@ -406,6 +406,7 @@ class InventoryAwareController extends CustomAbstractController
 
             $aggressor->setGhulHunger( max(0, $aggressor->getGhulHunger() - 65) );
             $this->picto_handler->give_picto($aggressor, 'r_cannib_#00');
+            $this->citizen_handler->removeStatus($aggressor, 'tg_air_ghoul');
 
             $stat_down = false;
             if (!$this->citizen_handler->hasStatusEffect($aggressor, 'drugged') && $this->citizen_handler->hasStatusEffect($victim, 'drugged')) {
@@ -543,7 +544,7 @@ class InventoryAwareController extends CustomAbstractController
         return AjaxResponse::success( );
     }
 
-    public function generic_item_api(Inventory &$up_target, Inventory &$down_target, bool $allow_down_all, JSONRequestParser $parser, InventoryHandler $handler, Citizen $citizen = null, $hide = false): Response {
+    public function generic_item_api(Inventory &$up_target, Inventory &$down_target, bool $allow_down_all, JSONRequestParser $parser, InventoryHandler $handler, Citizen $citizen = null, $hide = false, ?int &$processed = null): AjaxResponse {
         $item_id = $parser->get_int('item', -1);
         $direction = $parser->get('direction', '');
         $allowed_directions = ['up','down'];
@@ -597,6 +598,8 @@ class InventoryAwareController extends CustomAbstractController
 
             $target_citizen = $inv_target->getCitizen() ?? $inv_source->getCitizen() ?? $citizen;
 
+            $has_hidden = false;
+
             foreach ($items as $current_item){
                 if($current_item->getPrototype()->getName() == 'soul_red_#00' && $floor_up) {
                     // We pick a read soul in the World Beyond
@@ -636,7 +639,7 @@ class InventoryAwareController extends CustomAbstractController
                             if($floor_up && $current_item->getPrototype()->getName() == 'soul_blue_#00' && $current_item->getFirstPick()) {
                                 $current_item->setFirstPick(false);
                                 // In the "Job" version of the shaman, the one that pick a blue soul for the 1st time gets the "r_collec" picto
-                                if ($this->getTownConf()->get(TownConf::CONF_FEATURE_SHAMAN_MODE, "normal") == "job")
+                                if ($this->getTownConf()->get(TownConf::CONF_FEATURE_SHAMAN_MODE, "normal") === "job")
                                     $this->picto_handler->give_picto($target_citizen, "r_collec2_#00");
                                 $this->entity_manager->persist($current_item);
                             }
@@ -716,6 +719,7 @@ class InventoryAwareController extends CustomAbstractController
                             }
                         }
                         if(!$floor_up && $hide) {
+                            $has_hidden = true;
                             $current_item->setHidden(true);
                         } else {
                             $current_item->setHidden(false);
@@ -732,13 +736,20 @@ class InventoryAwareController extends CustomAbstractController
                 }
             }
 
+            if ($has_hidden) {
+                $this->citizen_handler->setAP($citizen, true, -2);
+                $this->entity_manager->persist($citizen);
+            }
+
             try {
                 $this->entity_manager->flush();
             } catch (Exception $e) {
                 return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
             }
 
-            if (count($errors) < $item_count) {
+            $processed = max(0, $item_count - count($errors));
+
+            if (count($errors) < $item_count || ($item_count === 0 && empty($error))) {
                 return AjaxResponse::success();
             } else if (count($errors) > 0)
                 return AjaxResponse::error($errors[0]);

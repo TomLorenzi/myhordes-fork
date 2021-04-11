@@ -1,4 +1,5 @@
 {% macro gen_id(prefix,domain,name) %}{% if prefix is not empty %}{{ prefix }}-{% endif %}{{ domain }}_{{ name }}{% endmacro %}
+{% macro gen_attr(prefix,domain,name,value = null) %}x-{% if prefix is not empty %}{{ prefix }}-{% endif %}{{ domain }}-{{ name }}{% if value is not null %}="{{ value }}"{% endif %}{% endmacro %}
 
 <!-- <editor-fold desc="Item Creator Widget"> -->
 {% macro widget_item_creator(itemPrototypes, prefix = '') %}
@@ -10,17 +11,22 @@
             <div class="padded cell grow-1 shrink-1">
                 <select id="{{ _self.gen_id(prefix,'itemwidget','select')}}">
                     {% for itemPrototype in itemPrototypes %}
-                        <option value="{{itemPrototype.id}}">{{ itemPrototype.label|trans({}, 'items') }}</option>
+                        <option title="{{ itemPrototype.name }}" value="{{itemPrototype.id}}">{{ itemPrototype.label|trans({}, 'items') }}</option>
                     {% endfor %}
                 </select>
             </div>
-            <div class="padded cell grow-0 shrink-0"><label for="{{ _self.gen_id(prefix,'itemwidget','number')}}">X</label></div>
-            <div class="padded cell grow-3 shrink-3"> <input type="number" id="{{ _self.gen_id(prefix,'itemwidget','number')}}" value="1"/> </div>
-            <div class="padded cell grow-0 shrink-0 right">
-                <label>{{'Vergiftet:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_poison')}}" /></label><br />
-                <label>{{'Zerstört:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_broken')}}" /></label><br />
-                <label>{{'Essentiell:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_essential')}}" /></label><br />
-                <label>{{'Versteckt:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_hidden')}}" /></label><br />
+            <div class="padded cell grow-0 shrink-0 hide-md hide-sm"><label for="{{ _self.gen_id(prefix,'itemwidget','number')}}">X</label></div>
+            <div class="padded cell grow-2 shrink-2"> <input type="number" id="{{ _self.gen_id(prefix,'itemwidget','number')}}" value="1"/> </div>
+        </div>
+        <div class="row-flex">
+            <div class="padded cell note note-lightest">
+                <label>{{'Vergiftet:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_poison')}}" /></label>
+            </div><div class="padded cell note note-lightest">
+                <label>{{'Zerstört:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_broken')}}" /></label>
+            </div><div class="padded cell note note-lightest">
+                <label>{{'Essentiell:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_essential')}}" /></label>
+            </div><div class="padded cell note note-lightest">
+                <label>{{'Versteckt:'|trans({}, 'admin')}}<input type="checkbox" id="{{ _self.gen_id(prefix,'itemwidget','opt_hidden')}}" /></label>
             </div>
         </div>
         <div class="row">
@@ -187,14 +193,14 @@
 {% macro widget_point_control(prefix = '') %}
     <div class="lightbox">
         <div class="row-flex">
-            <div class="padded cell grow-1 shrink-1">
+            <div class="padded cell grow-2 shrink-1">
                 <label><select id="{{ _self.gen_id(prefix,'pointwidget','select')}}">
                         <option value="ap">{{'AP'|trans({}, 'admin')}}</option>
                         <option value="bp">{{'BP'|trans({}, 'admin')}}</option>
                         <option value="mp">{{'MP'|trans({}, 'admin')}}</option>
                     </select></label>
             </div>
-            <div class="padded cell grow-1 shrink-1">
+            <div class="padded cell grow-1 shrink-3">
                 <label><input type="number" id="{{ _self.gen_id(prefix,'pointwidget','number')}}" value="6"/></label>
             </div>
             <div class="padded cell grow-0 shrink-0"><button x-control="1"  id="{{ _self.gen_id(prefix,'pointwidget','give')}}"><i class="fa fa-plus"></i><div class="tooltip">{{'Hinzufügen'|trans({}, 'admin')}}</div></button></div>
@@ -258,6 +264,117 @@
 
             $.ajax.easySend('{{ api_url }}', {
                 profession: profession, targets: targets
+                }, () => $.ajax.load(null, '{{ load_url }}', true)
+            );
+        });
+    </script>
+{% endmacro %}
+<!-- </editor-fold> -->
+
+<!-- <editor-fold desc="Home Manager Widget"> -->
+{% macro widget_home_control(citizen, upgrades, prefix = '') %}
+    {# @var citizen \App\Entity\Citizen #}
+    {# @var upgrades \App\Entity\CitizenHomeUpgradePrototype[] #}
+    <div class="lightbox">
+        <div class="row">
+            <div class="padded cell rw-12">{{'Hausverbesserungen:'|trans({}, 'admin')}}</div>
+        </div>
+        <div class="row-flex">
+            <div class="padded cell grow-1 shrink-1">
+                <img alt="{{ citizen.home.prototype.level }}" src="{{ asset('build/images/home/' ~ citizen.home.prototype.icon ~ '.gif') }}" />
+                {{ citizen.home.prototype.label|trans({},'buildings') }}
+            </div>
+            <div class="padded cell grow-0 shrink-0">
+                <button x-dif="-1" id="{{ _self.gen_id(prefix,'homewidget','home-level-minus')}}"><i class="fa fa-minus"></i></button>
+            </div><div class="padded cell grow-0 shrink-0">
+                <button x-dif="1" id="{{ _self.gen_id(prefix,'homewidget','home-level-plus')}}"><i class="fa fa-plus"></i></button>
+            </div>
+        </div>
+        {% if citizen.home.prototype.allowSubUpgrades %}
+            {% set existing_protos = [] %}
+            <hr />
+            {% for existing_upgrade in citizen.home.citizenHomeUpgrades %}
+                {# @var existing_upgrade \App\Entity\CitizenHomeUpgrade #}
+                {% set existing_protos = existing_protos|merge([existing_upgrade.prototype]) %}
+                <div class="row-flex">
+                    <div class="padded cell grow-1 shrink-1">
+                        <img alt="" src="{{ asset('build/images/home/' ~ existing_upgrade.prototype.icon ~ '.gif') }}" />
+                        <b>{{ existing_upgrade.prototype.label|trans({},'buildings') }}</b> <i>({{ existing_upgrade.level }})</i>
+                    </div>
+                    <div class="padded cell grow-0 shrink-0">
+                        <button x-dif="-1" {{ _self.gen_attr(prefix,'homewidget','home-upgrade-minus', existing_upgrade.id)}}><i class="fa fa-minus"></i></button>
+                    </div><div class="padded cell grow-0 shrink-0">
+                        <button x-dif="1" {{ _self.gen_attr(prefix,'homewidget','home-upgrade-plus', existing_upgrade.id)}}><i class="fa fa-plus"></i></button>
+                    </div>
+                </div>
+            {% endfor %}
+            {% set first = true %}
+            {% for upgrade in upgrades %}
+                {# @var upgrade \App\Entity\CitizenHomeUpgradePrototype #}
+                {% if upgrade not in existing_protos %}
+                    {% if first %}
+                        <hr />
+                        {% set first = false %}
+                    {% endif %}
+                    <div class="row-flex">
+                        <div class="padded cell grow-1 shrink-1">
+                            <img alt="" src="{{ asset('build/images/home/' ~ upgrade.icon ~ '.gif') }}" />
+                            {{ upgrade.label|trans({},'buildings') }}
+                        </div>
+                        <div class="padded cell grow-0 shrink-0">
+                            <button {{ _self.gen_attr(prefix,'homewidget','home-upgrade-create', upgrade.id)}}><i class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endmacro %}
+{% macro widget_home_control_js(selector, api_url, load_url, prefix = '') %}
+    <script>
+        $.html.addEventListenerAll('#{{ _self.gen_id(prefix,'homewidget','home-level-minus')}}[x-dif],#{{ _self.gen_id(prefix,'homewidget','home-level-plus')}}[x-dif]','click', function(e,elem){
+            let targets = [];
+            document.querySelectorAll('{{ selector|e('js') }}').forEach( element => targets.push(parseInt(element.getAttribute('x-id'))) );
+
+            if (targets.length === 0) {
+                $.html.error('{{ 'Kein Bürger ausgewählt!'|trans({}, 'admin') }}');
+                return;
+            }
+
+            $.ajax.easySend('{{ api_url }}', {
+                    target: 'home', dif: parseInt(elem.getAttribute('x-dif')), citizen: targets
+                }, () => $.ajax.load(null, '{{ load_url }}', true)
+            );
+        });
+
+        $.html.addEventListenerAll('[{{ _self.gen_attr(prefix,'homewidget','home-upgrade-minus')}}][x-dif],[{{ _self.gen_attr(prefix,'homewidget','home-upgrade-plus')}}][x-dif]','click', function(e,elem){
+            let targets = [];
+            document.querySelectorAll('{{ selector|e('js') }}').forEach( element => targets.push(parseInt(element.getAttribute('x-id'))) );
+
+            if (targets.length === 0) {
+                $.html.error('{{ 'Kein Bürger ausgewählt!'|trans({}, 'admin') }}');
+                return;
+            }
+
+            const id = elem.getAttribute('{{ _self.gen_attr(prefix,'homewidget','home-upgrade-minus')}}') ? elem.getAttribute('{{ _self.gen_attr(prefix,'homewidget','home-upgrade-minus')}}') : elem.getAttribute('{{ _self.gen_attr(prefix,'homewidget','home-upgrade-plus')}}');
+
+            $.ajax.easySend('{{ api_url }}', {
+                    target: 'sub', dif: parseInt(elem.getAttribute('x-dif')), id: parseInt(id), citizen: targets
+                }, () => $.ajax.load(null, '{{ load_url }}', true)
+            );
+        });
+
+        $.html.addEventListenerAll('[{{ _self.gen_attr(prefix,'homewidget','home-upgrade-create')}}]','click', function(e,elem){
+            let targets = [];
+            document.querySelectorAll('{{ selector|e('js') }}').forEach( element => targets.push(parseInt(element.getAttribute('x-id'))) );
+
+            if (targets.length === 0) {
+                $.html.error('{{ 'Kein Bürger ausgewählt!'|trans({}, 'admin') }}');
+                return;
+            }
+
+            $.ajax.easySend('{{ api_url }}', {
+                    target: 'proto', dif: 1, id: parseInt(elem.getAttribute('{{ _self.gen_attr(prefix,'homewidget','home-upgrade-create')}}')), citizen: targets
                 }, () => $.ajax.load(null, '{{ load_url }}', true)
             );
         });

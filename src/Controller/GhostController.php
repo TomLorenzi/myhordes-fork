@@ -10,6 +10,7 @@ use App\Entity\CitizenRole;
 use App\Entity\SpecialActionPrototype;
 use App\Entity\Town;
 use App\Entity\TownClass;
+use App\Entity\TownSlotReservation;
 use App\Entity\User;
 use App\Response\AjaxResponse;
 use App\Service\CitizenHandler;
@@ -126,6 +127,8 @@ class GhostController extends CustomAbstractController
         $crow_permissions = $this->isGranted('ROLE_CROW');
 
         $nightwatch = $parser->get('nightWatchMode', 'normal', ['normal','instant','none']);
+        $nightmode = $parser->get('nightmode', 'myhordes', ['myhordes','hordes','none']);
+        $ghoulmode = $parser->get('ghoulType', 'normal', ['normal', 'childtown', 'bloodthirst', 'airborne', 'airbnb']);
 
         $customConf = [
             'open_town_limit'      => ($crow_permissions && !(bool)$parser->get('negate', true)) ? -1 : 2,
@@ -134,13 +137,12 @@ class GhostController extends CustomAbstractController
             'features' => [
                 'xml_feed' => !(bool)$parser->get('disablexml', false),
 
-                'ghoul_mode'    => $parser->get('ghoulType', 'normal'),
-                'shaman'    => $parser->get('shamanMode', 'normal', ['normal','job','none']),
+                'ghoul_mode'    => $ghoulmode,
+                'shaman'        => $parser->get('shamanMode', 'normal', ['normal','job','none']),
                 'shun'          => (bool)$parser->get('shun', true),
-                'nightmode'     => (bool)$parser->get('nightmode', true),
+                'nightmode'     => $nightmode !== 'none',
                 'camping'       => (bool)$parser->get('camp', true),
                 'ghoul'         => (bool)$parser->get('ghouls', true),
-                'improveddump'  => (bool)$parser->get('improveddump', true),
                 'attacks'       => $parser->get('attacks', 'normal', ['easy','normal','hard']),
 
                 'nightwatch' => [
@@ -208,7 +210,7 @@ class GhostController extends CustomAbstractController
             $customConf['explorable_ruins'] = $ruin_count[1];
         }
 
-        if(!empty($well) && is_numeric($well) && $well <= 300){
+        if(!empty($well) && is_numeric($well) && $well <= ($crow_permissions ? 9999 : 300)){
             $customConf['well'] = [
                 'min' => $well,
                 'max' => $well
@@ -239,6 +241,8 @@ class GhostController extends CustomAbstractController
         $disabled_builds = [];
         $disabled_roles  = [];
 
+        if ($nightmode !== 'myhordes') $disabled_builds[] = 'small_novlamps_#00';
+
         if($customConf['features']['shaman'] == "normal" || $customConf['features']['shaman'] == "none")
             $disabled_jobs[] = 'shaman';
         else if ($customConf['features']['shaman'] == "job" || $customConf['features']['shaman'] == "none")
@@ -259,6 +263,17 @@ class GhostController extends CustomAbstractController
                 // If the shaman is disabled, but we enforced its activation, remove it from the disabled array
                 $disabled_jobs = array_diff($disabled_jobs, ['shaman']);
             }
+        }
+
+        if (!(bool)$parser->get('improveddump', true)) {
+            $disabled_builds[] = 'small_trash_#01';
+            $disabled_builds[] = 'small_trash_#02';
+            $disabled_builds[] = 'small_trash_#03';
+            $disabled_builds[] = 'small_trash_#04';
+            $disabled_builds[] = 'small_trash_#05';
+            $disabled_builds[] = 'small_trash_#06';
+            $disabled_builds[] = 'small_howlingbait_#00';
+            $disabled_builds[] = 'small_trashclean_#00';
         }
 
         if ($customConf['features']['shaman'] !== 'job') {
@@ -286,6 +301,17 @@ class GhostController extends CustomAbstractController
         $town->setCreator($user);
         if(!empty($password)) $town->setPassword($password);
         $em->persist($town);
+
+
+        $user_slots = array_filter($this->entity_manager->getRepository(User::class)->findBy(['id' => array_map(fn($a) => (int)$a, $parser->get_array('reserved_slots'))]), function(User $u) {
+            return $u->getEmail() !== 'crow' && $u->getEmail() !== $u->getUsername() && !str_ends_with($u->getName(), '@localhost');
+        });
+
+        if (count($user_slots) !== count($parser->get_array('reserved_slots')))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        foreach ($user_slots as $user_slot)
+            $this->entity_manager->persist((new TownSlotReservation())->setTown($town)->setUser($user_slot));
 
         try {
             $em->flush();

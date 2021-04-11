@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.</source>
-        <target><![CDATA[%citizen% ha ha añadido <strong>%item%</strong>, y con ello obtuvimos <strong>%num% Raciones de Agua.</strong>]]></target>
+        <target><![CDATA[%citizen% ha añadido <strong>%item%</strong>, y con ello obtuvimos <strong>%num% Raciones de Agua.</strong>]]></target>
       </segment>
     </unit>
     <unit id="uHRiWHu" name="%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.">
@@ -286,7 +286,7 @@
       </notes>
       <segment>
         <source>Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%</source>
-        <target>Durante el ataque la construcción %building% ha dado los sigueintes objetos: %items%</target>
+        <target>Durante el ataque la construcción %building% ha dado los siguientes objetos: %items%</target>
       </segment>
     </unit>
     <unit id="ThZ6eEv" name="55b2af4">
@@ -1807,7 +1807,7 @@
       </notes>
       <segment>
         <source>%z% Zombies kontrollieren diese Zone!</source>
-        <target>%z% Zombies controlan esta zona!</target>
+        <target>%z% Zombies controlan esta zona</target>
       </segment>
     </unit>
     <unit id="5GwqUxA" name="d4294d0">
@@ -1870,7 +1870,7 @@
       </notes>
       <segment>
         <source>Gegen einen Zombie kämpfen!</source>
-        <target>¡Luchar contra un Zombie!</target>
+        <target>Luchar contra un Zombie</target>
       </segment>
     </unit>
     <unit id="seBLTh9" name="Diese Zone">
@@ -3178,7 +3178,7 @@
     </unit>
     <unit id="J84MRtT" name="%citizen% hat etwas Schutt entfernt.">
       <notes>
-        <note category="german">%citizen% hat etwas Schutt entfernt.</note>
+        <note category="german">%citizen% hat die Zone ein wenig gesäubert...</note>
       </notes>
       <segment>
         <source>%citizen% hat etwas Schutt entfernt.</source>
@@ -3187,7 +3187,7 @@
     </unit>
     <unit id="WmDHw.1" name="%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!">
       <notes>
-        <note category="german">%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</note>
+        <note category="german">Diese Zone wurde komplett gesäubert und freigeschaufelt, dabei wurde folgendes Gebäude entdeckt: %type%.</note>
       </notes>
       <segment>
         <source>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</source>
@@ -7048,7 +7048,7 @@
     </unit>
     <unit id="tCm7v0d" name="Den %rolename% wählen">
       <notes>
-        <note category="german">Den %rolename% wählen</note>
+        <note category="german">Wählen: %rolename%</note>
       </notes>
       <segment>
         <source>Den %rolename% wählen</source>
@@ -7219,7 +7219,7 @@
     </unit>
     <unit id="2MBbf8L" name="416726b">
       <notes>
-        <note category="german">Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</note>
+        <note category="german">Du hast einen Teil der Zone &lt;strong&gt;freigeräumt&lt;/strong&gt;, allerdings versperren noch &lt;strong&gt;allerlei Trümmer&lt;/strong&gt; den Zugang...</note>
       </notes>
       <segment>
         <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
@@ -7228,7 +7228,7 @@
     </unit>
     <unit id="AL6LzU0" name="9a476a3">
       <notes>
-        <note category="german">Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</note>
+        <note category="german">Herzlichen Glückwunsch, du hast die Zone freigeräumt und kannst nun damit anfangen folgendes Gebäude zu durchsuchen : %ruin%.</note>
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</source>
@@ -7237,7 +7237,7 @@
     </unit>
     <unit id="RbYmYJb" name="Du hast %count% Aktionspunkt(e) benutzt.">
       <notes>
-        <note category="german">Du hast %count% Aktionspunkt(e) benutzt.</note>
+        <note category="german">Du hast dafür &lt;strong&gt;%count% Aktionspunkt(e)&lt;/strong&gt; verbraucht.</note>
       </notes>
       <segment>
         <source>Du hast %count% Aktionspunkt(e) benutzt.</source>
@@ -12906,7 +12906,7 @@
       </notes>
       <segment>
         <source>Christopher Kolumbus</source>
-        <target>Christopher Kolumbus</target>
+        <target>Cristobal Colón</target>
       </segment>
     </unit>
     <unit id="uzKHOBH" name="Neil Armstrong der Außenwelt">
@@ -13113,7 +13113,7 @@
       </notes>
       <segment>
         <source>Vierklettriges Kleeblatt</source>
-        <target>Maestro del Azar"</target>
+        <target>Maestro del Azar</target>
       </segment>
     </unit>
     <unit id="oSJbjHs" name="Fortuna">
@@ -13176,7 +13176,7 @@
       </notes>
       <segment>
         <source>Außenweltreiseführer</source>
-        <target>Dora la Exploradora"</target>
+        <target>Dora la Exploradora</target>
       </segment>
     </unit>
     <unit id="spLDM3R" name="Außenweltschläfer">
@@ -13365,7 +13365,7 @@
       </notes>
       <segment>
         <source>Menschenfleischliebhaber</source>
-        <target>Devorador de hombres"</target>
+        <target>Devorador de hombres</target>
       </segment>
     </unit>
     <unit id="2fnnqHL" name="Hannibalfan">
@@ -13928,7 +13928,7 @@
     </unit>
     <unit id="9r9G9Tw" name="Personalisierter Titel - Dompteur (T-ID: 1725642)">
       <notes>
-        <note category="german">Personalisierter Titel - Dompteur (T-ID: 1725642)</note>
+        <note category="german">Zertifizierter Werpudel</note>
       </notes>
       <segment>
         <source>Personalisierter Titel - Dompteur (T-ID: 1725642)</source>
@@ -13955,7 +13955,7 @@
     </unit>
     <unit id="W6KG1Kx" name="Personalisierter Titel - Techniker (T-ID: 631944)">
       <notes>
-        <note category="german">Personalisierter Titel - Techniker (T-ID: 631944)</note>
+        <note category="german">Nie ohne Schlüssel unterwegs</note>
       </notes>
       <segment>
         <source>Personalisierter Titel - Techniker (T-ID: 631944)</source>
@@ -14148,7 +14148,7 @@
       </notes>
       <segment>
         <source>RadioactiveMan</source>
-        <target>RadioactiveMan</target>
+        <target>Hombre radiactivo</target>
       </segment>
     </unit>
     <unit id="qU.xq8H" name="Strahlender Bürger">
@@ -14157,7 +14157,7 @@
       </notes>
       <segment>
         <source>Strahlender Bürger</source>
-        <target>Strahlender Bürger</target>
+        <target>Ciudadano radiante</target>
       </segment>
     </unit>
     <unit id="nGvkh6T" name="Hölle, das esse ich jeden Morgen.">
@@ -15678,7 +15678,7 @@
       </notes>
       <segment>
         <source>Meisterbastler </source>
-        <target>Meisterbastler </target>
+        <target>Manitas hábiles</target>
       </segment>
     </unit>
     <unit id="GH4aDYM" name="feb2e53">
@@ -16753,7 +16753,7 @@
       </notes>
       <segment>
         <source>Sind wir schon da?</source>
-        <target>Sind wir schon da?</target>
+        <target>¿Ya hemos salido de la versión Alfa?</target>
       </segment>
     </unit>
     <unit id="P8a8jTw" name="Stadtallergie">
@@ -18215,11 +18215,11 @@
     </unit>
     <unit id="bPobZD0" name="b1b989e">
       <notes>
-        <note category="german">Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;&lt;strong&gt;Dieser Gegenstand wurde in deiner Truhe abgelegt.&lt;/strong&gt;</note>
+        <note category="german">Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;Dieser Gegenstand wurde &lt;strong&gt;in deiner Truhe&lt;/strong&gt; abgelegt.</note>
       </notes>
       <segment>
         <source>Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;&lt;strong&gt;Dieser Gegenstand wurde in deiner Truhe abgelegt.&lt;/strong&gt;</source>
-        <target><![CDATA[Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...<hr /><strong>Dieser Gegenstand wurde in deiner Truhe abgelegt.</strong>]]></target>
+        <target><![CDATA[Ahora tienes %item%. Pero tu paso por la casa de † %victim% no ha pasado desapercibida...<hr />Este objeto ha sido colocado <strong>en el baúl</strong> de tu casa.]]></target>
       </segment>
     </unit>
     <unit id="HSAEnDG" name="als Gruppe">
@@ -18570,7 +18570,7 @@
       </notes>
       <segment>
         <source>Versuchen etwas zu stehlen</source>
-        <target>Versuchen etwas zu stehlen</target>
+        <target>Intentar robar un objeto</target>
       </segment>
     </unit>
     <unit id="qZD8YpW" name="efb0a6d">
@@ -18579,7 +18579,7 @@
       </notes>
       <segment>
         <source>Diebstahlsversuche können nur &lt;strong&gt;während der Nacht&lt;/strong&gt; unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!</source>
-        <target><![CDATA[Diebstahlsversuche können nur <strong>während der Nacht</strong> unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!]]></target>
+        <target><![CDATA[Los intentos de robo solo se pueden realizar <strong>durante la noche</strong>: sus probabilidades de éxito son reducidas ¡y todo caso descubierto aparecerá en el Registro!]]></target>
       </segment>
     </unit>
     <unit id="X1jhim7" name="Achtung! Deinen Mitbürgern wird das gar nicht gefallen.">
@@ -18588,7 +18588,7 @@
       </notes>
       <segment>
         <source>Achtung! Deinen Mitbürgern wird das gar nicht gefallen.</source>
-        <target>Achtung! Deinen Mitbürgern wird das gar nicht gefallen.</target>
+        <target>¡Cuidado, a tus vecinos no les va a gustar eso!</target>
       </segment>
     </unit>
     <unit id="l9RZq.z" name="4bd2b92">
@@ -18789,6 +18789,24 @@
         <target><![CDATA[Tu %img_scout% <strong>Traje de camuflaje</strong> te permite seguir tu camino sin ser visto.]]></target>
       </segment>
     </unit>
+    <unit id="CYBKQzY" name="%building% hat %num% Batterien verbraucht.">
+      <notes>
+        <note category="german">%building% hat %num% Batterien verbraucht.</note>
+      </notes>
+      <segment>
+        <source>%building% hat %num% Batterien verbraucht.</source>
+        <target>%building% ha usado %num% batería.</target>
+      </segment>
+    </unit>
+    <unit id="dqDx75c" name="c728704">
+      <notes>
+        <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: %list-i% %list-t%</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: %list-i% %list-t%</source>
+        <target><![CDATA[<strong>Enhorabuena</strong>, ha desbloqueado los siguientes títulos: %list-i% %list-t%]]></target>
+      </segment>
+    </unit>
     <unit id="CN1z1xe" name="58ec9c9">
       <notes>
         <note category="german">%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</note>
@@ -18823,6 +18841,114 @@
       <segment>
         <source>Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:&lt;br /&gt;%list_head% oder %list_tail%.</source>
         <target><![CDATA[Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:<br />%list_head% oder %list_tail%.]]></target>
+      </segment>
+    </unit>
+    <unit id="91d4rG_" name="Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...">
+      <notes>
+        <note category="german">Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</note>
+      </notes>
+      <segment>
+        <source>Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</source>
+        <target>Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</target>
+      </segment>
+    </unit>
+    <unit id="wyxCVNs" name="Du hast keine Gegenstände, die du verstecken könntest.">
+      <notes>
+        <note category="german">Du hast keine Gegenstände, die du verstecken könntest.</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Gegenstände, die du verstecken könntest.</source>
+        <target>Du hast keine Gegenstände, die du verstecken könntest.</target>
+      </segment>
+    </unit>
+    <unit id="wKNx07Y" name="Wähle einen Gegenstand aus der Bank aus...">
+      <notes>
+        <note category="german">Wähle einen Gegenstand aus der Bank aus...</note>
+      </notes>
+      <segment>
+        <source>Wähle einen Gegenstand aus der Bank aus...</source>
+        <target>Selecciona el objeto que deseas robar del Almacén...</target>
+      </segment>
+    </unit>
+    <unit id="B5sYzl." name="Aufklärer: Ruinen erkunden">
+      <notes>
+        <note category="german">Aufklärer: Ruinen erkunden</note>
+      </notes>
+      <segment>
+        <source>Aufklärer: Ruinen erkunden</source>
+        <target>Explorador: Examinar ruinas</target>
+      </segment>
+    </unit>
+    <unit id="_izB74m" name="Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</source>
+        <target>Esta acción te permite determinar el tipo de construcción enterrada aquí.</target>
+      </segment>
+    </unit>
+    <unit id="pqX0mgo" name="855fd56">
+      <notes>
+        <note category="german">Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</source>
+        <target><![CDATA[Te abres camino entre los escombros, recoges múltiples indicios, limpias el suelo con tus manos mugrientas...<hr />Después de varios minutos de investigación, ¡no te quedan dudas de que esos escombros esconden: ¡<strong>%building%</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="gmanddb" name="Persönliche Beschreibung">
+      <notes>
+        <note category="german">Persönliche Beschreibung</note>
+      </notes>
+      <segment>
+        <source>Persönliche Beschreibung</source>
+        <target>Descripción personal</target>
+      </segment>
+    </unit>
+    <unit id="jTUz2Oq" name="Ich beobachte euch...">
+      <notes>
+        <note category="german">Ich beobachte euch...</note>
+      </notes>
+      <segment>
+        <source>Ich beobachte euch...</source>
+        <target>Te estoy vigilando...</target>
+      </segment>
+    </unit>
+    <unit id="B5sYzl." name="Aufklärer: Ruinen erkunden">
+      <notes>
+        <note category="german">Aufklärer: Ruinen erkunden</note>
+      </notes>
+      <segment>
+        <source>Aufklärer: Ruinen erkunden</source>
+        <target>Explorador: Examinar ruinas</target>
+      </segment>
+    </unit>
+    <unit id="_izB74m" name="Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</source>
+        <target>Esta acción te permite determinar el tipo de construcción enterrada aquí.</target>
+      </segment>
+    </unit>
+    <unit id="pqX0mgo" name="855fd56">
+      <notes>
+        <note category="german">Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</source>
+        <target><![CDATA[Te abres camino entre los escombros, recoges múltiples indicios, limpias el suelo con tus manos mugrientas...<hr />Después de varios minutos de investigación, ¡no te quedan dudas de que esos escombros esconden: ¡<strong>%building%</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="gmanddb" name="Persönliche Beschreibung">
+      <notes>
+        <note category="german">Persönliche Beschreibung</note>
+      </notes>
+      <segment>
+        <source>Persönliche Beschreibung</source>
+        <target>Descripción personal</target>
       </segment>
     </unit>
   </file>

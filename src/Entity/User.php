@@ -232,6 +232,18 @@ class User implements UserInterface, EquatableInterface
      */
     private $forumThreadSubscriptions;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Award::class, cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
+     */
+    private $activeTitle;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Award::class, cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
+     */
+    private $activeIcon;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -984,6 +996,30 @@ class User implements UserInterface, EquatableInterface
                 $forumThreadSubscription->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getActiveTitle(): ?Award
+    {
+        return $this->activeTitle;
+    }
+
+    public function setActiveTitle(?Award $activeTitle): self
+    {
+        $this->activeTitle = $activeTitle;
+
+        return $this;
+    }
+
+    public function getActiveIcon(): ?Award
+    {
+        return $this->activeIcon;
+    }
+
+    public function setActiveIcon(?Award $activeIcon): self
+    {
+        $this->activeIcon = $activeIcon;
 
         return $this;
     }

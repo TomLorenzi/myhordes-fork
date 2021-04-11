@@ -68,13 +68,14 @@ class WebController extends CustomAbstractController
             'Adrien "<i>Adri</i>" Boitelle',
             'Niklas "<i>Choreas</i>" Kosanke',
             'Christopher "<i>Vander</i>" Chalfant',
+            'Connor "<i>Dylan57</i>" Ottermann',
         ];
         shuffle($devs);
 
         $supporters = [
-            'MisterD', 'Mondi', 'Schrödinger', 'Kitsune', 'Dylan57',
+            'MisterD', 'Mondi', 'Schrödinger', 'Kitsune',
             'MOTZI', 'devwwm', 'tchekof', 'alonsopor', 'Termineitron',
-            'Nayr'
+            'Nayr', 'Rikrdo'
         ];
         shuffle($supporters);
 

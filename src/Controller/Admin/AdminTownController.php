@@ -3,13 +3,16 @@
 namespace App\Controller\Admin;
 
 use App\Annotations\GateKeeperProfile;
-use App\Controller\Town\TownController;
-use App\Entity\BankAntiAbuse;
+use App\Entity\ActionEventLog;
 use App\Entity\BlackboardEdit;
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
 use App\Entity\CitizenHome;
+use App\Entity\CitizenHomePrototype;
+use App\Entity\CitizenHomeUpgrade;
+use App\Entity\CitizenHomeUpgradeCosts;
+use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
@@ -304,7 +307,7 @@ class AdminTownController extends AdminActionController
      * @param KernelInterface $kernel
      * @return Response
      */
-    public function town_manager(int $id, string $action, ItemFactory $itemFactory, RandomGenerator $random, NightlyHandler $night, GameFactory $gameFactory, CrowService $crowService, KernelInterface $kernel): Response
+    public function town_manager(int $id, string $action, ItemFactory $itemFactory, RandomGenerator $random, NightlyHandler $night, GameFactory $gameFactory, CrowService $crowService, KernelInterface $kernel, JSONRequestParser $parser, TownHandler $townHandler): Response
     {
         /** @var Town $town */
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
@@ -313,8 +316,10 @@ class AdminTownController extends AdminActionController
         if (str_starts_with($action, 'dbg_') && $kernel->getEnvironment() !== 'dev')
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($action, ['release', 'quarantine', 'advance', 'nullify', 'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage']) && !$this->isGranted('ROLE_ADMIN'))
+        if (in_array($action, ['release', 'quarantine', 'advance', 'nullify', 'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage', 'dbg_set_well', 'dbg_unlock_buildings']) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $param = $parser->get('param');
 
         switch ($action) {
             case 'release':
@@ -394,8 +399,12 @@ class AdminTownController extends AdminActionController
                     $users[] = $selected_user;
                 }
 
+                $this->entity_manager->flush();
+
+                $null = null;
                 foreach ($users as $selected_user) {
-                    $citizen = $gameFactory->createCitizen($town, $selected_user, $error);
+                    $citizen = $gameFactory->createCitizen($town, $selected_user, $error, $null, true);
+                    if ($citizen === null) continue;
                     $this->entity_manager->persist($town);
                     $this->entity_manager->persist($citizen);
                     $this->entity_manager->flush();
@@ -418,8 +427,10 @@ class AdminTownController extends AdminActionController
                 break;
 
             case 'dbg_unlock_bank':
-                foreach ($town->getCitizens() as $citizen) if ($citizen->getBankAntiAbuse())
-                    $this->entity_manager->persist($citizen->getBankAntiAbuse()->setNbItemTaken(0));
+                foreach ($town->getCitizens() as $citizen) {
+                    $bank_lock = $this->entity_manager->getRepository(ActionEventLog::class)->findBy(['citizen' => $citizen, 'type' => [ActionEventLog::ActionEventTypeBankTaken, ActionEventLog::ActionEventTypeBankLock]]);
+                    foreach ($bank_lock as $lock) $this->entity_manager->remove($lock);
+                }
                 break;
 
             case 'dbg_hydrate':
@@ -430,6 +441,21 @@ class AdminTownController extends AdminActionController
                     $this->citizen_handler->removeStatus( $citizen, $thirst2 );
                     $this->entity_manager->persist($citizen);
                 }
+                break;
+
+            case 'dbg_set_well':
+                if (!is_numeric($param)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                $town->setWell( max(0,$param));
+                $this->entity_manager->persist($town);
+                break;
+
+            case 'dbg_unlock_buildings':
+                do {
+                    $possible = array_filter( $this->entity_manager->getRepository(BuildingPrototype::class)->findProspectivePrototypes( $town ), fn(BuildingPrototype $p) => $p->getBlueprint() === null || $p->getBlueprint() < 5 );
+                    $found = !empty($possible);
+                    foreach ($possible as $proto) $townHandler->addBuilding( $town, $proto );
+                } while ($found);
+                $this->entity_manager->persist( $town );
                 break;
 
             default:
@@ -703,6 +729,92 @@ class AdminTownController extends AdminActionController
     }
 
     /**
+     * @Route("/api/admin/town/{id}/home/manage", name="admin_town_manage_home", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Give or take status from selected citizens of a town
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser The Request Parser
+     * @param CitizenHandler $handler
+     * @return Response
+     */
+    public function town_manage_home(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
+    {
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $target   = $parser->get('target');
+        $citizens = $parser->get_array('citizen');
+        $dif      = $parser->get_int('dif', 0);
+        $t_id     = $parser->get_int('id', -1);
+
+        if ($dif === 0) return AjaxResponse::success();
+
+        foreach ($citizens as $cid) {
+
+            /** @var Citizen $citizen */
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($cid);
+            if (!$citizen || $citizen->getTown() !== $town || !$citizen->getAlive()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+            if (!$citizen->getHome()->getPrototype()->getAllowSubUpgrades() && in_array($target, ['proto','sub']))
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+            switch ($target) {
+
+                case 'home':
+                    $new_proto = $this->entity_manager->getRepository(CitizenHomePrototype::class)->findOneByLevel( $citizen->getHome()->getPrototype()->getLevel() + $dif );
+                    if (!$new_proto) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+                    $citizen->getHome()->setPrototype( $new_proto );
+                    $this->entity_manager->persist($citizen->getHome());
+                    break;
+
+                case 'sub':
+                    $upgrade = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->find($t_id);
+                    if ($upgrade === null || $upgrade->getHome() !== $citizen->getHome())
+                        return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+                    if ($upgrade->getLevel() + $dif <= 0) {
+                        $citizen->getHome()->removeCitizenHomeUpgrade($upgrade);
+                        $upgrade->setHome(null);
+                        $this->entity_manager->persist($citizen->getHome());
+                        $this->entity_manager->remove($upgrade);
+                    } else {
+                        $level_proto = $this->entity_manager->getRepository(CitizenHomeUpgradeCosts::class)->findOneBy(['prototype' => $upgrade->getPrototype(), 'level' => $upgrade->getLevel() + $dif]);
+
+                        if ($level_proto === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                        $this->entity_manager->persist($upgrade->setLevel( $upgrade->getLevel() + $dif ));
+                    }
+
+                    break;
+
+                case 'proto':
+                    $upgrade_proto = $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->find($t_id);
+                    if ($upgrade_proto === null)
+                        return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+                    foreach ($citizen->getHome()->getCitizenHomeUpgrades() as $upgrade) if ($upgrade->getPrototype() === $upgrade_proto)
+                        return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+                    $level_proto = $this->entity_manager->getRepository(CitizenHomeUpgradeCosts::class)->findOneBy(['prototype' => $upgrade_proto, 'level' => $dif]);
+
+                    if ($level_proto === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+                    $new_upgrade = (new CitizenHomeUpgrade())->setLevel($dif)->setPrototype($upgrade_proto);
+                    $citizen->getHome()->addCitizenHomeUpgrade($new_upgrade);
+
+                    $this->entity_manager->persist($citizen->getHome());
+                    $this->entity_manager->persist($new_upgrade);
+                    break;
+
+                default: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+            }
+        }
+
+        $this->entity_manager->flush();
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("/api/admin/town/{id}/status/manage", name="admin_town_manage_status", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Give or take status from selected citizens of a town
@@ -895,11 +1007,62 @@ class AdminTownController extends AdminActionController
 
         $building->setAp($ap);
 
-        $building->setComplete($building->getAp() >= $building->getPrototype()->getAp());
-
         if ($building->getAp() >= $building->getPrototype()->getAp()) {
             $building->setComplete(true);
             $th->triggerBuildingCompletion($town, $building);
+        } elseif ($building->getAp() <= 0) {
+            $building->setComplete(false);
+            $th->destroy_building($town, $building);
+        }
+
+        $this->entity_manager->persist($building);
+        $this->entity_manager->persist($town);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("/api/admin/town/{id}/buildings/set-hp", name="admin_town_set_building_hp", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Set HP to a building of a town
+     * @param int $id ID of the town
+     * @param JSONRequestParser $parser The JSON request parser
+     * @param TownHandler $th The town handler
+     * @return Response
+     */
+    public function town_set_building_hp(int $id, JSONRequestParser $parser, TownHandler $th)
+    {
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        if (!$parser->has_all(['building', 'hp'])) {
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        $building_id = $parser->get("building");
+
+        /** @var Building $building */
+        $building = $this->entity_manager->getRepository(Building::class)->find($building_id);
+        if (!$building)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $hp = $parser->get_int("hp");
+
+        if ($hp >= $building->getPrototype()->getHp()) {
+            $hp = $building->getPrototype()->getHp();
+        }
+
+        if (!$building->getComplete() || ($hp < $building->getPrototype()->getHp() && $building->getPrototype()->getImpervious()))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $building->setHp($hp);
+
+        if ($building->getHp() <= 0) {
+            $building->setComplete(false);
+            $th->destroy_building($town, $building);
         }
 
         $this->entity_manager->persist($building);

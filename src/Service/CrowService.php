@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Entity\BankAntiAbuse;
+use App\Entity\Award;
 use App\Entity\Citizen;
 use App\Entity\Forum;
 use App\Entity\GlobalPrivateMessage;
@@ -141,6 +141,27 @@ class CrowService {
         return (new GlobalPrivateMessage())
             ->setTemplate( $template )
             ->setData( [ 'town' => $townName ])
+            ->setTimestamp( new DateTime('now') )
+            ->setReceiverUser( $receiver )
+            ->setSender( $this->getCrowAccount() )
+            ->setSeen( false );
+    }
+
+    /**
+     * @param User $receiver
+     * @param Award[] $awards
+     * @return GlobalPrivateMessage
+     */
+    public function createPM_titleUnlock(User $receiver, array $awards): GlobalPrivateMessage
+    {
+        $template = $this->em->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gpm_unlock_titles']);
+
+        return (new GlobalPrivateMessage())
+            ->setTemplate( $template )
+            ->setData( [
+                           'list-t' => array_map(fn(Award $a) => $a->getPrototype()->getTitle(), array_filter($awards, fn(Award $a) => $a->getPrototype() && $a->getPrototype()->getTitle() !== null)),
+                           'list-i' => array_map(fn(Award $a) => $a->getPrototype()->getIcon(), array_filter($awards, fn(Award $a) => $a->getPrototype() && $a->getPrototype()->getIcon() !== null))
+                       ] )
             ->setTimestamp( new DateTime('now') )
             ->setReceiverUser( $receiver )
             ->setSender( $this->getCrowAccount() )

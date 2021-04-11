@@ -3195,7 +3195,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="J84MRtT" name="%citizen% hat etwas Schutt entfernt.">
       <notes>
-        <note category="german">%citizen% hat etwas Schutt entfernt.</note>
+        <note category="german">%citizen% hat die Zone ein wenig gesäubert...</note>
       </notes>
       <segment>
         <source>%citizen% hat etwas Schutt entfernt.</source>
@@ -3204,7 +3204,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="WmDHw.1" name="%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!">
       <notes>
-        <note category="german">%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</note>
+        <note category="german">Diese Zone wurde komplett gesäubert und freigeschaufelt, dabei wurde folgendes Gebäude entdeckt: %type%.</note>
       </notes>
       <segment>
         <source>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</source>
@@ -4667,7 +4667,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Katapult</source>
-        <target>Catap</target>
+        <target>Catapult</target>
       </segment>
     </unit>
     <unit id="T04hD_3" name="Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...">
@@ -4955,7 +4955,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Grundbefestigungsmauer</source>
-        <target>Basic defences</target>
+        <target>Basic Defences</target>
       </segment>
     </unit>
     <unit id="8UxoSSm" name="Verteidigungsgegenstände">
@@ -4964,7 +4964,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Verteidigungsgegenstände</source>
-        <target>Defensive objects</target>
+        <target>Defensive Objects</target>
       </segment>
     </unit>
     <unit id="FAUZkS8" name="Häuser">
@@ -4991,7 +4991,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.</source>
-        <target>Note: defensive objects (wooden boards, etc...) should be placed in the Bank.</target>
+        <target>Note: Defensive objects (wooden boards, etc...) should be placed in the Bank.</target>
       </segment>
     </unit>
     <unit id="p7WJjEO" name="cabb91e">
@@ -6791,7 +6791,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Gereinigte Seelen</source>
-        <target>Purified souls</target>
+        <target>Purified Souls</target>
       </segment>
     </unit>
     <unit id="JATCrdR" name="0e9540e">
@@ -7048,7 +7048,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="tCm7v0d" name="Den %rolename% wählen">
       <notes>
-        <note category="german">Den %rolename% wählen</note>
+        <note category="german">Wählen: %rolename%</note>
       </notes>
       <segment>
         <source>Den %rolename% wählen</source>
@@ -7318,7 +7318,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="2MBbf8L" name="416726b">
       <notes>
-        <note category="german">Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</note>
+        <note category="german">Du hast einen Teil der Zone &lt;strong&gt;freigeräumt&lt;/strong&gt;, allerdings versperren noch &lt;strong&gt;allerlei Trümmer&lt;/strong&gt; den Zugang...</note>
       </notes>
       <segment>
         <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
@@ -7327,7 +7327,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="AL6LzU0" name="9a476a3">
       <notes>
-        <note category="german">Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</note>
+        <note category="german">Herzlichen Glückwunsch, du hast die Zone freigeräumt und kannst nun damit anfangen folgendes Gebäude zu durchsuchen : %ruin%.</note>
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</source>
@@ -7336,7 +7336,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="RbYmYJb" name="Du hast %count% Aktionspunkt(e) benutzt.">
       <notes>
-        <note category="german">Du hast %count% Aktionspunkt(e) benutzt.</note>
+        <note category="german">Du hast dafür &lt;strong&gt;%count% Aktionspunkt(e)&lt;/strong&gt; verbraucht.</note>
       </notes>
       <segment>
         <source>Du hast %count% Aktionspunkt(e) benutzt.</source>
@@ -8116,7 +8116,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%attacker% ist %defender% an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</source>
-        <target>%attacker% jumped on %defender% on the throat and ate them without batting an eyelid</target>
+        <target>%attacker% jumped %defender% on the throat and ate them without batting an eyelid</target>
       </segment>
     </unit>
     <unit id="Qlh.l61" name="a9b83b9">
@@ -8125,8 +8125,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Was ist mit der Leiche passiert? Der leblose Körper ist spurlos verschwunden... Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
-        <target>WHAT HAPPENED TO THE BODY?
-No idea! The body has disappeared without trace...They must be rotting somewhere outside... Perhaps they'll get back up and visit you during the night.</target>
+        <target><![CDATA[No Idea where <strong>the corpse went, it disappeard without a trace...</strong> It's probably laying outside the town and is rotting away... but maybe it will come back this night to visit us?]]></target>
       </segment>
     </unit>
     <unit id=".vM_crK" name="7733da4">
@@ -9206,7 +9205,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Jeder %divap%, der in die Reparatur investiert wird, beseitigt %hprepair% Schadenspunkte an einem Bauwerk.</source>
-        <target>Each 1 %divap% invested in reparation will repare %hprepair% damage points on this construction.</target>
+        <target>Each 1 %divap% invested in repairs will fix %hprepair% damage points.</target>
       </segment>
     </unit>
     <unit id="8atbEzY" name="Die Reparatur verbraucht keine Ressourcen.">
@@ -9215,7 +9214,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Reparatur verbraucht keine Ressourcen.</source>
-        <target>Reparations doesn't consume ressources.</target>
+        <target>Repairs don't consume resources.</target>
       </segment>
     </unit>
     <unit id="BjwWH4y" name="Erhaltene Nachrichten">
@@ -12664,7 +12663,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Huldigt den riesigen KVF!</source>
-        <target>Huldigt den riesigen KVF!</target>
+        <target>BRDs for everyone! The people demand BRDs</target>
       </segment>
     </unit>
     <unit id="tEgszOf" name="Durazell">
@@ -13447,7 +13446,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Die Macht der Proteine</source>
-        <target>"Full of protein.</target>
+        <target>Full of protein.</target>
       </segment>
     </unit>
     <unit id="WE9IWrB" name="Zombieliebling">
@@ -13947,7 +13946,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="9r9G9Tw" name="Personalisierter Titel - Dompteur (T-ID: 1725642)">
       <notes>
-        <note category="german">Personalisierter Titel - Dompteur (T-ID: 1725642)</note>
+        <note category="german">Zertifizierter Werpudel</note>
       </notes>
       <segment>
         <source>Personalisierter Titel - Dompteur (T-ID: 1725642)</source>
@@ -13974,7 +13973,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="W6KG1Kx" name="Personalisierter Titel - Techniker (T-ID: 631944)">
       <notes>
-        <note category="german">Personalisierter Titel - Techniker (T-ID: 631944)</note>
+        <note category="german">Nie ohne Schlüssel unterwegs</note>
       </notes>
       <segment>
         <source>Personalisierter Titel - Techniker (T-ID: 631944)</source>
@@ -14437,7 +14436,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Katapult-Bediener</source>
-        <target>Katapult-Bediener</target>
+        <target>Catapult operator</target>
       </segment>
     </unit>
     <unit id="X7RHtVg" name="UFC">
@@ -17878,7 +17877,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>(Du bist gerade im &lt;strong&gt;Expertenmodus&lt;/strong&gt;)</source>
-        <target><![CDATA[(You are using the <strong>Expert</strong>) interface]]></target>
+        <target><![CDATA[(You are using the <strong>Expert</strong> Interface)]]></target>
       </segment>
     </unit>
     <unit id="_WQ7cjB" name="534d954">
@@ -18222,11 +18221,11 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
     </unit>
     <unit id="bPobZD0" name="b1b989e">
       <notes>
-        <note category="german">Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;&lt;strong&gt;Dieser Gegenstand wurde in deiner Truhe abgelegt.&lt;/strong&gt;</note>
+        <note category="german">Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;Dieser Gegenstand wurde &lt;strong&gt;in deiner Truhe&lt;/strong&gt; abgelegt.</note>
       </notes>
       <segment>
         <source>Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;&lt;strong&gt;Dieser Gegenstand wurde in deiner Truhe abgelegt.&lt;/strong&gt;</source>
-        <target><![CDATA[You got the %item%. Nonetheless, your little visit to † %victim%'s house didn't go unnoticed......<hr /><strong>This object has been placed in your chest.</strong>]]></target>
+        <target><![CDATA[You got the %item%. Nonetheless, your little visit to † %victim%'s house didn't go unnoticed...<hr />This object has been placed <strong>in your chest</strong>.]]></target>
       </segment>
     </unit>
     <unit id="HSAEnDG" name="als Gruppe">
@@ -18415,7 +18414,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>&lt;strong&gt;Achtung&lt;/strong&gt;: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</source>
-        <target><![CDATA[<strong>Achtung</strong>: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!]]></target>
+        <target><![CDATA[<strong>Warning</strong>: without water, certain upgrades (such as water turrets) will not work during the attack!]]></target>
       </segment>
     </unit>
     <unit id="485Czj9" name="Du kannst heute keinen weiteren Gegenstand stehlen.">
@@ -18667,7 +18666,7 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       </notes>
       <segment>
         <source>Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!</source>
-        <target><![CDATA[Deine <strong>Tarnung ist aufgeflogen</strong>!]]></target>
+        <target><![CDATA[You are <strong>no longer camouflaged</strong>!]]></target>
       </segment>
     </unit>
     <unit id="HXDfH_p" name="Manuelles Event-Management:">
@@ -18796,6 +18795,24 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
         <target><![CDATA[Your %img_scout% <strong>Camouflage Vest</strong> allows you to move around undetected.]]></target>
       </segment>
     </unit>
+    <unit id="CYBKQzY" name="%building% hat %num% Batterien verbraucht.">
+      <notes>
+        <note category="german">%building% hat %num% Batterien verbraucht.</note>
+      </notes>
+      <segment>
+        <source>%building% hat %num% Batterien verbraucht.</source>
+        <target>%building% has used %num% Battery.</target>
+      </segment>
+    </unit>
+    <unit id="dqDx75c" name="c728704">
+      <notes>
+        <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: %list-i% %list-t%</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: %list-i% %list-t%</source>
+        <target><![CDATA[<strong>Congratulations</strong>, you have unlocked the following titles: %list-i% %list-t%]]></target>
+      </segment>
+    </unit>
     <unit id="CN1z1xe" name="58ec9c9">
       <notes>
         <note category="german">%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</note>
@@ -18830,6 +18847,78 @@ No idea! The body has disappeared without trace...They must be rotting somewhere
       <segment>
         <source>Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:&lt;br /&gt;%list_head% oder %list_tail%.</source>
         <target><![CDATA[Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:<br />%list_head% oder %list_tail%.]]></target>
+      </segment>
+    </unit>
+    <unit id="91d4rG_" name="Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...">
+      <notes>
+        <note category="german">Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</note>
+      </notes>
+      <segment>
+        <source>Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</source>
+        <target>Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</target>
+      </segment>
+    </unit>
+    <unit id="wyxCVNs" name="Du hast keine Gegenstände, die du verstecken könntest.">
+      <notes>
+        <note category="german">Du hast keine Gegenstände, die du verstecken könntest.</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Gegenstände, die du verstecken könntest.</source>
+        <target>Du hast keine Gegenstände, die du verstecken könntest.</target>
+      </segment>
+    </unit>
+    <unit id="wKNx07Y" name="Wähle einen Gegenstand aus der Bank aus...">
+      <notes>
+        <note category="german">Wähle einen Gegenstand aus der Bank aus...</note>
+      </notes>
+      <segment>
+        <source>Wähle einen Gegenstand aus der Bank aus...</source>
+        <target>Wähle einen Gegenstand aus der Bank aus...</target>
+      </segment>
+    </unit>
+    <unit id="B5sYzl." name="Aufklärer: Ruinen erkunden">
+      <notes>
+        <note category="german">Aufklärer: Ruinen erkunden</note>
+      </notes>
+      <segment>
+        <source>Aufklärer: Ruinen erkunden</source>
+        <target>Scout: Examine ruins</target>
+      </segment>
+    </unit>
+    <unit id="_izB74m" name="Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</source>
+        <target>This action allows you to determine what kind of building is buried here.</target>
+      </segment>
+    </unit>
+    <unit id="pqX0mgo" name="855fd56">
+      <notes>
+        <note category="german">Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</source>
+        <target><![CDATA[You clear a path through the debris, take a few measurements, rub the earth from your grimy hands...<hr/>After several long minutes of investigation, you can confirm, without a shadow of a doubt, that this building is: <strong>%building%</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="gmanddb" name="Persönliche Beschreibung">
+      <notes>
+        <note category="german">Persönliche Beschreibung</note>
+      </notes>
+      <segment>
+        <source>Persönliche Beschreibung</source>
+        <target>Personal description</target>
+      </segment>
+    </unit>
+    <unit id="jTUz2Oq" name="Ich beobachte euch...">
+      <notes>
+        <note category="german">Ich beobachte euch...</note>
+      </notes>
+      <segment>
+        <source>Ich beobachte euch...</source>
+        <target>I am watching you...</target>
       </segment>
     </unit>
   </file>
