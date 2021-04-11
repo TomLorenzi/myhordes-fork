@@ -256,37 +256,37 @@
                         </div>
                         <div x-ajax-href="{{ path('town_house', {tab: 'dash', subtab: 'received'}) }}" {% if not app.user.expert%}x-advance-tutorial="3.text4>3.text6"{% endif%} class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'house' %}selected{% endif %} town-menu-house">
                             <div></div>
-                            <div class="hide-sm">
+                            <div>
                                 <img alt="{{ home.prototype.level }}" src="{{ asset('build/images/home/' ~ home.prototype.icon ~ '.gif') }}" />{% trans from 'game' %}Mein Haus{% endtrans %} {% if new_message %}<img src="{{ asset('build/images/icons/anim_icon_mail.gif') }}" style="vertical-align: baseline;" /> {% endif %}
                             </div>
                         </div>
                         <div x-ajax-href="{{ path('town_well') }}" {% if not app.user.expert%}x-advance-tutorial="3.text2>3.text3"{% endif%} class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'well' %}selected{% endif %} town-menu-well">
                             <div></div>
-                            <div class="hide-sm">
+                            <div>
                                 {% trans from 'game' %}Brunnen{% endtrans %}
                             </div>
                         </div>
                         <div x-ajax-href="{{ path('town_bank') }}" class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'bank' %}selected{% endif %} town-menu-bank">
                             <div></div>
-                            <div class="hide-sm">
+                            <div>
                                 {% trans from 'game' %}Bank{% endtrans %}
                             </div>
                         </div>
                         <div x-ajax-href="{{ path('town_citizens') }}" class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'citizens' %}selected{% endif %} town-menu-citizens">
                             <div></div>
-                            <div class="hide-sm">
+                            <div>
                                 {% trans from 'game' %}Bürger{% endtrans %}
                             </div>
                         </div>
                         <div x-ajax-href="{{ path('town_constructions') }}" class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'constructions' %}selected{% endif %} town-menu-construct">
                             <div></div>
-                            <div class="hide-sm">
+                            <div>
                                 {% trans from 'game' %}Konstruktionen{% endtrans %}
                             </div>
                         </div>
                         <div x-ajax-href="{{ path('town_door') }}" {% if not app.user.expert%}x-advance-tutorial="4.text2>4.text3"{% endif%} class="cell padded-small rw-6 rw-lg-12 rw-sm-6 {% if menu_section == 'door' %}selected{% endif %} town-menu-door">
                             <div></div>
-                            <div class="hide-sm">
+                            <div>
                                 {% trans from 'game' %}Stadttor{% endtrans %}
                             </div>
                         </div>

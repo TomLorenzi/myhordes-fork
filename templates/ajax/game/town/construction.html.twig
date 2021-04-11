@@ -50,7 +50,7 @@
         </div>
     {% endif %}
 
-    {% macro building_entry(building, buildable, n, dict, items, disable_all, workshopBonus, hpToAp, canVote, votedBuilding) %}
+    {% macro building_entry(building, buildable, n, dict, items, disable_all, workshopBonus, hpToAp, canvote, votedBuilding) %}
         {# @var building \App\Entity\Building #}
         <div class="row {% if not buildable %}locked{% elseif building.complete %}complete{% endif %} {% if building == votedBuilding %}voted{% endif %} {% if n > 0 %}lv-{{ min(n,6) }}{% else %}root{% endif %}">
             <div class="padded cell rw-5 rw-lg-12">
@@ -69,7 +69,7 @@
                         </div>
                     </span>
                 {% endif %}
-                {% if canVote and not building.complete %}
+                {% if canvote and not building.complete %}
                     <span class="vote" x-building-id="{{ building.id }}">[ <span class="link">{{'Abstimmen'|trans({}, 'game')}}</span> ]</span>
                 {% endif %}
                 {% if (building.complete and building.defense > 0) or (not building.complete and building.prototype.defense > 0) %}
@@ -79,17 +79,21 @@
                         {% elseif not building.complete%}
                         	{{ building.prototype.defense }}
                         {% endif %}
-                        {% if building.complete and building.defense != building.prototype.defense %}
+                        {% if building.complete and building.defense != building.prototype.defense and building.prototype.description is empty %}
                             <div class="tooltip">
                                 {{"Beschädigte Verteidigung: %defense% / %max%"|trans({"%defense%": building.defense, "%max%": building.prototype.defense}, 'game')}}
                             </div>
                         {% endif %}
                     </div>
                 {% endif %}
-                {% if building.prototype.description %}
-                <div class="tooltip help">
-                    {{ building.prototype.description|trans({}, 'buildings') }}
-                </div>
+                {% if building.prototype.description is not empty %}
+                    <div class="tooltip help">
+                        {% if building.complete and building.defense != building.prototype.defense %}
+                            <b>{{"Beschädigte Verteidigung: %defense% / %max%"|trans({"%defense%": building.defense, "%max%": building.prototype.defense}, 'game')}}</b>
+                            <hr />
+                        {% endif %}
+                        {{ building.prototype.description|trans({}, 'buildings') }}
+                    </div>
                 {% endif %}
             </div>
             <div class="padded cell rw-6 rw-lg-10 rw-sm-12 no-ws">
@@ -141,7 +145,7 @@
         </div>
         {% if n < 20 and dict[building.prototype.id] is not empty %}
             {% for sub_building in dict[building.prototype.id] %}
-                {{ _self.building_entry(sub_building, buildable and building.complete, n+1, dict, items, disable_all, workshopBonus, hpToAp, canVote, votedBuilding) }}
+                {{ _self.building_entry(sub_building, buildable and building.complete, n+1, dict, items, disable_all, workshopBonus, hpToAp, canvote, votedBuilding) }}
             {% endfor %}
         {% endif %}
     {% endmacro %}

@@ -4858,11 +4858,11 @@ müssen durchdacht geplant werden.</source>
     </unit>
     <unit id="jdns.Il" name="dae39d1">
       <notes>
-        <note category="german">Jede Nacht um Mitternacht greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</note>
+        <note category="german">Jede Nacht um Mitternacht (UTC+1) greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</note>
       </notes>
       <segment>
         <source>Jede Nacht um Mitternacht greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</source>
-        <target>Every night, at 23h00 (server time), the hordes of living dead attack the town. Each attack consists of a certain number of zombies.</target>
+        <target>Every night at midnight (server time, UTC+1), the hordes of living dead attack the town. Each attack consists of a certain number of zombies.</target>
       </segment>
     </unit>
     <unit id="D4X9Djo" name="España: 01h00">
@@ -6156,24 +6156,23 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
     </unit>
     <unit id="AsXSh2V" name="9eaeadf">
       <notes>
-        <note category="german">Du kannst hier eine Liste mit mindestens 39 Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
-Alle Pseudonyme müssen korrekt geschrieben und mit einem Komma getrennt sein (Leerzeichen werden ignoriert).
+        <note category="german">Du kannst hier eine Liste Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
 Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</note>
       </notes>
       <segment>
         <source>Du kannst hier eine Liste mit mindestens 39 Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
 Alle Pseudonyme müssen korrekt geschrieben und mit einem Komma getrennt sein (Leerzeichen werden ignoriert).
 Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</source>
-        <target>You can enter a list of 39 players (minimum) when you create a town, so that everyone has a place reserved. Each nickname must be spelt correctly and separated by a comma (spaces are ignored). Once the town has been created, the list can no longer be modified!</target>
+        <target>You can enter a list of players when you create a town, so that everyone has a place reserved. Once the town has been created, the list can no longer be modified!</target>
       </segment>
     </unit>
     <unit id="lWrXfCk" name="Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;">
       <notes>
-        <note category="german">Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;</note>
+        <note category="german">Statt alle Spieler einzeln auszuwählen kannst du auch eine Liste mit Namen in das Suchfeld eingeben. Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;</note>
       </notes>
       <segment>
         <source>Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;</source>
-        <target><![CDATA[Example: <em>player01, player02, thingy_from_chicago</em>]]></target>
+        <target><![CDATA[Instead of picking players manually, you can also paste a list into the search field. Example: <em>player01, player02, thingy_from_chicago</em>]]></target>
       </segment>
     </unit>
     <unit id="NyknCVn" name="4a21474">
@@ -7051,7 +7050,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Ausgerüstete Gegenstände werden in deinem &lt;strong&gt;Rucksack&lt;/strong&gt; aufbewahrt.</source>
-        <target><![CDATA[Ausgerüstete Gegenstände werden in deinem <strong>Rucksack</strong> aufbewahrt.]]></target>
+        <target><![CDATA[Objects you are carrying go in your <strong>rucksack</strong>.]]></target>
       </segment>
     </unit>
     <unit id="e1TAOYF" name="c1dece3">

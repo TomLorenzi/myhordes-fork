@@ -401,7 +401,10 @@ class ExternalController extends InventoryAwareController {
                     }
                     break;
                 case 'dried':
-                    $data[$field] = $zone->getRuinDigs() <= 0;
+                    if ($zoneOfUser) {
+                        $data[$field] = $zone->getRuinDigs() <= 0;
+                    }
+                    break;
             }
         }
 

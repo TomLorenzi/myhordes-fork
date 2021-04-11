@@ -5,7 +5,6 @@ namespace App\Translation;
 
 use App\Entity\AffectMessage;
 use App\Entity\AwardPrototype;
-use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\CitizenHomePrototype;
@@ -74,6 +73,8 @@ class DatabaseExtractor implements ExtractorInterface
                 $this->insert($c, $action->getConfirmMsg(), 'items');
             if (!empty($action->getMessage()))
                 $this->insert($c, $action->getMessage(), 'items');
+            if (!empty($action->getEscortMessage()))
+                $this->insert($c, $action->getEscortMessage(), 'items');
             foreach ($action->getRequirements() as $requirement) {
                 if ($requirement->getFailureText())
                     $this->insert($c, $requirement->getFailureText(), 'items');
@@ -113,6 +114,8 @@ class DatabaseExtractor implements ExtractorInterface
             if ($building->getUpgradeTexts())
                 foreach ($building->getUpgradeTexts() as $text)
                     $this->insert( $c, $text, 'buildings' );
+            if ($building->getZeroLevelText())
+                $this->insert( $c, $building->getZeroLevelText(), 'buildings' );
         }
 
         // Get home upgrade labels

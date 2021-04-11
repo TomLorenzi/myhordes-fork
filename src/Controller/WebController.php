@@ -68,12 +68,21 @@ class WebController extends CustomAbstractController
             'Adrien "<i>Adri</i>" Boitelle',
             'Niklas "<i>Choreas</i>" Kosanke',
             'Christopher "<i>Vander</i>" Chalfant',
+            'Connor "<i>Dylan57</i>" Ottermann',
         ];
         shuffle($devs);
+
+        $supporters = [
+            'MisterD', 'Mondi', 'Schrödinger', 'Kitsune',
+            'MOTZI', 'devwwm', 'tchekof', 'alonsopor', 'Termineitron',
+            'Nayr', 'Rikrdo'
+        ];
+        shuffle($supporters);
 
         return $this->render( 'web/framework.html.twig', [
             'version' => $version, 'debug' => $is_debug_version, 'env' => $this->kernel->getEnvironment(),
             'devs' => $devs,
+            'supporters' => $supporters,
             'ajax_landing' => $ajax_landing
         ] );
     }

@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>%citizen% hat %item% in den Brunnen geschüttet und damit %num% Rationen Wasser hinzugefügt.</source>
-        <target><![CDATA[%citizen% ha ha añadido <strong>%item%</strong>, y con ello obtuvimos <strong>%num% Raciones de Agua.</strong>]]></target>
+        <target><![CDATA[%citizen% ha añadido <strong>%item%</strong>, y con ello obtuvimos <strong>%num% Raciones de Agua.</strong>]]></target>
       </segment>
     </unit>
     <unit id="uHRiWHu" name="%citizen% hat an dem Bauprojekt %plan% mitgearbeitet und dabei %ap% ausgegeben.">
@@ -286,7 +286,7 @@
       </notes>
       <segment>
         <source>Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%</source>
-        <target>Durante el ataque la construcción %building% ha dado los sigueintes objetos: %items%</target>
+        <target>Durante el ataque la construcción %building% ha dado los siguientes objetos: %items%</target>
       </segment>
     </unit>
     <unit id="ThZ6eEv" name="55b2af4">
@@ -520,7 +520,7 @@
       </notes>
       <segment>
         <source>Als Verbannter darfst du keine Gegenstände aus der Bank entnehmen.</source>
-        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes tomar ningún objeto del Almacén!]]></target>
+        <target>¡Has sido desterrado de la comunidad, y por ello no puedes tomar ningún objeto del Almacén!</target>
       </segment>
     </unit>
     <unit id="2HhqG76" name="Diese Aktion ist ungültig.">
@@ -673,7 +673,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.</source>
-        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes ni abrir ni cerrar <em>El Gran Portal</em>!]]></target>
+        <target>¡Has sido deterrado de la comunidad, y por ello no puedes ni abrir ni cerrar El Gran Portal!</target>
       </segment>
     </unit>
     <unit id="_rfFVtg" name="Meine Aktionen">
@@ -763,7 +763,7 @@
       </notes>
       <segment>
         <source>Qualität der Abschätzung</source>
-        <target></target>
+        <target>Calidad del pronóstico:</target>
       </segment>
     </unit>
     <unit id="GHVvmus" name="Abschätzung verbessern">
@@ -1390,7 +1390,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher nicht länger für eine Verbesserung des Tages abstimmen.</source>
-        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes votar por la Mejora Del Día!]]></target>
+        <target>¡Has sido deterrado de la comunidad, y por ello no puedes votar por la Mejora del Día!</target>
       </segment>
     </unit>
     <unit id="_LKq1VW" name="Du hast bereits für folgendes Projekt abgestimmt:">
@@ -1471,7 +1471,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.</source>
-        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes trabajar en el Taller!]]></target>
+        <target>¡Has sido deterrado de la comunidad, y por ello no puedes trabajar en el Taller!</target>
       </segment>
     </unit>
     <unit id="x01nfA5" name="ea122a1">
@@ -1582,7 +1582,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst daher nicht länger auf einer Baustelle arbeiten.</source>
-        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes trabajar en una Obra!]]></target>
+        <target>¡Has sido deterrado de la comunidad, y por ello no puedes trabajar en una Obra!</target>
       </segment>
     </unit>
     <unit id="m_7J.WC" name="Baustellenregister">
@@ -1618,7 +1618,7 @@
       </notes>
       <segment>
         <source>Aufgrund deiner Verbannung kannst du maximal eine Ration Wasser pro Tag entnehmen.</source>
-        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello sólo puedes tomar una ración de agua al día!]]></target>
+        <target>¡Has sido deterrado de la comunidad, y por ello sólo puedes tomar una ración de agua al día!</target>
       </segment>
     </unit>
     <unit id="6KUjC8g" name="Die Stadt verfügt über eine %pumpname%.">
@@ -1807,7 +1807,7 @@
       </notes>
       <segment>
         <source>%z% Zombies kontrollieren diese Zone!</source>
-        <target>%z% Zombies controlan esta zona!</target>
+        <target>%z% Zombies controlan esta zona</target>
       </segment>
     </unit>
     <unit id="5GwqUxA" name="d4294d0">
@@ -1870,7 +1870,7 @@
       </notes>
       <segment>
         <source>Gegen einen Zombie kämpfen!</source>
-        <target>¡Luchar contra un Zombie!</target>
+        <target>Luchar contra un Zombie</target>
       </segment>
     </unit>
     <unit id="seBLTh9" name="Diese Zone">
@@ -2113,14 +2113,14 @@
                     benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                     kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                     auffüllen.</note>
-        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle, benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu auffüllen.</note>
+        <note category="german">Du brauchst diese Punkte, um dich in der Außenwelt zu bewegen oder um an Bauprojekten mitzuarbeiten.</note>
       </notes>
       <segment>
         <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
                     benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                     kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                     auffüllen.</source>
-        <target>Para muchas acciones, como explorar el mundo exterior o trabajar en las construcciones, necesitas puntos de acción. Tus puntos de acción se restablecen todas las noches luego del ataque. También puedes recuperarlos usando ciertos items o una vez al día al comer y beber.</target>
+        <target>Estos puntos sirven principalmente para desplazarte en el Ultramundo, el desierto que rodea al pueblo.</target>
       </segment>
     </unit>
     <unit id="bfXTcH6" name="Baupunkte">
@@ -2143,9 +2143,7 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                     zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                     werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Los Puntos de Construcción puedes utilizarse en el taller y en las construcciones, donde cuentan como puntos
-                            de acción. Los puntos de construcción siempre se usarán primero que los puntos de
-                            acción. También se pueden usar para abrir contenendores (como cajas) en el Ultramundo ¡Recuerda que los puntos de construcción no se podrán usar si estás cansado!</target>
+        <target>Estos puntos sirven exclusivamente para la construcción de obras en el pueblo.</target>
       </segment>
     </unit>
     <unit id="6UFJBEW" name="Verbannt">
@@ -3148,7 +3146,7 @@
       </notes>
       <segment>
         <source>%citizen% (%profession%) ist Richtung %direction% aufgebrochen.</source>
-        <target>%citizen% (%profession%) se ha movido al %direction%.</target>
+        <target>%citizen% (%profession%) se fue hacia el %direction%...</target>
       </segment>
     </unit>
     <unit id="07sRf7u" name="%citizen% (%profession%) ist aus dem %direction% angekommen.">
@@ -3180,7 +3178,7 @@
     </unit>
     <unit id="J84MRtT" name="%citizen% hat etwas Schutt entfernt.">
       <notes>
-        <note category="german">%citizen% hat etwas Schutt entfernt.</note>
+        <note category="german">%citizen% hat die Zone ein wenig gesäubert...</note>
       </notes>
       <segment>
         <source>%citizen% hat etwas Schutt entfernt.</source>
@@ -3189,7 +3187,7 @@
     </unit>
     <unit id="WmDHw.1" name="%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!">
       <notes>
-        <note category="german">%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</note>
+        <note category="german">Diese Zone wurde komplett gesäubert und freigeschaufelt, dabei wurde folgendes Gebäude entdeckt: %type%.</note>
       </notes>
       <segment>
         <source>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</source>
@@ -3337,7 +3335,7 @@
       </notes>
       <segment>
         <source>%citizen% hat mit dem Gegenstand %item% %kills% Zombie(s) getötet.</source>
-        <target>¡%citizen% ha masacrado %kills% zombi(s) con %item%!</target>
+        <target>¡%citizen% ha masacrado %kills% zombie(s) con %item%!</target>
       </segment>
     </unit>
     <unit id="41pWf5b" name="%citizen% hat %kills% Zombies getötet.">
@@ -4885,7 +4883,7 @@
       </notes>
       <segment>
         <source>Unbekannt</source>
-        <target>Desconocida</target>
+        <target>Desconocido</target>
       </segment>
     </unit>
     <unit id="I9U6Iz0" name="Morgiger Angriff :">
@@ -5128,7 +5126,7 @@
       </notes>
       <segment>
         <source>Du wurdest verbannt und kannst die Müllhalde daher nicht länger nutzen.</source>
-        <target><![CDATA[¡Has sido <strong>deterrado de la comunidad</strong>, y por ello no puedes utilizar el Vertedero Público!]]></target>
+        <target>¡Has sido deterrado de la comunidad, y por ello no puedes utilizar el Vertedero Público!</target>
       </segment>
     </unit>
     <unit id="j88Eyne" name="Gesamt: %def%">
@@ -6712,7 +6710,7 @@
       </notes>
       <segment>
         <source>Der Bürger wurde zuletzt %time% gesehen.</source>
-        <target>ha sido visto por última vez %time%.</target>
+        <target>Ha sido visto por última vez %time%.</target>
       </segment>
     </unit>
     <unit id="y2ljklH" name="Dieser Bürger hat %ration% Wasserration(en) aus dem Brunnen genommen.">
@@ -7050,7 +7048,7 @@
     </unit>
     <unit id="tCm7v0d" name="Den %rolename% wählen">
       <notes>
-        <note category="german">Den %rolename% wählen</note>
+        <note category="german">Wählen: %rolename%</note>
       </notes>
       <segment>
         <source>Den %rolename% wählen</source>
@@ -7221,7 +7219,7 @@
     </unit>
     <unit id="2MBbf8L" name="416726b">
       <notes>
-        <note category="german">Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</note>
+        <note category="german">Du hast einen Teil der Zone &lt;strong&gt;freigeräumt&lt;/strong&gt;, allerdings versperren noch &lt;strong&gt;allerlei Trümmer&lt;/strong&gt; den Zugang...</note>
       </notes>
       <segment>
         <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
@@ -7230,7 +7228,7 @@
     </unit>
     <unit id="AL6LzU0" name="9a476a3">
       <notes>
-        <note category="german">Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</note>
+        <note category="german">Herzlichen Glückwunsch, du hast die Zone freigeräumt und kannst nun damit anfangen folgendes Gebäude zu durchsuchen : %ruin%.</note>
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</source>
@@ -7239,7 +7237,7 @@
     </unit>
     <unit id="RbYmYJb" name="Du hast %count% Aktionspunkt(e) benutzt.">
       <notes>
-        <note category="german">Du hast %count% Aktionspunkt(e) benutzt.</note>
+        <note category="german">Du hast dafür &lt;strong&gt;%count% Aktionspunkt(e)&lt;/strong&gt; verbraucht.</note>
       </notes>
       <segment>
         <source>Du hast %count% Aktionspunkt(e) benutzt.</source>
@@ -7576,7 +7574,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</source>
-        <target><![CDATA[<strong>¡No tenemos las defensas necesarias para resistir al ataque de esta noche!.</strong>]]></target>
+        <target>¡No tenemos las defensas necesarias para resistir al ataque de esta noche!</target>
       </segment>
     </unit>
     <unit id="dGfxw4F" name="2242ddb">
@@ -7585,7 +7583,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung ist möglicherweise nicht stark genug, um dem Angriff heute Nacht standzuhalten...</source>
-        <target><![CDATA[Nuestras defensas podrían resistir <strong>parcialmente</strong> al ataque de esta noche.]]></target>
+        <target>Nuestras defensas podrían resistir parcialmente al ataque de esta noche.</target>
       </segment>
     </unit>
     <unit id="u_UqXok" name="Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:">
@@ -9333,7 +9331,7 @@
       </notes>
       <segment>
         <source>Zombies sind eingedrungen.</source>
-        <target>Los zombies han entrado...</target>
+        <target>Zombies han entrado...</target>
       </segment>
     </unit>
     <unit id="ojehKlj" name="vor Angst erstarrt">
@@ -10969,10 +10967,7 @@
                             benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                             kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                             auffüllen.</source>
-        <target>Para muchas acciones, como explorar el Ultramundo o trabajar en construcciones,
-                            necesitas Puntos de Acción. Los Puntos de Acción se regeneran todas las noches después del ataque. Además
-                            puedes recuperarlos una vez al día comiendo y bebiendo, o usando ciertos objetos 
-                            como drogas y alcohol.</target>
+        <target>Estos puntos sirven principalmente para desplazarte en el Ultramundo, el desierto que rodea al pueblo.</target>
       </segment>
     </unit>
     <unit id="NAC.Ln5" name="c85efc4">
@@ -10985,9 +10980,7 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                             zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                             werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Los Puntos de Construcción puedes utilizarse en el taller y en las construcciones, donde cuentan como puntos
-                            de acción. Los puntos de construcción siempre se usarán primero que los puntos de
-                            acción. También se pueden usar para abrir contenendores (como cajas) en el Ultramundo ¡Recuerda que los puntos de construcción no se podrán usar si estás cansado!</target>
+        <target>Estos puntos sirven exclusivamente para la construcción de obras en el pueblo.</target>
       </segment>
     </unit>
     <unit id="ANGnefx" name="Stadtrat">
@@ -12913,7 +12906,7 @@
       </notes>
       <segment>
         <source>Christopher Kolumbus</source>
-        <target>Christopher Kolumbus</target>
+        <target>Cristobal Colón</target>
       </segment>
     </unit>
     <unit id="uzKHOBH" name="Neil Armstrong der Außenwelt">
@@ -13120,7 +13113,7 @@
       </notes>
       <segment>
         <source>Vierklettriges Kleeblatt</source>
-        <target>Maestro del Azar"</target>
+        <target>Maestro del Azar</target>
       </segment>
     </unit>
     <unit id="oSJbjHs" name="Fortuna">
@@ -13183,7 +13176,7 @@
       </notes>
       <segment>
         <source>Außenweltreiseführer</source>
-        <target>Dora la Exploradora"</target>
+        <target>Dora la Exploradora</target>
       </segment>
     </unit>
     <unit id="spLDM3R" name="Außenweltschläfer">
@@ -13372,7 +13365,7 @@
       </notes>
       <segment>
         <source>Menschenfleischliebhaber</source>
-        <target>Devorador de hombres"</target>
+        <target>Devorador de hombres</target>
       </segment>
     </unit>
     <unit id="2fnnqHL" name="Hannibalfan">
@@ -13935,7 +13928,7 @@
     </unit>
     <unit id="9r9G9Tw" name="Personalisierter Titel - Dompteur (T-ID: 1725642)">
       <notes>
-        <note category="german">Personalisierter Titel - Dompteur (T-ID: 1725642)</note>
+        <note category="german">Zertifizierter Werpudel</note>
       </notes>
       <segment>
         <source>Personalisierter Titel - Dompteur (T-ID: 1725642)</source>
@@ -13962,7 +13955,7 @@
     </unit>
     <unit id="W6KG1Kx" name="Personalisierter Titel - Techniker (T-ID: 631944)">
       <notes>
-        <note category="german">Personalisierter Titel - Techniker (T-ID: 631944)</note>
+        <note category="german">Nie ohne Schlüssel unterwegs</note>
       </notes>
       <segment>
         <source>Personalisierter Titel - Techniker (T-ID: 631944)</source>
@@ -14155,7 +14148,7 @@
       </notes>
       <segment>
         <source>RadioactiveMan</source>
-        <target>RadioactiveMan</target>
+        <target>Hombre radiactivo</target>
       </segment>
     </unit>
     <unit id="qU.xq8H" name="Strahlender Bürger">
@@ -14164,7 +14157,7 @@
       </notes>
       <segment>
         <source>Strahlender Bürger</source>
-        <target>Strahlender Bürger</target>
+        <target>Ciudadano radiante</target>
       </segment>
     </unit>
     <unit id="nGvkh6T" name="Hölle, das esse ich jeden Morgen.">
@@ -15670,12 +15663,12 @@
         <target>No puedes robarle nada a %citizen% porque está en el pueblo.</target>
       </segment>
     </unit>
-    <unit id="uEhXFSv" name="3cb07f6">
+    <unit id="BRQ3HAz" name="4427aca">
       <notes>
-        <note category="german">Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</note>
+        <note category="german">%disposing_citizen% hat %citizen% ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.</note>
       </notes>
       <segment>
-        <source>Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</source>
+        <source>%disposing_citizen% hat %citizen% ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.</source>
         <target>Agradezcamos a %disposing_citizen% por haber cocinado a fuego lento el cadáver de %citizen%, convirtiéndolo así en una nutritiva fuente de proteínas...</target>
       </segment>
     </unit>
@@ -15685,7 +15678,7 @@
       </notes>
       <segment>
         <source>Meisterbastler </source>
-        <target>Meisterbastler </target>
+        <target>Manitas hábiles</target>
       </segment>
     </unit>
     <unit id="GH4aDYM" name="feb2e53">
@@ -16760,7 +16753,7 @@
       </notes>
       <segment>
         <source>Sind wir schon da?</source>
-        <target>Sind wir schon da?</target>
+        <target>¿Ya hemos salido de la versión Alfa?</target>
       </segment>
     </unit>
     <unit id="P8a8jTw" name="Stadtallergie">
@@ -17552,7 +17545,7 @@
       </notes>
       <segment>
         <source>%citizen% wurde in die Stadt &lt;span&gt;teleportiert&lt;/span&gt;</source>
-        <target><![CDATA[%citizen% wurde in die Stadt <span>teleportiert</span>]]></target>
+        <target><![CDATA[¡%citizen% ha <span>regresado</span> al pueblo!]]></target>
       </segment>
     </unit>
     <unit id="nSErwiZ" name="584c3c5">
@@ -18127,7 +18120,7 @@
       </notes>
       <segment>
         <source>Mit Hilfe seiner übermenschlichen Heldenkräfte hat %citizen% %kills% Zombie(s) lauthals schreiend und mit bloßen Händen umgebracht!</source>
-        <target>Mit Hilfe seiner übermenschlichen Heldenkräfte hat %citizen% %kills% Zombie(s) lauthals schreiend und mit bloßen Händen umgebracht!</target>
+        <target>¡Utilizando sus poderes de Héroe, %citizen% ha exterminado %kills% zombie(s) con sus propias manos gritando como un salvaje!</target>
       </segment>
     </unit>
     <unit id="l8p89Qb" name="Du brauchst noch folgende Gegenstände: %list%.">
@@ -18136,7 +18129,7 @@
       </notes>
       <segment>
         <source>Du brauchst noch folgende Gegenstände: %list%.</source>
-        <target>Du brauchst noch folgende Gegenstände: %list%.</target>
+        <target>Todavía necesitas los siguientes objetos: %list%.</target>
       </segment>
     </unit>
     <unit id="m0B311V" name="7fd4518">
@@ -18145,7 +18138,7 @@
       </notes>
       <segment>
         <source>Du kannst &lt;strong&gt;pro Tag eine Heldentat&lt;/strong&gt; vollbringen und jede dieser Aktionen kann nur &lt;strong&gt;einmal&lt;/strong&gt; pro Partie ausgeführt werden:</source>
-        <target><![CDATA[Du kannst <strong>pro Tag eine Heldentat</strong> vollbringen und jede dieser Aktionen kann nur <strong>einmal</strong> pro Partie ausgeführt werden:]]></target>
+        <target><![CDATA[Puedes realizar <strong>una acción heróica al día</strong> y cada una de estas acciones <strong>solo 1 vez</strong> por partida:]]></target>
       </segment>
     </unit>
     <unit id="uK7igyD" name="bd642fe">
@@ -18181,7 +18174,7 @@
       </notes>
       <segment>
         <source>Das ist die bestmögliche Schätzung, die wir für diesen Angriff abgeben konnten.</source>
-        <target>Das ist die bestmögliche Schätzung, die wir für diesen Angriff abgeben konnten.</target>
+        <target>Esta es la mejor estimación posible que hemos podido obtener para este ataque.</target>
       </segment>
     </unit>
     <unit id="tN9xF04" name="32f43f5">
@@ -18213,7 +18206,7 @@
     </unit>
     <unit id="20wAGQf" name="6489b1a">
       <notes>
-        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</note>
+        <note category="german">Your &lt;strong&gt;sobriety&lt;/strong&gt;, or lack thereof, is quite inconvenient. Things become pretty tricky pretty quickly when you're completely wasted...</note>
       </notes>
       <segment>
         <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</source>
@@ -18222,11 +18215,11 @@
     </unit>
     <unit id="bPobZD0" name="b1b989e">
       <notes>
-        <note category="german">Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;&lt;strong&gt;Dieser Gegenstand wurde in deiner Truhe abgelegt.&lt;/strong&gt;</note>
+        <note category="german">Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;Dieser Gegenstand wurde &lt;strong&gt;in deiner Truhe&lt;/strong&gt; abgelegt.</note>
       </notes>
       <segment>
         <source>Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;&lt;strong&gt;Dieser Gegenstand wurde in deiner Truhe abgelegt.&lt;/strong&gt;</source>
-        <target><![CDATA[Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...<hr /><strong>Dieser Gegenstand wurde in deiner Truhe abgelegt.</strong>]]></target>
+        <target><![CDATA[Ahora tienes %item%. Pero tu paso por la casa de † %victim% no ha pasado desapercibida...<hr />Este objeto ha sido colocado <strong>en el baúl</strong> de tu casa.]]></target>
       </segment>
     </unit>
     <unit id="HSAEnDG" name="als Gruppe">
@@ -18379,7 +18372,7 @@
       </notes>
       <segment>
         <source>Inventar: %citizen%</source>
-        <target>Inventar: %citizen%</target>
+        <target>Inventario de %citizen%</target>
       </segment>
     </unit>
     <unit id="slYhiYZ" name="5d24e48">
@@ -18577,7 +18570,7 @@
       </notes>
       <segment>
         <source>Versuchen etwas zu stehlen</source>
-        <target>Versuchen etwas zu stehlen</target>
+        <target>Intentar robar un objeto</target>
       </segment>
     </unit>
     <unit id="qZD8YpW" name="efb0a6d">
@@ -18586,7 +18579,7 @@
       </notes>
       <segment>
         <source>Diebstahlsversuche können nur &lt;strong&gt;während der Nacht&lt;/strong&gt; unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!</source>
-        <target><![CDATA[Diebstahlsversuche können nur <strong>während der Nacht</strong> unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!]]></target>
+        <target><![CDATA[Los intentos de robo solo se pueden realizar <strong>durante la noche</strong>: sus probabilidades de éxito son reducidas ¡y todo caso descubierto aparecerá en el Registro!]]></target>
       </segment>
     </unit>
     <unit id="X1jhim7" name="Achtung! Deinen Mitbürgern wird das gar nicht gefallen.">
@@ -18595,7 +18588,7 @@
       </notes>
       <segment>
         <source>Achtung! Deinen Mitbürgern wird das gar nicht gefallen.</source>
-        <target>Achtung! Deinen Mitbürgern wird das gar nicht gefallen.</target>
+        <target>¡Cuidado, a tus vecinos no les va a gustar eso!</target>
       </segment>
     </unit>
     <unit id="l9RZq.z" name="4bd2b92">
@@ -18614,6 +18607,348 @@
       <segment>
         <source>Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!</source>
         <target>Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!</target>
+      </segment>
+    </unit>
+    <unit id="xJvvYYd" name="89244b5">
+      <notes>
+        <note category="german">Die Bürger der Stadt haben entschieden, %citizen% zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!</note>
+      </notes>
+      <segment>
+        <source>Die Bürger der Stadt haben entschieden, %citizen% zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!</source>
+        <target><![CDATA[¡Los habitantes han decidido <strong>CRUCIFICAR a %citizen%</strong>! ¡La cruz de chocolate fue comida durante este trágico evento!]]></target>
+      </segment>
+    </unit>
+    <unit id="ES1J_Lh" name="Hängt %user%!">
+      <notes>
+        <note category="german">Hängt %user%!</note>
+      </notes>
+      <segment>
+        <source>Hängt %user%!</source>
+        <target>Hängt %user%!</target>
+      </segment>
+    </unit>
+    <unit id="lPQWXZ3" name="%user% wir kriegen dich!">
+      <notes>
+        <note category="german">%user% wir kriegen dich!</note>
+      </notes>
+      <segment>
+        <source>%user% wir kriegen dich!</source>
+        <target>%user% wir kriegen dich!</target>
+      </segment>
+    </unit>
+    <unit id="cwdaQ_b" name="am %d%.%m%.%Y%, um %H%:%i%">
+      <notes>
+        <note category="german">am %d%.%m%.%Y%, um %H%:%i%</note>
+      </notes>
+      <segment>
+        <source>am %d%.%m%.%Y%, um %H%:%i%</source>
+        <target>el %d%/%m%/%Y% a las %H%:%i%</target>
+      </segment>
+    </unit>
+    <unit id="_hvDFgE" name="b263344">
+      <notes>
+        <note category="german">Du wurdest von einem &lt;strong&gt;Zombie in der Zone entdeckt&lt;/strong&gt;! Er hat sich in deine Richtung gedreht!&lt;hr/&gt;Deine Tarnung ist aufgeflogen!</note>
+      </notes>
+      <segment>
+        <source>Du wurdest von einem &lt;strong&gt;Zombie in der Zone entdeckt&lt;/strong&gt;! Er hat sich in deine Richtung gedreht!&lt;hr/&gt;Deine Tarnung ist aufgeflogen!</source>
+        <target><![CDATA[¡Cuando avanzas furtivamente, un <strong>zombi de la zona te ha oído arrastrarte</strong> y va hacia ti!<hr/>¡Ya te vieron!<hr/>¡Ya no estás <strong>camuflado</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="fBI9kz3" name="Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!">
+      <notes>
+        <note category="german">Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!</source>
+        <target><![CDATA[¡Ya no estás <strong>camuflado</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="HXDfH_p" name="Manuelles Event-Management:">
+      <notes>
+        <note category="german">Manuelles Event-Management:</note>
+      </notes>
+      <segment>
+        <source>Manuelles Event-Management:</source>
+        <target>Manuelles Event-Management:</target>
+      </segment>
+    </unit>
+    <unit id="lYRernR" name="7714838">
+      <notes>
+        <note category="german">Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</note>
+      </notes>
+      <segment>
+        <source>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</source>
+        <target>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</target>
+      </segment>
+    </unit>
+    <unit id="cznvzLK" name="Kein Event:">
+      <notes>
+        <note category="german">Kein Event:</note>
+      </notes>
+      <segment>
+        <source>Kein Event:</source>
+        <target>Kein Event:</target>
+      </segment>
+    </unit>
+    <unit id="nHRZ69P" name="Startet die Stadt ohne Event-Inhalte">
+      <notes>
+        <note category="german">Startet die Stadt ohne Event-Inhalte</note>
+      </notes>
+      <segment>
+        <source>Startet die Stadt ohne Event-Inhalte</source>
+        <target>Startet die Stadt ohne Event-Inhalte</target>
+      </segment>
+    </unit>
+    <unit id="jQ18AzU" name="1. April">
+      <notes>
+        <note category="german">1. April</note>
+      </notes>
+      <segment>
+        <source>1. April</source>
+        <target>1. April</target>
+      </segment>
+    </unit>
+    <unit id="5kvPhGt" name="St. Patrick">
+      <notes>
+        <note category="german">St. Patrick</note>
+      </notes>
+      <segment>
+        <source>St. Patrick</source>
+        <target>St. Patrick</target>
+      </segment>
+    </unit>
+    <unit id="r3k99Bz" name="Ostern">
+      <notes>
+        <note category="german">Ostern</note>
+      </notes>
+      <segment>
+        <source>Ostern</source>
+        <target>Ostern</target>
+      </segment>
+    </unit>
+    <unit id="BJVmtrE" name="Halloween">
+      <notes>
+        <note category="german">Halloween</note>
+      </notes>
+      <segment>
+        <source>Halloween</source>
+        <target>Halloween</target>
+      </segment>
+    </unit>
+    <unit id="9mZMqtI" name="Armageddon">
+      <notes>
+        <note category="german">Armageddon</note>
+      </notes>
+      <segment>
+        <source>Armageddon</source>
+        <target>Armageddon</target>
+      </segment>
+    </unit>
+    <unit id="mbCP3jI" name="Weihnachten">
+      <notes>
+        <note category="german">Weihnachten</note>
+      </notes>
+      <segment>
+        <source>Weihnachten</source>
+        <target>Weihnachten</target>
+      </segment>
+    </unit>
+    <unit id="iiUUud." name="935109f">
+      <notes>
+        <note category="german">Du hast die &lt;strong&gt;Kontrolle über diese Zone verloren&lt;/strong&gt; (dies kann passieren, wenn ein anderer Bürger ohne dich gegangen ist)! Wenn du nicht festsitzen möchtest, kannst du noch flüchten. Es bleiben dir :</note>
+      </notes>
+      <segment>
+        <source>Du hast die &lt;strong&gt;Kontrolle über diese Zone verloren&lt;/strong&gt; (dies kann passieren, wenn ein anderer Bürger ohne dich gegangen ist)! Wenn du nicht festsitzen möchtest, kannst du noch flüchten. Es bleiben dir :</source>
+        <target><![CDATA[¡Has <strong>perdido el control</strong> de esta zona! (por ejemplo si un habitante ha salido de la zona sin ti) Para huir antes de quedarte atrapado, te queda:]]></target>
+      </segment>
+    </unit>
+    <unit id="9r.yyfK" name="f193d19">
+      <notes>
+        <note category="german">Glücklicherweise kannst du dich dank deines %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; unerkannt weiterbewegen.</note>
+      </notes>
+      <segment>
+        <source>Glücklicherweise kannst du dich dank deines %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; unerkannt weiterbewegen.</source>
+        <target><![CDATA[Felizmente, tu %img_scout% <strong>Traje de camuflaje</strong> te permite seguir tu camino sin ser visto.]]></target>
+      </segment>
+    </unit>
+    <unit id="vd3qaKS" name="c6b1411">
+      <notes>
+        <note category="german">Achtung: Jede Aktion in der Zone sorgt dafür, dass deine &lt;strong&gt;Tarnung auffliegt&lt;/strong&gt;. (Es können nur Aktionen ausgeführt werden, die mit einem Icon %img_scout_ok% gekennzeichnet sind)!</note>
+      </notes>
+      <segment>
+        <source>Achtung: Jede Aktion in der Zone sorgt dafür, dass deine &lt;strong&gt;Tarnung auffliegt&lt;/strong&gt;. (Es können nur Aktionen ausgeführt werden, die mit einem Icon %img_scout_ok% gekennzeichnet sind)!</source>
+        <target><![CDATA[Atención: toda acción en la zona te hará <strong>perder el camuflaje</strong>. (solo las acciones macadas con un icono %img_scout_ok% pueden ser realizadas)]]></target>
+      </segment>
+    </unit>
+    <unit id="xIw6O1B" name="d7dddf6">
+      <notes>
+        <note category="german">Mit deinem %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; kannst du dich bewegen ohne dabei entdeckt zu werden.</note>
+      </notes>
+      <segment>
+        <source>Mit deinem %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; kannst du dich bewegen ohne dabei entdeckt zu werden.</source>
+        <target><![CDATA[Tu %img_scout% <strong>Traje de camuflaje</strong> te permite seguir tu camino sin ser visto.]]></target>
+      </segment>
+    </unit>
+    <unit id="CYBKQzY" name="%building% hat %num% Batterien verbraucht.">
+      <notes>
+        <note category="german">%building% hat %num% Batterien verbraucht.</note>
+      </notes>
+      <segment>
+        <source>%building% hat %num% Batterien verbraucht.</source>
+        <target>%building% ha usado %num% batería.</target>
+      </segment>
+    </unit>
+    <unit id="dqDx75c" name="c728704">
+      <notes>
+        <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: %list-i% %list-t%</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: %list-i% %list-t%</source>
+        <target><![CDATA[<strong>Enhorabuena</strong>, ha desbloqueado los siguientes títulos: %list-i% %list-t%]]></target>
+      </segment>
+    </unit>
+    <unit id="CN1z1xe" name="58ec9c9">
+      <notes>
+        <note category="german">%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</note>
+      </notes>
+      <segment>
+        <source>%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</source>
+        <target>%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</target>
+      </segment>
+    </unit>
+    <unit id="wX7RkO4" name="6de7154">
+      <notes>
+        <note category="german">Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</source>
+        <target>Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</target>
+      </segment>
+    </unit>
+    <unit id="vScXMoh" name="020238b">
+      <notes>
+        <note category="german">Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</note>
+      </notes>
+      <segment>
+        <source>Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</source>
+        <target>Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</target>
+      </segment>
+    </unit>
+    <unit id="Zn7yLPx" name="d8e98d6">
+      <notes>
+        <note category="german">Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:&lt;br /&gt;%list_head% oder %list_tail%.</note>
+      </notes>
+      <segment>
+        <source>Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:&lt;br /&gt;%list_head% oder %list_tail%.</source>
+        <target><![CDATA[Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:<br />%list_head% oder %list_tail%.]]></target>
+      </segment>
+    </unit>
+    <unit id="91d4rG_" name="Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...">
+      <notes>
+        <note category="german">Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</note>
+      </notes>
+      <segment>
+        <source>Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</source>
+        <target>Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</target>
+      </segment>
+    </unit>
+    <unit id="wyxCVNs" name="Du hast keine Gegenstände, die du verstecken könntest.">
+      <notes>
+        <note category="german">Du hast keine Gegenstände, die du verstecken könntest.</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Gegenstände, die du verstecken könntest.</source>
+        <target>Du hast keine Gegenstände, die du verstecken könntest.</target>
+      </segment>
+    </unit>
+    <unit id="wKNx07Y" name="Wähle einen Gegenstand aus der Bank aus...">
+      <notes>
+        <note category="german">Wähle einen Gegenstand aus der Bank aus...</note>
+      </notes>
+      <segment>
+        <source>Wähle einen Gegenstand aus der Bank aus...</source>
+        <target>Selecciona el objeto que deseas robar del Almacén...</target>
+      </segment>
+    </unit>
+    <unit id="B5sYzl." name="Aufklärer: Ruinen erkunden">
+      <notes>
+        <note category="german">Aufklärer: Ruinen erkunden</note>
+      </notes>
+      <segment>
+        <source>Aufklärer: Ruinen erkunden</source>
+        <target>Explorador: Examinar ruinas</target>
+      </segment>
+    </unit>
+    <unit id="_izB74m" name="Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</source>
+        <target>Esta acción te permite determinar el tipo de construcción enterrada aquí.</target>
+      </segment>
+    </unit>
+    <unit id="pqX0mgo" name="855fd56">
+      <notes>
+        <note category="german">Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</source>
+        <target><![CDATA[Te abres camino entre los escombros, recoges múltiples indicios, limpias el suelo con tus manos mugrientas...<hr />Después de varios minutos de investigación, ¡no te quedan dudas de que esos escombros esconden: ¡<strong>%building%</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="gmanddb" name="Persönliche Beschreibung">
+      <notes>
+        <note category="german">Persönliche Beschreibung</note>
+      </notes>
+      <segment>
+        <source>Persönliche Beschreibung</source>
+        <target>Descripción personal</target>
+      </segment>
+    </unit>
+    <unit id="jTUz2Oq" name="Ich beobachte euch...">
+      <notes>
+        <note category="german">Ich beobachte euch...</note>
+      </notes>
+      <segment>
+        <source>Ich beobachte euch...</source>
+        <target>Te estoy vigilando...</target>
+      </segment>
+    </unit>
+    <unit id="B5sYzl." name="Aufklärer: Ruinen erkunden">
+      <notes>
+        <note category="german">Aufklärer: Ruinen erkunden</note>
+      </notes>
+      <segment>
+        <source>Aufklärer: Ruinen erkunden</source>
+        <target>Explorador: Examinar ruinas</target>
+      </segment>
+    </unit>
+    <unit id="_izB74m" name="Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</source>
+        <target>Esta acción te permite determinar el tipo de construcción enterrada aquí.</target>
+      </segment>
+    </unit>
+    <unit id="pqX0mgo" name="855fd56">
+      <notes>
+        <note category="german">Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</source>
+        <target><![CDATA[Te abres camino entre los escombros, recoges múltiples indicios, limpias el suelo con tus manos mugrientas...<hr />Después de varios minutos de investigación, ¡no te quedan dudas de que esos escombros esconden: ¡<strong>%building%</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="gmanddb" name="Persönliche Beschreibung">
+      <notes>
+        <note category="german">Persönliche Beschreibung</note>
+      </notes>
+      <segment>
+        <source>Persönliche Beschreibung</source>
+        <target>Descripción personal</target>
       </segment>
     </unit>
   </file>

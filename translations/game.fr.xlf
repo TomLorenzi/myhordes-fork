@@ -115,7 +115,7 @@
       </notes>
       <segment>
         <source>Das Stadttor wurde automatisch %action%.</source>
-        <target>La porte a été %action% automatiquement.</target>
+        <target>La porte a été fermée automatiquement.</target>
       </segment>
     </unit>
     <unit id="lnVaJJH" name="%citizen% hat die Stadt %action%.">
@@ -403,7 +403,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du klares Wasser (keine Kanister)!</source>
-        <target>Vous avez besoin d'Eau Pure (celle d'une gourde par exemple).</target>
+        <target>Vous devez avoir de l'eau pure (pas un jerrycan par exemple) dans votre sac à dos.</target>
       </segment>
     </unit>
     <unit id="TEo9cyt" name="Das Tor ist bereits geschlossen.">
@@ -2129,10 +2129,7 @@
                             benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                             kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                             auffüllen.</source>
-        <target>Pour de nombreuses actions, comme explorer le monde extérieur ou travailler sur un chantier de construction,
-                            vous avez besoin de points d'action. Vos points d'action sont rechargés tous les soirs après l'attaque. 
-                            Vous pouvez également les recharger en utilisant certains objets et une fois par jour en mangeant
-                            et en buvant.</target>
+        <target>Ces points sont notamment utilisés pour vos déplacements dans l'Outre-Monde, le désert entourant la ville...</target>
       </segment>
     </unit>
     <unit id="bfXTcH6" name="Baupunkte">
@@ -3211,7 +3208,7 @@
     </unit>
     <unit id="J84MRtT" name="%citizen% hat etwas Schutt entfernt.">
       <notes>
-        <note category="german">%citizen% hat etwas Schutt entfernt.</note>
+        <note category="german">%citizen% hat die Zone ein wenig gesäubert...</note>
       </notes>
       <segment>
         <source>%citizen% hat etwas Schutt entfernt.</source>
@@ -3220,7 +3217,7 @@
     </unit>
     <unit id="WmDHw.1" name="%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!">
       <notes>
-        <note category="german">%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</note>
+        <note category="german">Diese Zone wurde komplett gesäubert und freigeschaufelt, dabei wurde folgendes Gebäude entdeckt: %type%.</note>
       </notes>
       <segment>
         <source>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</source>
@@ -3296,7 +3293,7 @@
       </notes>
       <segment>
         <source>%citizen% hat die Leiche von %disposed% aus der Stadt gezerrt.</source>
-        <target>%citizen% s'est débarrassé du corps de %disposed%.</target>
+        <target>Et un cadavre de moins ! %disposed% a été jeté dehors par %citizen% !</target>
       </segment>
     </unit>
     <unit id="33.BZ8y" name="3f16555">
@@ -3305,7 +3302,7 @@
       </notes>
       <segment>
         <source>%citizen% hat die Leiche von %disposed% vernichtet, indem er sie mit Wasser übergossen hat.</source>
-        <target>%citizen% s'est débarrassé du corps de %disposed% en l'arrosant d'eau.</target>
+        <target>%citizen% a utilisé de l'eau pour brûler le corps de %disposed%.</target>
       </segment>
     </unit>
     <unit id="SS1lJ6A" name="f02d89f">
@@ -6586,7 +6583,7 @@
     </unit>
     <unit id="dWg5UEc" name="0e07264">
       <notes>
-        <note category="german">Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle, benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu auffüllen.</note>
+        <note category="german">Du brauchst diese Punkte, um dich in der Außenwelt zu bewegen oder um an Bauprojekten mitzuarbeiten.</note>
       </notes>
       <segment>
         <source>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
@@ -7119,7 +7116,7 @@
     </unit>
     <unit id="tCm7v0d" name="Den %rolename% wählen">
       <notes>
-        <note category="german">Den %rolename% wählen</note>
+        <note category="german">Wählen: %rolename%</note>
       </notes>
       <segment>
         <source>Den %rolename% wählen</source>
@@ -7666,7 +7663,8 @@
       </notes>
       <segment>
         <source>%citizen% hat es regnen lassen! Ihm habt ihr %num% Rationen reinen Wassers im Brunnen zu verdanken!</source>
-        <target>%citizen% a fait tomber la pluie ! Le puits a gagné %num% rations d'eau !</target>
+        <target>%citizen% fait tomber de la pluie et grâce à lui le puits a regagné %num% rations d'eau potable !
+</target>
       </segment>
     </unit>
     <unit id="8c.i3q2" name="Zone reinigen">
@@ -7734,7 +7732,7 @@
     </unit>
     <unit id="2MBbf8L" name="416726b">
       <notes>
-        <note category="german">Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</note>
+        <note category="german">Du hast einen Teil der Zone &lt;strong&gt;freigeräumt&lt;/strong&gt;, allerdings versperren noch &lt;strong&gt;allerlei Trümmer&lt;/strong&gt; den Zugang...</note>
       </notes>
       <segment>
         <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
@@ -7743,7 +7741,7 @@
     </unit>
     <unit id="AL6LzU0" name="9a476a3">
       <notes>
-        <note category="german">Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</note>
+        <note category="german">Herzlichen Glückwunsch, du hast die Zone freigeräumt und kannst nun damit anfangen folgendes Gebäude zu durchsuchen : %ruin%.</note>
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</source>
@@ -7770,7 +7768,7 @@
     </unit>
     <unit id="RbYmYJb" name="Du hast %count% Aktionspunkt(e) benutzt.">
       <notes>
-        <note category="german">Du hast %count% Aktionspunkt(e) benutzt.</note>
+        <note category="german">Du hast dafür &lt;strong&gt;%count% Aktionspunkt(e)&lt;/strong&gt; verbraucht.</note>
       </notes>
       <segment>
         <source>Du hast %count% Aktionspunkt(e) benutzt.</source>
@@ -8116,7 +8114,7 @@
       </notes>
       <segment>
         <source>Du kannst diesen Bürger nicht heilen. Entweder bedarf er keiner Heilung, ist nicht in der Stadt oder hat heute bereits eine mystische Heilung erfahren.</source>
-        <target>Vous ne pouvez pas soigner ce citoyen. Soit son état ne réclame pas de soins, soit il n'est pas en ville ou bien il a déjà subit une tentative de soin aujourd'hui.</target>
+        <target>Vous ne pouvez pas soigner ce citoyen. Soit son état ne réclame pas de soins, soit il n'est pas en ville ou bien il a déjà subi une tentative de soin aujourd'hui.</target>
       </segment>
     </unit>
     <unit id="yKYNmZu" name="356ee99">
@@ -10348,7 +10346,7 @@
       </notes>
       <segment>
         <source>Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</source>
-        <target>%citizen% s'est débarrassé du corps de † %disposed%.</target>
+        <target>Et un cadavre de moins ! %disposed% a été jeté dehors par † %citizen% !</target>
       </segment>
     </unit>
     <unit id="E0yx4Bm" name="%citizen% hat mit etwas Wasser † %disposed% &quot;verbrannt&quot;.">
@@ -10357,7 +10355,7 @@
       </notes>
       <segment>
         <source>%citizen% hat mit etwas Wasser † %disposed% "verbrannt".</source>
-        <target>%citizen% s'est débarrassé du corps de † %disposed% en l'arrosant d'eau.</target>
+        <target>%citizen% a utilisé de l'eau pour brûler le corps de † %disposed%.</target>
       </segment>
     </unit>
     <unit id="UA1vSp." name="Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!">
@@ -13515,7 +13513,7 @@
       </notes>
       <segment>
         <source>Die Macht der Proteine</source>
-        <target>Le plein de Protéines."</target>
+        <target>Le plein de Protéines.</target>
       </segment>
     </unit>
     <unit id="WE9IWrB" name="Zombieliebling">
@@ -14015,7 +14013,7 @@
     </unit>
     <unit id="9r9G9Tw" name="Personalisierter Titel - Dompteur (T-ID: 1725642)">
       <notes>
-        <note category="german">Personalisierter Titel - Dompteur (T-ID: 1725642)</note>
+        <note category="german">Zertifizierter Werpudel</note>
       </notes>
       <segment>
         <source>Personalisierter Titel - Dompteur (T-ID: 1725642)</source>
@@ -14042,7 +14040,7 @@
     </unit>
     <unit id="W6KG1Kx" name="Personalisierter Titel - Techniker (T-ID: 631944)">
       <notes>
-        <note category="german">Personalisierter Titel - Techniker (T-ID: 631944)</note>
+        <note category="german">Nie ohne Schlüssel unterwegs</note>
       </notes>
       <segment>
         <source>Personalisierter Titel - Techniker (T-ID: 631944)</source>
@@ -15693,7 +15691,7 @@
       </notes>
       <segment>
         <source>Keine Fehler hi&amp;e%12;r</source>
-        <target><![CDATA[Plus d&apos;erreurs ici]]></target>
+        <target><![CDATA[Plus d&amp;apos;erreurs ici]]></target>
       </segment>
     </unit>
     <unit id="y013sMW" name="Patient Null">
@@ -15723,13 +15721,13 @@
         <target><![CDATA[Du haut de la tour, vous examinez le désert environnant, puis tentez de compter les zombies présents, pour enfin essayer de prévoir leurs déplacements... <br />Après quelques minutes d'intense réflexion, vous consignez ces informations dans le <strong>registre de la Tour de Guet</strong>.<hr />Avec ces informations et celles d'autres citoyens, on devrait pouvoir faire une estimation correcte de l'attaque...]]></target>
       </segment>
     </unit>
-    <unit id="uEhXFSv" name="3cb07f6">
+    <unit id="BRQ3HAz" name="4427aca">
       <notes>
-        <note category="german">Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</note>
+        <note category="german">%disposing_citizen% hat %citizen% ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.</note>
       </notes>
       <segment>
-        <source>Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.</source>
-        <target>Grâce aux efforts de %disposing_citizen%, le corps de %citizen% a été cuisiné en bon p'tit plat.</target>
+        <source>%disposing_citizen% hat %citizen% ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.</source>
+        <target>%disposing_citizen% a mis %citizen%, son pote, au feu. Vous vous disiez bien que ça sentait bon...</target>
       </segment>
     </unit>
     <unit id="GH4aDYM" name="feb2e53">
@@ -17362,7 +17360,7 @@
       </notes>
       <segment>
         <source>Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</source>
-        <target>Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die %count% Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</target>
+        <target>Nous avons deux nouvelles à vous annoncer. La bonne : vous avez réussi à arrêter %count% zombie(s) ! La mauvaise : vous avez été blessé...</target>
       </segment>
     </unit>
     <unit id="IuqDnZY" name="%citizen% hat %items% in der Müllhalde zerstört (+%def% Verteidigung)">
@@ -17932,10 +17930,7 @@
                                 benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
                                 kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
                                 auffüllen.</source>
-        <target>Für viele Aktionen, wie beispielsweise die Erkundung der Aussenwelt oder der Arbeit auf einer Baustelle,
-                                benötigst du Aktionspunkte. Deine Aktionspunkte werden jede Nacht nach dem Angriff aufgefüllt. Außerdem
-                                kannst du sie durch den Einsatz bestimmter Gegenstände sowie einmal pro Tag durch Essen und Trinken neu
-                                auffüllen.</target>
+        <target>Ces points sont notamment utilisés pour vos déplacements dans l'Outre-Monde, le désert entourant la ville...</target>
       </segment>
     </unit>
     <unit id="cNyto3M" name="Du wurdest zum Schamanen gewählt!">
@@ -17953,7 +17948,7 @@
       </notes>
       <segment>
         <source>Du wachst heute Morgen mit einer schrecklichen Migräne auf und hast Schwierigkeiten, zu sehen... Du beschließt, aus deinem Zelt zu gehen. Die Nachbarn an denen du vorbeiläufst, neigen ihr Haupt vor dir.</source>
-        <target>Vous vous réveillez ce matin avec une horrible migraine et vous avez des difficultés à voir... Vous décidez de sortir de votre tente. Les voisons que vous croisez vous font la révérence.</target>
+        <target>Vous vous réveillez ce matin avec une horrible migraine et vous avez des difficultés à voir... Vous décidez de sortir de votre tente. Les voisins que vous croisez vous font la révérence.</target>
       </segment>
     </unit>
     <unit id="c2baI8U" name="27aac18">
@@ -17962,7 +17957,7 @@
       </notes>
       <segment>
         <source>Was ist letzte Nacht nur passiert? Du hast wohl zu heftig gefeiert. Als du die Stadtmauer erreichst, kannst du ein kleines blaues Leuchten sehen... Ja, ja, du bist in der Tat der Ausgewählte. Der Zweifel verschwindet, als du dir die Hand an den Kopf hälst: eine lächerliche Maske klebt an deinem Gesicht und reduziert dein Sehvermögen erheblich.</source>
-        <target>Que s'est-t'il passé hier soit ? Vous avez trop fait la fête. Arrivé aux remparts vous distinguez de petites lueurs bleues... Oui oui, c'est vous qui avez été désigné. Le doute disparaît lorsque vous portez la main à votre tête : un masque ridicule vous colle au visage et réduit considérablement votre vue.</target>
+        <target>Que s'est-t'il passé hier soir ? Vous avez trop fait la fête. Arrivé aux remparts vous distinguez de petites lueurs bleues... Oui oui, c'est vous qui avez été désigné. Le doute disparaît lorsque vous portez la main à votre tête : un masque ridicule vous colle au visage et réduit considérablement votre vue.</target>
       </segment>
     </unit>
     <unit id="x09E3UL" name="Du bist nun der Schamane.">
@@ -17980,7 +17975,7 @@
       </notes>
       <segment>
         <source>Ein neuer Horizont öffnet sich für dich: Du bist nicht länger ein gewöhnlicher Bürger, sondern ein geistiger Führer!</source>
-        <target>Un nouvel horizon s'offre à vous : Vous n'êtres plus un citoyen ordinaire, mais un guide spirituel !</target>
+        <target>Un nouvel horizon s'offre à vous : vous n'êtres plus un citoyen ordinaire, mais un guide spirituel !</target>
       </segment>
     </unit>
     <unit id="DGMBZZJ" name="Mit deinen %mp% kannst du:">
@@ -18052,7 +18047,7 @@
       </notes>
       <segment>
         <source>Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...</source>
-        <target>Il contient toutes les informations essentielles pour faire enfin reconnaître, aux yeux de tous la supériorité de votre statut...</target>
+        <target>Il contient toutes les informations essentielles pour faire enfin reconnaître aux yeux de tous la supériorité de votre statut...</target>
       </segment>
     </unit>
     <unit id="bhwk0Sz" name="63b8c04">
@@ -18354,7 +18349,7 @@
     </unit>
     <unit id="20wAGQf" name="6489b1a">
       <notes>
-        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</note>
+        <note category="german">Your &lt;strong&gt;sobriety&lt;/strong&gt;, or lack thereof, is quite inconvenient. Things become pretty tricky pretty quickly when you're completely wasted...</note>
       </notes>
       <segment>
         <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</source>
@@ -18426,7 +18421,7 @@
     </unit>
     <unit id="bPobZD0" name="b1b989e">
       <notes>
-        <note category="german">Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;&lt;strong&gt;Dieser Gegenstand wurde in deiner Truhe abgelegt.&lt;/strong&gt;</note>
+        <note category="german">Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;Dieser Gegenstand wurde &lt;strong&gt;in deiner Truhe&lt;/strong&gt; abgelegt.</note>
       </notes>
       <segment>
         <source>Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;&lt;strong&gt;Dieser Gegenstand wurde in deiner Truhe abgelegt.&lt;/strong&gt;</source>
@@ -18583,7 +18578,7 @@
       </notes>
       <segment>
         <source>%citizen% bitten etwas aufzuheben.</source>
-        <target>%citizen% bitten etwas aufzuheben.</target>
+        <target>Demander à %citizen% de ramasser un objet.</target>
       </segment>
     </unit>
     <unit id="9URgee0" name="%citizen% befehlen die Umgebung abzusuchen.">
@@ -18592,7 +18587,7 @@
       </notes>
       <segment>
         <source>%citizen% befehlen die Umgebung abzusuchen.</source>
-        <target>%citizen% befehlen die Umgebung abzusuchen.</target>
+        <target>Demander à %citizen% de fouiller les environs.</target>
       </segment>
     </unit>
     <unit id="joeoHly" name="%citizen% angreifen. Diese Aktion kostet dich %ap%.">
@@ -18601,7 +18596,7 @@
       </notes>
       <segment>
         <source>%citizen% angreifen. Diese Aktion kostet dich %ap%.</source>
-        <target>%citizen% angreifen. Diese Aktion kostet dich %ap%.</target>
+        <target>Agresser %citizen% ! Cette action coûtera %ap%.</target>
       </segment>
     </unit>
     <unit id="H7wLj6X" name="%citizen% sagen mir nicht mehr zu folgen.">
@@ -18610,7 +18605,7 @@
       </notes>
       <segment>
         <source>%citizen% sagen mir nicht mehr zu folgen.</source>
-        <target>%citizen% sagen mir nicht mehr zu folgen.</target>
+        <target>Demander à %citizen% d'arrêter de me suivre.</target>
       </segment>
     </unit>
     <unit id="Iir2qAh" name="Allen befehlen, die Umgebung abzusuchen.">
@@ -18619,7 +18614,7 @@
       </notes>
       <segment>
         <source>Allen befehlen, die Umgebung abzusuchen.</source>
-        <target>Allen befehlen, die Umgebung abzusuchen.</target>
+        <target>Demander au groupe de fouiller les environs.</target>
       </segment>
     </unit>
     <unit id="_G5UAQ0" name="Allen sagen mir nicht mehr zu folgen.">
@@ -18628,7 +18623,7 @@
       </notes>
       <segment>
         <source>Allen sagen mir nicht mehr zu folgen.</source>
-        <target>Allen sagen mir nicht mehr zu folgen.</target>
+        <target>Demander au groupe d'arrêter de me suivre.</target>
       </segment>
     </unit>
     <unit id="v4V0uch" name="Dieser Bürger gräbt gerade in einer Zone.">
@@ -18637,7 +18632,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger gräbt gerade in einer Zone.</source>
-        <target>Dieser Bürger gräbt gerade in einer Zone.</target>
+        <target>Ce citoyen est en train de fouiller la zone.</target>
       </segment>
     </unit>
     <unit id="Bh1Gj16" name="%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.">
@@ -18646,7 +18641,313 @@
       </notes>
       <segment>
         <source>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</source>
-        <target>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</target>
+        <target>%citizen% est en attente d'escorte. Cliquez sur ce bouton pour lui demander de vous suivre.</target>
+      </segment>
+    </unit>
+    <unit id="xJvvYYd" name="89244b5">
+      <notes>
+        <note category="german">Die Bürger der Stadt haben entschieden, %citizen% zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!</note>
+      </notes>
+      <segment>
+        <source>Die Bürger der Stadt haben entschieden, %citizen% zu kreuzigen! Das Schokoladenkreuz wurde von den Bürgern im Rahmen dieses tragischen Ereignisses gegessen!</source>
+        <target>Les citoyens ont décidé de crucifier %citizen% ! La croix en chocolat a été mangée par les citoyens au cours de ce tragique évènement !</target>
+      </segment>
+    </unit>
+    <unit id="ES1J_Lh" name="Hängt %user%!">
+      <notes>
+        <note category="german">Hängt %user%!</note>
+      </notes>
+      <segment>
+        <source>Hängt %user%!</source>
+        <target>Pendez %user%!</target>
+      </segment>
+    </unit>
+    <unit id="lPQWXZ3" name="%user% wir kriegen dich!">
+      <notes>
+        <note category="german">%user% wir kriegen dich!</note>
+      </notes>
+      <segment>
+        <source>%user% wir kriegen dich!</source>
+        <target>%user% on aura ta peau !!</target>
+      </segment>
+    </unit>
+    <unit id="cwdaQ_b" name="am %d%.%m%.%Y%, um %H%:%i%">
+      <notes>
+        <note category="german">am %d%.%m%.%Y%, um %H%:%i%</note>
+      </notes>
+      <segment>
+        <source>am %d%.%m%.%Y%, um %H%:%i%</source>
+        <target>le %d%/%m%/%Y% à %H%:%i%</target>
+      </segment>
+    </unit>
+    <unit id="_hvDFgE" name="b263344">
+      <notes>
+        <note category="german">Du wurdest von einem &lt;strong&gt;Zombie in der Zone entdeckt&lt;/strong&gt;! Er hat sich in deine Richtung gedreht!&lt;hr/&gt;Deine Tarnung ist aufgeflogen!</note>
+      </notes>
+      <segment>
+        <source>Du wurdest von einem &lt;strong&gt;Zombie in der Zone entdeckt&lt;/strong&gt;! Er hat sich in deine Richtung gedreht!&lt;hr/&gt;Deine Tarnung ist aufgeflogen!</source>
+        <target><![CDATA[Alors que vous avanciez furtivement, <strong>un zombie de la zone vous a entendu</strong> et s'est retourné dans votre direction !<hr/>Vous avez été <strong>repéré(e)</strong> !<hr/>Vous n'êtes <strong>plus camouflé(e)</strong> !]]></target>
+      </segment>
+    </unit>
+    <unit id="fBI9kz3" name="Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!">
+      <notes>
+        <note category="german">Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!</source>
+        <target><![CDATA[Vous n'êtes <strong>plus camouflé(e)</strong> !]]></target>
+      </segment>
+    </unit>
+    <unit id="HXDfH_p" name="Manuelles Event-Management:">
+      <notes>
+        <note category="german">Manuelles Event-Management:</note>
+      </notes>
+      <segment>
+        <source>Manuelles Event-Management:</source>
+        <target>Manuelles Event-Management:</target>
+      </segment>
+    </unit>
+    <unit id="lYRernR" name="7714838">
+      <notes>
+        <note category="german">Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</note>
+      </notes>
+      <segment>
+        <source>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</source>
+        <target>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</target>
+      </segment>
+    </unit>
+    <unit id="cznvzLK" name="Kein Event:">
+      <notes>
+        <note category="german">Kein Event:</note>
+      </notes>
+      <segment>
+        <source>Kein Event:</source>
+        <target>Kein Event:</target>
+      </segment>
+    </unit>
+    <unit id="nHRZ69P" name="Startet die Stadt ohne Event-Inhalte">
+      <notes>
+        <note category="german">Startet die Stadt ohne Event-Inhalte</note>
+      </notes>
+      <segment>
+        <source>Startet die Stadt ohne Event-Inhalte</source>
+        <target>Startet die Stadt ohne Event-Inhalte</target>
+      </segment>
+    </unit>
+    <unit id="jQ18AzU" name="1. April">
+      <notes>
+        <note category="german">1. April</note>
+      </notes>
+      <segment>
+        <source>1. April</source>
+        <target>1. April</target>
+      </segment>
+    </unit>
+    <unit id="5kvPhGt" name="St. Patrick">
+      <notes>
+        <note category="german">St. Patrick</note>
+      </notes>
+      <segment>
+        <source>St. Patrick</source>
+        <target>St. Patrick</target>
+      </segment>
+    </unit>
+    <unit id="r3k99Bz" name="Ostern">
+      <notes>
+        <note category="german">Ostern</note>
+      </notes>
+      <segment>
+        <source>Ostern</source>
+        <target>Ostern</target>
+      </segment>
+    </unit>
+    <unit id="BJVmtrE" name="Halloween">
+      <notes>
+        <note category="german">Halloween</note>
+      </notes>
+      <segment>
+        <source>Halloween</source>
+        <target>Halloween</target>
+      </segment>
+    </unit>
+    <unit id="9mZMqtI" name="Armageddon">
+      <notes>
+        <note category="german">Armageddon</note>
+      </notes>
+      <segment>
+        <source>Armageddon</source>
+        <target>Armageddon</target>
+      </segment>
+    </unit>
+    <unit id="mbCP3jI" name="Weihnachten">
+      <notes>
+        <note category="german">Weihnachten</note>
+      </notes>
+      <segment>
+        <source>Weihnachten</source>
+        <target>Weihnachten</target>
+      </segment>
+    </unit>
+    <unit id="iiUUud." name="935109f">
+      <notes>
+        <note category="german">Du hast die &lt;strong&gt;Kontrolle über diese Zone verloren&lt;/strong&gt; (dies kann passieren, wenn ein anderer Bürger ohne dich gegangen ist)! Wenn du nicht festsitzen möchtest, kannst du noch flüchten. Es bleiben dir :</note>
+      </notes>
+      <segment>
+        <source>Du hast die &lt;strong&gt;Kontrolle über diese Zone verloren&lt;/strong&gt; (dies kann passieren, wenn ein anderer Bürger ohne dich gegangen ist)! Wenn du nicht festsitzen möchtest, kannst du noch flüchten. Es bleiben dir :</source>
+        <target><![CDATA[Vous avez <strong>perdu le contrôle</strong> de cette zone (par exemple si un citoyen a quitté la zone sans vous) ! Pour fuir avant de vous retrouver bloqué(e), il vous reste :]]></target>
+      </segment>
+    </unit>
+    <unit id="9r.yyfK" name="f193d19">
+      <notes>
+        <note category="german">Glücklicherweise kannst du dich dank deines %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; unerkannt weiterbewegen.</note>
+      </notes>
+      <segment>
+        <source>Glücklicherweise kannst du dich dank deines %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; unerkannt weiterbewegen.</source>
+        <target><![CDATA[Heureusement, votre %img_scout% <strong>Tenue de camouflage</strong> vous permet de continuer à vous déplacer sans être vu(e).]]></target>
+      </segment>
+    </unit>
+    <unit id="vd3qaKS" name="c6b1411">
+      <notes>
+        <note category="german">Achtung: Jede Aktion in der Zone sorgt dafür, dass deine &lt;strong&gt;Tarnung auffliegt&lt;/strong&gt;. (Es können nur Aktionen ausgeführt werden, die mit einem Icon %img_scout_ok% gekennzeichnet sind)!</note>
+      </notes>
+      <segment>
+        <source>Achtung: Jede Aktion in der Zone sorgt dafür, dass deine &lt;strong&gt;Tarnung auffliegt&lt;/strong&gt;. (Es können nur Aktionen ausgeführt werden, die mit einem Icon %img_scout_ok% gekennzeichnet sind)!</source>
+        <target><![CDATA[Attention: toute action sur la zone vous fera <strong>perdre votre camouflage</strong>. (seules les actions marquées d'une icône %img_scout_ok% peuvent être utilisées) !]]></target>
+      </segment>
+    </unit>
+    <unit id="xIw6O1B" name="d7dddf6">
+      <notes>
+        <note category="german">Mit deinem %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; kannst du dich bewegen ohne dabei entdeckt zu werden.</note>
+      </notes>
+      <segment>
+        <source>Mit deinem %img_scout% &lt;strong&gt;Tarnanzug&lt;/strong&gt; kannst du dich bewegen ohne dabei entdeckt zu werden.</source>
+        <target><![CDATA[Votre %img_scout% <strong>Tenue de camouflage</strong> vous permet de vous déplacer sans être vu(e)]]></target>
+      </segment>
+    </unit>
+    <unit id="CYBKQzY" name="%building% hat %num% Batterien verbraucht.">
+      <notes>
+        <note category="german">%building% hat %num% Batterien verbraucht.</note>
+      </notes>
+      <segment>
+        <source>%building% hat %num% Batterien verbraucht.</source>
+        <target>%building% a utilisé %num% Pile(s).</target>
+      </segment>
+    </unit>
+    <unit id="dqDx75c" name="c728704">
+      <notes>
+        <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: %list-i% %list-t%</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: %list-i% %list-t%</source>
+        <target><![CDATA[<strong>Félicitations</strong>, vous avez déverrouillé les titres suivants: %list-i% %list-t%]]></target>
+      </segment>
+    </unit>
+    <unit id="CN1z1xe" name="58ec9c9">
+      <notes>
+        <note category="german">%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</note>
+      </notes>
+      <segment>
+        <source>%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</source>
+        <target>%watchers% veilleurs se sont postés aux extrémités de la ville pour contenir les attaques de la Horde !</target>
+      </segment>
+    </unit>
+    <unit id="wX7RkO4" name="6de7154">
+      <notes>
+        <note category="german">Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion ermöglicht die Reinigung der Zone durch herabfallenden Regen. Dieser kann den Brunnen in der Stadt füllen oder eine vernichtende Wirkung auf die umliegenden Zombies entfalten.</source>
+        <target>Cette action permet de purifier la zone en faisant tomber de la pluie. Cette pluie peut remplir un peu le puits en ville ou encore avoir un effet dévastateur sur les zombies environnants.</target>
+      </segment>
+    </unit>
+    <unit id="vScXMoh" name="020238b">
+      <notes>
+        <note category="german">Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</note>
+      </notes>
+      <segment>
+        <source>Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</source>
+        <target>Vous pouvez essayer de soigner ce citoyen, mais rien n'est garanti... et attention aux effets secondaires !</target>
+      </segment>
+    </unit>
+    <unit id="Zn7yLPx" name="d8e98d6">
+      <notes>
+        <note category="german">Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:&lt;br /&gt;%list_head% oder %list_tail%.</note>
+      </notes>
+      <segment>
+        <source>Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:&lt;br /&gt;%list_head% oder %list_tail%.</source>
+        <target><![CDATA[Vous ne pouvez pas combiner %poison% avec ceci. Vous pouvez le faire avec un des objets suivants :<br />%list_head% ou %list_tail%.]]></target>
+      </segment>
+    </unit>
+    <unit id="91d4rG_" name="Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...">
+      <notes>
+        <note category="german">Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</note>
+      </notes>
+      <segment>
+        <source>Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</source>
+        <target>Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</target>
+      </segment>
+    </unit>
+    <unit id="wyxCVNs" name="Du hast keine Gegenstände, die du verstecken könntest.">
+      <notes>
+        <note category="german">Du hast keine Gegenstände, die du verstecken könntest.</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Gegenstände, die du verstecken könntest.</source>
+        <target>Du hast keine Gegenstände, die du verstecken könntest.</target>
+      </segment>
+    </unit>
+    <unit id="wKNx07Y" name="Wähle einen Gegenstand aus der Bank aus...">
+      <notes>
+        <note category="german">Wähle einen Gegenstand aus der Bank aus...</note>
+      </notes>
+      <segment>
+        <source>Wähle einen Gegenstand aus der Bank aus...</source>
+        <target>Wähle einen Gegenstand aus der Bank aus...</target>
+      </segment>
+    </unit>
+    <unit id="B5sYzl." name="Aufklärer: Ruinen erkunden">
+      <notes>
+        <note category="german">Aufklärer: Ruinen erkunden</note>
+      </notes>
+      <segment>
+        <source>Aufklärer: Ruinen erkunden</source>
+        <target>Éclaireur: Examiner ruines</target>
+      </segment>
+    </unit>
+    <unit id="_izB74m" name="Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</source>
+        <target>Cette action vous permet de déterminer la nature du bâtiment enfoui ici.</target>
+      </segment>
+    </unit>
+    <unit id="pqX0mgo" name="855fd56">
+      <notes>
+        <note category="german">Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</source>
+        <target><![CDATA[Vous vous frayez un passage au milieu des débris, relevez de multiples indices, grattez le sol de vos mains crasseuses...<hr />Après de longues minutes d'investigation, vous pouvez affirmer sans l'ombre d'un doute que ces débris cachent : <strong>%building%</strong> !]]></target>
+      </segment>
+    </unit>
+    <unit id="gmanddb" name="Persönliche Beschreibung">
+      <notes>
+        <note category="german">Persönliche Beschreibung</note>
+      </notes>
+      <segment>
+        <source>Persönliche Beschreibung</source>
+        <target>Description Personnelle</target>
+      </segment>
+    </unit>
+    <unit id="jTUz2Oq" name="Ich beobachte euch...">
+      <notes>
+        <note category="german">Ich beobachte euch...</note>
+      </notes>
+      <segment>
+        <source>Ich beobachte euch...</source>
+        <target>Crrrooaaââ !</target>
       </segment>
     </unit>
   </file>

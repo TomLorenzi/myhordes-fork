@@ -92,17 +92,16 @@ class SchedulerCommand extends Command
                 sleep( (int)$input->getOption('delay') );
             $output->writeln( 'Beginning <info>execution</info>...' );
 
-            $event = $this->conf_master->getCurrentEvent();
-            if ($event->active())
-                $output->writeln("An event is currently ongoing : <info>{$event->name()} !</info>");
+            $events = $this->conf_master->getCurrentEvents();
+            $active_events = array_map(fn(EventConf $e) => $e->name(), array_filter($events, fn(EventConf $e) => $e->active()));
+            if (!empty($active_events))
+                $output->writeln("Events are currently ongoing : [<info>" . implode('</info>,<info>', $active_events) . "</info>]");
 
             $towns = $this->entityManager->getRepository(Town::class)->findAll();
 
             // Set up console
             $progress = new ProgressBar( $output->section() );
             $progress->start( count($towns) );
-
-            
 
             foreach ( $towns as $town ) {
 
@@ -140,7 +139,7 @@ class SchedulerCommand extends Command
                     $this->entityManager->persist($town);
                     $this->entityManager->flush();
 
-                    if ($this->night->advance_day($town, $town_event = $this->conf_master->getCurrentEvent( $town ))) {
+                    if ($this->night->advance_day($town, $town_events = $this->conf_master->getCurrentEvents( $town ))) {
                         foreach ($this->night->get_cleanup_container() as $c) $this->entityManager->remove($c);
 
                         $town->setLastAttack($s)->setAttackFails(0);
@@ -150,9 +149,9 @@ class SchedulerCommand extends Command
                         $this->entityManager->flush();
 
                         // Enable or disable events
-                        if ($town_event->name() !== $event->name()) {
+                        if (!$this->conf_master->checkEventActivation($town)) {
                             $last_op = 'ev_a';
-                            if ($this->townHandler->updateCurrentEvent($town, $event)) {
+                            if ($this->townHandler->updateCurrentEvents($town, $events)) {
                                 $this->entityManager->persist($town);
                                 $this->entityManager->flush();
                             } else $this->entityManager->clear();
@@ -167,8 +166,9 @@ class SchedulerCommand extends Command
                         $this->entityManager->flush();
 
                         $limit = (int)$town_conf->get( TownConf::CONF_CLOSE_TOWN_AFTER, -1 );
+                        $grace = (int)$town_conf->get( TownConf::CONF_CLOSE_TOWN_GRACE, 40 );
 
-                        if ($town->isOpen() && $limit >= 0 && $town->getDayWithoutAttack() > $limit) {
+                        if ($town->isOpen() && $limit >= 0 && $town->getDayWithoutAttack() > $limit && $town->getCitizenCount() < $grace) {
                             $last_op = 'del';
                             foreach ($town->getCitizens() as $citizen)
                                 $this->entityManager->persist(
@@ -187,18 +187,19 @@ class SchedulerCommand extends Command
                             $this->entityManager->persist($town);
 
                             // Enable or disable events
-                            $running_event = $town_event;
-                            if ($town_event->name() !== $event->name()) {
+                            $running_events = $town_events;
+                            if (!$town->getManagedEvents() && !$this->conf_master->checkEventActivation($town)) {
                                 $this->entityManager->flush();
                                 $last_op = 'ev_s';
-                                if ($this->townHandler->updateCurrentEvent($town, $event)) {
+                                if ($this->townHandler->updateCurrentEvents($town, $events)) {
                                     $this->entityManager->persist($town);
-                                    $running_event = $event;
+                                    $running_events = $events;
                                     $this->entityManager->flush();
                                 } else $this->entityManager->clear();
                             }
 
-                            $running_event->hook_nightly_none( $town );
+                            foreach ($running_events as $running_event)
+                                $running_event->hook_nightly_none( $town );
                             $this->entityManager->persist($town);
                             $this->entityManager->flush();
                         }

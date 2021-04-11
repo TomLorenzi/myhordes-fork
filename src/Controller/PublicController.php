@@ -295,12 +295,10 @@ class PublicController extends CustomAbstractController
                 $error
             );
 
-            $user->setLanguage($this->getUserLanguage());
-
             switch ($error) {
                 case UserFactory::ErrorNone:
                     try {
-
+                        $user->setLanguage($this->getUserLanguage());
                         $entityManager->persist( (new RegistrationLog())
                             ->setUser($user)
                             ->setDate(new \DateTime())

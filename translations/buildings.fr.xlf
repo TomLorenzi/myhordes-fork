@@ -921,29 +921,29 @@
     </unit>
     <unit id="FXAUu02" name="Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.">
       <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 6% gesenkt.</note>
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 5% gesenkt.</source>
-        <target>Le coût en PA de tous les chantiers est réduit de 5%.</target>
+        <target>Le coût en PA de tous les chantiers est réduit de 6%.</target>
       </segment>
     </unit>
     <unit id="RpqPbZr" name="Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.">
       <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 12% gesenkt.</note>
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 10% gesenkt.</source>
-        <target>Le coût en PA de tous les chantiers est réduit de 10%.</target>
+        <target>Le coût en PA de tous les chantiers est réduit de 12%.</target>
       </segment>
     </unit>
     <unit id="xQHKrzW" name="Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.">
       <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 18% gesenkt.</note>
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 15% gesenkt.</source>
-        <target>Le coût en PA de tous les chantiers est réduit de 15%.</target>
+        <target>Le coût en PA de tous les chantiers est réduit de 18%.</target>
       </segment>
     </unit>
     <unit id="cdTPlT5" name="Scanner">
@@ -1690,7 +1690,7 @@
       </notes>
       <segment>
         <source>Befestigte Unterkunft</source>
-        <target>Abris fortifié</target>
+        <target>Abri fortifié</target>
       </segment>
     </unit>
     <unit id="TLVi.09" name="Bunker">
@@ -3243,29 +3243,110 @@
     </unit>
     <unit id="R.TLWup" name="aed3fec">
       <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 24% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</note>
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 20% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</source>
-        <target>Le coût en PA de tous les chantiers est réduit de 20%. Augmente le rendement de réparation de un point.</target>
+        <target>Le coût en PA de tous les chantiers est réduit de 24%. Augmente le rendement de réparation de un point.</target>
       </segment>
     </unit>
     <unit id="JLugykh" name="124a889">
       <notes>
-        <note category="german">Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</note>
+        <note category="german">Die AP-Kosten aller Bauprojekte werden um 30% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</note>
       </notes>
       <segment>
         <source>Die AP-Kosten aller Bauprojekte werden um 25% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</source>
-        <target>Le coût en PA de tous les chantiers est réduit de 25%. Augmente le rendement de réparation de deux points.</target>
+        <target>Le coût en PA de tous les chantiers est réduit de 30%. Augmente le rendement de réparation de deux points.</target>
       </segment>
     </unit>
     <unit id="OK7fp_k" name="Zaun (Haus)">
       <notes>
-        <note category="german">Zaun (Haus)</note>
+        <note category="german">Zaun</note>
       </notes>
       <segment>
         <source>Zaun (Haus)</source>
         <target>Clôture</target>
+      </segment>
+    </unit>
+    <unit id="i0KuVv1" name="Schokoladenkreuz">
+      <notes>
+        <note category="german">Schokoladenkreuz</note>
+      </notes>
+      <segment>
+        <source>Schokoladenkreuz</source>
+        <target>Croix en Chocolat</target>
+      </segment>
+    </unit>
+    <unit id="fDHJWJh" name="79667b6">
+      <notes>
+        <note category="german">Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...</note>
+      </notes>
+      <segment>
+        <source>Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...</source>
+        <target>Une belle croix réalisée en chocolat pour y placer les citoyens indésirables plutôt que de se contenter de les bannir de la communauté...</target>
+      </segment>
+    </unit>
+    <unit id="pGiSLDk" name="Straßenbeleuchtung">
+      <notes>
+        <note category="german">Straßenbeleuchtung</note>
+      </notes>
+      <segment>
+        <source>Straßenbeleuchtung</source>
+        <target>Éclairage public</target>
+      </segment>
+    </unit>
+    <unit id="p8Ajeue" name="cd33594">
+      <notes>
+        <note category="german">Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.</note>
+      </notes>
+      <segment>
+        <source>Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.</source>
+        <target>Quand la nuit profonde sera venue, la lueur blafarde des lampadaires vous permettra de poursuivre vos fouilles du désert. Plus d'excuses pour aller au lit.</target>
+      </segment>
+    </unit>
+    <unit id="ZLkYC3_" name="e3784de">
+      <notes>
+        <note category="german">Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</source>
+        <target>La réduction des chances de fouilles la nuit est annulée dans un rayon de 6 km autour de la ville, 1 pile est consommée par jour.</target>
+      </segment>
+    </unit>
+    <unit id="sLA35Ek" name="7f700fb">
+      <notes>
+        <note category="german">Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</source>
+        <target>La réduction des chances de fouilles la nuit est annulée dans un rayon de 10 km autour de la ville, 1 pile est consommée par jour.</target>
+      </segment>
+    </unit>
+    <unit id="9Yp1S0O" name="163fb9e">
+      <notes>
+        <note category="german">Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.</source>
+        <target>La réduction des chances de fouilles la nuit est annulée sur toute la carte, 2 piles sont consommées par jour.</target>
+      </segment>
+    </unit>
+    <unit id="nvB5DhN" name="c783d04">
+      <notes>
+        <note category="german">Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert.</note>
+      </notes>
+      <segment>
+        <source>Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert.</source>
+        <target>La réduction des chances de fouilles la nuit est annulée dans un rayon de 2 km autour de la ville.</target>
+      </segment>
+    </unit>
+    <unit id="i9EymZs" name="Kein besonderer Bonus">
+      <notes>
+        <note category="german">Kein besonderer Bonus</note>
+      </notes>
+      <segment>
+        <source>Kein besonderer Bonus</source>
+        <target>Aucun bonus spécial</target>
       </segment>
     </unit>
   </file>

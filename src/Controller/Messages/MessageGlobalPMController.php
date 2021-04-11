@@ -120,7 +120,7 @@ class MessageGlobalPMController extends MessageController
                     $this->entity_manager->flush();
                 } catch (Exception $e) {}
 
-                foreach ($dm_cache as $entry) $entry->setText( $this->prepareEmotes( $entry->getText() ) );
+                foreach ($dm_cache as $entry) $entry->setText( $this->html->prepareEmotes( $entry->getText() ) );
                 $focus = $this->render( 'ajax/pm/bubbles.html.twig', ['raw_dm' => $dm_cache] )->getContent();
 
                 break;
@@ -143,7 +143,7 @@ class MessageGlobalPMController extends MessageController
                     $this->entity_manager->flush();
                 } catch (\Exception $e) {}
 
-                foreach ($messages as $message) $message->setText( $this->prepareEmotes( $message->getText() ) );
+                foreach ($messages as $message) $message->setText( $this->html->prepareEmotes( $message->getText() ) );
                 $focus = $this->render( 'ajax/pm/bubbles.html.twig', ['raw_gp' => $messages] )->getContent();
 
                 break;
@@ -527,7 +527,7 @@ class MessageGlobalPMController extends MessageController
             $this->entity_manager->flush();
         } catch (\Exception $e) {}
 
-        foreach ($messages as $message) $message->setText( $this->prepareEmotes( $message->getText() ) );
+        foreach ($messages as $message) $message->setText( $this->html->prepareEmotes( $message->getText() ) );
 
         /** @var GlobalPrivateMessage[] $sliced */
         $sliced = array_slice($messages, 0, $num);
@@ -576,7 +576,7 @@ class MessageGlobalPMController extends MessageController
 
         foreach ($sliced as $message) {
             $tx = '';
-            if ($message->getTemplate() === null && $message->getText()) $tx .= $this->prepareEmotes($message->getText());
+            if ($message->getTemplate() === null && $message->getText()) $tx .= $this->html->prepareEmotes($message->getText());
 
             if ($message->getTemplate())
                 try {
@@ -619,7 +619,7 @@ class MessageGlobalPMController extends MessageController
                 $this->entity_manager->flush();
             } catch (\Exception $e) {}
 
-        $announce->setText( $this->prepareEmotes( $announce->getText() ) );
+        $announce->setText( $this->html->prepareEmotes( $announce->getText() ) );
 
         return $this->render( 'ajax/pm/announcement.html.twig', $this->addDefaultTwigArgs(null, [
             'announcements' => [$announce],
@@ -658,7 +658,7 @@ class MessageGlobalPMController extends MessageController
             } catch (\Exception $e) {}
 
         foreach ($sliced as $announce)
-            $announce->setText( $this->prepareEmotes( $announce->getText() ) );
+            $announce->setText( $this->html->prepareEmotes( $announce->getText() ) );
 
         return $this->render( 'ajax/pm/announcement.html.twig', $this->addDefaultTwigArgs(null, [
             'announcements' => $announces,

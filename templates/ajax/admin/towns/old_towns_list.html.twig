@@ -1,6 +1,7 @@
 {% extends "ajax/ajax.html.twig" %}
 {% block title %}{{ 'Fertige Städte'|trans({}, 'admin') }}{% endblock %}
 {% block ajax %}
+    {% embed "ajax/admin/towns/header.html.twig" with {'search_controller': 'admin_towns_fuzzyfind'} %}{% endembed %}
     <div class="row">
         <div class="cell padded rw-12">
             <ul class="tabs plain">

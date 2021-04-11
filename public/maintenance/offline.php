@@ -68,7 +68,7 @@
             <div>
                 <h1>Maintenance Mode</h1>
                 <p class="text en">
-                    <i>MyHordes</i> is currently in <b>Maintenance Mode</b>. This usually happens when an update is installed. Please be patient for a moment, normal operation will surely continue shortly.
+                    <i>MyHordes</i> is currently in <b>Maintenance Mode</b>. This usually happens when an update is being installed. Please stay patient, normal operations will continue shortly.
                     Reload this page or click the button at the top to try again.
                 </p>
 

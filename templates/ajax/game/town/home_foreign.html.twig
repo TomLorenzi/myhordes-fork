@@ -121,7 +121,10 @@
                         <button x-devour-citizen {% if not allow_devour %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" /> {{ 'Diesen Bürger verspeisen!'|trans({},'game') }}</button>
                     {% endif %}
                     {% if is_shaman and not banished %}
-                        <button x-heal-citizen>{{'Nutze deine heilenden Hände'|trans({}, 'game')}} ({% if is_shaman_role %}2 <div class="pm"></div>{% else %}2 <div class="ap"></div>{% endif %})</button>
+                        <button x-heal-citizen>
+                            {{'Nutze deine heilenden Hände'|trans({}, 'game')}} ({% if is_shaman_role %}<div class="pm">2</div>{% else %}<div class="ap">2</div>{% endif %})
+                            <div class="tooltip">{{ 'Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!'|trans({},'game') }}</div>
+                        </button>
                     {% endif %}
                 {% endif %}
                 {% if can_complain %}
@@ -194,7 +197,7 @@
                         {% elseif owner.disposed == constant('App\\Entity\\Citizen::Watered') %}
                             {{'Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.user.name ~ "</em>"}, 'game')|raw}}
                         {% elseif owner.disposed == constant('App\\Entity\\Citizen::Cooked') %}
-                            {{'Dank %disposing_citizen% wurde aus dem Körper von %citizen% ein leckeres kleines Mahl gekocht.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.user.name ~ "</em>"}, 'game')|raw}}
+                            {{'%disposing_citizen% hat %citizen% ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.user.name ~ "</em>"}, 'game')|raw}}
                         {% elseif owner.disposed == constant('App\\Entity\\Citizen::Ghoul') %}
                             {{ 'Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?'|trans({}, 'game')|raw }}
                         {% else %}

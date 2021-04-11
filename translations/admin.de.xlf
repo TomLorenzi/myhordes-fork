@@ -2737,5 +2737,356 @@
         <target>Bestätigen</target>
       </segment>
     </unit>
+    <unit id="vsOyofZ" name="Schwarzes Brett">
+      <notes>
+        <note category="german">Schwarzes Brett</note>
+      </notes>
+      <segment>
+        <source>Schwarzes Brett</source>
+        <target>Schwarzes Brett</target>
+      </segment>
+    </unit>
+    <unit id="rDIuKb4" name="Stadt füllen">
+      <notes>
+        <note category="german">Stadt füllen</note>
+      </notes>
+      <segment>
+        <source>Stadt füllen</source>
+        <target>Stadt füllen</target>
+      </segment>
+    </unit>
+    <unit id="I6NYwV3" name="Bank füllen">
+      <notes>
+        <note category="german">Bank füllen</note>
+      </notes>
+      <segment>
+        <source>Bank füllen</source>
+        <target>Bank füllen</target>
+      </segment>
+    </unit>
+    <unit id="NECchbh" name="Banksperre aufheben">
+      <notes>
+        <note category="german">Banksperre aufheben</note>
+      </notes>
+      <segment>
+        <source>Banksperre aufheben</source>
+        <target>Banksperre aufheben</target>
+      </segment>
+    </unit>
+    <unit id="HBKEVAD" name="Durst aufheben">
+      <notes>
+        <note category="german">Durst aufheben</note>
+      </notes>
+      <segment>
+        <source>Durst aufheben</source>
+        <target>Durst aufheben</target>
+      </segment>
+    </unit>
+    <unit id="9hzLkBp" name="Alle Spieler entkoppeln">
+      <notes>
+        <note category="german">Alle Spieler entkoppeln</note>
+      </notes>
+      <segment>
+        <source>Alle Spieler entkoppeln</source>
+        <target>Alle Spieler entkoppeln</target>
+      </segment>
+    </unit>
+    <unit id="t5vj7sC" name="Alle Spieler koppeln">
+      <notes>
+        <note category="german">Alle Spieler koppeln</note>
+      </notes>
+      <segment>
+        <source>Alle Spieler koppeln</source>
+        <target>Alle Spieler koppeln</target>
+      </segment>
+    </unit>
+    <unit id="qKBuSla" name="Zone">
+      <notes>
+        <note category="german">Zone</note>
+      </notes>
+      <segment>
+        <source>Zone</source>
+        <target>Zone</target>
+      </segment>
+    </unit>
+    <unit id="QzMRMH1" name="Leere Zone">
+      <notes>
+        <note category="german">Leere Zone</note>
+      </notes>
+      <segment>
+        <source>Leere Zone</source>
+        <target>Leere Zone</target>
+      </segment>
+    </unit>
+    <unit id="dgw_NYB" name="Entkoppelte Leben">
+      <notes>
+        <note category="german">Entkoppelte Leben</note>
+      </notes>
+      <segment>
+        <source>Entkoppelte Leben</source>
+        <target>Entkoppelte Leben</target>
+      </segment>
+    </unit>
+    <unit id="TLxPMB8" name="Entkoppeln">
+      <notes>
+        <note category="german">Entkoppeln</note>
+      </notes>
+      <segment>
+        <source>Entkoppeln</source>
+        <target>Entkoppeln</target>
+      </segment>
+    </unit>
+    <unit id="hn7LsRJ" name="Punkte">
+      <notes>
+        <note category="german">Punkte</note>
+      </notes>
+      <segment>
+        <source>Punkte</source>
+        <target>Punkte</target>
+      </segment>
+    </unit>
+    <unit id="dPobLXQ" name="Rollen">
+      <notes>
+        <note category="german">Rollen</note>
+      </notes>
+      <segment>
+        <source>Rollen</source>
+        <target>Rollen</target>
+      </segment>
+    </unit>
+    <unit id="LsFE_gX" name="Versteckter Status">
+      <notes>
+        <note category="german">Versteckter Status</note>
+      </notes>
+      <segment>
+        <source>Versteckter Status</source>
+        <target>Versteckter Status</target>
+      </segment>
+    </unit>
+    <unit id="bauA9lx" name="Versteckt:">
+      <notes>
+        <note category="german">Versteckt:</note>
+      </notes>
+      <segment>
+        <source>Versteckt:</source>
+        <target>Versteckt:</target>
+      </segment>
+    </unit>
+    <unit id="Fe136ia" name="Kein Bürger ausgewählt!">
+      <notes>
+        <note category="german">Kein Bürger ausgewählt!</note>
+      </notes>
+      <segment>
+        <source>Kein Bürger ausgewählt!</source>
+        <target>Kein Bürger ausgewählt!</target>
+      </segment>
+    </unit>
+    <unit id="NrcXgR7" name="BP">
+      <notes>
+        <note category="german">BP</note>
+      </notes>
+      <segment>
+        <source>BP</source>
+        <target>BP</target>
+      </segment>
+    </unit>
+    <unit id="IErGaoh" name="MP">
+      <notes>
+        <note category="german">MP</note>
+      </notes>
+      <segment>
+        <source>MP</source>
+        <target>MP</target>
+      </segment>
+    </unit>
+    <unit id="tVQnz.X" name="Einen Beruf auswählen:">
+      <notes>
+        <note category="german">Einen Beruf auswählen:</note>
+      </notes>
+      <segment>
+        <source>Einen Beruf auswählen:</source>
+        <target>Einen Beruf auswählen:</target>
+      </segment>
+    </unit>
+    <unit id="_Kc4j.e" name="Stadt anlegen">
+      <notes>
+        <note category="german">Stadt anlegen</note>
+      </notes>
+      <segment>
+        <source>Stadt anlegen</source>
+        <target>Stadt anlegen</target>
+      </segment>
+    </unit>
+    <unit id="yo6CbZw" name="Avatar">
+      <notes>
+        <note category="german">Avatar</note>
+      </notes>
+      <segment>
+        <source>Avatar</source>
+        <target>Avatar</target>
+      </segment>
+    </unit>
+    <unit id="A2Ihk63" name="Profilbeschreibung">
+      <notes>
+        <note category="german">Profilbeschreibung</note>
+      </notes>
+      <segment>
+        <source>Profilbeschreibung</source>
+        <target>Profilbeschreibung</target>
+      </segment>
+    </unit>
+    <unit id="5AoQtM8" name="Änderungen am Profil verbieten">
+      <notes>
+        <note category="german">Änderungen am Profil verbieten</note>
+      </notes>
+      <segment>
+        <source>Änderungen am Profil verbieten</source>
+        <target>Änderungen am Profil verbieten</target>
+      </segment>
+    </unit>
+    <unit id="o2BjdF6" name="Ändern des Avatars verbieten">
+      <notes>
+        <note category="german">Ändern des Avatars verbieten</note>
+      </notes>
+      <segment>
+        <source>Ändern des Avatars verbieten</source>
+        <target>Ändern des Avatars verbieten</target>
+      </segment>
+    </unit>
+    <unit id="es9o32g" name="Ändern der Profilbeschreibung verbieten">
+      <notes>
+        <note category="german">Ändern der Profilbeschreibung verbieten</note>
+      </notes>
+      <segment>
+        <source>Ändern der Profilbeschreibung verbieten</source>
+        <target>Ändern der Profilbeschreibung verbieten</target>
+      </segment>
+    </unit>
+    <unit id="tJ4N6CO" name="Ändern des Titels verbieten">
+      <notes>
+        <note category="german">Ändern des Titels verbieten</note>
+      </notes>
+      <segment>
+        <source>Ändern des Titels verbieten</source>
+        <target>Ändern des Titels verbieten</target>
+      </segment>
+    </unit>
+    <unit id="nXkHd12" name="Anzeigenamen ändern">
+      <notes>
+        <note category="german">Anzeigenamen ändern</note>
+      </notes>
+      <segment>
+        <source>Anzeigenamen ändern</source>
+        <target>Anzeigenamen ändern</target>
+      </segment>
+    </unit>
+    <unit id="zX2Ikki" name="Anzeigenamen entfernen">
+      <notes>
+        <note category="german">Anzeigenamen entfernen</note>
+      </notes>
+      <segment>
+        <source>Anzeigenamen entfernen</source>
+        <target>Anzeigenamen entfernen</target>
+      </segment>
+    </unit>
+    <unit id="ZBGzbqz" name="Avatar entfernen">
+      <notes>
+        <note category="german">Avatar entfernen</note>
+      </notes>
+      <segment>
+        <source>Avatar entfernen</source>
+        <target>Avatar entfernen</target>
+      </segment>
+    </unit>
+    <unit id="5yzpFRy" name="Profilbeschreibung entfernen">
+      <notes>
+        <note category="german">Profilbeschreibung entfernen</note>
+      </notes>
+      <segment>
+        <source>Profilbeschreibung entfernen</source>
+        <target>Profilbeschreibung entfernen</target>
+      </segment>
+    </unit>
+    <unit id="R1lleS7" name="Titel &amp; Icon entfernen">
+      <notes>
+        <note category="german">Titel &amp; Icon entfernen</note>
+      </notes>
+      <segment>
+        <source>Titel &amp; Icon entfernen</source>
+        <target><![CDATA[Titel & Icon entfernen]]></target>
+      </segment>
+    </unit>
+    <unit id="BaVbT2z" name="Neuer Füllstand:">
+      <notes>
+        <note category="german">Neuer Füllstand:</note>
+      </notes>
+      <segment>
+        <source>Neuer Füllstand:</source>
+        <target>Neuer Füllstand:</target>
+      </segment>
+    </unit>
+    <unit id="dIVIxL." name="Brunnen-Füllstand setzen">
+      <notes>
+        <note category="german">Brunnen-Füllstand setzen</note>
+      </notes>
+      <segment>
+        <source>Brunnen-Füllstand setzen</source>
+        <target>Brunnen-Füllstand setzen</target>
+      </segment>
+    </unit>
+    <unit id="2xHk8Wn" name="Alle Gebäude freischalten">
+      <notes>
+        <note category="german">Alle Gebäude freischalten</note>
+      </notes>
+      <segment>
+        <source>Alle Gebäude freischalten</source>
+        <target>Alle Gebäude freischalten</target>
+      </segment>
+    </unit>
+    <unit id="IurwAt2" name="Baufortschritt setzen:">
+      <notes>
+        <note category="german">Baufortschritt setzen:</note>
+      </notes>
+      <segment>
+        <source>Baufortschritt setzen:</source>
+        <target>Baufortschritt setzen:</target>
+      </segment>
+    </unit>
+    <unit id="C0IagjD" name="Integrität setzen:">
+      <notes>
+        <note category="german">Integrität setzen:</note>
+      </notes>
+      <segment>
+        <source>Integrität setzen:</source>
+        <target>Integrität setzen:</target>
+      </segment>
+    </unit>
+    <unit id="PmdlsrB" name="Neue Anzahl:">
+      <notes>
+        <note category="german">Neue Anzahl:</note>
+      </notes>
+      <segment>
+        <source>Neue Anzahl:</source>
+        <target>Neue Anzahl:</target>
+      </segment>
+    </unit>
+    <unit id="VxMIE8o" name="Heldentage setzen">
+      <notes>
+        <note category="german">Heldentage setzen</note>
+      </notes>
+      <segment>
+        <source>Heldentage setzen</source>
+        <target>Heldentage setzen</target>
+      </segment>
+    </unit>
+    <unit id="RkHxHq_" name="Hausverbesserungen:">
+      <notes>
+        <note category="german">Hausverbesserungen:</note>
+      </notes>
+      <segment>
+        <source>Hausverbesserungen:</source>
+        <target>Hausverbesserungen:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

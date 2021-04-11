@@ -2131,7 +2131,7 @@
       </notes>
       <segment>
         <source>Status vergeben</source>
-        <target>Status vergeben</target>
+        <target>Give the status</target>
       </segment>
     </unit>
     <unit id="PLdhbVW" name="Status entfernen">
@@ -2140,7 +2140,7 @@
       </notes>
       <segment>
         <source>Status entfernen</source>
-        <target>Status entfernen</target>
+        <target>Remove the status</target>
       </segment>
     </unit>
     <unit id="YkT2Odb" name="Eine Rolle auswählen:">
@@ -2149,7 +2149,7 @@
       </notes>
       <segment>
         <source>Eine Rolle auswählen:</source>
-        <target>Eine Rolle auswählen:</target>
+        <target>Select role :</target>
       </segment>
     </unit>
     <unit id="v6OJxnk" name="Rolle vergeben">
@@ -2158,7 +2158,7 @@
       </notes>
       <segment>
         <source>Rolle vergeben</source>
-        <target>Rolle vergeben</target>
+        <target>Give the role</target>
       </segment>
     </unit>
     <unit id="sOLeN_J" name="Rolle entfernen">
@@ -2167,7 +2167,7 @@
       </notes>
       <segment>
         <source>Rolle entfernen</source>
-        <target>Rolle entfernen</target>
+        <target>Remove the role</target>
       </segment>
     </unit>
     <unit id="x8Xk.ym" name="Bürger nach Sprache">
@@ -2176,7 +2176,7 @@
       </notes>
       <segment>
         <source>Bürger nach Sprache</source>
-        <target>Bürger nach Sprache</target>
+        <target>Citizens per town</target>
       </segment>
     </unit>
     <unit id="gvDyCm1" name="Geöffnet">
@@ -2293,7 +2293,7 @@
       </notes>
       <segment>
         <source>Setzen</source>
-        <target>Setzen</target>
+        <target>Set</target>
       </segment>
     </unit>
     <unit id="wM4Qh3r" name="Abziehen">
@@ -2302,7 +2302,7 @@
       </notes>
       <segment>
         <source>Abziehen</source>
-        <target>Abziehen</target>
+        <target>Remove</target>
       </segment>
     </unit>
     <unit id="lEIUlKS" name="Changelogs">
@@ -2338,7 +2338,7 @@
       </notes>
       <segment>
         <source>Konstruktionen</source>
-        <target>Konstruktionen</target>
+        <target>Construction sites</target>
       </segment>
     </unit>
     <unit id="JgVl7oE" name="Gib den Namen oder die ID der Stadt ein.">
@@ -2383,7 +2383,7 @@
       </notes>
       <segment>
         <source>Stadt ansehen</source>
-        <target>Stadt ansehen</target>
+        <target>See the town</target>
       </segment>
     </unit>
     <unit id="HQAYQ7y" name="Existierende Beschränkungen">
@@ -2392,7 +2392,7 @@
       </notes>
       <segment>
         <source>Existierende Beschränkungen</source>
-        <target>Existierende Beschränkungen</target>
+        <target>Existing sanctions</target>
       </segment>
     </unit>
     <unit id="d.ixmWC" name="Dieser Spieler hat eine weiße Weste.">
@@ -2401,7 +2401,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler hat eine weiße Weste.</source>
-        <target>Dieser Spieler hat eine weiße Weste.</target>
+        <target>This player doesn't have any existing sanctions.</target>
       </segment>
     </unit>
     <unit id="FwMioy8" name="Info">
@@ -2473,7 +2473,7 @@
       </notes>
       <segment>
         <source>Interner Vermerk</source>
-        <target>Interner Vermerk</target>
+        <target>Internal note</target>
       </segment>
     </unit>
     <unit id="dd81ecc" name="Art">
@@ -2554,7 +2554,7 @@
       </notes>
       <segment>
         <source>%d% Tage</source>
-        <target>%d% Tage</target>
+        <target>%d% Day(s)</target>
       </segment>
     </unit>
     <unit id="R9HFTdn" name="Neue Beschränkung hinzufügen">
@@ -2563,7 +2563,7 @@
       </notes>
       <segment>
         <source>Neue Beschränkung hinzufügen</source>
-        <target>Neue Beschränkung hinzufügen</target>
+        <target>Add a sanction</target>
       </segment>
     </unit>
     <unit id="o.gLHi8" name="24 Stunden">
@@ -2572,7 +2572,7 @@
       </notes>
       <segment>
         <source>24 Stunden</source>
-        <target>24 Stunden</target>
+        <target>24 Hours</target>
       </segment>
     </unit>
     <unit id="YvnlIm5" name="Bestätigung erforderlich">
@@ -2590,7 +2590,7 @@
       </notes>
       <segment>
         <source>1 Jahr</source>
-        <target>1 Jahr</target>
+        <target>1 Year</target>
       </segment>
     </unit>
     <unit id="vFTx03L" name="Admin-Bestätigung erforderlich">
@@ -2608,7 +2608,7 @@
       </notes>
       <segment>
         <source>2 Jahre</source>
-        <target>2 Jahre</target>
+        <target>2 Years</target>
       </segment>
     </unit>
     <unit id="NhpWriw" name="Dauerhaft">
@@ -2617,7 +2617,7 @@
       </notes>
       <segment>
         <source>Dauerhaft</source>
-        <target>Dauerhaft</target>
+        <target>Permanent</target>
       </segment>
     </unit>
     <unit id="VBYHRyg" name="Art der Beschränkung">
@@ -2626,7 +2626,7 @@
       </notes>
       <segment>
         <source>Art der Beschränkung</source>
-        <target>Art der Beschränkung</target>
+        <target>Restriction type</target>
       </segment>
     </unit>
     <unit id="t5PuA4i" name="Soziale Interaktion verbieten">
@@ -2635,7 +2635,7 @@
       </notes>
       <segment>
         <source>Soziale Interaktion verbieten</source>
-        <target>Soziale Interaktion verbieten</target>
+        <target>Prevent social interactions</target>
       </segment>
     </unit>
     <unit id="N35nJiR" name="Posten in Foren verbieten">
@@ -2644,7 +2644,7 @@
       </notes>
       <segment>
         <source>Posten in Foren verbieten</source>
-        <target>Posten in Foren verbieten</target>
+        <target>Post on forums</target>
       </segment>
     </unit>
     <unit id="S.Z0svV" name="Stadt-interne Kommunikation verbieten">
@@ -2653,7 +2653,7 @@
       </notes>
       <segment>
         <source>Stadt-interne Kommunikation verbieten</source>
-        <target>Stadt-interne Kommunikation verbieten</target>
+        <target>Communicate in towns</target>
       </segment>
     </unit>
     <unit id="TofCy.V" name="Stadtübergreifende Kommunikation verbieten">
@@ -2662,7 +2662,7 @@
       </notes>
       <segment>
         <source>Stadtübergreifende Kommunikation verbieten</source>
-        <target>Stadtübergreifende Kommunikation verbieten</target>
+        <target>Communicate outside of towns</target>
       </segment>
     </unit>
     <unit id="4Ih2_KV" name="Kommentare verbieten">
@@ -2671,7 +2671,7 @@
       </notes>
       <segment>
         <source>Kommentare verbieten</source>
-        <target>Kommentare verbieten</target>
+        <target>Comments on towns</target>
       </segment>
     </unit>
     <unit id="Hk8oxc5" name="Organisation in Gruppen verbieten">
@@ -2680,7 +2680,7 @@
       </notes>
       <segment>
         <source>Organisation in Gruppen verbieten</source>
-        <target>Organisation in Gruppen verbieten</target>
+        <target>Coalition organization</target>
       </segment>
     </unit>
     <unit id="IdwEk1H" name="Spielen verbieten">
@@ -2689,7 +2689,7 @@
       </notes>
       <segment>
         <source>Spielen verbieten</source>
-        <target>Spielen verbieten</target>
+        <target>Interdiction of playing</target>
       </segment>
     </unit>
     <unit id="67OtxCl" name="3e3c02a">
@@ -2719,5 +2719,356 @@
         <target>Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.</target>
       </segment>
     </unit>
+    <unit id="vsOyofZ" name="Schwarzes Brett">
+      <notes>
+        <note category="german">Schwarzes Brett</note>
+      </notes>
+      <segment>
+        <source>Schwarzes Brett</source>
+        <target>Black Board</target>
+      </segment>
+    </unit>
+    <unit id="rDIuKb4" name="Stadt füllen">
+      <notes>
+        <note category="german">Stadt füllen</note>
+      </notes>
+      <segment>
+        <source>Stadt füllen</source>
+        <target>Fill town</target>
+      </segment>
+    </unit>
+    <unit id="I6NYwV3" name="Bank füllen">
+      <notes>
+        <note category="german">Bank füllen</note>
+      </notes>
+      <segment>
+        <source>Bank füllen</source>
+        <target>Fill bank</target>
+      </segment>
+    </unit>
+    <unit id="NECchbh" name="Banksperre aufheben">
+      <notes>
+        <note category="german">Banksperre aufheben</note>
+      </notes>
+      <segment>
+        <source>Banksperre aufheben</source>
+        <target>Remove bank locks</target>
+      </segment>
+    </unit>
+    <unit id="HBKEVAD" name="Durst aufheben">
+      <notes>
+        <note category="german">Durst aufheben</note>
+      </notes>
+      <segment>
+        <source>Durst aufheben</source>
+        <target>Remove thirst</target>
+      </segment>
+    </unit>
+    <unit id="9hzLkBp" name="Alle Spieler entkoppeln">
+      <notes>
+        <note category="german">Alle Spieler entkoppeln</note>
+      </notes>
+      <segment>
+        <source>Alle Spieler entkoppeln</source>
+        <target>Disengage all players</target>
+      </segment>
+    </unit>
+    <unit id="t5vj7sC" name="Alle Spieler koppeln">
+      <notes>
+        <note category="german">Alle Spieler koppeln</note>
+      </notes>
+      <segment>
+        <source>Alle Spieler koppeln</source>
+        <target>Engage all players</target>
+      </segment>
+    </unit>
+    <unit id="qKBuSla" name="Zone">
+      <notes>
+        <note category="german">Zone</note>
+      </notes>
+      <segment>
+        <source>Zone</source>
+        <target>Zone</target>
+      </segment>
+    </unit>
+    <unit id="QzMRMH1" name="Leere Zone">
+      <notes>
+        <note category="german">Leere Zone</note>
+      </notes>
+      <segment>
+        <source>Leere Zone</source>
+        <target>Empty Zone</target>
+      </segment>
+    </unit>
+    <unit id="dgw_NYB" name="Entkoppelte Leben">
+      <notes>
+        <note category="german">Entkoppelte Leben</note>
+      </notes>
+      <segment>
+        <source>Entkoppelte Leben</source>
+        <target>Disengaged Citizens</target>
+      </segment>
+    </unit>
+    <unit id="TLxPMB8" name="Entkoppeln">
+      <notes>
+        <note category="german">Entkoppeln</note>
+      </notes>
+      <segment>
+        <source>Entkoppeln</source>
+        <target>Disengange</target>
+      </segment>
+    </unit>
+    <unit id="hn7LsRJ" name="Punkte">
+      <notes>
+        <note category="german">Punkte</note>
+      </notes>
+      <segment>
+        <source>Punkte</source>
+        <target>Points</target>
+      </segment>
+    </unit>
+    <unit id="dPobLXQ" name="Rollen">
+      <notes>
+        <note category="german">Rollen</note>
+      </notes>
+      <segment>
+        <source>Rollen</source>
+        <target>Roles</target>
+      </segment>
+    </unit>
+    <unit id="LsFE_gX" name="Versteckter Status">
+      <notes>
+        <note category="german">Versteckter Status</note>
+      </notes>
+      <segment>
+        <source>Versteckter Status</source>
+        <target>Hidden Status</target>
+      </segment>
+    </unit>
+    <unit id="bauA9lx" name="Versteckt:">
+      <notes>
+        <note category="german">Versteckt:</note>
+      </notes>
+      <segment>
+        <source>Versteckt:</source>
+        <target>Hidden:</target>
+      </segment>
+    </unit>
+    <unit id="Fe136ia" name="Kein Bürger ausgewählt!">
+      <notes>
+        <note category="german">Kein Bürger ausgewählt!</note>
+      </notes>
+      <segment>
+        <source>Kein Bürger ausgewählt!</source>
+        <target>No citizen selected!</target>
+      </segment>
+    </unit>
+    <unit id="NrcXgR7" name="BP">
+      <notes>
+        <note category="german">BP</note>
+      </notes>
+      <segment>
+        <source>BP</source>
+        <target>CP</target>
+      </segment>
+    </unit>
+    <unit id="IErGaoh" name="MP">
+      <notes>
+        <note category="german">MP</note>
+      </notes>
+      <segment>
+        <source>MP</source>
+        <target>MP</target>
+      </segment>
+    </unit>
+    <unit id="tVQnz.X" name="Einen Beruf auswählen:">
+      <notes>
+        <note category="german">Einen Beruf auswählen:</note>
+      </notes>
+      <segment>
+        <source>Einen Beruf auswählen:</source>
+        <target>Choose Profession:</target>
+      </segment>
+    </unit>
+    <unit id="_Kc4j.e" name="Stadt anlegen">
+      <notes>
+        <note category="german">Stadt anlegen</note>
+      </notes>
+      <segment>
+        <source>Stadt anlegen</source>
+        <target>Create Town</target>
+      </segment>
+    </unit>
+    <unit id="yo6CbZw" name="Avatar">
+      <notes>
+        <note category="german">Avatar</note>
+      </notes>
+      <segment>
+        <source>Avatar</source>
+        <target>Avatar</target>
+      </segment>
+    </unit>
+    <unit id="A2Ihk63" name="Profilbeschreibung">
+      <notes>
+        <note category="german">Profilbeschreibung</note>
+      </notes>
+      <segment>
+        <source>Profilbeschreibung</source>
+        <target>Profile description</target>
+      </segment>
+    </unit>
+    <unit id="5AoQtM8" name="Änderungen am Profil verbieten">
+      <notes>
+        <note category="german">Änderungen am Profil verbieten</note>
+      </notes>
+      <segment>
+        <source>Änderungen am Profil verbieten</source>
+        <target>Profile modifications</target>
+      </segment>
+    </unit>
+    <unit id="o2BjdF6" name="Ändern des Avatars verbieten">
+      <notes>
+        <note category="german">Ändern des Avatars verbieten</note>
+      </notes>
+      <segment>
+        <source>Ändern des Avatars verbieten</source>
+        <target>Avatar change</target>
+      </segment>
+    </unit>
+    <unit id="es9o32g" name="Ändern der Profilbeschreibung verbieten">
+      <notes>
+        <note category="german">Ändern der Profilbeschreibung verbieten</note>
+      </notes>
+      <segment>
+        <source>Ändern der Profilbeschreibung verbieten</source>
+        <target>Profile description modifications</target>
+      </segment>
+    </unit>
+    <unit id="tJ4N6CO" name="Ändern des Titels verbieten">
+      <notes>
+        <note category="german">Ändern des Titels verbieten</note>
+      </notes>
+      <segment>
+        <source>Ändern des Titels verbieten</source>
+        <target>Title change</target>
+      </segment>
+    </unit>
+    <unit id="nXkHd12" name="Anzeigenamen ändern">
+      <notes>
+        <note category="german">Anzeigenamen ändern</note>
+      </notes>
+      <segment>
+        <source>Anzeigenamen ändern</source>
+        <target>Change the display name</target>
+      </segment>
+    </unit>
+    <unit id="zX2Ikki" name="Anzeigenamen entfernen">
+      <notes>
+        <note category="german">Anzeigenamen entfernen</note>
+      </notes>
+      <segment>
+        <source>Anzeigenamen entfernen</source>
+        <target>Remove the display name</target>
+      </segment>
+    </unit>
+    <unit id="ZBGzbqz" name="Avatar entfernen">
+      <notes>
+        <note category="german">Avatar entfernen</note>
+      </notes>
+      <segment>
+        <source>Avatar entfernen</source>
+        <target>Remove the avatar</target>
+      </segment>
+    </unit>
+    <unit id="5yzpFRy" name="Profilbeschreibung entfernen">
+      <notes>
+        <note category="german">Profilbeschreibung entfernen</note>
+      </notes>
+      <segment>
+        <source>Profilbeschreibung entfernen</source>
+        <target>Remove profile description</target>
+      </segment>
+    </unit>
+    <unit id="R1lleS7" name="Titel &amp; Icon entfernen">
+      <notes>
+        <note category="german">Titel &amp; Icon entfernen</note>
+      </notes>
+      <segment>
+        <source>Titel &amp; Icon entfernen</source>
+        <target>Remove the title and the icon</target>
+      </segment>
+    </unit>
+    <unit id="BaVbT2z" name="Neuer Füllstand:">
+      <notes>
+        <note category="german">Neuer Füllstand:</note>
+      </notes>
+      <segment>
+        <source>Neuer Füllstand:</source>
+        <target>New level:</target>
+      </segment>
+    </unit>
+    <unit id="dIVIxL." name="Brunnen-Füllstand setzen">
+      <notes>
+        <note category="german">Brunnen-Füllstand setzen</note>
+      </notes>
+      <segment>
+        <source>Brunnen-Füllstand setzen</source>
+        <target>Set the Well fill level</target>
+      </segment>
+    </unit>
+    <unit id="2xHk8Wn" name="Alle Gebäude freischalten">
+      <notes>
+        <note category="german">Alle Gebäude freischalten</note>
+      </notes>
+      <segment>
+        <source>Alle Gebäude freischalten</source>
+        <target>Unlock all constructions</target>
+      </segment>
+    </unit>
+    <unit id="IurwAt2" name="Baufortschritt setzen:">
+      <notes>
+        <note category="german">Baufortschritt setzen:</note>
+      </notes>
+      <segment>
+        <source>Baufortschritt setzen:</source>
+        <target>Set construction progress:</target>
+      </segment>
+    </unit>
+    <unit id="C0IagjD" name="Integrität setzen:">
+      <notes>
+        <note category="german">Integrität setzen:</note>
+      </notes>
+      <segment>
+        <source>Integrität setzen:</source>
+        <target>Set integrity:</target>
+      </segment>
+    </unit>
+    <unit id="PmdlsrB" name="Neue Anzahl:">
+      <notes>
+        <note category="german">Neue Anzahl:</note>
+      </notes>
+      <segment>
+        <source>Neue Anzahl:</source>
+        <target>New number:</target>
+      </segment>
+    </unit>
+    <unit id="VxMIE8o" name="Heldentage setzen">
+      <notes>
+        <note category="german">Heldentage setzen</note>
+      </notes>
+      <segment>
+        <source>Heldentage setzen</source>
+        <target>Set heroic experience</target>
+      </segment>
+    </unit>
+      <unit id="RkHxHq_" name="Hausverbesserungen:">
+          <notes>
+              <note category="german">Hausverbesserungen:</note>
+          </notes>
+          <segment>
+              <source>Hausverbesserungen:</source>
+              <target>Hausverbesserungen:</target>
+          </segment>
+      </unit>
   </file>
 </xliff>

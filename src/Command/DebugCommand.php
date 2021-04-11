@@ -25,6 +25,7 @@ use App\Service\RandomGenerator;
 use App\Service\TownHandler;
 use App\Service\TwinoidHandler;
 use App\Service\UserHandler;
+use App\Structures\EventConf;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -312,7 +313,7 @@ class DebugCommand extends Command
                 $count[$openTown->getLanguage()][$openTown->getType()->getName()]++;
             }
 
-            $current_event = $this->conf->getCurrentEvent();
+            $current_events = $this->conf->getCurrentEvents();
             foreach ($count as $townLang => $array) {
                 foreach ($array as $townClass => $openCount) {
                     if($openCount < 1){
@@ -320,8 +321,8 @@ class DebugCommand extends Command
                         $this->entity_manager->persist($newTown);
                         $this->entity_manager->flush();
 
-                        if ($current_event->active()) {
-                            if (!$this->townHandler->updateCurrentEvent($newTown, $current_event))
+                        if (!$newTown->getManagedEvents() && !empty(array_filter($current_events, fn(EventConf $e) => $e->active())))  {
+                            if (!$this->townHandler->updateCurrentEvents($newTown, $current_events))
                                 $this->entity_manager->clear();
                             else {
                                 $this->entity_manager->persist($newTown);
@@ -334,15 +335,20 @@ class DebugCommand extends Command
         }
 
         if ($input->getOption('update-events')) {
-            $current_event = $this->conf->getCurrentEvent();
+            $current_events = $this->conf->getCurrentEvents();
             $towns = $this->entity_manager->getRepository(Town::class)->findAll();
             foreach ($towns as $town) {
 
-                $town_event = $this->conf->getCurrentEvent($town);
-                if ($town_event->name() !== $current_event->name()) {
+                // The town's events are managed manually; skip auto-updating it!
+                if ($town->getManagedEvents()) continue;
 
-                    $output->write("Town '<info>{$town->getName()}</info>' (<info>{$town->getId()}</info>): Changing currently registered event '<info>{$town_event->name()}</info>' to '<info>{$current_event->name()}</info>'... ");
-                    if (!$this->townHandler->updateCurrentEvent($town, $current_event)) {
+                $must_enable  = [];
+                $must_disable = [];
+
+                if (!$this->conf->checkEventActivation($town, $must_enable, $must_disable)) {
+
+                    $output->write("Town '<info>{$town->getName()}</info>' (<info>{$town->getId()}</info>): Disable events [<info>" . implode('</info>,<info>', $must_disable) . "</info>] and enable [<info>" . implode('</info>,<info>', $must_enable) . "</info>]... ");
+                    if (!$this->townHandler->updateCurrentEvents($town, $current_events)) {
                         $this->entity_manager->clear();
                         $output->writeln('<error>Failed!</error>');
                     } else {
@@ -495,10 +501,9 @@ class DebugCommand extends Command
                 return 1;
             }
 
-
-            $event = $this->conf->getCurrentEvent(null,$m, $dateTime);
-            if ($event->active()) $output->writeln("<comment>{$dateTime->format('c')}:</comment> Current event: <info>{$event->name()}</info>");
-            else $output->writeln("<comment>{$dateTime->format('c')}:</comment> There is <info>no current event</info>.");
+            $events = array_map(fn(EventConf $e) => $e->name(), array_filter( $this->conf->getCurrentEvents(null,$m, $dateTime), fn(EventConf $e) => $e->active() ));
+            if (!empty($events)) $output->writeln("<comment>{$dateTime->format('c')}:</comment> Current events: [<info>" . implode('</info>,<info>', $events) . "</info>]");
+            else $output->writeln("<comment>{$dateTime->format('c')}:</comment> There are <info>no current events</info>.");
         }
 
         if (($y = $input->getOption('all-events')) !== false) {

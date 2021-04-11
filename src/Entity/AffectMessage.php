@@ -32,6 +32,11 @@ class AffectMessage
      */
     private $ordering = 0;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $escort;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class AffectMessage
     public function setOrdering(int $ordering): self
     {
         $this->ordering = $ordering;
+
+        return $this;
+    }
+
+    public function getEscort(): ?bool
+    {
+        return $this->escort;
+    }
+
+    public function setEscort(?bool $escort): self
+    {
+        $this->escort = $escort;
 
         return $this;
     }

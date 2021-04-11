@@ -1,6 +1,8 @@
 {
     "type": "project",
     "license": "proprietary",
+    "name": "etwin/myhordes",
+    "description": "",
     "require": {
         "php": ">=7.4",
         "ext-ctype": "*",

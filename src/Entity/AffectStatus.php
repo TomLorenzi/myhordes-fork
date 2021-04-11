@@ -63,6 +63,11 @@ class AffectStatus
      */
     private $citizenHunger;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $forced;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -160,6 +165,18 @@ class AffectStatus
     public function setCitizenHunger(?int $citizenHunger): self
     {
         $this->citizenHunger = $citizenHunger;
+
+        return $this;
+    }
+
+    public function getForced(): ?bool
+    {
+        return $this->forced;
+    }
+
+    public function setForced(?bool $forced): self
+    {
+        $this->forced = $forced;
 
         return $this;
     }

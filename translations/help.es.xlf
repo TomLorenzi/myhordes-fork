@@ -4873,11 +4873,11 @@ müssen durchdacht geplant werden.</source>
     </unit>
     <unit id="jdns.Il" name="dae39d1">
       <notes>
-        <note category="german">Jede Nacht um Mitternacht greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</note>
+        <note category="german">Jede Nacht um Mitternacht (UTC+1) greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</note>
       </notes>
       <segment>
         <source>Jede Nacht um Mitternacht greifen die Untoten die Stadt an. Die Anzahl der Zombies variiert dabei von Tag zu Tag.</source>
-        <target>Cada noche, a la misma hora, las turbas de muertos vivientes embisten contra el pueblo.</target>
+        <target>Cada noche (0:00, UTC+1), a la misma hora, las turbas de muertos vivientes embisten contra el pueblo.</target>
       </segment>
     </unit>
     <unit id="D4X9Djo" name="España: 01h00">
@@ -6171,24 +6171,23 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
     </unit>
     <unit id="AsXSh2V" name="9eaeadf">
       <notes>
-        <note category="german">Du kannst hier eine Liste mit mindestens 39 Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
-Alle Pseudonyme müssen korrekt geschrieben und mit einem Komma getrennt sein (Leerzeichen werden ignoriert).
+        <note category="german">Du kannst hier eine Liste Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
 Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</note>
       </notes>
       <segment>
         <source>Du kannst hier eine Liste mit mindestens 39 Spielern anlegen und ihnen damit einen Platz in deiner Stadt reservieren.
 Alle Pseudonyme müssen korrekt geschrieben und mit einem Komma getrennt sein (Leerzeichen werden ignoriert).
 Sobald die Liste einmal erstellt wurde, kann sie nicht mehr geändert werden!</source>
-        <target>Puedes ingresar una lista de 39 nombres de jugadores (como mínimo) cuando creas un pueblo privado para reservarles un lugar. Los nombres de cada jugador deben estar correctamente escritos y separados por comas (los espacios son ignorados). ¡No podrás modificar esta lista después de que el pueblo haya sido creado!</target>
+        <target>Puedes ingresar una lista de jugadores (como mínimo) cuando creas un pueblo privado para reservarles un lugar. ¡No podrás modificar esta lista después de que el pueblo haya sido creado!</target>
       </segment>
     </unit>
     <unit id="lWrXfCk" name="Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;">
       <notes>
-        <note category="german">Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;</note>
+        <note category="german">Statt alle Spieler einzeln auszuwählen kannst du auch eine Liste mit Namen in das Suchfeld eingeben. Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;</note>
       </notes>
       <segment>
         <source>Beispiel: &lt;em&gt;spieler01, spieler02, blafasel_99&lt;/em&gt;</source>
-        <target><![CDATA[Ejemplo: <em>Pepe, Tito10, El_gran_lucho</em>]]></target>
+        <target><![CDATA[En lugar de añadir cada nombre individualmente, puede introducir una lista de nombres en el cuadro de búsqueda. Ejemplo: <em>Pepe, Tito10, El_gran_lucho</em>]]></target>
       </segment>
     </unit>
     <unit id="NyknCVn" name="4a21474">
@@ -7592,7 +7591,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Achtung, du hast bereits &lt;strong&gt;die Hälfte deiner &lt;span class="ap"&gt;&lt;/span&gt;&lt;/strong&gt; verbraucht. Denke immer daran, dir genügend AP aufzuheben, um in die Stadt zurückkehren zu können!</source>
-        <target><![CDATA[Achtung, du hast bereits <strong>die Hälfte deiner <span class="ap"></span></strong> verbraucht. Denke immer daran, dir genügend AP aufzuheben, um in die Stadt zurückkehren zu können!]]></target>
+        <target><![CDATA[Atención, has usado <strong>la mitad de tus <span class="ap"></span></strong>. ¡No olvides guardar algunos para volver al pueblo!]]></target>
       </segment>
     </unit>
     <unit id="KeA0.Fl" name="Diese Nachricht verbergen">
@@ -7601,7 +7600,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Diese Nachricht verbergen</source>
-        <target>Diese Nachricht verbergen</target>
+        <target>Ocultar este mensaje</target>
       </segment>
     </unit>
     <unit id="Jod5rXM" name="3e769c0">

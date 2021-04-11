@@ -16,33 +16,38 @@
                                 {{ post.date|format_datetime('medium', 'short') }}
                             {% endif %}
                         </i>
-                        {% if (post.owner.avatar) %}
-                            {% if post.owner.name == 'Der Rabe' %}
-                                <div class="avatarcrow small"><img alt="" src="{{ asset('build/images/forum/crow/crow.small.' ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') }}"></div>
-                            {% else %}
-                                <div class="avatar small ua-{{ random(0,9) }}"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
-                            {% endif %}
+                        {% if post.owner.name == 'Der Rabe' %}
+                            <div class="avatarcrow small"><img alt="" src="{{ asset('build/images/forum/crow/crow.small.' ~ (app.request.locale|e('html_attr')|split('_', 2))[0] ~ '.png') }}"></div>
+                        {% elseif (post.owner.avatar) %}
+                            <div class="avatar small ua-{{ random(0,9) }}"><img alt="" src="{{ path('app_web_avatar', {'uid': post.owner.id, 'name': post.owner.avatar.smallName, 'ext': post.owner.avatar.format}) }}"></div>
                         {% else %}
                             <div class="avatar small ua-{{ random(0,9) }}"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                         {% endif %}
                         <b>
                             {% if post.owner.name == 'Der Rabe' %}
-                            	{% if post.translate %}
-                        			{{ 'Der Rabe'|trans({},'global') }}
-                        		{% else %}
-                        			<a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ 'Der Rabe'|trans({},'global') }}</a>
-                        		{% endif %}
+                                <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ 'Der Rabe'|trans({},'global') }}</a>
+                                <span class="small float-left" style="font-size: 0.7em">{{ 'Ich beobachte euch...'|trans({},'game') }}</span>
                             {% elseif post.type == "DEV" %}
                                 <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ post.owner.name }}</a>
                                 <img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}" />
+                                {% if post.owner.activeTitle %}<br /><span class="small float-left" style="font-size: 0.7em">{{ post.owner.activeTitle.prototype.title|trans({},'game') }}</span>{% endif %}
                             {% else %}
                                 <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ post.owner.name }}</a>
+                                {% if post.owner.activeTitle %}<br /><span class="small float-left" style="font-size: 0.7em">{{ post.owner.activeTitle.prototype.title|trans({},'game') }}</span>{% endif %}
                             {% endif %}
                         </b>
-                        {% if post.note is not null %}<div class="right post-note">{{ post.note|raw }}</div>{% endif %}
+                        {% if post.note is not null %}<div class="right post-note">{{ post.note|replace({'%at_00%': 'in der Stadt oder am Stadttor'|trans({},'game')})|raw }}</div>{% endif %}
                     </div>
                     <div class="forum-post-content">
                         {{ post.translate ? (post.text|trans({},'game')|raw) : (post.text|raw) }}
+                        {% if not post.translate and paranoid and post.owner.name != 'Der Rabe' %}
+                            {% set mode = (app.user.id + post.id + post.owner.id) % 12 %}
+                            {% if mode == 0 %}
+                                <br/>{{ 'Hängt %user%!'|trans({'%user%': app.user.name},'game') }}
+                            {% elseif mode == 1 %}
+                                <br/>{{ '%user% wir kriegen dich!'|trans({'%user%': app.user.name},'game') }}
+                            {% endif %}
+                        {% endif %}
                     </div>
                 </div>
             {% endif %}

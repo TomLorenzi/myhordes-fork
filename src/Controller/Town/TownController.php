@@ -6,6 +6,7 @@ use App\Annotations\GateKeeperProfile;
 use App\Controller\InventoryAwareController;
 use App\Entity\AccountRestriction;
 use App\Entity\ActionCounter;
+use App\Entity\BlackboardEdit;
 use App\Entity\Building;
 use App\Entity\BuildingVote;
 use App\Entity\Citizen;
@@ -225,8 +226,6 @@ class TownController extends InventoryAwareController
         $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$town->getDay());
         $has_estimated = ($est && ($est->getCitizens()->contains($this->getActiveCitizen()))) || (!$has_zombie_est_tomorrow && $zeds_today[3] >= 100) || ($has_zombie_est_tomorrow && $zeds_tomorrow[3] >= 100);
 
-        file_put_contents("/tmp/dump.txt", "has_estimated:$has_estimated");
-
         return $this->render( 'ajax/game/town/dashboard.html.twig', $this->addDefaultTwigArgs(null, [
             'town' => $town,
             'def' => $this->town_handler->calculate_town_def($town, $defSummary),
@@ -302,7 +301,13 @@ class TownController extends InventoryAwareController
 
         if ($time > 10800 || $date->format('d') !== (new DateTime())->format('d')) {
             // If it was more than 3 hours, or if the day changed, let's get the full date/time format
-            $lastActionText =$this->translator->trans('am', [], 'game') . ' '. date('d/m/Y, H:i', $lastActionTimestamp);
+            $lastActionText = $this->translator->trans('am %d%.%m%.%Y%, um %H%:%i%', [
+                '%d%' => date('d', $lastActionTimestamp),
+                '%m%' => date('m', $lastActionTimestamp),
+                '%Y%' => date('Y', $lastActionTimestamp),
+                '%H%' => date('H', $lastActionTimestamp),
+                '%i%' => date('i', $lastActionTimestamp),
+            ], 'game');
         } else {
             // Tableau des unités et de leurs valeurs en secondes
             $times = array( 3600     =>  T::__('Stunde(n)', 'game'),
@@ -393,7 +398,7 @@ class TownController extends InventoryAwareController
             'is_terrorised' => $is_terrorised,
             'has_job' => $has_job,
             'is_admin' => $is_admin,
-            'log' => $this->renderLog( -1, $c, false, null, 10 )->getContent(),
+            'log' =>  $c->getAlive() ? $this->renderLog( -1, $c, false, null, 10 )->getContent() : '',
             'day' => $c->getTown()->getDay(),
             'already_stolen' => $already_stolen,
             'hidden' => $hidden,
@@ -929,7 +934,7 @@ class TownController extends InventoryAwareController
             'hidden' => $hidden,
             'prof_count' => $prof_count,
             'death_count' => $death_count,
-            'has_omniscience' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
+            'has_omniscience' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
             'is_ghoul' => $this->getActiveCitizen()->hasRole('ghoul'),
             'caught_chance' => $cc
         ]) );
@@ -966,7 +971,7 @@ class TownController extends InventoryAwareController
             'me' => $this->getActiveCitizen(),
             'selectedRole' => $role,
             'vote' => $vote,
-            'has_omniscience' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
+            'has_omniscience' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
         ]) );
     }
 
@@ -1039,6 +1044,9 @@ class TownController extends InventoryAwareController
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
 
+        if (!$this->getActiveCitizen()->getProfession()->getHeroic() || !$this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'))
+            return $this->redirect($this->generateUrl('town_citizens'));
+
         $citizens = [];
         $hidden = [];
 
@@ -1071,7 +1079,7 @@ class TownController extends InventoryAwareController
 
         return $this->render( 'ajax/game/town/citizen_omniscience.html.twig', $this->addDefaultTwigArgs('citizens', [
             'citizens' => $citizens,
-            'has_omniscience' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
+            'has_omniscience' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'omniscience'),
             'me' => $this->getActiveCitizen(),
             'hidden' => $hidden
         ]) );
@@ -1304,7 +1312,7 @@ class TownController extends InventoryAwareController
             'hpToAp' => $hpToAp,
             'log' => $this->renderLog( -1, null, false, LogEntryTemplate::TypeConstruction, 10 )->getContent(),
             'day' => $this->getActiveCitizen()->getTown()->getDay(),
-            'canvote' => $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), "dictator") && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_build_vote'),
+            'canvote' => $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), "dictator") && !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_build_vote'),
             'voted_building' => $votedBuilding,
         ]) );
     }
@@ -1317,6 +1325,9 @@ class TownController extends InventoryAwareController
     public function constructions_votes_api(JSONRequestParser $parser): Response {
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
+
+        if (!$this->getActiveCitizen()->getProfession()->getHeroic() || !$this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'dictator'))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         if ($citizen->getBuildingVote() || $citizen->getBanished())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
@@ -1383,8 +1394,9 @@ class TownController extends InventoryAwareController
         if ($citizen->getAp() < 1 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
-        if ($result = $this->conf->getCurrentEvent($town)->hook_door($action))
-            return $result;
+        foreach ($this->conf->getCurrentEvents($town) as $e)
+            if ($result = $e->hook_door($action))
+                return $result;
 
         $this->citizen_handler->setAP($citizen, true, -1);
         $town->setDoor( $action === 'open' );
@@ -1654,6 +1666,14 @@ class TownController extends InventoryAwareController
 
         $town->setWordsOfHeroes($new_words_of_heroes);
 
+        $this->entity_manager->persist(
+            (new BlackboardEdit())
+                ->setUser( $this->getActiveCitizen()->getUser() )
+                ->setTime( new DateTime() )
+                ->setText( $new_words_of_heroes )
+                ->setTown( $town )
+        );
+
         // Persist
         try {
             $this->entity_manager->persist($town);
@@ -1857,7 +1877,8 @@ class TownController extends InventoryAwareController
                 $entries = $home->getPrototype()->getResources()->getEntries();
                 foreach ($entries as $entry) {
                     for($i = 0 ; $i < $entry->getChance(); $i++){
-                        $this->inventory_handler->forceMoveItem( $citizen->getTown()->getBank(), $if->createItem($entry->getPrototype()->getName()));
+                        if ($this->random_generator->chance(0.4))
+                            $this->inventory_handler->forceMoveItem( $citizen->getTown()->getBank(), $if->createItem($entry->getPrototype()->getName()));
                     }
                 }
             }

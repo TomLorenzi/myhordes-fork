@@ -6,6 +6,7 @@ use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractController;
 use App\Entity\AccountRestriction;
 use App\Entity\Announcement;
+use App\Entity\Award;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\CitizenRankingProxy;
@@ -23,11 +24,13 @@ use App\Entity\TownRankingProxy;
 use App\Entity\User;
 use App\Entity\RolePlayTextPage;
 use App\Entity\Season;
+use App\Entity\UserDescription;
 use App\Entity\UserGroupAssociation;
 use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
 use App\Service\EternalTwinHandler;
+use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\RandomGenerator;
 use App\Service\UserFactory;
@@ -147,9 +150,10 @@ class SoulController extends CustomAbstractController
 
     /**
      * @Route("jx/soul/me", name="soul_me")
+     * @param HTMLService $html
      * @return Response
      */
-    public function soul_me(): Response
+    public function soul_me(HTMLService $html): Response
     {
         $user = $this->getUser();
 
@@ -167,12 +171,15 @@ class SoulController extends CustomAbstractController
 
         $progress = $nextSkill !== null ? ($user->getAllHeroDaysSpent() - $factor1) / ($nextSkill->getDaysNeeded() - $factor1) * 100.0 : 0;
 
+        $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
+
         return $this->render( 'ajax/soul/me.html.twig', $this->addDefaultTwigArgs("soul_me", [
             'pictos' => $pictos,
             'points' => round($points),
             'latestSkill' => $latestSkill,
             'progress' => floor($progress),
-            'seasons' => $this->entity_manager->getRepository(Season::class)->findAll()
+            'seasons' => $this->entity_manager->getRepository(Season::class)->findAll(),
+            'user_desc' => $desc ? $html->prepareEmotes($desc->getText()) : null
         ]));
     }
 
@@ -194,11 +201,21 @@ class SoulController extends CustomAbstractController
         $searchSkip = $parser->get_array('exclude', []);
         $searchSkip[] = $user->getId();
 
-        $users = mb_strlen($searchName) >= 3 ? $em->getRepository(User::class)->findBySoulSearchQuery($searchName, 10, $searchSkip) : [];
+        $selected_group = false;
+        if ($url === 'town_add_users' && str_contains($searchName,',')) {
+            $searchNames = explode(',', $searchName);
+            $users = [];
+            foreach ($searchNames as $searchName) {
+                $r = mb_strlen($searchName) >= 3 ? $em->getRepository(User::class)->findOneByNameOrDisplayName(trim($searchName)) : null;
+                if ($r && !in_array($r->getId(), $searchSkip)) $users[] = $r;
+            }
+            $selected_group = true;
+        } else $users = mb_strlen($searchName) >= 3 ? $em->getRepository(User::class)->findBySoulSearchQuery($searchName, 10, $searchSkip) : [];
 
         $data = [
             'var' => $url,
-            'users' => in_array($url, ['soul_visit','soul_invite_coalition','pm_manage_users','pm_add_users','plain']) ? $users : [],
+            'single_entry' => $selected_group,
+            'users' => in_array($url, ['soul_visit','soul_invite_coalition','pm_manage_users','pm_add_users','town_add_users','plain']) ? $users : [],
             'route' => in_array($url, ['soul_visit','soul_invite_coalition']) ? $url : ''
         ];
 
@@ -280,6 +297,7 @@ class SoulController extends CustomAbstractController
 
     /**
      * @Route("jx/soul/settings", name="soul_settings")
+     * @param EternalTwinHandler $etwin
      * @return Response
      */
     public function soul_settings(EternalTwinHandler $etwin): Response
@@ -294,17 +312,77 @@ class SoulController extends CustomAbstractController
         if ($this->entity_manager->getRepository(CitizenRankingProxy::class)->findNextUnconfirmedDeath($user))
             return $this->redirect($this->generateUrl( 'soul_death' ));
 
+        $user_desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
+
         return $this->render( 'ajax/soul/settings.html.twig', $this->addDefaultTwigArgs("soul_settings", [
-            'et_ready' => $etwin->isReady()
+            'et_ready' => $etwin->isReady(),
+            'user_desc' => $user_desc ? $user_desc->getText() : null,
         ]) );
+    }
+
+    /**
+     * @Route("api/soul/settings/header", name="api_soul_header")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function soul_set_header(JSONRequestParser $parser, HTMLService $html) {
+        $user = $this->getUser();
+
+        $title = $parser->get_int('title', -1);
+        $icon  = $parser->get_int('icon', -1);
+        $desc  = substr(trim($parser->get('desc')) ?? '', 0, 256);
+
+        if ($title < 0 && $icon >= 0)
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if ($title < 0)
+            $user->setActiveTitle(null);
+        else {
+            $award = $this->entity_manager->getRepository(Award::class)->find( $title );
+            if ($award === null || $award->getUser() !== $user || $award->getPrototype()->getTitle() === null)
+                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+            if ($this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileTitle) && $user->getActiveTitle() !== $award)
+                return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+            $user->setActiveTitle($award);
+        }
+
+        if ($icon < 0)
+            $user->setActiveIcon(null);
+        else {
+            $award = $this->entity_manager->getRepository(Award::class)->find( $icon );
+            if ($award === null || $award->getUser() !== $user || $award->getPrototype()->getIcon() === null)
+                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+            if ($this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileTitle) && $user->getActiveIcon() !== $award)
+                return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+            $user->setActiveIcon($award);
+        }
+
+        $desc_obj = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
+        if (!empty($desc) && $html->htmlPrepare($user, 0, false, $desc, null, $len) && $len > 0) {
+            if (!$this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileDescription)) {
+                if (!$desc_obj) $desc_obj = (new UserDescription())->setUser($user);
+                $desc_obj->setText($desc);
+                $this->entity_manager->persist($desc_obj);
+            }
+        } elseif ($desc_obj) $this->entity_manager->remove($desc_obj);
+
+        $this->entity_manager->persist($user);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
     }
 
     /**
      * @Route("jx/soul/ranking/{type<\d+>}", name="soul_season")
      * @param null $type Type of town we're looking the ranking for
+     * @param JSONRequestParser $parser
      * @return Response
      */
-    public function soul_season($type = null, JSONRequestParser $parser): Response
+    public function soul_season(JSONRequestParser $parser, $type = null): Response
     {
         $user = $this->getUser();
         //if($user->getRightsElevation() <= User::ROLE_CROW)
@@ -664,6 +742,9 @@ class SoulController extends CustomAbstractController
         $user = $this->getUser();
 
         if ($upload) {
+            if ($this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileAvatar))
+                return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
             if (!$payload) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
             
             $raw_processing = $conf->getGlobalConf()->get(MyHordesConf::CONF_RAW_AVATARS, false);
@@ -697,12 +778,14 @@ class SoulController extends CustomAbstractController
         if (!$parser->has_all(['x', 'y', 'dx', 'dy'], false))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
+        $user = $this->getUser();
+        if ($this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileAvatar))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
         $x  = (int)floor((float)$parser->get('x', 0));
         $y  = (int)floor((float)$parser->get('y', 0));
         $dx = (int)floor((float)$parser->get('dx', 0));
         $dy = (int)floor((float)$parser->get('dy', 0));
-
-        $user = $this->getUser();
 
         $error = $this->user_handler->setUserSmallAvatar($user, null, $x, $y, $dx, $dy);
         if ($error !== UserHandler::NoError) return AjaxResponse::error( $error );
@@ -808,9 +891,10 @@ class SoulController extends CustomAbstractController
     /**
      * @Route("jx/soul/{id}", name="soul_visit", requirements={"id"="\d+"})
      * @param int $id
+     * @param HTMLService $html
      * @return Response
      */
-    public function soul_visit(int $id, Request $r): Response
+    public function soul_visit(int $id, HTMLService $html): Response
     {
         $current_user = $this->getUser();
 
@@ -834,6 +918,8 @@ class SoulController extends CustomAbstractController
         $uac = $user->getActiveCitizen();
         $citizen_id = ($cac && $uac && $cac->getAlive() && !$cac->getZone() && $cac->getTown() === $uac->getTown()) ? $uac->getId() : null;
 
+        $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
+
         return $this->render( 'ajax/soul/visit.html.twig', $this->addDefaultTwigArgs("soul_visit", [
         	'user' => $user,
             'pictos' => $pictos,
@@ -841,6 +927,7 @@ class SoulController extends CustomAbstractController
             'seasons' => $this->entity_manager->getRepository(Season::class)->findAll(),
             'returnUrl' => $returnUrl,
             'citizen_id' => $citizen_id,
+            'user_desc' => $desc ? $html->prepareEmotes($desc->getText()) : null
         ]));
     }
 
@@ -875,13 +962,6 @@ class SoulController extends CustomAbstractController
             }
         }
 
-        //$awardRepo = $this->entity_manager->getRepository(AwardPrototype::class);
-        //foreach ($pendingPictosOfUser as $pendingPicto) {
-        //    if($awardRepo->getAwardsByPicto($pendingPicto->getPrototype()->getLabel()) != null) {
-        //        $this->checkAwards($user, $pendingPicto->getPrototype()->getLabel());
-        //    }
-        //}
-
         if ($active = $nextDeath->getCitizen()) {
             $active->setActive(false);
             $active->setLastWords( $this->user_handler->isRestricted( $user, AccountRestriction::RestrictionComments ) ? '' : $last_words);
@@ -894,34 +974,14 @@ class SoulController extends CustomAbstractController
         $this->entity_manager->persist( $nextDeath );
         $this->entity_manager->flush();
 
+        $this->user_handler->computePictoUnlocks($user);
+        $this->entity_manager->flush();
+
         if ($session->has('_town_lang')) {
             $session->remove('_town_lang');
             return AjaxResponse::success()->setAjaxControl(AjaxResponse::AJAX_CONTROL_RESET);
         } else return AjaxResponse::success();
     }
-
-    private function checkAwards(User $user, string $award) {
-        //$repo = $this->entity_manager->getRepository(Award::class);
-        //$awardList = $this->entity_manager->getRepository(AwardPrototype::class)->getAwardsByPicto($award);
-        //$pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByLabel($award);
-        //$numPicto = 0;
-
-        //foreach($this->entity_manager->getRepository(Picto::class)->getAllByUserAndPicto($user, $pictoPrototype) as $item) {
-        //    /** @var Picto $item */
-        //    $numPicto += $item->getCount();
-        //}
-
-        //foreach($awardList as $item) {
-        //    /** @var AwardPrototype $item */
-        //    if($numPicto >= $item->getUnlockQuantity() && !$repo->hasAward($user, $item)) {
-        //        $newAward = new Award();
-        //        $newAward->setUser($user);
-        //        $newAward->setPrototype($item);
-        //        $this->entity_manager->persist($newAward);
-        //    }
-        //}
-    }
-
 
     /**
      * @Route("jx/soul/welcomeToNowhere", name="soul_death")

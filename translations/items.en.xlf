@@ -1537,7 +1537,7 @@
       </notes>
       <segment>
         <source>Reparatur Fix</source>
-        <target>Repair Kit</target>
+        <target>Kwik-fix</target>
       </segment>
     </unit>
     <unit id="1homVRE" name="Unvollständiger Motor">
@@ -3124,22 +3124,22 @@
         <target>Use</target>
       </segment>
     </unit>
-    <unit id="0yUwJX." name="Du hast dein {item} ausgepackt und {items_spawn} erhalten!">
+    <unit id="6J5aQUR" name="ffc22b0">
       <notes>
-        <note category="german">Du hast dein {item} ausgepackt und {items_spawn} erhalten!</note>
+        <note category="german">Du hast dein &lt;span class="tool"&gt;{item}&lt;/span&gt; ausgepackt und &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt; erhalten!</note>
       </notes>
       <segment>
-        <source>Du hast dein {item} ausgepackt und {items_spawn} erhalten!</source>
-        <target>You unpacked your {item} and received {items_spawn}!</target>
+        <source>Du hast dein &lt;span class="tool"&gt;{item}&lt;/span&gt; ausgepackt und &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt; erhalten!</source>
+        <target><![CDATA[You unpacked your <span class="tool">{item}</span> and received <span class="tool">{items_spawn}</span> !]]></target>
       </segment>
     </unit>
-    <unit id="v4TehoJ" name="Du hast die {item} geöffnet und darin {items_spawn} gefunden!">
+    <unit id="RG55Xgx" name="8730474">
       <notes>
-        <note category="german">Du hast die {item} geöffnet und darin {items_spawn} gefunden!</note>
+        <note category="german">Du hast die &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt; gefunden!</note>
       </notes>
       <segment>
-        <source>Du hast die {item} geöffnet und darin {items_spawn} gefunden!</source>
-        <target>You have opened the {item}, you have found the: {items_spawn} inside.</target>
+        <source>Du hast die &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt; gefunden!</source>
+        <target><![CDATA[You have opened the <span class="tool">{item}</span>, you have found the: <span class="tool">{items_spawn}</span> inside.]]></target>
       </segment>
     </unit>
     <unit id="TbNnR3t" name="2055760">
@@ -6826,7 +6826,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     </unit>
     <unit id="TinIUAB" name="Herstellung eines Mystischern Trank">
       <notes>
-        <note category="german">Herstellung eines Mystischern Trank</note>
+        <note category="german">Mystischen Trank herstellen</note>
       </notes>
       <segment>
         <source>Herstellung eines Mystischern Trank</source>
@@ -7006,7 +7006,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     </unit>
     <unit id="brwfS0V" name="Reinigen (Wasser)">
       <notes>
-        <note category="german">Reinigen (Wasser)</note>
+        <note category="german">Reinigen</note>
       </notes>
       <segment>
         <source>Reinigen (Wasser)</source>
@@ -7015,7 +7015,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     </unit>
     <unit id="F9ufT7F" name="Reinigen (Kleidung)">
       <notes>
-        <note category="german">Reinigen (Kleidung)</note>
+        <note category="german">Reinigen</note>
       </notes>
       <segment>
         <source>Reinigen (Kleidung)</source>
@@ -7190,7 +7190,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>&lt;t-stat-up-tg_meta_wound&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.&lt;/t-stat-up-tg_meta_wound&gt;&lt;t-kills&gt;Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-stat-up-tg_meta_wound>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dir. Das Tier springt dir an die Kehle und vergräbt seine Krallen tief in deinem Fleisch.</t-stat-up-tg_meta_wound><t-kills>Diese Katze ist unglaublich! Sie scheint keine Angst zu haben, nicht einmal vor dem abartigen Gestank der Zombies. Mit mehr Zerstörungskraft als der Duracell-Hase und das Killer-Kaninchen von Caerbannog hat sie die Zone komplett bereinigt.</t-kills>]]></target>
+        <target><![CDATA[<t-stat-up-tg_meta_wound>This kitten is incredible, no fear whatsoever, not even of you! It jumps at your throat and delicately buries its claws deep in your flesh.</t-stat-up-tg_meta_wound><t-kills>This kitten is incredible, no fear whatsoever, not even of the unworldly stench of Zombies. Stronger than the Duracell Bunny and the Killer Rabbit of Caerbannog combined, it has completely cleared the zone.</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="HpUrD8S" name="Vielleicht solltest du stattdessen dein Labor benutzen...">
@@ -7209,15 +7209,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.</source>
         <target>The {item} rapidly takes effect. The fever subsides, your heart starts beating at a a semi-normal rate again... You weren't far away from a horrible death.</target>
-      </segment>
-    </unit>
-    <unit id="SJ.JIzZ" name="5e75224">
-      <notes>
-        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</note>
-      </notes>
-      <segment>
-        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-no-room>You don't have enough space for these items ...</t-no-room><t-door-closed>The Town gates are closed ...</t-door-closed><t-too-heavy>{item} cannot carry heavy objects ...</t-too-heavy></t-fail><nt-fail>You send {item} in the direction of the town with the contents of your rucksack.</nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="xWENNfP" name="Gequälte Seele">
@@ -7256,13 +7247,13 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>This has a truly bizarre taste, it's difficult to define. It does the job though: fills your stomach. On the other hand, it doesn't give you any extra energy...</target>
       </segment>
     </unit>
-    <unit id="wt_Avmu" name="742d658">
+    <unit id="QIX9KqQ" name="2ea8b31">
       <notes>
-        <note category="german">Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast &lt;strong&gt;1 zusätzlichen AP erhalten!&lt;/strong&gt;</note>
+        <note category="german">Einmal ist zwar keinmal, dennoch genießt du dein(e) &lt;span class="tool"&gt;{item}&lt;/span&gt;. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast &lt;strong&gt;1 zusätzlichen AP erhalten!&lt;/strong&gt;</note>
       </notes>
       <segment>
-        <source>Einmal ist zwar keinmal, dennoch genießt du dein(e) {item}. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast &lt;strong&gt;1 zusätzlichen AP erhalten!&lt;/strong&gt;</source>
-        <target><![CDATA[Just this once does no harm, you enjoy devouring the {item}. It makes a change from the usual disgusting slop... it perks you right up.{hr}You get <strong>a bonus of 1 AP !</strong>]]></target>
+        <source>Einmal ist zwar keinmal, dennoch genießt du dein(e) &lt;span class="tool"&gt;{item}&lt;/span&gt;. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast &lt;strong&gt;1 zusätzlichen AP erhalten!&lt;/strong&gt;</source>
+        <target><![CDATA[Just this once does no harm, you enjoy devouring the <span class="tool">{item}</span>. It makes a change from the usual disgusting slop... it perks you right up.{hr}You get <strong>a bonus of 1 AP !</strong>]]></target>
       </segment>
     </unit>
     <unit id="wDKaGfq" name="Krähenelfe">
@@ -7703,7 +7694,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>So was nennt man wohl &lt;strong&gt;Glück&lt;/strong&gt;! &lt;t-inside&gt;Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!&lt;/t-inside&gt;&lt;t-outside&gt;Du hast soeben {items_spawn} im Wüstensand gefunden!&lt;/t-outside&gt; Genau das, was du gebraucht hast!</source>
-        <target><![CDATA[So was nennt man wohl <strong>Glück</strong>! <t-inside>Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!</t-inside><t-outside>Du hast soeben {items_spawn} im Wüstensand gefunden!</t-outside> Genau das, was du gebraucht hast!]]></target>
+        <target><![CDATA[Looks like <strong>you're in luck</strong>... <t-inside>You have found {items_spawn} in the sand! Exactly what you were looking for!</t-inside><t-outside>You have found {items_spawn} in a pile of rubbish near your house!</t-outside> Exactly what you were looking for!]]></target>
       </segment>
     </unit>
     <unit id="Y65IL58" name="0632b2c">
@@ -7730,7 +7721,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du versucht nochmal alle deine Kräfte für heute Abend zu mobilisieren. Die Anspannung steht dir ins Gesicht geschrieben. Du schwitzt und deine Hände zittern.{hr}Beim heutigen Angriff wirst du weder weder Durst, noch Krankheitssymptome (Infektion), noch Entzugserscheinungen verspüren.</source>
-        <target>Du versucht nochmal alle deine Kräfte für heute Abend zu mobilisieren. Die Anspannung steht dir ins Gesicht geschrieben. Du schwitzt und deine Hände zittern.{hr}Beim heutigen Angriff wirst du weder weder Durst, noch Krankheitssymptome (Infektion), noch Entzugserscheinungen verspüren.</target>
+        <target>You try to pull yourself together for the evening ahead. The tension is written across your face, you are sweating, shaking...{hr}You will not give in to the effects of thirst, infection, or addiction during tonight's attack.</target>
       </segment>
     </unit>
     <unit id="ClZU0Ua" name="a655585">
@@ -7757,7 +7748,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!</source>
-        <target>Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!</target>
+        <target>You're not wearing your camouflage vest, so you will no longer receive your stealth bonus !</target>
       </segment>
     </unit>
     <unit id="K5gMU.j" name="Kreischender Wecker (entladen)">
@@ -7766,7 +7757,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Kreischender Wecker (entladen)</source>
-        <target>Kreischender Wecker (entladen)</target>
+        <target>Screaming Alarm Clock (incomplete)</target>
       </segment>
     </unit>
     <unit id="rigrkZL" name="e192faa">
@@ -7775,7 +7766,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert.</source>
-        <target>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert.</target>
+        <target>There's nothing quite like a good alarm to stimulate the old ear drums of a morning.</target>
       </segment>
     </unit>
     <unit id="6tPO5Yd" name="Kreischender Wecker (mit Strom)">
@@ -7784,7 +7775,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Kreischender Wecker (mit Strom)</source>
-        <target>Kreischender Wecker (mit Strom)</target>
+        <target>Screaming Alarm Clock (ready)</target>
       </segment>
     </unit>
     <unit id="4h5ljTX" name="b317cb5">
@@ -7793,7 +7784,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei.</source>
-        <target>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei.</target>
+        <target>There's nothing quite like it to stimulate the old eardrums of a morning (It's ready to use). It lets you start the day on the right foot with a bonus of 1 extra AP given after the attack. It must be kept in you rucksack to work.</target>
       </segment>
     </unit>
     <unit id="ApkAd1P" name="Möchtest du %target% heimbringen?">
@@ -7820,7 +7811,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Nun, da dein Hündchen auf Droge ist, kann es selbst schwere und sperrige Gegenstände in die Stadt schleppen. Dir fällt auf, dass es ohne Ende sabbert. Es sieht aus, als würde er dich jeden Augenblick anspringen.</source>
-        <target>Nun, da dein Hündchen auf Droge ist, kann es selbst schwere und sperrige Gegenstände in die Stadt schleppen. Dir fällt auf, dass es ohne Ende sabbert. Es sieht aus, als würde er dich jeden Augenblick anspringen.</target>
+        <target>Now the labradoodle is on steroids, it can carry heavy stuff to the town. You notice that he is now drooling constantly and in increasing quantities. It looks like an attack is a matter of minutes away.</target>
       </segment>
     </unit>
     <unit id=".pqCaKH" name="Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...">
@@ -7847,7 +7838,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Weicher Kürbis</source>
-        <target>Weicher Kürbis</target>
+        <target>Soft Pumpkin</target>
       </segment>
     </unit>
     <unit id="C50KixZ" name="ff67b99">
@@ -7856,7 +7847,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Eine Art großes, stinkendes, orangefarbenes Gemüse, wie du es noch nie gesehen hast. Ein plötzlicher Drang, es auszugraben, ergreift dich, ohne dass du weißt warum...</source>
-        <target>Eine Art großes, stinkendes, orangefarbenes Gemüse, wie du es noch nie gesehen hast. Ein plötzlicher Drang, es auszugraben, ergreift dich, ohne dass du weißt warum...</target>
+        <target>A kind of big, smelly, orange vegetable like you've never seen before. A sudden urge to carve it grabs you without you knowing why...</target>
       </segment>
     </unit>
     <unit id="VjR2NCz" name="Hurlingstock">
@@ -7865,7 +7856,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Hurlingstock</source>
-        <target>Hurlingstock</target>
+        <target>Hurling stick</target>
       </segment>
     </unit>
     <unit id="8dLKyx6" name="01e4f48">
@@ -7874,7 +7865,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Ein kleiner Ratschlag. Wenn du schon den falschen Kampf wählst... dann wähle wenigstens die richtige Waffe.</source>
-        <target>Ein kleiner Ratschlag. Wenn du schon den falschen Kampf wählst... dann wähle wenigstens die richtige Waffe.</target>
+        <target>A word of advice. If you're picking the wrong fight... at least pick the right weapon.</target>
       </segment>
     </unit>
     <unit id="W0wWbGS" name="Guiness">
@@ -7883,7 +7874,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Guiness</source>
-        <target>Guiness</target>
+        <target>Winness</target>
       </segment>
     </unit>
     <unit id="W05WB_r" name="f4c9ac4">
@@ -7892,7 +7883,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen</source>
-        <target>Nichts ist besser als ein Pint des schwarzen Zeugs, um Poesie, Lachen und ähm, den Kampf gegen die Zombies zu inspirieren... *Genehmigt von Charlie Sheen</target>
+        <target>Nothing beats a pint of the black stuff to inspire poetry, laughter and erm, fight the zombies... *Approved by Charlie Sheen</target>
       </segment>
     </unit>
     <unit id="KXJ5rEK" name="1a1dc68">
@@ -7901,7 +7892,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du hast mit dem(r) {item_tool} ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
-        <target>Du hast mit dem(r) {item_tool} ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</target>
+        <target>You managed to open the {item_from} with the {item_tool}. You have obtained: {item_to}.</target>
       </segment>
     </unit>
     <unit id="nYImhFf" name="bf0ac69">
@@ -7919,16 +7910,16 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du hast {item} eingenommen, verspürst aber keine nennenswerte Wirkung... Vielleicht hast du das gar nicht gebraucht?</source>
-        <target>Du hast {item} eingenommen, verspürst aber keine nennenswerte Wirkung... Vielleicht hast du das gar nicht gebraucht?</target>
+        <target>You take the {item}, but it seems to have no notable effect... Maybe you didn't need it?</target>
       </segment>
     </unit>
-    <unit id="ullYTUO" name="bc4370c">
+    <unit id="NU_DTOa" name="5f55a13">
       <notes>
-        <note category="german">Du hast mit dem(r) {item_tool} ein(e) {item} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</note>
+        <note category="german">Du hast mit dem(r) &lt;span class="tool"&gt;{item_tool}&lt;/span&gt; ein(e) &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin folgenden Gegenstand gefunden: &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt;.</note>
       </notes>
       <segment>
-        <source>Du hast mit dem(r) {item_tool} ein(e) {item} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</source>
-        <target>Du hast mit dem(r) {item_tool} ein(e) {item} geöffnet und darin folgenden Gegenstand gefunden: {items_spawn}.</target>
+        <source>Du hast mit dem(r) &lt;span class="tool"&gt;{item_tool}&lt;/span&gt; ein(e) &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin folgenden Gegenstand gefunden: &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt;.</source>
+        <target><![CDATA[You managed to open the <span class="tool">{item}</span> with the <span class="tool">{item_tool}</span> . You have obtained: <span class="tool">{items_spawn}</span>.]]></target>
       </segment>
     </unit>
     <unit id="lXVMIpX" name="9f73205">
@@ -7942,11 +7933,11 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     </unit>
     <unit id="Ddujs08" name="1786e8e">
       <notes>
-        <note category="german">&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</note>
+        <note category="german">&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}&lt;strong&gt;Your neighbours will be really happy when they see all that in the bank.&lt;/strong&gt;&lt;/nt-fail&gt;</note>
       </notes>
       <segment>
         <source>&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-too-heavy>{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen <strong>sperrigen Gegenstand</strong> mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!</t-too-heavy></t-fail><nt-fail>Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}<strong>Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.</strong></nt-fail>]]></target>
+        <target><![CDATA[<t-fail><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-too-heavy>{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen <strong>sperrigen Gegenstand</strong> mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!</t-too-heavy></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}<strong>Your neighbours will be really happy when they see all that in the bank.</strong></nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="EGAZUcO" name="7a1a880">
@@ -7960,11 +7951,11 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     </unit>
     <unit id="EhU2or6" name="b621fab">
       <notes>
-        <note category="german">&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</note>
+        <note category="german">&lt;t-fail&gt;&lt;t-door-closed&gt;The Town gates are closed ...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}&lt;strong&gt;Your neighbours will be really happy when they see all that in the bank.&lt;/strong&gt;&lt;/nt-fail&gt;</note>
       </notes>
       <segment>
         <source>&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed></t-fail><nt-fail>Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}<strong>Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.</strong></nt-fail>]]></target>
+        <target><![CDATA[<t-fail><t-door-closed>The Town gates are closed ...</t-door-closed></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}<strong>Your neighbours will be really happy when they see all that in the bank.</strong></nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="9P67IDx" name="827d979">
@@ -7973,25 +7964,25 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Die Zunge klebt dir noch immer am Gaumen und dein Hals ist noch genauso trocken wie vorher. Du hast deinen Verdurstungstod erfolgreich verhindert.{hr}&lt;strong&gt;Da du davor schon dehydriert warst, hast du keine neuen APs erhalten.&lt;/strong&gt;</source>
-        <target><![CDATA[Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Die Zunge klebt dir noch immer am Gaumen und dein Hals ist noch genauso trocken wie vorher. Du hast deinen Verdurstungstod erfolgreich verhindert.{hr}<strong>Da du davor schon dehydriert warst, hast du keine neuen APs erhalten.</strong>]]></target>
+        <target><![CDATA[You greedily gulp down your ration of water, without tasting it in the least... Your throat still burns as much, but at least you aren't dehydrated anymore...{hr}<strong>Your APs have not been restored because you were dehydrated.</strong>]]></target>
       </segment>
     </unit>
     <unit id="bmHixif" name="fa98a6f">
       <notes>
-        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</note>
+        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;You don't have enough space for these items ...&lt;/t-no-room&gt;&lt;t-door-closed&gt;The Town gates are closed ...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} cannot carry heavy objects ...&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}As you asked, &lt;strong&gt;everything was left at your house&lt;/strong&gt;.{hr}Brave animal!&lt;/nt-fail&gt;</note>
       </notes>
       <segment>
         <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-no-room>Du hast nicht genug Platz für diese Gegenstände...</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-too-heavy>{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen <strong>sperrigen Gegenstand</strong> mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!</t-too-heavy></t-fail><nt-fail>Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, <strong>hat er alles zur Truhe in deinem Haus gebracht</strong>.{hr}Braver Junge!</nt-fail>]]></target>
+        <target><![CDATA[<t-fail><t-no-room>You don't have enough space for these items ...</t-no-room><t-door-closed>The Town gates are closed ...</t-door-closed><t-too-heavy>{item} cannot carry heavy objects ...</t-too-heavy></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}As you asked, <strong>everything was left at your house</strong>.{hr}Brave animal!</nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="qedyN68" name="d429fd8">
       <notes>
-        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</note>
+        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;You don't have enough space for these items ...&lt;/t-no-room&gt;&lt;t-door-closed&gt;The Town gates are closed ...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}As you asked, &lt;strong&gt;everything was left at your house.&lt;/strong&gt;.{hr}Brave animal!&lt;/nt-fail&gt;</note>
       </notes>
       <segment>
         <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-no-room>Du hast nicht genug Platz für diese Gegenstände...</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed></t-fail><nt-fail>Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, <strong>hat er alles zur Truhe in deinem Haus gebracht</strong>.{hr}Braver Junge!</nt-fail>]]></target>
+        <target><![CDATA[<t-fail><t-no-room>You don't have enough space for these items ...</t-no-room><t-door-closed>The Town gates are closed ...</t-door-closed></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}As you asked, <strong>everything was left at your house.</strong>.{hr}Brave animal!</nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="Cp5Hvee" name="%citizen% befehlen etwas zu trinken.">
@@ -8010,6 +8001,177 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>%citizen% befehlen etwas zu essen.</source>
         <target>%citizen% befehlen etwas zu essen.</target>
+      </segment>
+    </unit>
+    <unit id="P9ubaaO" name="Schwarzer Zervixschleim">
+      <notes>
+        <note category="german">Schwarzer Zervixschleim</note>
+      </notes>
+      <segment>
+        <source>Schwarzer Zervixschleim</source>
+        <target>Black Cervical Oozing</target>
+      </segment>
+    </unit>
+    <unit id="M3k3jYb" name="7f67ddf">
+      <notes>
+        <note category="german">Ein Gift welches bei der Einnahme EXTREM virulent wirkt, wenn man dem Etikett Glauben schenken darf: Die Ingestion des Zervixschleim führt zu Tod, spontaner Verbrennung, Explosion der Lunge und zum Austritt des Gehirns aus allen Körperöffnungen. Aber nicht unbedingt in dieser Reihenfolge.</note>
+      </notes>
+      <segment>
+        <source>Ein Gift welches bei der Einnahme EXTREM virulent wirkt, wenn man dem Etikett Glauben schenken darf: Die Ingestion des Zervixschleim führt zu Tod, spontaner Verbrennung, Explosion der Lunge und zum Austritt des Gehirns aus allen Körperöffnungen. Aber nicht unbedingt in dieser Reihenfolge.</source>
+        <target>A poison which is EXTREMELY virulent when ingested, if the label is to be believed: ingestion of the cervical ooze causes death, spontaneous combustion, explosion of the lungs, and leakage of the brain from all orifices. But not necessarily in that order. </target>
+      </segment>
+    </unit>
+    <unit id="mas1mGO" name="c796b36">
+      <notes>
+        <note category="german">Merkwürdig... anscheinend ist der erwartete Effekt ausgeblieben. Du sagst dir selbst, das dies eine unglaubliche Chance ist...</note>
+      </notes>
+      <segment>
+        <source>Merkwürdig... anscheinend ist der erwartete Effekt ausgeblieben. Du sagst dir selbst, das dies eine unglaubliche Chance ist...</source>
+        <target>That's strange ... It seems that the drug did not have the expected effect. You tell yourself that you have an incredible chance...</target>
+      </segment>
+    </unit>
+    <unit id="IELZytx" name="Vielleicht solltest du das mithilfe des Wasserhahns füllen...">
+      <notes>
+        <note category="german">Vielleicht solltest du das mithilfe des Wasserhahns füllen...</note>
+      </notes>
+      <segment>
+        <source>Vielleicht solltest du das mithilfe des Wasserhahns füllen...</source>
+        <target>Vielleicht solltest du das mithilfe des Wasserhahns füllen...</target>
+      </segment>
+    </unit>
+    <unit id="NVMPUn." name="Du bist ab sofort getarnt.">
+      <notes>
+        <note category="german">Du bist ab sofort getarnt.</note>
+      </notes>
+      <segment>
+        <source>Du bist ab sofort getarnt.</source>
+        <target>You are now camouflaged.</target>
+      </segment>
+    </unit>
+    <unit id="x.8gDqz" name="17bda63">
+      <notes>
+        <note category="german">Das kannst die &lt;strong&gt;Tarnkleidung&lt;/strong&gt; nicht verwenden, solange die Zombies diese Zone kontrollieren!</note>
+      </notes>
+      <segment>
+        <source>Das kannst die &lt;strong&gt;Tarnkleidung&lt;/strong&gt; nicht verwenden, solange die Zombies diese Zone kontrollieren!</source>
+        <target><![CDATA[It is impossible to use <strong>camouflage</strong> when the zone is controlled by zombies! ]]></target>
+      </segment>
+    </unit>
+    <unit id="1j7AoDM" name="5784480">
+      <notes>
+        <note category="german">&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail><t-door-closed>The Town gates are closed ...</t-door-closed><t-no-items>{tamer_dog} has nothing to take back to town, your rucksack is <strong>empty</strong>.</t-no-items><t-too-heavy>{tamer_dog} cannot carry heavy objects ...</t-too-heavy></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.</nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="BAyi5eR" name="4e6a31e">
+      <notes>
+        <note category="german">&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail><t-door-closed>The Town gates are closed ...</t-door-closed><t-no-items>{tamer_dog} has nothing to take back to town, your rucksack is <strong>empty</strong>.</t-no-items></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.</nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="JN1w0ES" name="8d4ec3e">
+      <notes>
+        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail><t-no-room>You don't have enough space for these items ...</t-no-room><t-door-closed>The Town gates are closed ...</t-door-closed><t-no-items>{tamer_dog} has nothing to take back to town, your rucksack is <strong>empty</strong>.</t-no-items><t-too-heavy>{tamer_dog} cannot carry heavy objects ...</t-too-heavy></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}As you asked, <strong>everything was left at your house.</strong>.{hr}Brave animal!</nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="QkZTWLf" name="88dd0a3">
+      <notes>
+        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail><t-no-room>You don't have enough space for these items ...</t-no-room><t-door-closed>The Town gates are closed ...</t-door-closed><t-no-items>{tamer_dog} has nothing to take back to town, your rucksack is <strong>empty</strong>.</t-no-items></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}As you asked, <strong>everything was left at your house.</strong>.{hr}Brave animal!</nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="Zvxrii3" name="c6f76ba">
+      <notes>
+        <note category="german">Du kannst einen schamanischen Trank zubereiten, der den Rezipienten vor bösen Geistern schützt.</note>
+      </notes>
+      <segment>
+        <source>Du kannst einen schamanischen Trank zubereiten, der den Rezipienten vor bösen Geistern schützt.</source>
+        <target>You can brew up a shamanic potion which protects its user from bad souls.</target>
+      </segment>
+    </unit>
+    <unit id="U42wDJN" name="de445d9">
+      <notes>
+        <note category="german">Das ist ein Musterbeispiel eines schamanischen Tranks! Nun liegt es an die, der Stadt dessen Wirksamkeit zu vermitteln und sie von deinen schamanischen Fähigkeiten zu überzeugen.</note>
+      </notes>
+      <segment>
+        <source>Das ist ein Musterbeispiel eines schamanischen Tranks! Nun liegt es an die, der Stadt dessen Wirksamkeit zu vermitteln und sie von deinen schamanischen Fähigkeiten zu überzeugen.</source>
+        <target>Das ist ein Musterbeispiel eines schamanischen Tranks! Nun liegt es an die, der Stadt dessen Wirksamkeit zu vermitteln und sie von deinen schamanischen Fähigkeiten zu überzeugen.</target>
+      </segment>
+    </unit>
+    <unit id="1VR4tvz" name="Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.">
+      <notes>
+        <note category="german">Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.</note>
+      </notes>
+      <segment>
+        <source>Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.</source>
+        <target>Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.</target>
+      </segment>
+    </unit>
+    <unit id="WZjQ7F6" name="37207b3">
+      <notes>
+        <note category="german">Du befielst diesem Bürger sich zu &lt;strong&gt;stärken&lt;/strong&gt;, damit ihr gemeinsam weiterziehen könnt. Er ist einverstanden und holt eine(e,n) {item} aus seinem Sack... Ihr macht ne kleine Brotzeit...{hr}{user} hat seine AP aufgefüllt!</note>
+      </notes>
+      <segment>
+        <source>Du befielst diesem Bürger sich zu &lt;strong&gt;stärken&lt;/strong&gt;, damit ihr gemeinsam weiterziehen könnt. Er ist einverstanden und holt eine(e,n) {item} aus seinem Sack... Ihr macht ne kleine Brotzeit...{hr}{user} hat seine AP aufgefüllt!</source>
+        <target><![CDATA[Du befielst diesem Bürger sich zu <strong>stärken</strong>, damit ihr gemeinsam weiterziehen könnt. Er ist einverstanden und holt eine(e,n) {item} aus seinem Sack... Ihr macht ne kleine Brotzeit...{hr}{user} hat seine AP aufgefüllt!]]></target>
+      </segment>
+    </unit>
+    <unit id="gVu_1LO" name="Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!">
+      <notes>
+        <note category="german">Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!</note>
+      </notes>
+      <segment>
+        <source>Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!</source>
+        <target>Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!</target>
+      </segment>
+    </unit>
+    <unit id="sRDEqVL" name="7ee43be">
+      <notes>
+        <note category="german">Der Bürger hat den mystischen Trank in einem Zug ausgetrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</note>
+      </notes>
+      <segment>
+        <source>Der Bürger hat den mystischen Trank in einem Zug ausgetrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</source>
+        <target>Der Bürger hat den mystischen Trank in einem Zug ausgetrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</target>
+      </segment>
+    </unit>
+    <unit id="q2jfZzs" name="5db32a5">
+      <notes>
+        <note category="german">Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: &lt;strong&gt;du bist nun verletzt&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: &lt;strong&gt;du bist nun verletzt&lt;/strong&gt;.</source>
+        <target><![CDATA[Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: <strong>du bist nun verletzt</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="GUA4Vaf" name="8f08b00">
+      <notes>
+        <note category="german">Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</note>
+      </notes>
+      <segment>
+        <source>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</source>
+        <target>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</target>
+      </segment>
+    </unit>
+    <unit id="stXotvA" name="8c830be">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
+        <target>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</target>
       </segment>
     </unit>
   </file>

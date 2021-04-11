@@ -4,6 +4,8 @@ namespace App\Service;
 
 use App\Entity\AccountRestriction;
 use App\Entity\Avatar;
+use App\Entity\Award;
+use App\Entity\AwardPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\ConsecutiveDeathMarker;
@@ -38,15 +40,17 @@ class UserHandler
     const ImageProcessingDisableImagick = 2;
 
 
-    private $entity_manager;
-    private $roles;
-    private $container;
+    private EntityManagerInterface $entity_manager;
+    private RoleHierarchyInterface $roles;
+    private ContainerInterface $container;
+    private CrowService $crow;
 
-    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c)
+    public function __construct( EntityManagerInterface $em, RoleHierarchyInterface $roles,ContainerInterface $c, CrowService $crow)
     {
         $this->entity_manager = $em;
         $this->container = $c;
         $this->roles = $roles;
+        $this->crow = $crow;
     }
 
     public function getPoints(User $user){
@@ -232,6 +236,46 @@ class UserHandler
         }
 
         return $points;
+    }
+
+    public function computePictoUnlocks(User $user) {
+
+        $cache = [];
+
+        $pictos = $this->entity_manager->getRepository(Picto::class)->findNotPendingByUser($user);
+        foreach ($pictos as $picto)
+            $cache[$picto['id']] = $picto['c'];
+
+        $skip_proto = [];
+        $remove_awards = [];
+        $award_awards = [];
+
+        /** @var Award $award */
+        foreach ($user->getAwards() as $award) {
+            if ($award->getPrototype()) $skip_proto[] = $award->getPrototype();
+            if ($award->getPrototype() && $award->getPrototype()->getAssociatedPicto() &&
+                (!isset($cache[$award->getPrototype()->getAssociatedPicto()->getId()]) || $cache[$award->getPrototype()->getAssociatedPicto()->getId()] < $award->getPrototype()->getUnlockQuantity())
+            )
+                $remove_awards[] = $award;
+        }
+
+        foreach ($this->entity_manager->getRepository(AwardPrototype::class)->findAll() as $prototype)
+            if (!in_array($prototype,$skip_proto) &&
+                (isset($cache[$prototype->getAssociatedPicto()->getId()]) && $cache[$prototype->getAssociatedPicto()->getId()] >= $prototype->getUnlockQuantity())
+            ) {
+                $user->addAward($award = (new Award())->setPrototype($prototype));
+                $this->entity_manager->persist($award_awards[] = $award);
+            }
+
+        if (!empty($award_awards))
+            $this->entity_manager->persist($this->crow->createPM_titleUnlock($user, $award_awards));
+
+        foreach ($remove_awards as $r) {
+            $user->removeAward($r);
+            $this->entity_manager->remove($r);
+        }
+
+
     }
 
     public function hasSkill(User $user, $skill){
