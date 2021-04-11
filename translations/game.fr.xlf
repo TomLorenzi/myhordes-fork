@@ -18950,5 +18950,158 @@
         <target>Crrrooaaââ !</target>
       </segment>
     </unit>
+    <unit id="EOq8v7z" name="Zeuge des Armageddon">
+      <notes>
+        <note category="german">Zeuge des Armageddon</note>
+      </notes>
+      <segment>
+        <source>Zeuge des Armageddon</source>
+        <target>Témoin de l'Armageddon</target>
+      </segment>
+    </unit>
+    <unit id="c0utONy" name="Ewiger Zweiter">
+      <notes>
+        <note category="german">Ewiger Zweiter</note>
+      </notes>
+      <segment>
+        <source>Ewiger Zweiter</source>
+        <target>Éternel second</target>
+      </segment>
+    </unit>
+    <unit id="ObWFLq5" name="Ein Wächter stirbt, aber gibt niemals auf">
+      <notes>
+        <note category="german">Ein Wächter stirbt, aber gibt niemals auf</note>
+      </notes>
+      <segment>
+        <source>Ein Wächter stirbt, aber gibt niemals auf</source>
+        <target>La garde meurt, mais ne se rend pas !</target>
+      </segment>
+    </unit>
+    <unit id="DAAZyBP" name="Der Zweitletzte Mohikaner">
+      <notes>
+        <note category="german">Der Zweitletzte Mohikaner</note>
+      </notes>
+      <segment>
+        <source>Der Zweitletzte Mohikaner</source>
+        <target>L'avant-dernier des Mohicans</target>
+      </segment>
+    </unit>
+    <unit id="OGXhphT" name="Faaaaaaaast, ach verdammt">
+      <notes>
+        <note category="german">Faaaaaaaast, ach verdammt</note>
+      </notes>
+      <segment>
+        <source>Faaaaaaaast, ach verdammt</source>
+        <target>Eeeeeeeet ben non</target>
+      </segment>
+    </unit>
+    <unit id="nsl_.mz" name="Bis zum Ende und einen Schritt weiter">
+      <notes>
+        <note category="german">Bis zum Ende und einen Schritt weiter</note>
+      </notes>
+      <segment>
+        <source>Bis zum Ende und einen Schritt weiter</source>
+        <target>Jusqu'au bout, et même un peu moins loin</target>
+      </segment>
+    </unit>
+    <unit id="QpGLPvL" name="Schließt die Ränke und haltet durch">
+      <notes>
+        <note category="german">Schließt die Ränke und haltet durch</note>
+      </notes>
+      <segment>
+        <source>Schließt die Ränke und haltet durch</source>
+        <target>Serrez les rangs... et les fesses...</target>
+      </segment>
+    </unit>
+    <unit id="7dghzUo" name="Hallo... ist da draußen jemand?">
+      <notes>
+        <note category="german">Hallo... ist da draußen jemand?</note>
+      </notes>
+      <segment>
+        <source>Hallo... ist da draußen jemand?</source>
+        <target>Vous êtes là les copains?</target>
+      </segment>
+    </unit>
+    <unit id="qDS6yZX" name="Haltet eure Position!">
+      <notes>
+        <note category="german">Haltet eure Position!</note>
+      </notes>
+      <segment>
+        <source>Haltet eure Position!</source>
+        <target>Tenez vos positions !</target>
+      </segment>
+    </unit>
+    <unit id="QC6CiyV" name="Nur ein Finger">
+      <notes>
+        <note category="german">Nur ein Finger</note>
+      </notes>
+      <segment>
+        <source>Nur ein Finger</source>
+        <target>Juste un doigt !</target>
+      </segment>
+    </unit>
+    <unit id="4SlUuFu" name="Plünderer der Schnapsläden">
+      <notes>
+        <note category="german">Plünderer der Schnapsläden</note>
+      </notes>
+      <segment>
+        <source>Plünderer der Schnapsläden</source>
+        <target>Pilier de comptoir</target>
+      </segment>
+    </unit>
+    <unit id="WWmgpiy" name="Hennessy Highwayman">
+      <notes>
+        <note category="german">Hennessy Highwayman</note>
+      </notes>
+      <segment>
+        <source>Hennessy Highwayman</source>
+        <target>Routier du rhum</target>
+      </segment>
+    </unit>
+    <unit id="7J4l.Gi" name="Barney Gumble der Außenwelt">
+      <notes>
+        <note category="german">Barney Gumble der Außenwelt</note>
+      </notes>
+      <segment>
+        <source>Barney Gumble der Außenwelt</source>
+        <target>Barney Gumble de l'Outre-Monde</target>
+      </segment>
+    </unit>
+    <unit id="G9C.RFA" name="Fass das Saufen lieber sein">
+      <notes>
+        <note category="german">Fass das Saufen lieber sein</note>
+      </notes>
+      <segment>
+        <source>Fass das Saufen lieber sein</source>
+        <target>Absinthe toi la prochaine fois</target>
+      </segment>
+    </unit>
+    <unit id="eBiPJQQ" name="Gib mir was zu saufen oder es knallt!">
+      <notes>
+        <note category="german">Gib mir was zu saufen oder es knallt!</note>
+      </notes>
+      <segment>
+        <source>Gib mir was zu saufen oder es knallt!</source>
+        <target>A boire ou j'tue le chien !</target>
+      </segment>
+    </unit>
+    <unit id="GUyZdgZ" name="Alles unter 55% ist Wasser">
+      <notes>
+        <note category="german">Alles unter 55% ist Wasser</note>
+      </notes>
+      <segment>
+        <source>Alles unter 55% ist Wasser</source>
+        <target>Avant 55°, c'est de l'eau</target>
+      </segment>
+    </unit>
+    <unit id="KZxtKu4" name="Dialyse">
+      <notes>
+        <note category="german">Dialyse</note>
+      </notes>
+      <segment>
+        <source>Dialyse</source>
+        <target>Sans Foie ni Loi</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

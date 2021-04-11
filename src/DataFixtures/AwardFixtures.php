@@ -456,6 +456,23 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         ['title'=>'Erleuchteter Prediger', 'unlockquantity'=>5000, 'associatedtag'=>':sand:', 'associatedpicto'=>'r_guide_#00'],
         ['title'=>'Guru der Liebe', 'unlockquantity'=>8000, 'associatedtag'=>':sand:', 'associatedpicto'=>'r_guide_#00'],
         ['title'=>'Höret meine Stimme', 'unlockquantity'=>15000, 'associatedtag'=>':sand:', 'associatedpicto'=>'r_guide_#00'],
+        ['title'=>'Zeuge des Armageddon', 'unlockquantity'=>1, 'associatedtag'=>':arma:', 'associatedpicto'=>'r_armag_#00'],
+        ['title'=>'Ewiger Zweiter', 'unlockquantity'=>5, 'associatedtag'=>':last:', 'associatedpicto'=>'r_surgrp_#00'],
+        ['title'=>'Ein Wächter stirbt, aber gibt niemals auf', 'unlockquantity'=>10, 'associatedtag'=>':last:', 'associatedpicto'=>'r_surgrp_#00'],
+        ['title'=>'Der Zweitletzte Mohikaner', 'unlockquantity'=>20, 'associatedtag'=>':last:', 'associatedpicto'=>'r_surgrp_#00'],
+        ['title'=>'Faaaaaaaast, ach verdammt', 'unlockquantity'=>30, 'associatedtag'=>':last:', 'associatedpicto'=>'r_surgrp_#00'],
+        ['title'=>'Bis zum Ende und einen Schritt weiter', 'unlockquantity'=>40, 'associatedtag'=>':last:', 'associatedpicto'=>'r_surgrp_#00'],
+        ['title'=>'Schließt die Ränke und haltet durch', 'unlockquantity'=>60, 'associatedtag'=>':last:', 'associatedpicto'=>'r_surgrp_#00'],
+        ['title'=>'Hallo... ist da draußen jemand?', 'unlockquantity'=>100, 'associatedtag'=>':last:', 'associatedpicto'=>'r_surgrp_#00'],
+        ['title'=>'Haltet eure Position!', 'unlockquantity'=>150, 'associatedtag'=>':last:', 'associatedpicto'=>'r_surgrp_#00'],
+        ['title'=>'Nur ein Finger', 'unlockquantity'=>30, 'associatedtag'=>':last:', 'associatedpicto'=>'r_alcool_#00'],
+        ['title'=>'Plünderer der Schnapsläden', 'unlockquantity'=>60, 'associatedtag'=>':last:', 'associatedpicto'=>'r_alcool_#00'],
+        ['title'=>'Hennessy Highwayman', 'unlockquantity'=>150, 'associatedtag'=>':last:', 'associatedpicto'=>'r_alcool_#00'],
+        ['title'=>'Barney Gumble der Außenwelt', 'unlockquantity'=>300, 'associatedtag'=>':last:', 'associatedpicto'=>'r_alcool_#00'],
+        ['title'=>'Fass das Saufen lieber sein', 'unlockquantity'=>400, 'associatedtag'=>':last:', 'associatedpicto'=>'r_alcool_#00'],
+        ['title'=>'Gib mir was zu saufen oder es knallt!', 'unlockquantity'=>500, 'associatedtag'=>':last:', 'associatedpicto'=>'r_alcool_#00'],
+        ['title'=>'Alles unter 55% ist Wasser', 'unlockquantity'=>600, 'associatedtag'=>':last:', 'associatedpicto'=>'r_alcool_#00'],
+        ['title'=>'Dialyse', 'unlockquantity'=>800, 'associatedtag'=>':last:', 'associatedpicto'=>'r_alcool_#00'],
     ];
 
     protected static $icon_data = [
@@ -538,6 +555,8 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         ['icon'=>'r_kohlmb', 'unlockquantity'=>1, 'associatedpicto'=>'r_kohlmb_#00'],
         ['icon'=>'r_lepre', 'unlockquantity'=>10, 'associatedpicto'=>'r_lepre_#00'],
         ['icon'=>'r_goodg', 'unlockquantity'=>1, 'associatedpicto'=>'r_goodg_#00'],
+        ['icon'=>'r_surgrp', 'unlockquantity'=>5, 'associatedpicto'=>'r_surgrp_#00'],
+        ['icon'=>'r_alcool', 'unlockquantity'=>30, 'associatedpicto'=>'r_alcool_#00'],
     ];
 
     private function insertAwards(ObjectManager $manager, ConsoleOutputInterface $out) {
