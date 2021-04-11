@@ -249,7 +249,7 @@ class InventoryHandler
                 ->select('SUM(i.count)')->from('App:Item', 'i')
                 ->where('i.inventory = :inv')->setParameter('inv', $inventory)
                 ->andWhere('i.essential = :ev')->setParameter('ev', true)
-                ->getQuery()->getSingleScalarResult();
+                ->getQuery()->getSingleScalarResult() ?? 0;
         } catch (Exception $e) {
             return 0;
         }
