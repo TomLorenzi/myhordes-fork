@@ -1368,7 +1368,7 @@
       </notes>
       <segment>
         <source>Einer Stadt beitreten</source>
-        <target>Einer Stadt beitreten</target>
+        <target>Rejoindre une ville</target>
       </segment>
     </unit>
     <unit id="tnT0nBQ" name="Wähle dein nächstes Leben:">
@@ -1377,7 +1377,7 @@
       </notes>
       <segment>
         <source>Wähle dein nächstes Leben:</source>
-        <target>Wähle dein nächstes Leben:</target>
+        <target>Choisissez votre prochaine existence :</target>
       </segment>
     </unit>
   </file>
