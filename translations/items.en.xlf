@@ -8099,7 +8099,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du kannst einen schamanischen Trank zubereiten, der den Rezipienten vor bösen Geistern schützt.</source>
-        <target>Du kannst einen schamanischen Trank zubereiten, der den Rezipienten vor bösen Geistern schützt.</target>
+        <target>You can brew up a shamanic potion which protects its user from bad souls.</target>
       </segment>
     </unit>
     <unit id="U42wDJN" name="de445d9">
