@@ -2998,5 +2998,77 @@
         <target><![CDATA[Titel & Icon entfernen]]></target>
       </segment>
     </unit>
+    <unit id="BaVbT2z" name="Neuer Füllstand:">
+      <notes>
+        <note category="german">Neuer Füllstand:</note>
+      </notes>
+      <segment>
+        <source>Neuer Füllstand:</source>
+        <target>Neuer Füllstand:</target>
+      </segment>
+    </unit>
+    <unit id="dIVIxL." name="Brunnen-Füllstand setzen">
+      <notes>
+        <note category="german">Brunnen-Füllstand setzen</note>
+      </notes>
+      <segment>
+        <source>Brunnen-Füllstand setzen</source>
+        <target>Brunnen-Füllstand setzen</target>
+      </segment>
+    </unit>
+    <unit id="2xHk8Wn" name="Alle Gebäude freischalten">
+      <notes>
+        <note category="german">Alle Gebäude freischalten</note>
+      </notes>
+      <segment>
+        <source>Alle Gebäude freischalten</source>
+        <target>Alle Gebäude freischalten</target>
+      </segment>
+    </unit>
+    <unit id="IurwAt2" name="Baufortschritt setzen:">
+      <notes>
+        <note category="german">Baufortschritt setzen:</note>
+      </notes>
+      <segment>
+        <source>Baufortschritt setzen:</source>
+        <target>Baufortschritt setzen:</target>
+      </segment>
+    </unit>
+    <unit id="C0IagjD" name="Integrität setzen:">
+      <notes>
+        <note category="german">Integrität setzen:</note>
+      </notes>
+      <segment>
+        <source>Integrität setzen:</source>
+        <target>Integrität setzen:</target>
+      </segment>
+    </unit>
+    <unit id="PmdlsrB" name="Neue Anzahl:">
+      <notes>
+        <note category="german">Neue Anzahl:</note>
+      </notes>
+      <segment>
+        <source>Neue Anzahl:</source>
+        <target>Neue Anzahl:</target>
+      </segment>
+    </unit>
+    <unit id="VxMIE8o" name="Heldentage setzen">
+      <notes>
+        <note category="german">Heldentage setzen</note>
+      </notes>
+      <segment>
+        <source>Heldentage setzen</source>
+        <target>Heldentage setzen</target>
+      </segment>
+    </unit>
+    <unit id="RkHxHq_" name="Hausverbesserungen:">
+      <notes>
+        <note category="german">Hausverbesserungen:</note>
+      </notes>
+      <segment>
+        <source>Hausverbesserungen:</source>
+        <target>Hausverbesserungen:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

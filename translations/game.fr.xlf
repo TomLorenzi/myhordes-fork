@@ -7116,7 +7116,7 @@
     </unit>
     <unit id="tCm7v0d" name="Den %rolename% wählen">
       <notes>
-        <note category="german">Den %rolename% wählen</note>
+        <note category="german">Wählen: %rolename%</note>
       </notes>
       <segment>
         <source>Den %rolename% wählen</source>
@@ -19137,6 +19137,15 @@
       <segment>
         <source>Il y a maintenant trop de citoyens en ville... Les zombies vont commencer à sérieusement s'intéresser à votre peau. Préparez-vous, ou fuyez pour votre vie !</source>
         <target>Il y a maintenant trop de citoyens en ville... Les zombies vont commencer à sérieusement s'intéresser à votre peau. Préparez-vous, ou fuyez pour votre vie !</target>
+      </segment>
+    </unit>
+    <unit id="jTUz2Oq" name="Ich beobachte euch...">
+      <notes>
+        <note category="german">Ich beobachte euch...</note>
+      </notes>
+      <segment>
+        <source>Ich beobachte euch...</source>
+        <target>Ich beobachte euch...</target>
       </segment>
     </unit>
   </file>

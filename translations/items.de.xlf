@@ -7014,7 +7014,7 @@
     </unit>
     <unit id="brwfS0V" name="Reinigen (Wasser)">
       <notes>
-        <note category="german">Reinigen (Wasser)</note>
+        <note category="german">Reinigen</note>
       </notes>
       <segment>
         <source>Reinigen (Wasser)</source>
@@ -7023,7 +7023,7 @@
     </unit>
     <unit id="F9ufT7F" name="Reinigen (Kleidung)">
       <notes>
-        <note category="german">Reinigen (Kleidung)</note>
+        <note category="german">Reinigen</note>
       </notes>
       <segment>
         <source>Reinigen (Kleidung)</source>
@@ -8144,6 +8144,15 @@
       <segment>
         <source>Du gibst deinem {tamer_dog} {items_consume}, die er gierig hinunterschlingt.{hr}Es vergeht keine Minute bis die Drogen Wirkung zeigen: Dein Fifi hat nun leuchtende Augen, ein glänzendes Fell und einen wedelnden Schwanz.</source>
         <target>Du gibst deinem {tamer_dog} {items_consume}, die er gierig hinunterschlingt.{hr}Es vergeht keine Minute bis die Drogen Wirkung zeigen: Dein Fifi hat nun leuchtende Augen, ein glänzendes Fell und einen wedelnden Schwanz.</target>
+      </segment>
+    </unit>
+    <unit id="stXotvA" name="8c830be">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
+        <target>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</target>
       </segment>
     </unit>
   </file>

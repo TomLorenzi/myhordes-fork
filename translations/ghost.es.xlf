@@ -1397,5 +1397,23 @@
         <target>Wähle dein nächstes Leben:</target>
       </segment>
     </unit>
+    <unit id="mm_OH8u" name="Ein neues Leben beginnen">
+      <notes>
+        <note category="german">Ein neues Leben beginnen</note>
+      </notes>
+      <segment>
+        <source>Ein neues Leben beginnen</source>
+        <target>Ein neues Leben beginnen</target>
+      </segment>
+    </unit>
+    <unit id="NH1qMKw" name="...und mit 39 Mitbürgern in der Hölle schmoren">
+      <notes>
+        <note category="german">...und mit 39 Mitbürgern in der Hölle schmoren</note>
+      </notes>
+      <segment>
+        <source>...und mit 39 Mitbürgern in der Hölle schmoren</source>
+        <target>...und mit 39 Mitbürgern in der Hölle schmoren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

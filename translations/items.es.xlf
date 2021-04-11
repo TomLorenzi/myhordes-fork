@@ -7009,7 +7009,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
     </unit>
     <unit id="brwfS0V" name="Reinigen (Wasser)">
       <notes>
-        <note category="german">Reinigen (Wasser)</note>
+        <note category="german">Reinigen</note>
       </notes>
       <segment>
         <source>Reinigen (Wasser)</source>
@@ -7018,7 +7018,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
     </unit>
     <unit id="F9ufT7F" name="Reinigen (Kleidung)">
       <notes>
-        <note category="german">Reinigen (Kleidung)</note>
+        <note category="german">Reinigen</note>
       </notes>
       <segment>
         <source>Reinigen (Kleidung)</source>
@@ -8175,6 +8175,15 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       <segment>
         <source>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</source>
         <target>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</target>
+      </segment>
+    </unit>
+    <unit id="stXotvA" name="8c830be">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
+        <target>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</target>
       </segment>
     </unit>
   </file>
