@@ -7018,7 +7018,7 @@
       </notes>
       <segment>
         <source>Reinigen (Wasser)</source>
-        <target>Reinigen (Wasser)</target>
+        <target>Reinigen</target>
       </segment>
     </unit>
     <unit id="F9ufT7F" name="Reinigen (Kleidung)">
@@ -7027,7 +7027,7 @@
       </notes>
       <segment>
         <source>Reinigen (Kleidung)</source>
-        <target>Reinigen (Kleidung)</target>
+        <target>Reinigen</target>
       </segment>
     </unit>
     <unit id="CW6G1J5" name="5e04d7b">

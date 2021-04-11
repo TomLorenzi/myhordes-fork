@@ -7069,7 +7069,7 @@
       </notes>
       <segment>
         <source>Den %rolename% wählen</source>
-        <target>Den %rolename% wählen</target>
+        <target>Wählen: %rolename%</target>
       </segment>
     </unit>
     <unit id="o_HaY0_" name="Dazu hast Du kein Recht.">
