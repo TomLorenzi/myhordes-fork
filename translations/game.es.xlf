@@ -18489,7 +18489,7 @@
       </notes>
       <segment>
         <source>%citizen% bitten etwas aufzuheben.</source>
-        <target>%citizen% bitten etwas aufzuheben.</target>
+        <target>Pedirle a %citizen% que recoja algo.</target>
       </segment>
     </unit>
     <unit id="9URgee0" name="%citizen% befehlen die Umgebung abzusuchen.">
@@ -18498,7 +18498,7 @@
       </notes>
       <segment>
         <source>%citizen% befehlen die Umgebung abzusuchen.</source>
-        <target>%citizen% befehlen die Umgebung abzusuchen.</target>
+        <target>Pedirle a %citizen% que escarbe en los alrededores.</target>
       </segment>
     </unit>
     <unit id="joeoHly" name="%citizen% angreifen. Diese Aktion kostet dich %ap%.">
@@ -18507,7 +18507,7 @@
       </notes>
       <segment>
         <source>%citizen% angreifen. Diese Aktion kostet dich %ap%.</source>
-        <target>%citizen% angreifen. Diese Aktion kostet dich %ap%.</target>
+        <target>¡Agredir a %citizen%! Esta acción costará %ap%.</target>
       </segment>
     </unit>
     <unit id="H7wLj6X" name="%citizen% sagen mir nicht mehr zu folgen.">
@@ -18516,7 +18516,7 @@
       </notes>
       <segment>
         <source>%citizen% sagen mir nicht mehr zu folgen.</source>
-        <target>%citizen% sagen mir nicht mehr zu folgen.</target>
+        <target>Pedirle a %citizen% que deje de seguirme.</target>
       </segment>
     </unit>
     <unit id="Iir2qAh" name="Allen befehlen, die Umgebung abzusuchen.">
@@ -18525,7 +18525,7 @@
       </notes>
       <segment>
         <source>Allen befehlen, die Umgebung abzusuchen.</source>
-        <target>Allen befehlen, die Umgebung abzusuchen.</target>
+        <target>Pedirle al grupo que escarbe en los alrededores.</target>
       </segment>
     </unit>
     <unit id="_G5UAQ0" name="Allen sagen mir nicht mehr zu folgen.">
@@ -18534,7 +18534,7 @@
       </notes>
       <segment>
         <source>Allen sagen mir nicht mehr zu folgen.</source>
-        <target>Allen sagen mir nicht mehr zu folgen.</target>
+        <target>Pedirle al grupo que deje de seguirme.</target>
       </segment>
     </unit>
     <unit id="v4V0uch" name="Dieser Bürger gräbt gerade in einer Zone.">
@@ -18543,7 +18543,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger gräbt gerade in einer Zone.</source>
-        <target>Dieser Bürger gräbt gerade in einer Zone.</target>
+        <target>Este habitante está escarbando en la zona.</target>
       </segment>
     </unit>
     <unit id="Bh1Gj16" name="%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.">
@@ -18552,7 +18552,7 @@
       </notes>
       <segment>
         <source>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</source>
-        <target>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</target>
+        <target>El habitante %citizen% está esperando a un jefe de escolta : haz clic para pedirle que te siga.</target>
       </segment>
     </unit>
     <unit id="lpKOzLM" name="b0171bc">
