@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Annotations\GateKeeperProfile;
 use App\Entity\AccountRestriction;
 use App\Entity\Citizen;
+use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
@@ -660,6 +661,7 @@ class AdminUserController extends AdminActionController
             'alive' => $alive,
             'user' => $user,
             'user_citizen' => $citizen,
+            'home_upgrades' => $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findAll(),
             'itemPrototypes' => $itemPrototypes,
             'pictoPrototypes' => $pictoProtos,
             'citizenStati' => $citizenStati,

@@ -9,6 +9,10 @@ use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
 use App\Entity\CitizenHome;
+use App\Entity\CitizenHomePrototype;
+use App\Entity\CitizenHomeUpgrade;
+use App\Entity\CitizenHomeUpgradeCosts;
+use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
@@ -721,6 +725,92 @@ class AdminTownController extends AdminActionController
 
         $this->entity_manager->flush();
 
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("/api/admin/town/{id}/home/manage", name="admin_town_manage_home", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Give or take status from selected citizens of a town
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser The Request Parser
+     * @param CitizenHandler $handler
+     * @return Response
+     */
+    public function town_manage_home(int $id, JSONRequestParser $parser, CitizenHandler $handler): Response
+    {
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $target   = $parser->get('target');
+        $citizens = $parser->get_array('citizen');
+        $dif      = $parser->get_int('dif', 0);
+        $t_id     = $parser->get_int('id', -1);
+
+        if ($dif === 0) return AjaxResponse::success();
+
+        foreach ($citizens as $cid) {
+
+            /** @var Citizen $citizen */
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($cid);
+            if (!$citizen || $citizen->getTown() !== $town || !$citizen->getAlive()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+            if (!$citizen->getHome()->getPrototype()->getAllowSubUpgrades() && in_array($target, ['proto','sub']))
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+            switch ($target) {
+
+                case 'home':
+                    $new_proto = $this->entity_manager->getRepository(CitizenHomePrototype::class)->findOneByLevel( $citizen->getHome()->getPrototype()->getLevel() + $dif );
+                    if (!$new_proto) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+                    $citizen->getHome()->setPrototype( $new_proto );
+                    $this->entity_manager->persist($citizen->getHome());
+                    break;
+
+                case 'sub':
+                    $upgrade = $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->find($t_id);
+                    if ($upgrade === null || $upgrade->getHome() !== $citizen->getHome())
+                        return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+                    if ($upgrade->getLevel() + $dif <= 0) {
+                        $citizen->getHome()->removeCitizenHomeUpgrade($upgrade);
+                        $upgrade->setHome(null);
+                        $this->entity_manager->persist($citizen->getHome());
+                        $this->entity_manager->remove($upgrade);
+                    } else {
+                        $level_proto = $this->entity_manager->getRepository(CitizenHomeUpgradeCosts::class)->findOneBy(['prototype' => $upgrade->getPrototype(), 'level' => $upgrade->getLevel() + $dif]);
+
+                        if ($level_proto === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                        $this->entity_manager->persist($upgrade->setLevel( $upgrade->getLevel() + $dif ));
+                    }
+
+                    break;
+
+                case 'proto':
+                    $upgrade_proto = $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->find($t_id);
+                    if ($upgrade_proto === null)
+                        return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+                    foreach ($citizen->getHome()->getCitizenHomeUpgrades() as $upgrade) if ($upgrade->getPrototype() === $upgrade_proto)
+                        return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+                    $level_proto = $this->entity_manager->getRepository(CitizenHomeUpgradeCosts::class)->findOneBy(['prototype' => $upgrade_proto, 'level' => $dif]);
+
+                    if ($level_proto === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+                    $new_upgrade = (new CitizenHomeUpgrade())->setLevel($dif)->setPrototype($upgrade_proto);
+                    $citizen->getHome()->addCitizenHomeUpgrade($new_upgrade);
+
+                    $this->entity_manager->persist($citizen->getHome());
+                    $this->entity_manager->persist($new_upgrade);
+                    break;
+
+                default: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+            }
+        }
+
+        $this->entity_manager->flush();
         return AjaxResponse::success();
     }
 
