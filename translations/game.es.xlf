@@ -18912,7 +18912,7 @@
       </notes>
       <segment>
         <source>Ich beobachte euch...</source>
-        <target>Ich beobachte euch...</target>
+        <target>Te estoy vigilando...</target>
       </segment>
     </unit>
     <unit id="B5sYzl." name="Aufklärer: Ruinen erkunden">
@@ -18949,15 +18949,6 @@
       <segment>
         <source>Persönliche Beschreibung</source>
         <target>Descripción personal</target>
-      </segment>
-    </unit>
-    <unit id="jTUz2Oq" name="Ich beobachte euch...">
-      <notes>
-        <note category="german">Ich beobachte euch...</note>
-      </notes>
-      <segment>
-        <source>Ich beobachte euch...</source>
-        <target>Te estoy vigilando...</target>
       </segment>
     </unit>
   </file>
