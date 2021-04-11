@@ -18909,7 +18909,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Persönliche Beschreibung</source>
-        <target>Persönliche Beschreibung</target>
+        <target>Personal description</target>
       </segment>
     </unit>
   </file>
