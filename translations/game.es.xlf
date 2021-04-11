@@ -12906,7 +12906,7 @@
       </notes>
       <segment>
         <source>Christopher Kolumbus</source>
-        <target>Christopher Kolumbus</target>
+        <target>Cristobal Colón</target>
       </segment>
     </unit>
     <unit id="uzKHOBH" name="Neil Armstrong der Außenwelt">
@@ -13113,7 +13113,7 @@
       </notes>
       <segment>
         <source>Vierklettriges Kleeblatt</source>
-        <target>Maestro del Azar"</target>
+        <target>Maestro del Azar</target>
       </segment>
     </unit>
     <unit id="oSJbjHs" name="Fortuna">
@@ -13176,7 +13176,7 @@
       </notes>
       <segment>
         <source>Außenweltreiseführer</source>
-        <target>Dora la Exploradora"</target>
+        <target>Dora la Exploradora</target>
       </segment>
     </unit>
     <unit id="spLDM3R" name="Außenweltschläfer">
@@ -13365,7 +13365,7 @@
       </notes>
       <segment>
         <source>Menschenfleischliebhaber</source>
-        <target>Devorador de hombres"</target>
+        <target>Devorador de hombres</target>
       </segment>
     </unit>
     <unit id="2fnnqHL" name="Hannibalfan">
@@ -13928,7 +13928,7 @@
     </unit>
     <unit id="9r9G9Tw" name="Personalisierter Titel - Dompteur (T-ID: 1725642)">
       <notes>
-        <note category="german">Personalisierter Titel - Dompteur (T-ID: 1725642)</note>
+        <note category="german">Zertifizierter Werpudel</note>
       </notes>
       <segment>
         <source>Personalisierter Titel - Dompteur (T-ID: 1725642)</source>
@@ -13955,7 +13955,7 @@
     </unit>
     <unit id="W6KG1Kx" name="Personalisierter Titel - Techniker (T-ID: 631944)">
       <notes>
-        <note category="german">Personalisierter Titel - Techniker (T-ID: 631944)</note>
+        <note category="german">Nie ohne Schlüssel unterwegs</note>
       </notes>
       <segment>
         <source>Personalisierter Titel - Techniker (T-ID: 631944)</source>
@@ -14148,7 +14148,7 @@
       </notes>
       <segment>
         <source>RadioactiveMan</source>
-        <target>RadioactiveMan</target>
+        <target>Hombre radiactivo</target>
       </segment>
     </unit>
     <unit id="qU.xq8H" name="Strahlender Bürger">
@@ -14157,7 +14157,7 @@
       </notes>
       <segment>
         <source>Strahlender Bürger</source>
-        <target>Strahlender Bürger</target>
+        <target>Ciudadano radiante</target>
       </segment>
     </unit>
     <unit id="nGvkh6T" name="Hölle, das esse ich jeden Morgen.">
@@ -15678,7 +15678,7 @@
       </notes>
       <segment>
         <source>Meisterbastler </source>
-        <target>Meisterbastler </target>
+        <target>Manitas hábiles</target>
       </segment>
     </unit>
     <unit id="GH4aDYM" name="feb2e53">
@@ -16753,7 +16753,7 @@
       </notes>
       <segment>
         <source>Sind wir schon da?</source>
-        <target>Sind wir schon da?</target>
+        <target>¿Ya hemos salido de la versión Alfa?</target>
       </segment>
     </unit>
     <unit id="P8a8jTw" name="Stadtallergie">
@@ -18913,6 +18913,51 @@
       <segment>
         <source>Ich beobachte euch...</source>
         <target>Ich beobachte euch...</target>
+      </segment>
+    </unit>
+    <unit id="B5sYzl." name="Aufklärer: Ruinen erkunden">
+      <notes>
+        <note category="german">Aufklärer: Ruinen erkunden</note>
+      </notes>
+      <segment>
+        <source>Aufklärer: Ruinen erkunden</source>
+        <target>Explorador: Examinar ruinas</target>
+      </segment>
+    </unit>
+    <unit id="_izB74m" name="Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</source>
+        <target>Esta acción te permite determinar el tipo de construcción enterrada aquí.</target>
+      </segment>
+    </unit>
+    <unit id="pqX0mgo" name="855fd56">
+      <notes>
+        <note category="german">Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</source>
+        <target><![CDATA[Te abres camino entre los escombros, recoges múltiples indicios, limpias el suelo con tus manos mugrientas...<hr />Después de varios minutos de investigación, ¡no te quedan dudas de que esos escombros esconden: ¡<strong>%building%</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="gmanddb" name="Persönliche Beschreibung">
+      <notes>
+        <note category="german">Persönliche Beschreibung</note>
+      </notes>
+      <segment>
+        <source>Persönliche Beschreibung</source>
+        <target>Descripción personal</target>
+      </segment>
+    </unit>
+    <unit id="jTUz2Oq" name="Ich beobachte euch...">
+      <notes>
+        <note category="german">Ich beobachte euch...</note>
+      </notes>
+      <segment>
+        <source>Ich beobachte euch...</source>
+        <target>Te estoy vigilando...</target>
       </segment>
     </unit>
   </file>

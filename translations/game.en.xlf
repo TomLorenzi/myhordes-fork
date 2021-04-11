@@ -12663,7 +12663,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Huldigt den riesigen KVF!</source>
-        <target>Huldigt den riesigen KVF!</target>
+        <target>BRDs for everyone! The people demand BRDs</target>
       </segment>
     </unit>
     <unit id="tEgszOf" name="Durazell">
@@ -13446,7 +13446,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Macht der Proteine</source>
-        <target>"Full of protein.</target>
+        <target>Full of protein.</target>
       </segment>
     </unit>
     <unit id="WE9IWrB" name="Zombieliebling">
@@ -13946,7 +13946,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="9r9G9Tw" name="Personalisierter Titel - Dompteur (T-ID: 1725642)">
       <notes>
-        <note category="german">Personalisierter Titel - Dompteur (T-ID: 1725642)</note>
+        <note category="german">Zertifizierter Werpudel</note>
       </notes>
       <segment>
         <source>Personalisierter Titel - Dompteur (T-ID: 1725642)</source>
@@ -13973,7 +13973,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="W6KG1Kx" name="Personalisierter Titel - Techniker (T-ID: 631944)">
       <notes>
-        <note category="german">Personalisierter Titel - Techniker (T-ID: 631944)</note>
+        <note category="german">Nie ohne Schlüssel unterwegs</note>
       </notes>
       <segment>
         <source>Personalisierter Titel - Techniker (T-ID: 631944)</source>
@@ -18918,7 +18918,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ich beobachte euch...</source>
-        <target>Ich beobachte euch...</target>
+        <target>I am watching you...</target>
       </segment>
     </unit>
   </file>

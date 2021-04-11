@@ -3004,7 +3004,7 @@
       </notes>
       <segment>
         <source>Neuer Füllstand:</source>
-        <target>Neuer Füllstand:</target>
+        <target>New level:</target>
       </segment>
     </unit>
     <unit id="dIVIxL." name="Brunnen-Füllstand setzen">
@@ -3013,7 +3013,7 @@
       </notes>
       <segment>
         <source>Brunnen-Füllstand setzen</source>
-        <target>Brunnen-Füllstand setzen</target>
+        <target>Set the Well fill level</target>
       </segment>
     </unit>
     <unit id="2xHk8Wn" name="Alle Gebäude freischalten">
@@ -3022,7 +3022,7 @@
       </notes>
       <segment>
         <source>Alle Gebäude freischalten</source>
-        <target>Alle Gebäude freischalten</target>
+        <target>Unlock all constructions</target>
       </segment>
     </unit>
     <unit id="IurwAt2" name="Baufortschritt setzen:">
@@ -3031,7 +3031,7 @@
       </notes>
       <segment>
         <source>Baufortschritt setzen:</source>
-        <target>Baufortschritt setzen:</target>
+        <target>Set construction progress:</target>
       </segment>
     </unit>
     <unit id="C0IagjD" name="Integrität setzen:">
@@ -3040,7 +3040,7 @@
       </notes>
       <segment>
         <source>Integrität setzen:</source>
-        <target>Integrität setzen:</target>
+        <target>Set integrity:</target>
       </segment>
     </unit>
     <unit id="PmdlsrB" name="Neue Anzahl:">
@@ -3049,7 +3049,7 @@
       </notes>
       <segment>
         <source>Neue Anzahl:</source>
-        <target>Neue Anzahl:</target>
+        <target>New number:</target>
       </segment>
     </unit>
     <unit id="VxMIE8o" name="Heldentage setzen">
@@ -3058,17 +3058,17 @@
       </notes>
       <segment>
         <source>Heldentage setzen</source>
-        <target>Heldentage setzen</target>
+        <target>Set heroic experience</target>
       </segment>
     </unit>
-    <unit id="RkHxHq_" name="Hausverbesserungen:">
-      <notes>
-        <note category="german">Hausverbesserungen:</note>
-      </notes>
-      <segment>
-        <source>Hausverbesserungen:</source>
-        <target>Hausverbesserungen:</target>
-      </segment>
-    </unit>
+      <unit id="RkHxHq_" name="Hausverbesserungen:">
+          <notes>
+              <note category="german">Hausverbesserungen:</note>
+          </notes>
+          <segment>
+              <source>Hausverbesserungen:</source>
+              <target>Hausverbesserungen:</target>
+          </segment>
+      </unit>
   </file>
 </xliff>
