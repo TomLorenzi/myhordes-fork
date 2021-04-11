@@ -8003,7 +8003,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>%citizen% befehlen etwas zu trinken.</source>
-        <target>%citizen% befehlen etwas zu trinken.</target>
+        <target>Pedirle a %citizen% que beba.</target>
       </segment>
     </unit>
     <unit id="M83i5Y." name="%citizen% befehlen etwas zu essen.">
@@ -8012,7 +8012,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>%citizen% befehlen etwas zu essen.</source>
-        <target>%citizen% befehlen etwas zu essen.</target>
+        <target>Pedirle a %citizen% que coma.</target>
       </segment>
     </unit>
     <unit id="P9ubaaO" name="Schwarzer Zervixschleim">
