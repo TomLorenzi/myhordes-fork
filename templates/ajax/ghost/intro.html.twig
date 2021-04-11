@@ -2,7 +2,7 @@
 {% block title %}{{'Wiedergeburt: Wahl der Partie'|trans({}, 'ghost')|raw}}{% endblock %}
 {% block ajax %}
     <div class="row soul">
-        <div class="cell header rw-8 ro-2 rw-lg-10 ro-lg-1 rw-md-12 ro-md-0">
+        <div class="cell-small header rw-17 ro-4 rw-lg-20 ro-lg-2 rw-md-24 ro-md-0">
             <div class="tabs">
                 <div class="tab-floater">
                     <div class="tab left inline">
@@ -23,6 +23,20 @@
                             </div>
 
                         {% endif %}
+                    </div>
+                    <div class="tab tab-floater hide-sm">
+                        <div class="town-join-rp">
+                            <span class="town-join-rp-head">
+                                {% trans from 'ghost' %}
+                                    Ein neues Leben beginnen
+                                {% endtrans %}
+                            </span>
+                            <span class="town-join-rp-text">
+                                {% trans from 'ghost' %}
+                                    ...und mit 39 Mitbürgern in der Hölle schmoren
+                                {% endtrans %}
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -49,19 +63,19 @@
                                 {% endif %}
 
                                 {% if warnCoaInactive %}
-                                    <div class="note note-warning">
+                                    <div class="note note-critical">
                                         {% trans from 'ghost' %}
                                             Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.
                                         {% endtrans %}
                                     </div>
                                 {% elseif warnCoaEmpty %}
-                                    <div class="note note-warning">
+                                    <div class="note note-critical">
                                         {% trans from 'ghost' %}
                                             Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.
                                         {% endtrans %}
                                     </div>
                                 {% elseif warnCoaNotComplete %}
-                                    <div class="note note-warning">
+                                    <div class="note note-critical">
                                         {% trans from 'ghost' %}
                                             Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.
                                         {% endtrans %}
@@ -145,6 +159,12 @@
                             {% endfor %}
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="cell padded rw-12">
+                    <div class="small"><img alt="" src="{{ asset('build/images/icons/small_rp.gif') }}" /> {{'Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?'|trans({}, 'ghost')}}</div>
                 </div>
             </div>
         </div>

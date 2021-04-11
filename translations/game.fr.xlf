@@ -18941,5 +18941,203 @@
         <target>Description Personnelle</target>
       </segment>
     </unit>
+    <unit id="LAENTnm" name="Château">
+      <notes>
+        <note category="german">Château</note>
+      </notes>
+      <segment>
+        <source>Château</source>
+        <target>Château</target>
+      </segment>
+    </unit>
+    <unit id="_cfFwMh" name="Nombre de châteaux que vous êtes parvenu à ériger.">
+      <notes>
+        <note category="german">Nombre de châteaux que vous êtes parvenu à ériger.</note>
+      </notes>
+      <segment>
+        <source>Nombre de châteaux que vous êtes parvenu à ériger.</source>
+        <target>Nombre de châteaux que vous êtes parvenu à ériger.</target>
+      </segment>
+    </unit>
+    <unit id="BNJhrra" name="Plus rien à fouiller ?">
+      <notes>
+        <note category="german">Plus rien à fouiller ?</note>
+      </notes>
+      <segment>
+        <source>Plus rien à fouiller ?</source>
+        <target>Plus rien à fouiller ?</target>
+      </segment>
+    </unit>
+    <unit id="0K0byqw" name="c9c9861">
+      <notes>
+        <note category="german">Nombre de ressources de mauvaise qualité que vous avez trouvé dans un secteur épuisé.</note>
+      </notes>
+      <segment>
+        <source>Nombre de ressources de mauvaise qualité que vous avez trouvé dans un secteur épuisé.</source>
+        <target>Nombre de ressources de mauvaise qualité que vous avez trouvé dans un secteur épuisé.</target>
+      </segment>
+    </unit>
+    <unit id="IZIcbw_" name="Portier">
+      <notes>
+        <note category="german">Portier</note>
+      </notes>
+      <segment>
+        <source>Portier</source>
+        <target>Portier</target>
+      </segment>
+    </unit>
+    <unit id="Nmd6KH3" name="Nombre de fois où vous vous êtes chargé de fermer les portes de la ville.">
+      <notes>
+        <note category="german">Nombre de fois où vous vous êtes chargé de fermer les portes de la ville.</note>
+      </notes>
+      <segment>
+        <source>Nombre de fois où vous vous êtes chargé de fermer les portes de la ville.</source>
+        <target>Nombre de fois où vous vous êtes chargé de fermer les portes de la ville.</target>
+      </segment>
+    </unit>
+    <unit id="LbvUsDc" name="Gratte-sol">
+      <notes>
+        <note category="german">Gratte-sol</note>
+      </notes>
+      <segment>
+        <source>Gratte-sol</source>
+        <target>Gratte-sol</target>
+      </segment>
+    </unit>
+    <unit id="1uJ2l2t" name="Gardien de la décharge">
+      <notes>
+        <note category="german">Gardien de la décharge</note>
+      </notes>
+      <segment>
+        <source>Gardien de la décharge</source>
+        <target>Gardien de la décharge</target>
+      </segment>
+    </unit>
+    <unit id="0q2JnqC" name="Vous avez dit 'épuisé' ?">
+      <notes>
+        <note category="german">Vous avez dit 'épuisé' ?</note>
+      </notes>
+      <segment>
+        <source>Vous avez dit 'épuisé' ?</source>
+        <target>Vous avez dit 'épuisé' ?</target>
+      </segment>
+    </unit>
+    <unit id="X290TxX" name="Appelez moi Akai">
+      <notes>
+        <note category="german">Appelez moi Akai</note>
+      </notes>
+      <segment>
+        <source>Appelez moi Akai</source>
+        <target>Appelez moi Akai</target>
+      </segment>
+    </unit>
+    <unit id="7G1GSK5" name="Il pleut des souches">
+      <notes>
+        <note category="german">Il pleut des souches</note>
+      </notes>
+      <segment>
+        <source>Il pleut des souches</source>
+        <target>Il pleut des souches</target>
+      </segment>
+    </unit>
+    <unit id="zW0S9QE" name="Châtelain">
+      <notes>
+        <note category="german">Châtelain</note>
+      </notes>
+      <segment>
+        <source>Châtelain</source>
+        <target>Châtelain</target>
+      </segment>
+    </unit>
+    <unit id="sFrqvbg" name="Comte">
+      <notes>
+        <note category="german">Comte</note>
+      </notes>
+      <segment>
+        <source>Comte</source>
+        <target>Comte</target>
+      </segment>
+    </unit>
+    <unit id="ZIJz9td" name="Duc">
+      <notes>
+        <note category="german">Duc</note>
+      </notes>
+      <segment>
+        <source>Duc</source>
+        <target>Duc</target>
+      </segment>
+    </unit>
+    <unit id="bDkk.6G" name="Roi">
+      <notes>
+        <note category="german">Roi</note>
+      </notes>
+      <segment>
+        <source>Roi</source>
+        <target>Roi</target>
+      </segment>
+    </unit>
+    <unit id="l8pryq0" name="Empereur">
+      <notes>
+        <note category="german">Empereur</note>
+      </notes>
+      <segment>
+        <source>Empereur</source>
+        <target>Empereur</target>
+      </segment>
+    </unit>
+    <unit id="cw97vE8" name="Qui s'occupe de la porte ?">
+      <notes>
+        <note category="german">Qui s'occupe de la porte ?</note>
+      </notes>
+      <segment>
+        <source>Qui s'occupe de la porte ?</source>
+        <target>Qui s'occupe de la porte ?</target>
+      </segment>
+    </unit>
+    <unit id="zikOpVr" name="Je m'occupe de la porte">
+      <notes>
+        <note category="german">Je m'occupe de la porte</note>
+      </notes>
+      <segment>
+        <source>Je m'occupe de la porte</source>
+        <target>Je m'occupe de la porte</target>
+      </segment>
+    </unit>
+    <unit id="deZ9a7k" name="Contre les courants d'air">
+      <notes>
+        <note category="german">Contre les courants d'air</note>
+      </notes>
+      <segment>
+        <source>Contre les courants d'air</source>
+        <target>Contre les courants d'air</target>
+      </segment>
+    </unit>
+    <unit id="qKTyoV0" name="Petit coup de piston">
+      <notes>
+        <note category="german">Petit coup de piston</note>
+      </notes>
+      <segment>
+        <source>Petit coup de piston</source>
+        <target>Petit coup de piston</target>
+      </segment>
+    </unit>
+    <unit id="Q9o8W.t" name="Toc toc. Kiela ?">
+      <notes>
+        <note category="german">Toc toc. Kiela ?</note>
+      </notes>
+      <segment>
+        <source>Toc toc. Kiela ?</source>
+        <target>Toc toc. Kiela ?</target>
+      </segment>
+    </unit>
+    <unit id="jHDoW9l" name="67ac212">
+      <notes>
+        <note category="german">Il y a maintenant trop de citoyens en ville... Les zombies vont commencer à sérieusement s'intéresser à votre peau. Préparez-vous, ou fuyez pour votre vie !</note>
+      </notes>
+      <segment>
+        <source>Il y a maintenant trop de citoyens en ville... Les zombies vont commencer à sérieusement s'intéresser à votre peau. Préparez-vous, ou fuyez pour votre vie !</source>
+        <target>Il y a maintenant trop de citoyens en ville... Les zombies vont commencer à sérieusement s'intéresser à votre peau. Préparez-vous, ou fuyez pour votre vie !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
