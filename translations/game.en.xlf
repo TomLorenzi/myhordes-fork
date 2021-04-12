@@ -10492,7 +10492,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Liste der eingeschriebenen Spieler ansehen.</source>
-        <target>Die Liste der eingeschriebenen Spieler ansehen.</target>
+        <target>See the list of citizens.</target>
       </segment>
     </unit>
     <unit id="aVkOGIz" name="Von einem Ghul gefressen">
