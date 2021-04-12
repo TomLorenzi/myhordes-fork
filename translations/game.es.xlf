@@ -18300,7 +18300,7 @@
       </notes>
       <segment>
         <source>&lt;em&gt;Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. &lt;strong&gt;Wichtige Anmerkung:&lt;/strong&gt; Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?&lt;/em&gt;</source>
-        <target><![CDATA[<em>Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. <strong>Wichtige Anmerkung:</strong> Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?</em>]]></target>
+        <target><![CDATA[<em>Puedes mejorar tu vivienda y así gozar de una mejor defensa. <strong>Ponte a pensar:</strong> ¿No sería mejor utilizar tus recursos para mejorar el pueblo?</em>]]></target>
       </segment>
     </unit>
     <unit id="h.30SZi" name="b7166cc">
