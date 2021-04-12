@@ -7928,7 +7928,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache &lt;strong&gt;du bekommst wieder einen klaren Kopf&lt;/strong&gt;.</source>
-        <target><![CDATA[Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>.]]></target>
+        <target><![CDATA[Your head is spinning, you almost want to be sick, but <strong>at least it woke you up</strong>. Now you just need to run...]]></target>
       </segment>
     </unit>
     <unit id="Ddujs08" name="1786e8e">
