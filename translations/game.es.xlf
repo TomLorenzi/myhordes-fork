@@ -10492,7 +10492,7 @@
       </notes>
       <segment>
         <source>Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den %num% Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</source>
-        <target>OK. Tenemos buenas y malas noticias. La buena noticia es que a pesar del esfuerzo de %num% zombis para comerte, haz salido de ésta! La mala noticia es que la experiencia realmente te afectó, por lo que ahora estás aterrorizado por la idea de tener que pasar por todo eso de nuevo...</target>
+        <target>Tenemos dos noticias para ti. La buena es que, a pesar de los intentos de %num% de zombie(s) por devorarte, ¡sobreviviste! Lo malo es que la experiencia fue espantosa y ahora estás aterrorizado a la idea de tener que pasar por ella una segunda vez...</target>
       </segment>
     </unit>
     <unit id="Efbc_qn" name="Haltet den Dieb!">
@@ -18300,7 +18300,7 @@
       </notes>
       <segment>
         <source>&lt;em&gt;Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. &lt;strong&gt;Wichtige Anmerkung:&lt;/strong&gt; Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?&lt;/em&gt;</source>
-        <target><![CDATA[<em>Du kannst dein Haus ausbauen und so für eine bessere Verteidigung sorgen. <strong>Wichtige Anmerkung:</strong> Vielleicht wäre es sinnvoller, die dafür benötigten Ressourcen (falls erforderlich) der Stadt zu spenden?</em>]]></target>
+        <target><![CDATA[<em>Puedes mejorar tu vivienda y así gozar de una mejor defensa. <strong>Ponte a pensar:</strong> ¿No sería mejor utilizar tus recursos para mejorar el pueblo?</em>]]></target>
       </segment>
     </unit>
     <unit id="h.30SZi" name="b7166cc">
@@ -18489,7 +18489,7 @@
       </notes>
       <segment>
         <source>%citizen% bitten etwas aufzuheben.</source>
-        <target>%citizen% bitten etwas aufzuheben.</target>
+        <target>Pedirle a %citizen% que recoja algo.</target>
       </segment>
     </unit>
     <unit id="9URgee0" name="%citizen% befehlen die Umgebung abzusuchen.">
@@ -18498,7 +18498,7 @@
       </notes>
       <segment>
         <source>%citizen% befehlen die Umgebung abzusuchen.</source>
-        <target>%citizen% befehlen die Umgebung abzusuchen.</target>
+        <target>Pedirle a %citizen% que escarbe en los alrededores.</target>
       </segment>
     </unit>
     <unit id="joeoHly" name="%citizen% angreifen. Diese Aktion kostet dich %ap%.">
@@ -18507,7 +18507,7 @@
       </notes>
       <segment>
         <source>%citizen% angreifen. Diese Aktion kostet dich %ap%.</source>
-        <target>%citizen% angreifen. Diese Aktion kostet dich %ap%.</target>
+        <target>¡Agredir a %citizen%! Esta acción costará %ap%.</target>
       </segment>
     </unit>
     <unit id="H7wLj6X" name="%citizen% sagen mir nicht mehr zu folgen.">
@@ -18516,7 +18516,7 @@
       </notes>
       <segment>
         <source>%citizen% sagen mir nicht mehr zu folgen.</source>
-        <target>%citizen% sagen mir nicht mehr zu folgen.</target>
+        <target>Pedirle a %citizen% que deje de seguirme.</target>
       </segment>
     </unit>
     <unit id="Iir2qAh" name="Allen befehlen, die Umgebung abzusuchen.">
@@ -18525,7 +18525,7 @@
       </notes>
       <segment>
         <source>Allen befehlen, die Umgebung abzusuchen.</source>
-        <target>Allen befehlen, die Umgebung abzusuchen.</target>
+        <target>Pedirle al grupo que escarbe en los alrededores.</target>
       </segment>
     </unit>
     <unit id="_G5UAQ0" name="Allen sagen mir nicht mehr zu folgen.">
@@ -18534,7 +18534,7 @@
       </notes>
       <segment>
         <source>Allen sagen mir nicht mehr zu folgen.</source>
-        <target>Allen sagen mir nicht mehr zu folgen.</target>
+        <target>Pedirle al grupo que deje de seguirme.</target>
       </segment>
     </unit>
     <unit id="v4V0uch" name="Dieser Bürger gräbt gerade in einer Zone.">
@@ -18543,7 +18543,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger gräbt gerade in einer Zone.</source>
-        <target>Dieser Bürger gräbt gerade in einer Zone.</target>
+        <target>Este habitante está escarbando en la zona.</target>
       </segment>
     </unit>
     <unit id="Bh1Gj16" name="%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.">
@@ -18552,7 +18552,7 @@
       </notes>
       <segment>
         <source>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</source>
-        <target>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</target>
+        <target>El habitante %citizen% está esperando a un jefe de escolta : haz clic para pedirle que te siga.</target>
       </segment>
     </unit>
     <unit id="lpKOzLM" name="b0171bc">
@@ -18915,40 +18915,157 @@
         <target>Te estoy vigilando...</target>
       </segment>
     </unit>
-    <unit id="B5sYzl." name="Aufklärer: Ruinen erkunden">
+    <unit id="EOq8v7z" name="Zeuge des Armageddon">
       <notes>
-        <note category="german">Aufklärer: Ruinen erkunden</note>
+        <note category="german">Zeuge des Armageddon</note>
       </notes>
       <segment>
-        <source>Aufklärer: Ruinen erkunden</source>
-        <target>Explorador: Examinar ruinas</target>
+        <source>Zeuge des Armageddon</source>
+        <target>Zeuge des Armageddon</target>
       </segment>
     </unit>
-    <unit id="_izB74m" name="Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.">
+    <unit id="c0utONy" name="Ewiger Zweiter">
       <notes>
-        <note category="german">Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</note>
+        <note category="german">Ewiger Zweiter</note>
       </notes>
       <segment>
-        <source>Mit dieser Aktion kannst du ermitteln, welches Gebäude hier vergraben ist.</source>
-        <target>Esta acción te permite determinar el tipo de construcción enterrada aquí.</target>
+        <source>Ewiger Zweiter</source>
+        <target>Ewiger Zweiter</target>
       </segment>
     </unit>
-    <unit id="pqX0mgo" name="855fd56">
+    <unit id="ObWFLq5" name="Ein Wächter stirbt, aber gibt niemals auf">
       <notes>
-        <note category="german">Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</note>
+        <note category="german">Ein Wächter stirbt, aber gibt niemals auf</note>
       </notes>
       <segment>
-        <source>Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: &lt;strong&gt;%building%&lt;/strong&gt;!</source>
-        <target><![CDATA[Te abres camino entre los escombros, recoges múltiples indicios, limpias el suelo con tus manos mugrientas...<hr />Después de varios minutos de investigación, ¡no te quedan dudas de que esos escombros esconden: ¡<strong>%building%</strong>!]]></target>
+        <source>Ein Wächter stirbt, aber gibt niemals auf</source>
+        <target>Ein Wächter stirbt, aber gibt niemals auf</target>
       </segment>
     </unit>
-    <unit id="gmanddb" name="Persönliche Beschreibung">
+    <unit id="DAAZyBP" name="Der Zweitletzte Mohikaner">
       <notes>
-        <note category="german">Persönliche Beschreibung</note>
+        <note category="german">Der Zweitletzte Mohikaner</note>
       </notes>
       <segment>
-        <source>Persönliche Beschreibung</source>
-        <target>Descripción personal</target>
+        <source>Der Zweitletzte Mohikaner</source>
+        <target>Der Zweitletzte Mohikaner</target>
+      </segment>
+    </unit>
+    <unit id="OGXhphT" name="Faaaaaaaast, ach verdammt">
+      <notes>
+        <note category="german">Faaaaaaaast, ach verdammt</note>
+      </notes>
+      <segment>
+        <source>Faaaaaaaast, ach verdammt</source>
+        <target>Faaaaaaaast, ach verdammt</target>
+      </segment>
+    </unit>
+    <unit id="nsl_.mz" name="Bis zum Ende und einen Schritt weiter">
+      <notes>
+        <note category="german">Bis zum Ende und einen Schritt weiter</note>
+      </notes>
+      <segment>
+        <source>Bis zum Ende und einen Schritt weiter</source>
+        <target>Bis zum Ende und einen Schritt weiter</target>
+      </segment>
+    </unit>
+    <unit id="QpGLPvL" name="Schließt die Ränke und haltet durch">
+      <notes>
+        <note category="german">Schließt die Ränke und haltet durch</note>
+      </notes>
+      <segment>
+        <source>Schließt die Ränke und haltet durch</source>
+        <target>Schließt die Ränke und haltet durch</target>
+      </segment>
+    </unit>
+    <unit id="7dghzUo" name="Hallo... ist da draußen jemand?">
+      <notes>
+        <note category="german">Hallo... ist da draußen jemand?</note>
+      </notes>
+      <segment>
+        <source>Hallo... ist da draußen jemand?</source>
+        <target>Hallo... ist da draußen jemand?</target>
+      </segment>
+    </unit>
+    <unit id="qDS6yZX" name="Haltet eure Position!">
+      <notes>
+        <note category="german">Haltet eure Position!</note>
+      </notes>
+      <segment>
+        <source>Haltet eure Position!</source>
+        <target>Haltet eure Position!</target>
+      </segment>
+    </unit>
+    <unit id="QC6CiyV" name="Nur ein Finger">
+      <notes>
+        <note category="german">Nur ein Finger</note>
+      </notes>
+      <segment>
+        <source>Nur ein Finger</source>
+        <target>Nur ein Finger</target>
+      </segment>
+    </unit>
+    <unit id="4SlUuFu" name="Plünderer der Schnapsläden">
+      <notes>
+        <note category="german">Plünderer der Schnapsläden</note>
+      </notes>
+      <segment>
+        <source>Plünderer der Schnapsläden</source>
+        <target>Plünderer der Schnapsläden</target>
+      </segment>
+    </unit>
+    <unit id="WWmgpiy" name="Hennessy Highwayman">
+      <notes>
+        <note category="german">Hennessy Highwayman</note>
+      </notes>
+      <segment>
+        <source>Hennessy Highwayman</source>
+        <target>Hennessy Highwayman</target>
+      </segment>
+    </unit>
+    <unit id="7J4l.Gi" name="Barney Gumble der Außenwelt">
+      <notes>
+        <note category="german">Barney Gumble der Außenwelt</note>
+      </notes>
+      <segment>
+        <source>Barney Gumble der Außenwelt</source>
+        <target>Barney Gumble der Außenwelt</target>
+      </segment>
+    </unit>
+    <unit id="G9C.RFA" name="Fass das Saufen lieber sein">
+      <notes>
+        <note category="german">Fass das Saufen lieber sein</note>
+      </notes>
+      <segment>
+        <source>Fass das Saufen lieber sein</source>
+        <target>Fass das Saufen lieber sein</target>
+      </segment>
+    </unit>
+    <unit id="eBiPJQQ" name="Gib mir was zu saufen oder es knallt!">
+      <notes>
+        <note category="german">Gib mir was zu saufen oder es knallt!</note>
+      </notes>
+      <segment>
+        <source>Gib mir was zu saufen oder es knallt!</source>
+        <target>Gib mir was zu saufen oder es knallt!</target>
+      </segment>
+    </unit>
+    <unit id="GUyZdgZ" name="Alles unter 55% ist Wasser">
+      <notes>
+        <note category="german">Alles unter 55% ist Wasser</note>
+      </notes>
+      <segment>
+        <source>Alles unter 55% ist Wasser</source>
+        <target>Alles unter 55% ist Wasser</target>
+      </segment>
+    </unit>
+    <unit id="KZxtKu4" name="Dialyse">
+      <notes>
+        <note category="german">Dialyse</note>
+      </notes>
+      <segment>
+        <source>Dialyse</source>
+        <target>Dialyse</target>
       </segment>
     </unit>
   </file>

@@ -7,8 +7,7 @@
 
 {% block ajax %}
     <div class="row form soul">
-        <div class="cell header rw-8 ro-2 rw-lg-10 ro-lg-1 rw-md-12 ro-md-0">
-
+        <div class="cell-small header rw-18 ro-3 rw-lg-20 ro-lg-2 rw-md-24 ro-md-0">
             <div class="tabs">
                 <div class="tab-floater">
                     <div class="tab left inline">
@@ -16,8 +15,20 @@
                             <div class="avatar small ua-{{ app.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}"></div>
                         {% endif %}
                         <h4 class="soul-name">
-                            <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> <a class="username">{{ app.user.name }}</a>
+                            <a class="username">{{ app.user.name }}</a>
                         </h4>
+                        <div class="town-join-rp hide-sm">
+                            <span class="town-join-rp-head">
+                                {% trans from 'ghost' %}
+                                    Ein neues Leben beginnen
+                                {% endtrans %}
+                            </span>
+                            <div class="town-join-rp-text">
+                                {% trans from 'ghost' %}
+                                    ...und mit 39 Mitbürgern in der Hölle schmoren
+                                {% endtrans %}
+                            </div>
+                        </div>
                     </div>
                     <div class="tab tab-floater">
                         <div class="tab selected">

@@ -161,18 +161,15 @@
                         {% endif %}
                         <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}"><b>{{ author_name }}</b></a>
                         {% if post.owner.name == 'Der Rabe' %}
-                            <br />
-                            <span class="small float-left">
-                                {{ 'Ich beobachte euch...'|trans({},'game') }}
-                            </span>
+                            <br /><span class="small"><i>{{ 'Ich beobachte euch...'|trans({},'game') }}</i></span>
                         {% elseif post.owner.activeTitle or post.owner.activeIcon %}
                             <br />
-                            <span class="small float-left">
+                            <span class="small">
                                 {% if post.owner.activeIcon %}<img alt="" src="{{ asset('build/images/icons/title/' ~ post.owner.activeIcon.prototype.icon ~ '.gif') }}" />{% endif %}
-                                {% if post.owner.activeTitle %}{{ post.owner.activeTitle.prototype.title|trans({},'game') }}{% endif %}
+                                {% if post.owner.activeTitle %}<i>{{ post.owner.activeTitle.prototype.title|trans({},'game') }}</i>{% endif %}
                             </span>
                         {% endif %}
-                        {% if post.note is not null %}<div class="right post-note">{{ post.note|replace({'%at_00%': 'in der Stadt oder am Stadttor'|trans({},'game')})|raw }}</div>{% endif %}
+                        {% if post.note is not null %}<div class="float-right post-note">{{ post.note|replace({'%at_00%': 'in der Stadt oder am Stadttor'|trans({},'game')})|raw }}</div>{% endif %}
                     </div>
                     {% if permission.moderate() %}
                         {% if post.adminReports(true)|length > 0 %}

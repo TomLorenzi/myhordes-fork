@@ -1393,7 +1393,7 @@
       </notes>
       <segment>
         <source>Einer Stadt beitreten</source>
-        <target>Einer Stadt beitreten</target>
+        <target>Join a town</target>
       </segment>
     </unit>
     <unit id="tnT0nBQ" name="Wähle dein nächstes Leben:">
@@ -1402,7 +1402,7 @@
       </notes>
       <segment>
         <source>Wähle dein nächstes Leben:</source>
-        <target>Wähle dein nächstes Leben:</target>
+        <target>Choose where you will live and die next:</target>
       </segment>
     </unit>
     <unit id="mm_OH8u" name="Ein neues Leben beginnen">
@@ -1411,7 +1411,7 @@
       </notes>
       <segment>
         <source>Ein neues Leben beginnen</source>
-        <target>Ein neues Leben beginnen</target>
+        <target>Start a new life</target>
       </segment>
     </unit>
     <unit id="NH1qMKw" name="...und mit 39 Mitbürgern in der Hölle schmoren">
@@ -1420,7 +1420,7 @@
       </notes>
       <segment>
         <source>...und mit 39 Mitbürgern in der Hölle schmoren</source>
-        <target>...und mit 39 Mitbürgern in der Hölle schmoren</target>
+        <target>...and suffer with 39 other citizens in hell</target>
       </segment>
     </unit>
   </file>
