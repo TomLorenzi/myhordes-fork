@@ -18396,7 +18396,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:</source>
-        <target>After rummaging through his house, you find the following item(s):</target>
+        <target>After rummaging through their house, you find the following item(s):</target>
       </segment>
     </unit>
     <unit id="SEpgiMa" name="d18c7d1">

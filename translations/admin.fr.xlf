@@ -3049,7 +3049,7 @@
       </notes>
       <segment>
         <source>Alle Gebäude freischalten</source>
-        <target>Déverrouillez tous les chantiers</target>
+        <target>Déverrouiller tous les chantiers</target>
       </segment>
     </unit>
     <unit id="IurwAt2" name="Baufortschritt setzen:">
@@ -3094,7 +3094,7 @@
           </notes>
           <segment>
               <source>Hausverbesserungen:</source>
-              <target>Hausverbesserungen:</target>
+              <target>Améliorations de la maison:</target>
           </segment>
       </unit>
   </file>
