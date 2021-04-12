@@ -2,7 +2,7 @@
 {% block title %}{{'Wiedergeburt: Wahl der Partie'|trans({}, 'ghost')|raw}}{% endblock %}
 {% block ajax %}
     <div class="row soul">
-        <div class="cell-small header rw-17 ro-4 rw-lg-20 ro-lg-2 rw-md-24 ro-md-0">
+        <div class="cell-small header rw-18 ro-3 rw-lg-20 ro-lg-2 rw-md-24 ro-md-0">
             <div class="tabs">
                 <div class="tab-floater">
                     <div class="tab left inline">
@@ -12,6 +12,18 @@
                         <h4 class="soul-name">
                             <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> <a class="username">{{ app.user.name }}</a>
                         </h4>
+                        <div class="town-join-rp hide-sm">
+                            <span class="town-join-rp-head">
+                                {% trans from 'ghost' %}
+                                    Ein neues Leben beginnen
+                                {% endtrans %}
+                            </span>
+                            <div class="town-join-rp-text">
+                                {% trans from 'ghost' %}
+                                    ...und mit 39 Mitbürgern in der Hölle schmoren
+                                {% endtrans %}
+                            </div>
+                        </div>
                     </div>
                     <div class="tab tab-floater">
                         {% if canCreateTown %}
@@ -23,20 +35,6 @@
                             </div>
 
                         {% endif %}
-                    </div>
-                    <div class="tab tab-floater hide-sm">
-                        <div class="town-join-rp">
-                            <span class="town-join-rp-head">
-                                {% trans from 'ghost' %}
-                                    Ein neues Leben beginnen
-                                {% endtrans %}
-                            </span>
-                            <span class="town-join-rp-text">
-                                {% trans from 'ghost' %}
-                                    ...und mit 39 Mitbürgern in der Hölle schmoren
-                                {% endtrans %}
-                            </span>
-                        </div>
                     </div>
                 </div>
             </div>
