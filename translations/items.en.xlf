@@ -7703,7 +7703,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Mit Hilfe deiner übermenschlichen Heldenkräfte hast du &lt;strong&gt;{kills} Zombie(s)&lt;/strong&gt; platt gemacht!</source>
-        <target><![CDATA[Mit Hilfe deiner übermenschlichen Heldenkräfte hast du <strong>{kills} Zombie(s)</strong> platt gemacht!]]></target>
+        <target><![CDATA[Using your Heroic powers, you have exterminated <strong>{kills} Zombie(s)</strong>!]]></target>
       </segment>
     </unit>
     <unit id="Pd1i68n" name="5bbcfac">
