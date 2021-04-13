@@ -589,7 +589,7 @@ class ExternalController extends InventoryAwareController {
                         $data[$field] = $this->town->getChaos();
                         break;
                     case "hard":
-                        $data[$field] = $this->town->getType() == 'panda';
+                        $data[$field] = $this->town->getType()->getName() === 'panda';
                         break;
                     case "devast":
                         $data[$field] = $this->town->getDevastated();
@@ -1426,7 +1426,7 @@ class ExternalController extends InventoryAwareController {
                         $user_data[$field] = $current_citizen->getBanished();
                         break;
                     case "baseDef":
-                        $user_data[$field] = $current_citizen->getHome()->getAdditionalDefense();
+                        $user_data[$field] = $current_citizen->getHome()->getPrototype()->getDefense();
                         break;
                     case "x":
                     case "y":
