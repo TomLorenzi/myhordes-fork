@@ -565,12 +565,10 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         $progress = new ProgressBar( $out->section() );
         $progress->start( count(static::$award_data) );
 
-       foreach(static::$award_data as $entry) {
-            $entity = $this->entityManager->getRepository(AwardPrototype::class)->getAwardByTitle($entry['title']);
+        $titles = [];
 
-            if($entity === null) {
-                $entity = new AwardPrototype();
-            }
+        foreach(static::$award_data as $entry) {
+            $entity = $this->entityManager->getRepository(AwardPrototype::class)->getAwardByTitle($entry['title']) ?? new AwardPrototype();
 
             $pp = $this->entityManager->getRepository(PictoPrototype::class)->findOneBy(['name' => $entry['associatedpicto']]);
             if ($pp === null) {
@@ -585,9 +583,18 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
                 ->setIcon(null)
                 ->setUnlockQuantity($entry['unlockquantity']);
 
+            $titles[] = $entry['title'];
+
             $manager->persist($entity);
             $progress->advance();
         }
+
+        // Remove obsolete entries
+        $entities_to_delete = $this->entityManager->getRepository(AwardPrototype::class)->createQueryBuilder('a')
+            ->andWhere('a.title NOT IN (:titles)')->andWhere('a.title IS NOT NULL')->setParameter('titles', $titles)->getQuery()->execute();
+        foreach ($entities_to_delete as $entity)
+            $this->entityManager->remove($entity);
+
 
         $manager->flush();
         $progress->finish();
@@ -599,10 +606,10 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         $progress = new ProgressBar( $out->section() );
         $progress->start( count(static::$award_data) );
 
-        foreach(static::$icon_data as $entry) {
-            $entity = $this->entityManager->getRepository(AwardPrototype::class)->getAwardByIcon($entry['icon']);
+        $icons = [];
 
-            if($entity === null) $entity = new AwardPrototype();
+        foreach(static::$icon_data as $entry) {
+            $entity = $this->entityManager->getRepository(AwardPrototype::class)->getAwardByIcon($entry['icon']) ?? new AwardPrototype();
 
             $pp = $this->entityManager->getRepository(PictoPrototype::class)->findOneBy(['name' => $entry['associatedpicto']]);
             if ($pp === null) {
@@ -617,9 +624,17 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
                 ->setIcon($entry['icon'])
                 ->setUnlockQuantity($entry['unlockquantity']);
 
+            $icons[] = $entry['icon'];
+
             $manager->persist($entity);
             $progress->advance();
         }
+
+        // Remove obsolete entries
+        $entities_to_delete = $this->entityManager->getRepository(AwardPrototype::class)->createQueryBuilder('a')
+            ->andWhere('a.icon NOT IN (:icons)')->andWhere('a.icon IS NOT NULL')->setParameter('icons', $icons)->getQuery()->execute();
+        foreach ($entities_to_delete as $entity)
+            $this->entityManager->remove($entity);
 
         $manager->flush();
         $progress->finish();
