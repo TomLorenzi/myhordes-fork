@@ -7694,7 +7694,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>So was nennt man wohl &lt;strong&gt;Glück&lt;/strong&gt;! &lt;t-inside&gt;Du hast soeben {items_spawn} in einem Abfallberg neben deinem Haus gefunden!&lt;/t-inside&gt;&lt;t-outside&gt;Du hast soeben {items_spawn} im Wüstensand gefunden!&lt;/t-outside&gt; Genau das, was du gebraucht hast!</source>
-        <target><![CDATA[Looks like <strong>you're in luck</strong>... <t-inside>You have found {items_spawn} in the sand! Exactly what you were looking for!</t-inside><t-outside>You have found {items_spawn} in a pile of rubbish near your house!</t-outside> Exactly what you were looking for!]]></target>
+        <target><![CDATA[Looks like <strong>you're in luck</strong>... <t-inside>You have found {items_spawn} in a pile of rubbish near your house!</t-inside><t-outside>You have found {items_spawn} in the sand!</t-outside> Exactly what you were looking for!]]></target>
       </segment>
     </unit>
     <unit id="Y65IL58" name="0632b2c">
