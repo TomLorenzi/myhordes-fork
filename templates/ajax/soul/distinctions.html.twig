@@ -1,0 +1,39 @@
+<div class="distinctions">
+    <div class="distinctions-head center">
+        {{ 'Statistiken'|trans({}, 'global') }}
+    </div>
+    <div class="distinctions-list center">
+        {% if points is defined %}
+            <div class="overall">
+                {{ '%points% Punkte'|trans({'%points%':points}, 'global') }}
+            </div>
+        {% endif %}
+        {% if pictos|length == 0 %}
+            <div class="list empty">
+                {{ 'Dieser Spieler hat bisher noch keine Preise gewonnen...'|trans({}, 'global') }}
+            </div>
+        {% else %}
+            <div class="list">
+                {% for picto in pictos %}
+                    {% if picto.c > 0 %}
+                        <div class="picto{% if picto.rare %} rare{% endif %}">
+                            <div>
+                                <img alt="" src="{{  asset('build/images/pictos/' ~ picto.icon ~ '.gif') }}" /><br />
+                                <div class="counter">
+                                    {% for number in picto.c|split('') %}<span class="count" title="{{number}}">{{number}}</span>{% endfor %}
+                                </div>
+                            </div>
+                            <div class="tooltip">
+                                <h1>{{ picto.label|trans({}, 'game') }}</h1>
+                                <em>{{ picto.description|trans({}, 'game')}}</em>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    <div class="distinctions-foot">
+        &nbsp;
+    </div>
+</div>

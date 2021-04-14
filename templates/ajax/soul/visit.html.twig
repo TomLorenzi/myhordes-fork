@@ -17,41 +17,8 @@
             </div>
             <div class="row me">
                 {% include 'ajax/soul/badges.html.twig' with {badger: user} %}
-                <div class="cell rw-5 rw-sm-12 distinctions">
-                    <div class="distinctions-head center">
-                        {{ 'Statistiken'|trans({}, 'global') }}
-                    </div>
-                    <div class="distinctions-list center">
-                        <div class="overall">
-                            {{ '%points% Punkte'|trans({'%points%':points}, 'global') }}
-                        </div>
-                        <div class="top"></div>
-                        {% if pictos|length == 0 %}
-                        <div class="list empty">
-                            {{ 'Dieser Spieler hat bisher noch keine Preise gewonnen...'|trans({}, 'global') }}
-                        </div>
-                        {% else %}
-                        <div class="list">
-                            {% for picto in pictos %}
-                                {% if picto.c > 0 %}
-                                    <div class="picto{% if picto.rare %} rare{% endif %}">
-                                        <img src="{{  asset('build/images/pictos/' ~ picto.icon ~ '.gif') }}" /><br />
-                                        <div class="counter">
-                                        {% for number in picto.c|split('') %}<span class="count" title="{{number}}">{{number}}</span>{% endfor %}
-                                        </div>
-                                        <div class="tooltip">
-                                        <h1>{{ picto.label|trans({}, 'game') }}</h1>
-                                        {{ picto.description|trans({}, 'game')}}</em>
-                                        </div>
-                                    </div>
-                                    {% endif %}
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                    </div>
-                    <div class="distinctions-foot">
-                        &nbsp;
-                    </div>
+                <div class="cell rw-5 rw-sm-12 center">
+                    {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos, points: points} %}
                 </div>
                 <div class="cell padded rw-7 rw-sm-12">
                     <div class="score"><img src="{{ asset('build/images/soul/small_score.gif') }}" alt="" /> {{ 'Seelenpunktzahl'|trans({}, 'global') }} : <strong>{{ '%points% Punkte'|trans({'%points%': user.allSoulPoints}, 'global') }}</strong></div>
