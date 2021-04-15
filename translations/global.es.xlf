@@ -2404,7 +2404,7 @@
       </notes>
       <segment>
         <source>Nachrichten suchen</source>
-        <target>Buscar un mensaje</target>
+        <target>Buscar noticias</target>
       </segment>
     </unit>
     <unit id="qvbVj_e" name="Suchbegriff">
@@ -2413,7 +2413,7 @@
       </notes>
       <segment>
         <source>Suchbegriff</source>
-        <target>Palabras clave</target>
+        <target>Término de búsqueda</target>
       </segment>
     </unit>
     <unit id="m.JFPYg" name="Suchbegriffe eingeben">
@@ -2422,7 +2422,7 @@
       </notes>
       <segment>
         <source>Suchbegriffe eingeben</source>
-        <target>Introduce las palabras clave</target>
+        <target>Escribe los términos de búsqueda</target>
       </segment>
     </unit>
     <unit id="bpR1Iu." name="Benutzer (optional)">
@@ -2431,7 +2431,7 @@
       </notes>
       <segment>
         <source>Benutzer (optional)</source>
-        <target>Usuario</target>
+        <target>Usuario (opcional)</target>
       </segment>
     </unit>
     <unit id="OCg3Wi1" name="Entfernen">
@@ -2449,7 +2449,7 @@
       </notes>
       <segment>
         <source>Optionen</source>
-        <target>Parámetros</target>
+        <target>Opciones</target>
       </segment>
     </unit>
     <unit id="2E_8DZ9" name="In Titeln suchen">
@@ -2458,7 +2458,7 @@
       </notes>
       <segment>
         <source>In Titeln suchen</source>
-        <target>Búsqueda en títulos</target>
+        <target>Buscar en los títulos</target>
       </segment>
     </unit>
     <unit id="gz5au3s" name="Tipps zur Suche">
@@ -2476,7 +2476,7 @@
       </notes>
       <segment>
         <source>Benutze Anführungszeichen (" "), um nach einer bestimmten Wortkette zu suchen. Beispiel: "Ration Wasser"</source>
-        <target>Usa comillas (" ") al inicio y al final de la frase o palabras que buscas que para tener mejores resultados. Ejemplo: "Ración de agua"</target>
+        <target>Utilice las comillas (" ") para buscar una cadena de palabras específica. Ejemplo: "Agua de racionamiento".</target>
       </segment>
     </unit>
     <unit id="tQlAKoR" name="60820fb">
@@ -2485,7 +2485,7 @@
       </notes>
       <segment>
         <source>Setze ein Ausrufezeichen (!) vor einen Suchbegriff, um diesen auszuschließen. Beispiel: Wasser !Brunnen</source>
-        <target>Usa el signo de exclamación (!) para excluir una palabra de tus búsquedas. Ejemplo: Ración !Pozo</target>
+        <target>Ponga un signo de exclamación (!) delante de un término de búsqueda para excluirlo. Ejemplo: Agua !Pozo</target>
       </segment>
     </unit>
     <unit id="HnC2uQZ" name="57f97d9">
@@ -2494,7 +2494,7 @@
       </notes>
       <segment>
         <source>Um nach Anführungszeichen oder Ausrufezeichen zu suchen, schreibe einen Backslash (\) davor, um zu verhindern, dass sie als Suchbefehl interpretiert werden. Beispiel: Boom\!</source>
-        <target>Para utilizar comillas o signos de exclamación, ponga una barra invertida (\) delante de ellos para evitar que se interpreten como un comando de búsqueda. Ejemplo: Boom\!</target>
+        <target>Para buscar comillas o signos de exclamación, ponga una barra invertida (\) delante de ellos para evitar que se interpreten como un comando de búsqueda. Ejemplo: ¡Boom\!</target>
       </segment>
     </unit>
     <unit id="3Ql_d91" name="Suchen">
