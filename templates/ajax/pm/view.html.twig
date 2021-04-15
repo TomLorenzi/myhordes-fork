@@ -13,7 +13,7 @@
                             <b><i class="fa fa-caret-right"></i> {{ 'Aktionen'|trans({},'global') }}</b>
                         </div>
                         <div class="forum-button-bar">
-                            {% if not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionForum')) %}
+                            {% if not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGlobalCommunication')) %}
                                 <div x-pm-action="new-single" class="pm-button" id="new-thread-single-button">
                                     <i class="fa fa-pen-alt"></i> {{ 'Schreiben'|trans({},'global') }}
                                 </div>
@@ -50,7 +50,7 @@
                         </div>
                         <div class="forum-button-bar" style="font-size: 0.8em">
                             <div class="row-flex wrap">
-                                {% if not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionForum')) %}
+                                {% if not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionGlobalCommunication')) %}
                                     <div class="cell">
                                         <div x-pm-action="answer-single" class="pm-button" id="new-answer-single-button">
                                             <i class="fa fa-pen-alt"></i> {{ 'Antworten'|trans({},'global') }}
