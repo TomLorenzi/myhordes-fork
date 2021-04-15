@@ -2104,7 +2104,7 @@
       </notes>
       <segment>
         <source>Entfernen</source>
-        <target>Remover status</target>
+        <target>Eliminar</target>
       </segment>
     </unit>
     <unit id="S1OmuJB" name="Saisons">
@@ -2140,7 +2140,7 @@
       </notes>
       <segment>
         <source>Status entfernen</source>
-        <target>Remover status</target>
+        <target>Eliminar estado</target>
       </segment>
     </unit>
     <unit id="YkT2Odb" name="Eine Rolle auswählen:">
