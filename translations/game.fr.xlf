@@ -277,7 +277,7 @@
       </notes>
       <segment>
         <source>Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</source>
-        <target>La dernière plainte a été celle de trop. %citizen% a été bannis de la ville !</target>
+        <target>La dernière plainte a été celle de trop. %citizen% a été banni de la ville !</target>
       </segment>
     </unit>
     <unit id="gaDgdbl" name="Du kannst die Stadt von hier aus nicht betreten.">
