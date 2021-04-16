@@ -18497,7 +18497,7 @@
       </notes>
       <segment>
         <source>%citizen% hat versucht %item% aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.</source>
-        <target>%citizen% a tenté de voler %item% dans la Banque mais a été parfaitement incapable de faire preuve de discrétion !</target>
+        <target><![CDATA[%citizen% a tenté de voler <strong>voler</strong> %item% dans la Banque mais a été <strong>PARFAITEMENT INCAPABLE DE FAIRE PREUVE DE DISCRÉTION</strong> !!]]></target>
       </segment>
     </unit>
     <unit id="LWSEhn0" name="ed08c19">
@@ -18506,7 +18506,7 @@
       </notes>
       <segment>
         <source>Jemand hat %item% aus der Bank entwendet, aber er (oder sie) konnte nicht identifiziert werden.</source>
-        <target>Quelqu'un a volé %item% dans les coffres de la Banque mais il (ou elle) n'a pas pu être identifié(e).</target>
+        <target>Quelqu'un a pris %item% dans les coffres de la Banque mais il (ou elle) n'a pu être identifié(e).</target>
       </segment>
     </unit>
     <unit id="pygRaEs" name="0a0a304">

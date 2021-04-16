@@ -182,7 +182,7 @@
                         {% endif %}
                     {% endif %}
                     {% if not entry.action.tooltip is null %}
-                        <em class="em">{{ entry.action.tooltip|trans({}, 'items')|raw }}</em>
+                        <em class="em" style="font-variant: none;">{{ entry.action.tooltip|trans({}, 'items')|raw }}</em>
                     {% endif %}
                 </li>
             {% endfor %}
