@@ -18497,7 +18497,7 @@
       </notes>
       <segment>
         <source>%citizen% hat versucht %item% aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.</source>
-        <target>%citizen% a essayé de voler %item% dans les coffres de la Banque mais n'a montré AUCUNE DISCRETION en le faisant.</target>
+        <target>%citizen% a tenté de voler %item% dans la Banque mais a été parfaitement incapable de faire preuve de discrétion !</target>
       </segment>
     </unit>
     <unit id="LWSEhn0" name="ed08c19">
