@@ -2371,7 +2371,7 @@
       </notes>
       <segment>
         <source>Entfernte Regionen</source>
-        <target>Entfernte Regionen</target>
+        <target>Pueblos normales</target>
       </segment>
     </unit>
     <unit id="7H7gGH1" name="Pandämonium">
@@ -2380,7 +2380,7 @@
       </notes>
       <segment>
         <source>Pandämonium</source>
-        <target>Pandämonium</target>
+        <target>Pueblos del Pandemonio</target>
       </segment>
     </unit>
     <unit id="2ZxNAfn" name="Private Stadt">
@@ -2416,7 +2416,7 @@
       </notes>
       <segment>
         <source>ALLE SAISONS</source>
-        <target>ALLE SAISONS</target>
+        <target>TEMPORADAS</target>
       </segment>
     </unit>
     <unit id="9cNHWGl" name="Seelenpunkte">
@@ -2425,7 +2425,7 @@
       </notes>
       <segment>
         <source>Seelenpunkte</source>
-        <target>Seelenpunkte</target>
+        <target>Puntos de alma</target>
       </segment>
     </unit>
     <unit id="vXPHpS0" name="Zugriff auf die Rangliste einer bestimmten Saison:">
@@ -2434,7 +2434,7 @@
       </notes>
       <segment>
         <source>Zugriff auf die Rangliste einer bestimmten Saison:</source>
-        <target>Zugriff auf die Rangliste einer bestimmten Saison:</target>
+        <target>Ir a la clasificación de una temporada:</target>
       </segment>
     </unit>
     <unit id="haNfUqH" name="Alle Saisons">
@@ -2443,7 +2443,7 @@
       </notes>
       <segment>
         <source>Alle Saisons</source>
-        <target>Alle Saisons</target>
+        <target>Todas las temporadas</target>
       </segment>
     </unit>
     <unit id="9DAxndj" name="Spieler">

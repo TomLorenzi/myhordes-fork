@@ -277,7 +277,7 @@
       </notes>
       <segment>
         <source>Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</source>
-        <target>La dernière plainte a été celle de trop. %citizen% a été bannis de la ville !</target>
+        <target>La dernière plainte a été celle de trop. %citizen% a été banni de la ville !</target>
       </segment>
     </unit>
     <unit id="gaDgdbl" name="Du kannst die Stadt von hier aus nicht betreten.">
@@ -18497,7 +18497,7 @@
       </notes>
       <segment>
         <source>%citizen% hat versucht %item% aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.</source>
-        <target>%citizen% a essayé de voler %item% dans les coffres de la Banque mais n'a montré AUCUNE DISCRETION en le faisant.</target>
+        <target>%citizen% a tenté de voler %item% dans la Banque mais a été parfaitement incapable de faire preuve de discrétion !</target>
       </segment>
     </unit>
     <unit id="LWSEhn0" name="ed08c19">

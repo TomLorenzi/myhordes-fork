@@ -7418,7 +7418,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Dieses Feld zeigt die Karte der Außenwelt. Du musst hier klicken, wenn du dich &lt;strong&gt;bewegen&lt;/strong&gt; möchtest.</source>
-        <target><![CDATA[Dieses Feld zeigt die Karte der Außenwelt. Du musst hier klicken, wenn du dich <strong>bewegen</strong> möchtest.]]></target>
+        <target><![CDATA[Este panel muestra el mapa del Ultramundo. Es aquí donde te <strong>desplazas</strong>.]]></target>
       </segment>
     </unit>
     <unit id="7CJKW6D" name="259ded5">
@@ -7436,7 +7436,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Klick auf &lt;strong&gt;einen der 4 Pfeile&lt;/strong&gt;, um dich in eine neue Zone zu bewegen...</source>
-        <target><![CDATA[Klick auf <strong>einen der 4 Pfeile</strong>, um dich in eine neue Zone zu bewegen...]]></target>
+        <target><![CDATA[Haz clic en <strong>una de las 4 flechas</strong> para desplazarte en una nueva zona.]]></target>
       </segment>
     </unit>
     <unit id="_Lp9re7" name="Wie erkunde ich die Außenwelt?">
@@ -7519,7 +7519,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Spielhilfe aktiv:</source>
-        <target>Spielhilfe aktiv:</target>
+        <target>Guía del juego en curso:</target>
       </segment>
     </unit>
     <unit id="RDaVuhy" name="Die Spielhilfe stoppen">

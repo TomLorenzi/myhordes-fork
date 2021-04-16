@@ -655,7 +655,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 100%.</source>
-        <target>The defence points given by objects in the bank are increased by 100%.</target>
+        <target>The value of defensive objects in the bank is increased by 100%.</target>
       </segment>
     </unit>
     <unit id="GLo_FzK" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.">
@@ -664,7 +664,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 150%.</source>
-        <target>The defence points given by objects in the bank are increased by 150%.</target>
+        <target>The value of defensive objects in the bank is increased by 150%.</target>
       </segment>
     </unit>
     <unit id="l3tFIbP" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.">
@@ -673,7 +673,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 200%.</source>
-        <target>The defence points given by objects in the bank are increased by 200%.</target>
+        <target>The value of defensive objects in the bank is increased by 200%.</target>
       </segment>
     </unit>
     <unit id="FXvZuCC" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.">
@@ -682,7 +682,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 250%.</source>
-        <target>The defence points given by objects in the bank are increased by 250%.</target>
+        <target>The value of defensive objects in the bank is increased by 250%.</target>
       </segment>
     </unit>
     <unit id="fPl.xwk" name="Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.">
@@ -691,7 +691,7 @@
       </notes>
       <segment>
         <source>Der Verteidigungsbonus von Gegenständen in der Bank steigt um 300%.</source>
-        <target>The defence points given by objects in the bank are increased by 300%.</target>
+        <target>The value of defensive objects in the bank is increased by 300%.</target>
       </segment>
     </unit>
     <unit id="Vln90x5" name="Steinkanone">
@@ -2032,7 +2032,7 @@
       </notes>
       <segment>
         <source>Diese Mauer ist mit einer großen Anzahl an Metallspitzen gespickt, damit die Stadtbewohner beim Angriff um Mitternacht ein paar nette Spieße Zombieschaschlik herstellen können.</source>
-        <target>Lots of metal skewers mounted on the ramparts to make zombie kebabs when darkness falls...</target>
+        <target>Lots of metal skewers mounted on metal patches to make zombie kebabs when darkness falls...</target>
       </segment>
     </unit>
     <unit id="QlkvLUP" name="cda28d7">
