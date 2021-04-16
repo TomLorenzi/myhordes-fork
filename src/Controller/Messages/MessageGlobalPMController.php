@@ -101,7 +101,7 @@ class MessageGlobalPMController extends MessageController
         $cutoff->setTimestamp( $rk );
 
         /** @var GlobalPrivateMessage[] $dm_cache */
-        $dm_cache = $em->getRepository(Announcement::class)->getUnreadByUser($user, $this->getUserLanguage(), $cutoff, $domain === 'd' ? 0 : 1);
+        $dm_cache = $em->getRepository(GlobalPrivateMessage::class)->getUnreadDirectPMsByUser($user, $cutoff);
 
         $entries = [];
         $this->render_group_associations( $em->getRepository(UserGroupAssociation::class)->getUnreadPMsByUser($user, $cutoff), $entries );

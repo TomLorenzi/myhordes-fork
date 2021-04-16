@@ -325,7 +325,7 @@ class SoulController extends CustomAbstractController
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function soul_set_header(JSONRequestParser $parser, HTMLService $html) {
+    public function soul_set_header(JSONRequestParser $parser, HTMLService $html): Response {
         $user = $this->getUser();
 
         $title = $parser->get_int('title', -1);
