@@ -7802,7 +7802,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du hast {item_from} in {item_to} verwandelt.</source>
-        <target>Du hast {item_from} in {item_to} verwandelt.</target>
+        <target>You have transformed the {item_from} into the {item_to}.</target>
       </segment>
     </unit>
     <unit id="sm7LFnd" name="e5e3120">
