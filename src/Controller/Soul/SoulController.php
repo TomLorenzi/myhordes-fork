@@ -330,7 +330,7 @@ class SoulController extends CustomAbstractController
 
         $title = $parser->get_int('title', -1);
         $icon  = $parser->get_int('icon', -1);
-        $desc  = substr(trim($parser->get('desc')) ?? '', 0, 256);
+        $desc  = mb_substr(trim($parser->get('desc')) ?? '', 0, 256);
 
         if ($title < 0 && $icon >= 0)
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
