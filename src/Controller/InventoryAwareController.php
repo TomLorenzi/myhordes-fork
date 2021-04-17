@@ -776,9 +776,13 @@ class InventoryAwareController extends CustomAbstractController
             $home_lab_upgrade = $lab ? $this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($citizen->getHome(), $lab) : null;
             if ($home_lab_upgrade) {
                 $this->addFlash("error", $this->translator->trans('Dafür solltest du dein Labor verwenden...', [], 'game'));
-                return AjaxResponse::success();
+                if (!$this->citizen_handler->hasStatusEffect($citizen, 'tg_tried_pp')) {
+                    $this->citizen_handler->inflictStatus($citizen, 'tg_tried_pp');
+                    $this->entity_manager->persist($citizen);
+                    $this->entity_manager->flush();
+                    return AjaxResponse::success();
+                }
             }
-
         }
 
         if (($error = $handler->execute_recipe( $citizen, $recipe, $remove, $message )) !== ActionHandler::ErrorNone ) {
