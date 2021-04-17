@@ -60,8 +60,14 @@
     background: linear-gradient(to top, #643b25 0%, rgba(100, 59, 37, 0) 50%, rgba(100, 59, 37, 0) 100%);
   }
   &>.row:not(.header), &>.row-flex:not(.header) {
-    &:nth-child(2n+0) { background: #5c2b20; }
-    &:nth-child(2n+1) { background: #663024; }
+    &:not(.highlight) {
+      &:nth-child(2n+0) { background: #5c2b20; }
+      &:nth-child(2n+1) { background: #663024; }
+    }
+    &.highlight {
+      &:nth-child(2n+0) { background: #3c3a4a; }
+      &:nth-child(2n+1) { background: #434153; }
+    }
   }
 }
 
