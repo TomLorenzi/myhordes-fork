@@ -19159,5 +19159,14 @@
         <target>Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</target>
       </segment>
     </unit>
+    <unit id="A9mtMsb" name="Wächterbonus">
+      <notes>
+        <note category="german">Wächterbonus</note>
+      </notes>
+      <segment>
+        <source>Wächterbonus</source>
+        <target>Wächterbonus</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

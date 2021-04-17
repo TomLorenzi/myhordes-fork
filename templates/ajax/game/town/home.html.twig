@@ -101,6 +101,7 @@
                         'Bauarbeiten'|trans({},'game') ~ ': <strong>' ~ '+%def% Punkt(e)'|trans({'%def%': def.upgrades_defense},'game') ~ '</strong><br />' ~
                         'Verteidigungsgegenstände'|trans({},'game') ~ ': <strong>' ~ '+%def% Punkt(e)'|trans({'%def%': def.item_defense},'game') ~ '</strong><br />' ~
                         'Heldenbonus'|trans({},'game') ~ ': <strong>' ~ '+%def% Punkt(e)'|trans({'%def%': def.job_defense},'game') ~ '</strong><br />' ~
+                        (def.job_guard_defense > 0 ? ('Wächterbonus'|trans({},'game') ~ ': <strong>' ~ '+%def% Punkt(e)'|trans({'%def%': def.job_guard_defense},'game') ~ '</strong><br />') : '') ~
                         '<hr />' ~
                         'Total'|trans({},'game') ~ ': <strong>' ~ '+%def% Punkt(e)'|trans({'%def%': def.sum},'game') ~ '</strong>' ~
                         '<p class="small">' ~ 'Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.'|trans({},'game') ~ '</p>'
@@ -357,7 +358,7 @@
                         <ul>
                             <li>{{ 'durch Haus'|trans({},'game') }} <span><img alt="" src="{{ asset('build/images/icons/def.gif') }}"> {{ def.house_defense }}</span></li>
                             {% if home.citizen.profession.heroic %}
-                                <li>{{ 'durch Beruf'|trans({},'game') }} <span><img alt="" src="{{ asset('build/images/icons/def.gif') }}"> {{ def.job_defense }}</span></li>
+                                <li>{{ 'durch Beruf'|trans({},'game') }} <span><img alt="" src="{{ asset('build/images/icons/def.gif') }}"> {{ def.job_defense + def.job_guard_defense }}</span></li>
                                 <li>{{ 'durch Ausbauten'|trans({},'game') }} <span><img alt="" src="{{ asset('build/images/icons/def.gif') }}"> {{ def.upgrades_defense }}</span></li>
                             {% endif %}
                             <li>{{ 'durch Gegenstände'|trans({},'game') }} <span><img alt="" src="{{ asset('build/images/icons/def.gif') }}"> {{ def.item_defense }}</span></li>
@@ -515,7 +516,7 @@
                     {# @var upgrade \App\Entity\CitizenHomeUpgradePrototype #}
                     <div class="row {% if upgrade_levels[id] != 0 %}highlight{% endif %}">
                         <div class="padded cell {% if home.citizen.profession.heroic %}rw-8{% else %}rw-12{% endif %}">
-                            <img alt="" src="{{ asset('build/images/home/' ~ upgrade.icon ~ '.gif') }}" /> <b>{{ upgrade.label|trans({},'buildings') }}</b>
+                            <img alt="" src="{{ asset('build/images/home/' ~ upgrade.icon ~ '.gif') }}" /> <b>{{ upgrade.label|trans({},'buildings') }} {% if upgrade_levels[id] > 1 or (upgrade_levels[id] > 0 and upgrade_costs[id] ) %}{{ upgrade_levels[id] }}{% endif %}</b>
                             <div class="justify">
                                 <span class="small">{{ upgrade.description|trans({},'buildings') }}</span>
                             </div>

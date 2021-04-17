@@ -19157,5 +19157,14 @@
         <target>Les objets de défense (plaques de tôle, ...etc) sont à poser dans le Coffre.</target>
       </segment>
     </unit>
+    <unit id="A9mtMsb" name="Wächterbonus">
+      <notes>
+        <note category="german">Wächterbonus</note>
+      </notes>
+      <segment>
+        <source>Wächterbonus</source>
+        <target>Bonus Gardien</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

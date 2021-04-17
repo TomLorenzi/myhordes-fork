@@ -19128,5 +19128,14 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Defensive objects (sheetmetal, trestles etc...) should be placed in the Chest.</target>
       </segment>
     </unit>
+    <unit id="A9mtMsb" name="Wächterbonus">
+      <notes>
+        <note category="german">Wächterbonus</note>
+      </notes>
+      <segment>
+        <source>Wächterbonus</source>
+        <target>Guardian Bonus</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

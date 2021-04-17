@@ -19122,5 +19122,14 @@
         <target>Les objetos de defensa (láminas de mteal, etc.) deben ser depositados en el Baúl.</target>
       </segment>
     </unit>
+    <unit id="A9mtMsb" name="Wächterbonus">
+      <notes>
+        <note category="german">Wächterbonus</note>
+      </notes>
+      <segment>
+        <source>Wächterbonus</source>
+        <target>Bonus guardián</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
