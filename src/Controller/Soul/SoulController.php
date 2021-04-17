@@ -174,6 +174,7 @@ class SoulController extends CustomAbstractController
         $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
 
         return $this->render( 'ajax/soul/me.html.twig', $this->addDefaultTwigArgs("soul_me", [
+            'user' => $user,
             'pictos' => $pictos,
             'points' => round($points),
             'latestSkill' => $latestSkill,
