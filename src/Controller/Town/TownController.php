@@ -1108,17 +1108,17 @@ class TownController extends InventoryAwareController
         // Check if slave labor is allowed (ministry of slavery must be built)
         $slavery_allowed = $this->town_handler->getBuilding($town, 'small_slave_#00', true) !== null;
 
-        // If no slavery is allowed, block banished citizens from working on the construction site
-        // If slavery is allowed and the citizen is banished, permit slavery bonus
-        if (!$slavery_allowed && $citizen->getBanished() && !$building->getComplete())
-            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-        $slave_bonus = $citizen->getBanished();
-
         /** @var Building|null $building */
         // Get the building the citizen wants to work on; fail if we can't find it
         $building = $this->entity_manager->getRepository(Building::class)->find($id);
         if (!$building || $building->getTown()->getId() !== $town->getId() || $ap < 0)
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        // If no slavery is allowed, block banished citizens from working on the construction site (except for repairs)
+        // If slavery is allowed and the citizen is banished, permit slavery bonus
+        if (!$slavery_allowed && $citizen->getBanished() && !$building->getComplete())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        $slave_bonus = $citizen->getBanished();
 
         // Check if all parent buildings are completed
         $current = $building->getPrototype();
