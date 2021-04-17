@@ -601,7 +601,7 @@
       </notes>
       <segment>
         <source>Jeden Tag um Mitternacht greift eine Zombiehorde die Stadt an. Die in der Wüste gefundenen Gegenstände wurden im Idealfall dazu benutzt, Verteidigungsanlagen zu bauen und die Häuser zu verbessern.</source>
-        <target>Every day at 23h00 (server time), the hordes of living-dead attack the town! Objects found during the day can be used to build defences and protect your home.</target>
+        <target>Every day at midnight (server time), a horde of living-dead attack the town! Objects found during the day can be used to build defences to protect the town and your home.</target>
       </segment>
     </unit>
     <unit id="PX_pHFS" name="Ziel Nr.3: Sich gegenseitig helfen und überleben...">
