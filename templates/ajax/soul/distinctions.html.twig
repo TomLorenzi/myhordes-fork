@@ -46,6 +46,9 @@
                     {% if award.prototype is not null and award.prototype.title is not null %}
                         <li>"{{ award.prototype.title|trans({},'game') }}"</li>
                     {% endif %}
+                    {% if award.prototype is not null and award.prototype.icon is not null %}
+                        <li><img alt="" src="{{ asset('build/images/icons/title/' ~ award.prototype.icon ~ '.gif') }}" /></li>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
