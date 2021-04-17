@@ -19101,7 +19101,7 @@
       </notes>
       <segment>
         <source>Heldenbonus</source>
-        <target>Bonus Héroe</target>
+        <target>Bonus de Héroe</target>
       </segment>
     </unit>
     <unit id="ybPDgkf" name="Total">
@@ -19119,7 +19119,7 @@
       </notes>
       <segment>
         <source>Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</source>
-        <target>Les objetos de defensa (láminas de mteal, etc.) deben ser depositados en el Baúl.</target>
+        <target>Les objetos de defensa (láminas de mteal, etc.) deben encontrarse en el Baúl.</target>
       </segment>
     </unit>
     <unit id="A9mtMsb" name="Wächterbonus">
@@ -19128,7 +19128,7 @@
       </notes>
       <segment>
         <source>Wächterbonus</source>
-        <target>Bonus guardián</target>
+        <target>Bonus de guardián</target>
       </segment>
     </unit>
   </file>
