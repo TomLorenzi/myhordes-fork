@@ -159,11 +159,10 @@
                         {% else %}
                             <div class="avatar small"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                         {% endif %}
-                        <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}"><b>{{ author_name }}</b></a>
+                        <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}"><b>{{ author_name }}</b></a><br />
                         {% if post.owner.name == 'Der Rabe' %}
-                            <br /><span class="small"><i>{{ 'Ich beobachte euch...'|trans({},'game') }}</i></span>
+                            <span class="small"><i>{{ 'Ich beobachte euch...'|trans({},'game') }}</i></span>
                         {% elseif post.owner.activeTitle or post.owner.activeIcon %}
-                            <br />
                             <span class="small">
                                 {% if post.owner.activeIcon %}<img alt="" src="{{ asset('build/images/icons/title/' ~ post.owner.activeIcon.prototype.icon ~ '.gif') }}" />{% endif %}
                                 {% if post.owner.activeTitle %}<i>{{ post.owner.activeTitle.prototype.title|trans({},'game') }}</i>{% endif %}
