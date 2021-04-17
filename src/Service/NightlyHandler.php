@@ -777,7 +777,7 @@ class NightlyHandler
 		
 		
 		//$in_town = $town->getChaos() ? max(10,count($targets)) : count($targets);
-		$in_town = min(8, ceil(count($targets) * 0.85));
+		$in_town = max(8, ceil(count($targets) * 0.85));
 		
 		$attacking = min($max_active, $overflow);
 
