@@ -11430,7 +11430,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut.</source>
-        <target>An extremely rare distinction, awarded only to the very earliest citizens of 'MyHordes'. Drugs are not good</target>
+        <target>An extremely rare distinction, awarded only to the very earliest citizens of 'MyHordes'. Drugs are not good.</target>
       </segment>
     </unit>
     <unit id="HhGnEYa" name="a0a5c8d">
@@ -14454,7 +14454,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ehrenpreis für die Teilnahme am UFC!</source>
-        <target>Ehrenpreis für die Teilnahme am UFC!</target>
+        <target>Honorary prize for participation in the UFC!</target>
       </segment>
     </unit>
     <unit id="67K3DmE" name="Seelenführer der Gemeinschaft">
@@ -16537,7 +16537,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Legendärer Dompteur</source>
-        <target>Legendärer Dompteur</target>
+        <target>Legendary tamer</target>
       </segment>
     </unit>
     <unit id="CI8PARg" name="f618392">
@@ -16546,7 +16546,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</source>
-        <target>Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</target>
+        <target>Award for the tamer members who won the Clash of the Titans event!</target>
       </segment>
     </unit>
     <unit id="HDssmyH" name="Fleisch-Schuldner">
