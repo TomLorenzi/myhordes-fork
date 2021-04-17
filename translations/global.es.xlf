@@ -2481,11 +2481,11 @@
     </unit>
     <unit id="tQlAKoR" name="60820fb">
       <notes>
-        <note category="german">Setze ein Ausrufezeichen (!) vor einen Suchbegriff, um diesen auszuschließen. Beispiel: Wasser !Brunnen</note>
+        <note category="german">Setze ein Ausrufezeichen (!) vor einen Suchbegriff, um diesen auszuschließen. Beispiel: Wasser !Brunnen<br /></note>
       </notes>
       <segment>
         <source>Setze ein Ausrufezeichen (!) vor einen Suchbegriff, um diesen auszuschließen. Beispiel: Wasser !Brunnen</source>
-        <target>Usa el signo de exclamación (!) para excluir una palabra de tus búsquedas. Ejemplo: Agua !Pozo</target>
+        <target><![CDATA[Usa el signo de exclamación (!) para excluir una palabra de tus búsquedas. Ejemplo: Agua !Pozo<br /><strong>Nota</strong>: si quieres buscar un mensaje que NO tenga una frase, puedes hacer !"la ruina" para que se excluyan todos los mensajes que tengan "la ruina".>]]></target>
       </segment>
     </unit>
     <unit id="HnC2uQZ" name="57f97d9">
