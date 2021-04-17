@@ -11,7 +11,7 @@
         {% if user.awards|length != 0 %}
        <ul class="tabs plain" x-tab-group="awards" x-tab-control x-tab-default="dinstinctions">
             <li class="tab" x-tab-id="dinstinctions"><div class="tab-link">{{ 'Statistiken'|trans({}, 'soul') }}</div></li>
-            <li class="tab" x-tab-id="titles"><div class="tab-link">{{ 'Errungenschaften'|trans({}, 'soul') }}</div></li>
+            <li class="tab" x-tab-id="titles"><div class="tab-link">{{ 'Errungenschaften'|trans({}, 'soul') }} ({{user.awards|length}})</div></li>
         </ul>
         {% endif %}
         <div x-tab-group="awards" x-tab-id="dinstinctions" x-tab-target>
