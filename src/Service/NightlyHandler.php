@@ -784,7 +784,7 @@ class NightlyHandler
 
 		$repartition = array_fill(0, count($targets), 0);
 		for ($i = 0; $i < count($repartition); $i++) {
-			$repartition[$i] =  mt_rand() / mt_getrandmax(); //random value between 0 and 1.0 with many decimals
+			$repartition[$i] = mt_rand() / mt_getrandmax(); //random value between 0 and 1.0 with many decimals
 		}
 		
 		if(count($repartition) != 0) {
