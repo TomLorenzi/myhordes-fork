@@ -2529,7 +2529,7 @@
       </notes>
       <segment>
         <source>Setze ein Ausrufezeichen (!) vor einen Suchbegriff, um diesen auszuschließen. Beispiel: Wasser !Brunnen</source>
-        <target>Utilisez le point d'exclamation (!) pour exclure un mot. Exemple : kube !dino</target>
+        <target>Utilisez le point d'exclamation (!) pour exclure un mot. Exemple : eau !puits</target>
       </segment>
     </unit>
     <unit id="HnC2uQZ" name="57f97d9">
