@@ -96,6 +96,15 @@
                 <div class="padded cell rw-4 rw-lg-6 center def-estimation">
                     <em>{{ 'Verteidigung'|trans({}, 'game') }}</em><br />
                     <span class="counter">{{ def.sum }} <img src="{{ asset('build/images/icons/small_def.gif') }}" alt="" /></span>
+                    {{ help_btn(
+                        'Behausung'|trans({},'game') ~ ': <strong>' ~ '+%def% Punkt(e)'|trans({'%def%': def.house_defense},'game') ~ '</strong><br />' ~
+                        'Bauarbeiten'|trans({},'game') ~ ': <strong>' ~ '+%def% Punkt(e)'|trans({'%def%': def.upgrades_defense},'game') ~ '</strong><br />' ~
+                        'Verteidigungsgegenstände'|trans({},'game') ~ ': <strong>' ~ '+%def% Punkt(e)'|trans({'%def%': def.item_defense},'game') ~ '</strong><br />' ~
+                        'Heldenbonus'|trans({},'game') ~ ': <strong>' ~ '+%def% Punkt(e)'|trans({'%def%': def.job_defense},'game') ~ '</strong><br />' ~
+                        '<hr />' ~
+                        'Total'|trans({},'game') ~ ': <strong>' ~ '+%def% Punkt(e)'|trans({'%def%': def.sum},'game') ~ '</strong>' ~
+                        '<p class="small">' ~ 'Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.'|trans({},'game') ~ '</p>'
+                    ) }}
                 </div>
                 <div class="padded cell rw-6 rw-lg-12 left medium">
                     <input id="desc_edit" type="text" maxlength="64" placeholder="{{ 'Dein Beschreibungstext'|trans({},'game') }}" value="{{ home.description }}">

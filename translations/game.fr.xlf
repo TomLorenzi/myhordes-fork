@@ -19112,5 +19112,50 @@
         <target><![CDATA[%citizen% a distrait les zombies pour <strong>%duration%</strong> avec %item%!]]></target>
       </segment>
     </unit>
+    <unit id="QseufEj" name="Behausung">
+      <notes>
+        <note category="german">Behausung</note>
+      </notes>
+      <segment>
+        <source>Behausung</source>
+        <target>Habitation</target>
+      </segment>
+    </unit>
+    <unit id="wcoL8TX" name="+%def% Punkt(e)">
+      <notes>
+        <note category="german">+%def% Punkt(e)</note>
+      </notes>
+      <segment>
+        <source>+%def% Punkt(e)</source>
+        <target>+%def% point(s)</target>
+      </segment>
+    </unit>
+    <unit id="3whc17K" name="Heldenbonus">
+      <notes>
+        <note category="german">Heldenbonus</note>
+      </notes>
+      <segment>
+        <source>Heldenbonus</source>
+        <target>Bonus héros</target>
+      </segment>
+    </unit>
+    <unit id="ybPDgkf" name="Total">
+      <notes>
+        <note category="german">Total</note>
+      </notes>
+      <segment>
+        <source>Total</source>
+        <target>Total</target>
+      </segment>
+    </unit>
+    <unit id="uFrUwJs" name="ce2ed36">
+      <notes>
+        <note category="german">Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</note>
+      </notes>
+      <segment>
+        <source>Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</source>
+        <target>Les objets de défense (plaques de tôle, ...etc) sont à poser dans le Coffre.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -19077,5 +19077,50 @@
         <target><![CDATA[%citizen% a distraido a los zombies por <strong>%duration%</strong> con %item%!]]></target>
       </segment>
     </unit>
+    <unit id="QseufEj" name="Behausung">
+      <notes>
+        <note category="german">Behausung</note>
+      </notes>
+      <segment>
+        <source>Behausung</source>
+        <target>Vivienda</target>
+      </segment>
+    </unit>
+    <unit id="wcoL8TX" name="+%def% Punkt(e)">
+      <notes>
+        <note category="german">+%def% Punkt(e)</note>
+      </notes>
+      <segment>
+        <source>+%def% Punkt(e)</source>
+        <target>+%def% punto(s)</target>
+      </segment>
+    </unit>
+    <unit id="3whc17K" name="Heldenbonus">
+      <notes>
+        <note category="german">Heldenbonus</note>
+      </notes>
+      <segment>
+        <source>Heldenbonus</source>
+        <target>Bonus Héroe</target>
+      </segment>
+    </unit>
+    <unit id="ybPDgkf" name="Total">
+      <notes>
+        <note category="german">Total</note>
+      </notes>
+      <segment>
+        <source>Total</source>
+        <target>Total</target>
+      </segment>
+    </unit>
+    <unit id="uFrUwJs" name="ce2ed36">
+      <notes>
+        <note category="german">Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</note>
+      </notes>
+      <segment>
+        <source>Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</source>
+        <target>Les objetos de defensa (láminas de mteal, etc.) deben ser depositados en el Baúl.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

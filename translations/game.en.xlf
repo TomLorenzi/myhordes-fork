@@ -19083,5 +19083,50 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target><![CDATA[%citizen% has distracted the zombies for <strong>%duration%</strong> using the %item%!]]></target>
       </segment>
     </unit>
+    <unit id="QseufEj" name="Behausung">
+      <notes>
+        <note category="german">Behausung</note>
+      </notes>
+      <segment>
+        <source>Behausung</source>
+        <target>House</target>
+      </segment>
+    </unit>
+    <unit id="wcoL8TX" name="+%def% Punkt(e)">
+      <notes>
+        <note category="german">+%def% Punkt(e)</note>
+      </notes>
+      <segment>
+        <source>+%def% Punkt(e)</source>
+        <target>+%def% point(s)</target>
+      </segment>
+    </unit>
+    <unit id="3whc17K" name="Heldenbonus">
+      <notes>
+        <note category="german">Heldenbonus</note>
+      </notes>
+      <segment>
+        <source>Heldenbonus</source>
+        <target>Hero Bonusses</target>
+      </segment>
+    </unit>
+    <unit id="ybPDgkf" name="Total">
+      <notes>
+        <note category="german">Total</note>
+      </notes>
+      <segment>
+        <source>Total</source>
+        <target>Total</target>
+      </segment>
+    </unit>
+    <unit id="uFrUwJs" name="ce2ed36">
+      <notes>
+        <note category="german">Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</note>
+      </notes>
+      <segment>
+        <source>Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</source>
+        <target>Defensive objects (sheetmetal, trestles etc...) should be placed in the Chest.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
