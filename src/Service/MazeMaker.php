@@ -148,8 +148,7 @@ class MazeMaker
                     ->setPrototype( null )
                     ->setLocked( false )
                     ->setDoorPosition( 0 )
-                    ->setDecals( mt_rand(0,0xFFFF) )
-                    ->setDecalVariants( mt_rand(0,0xFFFF) )
+                    ->setUnifiedDecals( mt_rand(0,0xFFFFFFFF) )
                     ->setZombies(0)->setKilledZombies(0);
 
                 if ($ruinZone->getRoomFloor()) {
@@ -405,7 +404,7 @@ class MazeMaker
                     case 8: $decal_filter |= (1<<12); break;
                 }
 
-                $ruinZone->setDecals( $ruinZone->getDecals() & (~$decal_filter) );
+                $ruinZone->setUnifiedDecals( $ruinZone->getUnifiedDecals() & (~$decal_filter) );
             }
 
         $this->populateMaze( $base, $conf->get(TownConf::CONF_EXPLORABLES_ZOMBIES_INI, 25) );

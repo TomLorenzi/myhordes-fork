@@ -353,6 +353,17 @@ class RuinZone
         return $this;
     }
 
+    public function setUnifiedDecals(int $decals): self {
+        $this->setDecals( $decals & 0xFFFF );
+        $this->setDecalVariants( ($decals & 0xFFFF0000) >> 16 );
+
+        return $this;
+    }
+
+    public function getUnifiedDecals(): int {
+        return ($this->getDecals() & 0xFFFF) | ( ($this->getDecalVariants() & 0xFFFF) << 16 );
+    }
+
     public function getKilledZombies(): ?int
     {
         return $this->killedZombies;
