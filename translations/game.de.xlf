@@ -19105,5 +19105,14 @@
         <target>Dialyse</target>
       </segment>
     </unit>
+    <unit id="FpEFGuI" name="338378b">
+      <notes>
+        <note category="german">%citizen% hat die Zombies mit dem Gegenstand %item% &lt;strong&gt;%duration%&lt;/strong&gt; abgelenkt!</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat die Zombies mit dem Gegenstand %item% &lt;strong&gt;%duration%&lt;/strong&gt; abgelenkt!</source>
+        <target><![CDATA[%citizen% hat die Zombies mit dem Gegenstand %item% <strong>%duration%</strong> abgelenkt!]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -949,6 +949,8 @@ class ActionHandler
                         $tags[] = 'reverse-escape';
                     } else {
                         $base_zone->addEscapeTimer((new EscapeTimer())->setTime(new DateTime("+{$zoneEffect->getEscape()}sec")));
+                        if ($execute_info_cache['item'])
+                            $this->entity_manager->persist( $this->log->zoneEscapeItemUsed( $citizen, $execute_info_cache['item'], $zoneEffect->getEscape() ) );
                         $tags[] = 'escape';
                     }
                 }

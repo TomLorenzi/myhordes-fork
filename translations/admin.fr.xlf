@@ -3088,14 +3088,14 @@
         <target>Définir l'expérience héroïque</target>
       </segment>
     </unit>
-      <unit id="RkHxHq_" name="Hausverbesserungen:">
-          <notes>
-              <note category="german">Hausverbesserungen:</note>
-          </notes>
-          <segment>
-              <source>Hausverbesserungen:</source>
-              <target>Améliorations de la maison:</target>
-          </segment>
-      </unit>
+    <unit id="RkHxHq_" name="Hausverbesserungen:">
+      <notes>
+        <note category="german">Hausverbesserungen:</note>
+      </notes>
+      <segment>
+        <source>Hausverbesserungen:</source>
+        <target>Améliorations de la maison:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
