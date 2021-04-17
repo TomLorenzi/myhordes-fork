@@ -8,6 +8,13 @@
             </div>
         {% endif %}
     <div class="distinctions-list center">
+        {% if user.awards|length != 0 %}
+       <ul class="tabs plain" x-tab-group="awards" x-tab-control x-tab-default="dinstinctions">
+            <li class="tab" x-tab-id="dinstinctions"><div class="tab-link">{{ 'Statistiken'|trans({}, 'soul') }}</div></li>
+            <li class="tab" x-tab-id="titles"><div class="tab-link">{{ 'Errungenschaften'|trans({}, 'soul') }}</div></li>
+        </ul>
+        {% endif %}
+        <div x-tab-group="awards" x-tab-id="dinstinctions" x-tab-target>
         {% if pictos|length == 0 %}
             <div class="list empty">
                 {{ 'Dieser Spieler hat bisher noch keine Preise gewonnen...'|trans({}, 'global') }}
@@ -32,6 +39,16 @@
                 {% endfor %}
             </div>
         {% endif %}
+        </div>
+        <div x-tab-group="awards" x-tab-id="titles" x-tab-target>
+            <div class="TitlesList"> 
+                {% for award in user.awards %}
+                    {% if award.prototype is not null and award.prototype.title is not null %}
+                        <li>"{{ award.prototype.title|trans({},'game') }}"</li>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
     </div>
     <div class="distinctions-foot">
         &nbsp;

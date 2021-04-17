@@ -2764,5 +2764,23 @@
         <target>Du kannst kein Icon ohne einen Titel wählen.</target>
       </segment>
     </unit>
+    <unit id="wMIPplV" name="Statistiken">
+      <notes>
+        <note category="german">Statistiken</note>
+      </notes>
+      <segment>
+        <source>Statistiken</source>
+        <target>Estadísticas</target>
+      </segment>
+    </unit>
+    <unit id="XvXLLaX" name="Errungenschaften">
+      <notes>
+        <note category="german">Errungenschaften</note>
+      </notes>
+      <segment>
+        <source>Errungenschaften</source>
+        <target>Recompensas</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
