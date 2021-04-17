@@ -2,12 +2,12 @@
     <div class="distinctions-head center">
         {{ 'Statistiken'|trans({}, 'global') }}
     </div>
-    <div class="distinctions-list center">
-        {% if points is defined %}
-            <div class="overall">
+    {% if points is defined %}
+            <div class="distinctions-points">
                 {{ '%points% Punkte'|trans({'%points%':points}, 'global') }}
             </div>
         {% endif %}
+    <div class="distinctions-list center">
         {% if pictos|length == 0 %}
             <div class="list empty">
                 {{ 'Dieser Spieler hat bisher noch keine Preise gewonnen...'|trans({}, 'global') }}
