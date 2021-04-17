@@ -47,7 +47,7 @@ class GlobalPrivateMessageRepository extends ServiceEntityRepository
         } catch (\Exception $e) { return 0; }
     }
 
-    public function getUnreadDirectPMsByUser( User $user, ?DateTime $newer_then = null ): int
+    public function getUnreadDirectPMsByUser( User $user, ?DateTime $newer_then = null )
     {
         $qb = $this->createQueryBuilder('g')
                 ->andWhere('g.receiverUser = :user')->setParameter('user', $user)

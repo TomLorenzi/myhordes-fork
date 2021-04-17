@@ -876,7 +876,7 @@ class MessageGlobalPMController extends MessageController
         if (count($users) > 100) return AjaxResponse::error( self::ErrorGPMMemberLimitHit);
 
         foreach ($users as $chk_user) {
-            if ($chk_user === $user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+            //if ($chk_user === $user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
             if ($userHandler->hasRole($chk_user, 'ROLE_DUMMY')) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
@@ -893,7 +893,7 @@ class MessageGlobalPMController extends MessageController
 
         $perm->associate( $user, $pg, UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationLevelFounder);
         foreach ($users as $chk_user)
-            $perm->associate( $chk_user, $pg, UserGroupAssociation::GroupAssociationTypePrivateMessageMember);
+            if ($user !== $chk_user) $perm->associate( $chk_user, $pg, UserGroupAssociation::GroupAssociationTypePrivateMessageMember);
 
         $post = (new GlobalPrivateMessage())
             ->setSender($user)->setTimestamp($ts)->setReceiverGroup($pg)->setText($text);

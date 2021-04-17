@@ -199,7 +199,7 @@ class SoulController extends CustomAbstractController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         $searchName = $parser->get('name', '');
         $searchSkip = $parser->get_array('exclude', []);
-        $searchSkip[] = $user->getId();
+        if ($url !== 'pm_manage_users') $searchSkip[] = $user->getId();
 
         $selected_group = false;
         if ($url === 'town_add_users' && str_contains($searchName,',')) {
