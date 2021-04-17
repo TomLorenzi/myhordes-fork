@@ -180,7 +180,7 @@ class HTMLService {
 
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
-        $dom->loadHTML( '<?xml encoding="utf-8" ?>' . $text );
+        $dom->loadHTML( "<html lang=''><head><title></title><meta charset='UTF-8' /></head><body>$text</body></html>", LIBXML_COMPACT | LIBXML_NONET | LIBXML_HTML_NOIMPLIED);
         $body = $dom->getElementsByTagName('body');
         if (!$body || $body->length > 1) return false;
 
