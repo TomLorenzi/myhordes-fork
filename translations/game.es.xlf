@@ -7358,7 +7358,7 @@
       </notes>
       <segment>
         <source>%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!</source>
-        <target>%citizen% murió, ¡Se cayó de las almenas mientras de la manera más ridícula posible!</target>
+        <target>%citizen% murió, ¡Se cayó de las almenas de la manera más ridícula posible mientras defendía el pueblo!</target>
       </segment>
     </unit>
     <unit id="6PEMPdF" name="Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%">
@@ -7484,7 +7484,7 @@
       </notes>
       <segment>
         <source>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</source>
-        <target>Luego de todos sus esfuerzos, tu amigo no fue capaz de encontrar nada aquí...</target>
+        <target>Luego de todos sus esfuerzos, tu amigo/a no fue capaz de encontrar nada aquí...</target>
       </segment>
     </unit>
     <unit id="ldDJ4DB" name="5617aca">
@@ -7502,7 +7502,7 @@
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</source>
-        <target>¡Luego de todos sus esfuerzos, tu amigo acaba de encontrar: %item%!</target>
+        <target>¡Luego de todos sus esfuerzos, tu amigo/a acaba de encontrar: %item%!</target>
       </segment>
     </unit>
     <unit id="YuDVKDs" name="Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!">
@@ -14337,7 +14337,7 @@
       </notes>
       <segment>
         <source>Dieses Bauprojekt wurde bereits abgeschlossen.</source>
-        <target>Dieses Bauprojekt wurde bereits abgeschlossen.</target>
+        <target>Esta construcción ya está terminada.</target>
       </segment>
     </unit>
     <unit id="1RZZDef" name="576549b">
@@ -17239,7 +17239,7 @@
       </notes>
       <segment>
         <source>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet.</source>
-        <target>%citizen% ha trabajado en la construcción de %plan%.</target>
+        <target>%citizen% ha trabajado en la construcción %plan%.</target>
       </segment>
     </unit>
     <unit id="7MfXJbM" name="%citizen% hat das Gebäude %plan% repariert.">
