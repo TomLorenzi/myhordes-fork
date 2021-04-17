@@ -257,7 +257,7 @@ class CitizenHandler
                 }
             }
 
-            $this->entity_manager->persist($this->log->bankBanRecovery($citizen, $itemsForLog));
+            if (!empty($itemsForLog)) $this->entity_manager->persist($this->log->bankBanRecovery($citizen, $itemsForLog));
 
             // As he is shunned, we remove all the complaints
             $complaints = $this->entity_manager->getRepository(Complaint::class)->findByCulprit($citizen);
