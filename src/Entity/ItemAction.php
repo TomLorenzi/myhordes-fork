@@ -95,6 +95,11 @@ class ItemAction implements NamedEntity
      */
     private $escortMessage;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $allowedAtGate;
+
     public function __construct()
     {
         $this->requirements = new ArrayCollection();
@@ -298,6 +303,18 @@ class ItemAction implements NamedEntity
     public function setEscortMessage(?string $escortMessage): self
     {
         $this->escortMessage = $escortMessage;
+
+        return $this;
+    }
+
+    public function getAllowedAtGate(): ?bool
+    {
+        return $this->allowedAtGate;
+    }
+
+    public function setAllowedAtGate(?bool $allowedAtGate): self
+    {
+        $this->allowedAtGate = $allowedAtGate;
 
         return $this;
     }

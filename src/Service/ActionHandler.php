@@ -365,7 +365,9 @@ class ActionHandler
         $available = $crossed = [];
         if ($item->getBroken()) return;
 
+        $is_at_00 = $citizen->getZone() && $citizen->getZone()->isTownZone();
         foreach ($item->getPrototype()->getActions() as $action) {
+            if ($is_at_00 && !$action->getAllowedAtGate()) continue;
             $mode = $this->evaluate( $citizen, $item, null, $action, $tx );
             if ($mode >= self::ActionValidityAllow) $available[] = $action;
             else if ($mode >= self::ActionValidityCrossed) $crossed[] = $action;
@@ -378,6 +380,8 @@ class ActionHandler
      */
     public function getAvailableItemEscortActions(Citizen $citizen ): array {
 
+        $is_at_00 = $citizen->getZone() && $citizen->getZone()->isTownZone();
+
         $list = [];
         /** @var EscortActionGroup[] $escort_actions */
         $escort_actions = $this->entity_manager->getRepository(EscortActionGroup::class)->findAll();
@@ -388,6 +392,7 @@ class ActionHandler
             foreach ($citizen->getInventory()->getItems() as $item)
                 foreach ($item->getPrototype()->getActions() as $action)
                     if ($escort_action->getActions()->contains($action)) {
+                        if ($is_at_00 && !$action->getAllowedAtGate()) continue;
                         $mode = $this->evaluate( $citizen, $item, null, $action, $tx );
                         if ($mode >= self::ActionValidityAllow) $struct->addAction( $action, $item, true );
                         else if ($mode >= self::ActionValidityCrossed) $struct->addAction( $action, $item, false );
@@ -444,8 +449,10 @@ class ActionHandler
         $available = $crossed = [];
 
         if (!$citizen->getProfession()->getHeroic()) return;
+        $is_at_00 = $citizen->getZone() && $citizen->getZone()->isTownZone();
 
         foreach ($citizen->getHeroicActions() as $heroic) {
+            if ($is_at_00 && !$heroic->getAction()->getAllowedAtGate()) continue;
             $mode = $this->evaluate( $citizen, null, null, $heroic->getAction(), $tx );
             if ($mode >= self::ActionValidityAllow) $available[] = $heroic;
             else if ($mode >= self::ActionValidityCrossed) $crossed[] = $heroic;

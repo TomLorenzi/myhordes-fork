@@ -1113,6 +1113,8 @@ class InventoryAwareController extends CustomAbstractController
         /** @var ItemAction|null $action */
         $action = ($action_id < 0) ? null : $this->entity_manager->getRepository(ItemAction::class)->find( $action_id );
 
+
+
         $escort_mode = $base_citizen !== null;
         if ( !$item || !$action || $item->getBroken() ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         if ( $escort_mode && $item->getPoison() ) return AjaxResponse::error( BeyondController::ErrorEscortActionRefused );
@@ -1121,6 +1123,9 @@ class InventoryAwareController extends CustomAbstractController
         $zone = $citizen->getZone();
         if ($zone && !$this->zone_handler->check_cp($zone) && !$action->getAllowWhenTerrorized() && $this->citizen_handler->hasStatusEffect($citizen, 'terror') && !$this->zone_handler->check_cp($this->getActiveCitizen()->getZone()))
             return AjaxResponse::error( BeyondController::ErrorTerrorized );
+
+        if (!$action->getAllowedAtGate() && $zone && $zone->isTownZone())
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $secondary_inv = $zone ? $zone->getFloor() : $citizen->getHome()->getChest();
         if (!$citizen->getInventory()->getItems()->contains( $item ) && !$secondary_inv->getItems()->contains( $item )) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );

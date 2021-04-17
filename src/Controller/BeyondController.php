@@ -882,7 +882,7 @@ class BeyondController extends InventoryAwareController
      * @return Response
      */
     public function action_desert_api(JSONRequestParser $parser): Response {
-        if (!$this->activeCitizenCanAct() || $this->getActiveCitizen()->getZone()->isTownZone())
+        if (!$this->activeCitizenCanAct())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $uncover_fun = function(ItemAction &$a) {
