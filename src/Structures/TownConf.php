@@ -18,6 +18,13 @@ class TownConf extends Conf
     const CONF_MAP_MARGIN            = 'map.margin';
     const CONF_POPULATION_MIN        = 'population.min';
     const CONF_POPULATION_MAX        = 'population.max';
+
+    const CONF_ZONE_ITEMS_MIN        = 'zone_items.min';
+    const CONF_ZONE_ITEMS_MAX        = 'zone_items.max';
+    const CONF_ZONE_ITEMS_RE_MIN     = 'zone_items.refresh_min';
+    const CONF_ZONE_ITEMS_RE_MAX     = 'zone_items.refresh_max';
+    const CONF_ZONE_ITEMS_TOTAL_MAX  = 'zone_items.fill_max';
+
     const CONF_NUM_RUINS             = 'ruins';
     const CONF_NUM_EXPLORABLE_RUINS  = 'explorable_ruins';
     const CONF_BUILDINGS_CONSTRUCTED = 'initial_buildings';

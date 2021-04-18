@@ -270,6 +270,7 @@ class GameFactory
                 $zone
                     ->setX( $x - $ox )
                     ->setY( $y - $oy )
+                    ->setDigs( mt_rand( $conf->get(TownConf::CONF_ZONE_ITEMS_MIN, 4), $conf->get(TownConf::CONF_ZONE_ITEMS_MAX, 10) ) )
                     ->setFloor( new Inventory() )
                     ->setDiscoveryStatus( ($x - $ox == 0 && $y - $oy == 0) ? Zone::DiscoveryStateCurrent : Zone::DiscoveryStateNone )
                     ->setZombieStatus( ($x - $ox == 0 && $y - $oy == 0) ? Zone::ZombieStateExact : Zone::ZombieStateUnknown )

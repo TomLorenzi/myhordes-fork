@@ -245,8 +245,7 @@ class ZoneHandler
                         //TODO: Persist log only if it is an automatic search
                         $this->entity_manager->persist( $this->log->outsideDig( $current_citizen, $item_prototype, $timer->getTimestamp() ) ); 
                     }
-
-                    $zone->setDigs( max(($item_prototype || $zone->getDigs() <= 0) ? 0 : 1, $zone->getDigs() - 1) );
+                    if ($item_prototype) $zone->setDigs( max(0, $zone->getDigs() - 1) );
                     $zone_update = true;
 
                     try {

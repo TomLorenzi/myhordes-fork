@@ -1195,8 +1195,8 @@ class NightlyHandler
             if ($zone->getDirection() === $wind && round($distance) > $wind_dist) {
                 $reco_counter[1]++;
                 if ($this->random->chance( $recovery_chance )) {
-                    $digs = mt_rand(5, 10);
-                    $zone->setDigs( min( $zone->getDigs() + $digs, 25 ) );
+                    $digs = mt_rand( $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MIN, 2) , $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MAX, 5));
+                    $zone->setDigs( min( $zone->getDigs() + $digs, $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_TOTAL_MAX, 12) ) );
                     $this->log->debug( "Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Recovering by <info>{$digs}</info> to <info>{$zone->getDigs()}</info>." );
                     $reco_counter[0]++;
                 }
