@@ -764,20 +764,24 @@ class NightlyHandler
                     $targets[] = $citizen;
             }
         }
-
+					
+		
+        shuffle($targets);
+		
         $attack_day = $town->getDay();
-        $in_town = $town->getChaos() ? max(10,count($targets)) : count($targets);
-
 		if ($attack_day <= 3) $max_active = round($zombies*0.5*mt_rand(90,140)/100); 
-		elseif ($attack_day <= 14) $max_active = $attack_day * $in_town;
-		elseif ($attack_day <= 18) $max_active = ($attack_day + 4) * $in_town;
-		elseif ($attack_day <= 23) $max_active = ($attack_day + 5) * $in_town;
-		else                       $max_active = ($attack_day + 6) * $in_town;
+		elseif ($attack_day <= 14) $max_active = $attack_day * 15;
+		elseif ($attack_day <= 18) $max_active = ($attack_day + 4)*15;
+		elseif ($attack_day <= 23) $max_active = ($attack_day + 5)*15;
+		else                       $max_active = ($attack_day + 6)*15;
+		
+		
+		//$in_town = $town->getChaos() ? max(10,count($targets)) : count($targets);
+		$in_town = max(8, ceil(count($targets) * 0.85));
+		
+		$attacking = min($max_active, $overflow);
 
-        $attacking = min($max_active, $overflow);
-		$town_targets = max(8, ceil(count($targets) * 0.85));
-
-		$targets = $this->random->pick($targets, $town_targets, true);
+		$targets = $this->random->pick($targets, $in_town, true);
 
         $this->log->debug("<info>{$attacking}</info> Zombies are attacking <info>" . count($targets) . "</info> citizens!");
         $this->entity_manager->persist( $this->logTemplates->nightlyAttackLazy($town, $attacking) );
