@@ -11430,7 +11430,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut.</source>
-        <target>An extremely rare distinction, awarded only to the very earliest citizens of 'MyHordes'. Drugs are not good</target>
+        <target>An extremely rare distinction, awarded only to the very earliest citizens of 'MyHordes'. Drugs are not good.</target>
       </segment>
     </unit>
     <unit id="HhGnEYa" name="a0a5c8d">
@@ -14454,7 +14454,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ehrenpreis für die Teilnahme am UFC!</source>
-        <target>Ehrenpreis für die Teilnahme am UFC!</target>
+        <target>Honorary prize for participation in the UFC!</target>
       </segment>
     </unit>
     <unit id="67K3DmE" name="Seelenführer der Gemeinschaft">
@@ -16537,7 +16537,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Legendärer Dompteur</source>
-        <target>Legendärer Dompteur</target>
+        <target>Legendary tamer</target>
       </segment>
     </unit>
     <unit id="CI8PARg" name="f618392">
@@ -16546,7 +16546,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</source>
-        <target>Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</target>
+        <target>Award for the tamer members who won the Clash of the Titans event!</target>
       </segment>
     </unit>
     <unit id="HDssmyH" name="Fleisch-Schuldner">
@@ -19072,6 +19072,105 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Dialyse</source>
         <target>Dialysis</target>
+      </segment>
+    </unit>
+    <unit id="FpEFGuI" name="338378b">
+      <notes>
+        <note category="german">%citizen% hat die Zombies mit dem Gegenstand %item% &lt;strong&gt;%duration%&lt;/strong&gt; abgelenkt!</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat die Zombies mit dem Gegenstand %item% &lt;strong&gt;%duration%&lt;/strong&gt; abgelenkt!</source>
+        <target><![CDATA[%citizen% has distracted the zombies for <strong>%duration%</strong> using the %item%!]]></target>
+      </segment>
+    </unit>
+    <unit id="QseufEj" name="Behausung">
+      <notes>
+        <note category="german">Behausung</note>
+      </notes>
+      <segment>
+        <source>Behausung</source>
+        <target>House</target>
+      </segment>
+    </unit>
+    <unit id="wcoL8TX" name="+%def% Punkt(e)">
+      <notes>
+        <note category="german">+%def% Punkt(e)</note>
+      </notes>
+      <segment>
+        <source>+%def% Punkt(e)</source>
+        <target>+%def% point(s)</target>
+      </segment>
+    </unit>
+    <unit id="3whc17K" name="Heldenbonus">
+      <notes>
+        <note category="german">Heldenbonus</note>
+      </notes>
+      <segment>
+        <source>Heldenbonus</source>
+        <target>Hero Bonusses</target>
+      </segment>
+    </unit>
+    <unit id="ybPDgkf" name="Total">
+      <notes>
+        <note category="german">Total</note>
+      </notes>
+      <segment>
+        <source>Total</source>
+        <target>Total</target>
+      </segment>
+    </unit>
+    <unit id="uFrUwJs" name="ce2ed36">
+      <notes>
+        <note category="german">Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</note>
+      </notes>
+      <segment>
+        <source>Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</source>
+        <target>Defensive objects (sheetmetal, trestles etc...) should be placed in the Chest.</target>
+      </segment>
+    </unit>
+    <unit id="A9mtMsb" name="Wächterbonus">
+      <notes>
+        <note category="german">Wächterbonus</note>
+      </notes>
+      <segment>
+        <source>Wächterbonus</source>
+        <target>Guardian Bonus</target>
+      </segment>
+    </unit>
+    <unit id="GBprgS1" name="Einzigartige Errungenschaften">
+      <notes>
+        <note category="german">Einzigartige Errungenschaften</note>
+      </notes>
+      <segment>
+        <source>Einzigartige Errungenschaften</source>
+        <target>Einzigartige Errungenschaften</target>
+      </segment>
+    </unit>
+    <unit id="IdcXWbV" name="Besondere Errungenschaften">
+      <notes>
+        <note category="german">Besondere Errungenschaften</note>
+      </notes>
+      <segment>
+        <source>Besondere Errungenschaften</source>
+        <target>Besondere Errungenschaften</target>
+      </segment>
+    </unit>
+    <unit id="FTqbUsX" name="32aeb6b">
+      <notes>
+        <note category="german">Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</source>
+        <target>Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</target>
+      </segment>
+    </unit>
+    <unit id="uB8frFP" name="34394f0">
+      <notes>
+        <note category="german">Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</source>
+        <target>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</target>
       </segment>
     </unit>
   </file>

@@ -1271,7 +1271,9 @@ class ExternalController extends InventoryAwareController {
                 continue;
             }
 
-            if($pastLife->getCitizen() != null){
+            // This does not work; getCadaversInformation requires a Citizen, not a CitizenRankingProxy
+            // Commenting it out until it is fixed to prevent crashes
+            /*if($pastLife->getCitizen() != null){
                 $data_town = $this->getCadaversInformation($pastLife->getUser()->getCitizens(),$fields);
                 if(in_array('origin',$fields)){
                     $codeOrigin = '';
@@ -1282,7 +1284,7 @@ class ExternalController extends InventoryAwareController {
                 }
 
                 $data[] = $data_town;
-            }
+            }*/
 
         }
 

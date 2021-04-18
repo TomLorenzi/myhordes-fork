@@ -3088,5 +3088,32 @@
         <target>Hausverbesserungen:</target>
       </segment>
     </unit>
+    <unit id="hiqEnyg" name="Teleportieren:">
+      <notes>
+        <note category="german">Teleportieren:</note>
+      </notes>
+      <segment>
+        <source>Teleportieren:</source>
+        <target>Teleportieren:</target>
+      </segment>
+    </unit>
+    <unit id="rwkqvEL" name="In die Stadt">
+      <notes>
+        <note category="german">In die Stadt</note>
+      </notes>
+      <segment>
+        <source>In die Stadt</source>
+        <target>In die Stadt</target>
+      </segment>
+    </unit>
+    <unit id="9L29399" name="Zu einer Zone">
+      <notes>
+        <note category="german">Zu einer Zone</note>
+      </notes>
+      <segment>
+        <source>Zu einer Zone</source>
+        <target>Zu einer Zone</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

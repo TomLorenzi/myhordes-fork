@@ -8,6 +8,7 @@ use App\Entity\BlackboardEdit;
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
+use App\Entity\CitizenEscortSettings;
 use App\Entity\CitizenHome;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenHomeUpgrade;
@@ -17,6 +18,7 @@ use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\CitizenVote;
+use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\ExpeditionRoute;
 use App\Entity\Inventory;
@@ -39,6 +41,7 @@ use App\Service\JSONRequestParser;
 use App\Service\NightlyHandler;
 use App\Service\RandomGenerator;
 use App\Service\TownHandler;
+use App\Service\ZoneHandler;
 use App\Structures\EventConf;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
@@ -546,6 +549,79 @@ class AdminTownController extends AdminActionController
     }
 
     /**
+     * @Route("/api/admin/town/{id}/teleport", name="admin_teleport_citizen", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Add or remove an item from the bank
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser
+     * @param ZoneHandler $handler
+     * @param TownHandler $townHandler
+     * @return Response
+     */
+    public function teleport_citizen(int $id, JSONRequestParser $parser, ZoneHandler $handler, TownHandler $townHandler): Response
+    {
+        /** @var Town $town */
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $targets = $parser->get_array('targets');
+        if (empty($targets))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $to = $parser->get('to');
+        if ($to !== 'town' && ( !is_array($to) || count($to) !== 2 ))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $target_zone = $to === 'town' ? null : $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town,$to[0],$to[1]);
+        if ($target_zone === null && $to !== 'town') return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $old_zones = [];
+        $cp_target_zone = !$target_zone || $handler->check_cp($target_zone);
+
+        foreach (array_unique($targets) as $target) {
+            /** @var Citizen $citizen */
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($target);
+
+            if (!$citizen || $citizen->getTown() !== $town)
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+            if ($citizen->getZone() === $target_zone) continue;
+
+            if ($citizen->getZone()) {
+                if (!isset($old_zones[$citizen->getZone()->getId()]))
+                    $old_zones[$citizen->getZone()->getId()] = [$citizen->getZone(),$handler->check_cp( $citizen->getZone() )];
+
+                if ($dig_timer = $citizen->getCurrentDigTimer()) {
+                    $dig_timer->setPassive(true);
+                    $this->entity_manager->persist( $dig_timer );
+                }
+
+                $citizen->getZone()->removeCitizen( $citizen );
+            }
+
+            if ($target_zone) $target_zone->addCitizen( $citizen );
+            $this->entity_manager->persist($citizen);
+        }
+
+        foreach ($old_zones as $old_zone_data) {
+            $handler->handleCitizenCountUpdate($old_zone_data[0],$old_zone_data[1]);
+            $this->entity_manager->persist($old_zone_data[0]);
+        }
+
+        if ($target_zone) {
+            $upgraded_map = $townHandler->getBuilding($town,'item_electro_#00', true);
+            $target_zone
+                ->setDiscoveryStatus( Zone::DiscoveryStateCurrent )
+                ->setZombieStatus( max($upgraded_map ? Zone::ZombieStateExact : Zone::ZombieStateEstimate, $target_zone->getZombieStatus() ) );
+            $handler->handleCitizenCountUpdate($target_zone,$cp_target_zone);
+            $this->entity_manager->persist($target_zone);
+        }
+
+        $this->entity_manager->flush();
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("/api/admin/town/{id}/spawn_item", name="admin_spawn_item", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Add or remove an item from the bank
@@ -664,7 +740,6 @@ class AdminTownController extends AdminActionController
                 $handler->applyProfession($citizen, $profession);
                 $this->entity_manager->persist($citizen);
             }
-
         }
 
 
@@ -842,12 +917,81 @@ class AdminTownController extends AdminActionController
             $citizen = $this->entity_manager->getRepository(Citizen::class)->find($target);
             if (!$citizen || $citizen->getTown() !== $town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-            if (!$citizen->getActive()) continue;
-
             if ($control) $this->citizen_handler->inflictStatus( $citizen, $citizenStatus );
             else $this->citizen_handler->removeStatus( $citizen, $citizenStatus );
 
             $this->entity_manager->persist($citizen);
+        }
+
+        $this->entity_manager->flush();
+        return AjaxResponse::success();
+    }
+
+    private function town_manage_pseudo_role(Town $town, JSONRequestParser $parser, CitizenHandler $handler): Response {
+        $targets = $parser->get_array('targets');
+        $control = $parser->get_int('control', 0) > 0;
+
+        $citizens = [];
+        foreach ($targets as $target) {
+            /** @var Citizen $citizen */
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($target);
+            if (!$citizen || $citizen->getTown() !== $town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+            $citizens[] = $citizen;
+        }
+
+        switch ($parser->get('role')) {
+
+            case '_ban_':
+                foreach ($citizens as $citizen) {
+                    $citizen->setBanished($control);
+                    $this->entity_manager->persist($citizen);
+                }
+                break;
+            case '_esc_':
+                $c1 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'tg_hide']);
+                $c2 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'tg_tomb']);
+
+                foreach ($citizens as $citizen) {
+                    if (!$citizen->getZone() || !$citizen->getAlive() || $citizen->activeExplorerStats() || $citizen->getStatus()->contains($c1) || $citizen->getStatus()->contains($c2)) continue;
+
+                    if (!$control) {
+                        if ($citizen->getEscortSettings()) $this->entity_manager->remove($citizen->getEscortSettings());
+                        $citizen->setEscortSettings(null);
+
+                    } elseif (!$citizen->getEscortSettings())
+                        $citizen->setEscortSettings((new CitizenEscortSettings())->setCitizen($citizen)->setAllowInventoryAccess(true)->setForceDirectReturn(false));
+                    else $citizen->getEscortSettings()->setAllowInventoryAccess(true)->setForceDirectReturn(false);
+                    $this->entity_manager->persist($citizen);
+                }
+            case '_nw_':
+                $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
+                foreach ($citizens as $citizen) {
+                    $activeCitizenWatcher = null;
+
+                    foreach ($watchers as $watcher)
+                        if ($watcher->getCitizen() === $citizen){
+                            $activeCitizenWatcher = $watcher;
+                            break;
+                        }
+
+                    if ($control) {
+                        if ($activeCitizenWatcher) continue;
+                        $citizenWatch = (new CitizenWatch())->setCitizen($citizen)->setDay($town->getDay());
+                        $town->addCitizenWatch($citizenWatch);
+                        $this->entity_manager->persist($citizenWatch);
+                    } else {
+                        if ($activeCitizenWatcher === null) continue;
+                        $town->removeCitizenWatch($activeCitizenWatcher);
+                        $citizen->removeCitizenWatch($activeCitizenWatcher);
+                        $this->entity_manager->remove($activeCitizenWatcher);
+                    }
+
+                    $this->entity_manager->persist($citizen);
+                }
+                break;
+            default: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
         }
 
         $this->entity_manager->flush();
@@ -868,6 +1012,9 @@ class AdminTownController extends AdminActionController
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
+        if (in_array($parser->get('role'), ['_ban_','_esc_','_nw_'] ))
+            return $this->town_manage_pseudo_role($town,$parser,$handler);
+
         $role_id = $parser->get_int('role');
         $targets = $parser->get_array('targets');
 
@@ -881,8 +1028,6 @@ class AdminTownController extends AdminActionController
             /** @var Citizen $citizen */
             $citizen = $this->entity_manager->getRepository(Citizen::class)->find($target);
             if (!$citizen || $citizen->getTown() !== $town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-            if (!$citizen->getActive()) continue;
 
             if ($control) $this->citizen_handler->addRole($citizen, $citizenRole);
             else $this->citizen_handler->removeRole($citizen, $citizenRole);

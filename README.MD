@@ -203,6 +203,11 @@ yarn install
 yarn encore dev
 ```
 
+Sometimes, elements or features pulled from the Git may be incorrect or missing. If that happens, you need to clear the cache to fix it:
+```bash
+bin/console cache:clear
+```
+
 ## Setting up the apache server
 
 This part will allow you and potentially other users to access the game from a browser via the apache2 web server.

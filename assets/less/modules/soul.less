@@ -14,7 +14,7 @@ div.tooltip.badge-tooltip {
     margin-bottom: 5px; color: #ddab76; border-bottom: 2px solid #ddab76; text-transform: lowercase; font-variant: small-caps; font-weight: bold;
     font-weight: bold;
   }
-  &>div:last-child > p { display: inline; margin: 0; word-wrap: break-word; }
+  &>div:last-child>p, &>div:last-child { display: inline; margin: 0; word-wrap: break-word; }
 }
 
 #users-list-soul, #pm-users-list-container, #pm-add-users-list-container, #town-add-users-list-container {
@@ -76,16 +76,17 @@ div.tooltip.badge-tooltip {
     }
 
     .distinctions {
-        max-width: 270px; background: url("../../img/soul/rewardsBg_header.gif") top/100% no-repeat;
-        padding-bottom: 0 !important; margin-left: 3px;
+        width: 270px; max-width: 100%; background: url("../../img/soul/rewardsBg_header.gif") top/100% no-repeat, url("../../img/soul/rewardsBg_back.gif") top/100% repeat-y;
+        padding-bottom: 0 !important; margin-left: 3px; display: inline-block;
 
         .distinctions-head {
             padding-top: 45px; color: #f0d79e; font-variant: small-caps; font-weight: bold; font-size: 2rem;
         }
 
+        .distinctions-points { color: #FF8866; font-size: 2.4rem; margin-top: 5px; }
+
         .distinctions-list {
             padding: 0 10px; min-height: 100px;
-            .overall { color: #FF8866; font-size: 2.4rem; margin-top: 5px; }
 
             .empty {
                 border: 1px dashed #823D2D; color: #FF8866; padding: 10px; font-size: 1.2rem; font-style: italic;
@@ -102,6 +103,34 @@ div.tooltip.badge-tooltip {
                     .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i = 1) { &[title="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+4,@m,@i+1); }
                     .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i <= @m) and not (@i = 1) { &[title="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+5,@m,@i+1); }
                     .pictoBitmapFont();
+                }
+            }
+            .tabs {
+                border-bottom: 1px solid #633424; min-height: 14px; background: none;
+                .tab-soul-distinctions {
+                  display: inline-block; padding: 2px 4px; margin-left: 2px; text-align: center; font-size: 8pt;
+                  line-height: 1.2em; font-weight: bold; text-transform: uppercase; text-decoration: underline;
+                  color: #f58766; cursor: pointer;
+                  &:hover { color: #f0d79e; }
+
+                  &.selected {
+                    border: 1px solid #633424; border-bottom: 0; box-shadow: inset 0 1px 2px rgb(0,0,0,0.5);
+                    color: #ddab76; cursor: default;
+                    &:hover { color: #DDAB76; background-color: #3d2016; }
+                  }
+
+                }
+            }
+            .title-list {
+              text-decoration: none; color: white; list-style: none; text-align: initial; font-variant: small-caps;
+              font-size: 75%; max-height: 500px; overflow-y: auto; overflow-x: hidden;
+                li {
+                    border-bottom: 1px dashed #633424; cursor: default;
+                    &.chapter {
+                      font-weight: bold; color: #f58766;
+                      &:not(:first-child) { margin-top: 10px; }
+                    }
+                    &:not(.chapter) {list-style: url("../../img/icons/small_middot.gif"); margin-left: 20px;}
                 }
             }
         }
@@ -468,4 +497,3 @@ ul.coa-users {
   text-decoration: none !important;
   font-size: 120%; padding-top: 5px; color: #ddab76; font-weight: bold;
 }
-

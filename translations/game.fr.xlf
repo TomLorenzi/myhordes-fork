@@ -277,7 +277,7 @@
       </notes>
       <segment>
         <source>Die letzte Anzeige hat das Fass zum Überlaufen gebracht. %citizen% wurde von den Bürgern der Stadt verbannt!</source>
-        <target>La dernière plainte a été celle de trop. %citizen% a été bannis de la ville !</target>
+        <target>La dernière plainte a été celle de trop. %citizen% a été banni de la ville !</target>
       </segment>
     </unit>
     <unit id="gaDgdbl" name="Du kannst die Stadt von hier aus nicht betreten.">
@@ -8276,7 +8276,7 @@
       </notes>
       <segment>
         <source>Resigniert und untröstlich sahen die Bürger, wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Résignés et inconsolables, les citoyens ont vu une horde de %num% zombies se diriger vers la ville... Sortie de nulle part, la meute est soudainement apparue à la porte de la ville...</target>
+        <target>Dépités, les citoyens ont vu une horde de %num% zombies se diriger vers la ville... Sortie de nulle part, la meute est soudainement apparue à la porte de la ville...</target>
       </segment>
     </unit>
     <unit id="OVTYzwK" name="%sender%: %message%">
@@ -18497,7 +18497,7 @@
       </notes>
       <segment>
         <source>%citizen% hat versucht %item% aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.</source>
-        <target>%citizen% a essayé de voler %item% dans les coffres de la Banque mais n'a montré AUCUNE DISCRETION en le faisant.</target>
+        <target><![CDATA[%citizen% a tenté de voler <strong>voler</strong> %item% dans la Banque mais a été <strong>PARFAITEMENT INCAPABLE DE FAIRE PREUVE DE DISCRÉTION</strong> !!]]></target>
       </segment>
     </unit>
     <unit id="LWSEhn0" name="ed08c19">
@@ -18506,7 +18506,7 @@
       </notes>
       <segment>
         <source>Jemand hat %item% aus der Bank entwendet, aber er (oder sie) konnte nicht identifiziert werden.</source>
-        <target>Quelqu'un a volé %item% dans les coffres de la Banque mais il (ou elle) n'a pas pu être identifié(e).</target>
+        <target>Quelqu'un a pris %item% dans les coffres de la Banque mais il (ou elle) n'a pu être identifié(e).</target>
       </segment>
     </unit>
     <unit id="pygRaEs" name="0a0a304">
@@ -19101,6 +19101,105 @@
       <segment>
         <source>Dialyse</source>
         <target>Sans Foie ni Loi</target>
+      </segment>
+    </unit>
+    <unit id="FpEFGuI" name="338378b">
+      <notes>
+        <note category="german">%citizen% hat die Zombies mit dem Gegenstand %item% &lt;strong&gt;%duration%&lt;/strong&gt; abgelenkt!</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat die Zombies mit dem Gegenstand %item% &lt;strong&gt;%duration%&lt;/strong&gt; abgelenkt!</source>
+        <target><![CDATA[%citizen% a distrait les zombies pour <strong>%duration%</strong> avec %item%!]]></target>
+      </segment>
+    </unit>
+    <unit id="QseufEj" name="Behausung">
+      <notes>
+        <note category="german">Behausung</note>
+      </notes>
+      <segment>
+        <source>Behausung</source>
+        <target>Habitation</target>
+      </segment>
+    </unit>
+    <unit id="wcoL8TX" name="+%def% Punkt(e)">
+      <notes>
+        <note category="german">+%def% Punkt(e)</note>
+      </notes>
+      <segment>
+        <source>+%def% Punkt(e)</source>
+        <target>+%def% point(s)</target>
+      </segment>
+    </unit>
+    <unit id="3whc17K" name="Heldenbonus">
+      <notes>
+        <note category="german">Heldenbonus</note>
+      </notes>
+      <segment>
+        <source>Heldenbonus</source>
+        <target>Bonus héros</target>
+      </segment>
+    </unit>
+    <unit id="ybPDgkf" name="Total">
+      <notes>
+        <note category="german">Total</note>
+      </notes>
+      <segment>
+        <source>Total</source>
+        <target>Total</target>
+      </segment>
+    </unit>
+    <unit id="uFrUwJs" name="ce2ed36">
+      <notes>
+        <note category="german">Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</note>
+      </notes>
+      <segment>
+        <source>Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</source>
+        <target>Les objets de défense (plaques de tôle, ...etc) sont à poser dans le Coffre.</target>
+      </segment>
+    </unit>
+    <unit id="A9mtMsb" name="Wächterbonus">
+      <notes>
+        <note category="german">Wächterbonus</note>
+      </notes>
+      <segment>
+        <source>Wächterbonus</source>
+        <target>Bonus Gardien</target>
+      </segment>
+    </unit>
+    <unit id="GBprgS1" name="Einzigartige Errungenschaften">
+      <notes>
+        <note category="german">Einzigartige Errungenschaften</note>
+      </notes>
+      <segment>
+        <source>Einzigartige Errungenschaften</source>
+        <target>Einzigartige Errungenschaften</target>
+      </segment>
+    </unit>
+    <unit id="IdcXWbV" name="Besondere Errungenschaften">
+      <notes>
+        <note category="german">Besondere Errungenschaften</note>
+      </notes>
+      <segment>
+        <source>Besondere Errungenschaften</source>
+        <target>Besondere Errungenschaften</target>
+      </segment>
+    </unit>
+    <unit id="FTqbUsX" name="32aeb6b">
+      <notes>
+        <note category="german">Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</source>
+        <target>Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</target>
+      </segment>
+    </unit>
+    <unit id="uB8frFP" name="34394f0">
+      <notes>
+        <note category="german">Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</source>
+        <target>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</target>
       </segment>
     </unit>
   </file>

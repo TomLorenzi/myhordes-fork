@@ -225,8 +225,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             'next' => ($new_zone->getX() !== 0 || $new_zone->getY() !== 0) ? $new_zone->getCorridor() : 'exit',
             'dp' => $new_zone->getDoorPosition(),
             'l' => $new_zone->getLocked(),
-            'd' => $new_zone->getDecals(),
-            'dv' => $new_zone->getDecalVariants(),
+            'd' => $new_zone->getUnifiedDecals(),
         ]);
     }
 

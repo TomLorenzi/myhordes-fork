@@ -7358,7 +7358,7 @@
       </notes>
       <segment>
         <source>%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!</source>
-        <target>%citizen% murió, ¡Se cayó de las almenas mientras de la manera más ridícula posible!</target>
+        <target>%citizen% murió, ¡Se cayó de las almenas de la manera más ridícula posible mientras defendía el pueblo!</target>
       </segment>
     </unit>
     <unit id="6PEMPdF" name="Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%">
@@ -7484,7 +7484,7 @@
       </notes>
       <segment>
         <source>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</source>
-        <target>Luego de todos sus esfuerzos, tu amigo no fue capaz de encontrar nada aquí...</target>
+        <target>Luego de todos sus esfuerzos, tu amigo/a no fue capaz de encontrar nada aquí...</target>
       </segment>
     </unit>
     <unit id="ldDJ4DB" name="5617aca">
@@ -7502,7 +7502,7 @@
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</source>
-        <target>¡Luego de todos sus esfuerzos, tu amigo acaba de encontrar: %item%!</target>
+        <target>¡Luego de todos sus esfuerzos, tu amigo/a acaba de encontrar: %item%!</target>
       </segment>
     </unit>
     <unit id="YuDVKDs" name="Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!">
@@ -10943,7 +10943,7 @@
       </notes>
       <segment>
         <source>Erschöpft</source>
-        <target>Cansa</target>
+        <target>Cansado</target>
       </segment>
     </unit>
     <unit id="UEL2oHO" name="Spielzeit">
@@ -11106,7 +11106,7 @@
       </notes>
       <segment>
         <source>Für die Community-Organisatoren und Entwickler des Clash of the Titans Events. Die Gemeinschaft sagt Danke!</source>
-        <target>Otorgado por ser uno de los organizadores o desarrolladores de la comunidad en Clash of Héroes. ¡Nuestra comunidad te lo agradece!</target>
+        <target>Otorgado por ser uno de los organizadores o desarrolladores de la comunidad en Choque de Héroes. ¡Nuestra comunidad te lo agradece!</target>
       </segment>
     </unit>
     <unit id="ejbkJBk" name="Schlachtenbummler">
@@ -11124,7 +11124,7 @@
       </notes>
       <segment>
         <source>Diese seltene Auszeichnung haben nur jene Verdammten erhalten, die an der Schlacht der Berufe teilgenommen haben.</source>
-        <target>Una distinción muy rara, otorgada solo a los pocos intrépidos que participaron en el primer Choque de héroes.</target>
+        <target>Una distinción muy rara, otorgada solo a los pocos intrépidos que participaron en el primer Choque de Héroes.</target>
       </segment>
     </unit>
     <unit id="jgy_VVR" name="Shock of heroes">
@@ -11151,7 +11151,7 @@
       </notes>
       <segment>
         <source>Ultimativer Tod des SoH</source>
-        <target>El Último Habitante del CDH</target>
+        <target>Héroe de Leyenda</target>
       </segment>
     </unit>
     <unit id="wUWp3zG" name="f54ad37">
@@ -11160,7 +11160,7 @@
       </notes>
       <segment>
         <source>Auszeichnung für den größten Helden, der während des Shock of Heroes Events am längsten überlebt hat. Du bist nun eine Legende der Außenwelt!</source>
-        <target>Reconocimiento al héroe más grande que sobrevivió más tiempo durante el choque de héroes, ¡ahora eres parte de la leyenda del inframundo!</target>
+        <target>Esta distinción es entregada a un solo hombre, aquel que cumplió con su destino legendario y mantuvo a la muerte fuera de su camino en el Choque de Héroes.</target>
       </segment>
     </unit>
     <unit id="74NqrNr" name="Triumphator">
@@ -11178,7 +11178,7 @@
       </notes>
       <segment>
         <source>Diese seltene Auszeichnung wurde den Einsiedlern verliehen, die mit ihrer Stadt die Schlacht der Berufe gewonnen haben. Respekt!</source>
-        <target>¡Victoria como Ermitaño durante el choque de héroes!</target>
+        <target>¡Victoria como Ermitaño durante el Choque de Héroes!</target>
       </segment>
     </unit>
     <unit id="2M7Hmok" name="Aufklärer - Gewinner des SoH">
@@ -11196,7 +11196,7 @@
       </notes>
       <segment>
         <source>Sieg für die Aufklärer beim Shock of Heroes Event!</source>
-        <target>¡Victoria como Explorador durante el choque de héroes!</target>
+        <target>¡Victoria como Explorador durante el Choque de Héroes!</target>
       </segment>
     </unit>
     <unit id="z03nP6t" name="Shock of Heroes Champion">
@@ -11205,7 +11205,7 @@
       </notes>
       <segment>
         <source>Shock of Heroes Champion</source>
-        <target>Campeón de Choque de héroes</target>
+        <target>Campeón de Choque de Héroes</target>
       </segment>
     </unit>
     <unit id="GGz46PZ" name="Sieg für die Wächter beim Shock of Heroes Event!">
@@ -11214,7 +11214,7 @@
       </notes>
       <segment>
         <source>Sieg für die Wächter beim Shock of Heroes Event!</source>
-        <target>¡Victoria como Guardián durante el choque de héroes!</target>
+        <target>¡Victoria como Guardián durante el Choque de Héroes!</target>
       </segment>
     </unit>
     <unit id="53Rhzgi" name="Bewohner Koh-Lambdas">
@@ -11394,7 +11394,7 @@
       </notes>
       <segment>
         <source>Von einem Moderator bearbeitet.</source>
-        <target>Von einem Moderator bearbeitet.</target>
+        <target>Editado por un moderador.</target>
       </segment>
     </unit>
     <unit id="a5Hokue" name="Nur altgediente Helden können auf die Wandtafel schreiben">
@@ -11412,7 +11412,7 @@
       </notes>
       <segment>
         <source>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut.</source>
-        <target>Dies ist eine äußert seltene Auszeichnung, die den ersten Spielern von 'MyHordes' vorbehalten ist. Drogen sind nicht gut.</target>
+        <target>Una distinción extremadamente rara, otorgada solo a los primeros ciudadanos de 'MyHordes'. Las drogas no son buenas.</target>
       </segment>
     </unit>
     <unit id="HhGnEYa" name="a0a5c8d">
@@ -11682,7 +11682,7 @@
       </notes>
       <segment>
         <source>Schattenmann</source>
-        <target>Schattenmann</target>
+        <target>Fantasma de arena</target>
       </segment>
     </unit>
     <unit id="Gk4T3iI" name="Wüstenphantom">
@@ -11691,7 +11691,7 @@
       </notes>
       <segment>
         <source>Wüstenphantom</source>
-        <target>Wüstenphantom</target>
+        <target>Más fuerte que Sam Fisher</target>
       </segment>
     </unit>
     <unit id="0dGXUFA" name="Solid Snake war gestern...">
@@ -11790,7 +11790,7 @@
       </notes>
       <segment>
         <source>Hundewurst schmeckt gar nicht schlecht!</source>
-        <target>Hundewurst schmeckt gar nicht schlecht!</target>
+        <target>La comida para perros no sabe tan mal</target>
       </segment>
     </unit>
     <unit id="7QwnRMJ" name="Wurmfresser">
@@ -11844,7 +11844,7 @@
       </notes>
       <segment>
         <source>Heraklit der Außenwelt</source>
-        <target>Heraklit der Außenwelt</target>
+        <target>Solo... estoy tan solo</target>
       </segment>
     </unit>
     <unit id="W6Yibia" name="Diplomierter Scharlatan">
@@ -11880,7 +11880,7 @@
       </notes>
       <segment>
         <source>Mystischer Seher</source>
-        <target>Mystischer Seher</target>
+        <target>Reciclador de almas</target>
       </segment>
     </unit>
     <unit id="XHBWlNh" name="Voodoo Sorceror">
@@ -11889,7 +11889,7 @@
       </notes>
       <segment>
         <source>Voodoo Sorceror</source>
-        <target>Voodoo Sorceror</target>
+        <target>Hechicero vudú</target>
       </segment>
     </unit>
     <unit id=".MsSFMC" name="Yo, wir schaffen das!">
@@ -11934,7 +11934,7 @@
       </notes>
       <segment>
         <source>Seele des Handwerks</source>
-        <target>Seele des Handwerks</target>
+        <target>TecnicoMecanoMegalomano</target>
       </segment>
     </unit>
     <unit id="1nG_get" name="Die Mauer">
@@ -11988,7 +11988,7 @@
       </notes>
       <segment>
         <source>Hekatoncheir</source>
-        <target>Hekatoncheir</target>
+        <target>Ciudadano insuperable</target>
       </segment>
     </unit>
     <unit id="oBRWtxD" name="Kantinenkoch">
@@ -12051,7 +12051,7 @@
       </notes>
       <segment>
         <source>Meisterhafter Kochlöffelschwinger</source>
-        <target>Meisterhafter Kochlöffelschwinger</target>
+        <target>Maestro Cocinero</target>
       </segment>
     </unit>
     <unit id="N5OsYPz" name="Amateur-Laborratte">
@@ -12087,7 +12087,7 @@
       </notes>
       <segment>
         <source>Produkttester</source>
-        <target>Produkttester</target>
+        <target>Catador de productos</target>
       </segment>
     </unit>
     <unit id="lktSNSj" name="Wüstenstadt-Dealer">
@@ -12096,7 +12096,7 @@
       </notes>
       <segment>
         <source>Wüstenstadt-Dealer</source>
-        <target>Wüstenstadt-Dealer</target>
+        <target>Distribuidor local</target>
       </segment>
     </unit>
     <unit id="umCGzIQ" name="X-Men Leser">
@@ -12186,7 +12186,7 @@
       </notes>
       <segment>
         <source>Müllkind</source>
-        <target>Müllkind</target>
+        <target>Recolector de basura</target>
       </segment>
     </unit>
     <unit id="d9pmB69" name="Maulheld">
@@ -12267,7 +12267,7 @@
       </notes>
       <segment>
         <source>Dein Haus ist mein Haus</source>
-        <target>Dein Haus ist mein Haus</target>
+        <target>Tu casa es mi casa</target>
       </segment>
     </unit>
     <unit id="EAUfc_T" name="Ästhet">
@@ -12402,7 +12402,7 @@
       </notes>
       <segment>
         <source>Ich liebe den Geruch von gewaschenen Leichen am Morgen.</source>
-        <target>Ich liebe den Geruch von gewaschenen Leichen am Morgen.</target>
+        <target>Amo el olor a Cadaver remojado por la mañana</target>
       </segment>
     </unit>
     <unit id="LhDxZvT" name="Müllmann">
@@ -12456,7 +12456,7 @@
       </notes>
       <segment>
         <source>Nenn mich Herrin</source>
-        <target>Nenn mich Herrin</target>
+        <target>Aprietame las esposas</target>
       </segment>
     </unit>
     <unit id="xCZqHbA" name="Ich möchte dein Objekt sein.">
@@ -12465,7 +12465,7 @@
       </notes>
       <segment>
         <source>Ich möchte dein Objekt sein.</source>
-        <target>Ich möchte dein Objekt sein.</target>
+        <target>Quiero ser un objeto</target>
       </segment>
     </unit>
     <unit id="MFlCpq0" name="Stadtmetzger">
@@ -12753,7 +12753,7 @@
       </notes>
       <segment>
         <source>Ein Flicken und alles ist wie neu</source>
-        <target>Ein Flicken und alles ist wie neu</target>
+        <target>Ponga cinta adhesiva allí.</target>
       </segment>
     </unit>
     <unit id="5gsWNg_" name="Kettensägenmassaker">
@@ -12762,7 +12762,7 @@
       </notes>
       <segment>
         <source>Kettensägenmassaker</source>
-        <target>Kettensägenmassaker</target>
+        <target>Masacre de la motosierra</target>
       </segment>
     </unit>
     <unit id="_qvR5kt" name="Hobby-Heimwerker">
@@ -12861,7 +12861,7 @@
       </notes>
       <segment>
         <source>Unglaubliche Entschlossenheit</source>
-        <target>Unglaubliche Entschlossenheit</target>
+        <target>Increíble determinación</target>
       </segment>
     </unit>
     <unit id="KIn20mU" name="Der letzte Überlebende">
@@ -12870,7 +12870,7 @@
       </notes>
       <segment>
         <source>Der letzte Überlebende</source>
-        <target>Der letzte Überlebende</target>
+        <target>El último superviviente</target>
       </segment>
     </unit>
     <unit id="F4i5n1d" name="Lebensmüder Kundschafter">
@@ -12915,7 +12915,7 @@
       </notes>
       <segment>
         <source>Neil Armstrong der Außenwelt</source>
-        <target>Neil Armstrong der Außenwelt</target>
+        <target>Neil Armstrong del Ultramundo</target>
       </segment>
     </unit>
     <unit id="uAR60V." name="Wenn ich das nur vorher gewusst hätte...">
@@ -13023,7 +13023,7 @@
       </notes>
       <segment>
         <source>Zerberus</source>
-        <target>Zerberus</target>
+        <target>Cerbero</target>
       </segment>
     </unit>
     <unit id="mUXkV5x" name="Brutalo">
@@ -13122,7 +13122,7 @@
       </notes>
       <segment>
         <source>Fortuna</source>
-        <target>Fortuna</target>
+        <target>Afortunado</target>
       </segment>
     </unit>
     <unit id="mdOmwT_" name="Ultimate Fighter">
@@ -13212,7 +13212,7 @@
       </notes>
       <segment>
         <source>Ich sehe überall Tote!</source>
-        <target>Challenge Accepted!</target>
+        <target>¡Desafío aceptado!</target>
       </segment>
     </unit>
     <unit id="VkcylUg" name="Ich komme heute Nacht nicht heim...">
@@ -13338,7 +13338,7 @@
       </notes>
       <segment>
         <source>Laborratte</source>
-        <target>Laborratte</target>
+        <target>Rata de laboratorio</target>
       </segment>
     </unit>
     <unit id="Y7OBSHf" name="Pille palle, 3 Tage wach!">
@@ -13347,7 +13347,7 @@
       </notes>
       <segment>
         <source>Pille palle, 3 Tage wach!</source>
-        <target>Pille palle, 3 Tage wach!</target>
+        <target>¡Probador de productos!</target>
       </segment>
     </unit>
     <unit id="0A79ZRe" name="Timothy Leary">
@@ -13356,7 +13356,7 @@
       </notes>
       <segment>
         <source>Timothy Leary</source>
-        <target>Timothy Leary</target>
+        <target>¿Qué quieres decir con que estos no son caramelos?</target>
       </segment>
     </unit>
     <unit id="T._inuH" name="Menschenfleischliebhaber">
@@ -13383,7 +13383,7 @@
       </notes>
       <segment>
         <source>Totmacher</source>
-        <target>Totmacher</target>
+        <target>Creador de la muerte</target>
       </segment>
     </unit>
     <unit id="gUIyMph" name="Jeffrey Dahmer">
@@ -13410,7 +13410,7 @@
       </notes>
       <segment>
         <source>Fast schon ein Zombie...</source>
-        <target>Fast schon ein Zombie...</target>
+        <target>Aspirante a zombi...</target>
       </segment>
     </unit>
     <unit id="hQntRjp" name="Schmeckt am besten wenn's noch schreit!">
@@ -13419,7 +13419,7 @@
       </notes>
       <segment>
         <source>Schmeckt am besten wenn's noch schreit!</source>
-        <target>Schmeckt am besten wenn's noch schreit!</target>
+        <target>Es mejor cuando gritan.</target>
       </segment>
     </unit>
     <unit id="Jn.J6ZI" name="Die Macht der Proteine">
@@ -13428,7 +13428,7 @@
       </notes>
       <segment>
         <source>Die Macht der Proteine</source>
-        <target>Die Macht der Proteine</target>
+        <target>Lleno de proteínas.</target>
       </segment>
     </unit>
     <unit id="WE9IWrB" name="Zombieliebling">
@@ -13437,7 +13437,7 @@
       </notes>
       <segment>
         <source>Zombieliebling</source>
-        <target>Zombieliebling</target>
+        <target>Favorito de los zombies</target>
       </segment>
     </unit>
     <unit id="gSBK_12" name="Ich bin in der Hölle aufgewachsen.">
@@ -13446,7 +13446,7 @@
       </notes>
       <segment>
         <source>Ich bin in der Hölle aufgewachsen.</source>
-        <target>Ich bin in der Hölle aufgewachsen.</target>
+        <target>Crecí en el infierno</target>
       </segment>
     </unit>
     <unit id="h9OS6ti" name="Teilweise verrottet">
@@ -13455,7 +13455,7 @@
       </notes>
       <segment>
         <source>Teilweise verrottet</source>
-        <target>Teilweise verrottet</target>
+        <target>Parcialmente putrefacto</target>
       </segment>
     </unit>
     <unit id="LzdnkS5" name="Virenschleuder">
@@ -13464,7 +13464,7 @@
       </notes>
       <segment>
         <source>Virenschleuder</source>
-        <target>Virenschleuder</target>
+        <target>Esparcidor de virus</target>
       </segment>
     </unit>
     <unit id="lR71uxG" name="Gedärmeauskotzer">
@@ -13473,7 +13473,7 @@
       </notes>
       <segment>
         <source>Gedärmeauskotzer</source>
-        <target>Gedärmeauskotzer</target>
+        <target>Escupidor de sangre y bilis</target>
       </segment>
     </unit>
     <unit id="5LOqx_Q" name="Seuchenherd">
@@ -13482,7 +13482,7 @@
       </notes>
       <segment>
         <source>Seuchenherd</source>
-        <target>Seuchenherd</target>
+        <target>Foco Epidémico</target>
       </segment>
     </unit>
     <unit id="MhMq2h_" name="Verirrter Ausflügler">
@@ -13500,7 +13500,7 @@
       </notes>
       <segment>
         <source>Nächtlicher Spaziergänger</source>
-        <target>Nächtlicher Spaziergänger</target>
+        <target>Holgazan Nocturno</target>
       </segment>
     </unit>
     <unit id="OfHX59h" name="Vertrauenswürdiger Bürger">
@@ -13581,7 +13581,7 @@
       </notes>
       <segment>
         <source>Alter Hase</source>
-        <target>Alter Hase</target>
+        <target>Probador beta</target>
       </segment>
     </unit>
     <unit id="e0SZFhK" name="Jedes Los gewinnt">
@@ -13590,7 +13590,7 @@
       </notes>
       <segment>
         <source>Jedes Los gewinnt</source>
-        <target>Jedes Los gewinnt</target>
+        <target>Compañero de comunidad</target>
       </segment>
     </unit>
     <unit id="NnTekv7" name="Zinker">
@@ -13599,7 +13599,7 @@
       </notes>
       <segment>
         <source>Zinker</source>
-        <target>Zinker</target>
+        <target>Espíritu de la comunidad</target>
       </segment>
     </unit>
     <unit id="lUV0fyN" name="Bingo">
@@ -13617,7 +13617,7 @@
       </notes>
       <segment>
         <source>Sudoku ist anders</source>
-        <target>Sudoku ist anders</target>
+        <target>Cadáver animado</target>
       </segment>
     </unit>
     <unit id="hau3lHt" name="Siebenseitiger Würfel">
@@ -13626,7 +13626,7 @@
       </notes>
       <segment>
         <source>Siebenseitiger Würfel</source>
-        <target>Siebenseitiger Würfel</target>
+        <target>Hiperactivista comunitario</target>
       </segment>
     </unit>
     <unit id="nvWauKU" name="Einarmiger Bandit">
@@ -13635,7 +13635,7 @@
       </notes>
       <segment>
         <source>Einarmiger Bandit</source>
-        <target>Einarmiger Bandit</target>
+        <target>¡Ganador de corazón!</target>
       </segment>
     </unit>
     <unit id="geFjTQD" name="Motivierter Messebesucher">
@@ -13644,7 +13644,7 @@
       </notes>
       <segment>
         <source>Motivierter Messebesucher</source>
-        <target>Motivierter Messebesucher</target>
+        <target>Aficionado motivado al festival de las hordas</target>
       </segment>
     </unit>
     <unit id="IQd9dUu" name="Kleiner Guru">
@@ -13653,7 +13653,7 @@
       </notes>
       <segment>
         <source>Kleiner Guru</source>
-        <target>Kleiner Guru</target>
+        <target>Especialista en reasignación de fondos</target>
       </segment>
     </unit>
     <unit id="5FggkWu" name="Überzeugender Guru">
@@ -13662,7 +13662,7 @@
       </notes>
       <segment>
         <source>Überzeugender Guru</source>
-        <target>Überzeugender Guru</target>
+        <target>Traficante de ciudadanos</target>
       </segment>
     </unit>
     <unit id="BKdc_nU" name="Frischfleischhändler">
@@ -13671,7 +13671,7 @@
       </notes>
       <segment>
         <source>Frischfleischhändler</source>
-        <target>Frischfleischhändler</target>
+        <target>Comerciante de carne fresca</target>
       </segment>
     </unit>
     <unit id="YK4MoDf" name="Held der Community!">
@@ -13680,7 +13680,7 @@
       </notes>
       <segment>
         <source>Held der Community!</source>
-        <target>Held der Community!</target>
+        <target>¡En el fondo!</target>
       </segment>
     </unit>
     <unit id="7rLOpWl" name="Nobler Spender">
@@ -13698,7 +13698,7 @@
       </notes>
       <segment>
         <source>Immer zur Stelle</source>
-        <target>Immer zur Stelle</target>
+        <target>Alma caritativa</target>
       </segment>
     </unit>
     <unit id="DQYjmAS" name="Samariter">
@@ -13707,7 +13707,7 @@
       </notes>
       <segment>
         <source>Samariter</source>
-        <target>Samariter</target>
+        <target>Apoyo social</target>
       </segment>
     </unit>
     <unit id="PT2xNUt" name="Der Weihnachtsmann ist ein Schlawiner">
@@ -13716,7 +13716,7 @@
       </notes>
       <segment>
         <source>Der Weihnachtsmann ist ein Schlawiner</source>
-        <target>Der Weihnachtsmann ist ein Schlawiner</target>
+        <target>Santa es un pillo</target>
       </segment>
     </unit>
     <unit id="JVylXOR" name="Treffen der 4. Art">
@@ -13815,7 +13815,7 @@
       </notes>
       <segment>
         <source>Beseelt</source>
-        <target>Beseelt</target>
+        <target>Inspirado</target>
       </segment>
     </unit>
     <unit id="q8Y1vX0" name="Reinkarnator">
@@ -13869,7 +13869,7 @@
       </notes>
       <segment>
         <source>Messie der verlorenen Welt</source>
-        <target>Messie der verlorenen Welt</target>
+        <target>Mesías del Mundo Perdido</target>
       </segment>
     </unit>
     <unit id="F0CVB9H" name="Ich bin ein Gott! Ich werde ewig leben!">
@@ -13923,7 +13923,7 @@
       </notes>
       <segment>
         <source>Meser (halb Mensch, halb Malteser)</source>
-        <target>Meser (halb Mensch, halb Malteser)</target>
+        <target>Cinocéfalo</target>
       </segment>
     </unit>
     <unit id="9r9G9Tw" name="Personalisierter Titel - Dompteur (T-ID: 1725642)">
@@ -13932,7 +13932,7 @@
       </notes>
       <segment>
         <source>Personalisierter Titel - Dompteur (T-ID: 1725642)</source>
-        <target>Personalisierter Titel - Dompteur (T-ID: 1725642)</target>
+        <target>Maestria en Labradoodles</target>
       </segment>
     </unit>
     <unit id="Bjh4Mcf" name="Gepanzerter Fakir">
@@ -13941,7 +13941,7 @@
       </notes>
       <segment>
         <source>Gepanzerter Fakir</source>
-        <target>Gepanzerter Fakir</target>
+        <target>Ermitaño Experimentado</target>
       </segment>
     </unit>
     <unit id="JtRdwdg" name="Seele eines Profis">
@@ -13950,7 +13950,7 @@
       </notes>
       <segment>
         <source>Seele eines Profis</source>
-        <target>Seele eines Profis</target>
+        <target>Alma de un profesional</target>
       </segment>
     </unit>
     <unit id="W6KG1Kx" name="Personalisierter Titel - Techniker (T-ID: 631944)">
@@ -13959,7 +13959,7 @@
       </notes>
       <segment>
         <source>Personalisierter Titel - Techniker (T-ID: 631944)</source>
-        <target>Personalisierter Titel - Techniker (T-ID: 631944)</target>
+        <target>Nunca camines sin tus llaves</target>
       </segment>
     </unit>
     <unit id="k._y0h1" name="Holy F***ing Iceberg">
@@ -13995,7 +13995,7 @@
       </notes>
       <segment>
         <source>Wächter der Seelen</source>
-        <target>Wächter der Seelen</target>
+        <target>Guardian de las Almas</target>
       </segment>
     </unit>
     <unit id="HhpZEPz" name="Die Wahrheit ist irgendwo da draußen">
@@ -14004,7 +14004,7 @@
       </notes>
       <segment>
         <source>Die Wahrheit ist irgendwo da draußen</source>
-        <target>Die Wahrheit ist irgendwo da draußen</target>
+        <target>La verdad está ahí fuera en algún lugar</target>
       </segment>
     </unit>
     <unit id="gLH3tE5" name="Ich glaube!">
@@ -14013,7 +14013,7 @@
       </notes>
       <segment>
         <source>Ich glaube!</source>
-        <target>Ich glaube!</target>
+        <target>¡Yo Creo!</target>
       </segment>
     </unit>
     <unit id="xhBxbLA" name="Sektenmitglied">
@@ -14022,7 +14022,7 @@
       </notes>
       <segment>
         <source>Sektenmitglied</source>
-        <target>Sektenmitglied</target>
+        <target>Miembro de la secta</target>
       </segment>
     </unit>
     <unit id="1HEtOB8" name="Kosmischer Anführer">
@@ -14031,7 +14031,7 @@
       </notes>
       <segment>
         <source>Kosmischer Anführer</source>
-        <target>Kosmischer Anführer</target>
+        <target>Lider cósmico</target>
       </segment>
     </unit>
     <unit id=".DPY78g" name="dbe2a8d">
@@ -14049,7 +14049,7 @@
       </notes>
       <segment>
         <source>Der Batterienator</source>
-        <target>Der Batterienator</target>
+        <target>El generador de batería</target>
       </segment>
     </unit>
     <unit id="xgCfGsM" name="Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!">
@@ -14058,7 +14058,7 @@
       </notes>
       <segment>
         <source>Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!</source>
-        <target>Ist es ein Vogel? Ist es ein Flugzeug? Nein, es ist der super Batteriewerfer!</target>
+        <target>¿Es un pajaro? Es un avion? No, ¡es el súper lanzapilas!</target>
       </segment>
     </unit>
     <unit id="_5jsyrZ" name="Aufgeladen und kampfbereit">
@@ -14067,7 +14067,7 @@
       </notes>
       <segment>
         <source>Aufgeladen und kampfbereit</source>
-        <target>Aufgeladen und kampfbereit</target>
+        <target>Amplificada y lista para rodar</target>
       </segment>
     </unit>
     <unit id="3gGDaMw" name="Hey! Willst du meine... Batterie sehen?">
@@ -14076,7 +14076,7 @@
       </notes>
       <segment>
         <source>Hey! Willst du meine... Batterie sehen?</source>
-        <target>Hey! Willst du meine... Batterie sehen?</target>
+        <target>Oye, oye, ¿quieres ver mi... pila?</target>
       </segment>
     </unit>
     <unit id="XLDVSsV" name="Meister der Schlüssel">
@@ -14085,7 +14085,7 @@
       </notes>
       <segment>
         <source>Meister der Schlüssel</source>
-        <target>Meister der Schlüssel</target>
+        <target>Gran maestro de llaves</target>
       </segment>
     </unit>
     <unit id="gKGzu5i" name="Es war wirklich zu einfach.">
@@ -14094,7 +14094,7 @@
       </notes>
       <segment>
         <source>Es war wirklich zu einfach.</source>
-        <target>Es war wirklich zu einfach.</target>
+        <target>Es demasiado fácil.</target>
       </segment>
     </unit>
     <unit id="QPcrBd9" name="Ich fresse Nägel und scheiße Kugeln!">
@@ -14103,7 +14103,7 @@
       </notes>
       <segment>
         <source>Ich fresse Nägel und scheiße Kugeln!</source>
-        <target>Ich fresse Nägel und scheiße Kugeln!</target>
+        <target>¡Como clavos y cago balas!</target>
       </segment>
     </unit>
     <unit id="8yrjws." name="Pandämonium? Hah. Einfach.">
@@ -14112,7 +14112,7 @@
       </notes>
       <segment>
         <source>Pandämonium? Hah. Einfach.</source>
-        <target>Pandämonium? Hah. Einfach.</target>
+        <target>¿Pandemonio? Ahh, Facil</target>
       </segment>
     </unit>
     <unit id="RAheQ6X" name="Rauch? Welcher Rauch?">
@@ -14121,7 +14121,7 @@
       </notes>
       <segment>
         <source>Rauch? Welcher Rauch?</source>
-        <target>Rauch? Welcher Rauch?</target>
+        <target>¿Humo? ¿Qué humo?</target>
       </segment>
     </unit>
     <unit id="0yKxX98" name="Leckstopper">
@@ -14130,7 +14130,7 @@
       </notes>
       <segment>
         <source>Leckstopper</source>
-        <target>Leckstopper</target>
+        <target>Taponador de fugas</target>
       </segment>
     </unit>
     <unit id="88ZyuY4" name="Licht in der Nacht">
@@ -14139,7 +14139,7 @@
       </notes>
       <segment>
         <source>Licht in der Nacht</source>
-        <target>Licht in der Nacht</target>
+        <target>Luz en la noche</target>
       </segment>
     </unit>
     <unit id="NbdbHur" name="RadioactiveMan">
@@ -14166,7 +14166,7 @@
       </notes>
       <segment>
         <source>Hölle, das esse ich jeden Morgen.</source>
-        <target>Hölle, das esse ich jeden Morgen.</target>
+        <target>¿Infierno? Desayuno esto todas las mañanas</target>
       </segment>
     </unit>
     <unit id="L0BHZsf" name="Abonnent der Pandämoniumsauna">
@@ -14175,7 +14175,7 @@
       </notes>
       <segment>
         <source>Abonnent der Pandämoniumsauna</source>
-        <target>Abonnent der Pandämoniumsauna</target>
+        <target>Suscriptor en el Sauna Pandemonio</target>
       </segment>
     </unit>
     <unit id="eiNhL4c" name="Pandämonium ist meine Liebe!">
@@ -14184,7 +14184,7 @@
       </notes>
       <segment>
         <source>Pandämonium ist meine Liebe!</source>
-        <target>Pandämonium ist meine Liebe!</target>
+        <target>¡Pandemonio mi amor!</target>
       </segment>
     </unit>
     <unit id="rUm7U9a" name="Luzifers Tanzpartner">
@@ -14193,7 +14193,7 @@
       </notes>
       <segment>
         <source>Luzifers Tanzpartner</source>
-        <target>Luzifers Tanzpartner</target>
+        <target>La pareja de baile de Lucifer</target>
       </segment>
     </unit>
     <unit id="ydooU6U" name="Ultimativer Horden-Erkunder">
@@ -14202,7 +14202,7 @@
       </notes>
       <segment>
         <source>Ultimativer Horden-Erkunder</source>
-        <target>Ultimativer Horden-Erkunder</target>
+        <target>Explorador hordiano definitivo</target>
       </segment>
     </unit>
     <unit id="GPwTxbP" name="Irische Taschen sind prall gefüllt!">
@@ -14211,7 +14211,7 @@
       </notes>
       <segment>
         <source>Irische Taschen sind prall gefüllt!</source>
-        <target>Irische Taschen sind prall gefüllt!</target>
+        <target>¡Los bolsillos irlandeses están llenos hasta el tope!</target>
       </segment>
     </unit>
     <unit id=".vLpN2Q" name="Wo ist mein Topf voll Gold, diebische Elster!">
@@ -14220,7 +14220,7 @@
       </notes>
       <segment>
         <source>Wo ist mein Topf voll Gold, diebische Elster!</source>
-        <target>Wo ist mein Topf voll Gold, diebische Elster!</target>
+        <target>¿Dónde está mi olla de oro, escurridizo ladrón?</target>
       </segment>
     </unit>
     <unit id="eOQPgcU" name="Dieser Kobold ist unaufhaltbar.">
@@ -14229,7 +14229,7 @@
       </notes>
       <segment>
         <source>Dieser Kobold ist unaufhaltbar.</source>
-        <target>Dieser Kobold ist unaufhaltbar.</target>
+        <target>Este duende es imparable.</target>
       </segment>
     </unit>
     <unit id="Spx1xmA" name="Verbrennt ihn! Sieh nach ob seine Asche grün wird!">
@@ -14238,7 +14238,7 @@
       </notes>
       <segment>
         <source>Verbrennt ihn! Sieh nach ob seine Asche grün wird!</source>
-        <target>Verbrennt ihn! Sieh nach ob seine Asche grün wird!</target>
+        <target>¡Quémalo, mira si sus cenizas se vuelven verdes!</target>
       </segment>
     </unit>
     <unit id="HJTFoon" name="Ein Wohnwagen ohne Räder???">
@@ -14247,7 +14247,7 @@
       </notes>
       <segment>
         <source>Ein Wohnwagen ohne Räder???</source>
-        <target>Ein Wohnwagen ohne Räder???</target>
+        <target>¿¿¿Una caravana sin ruedas???</target>
       </segment>
     </unit>
     <unit id="tz9Jwn2" name="d2acf54">
@@ -14337,7 +14337,7 @@
       </notes>
       <segment>
         <source>Dieses Bauprojekt wurde bereits abgeschlossen.</source>
-        <target>Dieses Bauprojekt wurde bereits abgeschlossen.</target>
+        <target>Esta construcción ya está terminada.</target>
       </segment>
     </unit>
     <unit id="1RZZDef" name="576549b">
@@ -14661,7 +14661,7 @@
       </notes>
       <segment>
         <source>Ehrenpreis für die Teilnahme am UFC!</source>
-        <target>Ehrenpreis für die Teilnahme am UFC!</target>
+        <target>¡Premio honorífico por participación en el UFC!</target>
       </segment>
     </unit>
     <unit id="67K3DmE" name="Seelenführer der Gemeinschaft">
@@ -14670,7 +14670,7 @@
       </notes>
       <segment>
         <source>Seelenführer der Gemeinschaft</source>
-        <target>Seelenführer der Gemeinschaft</target>
+        <target>Guía del alma comunitaria</target>
       </segment>
     </unit>
     <unit id="fxrMNw." name="Charismatischer Prophet">
@@ -14679,7 +14679,7 @@
       </notes>
       <segment>
         <source>Charismatischer Prophet</source>
-        <target>Charismatischer Prophet</target>
+        <target>Profeta carismático</target>
       </segment>
     </unit>
     <unit id="WlT3ppX" name="Der Rabe hat diese Nachricht zerrissen.">
@@ -15826,7 +15826,7 @@
       </notes>
       <segment>
         <source>Meisterkoch der Sterne</source>
-        <target>Meisterkoch der Sterne</target>
+        <target>MasterChef</target>
       </segment>
     </unit>
     <unit id="1HIhGty" name="Ich koste alle meine Produkte">
@@ -15835,7 +15835,7 @@
       </notes>
       <segment>
         <source>Ich koste alle meine Produkte</source>
-        <target>Ich koste alle meine Produkte</target>
+        <target>Pruebo todos mis productos</target>
       </segment>
     </unit>
     <unit id="9gvx8.m" name="Rauchts? Dann ist es meins.">
@@ -15844,7 +15844,7 @@
       </notes>
       <segment>
         <source>Rauchts? Dann ist es meins.</source>
-        <target>Rauchts? Dann ist es meins.</target>
+        <target>¿Fumas? Este va por mi cuenta</target>
       </segment>
     </unit>
     <unit id="YmO44_z" name="Mein Name ist Nobody">
@@ -15853,7 +15853,7 @@
       </notes>
       <segment>
         <source>Mein Name ist Nobody</source>
-        <target>Mein Name ist Nobody</target>
+        <target>Mi nombre es ninguno</target>
       </segment>
     </unit>
     <unit id="EVFOthx" name="Ein Sternbild trägt meinen Namen">
@@ -15862,7 +15862,7 @@
       </notes>
       <segment>
         <source>Ein Sternbild trägt meinen Namen</source>
-        <target>Ein Sternbild trägt meinen Namen</target>
+        <target>Una constelación lleva mi nombre</target>
       </segment>
     </unit>
     <unit id="6HxoVzo" name="Autonomer Müll">
@@ -15871,7 +15871,7 @@
       </notes>
       <segment>
         <source>Autonomer Müll</source>
-        <target>Autonomer Müll</target>
+        <target>Investigador ingenioso</target>
       </segment>
     </unit>
     <unit id="7zQXhiW" name="Freier Bürger">
@@ -15880,7 +15880,7 @@
       </notes>
       <segment>
         <source>Freier Bürger</source>
-        <target>Freier Bürger</target>
+        <target>¡Ciudadano libre!</target>
       </segment>
     </unit>
     <unit id="240r2Te" name="Alles für meinen Mund">
@@ -15889,7 +15889,7 @@
       </notes>
       <segment>
         <source>Alles für meinen Mund</source>
-        <target>Alles für meinen Mund</target>
+        <target>Todo para mi boca</target>
       </segment>
     </unit>
     <unit id="rsC4OqV" name="Ich brauche niemanden">
@@ -15898,7 +15898,7 @@
       </notes>
       <segment>
         <source>Ich brauche niemanden</source>
-        <target>Ich brauche niemanden</target>
+        <target>No necesito a nadie</target>
       </segment>
     </unit>
     <unit id="SOiNUAW" name="Unabhängiger Großeinsiedler">
@@ -15907,7 +15907,7 @@
       </notes>
       <segment>
         <source>Unabhängiger Großeinsiedler</source>
-        <target>Unabhängiger Großeinsiedler</target>
+        <target>Gran Eremita independiente</target>
       </segment>
     </unit>
     <unit id="5_5syC2" name="Che Guevara der Wüste">
@@ -15916,7 +15916,7 @@
       </notes>
       <segment>
         <source>Che Guevara der Wüste</source>
-        <target>Che Guevara der Wüste</target>
+        <target>Che Guevara del Ultramundo</target>
       </segment>
     </unit>
     <unit id="vmIHgay" name="Ein schöneres Leben">
@@ -15925,7 +15925,7 @@
       </notes>
       <segment>
         <source>Ein schöneres Leben</source>
-        <target>Ein schöneres Leben</target>
+        <target>El estilo es eterno...</target>
       </segment>
     </unit>
     <unit id="ba6IXp3" name="Großer E-KEA Katalog">
@@ -15934,7 +15934,7 @@
       </notes>
       <segment>
         <source>Großer E-KEA Katalog</source>
-        <target>Großer E-KEA Katalog</target>
+        <target>Bienvenidos al palacio. </target>
       </segment>
     </unit>
     <unit id="gqk70Zf" name="Maccabees-Vertreiber">
@@ -15943,7 +15943,7 @@
       </notes>
       <segment>
         <source>Maccabees-Vertreiber</source>
-        <target>Maccabees-Vertreiber</target>
+        <target>Repelente de Macchabees</target>
       </segment>
     </unit>
     <unit id="MX76WBL" name="Wachsam">
@@ -15952,7 +15952,7 @@
       </notes>
       <segment>
         <source>Wachsam</source>
-        <target>Wachsam</target>
+        <target>Consciente</target>
       </segment>
     </unit>
     <unit id="FfSBotU" name="Paranoid">
@@ -15961,7 +15961,7 @@
       </notes>
       <segment>
         <source>Paranoid</source>
-        <target>Paranoid</target>
+        <target>Paranoico</target>
       </segment>
     </unit>
     <unit id="HD9fBxU" name="Fels in der Brandung">
@@ -15970,7 +15970,7 @@
       </notes>
       <segment>
         <source>Fels in der Brandung</source>
-        <target>Fels in der Brandung</target>
+        <target>La roca!</target>
       </segment>
     </unit>
     <unit id="k.3ej4O" name="Archi-Mädlicher Illustrator von Pi">
@@ -15979,7 +15979,7 @@
       </notes>
       <segment>
         <source>Archi-Mädlicher Illustrator von Pi</source>
-        <target>Archi-Mädlicher Illustrator von Pi</target>
+        <target>Ilustradora archi-maid de Pi</target>
       </segment>
     </unit>
     <unit id="HB_a6_1" name="Muad'Dib">
@@ -15997,7 +15997,7 @@
       </notes>
       <segment>
         <source>Am 7. Tag erschuf er den Fleischkäfig</source>
-        <target>Am 7. Tag erschuf er den Fleischkäfig</target>
+        <target>¡Y al séptimo día, no descansó!</target>
       </segment>
     </unit>
     <unit id="BW6THM." name="Das Unnütze mit dem Angenehmen verbinden">
@@ -16006,7 +16006,7 @@
       </notes>
       <segment>
         <source>Das Unnütze mit dem Angenehmen verbinden</source>
-        <target>Das Unnütze mit dem Angenehmen verbinden</target>
+        <target>Jefe de Manualidades</target>
       </segment>
     </unit>
     <unit id="Wpl2gUI" name="Verrückter Architekten-Visionär">
@@ -16015,7 +16015,7 @@
       </notes>
       <segment>
         <source>Verrückter Architekten-Visionär</source>
-        <target>Verrückter Architekten-Visionär</target>
+        <target>Arquitecto visionario</target>
       </segment>
     </unit>
     <unit id="trZ7w_g" name="Ich habe einen Plan">
@@ -16024,7 +16024,7 @@
       </notes>
       <segment>
         <source>Ich habe einen Plan</source>
-        <target>Ich habe einen Plan</target>
+        <target>Tengo un plan</target>
       </segment>
     </unit>
     <unit id="D6_7qkX" name="Hirnverbrannter Baumeister">
@@ -16033,7 +16033,7 @@
       </notes>
       <segment>
         <source>Hirnverbrannter Baumeister</source>
-        <target>Hirnverbrannter Baumeister</target>
+        <target>Maestro constructor demente</target>
       </segment>
     </unit>
     <unit id="q2CuBRQ" name="Meister der Nutzlosigkeit">
@@ -16042,7 +16042,7 @@
       </notes>
       <segment>
         <source>Meister der Nutzlosigkeit</source>
-        <target>Meister der Nutzlosigkeit</target>
+        <target>Maestro de la Inutilidad</target>
       </segment>
     </unit>
     <unit id="UFqlbJo" name="Vereister Ingenieur">
@@ -16051,7 +16051,7 @@
       </notes>
       <segment>
         <source>Vereister Ingenieur</source>
-        <target>Vereister Ingenieur</target>
+        <target>Ingeniero de Fruit Loop</target>
       </segment>
     </unit>
     <unit id="aIuS0Sj" name="Wundervoll nutzlos">
@@ -16060,7 +16060,7 @@
       </notes>
       <segment>
         <source>Wundervoll nutzlos</source>
-        <target>Wundervoll nutzlos</target>
+        <target>Maravillosamente inútil</target>
       </segment>
     </unit>
     <unit id="dcsH.yQ" name="Der Bruce Lee des Spachtels">
@@ -16069,7 +16069,7 @@
       </notes>
       <segment>
         <source>Der Bruce Lee des Spachtels</source>
-        <target>Der Bruce Lee des Spachtels</target>
+        <target>El Bruce Lee de la Espatula</target>
       </segment>
     </unit>
     <unit id="_VOLHDy" name="Es ist Zeit für Kathedralen">
@@ -16078,7 +16078,7 @@
       </notes>
       <segment>
         <source>Es ist Zeit für Kathedralen</source>
-        <target>Es ist Zeit für Kathedralen</target>
+        <target>Ha llegado el momento de las catedrales</target>
       </segment>
     </unit>
     <unit id="rJXbX_r" name="Hast du nichts besseres zu tun?">
@@ -16087,7 +16087,7 @@
       </notes>
       <segment>
         <source>Hast du nichts besseres zu tun?</source>
-        <target>Hast du nichts besseres zu tun?</target>
+        <target>¿No tienes algo mejor que hacer?</target>
       </segment>
     </unit>
     <unit id="x_PaHg0" name="Hohepriesterin des Sonnentempels">
@@ -16096,7 +16096,7 @@
       </notes>
       <segment>
         <source>Hohepriesterin des Sonnentempels</source>
-        <target>Hohepriesterin des Sonnentempels</target>
+        <target>Templo de la Suma Sacerdotisa del Sol</target>
       </segment>
     </unit>
     <unit id="zVHZr2r" name="Obelisk der heutigen Zeit!">
@@ -16105,7 +16105,7 @@
       </notes>
       <segment>
         <source>Obelisk der heutigen Zeit!</source>
-        <target>Obelisk der heutigen Zeit!</target>
+        <target>¡Obelisco moderno!</target>
       </segment>
     </unit>
     <unit id="WOrknJP" name="Lebhafter Tribut">
@@ -16114,7 +16114,7 @@
       </notes>
       <segment>
         <source>Lebhafter Tribut</source>
-        <target>Lebhafter Tribut</target>
+        <target>Ovación de pié</target>
       </segment>
     </unit>
     <unit id="TqdQfu7" name="Wird in die Annalen eingehen">
@@ -16123,7 +16123,7 @@
       </notes>
       <segment>
         <source>Wird in die Annalen eingehen</source>
-        <target>Wird in die Annalen eingehen</target>
+        <target>Uno para los libros</target>
       </segment>
     </unit>
     <unit id="9zHZYv_" name="Extra viel Liebe">
@@ -16132,7 +16132,7 @@
       </notes>
       <segment>
         <source>Extra viel Liebe</source>
-        <target>Extra viel Liebe</target>
+        <target>Amor extra grande</target>
       </segment>
     </unit>
     <unit id="sn9vZwR" name="Es ist kleiner als im Katalog">
@@ -16141,7 +16141,7 @@
       </notes>
       <segment>
         <source>Es ist kleiner als im Katalog</source>
-        <target>Es ist kleiner als im Katalog</target>
+        <target>Era más pequeño en el catálogo.</target>
       </segment>
     </unit>
     <unit id="bDu8nlB" name="Freude der Stärke 8">
@@ -16150,7 +16150,7 @@
       </notes>
       <segment>
         <source>Freude der Stärke 8</source>
-        <target>Freude der Stärke 8</target>
+        <target>Felicidad de magnitud 8</target>
       </segment>
     </unit>
     <unit id="Xv9f2ri" name="Bewahrer der Freuden">
@@ -16159,7 +16159,7 @@
       </notes>
       <segment>
         <source>Bewahrer der Freuden</source>
-        <target>Bewahrer der Freuden</target>
+        <target>Guardián de los placeres</target>
       </segment>
     </unit>
     <unit id="HyxJCPt" name="Eimerhalter">
@@ -16168,7 +16168,7 @@
       </notes>
       <segment>
         <source>Eimerhalter</source>
-        <target>Eimerhalter</target>
+        <target>Guardia de las focas</target>
       </segment>
     </unit>
     <unit id="q2E4co1" name="Sandverkäufer">
@@ -16177,7 +16177,7 @@
       </notes>
       <segment>
         <source>Sandverkäufer</source>
-        <target>Sandverkäufer</target>
+        <target>Vendedor de Arena</target>
       </segment>
     </unit>
     <unit id=".pcy1Un" name="Martinet am Strand">
@@ -16186,7 +16186,7 @@
       </notes>
       <segment>
         <source>Martinet am Strand</source>
-        <target>Martinet am Strand</target>
+        <target>Martini en la playa</target>
       </segment>
     </unit>
     <unit id="4XRzpjv" name="Ein Spiel für echte Kinder">
@@ -16195,7 +16195,7 @@
       </notes>
       <segment>
         <source>Ein Spiel für echte Kinder</source>
-        <target>Ein Spiel für echte Kinder</target>
+        <target>¡Un verdadero juego de niños!</target>
       </segment>
     </unit>
     <unit id="6yisrZq" name="Dauermitglied in Micky's Club">
@@ -16204,7 +16204,7 @@
       </notes>
       <segment>
         <source>Dauermitglied in Micky's Club</source>
-        <target>Dauermitglied in Micky's Club</target>
+        <target>Miembro permanente del Club de Mickey</target>
       </segment>
     </unit>
     <unit id="PqnvEpt" name="Niemals ohne meinen Eimer">
@@ -16213,7 +16213,7 @@
       </notes>
       <segment>
         <source>Niemals ohne meinen Eimer</source>
-        <target>Niemals ohne meinen Eimer</target>
+        <target>Nunca sin mi cubo</target>
       </segment>
     </unit>
     <unit id="2M9Gp5u" name="Ein Korn fehlt noch">
@@ -16222,7 +16222,7 @@
       </notes>
       <segment>
         <source>Ein Korn fehlt noch</source>
-        <target>Ein Korn fehlt noch</target>
+        <target>Todavia falta un grano</target>
       </segment>
     </unit>
     <unit id="qG9by4Z" name="Taube aus der Unterwelt">
@@ -16231,7 +16231,7 @@
       </notes>
       <segment>
         <source>Taube aus der Unterwelt</source>
-        <target>Taube aus der Unterwelt</target>
+        <target>Paloma del Inframundo</target>
       </segment>
     </unit>
     <unit id="fM2iq8U" name="Corvid-Spezialist">
@@ -16240,7 +16240,7 @@
       </notes>
       <segment>
         <source>Corvid-Spezialist</source>
-        <target>Corvid-Spezialist</target>
+        <target>Especialista en córvidos</target>
       </segment>
     </unit>
     <unit id="YmHi4UG" name="Phoenix des Unterholzes">
@@ -16249,7 +16249,7 @@
       </notes>
       <segment>
         <source>Phoenix des Unterholzes</source>
-        <target>Phoenix des Unterholzes</target>
+        <target>Fénix del Ultramundo</target>
       </segment>
     </unit>
     <unit id="WAptaqe" name="Edit Piaf">
@@ -16267,7 +16267,7 @@
       </notes>
       <segment>
         <source>Vogel der schlechten Vorzeichen</source>
-        <target>Vogel der schlechten Vorzeichen</target>
+        <target>Ave de mal augurio</target>
       </segment>
     </unit>
     <unit id="ziOZR_0" name="Kraaaah!">
@@ -16276,7 +16276,7 @@
       </notes>
       <segment>
         <source>Kraaaah!</source>
-        <target>Kraaaah!</target>
+        <target>¡Wraaaaahh!</target>
       </segment>
     </unit>
     <unit id="9rYZXaj" name="Er war Leber ...">
@@ -16285,7 +16285,7 @@
       </notes>
       <segment>
         <source>Er war Leber ...</source>
-        <target>Er war Leber ...</target>
+        <target>Era una calavera...</target>
       </segment>
     </unit>
     <unit id="sXvmrh." name="Hey wir können die Zombies von hier oben sehen">
@@ -16294,7 +16294,7 @@
       </notes>
       <segment>
         <source>Hey wir können die Zombies von hier oben sehen</source>
-        <target>Hey wir können die Zombies von hier oben sehen</target>
+        <target>¡Puedo ver a los zombies desde aquí arriba!</target>
       </segment>
     </unit>
     <unit id="e2HAMte" name="Fröhlicher Hamster">
@@ -16303,7 +16303,7 @@
       </notes>
       <segment>
         <source>Fröhlicher Hamster</source>
-        <target>Fröhlicher Hamster</target>
+        <target>Hampster feliz</target>
       </segment>
     </unit>
     <unit id="EJtDt_b" name="Showman aus der Anderen Welt!">
@@ -16312,7 +16312,7 @@
       </notes>
       <segment>
         <source>Showman aus der Anderen Welt!</source>
-        <target>Showman aus der Anderen Welt!</target>
+        <target>Empresario del Ultramundo!</target>
       </segment>
     </unit>
     <unit id="cqXb9dx" name="5. Rad am Wagen">
@@ -16321,7 +16321,7 @@
       </notes>
       <segment>
         <source>5. Rad am Wagen</source>
-        <target>5. Rad am Wagen</target>
+        <target>Quinta rueda de la caravana</target>
       </segment>
     </unit>
     <unit id="mVb24ct" name="Mir ist schwindelig">
@@ -16330,7 +16330,7 @@
       </notes>
       <segment>
         <source>Mir ist schwindelig</source>
-        <target>Mir ist schwindelig</target>
+        <target>Estoy mareado</target>
       </segment>
     </unit>
     <unit id="Wna0z71" name="Hier oben">
@@ -16339,7 +16339,7 @@
       </notes>
       <segment>
         <source>Hier oben</source>
-        <target>Hier oben</target>
+        <target>Aquí arriba</target>
       </segment>
     </unit>
     <unit id="zYN6d4f" name="Auge der Wüste">
@@ -16348,7 +16348,7 @@
       </notes>
       <segment>
         <source>Auge der Wüste</source>
-        <target>Auge der Wüste</target>
+        <target>Ojo del Ultramundo</target>
       </segment>
     </unit>
     <unit id="_JrXyKL" name="4000 Zombies starren uns an">
@@ -16357,7 +16357,7 @@
       </notes>
       <segment>
         <source>4000 Zombies starren uns an</source>
-        <target>4000 Zombies starren uns an</target>
+        <target>4000 zombies nos miran</target>
       </segment>
     </unit>
     <unit id="FL.RZkx" name="Huldigt den Raben!">
@@ -16366,7 +16366,7 @@
       </notes>
       <segment>
         <source>Huldigt den Raben!</source>
-        <target>Huldigt den Raben!</target>
+        <target>¡Gloria al cuervo!</target>
       </segment>
     </unit>
     <unit id="xFSSBy6" name="Zement &amp; Garfunkel">
@@ -16375,7 +16375,7 @@
       </notes>
       <segment>
         <source>Zement &amp; Garfunkel</source>
-        <target><![CDATA[Zement & Garfunkel]]></target>
+        <target>Cemento y Garfunkle</target>
       </segment>
     </unit>
     <unit id="Kk9BS0m" name="Menschliche Ameisenkolonie">
@@ -16384,7 +16384,7 @@
       </notes>
       <segment>
         <source>Menschliche Ameisenkolonie</source>
-        <target>Menschliche Ameisenkolonie</target>
+        <target>La hormiga humana</target>
       </segment>
     </unit>
     <unit id="9qzCU.Y" name="Arbeiterhelm und Kupferstiefel">
@@ -16393,7 +16393,7 @@
       </notes>
       <segment>
         <source>Arbeiterhelm und Kupferstiefel</source>
-        <target>Arbeiterhelm und Kupferstiefel</target>
+        <target>¿La Gran Muralla de qué?</target>
       </segment>
     </unit>
     <unit id="TRVtL2T" name="Arbeit ist Gesundheit">
@@ -16402,7 +16402,7 @@
       </notes>
       <segment>
         <source>Arbeit ist Gesundheit</source>
-        <target>Arbeit ist Gesundheit</target>
+        <target>El trabajo es salud</target>
       </segment>
     </unit>
     <unit id="KWH.AsD" name="Bob der Baumeister">
@@ -16411,7 +16411,7 @@
       </notes>
       <segment>
         <source>Bob der Baumeister</source>
-        <target>Bob der Baumeister</target>
+        <target>Bob el constructor</target>
       </segment>
     </unit>
     <unit id="Od2TNJw" name="Pisa-Geraderichter">
@@ -16420,7 +16420,7 @@
       </notes>
       <segment>
         <source>Pisa-Geraderichter</source>
-        <target>Pisa-Geraderichter</target>
+        <target>El reparador</target>
       </segment>
     </unit>
     <unit id="WY2cHvq" name="Großer Renovator">
@@ -16429,7 +16429,7 @@
       </notes>
       <segment>
         <source>Großer Renovator</source>
-        <target>Großer Renovator</target>
+        <target>Gran Renovador</target>
       </segment>
     </unit>
     <unit id="NIDWWFi" name="Ein Patch, kein Spiel">
@@ -16438,7 +16438,7 @@
       </notes>
       <segment>
         <source>Ein Patch, kein Spiel</source>
-        <target>Ein Patch, kein Spiel</target>
+        <target>Especialista en parches</target>
       </segment>
     </unit>
     <unit id="QWyE78o" name="Ein Riss? Welcher Riss?">
@@ -16447,7 +16447,7 @@
       </notes>
       <segment>
         <source>Ein Riss? Welcher Riss?</source>
-        <target>Ein Riss? Welcher Riss?</target>
+        <target>¿Una grieta? ¿Qué grieta?</target>
       </segment>
     </unit>
     <unit id="YaD1.Qw" name="Das braucht noch 10 Jahre!">
@@ -16456,7 +16456,7 @@
       </notes>
       <segment>
         <source>Das braucht noch 10 Jahre!</source>
-        <target>Das braucht noch 10 Jahre!</target>
+        <target>¡Eso llevara otros 10 años!</target>
       </segment>
     </unit>
     <unit id="pbNlQwl" name="Architekt (title)">
@@ -16465,7 +16465,7 @@
       </notes>
       <segment>
         <source>Architekt (title)</source>
-        <target>Architekt (title)</target>
+        <target>Arquitecto</target>
       </segment>
     </unit>
     <unit id="0oUM0cs" name="Bürger! Seid auf inoffiziellen Webseiten wachsam!">
@@ -16528,7 +16528,7 @@
       </notes>
       <segment>
         <source>Legendärer Dompteur</source>
-        <target>Legendärer Dompteur</target>
+        <target>Domador legendario</target>
       </segment>
     </unit>
     <unit id="CI8PARg" name="f618392">
@@ -16537,7 +16537,7 @@
       </notes>
       <segment>
         <source>Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</source>
-        <target>Auszeichnung für die Mitglieder der Dompteuren-Liga, die beim Shock of Heroes Event gewonnen haben!</target>
+        <target>Distinción entregada a los miembros del pueblo domador que ganó el Choque de Héroes.</target>
       </segment>
     </unit>
     <unit id="HDssmyH" name="Fleisch-Schuldner">
@@ -16546,7 +16546,7 @@
       </notes>
       <segment>
         <source>Fleisch-Schuldner</source>
-        <target>Fleisch-Schuldner</target>
+        <target>No hay nada a lo que no me pueda llevar esta motosierra...</target>
       </segment>
     </unit>
     <unit id="tz.x2ip" name="Bruce Campbell">
@@ -16564,7 +16564,7 @@
       </notes>
       <segment>
         <source>Wasserwaffen-Spezialist</source>
-        <target>Wasserwaffen-Spezialist</target>
+        <target>Especialista con armas de agua</target>
       </segment>
     </unit>
     <unit id="dNzdcfT" name="Hydraulik-Engineering">
@@ -16573,7 +16573,7 @@
       </notes>
       <segment>
         <source>Hydraulik-Engineering</source>
-        <target>Hydraulik-Engineering</target>
+        <target>Ingeniero Hidráulico</target>
       </segment>
     </unit>
     <unit id="yIV3A4F" name="Abstieg der Atlanteaner">
@@ -16582,7 +16582,7 @@
       </notes>
       <segment>
         <source>Abstieg der Atlanteaner</source>
-        <target>Abstieg der Atlanteaner</target>
+        <target>Descendiente de los Atlantes</target>
       </segment>
     </unit>
     <unit id="t059IuV" name="Großer Löcherbuddler">
@@ -16591,7 +16591,7 @@
       </notes>
       <segment>
         <source>Großer Löcherbuddler</source>
-        <target>Großer Löcherbuddler</target>
+        <target>Excavadora de agujeros grandes</target>
       </segment>
     </unit>
     <unit id="Qu__dUH" name="Riesenmaulwurf">
@@ -16600,7 +16600,7 @@
       </notes>
       <segment>
         <source>Riesenmaulwurf</source>
-        <target>Riesenmaulwurf</target>
+        <target>Rata del desierto</target>
       </segment>
     </unit>
     <unit id="GRpQt1m" name="Ich gehe alleine.">
@@ -16609,7 +16609,7 @@
       </notes>
       <segment>
         <source>Ich gehe alleine.</source>
-        <target>Ich gehe alleine.</target>
+        <target>Voy solo.</target>
       </segment>
     </unit>
     <unit id="Ypo2q1y" name="Bis zur Unendlichkeit... und noch viel weiter!">
@@ -16618,7 +16618,7 @@
       </notes>
       <segment>
         <source>Bis zur Unendlichkeit... und noch viel weiter!</source>
-        <target>Bis zur Unendlichkeit... und noch viel weiter!</target>
+        <target>¡Hasta el infinito y más allá!</target>
       </segment>
     </unit>
     <unit id="LarIzsY" name="Indiana Jones und die Ruinen der Aussenwelt">
@@ -16627,7 +16627,7 @@
       </notes>
       <segment>
         <source>Indiana Jones und die Ruinen der Aussenwelt</source>
-        <target>Indiana Jones und die Ruinen der Aussenwelt</target>
+        <target>Indiana Jones y las ruinas del Ultramundo</target>
       </segment>
     </unit>
     <unit id="u4jvGVA" name="Begrabener Freiwilliger">
@@ -16636,7 +16636,7 @@
       </notes>
       <segment>
         <source>Begrabener Freiwilliger</source>
-        <target>Begrabener Freiwilliger</target>
+        <target>Voluntario enterrado</target>
       </segment>
     </unit>
     <unit id="7zruD98" name="Tomb Raider">
@@ -16654,7 +16654,7 @@
       </notes>
       <segment>
         <source>Labyrinth-Gollum</source>
-        <target>Labyrinth-Gollum</target>
+        <target>Master del Laberinto</target>
       </segment>
     </unit>
     <unit id="sx2ffu." name="Labyrinth-Meister MB">
@@ -16663,7 +16663,7 @@
       </notes>
       <segment>
         <source>Labyrinth-Meister MB</source>
-        <target>Labyrinth-Meister MB</target>
+        <target>No me llames junior</target>
       </segment>
     </unit>
     <unit id="9fp6bzE" name="Gontran Happiness">
@@ -16672,7 +16672,7 @@
       </notes>
       <segment>
         <source>Gontran Happiness</source>
-        <target>Gontran Happiness</target>
+        <target>Bestia salvaje</target>
       </segment>
     </unit>
     <unit id="A9.RjsE" name="Lucky 7">
@@ -16699,7 +16699,7 @@
       </notes>
       <segment>
         <source>Wilde Bestie</source>
-        <target>Wilde Bestie</target>
+        <target>Bestia salvaje</target>
       </segment>
     </unit>
     <unit id="5eyzono" name="Rambos Großvater">
@@ -16708,7 +16708,7 @@
       </notes>
       <segment>
         <source>Rambos Großvater</source>
-        <target>Rambos Großvater</target>
+        <target>Antepasado de Rambo</target>
       </segment>
     </unit>
     <unit id="Z980nNy" name="Absolut keine Angst!">
@@ -16717,7 +16717,7 @@
       </notes>
       <segment>
         <source>Absolut keine Angst!</source>
-        <target>Absolut keine Angst!</target>
+        <target>¡No tengas miedo en absoluto!</target>
       </segment>
     </unit>
     <unit id="BpYFjK7" name="Ich habe die Erde umrundet... zweimal!">
@@ -16726,7 +16726,7 @@
       </notes>
       <segment>
         <source>Ich habe die Erde umrundet... zweimal!</source>
-        <target>Ich habe die Erde umrundet... zweimal!</target>
+        <target>He dado la vuelta al mundo ... ¡dos veces!</target>
       </segment>
     </unit>
     <unit id="Y7BDALO" name="Internet Explorer">
@@ -16744,7 +16744,7 @@
       </notes>
       <segment>
         <source>Ich hab sogar das Klo abgesucht!</source>
-        <target>Ich hab sogar das Klo abgesucht!</target>
+        <target>¡Incluso busqué en el baño!</target>
       </segment>
     </unit>
     <unit id="zBZGIfK" name="Sind wir schon da?">
@@ -16753,7 +16753,7 @@
       </notes>
       <segment>
         <source>Sind wir schon da?</source>
-        <target>¿Ya hemos salido de la versión Alfa?</target>
+        <target>¿Ya llegamos?</target>
       </segment>
     </unit>
     <unit id="P8a8jTw" name="Stadtallergie">
@@ -16762,7 +16762,7 @@
       </notes>
       <segment>
         <source>Stadtallergie</source>
-        <target>Stadtallergie</target>
+        <target>Soy alérgico a algo en la ciudad.</target>
       </segment>
     </unit>
     <unit id="yVOs1t0" name="Wo ich hinguck, seh ich Gegend.">
@@ -16771,7 +16771,7 @@
       </notes>
       <segment>
         <source>Wo ich hinguck, seh ich Gegend.</source>
-        <target>Wo ich hinguck, seh ich Gegend.</target>
+        <target>¿Entonces supongo que no estamos esperando a Bob?</target>
       </segment>
     </unit>
     <unit id="z8XQiYT" name="Runaway Michael">
@@ -16780,7 +16780,7 @@
       </notes>
       <segment>
         <source>Runaway Michael</source>
-        <target>Runaway Michael</target>
+        <target>Sin techo ni dientes</target>
       </segment>
     </unit>
     <unit id="k6l_Uv1" name="Ohne Dach oder Leber">
@@ -16789,7 +16789,7 @@
       </notes>
       <segment>
         <source>Ohne Dach oder Leber</source>
-        <target>Ohne Dach oder Leber</target>
+        <target>Sin techo ni hígado</target>
       </segment>
     </unit>
     <unit id="tri9myN" name="Erinnerungsträger">
@@ -16798,7 +16798,7 @@
       </notes>
       <segment>
         <source>Erinnerungsträger</source>
-        <target>Erinnerungsträger</target>
+        <target>Coleccionista de Recuerdos</target>
       </segment>
     </unit>
     <unit id="W_jOaSL" name="Erinnerungen an die Zivilisation">
@@ -16807,7 +16807,7 @@
       </notes>
       <segment>
         <source>Erinnerungen an die Zivilisation</source>
-        <target>Erinnerungen an die Zivilisation</target>
+        <target>Memoria de la civilización</target>
       </segment>
     </unit>
     <unit id="yit.avN" name="Ich sehe ein Blauuuuuuues Tal">
@@ -16816,7 +16816,7 @@
       </notes>
       <segment>
         <source>Ich sehe ein Blauuuuuuues Tal</source>
-        <target>Ich sehe ein Blauuuuuuues Tal</target>
+        <target>¡¡¡El cielo se está cayendo!!!</target>
       </segment>
     </unit>
     <unit id="SY9JB1d" name="Nackt und Zerfleischt">
@@ -16825,7 +16825,7 @@
       </notes>
       <segment>
         <source>Nackt und Zerfleischt</source>
-        <target>Nackt und Zerfleischt</target>
+        <target>Caníbal del Holocausto</target>
       </segment>
     </unit>
     <unit id="ARi3tBG" name="Letzter Überlebender">
@@ -16834,7 +16834,7 @@
       </notes>
       <segment>
         <source>Letzter Überlebender</source>
-        <target>Letzter Überlebender</target>
+        <target>Último Superviviente</target>
       </segment>
     </unit>
     <unit id="fKtbOrq" name="Unzerstörbar">
@@ -16843,7 +16843,7 @@
       </notes>
       <segment>
         <source>Unzerstörbar</source>
-        <target>Unzerstörbar</target>
+        <target>Indestructible</target>
       </segment>
     </unit>
     <unit id="SdLISLP" name="Allein gegen die Horde">
@@ -16852,7 +16852,7 @@
       </notes>
       <segment>
         <source>Allein gegen die Horde</source>
-        <target>Allein gegen die Horde</target>
+        <target>¡Solo contra la Horda!</target>
       </segment>
     </unit>
     <unit id="H5Tt7bI" name="Chuck Norris' Ebenbild">
@@ -16861,7 +16861,7 @@
       </notes>
       <segment>
         <source>Chuck Norris' Ebenbild</source>
-        <target>Chuck Norris' Ebenbild</target>
+        <target>Igual a Chuck Norris</target>
       </segment>
     </unit>
     <unit id="4v4ATlD" name="3972722">
@@ -16897,7 +16897,7 @@
       </notes>
       <segment>
         <source>Ich habe Magenschmerzen...</source>
-        <target>Ich habe Magenschmerzen...</target>
+        <target>Tengo dolor de estómago...</target>
       </segment>
     </unit>
     <unit id="gEtgHUv" name="Mir ist kalt hier draußen...">
@@ -16906,7 +16906,7 @@
       </notes>
       <segment>
         <source>Mir ist kalt hier draußen...</source>
-        <target>Mir ist kalt hier draußen...</target>
+        <target>Tengo frio aquí...</target>
       </segment>
     </unit>
     <unit id="8KQLRkY" name="Anfängerleiche">
@@ -16915,7 +16915,7 @@
       </notes>
       <segment>
         <source>Anfängerleiche</source>
-        <target>Anfängerleiche</target>
+        <target>Cadáver de principiante</target>
       </segment>
     </unit>
     <unit id="odtY3_Y" name="Rabenfreund">
@@ -16924,7 +16924,7 @@
       </notes>
       <segment>
         <source>Rabenfreund</source>
-        <target>Rabenfreund</target>
+        <target>Amigo de los cuervos</target>
       </segment>
     </unit>
     <unit id="m78HBvZ" name="Dehydrationskollege">
@@ -16933,7 +16933,7 @@
       </notes>
       <segment>
         <source>Dehydrationskollege</source>
-        <target>Dehydrationskollege</target>
+        <target>Colega de la deshidratacion</target>
       </segment>
     </unit>
     <unit id="BhsD8d_" name="Seelenhändler">
@@ -16942,7 +16942,7 @@
       </notes>
       <segment>
         <source>Seelenhändler</source>
-        <target>Seelenhändler</target>
+        <target>Vendedor de almas</target>
       </segment>
     </unit>
     <unit id="QaLnp0N" name="Sehr überzeugender Pate">
@@ -16951,7 +16951,7 @@
       </notes>
       <segment>
         <source>Sehr überzeugender Pate</source>
-        <target>Sehr überzeugender Pate</target>
+        <target>Patrocinador muy convincente</target>
       </segment>
     </unit>
     <unit id="S_ni.T_" name="Wüstenspekulant">
@@ -16960,7 +16960,7 @@
       </notes>
       <segment>
         <source>Wüstenspekulant</source>
-        <target>Wüstenspekulant</target>
+        <target>Especulador del Ultramundo</target>
       </segment>
     </unit>
     <unit id="2B3cnT0" name="Bringt Sachen ins Rollen!">
@@ -16969,7 +16969,7 @@
       </notes>
       <segment>
         <source>Bringt Sachen ins Rollen!</source>
-        <target>Bringt Sachen ins Rollen!</target>
+        <target>¡Hacer que las cosas sucedan!</target>
       </segment>
     </unit>
     <unit id="PIt9fgD" name="Freigiebiger Bürger">
@@ -16978,7 +16978,7 @@
       </notes>
       <segment>
         <source>Freigiebiger Bürger</source>
-        <target>Freigiebiger Bürger</target>
+        <target>Samaritano</target>
       </segment>
     </unit>
     <unit id="QceNj.h" name="Messias">
@@ -16987,7 +16987,7 @@
       </notes>
       <segment>
         <source>Messias</source>
-        <target>Messias</target>
+        <target>Mesías</target>
       </segment>
     </unit>
     <unit id="lKnLpvN" name="Santa Klaus ist ein Schummler">
@@ -16996,7 +16996,7 @@
       </notes>
       <segment>
         <source>Santa Klaus ist ein Schummler</source>
-        <target>Santa Klaus ist ein Schummler</target>
+        <target>Santa es un ladrón</target>
       </segment>
     </unit>
     <unit id="JHdt62r" name="Santa Klaus ist Abfall">
@@ -17005,7 +17005,7 @@
       </notes>
       <segment>
         <source>Santa Klaus ist Abfall</source>
-        <target>Santa Klaus ist Abfall</target>
+        <target>Santa es basura</target>
       </segment>
     </unit>
     <unit id="uJwxAdp" name="Santa Klaus ist Abschaum">
@@ -17014,7 +17014,7 @@
       </notes>
       <segment>
         <source>Santa Klaus ist Abschaum</source>
-        <target>Santa Klaus ist Abschaum</target>
+        <target>Santa es Escoria</target>
       </segment>
     </unit>
     <unit id="n8nyFi5" name="Hängt Santa Klaus!">
@@ -17023,7 +17023,7 @@
       </notes>
       <segment>
         <source>Hängt Santa Klaus!</source>
-        <target>Hängt Santa Klaus!</target>
+        <target>Preparen la horca, ¡vamos a colgar a Santa!</target>
       </segment>
     </unit>
     <unit id="C.78yQ1" name="Lebenssammler">
@@ -17032,7 +17032,7 @@
       </notes>
       <segment>
         <source>Lebenssammler</source>
-        <target>Lebenssammler</target>
+        <target>No cruces los arroyos</target>
       </segment>
     </unit>
     <unit id="dMZx5oC" name="Schnitter der Aussenwelt">
@@ -17041,7 +17041,7 @@
       </notes>
       <segment>
         <source>Schnitter der Aussenwelt</source>
-        <target>Schnitter der Aussenwelt</target>
+        <target>No le tengo miedo a ningún fantasma</target>
       </segment>
     </unit>
     <unit id="pzraA_u" name="Mitglied des Roten Kreuzes">
@@ -17050,7 +17050,7 @@
       </notes>
       <segment>
         <source>Mitglied des Roten Kreuzes</source>
-        <target>Mitglied des Roten Kreuzes</target>
+        <target>Miembro de la Cruz Roja</target>
       </segment>
     </unit>
     <unit id="2ZtIR7d" name="Es ist der Tod der mich fürchten sollte!">
@@ -17059,7 +17059,7 @@
       </notes>
       <segment>
         <source>Es ist der Tod der mich fürchten sollte!</source>
-        <target>Es ist der Tod der mich fürchten sollte!</target>
+        <target>¡Es la muerte la que debería tenerme miedo!</target>
       </segment>
     </unit>
     <unit id="ZYF2zJY" name="Sandmann">
@@ -17068,7 +17068,7 @@
       </notes>
       <segment>
         <source>Sandmann</source>
-        <target>Sandmann</target>
+        <target>Hombre de la arena</target>
       </segment>
     </unit>
     <unit id="Au5Ajw2" name="Sandy Maverick">
@@ -17086,7 +17086,7 @@
       </notes>
       <segment>
         <source>Wegweiser</source>
-        <target>Wegweiser</target>
+        <target>Linterna de luz diurna</target>
       </segment>
     </unit>
     <unit id="dwFklZb" name="Praktischer Begleiter">
@@ -17095,7 +17095,7 @@
       </notes>
       <segment>
         <source>Praktischer Begleiter</source>
-        <target>Praktischer Begleiter</target>
+        <target>Compañero de bolsillo</target>
       </segment>
     </unit>
     <unit id="Kmu_sqS" name="Erleuchteter Anführer">
@@ -17104,7 +17104,7 @@
       </notes>
       <segment>
         <source>Erleuchteter Anführer</source>
-        <target>Erleuchteter Anführer</target>
+        <target>Guía iluminado</target>
       </segment>
     </unit>
     <unit id="JztdI6n" name="Erleuchteter Prediger">
@@ -17113,7 +17113,7 @@
       </notes>
       <segment>
         <source>Erleuchteter Prediger</source>
-        <target>Erleuchteter Prediger</target>
+        <target>Predicador iluminado</target>
       </segment>
     </unit>
     <unit id="GAeKRC9" name="Guru der Liebe">
@@ -17122,7 +17122,7 @@
       </notes>
       <segment>
         <source>Guru der Liebe</source>
-        <target>Guru der Liebe</target>
+        <target>Gurú del amor</target>
       </segment>
     </unit>
     <unit id="uCPB93p" name="Höret meine Stimme">
@@ -17131,7 +17131,7 @@
       </notes>
       <segment>
         <source>Höret meine Stimme</source>
-        <target>Höret meine Stimme</target>
+        <target>Escucha mi voz</target>
       </segment>
     </unit>
     <unit id="6VwkHrE" name="9cdcb6a">
@@ -17239,7 +17239,7 @@
       </notes>
       <segment>
         <source>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet.</source>
-        <target>%citizen% ha trabajado en la %plan%.</target>
+        <target>%citizen% ha trabajado en la construcción %plan%.</target>
       </segment>
     </unit>
     <unit id="7MfXJbM" name="%citizen% hat das Gebäude %plan% repariert.">
@@ -17428,7 +17428,7 @@
       </notes>
       <segment>
         <source>Du verlässt deinen Posten?...</source>
-        <target>Du verlässt deinen Posten?...</target>
+        <target>¿Abandonas el puesto? En fin, eres tú quien decide...</target>
       </segment>
     </unit>
     <unit id="81G6y92" name="2bec6b6">
@@ -17437,7 +17437,7 @@
       </notes>
       <segment>
         <source>Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...</source>
-        <target>Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...</target>
+        <target>Bravo, has decidido correr el riesgo de salvar a tus compañeros en peligro desde esta noche...</target>
       </segment>
     </unit>
     <unit id="k23__KG" name="7d8dbe4">
@@ -17446,7 +17446,7 @@
       </notes>
       <segment>
         <source>Zur Information: Sobald du Wächter bist, kannst du danach wieder einfacher Bürger werden.</source>
-        <target>Zur Information: Sobald du Wächter bist, kannst du danach wieder einfacher Bürger werden.</target>
+        <target>Aviso: Aun siendo centinela, puedes volver a ser un simple habitante.</target>
       </segment>
     </unit>
     <unit id="zzRDqeC" name="52c1a7d">
@@ -17455,7 +17455,7 @@
       </notes>
       <segment>
         <source>Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...</source>
-        <target>Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...</target>
+        <target>Cuidado: esto puede provocar el odio o las risas de tus compañeros... </target>
       </segment>
     </unit>
     <unit id="rqIPcqm" name="%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!">
@@ -17748,7 +17748,7 @@
       </notes>
       <segment>
         <source>Neue und Tote</source>
-        <target>Neue und Tote</target>
+        <target>Llegadas y Muertos</target>
       </segment>
     </unit>
     <unit id="To01kGO" name="Zombieangriff (newspaper)">
@@ -18921,7 +18921,7 @@
       </notes>
       <segment>
         <source>Zeuge des Armageddon</source>
-        <target>Zeuge des Armageddon</target>
+        <target>Testigo de Armagedón</target>
       </segment>
     </unit>
     <unit id="c0utONy" name="Ewiger Zweiter">
@@ -18930,7 +18930,7 @@
       </notes>
       <segment>
         <source>Ewiger Zweiter</source>
-        <target>Ewiger Zweiter</target>
+        <target>Eterno segundo</target>
       </segment>
     </unit>
     <unit id="ObWFLq5" name="Ein Wächter stirbt, aber gibt niemals auf">
@@ -18939,7 +18939,7 @@
       </notes>
       <segment>
         <source>Ein Wächter stirbt, aber gibt niemals auf</source>
-        <target>Ein Wächter stirbt, aber gibt niemals auf</target>
+        <target>El guardia puede morir, ¡pero nunca se rinde!</target>
       </segment>
     </unit>
     <unit id="DAAZyBP" name="Der Zweitletzte Mohikaner">
@@ -18948,7 +18948,7 @@
       </notes>
       <segment>
         <source>Der Zweitletzte Mohikaner</source>
-        <target>Der Zweitletzte Mohikaner</target>
+        <target>El segundo último de los mohicanos</target>
       </segment>
     </unit>
     <unit id="OGXhphT" name="Faaaaaaaast, ach verdammt">
@@ -18957,7 +18957,7 @@
       </notes>
       <segment>
         <source>Faaaaaaaast, ach verdammt</source>
-        <target>Faaaaaaaast, ach verdammt</target>
+        <target>Casi!!!, ah no, ¡maldita sea!</target>
       </segment>
     </unit>
     <unit id="nsl_.mz" name="Bis zum Ende und einen Schritt weiter">
@@ -18966,7 +18966,7 @@
       </notes>
       <segment>
         <source>Bis zum Ende und einen Schritt weiter</source>
-        <target>Bis zum Ende und einen Schritt weiter</target>
+        <target>Todo el camino hasta el final y un poco más lejos</target>
       </segment>
     </unit>
     <unit id="QpGLPvL" name="Schließt die Ränke und haltet durch">
@@ -18975,7 +18975,7 @@
       </notes>
       <segment>
         <source>Schließt die Ränke und haltet durch</source>
-        <target>Schließt die Ränke und haltet durch</target>
+        <target>¡Cierra filas y aguanta!</target>
       </segment>
     </unit>
     <unit id="7dghzUo" name="Hallo... ist da draußen jemand?">
@@ -18984,7 +18984,7 @@
       </notes>
       <segment>
         <source>Hallo... ist da draußen jemand?</source>
-        <target>Hallo... ist da draußen jemand?</target>
+        <target>¿Hola, hay alguien ahí afuera?</target>
       </segment>
     </unit>
     <unit id="qDS6yZX" name="Haltet eure Position!">
@@ -18993,7 +18993,7 @@
       </notes>
       <segment>
         <source>Haltet eure Position!</source>
-        <target>Haltet eure Position!</target>
+        <target>¡Mantenga sus posiciones!</target>
       </segment>
     </unit>
     <unit id="QC6CiyV" name="Nur ein Finger">
@@ -19002,7 +19002,7 @@
       </notes>
       <segment>
         <source>Nur ein Finger</source>
-        <target>Nur ein Finger</target>
+        <target>¡Solo un dedo!</target>
       </segment>
     </unit>
     <unit id="4SlUuFu" name="Plünderer der Schnapsläden">
@@ -19011,7 +19011,7 @@
       </notes>
       <segment>
         <source>Plünderer der Schnapsläden</source>
-        <target>Plünderer der Schnapsläden</target>
+        <target>Ladron de la licorería.</target>
       </segment>
     </unit>
     <unit id="WWmgpiy" name="Hennessy Highwayman">
@@ -19020,7 +19020,7 @@
       </notes>
       <segment>
         <source>Hennessy Highwayman</source>
-        <target>Hennessy Highwayman</target>
+        <target>Salteador de tabernas</target>
       </segment>
     </unit>
     <unit id="7J4l.Gi" name="Barney Gumble der Außenwelt">
@@ -19029,7 +19029,7 @@
       </notes>
       <segment>
         <source>Barney Gumble der Außenwelt</source>
-        <target>Barney Gumble der Außenwelt</target>
+        <target>Barney Gumble del Ultramundo</target>
       </segment>
     </unit>
     <unit id="G9C.RFA" name="Fass das Saufen lieber sein">
@@ -19038,7 +19038,7 @@
       </notes>
       <segment>
         <source>Fass das Saufen lieber sein</source>
-        <target>Fass das Saufen lieber sein</target>
+        <target>Absenta de beber la próxima vez, ¿eh?</target>
       </segment>
     </unit>
     <unit id="eBiPJQQ" name="Gib mir was zu saufen oder es knallt!">
@@ -19047,7 +19047,7 @@
       </notes>
       <segment>
         <source>Gib mir was zu saufen oder es knallt!</source>
-        <target>Gib mir was zu saufen oder es knallt!</target>
+        <target>¡Dame un trago o el perro sufrira las consecuencias!</target>
       </segment>
     </unit>
     <unit id="GUyZdgZ" name="Alles unter 55% ist Wasser">
@@ -19056,7 +19056,7 @@
       </notes>
       <segment>
         <source>Alles unter 55% ist Wasser</source>
-        <target>Alles unter 55% ist Wasser</target>
+        <target>Si son menos de 55 tragos, ¡es agua!</target>
       </segment>
     </unit>
     <unit id="KZxtKu4" name="Dialyse">
@@ -19065,7 +19065,106 @@
       </notes>
       <segment>
         <source>Dialyse</source>
-        <target>Dialyse</target>
+        <target>Diálisis</target>
+      </segment>
+    </unit>
+    <unit id="FpEFGuI" name="338378b">
+      <notes>
+        <note category="german">%citizen% hat die Zombies mit dem Gegenstand %item% &lt;strong&gt;%duration%&lt;/strong&gt; abgelenkt!</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat die Zombies mit dem Gegenstand %item% &lt;strong&gt;%duration%&lt;/strong&gt; abgelenkt!</source>
+        <target><![CDATA[%citizen% a distraido a los zombies por <strong>%duration%</strong> con %item%!]]></target>
+      </segment>
+    </unit>
+    <unit id="QseufEj" name="Behausung">
+      <notes>
+        <note category="german">Behausung</note>
+      </notes>
+      <segment>
+        <source>Behausung</source>
+        <target>Vivienda</target>
+      </segment>
+    </unit>
+    <unit id="wcoL8TX" name="+%def% Punkt(e)">
+      <notes>
+        <note category="german">+%def% Punkt(e)</note>
+      </notes>
+      <segment>
+        <source>+%def% Punkt(e)</source>
+        <target>+%def% punto(s)</target>
+      </segment>
+    </unit>
+    <unit id="3whc17K" name="Heldenbonus">
+      <notes>
+        <note category="german">Heldenbonus</note>
+      </notes>
+      <segment>
+        <source>Heldenbonus</source>
+        <target>Bonus de Héroe</target>
+      </segment>
+    </unit>
+    <unit id="ybPDgkf" name="Total">
+      <notes>
+        <note category="german">Total</note>
+      </notes>
+      <segment>
+        <source>Total</source>
+        <target>Total</target>
+      </segment>
+    </unit>
+    <unit id="uFrUwJs" name="ce2ed36">
+      <notes>
+        <note category="german">Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</note>
+      </notes>
+      <segment>
+        <source>Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</source>
+        <target>Les objetos de defensa (láminas de mteal, etc.) deben encontrarse en el Baúl.</target>
+      </segment>
+    </unit>
+    <unit id="A9mtMsb" name="Wächterbonus">
+      <notes>
+        <note category="german">Wächterbonus</note>
+      </notes>
+      <segment>
+        <source>Wächterbonus</source>
+        <target>Bonus de guardián</target>
+      </segment>
+    </unit>
+    <unit id="GBprgS1" name="Einzigartige Errungenschaften">
+      <notes>
+        <note category="german">Einzigartige Errungenschaften</note>
+      </notes>
+      <segment>
+        <source>Einzigartige Errungenschaften</source>
+        <target>Einzigartige Errungenschaften</target>
+      </segment>
+    </unit>
+    <unit id="IdcXWbV" name="Besondere Errungenschaften">
+      <notes>
+        <note category="german">Besondere Errungenschaften</note>
+      </notes>
+      <segment>
+        <source>Besondere Errungenschaften</source>
+        <target>Besondere Errungenschaften</target>
+      </segment>
+    </unit>
+    <unit id="FTqbUsX" name="32aeb6b">
+      <notes>
+        <note category="german">Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</source>
+        <target>Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</target>
+      </segment>
+    </unit>
+    <unit id="uB8frFP" name="34394f0">
+      <notes>
+        <note category="german">Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</source>
+        <target>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</target>
       </segment>
     </unit>
   </file>

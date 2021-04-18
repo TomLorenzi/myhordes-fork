@@ -9,35 +9,8 @@
             {% embed "ajax/admin/users/tabs.html.twig" %}{% endembed %}
             <div class="row">
                 {% if is_granted("ROLE_ADMIN") %}
-                <div class="cell rw-5 rw-sm-12 distinctions">
-                    <div class="distinctions-head center">
-                    </div>
-                    <div class="distinctions-list center">
-                        <div class="overall">
-                            {{ '%points% Punkte'|trans({'%points%':0}, 'global') }}
-                        </div>
-                        <div class="list">
-                        {% for picto in pictos %}
-                            {% if picto.c > 0 %}
-                                <div class="picto{% if picto.rare %} rare{% endif %}">
-                                    <div>
-                                        <img src="{{  asset('build/images/pictos/' ~ picto.icon ~ '.gif') }}" alt="" /><br />
-                                        <div class="counter">
-                                        {% for number in picto.c|split('') %}<span class="count" title="{{number}}">{{number}}</span>{% endfor %}
-                                        </div>
-                                    </div>
-                                    <div class="tooltip">
-                                        <h1>{{ picto.label|trans({}, 'game') }}</h1>
-                                        <em>{{ picto.description|trans({}, 'game')}}</em>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                        </div>
-                    </div>
-                    <div class="distinctions-foot">
-                        &nbsp;
-                    </div>
+                <div class="cell rw-5 rw-sm-12 center">
+                    {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos, user: user} %}
                 </div>
                 <div class="cell rw-5 rw-lg-7 rw-sm-12">
                     {{ picto_creator(pictoPrototypes) }}

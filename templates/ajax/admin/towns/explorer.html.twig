@@ -8,6 +8,7 @@
 {% from "ajax/admin/widget/controls.twig" import widget_role_control as role_control, widget_role_control_js as role_control_js %}
 {% from "ajax/admin/widget/controls.twig" import widget_point_control as point_control, widget_point_control_js as point_control_js %}
 {% from "ajax/admin/widget/controls.twig" import widget_profession_control as profession_control, widget_profession_control_js as profession_control_js %}
+{% from "ajax/admin/widget/controls.twig" import widget_teleport_control as teleport_control, widget_teleport_control_js as teleport_control_js %}
 
 {% block title %}{{'Stadt %townname%'|trans({'%townname%': town.name}, 'admin')|raw}}{% endblock %}
 {% block ajax %}
@@ -348,6 +349,8 @@
                         <div class="padded cell">
                             {{ item_creator(itemPrototypes, 'ctz') }}
                             <hr />
+                            {{ teleport_control() }}
+                            <hr />
                             {{ picto_creator(pictoPrototypes) }}
                             <hr />
                             {{ profession_control(citizenProfessions) }}
@@ -525,6 +528,7 @@
     {% if is_granted("ROLE_ADMIN") %}
         {{ item_creator_js('input[x-target="rucksack"]:checked,input[x-target="chest"]:checked,input[x-target="zone"]:checked', path('admin_spawn_item', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"}), 'ctz') }}
         {{ item_creator_js('[x-target="bank"]', path('admin_spawn_item', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "bank"}), 'bnk') }}
+        {{ teleport_control_js('input[x-target="status"]:checked', path('admin_teleport_citizen', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
         {{ picto_creator_js(path('admin_town_give_picto', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
         {{ status_control_js('input[x-target="status"]:checked', path('admin_town_manage_status', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}
         {{ role_control_js('input[x-target="status"]:checked', path('admin_town_manage_role', {id: town.id}), path('admin_town_explorer', {id: town.id, tab: "citizens"})) }}

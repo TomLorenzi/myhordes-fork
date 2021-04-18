@@ -230,8 +230,11 @@ class TwinoConverterToBlocks {
             case 'code': blocks.push( new TwinoInterimBlock(nodeContent, 'pre', [], [ ['x-raw','1'] ]) ); changed = true; break;
             case 'quote':
                 if (!quotespace) {
-                    if ( match.nodeInfo() )
+                    if ( match.nodeInfo() ) {
+                        blocks.push( new TwinoInterimBlock('', 'div', 'clear') );
                         blocks.push( new TwinoInterimBlock(match.nodeInfo(), 'span', 'quoteauthor') );
+                    }
+
                     blocks.push( new TwinoInterimBlock(nodeContent, 'blockquote') );
                     changed = true;
                 }

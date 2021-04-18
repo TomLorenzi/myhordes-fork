@@ -10,6 +10,12 @@ parameters:
       well:       { min: 90, max: 180 }
       map:        { min: 25, max:  27, margin: 0.25 }
       population: { min: 40, max:  40 }
+      zone_items:
+        min: 4
+        max: 10
+        refresh_min: 2
+        refresh_max: 5
+        fill_max: 12
 
       ruins: 20
       explorable_ruins: 1

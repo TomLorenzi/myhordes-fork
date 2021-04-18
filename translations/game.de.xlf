@@ -19105,5 +19105,104 @@
         <target>Dialyse</target>
       </segment>
     </unit>
+    <unit id="FpEFGuI" name="338378b">
+      <notes>
+        <note category="german">%citizen% hat die Zombies mit dem Gegenstand %item% &lt;strong&gt;%duration%&lt;/strong&gt; abgelenkt!</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat die Zombies mit dem Gegenstand %item% &lt;strong&gt;%duration%&lt;/strong&gt; abgelenkt!</source>
+        <target><![CDATA[%citizen% hat die Zombies mit dem Gegenstand %item% <strong>%duration%</strong> abgelenkt!]]></target>
+      </segment>
+    </unit>
+    <unit id="QseufEj" name="Behausung">
+      <notes>
+        <note category="german">Behausung</note>
+      </notes>
+      <segment>
+        <source>Behausung</source>
+        <target>Behausung</target>
+      </segment>
+    </unit>
+    <unit id="wcoL8TX" name="+%def% Punkt(e)">
+      <notes>
+        <note category="german">+%def% Punkt(e)</note>
+      </notes>
+      <segment>
+        <source>+%def% Punkt(e)</source>
+        <target>+%def% Punkt(e)</target>
+      </segment>
+    </unit>
+    <unit id="3whc17K" name="Heldenbonus">
+      <notes>
+        <note category="german">Heldenbonus</note>
+      </notes>
+      <segment>
+        <source>Heldenbonus</source>
+        <target>Heldenbonus</target>
+      </segment>
+    </unit>
+    <unit id="ybPDgkf" name="Total">
+      <notes>
+        <note category="german">Total</note>
+      </notes>
+      <segment>
+        <source>Total</source>
+        <target>Total</target>
+      </segment>
+    </unit>
+    <unit id="uFrUwJs" name="ce2ed36">
+      <notes>
+        <note category="german">Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</note>
+      </notes>
+      <segment>
+        <source>Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</source>
+        <target>Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</target>
+      </segment>
+    </unit>
+    <unit id="A9mtMsb" name="Wächterbonus">
+      <notes>
+        <note category="german">Wächterbonus</note>
+      </notes>
+      <segment>
+        <source>Wächterbonus</source>
+        <target>Wächterbonus</target>
+      </segment>
+    </unit>
+    <unit id="GBprgS1" name="Einzigartige Errungenschaften">
+      <notes>
+        <note category="german">Einzigartige Errungenschaften</note>
+      </notes>
+      <segment>
+        <source>Einzigartige Errungenschaften</source>
+        <target>Einzigartige Errungenschaften</target>
+      </segment>
+    </unit>
+    <unit id="IdcXWbV" name="Besondere Errungenschaften">
+      <notes>
+        <note category="german">Besondere Errungenschaften</note>
+      </notes>
+      <segment>
+        <source>Besondere Errungenschaften</source>
+        <target>Besondere Errungenschaften</target>
+      </segment>
+    </unit>
+    <unit id="FTqbUsX" name="32aeb6b">
+      <notes>
+        <note category="german">Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</source>
+        <target>Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</target>
+      </segment>
+    </unit>
+    <unit id="uB8frFP" name="34394f0">
+      <notes>
+        <note category="german">Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</source>
+        <target>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

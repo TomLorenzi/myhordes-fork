@@ -177,7 +177,7 @@
     </unit>
     <unit id="ePJ.g5_" name="070fa24">
       <notes>
-        <note category="german">Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</note>
+        <note category="german">MyHordes wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</note>
       </notes>
       <segment>
         <source>Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</source>
@@ -1062,7 +1062,7 @@
       </notes>
       <segment>
         <source>Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</source>
-        <target>Vous n'avez pas été actif durant cette partie et par conséquent avez pénalisé les joueurs de votre ville. Nous vous avertissions maintenant que si cela se reproduit, vous ne pourrez alors plus rejoindre de ville durant plusieurs jours.</target>
+        <target>Vous n'avez pas été actif durant cette partie et avez par conséquent pénalisé les joueurs de votre ville. Attention, si cela se reproduit, vous ne pourrez plus rejoindre de ville pendant plusieurs jours.</target>
       </segment>
     </unit>
     <unit id="TIikksZ" name="Wiedergeburt: Privatstadt gründen">

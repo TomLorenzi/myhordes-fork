@@ -882,7 +882,7 @@ class BeyondController extends InventoryAwareController
      * @return Response
      */
     public function action_desert_api(JSONRequestParser $parser): Response {
-        if (!$this->activeCitizenCanAct() || $this->getActiveCitizen()->getZone()->isTownZone())
+        if (!$this->activeCitizenCanAct())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $uncover_fun = function(ItemAction &$a) {
@@ -1444,10 +1444,13 @@ class BeyondController extends InventoryAwareController
         /** @var Citizen|null $target_citizen */
         $target_citizen = $this->entity_manager->getRepository(Citizen::class)->find( $cid );
 
-        if (!$target_citizen || $target_citizen->getZone()->getId() !== $citizen->getZone()->getId())
+        if (!$target_citizen || $target_citizen->getZone() === null || $target_citizen->getZone()->getId() !== $citizen->getZone()->getId())
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if ((!$citizen->getProfession()->getHeroic() && !$citizen->hasRole('guide')) || $citizen->getBanished())
+        if ((!$citizen->getProfession()->getHeroic() && !$citizen->hasRole('guide')))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if ($citizen->getBanished() && !$target_citizen->getBanished())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $max_escort_size = $conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_ESCORT_SIZE, 4);

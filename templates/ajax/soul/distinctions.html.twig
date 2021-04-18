@@ -1,0 +1,88 @@
+<div class="distinctions">
+    <div class="distinctions-head center">
+        {{ 'Statistiken'|trans({}, 'global') }}
+    </div>
+    {% if points is defined %}
+            <div class="distinctions-points">
+                {{ '%points% Punkte'|trans({'%points%':points}, 'global') }}
+            </div>
+        {% endif %}
+    <div class="distinctions-list center">
+        {% if user.awards|length != 0 %}
+       <ul class="tabs plain" x-tab-group="awards" x-tab-control x-tab-default="dinstinctions">
+            <li class="tab-soul-distinctions" x-tab-id="dinstinctions"><div class="tab-link">{{ 'Statistiken'|trans({}, 'soul') }}</div></li>
+            <li class="tab-soul-distinctions" x-tab-id="titles"><div class="tab-link">{{ 'Errungenschaften'|trans({}, 'soul') }} ({{user.awards|length}})</div></li>
+        </ul>
+        {% endif %}
+        <div x-tab-group="awards" x-tab-id="dinstinctions" x-tab-target>
+        {% if pictos|length == 0 %}
+            <div class="list empty">
+                {{ 'Dieser Spieler hat bisher noch keine Preise gewonnen...'|trans({}, 'global') }}
+            </div>
+        {% else %}
+            <div class="list">
+                {% for picto in pictos %}
+                    {% if picto.c > 0 %}
+                        <div class="picto{% if picto.rare %} rare{% endif %}">
+                            <div>
+                                <img alt="" src="{{  asset('build/images/pictos/' ~ picto.icon ~ '.gif') }}" /><br />
+                                <div class="counter">
+                                    {% for number in picto.c|split('') %}<span class="count" title="{{number}}">{{number}}</span>{% endfor %}
+                                </div>
+                            </div>
+                            <div class="tooltip forum-tooltip">
+                                <h1>{{ picto.label|trans({}, 'game') }}</h1>
+                                <em>{{ picto.description|trans({}, 'game')}}</em>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+        </div>
+        <div x-tab-group="awards" x-tab-id="titles" x-tab-target>
+            <div class="title-list">
+
+                {% for id,list in user.awards.values|group_titles %}
+
+                    {% if id == 'custom' %}
+                        <li class="chapter"><b>{{ 'Einzigartige Errungenschaften'|trans({},'game') }}</b></li>
+                    {% elseif id == 'single' %}
+                        <li class="chapter"><b>{{ 'Besondere Errungenschaften'|trans({},'game') }}</b></li>
+                    {% else %}
+                        <li class="chapter">
+                            <img alt="" src="{{  asset('build/images/pictos/' ~ list[0].prototype.associatedPicto.icon ~ '.gif') }}" /> {{ list[0].prototype.associatedPicto.label|trans({}, 'game') }}
+                            <div class="tooltip forum-tooltip">
+                                <h1>{{ list[0].prototype.associatedPicto.label|trans({}, 'game') }}</h1>
+                                <em>{{ list[0].prototype.associatedPicto.description|trans({}, 'game')}}</em>
+                            </div>
+                        </li>
+                    {% endif %}
+
+                    {% for award in list %}
+                        {% if award.prototype is not null and award.prototype.title is not null %}
+                            <li>
+                                "{{ award.prototype.title|trans({},'game') }}"
+                                <div class="tooltip forum-tooltip">
+                                    {% if award.prototype is not null %}
+                                        {% if award.prototype.associatedPicto %}
+                                            <em>{{ award.prototype.associatedPicto.label|trans({}, 'game')}} x {{ award.prototype.unlockQuantity }}</em>
+                                        {% else %}
+                                            <em>{{ 'Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.'|trans({},'game') }}</em>
+                                        {% endif %}
+                                    {% else %}
+                                        <em>{{ 'Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.'|trans({},'game') }}</em>
+                                    {% endif %}
+                                </div>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="distinctions-foot">
+        &nbsp;
+    </div>
+</div>

@@ -416,7 +416,7 @@ class InventoryHandler
         }
 
         if ($type_from === self::TransferTypeBank) {
-            if ($modality !== self::ModalityBankTheft && $actor->getBanished()) return self::ErrorBankBlocked;
+            if ($actor->getBanished()) return self::ErrorBankBlocked;
 
             //Bank Anti abuse system
             if (!$this->bankAbuseService->allowedToTake($actor))

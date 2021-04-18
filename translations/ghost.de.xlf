@@ -180,11 +180,11 @@
     </unit>
     <unit id="ePJ.g5_" name="070fa24">
       <notes>
-        <note category="german">Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</note>
+        <note category="german">MyHordes wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</note>
       </notes>
       <segment>
         <source>Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</source>
-        <target>Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</target>
+        <target>MyHordes wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</target>
       </segment>
     </unit>
     <unit id="6YlCau0" name="5a5d604">

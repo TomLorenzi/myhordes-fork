@@ -174,6 +174,7 @@ class SoulController extends CustomAbstractController
         $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
 
         return $this->render( 'ajax/soul/me.html.twig', $this->addDefaultTwigArgs("soul_me", [
+            'user' => $user,
             'pictos' => $pictos,
             'points' => round($points),
             'latestSkill' => $latestSkill,
@@ -199,7 +200,7 @@ class SoulController extends CustomAbstractController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         $searchName = $parser->get('name', '');
         $searchSkip = $parser->get_array('exclude', []);
-        $searchSkip[] = $user->getId();
+        if ($url !== 'pm_manage_users') $searchSkip[] = $user->getId();
 
         $selected_group = false;
         if ($url === 'town_add_users' && str_contains($searchName,',')) {
@@ -325,12 +326,12 @@ class SoulController extends CustomAbstractController
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function soul_set_header(JSONRequestParser $parser, HTMLService $html) {
+    public function soul_set_header(JSONRequestParser $parser, HTMLService $html): Response {
         $user = $this->getUser();
 
         $title = $parser->get_int('title', -1);
         $icon  = $parser->get_int('icon', -1);
-        $desc  = substr(trim($parser->get('desc')) ?? '', 0, 256);
+        $desc  = mb_substr(trim($parser->get('desc')) ?? '', 0, 256);
 
         if ($title < 0 && $icon >= 0)
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );

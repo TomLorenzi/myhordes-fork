@@ -153,7 +153,7 @@ class LogEntryTemplateFixtures extends Fixture
 
         ['text'=>'%citizen% hat versucht %item% aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.', 'name'=>'bankStealFail',    'type'=>LogEntryTemplate::TypeBank, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>"item",'name'=>'item'])],
         ['text'=>'Jemand hat %item% aus der Bank entwendet, aber er (oder sie) konnte nicht identifiziert werden.', 'name'=>'bankStealSuccess', 'type'=>LogEntryTemplate::TypeBank, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"item",'name'=>'item'])],
-
+        ['text'=>'%citizen% hat die Zombies mit dem Gegenstand %item% <strong>%duration%</strong> abgelenkt!', 'name'=>'zoneEscapeItemUsed', 'type'=>LogEntryTemplate::TypeVarious, 'class'=>LogEntryTemplate::ClassCritical, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"citizen",'name'=>'citizen'],['type'=>"item",'name'=>'item'],['type'=>"duration",'name'=>'duration'])],
 
         // Global PM templates
         ['text'=>'Deine Stadt "%town%" wurde von einem Administrator negiert. Die Stadt wird nicht im Ranking oder auf deiner Seele erscheinen und du bekommst für sie keine Seelenpunkte oder Auszeichnungen.', 'name'=>'gpm_townNegatedAdmin', 'type'=>LogEntryTemplate::TypeGPMNotification, 'class'=>LogEntryTemplate::ClassWarning, 'secondaryType'=>null, 'variableTypes'=>array(['type'=>"string",'name'=>'town'])],

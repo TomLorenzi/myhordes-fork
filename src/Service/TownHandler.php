@@ -351,8 +351,11 @@ class TownHandler
 
         $summary->house_defense = $home->getPrototype()->getDefense();
 
-        if ($home->getCitizen()->getProfession()->getHeroic())
+        if ($home->getCitizen()->getProfession()->getHeroic()) {
             $summary->job_defense += 2;
+            if ($home->getCitizen()->getProfession()->getName() === 'guardian')
+                $summary->job_guard_defense += 1;
+        }
 
         if ($this->getBuilding($town, 'small_city_up_#00', true))
             $summary->house_defense += 4;

@@ -7,7 +7,7 @@
             <div class="bar">
                 <div class="progresstext"><span class="text">{{progress}}%</span></div>
                 <div class="progressbar left">
-                    <img src="{{ asset('build/images/soul/heroUp_bar.gif') }}" style="width : {{progress}}%;" />
+                    <img alt="" src="{{ asset('build/images/soul/heroUp_bar.gif') }}" style="width : {{progress}}%;" />
             </div>
 
             </div>
@@ -24,42 +24,8 @@
                 <span class="small link" x-ajax-href="{{ path('soul_heroskill') }}">{{'Alle freigeschalteten Vorteile anzeigen'|trans({}, 'game')}}</span>
             </div>
         </div>
-        <div class="cell rw-5 rw-sm-12 distinctions">
-            <div class="distinctions-head center">
-                {{ 'Statistiken'|trans({}, 'global') }}
-            </div>
-            <div class="distinctions-list center">
-                <div class="overall">
-                    {{ '%points% Punkte'|trans({'%points%':points}, 'global') }}
-                </div>
-                {% if pictos|length == 0 %}
-                <div class="list empty">
-                    {{ 'Dieser Spieler hat bisher noch keine Preise gewonnen...'|trans({}, 'global') }}
-                </div>
-                {% else %}
-                <div class="list">
-                    {% for picto in pictos %}
-                        {% if picto.c > 0 %}
-                            <div class="picto{% if picto.rare %} rare{% endif %}">
-                                <div>
-                                    <img src="{{  asset('build/images/pictos/' ~ picto.icon ~ '.gif') }}" /><br />
-                                    <div class="counter">
-                                    {% for number in picto.c|split('') %}<span class="count" title="{{number}}">{{number}}</span>{% endfor %}
-                                    </div>
-                                </div>
-                                <div class="tooltip">
-                                    <h1>{{ picto.label|trans({}, 'game') }}</h1>
-                                    <em>{{ picto.description|trans({}, 'game')}}</em>
-                                </div>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-                {% endif %}
-            </div>
-            <div class="distinctions-foot">
-                &nbsp;
-            </div>
+        <div class="cell rw-5 rw-sm-12 center">
+            {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos, points: points, user: app.user} %}
         </div>
         <div class="cell padded rw-7 rw-sm-12">
 

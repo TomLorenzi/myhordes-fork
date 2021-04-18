@@ -34,6 +34,7 @@ class RandomGenerator
     function pick( array $a, int $num = 1, bool $force_array = false ) {
         if     ($num <=  0 || empty($a)) return $force_array ? [] : null;
         elseif ($num === 1) return $force_array ? [$a[ array_rand($a, 1) ]] : $a[ array_rand($a, 1) ];
+        elseif (count($a) === 1) return array_values($a);
         else return array_map( function($k) use (&$a) { return $a[$k]; }, array_rand( $a, min($num,count($a)) ) );
     }
 

@@ -7378,7 +7378,7 @@
       </notes>
       <segment>
         <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ça soulage de supprimer du zombie de temps en temps.</t-kills>]]></target>
+        <target><![CDATA[<t-kill-latest>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie(s) en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ça soulage de supprimer du zombie de temps en temps.</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="Ri.5LgC" name="1376d54">

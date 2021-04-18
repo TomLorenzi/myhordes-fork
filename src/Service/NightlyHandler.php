@@ -777,7 +777,7 @@ class NightlyHandler
 		
 		
 		//$in_town = $town->getChaos() ? max(10,count($targets)) : count($targets);
-		$in_town = min(8, ceil(count($targets) * 0.85));
+		$in_town = max(8, ceil(count($targets) * 0.85));
 		
 		$attacking = min($max_active, $overflow);
 
@@ -788,7 +788,7 @@ class NightlyHandler
 
 		$repartition = array_fill(0, count($targets), 0);
 		for ($i = 0; $i < count($repartition); $i++) {
-			$repartition[$i] =  mt_rand() / mt_getrandmax(); //random value between 0 and 1.0 with many decimals
+			$repartition[$i] = mt_rand() / mt_getrandmax(); //random value between 0 and 1.0 with many decimals
 		}
 		
 		if(count($repartition) != 0) {
@@ -932,7 +932,7 @@ class NightlyHandler
         $status_ooze = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'tg_april_ooze'] );
         $status_paranoid = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy( ['name' => 'tg_paranoid'] );
 
-        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drunk','drugged','healed','hungover','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_chk_workshop', 'tg_chk_build', 'tg_chk_movewb', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff', 'tg_rested', 'tg_shaman_heal', 'tg_ghoul_eat', 'tg_no_hangover', 'tg_ghoul_corpse', 'tg_betadrug', 'tg_build_vote', 'tg_insurrection', 'tg_april_ooze', 'tg_novlamps'];
+        $status_clear_list = ['hasdrunk','haseaten','immune','hsurvive','drunk','drugged','healed','hungover','tg_dice','tg_cards','tg_clothes','tg_teddy','tg_guitar','tg_sbook','tg_steal','tg_home_upgrade','tg_hero','tg_chk_forum','tg_chk_active', 'tg_chk_workshop', 'tg_chk_build', 'tg_chk_movewb', 'tg_hide','tg_tomb', 'tg_home_clean', 'tg_home_shower', 'tg_home_heal_1', 'tg_home_heal_2', 'tg_home_defbuff', 'tg_rested', 'tg_shaman_heal', 'tg_ghoul_eat', 'tg_no_hangover', 'tg_ghoul_corpse', 'tg_betadrug', 'tg_build_vote', 'tg_insurrection', 'tg_april_ooze', 'tg_novlamps', 'tg_tried_pp'];
 
         $aliveCitizenInTown = 0;
         $aliveCitizen = 0;
@@ -1195,8 +1195,8 @@ class NightlyHandler
             if ($zone->getDirection() === $wind && round($distance) > $wind_dist) {
                 $reco_counter[1]++;
                 if ($this->random->chance( $recovery_chance )) {
-                    $digs = mt_rand(5, 10);
-                    $zone->setDigs( min( $zone->getDigs() + $digs, 25 ) );
+                    $digs = mt_rand( $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MIN, 2) , $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_RE_MAX, 5));
+                    $zone->setDigs( min( $zone->getDigs() + $digs, $this->conf->getTownConfiguration($town)->get(TownConf::CONF_ZONE_ITEMS_TOTAL_MAX, 12) ) );
                     $this->log->debug( "Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Recovering by <info>{$digs}</info> to <info>{$zone->getDigs()}</info>." );
                     $reco_counter[0]++;
                 }
