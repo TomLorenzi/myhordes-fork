@@ -203,7 +203,7 @@ yarn install
 yarn encore dev
 ```
 
-Sometimes, elements or features pulled from the Git may be incorrect or missing. If that happens, you need to clear the cache to fix it: :
+Sometimes, elements or features pulled from the Git may be incorrect or missing. If that happens, you need to clear the cache to fix it:
 ```bash
 bin/console cache:clear
 ```
