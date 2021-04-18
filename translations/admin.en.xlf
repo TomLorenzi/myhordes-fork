@@ -3076,7 +3076,7 @@
       </notes>
       <segment>
         <source>Teleportieren:</source>
-        <target>Teleportieren:</target>
+        <target>Teleport:</target>
       </segment>
     </unit>
     <unit id="rwkqvEL" name="In die Stadt">
@@ -3085,7 +3085,7 @@
       </notes>
       <segment>
         <source>In die Stadt</source>
-        <target>In die Stadt</target>
+        <target>In town</target>
       </segment>
     </unit>
     <unit id="9L29399" name="Zu einer Zone">
@@ -3094,7 +3094,7 @@
       </notes>
       <segment>
         <source>Zu einer Zone</source>
-        <target>Zu einer Zone</target>
+        <target>In a zone</target>
       </segment>
     </unit>
   </file>
