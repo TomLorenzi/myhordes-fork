@@ -39,6 +39,7 @@ use App\Service\JSONRequestParser;
 use App\Service\NightlyHandler;
 use App\Service\RandomGenerator;
 use App\Service\TownHandler;
+use App\Service\ZoneHandler;
 use App\Structures\EventConf;
 use App\Structures\TownConf;
 use Doctrine\ORM\EntityManagerInterface;
@@ -546,6 +547,79 @@ class AdminTownController extends AdminActionController
     }
 
     /**
+     * @Route("/api/admin/town/{id}/teleport", name="admin_teleport_citizen", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * Add or remove an item from the bank
+     * @param int $id Town ID
+     * @param JSONRequestParser $parser
+     * @param ZoneHandler $handler
+     * @param TownHandler $townHandler
+     * @return Response
+     */
+    public function teleport_citizen(int $id, JSONRequestParser $parser, ZoneHandler $handler, TownHandler $townHandler): Response
+    {
+        /** @var Town $town */
+        $town = $this->entity_manager->getRepository(Town::class)->find($id);
+        if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $targets = $parser->get_array('targets');
+        if (empty($targets))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $to = $parser->get('to');
+        if ($to !== 'town' && ( !is_array($to) || count($to) !== 2 ))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $target_zone = $to === 'town' ? null : $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town,$to[0],$to[1]);
+        if ($target_zone === null && $to !== 'town') return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $old_zones = [];
+        $cp_target_zone = !$target_zone || $handler->check_cp($target_zone);
+
+        foreach (array_unique($targets) as $target) {
+            /** @var Citizen $citizen */
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($target);
+
+            if (!$citizen || $citizen->getTown() !== $town)
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+            if ($citizen->getZone() === $target_zone) continue;
+
+            if ($citizen->getZone()) {
+                if (!isset($old_zones[$citizen->getZone()->getId()]))
+                    $old_zones[$citizen->getZone()->getId()] = [$citizen->getZone(),$handler->check_cp( $citizen->getZone() )];
+
+                if ($dig_timer = $citizen->getCurrentDigTimer()) {
+                    $dig_timer->setPassive(true);
+                    $this->entity_manager->persist( $dig_timer );
+                }
+
+                $citizen->getZone()->removeCitizen( $citizen );
+            }
+
+            if ($target_zone) $target_zone->addCitizen( $citizen );
+            $this->entity_manager->persist($citizen);
+        }
+
+        foreach ($old_zones as $old_zone_data) {
+            $handler->handleCitizenCountUpdate($old_zone_data[0],$old_zone_data[1]);
+            $this->entity_manager->persist($old_zone_data[0]);
+        }
+
+        if ($target_zone) {
+            $upgraded_map = $townHandler->getBuilding($town,'item_electro_#00', true);
+            $target_zone
+                ->setDiscoveryStatus( Zone::DiscoveryStateCurrent )
+                ->setZombieStatus( max($upgraded_map ? Zone::ZombieStateExact : Zone::ZombieStateEstimate, $target_zone->getZombieStatus() ) );
+            $handler->handleCitizenCountUpdate($target_zone,$cp_target_zone);
+            $this->entity_manager->persist($target_zone);
+        }
+
+        $this->entity_manager->flush();
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("/api/admin/town/{id}/spawn_item", name="admin_spawn_item", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * Add or remove an item from the bank
@@ -664,7 +738,6 @@ class AdminTownController extends AdminActionController
                 $handler->applyProfession($citizen, $profession);
                 $this->entity_manager->persist($citizen);
             }
-
         }
 
 

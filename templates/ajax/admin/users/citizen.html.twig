@@ -7,6 +7,7 @@
 {% from "ajax/admin/widget/controls.twig" import widget_point_control as point_control, widget_point_control_js as point_control_js %}
 {% from "ajax/admin/widget/controls.twig" import widget_profession_control as profession_control, widget_profession_control_js as profession_control_js %}
 {% from "ajax/admin/widget/controls.twig" import widget_home_control as home_control, widget_home_control_js as home_control_js %}
+{% from "ajax/admin/widget/controls.twig" import widget_teleport_control as teleport_control, widget_teleport_control_js as teleport_control_js %}
 
 {% block title %}{% trans from 'admin' %}Bürger{% endtrans %}{%  endblock %}
 {% block ajax %}
@@ -67,6 +68,7 @@
                                 {% if is_granted("ROLE_ADMIN") %}
                                     <div class="cell padded rw-6">{{ point_control() }}</div>
                                     <div class="cell padded rw-6">{{ profession_control(citizenProfessions) }}</div>
+                                    <div class="cell padded rw-12">{{ teleport_control() }}</div>
                                     <div class="cell padded rw-6">{{ status_control(citizenStati) }}</div>
                                     <div class="cell padded rw-6">{{ role_control(citizenRoles) }}</div>
                                     <div class="cell padded rw-12">{{ home_control(user_citizen,home_upgrades) }}</div>
@@ -100,6 +102,7 @@
         {{ role_control_js('#citizen_base_selector', path('admin_town_manage_role', {id: user_citizen.town.id}), path('admin_users_citizen_view', {id: user.id})) }}
         {{ point_control_js('#citizen_base_selector', path('admin_town_alter_pp', {id: user_citizen.town.id}), path('admin_users_citizen_view', {id: user.id})) }}
         {{ profession_control_js('#citizen_base_selector', path('admin_modify_profession', {id: user_citizen.town.id}), path('admin_users_citizen_view', {id: user.id})) }}
+        {{ teleport_control_js('#citizen_base_selector', path('admin_teleport_citizen', {id: user_citizen.town.id}), path('admin_users_citizen_view', {id: user.id})) }}
     {% endif %}
     <script>
         {% if is_granted("ROLE_ADMIN") %}

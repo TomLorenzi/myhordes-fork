@@ -272,6 +272,54 @@
 {% endmacro %}
 <!-- </editor-fold> -->
 
+<!-- <editor-fold desc="Teleport Manager Widget"> -->
+{% macro widget_teleport_control(defaultX = 0, defaultY = 0, prefix = '') %}
+    <div class="lightbox">
+        <div class="row">
+            <div class="padded cell rw-12">{{'Teleportieren:'|trans({}, 'admin')}}</div>
+        </div>
+        <div class="row-flex wrap">
+            <div class="cell"><label><input type="radio" name="{{ _self.gen_id(prefix,'movewidget','type')}}" id="{{ _self.gen_id(prefix,'movewidget','town')}}" /> {{ 'In die Stadt'|trans({}, 'admin') }}</label></div>
+            <div class="cell"><label><input type="radio" checked name="{{ _self.gen_id(prefix,'movewidget','type')}}" id="{{ _self.gen_id(prefix,'movewidget','zone')}}" /> {{ 'Zu einer Zone'|trans({}, 'admin') }}</label></div>
+        </div>
+        <div class="row-flex" id="{{ _self.gen_id(prefix,'movewidget','zone_edit')}}">
+            <div class="padded cell grow-0 shrink-0">[</div>
+            <div class="padded cell grow-1 shrink-1"><label><input id="{{ _self.gen_id(prefix,'movewidget','zx')}}" type="number" placeholder="X" value="{{ defaultX }}" /></label></div>
+            <div class="padded cell grow-0 shrink-0">/</div>
+            <div class="padded cell grow-1 shrink-1"><label><input id="{{ _self.gen_id(prefix,'movewidget','zy')}}" type="number" placeholder="Y" value="{{ defaultY }}" /></label></div>
+            <div class="padded cell grow-0 shrink-0">]</div>
+        </div>
+        <div class="row-flex">
+            <div class="padded cell grow-0 shrink-0"><button id="{{ _self.gen_id(prefix,'movewidget','set')}}"><i class="fa fa-hand-point-down"></i><div class="tooltip">{{'Setzen'|trans({}, 'admin')}}</div></button></div>
+        </div>
+    </div>
+{% endmacro %}
+{% macro widget_teleport_control_js(selector, api_url, load_url, prefix = '') %}
+    <script>
+        $.html.addEventListenerAll('#{{ _self.gen_id(prefix,'movewidget','town')}},#{{ _self.gen_id(prefix,'movewidget','zone')}}','click', function(){
+            if (document.getElementById('{{ _self.gen_id(prefix,'movewidget','zone')}}').checked)
+                document.getElementById('{{ _self.gen_id(prefix,'movewidget','zone_edit')}}').classList.remove('hidden');
+            else document.getElementById('{{ _self.gen_id(prefix,'movewidget','zone_edit')}}').classList.add('hidden');
+        });
+        $.html.addEventListenerAll('#{{ _self.gen_id(prefix,'movewidget','set')}}','click', function(e,elem){
+            let targets = [];
+
+            document.querySelectorAll('{{ selector|e('js') }}').forEach( element => targets.push(parseInt(element.getAttribute('x-id'))) );
+            if (targets.length === 0) {
+                $.html.error('{{ 'Kein Bürger ausgewählt!'|trans({}, 'admin') }}');
+                return;
+            }
+
+            $.ajax.easySend('{{ api_url }}', {
+                to: document.getElementById('{{ _self.gen_id(prefix,'movewidget','zone')}}').checked ? [parseInt(document.getElementById('{{ _self.gen_id(prefix,'movewidget','zx')}}').value),parseInt(document.getElementById('{{ _self.gen_id(prefix,'movewidget','zy')}}').value)] : 'town',
+                targets: targets
+            }, () => $.ajax.load(null, '{{ load_url }}', true)
+            );
+        });
+    </script>
+{% endmacro %}
+<!-- </editor-fold> -->
+
 <!-- <editor-fold desc="Home Manager Widget"> -->
 {% macro widget_home_control(citizen, upgrades, prefix = '') %}
     {# @var citizen \App\Entity\Citizen #}
