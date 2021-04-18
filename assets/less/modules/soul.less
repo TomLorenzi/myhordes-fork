@@ -106,12 +106,31 @@ div.tooltip.badge-tooltip {
                 }
             }
             .tabs {
-                border-bottom: none; min-height: 14px; background: none;
+                border-bottom: 1px solid #633424; min-height: 14px; background: none;
+                .tab-soul-distinctions {
+                  display: inline-block; padding: 2px 4px; margin-left: 2px; text-align: center; font-size: 8pt;
+                  line-height: 1.2em; font-weight: bold; text-transform: uppercase; text-decoration: underline;
+                  color: #f58766; cursor: pointer;
+                  &:hover { color: #f0d79e; }
+
+                  &.selected {
+                    border: 1px solid #633424; border-bottom: 0; box-shadow: inset 0 1px 2px rgb(0,0,0,0.5);
+                    color: #ddab76; cursor: default;
+                    &:hover { color: #DDAB76; background-color: #3d2016; }
+                  }
+
+                }
             }
-            .TitlesList {
-                text-decoration: none; color: white; list-style: none; text-align: initial; font-variant: small-caps; font-size: 75%;
+            .title-list {
+              text-decoration: none; color: white; list-style: none; text-align: initial; font-variant: small-caps;
+              font-size: 75%; max-height: 500px; overflow-y: auto; overflow-x: hidden;
                 li {
-                    border-bottom: 1px dashed #633424;
+                    border-bottom: 1px dashed #633424; cursor: default;
+                    &.chapter {
+                      font-weight: bold; color: #f58766;
+                      &:not(:first-child) { margin-top: 10px; }
+                    }
+                    &:not(.chapter) {list-style: url("../../img/icons/small_middot.gif"); margin-left: 20px;}
                 }
             }
         }
@@ -477,37 +496,4 @@ ul.coa-users {
 .soul_season_link {
   text-decoration: none !important;
   font-size: 120%; padding-top: 5px; color: #ddab76; font-weight: bold;
-}
-
-.tab-soul-distinctions {
-    text-decoration: none;
-    display: inline-block;
-    zoom: 1;
-    padding: 2px 4px;
-    margin-left: 2px;
-    text-align: center;
-    font-size: 8pt;
-    line-height: 1.2em;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-decoration: underline;
-    color: #f58766;
-
-    &:hover {
-        color: #f0d79e;
-    }
-
-    &.selected {
-        border: 1px solid #633424;
-        border-bottom: 0px;
-        -moz-box-shadow: inset 0px 1px 2px rgba(0,0,0,0.5);
-        -webkit-box-shadow: inset 0px 1px 2px rgb(0,0,0,0.5);
-        box-shadow: inset 0px 1px 2px rgb(0,0,0,0.5);
-        color: #ddab76;
-    }
-
-    &.selected:hover {
-        color: #DDAB76;
-        background-color: #3d2016;
-    }
 }

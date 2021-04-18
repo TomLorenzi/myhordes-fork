@@ -64,10 +64,33 @@
                 <div class="padded cell rw-9 rw-md-8 rw-sm-12">
                     <select id="user_title">
                         <option {% if app.user.activeTitle is null %}selected{% endif %} value="-1">--- {{ 'Kein Titel'|trans({},'soul') }} ---</option>
-                        {% for award in app.user.awards %}
-                            {% if award.prototype is not null and award.prototype.title is not null %}
-                                <option {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeTitle != award %}disabled{% endif %} {% if app.user.activeTitle == award %}selected{% endif %} value="{{ award.id }}">{{ award.prototype.title|trans({},'game') }}</option>
+                        {% for id,list in app.user.awards.values|group_titles %}
+
+                            {% set has_title = false %}
+                            {% for award in list %}
+                                {% if award.prototype is not null and award.prototype.title is not null %}
+                                    {% set has_title = true %}
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if has_title %}
+                                <optgroup
+                                        {% if id == 'custom' %}
+                                            label="{{ 'Einzigartige Errungenschaften'|trans({},'game') }}"
+                                        {% elseif id == 'single' %}
+                                            label="{{ 'Besondere Errungenschaften'|trans({},'game') }}"
+                                        {% else %}
+                                            label="{{ list[0].prototype.associatedPicto.label|trans({}, 'game') }}"
+                                        {% endif %}
+                                >
+                                    {% for award in list %}
+                                        {% if award.prototype is not null and award.prototype.title is not null %}
+                                            <option {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) and app.user.activeTitle != award %}disabled{% endif %} {% if app.user.activeTitle == award %}selected{% endif %} value="{{ award.id }}">{{ award.prototype.title|trans({},'game') }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </optgroup>
                             {% endif %}
+
                         {% endfor %}
                     </select>
                 </div>

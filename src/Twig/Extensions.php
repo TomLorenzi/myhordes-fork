@@ -4,6 +4,7 @@
 namespace App\Twig;
 
 
+use App\Entity\Award;
 use App\Entity\Town;
 use App\Entity\TownSlotReservation;
 use App\Entity\ItemProperty;
@@ -46,6 +47,7 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
             new TwigFilter('restricted_until',  [$this, 'user_restricted_until']),
             new TwigFilter('whitelisted',  [$this, 'town_whitelisted']),
             new TwigFilter('items',  [$this, 'item_prototypes_with']),
+            new TwigFilter('group_titles',  [$this, 'group_titles']),
         ];
     }
 
@@ -131,5 +133,38 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
         $p = $this->entityManager->getRepository(ItemProperty::class)->findOneByName($tag);
         if ($p === null) return [];
         return $p->getItemPrototypes()->getValues();
+    }
+
+    /**
+     * @param Award[] $awards
+     * @return array
+     */
+    public function group_titles(array $awards): array {
+
+        $g = [];
+        $p = [];
+
+        foreach ($awards as $award) {
+            $id = 'custom';
+            if ($award->getPrototype() !== null) {
+                if ($award->getPrototype()->getAssociatedPicto() !== null) {
+                    $p[$id = $award->getPrototype()->getAssociatedPicto()->getId()] = $award->getPrototype()->getAssociatedPicto();
+                } else $id = 'single';
+            }
+
+            if (!isset($g[$id])) $g[$id] = [];
+            $g[$id][] = $award;
+        }
+
+        uksort($g, function($a,$b) use (&$p) {
+            if ($a === 'custom') return 1;
+            if ($b === 'custom') return -1;
+            if ($a === 'single') return 1;
+            if ($b === 'single') return -1;
+            return $p[$b]->getRare() <=> $p[$a]->getRare() ?: $p[$a]->getId() <=> $p[$b]->getId();
+        });
+
+        foreach ($g as &$list) usort( $list, fn( Award $a, Award $b ) => $a->getPrototype()->getUnlockQuantity() <=> $b->getPrototype()->getUnlockQuantity() );
+        return $g;
     }
 }
