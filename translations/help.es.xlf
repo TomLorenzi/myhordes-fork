@@ -7490,7 +7490,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Du kannst &lt;strong&gt;das Stadttor&lt;/strong&gt; in diesem Bereich öffnen... Achtung: Wenn das Tor beim allnächtlichen &lt;strong&gt;Angriff der Zombiehorde&lt;/strong&gt; offen steht, kann das für die Stadt fatale Folgen haben...&lt;strong&gt;&lt;/strong&gt;</source>
-        <target><![CDATA[Du kannst <strong>das Stadttor</strong> in diesem Bereich öffnen... Achtung: Wenn das Tor beim allnächtlichen <strong>Angriff der Zombiehorde</strong> offen steht, kann das für die Stadt fatale Folgen haben...<strong></strong>]]></target>
+        <target><![CDATA[Es aquí donde puedes <strong>abrir el portal</strong>... CUIDADO: si quedan abiertas durante el <strong>ataque que los zombies realizan cada noche</strong>, el pueblo corre un grave peligro...]]></target>
       </segment>
     </unit>
     <unit id="_1_xXoc" name="55fa741">
