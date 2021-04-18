@@ -19137,5 +19137,41 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Guardian Bonus</target>
       </segment>
     </unit>
+    <unit id="GBprgS1" name="Einzigartige Errungenschaften">
+      <notes>
+        <note category="german">Einzigartige Errungenschaften</note>
+      </notes>
+      <segment>
+        <source>Einzigartige Errungenschaften</source>
+        <target>Einzigartige Errungenschaften</target>
+      </segment>
+    </unit>
+    <unit id="IdcXWbV" name="Besondere Errungenschaften">
+      <notes>
+        <note category="german">Besondere Errungenschaften</note>
+      </notes>
+      <segment>
+        <source>Besondere Errungenschaften</source>
+        <target>Besondere Errungenschaften</target>
+      </segment>
+    </unit>
+    <unit id="FTqbUsX" name="32aeb6b">
+      <notes>
+        <note category="german">Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</source>
+        <target>Dies ist eine besondere Errungenschaft, die im Rahmen eines Events verliehen wurde.</target>
+      </segment>
+    </unit>
+    <unit id="uB8frFP" name="34394f0">
+      <notes>
+        <note category="german">Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</note>
+      </notes>
+      <segment>
+        <source>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</source>
+        <target>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
