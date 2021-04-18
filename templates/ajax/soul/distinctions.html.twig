@@ -2,12 +2,19 @@
     <div class="distinctions-head center">
         {{ 'Statistiken'|trans({}, 'global') }}
     </div>
-    <div class="distinctions-list center">
-        {% if points is defined %}
-            <div class="overall">
+    {% if points is defined %}
+            <div class="distinctions-points">
                 {{ '%points% Punkte'|trans({'%points%':points}, 'global') }}
             </div>
         {% endif %}
+    <div class="distinctions-list center">
+        {% if user.awards|length != 0 %}
+       <ul class="tabs plain" x-tab-group="awards" x-tab-control x-tab-default="dinstinctions">
+            <li class="tab-soul-distinctions" x-tab-id="dinstinctions"><div class="tab-link">{{ 'Statistiken'|trans({}, 'soul') }}</div></li>
+            <li class="tab-soul-distinctions" x-tab-id="titles"><div class="tab-link">{{ 'Errungenschaften'|trans({}, 'soul') }} ({{user.awards|length}})</div></li>
+        </ul>
+        {% endif %}
+        <div x-tab-group="awards" x-tab-id="dinstinctions" x-tab-target>
         {% if pictos|length == 0 %}
             <div class="list empty">
                 {{ 'Dieser Spieler hat bisher noch keine Preise gewonnen...'|trans({}, 'global') }}
@@ -23,7 +30,7 @@
                                     {% for number in picto.c|split('') %}<span class="count" title="{{number}}">{{number}}</span>{% endfor %}
                                 </div>
                             </div>
-                            <div class="tooltip">
+                            <div class="tooltip forum-tooltip">
                                 <h1>{{ picto.label|trans({}, 'game') }}</h1>
                                 <em>{{ picto.description|trans({}, 'game')}}</em>
                             </div>
@@ -32,6 +39,19 @@
                 {% endfor %}
             </div>
         {% endif %}
+        </div>
+        <div x-tab-group="awards" x-tab-id="titles" x-tab-target>
+            <div class="TitlesList"> 
+                {% for award in user.awards %}
+                    {% if award.prototype is not null and award.prototype.title is not null %}
+                        <li>"{{ award.prototype.title|trans({},'game') }}"</li>
+                    {% endif %}
+                    {% if award.prototype is not null and award.prototype.icon is not null %}
+                        <li><img alt="" src="{{ asset('build/images/icons/title/' ~ award.prototype.icon ~ '.gif') }}" /></li>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
     </div>
     <div class="distinctions-foot">
         &nbsp;

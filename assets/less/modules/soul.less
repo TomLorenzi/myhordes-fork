@@ -83,9 +83,10 @@ div.tooltip.badge-tooltip {
             padding-top: 45px; color: #f0d79e; font-variant: small-caps; font-weight: bold; font-size: 2rem;
         }
 
+        .distinctions-points { color: #FF8866; font-size: 2.4rem; margin-top: 5px; }
+
         .distinctions-list {
             padding: 0 10px; min-height: 100px;
-            .overall { color: #FF8866; font-size: 2.4rem; margin-top: 5px; }
 
             .empty {
                 border: 1px dashed #823D2D; color: #FF8866; padding: 10px; font-size: 1.2rem; font-style: italic;
@@ -102,6 +103,15 @@ div.tooltip.badge-tooltip {
                     .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i = 1) { &[title="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+4,@m,@i+1); }
                     .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i <= @m) and not (@i = 1) { &[title="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+5,@m,@i+1); }
                     .pictoBitmapFont();
+                }
+            }
+            .tabs {
+                border-bottom: none; min-height: 14px; background: none;
+            }
+            .TitlesList {
+                text-decoration: none; color: white; list-style: none; text-align: initial; font-variant: small-caps; font-size: 75%;
+                li {
+                    border-bottom: 1px dashed #633424;
                 }
             }
         }
@@ -469,3 +479,35 @@ ul.coa-users {
   font-size: 120%; padding-top: 5px; color: #ddab76; font-weight: bold;
 }
 
+.tab-soul-distinctions {
+    text-decoration: none;
+    display: inline-block;
+    zoom: 1;
+    padding: 2px 4px;
+    margin-left: 2px;
+    text-align: center;
+    font-size: 8pt;
+    line-height: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: #f58766;
+
+    &:hover {
+        color: #f0d79e;
+    }
+
+    &.selected {
+        border: 1px solid #633424;
+        border-bottom: 0px;
+        -moz-box-shadow: inset 0px 1px 2px rgba(0,0,0,0.5);
+        -webkit-box-shadow: inset 0px 1px 2px rgb(0,0,0,0.5);
+        box-shadow: inset 0px 1px 2px rgb(0,0,0,0.5);
+        color: #ddab76;
+    }
+
+    &.selected:hover {
+        color: #DDAB76;
+        background-color: #3d2016;
+    }
+}
