@@ -8,6 +8,7 @@ use App\Entity\BlackboardEdit;
 use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
+use App\Entity\CitizenEscortSettings;
 use App\Entity\CitizenHome;
 use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenHomeUpgrade;
@@ -946,6 +947,24 @@ class AdminTownController extends AdminActionController
                     $this->entity_manager->persist($citizen);
                 }
                 break;
+            case '_esc_':
+                $c1 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'tg_hide']);
+                $c2 = $this->entity_manager->getRepository(CitizenStatus::class)->findOneBy(['name' => 'tg_tomb']);
+
+                foreach ($citizens as $citizen) {
+                    if (!$citizen->getZone() || !$citizen->getAlive() || $citizen->activeExplorerStats() || $citizen->getStatus()->contains($c1) || $citizen->getStatus()->contains($c2)) continue;
+
+                    if (!$control) {
+                        if ($citizen->getEscortSettings()) $this->entity_manager->remove($citizen->getEscortSettings());
+                        $citizen->setEscortSettings(null);
+
+                    } elseif (!$citizen->getEscortSettings())
+                        $citizen->setEscortSettings((new CitizenEscortSettings())->setCitizen($citizen)->setAllowInventoryAccess(true)->setForceDirectReturn(false));
+                    else $citizen->getEscortSettings()->setAllowInventoryAccess(true)->setForceDirectReturn(false);
+                    $this->entity_manager->persist($citizen);
+                }
+
+                break;
             default: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         }
@@ -968,7 +987,7 @@ class AdminTownController extends AdminActionController
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($parser->get('role'), ['_ban_'] ))
+        if (in_array($parser->get('role'), ['_ban_','_esc_'] ))
             return $this->town_manage_pseudo_role($town,$parser,$handler);
 
         $role_id = $parser->get_int('role');
