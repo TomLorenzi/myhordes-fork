@@ -842,12 +842,39 @@ class AdminTownController extends AdminActionController
             $citizen = $this->entity_manager->getRepository(Citizen::class)->find($target);
             if (!$citizen || $citizen->getTown() !== $town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-            if (!$citizen->getActive()) continue;
-
             if ($control) $this->citizen_handler->inflictStatus( $citizen, $citizenStatus );
             else $this->citizen_handler->removeStatus( $citizen, $citizenStatus );
 
             $this->entity_manager->persist($citizen);
+        }
+
+        $this->entity_manager->flush();
+        return AjaxResponse::success();
+    }
+
+    private function town_manage_pseudo_role(Town $town, JSONRequestParser $parser, CitizenHandler $handler): Response {
+        $targets = $parser->get_array('targets');
+        $control = $parser->get_int('control', 0) > 0;
+
+        $citizens = [];
+        foreach ($targets as $target) {
+            /** @var Citizen $citizen */
+            $citizen = $this->entity_manager->getRepository(Citizen::class)->find($target);
+            if (!$citizen || $citizen->getTown() !== $town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+            $citizens[] = $citizen;
+        }
+
+        switch ($parser->get('role')) {
+
+            case '_ban_':
+                foreach ($citizens as $citizen) {
+                    $citizen->setBanished($control);
+                    $this->entity_manager->persist($citizen);
+                }
+                break;
+            default: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
         }
 
         $this->entity_manager->flush();
@@ -868,6 +895,9 @@ class AdminTownController extends AdminActionController
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
+        if (in_array($parser->get('role'), ['_ban_'] ))
+            return $this->town_manage_pseudo_role($town,$parser,$handler);
+
         $role_id = $parser->get_int('role');
         $targets = $parser->get_array('targets');
 
@@ -881,8 +911,6 @@ class AdminTownController extends AdminActionController
             /** @var Citizen $citizen */
             $citizen = $this->entity_manager->getRepository(Citizen::class)->find($target);
             if (!$citizen || $citizen->getTown() !== $town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
-            if (!$citizen->getActive()) continue;
 
             if ($control) $this->citizen_handler->addRole($citizen, $citizenRole);
             else $this->citizen_handler->removeRole($citizen, $citizenRole);

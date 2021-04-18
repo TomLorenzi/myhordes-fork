@@ -157,9 +157,10 @@
         <div class="row-flex">
             <div class="padded cell grow-1 shrink-1">
                 <select id="{{ _self.gen_id(prefix,'rolewidget','select')}}">
-                    {% for status in citizenRoles %}
-                        <option value="{{status.id}}">{{ status.label|trans({}, 'game') }}</option>
+                    {% for role in citizenRoles %}
+                        <option value="{{role.id}}">{{ role.label|trans({}, 'game') }}</option>
                     {% endfor %}
+                    <option value="_ban_">[{{ 'Verbannung'|trans({}, 'game') }}]</option>
                 </select>
             </div>
             <div class="padded cell grow-0 shrink-0"><button x-control="1" id="{{ _self.gen_id(prefix,'rolewidget','give')}}"><i class="fa fa-plus"></i><div class="tooltip">{{'Rolle vergeben'|trans({}, 'admin')}}</div></button></div>
