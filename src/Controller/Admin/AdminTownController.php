@@ -977,7 +977,7 @@ class AdminTownController extends AdminActionController
 
                     if ($control) {
                         if ($activeCitizenWatcher) continue;
-                        $citizenWatch = (new CitizenWatch())->setCitizen($this->getActiveCitizen())->setDay($town->getDay());
+                        $citizenWatch = (new CitizenWatch())->setCitizen($citizen)->setDay($town->getDay());
                         $town->addCitizenWatch($citizenWatch);
                         $this->entity_manager->persist($citizenWatch);
                     } else {
