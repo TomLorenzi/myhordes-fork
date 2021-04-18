@@ -7490,7 +7490,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Du kannst &lt;strong&gt;das Stadttor&lt;/strong&gt; in diesem Bereich öffnen... Achtung: Wenn das Tor beim allnächtlichen &lt;strong&gt;Angriff der Zombiehorde&lt;/strong&gt; offen steht, kann das für die Stadt fatale Folgen haben...&lt;strong&gt;&lt;/strong&gt;</source>
-        <target><![CDATA[Du kannst <strong>das Stadttor</strong> in diesem Bereich öffnen... Achtung: Wenn das Tor beim allnächtlichen <strong>Angriff der Zombiehorde</strong> offen steht, kann das für die Stadt fatale Folgen haben...<strong></strong>]]></target>
+        <target><![CDATA[Es aquí donde puedes <strong>abrir el portal</strong>... CUIDADO: si quedan abiertas durante el <strong>ataque que los zombies realizan cada noche</strong>, el pueblo corre un grave peligro...]]></target>
       </segment>
     </unit>
     <unit id="_1_xXoc" name="55fa741">
@@ -7537,7 +7537,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Drücke auf diesen Knopf, um in dieser Zone zu &lt;strong&gt;graben&lt;/strong&gt;...</source>
-        <target><![CDATA[Drücke auf diesen Knopf, um in dieser Zone zu <strong>graben</strong>...]]></target>
+        <target><![CDATA[Usa este botón para <strong>remover la arena</strong> en busca de objetos.]]></target>
       </segment>
     </unit>
     <unit id="IAz_MhR" name="159138e">
@@ -7546,7 +7546,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wenn du einen Gegenstand findest, wird er automatisch in deinem &lt;strong&gt;Rucksack&lt;/strong&gt; verräumt (sofern du noch Platz hast) &lt;strong&gt;oder am Boden abgelegt&lt;/strong&gt; (wenn du keinen Platz mehr hast).</source>
-        <target><![CDATA[Wenn du einen Gegenstand findest, wird er automatisch in deinem <strong>Rucksack</strong> verräumt (sofern du noch Platz hast) <strong>oder am Boden abgelegt</strong> (wenn du keinen Platz mehr hast).]]></target>
+        <target><![CDATA[Si encuentras un objeto, será colocado en tu <strong>mochila</strong> (si hay espacio) o <strong>en el suelo</strong> (si no lo tienes).]]></target>
       </segment>
     </unit>
     <unit id="rKxSqrI" name="4228fd8">
@@ -7555,7 +7555,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wenn du für ein paar Stunden in der Zone verharrst, in der du schon einmal gegraben hast, kannst du dort noch einmal &lt;strong&gt;umsonst graben&lt;/strong&gt;.</source>
-        <target><![CDATA[Wenn du für ein paar Stunden in der Zone verharrst, in der du schon einmal gegraben hast, kannst du dort noch einmal <strong>umsonst graben</strong>.]]></target>
+        <target><![CDATA[Si te quedas en la misma zona durante algunas horas después de la búsqueda, podrás realizar otra <strong>búsqueda gratis</strong> allí.]]></target>
       </segment>
     </unit>
     <unit id="sISZRef" name="6da577e">
@@ -7564,7 +7564,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Der Zähler, der die nächste automatische Ausgrabung anzeigt, ist hier sichtbar.</source>
-        <target>Der Zähler, der die nächste automatische Ausgrabung anzeigt, ist hier sichtbar.</target>
+        <target>El tiempo que falta para la próxima búsqueda automática es visible aquí.</target>
       </segment>
     </unit>
     <unit id="WQFCOK_" name="46d850b">
@@ -7573,7 +7573,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Du kannst dich weiterhin im Freien bewegen oder auf die nächste automatische Grabungsaktion warten. Egal wie du dich entscheidest, &lt;strong&gt;du MUSST ZUSEHEN, dass du vor dem Zombieangriffum Mitternacht nach Hause kommst&lt;/strong&gt;!</source>
-        <target><![CDATA[Du kannst dich weiterhin im Freien bewegen oder auf die nächste automatische Grabungsaktion warten. Egal wie du dich entscheidest, <strong>du MUSST ZUSEHEN, dass du vor dem Zombieangriffum Mitternacht nach Hause kommst</strong>!]]></target>
+        <target><![CDATA[Puedes seguir explorando el desierto o esperar a la próxima búsqueda automática. Sea lo que fuere, <strong>¡NUNCA OLVIDES volver al pueblo antes del ataque nocturno!</strong>]]></target>
       </segment>
     </unit>
     <unit id="RPV.Hdo" name="c01b240">
@@ -7582,7 +7582,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Deine im Freien verwendbaren &lt;strong&gt;Aktionspunkte&lt;/strong&gt; werden hier angezeigt. &lt;strong&gt;Wenn du keine Aktionspunkte mehr hast, bist du Erschöpft&lt;/strong&gt;. Um dein Punktekonto wieder aufzufüllen, kannst du etwas essen, trinken oder Drogen zu dir nehmen (je nachdem was dir zur Verfügung steht).</source>
-        <target><![CDATA[Deine im Freien verwendbaren <strong>Aktionspunkte</strong> werden hier angezeigt. <strong>Wenn du keine Aktionspunkte mehr hast, bist du Erschöpft</strong>. Um dein Punktekonto wieder aufzufüllen, kannst du etwas essen, trinken oder Drogen zu dir nehmen (je nachdem was dir zur Verfügung steht).]]></target>
+        <target><![CDATA[Tus <strong>Puntos de Acción</strong> al exterior se muestran aquí. <strong>Cuando ya no te quede ninguno, estarás Cansado</strong>. Come, bebe o toma algún estimulante (según lo que tengas en ese momento) hasta recuperarlos totalmente.]]></target>
       </segment>
     </unit>
     <unit id="J6Uka4G" name="3f21055">

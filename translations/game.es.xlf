@@ -7358,7 +7358,7 @@
       </notes>
       <segment>
         <source>%citizen% starb, als er auf lächerliche Weise von der Mauer fiel!</source>
-        <target>%citizen% murió, ¡Se cayó de las almenas mientras de la manera más ridícula posible!</target>
+        <target>%citizen% murió, ¡Se cayó de las almenas de la manera más ridícula posible mientras defendía el pueblo!</target>
       </segment>
     </unit>
     <unit id="6PEMPdF" name="Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : %citizens%">
@@ -7484,7 +7484,7 @@
       </notes>
       <segment>
         <source>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</source>
-        <target>Luego de todos sus esfuerzos, tu amigo no fue capaz de encontrar nada aquí...</target>
+        <target>Luego de todos sus esfuerzos, tu amigo/a no fue capaz de encontrar nada aquí...</target>
       </segment>
     </unit>
     <unit id="ldDJ4DB" name="5617aca">
@@ -7502,7 +7502,7 @@
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!</source>
-        <target>¡Luego de todos sus esfuerzos, tu amigo acaba de encontrar: %item%!</target>
+        <target>¡Luego de todos sus esfuerzos, tu amigo/a acaba de encontrar: %item%!</target>
       </segment>
     </unit>
     <unit id="YuDVKDs" name="Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!">
@@ -14337,7 +14337,7 @@
       </notes>
       <segment>
         <source>Dieses Bauprojekt wurde bereits abgeschlossen.</source>
-        <target>Dieses Bauprojekt wurde bereits abgeschlossen.</target>
+        <target>Esta construcción ya está terminada.</target>
       </segment>
     </unit>
     <unit id="1RZZDef" name="576549b">
@@ -17239,7 +17239,7 @@
       </notes>
       <segment>
         <source>%citizen% hat an dem Bauprojekt %plan% mitgearbeitet.</source>
-        <target>%citizen% ha trabajado en la construcción de %plan%.</target>
+        <target>%citizen% ha trabajado en la construcción %plan%.</target>
       </segment>
     </unit>
     <unit id="7MfXJbM" name="%citizen% hat das Gebäude %plan% repariert.">
@@ -17428,7 +17428,7 @@
       </notes>
       <segment>
         <source>Du verlässt deinen Posten?...</source>
-        <target>Du verlässt deinen Posten?...</target>
+        <target>¿Abandonas el puesto? En fin, eres tú quien decide...</target>
       </segment>
     </unit>
     <unit id="81G6y92" name="2bec6b6">
@@ -17437,7 +17437,7 @@
       </notes>
       <segment>
         <source>Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...</source>
-        <target>Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...</target>
+        <target>Bravo, has decidido correr el riesgo de salvar a tus compañeros en peligro desde esta noche...</target>
       </segment>
     </unit>
     <unit id="k23__KG" name="7d8dbe4">
@@ -17446,7 +17446,7 @@
       </notes>
       <segment>
         <source>Zur Information: Sobald du Wächter bist, kannst du danach wieder einfacher Bürger werden.</source>
-        <target>Zur Information: Sobald du Wächter bist, kannst du danach wieder einfacher Bürger werden.</target>
+        <target>Aviso: Aun siendo centinela, puedes volver a ser un simple habitante.</target>
       </segment>
     </unit>
     <unit id="zzRDqeC" name="52c1a7d">
@@ -17455,7 +17455,7 @@
       </notes>
       <segment>
         <source>Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...</source>
-        <target>Achtung: Wenn du jetzt kneifst, werden sich die anderen Bürger ziemlich sicher über dich lustig machen...</target>
+        <target>Cuidado: esto puede provocar el odio o las risas de tus compañeros... </target>
       </segment>
     </unit>
     <unit id="rqIPcqm" name="%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!">
@@ -17748,7 +17748,7 @@
       </notes>
       <segment>
         <source>Neue und Tote</source>
-        <target>Neue und Tote</target>
+        <target>Llegadas y Muertos</target>
       </segment>
     </unit>
     <unit id="To01kGO" name="Zombieangriff (newspaper)">
@@ -19101,7 +19101,7 @@
       </notes>
       <segment>
         <source>Heldenbonus</source>
-        <target>Bonus Héroe</target>
+        <target>Bonus de Héroe</target>
       </segment>
     </unit>
     <unit id="ybPDgkf" name="Total">
@@ -19119,7 +19119,7 @@
       </notes>
       <segment>
         <source>Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</source>
-        <target>Les objetos de defensa (láminas de mteal, etc.) deben ser depositados en el Baúl.</target>
+        <target>Les objetos de defensa (láminas de mteal, etc.) deben encontrarse en el Baúl.</target>
       </segment>
     </unit>
     <unit id="A9mtMsb" name="Wächterbonus">
@@ -19128,7 +19128,7 @@
       </notes>
       <segment>
         <source>Wächterbonus</source>
-        <target>Bonus guardián</target>
+        <target>Bonus de guardián</target>
       </segment>
     </unit>
   </file>

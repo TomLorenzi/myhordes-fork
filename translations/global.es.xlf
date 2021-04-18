@@ -2404,7 +2404,7 @@
       </notes>
       <segment>
         <source>Nachrichten suchen</source>
-        <target>Buscar noticias</target>
+        <target>Buscar un mensaje</target>
       </segment>
     </unit>
     <unit id="qvbVj_e" name="Suchbegriff">
@@ -2413,7 +2413,7 @@
       </notes>
       <segment>
         <source>Suchbegriff</source>
-        <target>Término de búsqueda</target>
+        <target>Palabras clave</target>
       </segment>
     </unit>
     <unit id="m.JFPYg" name="Suchbegriffe eingeben">
@@ -2422,7 +2422,7 @@
       </notes>
       <segment>
         <source>Suchbegriffe eingeben</source>
-        <target>Escribe los términos de búsqueda</target>
+        <target>Ingresa las palabras clave</target>
       </segment>
     </unit>
     <unit id="bpR1Iu." name="Benutzer (optional)">
@@ -2458,7 +2458,7 @@
       </notes>
       <segment>
         <source>In Titeln suchen</source>
-        <target>Buscar en los títulos</target>
+        <target>Incluir títulos</target>
       </segment>
     </unit>
     <unit id="gz5au3s" name="Tipps zur Suche">
@@ -2476,7 +2476,7 @@
       </notes>
       <segment>
         <source>Benutze Anführungszeichen (" "), um nach einer bestimmten Wortkette zu suchen. Beispiel: "Ration Wasser"</source>
-        <target>Utilice las comillas (" ") para buscar una cadena de palabras específica. Ejemplo: "Agua de racionamiento".</target>
+        <target>Usa comillas (" ") al inicio y al final de la frase o palabras que buscas para tener mejores resultados. Ejemplo "Ración de agua"</target>
       </segment>
     </unit>
     <unit id="tQlAKoR" name="60820fb">
@@ -2485,7 +2485,8 @@
       </notes>
       <segment>
         <source>Setze ein Ausrufezeichen (!) vor einen Suchbegriff, um diesen auszuschließen. Beispiel: Wasser !Brunnen</source>
-        <target>Ponga un signo de exclamación (!) delante de un término de búsqueda para excluirlo. Ejemplo: Agua !Pozo</target>
+        <target><![CDATA[Usa el signo de exclamación (!) para excluir una palabra de tus búsquedas. Ejemplo: Agua !Pozo<br />
+        <strong>Nota</strong>: si quieres buscar un mensaje que NO tenga una frase, puedes hacer !"la ruina" para que se excluyan todos los mensajes que tengan "la ruina".]]></target>
       </segment>
     </unit>
     <unit id="HnC2uQZ" name="57f97d9">
@@ -2494,7 +2495,7 @@
       </notes>
       <segment>
         <source>Um nach Anführungszeichen oder Ausrufezeichen zu suchen, schreibe einen Backslash (\) davor, um zu verhindern, dass sie als Suchbefehl interpretiert werden. Beispiel: Boom\!</source>
-        <target>Para buscar comillas o signos de exclamación, ponga una barra invertida (\) delante de ellos para evitar que se interpreten como un comando de búsqueda. Ejemplo: ¡Boom\!</target>
+        <target>Si quieres buscar comillas o signos de exclamación, usa una barra invertida (\) antes del símbolo para evitar que se interpreten como un comando de búsqueda. Ejemplo: ¡Ayuda\!</target>
       </segment>
     </unit>
     <unit id="3Ql_d91" name="Suchen">
