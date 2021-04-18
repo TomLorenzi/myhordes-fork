@@ -18,6 +18,7 @@ use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\CitizenVote;
+use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\ExpeditionRoute;
 use App\Entity\Inventory;
@@ -963,7 +964,31 @@ class AdminTownController extends AdminActionController
                     else $citizen->getEscortSettings()->setAllowInventoryAccess(true)->setForceDirectReturn(false);
                     $this->entity_manager->persist($citizen);
                 }
+            case '_nw_':
+                $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findCurrentWatchers($town);
+                foreach ($citizens as $citizen) {
+                    $activeCitizenWatcher = null;
 
+                    foreach ($watchers as $watcher)
+                        if ($watcher->getCitizen() === $citizen){
+                            $activeCitizenWatcher = $watcher;
+                            break;
+                        }
+
+                    if ($control) {
+                        if ($activeCitizenWatcher) continue;
+                        $citizenWatch = (new CitizenWatch())->setCitizen($this->getActiveCitizen())->setDay($town->getDay());
+                        $town->addCitizenWatch($citizenWatch);
+                        $this->entity_manager->persist($citizenWatch);
+                    } else {
+                        if ($activeCitizenWatcher === null) continue;
+                        $town->removeCitizenWatch($activeCitizenWatcher);
+                        $citizen->removeCitizenWatch($activeCitizenWatcher);
+                        $this->entity_manager->remove($activeCitizenWatcher);
+                    }
+
+                    $this->entity_manager->persist($citizen);
+                }
                 break;
             default: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
@@ -987,7 +1012,7 @@ class AdminTownController extends AdminActionController
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($parser->get('role'), ['_ban_','_esc_'] ))
+        if (in_array($parser->get('role'), ['_ban_','_esc_','_nw_'] ))
             return $this->town_manage_pseudo_role($town,$parser,$handler);
 
         $role_id = $parser->get_int('role');
