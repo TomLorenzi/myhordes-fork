@@ -2131,7 +2131,7 @@
       </notes>
       <segment>
         <source>Status vergeben</source>
-        <target>Status asignado</target>
+        <target>Asignar estado</target>
       </segment>
     </unit>
     <unit id="PLdhbVW" name="Status entfernen">
@@ -2338,7 +2338,7 @@
       </notes>
       <segment>
         <source>Konstruktionen</source>
-        <target>Konstruktionen</target>
+        <target>Construcciónes</target>
       </segment>
     </unit>
     <unit id="JgVl7oE" name="Gib den Namen oder die ID der Stadt ein.">
@@ -2725,7 +2725,7 @@
       </notes>
       <segment>
         <source>Schwarzes Brett</source>
-        <target>Schwarzes Brett</target>
+        <target>Pizarra</target>
       </segment>
     </unit>
     <unit id="rDIuKb4" name="Stadt füllen">
@@ -2824,7 +2824,7 @@
       </notes>
       <segment>
         <source>Punkte</source>
-        <target>Punkte</target>
+        <target>Puntos</target>
       </segment>
     </unit>
     <unit id="dPobLXQ" name="Rollen">
@@ -2833,7 +2833,7 @@
       </notes>
       <segment>
         <source>Rollen</source>
-        <target>Rollen</target>
+        <target>Roles</target>
       </segment>
     </unit>
     <unit id="LsFE_gX" name="Versteckter Status">
@@ -2842,7 +2842,7 @@
       </notes>
       <segment>
         <source>Versteckter Status</source>
-        <target>Versteckter Status</target>
+        <target>Estado oculto</target>
       </segment>
     </unit>
     <unit id="bauA9lx" name="Versteckt:">
@@ -2869,7 +2869,7 @@
       </notes>
       <segment>
         <source>BP</source>
-        <target>BP</target>
+        <target>PC</target>
       </segment>
     </unit>
     <unit id="IErGaoh" name="MP">
@@ -2878,7 +2878,7 @@
       </notes>
       <segment>
         <source>MP</source>
-        <target>MP</target>
+        <target>PM</target>
       </segment>
     </unit>
     <unit id="tVQnz.X" name="Einen Beruf auswählen:">
@@ -2887,7 +2887,7 @@
       </notes>
       <segment>
         <source>Einen Beruf auswählen:</source>
-        <target>Einen Beruf auswählen:</target>
+        <target>Elección de una profesión:</target>
       </segment>
     </unit>
     <unit id="_Kc4j.e" name="Stadt anlegen">
@@ -3076,7 +3076,7 @@
       </notes>
       <segment>
         <source>Teleportieren:</source>
-        <target>Teleportieren:</target>
+        <target>Teleportación:</target>
       </segment>
     </unit>
     <unit id="rwkqvEL" name="In die Stadt">
@@ -3085,7 +3085,7 @@
       </notes>
       <segment>
         <source>In die Stadt</source>
-        <target>In die Stadt</target>
+        <target>En el pueblo</target>
       </segment>
     </unit>
     <unit id="9L29399" name="Zu einer Zone">
@@ -3094,7 +3094,7 @@
       </notes>
       <segment>
         <source>Zu einer Zone</source>
-        <target>Zu einer Zone</target>
+        <target>En un área</target>
       </segment>
     </unit>
   </file>
