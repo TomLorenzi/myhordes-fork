@@ -18704,7 +18704,7 @@
       </notes>
       <segment>
         <source>Manuelles Event-Management:</source>
-        <target>Manuelles Event-Management:</target>
+        <target>Gestion manuelle des évènements:</target>
       </segment>
     </unit>
     <unit id="lYRernR" name="7714838">
@@ -18713,7 +18713,7 @@
       </notes>
       <segment>
         <source>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</source>
-        <target>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</target>
+        <target>Désactive la gestion normale des événements de la ville et détermine manuellement le contenu de l’événement disponible pour la durée de la ville.</target>
       </segment>
     </unit>
     <unit id="cznvzLK" name="Kein Event:">
@@ -18722,7 +18722,7 @@
       </notes>
       <segment>
         <source>Kein Event:</source>
-        <target>Kein Event:</target>
+        <target>Aucun évènement:</target>
       </segment>
     </unit>
     <unit id="nHRZ69P" name="Startet die Stadt ohne Event-Inhalte">
@@ -18731,7 +18731,7 @@
       </notes>
       <segment>
         <source>Startet die Stadt ohne Event-Inhalte</source>
-        <target>Startet die Stadt ohne Event-Inhalte</target>
+        <target>Démarre la ville sans événement</target>
       </segment>
     </unit>
     <unit id="jQ18AzU" name="1. April">
@@ -18740,7 +18740,7 @@
       </notes>
       <segment>
         <source>1. April</source>
-        <target>1. April</target>
+        <target>1er Avril</target>
       </segment>
     </unit>
     <unit id="5kvPhGt" name="St. Patrick">
@@ -18758,7 +18758,7 @@
       </notes>
       <segment>
         <source>Ostern</source>
-        <target>Ostern</target>
+        <target>Pâques</target>
       </segment>
     </unit>
     <unit id="BJVmtrE" name="Halloween">
@@ -18785,7 +18785,7 @@
       </notes>
       <segment>
         <source>Weihnachten</source>
-        <target>Weihnachten</target>
+        <target>Noël</target>
       </segment>
     </unit>
     <unit id="iiUUud." name="935109f">
