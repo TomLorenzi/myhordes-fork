@@ -7724,8 +7724,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;6 neue AP erhalten&lt;/strong&gt;.</source>
-        <target><![CDATA[Toma algo de aire y date unas palmadas en la cara. ¡No es momento para darte por vencido!
-Has <strong>regenerado tus 6 PA</strong>.]]></target>
+        <target><![CDATA[Toma algo de aire y date unas palmadas en la cara. ¡No es momento para darte por vencido!{hr}Has <strong>regenerado tus 6 PA</strong>.]]></target>
       </segment>
     </unit>
     <unit id="wMM0fB9" name="414226f">
