@@ -8153,7 +8153,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: &lt;strong&gt;du bist nun verletzt&lt;/strong&gt;.</source>
-        <target><![CDATA[Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: <strong>du bist nun verletzt</strong>.]]></target>
+        <target><![CDATA[You swallow your water ration in one gulp: the result was certainly not as you has imagined... Without any warning, your throat starts to burn horribly, and gives way to a frightful and painful cough! You fall, breathless, to your knees. As a <strong>ghoul</strong>, tou cannot drink water anymore: you are now <strong>wounded</strong>.]]></target>
       </segment>
     </unit>
     <unit id="GUA4Vaf" name="8f08b00">
