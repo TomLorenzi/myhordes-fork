@@ -7670,7 +7670,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Stellt deine AP wieder her und beseitigt deine Müdigkeit.</source>
-        <target>Regeneras tus puntos de acción y pierdes el estado Cansancio.</target>
+        <target>Regenera tus PA y cura el Cansancio.</target>
       </segment>
     </unit>
     <unit id="R.doQQs" name="a48c5f0">
@@ -7679,7 +7679,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Beim nächsten Angriff wird der Durst-, Infektions- und Abhängigkeitszustand außer Kraft gesetzt.</source>
-        <target>Durante el siguiente ataque, se anula el estado de sed, infección y adicción.</target>
+        <target>No suffrirás les efectos de la Sed, de la Infección, ni de la Adicción durante el próximo ataque.</target>
       </segment>
     </unit>
     <unit id="VDnHqpQ" name="e682f2e">
@@ -7724,7 +7724,8 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;6 neue AP erhalten&lt;/strong&gt;.</source>
-        <target><![CDATA[Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und <strong>6 neue AP erhalten</strong>.]]></target>
+        <target><![CDATA[Toma algo de aire y date unas palmadas en la cara. ¡No es momento para darte por vencido!
+Has <strong>regenerado tus 6 PA</strong>.]]></target>
       </segment>
     </unit>
     <unit id="wMM0fB9" name="414226f">
@@ -7733,7 +7734,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du versucht nochmal alle deine Kräfte für heute Abend zu mobilisieren. Die Anspannung steht dir ins Gesicht geschrieben. Du schwitzt und deine Hände zittern.{hr}Beim heutigen Angriff wirst du weder weder Durst, noch Krankheitssymptome (Infektion), noch Entzugserscheinungen verspüren.</source>
-        <target>Du versucht nochmal alle deine Kräfte für heute Abend zu mobilisieren. Die Anspannung steht dir ins Gesicht geschrieben. Du schwitzt und deine Hände zittern.{hr}Beim heutigen Angriff wirst du weder weder Durst, noch Krankheitssymptome (Infektion), noch Entzugserscheinungen verspüren.</target>
+        <target>Intenta guardar fuerzas para el ataque de esta noche. En tu rostro se ve el temor, transpiras, tiemblas...{hr}Esta noche no sufrirás les effectos de la Sed, de la Infección, ni de la Adicción durante el ataque.</target>
       </segment>
     </unit>
     <unit id="ClZU0Ua" name="a655585">
