@@ -7981,7 +7981,7 @@
       </notes>
       <segment>
         <source>Du hast dich in einen Ghul verwandelt!</source>
-        <target><![CDATA[¡Te has convertido en un <strong>Mutante</strong>!]]></target>
+        <target>¡Te has convertido en un Mutante!</target>
       </segment>
     </unit>
     <unit id="I3SgbFv" name="%citizen% hat einen Bauplan für %plan% gefunden.">
