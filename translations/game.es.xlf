@@ -15705,7 +15705,7 @@
       </notes>
       <segment>
         <source>Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</source>
-        <target>¡Hurra! Has terminado la construcción %plan%!</target>
+        <target>¡Hurra! ¡Has terminado la construcción  %plan%!</target>
       </segment>
     </unit>
     <unit id="8UrChKd" name="Du hast dafür %count% Aktionspunkt(e) verbraucht.">
