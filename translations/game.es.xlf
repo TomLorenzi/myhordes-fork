@@ -7765,7 +7765,7 @@
       <segment>
         <source>Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
                     Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.</source>
-        <target>El mapa, así como todas las funciones en el exterior están desactivadas mientras estés siguiendo a un héroe.</target>
+        <target>Todas las funciones en el exterior están desactivadas mientras estés siguiendo a un héroe.</target>
       </segment>
     </unit>
     <unit id="jqa.16L" name="da1981d">
