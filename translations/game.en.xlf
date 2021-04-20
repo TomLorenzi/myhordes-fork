@@ -18675,7 +18675,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Manuelles Event-Management:</source>
-        <target>Manuelles Event-Management:</target>
+        <target>Manual Event Management:</target>
       </segment>
     </unit>
     <unit id="lYRernR" name="7714838">
@@ -18684,7 +18684,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</source>
-        <target>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</target>
+        <target>Disables the town's normal event management and instead manually determines which event content is available for the duration of the town.</target>
       </segment>
     </unit>
     <unit id="cznvzLK" name="Kein Event:">
@@ -18693,7 +18693,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Kein Event:</source>
-        <target>Kein Event:</target>
+        <target>No Event:</target>
       </segment>
     </unit>
     <unit id="nHRZ69P" name="Startet die Stadt ohne Event-Inhalte">
@@ -18702,7 +18702,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Startet die Stadt ohne Event-Inhalte</source>
-        <target>Startet die Stadt ohne Event-Inhalte</target>
+        <target>Starts the town without event content</target>
       </segment>
     </unit>
     <unit id="jQ18AzU" name="1. April">
@@ -18711,7 +18711,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>1. April</source>
-        <target>1. April</target>
+        <target>April 1st</target>
       </segment>
     </unit>
     <unit id="5kvPhGt" name="St. Patrick">
@@ -18729,7 +18729,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ostern</source>
-        <target>Ostern</target>
+        <target>Easter</target>
       </segment>
     </unit>
     <unit id="BJVmtrE" name="Halloween">
@@ -18756,7 +18756,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Weihnachten</source>
-        <target>Weihnachten</target>
+        <target>Christmas</target>
       </segment>
     </unit>
     <unit id="iiUUud." name="935109f">
