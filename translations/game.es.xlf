@@ -9511,7 +9511,7 @@
       </notes>
       <segment>
         <source>Du kannst 2 Mal pro Partie einen Registereintrag unkenntlich machen. Dazu musst du nur auf das kleine Icon "Fälschen" klicken. Dieses befindet sich links neben dem "störenden" Registereintrag. ;-)</source>
-        <target>Te permite borrar 2 líneas de cualquier registro durante una partida (haga clic en el icono junto a la línea que desea eliminar...).</target>
+        <target>Te permite borrar 2 líneas de cualquier registro durante una partida (haz clic en el icono junto a la línea que deseas eliminar.).</target>
       </segment>
     </unit>
     <unit id="v3dbrZx" name="Hellseherei">
@@ -15705,7 +15705,7 @@
       </notes>
       <segment>
         <source>Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</source>
-        <target>¡Hurra! Has terminado la construcción %plan%!</target>
+        <target>¡Hurra! ¡Has terminado la construcción %plan%!</target>
       </segment>
     </unit>
     <unit id="8UrChKd" name="Du hast dafür %count% Aktionspunkt(e) verbraucht.">
