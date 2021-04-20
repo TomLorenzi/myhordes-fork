@@ -18444,7 +18444,7 @@
       </notes>
       <segment>
         <source>%citizen% hat versucht %item% aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.</source>
-        <target>%citizen% hat versucht %item% aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.</target>
+        <target>¡%citizen% ha intentado robar %item% del Almacén pero su falta de discreción le convierte en un pésimo ladrón!</target>
       </segment>
     </unit>
     <unit id="LWSEhn0" name="ed08c19">
