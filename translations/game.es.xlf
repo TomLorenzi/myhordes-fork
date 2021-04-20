@@ -18453,7 +18453,7 @@
       </notes>
       <segment>
         <source>Jemand hat %item% aus der Bank entwendet, aber er (oder sie) konnte nicht identifiziert werden.</source>
-        <target>Jemand hat %item% aus der Bank entwendet, aber er (oder sie) konnte nicht identifiziert werden.</target>
+        <target>Alguien ha tomado %item% de los cofres del Almacén y no pudo ser identificado</target>
       </segment>
     </unit>
     <unit id="pygRaEs" name="0a0a304">
