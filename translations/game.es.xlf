@@ -3182,7 +3182,7 @@
       </notes>
       <segment>
         <source>%citizen% hat etwas Schutt entfernt.</source>
-        <target>%citizen% despejado un poco la zona.</target>
+        <target>%citizen% ha despejado un poco la zona.</target>
       </segment>
     </unit>
     <unit id="WmDHw.1" name="%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!">
