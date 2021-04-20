@@ -18471,7 +18471,7 @@
       </notes>
       <segment>
         <source>Du hast soeben %item% aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...</source>
-        <target>Du hast soeben %item% aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...</target>
+        <target>¡Acabas de robar %item% del Almacén! Tu nombre no aparecerá en el Registro...</target>
       </segment>
     </unit>
     <unit id="glz6Ktw" name="Dafür solltest du dein Labor verwenden...">
