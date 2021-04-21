@@ -5099,7 +5099,7 @@
       </notes>
       <segment>
         <source>Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.</source>
-        <target>Recuerda: Los objetos de defensa (planchas de madera, etc.) deben ser colocados en el Almacén.</target>
+        <target>Recuerda: Los objetos de defensa (planchas de madera, etc.) deben encontrarse en el Almacén.</target>
       </segment>
     </unit>
     <unit id="p7WJjEO" name="cabb91e">
@@ -14535,7 +14535,7 @@
       </notes>
       <segment>
         <source>im Südosten</source>
-        <target>en el sureste</target>
+        <target>en el sudeste</target>
       </segment>
     </unit>
     <unit id="Hbo1GZX" name="fe016ab">
