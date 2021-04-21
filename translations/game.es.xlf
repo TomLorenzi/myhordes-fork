@@ -19119,7 +19119,7 @@
       </notes>
       <segment>
         <source>Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</source>
-        <target>Les objetos de defensa (láminas de mteal, etc.) deben encontrarse en el Baúl.</target>
+        <target>Los objetos de defensa (láminas de metal, etc.) deben encontrarse en el Baúl.</target>
       </segment>
     </unit>
     <unit id="A9mtMsb" name="Wächterbonus">
