@@ -1087,7 +1087,7 @@
       </notes>
       <segment>
         <source>Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</source>
-        <target>You have not been active during this party and therefore have penalized players in your city. We were warning you now that if it happens again, you will no longer reach the city for several days.</target>
+        <target>You have not been active recently, essentially penalizing active players in your recent Towns. This is a polite warning, that should it happen again, you will not be eligible to join a new town for several days.</target>
       </segment>
     </unit>
     <unit id="TIikksZ" name="Wiedergeburt: Privatstadt gründen">
