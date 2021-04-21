@@ -1546,7 +1546,7 @@
       </notes>
       <segment>
         <source>Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.</source>
-        <target>Este Bonus sólo se encuentra disponible si los Guardianes se encuentran en la ciudad.</target>
+        <target>Este Bonus sólo funciona si los guardianes están en el pueblo durante el ataque.</target>
       </segment>
     </unit>
     <unit id="FbU8Rr0" name="782996d">
@@ -1654,7 +1654,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Wichtig:&lt;/strong&gt; Verteidigungsgegenstände können maximal &lt;strong&gt;500&lt;/strong&gt; Verteidigungspunkte vergeben!</source>
-        <target><![CDATA[<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>500</strong> Verteidigungspunkte vergeben!]]></target>
+        <target><![CDATA[<strong>Importante:</strong> Los objetos defensivos aumentarán su defensa a un máximo de <strong>500</strong> puntos!]]></target>
       </segment>
     </unit>
     <unit id="Wwiv0r7" name="Diese Abwehrkräfte werden von gereinigten Seelen gebracht.">
