@@ -7223,7 +7223,7 @@
       </notes>
       <segment>
         <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
-        <target>Has despejado una parte del sector, aun así, todavía queda una cantidad considerable de escombros que quitar...</target>
+        <target><![CDATA[<strong>Quitas los escombros</strong> de una parte del sector, pero otros restos obstruyen aún tu camino.]]></target>
       </segment>
     </unit>
     <unit id="AL6LzU0" name="9a476a3">
@@ -7232,7 +7232,7 @@
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</source>
-        <target>¡Genial, has descubierto la zona totalmente! ¡Ahora puedes comenzar a hurgar objetos en: %ruin%!</target>
+        <target><![CDATA[¡Felicitaciones, la zona ha sido despejada! Puedes <strong>comenzar a desenterrar</strong> lo que se escondía allí: ¡%ruin%!]]></target>
       </segment>
     </unit>
     <unit id="RbYmYJb" name="Du hast %count% Aktionspunkt(e) benutzt.">
