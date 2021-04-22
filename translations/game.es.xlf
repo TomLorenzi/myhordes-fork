@@ -4091,7 +4091,7 @@
       </notes>
       <segment>
         <source>Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.</source>
-        <target><![CDATA[Esta vieja bomba hidráulica está bastante corroída y tiene aún la capacidad de extraer agua en el desierto... Si llegas a hacerla funcionar, el agua <strong>no será potable</strong> y deberá <strong>ser purificada en el pueblo</strong> con los productos necesarios.]]></target>
+        <target><![CDATA[Esta vieja bomba hidráulica está bastante corroída y tiene aún la capacidad de extraer agua en el desierto... Si llegas a hacerla funcionar, el agua <strong>no será potable <strong>y deberá</strong> ser purificada en el pueblo</strong> con los productos necesarios.]]></target>
       </segment>
     </unit>
     <unit id="7y4PXTQ" name="21761df">
