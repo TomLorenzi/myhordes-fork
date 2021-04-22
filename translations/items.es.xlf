@@ -7904,7 +7904,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du hast mit dem(r) {item_tool} ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
-        <target>Du hast mit dem(r) {item_tool} ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</target>
+        <target>Abriste {item_from} gracias a la herramienta {item_tool} y ganas: {item_to}.</target>
       </segment>
     </unit>
     <unit id="nYImhFf" name="bf0ac69">
@@ -7931,7 +7931,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du hast mit dem(r) &lt;span class="tool"&gt;{item_tool}&lt;/span&gt; ein(e) &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin folgenden Gegenstand gefunden: &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt;.</source>
-        <target><![CDATA[Du hast mit dem(r) <span class="tool">{item_tool}</span> ein(e) <span class="tool">{item}</span> geöffnet und darin folgenden Gegenstand gefunden: <span class="tool">{items_spawn}</span>.]]></target>
+        <target><![CDATA[Abriste <span class="tool">{item}</span> gracias a la herramienta <span class="tool">{item_tool}</span> y obtienes: <span class="tool">{items_spawn}</span>.]]></target>
       </segment>
     </unit>
     <unit id="lXVMIpX" name="9f73205">
