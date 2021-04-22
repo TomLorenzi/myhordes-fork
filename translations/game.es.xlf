@@ -250,7 +250,7 @@
       </notes>
       <segment>
         <source>Der Einsatz von %building% für die Verteidigung der Stadt hat uns %num% Rationen Wasser gekostet.</source>
-        <target>El uso de la construcción %building% ha constado al pueblo %num% Raciones de Agua.</target>
+        <target>El uso de la construcción %building% ha costado al pueblo %num% Raciones de Agua.</target>
       </segment>
     </unit>
     <unit id="F2roj_A" name="3e28238">
@@ -14553,7 +14553,7 @@
       </notes>
       <segment>
         <source>Verlorenes Brunnenwasser: %count% Einhet(en)</source>
-        <target>Verlorenes Brunnenwasser: %count% Einhet(en)</target>
+        <target>Raciones de agua del pozo perdidas: %count% Unidad(es)</target>
       </segment>
     </unit>
     <unit id="UFB43D7" name="Tätigkeit">
@@ -17563,7 +17563,7 @@
       </notes>
       <segment>
         <source>Du hast eine weitere %item% genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...</source>
-        <target>Du hast eine weitere %item% genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...</target>
+        <target>Has cogido una %item% adicional. Los demás habitantes están siendo informados.</target>
       </segment>
     </unit>
     <unit id=".DUvSmW" name="Du hast deine tägliche Ration erhalten: %item%">
@@ -17581,7 +17581,7 @@
       </notes>
       <segment>
         <source>Die Route wurde gelöscht.</source>
-        <target>Die Route wurde gelöscht.</target>
+        <target>La ruta ha sido eliminada.</target>
       </segment>
     </unit>
     <unit id="2610l.t" name="999c592">
@@ -17608,7 +17608,7 @@
       </notes>
       <segment>
         <source>Dauer</source>
-        <target>Dauer</target>
+        <target>Duración</target>
       </segment>
     </unit>
     <unit id="mZIzUeE" name="von %citizen%">
@@ -17635,7 +17635,7 @@
       </notes>
       <segment>
         <source>Diese Expedition löschen</source>
-        <target>Diese Expedition löschen</target>
+        <target>Eliminar esta expedición.</target>
       </segment>
     </unit>
     <unit id="d560REt" name="Eine Expedition Erstellen">
@@ -17653,7 +17653,7 @@
       </notes>
       <segment>
         <source>Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...</source>
-        <target>El contenido de esta vivienda está escondido por cortinas en la ventana...</target>
+        <target>El contenido de esta vivienda está escondido por cortinas en las ventanas...</target>
       </segment>
     </unit>
     <unit id="4jN.T2l" name="315dd2d">
@@ -18318,7 +18318,7 @@
       </notes>
       <segment>
         <source>Achtung! Wenn du pro Tag &lt;strong&gt;mehr als eine Ration Wasser&lt;/strong&gt; nimmst, erfolgt dies auf Kosten der anderen Bürger. Aus diesem Grund werden dementsprechende Aktionen im Großen Register rot vermerkt...</source>
-        <target><![CDATA[Achtung! Wenn du pro Tag <strong>mehr als eine Ration Wasser</strong> nimmst, erfolgt dies auf Kosten der anderen Bürger. Aus diesem Grund werden dementsprechende Aktionen im Großen Register rot vermerkt...]]></target>
+        <target><![CDATA[¡Atención! <strong>Tomar más de una ración de agua al dia</strong> es una acción que perjudica al resto de tus compañeros. Por lo tanto, será anotada en rojo en el Gran Registro]]></target>
       </segment>
     </unit>
     <unit id="BHWG3Xb" name="Haus von %citizen%">
