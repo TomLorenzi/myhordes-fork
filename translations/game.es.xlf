@@ -14472,7 +14472,7 @@
       </notes>
       <segment>
         <source>im Nordwesten</source>
-        <target>en el noroeste</target>
+        <target>al Noroeste</target>
       </segment>
     </unit>
     <unit id="dHF9hg3" name="im Norden">
@@ -14481,7 +14481,7 @@
       </notes>
       <segment>
         <source>im Norden</source>
-        <target>en el norte</target>
+        <target>al Norte</target>
       </segment>
     </unit>
     <unit id="8VW_Ac6" name="im Nordosten">
@@ -14490,7 +14490,7 @@
       </notes>
       <segment>
         <source>im Nordosten</source>
-        <target>en el noreste</target>
+        <target>al Noreste</target>
       </segment>
     </unit>
     <unit id="CGH7WpP" name="im Westen">
@@ -14499,7 +14499,7 @@
       </notes>
       <segment>
         <source>im Westen</source>
-        <target>en el oeste</target>
+        <target>al Oeste</target>
       </segment>
     </unit>
     <unit id="GrDc37F" name="im Osten">
@@ -14508,7 +14508,7 @@
       </notes>
       <segment>
         <source>im Osten</source>
-        <target>en el este</target>
+        <target>al Este</target>
       </segment>
     </unit>
     <unit id="luEGXBn" name="im Südwesten">
@@ -14517,7 +14517,7 @@
       </notes>
       <segment>
         <source>im Südwesten</source>
-        <target>en el suroeste</target>
+        <target>al Suroeste</target>
       </segment>
     </unit>
     <unit id="UpG6M6C" name="im Süden">
@@ -14526,7 +14526,7 @@
       </notes>
       <segment>
         <source>im Süden</source>
-        <target>en el sur</target>
+        <target>al Sur</target>
       </segment>
     </unit>
     <unit id="G2GbQ43" name="im Südosten">
@@ -14535,7 +14535,7 @@
       </notes>
       <segment>
         <source>im Südosten</source>
-        <target>en el sudeste</target>
+        <target>al Sudeste</target>
       </segment>
     </unit>
     <unit id="Hbo1GZX" name="fe016ab">
@@ -14949,7 +14949,7 @@
       </notes>
       <segment>
         <source>irgendwo %location% der Stadt...</source>
-        <target>en algún lugar al %location% del pueblo...</target>
+        <target>en algún lugar %location% del pueblo...</target>
       </segment>
     </unit>
     <unit id="FgE68_." name="inmitten eines unentwirrbaren Trümmerhaufens...">
