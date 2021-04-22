@@ -7991,7 +7991,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>%citizen% befehlen etwas zu trinken.</source>
-        <target>%citizen% befehlen etwas zu trinken.</target>
+        <target>Tell %citizen% to drink.</target>
       </segment>
     </unit>
     <unit id="M83i5Y." name="%citizen% befehlen etwas zu essen.">
@@ -8000,7 +8000,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>%citizen% befehlen etwas zu essen.</source>
-        <target>%citizen% befehlen etwas zu essen.</target>
+        <target>Tell %citizen% to eat.</target>
       </segment>
     </unit>
     <unit id="P9ubaaO" name="Schwarzer Zervixschleim">
