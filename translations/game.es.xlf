@@ -3191,7 +3191,7 @@
       </notes>
       <segment>
         <source>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</source>
-        <target>%citizen% ha desenterrado la Ruina. El lugar escondía %type%. ¡Genial!</target>
+        <target>La zona ha sido totalmente despejada, revelando %type%.</target>
       </segment>
     </unit>
     <unit id="zTh0a4e" name="a30f81a">
