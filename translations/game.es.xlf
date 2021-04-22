@@ -7223,7 +7223,7 @@
       </notes>
       <segment>
         <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
-        <target><strong>Quitas los escombros</strong> de una parte del sector, pero <strong>otros restos</strong> obstruyen aún tu camino.</target>
+        <target><![CDATA[<strong>Quitas los escombros</strong> de una parte del sector, pero <strong>otros restos</strong> obstruyen aún tu camino.]]></target>
       </segment>
     </unit>
     <unit id="AL6LzU0" name="9a476a3">
@@ -18228,7 +18228,7 @@
       </notes>
       <segment>
         <source>als Gruppe</source>
-        <target>als Gruppe</target>
+        <target>en grupo</target>
       </segment>
     </unit>
     <unit id="KP2BLp3" name="Du kannst in den Foren um Hilfe bitten!">
@@ -18273,7 +18273,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger möchte in die Stadt gebracht werden.</source>
-        <target>Dieser Bürger möchte in die Stadt gebracht werden.</target>
+        <target>Este habitante desea ser llevado al pueblo.</target>
       </segment>
     </unit>
     <unit id="KfpZM10" name="Der Leichnam von %citizen% wurde nicht zerstört.">
@@ -18309,7 +18309,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Ohne Wasser können bestimmte Verteidigungen (wie z.B. die Wassergeschütztürme) beim Angriff der Zombies nicht eingesetzt werden!</source>
-        <target><![CDATA[<strong>Achtung:</strong> Ohne Wasser können bestimmte Verteidigungen (wie z.B. die Wassergeschütztürme) beim Angriff der Zombies nicht eingesetzt werden!]]></target>
+        <target><![CDATA[<strong>Atención: </strong>¡Sin agua, algunas mejoras (como el Sistema de Riego) no funcionarán durante el ataque!]]></target>
       </segment>
     </unit>
     <unit id="8Gt_nOq" name="bf5f2fc">
