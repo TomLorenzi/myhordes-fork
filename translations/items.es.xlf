@@ -7814,7 +7814,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du hast {item_from} in {item_to} verwandelt.</source>
-        <target>Du hast {item_from} in {item_to} verwandelt.</target>
+        <target>Has transformado {item_from} en {item_to}.</target>
       </segment>
     </unit>
     <unit id="sm7LFnd" name="e5e3120">
@@ -7832,7 +7832,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</source>
-        <target>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</target>
+        <target>No tienes nada para abrir eso...</target>
       </segment>
     </unit>
     <unit id="L3OUyqa" name="e4855a7">
@@ -7913,7 +7913,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Die Droge zeigt sofort Wirkung: Du bist auf einmal ganz &lt;strong&gt;ruhig&lt;/strong&gt; geworden, so ausgeglichen... Die schrecklichen Ereignisse der letzten Tage erscheinen dir plötzlich bedeutungslos und ganz weit weg... Es geht dir schon viel besser.</source>
-        <target><![CDATA[Die Droge zeigt sofort Wirkung: Du bist auf einmal ganz <strong>ruhig</strong> geworden, so ausgeglichen... Die schrecklichen Ereignisse der letzten Tage erscheinen dir plötzlich bedeutungslos und ganz weit weg... Es geht dir schon viel besser.]]></target>
+        <target><![CDATA[La sustancia hace efecto rápidamente... De pronto todo te parece más <strong>sereno</strong>... Hasta los atroces hechos que presenciaste parecen sin importancia... Te sientes mejor]]></target>
       </segment>
     </unit>
     <unit id="EetudYS" name="00dd07c">
