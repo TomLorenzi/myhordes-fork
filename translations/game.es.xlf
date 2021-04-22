@@ -7223,7 +7223,7 @@
       </notes>
       <segment>
         <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
-        <target>Has despejado una parte del sector, aun así, todavía queda una cantidad considerable de escombros que quitar...</target>
+        <target><strong>Quitas los escombros</strong> de una parte del sector, pero <strong>otros restos</strong> obstruyen aún tu camino.</target>
       </segment>
     </unit>
     <unit id="AL6LzU0" name="9a476a3">
