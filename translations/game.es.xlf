@@ -9466,7 +9466,7 @@
       </notes>
       <segment>
         <source>Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</source>
-        <target>¡Uno menos! El cadáver de † %disposed% ha sido echado fuera por %citizen%.</target>
+        <target>%citizen% ha tirado el cuerpo de † %disposed% fuera del pueblo. ¡Hiciste lo correcto!</target>
       </segment>
     </unit>
     <unit id="E0yx4Bm" name="%citizen% hat mit etwas Wasser † %disposed% &quot;verbrannt&quot;.">
