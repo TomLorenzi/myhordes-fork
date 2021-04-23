@@ -8138,7 +8138,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du befielst diesem Bürger sich zu &lt;strong&gt;stärken&lt;/strong&gt;, damit ihr gemeinsam weiterziehen könnt. Er ist einverstanden und holt eine(e,n) {item} aus seinem Sack... Ihr macht ne kleine Brotzeit...{hr}{user} hat seine AP aufgefüllt!</source>
-        <target><![CDATA[Du befielst diesem Bürger sich zu <strong>stärken</strong>, damit ihr gemeinsam weiterziehen könnt. Er ist einverstanden und holt eine(e,n) {item} aus seinem Sack... Ihr macht ne kleine Brotzeit...{hr}{user} hat seine AP aufgefüllt!]]></target>
+        <target><![CDATA[Le pides a este habitante que coma para continuar. Él está de acuerdo y saca {item} y come...{hr}¡{user} ha recuperado todos sus PA!]]></target>
       </segment>
     </unit>
     <unit id="gVu_1LO" name="Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!">
@@ -8147,7 +8147,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!</source>
-        <target>Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!</target>
+        <target>El habitante bebe de un trago tu ración de agua... ¡Ahhhhh, cuánta sed!</target>
       </segment>
     </unit>
     <unit id="sRDEqVL" name="7ee43be">
