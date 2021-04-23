@@ -3220,7 +3220,7 @@
       </notes>
       <segment>
         <source>Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</source>
-        <target><![CDATA[You examine the document closely... You find a text, seemingly entitled {rp_text}. You read it intently<t-rp_ok>! A new text has been added to your documents !</t-rp_ok><t-rp_fail>... You have already found this book, so it doesn't earn you any additional distinctions.</t-rp_fail>]]></target>
+        <target><![CDATA[You examine the document closely... You find a text, seemingly entitled {rp_text}. You read it intently...{hr}<t-rp_ok>A new text has been added to your documents !</t-rp_ok><t-rp_fail>You have already found this book, so it doesn't earn you any additional distinctions.</t-rp_fail>]]></target>
       </segment>
     </unit>
     <unit id="glkUAZ8" name="Werfen">
