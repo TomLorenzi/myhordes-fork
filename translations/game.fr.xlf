@@ -19202,5 +19202,23 @@
         <target>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</target>
       </segment>
     </unit>
+    <unit id="QOeiiDo" name="1c20d65">
+      <notes>
+        <note category="german">Jede &lt;strong&gt;Aufräumaktion&lt;/strong&gt; enfernt einen Haufen von der Leiste. Wenn alle Häufen verschwunden sind, kann die Zone nach Lust und Laune erforscht werden.</note>
+      </notes>
+      <segment>
+        <source>Jede &lt;strong&gt;Aufräumaktion&lt;/strong&gt; enfernt einen Haufen von der Leiste. Wenn alle Häufen verschwunden sind, kann die Zone nach Lust und Laune erforscht werden.</source>
+        <target><![CDATA[Chaque action <strong>Déblayer</strong> retire une icone de cette liste. Lorsqu'il n'y aura plus d'icone de déblaiement, la zone deviendra exploitable : vous pourrez alors y fouiller librement.]]></target>
+      </segment>
+    </unit>
+    <unit id="3Aw6Y48" name="222d954">
+      <notes>
+        <note category="german">Es gilt jetzt die Ärmel hochzukrempeln, wenn du Zugang zu dieser Zone und ihre potenziellen Schätzen bekommen möchtest.</note>
+      </notes>
+      <segment>
+        <source>Es gilt jetzt die Ärmel hochzukrempeln, wenn du Zugang zu dieser Zone und ihre potenziellen Schätzen bekommen möchtest.</source>
+        <target>Retroussez vos manches pour dégager l'accès à cette zone et peut-être accéder à ses richesses.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
