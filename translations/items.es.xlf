@@ -3220,7 +3220,7 @@
       </notes>
       <segment>
         <source>Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</source>
-        <target><![CDATA[Examinas minuciosamente el texto {rp_text}. Lo lees con mucha atención...<t-rp_ok>¡Un nuevo documento ha sido agregado a tus Escritos!</t-rp_ok><t-rp_fail>Ya habías descubierto esos escritos. Por lo tanto no recibirás una distinción adicional.</t-rp_fail>]]></target>
+        <target><![CDATA[Examinas minuciosamente {item} ...Descubres dentro un texto titulado {rp_text}. Lo lees con mucha atención...{hr}<t-rp_ok><strong>¡Un nuevo documento ha sido agregado a tus Escritos!</strong></t-rp_ok><t-rp_fail>Ya habías descubierto esos escritos. Por lo tanto <strong>no recibirás una distinción adicional</strong>.</t-rp_fail>]]></target>
       </segment>
     </unit>
     <unit id="glkUAZ8" name="Werfen">
@@ -6358,7 +6358,7 @@ Después de varios largos minutos de búsqueda, terminas por encontrar <strong>u
       </notes>
       <segment>
         <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
-        <target><![CDATA[<t-bp_ok>¡Examinando el plano, te das cuenta de que describe detalladamente la construcción de {bp_spawn}!</t-bp_ok><t-bp_parent>{hr}El proyecto de construcción {bp_parent} es necesario para esto.</t-bp_parent><t-bp_fail>Intentas leer el contenido de {item} pero no entiendes lo que está escrito...</t-bp_fail>]]></target>
+        <target><![CDATA[<t-bp_ok>¡Examinando el plano, te das cuenta de que describe detalladamente la construcción de {bp_spawn}! Colocas esa información en el panel de las construcciones.</t-bp_ok><t-bp_parent>{hr}Ese proyecto requiere primeramente la construcción : {bp_parent}.</t-bp_parent><t-bp_fail>Intentas leer el contenido de {item} pero no entiendes lo que está escrito...</t-bp_fail>]]></target>
       </segment>
     </unit>
     <unit id="V2fAVB5" name="Aufbauen">
@@ -7670,7 +7670,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Stellt deine AP wieder her und beseitigt deine Müdigkeit.</source>
-        <target>Regeneras tus puntos de acción y pierdes el estado Cansancio.</target>
+        <target>Regenera tus PA y cura el Cansancio.</target>
       </segment>
     </unit>
     <unit id="R.doQQs" name="a48c5f0">
@@ -7679,7 +7679,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Beim nächsten Angriff wird der Durst-, Infektions- und Abhängigkeitszustand außer Kraft gesetzt.</source>
-        <target>Durante el siguiente ataque, se anula el estado de sed, infección y adicción.</target>
+        <target>No suffrirás les efectos de la Sed, de la Infección, ni de la Adicción durante el próximo ataque.</target>
       </segment>
     </unit>
     <unit id="VDnHqpQ" name="e682f2e">
@@ -7724,7 +7724,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und &lt;strong&gt;6 neue AP erhalten&lt;/strong&gt;.</source>
-        <target><![CDATA[Du atmest tief durch und drückst den Rücken durch. Auf geht's! Ich werde nicht hier sterben!{hr}Du hast soeben Kraft getankt und <strong>6 neue AP erhalten</strong>.]]></target>
+        <target><![CDATA[Toma algo de aire y date unas palmadas en la cara. ¡No es momento para darte por vencido!{hr}Has <strong>regenerado tus 6 PA</strong>.]]></target>
       </segment>
     </unit>
     <unit id="wMM0fB9" name="414226f">
@@ -7733,7 +7733,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du versucht nochmal alle deine Kräfte für heute Abend zu mobilisieren. Die Anspannung steht dir ins Gesicht geschrieben. Du schwitzt und deine Hände zittern.{hr}Beim heutigen Angriff wirst du weder weder Durst, noch Krankheitssymptome (Infektion), noch Entzugserscheinungen verspüren.</source>
-        <target>Du versucht nochmal alle deine Kräfte für heute Abend zu mobilisieren. Die Anspannung steht dir ins Gesicht geschrieben. Du schwitzt und deine Hände zittern.{hr}Beim heutigen Angriff wirst du weder weder Durst, noch Krankheitssymptome (Infektion), noch Entzugserscheinungen verspüren.</target>
+        <target>Intenta guardar fuerzas para el ataque de esta noche. En tu rostro se ve el temor, transpiras, tiemblas...{hr}Esta noche no sufrirás les effectos de la Sed, de la Infección, ni de la Adicción durante el ataque.</target>
       </segment>
     </unit>
     <unit id="ClZU0Ua" name="a655585">
@@ -7940,7 +7940,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache &lt;strong&gt;du bekommst wieder einen klaren Kopf&lt;/strong&gt;.</source>
-        <target><![CDATA[Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>.]]></target>
+        <target><![CDATA[Tienes la cabeza que da vueltas, no ves más que destellos a tu alrededor, pero al menos <strong>eso te ha despertado</strong>. Ahora solo te queda correr...]]></target>
       </segment>
     </unit>
     <unit id="Ddujs08" name="1786e8e">
@@ -8138,7 +8138,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du befielst diesem Bürger sich zu &lt;strong&gt;stärken&lt;/strong&gt;, damit ihr gemeinsam weiterziehen könnt. Er ist einverstanden und holt eine(e,n) {item} aus seinem Sack... Ihr macht ne kleine Brotzeit...{hr}{user} hat seine AP aufgefüllt!</source>
-        <target><![CDATA[Du befielst diesem Bürger sich zu <strong>stärken</strong>, damit ihr gemeinsam weiterziehen könnt. Er ist einverstanden und holt eine(e,n) {item} aus seinem Sack... Ihr macht ne kleine Brotzeit...{hr}{user} hat seine AP aufgefüllt!]]></target>
+        <target><![CDATA[Le pides a este habitante que coma para continuar. Él está de acuerdo y saca {item} y come...{hr}¡{user} ha recuperado todos sus PA!]]></target>
       </segment>
     </unit>
     <unit id="gVu_1LO" name="Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!">
@@ -8147,7 +8147,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!</source>
-        <target>Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!</target>
+        <target>El habitante bebe de un trago tu ración de agua... ¡Ahhhhh, cuánta sed!</target>
       </segment>
     </unit>
     <unit id="sRDEqVL" name="7ee43be">

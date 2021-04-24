@@ -97,7 +97,7 @@
       </notes>
       <segment>
         <source>1 Tag</source>
-        <target>1 día</target>
+        <target>1 Día</target>
       </segment>
     </unit>
     <unit id="JU_xNFX" name="3 Tage">
@@ -106,7 +106,7 @@
       </notes>
       <segment>
         <source>3 Tage</source>
-        <target>3 días</target>
+        <target>3 Días</target>
       </segment>
     </unit>
     <unit id="84RJxpK" name="5 Tage">
@@ -115,7 +115,7 @@
       </notes>
       <segment>
         <source>5 Tage</source>
-        <target>5 días</target>
+        <target>5 Días</target>
       </segment>
     </unit>
     <unit id="zEDFlzj" name="7 Tage">
@@ -124,7 +124,7 @@
       </notes>
       <segment>
         <source>7 Tage</source>
-        <target>7 días</target>
+        <target>7 Días</target>
       </segment>
     </unit>
     <unit id="GtUIerm" name="15 Tage">
@@ -133,7 +133,7 @@
       </notes>
       <segment>
         <source>15 Tage</source>
-        <target>15 días</target>
+        <target>15 Días</target>
       </segment>
     </unit>
     <unit id="WB_sVVK" name="30 Tage">
@@ -142,7 +142,7 @@
       </notes>
       <segment>
         <source>30 Tage</source>
-        <target>30 días</target>
+        <target>30 Días</target>
       </segment>
     </unit>
     <unit id="tF9Axzf" name="Grund">
@@ -2554,7 +2554,7 @@
       </notes>
       <segment>
         <source>%d% Tage</source>
-        <target>%d% Tage</target>
+        <target>%d% Días</target>
       </segment>
     </unit>
     <unit id="R9HFTdn" name="Neue Beschränkung hinzufügen">
@@ -2572,7 +2572,7 @@
       </notes>
       <segment>
         <source>24 Stunden</source>
-        <target>24 Stunden</target>
+        <target>24 Horas</target>
       </segment>
     </unit>
     <unit id="YvnlIm5" name="Bestätigung erforderlich">
@@ -2590,7 +2590,7 @@
       </notes>
       <segment>
         <source>1 Jahr</source>
-        <target>1 Jahr</target>
+        <target>1 Año</target>
       </segment>
     </unit>
     <unit id="vFTx03L" name="Admin-Bestätigung erforderlich">
@@ -2608,7 +2608,7 @@
       </notes>
       <segment>
         <source>2 Jahre</source>
-        <target>2 Jahre</target>
+        <target>2 Años</target>
       </segment>
     </unit>
     <unit id="NhpWriw" name="Dauerhaft">
@@ -2617,7 +2617,7 @@
       </notes>
       <segment>
         <source>Dauerhaft</source>
-        <target>Dauerhaft</target>
+        <target>Permanente</target>
       </segment>
     </unit>
     <unit id="VBYHRyg" name="Art der Beschränkung">
@@ -3094,7 +3094,7 @@
       </notes>
       <segment>
         <source>Zu einer Zone</source>
-        <target>En un área</target>
+        <target>En una zona</target>
       </segment>
     </unit>
   </file>

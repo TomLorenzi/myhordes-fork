@@ -18252,7 +18252,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wenn du flüchtest, werden dich die Zombies verletzen, aber du wirst trotzdem entkommen...</source>
-        <target>Wenn du flüchtest, werden dich die Zombies verletzen, aber du wirst trotzdem entkommen...</target>
+        <target>If you flee, you will be wounded by the zombies, but on the other hand, you will be able to leave the zone...</target>
       </segment>
     </unit>
     <unit id="OSOrpL9" name="Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.">
@@ -18261,7 +18261,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.</source>
-        <target>Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.</target>
+        <target>You can try to engage a zombie in hand to hand combat to make your escape easier.</target>
       </segment>
     </unit>
     <unit id="H0.Za4t" name="Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.">
@@ -18270,7 +18270,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.</source>
-        <target>This action costs you 1 AP and the chances of success are pretty low.</target>
+        <target>This action costs 1 AP and has a minimal chance of success.</target>
       </segment>
     </unit>
     <unit id="MIyP62V" name="Dieser Bürger möchte in die Stadt gebracht werden.">
@@ -18495,7 +18495,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% bitten etwas aufzuheben.</source>
-        <target>%citizen% bitten etwas aufzuheben.</target>
+        <target>Tell %citizen% to pick up something.</target>
       </segment>
     </unit>
     <unit id="9URgee0" name="%citizen% befehlen die Umgebung abzusuchen.">
@@ -18504,7 +18504,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% befehlen die Umgebung abzusuchen.</source>
-        <target>%citizen% befehlen die Umgebung abzusuchen.</target>
+        <target>Tell %citizen% to search the area.</target>
       </segment>
     </unit>
     <unit id="joeoHly" name="%citizen% angreifen. Diese Aktion kostet dich %ap%.">
@@ -18513,7 +18513,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% angreifen. Diese Aktion kostet dich %ap%.</source>
-        <target>%citizen% angreifen. Diese Aktion kostet dich %ap%.</target>
+        <target>Attack %citizen%! This action will cost %ap%.</target>
       </segment>
     </unit>
     <unit id="H7wLj6X" name="%citizen% sagen mir nicht mehr zu folgen.">
@@ -18522,7 +18522,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% sagen mir nicht mehr zu folgen.</source>
-        <target>%citizen% sagen mir nicht mehr zu folgen.</target>
+        <target>Tell %citizen% to stop following me.</target>
       </segment>
     </unit>
     <unit id="Iir2qAh" name="Allen befehlen, die Umgebung abzusuchen.">
@@ -18531,7 +18531,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Allen befehlen, die Umgebung abzusuchen.</source>
-        <target>Allen befehlen, die Umgebung abzusuchen.</target>
+        <target>Tell the group to search the area.</target>
       </segment>
     </unit>
     <unit id="_G5UAQ0" name="Allen sagen mir nicht mehr zu folgen.">
@@ -18540,7 +18540,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Allen sagen mir nicht mehr zu folgen.</source>
-        <target>Allen sagen mir nicht mehr zu folgen.</target>
+        <target>Tell the group to stop following me.</target>
       </segment>
     </unit>
     <unit id="v4V0uch" name="Dieser Bürger gräbt gerade in einer Zone.">
@@ -18549,7 +18549,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Bürger gräbt gerade in einer Zone.</source>
-        <target>Dieser Bürger gräbt gerade in einer Zone.</target>
+        <target>This citizen is searching the zone.</target>
       </segment>
     </unit>
     <unit id="Bh1Gj16" name="%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.">
@@ -18558,7 +18558,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</source>
-        <target>%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.</target>
+        <target>%citizen% is waiting for an escort : click to ask them to follow you.</target>
       </segment>
     </unit>
     <unit id="lpKOzLM" name="b0171bc">
@@ -18675,7 +18675,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Manuelles Event-Management:</source>
-        <target>Manuelles Event-Management:</target>
+        <target>Manual Event Management:</target>
       </segment>
     </unit>
     <unit id="lYRernR" name="7714838">
@@ -18684,7 +18684,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</source>
-        <target>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</target>
+        <target>Disables the town's normal event management and instead manually determines which event content is available for the duration of the town.</target>
       </segment>
     </unit>
     <unit id="cznvzLK" name="Kein Event:">
@@ -18693,7 +18693,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Kein Event:</source>
-        <target>Kein Event:</target>
+        <target>No Event:</target>
       </segment>
     </unit>
     <unit id="nHRZ69P" name="Startet die Stadt ohne Event-Inhalte">
@@ -18702,7 +18702,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Startet die Stadt ohne Event-Inhalte</source>
-        <target>Startet die Stadt ohne Event-Inhalte</target>
+        <target>Starts the town without event content</target>
       </segment>
     </unit>
     <unit id="jQ18AzU" name="1. April">
@@ -18711,7 +18711,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>1. April</source>
-        <target>1. April</target>
+        <target>April 1st</target>
       </segment>
     </unit>
     <unit id="5kvPhGt" name="St. Patrick">
@@ -18729,7 +18729,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ostern</source>
-        <target>Ostern</target>
+        <target>Easter</target>
       </segment>
     </unit>
     <unit id="BJVmtrE" name="Halloween">
@@ -18756,7 +18756,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Weihnachten</source>
-        <target>Weihnachten</target>
+        <target>Christmas</target>
       </segment>
     </unit>
     <unit id="iiUUud." name="935109f">
