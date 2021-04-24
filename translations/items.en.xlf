@@ -3220,7 +3220,7 @@
       </notes>
       <segment>
         <source>Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</source>
-        <target><![CDATA[You examine the document closely... You find a text, seemingly entitled {rp_text}. You read it intently<t-rp_ok>! A new text has been added to your documents !</t-rp_ok><t-rp_fail>... You have already found this book, so it doesn't earn you any additional distinctions.</t-rp_fail>]]></target>
+        <target><![CDATA[You examine the document closely... You find a text, seemingly entitled "{rp_text}". You read it intently...{hr}<t-rp_ok><strong>A new text has been added to your documents !</strong></t-rp_ok><t-rp_fail>You have already found this book, so it doesn't earn you any additional distinctions.</t-rp_fail>]]></target>
       </segment>
     </unit>
     <unit id="glkUAZ8" name="Werfen">
@@ -6352,7 +6352,7 @@
       </notes>
       <segment>
         <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
-        <target><![CDATA[<t-bp_ok>You read the {item} and see that it is a plan for {bp_spawn}.</t-bp_ok><t-bp_parent>{hr}This project requires the {bp_parent} to be build first.</t-bp_parent><t-bp_fail>You read the {item} but you do not understand a word of what is written...</t-bp_fail>]]></target>
+        <target><![CDATA[<t-bp_ok>After examining the {item}, you realise that it shows precisely how to build the {bp_spawn}!{hr}You record this new information in the construction site section.</t-bp_ok><t-bp_parent>{hr}This project requires the {bp_parent} to be build first.</t-bp_parent><t-bp_fail>You read the {item} but you do not understand a word of what is written...</t-bp_fail>]]></target>
       </segment>
     </unit>
     <unit id="V2fAVB5" name="Aufbauen">
@@ -7991,7 +7991,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>%citizen% befehlen etwas zu trinken.</source>
-        <target>%citizen% befehlen etwas zu trinken.</target>
+        <target>Tell %citizen% to drink.</target>
       </segment>
     </unit>
     <unit id="M83i5Y." name="%citizen% befehlen etwas zu essen.">
@@ -8000,7 +8000,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>%citizen% befehlen etwas zu essen.</source>
-        <target>%citizen% befehlen etwas zu essen.</target>
+        <target>Tell %citizen% to eat.</target>
       </segment>
     </unit>
     <unit id="P9ubaaO" name="Schwarzer Zervixschleim">
@@ -8153,7 +8153,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: &lt;strong&gt;du bist nun verletzt&lt;/strong&gt;.</source>
-        <target><![CDATA[Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: <strong>du bist nun verletzt</strong>.]]></target>
+        <target><![CDATA[You swallow your water ration in one gulp: the result was certainly not as you has imagined... Without any warning, your throat starts to burn horribly, and gives way to a frightful and painful cough! You fall, breathless, to your knees. As a <strong>ghoul</strong>, tou cannot drink water anymore: you are now <strong>wounded</strong>.]]></target>
       </segment>
     </unit>
     <unit id="GUA4Vaf" name="8f08b00">

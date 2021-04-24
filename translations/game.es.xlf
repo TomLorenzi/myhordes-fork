@@ -3191,7 +3191,7 @@
       </notes>
       <segment>
         <source>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</source>
-        <target>%citizen% ha desenterrado la Ruina. El lugar escondía %type%. ¡Genial!</target>
+        <target>La zona ha sido totalmente despejada, revelando %type%.</target>
       </segment>
     </unit>
     <unit id="zTh0a4e" name="a30f81a">
@@ -7223,7 +7223,7 @@
       </notes>
       <segment>
         <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
-        <target>Has despejado una parte del sector, aun así, todavía queda una cantidad considerable de escombros que quitar...</target>
+        <target><![CDATA[<strong>Quitas los escombros</strong> de una parte del sector, pero otros restos obstruyen aún tu camino.]]></target>
       </segment>
     </unit>
     <unit id="AL6LzU0" name="9a476a3">
@@ -7232,7 +7232,7 @@
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!</source>
-        <target>¡Genial, has descubierto la zona totalmente! ¡Ahora puedes comenzar a hurgar objetos en: %ruin%!</target>
+        <target><![CDATA[¡Felicitaciones, la zona ha sido despejada! Puedes <strong>comenzar a desenterrar</strong> lo que se escondía allí: ¡%ruin%!]]></target>
       </segment>
     </unit>
     <unit id="RbYmYJb" name="Du hast %count% Aktionspunkt(e) benutzt.">
@@ -7981,7 +7981,7 @@
       </notes>
       <segment>
         <source>Du hast dich in einen Ghul verwandelt!</source>
-        <target><![CDATA[¡Te has convertido en un <strong>Mutante</strong>!]]></target>
+        <target>¡Te has convertido en un Mutante!</target>
       </segment>
     </unit>
     <unit id="I3SgbFv" name="%citizen% hat einen Bauplan für %plan% gefunden.">
@@ -9466,7 +9466,7 @@
       </notes>
       <segment>
         <source>Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</source>
-        <target>¡Uno menos! El cadáver de † %disposed% ha sido echado fuera por %citizen%.</target>
+        <target>%citizen% ha tirado el cuerpo de † %disposed% fuera del pueblo. ¡Hiciste lo correcto!</target>
       </segment>
     </unit>
     <unit id="E0yx4Bm" name="%citizen% hat mit etwas Wasser † %disposed% &quot;verbrannt&quot;.">
@@ -18201,7 +18201,7 @@
       </notes>
       <segment>
         <source>&lt;span&gt;Wir kontrollieren die Zone ab sofort.&lt;/span&gt;</source>
-        <target><![CDATA[<span>Wir kontrollieren die Zone ab sofort.</span>]]></target>
+        <target><![CDATA[<span>¡Ahora la zona está bajo control!</span>]]></target>
       </segment>
     </unit>
     <unit id="20wAGQf" name="6489b1a">
@@ -18237,7 +18237,7 @@
       </notes>
       <segment>
         <source>Du kannst in den Foren um Hilfe bitten!</source>
-        <target>Du kannst in den Foren um Hilfe bitten!</target>
+        <target>¡Puedes pedir ayuda en el foro!</target>
       </segment>
     </unit>
     <unit id="Eb0twff" name="114340a">
@@ -18246,7 +18246,7 @@
       </notes>
       <segment>
         <source>Wenn du flüchtest, werden dich die Zombies verletzen, aber du wirst trotzdem entkommen...</source>
-        <target>Wenn du flüchtest, werden dich die Zombies verletzen, aber du wirst trotzdem entkommen...</target>
+        <target>Siempre es una alternativa, pero los zombies te harían mucho daño...</target>
       </segment>
     </unit>
     <unit id="OSOrpL9" name="Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.">
@@ -18255,7 +18255,7 @@
       </notes>
       <segment>
         <source>Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.</source>
-        <target>Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.</target>
+        <target>Intenta escapar atacando a un zombie cuerpo a cuerpo, sin armas.</target>
       </segment>
     </unit>
     <unit id="H0.Za4t" name="Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.">
@@ -18264,7 +18264,7 @@
       </notes>
       <segment>
         <source>Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.</source>
-        <target>Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.</target>
+        <target>Requiere 1 PA y tiene pocas probabilidades de éxito.</target>
       </segment>
     </unit>
     <unit id="MIyP62V" name="Dieser Bürger möchte in die Stadt gebracht werden.">
