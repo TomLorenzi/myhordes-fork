@@ -346,7 +346,7 @@ class BeyondController extends InventoryAwareController
             'show_sneaky' => $is_on_zero && $this->getActiveCitizen()->hasRole('ghoul'),
             'enter_costs_ap' => $require_ap,
             'allow_floor_access' => !$is_on_zero,
-            'can_escape' => !$this->citizen_handler->isWounded( $this->getActiveCitizen() ),
+            'can_escape' => !$this->citizen_handler->isWounded( $this->getActiveCitizen() ) && !$this->citizen_handler->isTired( $this->getActiveCitizen() ),
             'can_attack' => !$citizen_tired && !$this->citizen_handler->isWounded($this->getActiveCitizen()),
             'zone_blocked' => $blocked,
             'zone_escape' => $escape,
