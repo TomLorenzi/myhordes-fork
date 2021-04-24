@@ -250,7 +250,7 @@
       </notes>
       <segment>
         <source>Der Einsatz von %building% für die Verteidigung der Stadt hat uns %num% Rationen Wasser gekostet.</source>
-        <target>El uso de la construcción %building% ha constado al pueblo %num% Raciones de Agua.</target>
+        <target>El uso de la construcción %building% ha costado al pueblo %num% Raciones de Agua.</target>
       </segment>
     </unit>
     <unit id="F2roj_A" name="3e28238">
@@ -1291,7 +1291,7 @@
       </notes>
       <segment>
         <source>Verbannung</source>
-        <target>Destarrado</target>
+        <target>Desterrado</target>
       </segment>
     </unit>
     <unit id="utVVlIc" name="Todesstrafe">
@@ -3182,7 +3182,7 @@
       </notes>
       <segment>
         <source>%citizen% hat etwas Schutt entfernt.</source>
-        <target>%citizen% despejado un poco la zona.</target>
+        <target>%citizen% ha despejado un poco la zona.</target>
       </segment>
     </unit>
     <unit id="WmDHw.1" name="%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!">
@@ -4091,7 +4091,7 @@
       </notes>
       <segment>
         <source>Eine alte Pumpe, die zwar vor sich hin rostet, aber dennoch in der Lage ist, in der Wüste Wasser zu schöpfen... Das einzige Problem ist, dass das Wasser, selbst wenn Sie es zum Funktionieren bringen, im Grunde genommen ungenießbar ist und in der Stadt mit den entsprechenden Geräten gereinigt werden muss.</source>
-        <target><![CDATA[Esta vieja bomba hidráulica está bastante corroída y tiene aún la capacidad de extraer agua en el desierto... Si llegas a hacerla funcionar, el agua <strong>no será potable</strong> y deberá <strong>ser purificada en el pueblo</strong> con los productos necesarios.]]></target>
+        <target><![CDATA[Esta vieja bomba hidráulica está bastante corroída y tiene aún la capacidad de extraer agua en el desierto... Si llegas a hacerla funcionar, el agua <strong>no será potable <strong>y deberá</strong> ser purificada en el pueblo</strong> con los productos necesarios.]]></target>
       </segment>
     </unit>
     <unit id="7y4PXTQ" name="21761df">
@@ -5099,7 +5099,7 @@
       </notes>
       <segment>
         <source>Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.</source>
-        <target>Recuerda: Los objetos de defensa (planchas de madera, etc.) deben ser colocados en el Almacén.</target>
+        <target>Recuerda: Los objetos de defensa (planchas de madera, etc.) deben encontrarse en el Almacén.</target>
       </segment>
     </unit>
     <unit id="p7WJjEO" name="cabb91e">
@@ -7223,7 +7223,7 @@
       </notes>
       <segment>
         <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
-        <target><![CDATA[<strong>Quitas los escombros</strong> de una parte del sector, pero otros restos obstruyen aún tu camino.]]></target>
+        <target><![CDATA[<strong>Quitas los escombros</strong> de una parte del sector, pero <strong>otros restos</strong> obstruyen aún tu camino.]]></target>
       </segment>
     </unit>
     <unit id="AL6LzU0" name="9a476a3">
@@ -14472,7 +14472,7 @@
       </notes>
       <segment>
         <source>im Nordwesten</source>
-        <target>en el noroeste</target>
+        <target>al Noroeste</target>
       </segment>
     </unit>
     <unit id="dHF9hg3" name="im Norden">
@@ -14481,7 +14481,7 @@
       </notes>
       <segment>
         <source>im Norden</source>
-        <target>en el norte</target>
+        <target>al Norte</target>
       </segment>
     </unit>
     <unit id="8VW_Ac6" name="im Nordosten">
@@ -14490,7 +14490,7 @@
       </notes>
       <segment>
         <source>im Nordosten</source>
-        <target>en el noreste</target>
+        <target>al Noreste</target>
       </segment>
     </unit>
     <unit id="CGH7WpP" name="im Westen">
@@ -14499,7 +14499,7 @@
       </notes>
       <segment>
         <source>im Westen</source>
-        <target>en el oeste</target>
+        <target>al Oeste</target>
       </segment>
     </unit>
     <unit id="GrDc37F" name="im Osten">
@@ -14508,7 +14508,7 @@
       </notes>
       <segment>
         <source>im Osten</source>
-        <target>en el este</target>
+        <target>al Este</target>
       </segment>
     </unit>
     <unit id="luEGXBn" name="im Südwesten">
@@ -14517,7 +14517,7 @@
       </notes>
       <segment>
         <source>im Südwesten</source>
-        <target>en el suroeste</target>
+        <target>al Suroeste</target>
       </segment>
     </unit>
     <unit id="UpG6M6C" name="im Süden">
@@ -14526,7 +14526,7 @@
       </notes>
       <segment>
         <source>im Süden</source>
-        <target>en el sur</target>
+        <target>al Sur</target>
       </segment>
     </unit>
     <unit id="G2GbQ43" name="im Südosten">
@@ -14535,7 +14535,7 @@
       </notes>
       <segment>
         <source>im Südosten</source>
-        <target>en el sureste</target>
+        <target>al Sudeste</target>
       </segment>
     </unit>
     <unit id="Hbo1GZX" name="fe016ab">
@@ -14553,7 +14553,7 @@
       </notes>
       <segment>
         <source>Verlorenes Brunnenwasser: %count% Einhet(en)</source>
-        <target>Verlorenes Brunnenwasser: %count% Einhet(en)</target>
+        <target>Raciones de agua del pozo perdidas: %count% Unidad(es)</target>
       </segment>
     </unit>
     <unit id="UFB43D7" name="Tätigkeit">
@@ -14949,7 +14949,7 @@
       </notes>
       <segment>
         <source>irgendwo %location% der Stadt...</source>
-        <target>en algún lugar al %location% del pueblo...</target>
+        <target>en algún lugar %location% del pueblo...</target>
       </segment>
     </unit>
     <unit id="FgE68_." name="inmitten eines unentwirrbaren Trümmerhaufens...">
@@ -17518,7 +17518,7 @@
       </notes>
       <segment>
         <source>Die Nachtwächter der letzten nacht zeigten unglaublichen Mut, es ist nur schade, dass die Zombies offensichtlich mit etwas anderem beschäftigt waren!</source>
-        <target>Die Nachtwächter der letzten nacht zeigten unglaublichen Mut, es ist nur schade, dass die Zombies offensichtlich mit etwas anderem beschäftigt waren!</target>
+        <target>Los centinelas de esta noche estuvieron más listos que nunca. ¡lástima que los zombies no quisieron participar en la fiesta!</target>
       </segment>
     </unit>
     <unit id="bB1fuj8" name="2294b6d">
@@ -17563,7 +17563,7 @@
       </notes>
       <segment>
         <source>Du hast eine weitere %item% genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...</source>
-        <target>Du hast eine weitere %item% genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...</target>
+        <target>Has cogido una %item% adicional. Los demás habitantes están siendo informados.</target>
       </segment>
     </unit>
     <unit id=".DUvSmW" name="Du hast deine tägliche Ration erhalten: %item%">
@@ -17581,7 +17581,7 @@
       </notes>
       <segment>
         <source>Die Route wurde gelöscht.</source>
-        <target>Die Route wurde gelöscht.</target>
+        <target>La ruta ha sido eliminada.</target>
       </segment>
     </unit>
     <unit id="2610l.t" name="999c592">
@@ -17608,7 +17608,7 @@
       </notes>
       <segment>
         <source>Dauer</source>
-        <target>Dauer</target>
+        <target>Duración</target>
       </segment>
     </unit>
     <unit id="mZIzUeE" name="von %citizen%">
@@ -17635,7 +17635,7 @@
       </notes>
       <segment>
         <source>Diese Expedition löschen</source>
-        <target>Diese Expedition löschen</target>
+        <target>Eliminar esta expedición.</target>
       </segment>
     </unit>
     <unit id="d560REt" name="Eine Expedition Erstellen">
@@ -17653,7 +17653,7 @@
       </notes>
       <segment>
         <source>Der Inhalt dieses Hauses wird durch Vorhänge an den Fenstern verdeckt...</source>
-        <target>El contenido de esta vivienda está escondido por cortinas en la ventana...</target>
+        <target>El contenido de esta vivienda está escondido por cortinas en las ventanas...</target>
       </segment>
     </unit>
     <unit id="4jN.T2l" name="315dd2d">
@@ -18228,7 +18228,7 @@
       </notes>
       <segment>
         <source>als Gruppe</source>
-        <target>als Gruppe</target>
+        <target>en grupo</target>
       </segment>
     </unit>
     <unit id="KP2BLp3" name="Du kannst in den Foren um Hilfe bitten!">
@@ -18273,7 +18273,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger möchte in die Stadt gebracht werden.</source>
-        <target>Dieser Bürger möchte in die Stadt gebracht werden.</target>
+        <target>Este habitante desea ser llevado al pueblo.</target>
       </segment>
     </unit>
     <unit id="KfpZM10" name="Der Leichnam von %citizen% wurde nicht zerstört.">
@@ -18309,7 +18309,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Ohne Wasser können bestimmte Verteidigungen (wie z.B. die Wassergeschütztürme) beim Angriff der Zombies nicht eingesetzt werden!</source>
-        <target><![CDATA[<strong>Achtung:</strong> Ohne Wasser können bestimmte Verteidigungen (wie z.B. die Wassergeschütztürme) beim Angriff der Zombies nicht eingesetzt werden!]]></target>
+        <target><![CDATA[<strong>Atención: </strong>¡Sin agua, algunas mejoras (como el Sistema de Riego) no funcionarán durante el ataque!]]></target>
       </segment>
     </unit>
     <unit id="8Gt_nOq" name="bf5f2fc">
@@ -18318,7 +18318,7 @@
       </notes>
       <segment>
         <source>Achtung! Wenn du pro Tag &lt;strong&gt;mehr als eine Ration Wasser&lt;/strong&gt; nimmst, erfolgt dies auf Kosten der anderen Bürger. Aus diesem Grund werden dementsprechende Aktionen im Großen Register rot vermerkt...</source>
-        <target><![CDATA[Achtung! Wenn du pro Tag <strong>mehr als eine Ration Wasser</strong> nimmst, erfolgt dies auf Kosten der anderen Bürger. Aus diesem Grund werden dementsprechende Aktionen im Großen Register rot vermerkt...]]></target>
+        <target><![CDATA[¡Atención! <strong>Tomar más de una ración de agua al dia</strong> es una acción que perjudica al resto de tus compañeros. Por lo tanto, será anotada en rojo en el Gran Registro]]></target>
       </segment>
     </unit>
     <unit id="BHWG3Xb" name="Haus von %citizen%">
@@ -19119,7 +19119,7 @@
       </notes>
       <segment>
         <source>Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</source>
-        <target>Les objetos de defensa (láminas de mteal, etc.) deben encontrarse en el Baúl.</target>
+        <target>Los objetos de defensa (láminas de metal, etc.) deben encontrarse en el Baúl.</target>
       </segment>
     </unit>
     <unit id="A9mtMsb" name="Wächterbonus">

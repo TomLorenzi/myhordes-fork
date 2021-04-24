@@ -2698,7 +2698,7 @@
       </notes>
       <segment>
         <source>Starker Laserpointer (3 Schuss)</source>
-        <target>Puntero láser potente de (4 cargas)</target>
+        <target>Puntero láser potente de (3 cargas)</target>
       </segment>
     </unit>
     <unit id="lhNcEq." name="Starker Laserpointer (2 Schuss)">
@@ -7454,7 +7454,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.</t-kills>]]></target>
+        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} con esta arma: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="5DH1uFn" name="b181e5d">
@@ -7570,8 +7570,8 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
         <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</note>
       </notes>
       <segment>
-        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><t-kills>Has eliminado {kills} con esta arma: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
+        <source>&lt;t-kill-latest&gt;:Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</source>
+        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} con esta arma: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="DJF1Mzv" name="c1c5585">
@@ -7814,7 +7814,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du hast {item_from} in {item_to} verwandelt.</source>
-        <target>Du hast {item_from} in {item_to} verwandelt.</target>
+        <target>Has transformado {item_from} en {item_to}.</target>
       </segment>
     </unit>
     <unit id="sm7LFnd" name="e5e3120">
@@ -7832,7 +7832,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</source>
-        <target>Du brauchst ein Werkzeug, um diesen Gegenstand zu öffnen...</target>
+        <target>No tienes nada para abrir eso...</target>
       </segment>
     </unit>
     <unit id="L3OUyqa" name="e4855a7">
@@ -7841,7 +7841,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><t-kills>Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!</t-kills>]]></target>
+        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} con esta arma: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="5N_N9nB" name="Weicher Kürbis">
@@ -7904,7 +7904,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du hast mit dem(r) {item_tool} ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
-        <target>Du hast mit dem(r) {item_tool} ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</target>
+        <target>Abriste {item_from} gracias a la herramienta {item_tool} y ganas: {item_to}.</target>
       </segment>
     </unit>
     <unit id="nYImhFf" name="bf0ac69">
@@ -7913,7 +7913,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Die Droge zeigt sofort Wirkung: Du bist auf einmal ganz &lt;strong&gt;ruhig&lt;/strong&gt; geworden, so ausgeglichen... Die schrecklichen Ereignisse der letzten Tage erscheinen dir plötzlich bedeutungslos und ganz weit weg... Es geht dir schon viel besser.</source>
-        <target><![CDATA[Die Droge zeigt sofort Wirkung: Du bist auf einmal ganz <strong>ruhig</strong> geworden, so ausgeglichen... Die schrecklichen Ereignisse der letzten Tage erscheinen dir plötzlich bedeutungslos und ganz weit weg... Es geht dir schon viel besser.]]></target>
+        <target><![CDATA[La sustancia hace efecto rápidamente... De pronto todo te parece más <strong>sereno</strong>... Hasta los atroces hechos que presenciaste parecen sin importancia... Te sientes mejor]]></target>
       </segment>
     </unit>
     <unit id="EetudYS" name="00dd07c">
@@ -7931,7 +7931,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du hast mit dem(r) &lt;span class="tool"&gt;{item_tool}&lt;/span&gt; ein(e) &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin folgenden Gegenstand gefunden: &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt;.</source>
-        <target><![CDATA[Du hast mit dem(r) <span class="tool">{item_tool}</span> ein(e) <span class="tool">{item}</span> geöffnet und darin folgenden Gegenstand gefunden: <span class="tool">{items_spawn}</span>.]]></target>
+        <target><![CDATA[Abriste <span class="tool">{item}</span> gracias a la herramienta <span class="tool">{item_tool}</span> y obtienes: <span class="tool">{items_spawn}</span>.]]></target>
       </segment>
     </unit>
     <unit id="lXVMIpX" name="9f73205">
