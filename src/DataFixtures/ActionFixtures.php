@@ -581,12 +581,12 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'drug_par_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'is_not_infected_h' ], 'result' => [ ['message' => ['text' => 'Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.']], 'contaminated_zone_infect', 'drug_addict', 'immune', 'consume_item' ], 'message_key' => 'drug_no_use_2' ],
             'drug_par_3' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1', 'is_infected_h' ], 'result' => [ ['message' => ['text' => 'Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.']], 'contaminated_zone_infect', 'drug_any', 'disinfect', 'immune', 'consume_item' ], 'message_key' => 'drug_para' ],
             'drug_par_4' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'is_infected_h' ], 'result' => [ ['message' => ['text' => 'Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.']], 'contaminated_zone_infect', 'drug_addict', 'disinfect', 'immune', 'consume_item' ], 'message_key' => 'drug_para' ],
-            'drug_6ap_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'drug_any', 'just_ap6', 'consume_item' ] ],
-            'drug_6ap_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'drug_addict', 'just_ap6', 'consume_item' ] ],
+            'drug_6ap_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'drug_any', 'just_ap6', 'consume_item' ], 'message_key' => 'drug_normal_ap' ],
+            'drug_6ap_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'drug_addict', 'just_ap6', 'consume_item' ], 'message_key' => 'drug_normal_ap' ],
             'drug_7ap_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'drug_any', 'just_ap7', 'consume_item' ] ],
             'drug_7ap_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'drug_addict', 'just_ap7', 'consume_item' ] ],
-            'drug_8ap_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'drug_any', 'just_ap8', 'consume_item' ] ],
-            'drug_8ap_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'drug_addict', 'just_ap8', 'consume_item' ] ],
+            'drug_8ap_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'drug_any', 'just_ap8', 'consume_item' ], 'message_key' => 'drug_twin_ap' ],
+            'drug_8ap_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'drug_addict', 'just_ap8', 'consume_item' ], 'message_key' => 'drug_twin_ap' ],
 
             'drug_april_1' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1', 'must_be_aprils_fools' ], 'result' => [ 'contaminated_zone_infect', 'drug_any', 'just_ap8', 'april', 'consume_item' ], 'message_key' => 'drug_no_use_3' ],
             'drug_april_2' => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2', 'must_be_aprils_fools' ], 'result' => [ 'contaminated_zone_infect', 'drug_addict', 'just_ap8', 'april', 'consume_item' ], 'message_key' => 'drug_no_use_3' ],
@@ -605,13 +605,13 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'emt'     => [ 'label' => 'Einsetzen', 'cover' => true, 'at00' => true, 'meta' => [ 'is_not_wounded' ], 'result' => [ 'just_ap6', 'inflict_wound', ['item' => [ 'consume' => false, 'morph' => 'sport_elec_empty_#00' ]], ['picto' => ['r_maso_#00']] ] ],
 
             'drug_rand_1'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_1' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
-                [ ['drug_any', 'just_ap6'], 5 ],
+                [ ['drug_any', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 5 ],
                 [ ['drug_any', 'terrorize'], 2 ],
                 [ ['drug_any', 'drug_addict', 'just_ap7'], 2 ],
                 [ ['do_nothing'], 1 ],
             ]] ] ] ,
             'drug_rand_2'  => [ 'label' => 'Einnehmen', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'drug_2' ], 'result' => [ 'contaminated_zone_infect', 'consume_item', ['picto' => ['r_cobaye_#00']], ['group' => [
-                [ ['drug_addict', 'just_ap6'], 5 ],
+                [ ['drug_addict', 'just_ap6', ['message' => [ 'text_key' => 'drug_normal_ap' ]]], 5 ],
                 [ ['drug_addict', 'terrorize'], 2 ],
                 [ ['drug_addict', 'just_ap7'], 2 ],
                 [ ['do_nothing'], 1 ],
@@ -1349,7 +1349,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         'drug_no_use_3'             => 'Merkwürdig... anscheinend ist der erwartete Effekt ausgeblieben. Du sagst dir selbst, das dies eine unglaubliche Chance ist...',
         'drug_xanax'                => 'Die Droge zeigt sofort Wirkung: Du bist auf einmal ganz <strong>ruhig</strong> geworden, so ausgeglichen... Die schrecklichen Ereignisse der letzten Tage erscheinen dir plötzlich bedeutungslos und ganz weit weg... Es geht dir schon viel besser.',
         'drug_para'                 => 'Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.',
-    
+        'drug_normal_ap'            => 'Die Nebenwirkungen der Droge lassen nicht lange auf sich warten: Übelkeit, Zittern, Schweißausbrüche, das ganze Programm... Gleichzeitig spürst du jedoch einen <strong>unglaublichen Kraftschub</strong>. Übertreibe es aber nicht!',
+        'drug_twin_ap'              => 'So \'ne Quali bekommt man nicht jeden Tag in die Finger! Sicher, Übelkeit, Zittern und Schweißausbrüche hast du auch damit bekommen, aber die Wirkung ist weitaus stärker als bei \'ner normalen Droge (Du hast einen <strong>AP Bonus</strong> erhalten)... Übertreibe es aber nicht!',
+
         'item_load'                 => 'Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!',
         'item_fill'                 => 'Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!',
         'item_clean'                => 'Du hast den Inhalt des {item} gereinigt und {items_spawn} erhalten.',

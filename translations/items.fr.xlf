@@ -8102,5 +8102,23 @@
         <target><![CDATA[<t-consumed>Vous envoyez {item} près d'un zombie. Le mort-vivant se jette sur l'animal pour le dévorer (très lentement) en grognant... Adieu brave bête. Mais ça fera toujours un zombie de moins à éviter maintenant qu'il est occupé...</t-consumed><nt-consumed>Votre {item} se jette à la gorge d'un zombie et n'en fait littéralement qu'une bouchée ! Bravo Pépète !</nt-consumed>]]></target>
       </segment>
     </unit>
+    <unit id="BnW7_fH" name="1876d51">
+      <notes>
+        <note category="german">Die Nebenwirkungen der Droge lassen nicht lange auf sich warten: Übelkeit, Zittern, Schweißausbrüche, das ganze Programm... Gleichzeitig spürst du jedoch einen &lt;strong&gt;unglaublichen Kraftschub&lt;/strong&gt;. Übertreibe es aber nicht!</note>
+      </notes>
+      <segment>
+        <source>Die Nebenwirkungen der Droge lassen nicht lange auf sich warten: Übelkeit, Zittern, Schweißausbrüche, das ganze Programm... Gleichzeitig spürst du jedoch einen &lt;strong&gt;unglaublichen Kraftschub&lt;/strong&gt;. Übertreibe es aber nicht!</source>
+        <target><![CDATA[Les effets de la drogue ne tardent pas à se faire sentir: nausée, tremblements, sueurs froides... Mais au moins, ça vous donne <strong>un bon coup de fouet</strong>. N'en abusez pas !]]></target>
+      </segment>
+    </unit>
+    <unit id="rO5ZvLA" name="478431a">
+      <notes>
+        <note category="german">So 'ne Quali bekommt man nicht jeden Tag in die Finger! Sicher, Übelkeit, Zittern und Schweißausbrüche hast du auch damit bekommen, aber die Wirkung ist weitaus stärker als bei 'ner normalen Droge (Du hast einen &lt;strong&gt;AP Bonus&lt;/strong&gt; erhalten)... Übertreibe es aber nicht!</note>
+      </notes>
+      <segment>
+        <source>So 'ne Quali bekommt man nicht jeden Tag in die Finger! Sicher, Übelkeit, Zittern und Schweißausbrüche hast du auch damit bekommen, aber die Wirkung ist weitaus stärker als bei 'ner normalen Droge (Du hast einen &lt;strong&gt;AP Bonus&lt;/strong&gt; erhalten)... Übertreibe es aber nicht!</source>
+        <target><![CDATA[C'est pas tous les jours qu'on peut avaler de la came de qualité. Les effets sont quand même là: nausée, tremblements, sueurs froides... En bien plus intense que pour une drogue normale (<strong>bonus de PA</strong> reçu)... N'en abusez pas !]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
