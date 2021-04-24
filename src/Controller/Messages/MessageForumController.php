@@ -723,59 +723,57 @@ class MessageForumController extends MessageController
 
         $result = [];
 
-        if (!empty($in)) {
 
-            if ($search_titles) {
-
-                /** @var QueryBuilder $queryBuilder */
-                $queryBuilder = $this->entity_manager->getRepository(Thread::class)->createQueryBuilder('t');
-
-                $queryBuilder->andWhere('t.hidden = false OR t.hidden IS NULL');
-
-                if ($search_user !== null)
-                    $queryBuilder->andWhere('t.owner = :user')->setParameter('user', $search_user);
-
-                if ($forum) $queryBuilder->andWhere('t.forum = :forum')->setParameter('forum', $forum);
-                else $queryBuilder->andWhere('t.forum IN (:forum)')->setParameter('forum', $domain);
-
-                foreach ($in as $k => $entry) $queryBuilder->andWhere("t.title LIKE :in{$k} ESCAPE '█'")->setParameter("in{$k}", "%{$entry}%");
-                foreach ($not_in as $k => $entry) $queryBuilder->andWhere("t.title NOT LIKE :nin{$k} ESCAPE '█'")->setParameter("nin{$k}", "%{$entry}%");
-
-                $queryBuilder->orderBy('t.lastPost', 'DESC')->setMaxResults(26);
-
-                foreach ($queryBuilder->getQuery()->execute() as $thread) if ($p = $thread->firstPost()) $result[] = $p;
-            }
+        if ($search_titles && !empty($in)) {
 
             /** @var QueryBuilder $queryBuilder */
-            $queryBuilder = $this->entity_manager->getRepository(Post::class)->createQueryBuilder('p');
+            $queryBuilder = $this->entity_manager->getRepository(Thread::class)->createQueryBuilder('t');
 
-            $queryBuilder->andWhere('p.searchText IS NOT NULL');
-            $queryBuilder->andWhere('p.hidden = false OR p.hidden IS NULL');
+            $queryBuilder->andWhere('t.hidden = false OR t.hidden IS NULL');
 
             if ($search_user !== null)
-                $queryBuilder->andWhere('p.owner = :user')->setParameter('user', $search_user);
+                $queryBuilder->andWhere('t.owner = :user')->setParameter('user', $search_user);
 
-            if ($forum) $queryBuilder->andWhere('p.searchForum = :forum')->setParameter('forum', $forum);
-            else $queryBuilder->andWhere('p.searchForum IN (:forum)')->setParameter('forum', $domain);
+            if ($forum) $queryBuilder->andWhere('t.forum = :forum')->setParameter('forum', $forum);
+            else $queryBuilder->andWhere('t.forum IN (:forum)')->setParameter('forum', $domain);
 
-            foreach ($in as $k => $entry) $queryBuilder->andWhere("p.searchText LIKE :in{$k} ESCAPE '█'")->setParameter("in{$k}", "%{$entry}%");
-            foreach ($not_in as $k => $entry) $queryBuilder->andWhere("p.searchText NOT LIKE :nin{$k} ESCAPE '█'")->setParameter("nin{$k}", "%{$entry}%");
+            foreach ($in as $k => $entry) $queryBuilder->andWhere("t.title LIKE :in{$k} ESCAPE '█'")->setParameter("in{$k}", "%{$entry}%");
+            foreach ($not_in as $k => $entry) $queryBuilder->andWhere("t.title NOT LIKE :nin{$k} ESCAPE '█'")->setParameter("nin{$k}", "%{$entry}%");
 
-            $queryBuilder->orderBy('p.date', 'DESC')->setMaxResults(26);
+            $queryBuilder->orderBy('t.lastPost', 'DESC')->setMaxResults(26);
 
-            $result = array_merge($result, $queryBuilder->getQuery()->execute());
+            foreach ($queryBuilder->getQuery()->execute() as $thread) if ($p = $thread->firstPost()) $result[] = $p;
         }
+
+        /** @var QueryBuilder $queryBuilder */
+        $queryBuilder = $this->entity_manager->getRepository(Post::class)->createQueryBuilder('p');
+
+        $queryBuilder->andWhere('p.searchText IS NOT NULL');
+        $queryBuilder->andWhere('p.hidden = false OR p.hidden IS NULL');
+
+        if ($search_user !== null)
+            $queryBuilder->andWhere('p.owner = :user')->setParameter('user', $search_user);
+
+        if ($forum) $queryBuilder->andWhere('p.searchForum = :forum')->setParameter('forum', $forum);
+        else $queryBuilder->andWhere('p.searchForum IN (:forum)')->setParameter('forum', $domain);
+
+        foreach ($in as $k => $entry) $queryBuilder->andWhere("p.searchText LIKE :in{$k} ESCAPE '█'")->setParameter("in{$k}", "%{$entry}%");
+        foreach ($not_in as $k => $entry) $queryBuilder->andWhere("p.searchText NOT LIKE :nin{$k} ESCAPE '█'")->setParameter("nin{$k}", "%{$entry}%");
+
+        $queryBuilder->orderBy('p.date', 'DESC')->setMaxResults(26);
+
+        $result = array_merge($result, $queryBuilder->getQuery()->execute());
 
         $more = count($result) > 25;
         $result = array_slice($result, 0, 25);
 
         foreach ($in as &$in_entry) $in_entry = str_replace('█', '', $in_entry);
-
-        foreach ($result as $post) $post->setText( str_ireplace($in, array_map(fn(string $i) => "<span class=\"search-anchor\">$i</span>", $in), $this->html->prepareEmotes( $post->getText() ) ));
+        foreach ($result as $post) $post->setText( $this->html->prepareEmotes( $post->getText() ) );
 
         return $this->render( 'ajax/forum/search_result.html.twig', [
             'posts' => $result,
-            'more' => $more
+            'more' => $more,
+            'highlight' => $in,
         ] );
     }
 

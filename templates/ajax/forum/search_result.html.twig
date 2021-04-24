@@ -53,6 +53,38 @@
 {% block js %}
     {{ parent() }}
     <script>
+        const hl = function (node,find) {
+            const like_find = find.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+            if (node.nodeType === Node.TEXT_NODE) {
+
+                let text = node.textContent;
+                let like_text = text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+                console.log( text, like_text, find, like_find );
+
+                let index;
+                while ((index = like_text.indexOf( like_find )) >= 0) {
+                    const text_before = document.createTextNode( text.substr(0,index) );
+                    const highlight = $.html.createElement('<span class="search-anchor" />', text.substr(index,find.length));
+                    like_text = (node.textContent = text = text.substr( index + find.length )).normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                    if (index > 0) node.parentNode.insertBefore( text_before, node )
+                    node.parentNode.insertBefore( highlight, node )
+                    if (text.length === 0) node.remove();
+                }
+
+            } else if (node.nodeType === Node.ELEMENT_NODE && (node.tagName !== 'SPAN' || !node.classList.contains('search-anchor'))) {
+                let children = node.childNodes;
+                for (let i = 0; i < children.length; i++) hl(children[i],find);
+            }
+        }
+
+        $.html.forEach('.forum-post-search-result .forum-post-content', element => {
+            {% for text in highlight %}
+                hl(element,'{{ text|e('js') }}');
+            {% endfor %}
+        });
+
         $.html.forEach('.forum-post-search-result .forum-post-content', element => {
             let e = element.clientHeight !== element.scrollHeight ? element.querySelector('span.search-anchor') : null;
             if (e) {

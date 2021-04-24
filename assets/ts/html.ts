@@ -36,9 +36,10 @@ export default class HTML {
         } )
     }
 
-    createElement(html: string): HTMLElement {
+    createElement(html: string, textContent: string|null = null ): HTMLElement {
         const e = document.createElement('div');
         e.innerHTML = html;
+        if (textContent !== null) (<HTMLElement>(e.firstChild)).innerText = textContent;
         return <HTMLElement>e.firstChild;
     }
 
