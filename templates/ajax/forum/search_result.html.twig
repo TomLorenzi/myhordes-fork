@@ -61,8 +61,6 @@
                 let text = node.textContent;
                 let like_text = text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
-                console.log( text, like_text, find, like_find );
-
                 let index;
                 while ((index = like_text.indexOf( like_find )) >= 0) {
                     const text_before = document.createTextNode( text.substr(0,index) );
