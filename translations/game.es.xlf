@@ -17608,7 +17608,7 @@
       </notes>
       <segment>
         <source>Dauer</source>
-        <target>Duración</target>
+        <target>Long.</target>
       </segment>
     </unit>
     <unit id="mZIzUeE" name="von %citizen%">
