@@ -7765,7 +7765,7 @@
       <segment>
         <source>Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
                     Du kannst weder die Karte benutzen, noch sonst eine Aktion durchführen, die im Freien möglich ist.</source>
-        <target>El mapa, así como todas las funciones en el exterior están desactivadas mientras estés siguiendo a un héroe.</target>
+        <target>Todas las funciones en el exterior están desactivadas mientras estés siguiendo a un héroe.</target>
       </segment>
     </unit>
     <unit id="jqa.16L" name="da1981d">
@@ -9511,7 +9511,7 @@
       </notes>
       <segment>
         <source>Du kannst 2 Mal pro Partie einen Registereintrag unkenntlich machen. Dazu musst du nur auf das kleine Icon "Fälschen" klicken. Dieses befindet sich links neben dem "störenden" Registereintrag. ;-)</source>
-        <target>Te permite borrar 2 líneas de cualquier registro durante una partida (haga clic en el icono junto a la línea que desea eliminar...).</target>
+        <target>Te permite borrar 2 líneas de cualquier registro durante una partida (haz clic en el icono junto a la línea que deseas eliminar.).</target>
       </segment>
     </unit>
     <unit id="v3dbrZx" name="Hellseherei">
@@ -9547,7 +9547,7 @@
       </notes>
       <segment>
         <source>Mit dieser Funktion kannst du alle Stadteinwohner auf einmal anschreiben. Du kannst damit in den Foren zudem Rollenspielthreads (RP) erstellen (Übertreibe es aber bitte nicht - Danke!).</source>
-        <target>Puedes enviar MP a todos en el pueblo a la vez. También puede iniciar hilos "RP" en los foros (¡no abuse de esto!).</target>
+        <target>Puedes enviar MP a todos en el pueblo a la vez. También puedes iniciar hilos "RP" en los foros (¡no abuses de esto!).</target>
       </segment>
     </unit>
     <unit id="U85YOFG" name="Freundschaft">
@@ -15705,7 +15705,7 @@
       </notes>
       <segment>
         <source>Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!</source>
-        <target>¡Hurra! Has terminado la construcción %plan%!</target>
+        <target>¡Hurra! ¡Has terminado la construcción %plan%!</target>
       </segment>
     </unit>
     <unit id="8UrChKd" name="Du hast dafür %count% Aktionspunkt(e) verbraucht.">
@@ -17748,7 +17748,7 @@
       </notes>
       <segment>
         <source>Neue und Tote</source>
-        <target>Llegadas y Muertos</target>
+        <target>Llegadas y Muertes</target>
       </segment>
     </unit>
     <unit id="To01kGO" name="Zombieangriff (newspaper)">
@@ -18444,7 +18444,7 @@
       </notes>
       <segment>
         <source>%citizen% hat versucht %item% aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.</source>
-        <target>%citizen% hat versucht %item% aus der Bank zu stehlen, dabei aber KEINERLEI DISKRETION gezeigt.</target>
+        <target>¡%citizen% ha intentado robar %item% del Almacén pero su falta de discreción le convierte en un pésimo ladrón!</target>
       </segment>
     </unit>
     <unit id="LWSEhn0" name="ed08c19">
@@ -18453,7 +18453,7 @@
       </notes>
       <segment>
         <source>Jemand hat %item% aus der Bank entwendet, aber er (oder sie) konnte nicht identifiziert werden.</source>
-        <target>Jemand hat %item% aus der Bank entwendet, aber er (oder sie) konnte nicht identifiziert werden.</target>
+        <target>Alguien ha tomado %item% de los cofres del Almacén y no pudo ser identificado</target>
       </segment>
     </unit>
     <unit id="pygRaEs" name="0a0a304">
@@ -18471,7 +18471,7 @@
       </notes>
       <segment>
         <source>Du hast soeben %item% aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...</source>
-        <target>Du hast soeben %item% aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...</target>
+        <target>¡Acabas de robar %item% del Almacén! Tu nombre no aparecerá en el Registro...</target>
       </segment>
     </unit>
     <unit id="glz6Ktw" name="Dafür solltest du dein Labor verwenden...">
@@ -18606,7 +18606,7 @@
       </notes>
       <segment>
         <source>Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!</source>
-        <target>Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!</target>
+        <target>¡Tu intento de robo ha fallado! ¡Has sido visto!</target>
       </segment>
     </unit>
     <unit id="xJvvYYd" name="89244b5">
