@@ -803,19 +803,35 @@ class TownController extends InventoryAwareController
                 if(!$pump) return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
                 $items = $handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest('water_#00')] );
+                if (empty($items)) $items = $handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest('water_can_1_#00')] );
+                if (empty($items)) $items = $handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest('water_can_2_#00')] );
+                if (empty($items)) $items = $handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest('water_can_3_#00')] );
+                if (empty($items)) $items = $handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest('potion_#00')] );
                 if (empty($items)) return AjaxResponse::error(self::ErrorWellNoWater);
+
+                $morph = null;
+                switch ($items[0]->getPrototype()->getName()) {
+                    case 'water_can_3_#00': $morph = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('water_can_2_#00'); break;
+                    case 'water_can_2_#00': $morph = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('water_can_1_#00'); break;
+                    case 'water_can_1_#00': $morph = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName('water_can_empty_#00'); break;
+                    default: break;
+                }
 
                 $inv_target = null;
                 $inv_source = $citizen->getInventory();
 
-                if (($error = $handler->transferItem(
+                if (($error = $morph !== null ? InventoryHandler::ErrorNone : $handler->transferItem(
                         $citizen,
                         $items[0],$inv_source, $inv_target
                     )) === InventoryHandler::ErrorNone) {
                     $town->setWell( $town->getWell()+1 );
                     try {
                         $this->entity_manager->persist( $this->log->wellAdd( $citizen, $items[0]->getPrototype(), 1) );
-                        $this->entity_manager->remove($items[0]);
+                        if ($morph === null) $this->entity_manager->remove($items[0]);
+                        else {
+                            $items[0]->setPrototype($morph);
+                            $this->entity_manager->persist($items[0]);
+                        }
                         $this->entity_manager->persist($town);
                         $this->entity_manager->flush();
                     } catch (Exception $e) {
