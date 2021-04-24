@@ -233,24 +233,31 @@
                                     </button>
                                     <div class="tooltip help">{{ 'Du kannst in den Foren um Hilfe bitten!'|trans({}, 'game') }}</div>
                                 </div>
-                                <div {% if not can_escape %}disabled{% endif %} class="padded-small cell rw-6">
-                                    <button id="escape-btn">
+                                <div class="padded-small cell rw-6">
+                                    <button id="escape-btn" {% if not can_escape %}disabled{% endif %}>
                                         <img alt="" src="{{ asset('build/images/icons/death.gif') }}" />{% trans from 'game' %}Die Flucht wagen!{% endtrans %}
                                     </button>
-                                    <div class="tooltip help">{{ 'Wenn du flüchtest, werden dich die Zombies verletzen, aber du wirst trotzdem entkommen...'|trans({}, 'game') }}</div>
+                                    {% if can_escape %}
+                                        <div class="tooltip help">{{ 'Wenn du flüchtest, werden dich die Zombies verletzen, aber du wirst trotzdem entkommen...'|trans({}, 'game') }}</div>
+                                    {% elseif can_escape_nr == 'tired' %}
+                                        <div class="tooltip help">{{ 'Du kannst nicht flüchten, da du keine Aktionspunkte mehr übrig hast. Echt schade...'|trans({}, 'game') }}</div>
+                                    {% endif %}
                                 </div>
                             </div>
                             <div class="row">
-                                <div {% if not can_attack %}disabled{% endif %} class="padded-small cell rw-8">
-                                    <button id="attack-btn">
+                                <div class="padded-small cell rw-8">
+                                    <button id="attack-btn" {% if not can_attack %}disabled{% endif %}>
                                         <img alt="" src="{{ asset('build/images/icons/fist.gif') }}" />{% trans from 'game' %}Gegen einen Zombie kämpfen!{% endtrans %} (<div class="ap">1</div>)
                                     </button>
-                                    <div class="tooltip help">{{ 'Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.'|trans({}, 'game')|raw }} <br /><em>{{ 'Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.'|trans({}, 'game')|raw }}</em></div>
+                                    {% if can_attack %}
+                                        <div class="tooltip help">{{ 'Du kannst versuchen einen Zombie im Nahkampf und ohne Waffen anzugreifen.'|trans({}, 'game')|raw }} <br /><em>{{ 'Diese Aktion kostet dich 1 AP und die Erfolgsaussichten sind ziemlich gering.'|trans({}, 'game')|raw }}</em></div>
+                                    {% elseif can_attack_nr == 'tired' %}
+                                        <div class="tooltip help">{{ 'Du kannst nicht kämpfen, da du keine Aktionspunkte mehr übrig hast. Wie schade...'|trans({}, 'game') }}</div>
+                                    {% endif %}
                                 </div>
                             </div>
                         {% endif %}
-                        <br />
-                        {{ help_lnk('Die Kontrollpunkte'|trans({}, 'help'), 'help', {'name': 'control_points'}) }}
+                        <br />{{ help_lnk('Die Kontrollpunkte'|trans({}, 'help'), 'help', {'name': 'control_points'}) }}</>
                     </div>
                 </div>
             </div>
@@ -283,10 +290,6 @@
                     {% if not citizen_hidden %}
                         {% if not digging %}
                             {% if zone_blocked %}
-                                <div class="note note-light">
-                                    <img class="icon left" alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
-                                    {% trans from 'game' %}Während Zombies die Zone kontrollieren, kannst du nicht graben.{% endtrans %}
-                                </div>
                             {% elseif citizen.digTimeout > 0 and conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) %}
                                 <div class="note note-light">
                                     <img class="icon left" alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
@@ -299,9 +302,15 @@
                                     {% trans from 'game' %}Du hast hier bereits vor Kurzem gegraben. Die nächste Ausgrabung ist erst morgen wieder möglich.{% endtrans %}
                                 </div>
                             {% endif %}
-                            <button id="dig_button" {% if zone_blocked or citizen.digTimeout > 0 or ( citizen.passiveDigTimer and not conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) ) %}disabled{% endif %}>
-                                <img class="icon left" alt="" src="{{ asset('build/images/icons/small_gather.gif') }}" />
-                                {% trans from 'game' %}In dieser Zone graben{% endtrans %}</button>
+                            <div style="margin-bottom: 5px;">
+                                <button id="dig_button" {% if zone_blocked or citizen.digTimeout > 0 or ( citizen.passiveDigTimer and not conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ALLOW_REDIGS'),false) ) %}disabled{% endif %}>
+                                    <img class="icon left" alt="" src="{{ asset('build/images/icons/small_gather.gif') }}" />
+                                    {% trans from 'game' %}In dieser Zone graben{% endtrans %}
+                                </button>
+                                {% if zone_blocked %}
+                                    <div class="tooltip">{{ 'In einer von den Zombies kontrollierten Zone ist das nicht möglich!'|trans({},'game') }}</div>
+                                {% endif %}
+                            </div>
                         {% else %}
                             <div class="note note-light">
                                 <img class="icon left" alt="" src="{{ asset('build/images/icons/small_gather.gif') }}" />

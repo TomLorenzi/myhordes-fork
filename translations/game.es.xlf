@@ -19185,5 +19185,32 @@
         <target>Remángate la camisa para quitar toda esa inmundicia en busca de tesoros.</target>
       </segment>
     </unit>
+    <unit id="nJ50IDM" name="82f2b0d">
+      <notes>
+        <note category="german">Du kannst nicht flüchten, da du keine Aktionspunkte mehr übrig hast. Echt schade...</note>
+      </notes>
+      <segment>
+        <source>Du kannst nicht flüchten, da du keine Aktionspunkte mehr übrig hast. Echt schade...</source>
+        <target>No puedes huir, ya no tienes Puntos de Acción. Qué lástima...</target>
+      </segment>
+    </unit>
+    <unit id="5daVnSF" name="141df45">
+      <notes>
+        <note category="german">Du kannst nicht kämpfen, da du keine Aktionspunkte mehr übrig hast. Wie schade...</note>
+      </notes>
+      <segment>
+        <source>Du kannst nicht kämpfen, da du keine Aktionspunkte mehr übrig hast. Wie schade...</source>
+        <target>No puedes luchar, ya no tienes Puntos de Acción. Qué lástima...</target>
+      </segment>
+    </unit>
+    <unit id="RllpyIm" name="In einer von den Zombies kontrollierten Zone ist das nicht möglich!">
+      <notes>
+        <note category="german">In einer von den Zombies kontrollierten Zone ist das nicht möglich!</note>
+      </notes>
+      <segment>
+        <source>In einer von den Zombies kontrollierten Zone ist das nicht möglich!</source>
+        <target>¡Es imposible hacer esto en una zona controlada por los zombies!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

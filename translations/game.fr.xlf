@@ -19220,5 +19220,32 @@
         <target>Retroussez vos manches pour dégager l'accès à cette zone et peut-être accéder à ses richesses.</target>
       </segment>
     </unit>
+    <unit id="nJ50IDM" name="82f2b0d">
+      <notes>
+        <note category="german">Du kannst nicht flüchten, da du keine Aktionspunkte mehr übrig hast. Echt schade...</note>
+      </notes>
+      <segment>
+        <source>Du kannst nicht flüchten, da du keine Aktionspunkte mehr übrig hast. Echt schade...</source>
+        <target>Vous ne pouvez plus fuir, vous n'avez plus de poins d'action. Dommage...</target>
+      </segment>
+    </unit>
+    <unit id="5daVnSF" name="141df45">
+      <notes>
+        <note category="german">Du kannst nicht kämpfen, da du keine Aktionspunkte mehr übrig hast. Wie schade...</note>
+      </notes>
+      <segment>
+        <source>Du kannst nicht kämpfen, da du keine Aktionspunkte mehr übrig hast. Wie schade...</source>
+        <target>Vous ne pouvez plus lutter, vous n'avez plus de poins d'action. Dommage...</target>
+      </segment>
+    </unit>
+    <unit id="RllpyIm" name="In einer von den Zombies kontrollierten Zone ist das nicht möglich!">
+      <notes>
+        <note category="german">In einer von den Zombies kontrollierten Zone ist das nicht möglich!</note>
+      </notes>
+      <segment>
+        <source>In einer von den Zombies kontrollierten Zone ist das nicht möglich!</source>
+        <target>Impossible de faire cela dans une zone sous contrôle des zombies !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
