@@ -20,6 +20,7 @@ use App\Entity\CitizenStatus;
 use App\Entity\CitizenVote;
 use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
+use App\Entity\ComplaintReason;
 use App\Entity\ExpeditionRoute;
 use App\Entity\Inventory;
 use App\Entity\Item;
@@ -205,6 +206,18 @@ class AdminTownController extends AdminActionController
             if ($available)
                 $inTown[$building->getId()] = $available;
         }
+
+        $all_complaints = array_map( fn(ActionEventLog $a) => [
+            'on' => $a->getType() === ActionEventLog::ActionEventComplaintIssued,
+            'from' => $a->getCitizen(),
+            'to' => $this->entity_manager->getRepository(Citizen::class)->find($a->getOpt1()),
+            'reason' => $this->entity_manager->getRepository(ComplaintReason::class)->find($a->getOpt2()),
+            'time' => $a->getTimestamp()
+        ], $this->entity_manager->getRepository(ActionEventLog::class)->findBy([
+                              'type' => [ActionEventLog::ActionEventComplaintIssued,ActionEventLog::ActionEventComplaintRedacted],
+                              'citizen' => $town->getCitizens()->getValues(),
+                          ], ['timestamp' => 'DESC']));
+
         return $this->render('ajax/admin/towns/explorer.html.twig', $this->addDefaultTwigArgs(null, array_merge([
             'town' => $town,
             'conf' => $this->conf->getTownConfiguration($town),
@@ -219,6 +232,7 @@ class AdminTownController extends AdminActionController
             'citizenProfessions' => $professions,
             'tab' => $tab,
             'complaints' => $complaints,
+            'all_complaints' => $all_complaints,
             'dictBuildings' => $dict,
             'rootBuildings' => $root,
             'availBuldings' => $inTown,

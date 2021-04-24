@@ -6,6 +6,7 @@ use App\Annotations\GateKeeperProfile;
 use App\Controller\InventoryAwareController;
 use App\Entity\AccountRestriction;
 use App\Entity\ActionCounter;
+use App\Entity\ActionEventLog;
 use App\Entity\BlackboardEdit;
 use App\Entity\Building;
 use App\Entity\BuildingVote;
@@ -602,6 +603,16 @@ class TownController extends InventoryAwareController
                 $existing_complaint->setLinkedReason($complaintReason);
             $culprit->addComplaint($existing_complaint);
 
+            if ($severity > Complaint::SeverityNone)
+                $this->entity_manager->persist(
+                    (new ActionEventLog())
+                        ->setType(ActionEventLog::ActionEventComplaintIssued)
+                        ->setCitizen($author)
+                        ->setTimestamp( new DateTime())
+                        ->setOpt1( $culprit->getId() )
+                        ->setOpt2( $complaintReason->getId() )
+                );
+
             $complaint_level = ($severity > Complaint::SeverityNone) ? 1 : 0;
 
         } else {
@@ -614,6 +625,16 @@ class TownController extends InventoryAwareController
             if( $complaint_level > 0 && $reason > 0 )
                 $existing_complaint->setLinkedReason($complaintReason);
             else $complaintReason = $existing_complaint->getLinkedReason();
+
+            if ( $complaint_level != 0 )
+                $this->entity_manager->persist(
+                    (new ActionEventLog())
+                        ->setType($complaint_level > 0 ? ActionEventLog::ActionEventComplaintIssued : ActionEventLog::ActionEventComplaintRedacted)
+                        ->setCitizen($author)
+                        ->setTimestamp( new DateTime())
+                        ->setOpt1( $culprit->getId() )
+                        ->setOpt2( $complaintReason->getId() )
+                );
 
             $existing_complaint->setSeverity( $severity );
         }

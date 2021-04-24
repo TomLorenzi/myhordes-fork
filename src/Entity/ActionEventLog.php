@@ -13,6 +13,9 @@ class ActionEventLog
     const ActionEventTypeBankTaken = 1;
     const ActionEventTypeBankLock = 2;
 
+    const ActionEventComplaintIssued   = 3;
+    const ActionEventComplaintRedacted = 4;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -35,6 +38,16 @@ class ActionEventLog
      * @ORM\Column(type="datetime")
      */
     private $timestamp;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $opt1;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $opt2;
 
     public function getId(): ?int
     {
@@ -73,6 +86,30 @@ class ActionEventLog
     public function setTimestamp(\DateTimeInterface $timestamp): self
     {
         $this->timestamp = $timestamp;
+
+        return $this;
+    }
+
+    public function getOpt1(): ?int
+    {
+        return $this->opt1;
+    }
+
+    public function setOpt1(?int $opt1): self
+    {
+        $this->opt1 = $opt1;
+
+        return $this;
+    }
+
+    public function getOpt2(): ?int
+    {
+        return $this->opt2;
+    }
+
+    public function setOpt2(?int $opt2): self
+    {
+        $this->opt2 = $opt2;
 
         return $this;
     }
