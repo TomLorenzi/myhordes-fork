@@ -3216,7 +3216,7 @@
     </unit>
     <unit id="g7lA4hJ" name="75edd8c">
       <notes>
-        <note category="german">Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</note>
+        <note category="german">Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen...{hr}&lt;t-rp_ok&gt;&lt;strong&gt;Der Text wurde deinem Archiv hinzugefügt !&lt;/strong&gt;&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</note>
       </notes>
       <segment>
         <source>Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</source>
@@ -6348,7 +6348,7 @@
     </unit>
     <unit id="Rjbh1eD" name="a214ff9">
       <notes>
-        <note category="german">&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</note>
+        <note category="german">&lt;t-bp_ok&gt;Nachdem du den {item} genau studierst hast, stellst du fest, dass es sich um eine Anleitung zum Bau für {bp_spawn} handelt!{hr}Du bringst die Pläne zum Anschlagbrett der Baustelle.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Für dieses Bauprojekt muss zuerst {bp_parent} gebaut werden.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</note>
       </notes>
       <segment>
         <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
@@ -8172,6 +8172,15 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
         <target>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</target>
+      </segment>
+    </unit>
+    <unit id="dvSEUyn" name="021fe72">
+      <notes>
+        <note category="german">&lt;t-consumed&gt;Du hetzt das/den/die {item} auf einen Zombie. Der Untote greift sich deinen tierischen Begleiter, zerquetscht es mit seinen Griffen und würgt es ganz langsam herunter... Dumm gelaufen.. aber wenigstens hast ihn damit eine Zeit lang beschäftigt...&lt;/t-consumed&gt;&lt;nt-consumed&gt;Dein Tier &lt;strong&gt;geht einem Zombie sofort an die Gurgel&lt;/strong&gt; und reißt sich ein paar schöne Happen! Bravo!&lt;/nt-consumed&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-consumed&gt;Du hetzt das/den/die {item} auf einen Zombie. Der Untote greift sich deinen tierischen Begleiter, zerquetscht es mit seinen Griffen und würgt es ganz langsam herunter... Dumm gelaufen.. aber wenigstens hast ihn damit eine Zeit lang beschäftigt...&lt;/t-consumed&gt;&lt;nt-consumed&gt;Dein Tier &lt;strong&gt;geht einem Zombie sofort an die Gurgel&lt;/strong&gt; und reißt sich ein paar schöne Happen! Bravo!&lt;/nt-consumed&gt;</source>
+        <target><![CDATA[<t-consumed>Du hetzt das/den/die {item} auf einen Zombie. Der Untote greift sich deinen tierischen Begleiter, zerquetscht es mit seinen Griffen und würgt es ganz langsam herunter... Dumm gelaufen.. aber wenigstens hast ihn damit eine Zeit lang beschäftigt...</t-consumed><nt-consumed>Dein Tier <strong>geht einem Zombie sofort an die Gurgel</strong> und reißt sich ein paar schöne Happen! Bravo!</nt-consumed>]]></target>
       </segment>
     </unit>
   </file>

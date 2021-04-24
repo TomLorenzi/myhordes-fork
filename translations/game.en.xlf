@@ -19173,5 +19173,50 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</target>
       </segment>
     </unit>
+    <unit id="QOeiiDo" name="1c20d65">
+      <notes>
+        <note category="german">Jede &lt;strong&gt;Aufräumaktion&lt;/strong&gt; enfernt einen Haufen von der Leiste. Wenn alle Häufen verschwunden sind, kann die Zone nach Lust und Laune erforscht werden.</note>
+      </notes>
+      <segment>
+        <source>Jede &lt;strong&gt;Aufräumaktion&lt;/strong&gt; enfernt einen Haufen von der Leiste. Wenn alle Häufen verschwunden sind, kann die Zone nach Lust und Laune erforscht werden.</source>
+        <target><![CDATA[Each time you use the <strong>Clear</strong> action, an icon is removed from this box. When no icons remain, the zone can be searched: you can then search it freely.]]></target>
+      </segment>
+    </unit>
+    <unit id="3Aw6Y48" name="222d954">
+      <notes>
+        <note category="german">Es gilt jetzt die Ärmel hochzukrempeln, wenn du Zugang zu dieser Zone und ihre potenziellen Schätzen bekommen möchtest.</note>
+      </notes>
+      <segment>
+        <source>Es gilt jetzt die Ärmel hochzukrempeln, wenn du Zugang zu dieser Zone und ihre potenziellen Schätzen bekommen möchtest.</source>
+        <target>Roll up your sleeves to unblock access to the zone and maybe gain access to its riches...</target>
+      </segment>
+    </unit>
+    <unit id="nJ50IDM" name="82f2b0d">
+      <notes>
+        <note category="german">Du kannst nicht flüchten, da du keine Aktionspunkte mehr übrig hast. Echt schade...</note>
+      </notes>
+      <segment>
+        <source>Du kannst nicht flüchten, da du keine Aktionspunkte mehr übrig hast. Echt schade...</source>
+        <target>You cannot make a run for it, you have no action points left. Shame...</target>
+      </segment>
+    </unit>
+    <unit id="5daVnSF" name="141df45">
+      <notes>
+        <note category="german">Du kannst nicht kämpfen, da du keine Aktionspunkte mehr übrig hast. Wie schade...</note>
+      </notes>
+      <segment>
+        <source>Du kannst nicht kämpfen, da du keine Aktionspunkte mehr übrig hast. Wie schade...</source>
+        <target>You cannot fight, you have no action points left. Shame...</target>
+      </segment>
+    </unit>
+    <unit id="RllpyIm" name="In einer von den Zombies kontrollierten Zone ist das nicht möglich!">
+      <notes>
+        <note category="german">In einer von den Zombies kontrollierten Zone ist das nicht möglich!</note>
+      </notes>
+      <segment>
+        <source>In einer von den Zombies kontrollierten Zone ist das nicht möglich!</source>
+        <target>It is impossible to do this in a zone controlled by zombies!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
