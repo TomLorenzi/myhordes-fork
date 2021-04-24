@@ -1099,7 +1099,7 @@ class ExternalController extends InventoryAwareController {
                         break;
                     case "date":
                         $now = new DateTime();
-                        $data[$field] = $now->format('Y-m-d H:m:s');
+                        $data[$field] = $now->format('Y-m-d H:i:s');
                         break;
                     case "wid":
                     case "hei":
@@ -1117,7 +1117,7 @@ class ExternalController extends InventoryAwareController {
                     case "bonusPts":
                         $data[$field] = 0;
                         break;
-                    case "shaman":
+                    case "guide":
                         $latest_guide = $this->entity_manager->getRepository(Citizen::class)
                                                              ->findLastOneByRoleAndTown($this->entity_manager->getRepository(CitizenRole::class)
                                                                                                              ->findOneBy(['name' => 'guide']),
@@ -1126,13 +1126,13 @@ class ExternalController extends InventoryAwareController {
                             $data[$field] = $latest_guide->getUser()->getId();
                         }
                         break;
-                    case "guide":
-                        $latest_guide = $this->entity_manager->getRepository(Citizen::class)
+                    case "shaman":
+                        $latest_shaman = $this->entity_manager->getRepository(Citizen::class)
                                                              ->findLastOneByRoleAndTown($this->entity_manager->getRepository(CitizenRole::class)
                                                                                                              ->findOneBy(['name' => 'shaman']),
                                                                                         $this->town);
-                        if ($latest_guide && $latest_guide->getAlive()) {
-                            $data[$field] = $latest_guide->getUser()->getId();
+                        if ($latest_shaman && $latest_shaman->getAlive()) {
+                            $data[$field] = $latest_shaman->getUser()->getId();
                         }
                         break;
                     case "custom":
@@ -1750,7 +1750,7 @@ class ExternalController extends InventoryAwareController {
     }
 
     private function getTranslate(string $id, string $domain, array $parameters = []) {
-        $data = '';
+        $data = [];
         foreach ($this->langue as $lang) {
             if (!is_string($lang) || strlen($lang) != 2) {
                 continue;
