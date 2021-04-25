@@ -6686,7 +6686,7 @@
       </notes>
       <segment>
         <source>&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;</source>
-        <target><![CDATA[<t-zone>¡Has detectado un nuevo edificio en las coordenadas {zone}!</t-zone><nt-zone>Es scheint, als gäbe es nichts mehr zu entdecken ...</nt-zone>]]></target>
+        <target><![CDATA[<t-zone>¡Has detectado una nueva ruina en las coordenadas {zone}!</t-zone><nt-zone>Parece que tu pueblo ya ha encontrado todas las ruinas...</nt-zone>]]></target>
       </segment>
     </unit>
     <unit id="zI0j8nd" name="Wasserwaffen füllen">
@@ -6722,7 +6722,7 @@
       </notes>
       <segment>
         <source>Du hast die Seele gereinigt und sie friedlich gemacht.</source>
-        <target>Has purificado un alma perdida. Se evapora, camina hacia un lugar mejor dejándote en un estado de serenidad y paz...</target>
+        <target>Has purificado un alma perdida. Se evapora en camino hacia un lugar mejor dejándote en un estado de serenidad y paz...</target>
       </segment>
     </unit>
     <unit id="YTSbJ8." name="Droge herstellen">
@@ -6731,7 +6731,7 @@
       </notes>
       <segment>
         <source>Droge herstellen</source>
-        <target>Preparar un Estimulante</target>
+        <target>Preparar un Twinoid 500Mg</target>
       </segment>
     </unit>
     <unit id="0V2NUu6" name="In deinem Labor hast du {items_consume} in {items_spawn} umgewandelt.">
