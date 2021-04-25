@@ -1398,5 +1398,59 @@
         <target>... et souffrir avec 39 autres citoyens en enfer.</target>
       </segment>
     </unit>
+    <unit id="ilHQ7qt" name="Das Leben nach dem Tod">
+      <notes>
+        <note category="german">Das Leben nach dem Tod</note>
+      </notes>
+      <segment>
+        <source>Das Leben nach dem Tod</source>
+        <target>La vie après la mort</target>
+      </segment>
+    </unit>
+    <unit id="s0KqeMJ" name="Meine Seele ansehen">
+      <notes>
+        <note category="german">Meine Seele ansehen</note>
+      </notes>
+      <segment>
+        <source>Meine Seele ansehen</source>
+        <target>Consulter mon âme</target>
+      </segment>
+    </unit>
+    <unit id="_pEJUyq" name="Spendenseite aufrufen">
+      <notes>
+        <note category="german">Spendenseite aufrufen</note>
+      </notes>
+      <segment>
+        <source>Spendenseite aufrufen</source>
+        <target>Consulter la page des dons</target>
+      </segment>
+    </unit>
+    <unit id="lrar0xr" name="Willkommen in der Hölle!">
+      <notes>
+        <note category="german">Willkommen in der Hölle!</note>
+      </notes>
+      <segment>
+        <source>Willkommen in der Hölle!</source>
+        <target>Bienvenue en Enfer !</target>
+      </segment>
+    </unit>
+    <unit id="7zJqkQY" name="34025a5">
+      <notes>
+        <note category="german">Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.</note>
+      </notes>
+      <segment>
+        <source>Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.</source>
+        <target>Vous êtes sur le point de rejoindre une ville avec 39 autres pauvres âmes, dans le but de survivre le plus longtemps possible.</target>
+      </segment>
+    </unit>
+    <unit id="29U26Sd" name="Spiel betreten">
+      <notes>
+        <note category="german">Spiel betreten</note>
+      </notes>
+      <segment>
+        <source>Spiel betreten</source>
+        <target>Se lancer dans le jeu</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -1,0 +1,65 @@
+{% extends "ajax/ajax_plain.html.twig" %}
+{% block ajax_base %}
+    <div class="row">
+        <div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12">
+            <div class="row-flex v-center wrap-sm">
+                <div class="cell padded rw-5 center rw-sm-12">
+                    <img alt="" src="{{ asset('build/images/professions/select/metier.gif') }}">
+                </div>
+                <div class="cell padded rw-7 rw-sm-12 justify">
+                        <h5 style="margin-top: 0;">
+                            {% trans from 'ghost' %}
+                                Das Leben nach dem Tod
+                            {% endtrans %}
+                        </h5>
+
+                        <p><span class="small">
+                            <b>{{ 'Der Tod in "MyHordes" ist nicht weiter schlimm!'|trans({},'game') }}</b>
+                            {{ 'Du kannst in einer neuen Stadt wiedergeboren werden und das so oft wie du möchtest. Sei erfinderisch, probiere verschiedene Optionen aus und finde deinen eigenen Spielstil!'|trans({},'game') }}
+                        </span></p>
+
+                        <button x-ajax-href="{{ path('ghost_welcome') }}">
+                            <img alt="" src='{{ asset('build/images/icons/death.gif') }}'/>
+                            {% trans from 'ghost' %}
+                                Ein neues Leben beginnen
+                            {% endtrans %}
+                        </button>
+                        <button x-ajax-href="{{ path('soul_me') }}">
+                            <img alt="" src='{{ asset('build/images/icons/small_ghost_blue.gif') }}'/>
+                            {% trans from 'ghost' %}
+                                Meine Seele ansehen
+                            {% endtrans %}
+                        </button>
+                </div>
+            </div>
+        </div>
+        <div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12" style="margin-top: 25px;">
+            <div class="row">
+                <div class="padded cell rw-8 ro-2 rw-lg-10 ro-lg-1 rw-md-12 ro-md-0">
+                    <h5 class="center">{{ 'Hat dir dein letztes Leben gefallen?'|trans({},'soul') }}</h5>
+                    <p class="justify"><span class="small">
+                        {{ 'MyHordes wird von einem unabhängigen Team von Programmierern in deren Freizeit entwickelt.'|trans({},'soul') }}
+                        {{ 'Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.'|trans({},'soul') }}
+                        {{ 'Das Spiel ist komplett kostenlos - es gibt keine Bezahlinhalte, wir zeigen keine Werbung an und führen auch kein Nutzer-Tracking durch.'|trans({},'soul') }}
+                        <b>{{ 'Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.'|trans({},'soul') }}</b>
+                    </span></p>
+                    <p>
+                        <button id="donate_btn">
+                            <img alt="" src='{{ asset('build/images/icons/small_next.gif') }}'/>
+                            {% trans from 'ghost' %}
+                                Spendenseite aufrufen
+                            {% endtrans %}
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script>
+        document.getElementById('donate_btn').addEventListener('click', function() {
+            window.open('https://opencollective.com/eternal-twin','_blank');
+        });
+    </script>
+{% endblock %}

@@ -3216,11 +3216,11 @@
     </unit>
     <unit id="g7lA4hJ" name="75edd8c">
       <notes>
-        <note category="german">Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</note>
+        <note category="german">Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen...{hr}&lt;t-rp_ok&gt;&lt;strong&gt;Der Text wurde deinem Archiv hinzugefügt !&lt;/strong&gt;&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</note>
       </notes>
       <segment>
         <source>Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</source>
-        <target><![CDATA[Vous examinez ce recueil en détail... Vous y découvrez un texte apparemment intitulé « {rp_text} ». Vous le lisez avec la plus grande attention...<t-rp_ok>Un nouveau document a été ajouté à vos écrits !</t-rp_ok><t-rp_fail>Vous aviez déjà découvert cet écrit. Il ne vous rapportera donc pas de distinction supplémentaire.</t-rp_fail>]]></target>
+        <target><![CDATA[Vous examinez ce recueil en détail... Vous y découvrez un texte apparemment intitulé « {rp_text} ». Vous le lisez avec la plus grande attention...{hr}<t-rp_ok><strong>Un nouveau document a été ajouté à vos écrits !</strong></t-rp_ok><t-rp_fail>Vous aviez déjà découvert cet écrit. Il ne vous rapportera donc pas de distinction supplémentaire.</t-rp_fail>]]></target>
       </segment>
     </unit>
     <unit id="glkUAZ8" name="Werfen">
@@ -3409,7 +3409,7 @@
       </notes>
       <segment>
         <source>Das kannst du nicht tun während du umzingelt bist...</source>
-        <target>Vous ne pouvez pas faire ça pendant que vous êtes entouré...</target>
+        <target>Vous n'avez pas besoin de cela pour le moment...</target>
       </segment>
     </unit>
     <unit id="L22kxoh" name="f3e008d">
@@ -6303,7 +6303,7 @@
     </unit>
     <unit id="Rjbh1eD" name="a214ff9">
       <notes>
-        <note category="german">&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</note>
+        <note category="german">&lt;t-bp_ok&gt;Nachdem du den {item} genau studierst hast, stellst du fest, dass es sich um eine Anleitung zum Bau für {bp_spawn} handelt!{hr}Du bringst die Pläne zum Anschlagbrett der Baustelle.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Für dieses Bauprojekt muss zuerst {bp_parent} gebaut werden.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</note>
       </notes>
       <segment>
         <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
@@ -8091,6 +8091,33 @@
       <segment>
         <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
         <target>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</target>
+      </segment>
+    </unit>
+    <unit id="dvSEUyn" name="021fe72">
+      <notes>
+        <note category="german">&lt;t-consumed&gt;Du hetzt das/den/die {item} auf einen Zombie. Der Untote greift sich deinen tierischen Begleiter, zerquetscht es mit seinen Griffen und würgt es ganz langsam herunter... Dumm gelaufen.. aber wenigstens hast ihn damit eine Zeit lang beschäftigt...&lt;/t-consumed&gt;&lt;nt-consumed&gt;Dein Tier &lt;strong&gt;geht einem Zombie sofort an die Gurgel&lt;/strong&gt; und reißt sich ein paar schöne Happen! Bravo!&lt;/nt-consumed&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;t-consumed&gt;Du hetzt das/den/die {item} auf einen Zombie. Der Untote greift sich deinen tierischen Begleiter, zerquetscht es mit seinen Griffen und würgt es ganz langsam herunter... Dumm gelaufen.. aber wenigstens hast ihn damit eine Zeit lang beschäftigt...&lt;/t-consumed&gt;&lt;nt-consumed&gt;Dein Tier &lt;strong&gt;geht einem Zombie sofort an die Gurgel&lt;/strong&gt; und reißt sich ein paar schöne Happen! Bravo!&lt;/nt-consumed&gt;</source>
+        <target><![CDATA[<t-consumed>Vous envoyez {item} près d'un zombie. Le mort-vivant se jette sur l'animal pour le dévorer (très lentement) en grognant... Adieu brave bête. Mais ça fera toujours un zombie de moins à éviter maintenant qu'il est occupé...</t-consumed><nt-consumed>Votre {item} se jette à la gorge d'un zombie et n'en fait littéralement qu'une bouchée ! Bravo Pépète !</nt-consumed>]]></target>
+      </segment>
+    </unit>
+    <unit id="BnW7_fH" name="1876d51">
+      <notes>
+        <note category="german">Die Nebenwirkungen der Droge lassen nicht lange auf sich warten: Übelkeit, Zittern, Schweißausbrüche, das ganze Programm... Gleichzeitig spürst du jedoch einen &lt;strong&gt;unglaublichen Kraftschub&lt;/strong&gt;. Übertreibe es aber nicht!</note>
+      </notes>
+      <segment>
+        <source>Die Nebenwirkungen der Droge lassen nicht lange auf sich warten: Übelkeit, Zittern, Schweißausbrüche, das ganze Programm... Gleichzeitig spürst du jedoch einen &lt;strong&gt;unglaublichen Kraftschub&lt;/strong&gt;. Übertreibe es aber nicht!</source>
+        <target><![CDATA[Les effets de la drogue ne tardent pas à se faire sentir: nausée, tremblements, sueurs froides... Mais au moins, ça vous donne <strong>un bon coup de fouet</strong>. N'en abusez pas !]]></target>
+      </segment>
+    </unit>
+    <unit id="rO5ZvLA" name="478431a">
+      <notes>
+        <note category="german">So 'ne Quali bekommt man nicht jeden Tag in die Finger! Sicher, Übelkeit, Zittern und Schweißausbrüche hast du auch damit bekommen, aber die Wirkung ist weitaus stärker als bei 'ner normalen Droge (Du hast einen &lt;strong&gt;AP Bonus&lt;/strong&gt; erhalten)... Übertreibe es aber nicht!</note>
+      </notes>
+      <segment>
+        <source>So 'ne Quali bekommt man nicht jeden Tag in die Finger! Sicher, Übelkeit, Zittern und Schweißausbrüche hast du auch damit bekommen, aber die Wirkung ist weitaus stärker als bei 'ner normalen Droge (Du hast einen &lt;strong&gt;AP Bonus&lt;/strong&gt; erhalten)... Übertreibe es aber nicht!</source>
+        <target><![CDATA[C'est pas tous les jours qu'on peut avaler de la came de qualité. Les effets sont quand même là: nausée, tremblements, sueurs froides... En bien plus intense que pour une drogue normale (<strong>bonus de PA</strong> reçu)... N'en abusez pas !]]></target>
       </segment>
     </unit>
   </file>

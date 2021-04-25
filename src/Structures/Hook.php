@@ -111,7 +111,7 @@ class Hook
     public static function enable_april(Citizen $citizen): bool {
         global $kernel;
 
-        if (!$citizen->getActive()) return true;
+        if (!$citizen->getAlive()) return true;
 
         $inv_handler  = $kernel->getContainer()->get(InventoryHandler::class);
         $item_factory = $kernel->getContainer()->get(ItemFactory::class);

@@ -2791,5 +2791,50 @@
         <target>Earnings</target>
       </segment>
     </unit>
+    <unit id="hI27y3h" name="Hat dir dein letztes Leben gefallen?">
+      <notes>
+        <note category="german">Hat dir dein letztes Leben gefallen?</note>
+      </notes>
+      <segment>
+        <source>Hat dir dein letztes Leben gefallen?</source>
+        <target>Did you like your last life?</target>
+      </segment>
+    </unit>
+    <unit id=".XNMg8S" name="92447f8">
+      <notes>
+        <note category="german">MyHordes wird von einem unabhängigen Team von Programmierern in deren Freizeit entwickelt.</note>
+      </notes>
+      <segment>
+        <source>MyHordes wird von einem unabhängigen Team von Programmierern in deren Freizeit entwickelt.</source>
+        <target>MyHordes is developed by an independent team of programmers in their spare time.</target>
+      </segment>
+    </unit>
+    <unit id="JbPwhWn" name="ae00547">
+      <notes>
+        <note category="german">Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</note>
+      </notes>
+      <segment>
+        <source>Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</source>
+        <target>We are a part of the EternalTwin project, which is dedicated to keeping the MotionTwin browser games alive.</target>
+      </segment>
+    </unit>
+    <unit id="GLZ2E_L" name="3c81098">
+      <notes>
+        <note category="german">Das Spiel ist komplett kostenlos - es gibt keine Bezahlinhalte, wir zeigen keine Werbung an und führen auch kein Nutzer-Tracking durch.</note>
+      </notes>
+      <segment>
+        <source>Das Spiel ist komplett kostenlos - es gibt keine Bezahlinhalte, wir zeigen keine Werbung an und führen auch kein Nutzer-Tracking durch.</source>
+        <target>The game is completely free - there is no paid content, we don't display ads, and we don't perform user tracking.</target>
+      </segment>
+    </unit>
+    <unit id="E6_xVpY" name="8fe14b8">
+      <notes>
+        <note category="german">Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</note>
+      </notes>
+      <segment>
+        <source>Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</source>
+        <target>If you like MyHordes and want to support us, you can do so by donating to the EternalTwin project.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -769,7 +769,7 @@
       </notes>
       <segment>
         <source>Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.</source>
-        <target>Verifique los datos a continuación y confirme la importación si todo está bien.</target>
+        <target>Verifica los datos a continuación y confirma la importación si todo está bien.</target>
       </segment>
     </unit>
     <unit id="HwA4Kx3" name="Twinoid-Profil">
@@ -940,7 +940,7 @@
       </notes>
       <segment>
         <source>Bitte stelle sicher, dass du das korrekte Twinoid-Konto mit deinem MyHordes-Account verbindest.</source>
-        <target>Asegúrese de vincular la cuenta Twinoid correcta a su cuenta MyHordes.</target>
+        <target>Asegúrate de vincular la cuenta Twinoid correcta a tu cuenta MyHordes.</target>
       </segment>
     </unit>
     <unit id="nVicoPO" name="Zusammenfassung">
@@ -1183,7 +1183,7 @@
       </notes>
       <segment>
         <source>Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.</source>
-        <target>Aquí puede ver los premios que ha ganado a lo largo del tiempo.</target>
+        <target>Aquí puedes ver los premios que has ganado a lo largo del tiempo.</target>
       </segment>
     </unit>
     <unit id="mxKbILU" name="Auszeichnung">
@@ -1219,7 +1219,7 @@
       </notes>
       <segment>
         <source>Hier siehst du deine Titel und Icons.</source>
-        <target>Aquí puede ver sus títulos e íconos.</target>
+        <target>Aquí puedes ver tus títulos e íconos.</target>
       </segment>
     </unit>
     <unit id="GwJBg8s" name="Typ">
@@ -1264,7 +1264,7 @@
       </notes>
       <segment>
         <source>Einmal bestätigt, kann die Verknüpfung nicht mehr aufgehoben werden und du kannst kein anderes Twinoid-Konto mehr verknüpfen.</source>
-        <target>Una vez confirmado, el vínculo ya no se puede romper y ya no puede vincular otra cuenta Twinoid.</target>
+        <target>Una vez confirmado, el vínculo ya no se puede romper y ya no puedes vincular otra cuenta Twinoid.</target>
       </segment>
     </unit>
     <unit id="tyVSys4" name="227ba37">
@@ -1273,7 +1273,7 @@
       </notes>
       <segment>
         <source>Du kannst natürlich weiterhin Konten von Hordes, DieVerdammten, Die2Nite und Zombinoia importieren, welche mit dem selben Twinoid-Konto verbunden sind.</source>
-        <target>Por supuesto, todavía puede importar cuentas de Hordes, DieVerdammten, Die2Nite y Zombinoia, que están vinculadas a la misma cuenta Twinoid.</target>
+        <target>Por supuesto, todavía puedes importar cuentas de Hordes, DieVerdammten, Die2Nite y Zombinoia, que estén vinculadas a la misma cuenta Twinoid.</target>
       </segment>
     </unit>
     <unit id="fz.4cY3" name="Deine Seele wurde erfolgreich importiert!">
@@ -2218,7 +2218,7 @@
       </notes>
       <segment>
         <source>Auf allen Browsern &amp; Geräten abmelden</source>
-        <target>Darse de baja en todos los navegadores y dispositivos</target>
+        <target>Cerrar sesión en todos los navegadores y dispositivos.</target>
       </segment>
     </unit>
     <unit id="AbYRB3R" name="82c4478">
@@ -2780,6 +2780,51 @@
       <segment>
         <source>Errungenschaften</source>
         <target>Recompensas</target>
+      </segment>
+    </unit>
+    <unit id="hI27y3h" name="Hat dir dein letztes Leben gefallen?">
+      <notes>
+        <note category="german">Hat dir dein letztes Leben gefallen?</note>
+      </notes>
+      <segment>
+        <source>Hat dir dein letztes Leben gefallen?</source>
+        <target>Hat dir dein letztes Leben gefallen?</target>
+      </segment>
+    </unit>
+    <unit id=".XNMg8S" name="92447f8">
+      <notes>
+        <note category="german">MyHordes wird von einem unabhängigen Team von Programmierern in deren Freizeit entwickelt.</note>
+      </notes>
+      <segment>
+        <source>MyHordes wird von einem unabhängigen Team von Programmierern in deren Freizeit entwickelt.</source>
+        <target>MyHordes wird von einem unabhängigen Team von Programmierern in deren Freizeit entwickelt.</target>
+      </segment>
+    </unit>
+    <unit id="JbPwhWn" name="ae00547">
+      <notes>
+        <note category="german">Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</note>
+      </notes>
+      <segment>
+        <source>Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</source>
+        <target>Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</target>
+      </segment>
+    </unit>
+    <unit id="GLZ2E_L" name="3c81098">
+      <notes>
+        <note category="german">Das Spiel ist komplett kostenlos - es gibt keine Bezahlinhalte, wir zeigen keine Werbung an und führen auch kein Nutzer-Tracking durch.</note>
+      </notes>
+      <segment>
+        <source>Das Spiel ist komplett kostenlos - es gibt keine Bezahlinhalte, wir zeigen keine Werbung an und führen auch kein Nutzer-Tracking durch.</source>
+        <target>Das Spiel ist komplett kostenlos - es gibt keine Bezahlinhalte, wir zeigen keine Werbung an und führen auch kein Nutzer-Tracking durch.</target>
+      </segment>
+    </unit>
+    <unit id="E6_xVpY" name="8fe14b8">
+      <notes>
+        <note category="german">Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</note>
+      </notes>
+      <segment>
+        <source>Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</source>
+        <target>Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</target>
       </segment>
     </unit>
   </file>

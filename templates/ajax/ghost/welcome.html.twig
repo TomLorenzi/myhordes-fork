@@ -1,0 +1,38 @@
+{% extends "ajax/ajax_plain.html.twig" %}
+{% block ajax_base %}
+    <div class="row">
+        <div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12">
+            <div class="row-flex v-center wrap-sm">
+                <div class="cell padded rw-5 center rw-sm-12">
+                    {% set img = 'nightCamping.png' %}
+                    <img style="width: 230px; border: 1px solid #d4be8e;" alt="" src="{{ asset('build/images/soul/' ~ img) }}">
+                </div>
+                <div class="cell padded rw-7 rw-sm-12">
+                        <h5 style="margin-top: 0;">
+                            {% trans from 'ghost' %}
+                                Willkommen in der Hölle!
+                            {% endtrans %}
+                        </h5>
+
+                        <p>
+                            {% trans from 'ghost' %}
+                                Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.
+                            {% endtrans %}
+                        </p>
+                        <button x-ajax-href="{{ path('ghost_welcome') }}">
+                            <img alt="" src='{{ asset('build/images/icons/death.gif') }}'/>
+                            {% trans from 'ghost' %}
+                                Spiel betreten
+                            {% endtrans %}
+                        </button>
+                        <button x-ajax-href="{{ path('soul_me') }}">
+                            <img alt="" src='{{ asset('build/images/icons/small_ghost_blue.gif') }}'/>
+                            {% trans from 'ghost' %}
+                                Meine Seele ansehen
+                            {% endtrans %}
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

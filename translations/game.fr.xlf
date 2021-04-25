@@ -17000,7 +17000,7 @@
       </notes>
       <segment>
         <source>Der Bürger weigert sich, dies zu tun...</source>
-        <target>Der Bürger weigert sich, dies zu tun...</target>
+        <target>Vous demandez à ce citoyen de boire avant de continuer, mais il vous répond qu'il n'a plus rien à avaler sur lui...</target>
       </segment>
     </unit>
     <unit id="uh49WWx" name="cea913a">
@@ -18704,7 +18704,7 @@
       </notes>
       <segment>
         <source>Manuelles Event-Management:</source>
-        <target>Manuelles Event-Management:</target>
+        <target>Gestion manuelle des évènements:</target>
       </segment>
     </unit>
     <unit id="lYRernR" name="7714838">
@@ -18713,7 +18713,7 @@
       </notes>
       <segment>
         <source>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</source>
-        <target>Deaktiviert die normale Event-Verwaltung der Stadt und legt stattdessen manuell fest, welche Event-Inhalte für die Dauer der Stadt verfügbar sind.</target>
+        <target>Désactive la gestion normale des événements de la ville et détermine manuellement le contenu de l’événement disponible pour la durée de la ville.</target>
       </segment>
     </unit>
     <unit id="cznvzLK" name="Kein Event:">
@@ -18722,7 +18722,7 @@
       </notes>
       <segment>
         <source>Kein Event:</source>
-        <target>Kein Event:</target>
+        <target>Aucun évènement:</target>
       </segment>
     </unit>
     <unit id="nHRZ69P" name="Startet die Stadt ohne Event-Inhalte">
@@ -18731,7 +18731,7 @@
       </notes>
       <segment>
         <source>Startet die Stadt ohne Event-Inhalte</source>
-        <target>Startet die Stadt ohne Event-Inhalte</target>
+        <target>Démarre la ville sans événement</target>
       </segment>
     </unit>
     <unit id="jQ18AzU" name="1. April">
@@ -18740,7 +18740,7 @@
       </notes>
       <segment>
         <source>1. April</source>
-        <target>1. April</target>
+        <target>1er Avril</target>
       </segment>
     </unit>
     <unit id="5kvPhGt" name="St. Patrick">
@@ -18758,7 +18758,7 @@
       </notes>
       <segment>
         <source>Ostern</source>
-        <target>Ostern</target>
+        <target>Pâques</target>
       </segment>
     </unit>
     <unit id="BJVmtrE" name="Halloween">
@@ -18785,7 +18785,7 @@
       </notes>
       <segment>
         <source>Weihnachten</source>
-        <target>Weihnachten</target>
+        <target>Noël</target>
       </segment>
     </unit>
     <unit id="iiUUud." name="935109f">
@@ -19200,6 +19200,51 @@
       <segment>
         <source>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</source>
         <target>Dies ist eine einzigartige Errungenschaft, die im Rahmen eines Events verliehen wurde.</target>
+      </segment>
+    </unit>
+    <unit id="QOeiiDo" name="1c20d65">
+      <notes>
+        <note category="german">Jede &lt;strong&gt;Aufräumaktion&lt;/strong&gt; enfernt einen Haufen von der Leiste. Wenn alle Häufen verschwunden sind, kann die Zone nach Lust und Laune erforscht werden.</note>
+      </notes>
+      <segment>
+        <source>Jede &lt;strong&gt;Aufräumaktion&lt;/strong&gt; enfernt einen Haufen von der Leiste. Wenn alle Häufen verschwunden sind, kann die Zone nach Lust und Laune erforscht werden.</source>
+        <target><![CDATA[Chaque action <strong>Déblayer</strong> retire une icone de cette liste. Lorsqu'il n'y aura plus d'icone de déblaiement, la zone deviendra exploitable : vous pourrez alors y fouiller librement.]]></target>
+      </segment>
+    </unit>
+    <unit id="3Aw6Y48" name="222d954">
+      <notes>
+        <note category="german">Es gilt jetzt die Ärmel hochzukrempeln, wenn du Zugang zu dieser Zone und ihre potenziellen Schätzen bekommen möchtest.</note>
+      </notes>
+      <segment>
+        <source>Es gilt jetzt die Ärmel hochzukrempeln, wenn du Zugang zu dieser Zone und ihre potenziellen Schätzen bekommen möchtest.</source>
+        <target>Retroussez vos manches pour dégager l'accès à cette zone et peut-être accéder à ses richesses.</target>
+      </segment>
+    </unit>
+    <unit id="nJ50IDM" name="82f2b0d">
+      <notes>
+        <note category="german">Du kannst nicht flüchten, da du keine Aktionspunkte mehr übrig hast. Echt schade...</note>
+      </notes>
+      <segment>
+        <source>Du kannst nicht flüchten, da du keine Aktionspunkte mehr übrig hast. Echt schade...</source>
+        <target>Vous ne pouvez plus fuir, vous n'avez plus de poins d'action. Dommage...</target>
+      </segment>
+    </unit>
+    <unit id="5daVnSF" name="141df45">
+      <notes>
+        <note category="german">Du kannst nicht kämpfen, da du keine Aktionspunkte mehr übrig hast. Wie schade...</note>
+      </notes>
+      <segment>
+        <source>Du kannst nicht kämpfen, da du keine Aktionspunkte mehr übrig hast. Wie schade...</source>
+        <target>Vous ne pouvez plus lutter, vous n'avez plus de poins d'action. Dommage...</target>
+      </segment>
+    </unit>
+    <unit id="RllpyIm" name="In einer von den Zombies kontrollierten Zone ist das nicht möglich!">
+      <notes>
+        <note category="german">In einer von den Zombies kontrollierten Zone ist das nicht möglich!</note>
+      </notes>
+      <segment>
+        <source>In einer von den Zombies kontrollierten Zone ist das nicht möglich!</source>
+        <target>Impossible de faire cela dans une zone sous contrôle des zombies !</target>
       </segment>
     </unit>
   </file>

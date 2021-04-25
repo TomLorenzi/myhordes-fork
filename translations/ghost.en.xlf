@@ -1087,7 +1087,7 @@
       </notes>
       <segment>
         <source>Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</source>
-        <target>You have not been active during this party and therefore have penalized players in your city. We were warning you now that if it happens again, you will no longer reach the city for several days.</target>
+        <target>You have not been active recently, essentially penalizing active players in your recent Towns. This is a polite warning, that should it happen again, you will not be eligible to join a new town for several days.</target>
       </segment>
     </unit>
     <unit id="TIikksZ" name="Wiedergeburt: Privatstadt gründen">
@@ -1114,7 +1114,7 @@
       </notes>
       <segment>
         <source>Kartengröße</source>
-        <target>Kartengröße</target>
+        <target>Map size</target>
       </segment>
     </unit>
     <unit id="TCo5k8F" name="Automatisch">
@@ -1123,7 +1123,7 @@
       </notes>
       <segment>
         <source>Automatisch</source>
-        <target>Automatisch</target>
+        <target>Automatic</target>
       </segment>
     </unit>
     <unit id="a0HGkUJ" name="Kleine Karte">
@@ -1132,7 +1132,7 @@
       </notes>
       <segment>
         <source>Kleine Karte</source>
-        <target>Kleine Karte</target>
+        <target>Small map</target>
       </segment>
     </unit>
     <unit id="Pv2k4jm" name="Normale Karte">
@@ -1141,7 +1141,7 @@
       </notes>
       <segment>
         <source>Normale Karte</source>
-        <target>Normale Karte</target>
+        <target>Normal map</target>
       </segment>
     </unit>
     <unit id="5pSNNaZ" name="Riesige Karte">
@@ -1150,7 +1150,7 @@
       </notes>
       <segment>
         <source>Riesige Karte</source>
-        <target>Riesige Karte</target>
+        <target>Huge map</target>
       </segment>
     </unit>
     <unit id="Fi9y5O9" name="Eigene Einstellung">
@@ -1159,7 +1159,7 @@
       </notes>
       <segment>
         <source>Eigene Einstellung</source>
-        <target>Eigene Einstellung</target>
+        <target>Personalized setting</target>
       </segment>
     </unit>
     <unit id="6m4Eofp" name="Exakte Kartengröße">
@@ -1168,7 +1168,7 @@
       </notes>
       <segment>
         <source>Exakte Kartengröße</source>
-        <target>Exakte Kartengröße</target>
+        <target>Exact map size</target>
       </segment>
     </unit>
     <unit id="OpX8hPZ" name="Anzahl Ruinen">
@@ -1177,7 +1177,7 @@
       </notes>
       <segment>
         <source>Anzahl Ruinen</source>
-        <target>Anzahl Ruinen</target>
+        <target>Number of Ruins</target>
       </segment>
     </unit>
     <unit id="iXjB0RG" name="Anzahl Begehbare Ruinen">
@@ -1186,7 +1186,7 @@
       </notes>
       <segment>
         <source>Anzahl Begehbare Ruinen</source>
-        <target>Anzahl Begehbare Ruinen</target>
+        <target>Number of explorable Ruins</target>
       </segment>
     </unit>
     <unit id="tOEjYLQ" name="Position der Stadt">
@@ -1195,7 +1195,7 @@
       </notes>
       <segment>
         <source>Position der Stadt</source>
-        <target>Position der Stadt</target>
+        <target>Position of the Town</target>
       </segment>
     </unit>
     <unit id="hXA9n9R" name="Eher Zentral">
@@ -1204,7 +1204,7 @@
       </notes>
       <segment>
         <source>Eher Zentral</source>
-        <target>Eher Zentral</target>
+        <target>Rather central</target>
       </segment>
     </unit>
     <unit id="uzMPtR4" name="Zentral">
@@ -1213,7 +1213,7 @@
       </notes>
       <segment>
         <source>Zentral</source>
-        <target>Zentral</target>
+        <target>Central</target>
       </segment>
     </unit>
     <unit id="Am_FKUL" name="Spielmodifikationen:">
@@ -1222,7 +1222,7 @@
       </notes>
       <segment>
         <source>Spielmodifikationen:</source>
-        <target>Spielmodifikationen:</target>
+        <target>Game modifications:</target>
       </segment>
     </unit>
     <unit id="fz803_w" name="Raben-Optionen">
@@ -1421,6 +1421,60 @@
       <segment>
         <source>...und mit 39 Mitbürgern in der Hölle schmoren</source>
         <target>...and suffer with 39 other citizens in hell</target>
+      </segment>
+    </unit>
+    <unit id="ilHQ7qt" name="Das Leben nach dem Tod">
+      <notes>
+        <note category="german">Das Leben nach dem Tod</note>
+      </notes>
+      <segment>
+        <source>Das Leben nach dem Tod</source>
+        <target>Life after death</target>
+      </segment>
+    </unit>
+    <unit id="s0KqeMJ" name="Meine Seele ansehen">
+      <notes>
+        <note category="german">Meine Seele ansehen</note>
+      </notes>
+      <segment>
+        <source>Meine Seele ansehen</source>
+        <target>View my soul</target>
+      </segment>
+    </unit>
+    <unit id="_pEJUyq" name="Spendenseite aufrufen">
+      <notes>
+        <note category="german">Spendenseite aufrufen</note>
+      </notes>
+      <segment>
+        <source>Spendenseite aufrufen</source>
+        <target>Go to the donation page</target>
+      </segment>
+    </unit>
+    <unit id="lrar0xr" name="Willkommen in der Hölle!">
+      <notes>
+        <note category="german">Willkommen in der Hölle!</note>
+      </notes>
+      <segment>
+        <source>Willkommen in der Hölle!</source>
+        <target>Welcome in Hell!</target>
+      </segment>
+    </unit>
+    <unit id="7zJqkQY" name="34025a5">
+      <notes>
+        <note category="german">Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.</note>
+      </notes>
+      <segment>
+        <source>Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.</source>
+        <target>You are in the process of joining a city with 39 other poor souls with the goal of surviving as long as possible.</target>
+      </segment>
+    </unit>
+    <unit id="29U26Sd" name="Spiel betreten">
+      <notes>
+        <note category="german">Spiel betreten</note>
+      </notes>
+      <segment>
+        <source>Spiel betreten</source>
+        <target>Enter the game</target>
       </segment>
     </unit>
   </file>

@@ -769,6 +769,7 @@ class ActionHandler
                 if ($item_result->getConsume()) {
                     $this->inventory_handler->forceRemoveItem( $item );
                     $execute_info_cache['items_consume'][] = $item->getPrototype();
+                    $tags[] = 'consumed';
                 } else {
                     if ($item_result->getMorph())
                         $item->setPrototype( $execute_info_cache['item_morph'][1] = $item_result->getMorph() );
@@ -800,6 +801,7 @@ class ActionHandler
                     if ($target_result->getConsume()) {
                         $this->inventory_handler->forceRemoveItem( $target );
                         $execute_info_cache['items_consume'][] = $target->getPrototype();
+                        $tags[] = 'consumed';
                     } else {
                         if ($target_result->getMorph())
                             $target->setPrototype( $execute_info_cache['item_target_morph'][1] = $target_result->getMorph() );
@@ -1533,7 +1535,7 @@ class ActionHandler
 	                '{citizen}'       => $execute_info_cache['citizen'] ? $this->wrap($execute_info_cache['citizen']) : "-",
 	                '{user}'          => $execute_info_cache['user'] ? $this->wrap($execute_info_cache['user']) : "-",
 	                '{item_from}'     => $execute_info_cache['item_morph'][0] ? ($this->wrap($execute_info_cache['item_morph'][0])) : "-",
-	                '{item_to}'       => $execute_info_cache['item_morph'][1] ? ($this->wrap($execute_info_cache['item_morph'][1])) : "-",
+	                '{item_to}'       => $execute_info_cache['item_morph'][1] ? ($this->wrap($execute_info_cache['item_morph'][1])) : ( $execute_info_cache['items_spawn'] ? ($this->wrap($execute_info_cache['items_spawn'][0])) : "-" ),
 	                '{target_from}'   => $execute_info_cache['item_target_morph'][0] ? ($this->wrap($execute_info_cache['item_target_morph'][0])) : "-",
 	                '{target_to}'     => $execute_info_cache['item_target_morph'][1] ? ($this->wrap($execute_info_cache['item_target_morph'][1])) : "-",
                     '{item_tool}'     => $execute_info_cache['item_tool'] ? ($this->wrap($execute_info_cache['item_tool'])) : "-",

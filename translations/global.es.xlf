@@ -1474,7 +1474,7 @@
       </notes>
       <segment>
         <source>Mehr anzeigen</source>
-        <target>Motstar más</target>
+        <target>Mostrar más</target>
       </segment>
     </unit>
     <unit id="GgZ6pgy" name="Bist du sicher, dass du diesen Post an die Moderatoren melden willst?">
@@ -1546,7 +1546,7 @@
       </notes>
       <segment>
         <source>Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.</source>
-        <target>Este Bonus sólo se encuentra disponible si los Guardianes se encuentran en la ciudad.</target>
+        <target>Este Bonus sólo funciona si los guardianes están en el pueblo durante el ataque.</target>
       </segment>
     </unit>
     <unit id="FbU8Rr0" name="782996d">
@@ -1654,7 +1654,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Wichtig:&lt;/strong&gt; Verteidigungsgegenstände können maximal &lt;strong&gt;500&lt;/strong&gt; Verteidigungspunkte vergeben!</source>
-        <target><![CDATA[<strong>Wichtig:</strong> Verteidigungsgegenstände können maximal <strong>500</strong> Verteidigungspunkte vergeben!]]></target>
+        <target><![CDATA[<strong>Importante:</strong> Los objetos defensivos aumentarán su defensa a un máximo de <strong>500</strong> puntos!]]></target>
       </segment>
     </unit>
     <unit id="Wwiv0r7" name="Diese Abwehrkräfte werden von gereinigten Seelen gebracht.">
@@ -2161,7 +2161,7 @@
       </notes>
       <segment>
         <source>Spamschutz: Du hast heute bereits eine große Anzahl an Spielern kontaktiert; du musst eine Weile warten, bevor du eine neue Nachricht erstellen kannst.</source>
-        <target>Protección contra correo no deseado: ya tu ha puesto en contacto con un gran número de jugadores hoy; tienes que esperar un poco antes de poder redactar un nuevo mensaje.</target>
+        <target>Protección contra correo no deseado: ya te has puesto en contacto con un gran número de jugadores hoy; tienes que esperar un poco antes de poder redactar un nuevo mensaje.</target>
       </segment>
     </unit>
     <unit id="pOsDbB7" name="Weitere Einträge werden geladen...">
@@ -2594,7 +2594,7 @@
       </notes>
       <segment>
         <source>Es wurde noch keine Stadt in die Rangliste aufgenommen!</source>
-        <target>Es wurde noch keine Stadt in die Rangliste aufgenommen!</target>
+        <target>¡Todavía no hay ningún pueblo en la clasificación!</target>
       </segment>
     </unit>
     <unit id="qplNLmy" name="Bitte wähle die Art der Beschränkung.">

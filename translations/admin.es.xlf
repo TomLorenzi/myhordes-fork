@@ -97,7 +97,7 @@
       </notes>
       <segment>
         <source>1 Tag</source>
-        <target>1 día</target>
+        <target>1 Día</target>
       </segment>
     </unit>
     <unit id="JU_xNFX" name="3 Tage">
@@ -106,7 +106,7 @@
       </notes>
       <segment>
         <source>3 Tage</source>
-        <target>3 días</target>
+        <target>3 Días</target>
       </segment>
     </unit>
     <unit id="84RJxpK" name="5 Tage">
@@ -115,7 +115,7 @@
       </notes>
       <segment>
         <source>5 Tage</source>
-        <target>5 días</target>
+        <target>5 Días</target>
       </segment>
     </unit>
     <unit id="zEDFlzj" name="7 Tage">
@@ -124,7 +124,7 @@
       </notes>
       <segment>
         <source>7 Tage</source>
-        <target>7 días</target>
+        <target>7 Días</target>
       </segment>
     </unit>
     <unit id="GtUIerm" name="15 Tage">
@@ -133,7 +133,7 @@
       </notes>
       <segment>
         <source>15 Tage</source>
-        <target>15 días</target>
+        <target>15 Días</target>
       </segment>
     </unit>
     <unit id="WB_sVVK" name="30 Tage">
@@ -142,7 +142,7 @@
       </notes>
       <segment>
         <source>30 Tage</source>
-        <target>30 días</target>
+        <target>30 Días</target>
       </segment>
     </unit>
     <unit id="tF9Axzf" name="Grund">
@@ -151,7 +151,7 @@
       </notes>
       <segment>
         <source>Grund</source>
-        <target>Razón</target>
+        <target>Motivo</target>
       </segment>
     </unit>
     <unit id="r8Abf9v" name="Derzeitiges Leben">
@@ -160,7 +160,7 @@
       </notes>
       <segment>
         <source>Derzeitiges Leben</source>
-        <target>Vida actual</target>
+        <target>Incarnación actual</target>
       </segment>
     </unit>
     <unit id="XspCSk2" name="TOD NICHT BESTÄTIGT">
@@ -178,7 +178,7 @@
       </notes>
       <segment>
         <source>Kopfschuss</source>
-        <target>Tiro en la cabeza</target>
+        <target>Picotear</target>
       </segment>
     </unit>
     <unit id="Kt_pe8F" name="Tod bestätigen">
@@ -448,7 +448,7 @@
       </notes>
       <segment>
         <source>Passwort-Reset auslösen</source>
-        <target>Iniciar restablecimiento de contraseña</target>
+        <target>Iniciar el restablecimiento de contraseña</target>
       </segment>
     </unit>
     <unit id="GdwECmm" name="Passwort-Reset erzwingen">
@@ -457,7 +457,7 @@
       </notes>
       <segment>
         <source>Passwort-Reset erzwingen</source>
-        <target>Forzar restablecimiento de contraseña</target>
+        <target>Forzar el restablecimiento de contraseña</target>
       </segment>
     </unit>
     <unit id="6KnH3XO" name="Ausführen">
@@ -1051,7 +1051,7 @@
       </notes>
       <segment>
         <source>PM vom Raben</source>
-        <target>MP de El Cuervo</target>
+        <target>MP como Cuervo</target>
       </segment>
     </unit>
     <unit id="nq1XXly" name="Stadtregister">
@@ -1204,7 +1204,7 @@
       </notes>
       <segment>
         <source>Löschen</source>
-        <target>Quitar</target>
+        <target>Eliminar</target>
       </segment>
     </unit>
     <unit id="A2t0n2E" name="Berechtigungen">
@@ -1231,7 +1231,7 @@
       </notes>
       <segment>
         <source>Berechtigungsstufe zurücksetzen</source>
-        <target>Reiniciar nivel de autorización</target>
+        <target>Reiniciar el nivel de autorización</target>
       </segment>
     </unit>
     <unit id="EHG8mpy" name="Bitte bestätige folgende Aktion:">
@@ -1393,7 +1393,7 @@
       </notes>
       <segment>
         <source>STRG+Klick, um zur Whitelist hinzuzufügen</source>
-        <target>CTRL + CLIC para añadir a la lista blanca</target>
+        <target>CTRL + CLIC para agregar a la lista blanca</target>
       </segment>
     </unit>
     <unit id="hVmvpi1" name="Whitelist">
@@ -1420,7 +1420,7 @@
       </notes>
       <segment>
         <source>E-Mail ändern</source>
-        <target>Cambiar e-mail</target>
+        <target>Cambiar el e-mail</target>
       </segment>
     </unit>
     <unit id="5sAjGFp" name="Neues Passwort eingeben.">
@@ -1438,7 +1438,7 @@
       </notes>
       <segment>
         <source>Neues Passwort setzen</source>
-        <target>Cambiar contraseña</target>
+        <target>Cambiar la contraseña</target>
       </segment>
     </unit>
     <unit id="V1ukt7Z" name="EternalTwin-Integration">
@@ -1717,7 +1717,7 @@
       </notes>
       <segment>
         <source>Erzeugen!</source>
-        <target>Crear!</target>
+        <target>¡Crear!</target>
       </segment>
     </unit>
     <unit id="HMtmyP_" name="Rucksack">
@@ -1960,7 +1960,7 @@
       </notes>
       <segment>
         <source>Vergeben!</source>
-        <target>¡Perdonar!</target>
+        <target>¡Entregar!</target>
       </segment>
     </unit>
     <unit id="BYzHaeg" name="Aktuelle Städte">
@@ -2374,7 +2374,7 @@
       </notes>
       <segment>
         <source>Ersteller</source>
-        <target>Ersteller</target>
+        <target>Creador</target>
       </segment>
     </unit>
     <unit id="Fz9FcFZ" name="Stadt ansehen">
@@ -2383,7 +2383,7 @@
       </notes>
       <segment>
         <source>Stadt ansehen</source>
-        <target>Stadt ansehen</target>
+        <target>Ver el pueblo</target>
       </segment>
     </unit>
     <unit id="HQAYQ7y" name="Existierende Beschränkungen">
@@ -2392,7 +2392,7 @@
       </notes>
       <segment>
         <source>Existierende Beschränkungen</source>
-        <target>Existierende Beschränkungen</target>
+        <target>Sanciones vigentes</target>
       </segment>
     </unit>
     <unit id="d.ixmWC" name="Dieser Spieler hat eine weiße Weste.">
@@ -2401,7 +2401,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler hat eine weiße Weste.</source>
-        <target>Dieser Spieler hat eine weiße Weste.</target>
+        <target>Este jugador no tiene ninguna sanción vigente</target>
       </segment>
     </unit>
     <unit id="FwMioy8" name="Info">
@@ -2473,7 +2473,7 @@
       </notes>
       <segment>
         <source>Interner Vermerk</source>
-        <target>Interner Vermerk</target>
+        <target>Nota interna</target>
       </segment>
     </unit>
     <unit id="dd81ecc" name="Art">
@@ -2554,7 +2554,7 @@
       </notes>
       <segment>
         <source>%d% Tage</source>
-        <target>%d% Tage</target>
+        <target>%d% Días</target>
       </segment>
     </unit>
     <unit id="R9HFTdn" name="Neue Beschränkung hinzufügen">
@@ -2563,7 +2563,7 @@
       </notes>
       <segment>
         <source>Neue Beschränkung hinzufügen</source>
-        <target>Neue Beschränkung hinzufügen</target>
+        <target>Añadir una sanción</target>
       </segment>
     </unit>
     <unit id="o.gLHi8" name="24 Stunden">
@@ -2572,7 +2572,7 @@
       </notes>
       <segment>
         <source>24 Stunden</source>
-        <target>24 Stunden</target>
+        <target>24 Horas</target>
       </segment>
     </unit>
     <unit id="YvnlIm5" name="Bestätigung erforderlich">
@@ -2590,7 +2590,7 @@
       </notes>
       <segment>
         <source>1 Jahr</source>
-        <target>1 Jahr</target>
+        <target>1 Año</target>
       </segment>
     </unit>
     <unit id="vFTx03L" name="Admin-Bestätigung erforderlich">
@@ -2608,7 +2608,7 @@
       </notes>
       <segment>
         <source>2 Jahre</source>
-        <target>2 Jahre</target>
+        <target>2 Años</target>
       </segment>
     </unit>
     <unit id="NhpWriw" name="Dauerhaft">
@@ -2617,7 +2617,7 @@
       </notes>
       <segment>
         <source>Dauerhaft</source>
-        <target>Dauerhaft</target>
+        <target>Permanente</target>
       </segment>
     </unit>
     <unit id="VBYHRyg" name="Art der Beschränkung">
@@ -2626,7 +2626,7 @@
       </notes>
       <segment>
         <source>Art der Beschränkung</source>
-        <target>Art der Beschränkung</target>
+        <target>Tipo de restricción</target>
       </segment>
     </unit>
     <unit id="t5PuA4i" name="Soziale Interaktion verbieten">
@@ -2635,7 +2635,7 @@
       </notes>
       <segment>
         <source>Soziale Interaktion verbieten</source>
-        <target>Soziale Interaktion verbieten</target>
+        <target>Impedir las interacciones sociales</target>
       </segment>
     </unit>
     <unit id="N35nJiR" name="Posten in Foren verbieten">
@@ -2644,7 +2644,7 @@
       </notes>
       <segment>
         <source>Posten in Foren verbieten</source>
-        <target>Posten in Foren verbieten</target>
+        <target>Publicar en los foros</target>
       </segment>
     </unit>
     <unit id="S.Z0svV" name="Stadt-interne Kommunikation verbieten">
@@ -2653,7 +2653,7 @@
       </notes>
       <segment>
         <source>Stadt-interne Kommunikation verbieten</source>
-        <target>Stadt-interne Kommunikation verbieten</target>
+        <target>Comunicación interna al pueblo</target>
       </segment>
     </unit>
     <unit id="TofCy.V" name="Stadtübergreifende Kommunikation verbieten">
@@ -2662,7 +2662,7 @@
       </notes>
       <segment>
         <source>Stadtübergreifende Kommunikation verbieten</source>
-        <target>Stadtübergreifende Kommunikation verbieten</target>
+        <target>Publicación en el foro del pueblo</target>
       </segment>
     </unit>
     <unit id="4Ih2_KV" name="Kommentare verbieten">
@@ -2671,7 +2671,7 @@
       </notes>
       <segment>
         <source>Kommentare verbieten</source>
-        <target>Kommentare verbieten</target>
+        <target>Impedir los comentarios</target>
       </segment>
     </unit>
     <unit id="Hk8oxc5" name="Organisation in Gruppen verbieten">
@@ -2680,7 +2680,7 @@
       </notes>
       <segment>
         <source>Organisation in Gruppen verbieten</source>
-        <target>Organisation in Gruppen verbieten</target>
+        <target>Organisación en grupo</target>
       </segment>
     </unit>
     <unit id="IdwEk1H" name="Spielen verbieten">
@@ -2689,7 +2689,7 @@
       </notes>
       <segment>
         <source>Spielen verbieten</source>
-        <target>Spielen verbieten</target>
+        <target>Impedir el juego</target>
       </segment>
     </unit>
     <unit id="67OtxCl" name="3e3c02a">
@@ -2734,7 +2734,7 @@
       </notes>
       <segment>
         <source>Stadt füllen</source>
-        <target>Stadt füllen</target>
+        <target>Llenar el pueblo</target>
       </segment>
     </unit>
     <unit id="I6NYwV3" name="Bank füllen">
@@ -2743,7 +2743,7 @@
       </notes>
       <segment>
         <source>Bank füllen</source>
-        <target>Bank füllen</target>
+        <target>Llenar el almacén</target>
       </segment>
     </unit>
     <unit id="NECchbh" name="Banksperre aufheben">
@@ -2752,7 +2752,7 @@
       </notes>
       <segment>
         <source>Banksperre aufheben</source>
-        <target>Banksperre aufheben</target>
+        <target>Quitar el anti abuso del almacén</target>
       </segment>
     </unit>
     <unit id="HBKEVAD" name="Durst aufheben">
@@ -2761,7 +2761,7 @@
       </notes>
       <segment>
         <source>Durst aufheben</source>
-        <target>Durst aufheben</target>
+        <target>Quitar el estado de sed a todos los jugadores</target>
       </segment>
     </unit>
     <unit id="9hzLkBp" name="Alle Spieler entkoppeln">
@@ -2770,7 +2770,7 @@
       </notes>
       <segment>
         <source>Alle Spieler entkoppeln</source>
-        <target>Alle Spieler entkoppeln</target>
+        <target>Desvincular el alma de todos los jugadores</target>
       </segment>
     </unit>
     <unit id="t5vj7sC" name="Alle Spieler koppeln">
@@ -2779,7 +2779,7 @@
       </notes>
       <segment>
         <source>Alle Spieler koppeln</source>
-        <target>Alle Spieler koppeln</target>
+        <target>Vincular el alma de todos los jugadores</target>
       </segment>
     </unit>
     <unit id="qKBuSla" name="Zone">
@@ -2806,7 +2806,7 @@
       </notes>
       <segment>
         <source>Entkoppelte Leben</source>
-        <target>Entkoppelte Leben</target>
+        <target>Incarnaciones desvinculadas</target>
       </segment>
     </unit>
     <unit id="TLxPMB8" name="Entkoppeln">
@@ -2815,7 +2815,7 @@
       </notes>
       <segment>
         <source>Entkoppeln</source>
-        <target>Entkoppeln</target>
+        <target>Desvincular</target>
       </segment>
     </unit>
     <unit id="hn7LsRJ" name="Punkte">
@@ -2896,7 +2896,7 @@
       </notes>
       <segment>
         <source>Stadt anlegen</source>
-        <target>Stadt anlegen</target>
+        <target>Crear un pueblo</target>
       </segment>
     </unit>
     <unit id="yo6CbZw" name="Avatar">
@@ -2923,7 +2923,7 @@
       </notes>
       <segment>
         <source>Änderungen am Profil verbieten</source>
-        <target>Änderungen am Profil verbieten</target>
+        <target>Impedir las modificaciones del perfil</target>
       </segment>
     </unit>
     <unit id="o2BjdF6" name="Ändern des Avatars verbieten">
@@ -2932,7 +2932,7 @@
       </notes>
       <segment>
         <source>Ändern des Avatars verbieten</source>
-        <target>Ändern des Avatars verbieten</target>
+        <target>Cambiar el avatar</target>
       </segment>
     </unit>
     <unit id="es9o32g" name="Ändern der Profilbeschreibung verbieten">
@@ -2941,7 +2941,7 @@
       </notes>
       <segment>
         <source>Ändern der Profilbeschreibung verbieten</source>
-        <target>Ändern der Profilbeschreibung verbieten</target>
+        <target>Modificación de la descripción del perfil</target>
       </segment>
     </unit>
     <unit id="tJ4N6CO" name="Ändern des Titels verbieten">
@@ -2950,7 +2950,7 @@
       </notes>
       <segment>
         <source>Ändern des Titels verbieten</source>
-        <target>Ändern des Titels verbieten</target>
+        <target>Cambiar el título</target>
       </segment>
     </unit>
     <unit id="nXkHd12" name="Anzeigenamen ändern">
@@ -2959,7 +2959,7 @@
       </notes>
       <segment>
         <source>Anzeigenamen ändern</source>
-        <target>Anzeigenamen ändern</target>
+        <target>Cambiar el nombre visible</target>
       </segment>
     </unit>
     <unit id="zX2Ikki" name="Anzeigenamen entfernen">
@@ -2977,7 +2977,7 @@
       </notes>
       <segment>
         <source>Avatar entfernen</source>
-        <target>Avatar entfernen</target>
+        <target>Eliminar el avatar</target>
       </segment>
     </unit>
     <unit id="5yzpFRy" name="Profilbeschreibung entfernen">
@@ -2986,7 +2986,7 @@
       </notes>
       <segment>
         <source>Profilbeschreibung entfernen</source>
-        <target>Profilbeschreibung entfernen</target>
+        <target>Eliminar la descripción del perfil</target>
       </segment>
     </unit>
     <unit id="R1lleS7" name="Titel &amp; Icon entfernen">
@@ -2995,7 +2995,7 @@
       </notes>
       <segment>
         <source>Titel &amp; Icon entfernen</source>
-        <target><![CDATA[Titel & Icon entfernen]]></target>
+        <target><![CDATA[Eliminar el título y el icono]]></target>
       </segment>
     </unit>
     <unit id="BaVbT2z" name="Neuer Füllstand:">
@@ -3013,7 +3013,7 @@
       </notes>
       <segment>
         <source>Brunnen-Füllstand setzen</source>
-        <target>Brunnen-Füllstand setzen</target>
+        <target>Ajustar el nivel del pozo</target>
       </segment>
     </unit>
     <unit id="2xHk8Wn" name="Alle Gebäude freischalten">
@@ -3022,7 +3022,7 @@
       </notes>
       <segment>
         <source>Alle Gebäude freischalten</source>
-        <target>Alle Gebäude freischalten</target>
+        <target>Desbloquear todas las construcciones</target>
       </segment>
     </unit>
     <unit id="IurwAt2" name="Baufortschritt setzen:">
@@ -3031,7 +3031,7 @@
       </notes>
       <segment>
         <source>Baufortschritt setzen:</source>
-        <target>Baufortschritt setzen:</target>
+        <target>Establecer el progreso de la construcción:</target>
       </segment>
     </unit>
     <unit id="C0IagjD" name="Integrität setzen:">
@@ -3058,7 +3058,7 @@
       </notes>
       <segment>
         <source>Heldentage setzen</source>
-        <target>Heldentage setzen</target>
+        <target>Establecer la expreriencía de Héroe</target>
       </segment>
     </unit>
     <unit id="RkHxHq_" name="Hausverbesserungen:">
@@ -3067,7 +3067,7 @@
       </notes>
       <segment>
         <source>Hausverbesserungen:</source>
-        <target>Hausverbesserungen:</target>
+        <target>Mejoras de la casa:</target>
       </segment>
     </unit>
     <unit id="hiqEnyg" name="Teleportieren:">
@@ -3094,7 +3094,7 @@
       </notes>
       <segment>
         <source>Zu einer Zone</source>
-        <target>En un área</target>
+        <target>En una zona</target>
       </segment>
     </unit>
   </file>

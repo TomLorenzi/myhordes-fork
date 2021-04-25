@@ -67,11 +67,11 @@
 
             {% if pump is not null %}
                 {% if not first_take %}
-                <div class="note note-critical">{{'Achtung! Wenn du pro Tag <strong>mehr als eine Ration Wasser</strong> nimmst, erfolgt dies auf Kosten der anderen Bürger. Aus diesem Grund werden dementsprechende Aktionen im Großen Register rot vermerkt...'|trans({}, 'game')|raw}}</div>
+                    <div class="note note-critical">{{'Achtung! Wenn du pro Tag <strong>mehr als eine Ration Wasser</strong> nimmst, erfolgt dies auf Kosten der anderen Bürger. Aus diesem Grund werden dementsprechende Aktionen im Großen Register rot vermerkt...'|trans({}, 'game')|raw}}</div>
                 {% endif %}
-            <p>
-                <button x-well-confirm="1" x-well-direction="down"><img alt="" src="{{ asset('build/images/icons/small_well.gif') }}" />{% trans from 'game' %}Wasser hinzufügen{% endtrans %}</button>
-            </p>
+                <p>
+                    <button x-well-confirm="1" x-well-direction="down"><img alt="" src="{{ asset('build/images/icons/small_well.gif') }}" />{% trans from 'game' %}Wasser hinzufügen{% endtrans %}</button>
+                </p>
             {% endif %}
 
             <p class="book">

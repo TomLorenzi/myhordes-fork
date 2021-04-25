@@ -1447,7 +1447,7 @@ class NightlyHandler
 
         foreach ($events as $event) $event->hook_nightly_pre($town);
 
-        $this->town_handler->triggerAlways( $town );
+        $this->town_handler->triggerAlways( $town, true );
 
         $this->log->info('Entering <comment>Phase 1</comment> - Pre-attack processing');
         $this->stage1_prepare($town);

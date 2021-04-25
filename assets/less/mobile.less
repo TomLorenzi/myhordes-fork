@@ -170,6 +170,9 @@
       >.cell-small{.grid(@myhordes-grid-columns*2,@postfix)}
     }
     .row-flex {
+      &.wrap-@{postfix} { flex-wrap: wrap !important; }
+      &.wrap-inverse-@{postfix} { flex-wrap: wrap-reverse !important; }
+
       &>.cell, &>.cell-small { .flex-sizing(@myhordes-flex-size-max, @postfix); }
       >.cell {.flex-grid(@myhordes-flex-columns,@postfix)}
       >.cell-small {.flex-grid(@myhordes-flex-columns * 2,@postfix)}
