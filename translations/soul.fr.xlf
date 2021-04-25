@@ -2762,7 +2762,7 @@
       </notes>
       <segment>
         <source>Hat dir dein letztes Leben gefallen?</source>
-        <target>Hat dir dein letztes Leben gefallen?</target>
+        <target>Avez-vous aimé votre dernière existence ?</target>
       </segment>
     </unit>
     <unit id=".XNMg8S" name="92447f8">
@@ -2771,7 +2771,7 @@
       </notes>
       <segment>
         <source>MyHordes wird von einem unabhängigen Team von Programmierern in deren Freizeit entwickelt.</source>
-        <target>MyHordes wird von einem unabhängigen Team von Programmierern in deren Freizeit entwickelt.</target>
+        <target>MyHordes est développé par une équipe indépendante de programmeurs dans leurs loisirs.</target>
       </segment>
     </unit>
     <unit id="JbPwhWn" name="ae00547">
@@ -2780,7 +2780,7 @@
       </notes>
       <segment>
         <source>Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</source>
-        <target>Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</target>
+        <target>Nous faisons partie du projet EternalTwin qui s’est donné pour mission de maintenir en vie les jeux web de MotionTwin.</target>
       </segment>
     </unit>
     <unit id="GLZ2E_L" name="3c81098">
@@ -2789,7 +2789,7 @@
       </notes>
       <segment>
         <source>Das Spiel ist komplett kostenlos - es gibt keine Bezahlinhalte, wir zeigen keine Werbung an und führen auch kein Nutzer-Tracking durch.</source>
-        <target>Das Spiel ist komplett kostenlos - es gibt keine Bezahlinhalte, wir zeigen keine Werbung an und führen auch kein Nutzer-Tracking durch.</target>
+        <target>Le jeu est entièrement gratuit - il n’y a pas de contenu payant, nous ne faisons pas de publicité ni de traçage de nos utilisateurs.</target>
       </segment>
     </unit>
     <unit id="E6_xVpY" name="8fe14b8">
@@ -2798,7 +2798,7 @@
       </notes>
       <segment>
         <source>Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</source>
-        <target>Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</target>
+        <target>Si vous aimez MyHordes et que vous souhaitez nous soutenir, vous pouvez le faire en faisant un don au projet EternalTwin.</target>
       </segment>
     </unit>
   </file>
