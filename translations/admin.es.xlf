@@ -178,7 +178,7 @@
       </notes>
       <segment>
         <source>Kopfschuss</source>
-        <target>Tiro en la cabeza</target>
+        <target>Picotear</target>
       </segment>
     </unit>
     <unit id="Kt_pe8F" name="Tod bestätigen">
@@ -1051,7 +1051,7 @@
       </notes>
       <segment>
         <source>PM vom Raben</source>
-        <target>MP de El Cuervo</target>
+        <target>MP como Cuervo</target>
       </segment>
     </unit>
     <unit id="nq1XXly" name="Stadtregister">
@@ -2383,7 +2383,7 @@
       </notes>
       <segment>
         <source>Stadt ansehen</source>
-        <target>Stadt ansehen</target>
+        <target>Ver el pueblo</target>
       </segment>
     </unit>
     <unit id="HQAYQ7y" name="Existierende Beschränkungen">
@@ -2815,7 +2815,7 @@
       </notes>
       <segment>
         <source>Entkoppeln</source>
-        <target>Entkoppeln</target>
+        <target>Desvincular</target>
       </segment>
     </unit>
     <unit id="hn7LsRJ" name="Punkte">
