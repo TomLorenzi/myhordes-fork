@@ -151,7 +151,7 @@
       </notes>
       <segment>
         <source>Grund</source>
-        <target>Razón</target>
+        <target>Motivo</target>
       </segment>
     </unit>
     <unit id="r8Abf9v" name="Derzeitiges Leben">
@@ -1393,7 +1393,7 @@
       </notes>
       <segment>
         <source>STRG+Klick, um zur Whitelist hinzuzufügen</source>
-        <target>CTRL + CLIC para añadir a la lista blanca</target>
+        <target>CTRL + CLIC para agregar a la lista blanca</target>
       </segment>
     </unit>
     <unit id="hVmvpi1" name="Whitelist">
@@ -2392,7 +2392,7 @@
       </notes>
       <segment>
         <source>Existierende Beschränkungen</source>
-        <target>Existierende Beschränkungen</target>
+        <target>Sanciones vigentes</target>
       </segment>
     </unit>
     <unit id="d.ixmWC" name="Dieser Spieler hat eine weiße Weste.">
@@ -2401,7 +2401,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler hat eine weiße Weste.</source>
-        <target>Dieser Spieler hat eine weiße Weste.</target>
+        <target>Este jugador no tiene ninguna sanción vigente</target>
       </segment>
     </unit>
     <unit id="FwMioy8" name="Info">
@@ -2473,7 +2473,7 @@
       </notes>
       <segment>
         <source>Interner Vermerk</source>
-        <target>Interner Vermerk</target>
+        <target>Nota interna</target>
       </segment>
     </unit>
     <unit id="dd81ecc" name="Art">
@@ -2563,7 +2563,7 @@
       </notes>
       <segment>
         <source>Neue Beschränkung hinzufügen</source>
-        <target>Neue Beschränkung hinzufügen</target>
+        <target>Añadir una sanción</target>
       </segment>
     </unit>
     <unit id="o.gLHi8" name="24 Stunden">
@@ -2626,7 +2626,7 @@
       </notes>
       <segment>
         <source>Art der Beschränkung</source>
-        <target>Art der Beschränkung</target>
+        <target>Tipo de restricción</target>
       </segment>
     </unit>
     <unit id="t5PuA4i" name="Soziale Interaktion verbieten">
@@ -2635,7 +2635,7 @@
       </notes>
       <segment>
         <source>Soziale Interaktion verbieten</source>
-        <target>Soziale Interaktion verbieten</target>
+        <target>Impedir las interacciones sociales</target>
       </segment>
     </unit>
     <unit id="N35nJiR" name="Posten in Foren verbieten">
@@ -2644,7 +2644,7 @@
       </notes>
       <segment>
         <source>Posten in Foren verbieten</source>
-        <target>Posten in Foren verbieten</target>
+        <target>Publicar en los foros</target>
       </segment>
     </unit>
     <unit id="S.Z0svV" name="Stadt-interne Kommunikation verbieten">
@@ -2653,7 +2653,7 @@
       </notes>
       <segment>
         <source>Stadt-interne Kommunikation verbieten</source>
-        <target>Stadt-interne Kommunikation verbieten</target>
+        <target>Comunicación interna al pueblo</target>
       </segment>
     </unit>
     <unit id="TofCy.V" name="Stadtübergreifende Kommunikation verbieten">
@@ -2662,7 +2662,7 @@
       </notes>
       <segment>
         <source>Stadtübergreifende Kommunikation verbieten</source>
-        <target>Stadtübergreifende Kommunikation verbieten</target>
+        <target>Publicación en el foro del pueblo</target>
       </segment>
     </unit>
     <unit id="4Ih2_KV" name="Kommentare verbieten">
@@ -2671,7 +2671,7 @@
       </notes>
       <segment>
         <source>Kommentare verbieten</source>
-        <target>Kommentare verbieten</target>
+        <target>Impedir los comentarios</target>
       </segment>
     </unit>
     <unit id="Hk8oxc5" name="Organisation in Gruppen verbieten">
@@ -2680,7 +2680,7 @@
       </notes>
       <segment>
         <source>Organisation in Gruppen verbieten</source>
-        <target>Organisation in Gruppen verbieten</target>
+        <target>Organisación en grupo</target>
       </segment>
     </unit>
     <unit id="IdwEk1H" name="Spielen verbieten">
@@ -2689,7 +2689,7 @@
       </notes>
       <segment>
         <source>Spielen verbieten</source>
-        <target>Spielen verbieten</target>
+        <target>Impedir el juego</target>
       </segment>
     </unit>
     <unit id="67OtxCl" name="3e3c02a">
@@ -2923,7 +2923,7 @@
       </notes>
       <segment>
         <source>Änderungen am Profil verbieten</source>
-        <target>Änderungen am Profil verbieten</target>
+        <target>Impedir las modificaciones del perfil</target>
       </segment>
     </unit>
     <unit id="o2BjdF6" name="Ändern des Avatars verbieten">
@@ -2932,7 +2932,7 @@
       </notes>
       <segment>
         <source>Ändern des Avatars verbieten</source>
-        <target>Ändern des Avatars verbieten</target>
+        <target>Cambiar el avatar</target>
       </segment>
     </unit>
     <unit id="es9o32g" name="Ändern der Profilbeschreibung verbieten">
@@ -2941,7 +2941,7 @@
       </notes>
       <segment>
         <source>Ändern der Profilbeschreibung verbieten</source>
-        <target>Ändern der Profilbeschreibung verbieten</target>
+        <target>Modificación de la descripción del perfil</target>
       </segment>
     </unit>
     <unit id="tJ4N6CO" name="Ändern des Titels verbieten">
@@ -2950,7 +2950,7 @@
       </notes>
       <segment>
         <source>Ändern des Titels verbieten</source>
-        <target>Ändern des Titels verbieten</target>
+        <target>Cambiar el título</target>
       </segment>
     </unit>
     <unit id="nXkHd12" name="Anzeigenamen ändern">
