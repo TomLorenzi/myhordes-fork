@@ -8048,7 +8048,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Vielleicht solltest du das mithilfe des Wasserhahns füllen...</source>
-        <target>Vielleicht solltest du das mithilfe des Wasserhahns füllen...</target>
+        <target><![CDATA[Tal vez deberías usar la <strong>grifería</strong> para eso...]]></target>
       </segment>
     </unit>
     <unit id="NVMPUn." name="Du bist ab sofort getarnt.">
