@@ -3067,7 +3067,7 @@
       </notes>
       <segment>
         <source>Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!</source>
-        <target>Du hast eine {items_consume} in dein/e/n {item_from} gefüllt und {item_to} erhalten!</target>
+        <target>Has llenado {item_to} utilizando una {item_from}.</target>
       </segment>
     </unit>
     <unit id="foW8fmN" name="Hierfür brauchst du eine Ration Wasser.">
@@ -3184,7 +3184,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du einen Kanister.</source>
-        <target>Hierfür brauchst du einen Kanister.</target>
+        <target><![CDATA[Necesitas una <strong>Cantimplora llena</strong> para eso.]]></target>
       </segment>
     </unit>
     <unit id="4W5shcA" name="Waffe einsetzen">
@@ -3247,7 +3247,7 @@
       </notes>
       <segment>
         <source>Karte ziehen</source>
-        <target>Utilizar</target>
+        <target>Lanzar una carta</target>
       </segment>
     </unit>
     <unit id="WPixbld" name="Spielen">
@@ -3274,7 +3274,7 @@
       </notes>
       <segment>
         <source>Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</source>
-        <target>Te instalas cómodamente en tu casa y te dejas llevar... Mala sorpresa: ¡la máquina es horriblemente dolorosa de usar! Sin embargo, terminas por cogerle el gusto. Y al cabo de unos instantes, el efecto es radical: transpiras, pero te sientes más... "relajado". La pila ha sido totalmente agotada.</target>
+        <target><![CDATA[Te instalas cómodamente en tu casa y te dejas llevar... Mala sorpresa: ¡la máquina es <strong>horriblemente dolorosa</strong> de usar! Sin embargo, terminas por cogerle el gusto. Y al cabo de unos instantes, el efecto es radical: transpiras, pero te sientes más... "relajado".{hr}La pila ha sido totalmente agotada.]]></target>
       </segment>
     </unit>
     <unit id="EoaSigx" name="Das brauchst du gerade nicht ...">
@@ -3328,7 +3328,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du eine Micropur Brausetablette.</source>
-        <target>Para esto necesitas un desinfectante efervescente.</target>
+        <target>Para esto necesitas un Desinfectante efervescente.</target>
       </segment>
     </unit>
     <unit id="TnRDqig" name="In den Brunnen schütten">
@@ -3382,7 +3382,7 @@
       </notes>
       <segment>
         <source>Vergiften mit</source>
-        <target>Envenenamiento por</target>
+        <target>Envenenar con</target>
       </segment>
     </unit>
     <unit id="6wfIVGg" name="Du hast {target} mit {item} vergiftet!">
@@ -3391,7 +3391,7 @@
       </notes>
       <segment>
         <source>Du hast {target} mit {item} vergiftet!</source>
-        <target>Has envenenado a {target} con {item}</target>
+        <target><![CDATA[Has envenenado {target} con {item}. {hr}Atención, ¡has envenando {target}! Y es <strong>casi imposible distinguirlo de un objeto no contaminado</strong>, debes ser prudente... Aunque tienes la libertad de hacer lo que te parezca "justo".]]></target>
       </segment>
     </unit>
     <unit id="6qvzljH" name="Mithilfe des {item} hast du die Umgebung gescannt.">
@@ -3409,7 +3409,7 @@
       </notes>
       <segment>
         <source>Du hast das {item} verwendet, um einen Teil der Ruine freizulegen.</source>
-        <target>Has limpiado parcialmente la zona gracias a {item}</target>
+        <target>Has limpiado parcialmente la zona gracias a {item}.</target>
       </segment>
     </unit>
     <unit id="ufBL9cN" name="Das kannst du nicht tun während du umzingelt bist...">
@@ -3472,7 +3472,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du Streichhölzer...</source>
-        <target>Para esto necesitas cerillas...</target>
+        <target>Para esto necesitas una Caja de cerillas...</target>
       </segment>
     </unit>
     <unit id="4Xp26aZ" name="Losschicken">
@@ -3517,7 +3517,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du ein Steroid.</source>
-        <target>Necesitas esteroides para esto.</target>
+        <target>Necesitas Esteroides anabólicos para esto.</target>
       </segment>
     </unit>
     <unit id="9Wgu8lv" name="Wasser suchen">
@@ -3526,7 +3526,7 @@
       </notes>
       <segment>
         <source>Wasser suchen</source>
-        <target>Recoger agua</target>
+        <target>Buscar agua</target>
       </segment>
     </unit>
     <unit id="JAlTzuc" name="Essen suchen">
@@ -3535,7 +3535,7 @@
       </notes>
       <segment>
         <source>Essen suchen</source>
-        <target>Buscando comida</target>
+        <target>Buscar comida</target>
       </segment>
     </unit>
     <unit id="TmH05e3" name="Tarnen">
