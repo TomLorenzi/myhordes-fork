@@ -6749,7 +6749,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du 2x Pharmazeutische Substanz...</source>
-        <target>Necesitas 2 x Productos Farmacéuticos, para hacer eso...</target>
+        <target>Necesitas 2 Productos Farmacéuticos para hacer eso...</target>
       </segment>
     </unit>
     <unit id="z79RBPW" name="Kochen">
@@ -6767,8 +6767,7 @@
       </notes>
       <segment>
         <source>In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.</source>
-        <target>Empiezas a utilizar {items_consume} y otras cosas más.
-Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del fuego un {items_spawn} .</target>
+        <target>Empiezas a utilizar {items_consume} y otras cosas más.{hr}Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del fuego un {items_spawn} .</target>
       </segment>
     </unit>
     <unit id="GhoMZLz" name="Gegenstände suchen">
@@ -6810,7 +6809,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</source>
-        <target>Un buen trago que quema la garganta y te quita el cansancio, ¡recuperando además puntos de Acción!... 85º de alcohol puro, con algunos bichos flotando en el fondo. ¡Salud camarada!</target>
+        <target>Un buen trago que quema la garganta y te quita el cansancio, ¡recuperando además Puntos de Acción!... 85º de alcohol puro, con algunos bichos flotando en el fondo. ¡Salud camarada!</target>
       </segment>
     </unit>
     <unit id="QwC3IQO" name="Mystischer Trank">
@@ -6828,7 +6827,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Diese besondere Ration Wasser, oder genauer gesagt "Weihwasser", sollte es dir ermöglichen, unbeschadet mit gequälten Seelen in Kontakt zu treten... Hoffentlich...</source>
-        <target>Este frasco especial de agua, "agua bendita" si tu prefieres, debería permitirte interactuar con las torturadas almas sin miedo... Con suerte...</target>
+        <target>Este frasco especial de agua, "agua bendita" si lo prefieres, debería permitirte interactuar con las torturadas almas sin miedo... Con suerte...</target>
       </segment>
     </unit>
     <unit id="TinIUAB" name="Herstellung eines Mystischern Trank">
@@ -6909,7 +6908,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Herz</source>
-        <target>Corazón</target>
+        <target>Corazones</target>
       </segment>
     </unit>
     <unit id="2P.dMD0" name="Karo">
