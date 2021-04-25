@@ -80,12 +80,20 @@ class GhostController extends CustomAbstractController
 
     /**
      * @Route("jx/ghost/welcome_soul", name="welcome_soul")
-     * @param EntityManagerInterface $em
      * @return Response
      */
-    public function welcome_soul(EntityManagerInterface $em): Response
+    public function welcome_soul(): Response
     {
         return $this->render( 'ajax/ghost/welcome.html.twig' );
+    }
+
+    /**
+     * @Route("jx/ghost/postgame", name="postgame")
+     * @return Response
+     */
+    public function postgame_screen(): Response
+    {
+        return $this->render( 'ajax/ghost/donate.html.twig' );
     }
 
     /**
