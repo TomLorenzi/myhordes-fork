@@ -2734,7 +2734,7 @@
       </notes>
       <segment>
         <source>Stadt füllen</source>
-        <target>Stadt füllen</target>
+        <target>Llenar el pueblo</target>
       </segment>
     </unit>
     <unit id="I6NYwV3" name="Bank füllen">
@@ -2743,7 +2743,7 @@
       </notes>
       <segment>
         <source>Bank füllen</source>
-        <target>Bank füllen</target>
+        <target>Llenar el almacén</target>
       </segment>
     </unit>
     <unit id="NECchbh" name="Banksperre aufheben">
