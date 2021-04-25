@@ -1413,7 +1413,7 @@
       </notes>
       <segment>
         <source>Meine Seele ansehen</source>
-        <target>Meine Seele ansehen</target>
+        <target>Consulter mon âme</target>
       </segment>
     </unit>
     <unit id="_pEJUyq" name="Spendenseite aufrufen">
@@ -1431,7 +1431,7 @@
       </notes>
       <segment>
         <source>Willkommen in der Hölle!</source>
-        <target>Willkommen in der Hölle!</target>
+        <target>Bienvenue en Enfer !</target>
       </segment>
     </unit>
     <unit id="7zJqkQY" name="34025a5">
@@ -1440,7 +1440,7 @@
       </notes>
       <segment>
         <source>Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.</source>
-        <target>Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.</target>
+        <target>Tu es sur le point de rejoindre une ville avec 39 autres âmes maudites, dans le but de survivre le plus longtemps possible.</target>
       </segment>
     </unit>
     <unit id="29U26Sd" name="Spiel betreten">
@@ -1449,7 +1449,7 @@
       </notes>
       <segment>
         <source>Spiel betreten</source>
-        <target>Spiel betreten</target>
+        <target>Se lancer dans le jeu</target>
       </segment>
     </unit>
   </file>
