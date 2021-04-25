@@ -3022,7 +3022,7 @@
       </notes>
       <segment>
         <source>Alle Gebäude freischalten</source>
-        <target>Alle Gebäude freischalten</target>
+        <target>Desbloquear todas las construcciones</target>
       </segment>
     </unit>
     <unit id="IurwAt2" name="Baufortschritt setzen:">
