@@ -3166,7 +3166,7 @@
       </notes>
       <segment>
         <source>Du hast eine {items_consume} in dein/e/n {item_from} eingelegt und {item_to} erhalten!</source>
-        <target>Has fabricado {item_to} combinando {items_consume} y {items_from}.</target>
+        <target>Has fabricado {item_to} combinando {items_consume} y {item_from}.</target>
       </segment>
     </unit>
     <unit id="80ooJ7d" name="Hierfür brauchst du eine Batterie.">
