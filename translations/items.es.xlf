@@ -1987,7 +1987,7 @@
       </notes>
       <segment>
         <source>Wasserspender (1 Ration)</source>
-        <target>Bombona de agua (1 ración)</target>
+        <target>Bombona de agua (1 Ración)</target>
       </segment>
     </unit>
     <unit id="DqdgpMC" name="Wasserspender (2 Rationen)">
@@ -1996,7 +1996,7 @@
       </notes>
       <segment>
         <source>Wasserspender (2 Rationen)</source>
-        <target>Bombona de agua (2 raciones)</target>
+        <target>Bombona de agua (2 Raciones)</target>
       </segment>
     </unit>
     <unit id="hbYHhbK" name="Wasserspender (3 Rationen)">
@@ -2005,7 +2005,7 @@
       </notes>
       <segment>
         <source>Wasserspender (3 Rationen)</source>
-        <target>Bombona de agua (3 raciones)</target>
+        <target>Bombona de agua (3 Raciones)</target>
       </segment>
     </unit>
     <unit id="9kUAXmE" name="Abgelaufene Betapropin-Tablette 5mg">
@@ -3076,7 +3076,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du eine Ration Wasser.</source>
-        <target>Necesitas agua pura (la de una ración de agua, por ejemplo).</target>
+        <target>Necesitas agua pura (la de una Ración de agua, por ejemplo).</target>
       </segment>
     </unit>
     <unit id="vDhaMLU" name="Öffnen">
@@ -4480,7 +4480,7 @@
       </notes>
       <segment>
         <source>Eine Wasserpistole ist gegen Zombies äußerst wirksam! Es sei denn sie ist leer.</source>
-        <target>Tu primer arma letal cuando eras un niño... Solo falta llenarla con agua pura (la de una ración de agua por ejemplo).</target>
+        <target>Tu primer arma letal cuando eras un niño... Solo falta llenarla con agua pura (la de una Ración de agua por ejemplo).</target>
       </segment>
     </unit>
     <unit id="NIIzgsI" name="3a3994c">
@@ -5174,7 +5174,7 @@
       </notes>
       <segment>
         <source>Die Wasserpistole erinnert dich irgendwie an Räuber und Gendarmen... Nur mit sauberem Wasser benutzen(zum Beispiel aus einer Trinkflasche).</source>
-        <target>Tu primer arma letal cuando eras niño... Solo es eficaz con agua pura (la de una ración de agua por ejemplo).</target>
+        <target>Tu primer arma letal cuando eras niño... Solo es eficaz con agua pura (la de una Ración de agua por ejemplo).</target>
       </segment>
     </unit>
     <unit id="OJn26jO" name="2745abc">
@@ -5246,7 +5246,7 @@
       </notes>
       <segment>
         <source>Diese winzig kleine Dosis Gift reicht aus, um jeden deiner Mitbürger umzubringen. Wenn du es mit etwas Essen oder einer Droge vermischt, oder wenn du es in eine Trinkflasche kippst, ist dieses Gift eine tödliche Waffe.</source>
-        <target>Las pocas gotas que quedan dentro matarían a cualquier compañero. Tiene un gran poder de contaminación, ya sea en alimentos, estimulantes o una ración de agua...</target>
+        <target>Las pocas gotas que quedan dentro matarían a cualquier compañero. Tiene un gran poder de contaminación, ya sea en alimentos, estimulantes o una Ración de agua...</target>
       </segment>
     </unit>
     <unit id="0kqolxN" name="9b56cbe">
@@ -5372,7 +5372,7 @@
       </notes>
       <segment>
         <source>Ein typischer Wasserspender, wie man ihn in jedem Großraumbüro antreffen kann. Wie durch ein Wunder ist er dir in die Hände gefallen. So ein Ding könnte hier gut nützlich sein...</source>
-        <target>Tuviste suerte al encontrarla, no es común ver eso por aquí... -- USO: si llevas una ración de agua, será colocada en la bombona. Si no, la acción será beber el contenido de la bombona.</target>
+        <target>Tuviste suerte al encontrarla, no es común ver eso por aquí... -- USO: si llevas una Ración de agua, será colocada en la bombona. Si no, la acción será beber el contenido de la bombona.</target>
       </segment>
     </unit>
     <unit id=".lm05eM" name="f42e48c">
@@ -7970,7 +7970,7 @@
       </notes>
       <segment>
         <source>Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Die Zunge klebt dir noch immer am Gaumen und dein Hals ist noch genauso trocken wie vorher. Du hast deinen Verdurstungstod erfolgreich verhindert.{hr}&lt;strong&gt;Da du davor schon dehydriert warst, hast du keine neuen APs erhalten.&lt;/strong&gt;</source>
-        <target><![CDATA[Tragas tu ración de agua como un salvaje, sin dejar ni una sola gota... Tu garganta arde, pero al menos dejarás de deshidratarte.{hr}<strong>No has regenerado tus PA porque estabas deshidratado.</strong>]]></target>
+        <target><![CDATA[Tragas tu Ración de agua como un salvaje, sin dejar ni una sola gota... Tu garganta arde, pero al menos dejarás de deshidratarte.{hr}<strong>No has regenerado tus PA porque estabas deshidratado.</strong>]]></target>
       </segment>
     </unit>
     <unit id="bmHixif" name="fa98a6f">
@@ -8106,7 +8106,7 @@
       </notes>
       <segment>
         <source>Du kannst einen schamanischen Trank zubereiten, der den Rezipienten vor bösen Geistern schützt.</source>
-        <target>Du kannst einen schamanischen Trank zubereiten, der den Rezipienten vor bösen Geistern schützt.</target>
+        <target>Puedes preparar una poción chamánica para proteger a quien la consuma de los espiritus malignos.</target>
       </segment>
     </unit>
     <unit id="U42wDJN" name="de445d9">
@@ -8115,7 +8115,7 @@
       </notes>
       <segment>
         <source>Das ist ein Musterbeispiel eines schamanischen Tranks! Nun liegt es an die, der Stadt dessen Wirksamkeit zu vermitteln und sie von deinen schamanischen Fähigkeiten zu überzeugen.</source>
-        <target>Das ist ein Musterbeispiel eines schamanischen Tranks! Nun liegt es an die, der Stadt dessen Wirksamkeit zu vermitteln und sie von deinen schamanischen Fähigkeiten zu überzeugen.</target>
+        <target>Has fabricado un excelente ejemplar de la Poción Chamánica! Ahora depende de ti transmitir su efectividad con el pueblo y convencerlos de tus habilidades chamánicas.</target>
       </segment>
     </unit>
     <unit id="1VR4tvz" name="Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.">
@@ -8124,7 +8124,7 @@
       </notes>
       <segment>
         <source>Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.</source>
-        <target>Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.</target>
+        <target>Debes tener una Ración de agua para poder preparar la Poción.</target>
       </segment>
     </unit>
     <unit id="WZjQ7F6" name="37207b3">
@@ -8142,7 +8142,7 @@
       </notes>
       <segment>
         <source>Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!</source>
-        <target>El habitante bebe de un trago tu ración de agua... ¡Ahhhhh, cuánta sed!</target>
+        <target>El habitante bebe de un trago su Ración de agua... ¡Ahhhhh, cuánta sed!</target>
       </segment>
     </unit>
     <unit id="sRDEqVL" name="7ee43be">
@@ -8151,7 +8151,7 @@
       </notes>
       <segment>
         <source>Der Bürger hat den mystischen Trank in einem Zug ausgetrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</source>
-        <target>Der Bürger hat den mystischen Trank in einem Zug ausgetrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</target>
+        <target>El habitante bebe de un trago su Poción chamánica. Esperemos que el Chamán sepa lo que está haciendo...</target>
       </segment>
     </unit>
     <unit id="q2jfZzs" name="5db32a5">
@@ -8160,7 +8160,7 @@
       </notes>
       <segment>
         <source>Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: &lt;strong&gt;du bist nun verletzt&lt;/strong&gt;.</source>
-        <target><![CDATA[Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: <strong>du bist nun verletzt</strong>.]]></target>
+        <target><![CDATA[Bebes de un trago tu Ración de agua: pero el resultado no es el que esperabas... ¡De repente, tu garganta te empieza a arder terriblemente y te provoca una tos extremadamente dolorosa! Pierdes el aliento y caes de rodillas. Como <strong>mutante</strong> ya no puedes beber más agua: Ahora estás <strong>herido</strong>.]]></target>
       </segment>
     </unit>
     <unit id="GUA4Vaf" name="8f08b00">
@@ -8169,7 +8169,7 @@
       </notes>
       <segment>
         <source>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</source>
-        <target>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</target>
+        <target><![CDATA[Malas noticias, no debiste haberte comido eso... ¡Ahora estás <strong>infectado</strong>!]]></target>
       </segment>
     </unit>
     <unit id="stXotvA" name="8c830be">
@@ -8178,7 +8178,7 @@
       </notes>
       <segment>
         <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
-        <target>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</target>
+        <target>Abriste {item_from} y encontraste {item_to} en su interior.</target>
       </segment>
     </unit>
     <unit id="dvSEUyn" name="021fe72">
@@ -8187,7 +8187,7 @@
       </notes>
       <segment>
         <source>&lt;t-consumed&gt;Du hetzt das/den/die {item} auf einen Zombie. Der Untote greift sich deinen tierischen Begleiter, zerquetscht es mit seinen Griffen und würgt es ganz langsam herunter... Dumm gelaufen.. aber wenigstens hast ihn damit eine Zeit lang beschäftigt...&lt;/t-consumed&gt;&lt;nt-consumed&gt;Dein Tier &lt;strong&gt;geht einem Zombie sofort an die Gurgel&lt;/strong&gt; und reißt sich ein paar schöne Happen! Bravo!&lt;/nt-consumed&gt;</source>
-        <target><![CDATA[<t-consumed>Du hetzt das/den/die {item} auf einen Zombie. Der Untote greift sich deinen tierischen Begleiter, zerquetscht es mit seinen Griffen und würgt es ganz langsam herunter... Dumm gelaufen.. aber wenigstens hast ihn damit eine Zeit lang beschäftigt...</t-consumed><nt-consumed>Dein Tier <strong>geht einem Zombie sofort an die Gurgel</strong> und reißt sich ein paar schöne Happen! Bravo!</nt-consumed>]]></target>
+        <target><![CDATA[<t-consumed>Lanzas {item} sobre el zombie. Empieza entre ellos un sangriennto combate de mordidas y golpes... "Adiós mi fiel mascota, tu muerte no fue en vano". Ese zombie no molestará más.</t-consumed><nt-consumed>¡Tu {item} <strong>se lanza al cuello de un zombie</strong> y logra arrancarle la cabeza! ¡Esa es mi mascota!</nt-consumed>]]></target>
       </segment>
     </unit>
     <unit id="sU9PQTX" name="a923db5">
@@ -8196,7 +8196,7 @@
       </notes>
       <segment>
         <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><t-kills>Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...</t-kills>]]></target>
+        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} utilizando: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="BnW7_fH" name="1876d51">
@@ -8214,7 +8214,7 @@
       </notes>
       <segment>
         <source>So 'ne Quali bekommt man nicht jeden Tag in die Finger! Sicher, Übelkeit, Zittern und Schweißausbrüche hast du auch damit bekommen, aber die Wirkung ist weitaus stärker als bei 'ner normalen Droge (Du hast einen &lt;strong&gt;AP Bonus&lt;/strong&gt; erhalten)... Übertreibe es aber nicht!</source>
-        <target><![CDATA[So 'ne Quali bekommt man nicht jeden Tag in die Finger! Sicher, Übelkeit, Zittern und Schweißausbrüche hast du auch damit bekommen, aber die Wirkung ist weitaus stärker als bei 'ner normalen Droge (Du hast einen <strong>AP Bonus</strong> erhalten)... Übertreibe es aber nicht!]]></target>
+        <target><![CDATA[¡No todos los días se puede consumir una sutancia de esas! También te da náuseas, temblores, sudores fríos... Pero el efecto es mucho más fuerte que el de una droga normal (Recibes una <strong>bonificación de PA</strong>)... ¡No abuses de esta!]]></target>
       </segment>
     </unit>
   </file>
