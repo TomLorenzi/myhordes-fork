@@ -61,7 +61,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</source>
-        <target>Lanzas una carta... ¡Y pegas un grito al descubrir que lleva tu nombre escrito con sangre! ¿Quién pudo hacerte esta broma de mal gusto?</target>
+        <target><![CDATA[Lanzas una carta... ¡Y pegas un grito al descubrir <strong>que lleva tu nombre escrito con sangre! ¿Quién pudo hacerte esta broma de mal gusto?{hr}¡La impresión te deja <strong>aterrorizado</strong>]]></target>
       </segment>
     </unit>
     <unit id="NcJ93EV" name="9ae05d1">
@@ -88,7 +88,7 @@
       </notes>
       <segment>
         <source>Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.</source>
-        <target>La Reina de Corazones... El símbolo del amor... suspiro... Has ganado 1AP como compensación por tu desilusión.</target>
+        <target>La Reina de Corazones... El símbolo del amor... suspiro... Has ganado 1PA como compensación por tu desilusión.</target>
       </segment>
     </unit>
     <unit id="9tVy8rd" name="99bed0a">
@@ -664,7 +664,7 @@
       </notes>
       <segment>
         <source>Plastiktüte mit Sprengstoff</source>
-        <target>Bolsa de plástico + explosivo</target>
+        <target>Bolsa de plástico con explosivo</target>
       </segment>
     </unit>
     <unit id="c8B12bU" name="Unvollständige Kettensäge">
@@ -1537,7 +1537,7 @@
       </notes>
       <segment>
         <source>Reparatur Fix</source>
-        <target>Repara Fácil</target>
+        <target>Repara-fácil</target>
       </segment>
     </unit>
     <unit id="1homVRE" name="Unvollständiger Motor">
@@ -1807,7 +1807,7 @@
       </notes>
       <segment>
         <source>Kiste mit Materialien (3)</source>
-        <target>Caja de materiales</target>
+        <target>Caja de materiales (3)</target>
       </segment>
     </unit>
     <unit id="_Ya0SdM" name="Kiste mit Materialien (2)">
@@ -1816,7 +1816,7 @@
       </notes>
       <segment>
         <source>Kiste mit Materialien (2)</source>
-        <target>Caja de materiales</target>
+        <target>Caja de materiales (2)</target>
       </segment>
     </unit>
     <unit id="C60bLXY" name="Kiste mit Materialien (1)">
@@ -1825,7 +1825,7 @@
       </notes>
       <segment>
         <source>Kiste mit Materialien (1)</source>
-        <target>Caja de materiales</target>
+        <target>Caja de materiales (1)</target>
       </segment>
     </unit>
     <unit id="TeBNdiF" name="Autotür">
@@ -2599,7 +2599,7 @@
       </notes>
       <segment>
         <source>ANZAC Badge</source>
-        <target>Placa de sheriff</target>
+        <target>Placa de Sheriff</target>
       </segment>
     </unit>
     <unit id="uLjJDam" name="Kalaschni-Splash (leer)">
@@ -2689,7 +2689,7 @@
       </notes>
       <segment>
         <source>Starker Laserpointer (4 Schuss)</source>
-        <target>Puntero láser potente de (4 cargas)</target>
+        <target>Puntero láser potente de 4 cargas</target>
       </segment>
     </unit>
     <unit id="jcenLlv" name="Starker Laserpointer (3 Schuss)">
@@ -2698,7 +2698,7 @@
       </notes>
       <segment>
         <source>Starker Laserpointer (3 Schuss)</source>
-        <target>Puntero láser potente de (3 cargas)</target>
+        <target>Puntero láser potente de 3 cargas</target>
       </segment>
     </unit>
     <unit id="lhNcEq." name="Starker Laserpointer (2 Schuss)">
@@ -2707,7 +2707,7 @@
       </notes>
       <segment>
         <source>Starker Laserpointer (2 Schuss)</source>
-        <target>Puntero láser potente de (2 cargas)</target>
+        <target>Puntero láser potente de 2 cargas</target>
       </segment>
     </unit>
     <unit id="jRYCf_g" name="Starker Laserpointer (1 Schuss)">
@@ -2716,7 +2716,7 @@
       </notes>
       <segment>
         <source>Starker Laserpointer (1 Schuss)</source>
-        <target>Puntero láser potente (1 carga)</target>
+        <target>Puntero láser potente de 1 carga</target>
       </segment>
     </unit>
     <unit id="mlUmSZt" name="Starker Laserpointer (Leer)">
@@ -2725,7 +2725,7 @@
       </notes>
       <segment>
         <source>Starker Laserpointer (Leer)</source>
-        <target>Puntero láser potente (apagado)</target>
+        <target>Puntero láser potente descargado</target>
       </segment>
     </unit>
     <unit id="EJTnMeh" name="Teleskop">
