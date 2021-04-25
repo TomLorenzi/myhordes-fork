@@ -3562,9 +3562,7 @@
       </notes>
       <segment>
         <source>Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.</source>
-        <target><![CDATA[Hurgando en los alrededores descubres un pequeño charco de agua estancada. Como no tienes otra opción, empiezas a beber su contenido (así como todo lo que flota dentro)...
-
-<strong>Has recuperado todos tus PA.</strong>]]></target>
+        <target><![CDATA[Hurgando en los alrededores descubres un pequeño charco de agua estancada. Como no tienes otra opción, empiezas a beber su contenido (así como todo lo que flota dentro)...{hr}<strong>Has recuperado todos tus PA.</strong>]]></target>
       </segment>
     </unit>
     <unit id=".jOYrxS" name="Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....">
@@ -3573,10 +3571,7 @@
       </notes>
       <segment>
         <source>Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....</source>
-        <target><![CDATA[Sales en busca de alimentos en los alrededores...
-Después de varios largos minutos de búsqueda, terminas por encontrar <strong>un puñado de gusanos gordos y viscosos que se enredan entre sí</strong>. La guía es clara al respecto: ¡son comestibles! <strong>Los devoras antes de que se te escapen de las manos y de la boca</strong>.
-
-<strong>Has recuperado todos tus PA.</strong>]]></target>
+        <target><![CDATA[Sales en busca de alimentos en los alrededores...{hr}Después de varios largos minutos de búsqueda, terminas por encontrar <strong>un puñado de gusanos gordos y viscosos que se enredan entre sí</strong>. La guía es clara al respecto: ¡son comestibles! <strong>Los devoras antes de que se te escapen de las manos y de la boca</strong>.{hr}<strong>Has recuperado todos tus PA.</strong>]]></target>
       </segment>
     </unit>
     <unit id="Kl2AzsC" name="Du ziehst eine Karte... es ist: {color} {value}.">
