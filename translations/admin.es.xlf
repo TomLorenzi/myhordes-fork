@@ -448,7 +448,7 @@
       </notes>
       <segment>
         <source>Passwort-Reset auslösen</source>
-        <target>Iniciar restablecimiento de contraseña</target>
+        <target>Iniciar el restablecimiento de contraseña</target>
       </segment>
     </unit>
     <unit id="GdwECmm" name="Passwort-Reset erzwingen">
@@ -457,7 +457,7 @@
       </notes>
       <segment>
         <source>Passwort-Reset erzwingen</source>
-        <target>Forzar restablecimiento de contraseña</target>
+        <target>Forzar el restablecimiento de contraseña</target>
       </segment>
     </unit>
     <unit id="6KnH3XO" name="Ausführen">
@@ -1204,7 +1204,7 @@
       </notes>
       <segment>
         <source>Löschen</source>
-        <target>Quitar</target>
+        <target>Eliminar</target>
       </segment>
     </unit>
     <unit id="A2t0n2E" name="Berechtigungen">
@@ -1231,7 +1231,7 @@
       </notes>
       <segment>
         <source>Berechtigungsstufe zurücksetzen</source>
-        <target>Reiniciar nivel de autorización</target>
+        <target>Reiniciar el nivel de autorización</target>
       </segment>
     </unit>
     <unit id="EHG8mpy" name="Bitte bestätige folgende Aktion:">
@@ -1420,7 +1420,7 @@
       </notes>
       <segment>
         <source>E-Mail ändern</source>
-        <target>Cambiar e-mail</target>
+        <target>Cambiar el e-mail</target>
       </segment>
     </unit>
     <unit id="5sAjGFp" name="Neues Passwort eingeben.">
@@ -1438,7 +1438,7 @@
       </notes>
       <segment>
         <source>Neues Passwort setzen</source>
-        <target>Cambiar contraseña</target>
+        <target>Cambiar la contraseña</target>
       </segment>
     </unit>
     <unit id="V1ukt7Z" name="EternalTwin-Integration">
@@ -2959,7 +2959,7 @@
       </notes>
       <segment>
         <source>Anzeigenamen ändern</source>
-        <target>Anzeigenamen ändern</target>
+        <target>Cambiar el nombre visible</target>
       </segment>
     </unit>
     <unit id="zX2Ikki" name="Anzeigenamen entfernen">
@@ -2977,7 +2977,7 @@
       </notes>
       <segment>
         <source>Avatar entfernen</source>
-        <target>Avatar entfernen</target>
+        <target>Eliminar el avatar</target>
       </segment>
     </unit>
     <unit id="5yzpFRy" name="Profilbeschreibung entfernen">
@@ -2986,7 +2986,7 @@
       </notes>
       <segment>
         <source>Profilbeschreibung entfernen</source>
-        <target>Profilbeschreibung entfernen</target>
+        <target>Eliminar la descripción del perfil</target>
       </segment>
     </unit>
     <unit id="R1lleS7" name="Titel &amp; Icon entfernen">
@@ -2995,7 +2995,7 @@
       </notes>
       <segment>
         <source>Titel &amp; Icon entfernen</source>
-        <target><![CDATA[Titel & Icon entfernen]]></target>
+        <target><![CDATA[Eliminar el título y el icono]]></target>
       </segment>
     </unit>
     <unit id="BaVbT2z" name="Neuer Füllstand:">
@@ -3058,7 +3058,7 @@
       </notes>
       <segment>
         <source>Heldentage setzen</source>
-        <target>Heldentage setzen</target>
+        <target>Establecer la expreriencía de Héroe</target>
       </segment>
     </unit>
     <unit id="RkHxHq_" name="Hausverbesserungen:">
