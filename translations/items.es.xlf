@@ -6872,7 +6872,7 @@
       </notes>
       <segment>
         <source>Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</source>
-        <target>Tus vecinos pueden oler la confianza que desprendes... Como si ya estuvieses protegido de algún modo.</target>
+        <target>Tus vecinos pueden oler la confianza que desprendes... Como si ya estuvieses protegido de algún modo.{hr}Acabas de beber una poción chamánica. Ahora no puedes hacer nada, pero cruza los dedos y espera que este hechicero no fuera solo un borracho al que no le gusta lavarse...</target>
       </segment>
     </unit>
     <unit id="TWuwK4M" name="Angriff und Verteidigung">
@@ -7394,7 +7394,7 @@
       </notes>
       <segment>
         <source>Durchgang in Kraft</source>
-        <target>Durchgang in Kraft</target>
+        <target>Pasaje en vigor</target>
       </segment>
     </unit>
     <unit id="KXx_GUV" name="Den Shamane wählen">
@@ -7448,7 +7448,7 @@
       </notes>
       <segment>
         <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} con esta arma: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
+        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} utilizando: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="5DH1uFn" name="b181e5d">
@@ -7457,7 +7457,7 @@
       </notes>
       <segment>
         <source>Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</source>
-        <target>Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</target>
+        <target>¡Golpeas a un zombie con todas tus fuerzas, pero él es más duro que una piedra y resiste tus golpes!</target>
       </segment>
     </unit>
     <unit id="tT6PQwS" name="Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...">
@@ -7466,7 +7466,7 @@
       </notes>
       <segment>
         <source>Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...</source>
-        <target><![CDATA[Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...]]></target>
+        <target><![CDATA[Tu arma se ha <strong>roto</strong> con el golpe...]]></target>
       </segment>
     </unit>
     <unit id="fqH14J." name="Weihnachts-Süßigkeiten">
@@ -7493,7 +7493,7 @@
       </notes>
       <segment>
         <source>Geschenkpaket</source>
-        <target>Paquete postal</target>
+        <target>Paquete de regalo</target>
       </segment>
     </unit>
     <unit id="kdGOsHH" name="cfe7609">
@@ -7511,7 +7511,7 @@
       </notes>
       <segment>
         <source>Großes Geschenkpaket</source>
-        <target>Gran paquete postal</target>
+        <target>Gran paquete de regalo</target>
       </segment>
     </unit>
     <unit id="1cAIp2n" name="Du hast {item} getrunken, aber scheinbar geschieht nichts...">
@@ -7520,7 +7520,7 @@
       </notes>
       <segment>
         <source>Du hast {item} getrunken, aber scheinbar geschieht nichts...</source>
-        <target>Du hast {item} getrunken, aber scheinbar geschieht nichts...</target>
+        <target>Has bebido {item}, pero no parece tener ningún efecto...</target>
       </segment>
     </unit>
     <unit id="r4cpVVY" name="Du hast einen Sandball in {citizen}s Gesicht geworfen.">
@@ -7529,7 +7529,7 @@
       </notes>
       <segment>
         <source>Du hast einen Sandball in {citizen}s Gesicht geworfen.</source>
-        <target>Du hast einen Sandball in {citizen}s Gesicht geworfen.</target>
+        <target>Lanzaste una Bola de arena a la cara de {citizen}.</target>
       </segment>
     </unit>
     <unit id="_2J5LX7" name="Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.">
@@ -7538,7 +7538,7 @@
       </notes>
       <segment>
         <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.</source>
-        <target>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.</target>
+        <target>Te tragas el caramelo con una gran sonrisa en tu rostro.</target>
       </segment>
     </unit>
     <unit id="n50zH5w" name="59a5c87">
@@ -7547,7 +7547,7 @@
       </notes>
       <segment>
         <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem starken psychoaktiven Gift!&lt;t-stat-up-terror&gt;{hr}Du bist vor Angst erstarrt!&lt;/t-stat-up-terror&gt;</source>
-        <target><![CDATA[Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem starken psychoaktiven Gift!<t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>]]></target>
+        <target><![CDATA[Te tragas el caramelo con una gran sonrisa en tu rostro... ¡Pero esta se desaparece rápidamente! ¡El caramelo estaba relleno con un <strong>fuerte veneno psicoactivo</strong>!<t-stat-up-terror>{hr}¡Ahora estás <strong>aterrorizado</strong>!</t-stat-up-terror>]]></target>
       </segment>
     </unit>
     <unit id="Mmr6mlb" name="4606897">
@@ -7556,7 +7556,7 @@
       </notes>
       <segment>
         <source>&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</source>
-        <target><![CDATA[<nt-fail>Du hast einen Sandball in {citizen}s Gesicht geworfen.</nt-fail><t-fail>Hier ist niemand, auf den du den Sandball werfen könntest...</t-fail>]]></target>
+        <target><![CDATA[<nt-fail>Lanzaste una Bola de arena a la cara de {citizen}.</nt-fail><t-fail>No hay nadie aquí a quien tirarle la Bola de arena.</t-fail>]]></target>
       </segment>
     </unit>
     <unit id="KlIypjZ" name="6d92ab2">
@@ -7565,7 +7565,7 @@
       </notes>
       <segment>
         <source>&lt;t-kill-latest&gt;:Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} con esta arma: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
+        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} utilizando: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="DJF1Mzv" name="c1c5585">
@@ -7574,7 +7574,7 @@
       </notes>
       <segment>
         <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-addict&gt;{hr}Du bist jetzt ein Süchtiger!&lt;/t-stat-up-addict&gt;</source>
-        <target><![CDATA[Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-addict>{hr}Du bist jetzt ein Süchtiger!</t-stat-up-addict>]]></target>
+        <target><![CDATA[DTe tragas el caramelo con una gran sonrisa en tu rostro... ¡Pero esta se desaparece rápidamente! ¡El caramelo estaba relleno con un <strong>fuerte veneno psicoactivo</strong>!<t-stat-up-addict>{hr}¡Ahora eres un <strong>adicto</strong>!</t-stat-up-addict>]]></target>
       </segment>
     </unit>
     <unit id="xLE.Yyk" name="f04baee">
@@ -7583,7 +7583,7 @@
       </notes>
       <segment>
         <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-terror&gt;{hr}Du bist vor Angst erstarrt!&lt;/t-stat-up-terror&gt;</source>
-        <target><![CDATA[Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>]]></target>
+        <target><![CDATA[Te tragas el caramelo con una gran sonrisa en tu rostro... ¡Pero esta se desaparece rápidamente! ¡El caramelo estaba relleno con un <strong>fuerte veneno psicoactivo</strong>!<t-stat-up-terror>{hr}¡Ahora estás <strong>aterrorizado</strong>!</t-stat-up-terror>>]]></target>
       </segment>
     </unit>
     <unit id="vpwJA00" name="66cf84d">
@@ -7592,7 +7592,7 @@
       </notes>
       <segment>
         <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-infection&gt;{hr}Du bist jetzt infiziert!&lt;/t-stat-up-infection&gt;</source>
-        <target><![CDATA[Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-infection>{hr}Du bist jetzt infiziert!</t-stat-up-infection>]]></target>
+        <target><![CDATA[Te tragas el caramelo con una gran sonrisa en tu rostro... ¡Pero esta se desaparece rápidamente! ¡El caramelo estaba relleno con un <strong>fuerte veneno psicoactivo</strong>!<t-stat-up-infection>{hr}¡Ahora estás <strong>infectado</strong>!</t-stat-up-infection>]]></target>
       </segment>
     </unit>
     <unit id="JyuMfMZ" name="04a3d62">
@@ -7601,7 +7601,7 @@
       </notes>
       <segment>
         <source>&lt;t-flare_ok&gt;Du hast die Zone {zone} entdeckt.&lt;/t-flare_ok&gt;&lt;t-flare_fail&gt;Es gibt keine weitere Zone zu entdecken.&lt;/t-flare_fail&gt;</source>
-        <target><![CDATA[<t-flare_ok>Du hast die Zone {zone} entdeckt.</t-flare_ok><t-flare_fail>Es gibt keine weitere Zone zu entdecken.</t-flare_fail>]]></target>
+        <target><![CDATA[<t-flare_ok>Has revelado la zona {zone}.</t-flare_ok><t-flare_fail>No quedan más zonas por revelar.</t-flare_fail>]]></target>
       </segment>
     </unit>
     <unit id="T9oSme7" name="2ebb8ed">
@@ -7835,7 +7835,7 @@
       </notes>
       <segment>
         <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} con esta arma: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
+        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} utilizando: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="5N_N9nB" name="Weicher Kürbis">
