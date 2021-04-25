@@ -2761,7 +2761,7 @@
       </notes>
       <segment>
         <source>Durst aufheben</source>
-        <target>Durst aufheben</target>
+        <target>Quitar el estado de sed a todos los jugadores</target>
       </segment>
     </unit>
     <unit id="9hzLkBp" name="Alle Spieler entkoppeln">
