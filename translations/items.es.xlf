@@ -7628,7 +7628,7 @@
       </notes>
       <segment>
         <source>Tarnanzug (abgelegt)</source>
-        <target>Tarnanzug (abgelegt)</target>
+        <target>Camuflaje (inactivo)</target>
       </segment>
     </unit>
     <unit id="m8tmcds" name="933eb10">
@@ -7646,7 +7646,7 @@
       </notes>
       <segment>
         <source>Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.</source>
-        <target>Descubres milagrosamente un objeto útil</target>
+        <target>Descubres milagrosamente un objeto útil.</target>
       </segment>
     </unit>
     <unit id="gNd6Hdo" name="Damit kannst du mit einem Schlag 2 Zombies umbringen!">
@@ -7664,7 +7664,7 @@
       </notes>
       <segment>
         <source>Stellt deine AP wieder her und beseitigt deine Müdigkeit.</source>
-        <target>Regenera tus PA y cura el Cansancio.</target>
+        <target>Regenera tus Puntos de Acción y cura el Cansancio.</target>
       </segment>
     </unit>
     <unit id="R.doQQs" name="a48c5f0">
@@ -7682,7 +7682,7 @@
       </notes>
       <segment>
         <source>Du bringst einen anderen Spieler nach Hause (dieser darf max. 2 Felder von der Stadt entfernt sein).</source>
-        <target>Rescatas a un habitante y lo traes de regreso al pueblo (se debe encontrar como máximo a 2 casillas de distancia del pueblo)</target>
+        <target>Rescatas a un habitante y lo traes de regreso al pueblo (se debe encontrar como máximo a 2 Kilómetros de distancia del pueblo).</target>
       </segment>
     </unit>
     <unit id="hs9mj9G" name="3c2ba85">
@@ -7691,7 +7691,7 @@
       </notes>
       <segment>
         <source>Du hast die Chance, 1 Zombie in der Zone zu töten; wenn du erfolgreich bist, erhältst du die Kontrolle über die Zone für 10 Minuten.&lt;br /&gt;&lt;em&gt;Angesichts des &lt;strong&gt;Armageddon&lt;/strong&gt; kannst du diese Spezialaktion &lt;strong&gt;einmal pro Spiel&lt;/strong&gt; durchführen.&lt;/em&gt;</source>
-        <target><![CDATA[Du hast die Chance, 1 Zombie in der Zone zu töten; wenn du erfolgreich bist, erhältst du die Kontrolle über die Zone für 10 Minuten.<br /><em>Angesichts des <strong>Armageddon</strong> kannst du diese Spezialaktion <strong>einmal pro Spiel</strong> durchführen.</em>]]></target>
+        <target><![CDATA[Tienes la posibilidad de matar 1 Zombie en la zona en la que te encuentras. Si tienes éxito, tendrás el control de la zona durante 10 minutos.<br /><em>Por haber contemplado 1 <strong>Armageddon</strong>, puedes realizar esta acción especial <strong>una vez por partida</strong>.</em>]]></target>
       </segment>
     </unit>
     <unit id="h_IEt7t" name="71ee522">
@@ -7736,7 +7736,7 @@
       </notes>
       <segment>
         <source>Du versuchst dich einem Zombie zu nähern, aber &lt;strong&gt;der Zombie reißt dir fast das Gesicht mit seinen Zähnen ab&lt;/strong&gt;! Unmöglich zu bestehen...</source>
-        <target><![CDATA[Du versuchst dich einem Zombie zu nähern, aber <strong>der Zombie reißt dir fast das Gesicht mit seinen Zähnen ab</strong>! Unmöglich zu bestehen...]]></target>
+        <target><![CDATA[Intentas acercarte a un zombie, ¡pero <strong>casi te muerte más de una vez</strong>! No pudiste hacer nada...]]></target>
       </segment>
     </unit>
     <unit id="eKYdtdt" name="a78efbb">
@@ -7745,7 +7745,7 @@
       </notes>
       <segment>
         <source>Du rennst schreiend in den ersten Zombie in Reichweite! Mit einem kraftvollen, gut angepassten Schulterschlag &lt;strong&gt;schickst du ihn ein paar Meter weiter in den Staub&lt;/strong&gt;...{hr}Du kannst diese Gelegenheit zur Flucht nutzen!</source>
-        <target><![CDATA[Du rennst schreiend in den ersten Zombie in Reichweite! Mit einem kraftvollen, gut angepassten Schulterschlag <strong>schickst du ihn ein paar Meter weiter in den Staub</strong>...{hr}Du kannst diese Gelegenheit zur Flucht nutzen!]]></target>
+        <target><![CDATA[¡Cargas contra el primer zombie a tu alcance! Con una poderoso y bien ajustado golpe de hombro <strong>lo lanzas a comer arena y polvo a varios metros de distancia</strong>...{hr}¡Puedes aprovechar esta oportunidad para escapar!]]></target>
       </segment>
     </unit>
     <unit id="8vj_Qd7" name="Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!">
@@ -7790,7 +7790,7 @@
       </notes>
       <segment>
         <source>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei.</source>
-        <target>Nada mejor que perforarte los tímpanos para empezar la mañana y recibir 1 PA adicional después del ataque.</target>
+        <target>Nada mejor que perforarte los tímpanos para empezar la mañana y recibir 1 Punto de Acción adicional después del ataque.</target>
       </segment>
     </unit>
     <unit id="ApkAd1P" name="Möchtest du %target% heimbringen?">
@@ -7799,7 +7799,7 @@
       </notes>
       <segment>
         <source>Möchtest du %target% heimbringen?</source>
-        <target>Möchtest du %target% heimbringen?</target>
+        <target>¿Quieres rescatar a %target% ?</target>
       </segment>
     </unit>
     <unit id="Y5MBnJg" name="Du hast {item_from} in {item_to} verwandelt.">
@@ -7952,7 +7952,7 @@
       </notes>
       <segment>
         <source>Du gibst deinem {tamer_dog} {items_consume}, die er gierig hinunterschlingt.{hr}Es vergeht keine Minute bis die Drogen Wirkung zeigen: Dein Fifi hat nun leuchtende Augen, ein glänzendes Fell und einen wedelnden Schwanz.</source>
-        <target>Le das {items_consume} a {tamer_dog} en un solo bocado.{hr}En unos minutos la sustancia hará efecto: tu animal tendrá una vista prodigiosa, el pelo más brillante que nunca y la cola sacudiente.</target>
+        <target>Le das {items_consume} a {tamer_dog} de un solo bocado.{hr}En unos minutos la sustancia hará efecto: tu animal tendrá una vista prodigiosa, el pelo más brillante que nunca y la cola sacudiente.</target>
       </segment>
     </unit>
     <unit id="EhU2or6" name="b621fab">
@@ -8033,7 +8033,7 @@
       </notes>
       <segment>
         <source>Merkwürdig... anscheinend ist der erwartete Effekt ausgeblieben. Du sagst dir selbst, das dies eine unglaubliche Chance ist...</source>
-        <target>Merkwürdig... anscheinend ist der erwartete Effekt ausgeblieben. Du sagst dir selbst, das dies eine unglaubliche Chance ist...</target>
+        <target>Extraño... al parecer la sustancia no tuvo el efecto esperado. Te convences de que tienes una suerte increíble...</target>
       </segment>
     </unit>
     <unit id="IELZytx" name="Vielleicht solltest du das mithilfe des Wasserhahns füllen...">
@@ -8042,7 +8042,7 @@
       </notes>
       <segment>
         <source>Vielleicht solltest du das mithilfe des Wasserhahns füllen...</source>
-        <target><![CDATA[Tal vez deberías usar la <strong>grifería</strong> para eso...]]></target>
+        <target><![CDATA[Tal vez deberías usar la <strong>Grifería</strong> para eso...]]></target>
       </segment>
     </unit>
     <unit id="NVMPUn." name="Du bist ab sofort getarnt.">
