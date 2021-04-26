@@ -7822,7 +7822,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Geheime Schlüssel des Spielers dürfen nur an diejenige Externe Anwendung gesendet werden, zu welcher sie gehören.</source>
-        <target>La clé secrète du joueur ne peut être envoyée qu'à l'application externe auxquelles ils appartiennent.</target>
+        <target>La clé secrète du joueur ne peut être envoyée qu'à l'application externe liée au script uniquement.</target>
       </segment>
     </unit>
     <unit id="rj2MQgA" name="7b7227a">
@@ -7831,7 +7831,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Informationen über &lt;strong&gt;"Geheime Rollen"&lt;/strong&gt; eines Spielers, wie beispielsweise den Ghul-Zustand, dürfen ebenfalls nicht übertragen werden. Dies schließt alle Informationen ein, die einen Spieler als Forenmoderator enttarnen könnten.</source>
-        <target><![CDATA[Les informations sur les <strong>"rôles secrets"</strong> d'un joueur, tel que l'état de Goule, ne doit pas être transféré. Cela inclut également toutes les informations pouvant potentiellement révéler un utilisateur comme étant un modérateur sur le forum.]]></target>
+        <target><![CDATA[Les informations sur les <strong>"rôles secrets"</strong> d'un joueur, tel que l'état de Goule, ne doivent pas être transféré. Cela inclut également toutes les informations pouvant potentiellement révéler un utilisateur comme étant un modérateur sur le forum.]]></target>
       </segment>
     </unit>
     <unit id="n8MMaiP" name="3e0fdf4">
@@ -7840,7 +7840,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Werden Informationen übertragen und für andere Spieler sichtbar gemacht (egal ob direkt oder in aggregierter Form), welche &lt;strong&gt;nicht über die Externe API verfügbar sind&lt;/strong&gt;, so muss es für die Spieler jederzeit möglich sein, diese Informationen auch ohne Verwendung des Scriptes einzutragen (beispielsweise über eine Weboberfläche). Nicht plausible Informationen dürfen zurückgewiesen werden (beispielsweise wenn ein Spieler behauptet, heute 5000 AP ausgegeben zu haben), grundsätzlich muss es Spielern jedoch ermöglicht werden, &lt;strong&gt;Informationen zu falsifizieren&lt;/strong&gt;. Die theoretische Möglichkeit, das Script zu editieren oder in dessen Kommunikation mit dem Server einzugreifen zählen &lt;u&gt;nicht&lt;/u&gt; als legitime Methoden für die Falsifizierung von Informationen. Grundsätzlich darf für andere Spieler nicht trivial ersichtlich sein, ob eine Information automatisch erfasst oder händisch von einem Spieler eingetragen wurde.</source>
-        <target><![CDATA[Si des informations sont transférées et rendues visibles à d'autres joueurs (directement ou sous forme agrégée), et qui <strong>ne sont pas disponibles via l'API externe</strong>, il doit y avoir un moyen facile pour l'utilisateur de créer ces informations sans utiliser le script (par exemple en utilisant une page Web permettant à l'utilisateur de saisir manuellement les informations). Les informations non plausibles peuvent être rejetées (par exemple, si un joueur prétend avoir dépensé aujourd'hui 5000 PA), mais les utilisateurs doivent pouvoir <strong>falsifier les informations</strong>. La possibilité théorique de modifier le script ou d'intervenir dans sa communication avec le serveur <u>ne compte pas</u> comme méthodes légitimes pour la falsification des informations. Il ne dois pas avoir d'indication aux d'autres joueurs si des données ont étées acquises via un script ou entrées manuellement par un utilisateur.]]></target>
+        <target><![CDATA[Si des informations sont transférées et rendues visibles à d'autres joueurs (directement ou sous forme agrégée), et qui <strong>ne sont pas disponibles via l'API externe</strong>, il doit y avoir un moyen facile pour l'utilisateur de créer ces informations sans utiliser le script (par exemple en utilisant une page Web permettant à l'utilisateur de saisir manuellement les informations). Les informations non plausibles peuvent être rejetées (par exemple, si un joueur prétend avoir dépensé aujourd'hui 5000 PA), mais les utilisateurs doivent pouvoir <strong>falsifier les informations</strong>. La possibilité théorique de modifier le script ou d'intervenir dans sa communication avec le serveur <u>ne comptent pas</u> comme méthode légitime pour la falsification des informations. Il ne doit pas y avoir d'indication aux d'autres joueurs si des données ont été acquises via un script ou entrées manuellement par un utilisateur.]]></target>
       </segment>
     </unit>
     <unit id=".I3a26W" name="Weitere Richtlinien">
@@ -7858,7 +7858,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Visuelle Elemente, welche durch ein Script in das Spiel integriert werden, dürfen sich in ihrem Design an MyHordes orientieren. Es sollte jedoch für den Spieler jederzeit erkennbar sein, dass es sich um ein Element des Scripts und nicht des Spiels selbst handelt.</source>
-        <target>Les éléments visuels intégrés au jeu via un script peuvent être basés sur la conception de MyHordes. Cependant, il doit être reconnaissable pour le joueur à tout moment qu'il s'agit d'un élément du script et non du jeu lui-même.</target>
+        <target>Les éléments visuels introduits dans MyHordes par le script peuvent adapter le style général de MyHordes, mais il doit être clair pour l'utilisateur qu'ils proviennent d'un script malgré tout.</target>
       </segment>
     </unit>
     <unit id="5IonOmt" name="e055ac0">
