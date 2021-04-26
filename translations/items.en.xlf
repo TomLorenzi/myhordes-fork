@@ -7946,7 +7946,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du gibst deinem {tamer_dog} {items_consume}, die er gierig hinunterschlingt.{hr}Es vergeht keine Minute bis die Drogen Wirkung zeigen: Dein Fifi hat nun leuchtende Augen, ein glänzendes Fell und einen wedelnden Schwanz.</source>
-        <target>Du gibst deinem {tamer_dog} {items_consume}, die er gierig hinunterschlingt.{hr}Es vergeht keine Minute bis die Drogen Wirkung zeigen: Dein Fifi hat nun leuchtende Augen, ein glänzendes Fell und einen wedelnden Schwanz.</target>
+        <target>You give some {items_consume} to {tamer_dog} which got wolfed down in one gulp.{hr}It only took a few minutes for the drugs to kick in: your labradoodle now has bright eyes, a glossy coat and a wagging tail.</target>
       </segment>
     </unit>
     <unit id="EhU2or6" name="b621fab">
