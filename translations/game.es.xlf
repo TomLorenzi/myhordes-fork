@@ -7241,7 +7241,7 @@
       </notes>
       <segment>
         <source>Du hast %count% Aktionspunkt(e) benutzt.</source>
-        <target>Has utilizado %count%PA.</target>
+        <target>Has utilizado %count% Punto(s) de Acción.</target>
       </segment>
     </unit>
     <unit id="7Tv2eKD" name="8d60c8e">
