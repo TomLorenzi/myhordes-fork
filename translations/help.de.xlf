@@ -7955,7 +7955,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Wortklauberei setzt die hier genannten Regeln nicht außer Kraft ('&lt;i&gt;die Regeln besagen, ich darf keinen Button platzieren, darum platziere ich stattdessen ein klickbares Label!&lt;/i&gt;').</source>
-        <target><![CDATA[Wortklauberei setzt die hier genannten Regeln nicht außer Kraft ('<i>die Regeln besagen, ich darf keinen Button platzieren, darum platziere ich stattdessen ein klickbares Label!</i>').]]></target>
+        <target><![CDATA[Wortklauberei setzt die hier genannten Regeln nicht außer Kraft (z.B. : '<i>die Regeln besagen, ich darf keinen Button platzieren, darum platziere ich stattdessen ein klickbares Label!</i>').]]></target>
       </segment>
     </unit>
     <unit id="ZE.qMBw" name="585bdf8">
