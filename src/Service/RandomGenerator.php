@@ -38,6 +38,24 @@ class RandomGenerator
         else return array_map( function($k) use (&$a) { return $a[$k]; }, array_rand( $a, min($num,count($a)) ) );
     }
 
+    function pickEntryFromRawRandomArray( array $g ) {
+        if (empty($g)) return null;
+        $sum = 0;
+        foreach ( $g as $entry )
+            $sum += abs($entry[1]);
+        if ($sum === 0) {
+            $pe = $this->pick( $g );
+            return $pe[0];
+        }
+        $random = mt_rand(0,$sum-1);
+        $sum = 0;
+        foreach ( $g as $entry ) {
+            $sum += abs($entry[1]);
+            if ($sum > $random) return $entry[0];
+        }
+        return $g[array_key_last($g)][0];
+    }
+
     /**
      * @param RandomEntry[] $g
      * @return RandomEntry|null

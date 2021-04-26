@@ -1429,7 +1429,7 @@
       </notes>
       <segment>
         <source>Das Leben nach dem Tod</source>
-        <target>Das Leben nach dem Tod</target>
+        <target>Life after death</target>
       </segment>
     </unit>
     <unit id="s0KqeMJ" name="Meine Seele ansehen">
@@ -1438,7 +1438,7 @@
       </notes>
       <segment>
         <source>Meine Seele ansehen</source>
-        <target>Meine Seele ansehen</target>
+        <target>View my soul</target>
       </segment>
     </unit>
     <unit id="_pEJUyq" name="Spendenseite aufrufen">
@@ -1447,7 +1447,7 @@
       </notes>
       <segment>
         <source>Spendenseite aufrufen</source>
-        <target>Spendenseite aufrufen</target>
+        <target>Go to the donation page</target>
       </segment>
     </unit>
     <unit id="lrar0xr" name="Willkommen in der Hölle!">
@@ -1456,7 +1456,7 @@
       </notes>
       <segment>
         <source>Willkommen in der Hölle!</source>
-        <target>Willkommen in der Hölle!</target>
+        <target>Welcome in Hell!</target>
       </segment>
     </unit>
     <unit id="7zJqkQY" name="34025a5">
@@ -1465,7 +1465,7 @@
       </notes>
       <segment>
         <source>Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.</source>
-        <target>Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.</target>
+        <target>You are in the process of joining a city with 39 other poor souls with the goal of surviving as long as possible.</target>
       </segment>
     </unit>
     <unit id="29U26Sd" name="Spiel betreten">
@@ -1474,7 +1474,7 @@
       </notes>
       <segment>
         <source>Spiel betreten</source>
-        <target>Spiel betreten</target>
+        <target>Enter the game</target>
       </segment>
     </unit>
   </file>

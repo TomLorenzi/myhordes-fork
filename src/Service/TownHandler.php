@@ -81,10 +81,10 @@ class TownHandler
      * @param Town $town The town on which we run the triggers
      * @return boolean Did something changed ?
      */
-    public function triggerAlways( Town $town ): bool {
+    public function triggerAlways( Town $town, bool $attack = false ): bool {
         $changed = false;
 
-        if ( $town->getDoor() && !$town->getDevastated() && (($s = $this->timeKeeper->secondsUntilNextAttack(null, true)) <= 1800) ) {
+        if ( $town->getDoor() && !$town->getDevastated() && (($s = $attack ? 0 : $this->timeKeeper->secondsUntilNextAttack(null, true))) <= 1800 ) {
 
             $close_ts = null;
             if ($this->getBuilding( $town, 'small_door_closed_#02', true )) {

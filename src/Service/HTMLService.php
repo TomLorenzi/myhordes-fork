@@ -24,6 +24,12 @@ class HTMLService {
     private RandomGenerator $rand;
     private Packages $asset;
 
+    const ModulationNone    = 0;
+    const ModulationDrunk   = 1 << 1;
+    const ModulationTerror  = 1 << 2;
+    const ModulationHead    = 1 << 3;
+
+
     public function __construct(EntityManagerInterface $em, PermissionHandler $perm, TranslatorInterface $trans, RandomGenerator $rand, Packages $a)
     {
         $this->entity_manager = $em;
@@ -99,6 +105,14 @@ class HTMLService {
         ]
     ];
 
+    protected const HTML_IMMUTABLE = [
+        'img.*' => true,
+        '*.class' => [
+            'clear', 'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
+            'letter-a', 'letter-v', 'letter-c', 'rps', 'coin', 'card', 'citizen', 'rpText', 'html',
+            'oracleAnnounce', 'modAnnounce', 'adminAnnounce'
+        ]
+    ];
 
     protected function getAllowedHTML(int $permissions, bool $extended = true): array {
         $mods_enabled = ['core'];
@@ -300,6 +314,177 @@ class HTMLService {
         $text = $tmp_str;
 
         return true;
+    }
+
+    protected const MODULATION_LIST = [
+        self::ModulationDrunk => [
+            'de' => ["äähh.. ",".. nicht?.. oder?",".d..di...dings...","...","...ee..",".. hey warte..","so voll...","... weisst du, weil...",".. und ich...","..häh?..","äh... dort",".. das meine ich...",".. nein...","... glaub dass....dumm anmachen!?. ..",".. krass halt.. weisst schon..... na und!...","..voll der Saustall...",".. ein ähh...",".. aber... ääh..","... HICKS...","und paaam!...",".. alles klar...","... weisst schon wie ich mein'....weisscho...",".. dingsbums..","...e sagen?... ...","hmmmm...","......glaub","... dieses Teil.. ","..oder... ","... dieses ding da ..","...siehste!",".gghhh...","... gl...Ll..aub dass... ahd...","... noch schlimmer..","... weisst..tt... t du, weil...","...auch nicht..."],
+            'en' => [".. a ahh..",".. best actor in Hollywood? Easy. Steven Seagal...",".. burp...",".. dammit...",".. dump..",".. erm yeah... so yeah...",".. in the end.. you see...",".. no ..well well...wait.",".. no?.. eh?",".. so I...",".. thingummy...",".. whatsherface...",".. yeah dude...",".. you have pretty eyes...","... b'cause y'know..","... banjo..","... but don't you remember I said I was allergic to rabbits ...","... doofer..","... erm...","... I believe the plural is peniii...","... i believe...","... now lookee heere...","... the...","... thingy..","... whatsitsname....","... 2 Scotsmen, 2 Englishmen and a Canadian walk into a bar.","... beep, cleep, chimney...","... I didn't fall, there's just more gravity over here...","... well well....",".. have you met Epoq?",".. Heehee...",".. now then...",".. or ...",".. stranger and strangerer...",".. you see, he was standing ON the giraffe...",".t..T..Thing is...","an' emmm..","and eh... there were Jagerbombs...","and euuh..","arf....","beer o'clock...","dump..","HIC...","in like...","meh...","nah?.. huh?","no...","there it is... what?","what the...","y'know...","you and me. outside...","...that's numberwang!...",".. that thing there...",".. meh...  ",".... what already.....","... yep...",".. erm yeah... so yeah..."],
+            'es' => [],
+            'fr' => ["mais... euh..","...","... truc..","et euuh..",".. ouais les gars...","..hin hin...","voilà quoi...","... comment déjà...","..hein ?",".. un euh...","..Hi hi hi ! ...",".. bordel..","non ?.. Oui ?","..ou bien...",".. pis alors...","... HIPS...","... j'crois...",".. Hé hé...",",pfff...","genre..","... parce que tu vois...","... j'crois...",".t.. T.. Truc...",".. et euh... j'disais quoi...","arf.","euh...","... ou pas quoi...",".. non attend...","... ouais...",".. Qu'est-ce que...","... parceque..","... le...","euh... j'disais quoi...","huh...","..le bazar quoi...","style...",".gghhh...",".. mais... euh..","... machin..","truc","... et euuh..","..tu vois..","style...","... j'crois...",".. voilà quoi...",".. bidule...","... comment déjà..","..hein ?..",".. bordel..","... pis alors...","HIPS","huh...","... le bazar, là..","...genre...",".. le truc, là..",".. un euh ..."],
+        ],
+        self::ModulationTerror => [
+            'de' => [],
+            'en' => [[".. AH AH AH! ...",".. who's there?..","... but seriously, onions? wheeeee! ....","... My sainted trousers!","... oooh! look! shiny!!! ...","..as the bishop said to the nun, what?","..Hehehehehe! ...","..is underestimating the sneakiness..","..Leave me! ..,","..my giddy aunt..","..ouch! pointy...","..the.. voices...","..they are everywhere...",".gghhh...","exploding trousers ..","By the beard of Zeus! Ah!","bzzz, bzzzz, listen","NOOOoo!","so much more room for activities!","that's what she said..","the spiders...","alright stop, collaborate and listen...","the great unknown…","tiddly bang bang",".. Meuuuhh.. What?","....Surprise","... laugh .."],["atrocity","crazy","dandleban","decay","Father Christmas","filthy","fistlebars","flower","giant carrot","groan...","horrible","how rude","jabberwocky","mumble...","plane","poisonous monkeys","potato","redrum...","shovel","smugly","table","tomato","ultra-banana","yingiebert","Zinglebert Wangledack","zombie","banana"]],
+            'es' => [],
+            'fr' => [["… ou bien…",".gghhh...","..hin hin...","non ?.. Oui ?",",mon ami Pierroooot","... toujours un beau temps au nord ...","grogne...",".. Ah... Ah ah..","..rrRRR... RAAAAaah !","..froid..",".. qui est là ?..",". Pas du tout..",".. Alouetteuuh gentiiil.. Hein ?..","...ricane..",",.r.tuer...","... Mon beau sapiiin ! ....","..les.. voix...","pirouette cacahuètes ...","ainsi font font FONT !! Ah !...","..ils sont partout...","..vais tous vous...",".. roule petit patapon ...",".. AH AH AH !…",".. Laissez moi !","NOOOoon !...","..Lachez moi !..",",..hein ?","..Hi hi hi ! ...","car il y a longtemps que je t'aime...",". Pas du tout...","des araignées..."],["biloute","souffrances","fleur","dévorer","schtroumpfer","sapine","pépin","galinacée","horrible","patate","pourriture","polompolom","pelle","pomme","monstre","rigolo","poire","infection","tulipe","peur","carotte","avion","youpi-banane","immonde","papa Noël","tomate","folie"]],
+        ],
+        self::ModulationHead => [
+            'de' => ["..Gr..","...argh..","...ggh..","hust...","RAAH! ..",".. nein...","..der...","... Ich...","..raah..",".n...","stöhn...","..nng.."],
+            'en' => ["..Gr..","...argh..","...ggh..","cough...","RAAH! ..",".. no...","..the...","... I...","..raah..",".n...","groan...","..nng.."],
+            'es' => [],
+            'fr' => ["..raah..","...argh..","..gnn..","grogne...","..Gn..","....","tousse...","RAAH !..","...ggh..","..le...","qu.. non...","... je...",".g..."],
+        ],
+    ];
+
+    public function htmlDistort( string $text, int $modulation, string $lang = 'de', ?bool &$distorted = null ): string {
+        $mod_list = [];
+
+        if ($this->rand->chance(0.05)) {
+            $distorted = false;
+            return $text;
+        }
+
+        foreach (static::MODULATION_LIST as $m => $langs)
+            if (($m & $modulation) === $m && isset($langs[$lang]) && !empty($langs[$lang]))
+                $mod_list[$m] = $langs[$lang];
+
+        if (empty($mod_list)) {
+            $distorted = false;
+            return $text;
+        }
+
+        $dom = new DOMDocument();
+        libxml_use_internal_errors(true);
+        $dom->loadHTML( "<html lang=''><head><title></title><meta charset='UTF-8' /></head><body>$text</body></html>", LIBXML_COMPACT | LIBXML_NONET | LIBXML_HTML_NOIMPLIED);
+        $body = $dom->getElementsByTagName('body');
+
+        $node_collection = [];
+        $total_length = 0;
+
+        $traverse = function(DOMNode $node, int $depth = 0) use (&$node_collection, &$traverse, &$total_length,&$dom) {
+
+            if ($depth > 32) return;
+
+            if ($node->nodeType === XML_ELEMENT_NODE) {
+
+                $process = true;
+
+                $targets = ['*',$node->nodeName];
+                for ($i = 0; $i < $node->attributes->length; $i++) {
+
+                    $n = $node->attributes->item($i)->nodeName;
+                    foreach ($targets as $target) if (isset(static::HTML_IMMUTABLE["$target.$n"])) {
+
+                        $set = static::HTML_IMMUTABLE["$target.$n"];
+                        if ($set === true || in_array($node->attributes->item($i)->nodeValue, $set)) {
+                            $process = false;
+                            break 2;
+                        }
+
+                        if (is_array($set)) foreach (explode(' ', $node->attributes->item($i)->nodeValue) as $value)
+                            if (in_array($value, $set)) {
+                                $process = false;
+                                break 3;
+                            }
+
+
+                    }
+
+                }
+
+                if ($process)
+                    foreach ( $node->childNodes as $child )
+                        $traverse($child, $depth + 1);
+
+            } elseif ($node->nodeType === XML_TEXT_NODE) {
+                $l = mb_strlen($node->textContent);
+
+                if ($l == 0) return;
+
+                $total_length += $l;
+
+                while (($l = mb_strlen($node->textContent)) > 100) {
+
+                    $m = [];
+                    preg_match_all('/\s+/', mb_substr($node->textContent, 0, 110), $m, PREG_SET_ORDER|PREG_OFFSET_CAPTURE);
+                    if (!empty($m)) $m = $m[array_key_last($m)];
+
+                    $use_split = (!empty($m) && $m[array_key_last($m)][1] > 80);
+                    $split = $use_split ? $m[array_key_last($m)][1] : 100;
+
+                    $n = $dom->createTextNode( mb_substr($node->textContent, 0, $split) );
+                    $node->textContent = mb_substr( $node->textContent, $split );
+                    $node->parentNode->insertBefore( $n, $node );
+                    $node_collection[] = [$n, mb_strlen($n->textContent)];
+                }
+                $node_collection[] = [$node, $l];
+            }
+        };
+
+        if (isset($body[0])) $traverse($body[0]);
+
+        if ($total_length === 0 || empty($node_collection)) {
+            $distorted = false;
+            return $text;
+        }
+
+        $mod_double_letters = function(array &$segments, float $chance) {
+            foreach ($segments as &$segment) {
+                $o = ord(strtoupper($segment));
+                if ($o >= 65 && $o <= 90 && $this->rand->chance($chance))
+                    $segment = chr($o) . '...' . strtolower(chr($o)) . '...' . $segment;
+                else {
+                    $ri = mt_rand(0, mb_strlen($segment));
+                    $o = ord(strtoupper(substr($segment, $ri)));
+                    if ($o >= 65 && $o <= 90 && $this->rand->chance($chance))
+                        $segment = substr($segment, 0, $ri) . '...' . strtolower(chr($o)) . '...' . substr($segment, $ri);
+                }
+            }
+        };
+
+        $mod_insert_replace = function(array &$segments, float $replace_chance,  int $r, array $short_list, array $long_list) {
+            if ($this->rand->chance($replace_chance)) $segments[$r] = $this->rand->pick( $short_list );
+            else $segments = array_merge(
+                array_slice($segments,0,$r),
+                [$this->rand->pick( $long_list )],
+                array_slice($segments,$r)
+            );
+        };
+
+        foreach ($node_collection as $potential_node)
+            if ($this->rand->chance( $potential_node[1] / 80.0 )) {
+
+                // Chose a modulation
+                $mod = $this->rand->pick(array_keys($mod_list));
+
+                $segments = preg_split('/\s+/', $potential_node[0]->textContent, -1 );
+                $r = mt_rand(0,count($segments) - 1);
+
+                $distorted = true;
+
+                if ($mod === HTMLService::ModulationHead) {
+
+                    // Head modulation: Insert distortion in any word
+                    $ri = mt_rand(0, mb_strlen($segments[$r]));
+                    $segments[$r] = substr($segments[$r], 0, $ri) . $this->rand->pick($mod_list[$mod]) . substr($segments[$r], $ri);
+
+                } elseif ($mod === HTMLService::ModulationTerror) {
+                    $mod_double_letters($segments, 0.05);
+                    $mod_insert_replace( $segments, 0.5, $r, $mod_list[$mod][1], $mod_list[$mod][0] );
+                } else {
+                    $mod_double_letters($segments, 0.02);
+                    $mod_insert_replace( $segments, 0.25, $r, $mod_list[$mod], $mod_list[$mod] );
+                }
+
+                $potential_node[0]->textContent = implode(' ', $segments);
+            }
+
+        $tmp_str = "";
+        foreach ($body->item(0)->childNodes as $child)
+            $tmp_str .= $dom->saveHTML($child);
+
+        return $tmp_str;
     }
 
     protected $emote_cache = null;

@@ -777,7 +777,7 @@ class NightlyHandler
 		
 		
 		//$in_town = $town->getChaos() ? max(10,count($targets)) : count($targets);
-		$in_town = max(8, ceil(count($targets) * 0.85));
+		$in_town = min(10, ceil(count($targets) * 0.85));
 		
 		$attacking = min($max_active, $overflow);
 
@@ -1447,7 +1447,7 @@ class NightlyHandler
 
         foreach ($events as $event) $event->hook_nightly_pre($town);
 
-        $this->town_handler->triggerAlways( $town );
+        $this->town_handler->triggerAlways( $town, true );
 
         $this->log->info('Entering <comment>Phase 1</comment> - Pre-attack processing');
         $this->stage1_prepare($town);
