@@ -61,7 +61,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</source>
-        <target><![CDATA[Lanzas una carta... ¡Y pegas un grito al descubrir <strong>que lleva tu nombre escrito con sangre! ¿Quién pudo hacerte esta broma de mal gusto?{hr}¡La impresión te deja <strong>aterrorizado</strong>]]></target>
+        <target><![CDATA[Lanzas una carta... ¡Y pegas un grito al descubrir que <strong>lleva tu nombre escrito con sangre</strong>! ¿Quién pudo hacerte esta broma de mal gusto?{hr}¡La impresión te deja <strong>aterrorizado</strong>]]></target>
       </segment>
     </unit>
     <unit id="NcJ93EV" name="9ae05d1">
@@ -5687,7 +5687,7 @@
       </notes>
       <segment>
         <source>Dieser Schlüssel ist der Liebling aller Einbrecher und öffnet Türen so rasend schnell, dass man sich glatt fragt, warum man überhaupt noch normale Schlüssel benutzt. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</source>
-        <target>Esta llave, muy apreciada por los ladrones de casas, abre cualquier puerta en segundos. Entonces, ¿para qué sirven las llaves tradicionales? Desgraciadamente, su mal estado solo permite abrir unapuerta.</target>
+        <target>Esta llave, muy apreciada por los ladrones de casas, abre cualquier puerta en segundos. Entonces, ¿para qué sirven las llaves tradicionales? Desgraciadamente, su mal estado solo permite abrir una puerta.</target>
       </segment>
     </unit>
     <unit id="tXHEeaI" name="284ff3d">
@@ -8078,8 +8078,7 @@
       </notes>
       <segment>
         <source>&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-door-closed>{tamer_dog} se pone a chillar. Si su instinto no falla, eso quiere decir que <strong>el Portal del pueblo está cerrado...</strong></t-door-closed><t-no-items>{tamer_dog} no tiene nada que llevar, tu mochila está <strong>vacía</strong>.</t-no-items></t-fail><nt-fail>Envías a {tamer_dog} con dirección al pueblo llevando todo el contenido de tu mochila.{hr}<strong>Tus vecinos estarán contentos cuando encuentren todo eso en el Almacén.</strong></nt-fail>
-]]></target>
+        <target><![CDATA[<t-fail><t-door-closed>{tamer_dog} se pone a chillar. Si su instinto no falla, eso quiere decir que <strong>el Portal del pueblo está cerrado...</strong></t-door-closed><t-no-items>{tamer_dog} no tiene nada que llevar, tu mochila está <strong>vacía</strong>.</t-no-items></t-fail><nt-fail>Envías a {tamer_dog} con dirección al pueblo llevando todo el contenido de tu mochila.{hr}<strong>Tus vecinos estarán contentos cuando encuentren todo eso en el Almacén.</strong></nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="JN1w0ES" name="8d4ec3e">
