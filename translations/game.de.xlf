@@ -6907,7 +6907,7 @@
       </notes>
       <segment>
         <source>Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</source>
-        <target>Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</target>
+        <target>Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP zu erhalten.</target>
       </segment>
     </unit>
     <unit id="GbpuPWq" name="d8005f5">

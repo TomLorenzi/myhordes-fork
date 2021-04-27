@@ -7609,5 +7609,275 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
         <target><![CDATA[Il n'est peut-être pas faux d'emporter des <strong>provisions</strong> (nourriture et / ou eau) avant de quitter la ville ... Accédez à la zone <strong>Ma Maison</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="YWDgwY8" name="Externe Scripte">
+      <notes>
+        <note category="german">Externe Scripte</note>
+      </notes>
+      <segment>
+        <source>Externe Scripte</source>
+        <target>Scripts externes</target>
+      </segment>
+    </unit>
+    <unit id="vB0H4j5" name="Für Community-Entwickler">
+      <notes>
+        <note category="german">Für Community-Entwickler</note>
+      </notes>
+      <segment>
+        <source>Für Community-Entwickler</source>
+        <target>Pour les développeurs communautaires</target>
+      </segment>
+    </unit>
+    <unit id="AVd4ZVz" name="d772232">
+      <notes>
+        <note category="german">Mithilfe von Scripten können Spieler die Funktionen und Benutzeroberfläche von MyHordes an ihre Bedürfnisse anpassen. Damit das Spiel dennoch für alle fair bleibt, gelten einige Regeln für den Einsatz von Scripten (unabhängig davon, ob ihr eure Scripte weitergebt oder nur für euch selbst verwendet).</note>
+      </notes>
+      <segment>
+        <source>Mithilfe von Scripten können Spieler die Funktionen und Benutzeroberfläche von MyHordes an ihre Bedürfnisse anpassen. Damit das Spiel dennoch für alle fair bleibt, gelten einige Regeln für den Einsatz von Scripten (unabhängig davon, ob ihr eure Scripte weitergebt oder nur für euch selbst verwendet).</source>
+        <target>Avec l'aide de scripts, les joueurs peuvent adapter les fonctions et l'interface utilisateur du MyHordes à leurs besoins. Pour que le jeu reste toujours équitable pour tout le monde, certaines règles s'appliquent à l'utilisation de scripts (indépendamment de savoir si votre script est utilisé par d'autres ou utilisé uniquement par vous-même).</target>
+      </segment>
+    </unit>
+    <unit id="XY_OEJT" name="b15dd21">
+      <notes>
+        <note category="german">Diese Regeln beziehen sich auf sämtliche client-seitige Erweiterungen der MyHordes-Webseite. Alles, was das Aussehen und die Funktion von MyHordes innerhalb des Browsers eines Benutzers verändert, wird im Rahmen dieser Regeln als "Script" bezeichnet, also beispielsweise Extensions, Plug-Ins, User-Scripts und User-Styles.</note>
+      </notes>
+      <segment>
+        <source>Diese Regeln beziehen sich auf sämtliche client-seitige Erweiterungen der MyHordes-Webseite. Alles, was das Aussehen und die Funktion von MyHordes innerhalb des Browsers eines Benutzers verändert, wird im Rahmen dieser Regeln als "Script" bezeichnet, also beispielsweise Extensions, Plug-Ins, User-Scripts und User-Styles.</source>
+        <target>Ces règles font référence à toutes les extensions côté client du site Web de MyHordes. Tout ce qui change l'apparence et les fonctions de MyHordes dans le navigateur d'un utilisateur est appelé "script" dans le contexte de ces règles, par exemple, des extensions, des plug-ins, des scripts utilisateur et des styles d'utilisateur.</target>
+      </segment>
+    </unit>
+    <unit id="m98RQP1" name="Verbot kommerzieller Scripte">
+      <notes>
+        <note category="german">Verbot kommerzieller Scripte</note>
+      </notes>
+      <segment>
+        <source>Verbot kommerzieller Scripte</source>
+        <target>Interdiction des scripts commerciaux</target>
+      </segment>
+    </unit>
+    <unit id="kCzLi_m" name="2c2ca86">
+      <notes>
+        <note category="german">Scripte (oder individuelle Funktionen von Scripten) dürfen &lt;strong&gt;unter keinen Umständen&lt;/strong&gt; kommerziell vertrieben werden.</note>
+      </notes>
+      <segment>
+        <source>Scripte (oder individuelle Funktionen von Scripten) dürfen &lt;strong&gt;unter keinen Umständen&lt;/strong&gt; kommerziell vertrieben werden.</source>
+        <target><![CDATA[Les scripts (ou les fonctions individuelles des scripts) ne peuvent être <strong>en aucun cas</strong> utilisés commercialement.]]></target>
+      </segment>
+    </unit>
+    <unit id="Otkd6Tw" name="Allgemeine Regeln">
+      <notes>
+        <note category="german">Allgemeine Regeln</note>
+      </notes>
+      <segment>
+        <source>Allgemeine Regeln</source>
+        <target>Règles générales</target>
+      </segment>
+    </unit>
+    <unit id="7b2MzR_" name="d515e54">
+      <notes>
+        <note category="german">Scripte müssen ihre Funktion in einer für den Anwender verständlichen Weise beschreiben, &lt;u&gt;bevor&lt;/u&gt; dieser das Script installiert. Wird durch ein automatisches Update eine signifikante neue Funktionalität hinzugefügt, so muss der Anwender hierüber informiert werden (beispielsweise mithilfe eines Popup-Dialogs).</note>
+      </notes>
+      <segment>
+        <source>Scripte müssen ihre Funktion in einer für den Anwender verständlichen Weise beschreiben, &lt;u&gt;bevor&lt;/u&gt; dieser das Script installiert. Wird durch ein automatisches Update eine signifikante neue Funktionalität hinzugefügt, so muss der Anwender hierüber informiert werden (beispielsweise mithilfe eines Popup-Dialogs).</source>
+        <target><![CDATA[Les scripts doivent décrire leurs fonctions de manière compréhensible pour l'utilisateur, <u>avant</u> que celui-ci installe le script. Si une nouvelle fonctionnalité significative est ajoutée par une mise à jour automatique du script, l'utilisateur doit être informé (par exemple, à l'aide d'une boîte de dialogue contextuelle).]]></target>
+      </segment>
+    </unit>
+    <unit id="Yh9L91s" name="7644a70">
+      <notes>
+        <note category="german">Scripte dürfen &lt;strong&gt;keine&lt;/strong&gt; Informationen anzeigen oder Aktionen durchführen, welche nicht in direktem Zusammenhang mit MyHordes stehen. Dies schließt Ausdrücklich die Anzeige von Werbung oder das Schürfen von Cryptowährungen ein.</note>
+      </notes>
+      <segment>
+        <source>Scripte dürfen &lt;strong&gt;keine&lt;/strong&gt; Informationen anzeigen oder Aktionen durchführen, welche nicht in direktem Zusammenhang mit MyHordes stehen. Dies schließt Ausdrücklich die Anzeige von Werbung oder das Schürfen von Cryptowährungen ein.</source>
+        <target><![CDATA[Les scripts <strong>ne doivent pas</strong> montrer des informations ou effectuer des actions qui ne sont pas directement liées à MyHordes. Cela inclut explicitement l'affichage de publicité ou le minage des crypto-monnaies.]]></target>
+      </segment>
+    </unit>
+    <unit id="kH_roWt" name="4575ea6">
+      <notes>
+        <note category="german">Ein Script darf keine Funktionen von MyHordes blockieren oder verstecken. Es ist jedoch erlaubt, Aktionen mit einer Warn- oder Bestätigungsmeldung zu versehen, solange diese vom Anwender ignoriert und die Aktion dennoch durchgeführt werden kann. Die Fähigkeit des Anwenders das Script zu deinstallieren, zählt ausdrücklich &lt;strong&gt;nicht&lt;/strong&gt; als legitime Möglichkeit solch eine Blockade zu umgehen</note>
+      </notes>
+      <segment>
+        <source>Ein Script darf keine Funktionen von MyHordes blockieren oder verstecken. Es ist jedoch erlaubt, Aktionen mit einer Warn- oder Bestätigungsmeldung zu versehen, solange diese vom Anwender ignoriert und die Aktion dennoch durchgeführt werden kann. Die Fähigkeit des Anwenders das Script zu deinstallieren, zählt ausdrücklich &lt;strong&gt;nicht&lt;/strong&gt; als legitime Möglichkeit solch eine Blockade zu umgehen</source>
+        <target><![CDATA[Un script ne doit en aucun cas bloquer ou masquer les fonctions de MyHordes. Cependant, il est autorisé à fournir des actions avec un message d'avertissement ou de confirmation tant que l'utilisateur peut l'ignorer et l'action peut toujours être effectuée. La capacité de l'utilisateur à désinstaller le script, <strong>ne compte pas</strong> comme une possibilité légitime d'éviter un tel blocage]]></target>
+      </segment>
+    </unit>
+    <unit id=".J2Tho5" name="442cde7">
+      <notes>
+        <note category="german">Die Verwendung des Scripts durch einen Anwender darf nicht dazu führen, dass sich das Spielerlebnis von Spielern ohne das Script verschlechtert. Beispielsweise ist es nicht zulässig, dem Forum über ein Script neue Formatierungsoptionen hinzuzufügen, wenn die daraus resultierenden Forenposts für Spieler ohne das Script nicht mehr lesbar sind.</note>
+      </notes>
+      <segment>
+        <source>Die Verwendung des Scripts durch einen Anwender darf nicht dazu führen, dass sich das Spielerlebnis von Spielern ohne das Script verschlechtert. Beispielsweise ist es nicht zulässig, dem Forum über ein Script neue Formatierungsoptionen hinzuzufügen, wenn die daraus resultierenden Forenposts für Spieler ohne das Script nicht mehr lesbar sind.</source>
+        <target>L'utilisation du script par un utilisateur ne doit pas conduire à une dégradation de l'expérience des autres joueurs. Par exemple, il n'est pas autorisé à ajouter de nouvelles options de formatage au forum via un script si les messages de forum résultants pour des joueurs sans le script ne sont plus lisibles.</target>
+      </segment>
+    </unit>
+    <unit id="CMVr7NL" name="Automatisierung">
+      <notes>
+        <note category="german">Automatisierung</note>
+      </notes>
+      <segment>
+        <source>Automatisierung</source>
+        <target>Automatisation</target>
+      </segment>
+    </unit>
+    <unit id="sEkWL_h" name="44b6c12">
+      <notes>
+        <note category="german">Scripte dürfen den allgemeinen Spielablauf nicht automatisieren. Insbesondere ist es verboten:</note>
+      </notes>
+      <segment>
+        <source>Scripte dürfen den allgemeinen Spielablauf nicht automatisieren. Insbesondere ist es verboten:</source>
+        <target>Les scripts ne doivent pas automatiser le gameplay. En particulier, il est interdit de:</target>
+      </segment>
+    </unit>
+    <unit id="edZwVNE" name="de7f1f0">
+      <notes>
+        <note category="german">&lt;strong&gt;Entscheidungen für den Spieler zu treffen&lt;/strong&gt;, beispielsweise indem nach 10 Schritten in der Außenwelt automatisch Wasser getrunken wird.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Entscheidungen für den Spieler zu treffen&lt;/strong&gt;, beispielsweise indem nach 10 Schritten in der Außenwelt automatisch Wasser getrunken wird.</source>
+        <target><![CDATA[<strong>prendre des décisions à la place du joueur</strong>, par exemple en utilisant automatiquement de l'eau après 10 mouvements dans l'Outre-Monde.]]></target>
+      </segment>
+    </unit>
+    <unit id="S8u9uRb" name="a780130">
+      <notes>
+        <note category="german">&lt;strong&gt;Externe Kommandos zu empfangen&lt;/strong&gt; und auszuführen, beispielsweise indem automatisch AP in empfohlene Baustellen investiert werden.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Externe Kommandos zu empfangen&lt;/strong&gt; und auszuführen, beispielsweise indem automatisch AP in empfohlene Baustellen investiert werden.</source>
+        <target><![CDATA[<strong>recevoir des commandes externes</strong> et de les exécuter, par exemple en investissant automatiquement des PA dans les chantiers recommandés.]]></target>
+      </segment>
+    </unit>
+    <unit id="fUwrzgg" name="72fe10d">
+      <notes>
+        <note category="german">Es ist jedoch erlaubt, existierende Funktionen in MyHordes in einem &lt;strong&gt;"Macro"&lt;/strong&gt; zusammenzufassen, solange die zusammengefassten Aktionen sehr ähnlich oder in den meisten Fällen als sukzessiv anzusehen sind. Die einzelnen Aktionen müssen weiterhin individuel auslösbar sein. Ein Beispiel hierfür wäre das automatische Setzen der Rucksack-Berechtigung zusammen mit der Aktivierung des Eskortenmodus.</note>
+      </notes>
+      <segment>
+        <source>Es ist jedoch erlaubt, existierende Funktionen in MyHordes in einem &lt;strong&gt;"Macro"&lt;/strong&gt; zusammenzufassen, solange die zusammengefassten Aktionen sehr ähnlich oder in den meisten Fällen als sukzessiv anzusehen sind. Die einzelnen Aktionen müssen weiterhin individuel auslösbar sein. Ein Beispiel hierfür wäre das automatische Setzen der Rucksack-Berechtigung zusammen mit der Aktivierung des Eskortenmodus.</source>
+        <target><![CDATA[Cependant, il est permis de résumer les fonctions existantes dans MyHordes dans une <strong>"macro"</strong> tant que les actions combinées sont très similaires ou dans la plupart des cas considérées comme successives. Les actions individuelles doivent rester disponibles pour l'utilisateur. Un exemple de ceci serait le réglage automatique de la permission du sac à dos avec l'activation de l'escorte.]]></target>
+      </segment>
+    </unit>
+    <unit id="wDKVJuS" name="d3a8c34">
+      <notes>
+        <note category="german">Es weiteren sollten Scripte mit den Ressourcen des MyHordes-Servers sparsam umgehen. Exzessives Absenden von Anfragen ist zu vermeiden.</note>
+      </notes>
+      <segment>
+        <source>Es weiteren sollten Scripte mit den Ressourcen des MyHordes-Servers sparsam umgehen. Exzessives Absenden von Anfragen ist zu vermeiden.</source>
+        <target>Les scripts doivent également prendre en compte les ressources de serveur de MyHordes. Une soumission excessive des demandes de renseignements doit être évitée.</target>
+      </segment>
+    </unit>
+    <unit id="9Hbxc7q" name="Sammeln und Speichern von Daten">
+      <notes>
+        <note category="german">Sammeln und Speichern von Daten</note>
+      </notes>
+      <segment>
+        <source>Sammeln und Speichern von Daten</source>
+        <target>Recueillir et enregistrer des données</target>
+      </segment>
+    </unit>
+    <unit id="flB0WGw" name="b02fb3c">
+      <notes>
+        <note category="german">Zur reinen &lt;strong&gt;Anzeige von Informationen&lt;/strong&gt; im Browser des Anwenders darf ein Script beliebige Aspekte der HTML-Struktur von MyHordes-Seiten lokal auswerten.</note>
+      </notes>
+      <segment>
+        <source>Zur reinen &lt;strong&gt;Anzeige von Informationen&lt;/strong&gt; im Browser des Anwenders darf ein Script beliebige Aspekte der HTML-Struktur von MyHordes-Seiten lokal auswerten.</source>
+        <target><![CDATA[Pour les <strong>informations d'affichage</strong> dans le navigateur de l'utilisateur, un script peut évaluer tous les aspects de la structure HTML des pages de MyHordes localement.]]></target>
+      </segment>
+    </unit>
+    <unit id="ppbLVte" name="77acb26">
+      <notes>
+        <note category="german">Werden Daten hingegen zu einem Server oder zu anderen Spielern übertragen, so sind folgende Regeln einzuhalten:</note>
+      </notes>
+      <segment>
+        <source>Werden Daten hingegen zu einem Server oder zu anderen Spielern übertragen, so sind folgende Regeln einzuhalten:</source>
+        <target>Si les données sont transférées sur un serveur ou d'autres acteurs, les règles suivantes doivent être respectées:</target>
+      </segment>
+    </unit>
+    <unit id="7DoOghG" name="098aba2">
+      <notes>
+        <note category="german">Das Senden von Informationen darf &lt;strong&gt;nicht automatisiert&lt;/strong&gt; werden oder im Rahmen anderer Aktionen geschehen, wie beispielsweise bei jedem Neuladen der Seite oder bei jeder Bewegung in der Außenwelt. Stattdessen darf der Datentransfer nur durch die Betätigung einer klar beschrifteten Schaltfläche geschehen, welche das Script in der Benutzeroberfläche platziert.</note>
+      </notes>
+      <segment>
+        <source>Das Senden von Informationen darf &lt;strong&gt;nicht automatisiert&lt;/strong&gt; werden oder im Rahmen anderer Aktionen geschehen, wie beispielsweise bei jedem Neuladen der Seite oder bei jeder Bewegung in der Außenwelt. Stattdessen darf der Datentransfer nur durch die Betätigung einer klar beschrifteten Schaltfläche geschehen, welche das Script in der Benutzeroberfläche platziert.</source>
+        <target><![CDATA[L'envoi d'informations <strong>ne doit pas être automatisé</strong> ou se produire dans d'autres actions, telles que chaque rechargement de la page ou à chaque mouvement dans l'Outre-Monde. Au lieu de cela, le transfert de données ne peut être effectué que lorsque que l'utilisateur appuie sur un bouton clairement étiqueté, qui peut être placé par le script dans l'interface utilisateur.]]></target>
+      </segment>
+    </unit>
+    <unit id="QjopWu6" name="1ad3ae4">
+      <notes>
+        <note category="german">Es dürfen nur Informationen übertragen werden, welche dem Spieler &lt;strong&gt;im Augenblick der Übertragung&lt;/strong&gt; zur Verfügung stehen. Es ist beispielsweise nicht zulässig, während der Bewegung durch die Außenwelt Informationen über Zonen zu sammeln und diese dann gebündelt zu übertragen. Stattdessen dürfen nur Informationen über die aktuelle Zone des Spielers übertragen werden.</note>
+      </notes>
+      <segment>
+        <source>Es dürfen nur Informationen übertragen werden, welche dem Spieler &lt;strong&gt;im Augenblick der Übertragung&lt;/strong&gt; zur Verfügung stehen. Es ist beispielsweise nicht zulässig, während der Bewegung durch die Außenwelt Informationen über Zonen zu sammeln und diese dann gebündelt zu übertragen. Stattdessen dürfen nur Informationen über die aktuelle Zone des Spielers übertragen werden.</source>
+        <target><![CDATA[Seules les informations disponibles pour le joueur <strong>au moment de la transmission</strong> peuvent être transmises. Par exemple, il n'est pas autorisé de collecter des informations sur les zones pendant les mouvements dans l'Outre-Monde, puis les grouper. Au lieu de cela, seules les informations sur la zone actuelle du joueur peuvent être transférées.]]></target>
+      </segment>
+    </unit>
+    <unit id="xDsEr25" name="be7577f">
+      <notes>
+        <note category="german">&lt;strong&gt;Persönliche Informationen&lt;/strong&gt; über den Anwender sowie dessen &lt;strong&gt;Kommunikation mit anderen Spielern&lt;/strong&gt; dürfen niemals übertragen werden. Dies schließt Informationen wie die E-Mail Adresse, Passwort, Sitzungs-Tokens sowie Inhalte von Forenposts und Privaten Nachrichten ein.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Persönliche Informationen&lt;/strong&gt; über den Anwender sowie dessen &lt;strong&gt;Kommunikation mit anderen Spielern&lt;/strong&gt; dürfen niemals übertragen werden. Dies schließt Informationen wie die E-Mail Adresse, Passwort, Sitzungs-Tokens sowie Inhalte von Forenposts und Privaten Nachrichten ein.</source>
+        <target><![CDATA[<strong>Les informations personnelles</strong> à propos de l'utilisateur et de sa communication <strong>avec d'autres joueurs</strong> ne doit jamais être transférée. Cela inclut des informations telles que l'adresse e-mail, le mot de passe, les jetons de session et le contenu des messages de forums et des messages privés.]]></target>
+      </segment>
+    </unit>
+    <unit id="Y3yaVQ." name="ec6370c">
+      <notes>
+        <note category="german">Geheime Schlüssel des Spielers dürfen nur an diejenige Externe Anwendung gesendet werden, zu welcher sie gehören.</note>
+      </notes>
+      <segment>
+        <source>Geheime Schlüssel des Spielers dürfen nur an diejenige Externe Anwendung gesendet werden, zu welcher sie gehören.</source>
+        <target>La clé secrète du joueur ne peut être envoyée qu'à l'application externe liée au script uniquement.</target>
+      </segment>
+    </unit>
+    <unit id="rj2MQgA" name="7b7227a">
+      <notes>
+        <note category="german">Informationen über &lt;strong&gt;"Geheime Rollen"&lt;/strong&gt; eines Spielers, wie beispielsweise den Ghul-Zustand, dürfen ebenfalls nicht übertragen werden. Dies schließt alle Informationen ein, die einen Spieler als Forenmoderator enttarnen könnten.</note>
+      </notes>
+      <segment>
+        <source>Informationen über &lt;strong&gt;"Geheime Rollen"&lt;/strong&gt; eines Spielers, wie beispielsweise den Ghul-Zustand, dürfen ebenfalls nicht übertragen werden. Dies schließt alle Informationen ein, die einen Spieler als Forenmoderator enttarnen könnten.</source>
+        <target><![CDATA[Les informations sur les <strong>"rôles secrets"</strong> d'un joueur, tel que l'état de Goule, ne doivent pas être transféré. Cela inclut également toutes les informations pouvant potentiellement révéler un utilisateur comme étant un modérateur sur le forum.]]></target>
+      </segment>
+    </unit>
+    <unit id="n8MMaiP" name="3e0fdf4">
+      <notes>
+        <note category="german">Werden Informationen übertragen und für andere Spieler sichtbar gemacht (egal ob direkt oder in aggregierter Form), welche &lt;strong&gt;nicht über die Externe API verfügbar sind&lt;/strong&gt;, so muss es für die Spieler jederzeit möglich sein, diese Informationen auch ohne Verwendung des Scriptes einzutragen (beispielsweise über eine Weboberfläche). Nicht plausible Informationen dürfen zurückgewiesen werden (beispielsweise wenn ein Spieler behauptet, heute 5000 AP ausgegeben zu haben), grundsätzlich muss es Spielern jedoch ermöglicht werden, &lt;strong&gt;Informationen zu falsifizieren&lt;/strong&gt;. Die theoretische Möglichkeit, das Script zu editieren oder in dessen Kommunikation mit dem Server einzugreifen zählen &lt;u&gt;nicht&lt;/u&gt; als legitime Methoden für die Falsifizierung von Informationen. Grundsätzlich darf für andere Spieler nicht trivial ersichtlich sein, ob eine Information automatisch erfasst oder händisch von einem Spieler eingetragen wurde.</note>
+      </notes>
+      <segment>
+        <source>Werden Informationen übertragen und für andere Spieler sichtbar gemacht (egal ob direkt oder in aggregierter Form), welche &lt;strong&gt;nicht über die Externe API verfügbar sind&lt;/strong&gt;, so muss es für die Spieler jederzeit möglich sein, diese Informationen auch ohne Verwendung des Scriptes einzutragen (beispielsweise über eine Weboberfläche). Nicht plausible Informationen dürfen zurückgewiesen werden (beispielsweise wenn ein Spieler behauptet, heute 5000 AP ausgegeben zu haben), grundsätzlich muss es Spielern jedoch ermöglicht werden, &lt;strong&gt;Informationen zu falsifizieren&lt;/strong&gt;. Die theoretische Möglichkeit, das Script zu editieren oder in dessen Kommunikation mit dem Server einzugreifen zählen &lt;u&gt;nicht&lt;/u&gt; als legitime Methoden für die Falsifizierung von Informationen. Grundsätzlich darf für andere Spieler nicht trivial ersichtlich sein, ob eine Information automatisch erfasst oder händisch von einem Spieler eingetragen wurde.</source>
+        <target><![CDATA[Si des informations sont transférées et rendues visibles à d'autres joueurs (directement ou sous forme agrégée), et qui <strong>ne sont pas disponibles via l'API externe</strong>, il doit y avoir un moyen facile pour l'utilisateur de créer ces informations sans utiliser le script (par exemple en utilisant une page Web permettant à l'utilisateur de saisir manuellement les informations). Les informations non plausibles peuvent être rejetées (par exemple, si un joueur prétend avoir dépensé aujourd'hui 5000 PA), mais les utilisateurs doivent pouvoir <strong>falsifier les informations</strong>. La possibilité théorique de modifier le script ou d'intervenir dans sa communication avec le serveur <u>ne comptent pas</u> comme méthode légitime pour la falsification des informations. Il ne doit pas y avoir d'indication aux d'autres joueurs si des données ont été acquises via un script ou entrées manuellement par un utilisateur.]]></target>
+      </segment>
+    </unit>
+    <unit id=".I3a26W" name="Weitere Richtlinien">
+      <notes>
+        <note category="german">Weitere Richtlinien</note>
+      </notes>
+      <segment>
+        <source>Weitere Richtlinien</source>
+        <target>Autres lignes directrices</target>
+      </segment>
+    </unit>
+    <unit id="NdJNIQY" name="f1d1b70">
+      <notes>
+        <note category="german">Visuelle Elemente, welche durch ein Script in das Spiel integriert werden, dürfen sich in ihrem Design an MyHordes orientieren. Es sollte jedoch für den Spieler jederzeit erkennbar sein, dass es sich um ein Element des Scripts und nicht des Spiels selbst handelt.</note>
+      </notes>
+      <segment>
+        <source>Visuelle Elemente, welche durch ein Script in das Spiel integriert werden, dürfen sich in ihrem Design an MyHordes orientieren. Es sollte jedoch für den Spieler jederzeit erkennbar sein, dass es sich um ein Element des Scripts und nicht des Spiels selbst handelt.</source>
+        <target>Les éléments visuels introduits dans MyHordes par le script peuvent adapter le style général de MyHordes, mais il doit être clair pour l'utilisateur qu'ils proviennent d'un script malgré tout.</target>
+      </segment>
+    </unit>
+    <unit id="5IonOmt" name="e055ac0">
+      <notes>
+        <note category="german">Wortklauberei setzt die hier genannten Regeln nicht außer Kraft ('&lt;i&gt;die Regeln besagen, ich darf keinen Button platzieren, darum platziere ich stattdessen ein klickbares Label!&lt;/i&gt;').</note>
+      </notes>
+      <segment>
+        <source>Wortklauberei setzt die hier genannten Regeln nicht außer Kraft ('&lt;i&gt;die Regeln besagen, ich darf keinen Button platzieren, darum platziere ich stattdessen ein klickbares Label!&lt;/i&gt;').</source>
+        <target><![CDATA[Les inexactitudes dans le libellé de toute règle ne vous permettent pas de contourner la règle (ex: '<i>les règles interdisent de placer un "bouton", mais mon script place en fait un "label" cliquable!</i>').]]></target>
+      </segment>
+    </unit>
+    <unit id="ZE.qMBw" name="585bdf8">
+      <notes>
+        <note category="german">Hast du Fragen oder bist unsicher, ob eine bestimmte Funktion nach diesen Regeln zulässig wäre, dann melde dich vertrauensvoll bei den Moderatoren oder Admins - idealerweise bevor du deine Idee tatsächlich implementierst.</note>
+      </notes>
+      <segment>
+        <source>Hast du Fragen oder bist unsicher, ob eine bestimmte Funktion nach diesen Regeln zulässig wäre, dann melde dich vertrauensvoll bei den Moderatoren oder Admins - idealerweise bevor du deine Idee tatsächlich implementierst.</source>
+        <target>Si vous avez des questions ou que vous ne savez pas si une certaine fonction serait admissible pour ces règles, vous êtes invité à contacter les modérateurs ou les administrateurs - idéalement, faites-le avant de mettre en œuvre votre idée.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

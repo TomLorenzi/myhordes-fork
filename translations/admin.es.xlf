@@ -2995,7 +2995,7 @@
       </notes>
       <segment>
         <source>Titel &amp; Icon entfernen</source>
-        <target><![CDATA[Eliminar el título y el icono]]></target>
+        <target>Eliminar el título y el icono</target>
       </segment>
     </unit>
     <unit id="BaVbT2z" name="Neuer Füllstand:">

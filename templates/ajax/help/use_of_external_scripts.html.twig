@@ -1,0 +1,79 @@
+{% extends "ajax/help/shell.html.twig" %}
+{% block title %}{{'Hilfe'|trans({}, 'game')}} - {{'Externe Scripte'|trans({}, 'help')|raw}}{% endblock %}
+{% block helpContent %}
+<div class="helpArt">{{ 'Spielanleitung'|trans({},'help')|raw }}</div>
+<h1>{{ 'Externe Scripte'|trans({},'help')|raw }}</h1>
+<p class="help">
+{{ 'Mithilfe von Scripten können Spieler die Funktionen und Benutzeroberfläche von MyHordes an ihre Bedürfnisse anpassen. Damit das Spiel dennoch für alle fair bleibt, gelten einige Regeln für den Einsatz von Scripten (unabhängig davon, ob ihr eure Scripte weitergebt oder nur für euch selbst verwendet).'|trans({},'help')|raw }}
+</p>
+<p>
+{{ 'Diese Regeln beziehen sich auf sämtliche client-seitige Erweiterungen der MyHordes-Webseite. Alles, was das Aussehen und die Funktion von MyHordes innerhalb des Browsers eines Benutzers verändert, wird im Rahmen dieser Regeln als "Script" bezeichnet, also beispielsweise Extensions, Plug-Ins, User-Scripts und User-Styles.'|trans({},'help')|raw }}
+</p>
+<h2>{{ 'Verbot kommerzieller Scripte'|trans({},'help')|raw }}</h2>
+<ul>
+<li>
+{{ 'Scripte (oder individuelle Funktionen von Scripten) dürfen <strong>unter keinen Umständen</strong> kommerziell vertrieben werden.'|trans({},'help')|raw }}
+</li>
+</ul>
+<h2>{{ 'Allgemeine Regeln'|trans({},'help')|raw }}</h2>
+<ul>
+<li>
+{{ 'Scripte müssen ihre Funktion in einer für den Anwender verständlichen Weise beschreiben, <u>bevor</u> dieser das Script installiert. Wird durch ein automatisches Update eine signifikante neue Funktionalität hinzugefügt, so muss der Anwender hierüber informiert werden (beispielsweise mithilfe eines Popup-Dialogs).'|trans({},'help')|raw }}
+</li>
+<li>
+{{ 'Scripte dürfen <strong>keine</strong> Informationen anzeigen oder Aktionen durchführen, welche nicht in direktem Zusammenhang mit MyHordes stehen. Dies schließt Ausdrücklich die Anzeige von Werbung oder das Schürfen von Cryptowährungen ein.'|trans({},'help')|raw }}
+</li>
+<li>
+{{ 'Ein Script darf keine Funktionen von MyHordes blockieren oder verstecken. Es ist jedoch erlaubt, Aktionen mit einer Warn- oder Bestätigungsmeldung zu versehen, solange diese vom Anwender ignoriert und die Aktion dennoch durchgeführt werden kann. Die Fähigkeit des Anwenders das Script zu deinstallieren, zählt ausdrücklich <strong>nicht</strong> als legitime Möglichkeit solch eine Blockade zu umgehen'|trans({},'help')|raw }}
+</li>
+<li>
+{{ 'Die Verwendung des Scripts durch einen Anwender darf nicht dazu führen, dass sich das Spielerlebnis von Spielern ohne das Script verschlechtert. Beispielsweise ist es nicht zulässig, dem Forum über ein Script neue Formatierungsoptionen hinzuzufügen, wenn die daraus resultierenden Forenposts für Spieler ohne das Script nicht mehr lesbar sind.'|trans({},'help')|raw }}
+</li>
+</ul>
+<h2>{{ 'Automatisierung'|trans({},'help')|raw }}</h2>
+<p>{{ 'Scripte dürfen den allgemeinen Spielablauf nicht automatisieren. Insbesondere ist es verboten:'|trans({},'help')|raw }}</p>
+<ul>
+<li>
+{{ '<strong>Entscheidungen für den Spieler zu treffen</strong>, beispielsweise indem nach 10 Schritten in der Außenwelt automatisch Wasser getrunken wird.'|trans({},'help')|raw }}
+</li>
+<li>
+{{ '<strong>Externe Kommandos zu empfangen</strong> und auszuführen, beispielsweise indem automatisch AP in empfohlene Baustellen investiert werden.'|trans({},'help')|raw }}
+</li>
+</ul>
+<p>{{ 'Es ist jedoch erlaubt, existierende Funktionen in MyHordes in einem <strong>"Macro"</strong> zusammenzufassen, solange die zusammengefassten Aktionen sehr ähnlich oder in den meisten Fällen als sukzessiv anzusehen sind. Die einzelnen Aktionen müssen weiterhin individuel auslösbar sein. Ein Beispiel hierfür wäre das automatische Setzen der Rucksack-Berechtigung zusammen mit der Aktivierung des Eskortenmodus.'|trans({},'help')|raw }}</p>
+<p>{{ 'Es weiteren sollten Scripte mit den Ressourcen des MyHordes-Servers sparsam umgehen. Exzessives Absenden von Anfragen ist zu vermeiden.'|trans({},'help')|raw }}</p>
+<h2>{{ 'Sammeln und Speichern von Daten'|trans({},'help')|raw }}</h2>
+<p>{{ 'Zur reinen <strong>Anzeige von Informationen</strong> im Browser des Anwenders darf ein Script beliebige Aspekte der HTML-Struktur von MyHordes-Seiten lokal auswerten.'|trans({},'help')|raw }}</p>
+<p>{{ 'Werden Daten hingegen zu einem Server oder zu anderen Spielern übertragen, so sind folgende Regeln einzuhalten:'|trans({},'help')|raw }}</p>
+<ul>
+<li>
+{{ 'Das Senden von Informationen darf <strong>nicht automatisiert</strong> werden oder im Rahmen anderer Aktionen geschehen, wie beispielsweise bei jedem Neuladen der Seite oder bei jeder Bewegung in der Außenwelt. Stattdessen darf der Datentransfer nur durch die Betätigung einer klar beschrifteten Schaltfläche geschehen, welche das Script in der Benutzeroberfläche platziert.'|trans({},'help')|raw }}
+</li>
+<li>
+{{ 'Es dürfen nur Informationen übertragen werden, welche dem Spieler <strong>im Augenblick der Übertragung</strong> zur Verfügung stehen. Es ist beispielsweise nicht zulässig, während der Bewegung durch die Außenwelt Informationen über Zonen zu sammeln und diese dann gebündelt zu übertragen. Stattdessen dürfen nur Informationen über die aktuelle Zone des Spielers übertragen werden.'|trans({},'help')|raw }}
+</li>
+<li>
+{{ '<strong>Persönliche Informationen</strong> über den Anwender sowie dessen <strong>Kommunikation mit anderen Spielern</strong> dürfen niemals übertragen werden. Dies schließt Informationen wie die E-Mail Adresse, Passwort, Sitzungs-Tokens sowie Inhalte von Forenposts und Privaten Nachrichten ein.'|trans({},'help')|raw }}
+</li>
+<li>
+{{ 'Geheime Schlüssel des Spielers dürfen nur an diejenige Externe Anwendung gesendet werden, zu welcher sie gehören.'|trans({},'help')|raw }}
+</li>
+<li>
+{{ 'Informationen über <strong>"Geheime Rollen"</strong> eines Spielers, wie beispielsweise den Ghul-Zustand, dürfen ebenfalls nicht übertragen werden. Dies schließt alle Informationen ein, die einen Spieler als Forenmoderator enttarnen könnten.'|trans({},'help')|raw }}
+</li>
+<li>
+{{ 'Werden Informationen übertragen und für andere Spieler sichtbar gemacht (egal ob direkt oder in aggregierter Form), welche <strong>nicht über die Externe API verfügbar sind</strong>, so muss es für die Spieler jederzeit möglich sein, diese Informationen auch ohne Verwendung des Scriptes einzutragen (beispielsweise über eine Weboberfläche). Nicht plausible Informationen dürfen zurückgewiesen werden (beispielsweise wenn ein Spieler behauptet, heute 5000 AP ausgegeben zu haben), grundsätzlich muss es Spielern jedoch ermöglicht werden, <strong>Informationen zu falsifizieren</strong>. Die theoretische Möglichkeit, das Script zu editieren oder in dessen Kommunikation mit dem Server einzugreifen zählen <u>nicht</u> als legitime Methoden für die Falsifizierung von Informationen. Grundsätzlich darf für andere Spieler nicht trivial ersichtlich sein, ob eine Information automatisch erfasst oder händisch von einem Spieler eingetragen wurde.'|trans({},'help')|raw }}
+</li>
+</ul>
+<h2>{{ 'Weitere Richtlinien'|trans({},'help')|raw }}</h2>
+<ul>
+<li>
+{{ 'Visuelle Elemente, welche durch ein Script in das Spiel integriert werden, dürfen sich in ihrem Design an MyHordes orientieren. Es sollte jedoch für den Spieler jederzeit erkennbar sein, dass es sich um ein Element des Scripts und nicht des Spiels selbst handelt.'|trans({},'help')|raw }}
+</li>
+<li>
+{{ 'Wortklauberei setzt die hier genannten Regeln nicht außer Kraft (\'<i>die Regeln besagen, ich darf keinen Button platzieren, darum platziere ich stattdessen ein klickbares Label!</i>\').'|trans({},'help')|raw }}
+</li>
+</ul>
+<p>{{ 'Hast du Fragen oder bist unsicher, ob eine bestimmte Funktion nach diesen Regeln zulässig wäre, dann melde dich vertrauensvoll bei den Moderatoren oder Admins - idealerweise bevor du deine Idee tatsächlich implementierst.'|trans({},'help')|raw }}</p>
+<div class="clear"></div>
+{% endblock %}
