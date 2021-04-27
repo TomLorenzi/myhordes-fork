@@ -7813,7 +7813,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>&lt;strong&gt;Persönliche Informationen&lt;/strong&gt; über den Anwender sowie dessen &lt;strong&gt;Kommunikation mit anderen Spielern&lt;/strong&gt; dürfen niemals übertragen werden. Dies schließt Informationen wie die E-Mail Adresse, Passwort, Sitzungs-Tokens sowie Inhalte von Forenposts und Privaten Nachrichten ein.</source>
-        <target><![CDATA[<strong>Les informations personnelles</strong> à propos de l'utilisateur et de sa communication <strong>avec d'autres joueurs</strong> ne doit jamais être transférée. Cela inclut des informations telles que l'adresse e-mail, le mot de passe, les jetons de session et le contenu des messages de forums et des messages privés.]]></target>
+        <target><![CDATA[<strong>Les informations personnelles</strong> à propos de l'utilisateur et de sa communication <strong>avec d'autres joueurs</strong> ne doivent jamais être transférées. Cela inclut des informations telles que l'adresse e-mail, le mot de passe, les jetons de session et le contenu des messages de forums et des messages privés.]]></target>
       </segment>
     </unit>
     <unit id="Y3yaVQ." name="ec6370c">
@@ -7831,7 +7831,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Informationen über &lt;strong&gt;"Geheime Rollen"&lt;/strong&gt; eines Spielers, wie beispielsweise den Ghul-Zustand, dürfen ebenfalls nicht übertragen werden. Dies schließt alle Informationen ein, die einen Spieler als Forenmoderator enttarnen könnten.</source>
-        <target><![CDATA[Les informations sur les <strong>"rôles secrets"</strong> d'un joueur, tel que l'état de Goule, ne doivent pas être transféré. Cela inclut également toutes les informations pouvant potentiellement révéler un utilisateur comme étant un modérateur sur le forum.]]></target>
+        <target><![CDATA[Les informations sur les <strong>"rôles secrets"</strong> d'un joueur, tel que l'état de Goule, ne doivent pas être transférées. Cela inclut également toutes les informations pouvant potentiellement révéler un utilisateur comme étant un modérateur sur le forum.]]></target>
       </segment>
     </unit>
     <unit id="n8MMaiP" name="3e0fdf4">
