@@ -7599,7 +7599,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Externe Scripte</source>
-        <target>Externe Scripte</target>
+        <target>External Scripts</target>
       </segment>
     </unit>
     <unit id="vB0H4j5" name="Für Community-Entwickler">
@@ -7608,7 +7608,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Für Community-Entwickler</source>
-        <target>Für Community-Entwickler</target>
+        <target>For community developers</target>
       </segment>
     </unit>
     <unit id="AVd4ZVz" name="d772232">
@@ -7617,7 +7617,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Mithilfe von Scripten können Spieler die Funktionen und Benutzeroberfläche von MyHordes an ihre Bedürfnisse anpassen. Damit das Spiel dennoch für alle fair bleibt, gelten einige Regeln für den Einsatz von Scripten (unabhängig davon, ob ihr eure Scripte weitergebt oder nur für euch selbst verwendet).</source>
-        <target>Mithilfe von Scripten können Spieler die Funktionen und Benutzeroberfläche von MyHordes an ihre Bedürfnisse anpassen. Damit das Spiel dennoch für alle fair bleibt, gelten einige Regeln für den Einsatz von Scripten (unabhängig davon, ob ihr eure Scripte weitergebt oder nur für euch selbst verwendet).</target>
+        <target>Scripts allow players to customize the features and interface of MyHordes to suit their needs. To keep the game fair for everyone, there are some rules for using scripts (regardless of whether you share your scripts or just use them for yourself).</target>
       </segment>
     </unit>
     <unit id="XY_OEJT" name="b15dd21">
@@ -7626,7 +7626,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Diese Regeln beziehen sich auf sämtliche client-seitige Erweiterungen der MyHordes-Webseite. Alles, was das Aussehen und die Funktion von MyHordes innerhalb des Browsers eines Benutzers verändert, wird im Rahmen dieser Regeln als "Script" bezeichnet, also beispielsweise Extensions, Plug-Ins, User-Scripts und User-Styles.</source>
-        <target>Diese Regeln beziehen sich auf sämtliche client-seitige Erweiterungen der MyHordes-Webseite. Alles, was das Aussehen und die Funktion von MyHordes innerhalb des Browsers eines Benutzers verändert, wird im Rahmen dieser Regeln als "Script" bezeichnet, also beispielsweise Extensions, Plug-Ins, User-Scripts und User-Styles.</target>
+        <target>These rules apply to all client-side extensions to the MyHordes website. Anything that changes the appearance and function of MyHordes within a user's browser is considered "script" under these rules, such as extensions, plug-ins, user scripts, and user styles.</target>
       </segment>
     </unit>
     <unit id="m98RQP1" name="Verbot kommerzieller Scripte">
@@ -7635,7 +7635,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Verbot kommerzieller Scripte</source>
-        <target>Verbot kommerzieller Scripte</target>
+        <target>Prohibition of commercial scripts</target>
       </segment>
     </unit>
     <unit id="kCzLi_m" name="2c2ca86">
@@ -7644,7 +7644,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Scripte (oder individuelle Funktionen von Scripten) dürfen &lt;strong&gt;unter keinen Umständen&lt;/strong&gt; kommerziell vertrieben werden.</source>
-        <target><![CDATA[Scripte (oder individuelle Funktionen von Scripten) dürfen <strong>unter keinen Umständen</strong> kommerziell vertrieben werden.]]></target>
+        <target><![CDATA[Scripts (or individual functions of scripts) may <strong>under no circumstances</strong> be distributed commercially.]]></target>
       </segment>
     </unit>
     <unit id="Otkd6Tw" name="Allgemeine Regeln">
@@ -7662,7 +7662,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Scripte müssen ihre Funktion in einer für den Anwender verständlichen Weise beschreiben, &lt;u&gt;bevor&lt;/u&gt; dieser das Script installiert. Wird durch ein automatisches Update eine signifikante neue Funktionalität hinzugefügt, so muss der Anwender hierüber informiert werden (beispielsweise mithilfe eines Popup-Dialogs).</source>
-        <target><![CDATA[Scripte müssen ihre Funktion in einer für den Anwender verständlichen Weise beschreiben, <u>bevor</u> dieser das Script installiert. Wird durch ein automatisches Update eine signifikante neue Funktionalität hinzugefügt, so muss der Anwender hierüber informiert werden (beispielsweise mithilfe eines Popup-Dialogs).]]></target>
+        <target><![CDATA[Scripts must describe their function in a way that is understandable to the user <u>before</u> the user installs the script. If a significant new functionality is added by an automatic update, the user must be informed about this (for example, by means of a popup dialog).]]></target>
       </segment>
     </unit>
     <unit id="Yh9L91s" name="7644a70">
@@ -7671,7 +7671,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Scripte dürfen &lt;strong&gt;keine&lt;/strong&gt; Informationen anzeigen oder Aktionen durchführen, welche nicht in direktem Zusammenhang mit MyHordes stehen. Dies schließt Ausdrücklich die Anzeige von Werbung oder das Schürfen von Cryptowährungen ein.</source>
-        <target><![CDATA[Scripte dürfen <strong>keine</strong> Informationen anzeigen oder Aktionen durchführen, welche nicht in direktem Zusammenhang mit MyHordes stehen. Dies schließt Ausdrücklich die Anzeige von Werbung oder das Schürfen von Cryptowährungen ein.]]></target>
+        <target><![CDATA[Scripts <strong>must not</strong> display any information or perform any actions that are not directly related to MyHordes. This explicitly includes the display of advertisements or the mining of cryptocurrencies.]]></target>
       </segment>
     </unit>
     <unit id="kH_roWt" name="4575ea6">
@@ -7680,7 +7680,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Ein Script darf keine Funktionen von MyHordes blockieren oder verstecken. Es ist jedoch erlaubt, Aktionen mit einer Warn- oder Bestätigungsmeldung zu versehen, solange diese vom Anwender ignoriert und die Aktion dennoch durchgeführt werden kann. Die Fähigkeit des Anwenders das Script zu deinstallieren, zählt ausdrücklich &lt;strong&gt;nicht&lt;/strong&gt; als legitime Möglichkeit solch eine Blockade zu umgehen</source>
-        <target><![CDATA[Ein Script darf keine Funktionen von MyHordes blockieren oder verstecken. Es ist jedoch erlaubt, Aktionen mit einer Warn- oder Bestätigungsmeldung zu versehen, solange diese vom Anwender ignoriert und die Aktion dennoch durchgeführt werden kann. Die Fähigkeit des Anwenders das Script zu deinstallieren, zählt ausdrücklich <strong>nicht</strong> als legitime Möglichkeit solch eine Blockade zu umgehen]]></target>
+        <target><![CDATA[A script is not allowed to block or hide any functions of MyHordes. However, it is allowed to add a warning or confirmation message to actions as long as the user can ignore it and still perform the action. The ability of the user to uninstall the script explicitly <strong>does not</strong> count as a legitimate way to bypass such a blockade.]]></target>
       </segment>
     </unit>
     <unit id=".J2Tho5" name="442cde7">
@@ -7689,7 +7689,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Die Verwendung des Scripts durch einen Anwender darf nicht dazu führen, dass sich das Spielerlebnis von Spielern ohne das Script verschlechtert. Beispielsweise ist es nicht zulässig, dem Forum über ein Script neue Formatierungsoptionen hinzuzufügen, wenn die daraus resultierenden Forenposts für Spieler ohne das Script nicht mehr lesbar sind.</source>
-        <target>Die Verwendung des Scripts durch einen Anwender darf nicht dazu führen, dass sich das Spielerlebnis von Spielern ohne das Script verschlechtert. Beispielsweise ist es nicht zulässig, dem Forum über ein Script neue Formatierungsoptionen hinzuzufügen, wenn die daraus resultierenden Forenposts für Spieler ohne das Script nicht mehr lesbar sind.</target>
+        <target>A user's use of the script must not cause the gaming experience of players without the script to deteriorate. For example, it is not permissible to add new formatting options to the forum via a script if the resulting forum posts become unreadable to players without the script.</target>
       </segment>
     </unit>
     <unit id="CMVr7NL" name="Automatisierung">
@@ -7698,7 +7698,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Automatisierung</source>
-        <target>Automatisierung</target>
+        <target>Automation</target>
       </segment>
     </unit>
     <unit id="sEkWL_h" name="44b6c12">
@@ -7707,7 +7707,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Scripte dürfen den allgemeinen Spielablauf nicht automatisieren. Insbesondere ist es verboten:</source>
-        <target>Scripte dürfen den allgemeinen Spielablauf nicht automatisieren. Insbesondere ist es verboten:</target>
+        <target>Scripts are not allowed to automate the general gameplay. In particular, it is forbidden to:</target>
       </segment>
     </unit>
     <unit id="edZwVNE" name="de7f1f0">
@@ -7716,7 +7716,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>&lt;strong&gt;Entscheidungen für den Spieler zu treffen&lt;/strong&gt;, beispielsweise indem nach 10 Schritten in der Außenwelt automatisch Wasser getrunken wird.</source>
-        <target><![CDATA[<strong>Entscheidungen für den Spieler zu treffen</strong>, beispielsweise indem nach 10 Schritten in der Außenwelt automatisch Wasser getrunken wird.]]></target>
+        <target><![CDATA[<strong>Make decisions for the player</strong>, for example by automatically drinking water after 10 steps in the outside world.]]></target>
       </segment>
     </unit>
     <unit id="S8u9uRb" name="a780130">
@@ -7725,7 +7725,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>&lt;strong&gt;Externe Kommandos zu empfangen&lt;/strong&gt; und auszuführen, beispielsweise indem automatisch AP in empfohlene Baustellen investiert werden.</source>
-        <target><![CDATA[<strong>Externe Kommandos zu empfangen</strong> und auszuführen, beispielsweise indem automatisch AP in empfohlene Baustellen investiert werden.]]></target>
+        <target><![CDATA[<strong>Receive</strong> and execute external commands, for example by automatically investing AP in recommended construction sites.]]></target>
       </segment>
     </unit>
     <unit id="fUwrzgg" name="72fe10d">
@@ -7734,7 +7734,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Es ist jedoch erlaubt, existierende Funktionen in MyHordes in einem &lt;strong&gt;"Macro"&lt;/strong&gt; zusammenzufassen, solange die zusammengefassten Aktionen sehr ähnlich oder in den meisten Fällen als sukzessiv anzusehen sind. Die einzelnen Aktionen müssen weiterhin individuel auslösbar sein. Ein Beispiel hierfür wäre das automatische Setzen der Rucksack-Berechtigung zusammen mit der Aktivierung des Eskortenmodus.</source>
-        <target><![CDATA[Es ist jedoch erlaubt, existierende Funktionen in MyHordes in einem <strong>"Macro"</strong> zusammenzufassen, solange die zusammengefassten Aktionen sehr ähnlich oder in den meisten Fällen als sukzessiv anzusehen sind. Die einzelnen Aktionen müssen weiterhin individuel auslösbar sein. Ein Beispiel hierfür wäre das automatische Setzen der Rucksack-Berechtigung zusammen mit der Aktivierung des Eskortenmodus.]]></target>
+        <target><![CDATA[However, it is allowed to combine existing functions in MyHordes into a <strong>"Macro"</strong> as long as the combined actions are very similar or can be considered successive in most cases. The individual actions must still be individually triggerable. An example of this would be the automatic setting of the rucksack authorization together with the activation of the escort mode.]]></target>
       </segment>
     </unit>
     <unit id="wDKVJuS" name="d3a8c34">
@@ -7743,7 +7743,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Es weiteren sollten Scripte mit den Ressourcen des MyHordes-Servers sparsam umgehen. Exzessives Absenden von Anfragen ist zu vermeiden.</source>
-        <target>Es weiteren sollten Scripte mit den Ressourcen des MyHordes-Servers sparsam umgehen. Exzessives Absenden von Anfragen ist zu vermeiden.</target>
+        <target>Furthermore, scripts should use the resources of the MyHordes server sparingly. Excessive sending of requests should be avoided.</target>
       </segment>
     </unit>
     <unit id="9Hbxc7q" name="Sammeln und Speichern von Daten">
@@ -7752,7 +7752,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Sammeln und Speichern von Daten</source>
-        <target>Sammeln und Speichern von Daten</target>
+        <target>Collecting and storing information</target>
       </segment>
     </unit>
     <unit id="flB0WGw" name="b02fb3c">
@@ -7761,7 +7761,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Zur reinen &lt;strong&gt;Anzeige von Informationen&lt;/strong&gt; im Browser des Anwenders darf ein Script beliebige Aspekte der HTML-Struktur von MyHordes-Seiten lokal auswerten.</source>
-        <target><![CDATA[Zur reinen <strong>Anzeige von Informationen</strong> im Browser des Anwenders darf ein Script beliebige Aspekte der HTML-Struktur von MyHordes-Seiten lokal auswerten.]]></target>
+        <target><![CDATA[For the pure <strong>display of information</strong> in the user's browser, a script may locally evaluate any aspect of the HTML structure of MyHordes pages.]]></target>
       </segment>
     </unit>
     <unit id="ppbLVte" name="77acb26">
@@ -7770,7 +7770,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Werden Daten hingegen zu einem Server oder zu anderen Spielern übertragen, so sind folgende Regeln einzuhalten:</source>
-        <target>Werden Daten hingegen zu einem Server oder zu anderen Spielern übertragen, so sind folgende Regeln einzuhalten:</target>
+        <target>However, if data is transferred to a server or to other players, the following rules must be observed:</target>
       </segment>
     </unit>
     <unit id="7DoOghG" name="098aba2">
@@ -7779,7 +7779,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Das Senden von Informationen darf &lt;strong&gt;nicht automatisiert&lt;/strong&gt; werden oder im Rahmen anderer Aktionen geschehen, wie beispielsweise bei jedem Neuladen der Seite oder bei jeder Bewegung in der Außenwelt. Stattdessen darf der Datentransfer nur durch die Betätigung einer klar beschrifteten Schaltfläche geschehen, welche das Script in der Benutzeroberfläche platziert.</source>
-        <target><![CDATA[Das Senden von Informationen darf <strong>nicht automatisiert</strong> werden oder im Rahmen anderer Aktionen geschehen, wie beispielsweise bei jedem Neuladen der Seite oder bei jeder Bewegung in der Außenwelt. Stattdessen darf der Datentransfer nur durch die Betätigung einer klar beschrifteten Schaltfläche geschehen, welche das Script in der Benutzeroberfläche platziert.]]></target>
+        <target><![CDATA[Sending information must <strong>not</strong> be automated or happen as part of other actions, such as every time the page is reloaded or every time the user moves around in the world beyond. Instead, the data transfer must only happen by pressing a clearly labeled button that the script places in the user interface.]]></target>
       </segment>
     </unit>
     <unit id="QjopWu6" name="1ad3ae4">
@@ -7788,7 +7788,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Es dürfen nur Informationen übertragen werden, welche dem Spieler &lt;strong&gt;im Augenblick der Übertragung&lt;/strong&gt; zur Verfügung stehen. Es ist beispielsweise nicht zulässig, während der Bewegung durch die Außenwelt Informationen über Zonen zu sammeln und diese dann gebündelt zu übertragen. Stattdessen dürfen nur Informationen über die aktuelle Zone des Spielers übertragen werden.</source>
-        <target><![CDATA[Es dürfen nur Informationen übertragen werden, welche dem Spieler <strong>im Augenblick der Übertragung</strong> zur Verfügung stehen. Es ist beispielsweise nicht zulässig, während der Bewegung durch die Außenwelt Informationen über Zonen zu sammeln und diese dann gebündelt zu übertragen. Stattdessen dürfen nur Informationen über die aktuelle Zone des Spielers übertragen werden.]]></target>
+        <target><![CDATA[Only information that is available to the player <strong>at the moment of transmission</strong> may be broadcasted. For example, it is not allowed to collect information about zones while moving through the world beyond and then transmit them in bundles. Instead, only information about the player's current zone may be transmitted.]]></target>
       </segment>
     </unit>
     <unit id="xDsEr25" name="be7577f">
@@ -7797,7 +7797,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>&lt;strong&gt;Persönliche Informationen&lt;/strong&gt; über den Anwender sowie dessen &lt;strong&gt;Kommunikation mit anderen Spielern&lt;/strong&gt; dürfen niemals übertragen werden. Dies schließt Informationen wie die E-Mail Adresse, Passwort, Sitzungs-Tokens sowie Inhalte von Forenposts und Privaten Nachrichten ein.</source>
-        <target><![CDATA[<strong>Persönliche Informationen</strong> über den Anwender sowie dessen <strong>Kommunikation mit anderen Spielern</strong> dürfen niemals übertragen werden. Dies schließt Informationen wie die E-Mail Adresse, Passwort, Sitzungs-Tokens sowie Inhalte von Forenposts und Privaten Nachrichten ein.]]></target>
+        <target><![CDATA[<strong>Personal information</strong> about the user and their <strong>communication with other players</strong> may never be transmitted. This includes information such as the email address, password, session tokens, and contents of forum posts and private messages.]]></target>
       </segment>
     </unit>
     <unit id="Y3yaVQ." name="ec6370c">
@@ -7806,7 +7806,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Geheime Schlüssel des Spielers dürfen nur an diejenige Externe Anwendung gesendet werden, zu welcher sie gehören.</source>
-        <target>Geheime Schlüssel des Spielers dürfen nur an diejenige Externe Anwendung gesendet werden, zu welcher sie gehören.</target>
+        <target>Secret keys of the player may be sent only to the External Application to which they belong.</target>
       </segment>
     </unit>
     <unit id="rj2MQgA" name="7b7227a">
@@ -7815,7 +7815,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Informationen über &lt;strong&gt;"Geheime Rollen"&lt;/strong&gt; eines Spielers, wie beispielsweise den Ghul-Zustand, dürfen ebenfalls nicht übertragen werden. Dies schließt alle Informationen ein, die einen Spieler als Forenmoderator enttarnen könnten.</source>
-        <target><![CDATA[Informationen über <strong>"Geheime Rollen"</strong> eines Spielers, wie beispielsweise den Ghul-Zustand, dürfen ebenfalls nicht übertragen werden. Dies schließt alle Informationen ein, die einen Spieler als Forenmoderator enttarnen könnten.]]></target>
+        <target><![CDATA[Information about <strong>"Secret Roles"</strong> of a player, such as ghoul state, may also not be transmitted. This includes any information that could expose a player as a forum moderator.]]></target>
       </segment>
     </unit>
     <unit id="n8MMaiP" name="3e0fdf4">
@@ -7824,7 +7824,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Werden Informationen übertragen und für andere Spieler sichtbar gemacht (egal ob direkt oder in aggregierter Form), welche &lt;strong&gt;nicht über die Externe API verfügbar sind&lt;/strong&gt;, so muss es für die Spieler jederzeit möglich sein, diese Informationen auch ohne Verwendung des Scriptes einzutragen (beispielsweise über eine Weboberfläche). Nicht plausible Informationen dürfen zurückgewiesen werden (beispielsweise wenn ein Spieler behauptet, heute 5000 AP ausgegeben zu haben), grundsätzlich muss es Spielern jedoch ermöglicht werden, &lt;strong&gt;Informationen zu falsifizieren&lt;/strong&gt;. Die theoretische Möglichkeit, das Script zu editieren oder in dessen Kommunikation mit dem Server einzugreifen zählen &lt;u&gt;nicht&lt;/u&gt; als legitime Methoden für die Falsifizierung von Informationen. Grundsätzlich darf für andere Spieler nicht trivial ersichtlich sein, ob eine Information automatisch erfasst oder händisch von einem Spieler eingetragen wurde.</source>
-        <target><![CDATA[Werden Informationen übertragen und für andere Spieler sichtbar gemacht (egal ob direkt oder in aggregierter Form), welche <strong>nicht über die Externe API verfügbar sind</strong>, so muss es für die Spieler jederzeit möglich sein, diese Informationen auch ohne Verwendung des Scriptes einzutragen (beispielsweise über eine Weboberfläche). Nicht plausible Informationen dürfen zurückgewiesen werden (beispielsweise wenn ein Spieler behauptet, heute 5000 AP ausgegeben zu haben), grundsätzlich muss es Spielern jedoch ermöglicht werden, <strong>Informationen zu falsifizieren</strong>. Die theoretische Möglichkeit, das Script zu editieren oder in dessen Kommunikation mit dem Server einzugreifen zählen <u>nicht</u> als legitime Methoden für die Falsifizierung von Informationen. Grundsätzlich darf für andere Spieler nicht trivial ersichtlich sein, ob eine Information automatisch erfasst oder händisch von einem Spieler eingetragen wurde.]]></target>
+        <target><![CDATA[If information is transmitted and made visible to other players (whether directly or in aggregated form) that is <strong>not available via the External API</strong>, it must be possible for players to enter this information at any time without using the script (for example, via a web interface). Information that is not plausible may be rejected (for example, if a player claims to have spent 5000 AP today), but in principle players must be allowed to <strong>falsify</strong> information. The theoretical possibility of editing the script or interfering with its communication with the server <u>do not</u> count as legitimate methods for falsifying information. Generally, it must not be trivially obvious to other players whether information was entered automatically or manually.]]></target>
       </segment>
     </unit>
     <unit id=".I3a26W" name="Weitere Richtlinien">
@@ -7833,7 +7833,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Weitere Richtlinien</source>
-        <target>Weitere Richtlinien</target>
+        <target>Additional Guidelines</target>
       </segment>
     </unit>
     <unit id="NdJNIQY" name="f1d1b70">
@@ -7842,16 +7842,16 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Visuelle Elemente, welche durch ein Script in das Spiel integriert werden, dürfen sich in ihrem Design an MyHordes orientieren. Es sollte jedoch für den Spieler jederzeit erkennbar sein, dass es sich um ein Element des Scripts und nicht des Spiels selbst handelt.</source>
-        <target>Visuelle Elemente, welche durch ein Script in das Spiel integriert werden, dürfen sich in ihrem Design an MyHordes orientieren. Es sollte jedoch für den Spieler jederzeit erkennbar sein, dass es sich um ein Element des Scripts und nicht des Spiels selbst handelt.</target>
+        <target>Visual elements that are integrated into the game by a script may be based on MyHordes in their design. However, it should always be recognizable for the player that it is an element of the script and not of the game itself.</target>
       </segment>
     </unit>
     <unit id="5IonOmt" name="e055ac0">
       <notes>
-        <note category="german">Wortklauberei setzt die hier genannten Regeln nicht außer Kraft ('&lt;i&gt;die Regeln besagen, ich darf keinen Button platzieren, darum platziere ich stattdessen ein klickbares Label!&lt;/i&gt;').</note>
+        <note category="german">Wortklauberei setzt die hier genannten Regeln nicht außer Kraft (z.B. : '&lt;i&gt;die Regeln besagen, ich darf keinen Button platzieren, darum platziere ich stattdessen ein klickbares Label!&lt;/i&gt;').</note>
       </notes>
       <segment>
         <source>Wortklauberei setzt die hier genannten Regeln nicht außer Kraft ('&lt;i&gt;die Regeln besagen, ich darf keinen Button platzieren, darum platziere ich stattdessen ein klickbares Label!&lt;/i&gt;').</source>
-        <target><![CDATA[Wortklauberei setzt die hier genannten Regeln nicht außer Kraft ('<i>die Regeln besagen, ich darf keinen Button platzieren, darum platziere ich stattdessen ein klickbares Label!</i>').]]></target>
+        <target><![CDATA[Inaccuracies in the wording of any rule do not allow you to circumvent the rule (<i>“the rules forbid to place a ‘button’, but my script actually places a clickable ‘label’”</i>).]]></target>
       </segment>
     </unit>
     <unit id="ZE.qMBw" name="585bdf8">
@@ -7860,7 +7860,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Hast du Fragen oder bist unsicher, ob eine bestimmte Funktion nach diesen Regeln zulässig wäre, dann melde dich vertrauensvoll bei den Moderatoren oder Admins - idealerweise bevor du deine Idee tatsächlich implementierst.</source>
-        <target>Hast du Fragen oder bist unsicher, ob eine bestimmte Funktion nach diesen Regeln zulässig wäre, dann melde dich vertrauensvoll bei den Moderatoren oder Admins - idealerweise bevor du deine Idee tatsächlich implementierst.</target>
+        <target>If you have any questions or are unsure whether a certain function would be allowed under these rules, please contact the moderators or admins - ideally before you actually implement your idea.</target>
       </segment>
     </unit>
   </file>
