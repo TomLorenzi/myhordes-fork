@@ -7631,7 +7631,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Wenn du 11 km oder weniger von der Stadt entfernt bist, kehrst du sofort in die Stadt zurück!</source>
-        <target>Wenn du 11 km oder weniger von der Stadt entfernt bist, kehrst du sofort in die Stadt zurück!</target>
+        <target>You will immediately be returned to the town if you are less than 11km away!</target>
       </segment>
     </unit>
     <unit id="GQajT3s" name="Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.">
