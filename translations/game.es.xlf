@@ -17203,7 +17203,7 @@
       </notes>
       <segment>
         <source>Du hast dich in einen %role% verwandelt!</source>
-        <target>Du hast dich in einen %role% verwandelt!</target>
+        <target>¡Te has convertido en un %role%!</target>
       </segment>
     </unit>
     <unit id="41EQiml" name="Erzähle niemandem davon oder du wirst sofort erschossen!">
@@ -17212,7 +17212,7 @@
       </notes>
       <segment>
         <source>Erzähle niemandem davon oder du wirst sofort erschossen!</source>
-        <target>Erzähle niemandem davon oder du wirst sofort erschossen!</target>
+        <target>¡No se lo digas a nadie o serás ejecutado inmediatamente!</target>
       </segment>
     </unit>
     <unit id=".S3ibaS" name="Wie man als Ghul spielt ?">
@@ -17221,7 +17221,7 @@
       </notes>
       <segment>
         <source>Wie man als Ghul spielt ?</source>
-        <target>Wie man als Ghul spielt ?</target>
+        <target>¿Como jugar siendo Mutante?</target>
       </segment>
     </unit>
     <unit id="sZoC__." name="Der Bürger weigert sich, dies zu tun...">
