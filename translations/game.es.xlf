@@ -16519,7 +16519,7 @@
       </notes>
       <segment>
         <source>Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
-        <target><![CDATA[Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?]]></target>
+        <target><![CDATA[No tenemos ni idea. <strong>El cuerpo ha desaperecido sin dejar rastro...</strong> Puede ser que haya sido arrojado fuerta del pueblo y que una de estas noches regrese para visitamos.]]></target>
       </segment>
     </unit>
     <unit id=".7eWye." name="Legendärer Dompteur">
