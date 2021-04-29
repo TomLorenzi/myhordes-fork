@@ -557,6 +557,9 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         ['icon'=>'r_goodg', 'unlockquantity'=>1, 'associatedpicto'=>'r_goodg_#00'],
         ['icon'=>'r_surgrp', 'unlockquantity'=>5, 'associatedpicto'=>'r_surgrp_#00'],
         ['icon'=>'r_alcool', 'unlockquantity'=>30, 'associatedpicto'=>'r_alcool_#00'],
+        ['icon'=>'r_gsp', 'unlockquantity'=>1, 'associatedpicto'=>'r_gsp_#00'],
+        ['icon'=>'r_beta2', 'unlockquantity'=>1, 'associatedpicto'=>'r_beta2_#00'],
+        ['icon'=>'r_ripflash', 'unlockquantity'=>1, 'associatedpicto'=>'r_ripflash_#00'],
     ];
 
     private function insertAwards(ObjectManager $manager, ConsoleOutputInterface $out) {
