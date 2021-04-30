@@ -462,13 +462,10 @@
             {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_ESCORT'),true) and citizen.validLeadingEscorts|length > 0 %}
                 <h5>{% trans from 'game' %}Deine Eskorte{% endtrans %}</h5>
                 <div class="row-table">
-                    {% set not_digging = 0 %}
+                    {% set can_escort_dig = 0 %}
                     {% for other_citizen in other_citizens %}
                         {# @var other_citizen \App\Entity\Citizen #}
                         {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader == citizen %}
-                            {% if not other_citizen.digging %}
-                                {% set not_digging = not_digging+1 %}
-                            {% endif %}
                             <div class="row beyond-escort-on">
                                 <div class="padded cell rw-4">
                                     {% if other_citizen.online %}
@@ -519,7 +516,10 @@
                                                 <li class="status">
                                                     <img src="{{ asset('build/images/status/status_' ~ stat.name ~ '.gif') }}" alt="{{ stat.label|trans({},'game') }}">
                                                     {% if stat.description %}
-                                                        <div class="tooltip temp-building">{{ stat.description|trans({}, 'game')}}</div>
+                                                        <div class="tooltip normal">
+                                                            <h1>{{ stat.label|trans({}, 'game') }}</h1>
+                                                            {{ stat.description|trans({}, 'game')}}
+                                                        </div>
                                                     {% endif %}
                                                 </li>
                                             {% endif %}
@@ -542,6 +542,9 @@
                                         <button {% if other_citizen.digging or zone_blocked or other_citizen.digTimeout > 0 %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: other_citizen.id}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/icons/small_gather.gif') }}" style="margin-right: 0;" />
                                             <div class="tooltip">{{ '%citizen% befehlen die Umgebung abzusuchen.'|trans({'%citizen%': other_citizen.user.name},'game') }}</div>
                                         </button>
+                                        {% if not (other_citizen.digging or zone_blocked or other_citizen.digTimeout > 0) %}
+                                            {% set can_escort_dig = can_escort_dig+1 %}
+                                        {% endif %}
                                     {% endif %}
 
                                     <button {% if not can_attack_citizen %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" style="margin-right: 0;"/>
@@ -607,7 +610,7 @@
                                 <b>{{ 'Gesamte Eskorte'|trans({},'game') }}</b>
                             </div>
                             <div class="padded cell rw-8 right">
-                                {% if not_digging > 1 and (zone.x != 0 or zone.y != 0) %}
+                                {% if can_escort_dig > 1 and (zone.x != 0 or zone.y != 0) %}
                                     <button {% if zone_blocked %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: 'all'}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/icons/small_gather.gif') }}" style="margin-right: 0;" />
                                         <div class="tooltip">{{ 'Allen befehlen, die Umgebung abzusuchen.'|trans({},'game') }}</div>
                                     </button>
