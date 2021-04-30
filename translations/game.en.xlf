@@ -16249,7 +16249,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Corvid-Spezialist</source>
-        <target>Spécialist ès corvidés</target>
+        <target>Corvidæ specialist</target>
       </segment>
     </unit>
     <unit id="YmHi4UG" name="Phoenix des Unterholzes">
@@ -16474,7 +16474,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Architekt (title)</source>
-        <target>Architect</target>
+        <target>Master Architect</target>
       </segment>
     </unit>
     <unit id="0oUM0cs" name="Bürger! Seid auf inoffiziellen Webseiten wachsam!">
