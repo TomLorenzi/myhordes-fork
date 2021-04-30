@@ -16492,7 +16492,7 @@
       </notes>
       <segment>
         <source>hoch</source>
-        <target>hoch</target>
+        <target>importantes</target>
       </segment>
     </unit>
     <unit id="ssHCx3q" name="1d82f8e">
@@ -16501,7 +16501,7 @@
       </notes>
       <segment>
         <source>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</source>
-        <target>Die Chance, beim Verschlingen eines Bürgers entdeckt zu werden, ist %chances%...</target>
+        <target>Tus probabilidades de ser descubierto si devoras a un habitante son %chances%...</target>
       </segment>
     </unit>
     <unit id="qD3lUP9" name="dc1e0ac">
@@ -16510,7 +16510,7 @@
       </notes>
       <segment>
         <source>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</source>
-        <target>Das Risiko basiert auf der Anzahl der Bürger in der Aussenwelt. Je mehr Bürger sich außerhalb der Stadt aufhalten, desto geringer sind die Chancen, entdeckt zu werden.</target>
+        <target>Este riesgo depende directamente de la cantidad de habitantes que se quedaron en el pueblo: mientras haya más habitantes en el Ultramundo, menor es el riesgo de ser visto en el pueblo.</target>
       </segment>
     </unit>
     <unit id="8yLsMnc" name="1f8ca6f">
@@ -16519,7 +16519,7 @@
       </notes>
       <segment>
         <source>Keine Ahnung. &lt;strong&gt;Der leblose Körper ist spurlos verschwunden...&lt;/strong&gt; Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?</source>
-        <target><![CDATA[Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?]]></target>
+        <target><![CDATA[No tenemos ni idea. <strong>El cuerpo ha desaperecido sin dejar rastro...</strong> Puede ser que haya sido arrojado fuerta del pueblo y que una de estas noches regrese para visitamos.]]></target>
       </segment>
     </unit>
     <unit id=".7eWye." name="Legendärer Dompteur">
@@ -17203,7 +17203,7 @@
       </notes>
       <segment>
         <source>Du hast dich in einen %role% verwandelt!</source>
-        <target>Du hast dich in einen %role% verwandelt!</target>
+        <target>¡Te has convertido en un %role%!</target>
       </segment>
     </unit>
     <unit id="41EQiml" name="Erzähle niemandem davon oder du wirst sofort erschossen!">
@@ -17212,7 +17212,7 @@
       </notes>
       <segment>
         <source>Erzähle niemandem davon oder du wirst sofort erschossen!</source>
-        <target>Erzähle niemandem davon oder du wirst sofort erschossen!</target>
+        <target>¡No se lo digas a nadie o serás ejecutado inmediatamente!</target>
       </segment>
     </unit>
     <unit id=".S3ibaS" name="Wie man als Ghul spielt ?">
@@ -17221,7 +17221,7 @@
       </notes>
       <segment>
         <source>Wie man als Ghul spielt ?</source>
-        <target>Wie man als Ghul spielt ?</target>
+        <target>¿Como jugar siendo Mutante?</target>
       </segment>
     </unit>
     <unit id="sZoC__." name="Der Bürger weigert sich, dies zu tun...">
