@@ -161,8 +161,8 @@ class BeyondController extends InventoryAwareController
         return parent::addDefaultTwigArgs( $section, array_merge( [
             'zone_players' => count($zone->getCitizens()),
             'zone_zombies' => max(0,$zone->getZombies()),
-            'can_attack_citizen' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= 5 && !$this->citizen_handler->isWounded($this->getActiveCitizen()) && ($zone->getX() != 0 || $zone->getY() != 0),
-            'can_devour_citizen' => $this->getActiveCitizen()->hasRole('ghoul'),
+            'can_attack_citizen' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_AP, 5) && !$this->citizen_handler->isWounded($this->getActiveCitizen()) && !$zone->isTownZone(),
+            'can_devour_citizen' => $this->getActiveCitizen()->hasRole('ghoul') && !$zone->isTownZone(),
             'allow_devour_citizen' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_ghoul_eat'),
             'zone_cp' => $cp,
             'zone'  =>  $zone,
@@ -1374,7 +1374,7 @@ class BeyondController extends InventoryAwareController
         /** @var Citizen|null $target_citizen */
         $target_citizen = $this->entity_manager->getRepository(Citizen::class)->find( $cid );
 
-        if (!$target_citizen || $target_citizen->getZone()->getId() !== $citizen->getZone()->getId())
+        if (!$target_citizen || $target_citizen->getZone()->getId() !== $citizen->getZone()->getId() || $target_citizen->getZone()->isTownZone())
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         if ($target_citizen->activeExplorerStats())
