@@ -61,7 +61,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</source>
-        <target><![CDATA[Lanzas una carta... ¡Y pegas un grito al descubrir <strong>que lleva tu nombre escrito con sangre! ¿Quién pudo hacerte esta broma de mal gusto?{hr}¡La impresión te deja <strong>aterrorizado</strong>]]></target>
+        <target><![CDATA[Lanzas una carta... ¡Y pegas un grito al descubrir que <strong>lleva tu nombre escrito con sangre</strong>! ¿Quién pudo hacerte esta broma de mal gusto?{hr}¡La impresión te deja <strong>aterrorizado</strong>]]></target>
       </segment>
     </unit>
     <unit id="NcJ93EV" name="9ae05d1">
@@ -1987,7 +1987,7 @@
       </notes>
       <segment>
         <source>Wasserspender (1 Ration)</source>
-        <target>Bombona de agua (1 ración)</target>
+        <target>Bombona de agua (1 Ración)</target>
       </segment>
     </unit>
     <unit id="DqdgpMC" name="Wasserspender (2 Rationen)">
@@ -1996,7 +1996,7 @@
       </notes>
       <segment>
         <source>Wasserspender (2 Rationen)</source>
-        <target>Bombona de agua (2 raciones)</target>
+        <target>Bombona de agua (2 Raciones)</target>
       </segment>
     </unit>
     <unit id="hbYHhbK" name="Wasserspender (3 Rationen)">
@@ -2005,7 +2005,7 @@
       </notes>
       <segment>
         <source>Wasserspender (3 Rationen)</source>
-        <target>Bombona de agua (3 raciones)</target>
+        <target>Bombona de agua (3 Raciones)</target>
       </segment>
     </unit>
     <unit id="9kUAXmE" name="Abgelaufene Betapropin-Tablette 5mg">
@@ -3076,7 +3076,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du eine Ration Wasser.</source>
-        <target>Necesitas agua pura (la de una ración de agua, por ejemplo).</target>
+        <target>Necesitas agua pura (la de una Ración de agua, por ejemplo).</target>
       </segment>
     </unit>
     <unit id="vDhaMLU" name="Öffnen">
@@ -4480,7 +4480,7 @@
       </notes>
       <segment>
         <source>Eine Wasserpistole ist gegen Zombies äußerst wirksam! Es sei denn sie ist leer.</source>
-        <target>Tu primer arma letal cuando eras un niño... Solo falta llenarla con agua pura (la de una ración de agua por ejemplo).</target>
+        <target>Tu primer arma letal cuando eras un niño... Solo falta llenarla con agua pura (la de una Ración de agua por ejemplo).</target>
       </segment>
     </unit>
     <unit id="NIIzgsI" name="3a3994c">
@@ -5084,7 +5084,7 @@
       </notes>
       <segment>
         <source>Ein Haufen Papierkram, das aus einer Verwaltung stammt.Nichts Interessantes, wobei manche Blätter Handnotizen erkennen lassen...</source>
-        <target>Un viejo álbum de fotos de escuela o algo así, hay muchos rostros casi borrados por el tiempo. Pero al ojearlo, un papel cae de su interior...</target>
+        <target>Muchos documentos de todo tipo, nada interesante. Espera, algunos llevan anotaciones curiosas...</target>
       </segment>
     </unit>
     <unit id="d9rguud" name="2d2e9ae">
@@ -5174,7 +5174,7 @@
       </notes>
       <segment>
         <source>Die Wasserpistole erinnert dich irgendwie an Räuber und Gendarmen... Nur mit sauberem Wasser benutzen(zum Beispiel aus einer Trinkflasche).</source>
-        <target>Tu primer arma letal cuando eras niño... Solo es eficaz con agua pura (la de una ración de agua por ejemplo).</target>
+        <target>Tu primer arma letal cuando eras niño... Solo es eficaz con agua pura (la de una Ración de agua por ejemplo).</target>
       </segment>
     </unit>
     <unit id="OJn26jO" name="2745abc">
@@ -5246,7 +5246,7 @@
       </notes>
       <segment>
         <source>Diese winzig kleine Dosis Gift reicht aus, um jeden deiner Mitbürger umzubringen. Wenn du es mit etwas Essen oder einer Droge vermischt, oder wenn du es in eine Trinkflasche kippst, ist dieses Gift eine tödliche Waffe.</source>
-        <target>Las pocas gotas que quedan dentro matarían a cualquier compañero. Tiene un gran poder de contaminación, ya sea en alimentos, estimulantes o una ración de agua...</target>
+        <target>Las pocas gotas que quedan dentro matarían a cualquier compañero. Tiene un gran poder de contaminación, ya sea en alimentos, estimulantes o una Ración de agua...</target>
       </segment>
     </unit>
     <unit id="0kqolxN" name="9b56cbe">
@@ -5372,7 +5372,7 @@
       </notes>
       <segment>
         <source>Ein typischer Wasserspender, wie man ihn in jedem Großraumbüro antreffen kann. Wie durch ein Wunder ist er dir in die Hände gefallen. So ein Ding könnte hier gut nützlich sein...</source>
-        <target>Tuviste suerte al encontrarla, no es común ver eso por aquí... -- USO: si llevas una ración de agua, será colocada en la bombona. Si no, la acción será beber el contenido de la bombona.</target>
+        <target>Tuviste suerte al encontrarla, no es común ver eso por aquí... -- USO: si llevas una Ración de agua, será colocada en la bombona. Si no, la acción será beber el contenido de la bombona.</target>
       </segment>
     </unit>
     <unit id=".lm05eM" name="f42e48c">
@@ -5687,7 +5687,7 @@
       </notes>
       <segment>
         <source>Dieser Schlüssel ist der Liebling aller Einbrecher und öffnet Türen so rasend schnell, dass man sich glatt fragt, warum man überhaupt noch normale Schlüssel benutzt. Leider ist der Schlüssel in einem so schlechten Zustand, dass er nur eine einzige Tür öffnet.</source>
-        <target>Esta llave, muy apreciada por los ladrones de casas, abre cualquier puerta en segundos. Entonces, ¿para qué sirven las llaves tradicionales? Desgraciadamente, su mal estado solo permite abrir unapuerta.</target>
+        <target>Esta llave, muy apreciada por los ladrones de casas, abre cualquier puerta en segundos. Entonces, ¿para qué sirven las llaves tradicionales? Desgraciadamente, su mal estado solo permite abrir una puerta.</target>
       </segment>
     </unit>
     <unit id="tXHEeaI" name="284ff3d">
@@ -6686,7 +6686,7 @@
       </notes>
       <segment>
         <source>&lt;t-zone&gt;Du hast eine neue Ruine auf {zone} entdeckt!&lt;/t-zone&gt;&lt;nt-zone&gt;Es scheint, als gäbe es nichts mehr zu entdecken ...&lt;/nt-zone&gt;</source>
-        <target><![CDATA[<t-zone>¡Has detectado un nuevo edificio en las coordenadas {zone}!</t-zone><nt-zone>Es scheint, als gäbe es nichts mehr zu entdecken ...</nt-zone>]]></target>
+        <target><![CDATA[<t-zone>¡Has detectado una nueva ruina en las coordenadas {zone}!</t-zone><nt-zone>Parece que tu pueblo ya ha encontrado todas las ruinas...</nt-zone>]]></target>
       </segment>
     </unit>
     <unit id="zI0j8nd" name="Wasserwaffen füllen">
@@ -6722,7 +6722,7 @@
       </notes>
       <segment>
         <source>Du hast die Seele gereinigt und sie friedlich gemacht.</source>
-        <target>Has purificado un alma perdida. Se evapora, camina hacia un lugar mejor dejándote en un estado de serenidad y paz...</target>
+        <target>Has purificado un alma perdida. Se evapora en camino hacia un lugar mejor dejándote en un estado de serenidad y paz...</target>
       </segment>
     </unit>
     <unit id="YTSbJ8." name="Droge herstellen">
@@ -6749,7 +6749,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du 2x Pharmazeutische Substanz...</source>
-        <target>Necesitas 2 x Productos Farmacéuticos, para hacer eso...</target>
+        <target>Necesitas 2 Productos Farmacéuticos para hacer eso...</target>
       </segment>
     </unit>
     <unit id="z79RBPW" name="Kochen">
@@ -6767,8 +6767,7 @@
       </notes>
       <segment>
         <source>In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.</source>
-        <target>Empiezas a utilizar {items_consume} y otras cosas más.
-Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del fuego un {items_spawn} .</target>
+        <target>Empiezas a utilizar {items_consume} y otras cosas más.{hr}Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del fuego un {items_spawn} .</target>
       </segment>
     </unit>
     <unit id="GhoMZLz" name="Gegenstände suchen">
@@ -6810,7 +6809,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Nimm einen kräftigen Schluck aus der Pulle und deine Lebenskräfte werden wieder geweckt (Du erhältst alle deine AP zurück!). Da nimmt man die lose darin herum schwimmenden organischen Substanzen doch gerne in Kauf. Prost Kameraden!</source>
-        <target>Un buen trago que quema la garganta y te quita el cansancio, ¡recuperando además puntos de Acción!... 85º de alcohol puro, con algunos bichos flotando en el fondo. ¡Salud camarada!</target>
+        <target>Un buen trago que quema la garganta y te quita el cansancio, ¡recuperando además Puntos de Acción!... 85º de alcohol puro, con algunos bichos flotando en el fondo. ¡Salud camarada!</target>
       </segment>
     </unit>
     <unit id="QwC3IQO" name="Mystischer Trank">
@@ -6828,7 +6827,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Diese besondere Ration Wasser, oder genauer gesagt "Weihwasser", sollte es dir ermöglichen, unbeschadet mit gequälten Seelen in Kontakt zu treten... Hoffentlich...</source>
-        <target>Este frasco especial de agua, "agua bendita" si tu prefieres, debería permitirte interactuar con las torturadas almas sin miedo... Con suerte...</target>
+        <target>Este frasco especial de agua, "agua bendita" si lo prefieres, debería permitirte interactuar con las torturadas almas sin miedo... Con suerte...</target>
       </segment>
     </unit>
     <unit id="TinIUAB" name="Herstellung eines Mystischern Trank">
@@ -6873,7 +6872,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Tja, Vertrauen ist gut, Kontrolle ist besser... Ja, du wurdest bereits geschützt!</source>
-        <target>Tus vecinos pueden oler la confianza que desprendes... Como si ya estuvieses protegido de algún modo.</target>
+        <target>Tus vecinos pueden oler la confianza que desprendes... Como si ya estuvieses protegido de algún modo.{hr}Acabas de beber una poción chamánica. Ahora no puedes hacer nada, pero cruza los dedos y espera que este hechicero no fuera solo un borracho al que no le gusta lavarse...</target>
       </segment>
     </unit>
     <unit id="TWuwK4M" name="Angriff und Verteidigung">
@@ -6909,7 +6908,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Herz</source>
-        <target>Corazón</target>
+        <target>Corazones</target>
       </segment>
     </unit>
     <unit id="2P.dMD0" name="Karo">
@@ -7008,7 +7007,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Reinigen (Wasser)</source>
-        <target>Limpiar</target>
+        <target>Purificar</target>
       </segment>
     </unit>
     <unit id="F9ufT7F" name="Reinigen (Kleidung)">
@@ -7026,7 +7025,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Mit diesem Abdruck des HighTech-Schlüssels lassen sich Türen der Sicherheitsklasse 6.2 AOC öffnen.</source>
-        <target>Este espacio en blanco de alta tecnología le permitirá abrir puertas seguras clasificadas hasta el nivel 6.2 AOC.</target>
+        <target>La llave de alta tecnología de este molde te permitirá abrir puertas seguras clasificadas hasta el nivel 6.2 AOC.</target>
       </segment>
     </unit>
     <unit id="fU86IJs" name="Abdruck vom Flaschenöffner">
@@ -7053,7 +7052,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</source>
-        <target>Esta máquina endemoniada debió haber quemado varias retinas con su flash mal ajustado. ¡Hey! ¡Te puede servir para escapar de situaciones peligrosas cegando a los zombies !</target>
+        <target>Esta máquina endemoniada debió haber quemado varias retinas con su flash mal ajustado. ¡Hey! ¡Te puede servir para escapar de situaciones peligrosas cegando a los zombies!</target>
       </segment>
     </unit>
     <unit id="HgUvBW6" name="267bdee">
@@ -7062,7 +7061,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du nimmst das {item} ein, aber es scheint keinen Effekt zu haben... Vielleicht hast du das gar nicht gebraucht?</source>
-        <target>Estás usando {item}, pero no parece estar haciendo ningún efecto. ¿Será que no era necesario?</target>
+        <target>Estás usando {item}, pero no parece estar haciendo ningún efecto... ¿Será que no era necesario?</target>
       </segment>
     </unit>
     <unit id="5v3eyG." name="9caf33d">
@@ -7098,7 +7097,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Der Text ist überschrieben mit {item}. Du beginnst, ihn zu lesen.&lt;t-bannote_ok&gt;Diese gekritzelte Notiz gehörte früher einem verbanntem Bürger... Das einzige, was du lesen kannst, ist "{zone}"... Seltsam. Du zerstörst die Seite, nur um sicherzugehen, dass niemand die Nachricht liest...&lt;/t-bannote_ok&gt;&lt;t-bannote_fail&gt;Leider ist der Inhalt dieses Manuskripts völlig unleserlich.&lt;/t-bannote_fail&gt;</source>
-        <target><![CDATA[Esta nota arrugada perteneció seguramente a un desterrado... <t-bannote_ok>Solo se llegas a leer "{zone}"... Muy extraño. Destruyes el papel para asegurarte de que nadie más lea ese mensaje.</t-bannote_ok><t-bannote_fail>¡Qué mala suerte! el contenido de esa nota manuscrita es totalmente ilegible.</t-bannote_fail>]]></target>
+        <target><![CDATA[Esta nota arrugada perteneció seguramente a un desterrado... <t-bannote_ok>Solo se llegas a leer "{zone}"... Muy extraño. Destruyes el papel para asegurarte de que nadie más lea ese mensaje.</t-bannote_ok><t-bannote_fail>¡Qué mala suerte! El contenido de esa nota manuscrita es totalmente ilegible.</t-bannote_fail>]]></target>
       </segment>
     </unit>
     <unit id="q1MWl8S" name="Benutzen">
@@ -7116,7 +7115,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
-        <target><![CDATA[<t-escape>Pones {item} en marcha. ¡Un tremendo rayo sale disparado y ciega a los zombies! Deberías aprovechar esta oportunidad para escapar.</t-escape><t-reverse-escape>Enciendes {item}… El violento flash luminoso siembra el pánico entre los zombies! Cegados, {zombies} zombi(s) se aleja(n) arrastrando sus huesos.</t-reverse-escape>]]></target>
+        <target><![CDATA[<t-escape>Pones {item} en marcha. ¡Un tremendo rayo sale disparado y ciega a los zombies! Deberías aprovechar esta oportunidad para escapar.</t-escape><t-reverse-escape>Enciendes {item}… El violento flash luminoso siembra el pánico entre los zombies! Cegados, {zombies} zombie(s) se aleja(n) arrastrando sus huesos.</t-reverse-escape>]]></target>
       </segment>
     </unit>
     <unit id="Y1T4Y0D" name="Schönes Fundstück">
@@ -7143,7 +7142,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</source>
-        <target>Ese medicamento ha reforzado tu organismo: no sufrirás de infección ni te transformarás en Mutante. Su efecto desaparecerá después del ataque nocturno. Nota: No te protege de las infecciones por heridas no tratadas antes del ataque.</target>
+        <target>Este medicamento ha reforzado tu organismo: no sufrirás de infección ni te transformarás en Mutante. Su efecto desaparecerá después del ataque nocturno. Nota: No te protege de las infecciones por heridas no tratadas antes del ataque.</target>
       </segment>
     </unit>
     <unit id="hkUU8xN" name="ebaac76">
@@ -7152,7 +7151,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>&lt;t-stat-up-addict&gt;Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!&lt;/t-stat-up-addict&gt;</source>
-        <target><![CDATA[<t-stat-up-addict>Una mala noticia. ¡Te vuelves dependiente! ¡Desde ahora deberás consumir al menos una dosis al día o morirás</t-stat-up-addict>]]></target>
+        <target><![CDATA[<t-stat-up-addict>Una mala noticia. ¡Te vuelves dependiente! ¡Desde ahora deberás consumir al menos una dosis al día o morirás!</t-stat-up-addict>]]></target>
       </segment>
     </unit>
     <unit id="sTuI8fr" name="f0c8728">
@@ -7161,7 +7160,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Du solltest diese Gelegenheit zur Flucht nutzen.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
-        <target><![CDATA[<nt-any-escape>Se oye un ruido hueco y un humo verdoso sale de {item} ...</nt-any-escape><t-escape>Pones {item} en marcha. ¡Un tremendo rayo sale disparado y ciega a los zombies! Deberías aprovechar esta oportunidad para escapar.</t-escape><t-reverse-escape>Enciendes {item}… El violento flash luminoso siembra el pánico entre los zombies! Cegados, {zombies} zombi(s) se aleja(n) arrastrando sus huesos.</t-reverse-escape>]]></target>
+        <target><![CDATA[<nt-any-escape>Se oye un ruido hueco y un humo verdoso sale de {item} ...</nt-any-escape><t-escape>Pones {item} en marcha. ¡Un tremendo rayo sale disparado y ciega a los zombies! Deberías aprovechar esta oportunidad para escapar.</t-escape><t-reverse-escape>Enciendes {item}… El violento flash luminoso siembra el pánico entre los zombies! Cegados, {zombies} zombie(s) se aleja(n) arrastrando sus huesos.</t-reverse-escape>]]></target>
       </segment>
     </unit>
     <unit id="0qToQ7z" name="37cd042">
@@ -7170,7 +7169,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
-        <target><![CDATA[<nt-any-escape>Se oye un ruido hueco y un humo verdoso sale de {item} ...</nt-any-escape><t-escape>Pones {item} en marcha. ¡Un tremendo rayo sale disparado en dirección a los zombies! Cegados, se tropiezan y ya no son capaces de encontrarte.</t-escape><t-reverse-escape>Enciendes {item}… El violento flash luminoso siembra el pánico entre los zombies! Cegados, {zombies} zombi(s) se aleja(n) arrastrando sus huesos.</t-reverse-escape>]]></target>
+        <target><![CDATA[<nt-any-escape>Se oye un ruido hueco y un humo verdoso sale de {item} ...</nt-any-escape><t-escape>Pones {item} en marcha. ¡Un tremendo rayo sale disparado en dirección a los zombies! Cegados, se tropiezan y ya no son capaces de encontrarte.</t-escape><t-reverse-escape>Enciendes {item}… El violento flash luminoso siembra el pánico entre los zombies! Cegados, {zombies} zombie(s) se aleja(n) arrastrando sus huesos.</t-reverse-escape>]]></target>
       </segment>
     </unit>
     <unit id="h5657VO" name="bcb0832">
@@ -7179,7 +7178,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>&lt;nt-any-escape&gt;Ein stumpfes Klicken ertönt und ein wenig grünlicher Rauch entschwebt der {item} ...&lt;/nt-any-escape&gt;&lt;t-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus und blendet die Zombies! Geblendet stolpern sie umher und sind nicht länger in der Lage, dich zu finden.&lt;/t-escape&gt;&lt;t-reverse-escape&gt;Du setzt {item} in Gang. Ein gewaltiger Blitz schießt heraus, mitten in die Reihen der Zombies! Geblendet ergreifen {zombies} Zombies die Flucht.&lt;/t-reverse-escape&gt;</source>
-        <target><![CDATA[<nt-any-escape>Se oye un ruido hueco y un humo verdoso sale de {item} ...</nt-any-escape><t-escape>Pones {item} en marcha. ¡Un tremendo rayo sale disparado y ciega a los zombies! Cegados, se tropiezan y ya no son capaces de encontrarte.</t-escape><t-reverse-escape>Enciendes {item}… El violento flash luminoso siembra el pánico entre los zombies! Cegados, {zombies} zombi(s) se aleja(n) arrastrando sus huesos.</t-reverse-escape>]]></target>
+        <target><![CDATA[<nt-any-escape>Se oye un ruido hueco y un humo verdoso sale de {item} ...</nt-any-escape><t-escape>Pones {item} en marcha. ¡Un tremendo rayo sale disparado y ciega a los zombies! Cegados, se tropiezan y ya no son capaces de encontrarte.</t-escape><t-reverse-escape>Enciendes {item}… El violento flash luminoso siembra el pánico entre los zombies! Cegados, {zombies} zombie(s) se aleja(n) arrastrando sus huesos.</t-reverse-escape>]]></target>
       </segment>
     </unit>
     <unit id="HpUrD8S" name="Vielleicht solltest du stattdessen dein Labor benutzen...">
@@ -7233,7 +7232,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Die Seele dieses Bürgers wurde schon zu lange ohne Rücksicht auf Rücksicht verlassen. Heute kommt dieses von Hass erfüllte Wesen, um die schlechten Vibes der Überseewelt zu nähren, ihr solltet euch schnell darum kümmern!</source>
-        <target>Esto no se parece al alma perdida promedio ... Tal vez deberías tener un poco de cuidado con esta. De hecho, tal vez deberías hablar con tu vudú residente ...</target>
+        <target>Esto no se parece al alma perdida promedio ... Tal vez deberías tener un poco de cuidado con esta. De hecho, tal vez deberías hablar con el Chamán de tu pueblo...</target>
       </segment>
     </unit>
     <unit id="SLJtaFf" name="Öffnen (1 BP)">
@@ -7242,7 +7241,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Öffnen (1 BP)</source>
-        <target>Abrir (1 CP)</target>
+        <target>Abrir (1 PC)</target>
       </segment>
     </unit>
     <unit id="dXVgFVI" name="ba2998a">
@@ -7377,7 +7376,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).</source>
-        <target>Haciendo uso de tu {item} has logrado despejar un poco el área ({bury_count} puntos despejados).</target>
+        <target><![CDATA[Has limpiado parcialmente la zona gracias a {item} (<strong>{bury_count} puntos</strong> despejados).]]></target>
       </segment>
     </unit>
     <unit id="y3qU7qO" name="b9071fe">
@@ -7395,7 +7394,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Durchgang in Kraft</source>
-        <target>Durchgang in Kraft</target>
+        <target>Pasaje en vigor</target>
       </segment>
     </unit>
     <unit id="KXx_GUV" name="Den Shamane wählen">
@@ -7449,7 +7448,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} con esta arma: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
+        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} utilizando: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="5DH1uFn" name="b181e5d">
@@ -7458,7 +7457,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</source>
-        <target>Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</target>
+        <target>¡Golpeas a un zombie con todas tus fuerzas, pero él es más duro que una piedra y resiste tus golpes!</target>
       </segment>
     </unit>
     <unit id="tT6PQwS" name="Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...">
@@ -7467,7 +7466,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...</source>
-        <target><![CDATA[Deine Waffe ist durch den harten Aufschlag <strong>kaputt</strong> gegangen...]]></target>
+        <target><![CDATA[Tu arma se ha <strong>roto</strong> con el golpe...]]></target>
       </segment>
     </unit>
     <unit id="fqH14J." name="Weihnachts-Süßigkeiten">
@@ -7494,7 +7493,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Geschenkpaket</source>
-        <target>Paquete postal</target>
+        <target>Paquete de regalo</target>
       </segment>
     </unit>
     <unit id="kdGOsHH" name="cfe7609">
@@ -7512,7 +7511,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Großes Geschenkpaket</source>
-        <target>Gran paquete postal</target>
+        <target>Gran paquete de regalo</target>
       </segment>
     </unit>
     <unit id="1cAIp2n" name="Du hast {item} getrunken, aber scheinbar geschieht nichts...">
@@ -7521,7 +7520,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du hast {item} getrunken, aber scheinbar geschieht nichts...</source>
-        <target>Du hast {item} getrunken, aber scheinbar geschieht nichts...</target>
+        <target>Has bebido {item}, pero no parece tener ningún efecto...</target>
       </segment>
     </unit>
     <unit id="r4cpVVY" name="Du hast einen Sandball in {citizen}s Gesicht geworfen.">
@@ -7530,7 +7529,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du hast einen Sandball in {citizen}s Gesicht geworfen.</source>
-        <target>Du hast einen Sandball in {citizen}s Gesicht geworfen.</target>
+        <target>Lanzaste una Bola de arena a la cara de {citizen}.</target>
       </segment>
     </unit>
     <unit id="_2J5LX7" name="Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.">
@@ -7539,7 +7538,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.</source>
-        <target>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter.</target>
+        <target>Te tragas el caramelo con una gran sonrisa en tu rostro.</target>
       </segment>
     </unit>
     <unit id="n50zH5w" name="59a5c87">
@@ -7548,7 +7547,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem starken psychoaktiven Gift!&lt;t-stat-up-terror&gt;{hr}Du bist vor Angst erstarrt!&lt;/t-stat-up-terror&gt;</source>
-        <target><![CDATA[Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem starken psychoaktiven Gift!<t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>]]></target>
+        <target><![CDATA[Te tragas el caramelo con una gran sonrisa en tu rostro... ¡Pero esta se desaparece rápidamente! ¡El caramelo estaba relleno con un <strong>fuerte veneno psicoactivo</strong>!<t-stat-up-terror>{hr}¡Ahora estás <strong>aterrorizado</strong>!</t-stat-up-terror>]]></target>
       </segment>
     </unit>
     <unit id="Mmr6mlb" name="4606897">
@@ -7557,7 +7556,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>&lt;nt-fail&gt;Du hast einen Sandball in {citizen}s Gesicht geworfen.&lt;/nt-fail&gt;&lt;t-fail&gt;Hier ist niemand, auf den du den Sandball werfen könntest...&lt;/t-fail&gt;</source>
-        <target><![CDATA[<nt-fail>Du hast einen Sandball in {citizen}s Gesicht geworfen.</nt-fail><t-fail>Hier ist niemand, auf den du den Sandball werfen könntest...</t-fail>]]></target>
+        <target><![CDATA[<nt-fail>Lanzaste una Bola de arena a la cara de {citizen}.</nt-fail><t-fail>No hay nadie aquí a quien tirarle la Bola de arena.</t-fail>]]></target>
       </segment>
     </unit>
     <unit id="KlIypjZ" name="6d92ab2">
@@ -7566,7 +7565,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>&lt;t-kill-latest&gt;:Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} con esta arma: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
+        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} utilizando: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="DJF1Mzv" name="c1c5585">
@@ -7575,7 +7574,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-addict&gt;{hr}Du bist jetzt ein Süchtiger!&lt;/t-stat-up-addict&gt;</source>
-        <target><![CDATA[Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-addict>{hr}Du bist jetzt ein Süchtiger!</t-stat-up-addict>]]></target>
+        <target><![CDATA[DTe tragas el caramelo con una gran sonrisa en tu rostro... ¡Pero esta se desaparece rápidamente! ¡El caramelo estaba relleno con un <strong>fuerte veneno psicoactivo</strong>!<t-stat-up-addict>{hr}¡Ahora eres un <strong>adicto</strong>!</t-stat-up-addict>]]></target>
       </segment>
     </unit>
     <unit id="xLE.Yyk" name="f04baee">
@@ -7584,7 +7583,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-terror&gt;{hr}Du bist vor Angst erstarrt!&lt;/t-stat-up-terror&gt;</source>
-        <target><![CDATA[Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-terror>{hr}Du bist vor Angst erstarrt!</t-stat-up-terror>]]></target>
+        <target><![CDATA[Te tragas el caramelo con una gran sonrisa en tu rostro... ¡Pero esta se desaparece rápidamente! ¡El caramelo estaba relleno con un <strong>fuerte veneno psicoactivo</strong>!<t-stat-up-terror>{hr}¡Ahora estás <strong>aterrorizado</strong>!</t-stat-up-terror>>]]></target>
       </segment>
     </unit>
     <unit id="vpwJA00" name="66cf84d">
@@ -7593,7 +7592,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem &lt;strong&gt;starken psychoaktiven Gift!&lt;/strong&gt;&lt;t-stat-up-infection&gt;{hr}Du bist jetzt infiziert!&lt;/t-stat-up-infection&gt;</source>
-        <target><![CDATA[Du schluckst das Bonbon mit einem Lächeln auf den Lippen herunter... das jedoch schnell wieder verschwindet! Die Füllung besteht aus einem <strong>starken psychoaktiven Gift!</strong><t-stat-up-infection>{hr}Du bist jetzt infiziert!</t-stat-up-infection>]]></target>
+        <target><![CDATA[Te tragas el caramelo con una gran sonrisa en tu rostro... ¡Pero esta se desaparece rápidamente! ¡El caramelo estaba relleno con un <strong>fuerte veneno psicoactivo</strong>!<t-stat-up-infection>{hr}¡Ahora estás <strong>infectado</strong>!</t-stat-up-infection>]]></target>
       </segment>
     </unit>
     <unit id="JyuMfMZ" name="04a3d62">
@@ -7602,7 +7601,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>&lt;t-flare_ok&gt;Du hast die Zone {zone} entdeckt.&lt;/t-flare_ok&gt;&lt;t-flare_fail&gt;Es gibt keine weitere Zone zu entdecken.&lt;/t-flare_fail&gt;</source>
-        <target><![CDATA[<t-flare_ok>Du hast die Zone {zone} entdeckt.</t-flare_ok><t-flare_fail>Es gibt keine weitere Zone zu entdecken.</t-flare_fail>]]></target>
+        <target><![CDATA[<t-flare_ok>Has revelado la zona {zone}.</t-flare_ok><t-flare_fail>No quedan más zonas por revelar.</t-flare_fail>]]></target>
       </segment>
     </unit>
     <unit id="T9oSme7" name="2ebb8ed">
@@ -7629,7 +7628,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Tarnanzug (abgelegt)</source>
-        <target>Tarnanzug (abgelegt)</target>
+        <target>Camuflaje (inactivo)</target>
       </segment>
     </unit>
     <unit id="m8tmcds" name="933eb10">
@@ -7647,7 +7646,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Wie durch ein Wunder treibst du einen nützlichen Gegenstand auf.</source>
-        <target>Descubres milagrosamente un objeto útil</target>
+        <target>Descubres milagrosamente un objeto útil.</target>
       </segment>
     </unit>
     <unit id="gNd6Hdo" name="Damit kannst du mit einem Schlag 2 Zombies umbringen!">
@@ -7665,7 +7664,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Stellt deine AP wieder her und beseitigt deine Müdigkeit.</source>
-        <target>Regenera tus PA y cura el Cansancio.</target>
+        <target>Regenera tus Puntos de Acción y cura el Cansancio.</target>
       </segment>
     </unit>
     <unit id="R.doQQs" name="a48c5f0">
@@ -7683,7 +7682,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du bringst einen anderen Spieler nach Hause (dieser darf max. 2 Felder von der Stadt entfernt sein).</source>
-        <target>Rescatas a un habitante y lo traes de regreso al pueblo (se debe encontrar como máximo a 2 casillas de distancia del pueblo)</target>
+        <target>Rescatas a un habitante y lo traes de regreso al pueblo (se debe encontrar como máximo a 2 Kilómetros de distancia del pueblo).</target>
       </segment>
     </unit>
     <unit id="hs9mj9G" name="3c2ba85">
@@ -7692,7 +7691,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du hast die Chance, 1 Zombie in der Zone zu töten; wenn du erfolgreich bist, erhältst du die Kontrolle über die Zone für 10 Minuten.&lt;br /&gt;&lt;em&gt;Angesichts des &lt;strong&gt;Armageddon&lt;/strong&gt; kannst du diese Spezialaktion &lt;strong&gt;einmal pro Spiel&lt;/strong&gt; durchführen.&lt;/em&gt;</source>
-        <target><![CDATA[Du hast die Chance, 1 Zombie in der Zone zu töten; wenn du erfolgreich bist, erhältst du die Kontrolle über die Zone für 10 Minuten.<br /><em>Angesichts des <strong>Armageddon</strong> kannst du diese Spezialaktion <strong>einmal pro Spiel</strong> durchführen.</em>]]></target>
+        <target><![CDATA[Tienes la posibilidad de matar 1 Zombie en la zona en la que te encuentras. Si tienes éxito, tendrás el control de la zona durante 10 minutos.<br /><em>Por haber contemplado 1 <strong>Armageddon</strong>, puedes realizar esta acción especial <strong>una vez por partida</strong>.</em>]]></target>
       </segment>
     </unit>
     <unit id="h_IEt7t" name="71ee522">
@@ -7737,7 +7736,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du versuchst dich einem Zombie zu nähern, aber &lt;strong&gt;der Zombie reißt dir fast das Gesicht mit seinen Zähnen ab&lt;/strong&gt;! Unmöglich zu bestehen...</source>
-        <target><![CDATA[Du versuchst dich einem Zombie zu nähern, aber <strong>der Zombie reißt dir fast das Gesicht mit seinen Zähnen ab</strong>! Unmöglich zu bestehen...]]></target>
+        <target><![CDATA[Intentas acercarte a un zombie, ¡pero <strong>casi te muerte más de una vez</strong>! No pudiste hacer nada...]]></target>
       </segment>
     </unit>
     <unit id="eKYdtdt" name="a78efbb">
@@ -7746,7 +7745,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du rennst schreiend in den ersten Zombie in Reichweite! Mit einem kraftvollen, gut angepassten Schulterschlag &lt;strong&gt;schickst du ihn ein paar Meter weiter in den Staub&lt;/strong&gt;...{hr}Du kannst diese Gelegenheit zur Flucht nutzen!</source>
-        <target><![CDATA[Du rennst schreiend in den ersten Zombie in Reichweite! Mit einem kraftvollen, gut angepassten Schulterschlag <strong>schickst du ihn ein paar Meter weiter in den Staub</strong>...{hr}Du kannst diese Gelegenheit zur Flucht nutzen!]]></target>
+        <target><![CDATA[¡Cargas contra el primer zombie a tu alcance! Con una poderoso y bien ajustado golpe de hombro <strong>lo lanzas a comer arena y polvo a varios metros de distancia</strong>...{hr}¡Puedes aprovechar esta oportunidad para escapar!]]></target>
       </segment>
     </unit>
     <unit id="8vj_Qd7" name="Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!">
@@ -7791,7 +7790,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei.</source>
-        <target>Nada mejor que perforarte los tímpanos para empezar la mañana y recibir 1 PA adicional después del ataque.</target>
+        <target>Nada mejor que perforarte los tímpanos para empezar la mañana y recibir 1 Punto de Acción adicional después del ataque.</target>
       </segment>
     </unit>
     <unit id="ApkAd1P" name="Möchtest du %target% heimbringen?">
@@ -7800,7 +7799,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Möchtest du %target% heimbringen?</source>
-        <target>Möchtest du %target% heimbringen?</target>
+        <target>¿Quieres rescatar a %target% ?</target>
       </segment>
     </unit>
     <unit id="Y5MBnJg" name="Du hast {item_from} in {item_to} verwandelt.">
@@ -7836,7 +7835,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} con esta arma: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
+        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} utilizando: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="5N_N9nB" name="Weicher Kürbis">
@@ -7953,7 +7952,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du gibst deinem {tamer_dog} {items_consume}, die er gierig hinunterschlingt.{hr}Es vergeht keine Minute bis die Drogen Wirkung zeigen: Dein Fifi hat nun leuchtende Augen, ein glänzendes Fell und einen wedelnden Schwanz.</source>
-        <target>Le das {items_consume} a {tamer_dog} en un solo bocado.{hr}En unos minutos la sustancia hará efecto: tu animal tendrá una vista prodigiosa, el pelo más brillante que nunca y la cola sacudiente.</target>
+        <target>Le das {items_consume} a {tamer_dog} de un solo bocado.{hr}En unos minutos la sustancia hará efecto: tu animal tendrá una vista prodigiosa, el pelo más brillante que nunca y la cola sacudiente.</target>
       </segment>
     </unit>
     <unit id="EhU2or6" name="b621fab">
@@ -7971,7 +7970,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden... Die Zunge klebt dir noch immer am Gaumen und dein Hals ist noch genauso trocken wie vorher. Du hast deinen Verdurstungstod erfolgreich verhindert.{hr}&lt;strong&gt;Da du davor schon dehydriert warst, hast du keine neuen APs erhalten.&lt;/strong&gt;</source>
-        <target><![CDATA[Tragas tu ración de agua como un salvaje, sin dejar ni una sola gota... Tu garganta arde, pero al menos dejarás de deshidratarte.{hr}<strong>No has regenerado tus PA porque estabas deshidratado.</strong>]]></target>
+        <target><![CDATA[Tragas tu Ración de agua como un salvaje, sin dejar ni una sola gota... Tu garganta arde, pero al menos dejarás de deshidratarte.{hr}<strong>No has regenerado tus PA porque estabas deshidratado.</strong>]]></target>
       </segment>
     </unit>
     <unit id="bmHixif" name="fa98a6f">
@@ -8034,7 +8033,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Merkwürdig... anscheinend ist der erwartete Effekt ausgeblieben. Du sagst dir selbst, das dies eine unglaubliche Chance ist...</source>
-        <target>Merkwürdig... anscheinend ist der erwartete Effekt ausgeblieben. Du sagst dir selbst, das dies eine unglaubliche Chance ist...</target>
+        <target>Extraño... al parecer la sustancia no tuvo el efecto esperado. Te convences de que tienes una suerte increíble...</target>
       </segment>
     </unit>
     <unit id="IELZytx" name="Vielleicht solltest du das mithilfe des Wasserhahns füllen...">
@@ -8043,7 +8042,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Vielleicht solltest du das mithilfe des Wasserhahns füllen...</source>
-        <target><![CDATA[Tal vez deberías usar la <strong>grifería</strong> para eso...]]></target>
+        <target><![CDATA[Tal vez deberías usar la <strong>Grifería</strong> para eso...]]></target>
       </segment>
     </unit>
     <unit id="NVMPUn." name="Du bist ab sofort getarnt.">
@@ -8079,8 +8078,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>&lt;t-fail&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}&lt;strong&gt;Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.&lt;/strong&gt;&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-door-closed>{tamer_dog} se pone a chillar. Si su instinto no falla, eso quiere decir que <strong>el Portal del pueblo está cerrado...</strong></t-door-closed><t-no-items>{tamer_dog} no tiene nada que llevar, tu mochila está <strong>vacía</strong>.</t-no-items></t-fail><nt-fail>Envías a {tamer_dog} con dirección al pueblo llevando todo el contenido de tu mochila.{hr}<strong>Tus vecinos estarán contentos cuando encuentren todo eso en el Almacén.</strong></nt-fail>
-]]></target>
+        <target><![CDATA[<t-fail><t-door-closed>{tamer_dog} se pone a chillar. Si su instinto no falla, eso quiere decir que <strong>el Portal del pueblo está cerrado...</strong></t-door-closed><t-no-items>{tamer_dog} no tiene nada que llevar, tu mochila está <strong>vacía</strong>.</t-no-items></t-fail><nt-fail>Envías a {tamer_dog} con dirección al pueblo llevando todo el contenido de tu mochila.{hr}<strong>Tus vecinos estarán contentos cuando encuentren todo eso en el Almacén.</strong></nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="JN1w0ES" name="8d4ec3e">
@@ -8107,7 +8105,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du kannst einen schamanischen Trank zubereiten, der den Rezipienten vor bösen Geistern schützt.</source>
-        <target>Du kannst einen schamanischen Trank zubereiten, der den Rezipienten vor bösen Geistern schützt.</target>
+        <target>Puedes preparar una poción chamánica para proteger a quien la consuma de los espiritus malignos.</target>
       </segment>
     </unit>
     <unit id="U42wDJN" name="de445d9">
@@ -8116,7 +8114,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Das ist ein Musterbeispiel eines schamanischen Tranks! Nun liegt es an die, der Stadt dessen Wirksamkeit zu vermitteln und sie von deinen schamanischen Fähigkeiten zu überzeugen.</source>
-        <target>Das ist ein Musterbeispiel eines schamanischen Tranks! Nun liegt es an die, der Stadt dessen Wirksamkeit zu vermitteln und sie von deinen schamanischen Fähigkeiten zu überzeugen.</target>
+        <target>Has fabricado un excelente ejemplar de la Poción Chamánica! Ahora depende de ti transmitir su efectividad con el pueblo y convencerlos de tus habilidades chamánicas.</target>
       </segment>
     </unit>
     <unit id="1VR4tvz" name="Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.">
@@ -8125,7 +8123,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.</source>
-        <target>Du musst etwas Wasser zum Umwandeln haben, um den Trank vorzubereiten.</target>
+        <target>Debes tener una Ración de agua para poder preparar la Poción.</target>
       </segment>
     </unit>
     <unit id="WZjQ7F6" name="37207b3">
@@ -8143,7 +8141,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Der Bürger hat das Wasser in einem Zug ausgetrunken. Das tut gut!</source>
-        <target>El habitante bebe de un trago tu ración de agua... ¡Ahhhhh, cuánta sed!</target>
+        <target>El habitante bebe de un trago su Ración de agua... ¡Ahhhhh, cuánta sed!</target>
       </segment>
     </unit>
     <unit id="sRDEqVL" name="7ee43be">
@@ -8152,7 +8150,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Der Bürger hat den mystischen Trank in einem Zug ausgetrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</source>
-        <target>Der Bürger hat den mystischen Trank in einem Zug ausgetrunken. Hoffen wir, dass dieser Schamane weiß, was er tut...</target>
+        <target>El habitante bebe de un trago su Poción chamánica. Esperemos que el Chamán sepa lo que está haciendo...</target>
       </segment>
     </unit>
     <unit id="q2jfZzs" name="5db32a5">
@@ -8161,7 +8159,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: &lt;strong&gt;du bist nun verletzt&lt;/strong&gt;.</source>
-        <target><![CDATA[Gierig schluckst du deine Wasserration runter, ohne auch nur einen Tropfen zu verschwenden: aber das Ergebnis ist nicht, was du erwartet hast... Ohne Vorwarnung beginnt deine Kehle fürchterlich zu brennen und verursacht einen fürchterlich schmerzhaften Husten! Die sinkst auf die Knie und schnappst nach Luft. Als Ghul kannst du nicht länger Wasser konsumieren: <strong>du bist nun verletzt</strong>.]]></target>
+        <target><![CDATA[Bebes de un trago tu Ración de agua: pero el resultado no es el que esperabas... ¡De repente, tu garganta te empieza a arder terriblemente y te provoca una tos extremadamente dolorosa! Pierdes el aliento y caes de rodillas. Como <strong>mutante</strong> ya no puedes beber más agua: Ahora estás <strong>herido</strong>.]]></target>
       </segment>
     </unit>
     <unit id="GUA4Vaf" name="8f08b00">
@@ -8170,7 +8168,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</source>
-        <target>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</target>
+        <target><![CDATA[Malas noticias, no debiste haberte comido eso... ¡Ahora estás <strong>infectado</strong>!]]></target>
       </segment>
     </unit>
     <unit id="stXotvA" name="8c830be">
@@ -8179,7 +8177,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
-        <target>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</target>
+        <target>Abriste {item_from} y encontraste {item_to} en su interior.</target>
       </segment>
     </unit>
     <unit id="dvSEUyn" name="021fe72">
@@ -8188,7 +8186,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>&lt;t-consumed&gt;Du hetzt das/den/die {item} auf einen Zombie. Der Untote greift sich deinen tierischen Begleiter, zerquetscht es mit seinen Griffen und würgt es ganz langsam herunter... Dumm gelaufen.. aber wenigstens hast ihn damit eine Zeit lang beschäftigt...&lt;/t-consumed&gt;&lt;nt-consumed&gt;Dein Tier &lt;strong&gt;geht einem Zombie sofort an die Gurgel&lt;/strong&gt; und reißt sich ein paar schöne Happen! Bravo!&lt;/nt-consumed&gt;</source>
-        <target><![CDATA[<t-consumed>Lanzas {item} sobre el zombie. Empieza entre ellos un sangriento combate de mordidas y golpes... "Adios mi fiel mascota, tu muerte no fue en vano". Ese zombie no molestará más.</t-consumed><nt-consumed>¡Tu animal <strong>se lanza al cuello de un zombie</strong> y logra arrancarle la cabeza! ¡Esa es mi mascota!</nt-consumed>]]></target>
+        <target><![CDATA[<t-consumed>Lanzas {item} sobre el zombie. Empieza entre ellos un sangriennto combate de mordidas y golpes... "Adiós mi fiel mascota, tu muerte no fue en vano". Ese zombie no molestará más.</t-consumed><nt-consumed>¡Tu {item} <strong>se lanza al cuello de un zombie</strong> y logra arrancarle la cabeza! ¡Esa es mi mascota!</nt-consumed>]]></target>
       </segment>
     </unit>
     <unit id="sU9PQTX" name="a923db5">
@@ -8197,7 +8195,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><t-kills>Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...</t-kills>]]></target>
+        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} utilizando: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="BnW7_fH" name="1876d51">
@@ -8215,7 +8213,7 @@ Preparas algo con mucho esmero. Después de unos minutos de cocción, sacas del 
       </notes>
       <segment>
         <source>So 'ne Quali bekommt man nicht jeden Tag in die Finger! Sicher, Übelkeit, Zittern und Schweißausbrüche hast du auch damit bekommen, aber die Wirkung ist weitaus stärker als bei 'ner normalen Droge (Du hast einen &lt;strong&gt;AP Bonus&lt;/strong&gt; erhalten)... Übertreibe es aber nicht!</source>
-        <target><![CDATA[So 'ne Quali bekommt man nicht jeden Tag in die Finger! Sicher, Übelkeit, Zittern und Schweißausbrüche hast du auch damit bekommen, aber die Wirkung ist weitaus stärker als bei 'ner normalen Droge (Du hast einen <strong>AP Bonus</strong> erhalten)... Übertreibe es aber nicht!]]></target>
+        <target><![CDATA[¡No todos los días se puede consumir una sutancia de esas! También te da náuseas, temblores, sudores fríos... Pero el efecto es mucho más fuerte que el de una droga normal (Recibes una <strong>bonificación de PA</strong>)... ¡No abuses de esta!]]></target>
       </segment>
     </unit>
   </file>

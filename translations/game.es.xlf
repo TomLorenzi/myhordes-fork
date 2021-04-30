@@ -17464,7 +17464,7 @@
       </notes>
       <segment>
         <source>%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!</source>
-        <target>%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!</target>
+        <target>¡%zombies% horribles zombies han sido eliminados gracias a nuestros valerosos Centinelas!</target>
       </segment>
     </unit>
     <unit id="lDKOiMz" name="d1143ea">
@@ -17473,7 +17473,7 @@
       </notes>
       <segment>
         <source>... Auf jeden Fall kamen %zombies% Zombies durch unsere Verteidigungen und griffen Bürger an!</source>
-        <target>... Auf jeden Fall kamen %zombies% Zombies durch unsere Verteidigungen und griffen Bürger an!</target>
+        <target>... ¡pero %zombies% zombies hambrientos logran pasar!</target>
       </segment>
     </unit>
     <unit id="0FSEa0F" name="66f1b95">
@@ -17482,7 +17482,7 @@
       </notes>
       <segment>
         <source>Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!</source>
-        <target>Wir konnte alle Zombies erfolgreich abwehren. Die Nachtwätcher haben eine saubere Arbeit geleistet!</target>
+        <target>Ningún zombie pudo pasar. ¡Los centinelas han defendido el pueblo con uñas y dientes!</target>
       </segment>
     </unit>
     <unit id="usdY6.E" name="Die Zombies haben beim Angriff %list% zerstört.">
@@ -17491,7 +17491,7 @@
       </notes>
       <segment>
         <source>Die Zombies haben beim Angriff %list% zerstört.</source>
-        <target>Die Zombies haben beim Angriff %list% zerstört.</target>
+        <target>Los Zombies destruyeron %list% durante el ataque.</target>
       </segment>
     </unit>
     <unit id="oGFad6j" name="Es ist kein Nachtwächter da, um die Stadt zu verteidigen.">
@@ -17500,7 +17500,7 @@
       </notes>
       <segment>
         <source>Es ist kein Nachtwächter da, um die Stadt zu verteidigen.</source>
-        <target>Es ist kein Nachtwächter da, um die Stadt zu verteidigen.</target>
+        <target>Ningún centinela estaba presente para defender el pueblo.</target>
       </segment>
     </unit>
     <unit id="gWz67fx" name="c3a54a1">
@@ -17509,7 +17509,7 @@
       </notes>
       <segment>
         <source>Da keine lebendigen Bürger beim Angriff in der Stadt waren, wurde sie von den Zombies vollständig zerstört...</source>
-        <target>Da keine lebendigen Bürger beim Angriff in der Stadt waren, wurde sie von den Zombies vollständig zerstört...</target>
+        <target>Sin personas vivas, el pueblo ha sido devastado por la turba de zombies...</target>
       </segment>
     </unit>
     <unit id="OwJiT_2" name="5f08baa">
@@ -18813,7 +18813,7 @@
       </notes>
       <segment>
         <source>%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</source>
-        <target>%watchers% Nachtwächter haben am Stadtrand Stellung bezogen. Wild entschlossen haben sie sich vorgenommen, die Stadt gegen die Zombies zu verteidigen.</target>
+        <target>¡%watchers% centinelas se han ubicado en los extremos del pueblo para contener los ataques zombies!</target>
       </segment>
     </unit>
     <unit id="wX7RkO4" name="6de7154">

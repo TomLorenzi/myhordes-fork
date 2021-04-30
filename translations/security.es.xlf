@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>Not privileged to request the resource.</source>
-        <target>No tiene privilegios para solicitar el recurso.</target>
+        <target>No tienes permisos para solicitar el recurso.</target>
       </segment>
     </unit>
     <unit id="dLzMRPR" name="Invalid CSRF token.">
@@ -142,7 +142,7 @@
       </notes>
       <segment>
         <source>Too many failed login attempts, please try again later.</source>
-        <target>Demasiados intentos fallidos de inicio de sesión, inténtelo de nuevo más tarde.</target>
+        <target>Demasiados intentos fallidos de inicio de sesión, inténtalo de nuevo más tarde.</target>
       </segment>
     </unit>
     <unit id="l9VYRj0" name="Invalid or expired login link.">
