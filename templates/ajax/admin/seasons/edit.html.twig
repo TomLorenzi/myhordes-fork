@@ -28,7 +28,11 @@
 
                 <div class="row">
                     <div class="padded cell rw-4 ro-4">
-                        <button id="save_button">{{ (current_season is null ? 'Neue Saison registrieren' : "Änderungen speichern")|trans({},'admin') }}</button>
+                        {% if current_season is null %}
+                            <button id="save_button">{{ 'Neue Saison registrieren'|trans({},'admin') }}</button>
+                        {% else %}
+                            <button id="save_button">{{ "Änderungen speichern"|trans({},'admin') }}</button>
+                        {% endif %}
                     </div>
                 </div>
             </div>

@@ -3124,5 +3124,23 @@
         <target>Sur une zone</target>
       </segment>
     </unit>
+    <unit id="qD9loXa" name="Neue Saison registrieren">
+      <notes>
+        <note category="german">Neue Saison registrieren</note>
+      </notes>
+      <segment>
+        <source>Neue Saison registrieren</source>
+        <target>Neue Saison registrieren</target>
+      </segment>
+    </unit>
+    <unit id="bIa5kIj" name="Änderungen speichern">
+      <notes>
+        <note category="german">Änderungen speichern</note>
+      </notes>
+      <segment>
+        <source>Änderungen speichern</source>
+        <target>Änderungen speichern</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

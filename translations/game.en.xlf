@@ -6886,7 +6886,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="9hu_P2F" name="f13ed10">
       <notes>
-        <note category="german">Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</note>
+        <note category="german">Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP zu erhalten.</note>
       </notes>
       <segment>
         <source>Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.</source>
