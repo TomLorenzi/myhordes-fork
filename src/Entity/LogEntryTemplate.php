@@ -30,6 +30,7 @@ class LogEntryTemplate
     const TypeHome            = 10;
     const TypeChat            = 11;
     const TypeCatapult        = 16;
+    const TypeWellFill        = 17;
     const TypeGPMNotification = 100;
 
     const ClassNone                 = 0;
