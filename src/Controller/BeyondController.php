@@ -30,6 +30,7 @@ use App\Service\CrowService;
 use App\Service\DeathHandler;
 use App\Service\ErrorHelper;
 use App\Service\GameFactory;
+use App\Service\HTMLService;
 use App\Service\InventoryHandler;
 use App\Service\PictoHandler;
 use App\Service\ItemFactory;
@@ -503,7 +504,7 @@ class BeyondController extends InventoryAwareController
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function chat_desert_api(JSONRequestParser $parser): Response {
+    public function chat_desert_api(JSONRequestParser $parser, HTMLService $html): Response {
         if ($this->user_handler->isRestricted($this->getActiveCitizen()->getUser(), AccountRestriction::RestrictionTownCommunication))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
@@ -511,7 +512,7 @@ class BeyondController extends InventoryAwareController
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $message = $parser->get('msg', null);
-        if (!$message || mb_strlen($message) < 2 || mb_strlen($message) > 256 )
+        if (!$message || mb_strlen($message) < 2 || !$html->htmlPrepare($this->getActiveCitizen()->getUser(), 0, ['core_rp'], $message, null, $len) || $len < 2 || $len > 256 )
             return AjaxResponse::error(self::ErrorChatMessageInvalid);
 
         try {

@@ -54,6 +54,9 @@ class HTMLService {
                 'q' => [],
                 'p'  => [],
             ],
+            'core_rp' => [
+                'div' => [ 'class' ],
+            ],
             'extended' => [
                 'blockquote' => [],
                 'pre' => [],
@@ -74,6 +77,13 @@ class HTMLService {
         ],
         'attribs' => [
             'core' => [],
+            'core_rp' => [
+                'div.class' => [
+                    'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
+                    'letter-a', 'letter-v', 'letter-c',
+                    'rps', 'coin', 'card'
+                ],
+            ],
             'extended' => [
                 'div.class' => [
                     'clear',
@@ -114,9 +124,11 @@ class HTMLService {
         ]
     ];
 
-    protected function getAllowedHTML(int $permissions, bool $extended = true): array {
+    protected function getAllowedHTML(int $permissions, bool $extended = true, array $all_ext = []): array {
         $mods_enabled = ['core'];
         if ($extended) $mods_enabled[] = 'extended';
+        $mods_enabled = array_merge($mods_enabled, $all_ext);
+
         if ($this->perm->isPermitted($permissions, ForumUsagePermissions::PermissionFormattingOracle))
             $mods_enabled[] = 'oracle';
         if ($this->perm->isPermitted($permissions, ForumUsagePermissions::PermissionFormattingModerator))
@@ -188,7 +200,17 @@ class HTMLService {
         else return false;
     }
 
-    public function htmlPrepare(User $user, int $permissions, bool $extended, string &$text, ?Town $town = null, ?int &$tx_len = null, ?bool &$editable = null): bool {
+    /**
+     * @param User $user
+     * @param int $permissions
+     * @param bool|array $extended
+     * @param string $text
+     * @param Town|null $town
+     * @param int|null $tx_len
+     * @param bool|null $editable
+     * @return bool
+     */
+    public function htmlPrepare(User $user, int $permissions, $extended, string &$text, ?Town $town = null, ?int &$tx_len = null, ?bool &$editable = null): bool {
 
         $editable = true;
 
@@ -198,7 +220,7 @@ class HTMLService {
         $body = $dom->getElementsByTagName('body');
         if (!$body || $body->length > 1) return false;
 
-        if (!$this->htmlValidator($this->getAllowedHTML($permissions,$extended), $body->item(0),$tx_len))
+        if (!$this->htmlValidator($this->getAllowedHTML($permissions,is_bool($extended) ? $extended : false, is_array($extended) ? $extended : []), $body->item(0),$tx_len))
             return false;
 
         $emotes = array_keys($this->get_emotes());

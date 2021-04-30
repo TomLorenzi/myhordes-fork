@@ -1367,7 +1367,7 @@ class LogTemplateHandler
     }
 
     public function beyondChat( Citizen $sender, string $message ): TownLogEntry {
-        $variables = array('sender' => $sender->getId(), 'message' => htmlentities( $message ));
+        $variables = array('sender' => $sender->getId(), 'message' => $message);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'beyondChat']);
 
         return (new TownLogEntry())

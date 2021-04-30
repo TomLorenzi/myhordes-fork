@@ -13,6 +13,7 @@ use App\Entity\UserGroupAssociation;
 use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
+use App\Service\HTMLService;
 use App\Service\JSONRequestParser;
 use App\Service\PermissionHandler;
 use App\Structures\MyHordesConf;
@@ -419,7 +420,7 @@ class SoulCoalitionController extends SoulController
      * @param JSONRequestParser $parser
      * @return Response
      */
-    public function api_coalition_shout(JSONRequestParser $parser): Response
+    public function api_coalition_shout(JSONRequestParser $parser, HTMLService $html): Response
     {
         $user = $this->getUser();
         $shoutbox = $this->user_handler->getShoutbox($user);
@@ -432,7 +433,9 @@ class SoulCoalitionController extends SoulController
         if (count($last_chat_entries) === 10 && $last_chat_entries[9]->getTimestamp()->getTimestamp() > (time() - 30))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        $text = mb_substr( htmlentities($parser->trimmed('text', '')), 0, 190);
+        $text = $parser->trimmed('text', '');
+        if (!$html->htmlPrepare( $user, 0, ['core_rp'],  $text, null, $len ) || $len < 2 || $len > 256)
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         $shoutbox = $this->user_handler->getShoutbox($user);
         $shoutbox->addEntry(
