@@ -545,7 +545,7 @@
                                     {% endif %}
 
                                     <button {% if not can_attack_citizen %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" style="margin-right: 0;"/>
-                                        <div class="tooltip">{{ '%citizen% angreifen. Diese Aktion kostet dich %ap%.'|trans({'%citizen%': other_citizen.user.name,'%ap%': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),true) ~ '</div>'},'game')|raw }}</div>
+                                        <div class="tooltip">{{ '%citizen% angreifen. Diese Aktion kostet dich %ap%.'|trans({'%citizen%': other_citizen.user.name,'%ap%': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),5) ~ '</div>'},'game')|raw }}</div>
                                     </button>
                                     {% if can_devour_citizen %}
                                         <button {% if not allow_devour_citizen %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" style="margin-right: 0;" /></button>
@@ -664,7 +664,7 @@
                                 <div class="padded cell rw-4 right">
                                     {% if not other_citizen.activeExplorerStats and other_citizen != citizen %}
                                         <button {% if not can_attack_citizen %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" style="margin-right: 0;" />
-                                            <div class="tooltip">{{ '%citizen% angreifen. Diese Aktion kostet dich %ap%.'|trans({'%citizen%': other_citizen.user.name,'%ap%': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),true) ~ '</div>'},'game')|raw }}</div>
+                                            <div class="tooltip">{{ '%citizen% angreifen. Diese Aktion kostet dich %ap%.'|trans({'%citizen%': other_citizen.user.name,'%ap%': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),5) ~ '</div>'},'game')|raw }}</div>
                                         </button>
                                         {% if can_devour_citizen %}
                                             <button {% if not allow_devour_citizen %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" style="margin-right: 0;" /></button>

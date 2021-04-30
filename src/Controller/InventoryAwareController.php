@@ -493,7 +493,7 @@ class InventoryAwareController extends CustomAbstractController
 
         if ($defender->hasRole('ghoul')) {
 
-            $this->citizen_handler->setAP($aggressor, true, -5);
+            $this->citizen_handler->setAP($aggressor, true, -$ap);
             $this->addFlash('notice',
                 $this->translator->trans('Mit aller Gewalt greifst du %citizen% an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt %citizen% eine schwere Verletzung davon.', ['%citizen%' => $defender->getUser()->getName()], 'game')
                 . "<hr />" .
@@ -513,7 +513,7 @@ class InventoryAwareController extends CustomAbstractController
 
         } else {
 
-            $this->citizen_handler->setAP( $aggressor, true, -5 );
+            $this->citizen_handler->setAP( $aggressor, true, -$ap );
             $wound = $this->random_generator->chance( $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_CHANCE, 0.5) );
             $this->entity_manager->persist($this->log->citizenAttack($aggressor, $defender, $wound));
             if ($wound) {

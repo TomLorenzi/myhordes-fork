@@ -406,7 +406,7 @@ class TownController extends InventoryAwareController
             'protect' => $this->citizen_handler->houseIsProtected($c, true),
             'hasClairvoyance' => $hasClairvoyance,
             'clairvoyanceLevel' => $clairvoyanceLevel,
-            'attackAP' => $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 4 ),
+            'attackAP' => $this->getTownConf()->get( TownConf::CONF_MODIFIER_ATTACK_AP, 5 ),
             'can_recycle' => $can_recycle,
         ]) );
     }
