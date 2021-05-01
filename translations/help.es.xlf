@@ -2503,8 +2503,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       <segment>
         <source>&lt;strong&gt;Die Seelen %img_blue_soul% verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.&lt;/strong&gt;
 Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine blaue Seele in der Außenwelt. Jeder Bürger kann eine Seele einsammeln und sie in die Stadt bringen. Beachtet, dass eine Seele als "sperriger Gegenstand" gilt.</source>
-        <target><![CDATA[<strong>Die Seelen %img_blue_soul% verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.</strong>
-Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine blaue Seele in der Außenwelt. Jeder Bürger kann eine Seele einsammeln und sie in die Stadt bringen. Beachtet, dass eine Seele als "sperriger Gegenstand" gilt.]]></target>
+        <target><![CDATA[<strong>Las almas %img_blue_soul% de nuestros compañeros deambulan intranquilas en el vasto Ultramundo</strong>. Cada vez que un habitante muere(Sin importar por qué o en dónde), aparece un alma débil en el Ultramundo. Cualquiera puede recoger un alma débil y llevarla al pueblo. Sin embargo, los habitantes normales solo pueden llevar un alma a la vez. El chamán es el único que tiene el control espiritual para llevar consigo varias almas a la vez.]]></target>
       </segment>
     </unit>
     <unit id="8TquK3o" name="1309ffe">
@@ -2513,7 +2512,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Es liegt dann an der Stadt, sich zu organisieren, um diese verlorenen Seelen zu bergen. In der Tat haben diese Seelen eine große Chance, sich in gequälte Seelen %img_red_soul% zu verwandeln, wenn sie verlassen werden! Und dort wird es Zeit in Panik zu geraten, diese gequälten Seelen entwickeln die Zombie-Proliferation!</source>
-        <target>Es liegt dann an der Stadt, sich zu organisieren, um diese verlorenen Seelen zu bergen. In der Tat haben diese Seelen eine große Chance, sich in gequälte Seelen %img_red_soul% zu verwandeln, wenn sie verlassen werden! Und dort wird es Zeit in Panik zu geraten, diese gequälten Seelen entwickeln die Zombie-Proliferation!</target>
+        <target>Esto hace necesario que el pueblo se organice para rescatar estas almas débiles. De hecho, ¡estas almas tienen una gran probablidad de convertirse en almas fuertes %img_red_soul% si se dejan abandonadas! ¡Habrá que actuar con urgencia, estas almas fuertes aumentan el ataque nocturno!</target>
       </segment>
     </unit>
     <unit id="Sz_Kc6M" name="36d748d">
@@ -2522,7 +2521,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Beachten Sie, dass der Schamane auf der gesamten Karte eine Vision von Seelen haben kann, aber er wird nicht in der Lage sein, gefolterte Seelen von anderen zu unterscheiden.</source>
-        <target>Beachten Sie, dass der Schamane auf der gesamten Karte eine Vision von Seelen haben kann, aber er wird nicht in der Lage sein, gefolterte Seelen von anderen zu unterscheiden.</target>
+        <target>El Chamán es el único que puede percibir la posición aproximada de las almas en el Ultramundo; sin embargo sus poderes extrasensoriales no son suficientes para distinguir entre almas débiles y fuertes en el mapa.</target>
       </segment>
     </unit>
     <unit id="wM4GFMA" name="2f91250">
@@ -2531,7 +2530,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Das Wiederherstellen von Seelen erfordert eine kleine Vorbereitung! In der Tat fordern gefolterte Seelen einen guten Schutz vor ihrer Gewalt, da jeder Bürger eine wandernde Seele transportieren kann.</source>
-        <target>Das Wiederherstellen von Seelen erfordert eine kleine Vorbereitung! In der Tat fordern gefolterte Seelen einen guten Schutz vor ihrer Gewalt, da jeder Bürger eine wandernde Seele transportieren kann.</target>
+        <target>¡Rescatar almas requiere de una preparación especial! Un habitante cualquiera puede ser poseído por un alma fuerte, por lo que es necesario protegerse de su violencia.</target>
       </segment>
     </unit>
     <unit id="KE5t8gU" name="b6407ae">
@@ -2540,7 +2539,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Der Schamane ist unempfindlich gegenüber ihm und kann diese Seelen daher ohne Risiko (aber nicht ohne Angst) manipulieren. Der Bürger muss seinen Schamanen bitten, einen Immunisierungstrank zuzubereiten. Aber Vorsicht, das Vertrauen in die Kräfte Ihres Schamanen sollte nicht unendlich sein...</source>
-        <target>Der Schamane ist unempfindlich gegenüber ihm und kann diese Seelen daher ohne Risiko (aber nicht ohne Angst) manipulieren. Der Bürger muss seinen Schamanen bitten, einen Immunisierungstrank zuzubereiten. Aber Vorsicht, das Vertrauen in die Kräfte Ihres Schamanen sollte nicht unendlich sein...</target>
+        <target>El Chamán puede recoger almas fuertes sin riesgo(pero no sin la presión que esto representa). Los demás habitantes deberán pedirle al chamán de su pueblo que prepare un brebaje especial que les proteja de las almas fuertes. Pero desconfíen, la efectividad de sus poderes no está garantizada...</target>
       </segment>
     </unit>
     <unit id="Jly9usI" name="379bc01">
@@ -2549,7 +2548,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Wenn Sie einmal in der Stadt sind, können Sie diese Seele reinigen und in Frieden ruhen lassen, weit weg von Ihrer Stadt und ihren bösen Geistern. &lt;strong&gt;Seien Sie vorsichtig, ungereinigte Seelen werden um Mitternacht weiterhin Unglück bringen, selbst wenn sie in der Stadt bleiben!&lt;/strong&gt;</source>
-        <target><![CDATA[Wenn Sie einmal in der Stadt sind, können Sie diese Seele reinigen und in Frieden ruhen lassen, weit weg von Ihrer Stadt und ihren bösen Geistern. <strong>Seien Sie vorsichtig, ungereinigte Seelen werden um Mitternacht weiterhin Unglück bringen, selbst wenn sie in der Stadt bleiben!</strong>]]></target>
+        <target><![CDATA[Una vez en el pueblo, si la construcción <strong>Hammam</strong> está terminada, es posible purificar estas almas y dejarlas descansar en paz, bastante lejos del pueblo y sus espíritus malignos. <strong>¡Cuidado, las almas sin purificar seguiran atrayendo efectos negativos incluso si están en El almacén!</strong>]]></target>
       </segment>
     </unit>
     <unit id="uepLpvU" name="e19b01f">
