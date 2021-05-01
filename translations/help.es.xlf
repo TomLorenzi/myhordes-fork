@@ -2558,7 +2558,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Die Außenwelt birgt verlassene Gebäude, die nach Rohstoffen und nützlichen Plänen abgesucht werden können.</source>
-        <target>Die Außenwelt birgt verlassene Gebäude, die nach Rohstoffen und nützlichen Plänen abgesucht werden können.</target>
+        <target>En el Ultramundo se encuentran edificios abandonados que se pueden explorar en busca de recursos y de planos útiles.</target>
       </segment>
     </unit>
     <unit id="F3BRYtp" name="14e1df7">
@@ -2569,8 +2569,7 @@ Diese unseligen Orte werden außerdem oft von Zombies heimgesucht. Wenn sich dei
       <segment>
         <source>Sobald du einen solchen Ort gefunden hast, siehst du bei deinen Aktion eine Option, über die du diesen Ort betreten kannst. &lt;strong&gt;Achtung: Bürger, die verletzt oder starr vor Angst sind, können einen solch klaustrophobischen Ort nicht betreten.&lt;/strong&gt;
 Diese unseligen Orte werden außerdem oft von Zombies heimgesucht. Wenn sich dein kleiner Ausflug also lohnen soll, lass dir besser vorher etwas einfallen, wie du diese Kreaturen wieder los wirst.</source>
-        <target><![CDATA[Sobald du einen solchen Ort gefunden hast, siehst du bei deinen Aktion eine Option, über die du diesen Ort betreten kannst. <strong>Achtung: Bürger, die verletzt oder starr vor Angst sind, können einen solch klaustrophobischen Ort nicht betreten.</strong>
-Diese unseligen Orte werden außerdem oft von Zombies heimgesucht. Wenn sich dein kleiner Ausflug also lohnen soll, lass dir besser vorher etwas einfallen, wie du diese Kreaturen wieder los wirst.]]></target>
+        <target><![CDATA[Cuando estés en la ubicación de una ruina, entre tus acciones disponibles encontrarás la opción de entrar a explorar esta ruina. <strong>Importante: Un habitante herido o aterrorizado no puede entrar en estos lugares tan oscuros y estrechos.</strong> Desafortunadamente estos lugares suelen estar infestados de zombies. Así que si deseas que tu exploración sea exitosa, se recomienda que te prepares para matarlos antes de ingresar.]]></target>
       </segment>
     </unit>
     <unit id=".w.ATRf" name="f304740">
@@ -2581,8 +2580,7 @@ Manchmal stößt du auf verriegelte Türen, die du nur mit bestimmten Schlüssel
       <segment>
         <source>Du findest nur in den Zimmern dieser Ruinen brauchbare Gegenstände. In den Fluren befinden sich nur dann Gegenstände, wenn andere Spielern sie dort abgelegt haben.
 Manchmal stößt du auf verriegelte Türen, die du nur mit bestimmten Schlüsseln aufbekommst. Die ehemaligen Bewohner dieser Orte haben oft Schlüssel zurückgelassen. Es liegt an dir, sie zu finden.</source>
-        <target>Du findest nur in den Zimmern dieser Ruinen brauchbare Gegenstände. In den Fluren befinden sich nur dann Gegenstände, wenn andere Spielern sie dort abgelegt haben.
-Manchmal stößt du auf verriegelte Türen, die du nur mit bestimmten Schlüsseln aufbekommst. Die ehemaligen Bewohner dieser Orte haben oft Schlüssel zurückgelassen. Es liegt an dir, sie zu finden.</target>
+        <target>Solo hallarás nuevos recursos dentro de las habitaciones de las ruinas; en los pasillos habrá objetos dejados por otros habitantes. Puedes ver si el pasillo tiene una habitación porque te aparecerá la opción de entrar a la habitación entre tus acciones y verás una puerta como la resaltada en rojo en la imagen. A veces encontrarás puertas cerradas que podrás abrir con tipos específicos de llaves. Los antiguos ocupantes de la ruina pudieron dejar algunas llaves por ahí, dales un buen uso.</target>
       </segment>
     </unit>
     <unit id="X7Z3oSQ" name="0b5fcc2">
@@ -2591,7 +2589,7 @@ Manchmal stößt du auf verriegelte Türen, die du nur mit bestimmten Schlüssel
       </notes>
       <segment>
         <source>Es ist niemals so einfach wie es aussieht. Die Luft in diesen seit langem verlassenen Gebäuden ist mit einer giftigen Substanz gesättigt. Du solltest dich hier darum besser nicht zu lange aufhalten.</source>
-        <target>Es ist niemals so einfach wie es aussieht. Die Luft in diesen seit langem verlassenen Gebäuden ist mit einer giftigen Substanz gesättigt. Du solltest dich hier darum besser nicht zu lange aufhalten.</target>
+        <target>Si solo fuese eso, sería demasiado simple. El aire en estos edificios abandonados hace años está saturado con una sustancia tóxica. Debido a esto es imposible estar dentro de ellas por mucho tiempo.</target>
       </segment>
     </unit>
     <unit id="uqQWwTV" name="c7f6f64">
@@ -2606,10 +2604,7 @@ Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth
 Du musst unbedingt rechtzeitig aus diesem Labyrinth entkommen. Ansonsten wirst du schwer verletzt und verlierst alle Gegenstände, die du bei deiner Suche gefunden hast.
 Verlassene Gebäude haben nur einen einzigen Eingang. Und das ist gleichzeitig dein einziger Weg zurück nach draußen.
 Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth nicht mehr lebend verlassen.</source>
-        <target><![CDATA[<strong>Ein Sauerstoffmesser verrät dir, wieviel Zeit dir zum Durchsuchen einer Zone bleibt, ehe du vergiftet wirst.</strong>
-Du musst unbedingt rechtzeitig aus diesem Labyrinth entkommen. Ansonsten wirst du schwer verletzt und verlierst alle Gegenstände, die du bei deiner Suche gefunden hast.
-Verlassene Gebäude haben nur einen einzigen Eingang. Und das ist gleichzeitig dein einziger Weg zurück nach draußen.
-Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth nicht mehr lebend verlassen.]]></target>
+        <target><![CDATA[<strong>En la parte superior derecha tienes un contador de oxígeno que te indica por cuánto tiempo puedes seguir en la ruina sin ser afectado por el aire tóxico.</strong> SIEMPRE debes salir de estos laberintos antes de que se te acabe el tiempo. Si no lo logras, resultarás gravemente herido y soltarás en el pasillo que estabas todos los objetos que tenías durante la exploración. Solo hay una entrada a las ruinas y esa será también tu única salida. Ten cuidado: no seas demasiado codicioso al explorar estos edificios.]]></target>
       </segment>
     </unit>
     <unit id="cR7ePtk" name="1856884">
@@ -2618,7 +2613,7 @@ Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth
       </notes>
       <segment>
         <source>Es gibt einige Verhaltensregeln, wie man in einer solchen Gegend voller Zombies überleben kann. Wenn du deine Lieben daheim jemals wiedersehen willst, hältst du dich besser daran:</source>
-        <target>Es gibt einige Verhaltensregeln, wie man in einer solchen Gegend voller Zombies überleben kann. Wenn du deine Lieben daheim jemals wiedersehen willst, hältst du dich besser daran:</target>
+        <target>A continuación algunas reglas que debes respetar si quieres volver vivo a tu querido pueblo:</target>
       </segment>
     </unit>
     <unit id="a5rChiF" name="61a3988">
@@ -2627,7 +2622,7 @@ Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth
       </notes>
       <segment>
         <source>Aufgrund der Enge dieser Orte, kann sie nur &lt;strong&gt;nur ein einzelner Bürger gleichzeitig&lt;/strong&gt; betreten und untersuchen. Sobald dieser Bürger das Gebäude wieder verlassen hat, kann ein anderer seinen Platz einnehmen.</source>
-        <target><![CDATA[Aufgrund der Enge dieser Orte, kann sie nur <strong>nur ein einzelner Bürger gleichzeitig</strong> betreten und untersuchen. Sobald dieser Bürger das Gebäude wieder verlassen hat, kann ein anderer seinen Platz einnehmen.]]></target>
+        <target><![CDATA[Debido a la estrechez de los pasillos, <strong>solo puede haber un habitante a la vez</strong> dentro de los edificios. En cuanto este haya salido, otro podra ingresar a la ruina.]]></target>
       </segment>
     </unit>
     <unit id="RR6Z.rb" name="aac3441">
@@ -2636,7 +2631,7 @@ Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth
       </notes>
       <segment>
         <source>Wegen der großen Menge Gift, die man beim Untersuchen eines verlassenen Gebäudes einatmet, kann ein Bürger ein Gebäude &lt;strong&gt;nur einmal pro Tag&lt;/strong&gt; untersuchen. Eine weitere Tour würde unweigerlich zu einem sehr unschönen Tod führen.</source>
-        <target><![CDATA[Wegen der großen Menge Gift, die man beim Untersuchen eines verlassenen Gebäudes einatmet, kann ein Bürger ein Gebäude <strong>nur einmal pro Tag</strong> untersuchen. Eine weitere Tour würde unweigerlich zu einem sehr unschönen Tod führen.]]></target>
+        <target><![CDATA[Debido al alto grado de toxicidad en la ruina, cada habitante podrá ingresar <strong>una sola vez al día</strong> en ellas. Una exposición mayor te llevaría a una inevitable muerte dolorosa.]]></target>
       </segment>
     </unit>
     <unit id="9tyeLdW" name="b3077a1">
@@ -2647,8 +2642,7 @@ Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf 
       <segment>
         <source>Um den Zombies zu entkommen, die sich hier herumtreiben, kannst du deine Gegenstände aus deinem Inventar benutzen und damit angreifen. Du kannst auch &lt;strong&gt;die Aktion "Die Flucht wagen" ausführen&lt;/strong&gt;: Dabei verbrauchst du einen Teil deines Sauerstoffvorrats. 
 Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf dich warten.</source>
-        <target><![CDATA[Um den Zombies zu entkommen, die sich hier herumtreiben, kannst du deine Gegenstände aus deinem Inventar benutzen und damit angreifen. Du kannst auch <strong>die Aktion "Die Flucht wagen" ausführen</strong>: Dabei verbrauchst du einen Teil deines Sauerstoffvorrats. 
-Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf dich warten.]]></target>
+        <target><![CDATA[Para escapar de los zombies que se encuentran allí, puedes usar objetos de tu inventario o realizar acciones heróicas. También puedes <strong>seleccionar la acción "Huir"</strong> sacrificando una parte de tu oxígeno, pero si vuelves a pasar por ahí, seguirán habiendo zombies y deberás huir de nuevo.]]></target>
       </segment>
     </unit>
     <unit id="Ro.Av4r" name="0995565">
@@ -2657,7 +2651,7 @@ Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf 
       </notes>
       <segment>
         <source>Durch den Lärm, den die Abenteurer in der Außenwelt machen, halten sich &lt;strong&gt;immer einige Zombies in der Nähe&lt;/strong&gt; der Gebäude auf. Du solltest eine solche Zone darum schnell durchsuchen, ehe es dort nur so vor Zombies wimmelt.</source>
-        <target><![CDATA[Durch den Lärm, den die Abenteurer in der Außenwelt machen, halten sich <strong>immer einige Zombies in der Nähe</strong> der Gebäude auf. Du solltest eine solche Zone darum schnell durchsuchen, ehe es dort nur so vor Zombies wimmelt.]]></target>
+        <target><![CDATA[Debido a los ruidos generados en de las ruinas, <strong>siempre hay zombies dentro</strong> de las ruinas. Más le vale a tu pueblo encontrarlas pronto, antes de que estén llenas de zombies.]]></target>
       </segment>
     </unit>
     <unit id="V5OvUWu" name="5998125">
@@ -2668,8 +2662,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
       <segment>
         <source>Zwischen dem Auftauchen der Verdammten und diesen Gebäuden besteht ein Zusammenhang. Es ist darum kein Wunder, dass Plünderer keine Zeit hatten, sie in Ruhe zu durchsuchen. Sie beherbergen darum noch immer zahlreiche Ressourcen und Baupläne. 
 Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es besteht kein Zweifel daran, dass die einfachsten Mittel auch die effektivsten Mittel zum Durchsuchen dieser Orte sein werden.</source>
-        <target>Zwischen dem Auftauchen der Verdammten und diesen Gebäuden besteht ein Zusammenhang. Es ist darum kein Wunder, dass Plünderer keine Zeit hatten, sie in Ruhe zu durchsuchen. Sie beherbergen darum noch immer zahlreiche Ressourcen und Baupläne. 
-Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es besteht kein Zweifel daran, dass die einfachsten Mittel auch die effektivsten Mittel zum Durchsuchen dieser Orte sein werden.</target>
+        <target>Existe una conexión entre el origen de los zombies y estos edificios. No es extraño que los saqueadores no hayan podido registrarlos cuidadosamente, por lo que todavía es posible encontrar numerosos recursos y planos. Desafortunadamente, los mapas de estas "minas de oro" son imposibles de encontrar, así que deberás usar medios rudimentarios para poder salir de allí con la mochila llena.</target>
       </segment>
     </unit>
     <unit id="arLFfQ0" name="ebd1af9">
@@ -2856,7 +2849,7 @@ werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtun
       </notes>
       <segment>
         <source>Sei gewiss: An diesem gottverlassenen Ort wird dir niemand zu Hilfe eilen. Und Kontrollpunkte gelten hier auch nicht mehr. Versuche darum, das Maximum aus diesen Gebäuden herauszuholen.</source>
-        <target>Sei gewiss: An diesem gottverlassenen Ort wird dir niemand zu Hilfe eilen. Und Kontrollpunkte gelten hier auch nicht mehr. Versuche darum, das Maximum aus diesen Gebäuden herauszuholen.</target>
+        <target><![CDATA[Nadie podrá ayudarte mientras exploras esas ruinas espeluznantes. <strong>Los puntos de control no se aplican aquí</strong>. Deberás organizarte con tu pueblo para sacarle el máximo provecho a estos lugares.]]></target>
       </segment>
     </unit>
     <unit id="pCjfjXL" name="198f48e">
@@ -2865,7 +2858,7 @@ werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtun
       </notes>
       <segment>
         <source>Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines %img_meat% saftigen Steaks auf einer angerichteten Tafel!</source>
-        <target>Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines %img_meat% saftigen Steaks auf einer angerichteten Tafel!</target>
+        <target>Cuidado con la hora: Si estás explorando un edificio a medianoche, ¡tendrás tantas posibilidades de sobrevivir  como un %img_meat% bistec en medio de perros hambrientos!!</target>
       </segment>
     </unit>
     <unit id="gns2u3H" name="Der Tod">
