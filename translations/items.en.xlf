@@ -8171,7 +8171,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
-        <target>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</target>
+        <target>You have opened the {item_from}, you have found the {item_to} inside.</target>
       </segment>
     </unit>
     <unit id="dvSEUyn" name="021fe72">
