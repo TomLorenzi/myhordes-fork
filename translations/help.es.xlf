@@ -2521,7 +2521,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Beachten Sie, dass der Schamane auf der gesamten Karte eine Vision von Seelen haben kann, aber er wird nicht in der Lage sein, gefolterte Seelen von anderen zu unterscheiden.</source>
-        <target>El Chamán es el único que puede percibir la posición aproximada de las almas en el Ultramundo; sin embargo sus poderes extrasensoriales no son suficientes para distinguir entre almas débiles y fuertes en el mapa.</target>
+        <target>El Chamán es el único que puede percibir la posición aproximada de las almas en el Ultramundo; sin embargo, sus poderes extrasensoriales no son suficientes para distinguir entre almas débiles y fuertes en el mapa.</target>
       </segment>
     </unit>
     <unit id="wM4GFMA" name="2f91250">
@@ -2548,7 +2548,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Wenn Sie einmal in der Stadt sind, können Sie diese Seele reinigen und in Frieden ruhen lassen, weit weg von Ihrer Stadt und ihren bösen Geistern. &lt;strong&gt;Seien Sie vorsichtig, ungereinigte Seelen werden um Mitternacht weiterhin Unglück bringen, selbst wenn sie in der Stadt bleiben!&lt;/strong&gt;</source>
-        <target><![CDATA[Una vez en el pueblo, si la construcción <strong>Hammam</strong> está terminada, es posible purificar estas almas y dejarlas descansar en paz, bastante lejos del pueblo y sus espíritus malignos. <strong>¡Cuidado, las almas sin purificar seguiran atrayendo efectos negativos incluso si están en El almacén!</strong>]]></target>
+        <target><![CDATA[Una vez en el pueblo, si la construcción <strong>Hammam</strong> está terminada, es posible purificar estas almas y dejarlas descansar en paz, bastante lejos del pueblo y sus espíritus malignos. <strong>Importante: las almas sin purificar seguirán atrayendo efectos negativos incluso si están en El almacén!</strong>]]></target>
       </segment>
     </unit>
     <unit id="uepLpvU" name="e19b01f">
