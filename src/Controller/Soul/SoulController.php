@@ -26,6 +26,8 @@ use App\Entity\RolePlayTextPage;
 use App\Entity\Season;
 use App\Entity\UserDescription;
 use App\Entity\UserGroupAssociation;
+use App\Entity\UserReferLink;
+use App\Entity\UserSponsorship;
 use App\Response\AjaxResponse;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
@@ -182,6 +184,66 @@ class SoulController extends CustomAbstractController
             'seasons' => $this->entity_manager->getRepository(Season::class)->findAll(),
             'user_desc' => $desc ? $html->prepareEmotes($desc->getText()) : null
         ]));
+    }
+
+    /**
+     * @Route("jx/soul/refer", name="soul_refer")
+     * @return Response
+     */
+    public function soul_refer(ConfMaster $conf): Response {
+        $refer = $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['user' => $this->getUser()]);
+        if ($refer === null && !$this->user_handler->hasRole($this->getUser(), 'ROLE_DUMMY')) {
+
+            $name_base = strtolower($this->getUser()->getName());
+
+            $refer = (new UserReferLink)->setUser($this->getUser())->setActive(true)->setName($name_base);
+            $n = 2;
+
+            while ($this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['name' => $refer->getName()]) && $n <= 999)
+                $refer->setName( sprintf("%s.%03u", $name_base, $n++) );
+
+            if ($n > 999) $refer = null;
+            else try {
+                $this->entity_manager->persist($refer);
+                $this->entity_manager->flush();
+            } catch (Exception $e) {
+                $refer = null;
+            }
+        }
+
+        $sponsored = array_filter(
+            $this->entity_manager->getRepository(UserSponsorship::class)->findBy(['sponsor' => $this->getUser()]),
+            fn(UserSponsorship $s) => !$this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') && $this->user_handler->hasRole($s->getUser(), 'ROLE_USER')
+        );
+
+        /** @var UserGroupAssociation|null $user_coalition */
+        $user_coalition = $this->user_handler->getCoalitionMembership($this->getUser());
+
+        $coa_full = false;
+
+        $coa_members = [];
+
+        if ($user_coalition) {
+            $all_users = $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy( [
+                'association' => $user_coalition->getAssociation(),
+                'associationType' => [UserGroupAssociation::GroupAssociationTypeCoalitionMember, UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive, UserGroupAssociation::GroupAssociationTypeCoalitionInvitation] ]
+            );
+
+            foreach ($all_users as $coa_user)
+                $coa_members[$coa_user->getUser()->getId()] = $coa_user->getAssociationType();
+
+            $coa_full = count($all_users) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_COA_MAX_NUM, 5);
+        }
+
+        return $this->render( 'ajax/soul/refer.html.twig', $this->addDefaultTwigArgs("soul_refer", [
+            'refer' => $refer,
+            'sponsored' => $sponsored,
+            'lang' => $this->getUserLanguage(),
+
+            'coa' => $user_coalition,
+            'coa_leader' => $user_coalition && $user_coalition->getAssociationLevel() === UserGroupAssociation::GroupAssociationLevelFounder,
+            'coa_full' => $coa_full,
+            'coa_members' => $coa_members]));
     }
 
     /**

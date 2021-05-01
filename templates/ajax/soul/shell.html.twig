@@ -5,16 +5,22 @@
 {% endblock %}
 {% block ajax %}
     <div class="row soul">
-        <div class="cell header rw-10 ro-1 rw-lg-12 ro-lg-0">
+        <div class="cell header rw-10 ro-1 rw-lg-12 ro-lg-0 edge-top-left">
             <div class="tabs">
                 <div class="tab-floater">
                     <div class="tab left inline">
                         {% if app.user.avatar %}
-                            <div class="avatar small ua-{{ app.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}"></div>
+                            <div class="avatar small ua-{{ app.user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': app.user.id, 'name': app.user.avatar.smallName, 'ext': app.user.avatar.format}) }}">
+                                <h4 class="soul-name">
+                                    <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> <a class="username">{{ app.user.name }}</a>
+                                </h4>
+                            </div>
+                        {% else %}
+                            <h4 class="soul-name">
+                                <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> <a class="username">{{ app.user.name }}</a>
+                            </h4>
                         {% endif %}
-                        <h4 class="soul-name">
-                            <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> <a class="username">{{ app.user.name }}</a> 
-                        </h4>
+
                     </div>
                     <div class="tab tab-floater">
                         <div class="tab{% if soul_tab == "soul_settings" %} selected{% endif %}">
@@ -34,6 +40,9 @@
                         </div>
                         <div class="tab{% if soul_tab == "soul_news" %} selected{% endif %}">
                             <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('soul_news') }}"><img id="shell_news_icon" x-src-default="{{ asset('build/images/icons/news.gif') }}" src="{{ asset(new_news ? 'build/images/icons/anim_icon_mail.gif' : 'build/images/icons/news.gif') }}" alt=""/><span class="hide-md hide-sm"> {% trans from 'soul' %}News{% endtrans %}</span></div>
+                        </div>
+                        <div class="tab{% if soul_tab == "soul_refer" %} selected{% endif %}">
+                            <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('soul_refer') }}"><img src="{{ asset('build/images/icons/small_referer.gif') }}" alt=""/><span class="hide-md hide-sm"> {% trans from 'soul' %}Freunde{% endtrans %}</span></div>
                         </div>
                         <div class="tab{% if soul_tab == "soul_me" %} selected{% endif %}">
                             <div class="tab-link" x-ajax-sticky x-ajax-href="{{ path('soul_me') }}"><img src="{{ asset('build/images/icons/small_ghost_blue.gif') }}" alt=""/><span class="hide-md hide-sm"> {% trans from 'soul' %}Seele{% endtrans %}</span></div>

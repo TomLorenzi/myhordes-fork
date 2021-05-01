@@ -2836,5 +2836,356 @@
         <target>If you like MyHordes and want to support us, you can do so by donating to the EternalTwin project.</target>
       </segment>
     </unit>
+    <unit id="uK4jynd" name="Geworbener Spieler">
+      <notes>
+        <note category="german">Geworbener Spieler</note>
+      </notes>
+      <segment>
+        <source>Geworbener Spieler</source>
+        <target>Geworbener Spieler</target>
+      </segment>
+    </unit>
+    <unit id="4n2PgVx" name="Heldenerfahrung">
+      <notes>
+        <note category="german">Heldenerfahrung</note>
+      </notes>
+      <segment>
+        <source>Heldenerfahrung</source>
+        <target>Heldenerfahrung</target>
+      </segment>
+    </unit>
+    <unit id="QGRs.s1" name="Du hast keine Koalition.">
+      <notes>
+        <note category="german">Du hast keine Koalition.</note>
+      </notes>
+      <segment>
+        <source>Du hast keine Koalition.</source>
+        <target>Du hast keine Koalition.</target>
+      </segment>
+    </unit>
+    <unit id="ljPPYyM" name="Du bist nicht Anführer deiner Koalition.">
+      <notes>
+        <note category="german">Du bist nicht Anführer deiner Koalition.</note>
+      </notes>
+      <segment>
+        <source>Du bist nicht Anführer deiner Koalition.</source>
+        <target>Du bist nicht Anführer deiner Koalition.</target>
+      </segment>
+    </unit>
+    <unit id="nnaWQyL" name="Kein freier Platz">
+      <notes>
+        <note category="german">Kein freier Platz</note>
+      </notes>
+      <segment>
+        <source>Kein freier Platz</source>
+        <target>Kein freier Platz</target>
+      </segment>
+    </unit>
+    <unit id="vOzFwXw" name="Koalitionsmitglied">
+      <notes>
+        <note category="german">Koalitionsmitglied</note>
+      </notes>
+      <segment>
+        <source>Koalitionsmitglied</source>
+        <target>Koalitionsmitglied</target>
+      </segment>
+    </unit>
+    <unit id="2.dDOzw" name="Noch nicht bestätigt...">
+      <notes>
+        <note category="german">Noch nicht bestätigt...</note>
+      </notes>
+      <segment>
+        <source>Noch nicht bestätigt...</source>
+        <target>Noch nicht bestätigt...</target>
+      </segment>
+    </unit>
+    <unit id="yf4a0g_" name="Koalitionseinladung">
+      <notes>
+        <note category="german">Koalitionseinladung</note>
+      </notes>
+      <segment>
+        <source>Koalitionseinladung</source>
+        <target>Koalitionseinladung</target>
+      </segment>
+    </unit>
+    <unit id="IDuEdUg" name="Die Freundschaftswerbung">
+      <notes>
+        <note category="german">Die Freundschaftswerbung</note>
+      </notes>
+      <segment>
+        <source>Die Freundschaftswerbung</source>
+        <target>Die Freundschaftswerbung</target>
+      </segment>
+    </unit>
+    <unit id="m5DCahY" name="Wenn ihr neue Spieler zu &quot;MyHordes&quot; einladet, erhaltet ihr zahlreiche Vorteile!">
+      <notes>
+        <note category="german">Wenn ihr neue Spieler zu "MyHordes" einladet, erhaltet ihr zahlreiche Vorteile!</note>
+      </notes>
+      <segment>
+        <source>Wenn ihr neue Spieler zu "MyHordes" einladet, erhaltet ihr zahlreiche Vorteile!</source>
+        <target>Wenn ihr neue Spieler zu "MyHordes" einladet, erhaltet ihr zahlreiche Vorteile!</target>
+      </segment>
+    </unit>
+    <unit id="hWsy49U" name="Lass dich überraschen!">
+      <notes>
+        <note category="german">Lass dich überraschen!</note>
+      </notes>
+      <segment>
+        <source>Lass dich überraschen!</source>
+        <target>Lass dich überraschen!</target>
+      </segment>
+    </unit>
+    <unit id="xfA2CXp" name="1d04071">
+      <notes>
+        <note category="german">Du kannst nach Anmeldung des geworbenen Spielers sofort mit ihm in einer Koalition spielen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst nach Anmeldung des geworbenen Spielers sofort mit ihm in einer Koalition spielen.</source>
+        <target>Du kannst nach Anmeldung des geworbenen Spielers sofort mit ihm in einer Koalition spielen.</target>
+      </segment>
+    </unit>
+    <unit id="phHRy7R" name="Du bekommst einen frischen jugendlichen Teint und einen Babypopo.">
+      <notes>
+        <note category="german">Du bekommst einen frischen jugendlichen Teint und einen Babypopo.</note>
+      </notes>
+      <segment>
+        <source>Du bekommst einen frischen jugendlichen Teint und einen Babypopo.</source>
+        <target>Du bekommst einen frischen jugendlichen Teint und einen Babypopo.</target>
+      </segment>
+    </unit>
+    <unit id="yR7_2mq" name="Du bekommst straffere Brüste.">
+      <notes>
+        <note category="german">Du bekommst straffere Brüste.</note>
+      </notes>
+      <segment>
+        <source>Du bekommst straffere Brüste.</source>
+        <target>Du bekommst straffere Brüste.</target>
+      </segment>
+    </unit>
+    <unit id="DmEId2H" name="Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!">
+      <notes>
+        <note category="german">Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!</note>
+      </notes>
+      <segment>
+        <source>Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!</source>
+        <target>Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!</target>
+      </segment>
+    </unit>
+    <unit id="0vm9fA_" name="Du wirst angenehm nach Orangenblüten duften.">
+      <notes>
+        <note category="german">Du wirst angenehm nach Orangenblüten duften.</note>
+      </notes>
+      <segment>
+        <source>Du wirst angenehm nach Orangenblüten duften.</source>
+        <target>Du wirst angenehm nach Orangenblüten duften.</target>
+      </segment>
+    </unit>
+    <unit id="9dCZIYd" name="Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.">
+      <notes>
+        <note category="german">Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.</note>
+      </notes>
+      <segment>
+        <source>Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.</source>
+        <target>Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.</target>
+      </segment>
+    </unit>
+    <unit id="lmPRBJ0" name="Deine natürlichen Abwehrkräfte werden gestärkt.">
+      <notes>
+        <note category="german">Deine natürlichen Abwehrkräfte werden gestärkt.</note>
+      </notes>
+      <segment>
+        <source>Deine natürlichen Abwehrkräfte werden gestärkt.</source>
+        <target>Deine natürlichen Abwehrkräfte werden gestärkt.</target>
+      </segment>
+    </unit>
+    <unit id="sPSRoTg" name="Du bekommst stahlharte Waschbrettbauchmuskeln.">
+      <notes>
+        <note category="german">Du bekommst stahlharte Waschbrettbauchmuskeln.</note>
+      </notes>
+      <segment>
+        <source>Du bekommst stahlharte Waschbrettbauchmuskeln.</source>
+        <target>Du bekommst stahlharte Waschbrettbauchmuskeln.</target>
+      </segment>
+    </unit>
+    <unit id="23cz.bn" name="Du hast eine gute Tat vollbracht.">
+      <notes>
+        <note category="german">Du hast eine gute Tat vollbracht.</note>
+      </notes>
+      <segment>
+        <source>Du hast eine gute Tat vollbracht.</source>
+        <target>Du hast eine gute Tat vollbracht.</target>
+      </segment>
+    </unit>
+    <unit id="nlq39Ht" name="Die Leute auf der Straße werden sich nach dir umdrehen.">
+      <notes>
+        <note category="german">Die Leute auf der Straße werden sich nach dir umdrehen.</note>
+      </notes>
+      <segment>
+        <source>Die Leute auf der Straße werden sich nach dir umdrehen.</source>
+        <target>Die Leute auf der Straße werden sich nach dir umdrehen.</target>
+      </segment>
+    </unit>
+    <unit id="bRBEaOX" name="Stärkt dein Zahnfleisch und deine Zähne.">
+      <notes>
+        <note category="german">Stärkt dein Zahnfleisch und deine Zähne.</note>
+      </notes>
+      <segment>
+        <source>Stärkt dein Zahnfleisch und deine Zähne.</source>
+        <target>Stärkt dein Zahnfleisch und deine Zähne.</target>
+      </segment>
+    </unit>
+    <unit id="ekcviFN" name="Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.">
+      <notes>
+        <note category="german">Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.</note>
+      </notes>
+      <segment>
+        <source>Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.</source>
+        <target>Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.</target>
+      </segment>
+    </unit>
+    <unit id="rrVNfDl" name="Du bekommst einen frischen Atem - schnell und effektiv.">
+      <notes>
+        <note category="german">Du bekommst einen frischen Atem - schnell und effektiv.</note>
+      </notes>
+      <segment>
+        <source>Du bekommst einen frischen Atem - schnell und effektiv.</source>
+        <target>Du bekommst einen frischen Atem - schnell und effektiv.</target>
+      </segment>
+    </unit>
+    <unit id="2rVePUl" name="Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)">
+      <notes>
+        <note category="german">Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)</note>
+      </notes>
+      <segment>
+        <source>Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)</source>
+        <target>Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)</target>
+      </segment>
+    </unit>
+    <unit id="mkKr7.Y" name="Das andere Geschlecht wird dir nicht widerstehen können.">
+      <notes>
+        <note category="german">Das andere Geschlecht wird dir nicht widerstehen können.</note>
+      </notes>
+      <segment>
+        <source>Das andere Geschlecht wird dir nicht widerstehen können.</source>
+        <target>Das andere Geschlecht wird dir nicht widerstehen können.</target>
+      </segment>
+    </unit>
+    <unit id="Sz2KR6B" name="Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.">
+      <notes>
+        <note category="german">Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.</note>
+      </notes>
+      <segment>
+        <source>Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.</source>
+        <target>Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.</target>
+      </segment>
+    </unit>
+    <unit id=".BIUTzQ" name="Dieser Vorteil ist von Mal zu Mal verschieden.">
+      <notes>
+        <note category="german">Dieser Vorteil ist von Mal zu Mal verschieden.</note>
+      </notes>
+      <segment>
+        <source>Dieser Vorteil ist von Mal zu Mal verschieden.</source>
+        <target>Dieser Vorteil ist von Mal zu Mal verschieden.</target>
+      </segment>
+    </unit>
+    <unit id="BkMtMYQ" name="ffb7dea">
+      <notes>
+        <note category="german">Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.</note>
+      </notes>
+      <segment>
+        <source>Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.</source>
+        <target>Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.</target>
+      </segment>
+    </unit>
+    <unit id="t7p0F21" name="Die Freundschaftswerbung ist für deinen Account gesperrt.">
+      <notes>
+        <note category="german">Die Freundschaftswerbung ist für deinen Account gesperrt.</note>
+      </notes>
+      <segment>
+        <source>Die Freundschaftswerbung ist für deinen Account gesperrt.</source>
+        <target>Die Freundschaftswerbung ist für deinen Account gesperrt.</target>
+      </segment>
+    </unit>
+    <unit id="d3BbIrK" name="Wie funktioniert das genau?">
+      <notes>
+        <note category="german">Wie funktioniert das genau?</note>
+      </notes>
+      <segment>
+        <source>Wie funktioniert das genau?</source>
+        <target>Wie funktioniert das genau?</target>
+      </segment>
+    </unit>
+    <unit id="fXK1bMa" name="Du kannst aus mehreren Methoden wählen:">
+      <notes>
+        <note category="german">Du kannst aus mehreren Methoden wählen:</note>
+      </notes>
+      <segment>
+        <source>Du kannst aus mehreren Methoden wählen:</source>
+        <target>Du kannst aus mehreren Methoden wählen:</target>
+      </segment>
+    </unit>
+    <unit id="e60hBsn" name="Versende einen Einladungs-Link:">
+      <notes>
+        <note category="german">Versende einen Einladungs-Link:</note>
+      </notes>
+      <segment>
+        <source>Versende einen Einladungs-Link:</source>
+        <target>Versende einen Einladungs-Link:</target>
+      </segment>
+    </unit>
+    <unit id="uB2Vk6P" name="oder">
+      <notes>
+        <note category="german">oder</note>
+      </notes>
+      <segment>
+        <source>oder</source>
+        <target>oder</target>
+      </segment>
+    </unit>
+    <unit id="oIxZIjf" name="ea2b0ef">
+      <notes>
+        <note category="german">Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:</note>
+      </notes>
+      <segment>
+        <source>Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:</source>
+        <target>Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:</target>
+      </segment>
+    </unit>
+    <unit id="meMyGfH" name="fc9c569">
+      <notes>
+        <note category="german">Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).</note>
+      </notes>
+      <segment>
+        <source>Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).</source>
+        <target>Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).</target>
+      </segment>
+    </unit>
+    <unit id="fUGf6MZ" name="HTML Code">
+      <notes>
+        <note category="german">HTML Code</note>
+      </notes>
+      <segment>
+        <source>HTML Code</source>
+        <target>HTML Code</target>
+      </segment>
+    </unit>
+    <unit id="GOqvgvj" name="BBCode">
+      <notes>
+        <note category="german">BBCode</note>
+      </notes>
+      <segment>
+        <source>BBCode</source>
+        <target>BBCode</target>
+      </segment>
+    </unit>
+    <unit id="9y1x0zd" name="Freunde">
+      <notes>
+        <note category="german">Freunde</note>
+      </notes>
+      <segment>
+        <source>Freunde</source>
+        <target>Freunde</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

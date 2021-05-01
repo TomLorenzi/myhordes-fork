@@ -1,0 +1,129 @@
+{% extends "ajax/soul/shell.html.twig" %}
+{% block title %}{{'Die verfluchten Schriften'|trans({}, 'game')}}{% endblock %}
+{% block soul_content %}
+    <div class="row">
+        <div class="cell rw-12 center friend hide-md hide-sm"> </div>
+
+        {% if sponsored is not empty %}
+            <div class="padded cell rw-12">
+                <div class="row-table">
+                    <div class="row header">
+                        <div class="padded cell rw-3">{{ 'Geworbener Spieler'|trans({},'soul') }}</div>
+                        <div class="padded cell rw-3">{{ 'Seelenpunkte'|trans({},'soul') }}</div>
+                        <div class="padded cell rw-3">{{ 'Heldenerfahrung'|trans({},'soul') }}</div>
+                        <div class="padded cell rw-3">{{ 'Koalition'|trans({},'soul') }}</div>
+                    </div>
+                    {% for entry in sponsored %}
+                        <div class="row">
+                            <div class="padded cell rw-3">
+                                <img alt="" src="{{ asset('build/images/icons/small_ghost_red.gif') }}">
+                                <a x-ajax-href="{{ path('soul_visit', {id: entry.user.id}) }}" class="link username">{{ entry.user.name }}</a>
+                            </div>
+                            <div class="padded cell rw-3">{{ entry.user.soulPoints }}</div>
+                            <div class="padded cell rw-3">{{ entry.user.heroDaysSpent }}</div>
+                            <div class="padded cell rw-3">
+                                {% if coa is null %}
+                                    <span class="small"><i>{{ 'Du hast keine Koalition.'|trans({},'soul') }}</i></span>
+                                {% elseif not coa_leader %}
+                                    <span class="small"><i>{{ 'Du bist nicht Anführer deiner Koalition.'|trans({},'soul') }}</i></span>
+                                {% elseif coa_full %}
+                                    <span class="small"><i>{{ 'Kein freier Platz'|trans({},'soul') }}</i></span>
+                                {% elseif coa_members[entry.user.id] is defined %}
+                                    {% if coa_members[entry.user.id] == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMember') or coa_members[entry.user.id] == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMemberInactive') %}
+                                        <span class="small"><i>{{ 'Koalitionsmitglied'|trans({},'soul') }}</i></span>
+                                    {% elseif coa_members[entry.user.id] == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionInvitation') %}
+                                        <span class="small"><i>{{ 'Noch nicht bestätigt...'|trans({},'soul') }}</i></span>
+                                    {% endif %}
+                                {% else %}
+                                    <button x-to-coa="{{ path('soul_invite_coalition', {id: entry.user.id}) }}">{{ 'Koalitionseinladung'|trans({},'soul') }}</button>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="padded cell rw-12">
+
+            <h5>{{ 'Die Freundschaftswerbung'|trans({},'soul') }}</h5>
+            {{ 'Wenn ihr neue Spieler zu "MyHordes" einladet, erhaltet ihr zahlreiche Vorteile!'|trans({},'soul') }}
+            <div class="lightbox">
+                <ul class="hordes-bullets">
+                    <li><b>???</b> <span class="small"><i>{{ 'Lass dich überraschen!'|trans({},'soul') }}</i></span></li>
+                    <li>{{ 'Du kannst nach Anmeldung des geworbenen Spielers sofort mit ihm in einer Koalition spielen.'|trans({},'soul') }}</li>
+                    <li>{{ random([
+                        'Du bekommst einen frischen jugendlichen Teint und einen Babypopo.'|trans({},'soul'),
+                        'Du bekommst straffere Brüste.'|trans({},'soul'),
+                        'Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!'|trans({},'soul'),
+                        'Du wirst angenehm nach Orangenblüten duften.'|trans({},'soul'),
+                        'Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.'|trans({},'soul'),
+                        'Deine natürlichen Abwehrkräfte werden gestärkt.'|trans({},'soul'),
+                        'Du bekommst stahlharte Waschbrettbauchmuskeln.'|trans({},'soul'),
+                        'Du hast eine gute Tat vollbracht.'|trans({},'soul'),
+                        'Die Leute auf der Straße werden sich nach dir umdrehen.'|trans({},'soul'),
+                        'Stärkt dein Zahnfleisch und deine Zähne.'|trans({},'soul'),
+                        'Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.'|trans({},'soul'),
+                        'Du bekommst einen frischen Atem - schnell und effektiv.'|trans({},'soul'),
+                        'Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)'|trans({},'soul'),
+                        'Das andere Geschlecht wird dir nicht widerstehen können.'|trans({},'soul'),
+                        'Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.'|trans({},'soul'),
+                        ]) }} <a class="help-button"><div class="tooltip help">{{ 'Dieser Vorteil ist von Mal zu Mal verschieden.'|trans({},'soul') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="padded cell rw-12">
+            {% if refer is null %}
+                <div class="note note-warning">{{ 'Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.'|trans({},'soul') }}</div>
+            {% elseif not refer.active %}
+                <div class="note note-warning">{{ 'Die Freundschaftswerbung ist für deinen Account gesperrt.'|trans({},'soul') }}</div>
+            {% else %}
+                <h5>{{ 'Wie funktioniert das genau?'|trans({},'soul') }}</h5>
+                {{ 'Du kannst aus mehreren Methoden wählen:'|trans({},'soul') }}
+                <div class="lightbox">
+                    <ul class="hordes-bullets">
+                        <li>
+                            {{ 'Versende einen Einladungs-Link:'|trans({},'soul') }}
+                            <div class="row"><div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12"><div class="note"><code>{{ url('app_web_refer_incoming', {name: refer.name}) }}</code></div></div></div>
+                        </li>
+                        <li><b class="emph">{{ 'oder'|trans({},'soul') }}</b> {{ 'Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:'|trans({},'soul') }} <b>{{ refer.name }}</b></li>
+                        <li>
+                            <b class="emph">{{ 'oder'|trans({},'soul') }}</b> {{ 'Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).'|trans({},'soul') }}
+                            <div class="row">
+                                <div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12">
+                                    <div class="note">
+                                        <div class="center"><img alt="ref1" src="{{ asset('build/ext/ref/r1' ~ lang ~ '.gif') }}"></div>
+                                        <h5>{{ 'HTML Code'|trans({},'soul') }}</h5>
+                                        <code>&lt;a href="{{ url('app_web_refer_incoming', {name: refer.name}) }}"&gt;&lt;img style="border:0;" src="{{ absolute_url(asset('build/ext/ref/r1' ~ lang ~ '.gif')) }}" alt=""/&gt;&lt;/a&gt;</code>
+                                        <h5>{{ 'BBCode'|trans({},'soul') }}</h5>
+                                        <code>[url={{ url('app_web_refer_incoming', {name: refer.name}) }}][img]{{ absolute_url(asset('build/ext/ref/r1' ~ lang ~ '.gif')) }}[/img][/url] </code>
+                                    </div>
+                                </div>
+                                <div class="cell ro-2 rw-8 ro-lg-1 rw-lg-10 ro-md-0 rw-md-12">
+                                    <div class="note">
+                                        <div class="center"><img alt="ref1" src="{{ asset('build/ext/ref/r2.gif') }}"></div>
+                                        <h5>{{ 'HTML Code'|trans({},'soul') }}</h5>
+                                        <code>&lt;a href="{{ url('app_web_refer_incoming', {name: refer.name}) }}"&gt;&lt;img style="border:0;" src="{{ absolute_url(asset('build/ext/ref/r2.gif')) }}" alt=""/&gt;&lt;/a&gt;</code>
+                                        <h5>{{ 'BBCode'|trans({},'soul') }}</h5>
+                                        <code>[url={{ url('app_web_refer_incoming', {name: refer.name}) }}][img]{{ absolute_url(asset('build/ext/ref/r2.gif')) }}[/img][/url] </code>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    {{parent()}}
+    <script>
+        $.html.addEventListenerAll('[x-to-coa]', 'click', (e,elem) => {
+            $.ajax.easySend(elem.getAttribute('x-to-coa'), {}, () => $.ajax.load(null, '{{ path('soul_refer') }}'));
+        })
+    </script>
+{% endblock %}

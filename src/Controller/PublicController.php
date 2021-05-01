@@ -11,6 +11,8 @@ use App\Entity\PictoPrototype;
 use App\Entity\RegistrationLog;
 use App\Entity\User;
 use App\Entity\UserPendingValidation;
+use App\Entity\UserReferLink;
+use App\Entity\UserSponsorship;
 use App\Exception\DynamicAjaxResetException;
 use App\Service\ConfMaster;
 use App\Service\ErrorHelper;
@@ -94,7 +96,7 @@ class PublicController extends CustomAbstractController
      * @param EternalTwinHandler $etwin
      * @return Response
      */
-    public function register(EternalTwinHandler $etwin): Response
+    public function register(EternalTwinHandler $etwin, SessionInterface $s): Response
     {
         if ($this->isGranted( 'ROLE_REGISTERED' ))
             return $this->redirect($this->generateUrl('initial_landing'));
@@ -102,7 +104,7 @@ class PublicController extends CustomAbstractController
         if ($etwin->isReady())
             return $this->redirect($this->generateUrl('public_login'));
 
-        return $this->render( 'ajax/public/register.html.twig',  $this->addDefaultTwigArgs() );
+        return $this->render( 'ajax/public/register.html.twig',  $this->addDefaultTwigArgs(null, ['refer' => $s->get('refer')]) );
     }
 
     /**
@@ -240,7 +242,7 @@ class PublicController extends CustomAbstractController
         if (!$parser->has_all( ['user','mail1','mail2','pass1','pass2'], true ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($parser->trimmed('user', ''), ['Der Rabe','DerRabe','Der_Rabe','DerRaabe']))
+        if (in_array($parser->trimmed('user', ''), ['Der Rabe','DerRabe','Der_Rabe','DerRaabe','TheCrow']))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
@@ -279,13 +281,23 @@ class PublicController extends CustomAbstractController
                 ['min' => 6, 'minMessage' => $translator->trans('Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.', [], 'login')]),
             'pass2' => new Constraints\EqualTo(
                 ['value' => $parser->trimmed( 'pass1' ), 'message' => $translator->trans('Die eingegebenen Passwörter stimmen nicht überein.', [], 'login')]),
-            //'privacy' => new Constraints\IsTrue(),
-        ]) );
+        ]), ['user','mail1','mail2','pass1','pass2'] );
 
         if ($violations->count() === 0) {
 
             if ($entityManager->getRepository(RegistrationLog::class)->countRecentRegistrations($request->getClientIp()) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_REG, 2))
                 return AjaxResponse::error(UserFactory::ErrorTooManyRegistrations);
+
+            $referred_player = null;
+            if ($parser->has('refer', true)) {
+
+                $refer = $parser->get('refer', true);
+
+                $refer = $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['name' => $refer, 'active' => true]);
+
+                if ($refer) $referred_player = $refer->getUser();
+                else return AjaxResponse::error( 'invalid_fields', ['fields' => [$translator->trans('Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.', [], 'login')]] );
+            }
 
             $user = $factory->createUser(
                 $parser->trimmed('user'),
@@ -304,6 +316,13 @@ class PublicController extends CustomAbstractController
                             ->setDate(new \DateTime())
                             ->setIdentifier( md5($request->getClientIp()) )
                         );
+
+                        if ($referred_player)
+                            $entityManager->persist( (new UserSponsorship())
+                                ->setSponsor( $referred_player )
+                                ->setUser( $user )
+                                ->setCountedHeroExp(0)->setCountedSoulPoints(0)
+                            );
 
                         $entityManager->persist( $user );
                         $entityManager->flush();

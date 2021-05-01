@@ -23,6 +23,10 @@ Encore
             ? 'images/[path][name].[ext]'
             : 'images/[path][name].[hash:8].[ext]' ,
     })
+    .copyFiles({
+        from: 'assets/ext',
+        to: 'ext/[path][name].[ext]'
+    })
 
     .configureFilenames({
         js: (typeof(local.hash_filenames) !== 'undefined' && !local.hash_filenames)

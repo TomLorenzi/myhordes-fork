@@ -61,6 +61,10 @@
                         url("../img/background/box/panel_20.gif") bottom left no-repeat, url("../img/background/box/panel_22.gif") bottom right no-repeat,
                         url("../img/background/box/panel_01.gif") top left repeat-x, url("../img/background/box/panel_10.gif") top left repeat-y,
                         url("../img/background/box/panel_12.gif") top right repeat-y, url("../img/background/box/panel_21.gif") bottom left repeat-x;
+@myhordes-panel-border-a00: url("../img/background/box/panel_00a.gif") top left no-repeat, url("../img/background/box/panel_02.gif") top right no-repeat,
+                            url("../img/background/box/panel_20.gif") bottom left no-repeat, url("../img/background/box/panel_22.gif") bottom right no-repeat,
+                            url("../img/background/box/panel_01.gif") top left repeat-x, url("../img/background/box/panel_10.gif") top left repeat-y,
+                            url("../img/background/box/panel_12.gif") top right repeat-y, url("../img/background/box/panel_21.gif") bottom left repeat-x;
 
 @myhordes-cell-header-background-color: #5c2b20;
 @myhordes-cell-header-text-color: #f0d79e;
@@ -250,7 +254,8 @@ x-message {
       &.padded-small { padding: 12px + @myhordes-grid-padsize-small; }
       &.padded-none, &:not(.padded):not(.padded-small)  { padding: 12px; }
 
-      &:not(.fact):not(.flavour-quote) {background: @myhordes-panel-border, @myhordes-panel-bg; color: @myhordes-panel-color;}
+      &:not(.fact):not(.flavour-quote):not(.edge-top-left) {background: @myhordes-panel-border, @myhordes-panel-bg; color: @myhordes-panel-color;}
+      &:not(.fact):not(.flavour-quote).edge-top-left {background: @myhordes-panel-border-a00, @myhordes-panel-bg; color: @myhordes-panel-color;}
 
       &.fact {
         color: white; height: 43px; margin-bottom: -25px; z-index: 1;
@@ -1044,7 +1049,7 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
   margin-bottom: 20px; padding: 0 5px; position: relative; top: -2px; margin-left: -2px;
   &:not(.plain) {
     overflow: visible; border-bottom: 1px solid transparent;
-    background: url(../img/background/box/panel_00.png) -6px -7px no-repeat, url(../img/background/box/panel_02.png) right -4px top -7px no-repeat, url(../img/background/tabs-header.jpg) left / cover;
+    background: url(../img/background/box/panel_02.png) right -4px top -7px no-repeat, url(../img/background/tabs-header.jpg) left / cover;
     &::before { position: absolute; content: " "; top: 0; left: 27px; right: 28px; height: 3px; background: url(../img/background/box/panel_01.png) 0 -6px repeat-x; }
     &::after { position: absolute; content: " "; bottom: -55px; top: 100%; left: 5px; right: 2px; background: url(../img/background/below_tabs_bg.gif) left top repeat-x; }
   }
@@ -1068,14 +1073,9 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
   h4.soul-name { 
     margin: 8px 4px; display: inline-block; 
     .username { 
-        text-decoration: none;
-        background-color: #5C0000 !important;
-        border-top: 1px solid #98341c !important;
-        border-radius: 4px !important;
-        padding-right: 5px !important;
-        padding-left: 5px !important;
-        color: #f0d79e !important;
-        font-weight: bold !important;
+        text-decoration: none; background-color: #5C0000 !important; border-top: 1px solid #98341c !important;
+        border-radius: 4px !important; padding-right: 5px !important; padding-left: 5px !important;
+        color: #f0d79e !important; font-weight: bold !important;
       }
     }
 
@@ -1086,8 +1086,16 @@ span.defense-broken,div.defense-broken { .icon_div("../img/icons/small_def_broke
     overflow: hidden;
 
     &:first-child.left.inline > div.avatar.small:first-child {
-      margin-left: -5px; border-top-left-radius: 8px;
-      &>img:only-child { border-top-left-radius: 8px; }
+      margin-left: -4px;
+      & > h4.soul-name {
+        transition: opacity 0.4s ease-in-out;
+        pointer-events: none; opacity: 0;
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; margin: 0; padding: 0;
+        &>img { position: absolute; top: 0; left: calc(50% - 8px); }
+        &>a { position: absolute; bottom: 0; left: 0; width: 100%; font-size: 0.75em; text-align: center; }
+      }
+      &:hover > h4.soul-name { opacity: 1; }
+
     }
 
     .tab-link {
@@ -1554,4 +1562,14 @@ i.dagger {
 
 .inline-block {
   display: inline-block;
+}
+
+ul.hordes-bullets {
+  list-style: none; font-size: 0.8em;
+  &>li {
+    position: relative;
+    b.emph { font-weight: normal; color: @myhordes-smalltext; font-variant: small-caps; }
+    &:before { position: absolute; left: -24px; top: 0; content: " "; width: 24px; height: 16px; background: url("../img/icons/small_middot.gif") no-repeat; }
+  }
+
 }

@@ -6293,7 +6293,7 @@ Falls sich nicht genug Spieler finden, die deine Stadt spielen wollen, wird sie 
     </unit>
     <unit id="WWKZKAn" name="einen Brief zeichnen,">
       <notes>
-        <note category="german">einen Brief zeichnen,</note>
+        <note category="german">einen Buchstaben zeichnen,</note>
       </notes>
       <segment>
         <source>einen Brief zeichnen,</source>

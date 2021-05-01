@@ -41,6 +41,14 @@
                     <div class="cell padded-small rw-6 rw-md-12"><input name="pass2"  id="register-password-2" type="password" /></div>
                 </div>
 
+                <br /><br />
+
+                <div class="row">
+                    <div class="cell padded-small rw-6 rw-md-12"><b><label for="register-refer">{% trans from 'login' %}Pate{% endtrans %}</label></b></div>
+                    <div class="cell padded-small rw-6 rw-md-12"><input name="refer"  id="register-refer" type="text" value="{{ refer }}" /></div>
+                    <div class="cell padded-small rw-12"><span class="small">{{ 'Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...'|trans({}, 'login') }}</span></div>
+                </div>
+
                 <p class="justify">
                     {% trans from 'login' %}
                         Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen

@@ -640,5 +640,32 @@
         <target>Dein Name kann nur alphanumerische Zeichen enthalten.</target>
       </segment>
     </unit>
+    <unit id="6zAO87a" name="b17853d">
+      <notes>
+        <note category="german">Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</note>
+      </notes>
+      <segment>
+        <source>Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</source>
+        <target>Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</target>
+      </segment>
+    </unit>
+    <unit id="e_EqP86" name="Pate">
+      <notes>
+        <note category="german">Pate</note>
+      </notes>
+      <segment>
+        <source>Pate</source>
+        <target>Pate</target>
+      </segment>
+    </unit>
+    <unit id="X.GbWI5" name="cd8dcfe">
+      <notes>
+        <note category="german">Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...</note>
+      </notes>
+      <segment>
+        <source>Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...</source>
+        <target>Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

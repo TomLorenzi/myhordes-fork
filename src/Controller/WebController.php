@@ -26,6 +26,7 @@ use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -94,6 +95,16 @@ class WebController extends CustomAbstractController
     public function framework(): Response
     {
         return $this->render_web_framework($this->generateUrl('initial_landing'));
+    }
+
+    /**
+     * @Route("/ref/{name}")
+     * @return Response
+     */
+    public function refer_incoming(string $name, SessionInterface $s): Response
+    {
+        $s->set('refer', $name);
+        return $this->render_web_framework($this->generateUrl('public_register'));
     }
 
     /**

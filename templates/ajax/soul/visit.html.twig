@@ -1,18 +1,21 @@
 {% extends "ajax/game/game.html.twig" %}
 {% block ajax %}
     <div class="row soul">
-        <div class="cell padded header rw-10 ro-1 rw-md-12 ro-md-0">
-            <div class="row tabs">
-                <div class="cell-small rw-8 rw-lg-12">
-                    {% if user.avatar %}
-                        <div class="avatar small ua-{{ user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.smallName, 'ext': user.avatar.format}) }}"></div>
-                    {% endif %}
-                    <h4 class="soul-name">
-                        <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" /> {{ user.name }}
-                    </h4>
-                </div>
-                <div class="float-right">
-                    <button x-ajax-href='{{returnUrl}}' style="margin-top: 4px;padding: 0 8px;" class="inline"><span class="hide-sm">{{ "Kartei schließen"|trans({}, 'soul') }}</span><span class="hide-lg hide-md hide-desktop"><img style="margin-right: 0;" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="[X]" /></span></button>
+        <div class="cell padded header rw-10 ro-1 rw-md-12 ro-md-0 edge-top-left">
+            <div class="tabs">
+                <div class="tab-floater">
+                    <div class="tab left inline">
+                        {% if user.avatar %}
+                            <div class="avatar small ua-{{ user.id % 10 }}"><img alt="" src="{{ path('app_web_avatar', {'uid': user.id, 'name': user.avatar.smallName, 'ext': user.avatar.format}) }}"></div>
+                        {% endif %}
+                        <h4 class="soul-name">
+                            <img src="{{ asset('build/images/icons/small_ghost_red.gif') }}" alt="{{'Held'|trans({}, 'game')}}" />
+                            <a class="username">{{ user.name }}</a>
+                        </h4>
+                    </div>
+                    <div class="tab tab-floater">
+                        <button x-ajax-href='{{returnUrl}}' style="margin-top: 4px;padding: 0 8px;" class="inline"><span class="hide-sm">{{ "Kartei schließen"|trans({}, 'soul') }}</span><span class="hide-lg hide-md hide-desktop"><img style="margin-right: 0;" src="{{ asset('build/images/icons/small_remove.gif') }}" alt="[X]" /></span></button>
+                    </div>
                 </div>
             </div>
             <div class="row me">
