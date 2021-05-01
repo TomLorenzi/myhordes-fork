@@ -2569,7 +2569,7 @@ Diese unseligen Orte werden außerdem oft von Zombies heimgesucht. Wenn sich dei
       <segment>
         <source>Sobald du einen solchen Ort gefunden hast, siehst du bei deinen Aktion eine Option, über die du diesen Ort betreten kannst. &lt;strong&gt;Achtung: Bürger, die verletzt oder starr vor Angst sind, können einen solch klaustrophobischen Ort nicht betreten.&lt;/strong&gt;
 Diese unseligen Orte werden außerdem oft von Zombies heimgesucht. Wenn sich dein kleiner Ausflug also lohnen soll, lass dir besser vorher etwas einfallen, wie du diese Kreaturen wieder los wirst.</source>
-        <target><![CDATA[Cuando estés en la ubicación de una ruina, entre tus acciones disponibles encontrarás la opción de entrar a explorar esta ruina. <strong>Importante: Un habitante herido o aterrorizado no puede entrar en estos lugares tan oscuros y estrechos.</strong> Desafortunadamente estos lugares suelen estar infestados de zombies. Así que si deseas que tu exploración sea exitosa, se recomienda que te prepares para matarlos antes de ingresar.]]></target>
+        <target><![CDATA[Cuando estés en la ubicación de una ruina, entre tus acciones disponibles encontrarás la opción de entrar a explorar esta ruina. <strong>Importante: Un habitante herido o aterrorizado no puede entrar en estos lugares tan oscuros y estrechos.</strong> Desafortunadamente, estos lugares suelen estar infestados de zombies. Así que si deseas que tu exploración sea exitosa, se recomienda que te prepares para matarlos antes de ingresar.]]></target>
       </segment>
     </unit>
     <unit id=".w.ATRf" name="f304740">
@@ -2631,7 +2631,7 @@ Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth
       </notes>
       <segment>
         <source>Wegen der großen Menge Gift, die man beim Untersuchen eines verlassenen Gebäudes einatmet, kann ein Bürger ein Gebäude &lt;strong&gt;nur einmal pro Tag&lt;/strong&gt; untersuchen. Eine weitere Tour würde unweigerlich zu einem sehr unschönen Tod führen.</source>
-        <target><![CDATA[Debido al alto grado de toxicidad en la ruina, cada habitante podrá ingresar <strong>una sola vez al día</strong> en ellas. Una exposición mayor te llevaría a una inevitable muerte dolorosa.]]></target>
+        <target><![CDATA[Debido al alto grado de toxicidad en la ruina, cada habitante podrá ingresar <strong>una sola vez al día</strong> en ellas. Una exposición mayor le llevaría a una inevitable muerte dolorosa.]]></target>
       </segment>
     </unit>
     <unit id="9tyeLdW" name="b3077a1">
@@ -2642,7 +2642,7 @@ Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf 
       <segment>
         <source>Um den Zombies zu entkommen, die sich hier herumtreiben, kannst du deine Gegenstände aus deinem Inventar benutzen und damit angreifen. Du kannst auch &lt;strong&gt;die Aktion "Die Flucht wagen" ausführen&lt;/strong&gt;: Dabei verbrauchst du einen Teil deines Sauerstoffvorrats. 
 Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf dich warten.</source>
-        <target><![CDATA[Para escapar de los zombies que se encuentran allí, puedes usar objetos de tu inventario o realizar acciones heróicas. También puedes <strong>seleccionar la acción "Huir"</strong> sacrificando una parte de tu oxígeno, pero si vuelves a pasar por ahí, seguirán habiendo zombies y deberás huir de nuevo.]]></target>
+        <target><![CDATA[Para escapar de los zombies que se encuentran allí, puedes usar objetos de tu inventario o realizar acciones heróicas. También puedes <strong>seleccionar la acción "Huir"</strong> sacrificando una parte de tu oxígeno; pero si vuelves a pasar por ahí, seguirán habiendo zombies y deberás huir de nuevo.]]></target>
       </segment>
     </unit>
     <unit id="Ro.Av4r" name="0995565">
