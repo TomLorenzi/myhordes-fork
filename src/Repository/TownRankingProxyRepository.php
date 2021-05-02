@@ -27,7 +27,7 @@ class TownRankingProxyRepository extends ServiceEntityRepository
     {
         return is_numeric($value)
             ? $this->createQueryBuilder('t')
-                ->andWhere('t.name LIKE :val OR t.id = :id')->setParameter('val', '%' . $value . '%')->setParameter('id', (int)$value)
+                ->andWhere('t.name LIKE :val OR t.id = :id OR t.baseID = :id')->setParameter('val', '%' . $value . '%')->setParameter('id', (int)$value)
                 ->getQuery()->getResult()
             : $this->createQueryBuilder('t')
             ->andWhere('t.name LIKE :val')->setParameter('val', '%' . $value . '%')
