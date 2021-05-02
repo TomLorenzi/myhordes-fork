@@ -7628,7 +7628,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Mithilfe von Scripten können Spieler die Funktionen und Benutzeroberfläche von MyHordes an ihre Bedürfnisse anpassen. Damit das Spiel dennoch für alle fair bleibt, gelten einige Regeln für den Einsatz von Scripten (unabhängig davon, ob ihr eure Scripte weitergebt oder nur für euch selbst verwendet).</source>
-        <target>Mithilfe von Scripten können Spieler die Funktionen und Benutzeroberfläche von MyHordes an ihre Bedürfnisse anpassen. Damit das Spiel dennoch für alle fair bleibt, gelten einige Regeln für den Einsatz von Scripten (unabhängig davon, ob ihr eure Scripte weitergebt oder nur für euch selbst verwendet).</target>
+        <target>Con la ayuda de Scripts, los jugadores pueden adaptar las funciones y la interfaz de usuario de MyHordes de acuerdo a sus necesidades. Para mantener un juego justo para todos, son necesarias algunas reglas respecto a la creación y el uso de scripts(Indistintamente de si compartes tu script o solamente lo utilizas tú).</target>
       </segment>
     </unit>
     <unit id="XY_OEJT" name="b15dd21">
@@ -7637,7 +7637,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Diese Regeln beziehen sich auf sämtliche client-seitige Erweiterungen der MyHordes-Webseite. Alles, was das Aussehen und die Funktion von MyHordes innerhalb des Browsers eines Benutzers verändert, wird im Rahmen dieser Regeln als "Script" bezeichnet, also beispielsweise Extensions, Plug-Ins, User-Scripts und User-Styles.</source>
-        <target>Diese Regeln beziehen sich auf sämtliche client-seitige Erweiterungen der MyHordes-Webseite. Alles, was das Aussehen und die Funktion von MyHordes innerhalb des Browsers eines Benutzers verändert, wird im Rahmen dieser Regeln als "Script" bezeichnet, also beispielsweise Extensions, Plug-Ins, User-Scripts und User-Styles.</target>
+        <target>Estas reglas se aplican a todas las extensiones del lado del cliente del sitio web MyHordes. Todo lo que afecte la apariencia y el funcionamiento de MyHordes en el navegador de un usuario es denominado "Script" en el marco de estas reglas, como por ejemplo extensiones, complementos, scripts y estilos de usuario.</target>
       </segment>
     </unit>
     <unit id="m98RQP1" name="Verbot kommerzieller Scripte">
@@ -7646,7 +7646,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Verbot kommerzieller Scripte</source>
-        <target>Verbot kommerzieller Scripte</target>
+        <target>Prohibición de Scripts comerciales</target>
       </segment>
     </unit>
     <unit id="kCzLi_m" name="2c2ca86">
@@ -7655,7 +7655,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Scripte (oder individuelle Funktionen von Scripten) dürfen &lt;strong&gt;unter keinen Umständen&lt;/strong&gt; kommerziell vertrieben werden.</source>
-        <target><![CDATA[Scripte (oder individuelle Funktionen von Scripten) dürfen <strong>unter keinen Umständen</strong> kommerziell vertrieben werden.]]></target>
+        <target><![CDATA[Los Scripts(incluso funciones individuales de los scripts) no pueden distribuirse comercialmente <strong>bajo ninguna circunstancia</strong>.]]></target>
       </segment>
     </unit>
     <unit id="Otkd6Tw" name="Allgemeine Regeln">
@@ -7664,7 +7664,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Allgemeine Regeln</source>
-        <target>Allgemeine Regeln</target>
+        <target>Reglas Generales</target>
       </segment>
     </unit>
     <unit id="7b2MzR_" name="d515e54">
@@ -7673,7 +7673,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Scripte müssen ihre Funktion in einer für den Anwender verständlichen Weise beschreiben, &lt;u&gt;bevor&lt;/u&gt; dieser das Script installiert. Wird durch ein automatisches Update eine signifikante neue Funktionalität hinzugefügt, so muss der Anwender hierüber informiert werden (beispielsweise mithilfe eines Popup-Dialogs).</source>
-        <target><![CDATA[Scripte müssen ihre Funktion in einer für den Anwender verständlichen Weise beschreiben, <u>bevor</u> dieser das Script installiert. Wird durch ein automatisches Update eine signifikante neue Funktionalität hinzugefügt, so muss der Anwender hierüber informiert werden (beispielsweise mithilfe eines Popup-Dialogs).]]></target>
+        <target><![CDATA[Los scripts deben describir su función de manera que el usuario pueda entenderla <u>antes</u> de instalar el Script. Si una nueva funcionalidad importante es añadida en una actualización automática, el usuario DEBE ser informado de esta(Por ejemplo con un cuadro de diálogo emergente).]]></target>
       </segment>
     </unit>
     <unit id="Yh9L91s" name="7644a70">
@@ -7682,7 +7682,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Scripte dürfen &lt;strong&gt;keine&lt;/strong&gt; Informationen anzeigen oder Aktionen durchführen, welche nicht in direktem Zusammenhang mit MyHordes stehen. Dies schließt Ausdrücklich die Anzeige von Werbung oder das Schürfen von Cryptowährungen ein.</source>
-        <target><![CDATA[Scripte dürfen <strong>keine</strong> Informationen anzeigen oder Aktionen durchführen, welche nicht in direktem Zusammenhang mit MyHordes stehen. Dies schließt Ausdrücklich die Anzeige von Werbung oder das Schürfen von Cryptowährungen ein.]]></target>
+        <target><![CDATA[LOs Scripts <strong>no pueden</strong> mostrar información ni realizar acciones que no estén directamente relacionadas con MyHordes. Esto incluye, pero no se limita a, la visualización de anuncios o la minería de criptomonedas.]]></target>
       </segment>
     </unit>
     <unit id="kH_roWt" name="4575ea6">
@@ -7691,7 +7691,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Ein Script darf keine Funktionen von MyHordes blockieren oder verstecken. Es ist jedoch erlaubt, Aktionen mit einer Warn- oder Bestätigungsmeldung zu versehen, solange diese vom Anwender ignoriert und die Aktion dennoch durchgeführt werden kann. Die Fähigkeit des Anwenders das Script zu deinstallieren, zählt ausdrücklich &lt;strong&gt;nicht&lt;/strong&gt; als legitime Möglichkeit solch eine Blockade zu umgehen</source>
-        <target><![CDATA[Ein Script darf keine Funktionen von MyHordes blockieren oder verstecken. Es ist jedoch erlaubt, Aktionen mit einer Warn- oder Bestätigungsmeldung zu versehen, solange diese vom Anwender ignoriert und die Aktion dennoch durchgeführt werden kann. Die Fähigkeit des Anwenders das Script zu deinstallieren, zählt ausdrücklich <strong>nicht</strong> als legitime Möglichkeit solch eine Blockade zu umgehen]]></target>
+        <target><![CDATA[Un Script no puede bloquear ni ocultar alguna función de MyHordes. Sin embargo, es posible añadirle un mensaje de advertencia o confirmación a ciertas acciones, siempre que puedan ser ignorados por el usuario y se pueda realizar la acción de todos modos. La opción de desinstalar <strong>no se considera</strong> expresamente como una manera legítima de evitar ese bloqueo.]]></target>
       </segment>
     </unit>
     <unit id=".J2Tho5" name="442cde7">
@@ -7700,7 +7700,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Die Verwendung des Scripts durch einen Anwender darf nicht dazu führen, dass sich das Spielerlebnis von Spielern ohne das Script verschlechtert. Beispielsweise ist es nicht zulässig, dem Forum über ein Script neue Formatierungsoptionen hinzuzufügen, wenn die daraus resultierenden Forenposts für Spieler ohne das Script nicht mehr lesbar sind.</source>
-        <target>Die Verwendung des Scripts durch einen Anwender darf nicht dazu führen, dass sich das Spielerlebnis von Spielern ohne das Script verschlechtert. Beispielsweise ist es nicht zulässig, dem Forum über ein Script neue Formatierungsoptionen hinzuzufügen, wenn die daraus resultierenden Forenposts für Spieler ohne das Script nicht mehr lesbar sind.</target>
+        <target>El uso de Scripts por parte de un usuario no debe llevar a una peor experiencia de juego para aquellos jugadores que no utilicen el Script. Por ejemplo, no está permitido que un script añada un nuevo formato para los mensajes en el foro que de tal modo que los mensajes publicados no puedan ser comprendidos correctamente por aquellos sin el Script.</target>
       </segment>
     </unit>
     <unit id="CMVr7NL" name="Automatisierung">
@@ -7709,7 +7709,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Automatisierung</source>
-        <target>Automatisierung</target>
+        <target>Automatización</target>
       </segment>
     </unit>
     <unit id="sEkWL_h" name="44b6c12">
@@ -7718,7 +7718,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Scripte dürfen den allgemeinen Spielablauf nicht automatisieren. Insbesondere ist es verboten:</source>
-        <target>Scripte dürfen den allgemeinen Spielablauf nicht automatisieren. Insbesondere ist es verboten:</target>
+        <target>Los Scripts no pueden automatizar el transcurso general del juego. Concretamente se prohibe:</target>
       </segment>
     </unit>
     <unit id="edZwVNE" name="de7f1f0">
