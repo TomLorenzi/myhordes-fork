@@ -62,7 +62,7 @@
                             </li>
                             <li class="{% if section == 'lost_souls' %}active{% endif %}">
                                 <img src="{{ asset('build/images/item/item_soul_blue.gif') }}" alt="soul">
-                                <span class="link" x-ajax-href="{{ url('help', {'name': 'lost_souls'}) }}">{{ 'Verlorene Seelen'|trans({},'help') }}</span>
+                                <span class="link" x-ajax-href="{{ url('help', {'name': 'lost_souls'}) }}" style="margin-left: 5px">{{ 'Verlorene Seelen'|trans({},'help') }}</span>
                             </li>
                         </ul>
                     </li>
