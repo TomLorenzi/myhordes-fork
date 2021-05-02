@@ -213,7 +213,7 @@ class SoulController extends CustomAbstractController
 
         $sponsored = array_filter(
             $this->entity_manager->getRepository(UserSponsorship::class)->findBy(['sponsor' => $this->getUser()]),
-            fn(UserSponsorship $s) => !$this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') && $this->user_handler->hasRole($s->getUser(), 'ROLE_USER')
+            fn(UserSponsorship $s) => !$this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') && $s->getUser()->getValidated()
         );
 
         /** @var UserGroupAssociation|null $user_coalition */

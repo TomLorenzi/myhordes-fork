@@ -74,6 +74,19 @@
                                         {% endif %}
                                     </optgroup>
                                     {% if is_granted("ROLE_ADMIN") %}
+                                        <optgroup label="{{ 'Freundschaftswerbung'|trans({},'admin') }}">
+                                            {% if ref is null or ref.active %}
+                                                <option value="{{ url('admin_users_account_manage', {action: 'ref_rename', id: user.id}) }}" x-confirm="MOD_REF" x-query="{{ 'Neuen Namen eingeben.'|trans({},'admin') }}">{{ 'Ref-Namen ändern'|trans({},'admin') }}</option>
+                                            {% endif %}
+                                            {% if ref is not null and ref.active %}
+                                                <option value="{{ url('admin_users_account_manage', {action: 'ref_disable', id: user.id}) }}">{{ 'Ref-Namen sperren'|trans({},'admin') }}</option>
+                                            {% elseif ref is not null and not ref.active %}
+                                                <option value="{{ url('admin_users_account_manage', {action: 'ref_enable', id: user.id}) }}">{{ 'Ref-Namen entsprerren'|trans({},'admin') }}</option>
+                                            {% endif %}
+                                            {% if spon is null %}
+                                                <option value="{{ url('admin_users_account_manage', {action: 'set_sponsor', id: user.id}) }}" x-confirm="LINK_REF" x-query="{{ 'Spieler-ID'|trans({},'admin') }}">{{ 'Sponsor setzen'|trans({},'admin') }}</option>
+                                            {% endif %}
+                                        </optgroup>
                                         <optgroup label="{{ 'Sicherheit'|trans({},'admin') }}">
                                             <option value="{{ url('admin_users_account_manage', {action: 'initiate_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset auslösen'|trans({},'admin') }}</option>
                                             <option value="{{ url('admin_users_account_manage', {action: 'enforce_pw_reset', id: user.id}) }}">{{ 'Passwort-Reset erzwingen'|trans({},'admin') }}</option>
@@ -209,6 +222,58 @@
                         </div>
                     </div>
 
+                    <h5>{{ 'Freundschaftswerbung'|trans({}, 'admin') }}</h5>
+                    <div class="row">
+                        <div class="cell rw-6 rw-sm-12">
+                            <div class="row">
+                                <div class="cell padded rw-6 rw-sm-12 note note-lightest">
+                                    {{ 'Ref-Name'|trans({}, 'admin') }}
+                                </div>
+                                <div class="cell padded rw-6 rw-sm-12">
+                                    {% if ref is null %}-
+                                    {% elseif not ref.active %}<strike>{{ ref.name }}</strike>
+                                    {% else %}{{ ref.name }}
+                                    {% endif %}
+                                </div>
+                                <div class="cell padded rw-6 rw-sm-12 note note-lightest">
+                                    {{ 'Gesponsort von'|trans({}, 'admin') }}
+                                </div>
+                                <div class="cell padded rw-6 rw-sm-12">
+                                    {% if spon is not null %}
+                                        <div>
+                                            <a class="pointer" x-ajax-href="{{ path('admin_users_account_view', {id: spon.sponsor.id}) }}">{{ spon.sponsor.name }}</a>
+                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ spon.id }}"><i class="fa fa-trash "></i></div>{% endif %}
+                                        </div>
+                                    {% else %}-{% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell rw-6">
+                            <div class="row">
+                                <div class="cell padded rw-6 rw-sm-12 note note-lightest">
+                                    {{ 'Gesponsorte Spieler'|trans({}, 'admin') }}
+                                </div>
+                                <div class="cell padded rw-6 rw-sm-12">
+                                    {% if spon_active is empty and spon_inactive is empty %}
+                                        {{ 'Keine'|trans({}, 'admin') }}
+                                    {% endif %}
+                                    {% for entry in spon_active %}
+                                        <div>
+                                            <a class="pointer" x-ajax-href="{{ path('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.user.name }}</a>
+                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ entry.id }}"><i class="fa fa-trash "></i></div>{% endif %}
+                                        </div>
+                                    {% endfor %}
+                                    {% for entry in spon_inactive %}
+                                        <div>
+                                            <strike><a class="pointer" x-ajax-href="{{ path('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.user.name }}</a></strike>
+                                            {% if is_granted("ROLE_ADMIN") %}<div class="inline-block pointer float-right" x-clear-ref="{{ entry.id }}"><i class="fa fa-trash "></i></div>{% endif %}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <h5>{{ 'Verknüpfte Konten'|trans({}, 'admin') }}</h5>
 
                     <div class="row">
@@ -325,6 +390,13 @@
             });
             $.html.addEventListenerAll('[x-unwhitelist]', 'click', function(e,elem) {
                 $.ajax.easySend( '{{ path('admin_users_account_manage', {id: user.id, action: 'unwhitelist'}) }}', {param: elem.getAttribute('x-unwhitelist')},
+                    function () {
+                        $.ajax.load(null, '{{ path('admin_users_account_view', {id: user.id}) }}', true);
+                    } );
+            });
+
+            $.html.addEventListenerAll('[x-clear-ref]', 'click', function(e,elem) {
+                $.ajax.easySend( '{{ path('admin_users_account_manage', {id: user.id, action: 'remove_sponsorship'}) }}', {param: parseInt(elem.getAttribute('x-clear-ref'))},
                     function () {
                         $.ajax.load(null, '{{ path('admin_users_account_view', {id: user.id}) }}', true);
                     } );

@@ -20,6 +20,8 @@ use App\Entity\User;
 use App\Entity\UserDescription;
 use App\Entity\UserGroup;
 use App\Entity\UserPendingValidation;
+use App\Entity\UserReferLink;
+use App\Entity\UserSponsorship;
 use App\Exception\DynamicAjaxResetException;
 use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
@@ -76,10 +78,17 @@ class AdminUserController extends AdminActionController
         $validations = $this->isGranted('ROLE_ADMIN') ? $this->entity_manager->getRepository(UserPendingValidation::class)->findByUser($user) : [];
         $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
 
+        $all_sponsored = $this->entity_manager->getRepository(UserSponsorship::class)->findBy(['sponsor' => $user]);
+
         return $this->render( 'ajax/admin/users/account.html.twig', $this->addDefaultTwigArgs("admin_users_account", [
             'user' => $user,
             'user_desc' => $desc ? $html->prepareEmotes($desc->getText()) : null,
             'validations' => $validations,
+
+            'ref' => $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['user' => $user]),
+            'spon'          => $this->entity_manager->getRepository(UserSponsorship::class)->findOneBy(['user' => $user]),
+            'spon_active'   => array_filter( $all_sponsored, fn(UserSponsorship $s) => !$this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') &&  $s->getUser()->getValidated() ),
+            'spon_inactive' => array_filter( $all_sponsored, fn(UserSponsorship $s) =>  $this->user_handler->hasRole($s->getUser(), 'ROLE_DUMMY') || !$s->getUser()->getValidated() ),
         ]));
     }
 
@@ -111,7 +120,7 @@ class AdminUserController extends AdminActionController
         if (in_array($action, [
             'delete_token', 'invalidate', 'validate', 'twin_full_reset', 'twin_main_reset', 'delete', 'rename',
             'shadow', 'whitelist', 'unwhitelist', 'etwin_reset', 'overwrite_pw', 'initiate_pw_reset',
-            'enforce_pw_reset', 'change_mail',
+            'enforce_pw_reset', 'change_mail', 'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor'
         ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
@@ -299,6 +308,53 @@ class AdminUserController extends AdminActionController
                         if ($wl->getUsers()->count() < 2) $this->entity_manager->remove($wl);
                         else $this->entity_manager->persist($wl);
                 }
+                break;
+
+                //'ref_rename', 'ref_disable', 'ref_enable', 'set_sponsor'
+            case 'ref_rename':case 'ref_disable':case 'ref_enable':
+
+                $existing_ref = $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['user' => $user]);
+                if (!$existing_ref && $action === 'ref_rename')
+                    $existing_ref = (new UserReferLink())->setUser($user)->setActive(true);
+                elseif (!$existing_ref) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                if ($action === 'ref_rename') $existing_ref->setName( $param );
+                else $existing_ref->setActive($action !== 'ref_disable');
+
+                $this->entity_manager->persist($existing_ref);
+                break;
+
+            case 'set_sponsor':
+
+                $other_user = $this->entity_manager->getRepository(User::class)->find($param);
+                if (!$other_user || $other_user === $user) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                if ($this->entity_manager->getRepository(UserSponsorship::class)->findOneBy(['user' => $user]))
+                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                $current = $other_user;
+                $i = 0;
+                while ($s = $this->entity_manager->getRepository(UserSponsorship::class)->findOneBy(['user' => $current]))
+                    if ($s->getSponsor() === $user) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                    else {
+                        //echo "Sponsor " . $s->getSponsor()->getName() . " - User " . $s->getUser()->getName() . " |||||||\n";
+                        $current = $s->getSponsor();
+                        $i++;
+                        if ($i > 1000) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                    }
+
+                $this->entity_manager->persist( (new UserSponsorship)->setUser($user)->setSponsor($other_user)->setCountedSoulPoints(0)->setCountedHeroExp(0) );
+
+                break;
+
+            case 'remove_sponsorship':
+                $s = $this->entity_manager->getRepository(UserSponsorship::class)->find($param);
+                if (!$s) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                if ($s->getUser() !== $user && $s->getSponsor() !== $user) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+                $this->entity_manager->remove($s);
+
                 break;
 
             case 'clear_title':
