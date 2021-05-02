@@ -21,7 +21,7 @@
 
     <div class="row-flex wrap">
         <div class="padded cell rw-6 rw-lg-12">
-            {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items} %}
+            {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'sort': true} %}
                 {% block class %}rucksack{% endblock %}
                 {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
             {% endembed %}

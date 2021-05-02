@@ -92,6 +92,11 @@ class ItemPrototype implements NamedEntity
      */
     private $fragile;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $sort;
+
     public function __construct()
     {
         $this->properties = new ArrayCollection();
@@ -289,6 +294,18 @@ class ItemPrototype implements NamedEntity
     public function setFragile(?bool $fragile): self
     {
         $this->fragile = $fragile;
+
+        return $this;
+    }
+
+    public function getSort(): ?int
+    {
+        return $this->sort;
+    }
+
+    public function setSort(?int $sort): self
+    {
+        $this->sort = $sort;
 
         return $this;
     }

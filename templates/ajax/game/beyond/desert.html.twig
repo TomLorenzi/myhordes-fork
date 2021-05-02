@@ -417,7 +417,7 @@
 
             <div class="padded cell rw-6 rw-md-12">
                 <h5><span class="float-right link" x-ajax-sticky x-ajax-href='{{ path('beyond_dashboard') }}'>{{'Aktualisierung'|trans({}, 'game')}}</span>{% trans from 'game' %}Meine objekte{% endtrans %}</h5>
-                {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'hidden': citizen_hidden} %}
+                {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'hidden': citizen_hidden, 'sort': true} %}
                     {% block class %}rucksack{% endblock %}
                     {% block title %}{% trans from 'game' %}Rucksack{% endtrans %}{% endblock %}
                 {% endembed %}
@@ -583,7 +583,7 @@
 
                                 {% if other_citizen.escortSettings.allowInventoryAccess %}
                                     <div class="padded cell ro-4 rw-8">
-                                        {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_sizes[other_citizen.id], 'items': other_citizen.inventory.items, 'escort': other_citizen.id, 'plus': allow_floor_access and floor.items is not empty, 'owner': other_citizen} %}
+                                        {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_sizes[other_citizen.id], 'items': other_citizen.inventory.items, 'escort': other_citizen.id, 'plus': allow_floor_access and floor.items is not empty, 'owner': other_citizen, 'sort': true} %}
                                             {% block class %}rucksack-escort{% endblock %}
                                         {% endembed %}
                                         {% if allow_floor_access %}

@@ -248,7 +248,7 @@
                     <div class="notice">{{'Du hast heute schon <strong>einen Diebstahl</strong> begangen.'|trans({},'game')|raw}}</div>
                 {% else %}
                     <div class="hidden">
-                        {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items} %}
+                        {% embed "ajax/game/inventory.html.twig" with {'size': rucksack_size, 'items': rucksack.items, 'sort': true} %}
                             {% block class %}rucksack{% endblock %}
                             {% block title %}{% trans from 'game' %}Mein Rucksack{% endtrans %}{% endblock %}
                         {% endembed %}

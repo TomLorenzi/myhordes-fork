@@ -168,15 +168,12 @@ class ItemFixtures extends Fixture
         ['label' => 'Kalaschni-Splash', 'icon' => 'kalach', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 11],                                        // -- ---
         ['label' => 'Kalaschni-Splash (leer)', 'icon' => 'kalach', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                // In Out
         ['label' => 'Tretmine', 'icon' => 'claymo', 'category' => 'Weapon', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 50],                                               // -- ---
-		
-		
-		
-		['label' => 'Einkaufswagen', 'icon' => 'cart', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 20],                                             // -- ---
-        ['label' => 'Extra Tasche', 'icon' => 'bag', 'category' => 'Box', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                               // -- ---
-        ['label' => 'Superpraktischer Rucksack', 'icon' => 'bagxl', 'category' => 'Box', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                // -- ---
-        ['label' => 'Gürtel mit Tasche', 'icon' => 'pocket_belt', 'category' => 'Box', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                  // -- ---
-		
-		
+
+		['label' => 'Einkaufswagen', 'icon' => 'cart', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 20, 'sort' => 2],                                             // -- ---
+        ['label' => 'Extra Tasche', 'icon' => 'bag', 'category' => 'Box', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'sort' => 2],                                               // -- ---
+        ['label' => 'Superpraktischer Rucksack', 'icon' => 'bagxl', 'category' => 'Box', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'sort' => 2],                                // -- ---
+        ['label' => 'Gürtel mit Tasche', 'icon' => 'pocket_belt', 'category' => 'Box', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'sort' => 1],                                  // -- ---
+
         ['label' => 'Metallkiste', 'icon' => 'chest', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 8],                                                 // In Out
         ['label' => 'Großer Metallkoffer', 'icon' => 'chest_xl', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 10],                                      // In Out
         ['label' => 'Werkzeugkiste', 'icon' => 'chest_tools', 'category' => 'Box', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 5],                                         // In Out
@@ -223,7 +220,7 @@ class ItemFixtures extends Fixture
         ['label' => 'Ghul-Serum', 'icon' => 'vagoul', 'category' => 'Drug', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                             //
 		
 		
-        ['label' =>"Zonenmarker 'Radius'", 'icon' => 'tagger', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                    // -- Out
+        ['label' => "Zonenmarker 'Radius'", 'icon' => 'tagger', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                    // -- Out
         ['label' => 'Unkrautbekämpfungsmittel Ness-Quick', 'icon' => 'digger', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                     // -- Out
         ['label' => 'Schießpulverbombe', 'icon' => 'flash', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                        // -- Out
         ['label' => 'Radius Mark II (entladen)', 'icon' => 'radius_mk2_part', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                      // -- ---
@@ -359,23 +356,27 @@ class ItemFixtures extends Fixture
         ['label' => 'Osterei', 'icon' => 'paques', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 38],                                                  // -- ---
         ['label' => 'Geistiger Beistand', 'icon' => 'chkspk', 'category' => 'Misc', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],                                       // -- ---
         ['label' => 'Fette Python', 'icon' => 'pet_snake2', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 0, 'fragile' => true],                                          // -- ---
-        ['label' => 'Bürgerbekleidung', 'icon' => 'basic_suit', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                     // -- ---
-        ['label' => 'Dreckige Bürgerbekleidung', 'icon' => 'basic_suit_dirt', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                       // -- ---
-        ['label' => 'Tarnanzug', 'icon' => 'vest_on', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                               // -- ---
-        ['label' => 'Tarnkleidung (nicht wirksam!)', 'icon' => 'vest_off', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                   //
-        ['label' => 'Kleine Schaufel', 'icon' => 'pelle', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                           // -- ---
-        ['label' => 'Dreibeiniger Malteser', 'icon' => 'tamed_pet', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                 // --
-        ['label' => 'Malteser Hündchen auf Droge', 'icon' => 'tamed_pet_drug', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                   // --
-        ['label' => 'Müdes Malteser Hündchen', 'icon' => 'tamed_pet_off', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                 // -- ---
-        ['label' => 'Survivalbuch', 'icon' => 'surv_book', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                          // --
-        ['label' => 'Schraubenschlüssel', 'icon' => 'keymol', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                       // -- ---
-        ['label' => 'Schutzschild', 'icon' => 'shield', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],                                             // -- ---
-        ['label' => 'Voodoo-Maske', 'icon' => 'shaman', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],
-        ['label' => 'Kamera aus Vorkriegs-Tagen', 'icon' => 'photo_3', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],
-        ['label' => 'Kamera aus Vorkriegs-Tagen', 'icon' => 'photo_2', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],
-        ['label' => 'Kamera aus Vorkriegs-Tagen', 'icon' => 'photo_1', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],
-        ['label' => 'Kamera aus Vorkriegs-Tagen', 'icon' => 'photo_off', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],
-		['label' => 'Huhn', 'icon' => 'pet_chick', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8, 'fragile' => true],                                                // -- Out
+
+        ['label' => 'Bürgerbekleidung', 'icon' => 'basic_suit', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'sort'=>100],                                     // -- ---
+        ['label' => 'Dreckige Bürgerbekleidung', 'icon' => 'basic_suit_dirt', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'sort'=>100],                       // -- ---
+        ['label' => 'Tarnanzug', 'icon' => 'vest_on', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'sort'=>80],                                               // -- ---
+        ['label' => 'Tarnkleidung (nicht wirksam!)', 'icon' => 'vest_off', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'sort'=>80],                                   //
+        ['label' => 'Kleine Schaufel', 'icon' => 'pelle', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'sort'=>80],                                           // -- ---
+        ['label' => 'Dreibeiniger Malteser', 'icon' => 'tamed_pet', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'sort'=>80],                                 // --
+        ['label' => 'Malteser Hündchen auf Droge', 'icon' => 'tamed_pet_drug', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'sort'=>80],                   // --
+        ['label' => 'Müdes Malteser Hündchen', 'icon' => 'tamed_pet_off', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'sort'=>80],                 // -- ---
+        ['label' => 'Survivalbuch', 'icon' => 'surv_book', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'sort'=>80],                                          // --
+        ['label' => 'Schraubenschlüssel', 'icon' => 'keymol', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'sort'=>80],                                       // -- ---
+        ['label' => 'Schutzschild', 'icon' => 'shield', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'sort'=>80],                                             // -- ---
+        ['label' => 'Voodoo-Maske', 'icon' => 'shaman', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'sort'=>80],
+        ['label' => 'Kamera aus Vorkriegs-Tagen', 'icon' => 'photo_3', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'sort'=>61],
+        ['label' => 'Kamera aus Vorkriegs-Tagen', 'icon' => 'photo_2', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'sort'=>61],
+        ['label' => 'Kamera aus Vorkriegs-Tagen', 'icon' => 'photo_1', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'sort'=>61],
+        ['label' => 'Kamera aus Vorkriegs-Tagen', 'icon' => 'photo_off', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0, 'sort'=>61],
+        ['label' => 'Kreischender Wecker (entladen)', 'icon' => 'alarm_off', 'category' => 'Misc', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0, 'sort'=>60],
+        ['label' => 'Kreischender Wecker (mit Strom)', 'icon' => 'alarm_on', 'category' => 'Misc', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0, 'sort'=>60],
+
+        ['label' => 'Huhn', 'icon' => 'pet_chick', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 8, 'fragile' => true],                                                // -- Out
         ['label' => 'Übelriechendes Schwein', 'icon' => 'pet_pig', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 20, 'fragile' => true],                                 // -- Out
         ['label' => 'Riesige Ratte', 'icon' => 'pet_rat', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 4, 'fragile' => true],                                         // -- Out
         ['label' => 'Zwei-Meter Schlange', 'icon' => 'pet_snake', 'category' => 'Misc', 'deco' =>0, 'heavy' =>true, 'watchpoint' => 15, 'fragile' => true],                                  // -- Out
@@ -395,7 +396,6 @@ class ItemFixtures extends Fixture
 		['label' => 'Unidentifizierbare Trümmerstücke', 'icon' => 'broken', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],
 		['label' => 'Munitionsgriff', 'icon' => 'bullets', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0],
 
-		
         ['label' => 'Super-Flaum-Pulver', 'icon' => 'firework_powder', 'category' => 'Furniture', 'deco' => 5, 'heavy' => false, 'watchpoint' => 0],                       // -- ---
         ['label' => 'Flush-Abschussrohr', 'icon' => 'firework_tube', 'category' => 'Furniture', 'deco' => 2, 'heavy' => true, 'watchpoint' => 0],                                 // In Out
         ['label' => 'Feuerwerkskiste', 'icon' => 'firework_box', 'category' => 'Furniture', 'deco' => 3, 'heavy' => true, 'watchpoint' => 0],                                 // In Out
@@ -407,8 +407,6 @@ class ItemFixtures extends Fixture
 		['label' => 'Krähenelfe', 'icon' => 'food_xmas', 'category' => 'Food', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],                              // -- Out
         ['label' => 'Logbuch Schokolade', 'icon' => 'wood_xmas', 'category' => 'Food', 'deco' => 8, 'heavy' => true, 'watchpoint' => 0],                              // -- Out
         ['label' => 'Grüner Kobold-Anzug', 'icon' => 'leprechaun_suit', 'category' => 'Misc', 'deco' =>0, 'heavy' =>false, 'watchpoint' => 0], //
-        ['label' => 'Kreischender Wecker (entladen)', 'icon' => 'alarm_off', 'category' => 'Misc', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
-        ['label' => 'Kreischender Wecker (mit Strom)', 'icon' => 'alarm_on', 'category' => 'Misc', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
         ['label' => 'Hurlingstock', 'icon' => 'hurling_stick', 'category' => 'Weapon', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
         ['label' => 'Guiness', 'icon' => 'guiness', 'category' => 'Food', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
         ['label' => 'Schwarzer Zervixschleim', 'icon' => 'april_drug', 'category' => 'Drug', 'deco' => 0, 'heavy' => false, 'watchpoint' => 0],
@@ -1247,6 +1245,7 @@ class ItemFixtures extends Fixture
                 ->setDeco( $entry['deco'] )
                 ->setHeavy( $entry['heavy'] )
                 ->setCategory( $category )
+                ->setSort( $entry['sort'] ?? 0 )
                 ->setDescription( static::$item_desc_data[ $entry_unique_id ] ?? "" )
                 ->setHideInForeignChest( $entry['hideInForeignChest'] ?? false )
                 ->getProperties()->clear();
