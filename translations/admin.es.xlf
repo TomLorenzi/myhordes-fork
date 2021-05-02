@@ -3103,7 +3103,7 @@
       </notes>
       <segment>
         <source>Neue Saison registrieren</source>
-        <target>Neue Saison registrieren</target>
+        <target>Crear una nueva temporada</target>
       </segment>
     </unit>
     <unit id="bIa5kIj" name="Änderungen speichern">
@@ -3112,7 +3112,7 @@
       </notes>
       <segment>
         <source>Änderungen speichern</source>
-        <target>Änderungen speichern</target>
+        <target>Guardar los cambios</target>
       </segment>
     </unit>
   </file>
