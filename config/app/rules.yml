@@ -195,7 +195,6 @@ parameters:
         ghoul_infection_begin: 2
 
       features:
-        attacks: 'hard'
         last_death: 'r_suhard_#00'
         survival_picto: 'r_pande_#00'
 
