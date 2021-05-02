@@ -34,7 +34,7 @@
       </notes>
       <segment>
         <source>Sich bewegen</source>
-        <target>Desplazarse y Puntos de acción</target>
+        <target>Desplazarse y Puntos de Acción</target>
       </segment>
     </unit>
     <unit id="L4DksI7" name="Die Karte">
@@ -1327,7 +1327,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt
       </notes>
       <segment>
         <source>MyHordes?</source>
-        <target>MyHordes ?</target>
+        <target>¿MyHordes?</target>
       </segment>
     </unit>
     <unit id="JtQM0Nd" name="e6b22b6">
@@ -2503,8 +2503,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       <segment>
         <source>&lt;strong&gt;Die Seelen %img_blue_soul% verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.&lt;/strong&gt;
 Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine blaue Seele in der Außenwelt. Jeder Bürger kann eine Seele einsammeln und sie in die Stadt bringen. Beachtet, dass eine Seele als "sperriger Gegenstand" gilt.</source>
-        <target><![CDATA[<strong>Die Seelen %img_blue_soul% verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.</strong>
-Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine blaue Seele in der Außenwelt. Jeder Bürger kann eine Seele einsammeln und sie in die Stadt bringen. Beachtet, dass eine Seele als "sperriger Gegenstand" gilt.]]></target>
+        <target><![CDATA[<strong>Las almas %img_blue_soul% de nuestros compañeros deambulan intranquilas en el vasto Ultramundo</strong>. Cada vez que un habitante muere(Sin importar por qué o en dónde), aparece un alma débil en el Ultramundo. Cualquiera puede recoger un alma débil y llevarla al pueblo. Sin embargo, los habitantes normales solo pueden llevar un alma a la vez. El chamán es el único que tiene el control espiritual para llevar consigo varias almas a la vez.]]></target>
       </segment>
     </unit>
     <unit id="8TquK3o" name="1309ffe">
@@ -2513,7 +2512,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Es liegt dann an der Stadt, sich zu organisieren, um diese verlorenen Seelen zu bergen. In der Tat haben diese Seelen eine große Chance, sich in gequälte Seelen %img_red_soul% zu verwandeln, wenn sie verlassen werden! Und dort wird es Zeit in Panik zu geraten, diese gequälten Seelen entwickeln die Zombie-Proliferation!</source>
-        <target>Es liegt dann an der Stadt, sich zu organisieren, um diese verlorenen Seelen zu bergen. In der Tat haben diese Seelen eine große Chance, sich in gequälte Seelen %img_red_soul% zu verwandeln, wenn sie verlassen werden! Und dort wird es Zeit in Panik zu geraten, diese gequälten Seelen entwickeln die Zombie-Proliferation!</target>
+        <target>Esto hace necesario que el pueblo se organice para rescatar estas almas débiles. De hecho, ¡estas almas tienen una gran probablidad de convertirse en almas fuertes %img_red_soul% si se dejan abandonadas! ¡Habrá que actuar con urgencia, estas almas fuertes aumentan el ataque nocturno!</target>
       </segment>
     </unit>
     <unit id="Sz_Kc6M" name="36d748d">
@@ -2522,7 +2521,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Beachten Sie, dass der Schamane auf der gesamten Karte eine Vision von Seelen haben kann, aber er wird nicht in der Lage sein, gefolterte Seelen von anderen zu unterscheiden.</source>
-        <target>Beachten Sie, dass der Schamane auf der gesamten Karte eine Vision von Seelen haben kann, aber er wird nicht in der Lage sein, gefolterte Seelen von anderen zu unterscheiden.</target>
+        <target>El Chamán es el único que puede percibir la posición aproximada de las almas en el Ultramundo; sin embargo, sus poderes extrasensoriales no son suficientes para distinguir entre almas débiles y fuertes en el mapa.</target>
       </segment>
     </unit>
     <unit id="wM4GFMA" name="2f91250">
@@ -2531,7 +2530,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Das Wiederherstellen von Seelen erfordert eine kleine Vorbereitung! In der Tat fordern gefolterte Seelen einen guten Schutz vor ihrer Gewalt, da jeder Bürger eine wandernde Seele transportieren kann.</source>
-        <target>Das Wiederherstellen von Seelen erfordert eine kleine Vorbereitung! In der Tat fordern gefolterte Seelen einen guten Schutz vor ihrer Gewalt, da jeder Bürger eine wandernde Seele transportieren kann.</target>
+        <target>¡Rescatar almas requiere de una preparación especial! Un habitante cualquiera puede ser poseído por un alma fuerte, por lo que es necesario protegerse de su violencia.</target>
       </segment>
     </unit>
     <unit id="KE5t8gU" name="b6407ae">
@@ -2540,7 +2539,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Der Schamane ist unempfindlich gegenüber ihm und kann diese Seelen daher ohne Risiko (aber nicht ohne Angst) manipulieren. Der Bürger muss seinen Schamanen bitten, einen Immunisierungstrank zuzubereiten. Aber Vorsicht, das Vertrauen in die Kräfte Ihres Schamanen sollte nicht unendlich sein...</source>
-        <target>Der Schamane ist unempfindlich gegenüber ihm und kann diese Seelen daher ohne Risiko (aber nicht ohne Angst) manipulieren. Der Bürger muss seinen Schamanen bitten, einen Immunisierungstrank zuzubereiten. Aber Vorsicht, das Vertrauen in die Kräfte Ihres Schamanen sollte nicht unendlich sein...</target>
+        <target>El Chamán puede recoger almas fuertes sin riesgo(pero no sin la presión que esto representa). Los demás habitantes deberán pedirle al chamán de su pueblo que prepare un brebaje especial que les proteja de las almas fuertes. Pero desconfíen, la efectividad de sus poderes no está garantizada...</target>
       </segment>
     </unit>
     <unit id="Jly9usI" name="379bc01">
@@ -2549,7 +2548,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Wenn Sie einmal in der Stadt sind, können Sie diese Seele reinigen und in Frieden ruhen lassen, weit weg von Ihrer Stadt und ihren bösen Geistern. &lt;strong&gt;Seien Sie vorsichtig, ungereinigte Seelen werden um Mitternacht weiterhin Unglück bringen, selbst wenn sie in der Stadt bleiben!&lt;/strong&gt;</source>
-        <target><![CDATA[Wenn Sie einmal in der Stadt sind, können Sie diese Seele reinigen und in Frieden ruhen lassen, weit weg von Ihrer Stadt und ihren bösen Geistern. <strong>Seien Sie vorsichtig, ungereinigte Seelen werden um Mitternacht weiterhin Unglück bringen, selbst wenn sie in der Stadt bleiben!</strong>]]></target>
+        <target><![CDATA[Una vez en el pueblo, si la construcción <strong>Hammam</strong> está terminada, es posible purificar estas almas y dejarlas descansar en paz, bastante lejos del pueblo y sus espíritus malignos. <strong>Importante: las almas sin purificar seguirán atrayendo efectos negativos incluso si están en El almacén!</strong>]]></target>
       </segment>
     </unit>
     <unit id="uepLpvU" name="e19b01f">
@@ -2558,7 +2557,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Die Außenwelt birgt verlassene Gebäude, die nach Rohstoffen und nützlichen Plänen abgesucht werden können.</source>
-        <target>Die Außenwelt birgt verlassene Gebäude, die nach Rohstoffen und nützlichen Plänen abgesucht werden können.</target>
+        <target>En el Ultramundo se encuentran edificios abandonados que se pueden explorar en busca de recursos y de planos útiles.</target>
       </segment>
     </unit>
     <unit id="F3BRYtp" name="14e1df7">
@@ -2569,8 +2568,7 @@ Diese unseligen Orte werden außerdem oft von Zombies heimgesucht. Wenn sich dei
       <segment>
         <source>Sobald du einen solchen Ort gefunden hast, siehst du bei deinen Aktion eine Option, über die du diesen Ort betreten kannst. &lt;strong&gt;Achtung: Bürger, die verletzt oder starr vor Angst sind, können einen solch klaustrophobischen Ort nicht betreten.&lt;/strong&gt;
 Diese unseligen Orte werden außerdem oft von Zombies heimgesucht. Wenn sich dein kleiner Ausflug also lohnen soll, lass dir besser vorher etwas einfallen, wie du diese Kreaturen wieder los wirst.</source>
-        <target><![CDATA[Sobald du einen solchen Ort gefunden hast, siehst du bei deinen Aktion eine Option, über die du diesen Ort betreten kannst. <strong>Achtung: Bürger, die verletzt oder starr vor Angst sind, können einen solch klaustrophobischen Ort nicht betreten.</strong>
-Diese unseligen Orte werden außerdem oft von Zombies heimgesucht. Wenn sich dein kleiner Ausflug also lohnen soll, lass dir besser vorher etwas einfallen, wie du diese Kreaturen wieder los wirst.]]></target>
+        <target><![CDATA[Cuando estés en la ubicación de una ruina, entre tus acciones disponibles encontrarás la opción de entrar a explorar esta ruina. <strong>Importante: Un habitante herido o aterrorizado no puede entrar en estos lugares tan oscuros y estrechos.</strong> Desafortunadamente, estos lugares suelen estar infestados de zombies. Así que si deseas que tu exploración sea exitosa, se recomienda que te prepares para matarlos antes de ingresar.]]></target>
       </segment>
     </unit>
     <unit id=".w.ATRf" name="f304740">
@@ -2581,8 +2579,7 @@ Manchmal stößt du auf verriegelte Türen, die du nur mit bestimmten Schlüssel
       <segment>
         <source>Du findest nur in den Zimmern dieser Ruinen brauchbare Gegenstände. In den Fluren befinden sich nur dann Gegenstände, wenn andere Spielern sie dort abgelegt haben.
 Manchmal stößt du auf verriegelte Türen, die du nur mit bestimmten Schlüsseln aufbekommst. Die ehemaligen Bewohner dieser Orte haben oft Schlüssel zurückgelassen. Es liegt an dir, sie zu finden.</source>
-        <target>Du findest nur in den Zimmern dieser Ruinen brauchbare Gegenstände. In den Fluren befinden sich nur dann Gegenstände, wenn andere Spielern sie dort abgelegt haben.
-Manchmal stößt du auf verriegelte Türen, die du nur mit bestimmten Schlüsseln aufbekommst. Die ehemaligen Bewohner dieser Orte haben oft Schlüssel zurückgelassen. Es liegt an dir, sie zu finden.</target>
+        <target>Solo hallarás nuevos recursos dentro de las habitaciones de las ruinas; en los pasillos habrá objetos dejados por otros habitantes. Puedes ver si el pasillo tiene una habitación porque te aparecerá la opción de entrar a la habitación entre tus acciones y verás una puerta como la resaltada en rojo en la imagen. A veces encontrarás puertas cerradas que podrás abrir con tipos específicos de llaves. Los antiguos ocupantes de la ruina pudieron dejar algunas llaves por ahí, dales un buen uso.</target>
       </segment>
     </unit>
     <unit id="X7Z3oSQ" name="0b5fcc2">
@@ -2591,7 +2588,7 @@ Manchmal stößt du auf verriegelte Türen, die du nur mit bestimmten Schlüssel
       </notes>
       <segment>
         <source>Es ist niemals so einfach wie es aussieht. Die Luft in diesen seit langem verlassenen Gebäuden ist mit einer giftigen Substanz gesättigt. Du solltest dich hier darum besser nicht zu lange aufhalten.</source>
-        <target>Es ist niemals so einfach wie es aussieht. Die Luft in diesen seit langem verlassenen Gebäuden ist mit einer giftigen Substanz gesättigt. Du solltest dich hier darum besser nicht zu lange aufhalten.</target>
+        <target>Si solo fuese eso, sería demasiado simple. El aire en estos edificios abandonados hace años está saturado con una sustancia tóxica. Debido a esto es imposible estar dentro de ellas por mucho tiempo.</target>
       </segment>
     </unit>
     <unit id="uqQWwTV" name="c7f6f64">
@@ -2606,10 +2603,7 @@ Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth
 Du musst unbedingt rechtzeitig aus diesem Labyrinth entkommen. Ansonsten wirst du schwer verletzt und verlierst alle Gegenstände, die du bei deiner Suche gefunden hast.
 Verlassene Gebäude haben nur einen einzigen Eingang. Und das ist gleichzeitig dein einziger Weg zurück nach draußen.
 Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth nicht mehr lebend verlassen.</source>
-        <target><![CDATA[<strong>Ein Sauerstoffmesser verrät dir, wieviel Zeit dir zum Durchsuchen einer Zone bleibt, ehe du vergiftet wirst.</strong>
-Du musst unbedingt rechtzeitig aus diesem Labyrinth entkommen. Ansonsten wirst du schwer verletzt und verlierst alle Gegenstände, die du bei deiner Suche gefunden hast.
-Verlassene Gebäude haben nur einen einzigen Eingang. Und das ist gleichzeitig dein einziger Weg zurück nach draußen.
-Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth nicht mehr lebend verlassen.]]></target>
+        <target><![CDATA[<strong>En la parte superior derecha tienes un contador de oxígeno que te indica por cuánto tiempo puedes seguir en la ruina sin ser afectado por el aire tóxico.</strong> SIEMPRE debes salir de estos laberintos antes de que se te acabe el tiempo. Si no lo logras, resultarás gravemente herido y soltarás en el pasillo que estabas todos los objetos que tenías durante la exploración. Solo hay una entrada a las ruinas y esa será también tu única salida. Ten cuidado: no seas demasiado codicioso al explorar estos edificios.]]></target>
       </segment>
     </unit>
     <unit id="cR7ePtk" name="1856884">
@@ -2618,7 +2612,7 @@ Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth
       </notes>
       <segment>
         <source>Es gibt einige Verhaltensregeln, wie man in einer solchen Gegend voller Zombies überleben kann. Wenn du deine Lieben daheim jemals wiedersehen willst, hältst du dich besser daran:</source>
-        <target>Es gibt einige Verhaltensregeln, wie man in einer solchen Gegend voller Zombies überleben kann. Wenn du deine Lieben daheim jemals wiedersehen willst, hältst du dich besser daran:</target>
+        <target>A continuación algunas reglas que debes respetar si quieres volver vivo a tu querido pueblo:</target>
       </segment>
     </unit>
     <unit id="a5rChiF" name="61a3988">
@@ -2627,7 +2621,7 @@ Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth
       </notes>
       <segment>
         <source>Aufgrund der Enge dieser Orte, kann sie nur &lt;strong&gt;nur ein einzelner Bürger gleichzeitig&lt;/strong&gt; betreten und untersuchen. Sobald dieser Bürger das Gebäude wieder verlassen hat, kann ein anderer seinen Platz einnehmen.</source>
-        <target><![CDATA[Aufgrund der Enge dieser Orte, kann sie nur <strong>nur ein einzelner Bürger gleichzeitig</strong> betreten und untersuchen. Sobald dieser Bürger das Gebäude wieder verlassen hat, kann ein anderer seinen Platz einnehmen.]]></target>
+        <target><![CDATA[Debido a la estrechez de los pasillos, <strong>solo puede haber un habitante a la vez</strong> dentro de los edificios. En cuanto este haya salido, otro podra ingresar a la ruina.]]></target>
       </segment>
     </unit>
     <unit id="RR6Z.rb" name="aac3441">
@@ -2636,7 +2630,7 @@ Sei auf der Hut: Wenn du zu gierig und ungestüm bist, wirst du dieses Labyrinth
       </notes>
       <segment>
         <source>Wegen der großen Menge Gift, die man beim Untersuchen eines verlassenen Gebäudes einatmet, kann ein Bürger ein Gebäude &lt;strong&gt;nur einmal pro Tag&lt;/strong&gt; untersuchen. Eine weitere Tour würde unweigerlich zu einem sehr unschönen Tod führen.</source>
-        <target><![CDATA[Wegen der großen Menge Gift, die man beim Untersuchen eines verlassenen Gebäudes einatmet, kann ein Bürger ein Gebäude <strong>nur einmal pro Tag</strong> untersuchen. Eine weitere Tour würde unweigerlich zu einem sehr unschönen Tod führen.]]></target>
+        <target><![CDATA[Debido al alto grado de toxicidad en la ruina, cada habitante podrá ingresar <strong>una sola vez al día</strong> en ellas. Una exposición mayor le llevaría a una inevitable muerte dolorosa.]]></target>
       </segment>
     </unit>
     <unit id="9tyeLdW" name="b3077a1">
@@ -2647,8 +2641,7 @@ Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf 
       <segment>
         <source>Um den Zombies zu entkommen, die sich hier herumtreiben, kannst du deine Gegenstände aus deinem Inventar benutzen und damit angreifen. Du kannst auch &lt;strong&gt;die Aktion "Die Flucht wagen" ausführen&lt;/strong&gt;: Dabei verbrauchst du einen Teil deines Sauerstoffvorrats. 
 Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf dich warten.</source>
-        <target><![CDATA[Um den Zombies zu entkommen, die sich hier herumtreiben, kannst du deine Gegenstände aus deinem Inventar benutzen und damit angreifen. Du kannst auch <strong>die Aktion "Die Flucht wagen" ausführen</strong>: Dabei verbrauchst du einen Teil deines Sauerstoffvorrats. 
-Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf dich warten.]]></target>
+        <target><![CDATA[Para escapar de los zombies que se encuentran allí, puedes usar objetos de tu inventario o realizar acciones heróicas. También puedes <strong>seleccionar la acción "Huir"</strong> sacrificando una parte de tu oxígeno; pero si vuelves a pasar por ahí, seguirán habiendo zombies y deberás huir de nuevo.]]></target>
       </segment>
     </unit>
     <unit id="Ro.Av4r" name="0995565">
@@ -2657,7 +2650,7 @@ Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf 
       </notes>
       <segment>
         <source>Durch den Lärm, den die Abenteurer in der Außenwelt machen, halten sich &lt;strong&gt;immer einige Zombies in der Nähe&lt;/strong&gt; der Gebäude auf. Du solltest eine solche Zone darum schnell durchsuchen, ehe es dort nur so vor Zombies wimmelt.</source>
-        <target><![CDATA[Durch den Lärm, den die Abenteurer in der Außenwelt machen, halten sich <strong>immer einige Zombies in der Nähe</strong> der Gebäude auf. Du solltest eine solche Zone darum schnell durchsuchen, ehe es dort nur so vor Zombies wimmelt.]]></target>
+        <target><![CDATA[Debido a los ruidos generados en de las ruinas, <strong>siempre hay zombies dentro</strong> de las ruinas. Más le vale a tu pueblo encontrarlas pronto, antes de que estén llenas de zombies.]]></target>
       </segment>
     </unit>
     <unit id="V5OvUWu" name="5998125">
@@ -2668,8 +2661,7 @@ Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es bes
       <segment>
         <source>Zwischen dem Auftauchen der Verdammten und diesen Gebäuden besteht ein Zusammenhang. Es ist darum kein Wunder, dass Plünderer keine Zeit hatten, sie in Ruhe zu durchsuchen. Sie beherbergen darum noch immer zahlreiche Ressourcen und Baupläne. 
 Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es besteht kein Zweifel daran, dass die einfachsten Mittel auch die effektivsten Mittel zum Durchsuchen dieser Orte sein werden.</source>
-        <target>Zwischen dem Auftauchen der Verdammten und diesen Gebäuden besteht ein Zusammenhang. Es ist darum kein Wunder, dass Plünderer keine Zeit hatten, sie in Ruhe zu durchsuchen. Sie beherbergen darum noch immer zahlreiche Ressourcen und Baupläne. 
-Leider ist es unmöglich, Karten von diesen Gebäuden aufzustöbern. Aber es besteht kein Zweifel daran, dass die einfachsten Mittel auch die effektivsten Mittel zum Durchsuchen dieser Orte sein werden.</target>
+        <target>Existe una conexión entre el origen de los zombies y estos edificios. No es extraño que los saqueadores no hayan podido registrarlos cuidadosamente, por lo que todavía es posible encontrar numerosos recursos y planos. Desafortunadamente, los mapas de estas "minas de oro" son imposibles de encontrar, así que deberás usar medios rudimentarios para poder salir de allí con la mochila llena.</target>
       </segment>
     </unit>
     <unit id="arLFfQ0" name="ebd1af9">
@@ -2856,7 +2848,7 @@ werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtun
       </notes>
       <segment>
         <source>Sei gewiss: An diesem gottverlassenen Ort wird dir niemand zu Hilfe eilen. Und Kontrollpunkte gelten hier auch nicht mehr. Versuche darum, das Maximum aus diesen Gebäuden herauszuholen.</source>
-        <target>Sei gewiss: An diesem gottverlassenen Ort wird dir niemand zu Hilfe eilen. Und Kontrollpunkte gelten hier auch nicht mehr. Versuche darum, das Maximum aus diesen Gebäuden herauszuholen.</target>
+        <target><![CDATA[Nadie podrá ayudarte mientras exploras esas ruinas espeluznantes. <strong>Los puntos de control no se aplican aquí</strong>. Deberás organizarte con tu pueblo para sacarle el máximo provecho a estos lugares.]]></target>
       </segment>
     </unit>
     <unit id="pCjfjXL" name="198f48e">
@@ -2865,7 +2857,7 @@ werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtun
       </notes>
       <segment>
         <source>Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines %img_meat% saftigen Steaks auf einer angerichteten Tafel!</source>
-        <target>Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines %img_meat% saftigen Steaks auf einer angerichteten Tafel!</target>
+        <target>Cuidado con la hora: Si estás explorando un edificio a medianoche, ¡tendrás tantas posibilidades de sobrevivir  como un %img_meat% bistec en medio de perros hambrientos!!</target>
       </segment>
     </unit>
     <unit id="gns2u3H" name="Der Tod">
@@ -7618,7 +7610,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Externe Scripte</source>
-        <target>Externe Scripte</target>
+        <target>Scripts Externos</target>
       </segment>
     </unit>
     <unit id="vB0H4j5" name="Für Community-Entwickler">
@@ -7627,7 +7619,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Für Community-Entwickler</source>
-        <target>Für Community-Entwickler</target>
+        <target>Para desarolladores de la comunidad</target>
       </segment>
     </unit>
     <unit id="AVd4ZVz" name="d772232">
@@ -7636,7 +7628,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Mithilfe von Scripten können Spieler die Funktionen und Benutzeroberfläche von MyHordes an ihre Bedürfnisse anpassen. Damit das Spiel dennoch für alle fair bleibt, gelten einige Regeln für den Einsatz von Scripten (unabhängig davon, ob ihr eure Scripte weitergebt oder nur für euch selbst verwendet).</source>
-        <target>Mithilfe von Scripten können Spieler die Funktionen und Benutzeroberfläche von MyHordes an ihre Bedürfnisse anpassen. Damit das Spiel dennoch für alle fair bleibt, gelten einige Regeln für den Einsatz von Scripten (unabhängig davon, ob ihr eure Scripte weitergebt oder nur für euch selbst verwendet).</target>
+        <target>Con la ayuda de Scripts, los jugadores pueden adaptar las funciones y la interfaz de usuario de MyHordes de acuerdo a sus necesidades. Para mantener un juego justo para todos, son necesarias algunas reglas respecto a la creación y el uso de scripts(Indistintamente de si compartes tu script o solamente lo utilizas tú).</target>
       </segment>
     </unit>
     <unit id="XY_OEJT" name="b15dd21">
@@ -7645,7 +7637,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Diese Regeln beziehen sich auf sämtliche client-seitige Erweiterungen der MyHordes-Webseite. Alles, was das Aussehen und die Funktion von MyHordes innerhalb des Browsers eines Benutzers verändert, wird im Rahmen dieser Regeln als "Script" bezeichnet, also beispielsweise Extensions, Plug-Ins, User-Scripts und User-Styles.</source>
-        <target>Diese Regeln beziehen sich auf sämtliche client-seitige Erweiterungen der MyHordes-Webseite. Alles, was das Aussehen und die Funktion von MyHordes innerhalb des Browsers eines Benutzers verändert, wird im Rahmen dieser Regeln als "Script" bezeichnet, also beispielsweise Extensions, Plug-Ins, User-Scripts und User-Styles.</target>
+        <target>Estas reglas se aplican a todas las extensiones del lado del cliente del sitio web MyHordes. Todo lo que afecte la apariencia y el funcionamiento de MyHordes en el navegador de un usuario es denominado "Script" en el marco de estas reglas, como por ejemplo extensiones, complementos, scripts y estilos de usuario.</target>
       </segment>
     </unit>
     <unit id="m98RQP1" name="Verbot kommerzieller Scripte">
@@ -7654,7 +7646,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Verbot kommerzieller Scripte</source>
-        <target>Verbot kommerzieller Scripte</target>
+        <target>Prohibición de Scripts comerciales</target>
       </segment>
     </unit>
     <unit id="kCzLi_m" name="2c2ca86">
@@ -7663,7 +7655,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Scripte (oder individuelle Funktionen von Scripten) dürfen &lt;strong&gt;unter keinen Umständen&lt;/strong&gt; kommerziell vertrieben werden.</source>
-        <target><![CDATA[Scripte (oder individuelle Funktionen von Scripten) dürfen <strong>unter keinen Umständen</strong> kommerziell vertrieben werden.]]></target>
+        <target><![CDATA[Los Scripts(incluso funciones individuales de los scripts) no pueden distribuirse comercialmente <strong>bajo ninguna circunstancia</strong>.]]></target>
       </segment>
     </unit>
     <unit id="Otkd6Tw" name="Allgemeine Regeln">
@@ -7672,7 +7664,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Allgemeine Regeln</source>
-        <target>Allgemeine Regeln</target>
+        <target>Reglas Generales</target>
       </segment>
     </unit>
     <unit id="7b2MzR_" name="d515e54">
@@ -7681,7 +7673,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Scripte müssen ihre Funktion in einer für den Anwender verständlichen Weise beschreiben, &lt;u&gt;bevor&lt;/u&gt; dieser das Script installiert. Wird durch ein automatisches Update eine signifikante neue Funktionalität hinzugefügt, so muss der Anwender hierüber informiert werden (beispielsweise mithilfe eines Popup-Dialogs).</source>
-        <target><![CDATA[Scripte müssen ihre Funktion in einer für den Anwender verständlichen Weise beschreiben, <u>bevor</u> dieser das Script installiert. Wird durch ein automatisches Update eine signifikante neue Funktionalität hinzugefügt, so muss der Anwender hierüber informiert werden (beispielsweise mithilfe eines Popup-Dialogs).]]></target>
+        <target><![CDATA[Los scripts deben describir su función de manera que el usuario pueda entenderla <u>antes</u> de instalar el Script. Si una nueva funcionalidad importante es añadida en una actualización automática, el usuario DEBE ser informado de esta(Por ejemplo con un cuadro de diálogo emergente).]]></target>
       </segment>
     </unit>
     <unit id="Yh9L91s" name="7644a70">
@@ -7690,7 +7682,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Scripte dürfen &lt;strong&gt;keine&lt;/strong&gt; Informationen anzeigen oder Aktionen durchführen, welche nicht in direktem Zusammenhang mit MyHordes stehen. Dies schließt Ausdrücklich die Anzeige von Werbung oder das Schürfen von Cryptowährungen ein.</source>
-        <target><![CDATA[Scripte dürfen <strong>keine</strong> Informationen anzeigen oder Aktionen durchführen, welche nicht in direktem Zusammenhang mit MyHordes stehen. Dies schließt Ausdrücklich die Anzeige von Werbung oder das Schürfen von Cryptowährungen ein.]]></target>
+        <target><![CDATA[LOs Scripts <strong>no pueden</strong> mostrar información ni realizar acciones que no estén directamente relacionadas con MyHordes. Esto incluye, pero no se limita a, la visualización de anuncios o la minería de criptomonedas.]]></target>
       </segment>
     </unit>
     <unit id="kH_roWt" name="4575ea6">
@@ -7699,7 +7691,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Ein Script darf keine Funktionen von MyHordes blockieren oder verstecken. Es ist jedoch erlaubt, Aktionen mit einer Warn- oder Bestätigungsmeldung zu versehen, solange diese vom Anwender ignoriert und die Aktion dennoch durchgeführt werden kann. Die Fähigkeit des Anwenders das Script zu deinstallieren, zählt ausdrücklich &lt;strong&gt;nicht&lt;/strong&gt; als legitime Möglichkeit solch eine Blockade zu umgehen</source>
-        <target><![CDATA[Ein Script darf keine Funktionen von MyHordes blockieren oder verstecken. Es ist jedoch erlaubt, Aktionen mit einer Warn- oder Bestätigungsmeldung zu versehen, solange diese vom Anwender ignoriert und die Aktion dennoch durchgeführt werden kann. Die Fähigkeit des Anwenders das Script zu deinstallieren, zählt ausdrücklich <strong>nicht</strong> als legitime Möglichkeit solch eine Blockade zu umgehen]]></target>
+        <target><![CDATA[Un Script no puede bloquear ni ocultar alguna función de MyHordes. Sin embargo, es posible añadirle un mensaje de advertencia o confirmación a ciertas acciones, siempre que puedan ser ignorados por el usuario y se pueda realizar la acción de todos modos. La opción de desinstalar <strong>no se considera</strong> expresamente como una manera legítima de evitar ese bloqueo.]]></target>
       </segment>
     </unit>
     <unit id=".J2Tho5" name="442cde7">
@@ -7708,7 +7700,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Die Verwendung des Scripts durch einen Anwender darf nicht dazu führen, dass sich das Spielerlebnis von Spielern ohne das Script verschlechtert. Beispielsweise ist es nicht zulässig, dem Forum über ein Script neue Formatierungsoptionen hinzuzufügen, wenn die daraus resultierenden Forenposts für Spieler ohne das Script nicht mehr lesbar sind.</source>
-        <target>Die Verwendung des Scripts durch einen Anwender darf nicht dazu führen, dass sich das Spielerlebnis von Spielern ohne das Script verschlechtert. Beispielsweise ist es nicht zulässig, dem Forum über ein Script neue Formatierungsoptionen hinzuzufügen, wenn die daraus resultierenden Forenposts für Spieler ohne das Script nicht mehr lesbar sind.</target>
+        <target>El uso de Scripts por parte de un usuario no debe llevar a una peor experiencia de juego para aquellos jugadores que no utilicen el Script. Por ejemplo, no está permitido que un script añada un nuevo formato para los mensajes en el foro que de tal modo que los mensajes publicados no puedan ser comprendidos correctamente por aquellos sin el Script.</target>
       </segment>
     </unit>
     <unit id="CMVr7NL" name="Automatisierung">
@@ -7717,7 +7709,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Automatisierung</source>
-        <target>Automatisierung</target>
+        <target>Automatización</target>
       </segment>
     </unit>
     <unit id="sEkWL_h" name="44b6c12">
@@ -7726,7 +7718,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Scripte dürfen den allgemeinen Spielablauf nicht automatisieren. Insbesondere ist es verboten:</source>
-        <target>Scripte dürfen den allgemeinen Spielablauf nicht automatisieren. Insbesondere ist es verboten:</target>
+        <target>Los Scripts no pueden automatizar el transcurso general del juego. Concretamente se prohibe:</target>
       </segment>
     </unit>
     <unit id="edZwVNE" name="de7f1f0">
