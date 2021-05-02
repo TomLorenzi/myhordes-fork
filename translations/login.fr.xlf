@@ -652,7 +652,7 @@
       </notes>
       <segment>
         <source>Pate</source>
-        <target>Pate</target>
+        <target>Parrain</target>
       </segment>
     </unit>
     <unit id="X.GbWI5">
@@ -661,7 +661,7 @@
       </notes>
       <segment>
         <source>Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...</source>
-        <target>Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...</target>
+        <target>Si vous avez été référé à MyHordes par un autre joueur, entrez son nom ici. Il ou elle sera très reconnaissant(e)...</target>
       </segment>
     </unit>
   </file>

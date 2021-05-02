@@ -2914,7 +2914,7 @@
       </notes>
       <segment>
         <source>Die Freundschaftswerbung</source>
-        <target>Die Freundschaftswerbung</target>
+        <target>Sponsorship</target>
       </segment>
     </unit>
     <unit id="m5DCahY" name="Wenn ihr neue Spieler zu &quot;MyHordes&quot; einladet, erhaltet ihr zahlreiche Vorteile!">
@@ -2923,7 +2923,7 @@
       </notes>
       <segment>
         <source>Wenn ihr neue Spieler zu "MyHordes" einladet, erhaltet ihr zahlreiche Vorteile!</source>
-        <target>Wenn ihr neue Spieler zu "MyHordes" einladet, erhaltet ihr zahlreiche Vorteile!</target>
+        <target>You can get some serious bonuses by sponsoring new players on "MyHordes"!</target>
       </segment>
     </unit>
     <unit id="hWsy49U" name="Lass dich überraschen!">
@@ -2932,7 +2932,7 @@
       </notes>
       <segment>
         <source>Lass dich überraschen!</source>
-        <target>Lass dich überraschen!</target>
+        <target>It's a surprise!</target>
       </segment>
     </unit>
     <unit id="xfA2CXp">
@@ -2941,7 +2941,7 @@
       </notes>
       <segment>
         <source>Du kannst nach Anmeldung des geworbenen Spielers sofort mit ihm in einer Koalition spielen.</source>
-        <target>Du kannst nach Anmeldung des geworbenen Spielers sofort mit ihm in einer Koalition spielen.</target>
+        <target>you can keep in touch with your friends easily by inviting them to join your coalition from this very page.</target>
       </segment>
     </unit>
     <unit id="phHRy7R" name="Du bekommst einen frischen jugendlichen Teint und einen Babypopo.">
@@ -3085,7 +3085,7 @@
       </notes>
       <segment>
         <source>Dieser Vorteil ist von Mal zu Mal verschieden.</source>
-        <target>Dieser Vorteil ist von Mal zu Mal verschieden.</target>
+        <target>Results can vary.</target>
       </segment>
     </unit>
     <unit id="BkMtMYQ">
@@ -3094,7 +3094,7 @@
       </notes>
       <segment>
         <source>Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.</source>
-        <target>Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.</target>
+        <target>We're unable to activate the sponsorship feature for your account. Please contact the administration for more information.</target>
       </segment>
     </unit>
     <unit id="t7p0F21" name="Die Freundschaftswerbung ist für deinen Account gesperrt.">
@@ -3103,7 +3103,7 @@
       </notes>
       <segment>
         <source>Die Freundschaftswerbung ist für deinen Account gesperrt.</source>
-        <target>Die Freundschaftswerbung ist für deinen Account gesperrt.</target>
+        <target>Sponsorships are disabled for your account.</target>
       </segment>
     </unit>
     <unit id="d3BbIrK" name="Wie funktioniert das genau?">
@@ -3112,7 +3112,7 @@
       </notes>
       <segment>
         <source>Wie funktioniert das genau?</source>
-        <target>Wie funktioniert das genau?</target>
+        <target>How do I do refer a friend?</target>
       </segment>
     </unit>
     <unit id="fXK1bMa" name="Du kannst aus mehreren Methoden wählen:">
@@ -3121,7 +3121,7 @@
       </notes>
       <segment>
         <source>Du kannst aus mehreren Methoden wählen:</source>
-        <target>Du kannst aus mehreren Methoden wählen:</target>
+        <target>Several methods are available to you:</target>
       </segment>
     </unit>
     <unit id="e60hBsn" name="Versende einen Einladungs-Link:">
@@ -3130,7 +3130,7 @@
       </notes>
       <segment>
         <source>Versende einen Einladungs-Link:</source>
-        <target>Versende einen Einladungs-Link:</target>
+        <target>tell them to register using this address:</target>
       </segment>
     </unit>
     <unit id="uB2Vk6P" name="oder">
@@ -3139,7 +3139,7 @@
       </notes>
       <segment>
         <source>oder</source>
-        <target>oder</target>
+        <target>or</target>
       </segment>
     </unit>
     <unit id="oIxZIjf">
@@ -3148,7 +3148,7 @@
       </notes>
       <segment>
         <source>Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:</source>
-        <target>Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:</target>
+        <target>tell them to enter your nickname in the 'Sponsor' field when they register:</target>
       </segment>
     </unit>
     <unit id="meMyGfH">
@@ -3157,7 +3157,7 @@
       </notes>
       <segment>
         <source>Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).</source>
-        <target>Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).</target>
+        <target>use one of the banners below as your email signature, on Facebook or on forums (You will automatically become the sponsor of anyone who clicks on the banner!).</target>
       </segment>
     </unit>
     <unit id="fUGf6MZ" name="HTML Code">
@@ -3184,7 +3184,7 @@
       </notes>
       <segment>
         <source>Freunde</source>
-        <target>Freunde</target>
+        <target>Sponsorship</target>
       </segment>
     </unit>
   </file>

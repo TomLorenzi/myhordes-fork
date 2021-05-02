@@ -2879,7 +2879,7 @@
       </notes>
       <segment>
         <source>Die Freundschaftswerbung</source>
-        <target>Die Freundschaftswerbung</target>
+        <target>Le parrainage</target>
       </segment>
     </unit>
     <unit id="m5DCahY" name="Wenn ihr neue Spieler zu &quot;MyHordes&quot; einladet, erhaltet ihr zahlreiche Vorteile!">
@@ -2888,7 +2888,7 @@
       </notes>
       <segment>
         <source>Wenn ihr neue Spieler zu "MyHordes" einladet, erhaltet ihr zahlreiche Vorteile!</source>
-        <target>Wenn ihr neue Spieler zu "MyHordes" einladet, erhaltet ihr zahlreiche Vorteile!</target>
+        <target>Vous pouvez bénéficier d'avantages exceptionnels en parrainant de nouveaux joueurs sur MyHordes !</target>
       </segment>
     </unit>
     <unit id="hWsy49U" name="Lass dich überraschen!">
@@ -2906,7 +2906,7 @@
       </notes>
       <segment>
         <source>Du kannst nach Anmeldung des geworbenen Spielers sofort mit ihm in einer Koalition spielen.</source>
-        <target>Du kannst nach Anmeldung des geworbenen Spielers sofort mit ihm in einer Koalition spielen.</target>
+        <target>vous pourrez aisément garder le contact avec vos amis en les invitant dans votre coalition depuis cette même page.</target>
       </segment>
     </unit>
     <unit id="phHRy7R" name="Du bekommst einen frischen jugendlichen Teint und einen Babypopo.">
@@ -3050,7 +3050,7 @@
       </notes>
       <segment>
         <source>Dieser Vorteil ist von Mal zu Mal verschieden.</source>
-        <target>Dieser Vorteil ist von Mal zu Mal verschieden.</target>
+        <target>Les résultats peuvent varier.</target>
       </segment>
     </unit>
     <unit id="BkMtMYQ">
@@ -3077,7 +3077,7 @@
       </notes>
       <segment>
         <source>Wie funktioniert das genau?</source>
-        <target>Wie funktioniert das genau?</target>
+        <target>Comment faire ?</target>
       </segment>
     </unit>
     <unit id="fXK1bMa" name="Du kannst aus mehreren Methoden wählen:">
@@ -3086,7 +3086,7 @@
       </notes>
       <segment>
         <source>Du kannst aus mehreren Methoden wählen:</source>
-        <target>Du kannst aus mehreren Methoden wählen:</target>
+        <target>Plusieurs méthodes s'offrent à vous :</target>
       </segment>
     </unit>
     <unit id="e60hBsn" name="Versende einen Einladungs-Link:">
@@ -3095,7 +3095,7 @@
       </notes>
       <segment>
         <source>Versende einen Einladungs-Link:</source>
-        <target>Versende einen Einladungs-Link:</target>
+        <target>proposez-leur de s'inscrire depuis l'adresse:</target>
       </segment>
     </unit>
     <unit id="uB2Vk6P" name="oder">
@@ -3104,7 +3104,7 @@
       </notes>
       <segment>
         <source>oder</source>
-        <target>oder</target>
+        <target>ou</target>
       </segment>
     </unit>
     <unit id="oIxZIjf">
@@ -3113,7 +3113,7 @@
       </notes>
       <segment>
         <source>Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:</source>
-        <target>Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:</target>
+        <target>demandez-leur d'indiquer votre pseudo lors de l'inscription dans la case "Parrain":</target>
       </segment>
     </unit>
     <unit id="meMyGfH">
@@ -3122,7 +3122,7 @@
       </notes>
       <segment>
         <source>Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).</source>
-        <target>Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).</target>
+        <target>utilisez une des bannières ci-dessous en signature de mail, sur Facebook ou sur un forum (vous serez automatiquement le parrain des joueurs inscrits en cliquant dessus !).</target>
       </segment>
     </unit>
     <unit id="fUGf6MZ" name="HTML Code">
@@ -3131,7 +3131,7 @@
       </notes>
       <segment>
         <source>HTML Code</source>
-        <target>HTML Code</target>
+        <target>Code HTML</target>
       </segment>
     </unit>
     <unit id="GOqvgvj" name="BBCode">
@@ -3149,7 +3149,7 @@
       </notes>
       <segment>
         <source>Freunde</source>
-        <target>Freunde</target>
+        <target>Parrainage</target>
       </segment>
     </unit>
   </file>
