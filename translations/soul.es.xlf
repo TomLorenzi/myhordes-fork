@@ -46,7 +46,7 @@
         <target>Eliminar ID</target>
       </segment>
     </unit>
-    <unit id="Jh3UFwC" name="df31751">
+    <unit id="Jh3UFwC">
       <notes>
         <note category="german">Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.</note>
       </notes>
@@ -118,7 +118,7 @@
         <target>El archivo seleccionado está dañado y no se puede procesar.</target>
       </segment>
     </unit>
-    <unit id="WocA7cM" name="79a6053">
+    <unit id="WocA7cM">
       <notes>
         <note category="german">Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.</note>
       </notes>
@@ -154,7 +154,7 @@
         <target>La resolución de la imagen no es apta para usarla como avatar.</target>
       </segment>
     </unit>
-    <unit id="EZLjPxc" name="f6fa7cb">
+    <unit id="EZLjPxc">
       <notes>
         <note category="german">Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</note>
       </notes>
@@ -190,7 +190,7 @@
         <target>Vista de avatar reducido</target>
       </segment>
     </unit>
-    <unit id="d_VqAwc" name="9b2af61">
+    <unit id="d_VqAwc">
       <notes>
         <note category="german">Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</note>
       </notes>
@@ -226,7 +226,7 @@
         <target>Editar vista de avatar reducido</target>
       </segment>
     </unit>
-    <unit id="Af7eIx8" name="b0c95ed">
+    <unit id="Af7eIx8">
       <notes>
         <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
                                     Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
@@ -409,7 +409,7 @@
         <target>Eliminar mi cuenta</target>
       </segment>
     </unit>
-    <unit id="LS.JtiE" name="c5a39bb">
+    <unit id="LS.JtiE">
       <notes>
         <note category="german">Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</note>
       </notes>
@@ -427,7 +427,7 @@
         <target>Por favor, selecciona un sólo archivo.</target>
       </segment>
     </unit>
-    <unit id="KJJicse" name="36b050a">
+    <unit id="KJJicse">
       <notes>
         <note category="german">Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...</note>
       </notes>
@@ -472,7 +472,7 @@
         <target>Escritos</target>
       </segment>
     </unit>
-    <unit id="q.Y8zXe" name="787b8ea">
+    <unit id="q.Y8zXe">
       <notes>
         <note category="german">Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</note>
       </notes>
@@ -589,7 +589,7 @@
         <target>Acceda a actualizaciones importantes anteriores:</target>
       </segment>
     </unit>
-    <unit id="EHTi.hN" name="ea67ed1">
+    <unit id="EHTi.hN">
       <notes>
         <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
                                             Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
@@ -610,7 +610,7 @@
         <target>Configuración del navegador</target>
       </segment>
     </unit>
-    <unit id="ZSg.7.l" name="9c781e6">
+    <unit id="ZSg.7.l">
       <notes>
         <note category="german">Die folgenden Einstellungen werden in deinem Browser gespeichert und sind damit nur für dein aktuelles Gerät und deinen aktuellen Browser gültig.</note>
       </notes>
@@ -763,7 +763,7 @@
         <target>¡Hurra, hemos descargado tu perfil!</target>
       </segment>
     </unit>
-    <unit id="j_qDUZ2" name="39b14b5">
+    <unit id="j_qDUZ2">
       <notes>
         <note category="german">Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.</note>
       </notes>
@@ -898,7 +898,7 @@
         <target>No se pudo cargar tu perfil porque Twinoid rechazó la solicitud.</target>
       </segment>
     </unit>
-    <unit id="q3h_whw" name="1260b6c">
+    <unit id="q3h_whw">
       <notes>
         <note category="german">Dein Profil konnte nicht geladen werden, da die Datenverarbeitung fehlgeschlagen ist.</note>
       </notes>
@@ -907,7 +907,7 @@
         <target>Tu perfil no se pudo cargar porque falló el procesamiento de datos.</target>
       </segment>
     </unit>
-    <unit id="oF2e3r3" name="3bce6e7">
+    <unit id="oF2e3r3">
       <notes>
         <note category="german">Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Spieler zugeordnet ist.</note>
       </notes>
@@ -916,7 +916,7 @@
         <target>El perfil especificado no se puede importar porque ya está asignado a otro jugador de MyHordes.</target>
       </segment>
     </unit>
-    <unit id="VYR1ULC" name="5cf3dce">
+    <unit id="VYR1ULC">
       <notes>
         <note category="german">Das angegebene Profil kann nicht importiert werden, da es einem fremden Twinoid-Konto zugeordnet ist.</note>
       </notes>
@@ -934,7 +934,7 @@
         <target>Información sobre tu cuenta Twinoid</target>
       </segment>
     </unit>
-    <unit id="1tzbb8." name="3d4c753">
+    <unit id="1tzbb8.">
       <notes>
         <note category="german">Bitte stelle sicher, dass du das korrekte Twinoid-Konto mit deinem MyHordes-Account verbindest.</note>
       </notes>
@@ -1105,7 +1105,7 @@
         <target>%c% Días como héroe</target>
       </segment>
     </unit>
-    <unit id="WE..GeJ" name="95cf6e6">
+    <unit id="WE..GeJ">
       <notes>
         <note category="german">Dieser Wert ist geschätzt und kann vom tatsächlichen Wert abweichen. Dies lässt sich leider nicht vermeiden.</note>
       </notes>
@@ -1123,7 +1123,7 @@
         <target>Ciudades pasadas</target>
       </segment>
     </unit>
-    <unit id="gNXU40u" name="98f9be8">
+    <unit id="gNXU40u">
       <notes>
         <note category="german">Hier werden die Städte angezeigt, die du in der vergangenheit gespielt hast. Wenn du dich aktuell in einer Stadt befindest, wird diese hier nicht angezeigt und auch nicht importiert.</note>
       </notes>
@@ -1177,7 +1177,7 @@
         <target>Premios</target>
       </segment>
     </unit>
-    <unit id="D8ATKTz" name="bf9c5fb">
+    <unit id="D8ATKTz">
       <notes>
         <note category="german">Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.</note>
       </notes>
@@ -1258,7 +1258,7 @@
         <target>Fecha</target>
       </segment>
     </unit>
-    <unit id="4wcEbqc" name="132563f">
+    <unit id="4wcEbqc">
       <notes>
         <note category="german">Einmal bestätigt, kann die Verknüpfung nicht mehr aufgehoben werden und du kannst kein anderes Twinoid-Konto mehr verknüpfen.</note>
       </notes>
@@ -1267,7 +1267,7 @@
         <target>Una vez confirmado, el vínculo ya no se puede romper y ya no puedes vincular otra cuenta Twinoid.</target>
       </segment>
     </unit>
-    <unit id="tyVSys4" name="227ba37">
+    <unit id="tyVSys4">
       <notes>
         <note category="german">Du kannst natürlich weiterhin Konten von Hordes, DieVerdammten, Die2Nite und Zombinoia importieren, welche mit dem selben Twinoid-Konto verbunden sind.</note>
       </notes>
@@ -1366,7 +1366,7 @@
         <target>Actualizar datos</target>
       </segment>
     </unit>
-    <unit id="DlYgqsn" name="ac4aa86">
+    <unit id="DlYgqsn">
       <notes>
         <note category="german">Ruft deine Seele erneut von Twinoid ab und aktualisiert die gespeicherten Informationen. Bevor die neuen Daten gespeichert werden, wird dir eine Vorschau angezeigt.</note>
       </notes>
@@ -1402,7 +1402,7 @@
         <target>Importar de nuevo</target>
       </segment>
     </unit>
-    <unit id="YhqHcco" name="a48eb2e">
+    <unit id="YhqHcco">
       <notes>
         <note category="german">Führt den Import-Vorgang erneut durch, ohne frische Daten von Twinoid abzurufen. Dies ist nützlich, wenn die importierten Daten durch ein MyHordes-Update nun besser verarbeitet werden können als dies beim letzten Import der Fall war. Diese Funktion wird auch nach der Abschaltung von Twinoid weiter zur Verfügung stehen.</note>
       </notes>
@@ -1420,7 +1420,7 @@
         <target>Elegir como alma principal</target>
       </segment>
     </unit>
-    <unit id="ltYAKjD" name="338e6bd">
+    <unit id="ltYAKjD">
       <notes>
         <note category="german">Legt diese Seele als Hauptseele fest und importiert Seelenpunkte und Heldenerfahrung.</note>
       </notes>
@@ -1429,7 +1429,7 @@
         <target>Establecer esta alma como alma principal e importar puntos de Alma y experiencia de héroe.</target>
       </segment>
     </unit>
-    <unit id="NBJR5jI" name="2c9ce98">
+    <unit id="NBJR5jI">
       <notes>
         <note category="german">Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!</note>
       </notes>
@@ -1456,7 +1456,7 @@
         <target>Esta es tu Alma principal.</target>
       </segment>
     </unit>
-    <unit id="uFlUkcE" name="8798d28">
+    <unit id="uFlUkcE">
       <notes>
         <note category="german">Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele können in dein MyHordes-Profil importiert werden.</note>
       </notes>
@@ -1474,7 +1474,7 @@
         <target>Esta no es tu alma principal.</target>
       </segment>
     </unit>
-    <unit id="mtD8S3s" name="ab7a6b2">
+    <unit id="mtD8S3s">
       <notes>
         <note category="german">Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von deiner Hauptseele in dein MyHordes-Profil importiert werden.</note>
       </notes>
@@ -1492,7 +1492,7 @@
         <target>¿Quieres declarar esta alma como tu alma principal?</target>
       </segment>
     </unit>
-    <unit id="NC78n6U" name="7eac7ed">
+    <unit id="NC78n6U">
       <notes>
         <note category="german">Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von einer Seele importiert werden - deiner Hauptseele. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</note>
       </notes>
@@ -1501,7 +1501,7 @@
         <target>Los puntos de alma, los premios y la experiencia de héroe solo pueden ser importados por un alma: tu alma principal. Piensa cuidadosamente en tu decisión, ¡porque no podrás cambiar la elección de tu alma principal más tarde!</target>
       </segment>
     </unit>
-    <unit id="DJ.7w.9" name="8ccb170">
+    <unit id="DJ.7w.9">
       <notes>
         <note category="german">Du musst diese Entscheidung nicht jetzt treffen, sondern kannst diese Seele auch nachträglich noch zu deiner Hauptseele erklären - solange du inzwischen nicht bereits eine andere Seele als Hauptseele gewählt hast.</note>
       </notes>
@@ -1510,7 +1510,7 @@
         <target>No tienes que tomar esta decisión ahora, ya que también puedes declarar esta Alma más tarde como Alma Principal, siempre y cuando no hayas elegido otra Alma como la Principal.</target>
       </segment>
     </unit>
-    <unit id="1MRAxNt" name="3ad4558">
+    <unit id="1MRAxNt">
       <notes>
         <note category="german">Unabhängig davon, ob du diese Seele zu deiner Hauptseele machst oder nicht, kannst du ihre Daten bei Bedarf selbstverständlich erneut mit Twinoid abgleichen und ihre Daten aktualisieren.</note>
       </notes>
@@ -1528,7 +1528,7 @@
         <target>¡Hacer de esta alma mi Alma Principal!</target>
       </segment>
     </unit>
-    <unit id="s9icea7" name="b46b9e2">
+    <unit id="s9icea7">
       <notes>
         <note category="german">Um diese Seele zu deiner Hauptseele zu machen, verwende die Schaltfläche auf der vorherigen Seite.</note>
       </notes>
@@ -1555,7 +1555,7 @@
         <target>Esta es tu alma principal</target>
       </segment>
     </unit>
-    <unit id="WPvMZd7" name="52d83c2">
+    <unit id="WPvMZd7">
       <notes>
         <note category="german">Du kannst nur eine deiner Seelen als Hauptseele festlegen und diese Auswahl auch nicht mehr ändern! Wähle also weise...</note>
       </notes>
@@ -1573,7 +1573,7 @@
         <target>Administrador</target>
       </segment>
     </unit>
-    <unit id="Ij9qHqJ" name="65633af">
+    <unit id="Ij9qHqJ">
       <notes>
         <note category="german">Diese Karteikarte gehört einem Administrator. Wenn ihr darauf komische, abnormale oder gar furchteinflößende Dinge entdeckt: Das ist völlig normal. Macht euch keine Sorgen, er weiß wahrscheinlich schon Bescheid :).</note>
       </notes>
@@ -1591,7 +1591,7 @@
         <target>El Cuervo</target>
       </segment>
     </unit>
-    <unit id="YKiLytV" name="29f69eb">
+    <unit id="YKiLytV">
       <notes>
         <note category="german">Diese Karteikarte gehört einem Raben. Du solltest sie lieber wieder zurücklegen... langsam und ohne plötzliche Bewegungen.</note>
       </notes>
@@ -1609,7 +1609,7 @@
         <target>Oráculo</target>
       </segment>
     </unit>
-    <unit id="GMmC34." name="fa5585a">
+    <unit id="GMmC34.">
       <notes>
         <note category="german">Diese Karteikarte gehört einem Orakel. Orakel sind Bindeglieder zwischen der Community und den Entwicklern. Du kannst dich bei Fragen und Problemen vertrauensvoll an sie wenden.</note>
       </notes>
@@ -1627,7 +1627,7 @@
         <target>Algo parece extraño en la placa ...</target>
       </segment>
     </unit>
-    <unit id="KmttAsi" name="39e1986">
+    <unit id="KmttAsi">
       <notes>
         <note category="german">Dieser Spieler hat mindestens eine Seele von Twinoid importiert. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</note>
       </notes>
@@ -1663,7 +1663,7 @@
         <target>Ingresa el nick del habitante.</target>
       </segment>
     </unit>
-    <unit id="stLn0.b" name="97e820f">
+    <unit id="stLn0.b">
       <notes>
         <note category="german">Diese Stadt wurde von %host% importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</note>
       </notes>
@@ -1708,7 +1708,7 @@
         <target>Este bloqueo es permanente.</target>
       </segment>
     </unit>
-    <unit id="zh9.khn" name="8177ade">
+    <unit id="zh9.khn">
       <notes>
         <note category="german">Wenn du dich aktuell in einer Stadt befindest, kannst du dort keine Aktionen mehr durchführen und nicht länger auf das Stadtforum zugreifen.</note>
       </notes>
@@ -1753,7 +1753,7 @@
         <target>Usuario de EternalTwin</target>
       </segment>
     </unit>
-    <unit id="0T9At.g" name="32951b2">
+    <unit id="0T9At.g">
       <notes>
         <note category="german">Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</note>
       </notes>
@@ -1762,7 +1762,7 @@
         <target>Éste jugador está utilizando una cuenta de EternalTwin. Nos alegramos de poder darle la bienvenida a MyHordes!</target>
       </segment>
     </unit>
-    <unit id="XRvl7w0" name="ce071ab">
+    <unit id="XRvl7w0">
       <notes>
         <note category="german">Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</note>
       </notes>
@@ -1780,7 +1780,7 @@
         <target>MyHordes es una orgullosa parte de la Red EternalTwin!</target>
       </segment>
     </unit>
-    <unit id="WVIMH8t" name="a7e6e46">
+    <unit id="WVIMH8t">
       <notes>
         <note category="german">Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</note>
       </notes>
@@ -1852,7 +1852,7 @@
         <target>Tu alianza ya está llena.</target>
       </segment>
     </unit>
-    <unit id="GO1ZJcp" name="3e3b0ae">
+    <unit id="GO1ZJcp">
       <notes>
         <note category="german">Du möchtest schon seit langem &lt;strong&gt;mit deinen Freunden zusammen sterben&lt;/strong&gt;? Du möchtest die gleichen schönen und &lt;strong&gt;entsetzlichen&lt;/strong&gt; Momente mit ihnen erleben? Dann sind die &lt;strong&gt;Kleinen Koalitionen&lt;/strong&gt; genau das richtige für dich! Es handelt sich um kleine Mannschaften von &lt;strong&gt;5&lt;/strong&gt; Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.</note>
       </notes>
@@ -1861,7 +1861,7 @@
         <target><![CDATA[<strong>¿Has encontrado el equipo ideal?</strong>¿Deseas compartir el mismo pueblo con <strong>habitantes de confianza</strong>? ¡Entonces, las <strong>Alianzas</strong> son ideales para ti! Son 'equipos' de <strong>5</strong> habitantes que exploran juntos el mundo de Zombinoia.]]></target>
       </segment>
     </unit>
-    <unit id="_SpidlG" name="cb2469f">
+    <unit id="_SpidlG">
       <notes>
         <note category="german">Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, &lt;strong&gt;zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.&lt;/strong&gt;</note>
       </notes>
@@ -2113,7 +2113,7 @@
         <target>Recargar esta página.</target>
       </segment>
     </unit>
-    <unit id="flUhUW0" name="7e9e358">
+    <unit id="flUhUW0">
       <notes>
         <note category="german">Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.</note>
       </notes>
@@ -2167,7 +2167,7 @@
         <target><![CDATA[¡<b>%u1%</b> empezó su aventura en "<b>%town%</b>"!]]></target>
       </segment>
     </unit>
-    <unit id="Hb1dhIr" name="1507816">
+    <unit id="Hb1dhIr">
       <notes>
         <note category="german">Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.</note>
       </notes>
@@ -2185,7 +2185,7 @@
         <target>¿Unirse a este compañero de equipo?</target>
       </segment>
     </unit>
-    <unit id="BNXmJ_6" name="8e2de13">
+    <unit id="BNXmJ_6">
       <notes>
         <note category="german">Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</note>
       </notes>
@@ -2221,7 +2221,7 @@
         <target>Cerrar sesión en todos los navegadores y dispositivos.</target>
       </segment>
     </unit>
-    <unit id="AbYRB3R" name="82c4478">
+    <unit id="AbYRB3R">
       <notes>
         <note category="german">Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.</note>
       </notes>
@@ -2239,7 +2239,7 @@
         <target>Disminuir animaciones</target>
       </segment>
     </unit>
-    <unit id="3mtyKrM" name="9900005">
+    <unit id="3mtyKrM">
       <notes>
         <note category="german">Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.&lt;br /&gt;&lt;em&gt;Mit dieser Option senkst du die Qualität der Spielkartenanimationen.&lt;/em&gt;.</note>
       </notes>
@@ -2401,7 +2401,7 @@
         <target>Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</target>
       </segment>
     </unit>
-    <unit id="gLe5bOG" name="4e75a01">
+    <unit id="gLe5bOG">
       <notes>
         <note category="german">Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.</note>
       </notes>
@@ -2464,7 +2464,7 @@
         <target>Dein Account ist eingeschränkt!</target>
       </segment>
     </unit>
-    <unit id="6K1dKKS" name="a29022a">
+    <unit id="6K1dKKS">
       <notes>
         <note category="german">Einschränkungen werden von Moderatoren aufgrund von Fehlverhalten auferlegt. Im Folgenden siehst du eine Liste mit Funktionen, die dir aktuell nicht zur Verfügung stehen.</note>
       </notes>
@@ -2500,7 +2500,7 @@
         <target>Kommunikation in der Stadt</target>
       </segment>
     </unit>
-    <unit id="6yvyO_B" name="7935937">
+    <unit id="6yvyO_B">
       <notes>
         <note category="german">Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.</note>
       </notes>
@@ -2572,7 +2572,7 @@
         <target>Spielen</target>
       </segment>
     </unit>
-    <unit id="VNOZ2rq" name="9afe3a8">
+    <unit id="VNOZ2rq">
       <notes>
         <note category="german">Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</note>
       </notes>
@@ -2581,7 +2581,7 @@
         <target>Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</target>
       </segment>
     </unit>
-    <unit id="wEtk74c" name="b6b8ea4">
+    <unit id="wEtk74c">
       <notes>
         <note category="german">Dieser Hinweis ist nur für dich, nicht aber für Besucher auf deiner Seelenseite sichtbar.</note>
       </notes>
@@ -2644,7 +2644,7 @@
         <target>Cambiar el avatar</target>
       </segment>
     </unit>
-    <unit id="Ag772xl" name="c97e118">
+    <unit id="Ag772xl">
       <notes>
         <note category="german">Du kannst deinen Avatar nicht mehr bearbeiten. Falls du aktuell einen Avatar hast, kannst du diesen jedoch löschen.</note>
       </notes>
@@ -2662,7 +2662,7 @@
         <target>Cambiar mi título</target>
       </segment>
     </unit>
-    <unit id="Gw1mlg1" name="0a58461">
+    <unit id="Gw1mlg1">
       <notes>
         <note category="german">Du kannst deinen deinen Profil-Titel sowie Icon nicht länger ändern. Wenn du aktuell einen Titel oder ein Icon gesetzt hast, kannst du diese jedoch entfernen.</note>
       </notes>
@@ -2680,7 +2680,7 @@
         <target>Cambiar la descripción de tu perfil</target>
       </segment>
     </unit>
-    <unit id="Z7.2LZ_" name="17aace6">
+    <unit id="Z7.2LZ_">
       <notes>
         <note category="german">Du kannst deine Profilbeschreibung nicht länger ändern. Eine bestehende Profilbeschreibung kann jedoch gelöscht werden.</note>
       </notes>
@@ -2725,7 +2725,7 @@
         <target>Tu avatar</target>
       </segment>
     </unit>
-    <unit id="FFE77tY" name="fd22293">
+    <unit id="FFE77tY">
       <notes>
         <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
                                                     Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
@@ -2791,7 +2791,7 @@
         <target>Hat dir dein letztes Leben gefallen?</target>
       </segment>
     </unit>
-    <unit id=".XNMg8S" name="92447f8">
+    <unit id=".XNMg8S">
       <notes>
         <note category="german">MyHordes wird von einem unabhängigen Team von Programmierern in deren Freizeit entwickelt.</note>
       </notes>
@@ -2800,7 +2800,7 @@
         <target>MyHordes wird von einem unabhängigen Team von Programmierern in deren Freizeit entwickelt.</target>
       </segment>
     </unit>
-    <unit id="JbPwhWn" name="ae00547">
+    <unit id="JbPwhWn">
       <notes>
         <note category="german">Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</note>
       </notes>
@@ -2809,7 +2809,7 @@
         <target>Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</target>
       </segment>
     </unit>
-    <unit id="GLZ2E_L" name="3c81098">
+    <unit id="GLZ2E_L">
       <notes>
         <note category="german">Das Spiel ist komplett kostenlos - es gibt keine Bezahlinhalte, wir zeigen keine Werbung an und führen auch kein Nutzer-Tracking durch.</note>
       </notes>
@@ -2818,7 +2818,7 @@
         <target>Das Spiel ist komplett kostenlos - es gibt keine Bezahlinhalte, wir zeigen keine Werbung an und führen auch kein Nutzer-Tracking durch.</target>
       </segment>
     </unit>
-    <unit id="E6_xVpY" name="8fe14b8">
+    <unit id="E6_xVpY">
       <notes>
         <note category="german">Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</note>
       </notes>
@@ -2926,7 +2926,7 @@
         <target>Lass dich überraschen!</target>
       </segment>
     </unit>
-    <unit id="xfA2CXp" name="1d04071">
+    <unit id="xfA2CXp">
       <notes>
         <note category="german">Du kannst nach Anmeldung des geworbenen Spielers sofort mit ihm in einer Koalition spielen.</note>
       </notes>
@@ -3079,7 +3079,7 @@
         <target>Dieser Vorteil ist von Mal zu Mal verschieden.</target>
       </segment>
     </unit>
-    <unit id="BkMtMYQ" name="ffb7dea">
+    <unit id="BkMtMYQ">
       <notes>
         <note category="german">Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.</note>
       </notes>
@@ -3133,7 +3133,7 @@
         <target>oder</target>
       </segment>
     </unit>
-    <unit id="oIxZIjf" name="ea2b0ef">
+    <unit id="oIxZIjf">
       <notes>
         <note category="german">Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:</note>
       </notes>
@@ -3142,7 +3142,7 @@
         <target>Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:</target>
       </segment>
     </unit>
-    <unit id="meMyGfH" name="fc9c569">
+    <unit id="meMyGfH">
       <notes>
         <note category="german">Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).</note>
       </notes>

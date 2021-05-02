@@ -460,7 +460,7 @@
         <target>Aqua tourelles</target>
       </segment>
     </unit>
-    <unit id="_TjOaCj" name="37ac031">
+    <unit id="_TjOaCj">
       <notes>
         <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 2 Rationen Wasser und steigert seinen Verteidigungswert dafür um 56.</note>
       </notes>
@@ -469,7 +469,7 @@
         <target>La défense des aqua-tourelles est multipliée par 1.8 (126 points de défense), mais coûte 2 rations d'eau par nuit.</target>
       </segment>
     </unit>
-    <unit id="L6.6ahS" name="3d8658d">
+    <unit id="L6.6ahS">
       <notes>
         <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 4 Rationen Wasser und steigert seinen Verteidigungswert dafür um 112.</note>
       </notes>
@@ -478,7 +478,7 @@
         <target>La défense des aqua-tourelles est multipliée par 2.6 (182 points de défense), mais coûte 4 rations d'eau par nuit.</target>
       </segment>
     </unit>
-    <unit id="P7EINL." name="6f7c0d3">
+    <unit id="P7EINL.">
       <notes>
         <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 6 Rationen Wasser und steigert seinen Verteidigungswert dafür um 168.</note>
       </notes>
@@ -487,7 +487,7 @@
         <target>La défense des aqua-tourelles est multipliée par 3.4 (238 points de défense), mais coûte 6 rations d'eau par nuit.</target>
       </segment>
     </unit>
-    <unit id="Y_jBf_Y" name="c9e1750">
+    <unit id="Y_jBf_Y">
       <notes>
         <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 9 Rationen Wasser und steigert seinen Verteidigungswert dafür um 224.</note>
       </notes>
@@ -496,7 +496,7 @@
         <target>La défense des aqua-tourelles est multipliée par 4.2 (294 points de défense), mais coûte 9 rations d'eau par nuit.</target>
       </segment>
     </unit>
-    <unit id="94xxibL" name="a56e37e">
+    <unit id="94xxibL">
       <notes>
         <note category="german">Der Wasserturm verbraucht beim nächtlichen Angriff 12 Rationen Wasser und steigert seinen Verteidigungswert dafür um 280.</note>
       </notes>
@@ -766,7 +766,7 @@
         <target>Architectoire</target>
       </segment>
     </unit>
-    <unit id="apLtnCI" name="be80c53">
+    <unit id="apLtnCI">
       <notes>
         <note category="german">Die Stadt erhält nach dem nächsten Angriff einmalig 4 gewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
       </notes>
@@ -775,7 +775,7 @@
         <target>La ville obtiendra 4 plans communs après l'attaque.</target>
       </segment>
     </unit>
-    <unit id="GIcE44t" name="bfa9448">
+    <unit id="GIcE44t">
       <notes>
         <note category="german">Die Stadt erhält nach dem nächsten Angriff einmalig 2 gewöhnliche und 2 ungewöhnliche Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
       </notes>
@@ -784,7 +784,7 @@
         <target>La ville obtiendra 2 plans communs, 2 plans inhabituels après l'attaque (et une surprise?)</target>
       </segment>
     </unit>
-    <unit id="4TGJ0Dx" name="ec0b7ad">
+    <unit id="4TGJ0Dx">
       <notes>
         <note category="german">Die Stadt erhält nach dem nächsten Angriff einmalig 2 ungewöhnliche und 2 seltene Baupläne sowie - möglicherweise - eine nette Überraschung.</note>
       </notes>
@@ -1234,7 +1234,7 @@
         <target>Tour de Guet</target>
       </segment>
     </unit>
-    <unit id="Sy.Q4GU" name="1bbcaa3">
+    <unit id="Sy.Q4GU">
       <notes>
         <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 3km um die Stadt aufhalten.</note>
       </notes>
@@ -1243,7 +1243,7 @@
         <target>Détecte chaque matin tous les zombies à 3 km de la ville.</target>
       </segment>
     </unit>
-    <unit id="NZeNsxy" name="72834b1">
+    <unit id="NZeNsxy">
       <notes>
         <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 6km um die Stadt aufhalten.</note>
       </notes>
@@ -1252,7 +1252,7 @@
         <target>Détecte chaque matin tous les zombies à 6 km de la ville.</target>
       </segment>
     </unit>
-    <unit id="wGZu2sa" name="e1df3f0">
+    <unit id="wGZu2sa">
       <notes>
         <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten.</note>
       </notes>
@@ -1261,7 +1261,7 @@
         <target>Détecte chaque matin tous les zombies à 10 km de la ville.</target>
       </segment>
     </unit>
-    <unit id="h1r5RdI" name="8125fb1">
+    <unit id="h1r5RdI">
       <notes>
         <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 1km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</note>
       </notes>
@@ -1270,7 +1270,7 @@
         <target>Détecte chaque matin tous les zombies à 10 km de la ville et permet aux citoyens à 1 km de la ville de rentrer gratuitement.</target>
       </segment>
     </unit>
-    <unit id="N0sOdNf" name="27f10d9">
+    <unit id="N0sOdNf">
       <notes>
         <note category="german">Erspäht jeden Morgen alle Zombies, die sich im Umkreis von 10km um die Stadt aufhalten. Bürger im Umkreis von 2km um die Stadt können ohne AP-Verbrauch die Stadt betreten.</note>
       </notes>
@@ -1720,7 +1720,7 @@
         <target>Gros rideau</target>
       </segment>
     </unit>
-    <unit id="3Gfr9md" name="4440c27">
+    <unit id="3Gfr9md">
       <notes>
         <note category="german">Mit dieser alten, schmutzigen Jutesackleinwand kannst du deine Habseligkeiten vor den neugierigen Blicken deiner Nachbarn schützen.</note>
       </notes>
@@ -1738,7 +1738,7 @@
         <target>Cave laboratoire</target>
       </segment>
     </unit>
-    <unit id="P0f3sQx" name="f0abf03">
+    <unit id="P0f3sQx">
       <notes>
         <note category="german">Ein in dein Wohnzimmer geschaufeltes Loch dient dir als Versuchsküche für deine pharmazeutischen Experimente.</note>
       </notes>
@@ -1756,7 +1756,7 @@
         <target>Cuisine</target>
       </segment>
     </unit>
-    <unit id="BL3_hNZ" name="f8d2ad1">
+    <unit id="BL3_hNZ">
       <notes>
         <note category="german">In dieser notdürftig zusammengeschraubten Küche können schmackhafte und 'gesunde' Speisen zubereitet werden.</note>
       </notes>
@@ -1774,7 +1774,7 @@
         <target>Alarme rudimentaire</target>
       </segment>
     </unit>
-    <unit id="x6GQTRQ" name="df8648b">
+    <unit id="x6GQTRQ">
       <notes>
         <note category="german">Eisenteile, die an einem Faden hängen - so einfach und so effektiv kann ein Alarmsystem sein. Wenn jemand versuchen sollte, bei dir einzubrechen, wird er zwangsläufig die halbe Stadt aufwecken...</note>
       </notes>
@@ -1792,7 +1792,7 @@
         <target>Coin sieste</target>
       </segment>
     </unit>
-    <unit id="RR.D4lZ" name="eefcc52">
+    <unit id="RR.D4lZ">
       <notes>
         <note category="german">Was hier als 'Ruhe-Ecke' bezeichnet wird, ist in Wahrheit nichts anderes als ein mit Kartons gefülltes Loch im Boden... der ideale Ort, wenn deine Kräfte schwinden und du dich für ein Nickerchen zurückziehen willst.</note>
       </notes>
@@ -1819,7 +1819,7 @@
         <target>Ce système rudimentaire mais efficace empêchera quiconque de vous voler un objet.</target>
       </segment>
     </unit>
-    <unit id="_XJvPlM" name="61daef0">
+    <unit id="_XJvPlM">
       <notes>
         <note category="german">Wenn dich deine Wände nicht mehr ausreichend schützen, solltest du den Bau eines Zauns erwägen.</note>
       </notes>
@@ -1855,7 +1855,7 @@
         <target>Renforts </target>
       </segment>
     </unit>
-    <unit id="_a49kpt" name="1bac838">
+    <unit id="_a49kpt">
       <notes>
         <note category="german">Dein Haus wird mit allen zur Verfügung stehenden Mitteln technisch verstärkt und auf Vordermann gebraucht. Diese Maßnahmen verlängern dein Leben... zumindest ein wenig.</note>
       </notes>
@@ -1900,7 +1900,7 @@
         <target>Construction temporaire !</target>
       </segment>
     </unit>
-    <unit id="hwqD281" name="cc4eb65">
+    <unit id="hwqD281">
       <notes>
         <note category="german">Diese Konstruktion kann nur einmal verwendet werden. Sie wird nach dem Angriff der Zombiehorde wieder abgerissen.</note>
       </notes>
@@ -1936,7 +1936,7 @@
         <target>Une amélioration du Grand Fossé, y mettre de l'eau…</target>
       </segment>
     </unit>
-    <unit id="7x7Oosl" name="8639fd4">
+    <unit id="7x7Oosl">
       <notes>
         <note category="german">Der Große Graben ist eine sehr wirkungsvolle Verteidigungsmaßnahme, die sich insbesondere auf lange Sicht auszahlt. Der Graben lässt sich mit allerhand Dingen füllen.</note>
       </notes>
@@ -1945,7 +1945,7 @@
         <target>Le Grand Fossé est une défense efficace : un grand trou entourant la ville. Pratique sur le long terme, on pourra le remplir avec un tas de choses pour le rendre encore plus efficace !</target>
       </segment>
     </unit>
-    <unit id="OlGNj.x" name="e41ab16">
+    <unit id="OlGNj.x">
       <notes>
         <note category="german">Die Rasierklingenmauer folgt einem ganz einfachen Prinzip: Man nehme allerlei Eisenstücke, schärfe und spitze sie an und verteile sie anschließend über die ganze Stadtmauer. Die Mauer verwandelt sich so in eine überdimensionale Zombiefeile.</note>
       </notes>
@@ -1954,7 +1954,7 @@
         <target>Une recette simple : des morceaux de ferraille rouillés qui dépassent partout sur la Muraille de la ville pour en faire une sorte de grande lime à zombies.</target>
       </segment>
     </unit>
-    <unit id="nbhWg4T" name="fc48a72">
+    <unit id="nbhWg4T">
       <notes>
         <note category="german">Diese verbesserte Variante des Großen Grabens besteht aus einer großen Anzahl zugespitzter Holzpfähle.</note>
       </notes>
@@ -1963,7 +1963,7 @@
         <target>Une autre manière de remplir un fossé , avec de gros pieux en bois acérés.</target>
       </segment>
     </unit>
-    <unit id="uqeZxiJ" name="533c76d">
+    <unit id="uqeZxiJ">
       <notes>
         <note category="german">Mit diesem an einem Stacheldraht befestigtem Stück Fleisch kann man ein paar Zombies 'ne Zeit lang beschäftigen</note>
       </notes>
@@ -1972,7 +1972,7 @@
         <target>Un bout de viande attaché aux barbelés pour retenir quelques zombies…</target>
       </segment>
     </unit>
-    <unit id="VUO6ZQB" name="5f267a2">
+    <unit id="VUO6ZQB">
       <notes>
         <note category="german">Na ja, dieser Stachel"draht" ist noch simpler als der normale... Der Grund: Der Draht fehlt.</note>
       </notes>
@@ -1981,7 +1981,7 @@
         <target>C'est encore plus artisanal que du barbelé classique, puisqu'on ne dispose même pas de fil de fer…</target>
       </segment>
     </unit>
-    <unit id="b82mDa7" name="0068ba5">
+    <unit id="b82mDa7">
       <notes>
         <note category="german">Auf die Verteidigungsvorichtungen müssen wir heute Nacht verzichten, aber diese intelligent gebaute und ausbaufähige Stadtmauer hat mehr drauf, als man denkt.</note>
       </notes>
@@ -1999,7 +1999,7 @@
         <target>Qu'est-ce qui est mieux qu'un mur ? … Un gros mur.</target>
       </segment>
     </unit>
-    <unit id="k9tIPH5" name="cc44880">
+    <unit id="k9tIPH5">
       <notes>
         <note category="german">Diese Mauer ist mit einer großen Anzahl an Metallspitzen gespickt, damit die Stadtbewohner beim Angriff um Mitternacht ein paar nette Spieße Zombieschaschlik herstellen können.</note>
       </notes>
@@ -2008,7 +2008,7 @@
         <target>Un grand nombre de pieux métalliques fixés au sommet des remparts pour faire des brochettes de zombie à la tombée de la nuit…</target>
       </segment>
     </unit>
-    <unit id="QlkvLUP" name="cda28d7">
+    <unit id="QlkvLUP">
       <notes>
         <note category="german">Eine dritte Schicht über der bestehenden Mauer bietet noch besseren Schutz gegen untote Eindringlinge.</note>
       </notes>
@@ -2017,7 +2017,7 @@
         <target>Une troisième couche complète pour toute la muraille de la ville, pour assurer une isolation efficace contre les macchabées qui rôdent la nuit.</target>
       </segment>
     </unit>
-    <unit id="Hsxeh9L" name="9c09495">
+    <unit id="Hsxeh9L">
       <notes>
         <note category="german">Damit selbst hartnäckige Zombies draußen bleiben, bekommt die gesamte Stadtmauer eine zusätzliche Schicht verpasst.</note>
       </notes>
@@ -2026,7 +2026,7 @@
         <target>Une seconde couche complète pour toute la muraille de la ville, pour assurer une isolation efficace contre les macchabées qui rôdent la nuit.</target>
       </segment>
     </unit>
-    <unit id="41kkH05" name="f85a024">
+    <unit id="41kkH05">
       <notes>
         <note category="german">Die Stadtmauer wird mit einem Eisengestell verstärkt und kann ab sofort jeden Tag ganz leicht um ein Stück erweitert werden!</note>
       </notes>
@@ -2035,7 +2035,7 @@
         <target>En dotant toute la muraille d'une ossature en fer, on peut facilement l'améliorer chaque jour et sans trop d'effort !</target>
       </segment>
     </unit>
-    <unit id="v.0jNwa" name="98cd64a">
+    <unit id="v.0jNwa">
       <notes>
         <note category="german">Zu guter Letzt bekommt die Mauer noch eine Schicht aus Beton verpasst. Das sollte die Zombiehorden nun aber wirklich draußen halten.</note>
       </notes>
@@ -2044,7 +2044,7 @@
         <target>Une troisième couche complète pour toute la muraille de la ville, pour assurer une isolation efficace contre les macchabées qui rôdent la nuit.</target>
       </segment>
     </unit>
-    <unit id="CVzqVBH" name="cf31e46">
+    <unit id="CVzqVBH">
       <notes>
         <note category="german">Mit diesen Metallbalken können die schwächeren Stellen der Stadtmauer verstärkt werden.</note>
       </notes>
@@ -2053,7 +2053,7 @@
         <target>Des structures métalliques pour renforcer les parties faibles de la muraille.</target>
       </segment>
     </unit>
-    <unit id="AgaRcDn" name="af1210c">
+    <unit id="AgaRcDn">
       <notes>
         <note category="german">Man bedecke eine große Bodenfläche mit einem Meer von zugespitzten und geschärften Metallstücken und schon erhält man die größte Käsereibe der Welt.</note>
       </notes>
@@ -2062,7 +2062,7 @@
         <target>Couvrez une large surface de terre avec une multitude de morceaux de métal tranchant et vous obtiendrez la plus grande râpe à fromage du monde.</target>
       </segment>
     </unit>
-    <unit id="DN2044C" name="5a04f76">
+    <unit id="DN2044C">
       <notes>
         <note category="german">Ihr legt eine große Anzahl von verdeckten Fallgruben rund um die Stadt an und wartet bis irgendwas reinfällt. So einfach.</note>
       </notes>
@@ -2071,7 +2071,7 @@
         <target>Plein de trous tout autour de la ville dissimulés sous des bâches. Il ne reste alors plus qu'à attendre que quelque chose tombe dedans.</target>
       </segment>
     </unit>
-    <unit id="85XW3IL" name="08554a6">
+    <unit id="85XW3IL">
       <notes>
         <note category="german">Die Stadt baut einen Holzzaun, der - zumindest theoretisch- die Bestien ausreichend verlangsamen sollte.</note>
       </notes>
@@ -2080,7 +2080,7 @@
         <target>Des clôtures en bois tout autour de la ville qui devraient (en théorie du moins) ralentir suffisamment les hordes de zombies pendant l'attaque…</target>
       </segment>
     </unit>
-    <unit id="w95tNyR" name="a375ce9">
+    <unit id="w95tNyR">
       <notes>
         <note category="german">Warum ist da vorher noch niemand drauf gekommen? Anstatt Zeit mit Körperpflege zu verschwenden, benutzt eure Seife lieber dazu, die Stadtmauer schön glitschig zu machen. Vor allem im Zusammenspiel mit der Zombiereibe eine "saubere Lösung". Wen stören da schon die Geräusche?</note>
       </notes>
@@ -2089,7 +2089,7 @@
         <target>Pourquoi personne n'y avait pensé avant ? Au lieu de perdre votre temps à soigner votre hygiène corporelle, utilisez votre savon pour rendre les parois de la ville glissantes. Combiné avec la rape à zombies, c'est idéal, sauf pour le “bruit”.</target>
       </segment>
     </unit>
-    <unit id="5.RgfZ7" name="ace174e">
+    <unit id="5.RgfZ7">
       <notes>
         <note category="german">Das wird die hübschen Antlitze der Zombies vor der Stadt sicher auch nicht verbessern.</note>
       </notes>
@@ -2098,7 +2098,7 @@
         <target>Ça ne va certainement pas améliorer le joli minois des zombies devant la ville.</target>
       </segment>
     </unit>
-    <unit id="Zz9vCXZ" name="ed3b85b">
+    <unit id="Zz9vCXZ">
       <notes>
         <note category="german">Oft wird vergessen, dass Zombies ein Gehirn haben. Manchmal sogar zwei, wenn sie Glück haben. Trifft sich gut: Das mit dieser Kanone geschossene Konzentrat hat die erstaunliche Fähigkeit, Gehirne in Matsch zu verwandeln.</note>
       </notes>
@@ -2107,7 +2107,7 @@
         <target>Beaucoup l'ignorent, mais les zombies ont un cerveau. Même parfois deux, s'ils sont chanceux. Ça tombe bien : le concentré projeté par ce canon a l'étonnante capacité de faire suinter la cervelle.</target>
       </segment>
     </unit>
-    <unit id="etVSYqn" name="3c8d90e">
+    <unit id="etVSYqn">
       <notes>
         <note category="german">Ein simpler Verteidigungsgegenstand, aber du wirst ihn zu schätzen wissen, wenn dein Ex-Nachbar Kevo versuchen sollte, an deinem Gehirn rumzuknabbern..</note>
       </notes>
@@ -2116,7 +2116,7 @@
         <target>Un dispositif défensif sommaire mais que vous serez bien content d'avoir quand Kevo, votre ancien voisin, tentera de manger votre délicieuse cervelle ce soir.</target>
       </segment>
     </unit>
-    <unit id="Wv2Tkzm" name="df68e2a">
+    <unit id="Wv2Tkzm">
       <notes>
         <note category="german">Diese Verbesserung ist nicht der ganz große Wurf, aber sie erfüllt ihren Zweck: Sie verhindert, dass du zu schnell stirbst.</note>
       </notes>
@@ -2134,7 +2134,7 @@
         <target>Rudimentaire mais épaisse. On ne lui en demande pas plus.</target>
       </segment>
     </unit>
-    <unit id="K1vyfyY" name="d56c866">
+    <unit id="K1vyfyY">
       <notes>
         <note category="german">Sperrholz. Du hast es nur genommen, weil du wirklich nichts besseres zu tun hattest. Dir war klar, dass es unnütz sein würde, aber das hat dich trotzdem nicht davon abgehalten. Na dann mal los...</note>
       </notes>
@@ -2143,7 +2143,7 @@
         <target>Du contre-plaqué. Vous montez ce truc parceque vous n'avez sûrement rien de mieux à faire. Vous savez que c'est inutile, mais vous le faites quand même. Allons…</target>
       </segment>
     </unit>
-    <unit id="eK_yqJ_" name="e8c4516">
+    <unit id="eK_yqJ_">
       <notes>
         <note category="german">Es war sicher kein Geniestreich dieses Bauwerk zu beginnen. Aber gut, letztlich haben alle zugestimmt und eine weitere große Mauer ist sicher keine schlechte Idee.</note>
       </notes>
@@ -2152,7 +2152,7 @@
         <target>Ce n'est certes pas une lumière qui a eu l'idée de ce chantier, mais finalement, tout le monde s'est dit qu'un gros mur de plus, ce n'était sûrement pas une mauvaise chose.</target>
       </segment>
     </unit>
-    <unit id="_CopYmu" name="d33f320">
+    <unit id="_CopYmu">
       <notes>
         <note category="german">Ein handliches, hydraulisch betriebenes Gerät, das Wasserdampf versprühen kann (und weitere amüsante Chemikalien).</note>
       </notes>
@@ -2161,7 +2161,7 @@
         <target>Un petit dispositif hydraulique conçu pour projeter de la vapeur d'eau (et d'amusants produits chimiques avec).</target>
       </segment>
     </unit>
-    <unit id="Jm1gYDh" name="a1c0ce7">
+    <unit id="Jm1gYDh">
       <notes>
         <note category="german">Raketenpulver, Zünder und reines Wasser: Das sind die Zutaten für einen saftigen Brei aus vermodertem Fleisch diese Nacht. Eine mächtige Verteidigung, leider kann sie nur einmal verwendet werden.</note>
       </notes>
@@ -2188,7 +2188,7 @@
         <target>Transforme l'eau des Jerrycans trouvés dans le désert en rations d'eau potable (rendement moyen).</target>
       </segment>
     </unit>
-    <unit id="9HvFFQs" name="e3bcae9">
+    <unit id="9HvFFQs">
       <notes>
         <note category="german">Ein gewaltiger wissenschaftlicher Durchbruch: Durch die Aussaat von Dynamitstangen und gaaanz vorsichtiges Gießen, könnt ihr Granatäpfel anbauen!</note>
       </notes>
@@ -2206,7 +2206,7 @@
         <target>Accroît significativement le rendement du Potager.</target>
       </segment>
     </unit>
-    <unit id="KDZvWuv" name="db86465">
+    <unit id="KDZvWuv">
       <notes>
         <note category="german">Mit einem Gemüsebeet könnt ihr leckere Früchte und nicht allzu verschimmeltes Gemüse anbauen. Ist zwar kein Bio, macht aber satt.</note>
       </notes>
@@ -2215,7 +2215,7 @@
         <target>Le potager permet de créer des légumes pas trop moisis, des fruits qui commencent à pourrir avant de mûrir. Bref, des rations alimentaires, si on ne fait pas trop le difficile…</target>
       </segment>
     </unit>
-    <unit id="p7IMr5R" name="b4dc0a9">
+    <unit id="p7IMr5R">
       <notes>
         <note category="german">Eine radikale Lösung, wenn mal das Wasser ausgehen sollte: Mit ein paar gezielten Sprengungen können tiefergelegene Wasserschichten erschlossen und das Wasserreservoir vergrößert werden.</note>
       </notes>
@@ -2224,7 +2224,7 @@
         <target>La solution de la dernière chance quand on n'a plus d'eau: perforer les nappes phréatiques à la dynamite pour étendre les réserves de la ville.</target>
       </segment>
     </unit>
-    <unit id="gPEBQqi" name="c805ad6">
+    <unit id="gPEBQqi">
       <notes>
         <note category="german">Mit diesem selbstgebauten Bohrer kann die Stadt ihre Wasserreserven beträchtlich vergrößern.</note>
       </notes>
@@ -2233,7 +2233,7 @@
         <target>Une foreuse artisanale qui permettra de puiser l'eau un peu plus profondément dans le sol et ainsi augmenter sensiblement les réserves disponibles…</target>
       </segment>
     </unit>
-    <unit id="oCXgsQA" name="91e1569">
+    <unit id="oCXgsQA">
       <notes>
         <note category="german">Die Pumpe ist die Grundvoraussetzung für alle auf Wasser basierenden Konstruktionen! Darüber hinaus steigert sie die Wasserergiebigkeit des Brunnens um ein Vielfaches.</note>
       </notes>
@@ -2242,7 +2242,7 @@
         <target>La pompe débloque l'ensemble des constructions basées sur l'eau. Elle augmente aussi sensiblement les réserves souterraines du puits.</target>
       </segment>
     </unit>
-    <unit id="kXal3k5" name="877acbb">
+    <unit id="kXal3k5">
       <notes>
         <note category="german">Dieser leistungsstarke Dampfstrahlreiniger versprüht feinen, siedend heißen Wasserdampf. Deine muffigen Freunde werden beim Anblick dieses Geräts wortwörtlich dahinschmelzen.</note>
       </notes>
@@ -2251,7 +2251,7 @@
         <target>Le vaporisateur est un système qui consomme une quantité négligeable d'eau pure et qui la projète en fine vapeur brûlante dans les rues de la ville. Idéale pour faire fondre vos amis putréfiés qui nous rendent visite chaque soir.</target>
       </segment>
     </unit>
-    <unit id="u79TGbV" name="d0d4cb9">
+    <unit id="u79TGbV">
       <notes>
         <note category="german">Es handelt sich um ein einfallsreiches und SEHR effektives System! Zwei schnell kreisende und mit geschliffenen Eisenstangen bestückte Drehscheiben, die von einem Kolbenmechanismus angetrieben werden, zerfetzen alles und jeden, der sich im Toreingang befindet!</note>
       </notes>
@@ -2260,7 +2260,7 @@
         <target>Deux grosses plaques autour du passage de l'entrée et un puissant système de pistons : quand on les actionne, ça écrase instantanément tout ce qui se trouvait au milieu !</target>
       </segment>
     </unit>
-    <unit id="RmsmLHq" name="bd568f7">
+    <unit id="RmsmLHq">
       <notes>
         <note category="german">Wie jeder weiß, wird eine Sprinkleranlage für gewöhnlich im Garten eingesetzt. Die wenigsten wissen jedoch, dass sie sich auch hervorragend gegen Zombiehorden eignet. Einziger Wermutstropfen: Die Anlage verbraucht relativ viel Wasser.</note>
       </notes>
@@ -2269,7 +2269,7 @@
         <target>Traditionnellement utilisés dans un jardin, ils servent aussi de défense mortelle contre les Hordes… Ils tuent beaucoup de zombies, mais ils faut prévoir un stock d'eau important.</target>
       </segment>
     </unit>
-    <unit id=".VmOFiy" name="09b4520">
+    <unit id=".VmOFiy">
       <notes>
         <note category="german">Nein, ganz ehrlich, dieser... dieser... Geruch ist einfach nicht auszuhalten: Nimm eine Dusche. Sofort!</note>
       </notes>
@@ -2278,7 +2278,7 @@
         <target>Non, vraiment, cette odeur, c'est vraiment devenu insupportable : prenez une douche.</target>
       </segment>
     </unit>
-    <unit id="f9B1Tpl" name="ffd7391">
+    <unit id="f9B1Tpl">
       <notes>
         <note category="german">Nach der Pumpe könnt ihr mit dem Wasserleitungsnetz die auf Wasser basierenden Verteidigungsmechanismen angehen! Zusätzlich vergrößert das Netz auch die Wasserreserven des Brunnens.</note>
       </notes>
@@ -2287,7 +2287,7 @@
         <target>Grace à ce réseau de tuyaux, vous pourrez bâtir de puissantes défenses à base d'eau en ville ! De plus, ce système apporte un petit surplus d'eau au puits.</target>
       </segment>
     </unit>
-    <unit id="9bvD0a1" name="ddc07e6">
+    <unit id="9bvD0a1">
       <notes>
         <note category="german">Mit dieser revolutionären Verteidigungsanlage ist die Stadt imstande, große Wasserdampfwolken zu erzeugen. Ein wohlig-warmes Dampfbad wird den vor den Stadtmauern herumlungernden Zombies gut tun und sie grundlegend "reinigen". Die Leistung kann mit ein wenig Feintuning noch gesteigert werden.</note>
       </notes>
@@ -2296,7 +2296,7 @@
         <target>Ce dispositif de défense révolutionnaire projette de puissants jets de vapeur d'eau dans les rangs des zombies qui s'approchent de nos murailles. Avec quelques réglages supplémentaires, ça sera une défense d'une puissance exceptionnelle !</target>
       </segment>
     </unit>
-    <unit id="Owl0YNC" name="d64d4fc">
+    <unit id="Owl0YNC">
       <notes>
         <note category="german">Wenn es um Wasser geht, zählt jeder Tropfen. Dieses Bauwerk fügt dem Brunnen +2 Rationen Wasser hinzu und kann jeden Tag gebaut werden.</note>
       </notes>
@@ -2305,7 +2305,7 @@
         <target>Quand il s'agit d'eau, il n'y a pas de petit profit. Ce chantier apporte +2 rations au puits et peut être reconstruit chaque jour.</target>
       </segment>
     </unit>
-    <unit id="cHuP35O" name="bec561f">
+    <unit id="cHuP35O">
       <notes>
         <note category="german">Ein hübscher kleiner Wasserstrahl, um die wachsende Zombiemeute beim Stadttor zu sprengen.</note>
       </notes>
@@ -2314,7 +2314,7 @@
         <target>Une jolie petite pluie fine pour arroser les parterres de zombies qui poussent près de l'entrée.</target>
       </segment>
     </unit>
-    <unit id="gdi0Inc" name="abe7a12">
+    <unit id="gdi0Inc">
       <notes>
         <note category="german">Dieser Apfelbaum erinnert eher an einen verkümmerten und halbtoten Busch, aber er trägt wunderschöne blaue Äpfel. Äh, Moment mal,... wie bitte?</note>
       </notes>
@@ -2323,7 +2323,7 @@
         <target>Un pommier qui ressemble plutôt à un buisson rachitique et presque mort mais qui produit de jolies pommes bleues. Euh, attendez.. Quoi ?</target>
       </segment>
     </unit>
-    <unit id="UZtDN8I" name="fdbbf18">
+    <unit id="UZtDN8I">
       <notes>
         <note category="german">Selbst das Abwasser der Stadt kann noch genutzt werden: Wir müssen bloß alle Toiletten der Stadt über ein ausgeklügeltes System aus Rohren und Schlitten miteinander verbinden und dann um Mitternacht die Schleusen öffnen. Hat auch jeder sein Zelt korrekt aufgebaut?</note>
       </notes>
@@ -2332,7 +2332,7 @@
         <target>Les eaux usées de la ville peuvent encore servir : il suffit de connecter les toilettes de chaque habitant à un astucieux réseau de tuyaux-toboggans et d'ouvrir les vannes à minuit. Tout le monde a bien construit sa tente, hein?</target>
       </segment>
     </unit>
-    <unit id="AADCadI" name="a05cc41">
+    <unit id="AADCadI">
       <notes>
         <note category="german">Anfangs war es nur zur Dekontaminierung gedacht. Aber dann stellte es sich als äußerst effizientes Mittel gegen unsere pestilenten Freunde heraus. Man gebe noch einen Spritzer Kokosnuss-Duschgel hinzu und siehe da: Die meterhohen Leichenstapel, für die DU verantwortlich bist, verströmen ein betörendes Aroma.</note>
       </notes>
@@ -2341,7 +2341,7 @@
         <target>Au début, c'était supposé être un système de décontamination. Mais à l'usage ça s'est révélé être une protection très efficace contre vos copains pestiférés. En ajoutant une petite touche de gel douche au Monoï, vous pourrez même parfumer les tas de cadavres obtenus.</target>
       </segment>
     </unit>
-    <unit id="nNjCoj9" name="d05b3e9">
+    <unit id="nNjCoj9">
       <notes>
         <note category="german">Ein selbstgebauer Raketenwerfer feuert in den Boden: Denk mal drüber nach! Der Legende nach wollte der geistige Vater dieses Bauprojekts eigentlich den "Rocket Jump" erfinden. Egal, +60 Rationen Wasser werden so zum Brunnen hinzugefügt.</note>
       </notes>
@@ -2350,7 +2350,7 @@
         <target>Un lance-roquettes artisanal braqué vers le sol : il fallait y penser ! Pour l'anecdote, l'inventeur de ce chantier voulait en réalité inventer le “rocket-jump”. Il a seulement redécouvert “le cratère”. Ce chantier rapporte +60 rations d'eau au puits.</target>
       </segment>
     </unit>
-    <unit id="Fec.c3L" name="a4eaee8">
+    <unit id="Fec.c3L">
       <notes>
         <note category="german">Dass "Hightech" nicht nur auf die Dezimierung von Zombiehorden beschränkt ist, beweist dieses Gebäude... Es fügt +100 Rationen Wasser zum Brunnen hinzu.</note>
       </notes>
@@ -2359,7 +2359,7 @@
         <target>Pour une fois que la haute technologie sert à autre chose qu'à trucider du zombie… Ce chantier rapporte +100 rations d'eau au puits.</target>
       </segment>
     </unit>
-    <unit id="r37hY9W" name="e89a6d5">
+    <unit id="r37hY9W">
       <notes>
         <note category="german">Jeder weiß, was ein Krematorium ist, richtig? Und jeder weiß, wozu man einen Barbecuegrill verwendet? Dann einfach eins und eins zusammenzählen, dann wisst ihr auch wie ein "Kremato-Cue" funktioniert. Die Zeiten des Hungerns sind jedenfalls vorbei...</note>
       </notes>
@@ -2368,7 +2368,7 @@
         <target>Bon, on sait tous ce qu'est un Crématorium ? On sait aussi à quoi sert un Barbecue ? Eh bien c'est facile de deviner le fonctionnement et l'utilité du Crémato-Cue. En tout cas, fini la famine…</target>
       </segment>
     </unit>
-    <unit id="R6QjXSF" name="7badb5d">
+    <unit id="R6QjXSF">
       <notes>
         <note category="german">In der Metzgerei könnt ihr eure kleinen treuen Begleiter (Hunde, Katzen, Schlangen ...) in Lebensmittel verwandeln. Da gibt es doch tatsächlich noch Leute, die Vegetarier sind...</note>
       </notes>
@@ -2377,7 +2377,7 @@
         <target>Permet de transformer vos petits compagnons (chiens, chats, serpents…) en rations. Quand on pense qu'il y en a qui préféraient le boeuf…</target>
       </segment>
     </unit>
-    <unit id="iU2EQdk" name="f7903b8">
+    <unit id="iU2EQdk">
       <notes>
         <note category="german">Hast du es satt, über die abgetrennten Gliedmaßen der Zombies zu stolpern, die du erledigt hast? Vielleicht ist es dann an der Zeit, in der Apokalypse aufzusteigen and und die Zombiehorden von oben zu beobachten. Mithilfe der Brustwehr kannst du des Nachts über die Stadt wachen und dem Himmel ein Stück näher zu kommen.</note>
       </notes>
@@ -2386,7 +2386,7 @@
         <target>Marre de vous prendre des lambeaux de peau à la figure, les bras déchiquetés de vos voisins sur vos chaussures, il devient intéressant de quitter la terre ferme et de s'élever avec la création de de chemin de ronde autours de la ville. Ainsi, vous pourrez veiller et défendre la ville tout en étant plus proche des cieux.</target>
       </segment>
     </unit>
-    <unit id="HgzUKh3" name="bdfe1b4">
+    <unit id="HgzUKh3">
       <notes>
         <note category="german">Für diese raffiniert durchdachte Anlage können alle Arten von Platten (z.B. Blech) verwendet werden. Jeder in der Bank abgelegte Verteidigungsgegenstand steuert zusätzliche Verteidigungspunkte bei!</note>
       </notes>
@@ -2395,7 +2395,7 @@
         <target>Un système ingénieux pour optimiser l'usage de plaque de défenses (tôle ou autre). Chaque objet de défense dans la Banque rapporte plus de points de défense !</target>
       </segment>
     </unit>
-    <unit id="kvBWijm" name="d6552a7">
+    <unit id="kvBWijm">
       <notes>
         <note category="german">Dieser automatisierte Wachturm verschießt um Mitternacht minutenlang Felsen mit hoher Geschwindigkeit in Richtung Stadttor. Solltest du vorgehabt haben zu schlafen, kannst du das hiermit vergessen!</note>
       </notes>
@@ -2404,7 +2404,7 @@
         <target>Une tourelle automatisée qui projette des rochers à grande vitesse en direction de la porte. Il s'active à minuit et tire sans discontinuer pendant plusieurs minutes (si vous comptiez dormir dans le silence, c'est loupé) !</target>
       </segment>
     </unit>
-    <unit id="8xCv6SG" name="3fd7b5e">
+    <unit id="8xCv6SG">
       <notes>
         <note category="german">Diese improvisierte Railgun funktioniert mit Luftdruck. Sie ist in der Lage, mehrere Ladungen Metallsplitter (verbogene Nägel und rostiges Metall) mit enormer Geschwindigkeit zu verschießen und faustgroße Löcher zu reißen.</note>
       </notes>
@@ -2413,7 +2413,7 @@
         <target>Un mécanisme puissant à air-comprimé qui projète des boules de clous tordus et autres ferrailles rouillées. Parfait pour faire des trous gros comme le poing dans n'importe quoi (qui).</target>
       </segment>
     </unit>
-    <unit id="8CKEc8B" name="e894210">
+    <unit id="8CKEc8B">
       <notes>
         <note category="german">Der Blechplattenwerfer schleudert schwere Blechplatten aufs Schlachtfeld. Die angerichtete Schweinerei willst du garantiert kein zweites Mal sehen...</note>
       </notes>
@@ -2422,7 +2422,7 @@
         <target>Projetez de lourdes plaques de tôle en ligne droite dans le champ de bataille. Une boucherie qu'on espère ne jamais revoir, mais c'est efficace.</target>
       </segment>
     </unit>
-    <unit id="BEkfLyg" name="65a6915">
+    <unit id="BEkfLyg">
       <notes>
         <note category="german">Für diese Maschine möchte man sterben. ...im übertragenen Sinne. Ihr müsst sie allerdings jeden Tag nachladen.</note>
       </notes>
@@ -2431,7 +2431,7 @@
         <target>Une machine à tuer, mais qu'il faudra ré-amorcer chaque jour.</target>
       </segment>
     </unit>
-    <unit id="g_53a10" name="805f6a4">
+    <unit id="g_53a10">
       <notes>
         <note category="german">Mehrere Erdhügel, die durch Holzbalken verstärkt wurden, bilden die Grundlage für diesen mächtigen Verteidigungsturm.</note>
       </notes>
@@ -2440,7 +2440,7 @@
         <target>Plusieurs monticules de terre renforcés par des poutres en bois. Le pré-requis indispensable pour construire de puissantes tourelles de défense…</target>
       </segment>
     </unit>
-    <unit id="MSbz210" name="f0a8ba0">
+    <unit id="MSbz210">
       <notes>
         <note category="german">Schwere Holzbalken werden auf einem Drehkreuz befestigt und das Ganze wird dann in Bewegung gesetzt. Es dreht sich schnell... sehr schnell.</note>
       </notes>
@@ -2449,7 +2449,7 @@
         <target>De grandes poutres en bois fixées sur un axe. Et ça tourne. Très vite.</target>
       </segment>
     </unit>
-    <unit id="ITFNg6R" name="9d3a4f1">
+    <unit id="ITFNg6R">
       <notes>
         <note category="german">Die Manufaktur ist eine verbesserte Werkstatt. Sie senkt die Verarbeitungskosten aller darin erledigten Arbeiten um 1 AP.</note>
       </notes>
@@ -2458,7 +2458,7 @@
         <target>Cette version améliorée de l'atelier permet de réduire de 1PA le coût de toutes les transformations effectuées dans l'atelier.</target>
       </segment>
     </unit>
-    <unit id="VM.FttJ" name="974345b">
+    <unit id="VM.FttJ">
       <notes>
         <note category="german">Ein paar geschickt hergestelle Kreissägen, die durch ein ausgeklügeltes Gummizugsystem bewegt werden. Der schrille Rotationslärm erinnert seltsamerweise an einen menschlichen Schrei...</note>
       </notes>
@@ -2467,7 +2467,7 @@
         <target>Des scies circulaires bricolées à même le sol et activées par un savant système d'élastiques. Le bruit strident produit par la rotation des scies fait étrangement penser à un cri humain…</target>
       </segment>
     </unit>
-    <unit id="ivXmhsk" name="c7ab447">
+    <unit id="ivXmhsk">
       <notes>
         <note category="german">Wenn sich intelligente Leute abends beim Feuer unterhalten, können großartige Erfindungen dabei herauskommen. Zumindest wenn sie vorher ein Bauhaus errichtet haben. Dieses Bauwerk gibt der Stadt täglich einen (gewöhnlichen) Bauplan.</note>
       </notes>
@@ -2476,7 +2476,7 @@
         <target>Quand les citoyens les plus intelligents se retrouvent le soir, au coin du feu, ils inventent de grandes choses. Enfin, ça, c'est à condition de leur avoir installé un Architectoire. Ce bâtiment permet à la ville de recevoir un plan de bâtiment (commun) chaque jour, en banque.</target>
       </segment>
     </unit>
-    <unit id="mAwbfLv" name="8ff718a">
+    <unit id="mAwbfLv">
       <notes>
         <note category="german">Mit diesem Register erhältst du eine bessere Übersicht zu allen aktuellen Konstruktionen samt der dafür benötigten Materialien.</note>
       </notes>
@@ -2485,7 +2485,7 @@
         <target>Avec un peu d'organisation et une bonne table, on peut tenir à jour un registre un peu plus précis de tout ce qui se passe dans nos chantiers.</target>
       </segment>
     </unit>
-    <unit id="DQ5y6Uy" name="de39fa3">
+    <unit id="DQ5y6Uy">
       <notes>
         <note category="german">An diesem prächtigen Galgen könnt ihr unliebsame (oder lästige) Mitbürger loswerden. Ist mal was "anderes" als die klassische Verbannung...</note>
       </notes>
@@ -2494,7 +2494,7 @@
         <target>Une belle potence pour pendre les citoyens indésirables plutôt que de se contenter de les bannir de la communauté… Attention : étant donné la piètre qualité de cette structure, elle ne peut être utilisée qu'UNE fois pour UNE pendaison : il faudra la reconstruire pour l'utiliser à nouveau.</target>
       </segment>
     </unit>
-    <unit id="5O7d2v1" name="665c5df">
+    <unit id="5O7d2v1">
       <notes>
         <note category="german">Ein Schlachthof, der direkt vor dem Stadttor errichtet wird und dessen Eingang zur Außenwelt zeigt. Schwierig ist eigentlich nur, jede Nacht einen Freiwilligen zu finden, der sich hineinstellt und so die Zombies anlockt.</note>
       </notes>
@@ -2503,7 +2503,7 @@
         <target>Un abattoir installé juste devant la grande porte d'entrée et dont l'accès est tourné vers l'extérieur. Le problème, c'est de choisir le type qui va y attirer les zombies tous les soirs en agitant ses bras.</target>
       </segment>
     </unit>
-    <unit id="ap6lTFg" name="0bc8f05">
+    <unit id="ap6lTFg">
       <notes>
         <note category="german">Eine großangelegte Neuausrichtung aller Verteidigungsanlagen, um wirklich das Optimum herauszuholen (die Gesamtverteidigung der Stadt erhöht sich um 10%).</note>
       </notes>
@@ -2512,7 +2512,7 @@
         <target>Une vaste re-structuration de nos défenses pour en tirer le meilleur parti (les défenses totales de la ville sont augmentées de +10%).</target>
       </segment>
     </unit>
-    <unit id="QOHJyKq" name="18da24e">
+    <unit id="QOHJyKq">
       <notes>
         <note category="german">Das Mittagessen liegt schon lange zurück... Was gibt's da besseres als eine solide Holzplanke und altbackenes Brot.</note>
       </notes>
@@ -2521,7 +2521,7 @@
         <target>Quand l'heure du repas est encore loin… Rien de tel qu'une bonne planche en bois dans du pain rassis.</target>
       </segment>
     </unit>
-    <unit id="m6h2kn9" name="e266b9a">
+    <unit id="m6h2kn9">
       <notes>
         <note category="german">Von 2 Toten hat derjenige, der sich bewegt, die besten Chancen, dich zu verspeisen. Trickst eure Feinde aus, indem ihr eure Leichen in die herankommende Zombiehorde schleudert. Jeder Tote bringt +20 anstelle von +10 Verteidigungspunkten.</note>
       </notes>
@@ -2530,7 +2530,7 @@
         <target>Entre deux morts, celui qui bouge à plus de chance de vous bouffer, trompez l'ennemi en éjectant vos morts dans la masse de zombies ! Chaque mort rapporte +20 points de défense au lieu de +10.</target>
       </segment>
     </unit>
-    <unit id="fawd4Ys" name="0c6b6bc">
+    <unit id="fawd4Ys">
       <notes>
         <note category="german">Bringt eure Toten! Denn diesmal werden sie sich noch als nützlich erweisen. Macht das beste aus ihnen und verbessert damit gemeinsam eure Verteidigung. Jeder zum Friedhof gebrachte tote Mitbürger bringt +10 Verteidigungspunkte für die Gesamtverteidigung der Stadt. Hinweis: Es spielt keine Rolle, wo und woran ein Mitbürger verstarb.</note>
       </notes>
@@ -2539,7 +2539,7 @@
         <target>Apportez vos morts ! Pour une fois, ils vont se rendre utile, profitez de leur existence pour renforcer sommairement vos défenses. Chaque citoyen mort rapporte +10 points de défense à la ville. Note : le lieu et la raison de la mort du citoyen n'ont aucune importance.</target>
       </segment>
     </unit>
-    <unit id="wUlb_LB" name="8deafa9">
+    <unit id="wUlb_LB">
       <notes>
         <note category="german">Die Kantine verbessert die Produktion in den Küchen, die die Helden in eurer Stadt gebaut haben.</note>
       </notes>
@@ -2548,7 +2548,7 @@
         <target>La cantine permet d'améliorer le rendement des “cuisines personnelles” construites par les héros de votre ville.</target>
       </segment>
     </unit>
-    <unit id="sUOSkcW" name="ca5d119">
+    <unit id="sUOSkcW">
       <notes>
         <note category="german">Das Labor verbessert die Produktion in den Hobbylabors, die die Helden in eurer Stadt gebaut haben.</note>
       </notes>
@@ -2557,7 +2557,7 @@
         <target>Le laboratoire permet d'améliorer le rendement des “laboratoires personnels” construits par les héros de votre ville.</target>
       </segment>
     </unit>
-    <unit id="M2PrKkr" name="e80708a">
+    <unit id="M2PrKkr">
       <notes>
         <note category="german">Falls du schon vor langer Zeit vergessen hast, wie köstlich ein Omelett mit gebratenen Chamignons, Kräutern und Speck ist, dürfte dieses Gebäude wohl eher unnütz für dich sein. Aber zumindest liefert es dir einige Eier. Was die Pilze betrifft, so musst du dich wohl an die Zombies draußen halten.</note>
       </notes>
@@ -2566,7 +2566,7 @@
         <target>Si vous avez depuis longtemps oublié quel goût pouvait bien avoir une petite omelette aux champignons sautés, aux herbes et aux lardons, ce chantier ne vous sera d'aucune aide. Enfin, tout au plus, vous redécouvrirez le goût des oeufs. Pour les champignons, il faudra s'adresser au zombies dehors.</target>
       </segment>
     </unit>
-    <unit id="HpECVh5" name="64be1a9">
+    <unit id="HpECVh5">
       <notes>
         <note category="german">Egal ob kleines Wehwehchen oder irreparables Trauma - die Krankenstation empfängt dich mit offenen Armen. Zumindst solange du noch imstande bist, dich selbst zu verarzten, denn diese Einrichtung kommt ganz ohne medizinisches Personal daher.</note>
       </notes>
@@ -2575,7 +2575,7 @@
         <target>En cas de petit bobo ou de gros traumatisme irréparrable, l'infirmerie vous accueillera les bras ouverts. Enfin, à condition que vous soyez capable de vous recoudre tout seul car le personnel médical n'est pas fourni avec le chantier.</target>
       </segment>
     </unit>
-    <unit id="9uClNg4" name="ef99b28">
+    <unit id="9uClNg4">
       <notes>
         <note category="german">Dank diesem wahrlich großen Bauwerk können Bürger ihre Häuser noch aufwändiger ausbauen.</note>
       </notes>
@@ -2584,7 +2584,7 @@
         <target>Ce chantier de grande ampleur fourni toutes les bases nécessaires pour la construction de maisons individuelles plus avancées.</target>
       </segment>
     </unit>
-    <unit id="rEndNN5" name="098dd57">
+    <unit id="rEndNN5">
       <notes>
         <note category="german">Dieses ambitionierte Stadtbauprojekt hat zum Ziel, die Verteidigung der Bürgerbehausungen besser in die Stadtverteidigung zu integrieren. Dank dieses Bauwerks bringen Bürgerbehausungen fortan 80% statt 40% ihres Verteidigungswertes in die Stadtverteidigung ein.</note>
       </notes>
@@ -2593,7 +2593,7 @@
         <target>Cet ambitieux projet d'urbanisme a pour objectif de renforcer nos défenses en exploitant au mieux les maisons des citoyens. Avec ce chantier, 80% des défenses personnelles comptent pour la ville, au lieu des 40% habituels.</target>
       </segment>
     </unit>
-    <unit id="sAD0298" name="efbd1f1">
+    <unit id="sAD0298">
       <notes>
         <note category="german">Dieses erheblich verbesserte Katapult ist einfacher zu bedienen und benötigt weniger AP, um mit einem Gegenstand beladen zu werden!</note>
       </notes>
@@ -2602,7 +2602,7 @@
         <target>Cette amélioration notable de la Catapulte facilite son utilisation en réduisant notablement le coût en PA pour lancer un objet !</target>
       </segment>
     </unit>
-    <unit id="7mkk.J7" name="dc3ca31">
+    <unit id="7mkk.J7">
       <notes>
         <note category="german">Das Katapult ist ein äußerst mächtiges Werkzeug, mit dem die Stadt jede Art von Gegenstand in die Wüste schießen kann. Das ist sehr nützlich, wenn man weit entfernte Bürger versorgen möchte (Lebensmittel, Wasser, Waffen etc...).</note>
       </notes>
@@ -2611,7 +2611,7 @@
         <target>La catapulte est une machine spéciale qui va vous permettre de jeter tout un tas de choses au beau milieu de l'Outre-Monde : idéale pour ravitailler des expéditions lointaines !</target>
       </segment>
     </unit>
-    <unit id="L54jb5I" name="8eeff7f">
+    <unit id="L54jb5I">
       <notes>
         <note category="german">Dieser selbstgebaute Zonenscanner erleichtert die Abschätzung des nächtlichen Angriffs erheblich. Wenn er richtig eingesetzt wird, sind nur halb so viele Bürger notwendig, um eine gute Schätzung zu bekommen.</note>
       </notes>
@@ -2620,7 +2620,7 @@
         <target>Ce scanner maison, s'il est bien utilisé, divise par deux la difficulté de l'estimation de l'attaque du soir (il faut 2x moins de citoyens pour obtenir une bonne estimation) ! Primordial pour s'organiser efficacement.</target>
       </segment>
     </unit>
-    <unit id="qBYmaFE" name="14af458">
+    <unit id="qBYmaFE">
       <notes>
         <note category="german">Diese simple elektronische Konstruktion erleichtert das Lesen der Außenweltkarte. Konkret: Du erfährst die genaue Zombieanzahl jeder Zone und musst somit nicht mehr planlos in der Wüste rumlaufen...</note>
       </notes>
@@ -2629,7 +2629,7 @@
         <target>Un bricolage électronique simpliste pour améliorer la lecture de la carte de l'Outre-Monde: le nombre exact de zombies dans chaque zone devient lisible clairement. Indispensable pour ne plus se faire avoir bêtement…</target>
       </segment>
     </unit>
-    <unit id="jSsbjK4" name="0efd242">
+    <unit id="jSsbjK4">
       <notes>
         <note category="german">Die Rechenmaschine ist ein etwas rustikaler Taschenrechner, mit dem man die Angriffsstärke des MORGIGEN Tages berechnen kann!</note>
       </notes>
@@ -2638,7 +2638,7 @@
         <target>Le Planificateur est une calculette un peu spéciale dédiée à l'estimation et aux calculs liés à l'attaque. Elle permet notamment d'effectuer une estimation de l'attaque du LENDEMAIN !</target>
       </segment>
     </unit>
-    <unit id="Z1hrRZ7" name="0221142">
+    <unit id="Z1hrRZ7">
       <notes>
         <note category="german">Mit dem Forschungsturm können in bereits "abgesuchten" Wüstenzonen jeden Tag neue Gegenstände gefunden werden! Der Forschungsturm versetzt dich in die Lage, jene anormalen meteorologischen Phänomene aufzuzeichnen und auszuwerten, die sich nachts in der Wüste abspielen. Die entsprechenden Fundstellen werden anschließend in der Zeitung veröffentlicht.</note>
       </notes>
@@ -2647,7 +2647,7 @@
         <target>Chaque jour, le Scrutateur permet de trouver à nouveau des objets dans certaines zones auparavant considérées comme “épuisées”. En effet, il détecte les phénomènes météorologiques anormaux qui surviennent dehors, pendant la nuit, et indique dans la gazette quelle région du désert a été affectée.</target>
       </segment>
     </unit>
-    <unit id="v3.4yJS" name="cc8a7a4">
+    <unit id="v3.4yJS">
       <notes>
         <note category="german">En cas d'alerte, il est souvent crucial de penser à fixer quelques morceaux de bois un peu partout pour tenir une nuit de plus.</note>
       </notes>
@@ -2656,7 +2656,7 @@
         <target>Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.</target>
       </segment>
     </unit>
-    <unit id="CSPllWH" name="48020ec">
+    <unit id="CSPllWH">
       <notes>
         <note category="german">Der gesamte Außenbereich der Stadt wird mit angespitzten Holzpfählen gespickt. Diese kostengünstige Verteidigungsmaßnahme verwandelt die Stadt in eine wahre Trutzburg und kann an manchen Abenden den Unterschied zwischen Leben und Tod ausmachen.</note>
       </notes>
@@ -2665,7 +2665,7 @@
         <target>En plantant des bouts de bois acérés un peu partout autour de la ville, on obtient une défense à moindre coût, mais qui peut faire la différence, certains soirs…</target>
       </segment>
     </unit>
-    <unit id="9lLB0c." name="a944414">
+    <unit id="9lLB0c.">
       <notes>
         <note category="german">Dieses Arsenal an einfallsreichen Guerillafallen ermöglicht dir, die Zombiereihen zu lichten und die Last des Angriffs entscheidend zu senken.</note>
       </notes>
@@ -2674,7 +2674,7 @@
         <target>Poser une grande variété de pièges un peu partout est un bon moyen de faire du gros ménage dans les hordes de zombies qui attaqueront ce soir.</target>
       </segment>
     </unit>
-    <unit id="mnCx0v1" name="870299c">
+    <unit id="mnCx0v1">
       <notes>
         <note category="german">Hast du erst mal einen großen Haufen Müll aufgeschüttet, kannst du ihn einfach noch mit Stacheln versehen, die ebenso rostig wie tödlich sind!</note>
       </notes>
@@ -2683,7 +2683,7 @@
         <target>Une fois qu'on a un gros tas de débris, il est facile de le cribler de pics aussi rouillés que mortels !</target>
       </segment>
     </unit>
-    <unit id="Cyhcjbg" name="2085295">
+    <unit id="Cyhcjbg">
       <notes>
         <note category="german">Wenn wirklich gar nichts mehr geht, sammelst du alles ein, was du findest und formst daraus einen großen Abfallhaufen... jetzt heißt es Daumen drücken und hoffen, dass das die Horde irgendwie aufhält... Ach ja, wenn du möchtest, kannst du diesen Abfallberg auch mit Fallen spicken.</note>
       </notes>
@@ -2710,7 +2710,7 @@
         <target>De la dynamite, des zombies, du sang.</target>
       </segment>
     </unit>
-    <unit id="LrMuA3t" name="14e42e6">
+    <unit id="LrMuA3t">
       <notes>
         <note category="german">Falls die Lage wirklich verzweifelt ist, könnt ihr beschließen loszuschreien und in Panik zu verfallen. Falls alle Überlebenden mitmachen, wird es die Zombies verwirren (denn sie können mit dieser Art Stress nicht umgehen) und euch einige virtuelle Verteidigungespuntke einbringen... Genau, das ist natürlich Unsinn.</note>
       </notes>
@@ -2719,7 +2719,7 @@
         <target>Si la situation est vraiment désespérée, vous pouvez décider d'hurler et de paniquer. L'avantage, c'est que si tous les survivants s'y mettent, ça désordonnera les zombies (qui n'avaient vraiment pas besoin de ça) et apportera virtuellement quelques points de défense… Oui, c'est n'importe quoi.</target>
       </segment>
     </unit>
-    <unit id="BiIqI4s" name="0f02c8f">
+    <unit id="BiIqI4s">
       <notes>
         <note category="german">Feiern bis zum Abwinken ist immer noch die beste Art, all die schrecklichen Dinge der Außenwelt zu vergessen. Glücklicherweise sorgen die Zombies schon dafür, dass die Dinge nicht zu sehr ausschweifen.</note>
       </notes>
@@ -2728,7 +2728,7 @@
         <target>Faire la fête est le meilleur moyen d'oublier ce qu'il se passe dehors, heureusement que les zombies sont là pour éviter que ça dégénère.</target>
       </segment>
     </unit>
-    <unit id="30PQngM" name="289e4b7">
+    <unit id="30PQngM">
       <notes>
         <note category="german">Ein über 2 Meter hoher, schimmliger Wollballen, über und über mit Stricken und Nadeln bedeckt. In den mächtigen Händen des Schamanen wird dieses *Ding* zu einem XXL-Püppchen, das etliche Zombies niederstreckt, ehe es wieder eine unförmige, unbewegliche Masse wird.</note>
       </notes>
@@ -2737,7 +2737,7 @@
         <target>Une agglomération de tissus moisis, de plus de deux mètres, transpercés de fils et aiguilles en tout genre. Sous la terrible emprise d'un chaman, cette poupée XXL décimera quelque zombie avant de redevenir un tas informe et inanimé</target>
       </segment>
     </unit>
-    <unit id="e1g.XXY" name="9ab481c">
+    <unit id="e1g.XXY">
       <notes>
         <note category="german">Mit Hilfe einer teuflischen Guillotine und einer provisorischen Schaufensterpuppe, kann der Schamane aus der Entfernung den Kopf eines Zombierudel-Führers abschlagen. Die Zombies die ihm folgen, werden daraufhin abdrehen und wieder in die Wüste wandern.</note>
       </notes>
@@ -2746,7 +2746,7 @@
         <target>Grâce a cette guillotine maudite et a un mannequin maladroitement conçu, le chaman peut couper a distance la tête d'un meneur zombie, ceux qui le suivaient, sans trop savoir pourquoi, retourneront tranquillement vagabonder dans le désert</target>
       </segment>
     </unit>
-    <unit id="K1dTRCS" name="b50a4cc">
+    <unit id="K1dTRCS">
       <notes>
         <note category="german">Dieser Zauber des Schamanen erschafft ein Trugbild der Stadt. Als Folge verliert sich eine beträchtliche Anzahl Zombies heillos in der Wüste.</note>
       </notes>
@@ -2755,7 +2755,7 @@
         <target>Le sortilège du chaman a créé un mirage déroutant un bon nombre de zombie dans le fin fond du désert</target>
       </segment>
     </unit>
-    <unit id="hEXDYA." name="c4f6d39">
+    <unit id="hEXDYA.">
       <notes>
         <note category="german">Nur der Schamane kennt das Geheimnis dieses rituellen Feuertanzes. Richtig ausgeführt, steigt eine kleine Wolke in den Himmel und bewirkt, dass ein Schauer heiligen Wassers auf die Zombiehorde niedergeht.</note>
       </notes>
@@ -2764,7 +2764,7 @@
         <target>Un feu allumé et une danse rituelle dont seul le chaman a le secret créent un petit nuage s'élevant dans les airs, une bonne douche d'eau sacrée se déversera bientôt sur les hordes de zombies</target>
       </segment>
     </unit>
-    <unit id="ThoJe4k" name="0d84ba4">
+    <unit id="ThoJe4k">
       <notes>
         <note category="german">Die Stadt muss sich auch auf unvorhergesehene Ereignisse einstellen. Für diese Zwecke wurde diese Notfallkonstruktion entworfen: Sie hält in der Regel nur eine Nacht lang. Achtung! Es sollte darauf geachtet werden, nicht zu viele Rohstoffe für den Bau temporärer Konstruktionen zu verwenden!</note>
       </notes>
@@ -2773,7 +2773,7 @@
         <target>Pour parer certains imprévus, il est parfois nécessaire de bâtir des défenses d'urgence qui ne sont pas destinées à tenir plus d'une nuit. Le programme de Dispositifs d'urgence répond à ce besoin. Attention à ne pas gaspiller de ressources inutilement en fabriquant des chantiers temporaires à tout-va !</target>
       </segment>
     </unit>
-    <unit id="sZyLLG6" name="2612909">
+    <unit id="sZyLLG6">
       <notes>
         <note category="german">Ein Schießstand mit Wasserpistolen, der wohl aus den Überresten eines Rummels geborgen wurde. Er zaubert eurer Nachtwache ein Lächeln ins Gesicht - damit schickt ihr sicher einen netten Schauer die Mauer runter! Verleiht jeder Wasserwaffe, die auf der Wacht genutzt wird, einen 20% Bonus.</note>
       </notes>
@@ -2782,7 +2782,7 @@
         <target>Une tourelle de tir au ballon d'eau, peu maniable, elle aura un succès fou sur un rempart, ce sont les veilleurs qui vont être content. Elle apporte +20% de défense aux armes à eau équipées lors d'une veille.</target>
       </segment>
     </unit>
-    <unit id="xm64u3P" name="bf83165">
+    <unit id="xm64u3P">
       <notes>
         <note category="german">Mit diesem Katapult kannst du deinen tierischen Freunden ein wenig Starthilfe geben, damit sie noch mehr Schaden in der angreifenden Horde anrichten. Zudem besitzt die Geräuschkulisse von Tieren, die mit hoher Geschwindigkeit durch die Luft fliegen, einen gewissen Unterhaltungswert. 20% auf die Angriffskraft jedes Tieres, das mit auf die Wacht genommen wird.</note>
       </notes>
@@ -2791,7 +2791,7 @@
         <target>Ce lance-bête vous permettra de projeter au loin vos amis les animaux afin qu'ils distraient encore d'avantage les hordes pendant l'attaque. En plus, le bruit d'un animal projeté est très rigolo, ce qui déstressera sûrement vos chers veilleurs.</target>
       </segment>
     </unit>
-    <unit id="dObz6dO" name="88b9c10">
+    <unit id="dObz6dO">
       <notes>
         <note category="german">Diese Waffenwerkstatt ist euer Trumpf für die Nachtwache. Wird sie gebaut, wird jede Waffe, die während der Wacht zum Einsatz kommt um 20% verstärkt.</note>
       </notes>
@@ -2800,7 +2800,7 @@
         <target>Cette armurerie sera un atout conséquent pour les veilleurs, en construisant ce chantier, chaque arme utilisée en veille verra son efficacité augmenter de 20% !</target>
       </segment>
     </unit>
-    <unit id="gpk5Kg3" name="f9257d7">
+    <unit id="gpk5Kg3">
       <notes>
         <note category="german">Dieser kleine Laden verbessert die Effektivität jedes Möbelstücks, das auf der Wache benutzt wird um 20%. Hach ja, die Schweden... Nie gab es bessere Billigmöbel!</note>
       </notes>
@@ -2809,7 +2809,7 @@
         <target>Ce magasin permettra à toutes vos fournitures de gagner 20 % d'efficacité en plus. Ces suédois… Ce sont vraiment des experts de la bricole !</target>
       </segment>
     </unit>
-    <unit id="jIl5TJc" name="8d64086">
+    <unit id="jIl5TJc">
       <notes>
         <note category="german">Der Bau eines prächtigen Wachturms mit Kontrollgang macht die Nachtwächter unter den Helden glücklich. Dieses Bauwerk gibt pro Nachtwächter in der Stadt +10 Verteidigungspunkte und erlaubt ihnen, ihre AP in Verteidigungspunkte umzuwandeln und so noch mehr für die Verteidung zu tun.</note>
       </notes>
@@ -2818,7 +2818,7 @@
         <target>L'installation d'une belle et grande tour centrale et d'un chemin de ronde : voilà qui devrait faire plaisir aux héros Gardiens. Ce chantier apporte +10 points de défense par Gardien en ville et leur permet d'apporter encore d'avantage de défenses en échange de PA.</target>
       </segment>
     </unit>
-    <unit id="gh0Faud" name="27d8193">
+    <unit id="gh0Faud">
       <notes>
         <note category="german">Weniger ein Turm als ein seeeeehr hoher Mast, der fast bis in die Wolken reicht. Aufklärer können ihn erklimmen und so Gebäude in der Außenwelt erspähen (1x pro Tag und Held).</note>
       </notes>
@@ -2827,7 +2827,7 @@
         <target>En fait de tour, c'est plus une sorte de très très haut poteau au sommet duquel chaque héros Éclaireur peut grimper pour révéler un bâtiment de l'outre-monde (1x par jour et par héros).</target>
       </segment>
     </unit>
-    <unit id="MERXXrk" name="1386d7f">
+    <unit id="MERXXrk">
       <notes>
         <note category="german">Mit dem Wachturm ist es möglich den nächtlichen Angriff abzuschätzen. Die Stadtbürger können dann die entsprechenden Gegenmaßnahmen vorbereiten (oder auch nicht...). Nach seiner Fertigstellung können Notfallkonstruktionen aller Art gebaut werden.</note>
       </notes>
@@ -2836,7 +2836,7 @@
         <target>Cette tour placée près de l'entrée offre une estimation de l'attaque du soir et permet ainsi aux citoyens de mieux s'y préparer. Elle débloque également toutes les constructions liées aux situations d'urgence.</target>
       </segment>
     </unit>
-    <unit id="1T56XSl" name="50934d1">
+    <unit id="1T56XSl">
       <notes>
         <note category="german">Die Entwicklung einer jeden Stadt hängt vom Bau einer verdreckten Werkstatt ab. Sie ist die Voraussetzung für alle weiter entwickelten Gebäude.</note>
       </notes>
@@ -2845,7 +2845,7 @@
         <target>L'avancée d'une ville passe par la construction d'un atelier crasseux et rempli d'un bazar indéfinissable. C'est un pré-requis pour tous les bâtiments avancés en ville.</target>
       </segment>
     </unit>
-    <unit id="7YJsQ6A" name="d31d808">
+    <unit id="7YJsQ6A">
       <notes>
         <note category="german">Dieses absurde Projekt hat den kompletten Umbau der Stadt zum Ziel. Jeder Stein, jedes Brett und jedes Gebäude wird gemäß eines neuen Verteidigungsplans neu ausgerichtet. Hierzu werden u.a. Häuser näher zusammengerückt, Gassen und selten benutzte Straßen versperrt und Wassergeschütztürme auf die Dächer der Stadt montiert. Ein richtig großer Umbau!</note>
       </notes>
@@ -2854,7 +2854,7 @@
         <target>Ce Projet Insensé vise à re-structurer la ville entière pour en améliorer la défense. Serrez les maisons, barrez les ruelles, installez des tourelles sur tous les toits… C'est ça, le Grand Déménagement !</target>
       </segment>
     </unit>
-    <unit id="nZ.t5Q9" name="7a4a1b6">
+    <unit id="nZ.t5Q9">
       <notes>
         <note category="german">Auch der Bohrturm ist eine absurde Konstruktion. Mit ihm können selbst tiefste wasserführende Schichten angezapft werden! Er fügt +50 Rationen an Wasser dem Brunnen hinzu.</note>
       </notes>
@@ -2863,7 +2863,7 @@
         <target>Un Projet Insensé prévu pour l'extraction d'une grande quantité d'eau dans les nappes phréatiques les plus profondes ! Ce chantier rapporte +50 rations d'eau au puits.</target>
       </segment>
     </unit>
-    <unit id="QgRLsly" name="f51527c">
+    <unit id="QgRLsly">
       <notes>
         <note category="german">Es ist weithin bekannt, dass die Zombies nicht so ganz helle sind... Wenn ihr es schafft, eine Stadt nachzubauen, könntet ihr den überwiegenden Großteil des Angriffs auf diesen Nachbau umlenken...</note>
       </notes>
@@ -2872,7 +2872,7 @@
         <target>Les zombies sont un peu simples dans leur tête, c'est bien connu. Si vous construisez une fausse seconde ville, vous déporterez toute une partie de l'attaque là-bas…</target>
       </segment>
     </unit>
-    <unit id="qfBgram" name="1dc4fe7">
+    <unit id="qfBgram">
       <notes>
         <note category="german">Dank dieses kleinen, am Brunnen angebrachten Wasserhahns, kannst Du nun die Wassermengen abschöpfen, die ansonten durch das Filtersystem verschwendet werden (es braucht kein zusätzliches Brunnen-Wasser). Du kannst mit diesem Wasser alle auf Wasser basierenden Waffen KOSTENLOS auffüllen (Wasserbombe, Wasserkanone,...)!</note>
       </notes>
@@ -2881,7 +2881,7 @@
         <target>Grace à ce petit robinet relié au puits, vous pouvez récupérer les eaux gaspillées par le système de filtrage (donc sans prélever l'eau potable, si précieuse). Vous pourrez alors l'utiliser pour remplir GRATUITEMENT toutes vos armes à eau (ballon, pistolets…) !</target>
       </segment>
     </unit>
-    <unit id="m0pInPT" name="0625538">
+    <unit id="m0pInPT">
       <notes>
         <note category="german">Dieses Feld voller Vogelscheuchen würde noch viel besser mit der Kleidung der Stadtbewohner funktionieren. Allerdings würde das bedeuten, dass sich die Stadt in ein Nudisten-Camp verwandeln würde.</note>
       </notes>
@@ -2935,7 +2935,7 @@
         <target>Augmente le rendement des objets de défense jetés à la décharge.</target>
       </segment>
     </unit>
-    <unit id="ue373IC" name="c0a9d4e">
+    <unit id="ue373IC">
       <notes>
         <note category="german">Steigert die Ausbeute jedes auf den Müll geworfenen Gegenstandes um +1 Verteidigungspunkt.</note>
       </notes>
@@ -2953,7 +2953,7 @@
         <target>Permet le massacre d'animaux innocents dans la décharge.</target>
       </segment>
     </unit>
-    <unit id="MNKa85." name="38beb6b">
+    <unit id="MNKa85.">
       <notes>
         <note category="german">Senkt die Kosten der Nutzung der Müllhalde auf 0 AP. Achtung: Falls ihr Halunken in eurer Stadt habt, solltet ihr euch den Bau gut überlegen...</note>
       </notes>
@@ -2962,7 +2962,7 @@
         <target>Réduit le coût d'usage de la décharge à 0 PA. Attention à ne pas construire ceci si votre ville compte encore des crapules en son sein…</target>
       </segment>
     </unit>
-    <unit id="90cHzot" name="667eac4">
+    <unit id="90cHzot">
       <notes>
         <note category="german">Der Eckpfeiler einer jeden großen Stadt: eine riesige, stinkende Müllhalde, die die ganze Stadt umgibt. Zugegeben, das ist nicht gerade ästhetisch, aber immerhin könnt ihr so Alltagsgegenstände in eine effektive Verteidigung verwandeln (nur eine Nacht haltbar).</note>
       </notes>
@@ -2971,7 +2971,7 @@
         <target>La clé de voûte de toute bonne ville : une immense décharge puante tout autour de la ville. Ce n'est certes pas très esthétique, mais cela permet de transformer des objets de tous les jours en défenses temporaires efficaces (valables une seule nuit).</target>
       </segment>
     </unit>
-    <unit id="TPZ2vxC" name="ccbd910">
+    <unit id="TPZ2vxC">
       <notes>
         <note category="german">Moderne Justiz in all seiner Pracht! Wird ein Mitbürger verbannt, kann er in den Fleischkäfig gesteckt werden, welcher sich wohlweislich direkt vor dem Stadttor befindet. Seine Schreie und Tränen dürften einen exzellenten Köder um Mitternacht abgeben. Jeder verbannte und in den Fleischkäfig gesteckte Mitbürger bringt der Stadt vorübergehende Verteidigungspuntke ein.</note>
       </notes>
@@ -2980,7 +2980,7 @@
         <target>La justice populaire au sommet de sa gloire ! Lorsqu'un citoyen est banni, il est envoyé à la cage judicieusement située bien en vue, devant l'entrée de la ville. Ses hurlements et ses pleurs feront un excellent appât à minuit. Chaque banni éliminé à la cage apporte de la défense temporaire à la ville.</target>
       </segment>
     </unit>
-    <unit id="9z9QPLV" name="919640a">
+    <unit id="9z9QPLV">
       <notes>
         <note category="german">Dieser schöne, hohe Leuchtturm wird Licht in lange Winternächte bringen (hat er im Sommer eigentlich irgendeinen Nutzen?). Alle Stadtbewohner auf Camping-Ausflug haben eine höhere Überlebens-Chance.</note>
       </notes>
@@ -2989,7 +2989,7 @@
         <target>Ce beau et grand phare illuminera vos longues nuits d'hiver (à moins que ce ne soit l'été ?). Tous les citoyens voient leurs chances de survie en camping augmenter.</target>
       </segment>
     </unit>
-    <unit id="IgJAS.l" name="977e57c">
+    <unit id="IgJAS.l">
       <notes>
         <note category="german">Da Bürger normalerweise nicht direkt von Verteidigungsbauten profitieren, wollen wir uns mal nicht beschweren. Alle Bürgerbehausungen erhalten +4 Verteidigung.</note>
       </notes>
@@ -2998,7 +2998,7 @@
         <target>Pour une fois qu'un chantier profite directement aux habitants, on ne va pas s'en plaindre. Toutes les maisons de citoyens reçoivent +4 en défense.</target>
       </segment>
     </unit>
-    <unit id="D_tzr7L" name="0872a56">
+    <unit id="D_tzr7L">
       <notes>
         <note category="german">Ein großes Leuchtfeuer, irgendwo weit abseits von der Stadt entzündet, soll die Zombies von unseren Häusern weglocken.</note>
       </notes>
@@ -3007,7 +3007,7 @@
         <target>Un grand feu de joie un peu à l'écart de la ville pour attirer les zombies loin de nos frêles maisons.</target>
       </segment>
     </unit>
-    <unit id="yucPall" name="ce48f50">
+    <unit id="yucPall">
       <notes>
         <note category="german">Wie jeder weiß, haben Helden immer recht. Um diesen Fakt weiter zu zementieren, zählen alle von Helden gegen andere Bürger ausgesprochenen Beschwerden doppelt.</note>
       </notes>
@@ -3016,7 +3016,7 @@
         <target>Les héros ont toujours raison, c'est bien connu. D'ailleurs, pour appuyer cette réalité, les plaintes qu'ils déposent à l'encontre d'autres citoyens comptent double.</target>
       </segment>
     </unit>
-    <unit id="vY2elYU" name="b4472bd">
+    <unit id="vY2elYU">
       <notes>
         <note category="german">Das Ministerium für Sklaverei hat beschlossen, dass Verbannte auf den Baustellen arbeiten dürfen. Außerdem erhält jeder von ihnen in ein Bauprojekt investierte AP einen 50%-Bonus (z.B. aus 6 AP werden so 9 AP, die in das Bauprojekt fließen).</note>
       </notes>
@@ -3025,7 +3025,7 @@
         <target>Le bureau des esclavagistes permet aux bannis de travailler aux chantiers. D'ailleurs, les PA qu'ils investissent rapportent 50% de PA supplémentaires aux chantiers (arrondi à l'inférieur ; ex: pour 6 PA personnels investis, 9 PA sont ajoutés au projet et pour 5 PA seulement 7 PA sont ajoutés).</target>
       </segment>
     </unit>
-    <unit id="66lLcPR" name="d3d58a4">
+    <unit id="66lLcPR">
       <notes>
         <note category="german">Da selbst der Bohrer des Bohrturms nicht durch jede Schicht durchkommt, muss man hin und wieder kleine und mit Dynamit bestückte Tiere in die Tiefe schicken. Dieses Projekt fügt den städtischen Wasserreserven +150 Rationen hinzu.</note>
       </notes>
@@ -3034,7 +3034,7 @@
         <target>Parce qu'un derrick ne peut pas forcément percer toutes les roches, la foreuse creuse plus pour boire plus. Ce chantier rapporte +150 rations d'eau au puits.</target>
       </segment>
     </unit>
-    <unit id="cYlMU3f" name="191d84d">
+    <unit id="cYlMU3f">
       <notes>
         <note category="german">Sie zeigen Dawn of the Dead... zum 636. Mal. Bisher war dir die überzeugende Darstellung eines Nebendarstellers noch nie so richtig aufgefallen. Es gibt tatsächlich noch etwas Neues zu entdecken. Und wer weiß? Mit ein bisschen Glück bringt dich der Film ja sogar zum Lachen.</note>
       </notes>
@@ -3043,7 +3043,7 @@
         <target>On projette pour la 636ème fois Dawn of the dead, vous avez surement manqué le formidable jeu d'acteur des figurants, rien ne vaut un petit visionnage de plus. Avec un peu de chance, ça vous fera même rigoler.</target>
       </segment>
     </unit>
-    <unit id="_qiinHX" name="fa9f4c1">
+    <unit id="_qiinHX">
       <notes>
         <note category="german">Ein großer, runder Ballon steigt hinauf in den Himmel. Aber nur solange, wie der "Freiwillige" in der Gondel braucht, um alles rund um die Stadt zu erfassen. Das Bauwerk ermöglicht es Dir, die gesamte Außenwelt zu entdecken.</note>
       </notes>
@@ -3052,7 +3052,7 @@
         <target>Un gros ballon tout rond qui vole dans le ciel, mais juste assez longtemps pour qu’un citoyen “volontaire” répertorie tout ce qu’il voie autour de notre ville. Ce chantier permet de révéler l’intégralité de l’Outre-monde.</target>
       </segment>
     </unit>
-    <unit id="0XMhjon" name="d9d68d6">
+    <unit id="0XMhjon">
       <notes>
         <note category="german">Zombies sind bekanntermaßen einfach gestrickt. Warum ihnen dann nicht einfach ein kleines Labyrinth vor die Nase (das Stadttor) setzen und dabei zusehen, wie ihr Angriff an Schwung verliert. Das Ganze ist äußerst effektiv. Doch jeder Bürger, der die Stadt betreten will, muss dann 1 AP aufbringen.</note>
       </notes>
@@ -3061,7 +3061,7 @@
         <target>Les zombies sont un peu bêtes, c'est bien connu. Alors quoi de mieux qu'un petit labyrinthe devant la porte de la ville pour les perdre pendant l'attaque ? C'est très efficace, mais chaque citoyen souhaitant rentrer en ville devra dépenser 1 PA dorénavant.</target>
       </segment>
     </unit>
-    <unit id="buC0.Q1" name="d20ea22">
+    <unit id="buC0.Q1">
       <notes>
         <note category="german">Nicht mehr als ein Akt der Verzweiflung! Alle Gegenstände in der Bank werden zerstört und bringen jeweils +1 vorübergehende Verteidigung.</note>
       </notes>
@@ -3070,7 +3070,7 @@
         <target>C'est le sursaut du désespoir ! Tous les objets de la banque seront détruits et apporteront +1 point de défense temporaire chacun.</target>
       </segment>
     </unit>
-    <unit id="GBviw9H" name="984e5b8">
+    <unit id="GBviw9H">
       <notes>
         <note category="german">Vier feine Raketen werden gestartet und auf vier strategische Ziele rund um die Stadt (Norden, Süden, Osten, Westen) abgefeuert. Auf ihrem Weg töten sie jeden Zombie.</note>
       </notes>
@@ -3079,7 +3079,7 @@
         <target>Quatre belles roquettes sont lancées vers les quatre points cardinaux autour de la ville (nord, sud, est et ouest), massacrant tous les zombies dans le désert sur leur passage !</target>
       </segment>
     </unit>
-    <unit id="IakGX2Y" name="f02f3e0">
+    <unit id="IakGX2Y">
       <notes>
         <note category="german">Es gibt nichts Besseres, um die Tristesse langer Wüstennächte zu vertreiben, als ein schönes, großes Feuerwerk. Diese spezielle Variante geht so: Man feuert die Raketen in die Bereiche rund um die Stadt ab und zündet sie dann um Punkt Mitternacht inmitten der Zombiehorden.</note>
       </notes>
@@ -3088,7 +3088,7 @@
         <target>Rien de tel pour égayer les longues nuits dans le désert qu'un bon gros feu d'artifice. La petite variante consiste ici à orienter les tubes de lancement vers l'extérieur de la ville, dans les hordes de zombies à minuit. Peut-être aurez vous de la chance d'éclairer une partie de l'Outre-monde à défaut de cramer du zombie ?</target>
       </segment>
     </unit>
-    <unit id="vw29RKg" name="6ba9043">
+    <unit id="vw29RKg">
       <notes>
         <note category="german">Weil der Rabe gut und gerecht ist, befreit dieser zu seinen Ehren errichtete Schrein alle Bürger, die aus der Stadt verbannt wurden.</note>
       </notes>
@@ -3097,7 +3097,7 @@
         <target>Parceque le Corbeau est bon et magnanime, cet autel à sa gloire libèrera tous les citoyens bannis de la ville.</target>
       </segment>
     </unit>
-    <unit id="G1W3bpP" name="de36cba">
+    <unit id="G1W3bpP">
       <notes>
         <note category="german">Ein wirklich riesiger KVF, auf dem die Namen aller Bürger der Stadt eingraviert sind, erhebt sich stolz in den Himmel... äh. Genau, ein KVF. Niemand weiß warum, aber jemand hat am Fuße des Bauwerks "Eigentum der tiefsinnigen Nacht" eingraviert. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</note>
       </notes>
@@ -3106,7 +3106,7 @@
         <target>Un immense PMV sur lequel sont gravés les noms de tous les habitants de la ville, dressé vers le ciel comme… euh. Un PMV. Personne ne sait pourquoi, mais quelqu'un a apposé la mention suivante à sa base : “Antre de la Nuit Profonde”. Cette Merveille brille par son inutilité la plus totale : sa construction rapporte une distinction rarissime à tous les citoyens en ville.</target>
       </segment>
     </unit>
-    <unit id="XkiAKmo" name="b3acd86">
+    <unit id="XkiAKmo">
       <notes>
         <note category="german">Huldigt den Raben! Gelobt sei deine Milde und deine erhabene Austrahlung! Befreie uns vom Spam und vergib uns unsere Trollenbeiträge so wie auch wir vergeben anderen Trollen. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</note>
       </notes>
@@ -3115,7 +3115,7 @@
         <target>Gloire au Corbeau ! Gloire à ta mansuétude et à ton aura bienfaisante ! Délivre nous du spam et pardonne nos trolls comme nous pardonnons à ceux que nous avons trollés. Cette Merveille brille par son inutilité la plus totale : sa construction rapporte une distinction rarissime à tous les citoyens en ville.</target>
       </segment>
     </unit>
-    <unit id="qVqfrKN" name="965147a">
+    <unit id="qVqfrKN">
       <notes>
         <note category="german">Es ist wirklich eine enorme und beeindruckente Konstruktion. Ihr habt eure kostbarsten Materialien an dieses verdammte Ding verschwendet, und denoch seid ihr irgendwie stolz darauf. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</note>
       </notes>
@@ -3124,7 +3124,7 @@
         <target>C'est une belle et grande réalisation, ça a pompé une bonne partie de nos ressources mais vous en êtes très fiers. Cette Merveille brille par son inutilité la plus totale : sa construction rapporte une distinction rarissime à tous les citoyens en ville.</target>
       </segment>
     </unit>
-    <unit id="EP7MRzT" name="6e85048">
+    <unit id="EP7MRzT">
       <notes>
         <note category="german">Wenn es eines gibt, woran hier wahrlich kein Mangel herrscht, dann ist es Sand. Dieses Wunderwerk strahlt im Glanze seiner Nutzlosigkeit: Seine Errichtung bringt allen Bürgern der Stadt eine seltene Auszeichnung ein.</note>
       </notes>
@@ -3133,7 +3133,7 @@
         <target>S'il y a bien quelque chose dont on ne manque pas ici, c'est du sable. Cette Merveille brille par son inutilité la plus totale : sa construction rapporte une distinction rarissime à tous les citoyens en ville.</target>
       </segment>
     </unit>
-    <unit id="ruMYkQK" name="f5d70ef">
+    <unit id="ruMYkQK">
       <notes>
         <note category="german">Dieses furchterregende Konstrukt stammt aus einem sowjetischen U-Boot und sendet gleißende Blitze knisternder Elektrizität rund um die Stadt aus. Einziger Haken an der Sache: Es muss jeden Tag repariert werden. Falls es zerstört wird, würde die Stadt mitsamt der gesamten Umgebung augenblicklich ausradiert werden (inklusive euch). Das Schild am Reaktor besagt: sowjetische Bauweise, hergestellt in « вшивый ».</note>
       </notes>
@@ -3142,7 +3142,7 @@
         <target>Ce bâtiment terrifiant est issu d'un sous-marin soviétique et projette de puissants arcs électriques tout autour de la ville dans un crépitement assourdissant. Seul “bémol”, il doit être réparé quotidiennement. S'il est détruit, toute la ville et ses alentours sont instantanément pulvérisés, tuant tout le monde sur la carte (où que vous soyez). La notice précise : conception soviétique, assemblé à « вшивый ».</target>
       </segment>
     </unit>
-    <unit id="ZGSZ8Y0" name="9c6c617">
+    <unit id="ZGSZ8Y0">
       <notes>
         <note category="german">Das Fundament ist die Grundvoraussetzung für "Absurde Projekte" (das sind langwierige und anstrengende Bauten, die jedoch für die Stadt mehr als nützlich sind).</note>
       </notes>
@@ -3160,7 +3160,7 @@
         <target>La porte se referme automatiquement à 23h59 au lieu de 23h30.</target>
       </segment>
     </unit>
-    <unit id="qcnjh2a" name="b2840d8">
+    <unit id="qcnjh2a">
       <notes>
         <note category="german">Dieser äußerst leistungsstarke Kolbenmotor schließt und verriegelt das Stadttor eine halbe Stunde vor Mitternacht. Nach der Schließung kann das Tor nicht mehr geöffnet werden.</note>
       </notes>
@@ -3169,7 +3169,7 @@
         <target>Grâce à un puissant moteur à pistons, ce système ferme automatiquement la porte et bloque son ouverture une demi-heure avant l'attaque.</target>
       </segment>
     </unit>
-    <unit id=".S8H9z4" name="4e90e01">
+    <unit id=".S8H9z4">
       <notes>
         <note category="german">Ein paar improvisierte Panzerplatten werden direkt auf das Stadttor geschraubt und verbessern so die Widerstandskraft desselben.</note>
       </notes>
@@ -3178,7 +3178,7 @@
         <target>De gros renforts cloués à même la porte de la ville pour en améliorer la résistance.</target>
       </segment>
     </unit>
-    <unit id="7YLzXpN" name="278ff38">
+    <unit id="7YLzXpN">
       <notes>
         <note category="german">Dieser Geheimgang erlaubt es Helden, ein- und auszugehen, ohne das Stadttor zu benutzen!</note>
       </notes>
@@ -3187,7 +3187,7 @@
         <target>Ce passage secret permet aux héros de rentrer et sortir de la ville sans emprunter la porte !</target>
       </segment>
     </unit>
-    <unit id="uKVPWuT" name="13115fa">
+    <unit id="uKVPWuT">
       <notes>
         <note category="german">Eine rustikal anmutende Konstruktion, mit der die Öffnung des Stadttors nach 23:40 erfolgreich verhindert werden kann (es dürfte äußerst selten vorkommen, dass das Tor danach nochmal geöffnet werden muss). Das Stadttor muss nichtsdestotrotz zusätzlich noch per Hand geschlossen werden.</note>
       </notes>
@@ -3196,7 +3196,7 @@
         <target>Un bricolage un peu rustique qui permet d'empêcher l'ouverture (rarement désirée) de la porte de 23h40 à minuit. La porte doit toutefois toujours être fermée manuellement.</target>
       </segment>
     </unit>
-    <unit id="MJGPCrn" name="c5996a6">
+    <unit id="MJGPCrn">
       <notes>
         <note category="german">Ein Ort der Entspannung und der Meditation, perfekt geeignet um eine Seele auf die Andere Seite zu geleiten.</note>
       </notes>
@@ -3205,7 +3205,7 @@
         <target>Un lieu de relaxation hautement adapté au transfert des âmes vers le repos éternel.</target>
       </segment>
     </unit>
-    <unit id="xAxWKet" name="f3165c3">
+    <unit id="xAxWKet">
       <notes>
         <note category="german">Wenn es brenzlig wird, ist es oft überlebenswichtig, hier und dort mit ein paar Holzplanken nachzuhelfen und alles nochmal dicht zu machen. Das bringt dir oft noch eine weitere Nacht.</note>
       </notes>
@@ -3241,7 +3241,7 @@
         <target>Barrières</target>
       </segment>
     </unit>
-    <unit id="R.TLWup" name="aed3fec">
+    <unit id="R.TLWup">
       <notes>
         <note category="german">Die AP-Kosten aller Bauprojekte werden um 24% gesenkt. Erhöht die Effektivität von Reparaturen um einen Punkt.</note>
       </notes>
@@ -3250,7 +3250,7 @@
         <target>Le coût en PA de tous les chantiers est réduit de 24%. Augmente le rendement de réparation de un point.</target>
       </segment>
     </unit>
-    <unit id="JLugykh" name="124a889">
+    <unit id="JLugykh">
       <notes>
         <note category="german">Die AP-Kosten aller Bauprojekte werden um 30% gesenkt. Erhöht die Effektivität von Reparaturen um zwei Punkte.</note>
       </notes>
@@ -3277,7 +3277,7 @@
         <target>Croix en Chocolat</target>
       </segment>
     </unit>
-    <unit id="fDHJWJh" name="79667b6">
+    <unit id="fDHJWJh">
       <notes>
         <note category="german">Ein wunderschönes Kreuz aus Schokolade, an dem unliebsame (oder lästige) Mitbürger platziert werden können. Ist mal was "anderes" als die klassische Verbannung...</note>
       </notes>
@@ -3295,7 +3295,7 @@
         <target>Éclairage public</target>
       </segment>
     </unit>
-    <unit id="p8Ajeue" name="cd33594">
+    <unit id="p8Ajeue">
       <notes>
         <note category="german">Selbst in der tiefsten Nacht erlaubt dir der fahle Schein der Laternenmasten, deine Ausgrabungen in der Wüste fortzusetzen. Keine Ausreden mehr, um früh ins Bett zu gehen.</note>
       </notes>
@@ -3304,7 +3304,7 @@
         <target>Quand la nuit profonde sera venue, la lueur blafarde des lampadaires vous permettra de poursuivre vos fouilles du désert. Plus d'excuses pour aller au lit.</target>
       </segment>
     </unit>
-    <unit id="ZLkYC3_" name="e3784de">
+    <unit id="ZLkYC3_">
       <notes>
         <note category="german">Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 6km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</note>
       </notes>
@@ -3313,7 +3313,7 @@
         <target>La réduction des chances de fouilles la nuit est annulée dans un rayon de 6 km autour de la ville, 1 pile est consommée par jour.</target>
       </segment>
     </unit>
-    <unit id="sLA35Ek" name="7f700fb">
+    <unit id="sLA35Ek">
       <notes>
         <note category="german">Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 10km um die Stadt negiert, pro Tag wird 1 Batterie verbraucht.</note>
       </notes>
@@ -3322,7 +3322,7 @@
         <target>La réduction des chances de fouilles la nuit est annulée dans un rayon de 10 km autour de la ville, 1 pile est consommée par jour.</target>
       </segment>
     </unit>
-    <unit id="9Yp1S0O" name="163fb9e">
+    <unit id="9Yp1S0O">
       <notes>
         <note category="german">Die Verringerung der Fundchancen bei Nacht wird auf der gesamten Karte negiert, pro Tag werden 2 Batterien verbraucht.</note>
       </notes>
@@ -3331,7 +3331,7 @@
         <target>La réduction des chances de fouilles la nuit est annulée sur toute la carte, 2 piles sont consommées par jour.</target>
       </segment>
     </unit>
-    <unit id="nvB5DhN" name="c783d04">
+    <unit id="nvB5DhN">
       <notes>
         <note category="german">Die Verringerung der Fundchancen bei Nacht wird im Umkreis von 2km um die Stadt negiert.</note>
       </notes>

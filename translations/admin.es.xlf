@@ -2692,7 +2692,7 @@
         <target>Impedir el juego</target>
       </segment>
     </unit>
-    <unit id="67OtxCl" name="3e3c02a">
+    <unit id="67OtxCl">
       <notes>
         <note category="german">Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.</note>
       </notes>
@@ -2710,7 +2710,7 @@
         <target>Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.</target>
       </segment>
     </unit>
-    <unit id="3Bzuyaj" name="e76fc50">
+    <unit id="3Bzuyaj">
       <notes>
         <note category="german">Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.</note>
       </notes>
@@ -3113,6 +3113,78 @@
       <segment>
         <source>Änderungen speichern</source>
         <target>Guardar los cambios</target>
+      </segment>
+    </unit>
+    <unit id="ohcn8tz" name="Freundschaftswerbung">
+      <notes>
+        <note category="german">Freundschaftswerbung</note>
+      </notes>
+      <segment>
+        <source>Freundschaftswerbung</source>
+        <target>Freundschaftswerbung</target>
+      </segment>
+    </unit>
+    <unit id="uIkrK0q" name="Ref-Namen ändern">
+      <notes>
+        <note category="german">Ref-Namen ändern</note>
+      </notes>
+      <segment>
+        <source>Ref-Namen ändern</source>
+        <target>Ref-Namen ändern</target>
+      </segment>
+    </unit>
+    <unit id="o81xxnX" name="Ref-Namen sperren">
+      <notes>
+        <note category="german">Ref-Namen sperren</note>
+      </notes>
+      <segment>
+        <source>Ref-Namen sperren</source>
+        <target>Ref-Namen sperren</target>
+      </segment>
+    </unit>
+    <unit id="hYqcqsf" name="Ref-Namen entsprerren">
+      <notes>
+        <note category="german">Ref-Namen entsprerren</note>
+      </notes>
+      <segment>
+        <source>Ref-Namen entsprerren</source>
+        <target>Ref-Namen entsprerren</target>
+      </segment>
+    </unit>
+    <unit id="TcAZPZH" name="Sponsor setzen">
+      <notes>
+        <note category="german">Sponsor setzen</note>
+      </notes>
+      <segment>
+        <source>Sponsor setzen</source>
+        <target>Sponsor setzen</target>
+      </segment>
+    </unit>
+    <unit id="eeN3gHp" name="Ref-Name">
+      <notes>
+        <note category="german">Ref-Name</note>
+      </notes>
+      <segment>
+        <source>Ref-Name</source>
+        <target>Ref-Name</target>
+      </segment>
+    </unit>
+    <unit id="ZzLzTI." name="Gesponsort von">
+      <notes>
+        <note category="german">Gesponsort von</note>
+      </notes>
+      <segment>
+        <source>Gesponsort von</source>
+        <target>Gesponsort von</target>
+      </segment>
+    </unit>
+    <unit id="MJJ_lOb" name="Gesponsorte Spieler">
+      <notes>
+        <note category="german">Gesponsorte Spieler</note>
+      </notes>
+      <segment>
+        <source>Gesponsorte Spieler</source>
+        <target>Gesponsorte Spieler</target>
       </segment>
     </unit>
   </file>

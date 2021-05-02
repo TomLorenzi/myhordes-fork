@@ -46,7 +46,7 @@
         <target>Cette valeur doit être l'un des choix proposés.</target>
       </segment>
     </unit>
-    <unit id="u81CkP8" name="0d999f2">
+    <unit id="u81CkP8">
       <notes>
         <note category="german">Sie müssen mindestens {{ limit }} Möglichkeit wählen.|Sie müssen mindestens {{ limit }} Möglichkeiten wählen.</note>
       </notes>
@@ -55,7 +55,7 @@
         <target>Vous devez sélectionner au moins {{ limit }} choix.|Vous devez sélectionner au moins {{ limit }} choix.</target>
       </segment>
     </unit>
-    <unit id="nIvOQ_o" name="0824486">
+    <unit id="nIvOQ_o">
       <notes>
         <note category="german">Sie dürfen höchstens {{ limit }} Möglichkeit wählen.|Sie dürfen höchstens {{ limit }} Möglichkeiten wählen.</note>
       </notes>
@@ -136,7 +136,7 @@
         <target>Le fichier n'est pas lisible.</target>
       </segment>
     </unit>
-    <unit id="JocOVM2" name="1ad411a">
+    <unit id="JocOVM2">
       <notes>
         <note category="german">Die Datei ist zu groß ({{ size }} {{ suffix }}). Die maximal zulässige Größe beträgt {{ limit }} {{ suffix }}.</note>
       </notes>
@@ -145,7 +145,7 @@
         <target>Le fichier est trop volumineux ({{ size }} {{ suffix }}). Sa taille ne doit pas dépasser {{ limit }} {{ suffix }}.</target>
       </segment>
     </unit>
-    <unit id="YW21SPH" name="30a318d">
+    <unit id="YW21SPH">
       <notes>
         <note category="german">Der Dateityp ist ungültig ({{ type }}). Erlaubte Dateitypen sind {{ types }}.</note>
       </notes>
@@ -163,7 +163,7 @@
         <target>Cette valeur doit être inférieure ou égale à {{ limit }}.</target>
       </segment>
     </unit>
-    <unit id="HX7TOFm" name="0e0c1e1">
+    <unit id="HX7TOFm">
       <notes>
         <note category="german">Diese Zeichenkette ist zu lang. Sie sollte höchstens {{ limit }} Zeichen haben.|Diese Zeichenkette ist zu lang. Sie sollte höchstens {{ limit }} Zeichen haben.</note>
       </notes>
@@ -181,7 +181,7 @@
         <target>Cette valeur doit être supérieure ou égale à {{ limit }}.</target>
       </segment>
     </unit>
-    <unit id="ekfrU.c" name="5188ff9">
+    <unit id="ekfrU.c">
       <notes>
         <note category="german">Diese Zeichenkette ist zu kurz. Sie sollte mindestens {{ limit }} Zeichen haben.|Diese Zeichenkette ist zu kurz. Sie sollte mindestens {{ limit }} Zeichen haben.</note>
       </notes>
@@ -352,7 +352,7 @@
         <target>La taille de l'image n'a pas pu être détectée.</target>
       </segment>
     </unit>
-    <unit id="zVtJJEa" name="266051e">
+    <unit id="zVtJJEa">
       <notes>
         <note category="german">Die Bildbreite ist zu groß ({{ width }}px). Die maximal zulässige Breite beträgt {{ max_width }}px.</note>
       </notes>
@@ -361,7 +361,7 @@
         <target>La largeur de l'image est trop grande ({{ width }}px). La largeur maximale autorisée est de {{ max_width }}px.</target>
       </segment>
     </unit>
-    <unit id="s8LFQGC" name="c1c23f9">
+    <unit id="s8LFQGC">
       <notes>
         <note category="german">Die Bildbreite ist zu gering ({{ width }}px). Die erwartete Mindestbreite beträgt {{ min_width }}px.</note>
       </notes>
@@ -370,7 +370,7 @@
         <target>La largeur de l'image est trop petite ({{ width }}px). La largeur minimale attendue est de {{ min_width }}px.</target>
       </segment>
     </unit>
-    <unit id="Z.NgqFj" name="9a128f7">
+    <unit id="Z.NgqFj">
       <notes>
         <note category="german">Die Bildhöhe ist zu groß ({{ height }}px). Die maximal zulässige Höhe beträgt {{ max_height }}px.</note>
       </notes>
@@ -379,7 +379,7 @@
         <target>La hauteur de l'image est trop grande ({{ height }}px). La hauteur maximale autorisée est de {{ max_height }}px.</target>
       </segment>
     </unit>
-    <unit id="AW1lWVM" name="8a4cd70">
+    <unit id="AW1lWVM">
       <notes>
         <note category="german">Die Bildhöhe ist zu gering ({{ height }}px). Die erwartete Mindesthöhe beträgt {{ min_height }}px.</note>
       </notes>
@@ -397,7 +397,7 @@
         <target>Cette valeur doit être le mot de passe actuel de l'utilisateur.</target>
       </segment>
     </unit>
-    <unit id="gYImVyV" name="fd389d6">
+    <unit id="gYImVyV">
       <notes>
         <note category="german">Dieser Wert sollte genau {{ limit }} Zeichen lang sein.|Dieser Wert sollte genau {{ limit }} Zeichen lang sein.</note>
       </notes>
@@ -451,7 +451,7 @@
         <target>Une extension PHP a empêché le transfert du fichier.</target>
       </segment>
     </unit>
-    <unit id="gTJYRl6" name="b54c218">
+    <unit id="gTJYRl6">
       <notes>
         <note category="german">Diese Sammlung sollte {{ limit }} oder mehr Elemente beinhalten.|Diese Sammlung sollte {{ limit }} oder mehr Elemente beinhalten.</note>
       </notes>
@@ -460,7 +460,7 @@
         <target>Cette collection doit contenir {{ limit }} élément ou plus.|Cette collection doit contenir {{ limit }} éléments ou plus.</target>
       </segment>
     </unit>
-    <unit id="FFn3lVn" name="949632c">
+    <unit id="FFn3lVn">
       <notes>
         <note category="german">Diese Sammlung sollte {{ limit }} oder weniger Elemente beinhalten.|Diese Sammlung sollte {{ limit }} oder weniger Elemente beinhalten.</note>
       </notes>
@@ -469,7 +469,7 @@
         <target>Cette collection doit contenir {{ limit }} élément ou moins.|Cette collection doit contenir {{ limit }} éléments ou moins.</target>
       </segment>
     </unit>
-    <unit id="bSdilZv" name="e0582dc">
+    <unit id="bSdilZv">
       <notes>
         <note category="german">Diese Sammlung sollte genau {{ limit }} Element beinhalten.|Diese Sammlung sollte genau {{ limit }} Elemente beinhalten.</note>
       </notes>
@@ -577,7 +577,7 @@
         <target>Cette valeur doit être supérieure ou égale à {{ compared_value }}.</target>
       </segment>
     </unit>
-    <unit id="bOF1fpm" name="9670078">
+    <unit id="bOF1fpm">
       <notes>
         <note category="german">Dieser Wert sollte identisch sein mit {{ compared_value_type }} {{ compared_value }}.</note>
       </notes>
@@ -613,7 +613,7 @@
         <target>Cette valeur ne doit pas être égale à {{ compared_value }}.</target>
       </segment>
     </unit>
-    <unit id="Bi22JLt" name="0eedf91">
+    <unit id="Bi22JLt">
       <notes>
         <note category="german">Dieser Wert sollte nicht identisch sein mit {{ compared_value_type }} {{ compared_value }}.</note>
       </notes>
@@ -622,7 +622,7 @@
         <target>Cette valeur ne doit pas être identique à {{ compared_value_type }} {{ compared_value }}.</target>
       </segment>
     </unit>
-    <unit id="VczCWzQ" name="9c3ad0f">
+    <unit id="VczCWzQ">
       <notes>
         <note category="german">Das Seitenverhältnis des Bildes ist zu groß ({{ ratio }}). Der erlaubte Maximalwert ist {{ max_ratio }}.</note>
       </notes>
@@ -631,7 +631,7 @@
         <target>Le rapport largeur/hauteur de l'image est trop grand ({{ ratio }}). Le rapport maximal autorisé est {{ max_ratio }}.</target>
       </segment>
     </unit>
-    <unit id="v57PXhq" name="4376d45">
+    <unit id="v57PXhq">
       <notes>
         <note category="german">Das Seitenverhältnis des Bildes ist zu klein ({{ ratio }}). Der erwartete Minimalwert ist {{ min_ratio }}.</note>
       </notes>
@@ -649,7 +649,7 @@
         <target>L'image est carrée ({{ width }}x{{ height }}px). Les images carrées ne sont pas autorisées.</target>
       </segment>
     </unit>
-    <unit id="G_lu2qW" name="1dc128a">
+    <unit id="G_lu2qW">
       <notes>
         <note category="german">Das Bild ist im Querformat ({{ width }}x{{ height }}px). Bilder im Querformat sind nicht erlaubt.</note>
       </notes>
@@ -658,7 +658,7 @@
         <target>L'image est au format paysage ({{ width }}x{{ height }}px). Les images au format paysage ne sont pas autorisées.</target>
       </segment>
     </unit>
-    <unit id="sFyGx4B" name="9e27714">
+    <unit id="sFyGx4B">
       <notes>
         <note category="german">Das Bild ist im Hochformat ({{ width }}x{{ height }}px). Bilder im Hochformat sind nicht erlaubt.</note>
       </notes>
@@ -802,7 +802,7 @@
         <target>Cette valeur n'est pas un fuseau horaire valide.</target>
       </segment>
     </unit>
-    <unit id="40dnsod" name="7e27e92">
+    <unit id="40dnsod">
       <notes>
         <note category="german">Dieses Passwort ist Teil eines Datenlecks, es darf nicht verwendet werden.</note>
       </notes>
@@ -829,7 +829,7 @@
         <target>Cette valeur n'est pas un nom d'hôte valide.</target>
       </segment>
     </unit>
-    <unit id="xwtBimR" name="d165c02">
+    <unit id="xwtBimR">
       <notes>
         <note category="german">Die Anzahl an Elementen in dieser Sammlung sollte ein Vielfaches von {{ compared_value }} sein.</note>
       </notes>

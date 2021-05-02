@@ -73,7 +73,7 @@
         <target>Night attack</target>
       </segment>
     </unit>
-    <unit id="xOWTZkZ" name="50b1aa2">
+    <unit id="xOWTZkZ">
       <notes>
         <note category="german">Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</note>
       </notes>
@@ -82,7 +82,7 @@
         <target>The server is being overrun by zombies. Please be patient while we fight off the attacking hordes.</target>
       </segment>
     </unit>
-    <unit id="e6r4m6r" name="1a8b866">
+    <unit id="e6r4m6r">
       <notes>
         <note category="german">Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</note>
       </notes>
@@ -100,7 +100,7 @@
         <target>Join</target>
       </segment>
     </unit>
-    <unit id="1Wm5ylA" name="0593e73">
+    <unit id="1Wm5ylA">
       <notes>
         <note category="german">Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</note>
       </notes>
@@ -109,7 +109,7 @@
         <target>The language of the selected town is %lang_town%. Your current language setting is %lang_user%.</target>
       </segment>
     </unit>
-    <unit id="0C3XaFv" name="321754f">
+    <unit id="0C3XaFv">
       <notes>
         <note category="german">Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</note>
       </notes>
@@ -127,7 +127,7 @@
         <target>Confirm</target>
       </segment>
     </unit>
-    <unit id="HPqIAMR" name="88b4d3a">
+    <unit id="HPqIAMR">
       <notes>
         <note category="german">Do you wish to enter the terrible world of MyHordes as an inhabitant of the town %town_name%?</note>
       </notes>
@@ -145,7 +145,7 @@
         <target>Your soul meets the requirements for this Town type.</target>
       </segment>
     </unit>
-    <unit id="Ap6glg5" name="262981c">
+    <unit id="Ap6glg5">
       <notes>
         <note category="german">Möchtest du die schreckliche Welt der Verdammten als Bürger der Stadt %town_name% betreten?</note>
       </notes>
@@ -154,7 +154,7 @@
         <target>Do you want to enter the terrible world of MyHordes as a citizen of %town_name%</target>
       </segment>
     </unit>
-    <unit id="AwZY28C" name="31a3422">
+    <unit id="AwZY28C">
       <notes>
         <note category="german">&lt;p&gt;
                     Deine Stadt wird gerade von den Zombies &lt;strong&gt;angegriffen&lt;/strong&gt;! Du hörst wie sie &lt;strong&gt;grunzend&lt;/strong&gt; gegen eure Hütten schlagen. Dazwischen immer wieder &lt;strong&gt;Hilferufe&lt;/strong&gt; und Schreie... Sie scheinen überall zu sein...
@@ -187,7 +187,7 @@
         <target>What does it mean?</target>
       </segment>
     </unit>
-    <unit id="ePJ.g5_" name="070fa24">
+    <unit id="ePJ.g5_">
       <notes>
         <note category="german">MyHordes wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</note>
       </notes>
@@ -196,7 +196,7 @@
         <target>MyHordes is currently overrun by zombies! This happens every day!</target>
       </segment>
     </unit>
-    <unit id="6YlCau0" name="5a5d604">
+    <unit id="6YlCau0">
       <notes>
         <note category="german">Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.</note>
       </notes>
@@ -259,7 +259,7 @@
         <target>Normal</target>
       </segment>
     </unit>
-    <unit id="jNQMs2P" name="fead058">
+    <unit id="jNQMs2P">
       <notes>
         <note category="german">Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</note>
       </notes>
@@ -277,7 +277,7 @@
         <target>Bloodthirsty</target>
       </segment>
     </unit>
-    <unit id="Zj_q.r8" name="f806eb4">
+    <unit id="Zj_q.r8">
       <notes>
         <note category="german">Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.</note>
       </notes>
@@ -331,7 +331,7 @@
         <target>Create a private town</target>
       </segment>
     </unit>
-    <unit id="iita2xJ" name="83fa5e3">
+    <unit id="iita2xJ">
       <notes>
         <note category="german">In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Themen" zu spielen.</note>
       </notes>
@@ -358,7 +358,7 @@
         <target>Water supply</target>
       </segment>
     </unit>
-    <unit id="oix8aY3" name="5d9dd6d">
+    <unit id="oix8aY3">
       <notes>
         <note category="german">Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300</note>
       </notes>
@@ -421,7 +421,7 @@
         <target>None</target>
       </segment>
     </unit>
-    <unit id="LDmQN2V" name="94fc68e">
+    <unit id="LDmQN2V">
       <notes>
         <note category="german">Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!</note>
       </notes>
@@ -439,7 +439,7 @@
         <target>No starting buildings</target>
       </segment>
     </unit>
-    <unit id="lU_pn2u" name="528f88a">
+    <unit id="lU_pn2u">
       <notes>
         <note category="german">Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.</note>
       </notes>
@@ -709,7 +709,7 @@
         <target>Reward all Distinctions:</target>
       </segment>
     </unit>
-    <unit id="WjDyWyC" name="614a449">
+    <unit id="WjDyWyC">
       <notes>
         <note category="german">Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.</note>
       </notes>
@@ -754,7 +754,7 @@
         <target>Reserve places</target>
       </segment>
     </unit>
-    <unit id="JmzKQyu" name="ba95582">
+    <unit id="JmzKQyu">
       <notes>
         <note category="german">Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?</note>
       </notes>
@@ -772,7 +772,7 @@
         <target>Map Seed</target>
       </segment>
     </unit>
-    <unit id="_SibAUY" name="5b4e357">
+    <unit id="_SibAUY">
       <notes>
         <note category="german">Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
                                 Gib eine positive ganze Zahl ein, um es zu aktivieren.
@@ -913,7 +913,7 @@
         <target>Do not create as a private town:</target>
       </segment>
     </unit>
-    <unit id="QFPVvM5" name="e82f193">
+    <unit id="QFPVvM5">
       <notes>
         <note category="german">Die Stadt wird nicht in der Liste der Privatstädte, sondern in der oben gewählten Gruppe erscheinen. Diese Option hat keine Auswirkungen auf die Spielregeln oder die Vergabe von Auszeichnungen und Seelenpunkten!</note>
       </notes>
@@ -931,7 +931,7 @@
         <target>No XML feed:</target>
       </segment>
     </unit>
-    <unit id="dSkZ2BY" name="ee8a5d1">
+    <unit id="dSkZ2BY">
       <notes>
         <note category="german">Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
                                     Gib eine positive ganze Zahl ein, um es zu aktivieren.
@@ -1036,7 +1036,7 @@
         <target>There is no more room for you and your coalition in this town.</target>
       </segment>
     </unit>
-    <unit id="hMJko2L" name="6057265">
+    <unit id="hMJko2L">
       <notes>
         <note category="german">Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</note>
       </notes>
@@ -1045,7 +1045,7 @@
         <target>Warning: You are NOT AVAILABLE to your coalition! That means you will play this game alone.</target>
       </segment>
     </unit>
-    <unit id="cglpSDE" name="6b90743">
+    <unit id="cglpSDE">
       <notes>
         <note category="german">Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</note>
       </notes>
@@ -1054,7 +1054,7 @@
         <target>Warning: Your coalition is not showing as "available": if you join a town now, you will do so alone!</target>
       </segment>
     </unit>
-    <unit id="UtrdfFQ" name="21c3104">
+    <unit id="UtrdfFQ">
       <notes>
         <note category="german">Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</note>
       </notes>
@@ -1063,7 +1063,7 @@
         <target>Warning: At the moment not all members of your coalition are available to follow you into a town.</target>
       </segment>
     </unit>
-    <unit id="EwLUGr9" name="8b6f59e">
+    <unit id="EwLUGr9">
       <notes>
         <note category="german">Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</note>
       </notes>
@@ -1072,7 +1072,7 @@
         <target>When you enter a town, the following members of your coalition will follow you:</target>
       </segment>
     </unit>
-    <unit id="U6CJxvc" name="d1dce65">
+    <unit id="U6CJxvc">
       <notes>
         <note category="german">Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.</note>
       </notes>
@@ -1081,7 +1081,7 @@
         <target>Since you died prematurely in several of your last cities, you are excluded from the game for a while. You cannot currently enter a new city.</target>
       </segment>
     </unit>
-    <unit id="pOtfy6G" name="5cb7c99">
+    <unit id="pOtfy6G">
       <notes>
         <note category="german">Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</note>
       </notes>
@@ -1261,7 +1261,7 @@
         <target>Extended</target>
       </segment>
     </unit>
-    <unit id="kKT9.CK" name="e8c1841">
+    <unit id="kKT9.CK">
       <notes>
         <note category="german">Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.</note>
       </notes>
@@ -1288,7 +1288,7 @@
         <target>Add a reservation</target>
       </segment>
     </unit>
-    <unit id="HU4iMjQ" name="84a9e56">
+    <unit id="HU4iMjQ">
       <notes>
         <note category="german">Du kannst hier festlegen, welche Spieler in deiner Privatstadt spielen dürfen. Andere Spieler können die Stadt nicht betreten! Als Stadtgründer kannst du in deiner Privatstadt immer auch selber mitspielen. Gibst du nur 39 Spieler an, wärst du der also der 40. Bürger.</note>
       </notes>
@@ -1297,7 +1297,7 @@
         <target>Here you can determine which players are allowed to play in your private city. Other players cannot enter the city! As the city founder, you can always play along yourself in your private city. If you only enter 39 players, you would be the 40th citizen.</target>
       </segment>
     </unit>
-    <unit id="KgvbGLh" name="d6ad9fa">
+    <unit id="KgvbGLh">
       <notes>
         <note category="german">So geht's: Tippe einen Spielernamen in das Feld ein. Wähle ihn dann aus den angezeigten Namen aus. Klicke dann auf "Hinzufügen". Wiederhole das für alle Spieler, die du auf die Liste setzen möchtest. Alternativ kannst du auch eine mit Komma getrennte Liste von Spielernamen eingeben, um mehrere Spieler auf einmal hiinzuzufügen. Falls du ein Passwort vergeben hast, vergiss nicht, es den Spielern zu schicken (z.B. in einer privaten Nachricht).</note>
       </notes>
@@ -1306,7 +1306,7 @@
         <target>This is how it works: Type a player name into the field. Then select it from the names that appear. Then click on "Add". Repeat for all players you want to add to the list. Alternatively, you can enter a comma-separated list of player names to add multiple players at once. If you have assigned a password, do not forget to send it to the players (e.g. in a private message).</target>
       </segment>
     </unit>
-    <unit id="VsZ8wM4" name="3e2e16b">
+    <unit id="VsZ8wM4">
       <notes>
         <note category="german">&lt;strong&gt;Hinweis:&lt;/strong&gt; Beachte, dass sich diese Liste nicht nachträglich ändern lässt. Es ist darum empfehlenwert, &lt;strong&gt;mehr als nur 39 Spieler&lt;/strong&gt; anzugeben. Dann hast du eine Reserve, falls ein oder mehrere Spieler nicht teilnehmen können.</note>
       </notes>
@@ -1315,7 +1315,7 @@
         <target><![CDATA[<strong>Note:</strong> Note that this list cannot be changed later. It is therefore advisable to enter <strong>more than 39 players</strong>. Then you have a reserve in case one or more players cannot participate.]]></target>
       </segment>
     </unit>
-    <unit id="t6F_Rrm" name="2322f34">
+    <unit id="t6F_Rrm">
       <notes>
         <note category="german">&lt;strong&gt;Hinweis:&lt;/strong&gt; Wenn du &lt;strong&gt;weniger als 39 Spieler&lt;/strong&gt; angibst, wird die Stadt automatisch für alle Spieler geöffnet, sobald alle Spieler auf der Liste die Stadt betreten haben.</note>
       </notes>
@@ -1324,7 +1324,7 @@
         <target><![CDATA[<strong>Note:</strong> If you enter <strong>fewer than 39 players</strong>, the city will automatically open for all players as soon as all players on the list have entered the city.]]></target>
       </segment>
     </unit>
-    <unit id="PrhBm6y" name="e5fb135">
+    <unit id="PrhBm6y">
       <notes>
         <note category="german">&lt;strong&gt;Falls bis Mitternacht des übernächsten Tags nicht 40 Spieler die Stadt betreten haben, wird sie automatisch negiert. Alle Spieler, die sich dann bereits in der Stadt eingefunden haben, sind dann wieder frei für andere Städte.&lt;/strong&gt;</note>
       </notes>
@@ -1351,7 +1351,7 @@
         <target>Aerogenic</target>
       </segment>
     </unit>
-    <unit id="AostWDd" name="63a3b72">
+    <unit id="AostWDd">
       <notes>
         <note category="german">Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</note>
       </notes>
@@ -1459,7 +1459,7 @@
         <target>Welcome in Hell!</target>
       </segment>
     </unit>
-    <unit id="7zJqkQY" name="34025a5">
+    <unit id="7zJqkQY">
       <notes>
         <note category="german">Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.</note>
       </notes>

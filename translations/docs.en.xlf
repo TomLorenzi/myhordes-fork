@@ -559,7 +559,7 @@
         <target>Schätzung für den Abendangriff</target>
       </segment>
     </unit>
-    <unit id="O1v3iVT" name="cf3ba52">
+    <unit id="O1v3iVT">
       <notes>
         <note category="german">Schätzen Sie für den Angriff am folgenden Tag (wenn verfügbar)</note>
       </notes>
@@ -1090,7 +1090,7 @@
         <target>Beispiel</target>
       </segment>
     </unit>
-    <unit id="UVFe9GX" name="e382445">
+    <unit id="UVFe9GX">
       <notes>
         <note category="german">Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch die echte Hordes-ID ersetzt.</note>
       </notes>
@@ -1099,7 +1099,7 @@
         <target>Für api/x/json/items akzeptieren Filter nur UIDs. Derzeit ist die UID identisch mit img. Aber in Zukunft wird die UID durch eine echte Horden-ID ersetzt.</target>
       </segment>
     </unit>
-    <unit id="vXeei1Z" name="d1299aa">
+    <unit id="vXeei1Z">
       <notes>
         <note category="german">Beispiel, um nur die Informationen des Objekts „Wasserration“ wiederherzustellen:</note>
       </notes>

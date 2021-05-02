@@ -19,7 +19,7 @@
         <target>Willkommen bei MyHordes</target>
       </segment>
     </unit>
-    <unit id="Cny3Jgk" name="a072781">
+    <unit id="Cny3Jgk">
       <notes>
         <note category="german">MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
                     "Die Verdammten" und seine anderen Versionen von %motiontwin%.</note>
@@ -31,7 +31,7 @@
                     "Die Verdammten" und seine anderen Versionen von %motiontwin%.</target>
       </segment>
     </unit>
-    <unit id="wuuGs9i" name="5a029cc">
+    <unit id="wuuGs9i">
       <notes>
         <note category="german">Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der
                     Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
@@ -73,7 +73,7 @@
         <target>Zum Login</target>
       </segment>
     </unit>
-    <unit id="RaJYSbq" name="c85228c">
+    <unit id="RaJYSbq">
       <notes>
         <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind
                     damit Eigentum von %motiontwin%.</note>

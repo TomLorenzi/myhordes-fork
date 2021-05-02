@@ -37,7 +37,7 @@
         <target>Para completar su registro, necesita el siguiente código de validación:</target>
       </segment>
     </unit>
-    <unit id="AevPeyo" name="365f8ca">
+    <unit id="AevPeyo">
       <notes>
         <note category="german">Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.
         Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.</note>
@@ -66,7 +66,7 @@
         <target>Para restablecer su contraseña, visite el siguiente enlace:</target>
       </segment>
     </unit>
-    <unit id="WdF_yfy" name="6d2f95b">
+    <unit id="WdF_yfy">
       <notes>
         <note category="german">Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.
         Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht

@@ -253,7 +253,7 @@
         <target>Contraseña</target>
       </segment>
     </unit>
-    <unit id="MI8TC0R" name="34a3970">
+    <unit id="MI8TC0R">
       <notes>
         <note category="german">Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
                         Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</note>
@@ -310,7 +310,7 @@
         <target><![CDATA[El nombre no puede contener espacios ni "$", "<" o ">".]]></target>
       </segment>
     </unit>
-    <unit id="ZJtAei3" name="f062e66">
+    <unit id="ZJtAei3">
       <notes>
         <note category="german">Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</note>
       </notes>
@@ -319,7 +319,7 @@
         <target>Tu contraseña ha sido cambiada con éxito. Inicia sesión con tu nueva contraseña.</target>
       </segment>
     </unit>
-    <unit id="U4wx4AP" name="13f0f8d">
+    <unit id="U4wx4AP">
       <notes>
         <note category="german">Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</note>
       </notes>
@@ -400,7 +400,7 @@
         <target>Esta cuenta ya está esperando por un restablecimiento de la contraseña.</target>
       </segment>
     </unit>
-    <unit id="axBQZ1o" name="d8a5e1e">
+    <unit id="axBQZ1o">
       <notes>
         <note category="german">Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.</note>
       </notes>
@@ -409,7 +409,7 @@
         <target>Si la dirección e-mail que has introducido era correcta, recibirás un enlace para restablecer tu contraseña.</target>
       </segment>
     </unit>
-    <unit id="w6NXTHc" name="0e5133b">
+    <unit id="w6NXTHc">
       <notes>
         <note category="german">Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.</note>
       </notes>
@@ -436,7 +436,7 @@
         <target>Error de transmisión de datos.</target>
       </segment>
     </unit>
-    <unit id="wPXsZnE" name="6842e2e">
+    <unit id="wPXsZnE">
       <notes>
         <note category="german">MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</note>
       </notes>
@@ -454,7 +454,7 @@
         <target>Iniciar sesión a través de EternalTwin</target>
       </segment>
     </unit>
-    <unit id="LiGRhEI" name="9a73574">
+    <unit id="LiGRhEI">
       <notes>
         <note category="german">Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.</note>
       </notes>
@@ -463,7 +463,7 @@
         <target>Si tienes una cuenta antigua de MyHordes, al menos por ahora, también puedes entrar con ella.</target>
       </segment>
     </unit>
-    <unit id="ho.WxzI" name="6471614">
+    <unit id="ho.WxzI">
       <notes>
         <note category="german">Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</note>
       </notes>
@@ -472,7 +472,7 @@
         <target>Esto no será posible para siempre. Te aconsejamos que vincules tu antigua cuenta de MyHordes a EternalTwin lo antes posible.</target>
       </segment>
     </unit>
-    <unit id="uT6i9yH" name="bb99aa1">
+    <unit id="uT6i9yH">
       <notes>
         <note category="german">Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</note>
       </notes>
@@ -508,7 +508,7 @@
         <target>¡Ya casi estamos listos para empezar!</target>
       </segment>
     </unit>
-    <unit id="NYi.sD7" name="1ba0830">
+    <unit id="NYi.sD7">
       <notes>
         <note category="german">Dank deines EternalTwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!</note>
       </notes>
@@ -517,7 +517,7 @@
         <target>¡Gracias a tu cuenta de EternalTwin puedes jugar a MyHordes sin necesidad de registrarte previamente!</target>
       </segment>
     </unit>
-    <unit id="zK1Sfzm" name="696390f">
+    <unit id="zK1Sfzm">
       <notes>
         <note category="german">&lt;strong&gt;Achtung:&lt;/strong&gt; Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
                                     &lt;i&gt;abbrechen&lt;/i&gt; und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
@@ -568,7 +568,7 @@
         <target>Serás ingresado. Por favor, espera un segundo...</target>
       </segment>
     </unit>
-    <unit id="pEAthLZ" name="d621208">
+    <unit id="pEAthLZ">
       <notes>
         <note category="german">Vielen Dank, dass du deinen MyHordes-Account %namecheck_mh% mit deinem EternalTwin-Account %namecheck_et% verknüpfst!</note>
       </notes>
@@ -577,7 +577,7 @@
         <target>¡Muchas gracias por vincular tu cuenta de MyHordes %namecheck_mh% con la de EternalTwin %namecheck_et%!</target>
       </segment>
     </unit>
-    <unit id="7JD3pLt" name="7505c04">
+    <unit id="7JD3pLt">
       <notes>
         <note category="german">Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</note>
       </notes>
@@ -586,7 +586,7 @@
         <target>Después de vincular tu cuenta sólo podrás entrar a MyHordes a través de EternalTwin. Sus antiguos datos de acceso se volverán inválidos.</target>
       </segment>
     </unit>
-    <unit id="r.jGoXw" name="d65799d">
+    <unit id="r.jGoXw">
       <notes>
         <note category="german">Wenn du fortfahren möchtest, gib bitte ein letztes Mal dein MyHordes-Passwort ein und klicke auf "Verknüpfen".</note>
       </notes>
@@ -613,7 +613,7 @@
         <target>¡Bienvenido de nuevo! Tu cuenta ya no está marcada para ser eliminada.</target>
       </segment>
     </unit>
-    <unit id="n69_UZl" name="0a8ad23">
+    <unit id="n69_UZl">
       <notes>
         <note category="german">Es haben sich zu viele Nutzer aus deinem Netzwerk heraus bei MyHordes registriert. Weitere Registrierungen aus deinem Netzwerk sind für eine Weile nicht mehr möglich.</note>
       </notes>
@@ -640,7 +640,7 @@
         <target>Dein Name kann nur alphanumerische Zeichen enthalten.</target>
       </segment>
     </unit>
-    <unit id="6zAO87a" name="b17853d">
+    <unit id="6zAO87a">
       <notes>
         <note category="german">Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</note>
       </notes>
@@ -658,7 +658,7 @@
         <target>Pate</target>
       </segment>
     </unit>
-    <unit id="X.GbWI5" name="cd8dcfe">
+    <unit id="X.GbWI5">
       <notes>
         <note category="german">Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...</note>
       </notes>

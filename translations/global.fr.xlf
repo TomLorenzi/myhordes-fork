@@ -10,7 +10,7 @@
         <target>Erreur générale.</target>
       </segment>
     </unit>
-    <unit id="YoYmlHE" name="2f62c2a">
+    <unit id="YoYmlHE">
       <notes>
         <note category="german">Das gewählte Forum existiert nicht oder dir fehlt die Zugangsberechtigung dafür.</note>
       </notes>
@@ -46,7 +46,7 @@
         <target>Erreur de communication.</target>
       </segment>
     </unit>
-    <unit id="Q4DVSd6" name="9763ee3">
+    <unit id="Q4DVSd6">
       <notes>
         <note category="german">Die Aktion kann nicht ausgeführt werden, da deine Anfrage unvollständig oder fehlerhaft ist.</note>
       </notes>
@@ -55,7 +55,7 @@
         <target>Cette action ne peut pas être effectuée car la demande est incorrecte ou incomplète.</target>
       </segment>
     </unit>
-    <unit id="XEsiQcR" name="e5973d6">
+    <unit id="XEsiQcR">
       <notes>
         <note category="german">Beim Ausführen der Aktion ist ein Datenbankfehler aufgetreten. Bitte versuche es später erneut.</note>
       </notes>
@@ -64,7 +64,7 @@
         <target>Une erreur de base de données est survenue durant cette action. Veuillez réessayer plus tard.</target>
       </segment>
     </unit>
-    <unit id="F4Wu0dW" name="023a941">
+    <unit id="F4Wu0dW">
       <notes>
         <note category="german">Beim Ausführen der Aktion ist ein interner Fehler aufgetreten. Bitte versuche es später erneut.</note>
       </notes>
@@ -541,7 +541,7 @@
         <target>Remarque</target>
       </segment>
     </unit>
-    <unit id="W6.HG9v" name="e4ce8ba">
+    <unit id="W6.HG9v">
       <notes>
         <note category="german">Achtung! Der von dir ausgewählte Link, leitet dich auf eine &lt;strong&gt;nicht-offizielle Seite&lt;/strong&gt; weiter (sprich: eine Fan- oder Spielerseite).</note>
       </notes>
@@ -550,7 +550,7 @@
         <target><![CDATA[Attention ! Le lien que vous avez sélectionné renvoie sur un <strong>site non-officiel</strong> (c'est à dire créé par des joueurs).]]></target>
       </segment>
     </unit>
-    <unit id="eg7vZTp" name="b187301">
+    <unit id="eg7vZTp">
       <notes>
         <note category="german">Du darfst für diese Seite unter keinen Umständen dein MyHordes-Passwort verwenden!</note>
       </notes>
@@ -595,7 +595,7 @@
         <target>Annuaire</target>
       </segment>
     </unit>
-    <unit id=".Fw_MgQ" name="35799f5">
+    <unit id=".Fw_MgQ">
       <notes>
         <note category="german">Die folgenden Links verweisen alle auf Web- und Fanseiten, die von Spielern kreiert wurden. Ihr findet auf ihnen zusätzliche Informationen oder nützliche Tools für das Spiel:</note>
       </notes>
@@ -613,7 +613,7 @@
         <target>Vous n'avez pas d'ID externe.</target>
       </segment>
     </unit>
-    <unit id="Y1oTzsk" name="ee8b5a5">
+    <unit id="Y1oTzsk">
       <notes>
         <note category="german">Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele &gt; Einstellungen und generiere eine ID.</note>
       </notes>
@@ -910,7 +910,7 @@
         <target>Archiver</target>
       </segment>
     </unit>
-    <unit id="MCyZNHk" name="62c3512">
+    <unit id="MCyZNHk">
       <notes>
         <note category="german">Wenn es an der Zeit ist, etwas zu unternehmen, lässt deine Verletzung dich schreien und hält dich auf der Stelle still. Du musst dich erst selbst heilen, bevor du das tun kannst...</note>
       </notes>
@@ -1234,7 +1234,7 @@
         <target>Ces points servent au classement  dans l'Échelle des Âmes.</target>
       </segment>
     </unit>
-    <unit id="L3FSiZr" name="1eebdb6">
+    <unit id="L3FSiZr">
       <notes>
         <note category="german">Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.</note>
       </notes>
@@ -1243,7 +1243,7 @@
         <target>Vous gagnez des points à la fin de chaque partie en fonction du nombre de jours survécus.</target>
       </segment>
     </unit>
-    <unit id="uEQ0dag" name="7273dec">
+    <unit id="uEQ0dag">
       <notes>
         <note category="german">Diese ID übergibst du der Seite oder dem Programm, dem du einen (Lese-)Zugriff auf deine Spieldaten in "MyHordes" geben möchtest. Das sind Informationen zu deiner Stadt, dem Bürgerverzeichnis, der Weltkarte etc.</note>
       </notes>
@@ -1270,7 +1270,7 @@
         <target>Confirmer</target>
       </segment>
     </unit>
-    <unit id="QuMXv7I" name="a023548">
+    <unit id="QuMXv7I">
       <notes>
         <note category="german">Der Markierer ist auf der Karte für ALLE Bürger sichtbar. Benutze ihn, um der Gemeinschaft Informationen über eine bestimmte Zone mitzuteilen.</note>
       </notes>
@@ -1279,7 +1279,7 @@
         <target>Le marqueur est visible sur la carte pour TOUS les citoyens. Utilisez-le pour partager des informations sur une zone spécifique avec la communauté.</target>
       </segment>
     </unit>
-    <unit id="51m8lm3" name="7ef672f">
+    <unit id="51m8lm3">
       <notes>
         <note category="german">Beachte: Alle hier geschriebenen Nachrichten gehen verloren, wenn alle Bürger die Zone verlassen.</note>
       </notes>
@@ -1288,7 +1288,7 @@
         <target>Remarque : Tous les messages écrits ici seront perdus si tous les citoyens quittent la zone.</target>
       </segment>
     </unit>
-    <unit id="H5.W95P" name="7a92ff6">
+    <unit id="H5.W95P">
       <notes>
         <note category="german">Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.</note>
       </notes>
@@ -1297,7 +1297,7 @@
         <target>Si cette condition n'a pas changé à minuit, il n'y a pas d'attaque nocturne. La journée se prolonge alors artificiellement.</target>
       </segment>
     </unit>
-    <unit id="jsMx6ao" name="a848169">
+    <unit id="jsMx6ao">
       <notes>
         <note category="german">Wenn du nichts zur Hand hast, um deine Erschöpfung zu lindern, dann bitte im Forum um Hilfe...</note>
       </notes>
@@ -1576,7 +1576,7 @@
         <target>Vous ne savez pas quoi faire ? Suivez les recommandations ci-dessous :)</target>
       </segment>
     </unit>
-    <unit id="AsaB86B" name="1acd778">
+    <unit id="AsaB86B">
       <notes>
         <note category="german">Diesen Bonus gibt es nur dann, wenn sich die Wächter während eines Angriffs in der Stadt befinden.</note>
       </notes>
@@ -1585,7 +1585,7 @@
         <target>Ce bonus ne fonctionne que si les gardiens sont en ville pendant l'attaque.</target>
       </segment>
     </unit>
-    <unit id="FbU8Rr0" name="782996d">
+    <unit id="FbU8Rr0">
       <notes>
         <note category="german">Manche deiner Gegenstände sind &lt;strong&gt;benutzbar&lt;/strong&gt;. Klick einfach auf einen Link hier unten, um den jeweiligen Gegenstand zu gebrauchen. Andere Gegenstände wiederum, wie zum Beispiel Waffen, können nur &lt;strong&gt;außerhalb der Stadt&lt;/strong&gt; verwendet werden..</note>
       </notes>
@@ -1621,7 +1621,7 @@
         <target>Autres forums</target>
       </segment>
     </unit>
-    <unit id="mhXv42Q" name="735ca7b">
+    <unit id="mhXv42Q">
       <notes>
         <note category="german">Jeder &lt;strong&gt;Verteidigungsgegenstand&lt;/strong&gt;, der sich in der Bank befindet, bringt der Stadt &lt;strong&gt;1 Verteidigungspunkte&lt;/strong&gt;.</note>
       </notes>
@@ -1630,7 +1630,7 @@
         <target><![CDATA[Chaque <strong>objet de défense</strong> placé dans la Banque apporte <strong>1 points de défense à la ville</strong>.]]></target>
       </segment>
     </unit>
-    <unit id="p47NfhB" name="37691d8">
+    <unit id="p47NfhB">
       <notes>
         <note category="german">Wir sollten mehr Verteidigungsanlagen bauen. Falls Ressourcen dafür fehlen, geh in die Außenwelt (die Wüste außerhalb der Stadt) und suche danach.</note>
       </notes>
@@ -1639,7 +1639,7 @@
         <target>Nous devrions construire davantage de défenses dans les chantiers ! Si des ressources manquent, fouillez l'Outre-Monde (le désert autour de la ville) pour en dénicher.</target>
       </segment>
     </unit>
-    <unit id="6gPmw1f" name="05b29ea">
+    <unit id="6gPmw1f">
       <notes>
         <note category="german">&lt;strong&gt;Wichtig:&lt;/strong&gt; Verteidigungsgegenstände können maximal &lt;strong&gt;500&lt;/strong&gt; Verteidigungspunkte vergeben!</note>
       </notes>
@@ -1720,7 +1720,7 @@
         <target>ou</target>
       </segment>
     </unit>
-    <unit id="1N_y7nB" name="d3efb5f">
+    <unit id="1N_y7nB">
       <notes>
         <note category="german">Folgende Bürger sind wahlweise: &lt;ul&gt;&lt;li&gt;auf ihrer Todesanzeigeseite (sie haben ihren Tod noch nicht bestätigt),&lt;/li&gt;&lt;li&gt;bereits im Spiel,&lt;/li&gt;&lt;li&gt;sie haben sich entschieden, nicht automatisch einer Stadt und ihrer Koalition anzugehören.&lt;/li&gt;&lt;li&gt;oder, sie haben sich seit über 5 Tagen nicht mehr angemeldet.&lt;/li&gt;&lt;/ul&gt;</note>
       </notes>
@@ -1729,7 +1729,7 @@
         <target><![CDATA[Les citoyens suivants sont : <ul><li>soit sur leur page de Mort (ils n\'ont pas validé leur décès),</li><li>soit déjà en jeu,</li><li>soit ils ont choisi de ne pas rejoindre automatiquement une ville avec le reste de la coalition.</li><li>non reconnectés depuis plus de 5 jours.</li></ul>]]></target>
       </segment>
     </unit>
-    <unit id="Dhx3Fbp" name="212f094">
+    <unit id="Dhx3Fbp">
       <notes>
         <note category="german">Wenn ein andered Mitglied deiner Koalition eine Stadt auswählt, schließt du dich ihm automatisch an und spielst in der gleichen Stadt wie er.</note>
       </notes>
@@ -1747,7 +1747,7 @@
         <target>Vous devez acquérir plus d'expérience pour pouvoir le faire ...</target>
       </segment>
     </unit>
-    <unit id="Yx7n3Xy" name="728d63e">
+    <unit id="Yx7n3Xy">
       <notes>
         <note category="german">Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</note>
       </notes>
@@ -1774,7 +1774,7 @@
         <target>Code</target>
       </segment>
     </unit>
-    <unit id="rtJUaLn" name="f14ccda">
+    <unit id="rtJUaLn">
       <notes>
         <note category="german">Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
                                 &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</note>
@@ -1785,7 +1785,7 @@
         <target><![CDATA[Le nombre de monticules de terre et de déchets vous indique qu'il n'y a sans doute plus grand chose à trouver ici. <p><em>Vous pouvez toutefois continuer à creuser pour trouver des ressources de mauvaise qualité pour les chantiers en ville.</em></p>]]></target>
       </segment>
     </unit>
-    <unit id="i4kWNY_" name="c911391">
+    <unit id="i4kWNY_">
       <notes>
         <note category="german">Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude &lt;strong&gt;Kleiner Friedhof&lt;/strong&gt;.</note>
       </notes>
@@ -1794,7 +1794,7 @@
         <target><![CDATA[Ce bonus est obtenu grace à vos anciens amis et au bâtiment <strong>Cimetière cadenassé</strong>.]]></target>
       </segment>
     </unit>
-    <unit id="zTo.6Bl" name="1fa3771">
+    <unit id="zTo.6Bl">
       <notes>
         <note category="german">Diesen Bonus gibt es nur dann, wenn sich die Wächter wärhend eines Angriffs in det Stadt befinden.</note>
       </notes>
@@ -1839,7 +1839,7 @@
         <target>Masquer + Message</target>
       </segment>
     </unit>
-    <unit id="k30IQ7V" name="e678701">
+    <unit id="k30IQ7V">
       <notes>
         <note category="german">&lt;strong&gt;Die Stadt versinkt im Chaos!&lt;/strong&gt;&lt;/p&gt;Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!&lt;p&gt;&lt;em&gt;... Oder euch gegenseitig abschlachten, je nachdem.&lt;/em&gt;</note>
       </notes>
@@ -1875,7 +1875,7 @@
         <target>Cette adresse e-mail sera affichée comme adresse de contact.</target>
       </segment>
     </unit>
-    <unit id="1iip6iA" name="2250af0">
+    <unit id="1iip6iA">
       <notes>
         <note category="german">Dies ist die URL, zu der Spieler weitergeleitet werden, wenn sie auf den Link klicken.</note>
       </notes>
@@ -1893,7 +1893,7 @@
         <target>Votre site Web utilise cette clé pour s'authentifier auprès de MyHordes.</target>
       </segment>
     </unit>
-    <unit id="r1SbraZ" name="29f4438">
+    <unit id="r1SbraZ">
       <notes>
         <note category="german">Du darfst ihn keinesfalls weitergeben oder öffentlich verfügbar machen, beispielsweise in einem Code-Repository.</note>
       </notes>
@@ -1902,7 +1902,7 @@
         <target>Vous ne pouvez pas la distribuer ou la rendre public, par exemple dans un référentiel de code.</target>
       </segment>
     </unit>
-    <unit id="hnZ6._r" name="d66dfe5">
+    <unit id="hnZ6._r">
       <notes>
         <note category="german">Wenn du den Verdacht hast, dass dein Schlüssel kompromittiert wurde, kannst du einen neuen Schlüssel anfordern.</note>
       </notes>
@@ -1920,7 +1920,7 @@
         <target>Forums Globaux</target>
       </segment>
     </unit>
-    <unit id="56Kf42Z" name="1d800f8">
+    <unit id="56Kf42Z">
       <notes>
         <note category="german">Als &lt;strong&gt;Ausgestoßener&lt;/strong&gt; stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...</note>
       </notes>
@@ -1956,7 +1956,7 @@
         <target>Ce site bénéficie d'un accès sécurisé à MyHordes :</target>
       </segment>
     </unit>
-    <unit id="ECkSDC0" name="43e696a">
+    <unit id="ECkSDC0">
       <notes>
         <note category="german">Wenn du hier unten auf "Weiter" klickst wird dein Spielername automatisch erkannt, so dass du nichts weiteres mehr eingeben musst.</note>
       </notes>
@@ -2109,7 +2109,7 @@
         <target>Exclure les joueurs</target>
       </segment>
     </unit>
-    <unit id="oQjRJjM" name="b58bfe6">
+    <unit id="oQjRJjM">
       <notes>
         <note category="german">Ausgeschlossene Spieler können die vor ihrem Ausschluss geposteten Nachrichten in der Gruppe weiterhin lesen, erhalten allerdings keine neuen Nachrichten mehr und können auch nicht mehr antworten.</note>
       </notes>
@@ -2163,7 +2163,7 @@
         <target>Annuler l'exclusion</target>
       </segment>
     </unit>
-    <unit id="u2oPHL5" name="458e607">
+    <unit id="u2oPHL5">
       <notes>
         <note category="german">Der Ausschluss des Spielers wird annuliert und er oder sie erhält wieder vollen Zugriff auf die Gruppe.</note>
       </notes>
@@ -2190,7 +2190,7 @@
         <target>Veuillez sélectionner une conversation sur la gauche.</target>
       </segment>
     </unit>
-    <unit id="GdEH33Y" name="b44f7e8">
+    <unit id="GdEH33Y">
       <notes>
         <note category="german">Spamschutz: Du hast heute bereits eine große Anzahl an Spielern kontaktiert; du musst eine Weile warten, bevor du eine neue Nachricht erstellen kannst.</note>
       </notes>
@@ -2514,7 +2514,7 @@
         <target>Astuces de recherche</target>
       </segment>
     </unit>
-    <unit id="_MSoX5u" name="dd6fd38">
+    <unit id="_MSoX5u">
       <notes>
         <note category="german">Benutze Anführungszeichen (" "), um nach einer bestimmten Wortkette zu suchen. Beispiel: "Ration Wasser"</note>
       </notes>
@@ -2523,7 +2523,7 @@
         <target>Utilisez des guillemets (" ") pour chercher une suite de mots cohérente.</target>
       </segment>
     </unit>
-    <unit id="tQlAKoR" name="60820fb">
+    <unit id="tQlAKoR">
       <notes>
         <note category="german">Setze ein Ausrufezeichen (!) vor einen Suchbegriff, um diesen auszuschließen. Beispiel: Wasser !Brunnen</note>
       </notes>
@@ -2532,7 +2532,7 @@
         <target>Utilisez le point d'exclamation (!) pour exclure un mot. Exemple : eau !puits</target>
       </segment>
     </unit>
-    <unit id="HnC2uQZ" name="57f97d9">
+    <unit id="HnC2uQZ">
       <notes>
         <note category="german">Um nach Anführungszeichen oder Ausrufezeichen zu suchen, schreibe einen Backslash (\) davor, um zu verhindern, dass sie als Suchbefehl interpretiert werden. Beispiel: Boom\!</note>
       </notes>
@@ -2568,7 +2568,7 @@
         <target>Aucun message correspondant à votre recherche n'a été trouvé.</target>
       </segment>
     </unit>
-    <unit id="uvXzw5b" name="c09e87f">
+    <unit id="uvXzw5b">
       <notes>
         <note category="german">Deine Suchanfrage hat mehr Ergebnisse geliefert, als hier angezeigt werden können. Versuche, deine Anfrage zu präzisieren, wenn du nicht gefunden hast wonach du suchst.</note>
       </notes>
@@ -2595,7 +2595,7 @@
         <target>Cette discussion est terminée.</target>
       </segment>
     </unit>
-    <unit id="skpOVsR" name="397b841">
+    <unit id="skpOVsR">
       <notes>
         <note category="german">Dieser Zahl ist die Summe der überlebten Tagen aller Bürger in einer Stadt. Sie ist der Gradmesser für die Koordinations- und Kooperationsfähigkeit einer Stadt.</note>
       </notes>
@@ -2613,7 +2613,7 @@
         <target>Cliquez pour être informé(e) des nouvelles réponses apportées à cette discussion.</target>
       </segment>
     </unit>
-    <unit id="Z.IoaeD" name="7522b5f">
+    <unit id="Z.IoaeD">
       <notes>
         <note category="german">Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.</note>
       </notes>
@@ -2640,7 +2640,7 @@
         <target>Entrez le nom</target>
       </segment>
     </unit>
-    <unit id="HAtmchb" name="246b2a2">
+    <unit id="HAtmchb">
       <notes>
         <note category="german">Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
                                     &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</note>
@@ -2715,7 +2715,7 @@
         <target>Groupe de %num% joueurs</target>
       </segment>
     </unit>
-    <unit id="o8cBnVX" name="5048423">
+    <unit id="o8cBnVX">
       <notes>
         <note category="german">Wenn Bürger deine Stadt betreten möchten, wird ein Zugangsdode abgefragt. Nur mit korrektem Zugangscode erhalten sie Zutritt. Verteile den Zugangscode darum an die Spieler, die du einladen möchtest. &lt;strong&gt;Und benutze nicht dein privates Passwort als Zugangscode!!!&lt;/strong&gt;</note>
       </notes>
