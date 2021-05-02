@@ -7700,7 +7700,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Die Verwendung des Scripts durch einen Anwender darf nicht dazu führen, dass sich das Spielerlebnis von Spielern ohne das Script verschlechtert. Beispielsweise ist es nicht zulässig, dem Forum über ein Script neue Formatierungsoptionen hinzuzufügen, wenn die daraus resultierenden Forenposts für Spieler ohne das Script nicht mehr lesbar sind.</source>
-        <target>El uso de Scripts por parte de un usuario no debe llevar a una peor experiencia de juego para aquellos jugadores que no utilicen el Script. Por ejemplo, no está permitido que un script añada un nuevo formato para los mensajes en el foro que de tal modo que los mensajes publicados no puedan ser comprendidos correctamente por aquellos sin el Script.</target>
+        <target>El uso de Scripts por parte de un usuario no debe llevar a una peor experiencia de juego para aquellos jugadores que no utilicen el Script. Por ejemplo, no está permitido que un script añada un nuevo formato para los mensajes en el foro de tal modo que los mensajes publicados no puedan ser comprendidos correctamente por aquellos sin el Script.</target>
       </segment>
     </unit>
     <unit id="CMVr7NL" name="Automatisierung">
