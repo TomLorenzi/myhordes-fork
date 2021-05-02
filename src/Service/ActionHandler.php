@@ -1052,7 +1052,7 @@ class ActionHandler
                     // Cards
                     case 2:
                         $card = mt_rand(0, 53);
-                        $color = floor($card / 13);
+                        $color = (int)floor($card / 13);
                         $value = $card - ( $color * 13 );
 
                         if ( $color > 3 ) {
