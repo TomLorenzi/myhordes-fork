@@ -7637,7 +7637,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Diese Regeln beziehen sich auf sämtliche client-seitige Erweiterungen der MyHordes-Webseite. Alles, was das Aussehen und die Funktion von MyHordes innerhalb des Browsers eines Benutzers verändert, wird im Rahmen dieser Regeln als "Script" bezeichnet, also beispielsweise Extensions, Plug-Ins, User-Scripts und User-Styles.</source>
-        <target>Estas reglas se aplican a todas las extensiones del lado del cliente del sitio web MyHordes. Todo lo que afecte la apariencia y el funcionamiento de MyHordes en el navegador de un usuario es denominado "Script" en el marco de estas reglas, como por ejemplo extensiones, complementos, scripts y estilos de usuario.</target>
+        <target>Estas reglas se aplican a todas las extensiones del lado del cliente del sitio web MyHordes. Todo lo que afecte la apariencia y el funcionamiento de MyHordes en el navegador de un usuario es denominado "Script" en el marco de estas reglas, como por ejemplo extensiones, complementos, scripts y estilos del usuario.</target>
       </segment>
     </unit>
     <unit id="m98RQP1" name="Verbot kommerzieller Scripte">
@@ -7736,7 +7736,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>&lt;strong&gt;Externe Kommandos zu empfangen&lt;/strong&gt; und auszuführen, beispielsweise indem automatisch AP in empfohlene Baustellen investiert werden.</source>
-        <target><![CDATA[<strong>Recibir </strong> y ejecutar comandos externos, como invertir PA automáticamente en una o varias construcciones.]]></target>
+        <target><![CDATA[<strong>Recibir</strong> y ejecutar comandos externos, como invertir PA automáticamente en una o varias construcciones.]]></target>
       </segment>
     </unit>
     <unit id="fUwrzgg" name="72fe10d">
@@ -7790,7 +7790,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Das Senden von Informationen darf &lt;strong&gt;nicht automatisiert&lt;/strong&gt; werden oder im Rahmen anderer Aktionen geschehen, wie beispielsweise bei jedem Neuladen der Seite oder bei jeder Bewegung in der Außenwelt. Stattdessen darf der Datentransfer nur durch die Betätigung einer klar beschrifteten Schaltfläche geschehen, welche das Script in der Benutzeroberfläche platziert.</source>
-        <target><![CDATA[El envío de información <strong>no debe ser automatizado</strong> ni ocurrir como parte de otras acciones, como cada vez que se actualice la página o cuando se dé un paso en el Ultramundo. En cambio, los datos solo pueden ser enviados mediante un botón claro y conciso que el mismo Script coloque en la interfaz de usuario.]]></target>
+        <target><![CDATA[La transmisión de la información <strong>no debe ser automatizada</strong> ni debe ocurrir como parte de otras acciones(como cada vez que se actualice la página o cuando se dé un paso en el Ultramundo); los datos solo pueden ser enviados mediante un botón claro y conciso que el mismo Script coloque en la interfaz de usuario.]]></target>
       </segment>
     </unit>
     <unit id="QjopWu6" name="1ad3ae4">
@@ -7799,7 +7799,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Es dürfen nur Informationen übertragen werden, welche dem Spieler &lt;strong&gt;im Augenblick der Übertragung&lt;/strong&gt; zur Verfügung stehen. Es ist beispielsweise nicht zulässig, während der Bewegung durch die Außenwelt Informationen über Zonen zu sammeln und diese dann gebündelt zu übertragen. Stattdessen dürfen nur Informationen über die aktuelle Zone des Spielers übertragen werden.</source>
-        <target><![CDATA[Solamente se puede enviar la información que pueda ver el usuario <strong>al momento de la transmisión</strong>. Por ejemplo, no es posible recopilar la información de varias zonas mientras te mueves por el Ultramundo y luego transmitirla agrupada. Solamente es posible enviar información de la zona en la que esté el usuario en este momento.]]></target>
+        <target><![CDATA[Solamente se puede enviar la información que pueda ver el usuario <strong>al momento de la transmisión</strong>; por ejemplo, no es posible recopilar la información de varias zonas mientras te mueves por el Ultramundo y luego transmitirla agrupada, sino de la zona en la que esté el usuario en ese momento.]]></target>
       </segment>
     </unit>
     <unit id="xDsEr25" name="be7577f">
@@ -7808,7 +7808,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>&lt;strong&gt;Persönliche Informationen&lt;/strong&gt; über den Anwender sowie dessen &lt;strong&gt;Kommunikation mit anderen Spielern&lt;/strong&gt; dürfen niemals übertragen werden. Dies schließt Informationen wie die E-Mail Adresse, Passwort, Sitzungs-Tokens sowie Inhalte von Forenposts und Privaten Nachrichten ein.</source>
-        <target><![CDATA[La <strong>información personal</strong> de un usuario y su <strong>comunicación con otros jugadores</strong> nunca deberá ser transmitida. Esto incluye, pero no se limita a datos como dirección de correo electrónico, contraseña, Tokens de sesion y contenido en el foro o en la Mensajería Privada.]]></target>
+        <target><![CDATA[La <strong>información personal</strong> de un usuario y su <strong>comunicación con otros jugadores</strong> nunca deberá ser transmitida. Esto incluye, pero no se limita, a datos como dirección de correo electrónico, contraseña, Tokens de sesion y contenido en el foro o en la Mensajería Privada.]]></target>
       </segment>
     </unit>
     <unit id="Y3yaVQ." name="ec6370c">
@@ -7826,7 +7826,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Informationen über &lt;strong&gt;"Geheime Rollen"&lt;/strong&gt; eines Spielers, wie beispielsweise den Ghul-Zustand, dürfen ebenfalls nicht übertragen werden. Dies schließt alle Informationen ein, die einen Spieler als Forenmoderator enttarnen könnten.</source>
-        <target><![CDATA[La información acerca de los <strong>"Roles Secretos"</strong> del jugador, como ser un Mutante, tampoco puede retransmitirse. Esto incluye cualquier información que pueda revelar a un usuario como moderador del foro.]]></target>
+        <target><![CDATA[La información acerca de los <strong>"Roles Secretos"</strong> del jugador, como ser un Mutante, tampoco puede retransmitirse. Por ejemplo cualquier información que pueda revelar a un usuario como moderador del foro.]]></target>
       </segment>
     </unit>
     <unit id="n8MMaiP" name="3e0fdf4">
@@ -7835,7 +7835,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Werden Informationen übertragen und für andere Spieler sichtbar gemacht (egal ob direkt oder in aggregierter Form), welche &lt;strong&gt;nicht über die Externe API verfügbar sind&lt;/strong&gt;, so muss es für die Spieler jederzeit möglich sein, diese Informationen auch ohne Verwendung des Scriptes einzutragen (beispielsweise über eine Weboberfläche). Nicht plausible Informationen dürfen zurückgewiesen werden (beispielsweise wenn ein Spieler behauptet, heute 5000 AP ausgegeben zu haben), grundsätzlich muss es Spielern jedoch ermöglicht werden, &lt;strong&gt;Informationen zu falsifizieren&lt;/strong&gt;. Die theoretische Möglichkeit, das Script zu editieren oder in dessen Kommunikation mit dem Server einzugreifen zählen &lt;u&gt;nicht&lt;/u&gt; als legitime Methoden für die Falsifizierung von Informationen. Grundsätzlich darf für andere Spieler nicht trivial ersichtlich sein, ob eine Information automatisch erfasst oder händisch von einem Spieler eingetragen wurde.</source>
-        <target><![CDATA[Si la información que es transmitida y compartida con otros jugadores, (Bien sea de forma directa o complementaria que) <strong>no está disponible mediante la API externa</strong>, debe ser posible para los jugadores poder introducir esta información en cualquier momento sin utilizar el Script (por ejemplo, mediante una página web). La información que no es posible puede ser rechazada (por ejemplo, si un jugador afirma haber gastado 5000 PA hoy), pero en principio los jugadores deben poder <strong>falsificar información</strong>. La posibilidad teórica de editar el Script o alterar su comunicación con el servidor <u>no cuenta</u> como un método legítimo para falsificar información. En principio, no debería ser confuso para los jugadores ver si la información fue introducida de manera automática o manual.]]></target>
+        <target><![CDATA[Si la información que es transmitida y compartida con otros jugadores, (Bien sea en el Script mismo o un complemento externo) <strong>no está disponible mediante la API externa</strong>, debe ser posible para los jugadores poder editar esta información en cualquier momento sin utilizar el Script (por ejemplo, mediante una página web). La información irreal puede ser rechazada (por ejemplo, si un jugador afirma haber gastado 5000 PA hoy), pero en principio los jugadores deben poder <strong>falsificar información</strong>. La posibilidad teórica de editar el Script o alterar su comunicación con el servidor <u>no cuenta</u> como un método legítimo para falsificar información. En principio, no debería ser confuso para los jugadores ver si la información fue introducida de manera automática o manual.]]></target>
       </segment>
     </unit>
     <unit id=".I3a26W" name="Weitere Richtlinien">
@@ -7844,7 +7844,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Weitere Richtlinien</source>
-        <target>Otras directrices</target>
+        <target>Otras Directrices</target>
       </segment>
     </unit>
     <unit id="NdJNIQY" name="f1d1b70">
@@ -7853,7 +7853,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Visuelle Elemente, welche durch ein Script in das Spiel integriert werden, dürfen sich in ihrem Design an MyHordes orientieren. Es sollte jedoch für den Spieler jederzeit erkennbar sein, dass es sich um ein Element des Scripts und nicht des Spiels selbst handelt.</source>
-        <target>Los elementos visuales que se integren en el juego por medio de un Script pueden basar su diseño en el de MyHordes. Sin embargo, siempre debe ser claro que se trata de un elemento de Script y no del juego en sí mismo ante la vista del jugador.</target>
+        <target>Los elementos visuales que se integren en el juego por medio de un Script pueden basar su diseño en el de MyHordes; sin embargo, siempre debe ser claro que se trata de un elemento del Script y no del juego en sí mismo desde la perspectiva del jugador.</target>
       </segment>
     </unit>
     <unit id="5IonOmt" name="e055ac0">
