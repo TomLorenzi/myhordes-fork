@@ -34,7 +34,7 @@
       </notes>
       <segment>
         <source>Sich bewegen</source>
-        <target>Desplazarse y Puntos de acción</target>
+        <target>Desplazarse y Puntos de Acción</target>
       </segment>
     </unit>
     <unit id="L4DksI7" name="Die Karte">
@@ -1327,7 +1327,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt
       </notes>
       <segment>
         <source>MyHordes?</source>
-        <target>MyHordes ?</target>
+        <target>¿MyHordes?</target>
       </segment>
     </unit>
     <unit id="JtQM0Nd" name="e6b22b6">
@@ -7610,7 +7610,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Externe Scripte</source>
-        <target>Externe Scripte</target>
+        <target>Scripts Externos</target>
       </segment>
     </unit>
     <unit id="vB0H4j5" name="Für Community-Entwickler">
@@ -7619,7 +7619,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Für Community-Entwickler</source>
-        <target>Für Community-Entwickler</target>
+        <target>Para desarolladores de la comunidad</target>
       </segment>
     </unit>
     <unit id="AVd4ZVz" name="d772232">
