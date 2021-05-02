@@ -2508,7 +2508,7 @@ Außerdem führst du &lt;strong&gt;zusätzlich&lt;/strong&gt; zu deiner normalen
     <unit id="P6K6ed5" name="a644e62">
       <notes>
         <note category="german">&lt;strong&gt;Die Seelen %img_blue_soul% verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.&lt;/strong&gt;
-Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine blaue Seele in der Außenwelt. Jeder Bürger kann eine Seele einsammeln und sie in die Stadt bringen. Beachtet, dass eine Seele als "sperriger Gegenstand" gilt.</note>
+Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine blaue Seele in der Außenwelt. Jeder Bürger kann eine Seele einsammeln und sie in die Stadt bringen.</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;Die Seelen %img_blue_soul% verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.&lt;/strong&gt;
@@ -7863,7 +7863,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
     </unit>
     <unit id="5IonOmt" name="e055ac0">
       <notes>
-        <note category="german">Wortklauberei setzt die hier genannten Regeln nicht außer Kraft ('&lt;i&gt;die Regeln besagen, ich darf keinen Button platzieren, darum platziere ich stattdessen ein klickbares Label!&lt;/i&gt;').</note>
+        <note category="german">Wortklauberei setzt die hier genannten Regeln nicht außer Kraft (z.B. : '&lt;i&gt;die Regeln besagen, ich darf keinen Button platzieren, darum platziere ich stattdessen ein klickbares Label!&lt;/i&gt;').</note>
       </notes>
       <segment>
         <source>Wortklauberei setzt die hier genannten Regeln nicht außer Kraft ('&lt;i&gt;die Regeln besagen, ich darf keinen Button platzieren, darum platziere ich stattdessen ein klickbares Label!&lt;/i&gt;').</source>

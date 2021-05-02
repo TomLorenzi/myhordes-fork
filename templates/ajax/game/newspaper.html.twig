@@ -27,6 +27,9 @@
                                     {{'Tote in der Stadt'|trans({}, 'game')}} {% if gazette.death_inside|length > 0 %}({{ gazette.death_inside|length }}){% endif %}:
                                 </div>
                                 {% if gazette.death_inside|length == 0 %}
+                                	<div class="tooltip normal">
+                                        {{'Das wird aber nicht lange so bleiben...'|trans({}, 'game')}}
+                                    </div>
                                     {{'Niemand!'|trans({}, 'game')}}
                                 {% else %}
                                     {% for citizen in gazette.death_inside %}
@@ -63,9 +66,15 @@
                                     {% set v = (i % 3) + 1 %}
                                     <div class="tally tally-5-{{ v }}"></div>
                                 {% endfor %}
+                                <div class="tooltip normal">
+                                	{{'Das macht dann... %day% Tage'|trans({'%day%': v }, 'game')}}
+                            	</div>
                             {% endif %}
                             {% if gazette.days.final > 0 %}
                                 <div class="tally tally-{{ gazette.days.final }}"></div>
+                                <div class="tooltip normal">
+                                	{{'Das macht dann... %day% Tage'|trans({'%day%': gazette.days.final }, 'game')}}
+                            	</div>
                             {% endif %}
                         </div>
                     {% endif %}

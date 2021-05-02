@@ -19218,5 +19218,23 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>It is impossible to do this in a zone controlled by zombies!</target>
       </segment>
     </unit>
+    <unit id="oZCdnHO" name="Das wird aber nicht lange so bleiben...">
+      <notes>
+        <note category="german">Das wird aber nicht lange so bleiben...</note>
+      </notes>
+      <segment>
+        <source>Das wird aber nicht lange so bleiben...</source>
+        <target>But it surely won't last...</target>
+      </segment>
+    </unit>
+    <unit id="34pYaEI" name="Das macht dann... %day% Tage">
+      <notes>
+        <note category="german">Das macht dann... %day% Tage</note>
+      </notes>
+      <segment>
+        <source>Das macht dann... %day% Tage</source>
+        <target>Yes... %day% days</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
