@@ -50,7 +50,7 @@ class Award {
         return $this;
     }
 
-    public function setUser(User $value): self {
+    public function setUser(?User $value): self {
         $this->user = $value;
         return $this;
     }
