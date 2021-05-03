@@ -8090,7 +8090,7 @@
       </notes>
       <segment>
         <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
-        <target>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</target>
+        <target>Vous avez ouvert {item_from} et avez trouvé {item_to} à l'intérieur.</target>
       </segment>
     </unit>
     <unit id="dvSEUyn">
