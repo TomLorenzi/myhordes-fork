@@ -3148,7 +3148,7 @@
       </notes>
       <segment>
         <source>Freundschaftswerbung</source>
-        <target>Freundschaftswerbung</target>
+        <target>Parrainage</target>
       </segment>
     </unit>
     <unit id="uIkrK0q" name="Ref-Namen ändern">
@@ -3157,7 +3157,7 @@
       </notes>
       <segment>
         <source>Ref-Namen ändern</source>
-        <target>Ref-Namen ändern</target>
+        <target>Modifier le nom de référence</target>
       </segment>
     </unit>
     <unit id="o81xxnX" name="Ref-Namen sperren">
@@ -3166,7 +3166,7 @@
       </notes>
       <segment>
         <source>Ref-Namen sperren</source>
-        <target>Ref-Namen sperren</target>
+        <target>Bloquer le nom de référence</target>
       </segment>
     </unit>
     <unit id="hYqcqsf" name="Ref-Namen entsprerren">
@@ -3175,7 +3175,7 @@
       </notes>
       <segment>
         <source>Ref-Namen entsprerren</source>
-        <target>Ref-Namen entsprerren</target>
+        <target>Débloquer le nom de référence</target>
       </segment>
     </unit>
     <unit id="TcAZPZH" name="Sponsor setzen">
@@ -3184,7 +3184,7 @@
       </notes>
       <segment>
         <source>Sponsor setzen</source>
-        <target>Sponsor setzen</target>
+        <target>Définir le parrain</target>
       </segment>
     </unit>
     <unit id="eeN3gHp" name="Ref-Name">
@@ -3193,7 +3193,7 @@
       </notes>
       <segment>
         <source>Ref-Name</source>
-        <target>Ref-Name</target>
+        <target>Nom de référence</target>
       </segment>
     </unit>
     <unit id="ZzLzTI." name="Gesponsort von">
@@ -3202,7 +3202,7 @@
       </notes>
       <segment>
         <source>Gesponsort von</source>
-        <target>Gesponsort von</target>
+        <target>Parrainé par</target>
       </segment>
     </unit>
     <unit id="MJJ_lOb" name="Gesponsorte Spieler">
@@ -3211,7 +3211,7 @@
       </notes>
       <segment>
         <source>Gesponsorte Spieler</source>
-        <target>Gesponsorte Spieler</target>
+        <target>Joueurs parrainés</target>
       </segment>
     </unit>
   </file>

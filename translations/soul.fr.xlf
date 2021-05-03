@@ -532,7 +532,7 @@
       </notes>
       <segment>
         <source>Es sind in dieser Stadt noch ein paar Bürger übrig...</source>
-        <target>Il y a encore des citoyens vivant dans cette ville...</target>
+        <target>Il y a encore des citoyens vivants dans cette ville...</target>
       </segment>
     </unit>
     <unit id="YDybxz8" name="Standardsprache">
@@ -2897,7 +2897,7 @@
       </notes>
       <segment>
         <source>Lass dich überraschen!</source>
-        <target>Lass dich überraschen!</target>
+        <target>Laissez-vous surprendre !</target>
       </segment>
     </unit>
     <unit id="xfA2CXp">
@@ -2906,7 +2906,7 @@
       </notes>
       <segment>
         <source>Du kannst nach Anmeldung des geworbenen Spielers sofort mit ihm in einer Koalition spielen.</source>
-        <target>vous pourrez aisément garder le contact avec vos amis en les invitant dans votre coalition depuis cette même page.</target>
+        <target>Vous pourrez aisément garder le contact avec vos amis en les invitant dans votre coalition depuis cette même page.</target>
       </segment>
     </unit>
     <unit id="phHRy7R" name="Du bekommst einen frischen jugendlichen Teint und einen Babypopo.">
@@ -2915,7 +2915,7 @@
       </notes>
       <segment>
         <source>Du bekommst einen frischen jugendlichen Teint und einen Babypopo.</source>
-        <target>Du bekommst einen frischen jugendlichen Teint und einen Babypopo.</target>
+        <target>Vous deviendrez un leader influent et respecté.</target>
       </segment>
     </unit>
     <unit id="yR7_2mq" name="Du bekommst straffere Brüste.">
@@ -2924,7 +2924,7 @@
       </notes>
       <segment>
         <source>Du bekommst straffere Brüste.</source>
-        <target>Du bekommst straffere Brüste.</target>
+        <target>Ça nous fera bien plaisir.</target>
       </segment>
     </unit>
     <unit id="DmEId2H" name="Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!">
@@ -2933,7 +2933,7 @@
       </notes>
       <segment>
         <source>Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!</source>
-        <target>Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!</target>
+        <target>Votre vie en sortira illuminée.</target>
       </segment>
     </unit>
     <unit id="0vm9fA_" name="Du wirst angenehm nach Orangenblüten duften.">
@@ -2942,7 +2942,7 @@
       </notes>
       <segment>
         <source>Du wirst angenehm nach Orangenblüten duften.</source>
-        <target>Du wirst angenehm nach Orangenblüten duften.</target>
+        <target>Vous sentirez bon la fleur d'oranger.</target>
       </segment>
     </unit>
     <unit id="9dCZIYd" name="Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.">
@@ -2951,7 +2951,7 @@
       </notes>
       <segment>
         <source>Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.</source>
-        <target>Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.</target>
+        <target>Vous aurez le poil brillant et l'oeil vif.</target>
       </segment>
     </unit>
     <unit id="lmPRBJ0" name="Deine natürlichen Abwehrkräfte werden gestärkt.">
@@ -2960,7 +2960,7 @@
       </notes>
       <segment>
         <source>Deine natürlichen Abwehrkräfte werden gestärkt.</source>
-        <target>Deine natürlichen Abwehrkräfte werden gestärkt.</target>
+        <target>Vos défenses naturelles seront renforcées.</target>
       </segment>
     </unit>
     <unit id="sPSRoTg" name="Du bekommst stahlharte Waschbrettbauchmuskeln.">
@@ -2969,7 +2969,7 @@
       </notes>
       <segment>
         <source>Du bekommst stahlharte Waschbrettbauchmuskeln.</source>
-        <target>Du bekommst stahlharte Waschbrettbauchmuskeln.</target>
+        <target>Vous vous sentirez mieux dans votre peau de citoyen destiné à mourir.</target>
       </segment>
     </unit>
     <unit id="23cz.bn" name="Du hast eine gute Tat vollbracht.">
@@ -2978,7 +2978,7 @@
       </notes>
       <segment>
         <source>Du hast eine gute Tat vollbracht.</source>
-        <target>Du hast eine gute Tat vollbracht.</target>
+        <target>Vous aurez fait une bonne action.</target>
       </segment>
     </unit>
     <unit id="nlq39Ht" name="Die Leute auf der Straße werden sich nach dir umdrehen.">
@@ -2987,7 +2987,7 @@
       </notes>
       <segment>
         <source>Die Leute auf der Straße werden sich nach dir umdrehen.</source>
-        <target>Die Leute auf der Straße werden sich nach dir umdrehen.</target>
+        <target>Les gens que vous croiserez dans la rue seront dorénavant admiratifs de votre prestance.</target>
       </segment>
     </unit>
     <unit id="bRBEaOX" name="Stärkt dein Zahnfleisch und deine Zähne.">
@@ -2996,7 +2996,7 @@
       </notes>
       <segment>
         <source>Stärkt dein Zahnfleisch und deine Zähne.</source>
-        <target>Stärkt dein Zahnfleisch und deine Zähne.</target>
+        <target>Vos gencives et vos dents seront renforcées.</target>
       </segment>
     </unit>
     <unit id="ekcviFN" name="Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.">
@@ -3005,7 +3005,7 @@
       </notes>
       <segment>
         <source>Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.</source>
-        <target>Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.</target>
+        <target>Vous aurez le sentiment d'avoir fait quelque chose de bien.</target>
       </segment>
     </unit>
     <unit id="rrVNfDl" name="Du bekommst einen frischen Atem - schnell und effektiv.">
@@ -3014,7 +3014,7 @@
       </notes>
       <segment>
         <source>Du bekommst einen frischen Atem - schnell und effektiv.</source>
-        <target>Du bekommst einen frischen Atem - schnell und effektiv.</target>
+        <target>Vous obtiendrez une haleine freiche - rapide et efficace.</target>
       </segment>
     </unit>
     <unit id="2rVePUl" name="Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)">
@@ -3023,7 +3023,7 @@
       </notes>
       <segment>
         <source>Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)</source>
-        <target>Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)</target>
+        <target>Les zombies vont adorer que vous vous occupiez du ravitaillement ;)</target>
       </segment>
     </unit>
     <unit id="mkKr7.Y" name="Das andere Geschlecht wird dir nicht widerstehen können.">
@@ -3032,7 +3032,7 @@
       </notes>
       <segment>
         <source>Das andere Geschlecht wird dir nicht widerstehen können.</source>
-        <target>Das andere Geschlecht wird dir nicht widerstehen können.</target>
+        <target>L'autre sexe ne pourra pas vous résister</target>
       </segment>
     </unit>
     <unit id="Sz2KR6B" name="Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.">
@@ -3041,7 +3041,7 @@
       </notes>
       <segment>
         <source>Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.</source>
-        <target>Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.</target>
+        <target>Votre cuir chevelu deviendra plus fort et sera mieux nourri.</target>
       </segment>
     </unit>
     <unit id=".BIUTzQ" name="Dieser Vorteil ist von Mal zu Mal verschieden.">
@@ -3059,7 +3059,7 @@
       </notes>
       <segment>
         <source>Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.</source>
-        <target>Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.</target>
+        <target>Le parrainage ne peut pas être activé pour votre compte. Veuillez contacter un administrateur pour obtenir plus d’informations.</target>
       </segment>
     </unit>
     <unit id="t7p0F21" name="Die Freundschaftswerbung ist für deinen Account gesperrt.">
@@ -3068,7 +3068,7 @@
       </notes>
       <segment>
         <source>Die Freundschaftswerbung ist für deinen Account gesperrt.</source>
-        <target>Die Freundschaftswerbung ist für deinen Account gesperrt.</target>
+        <target>Le parrainage est bloqué pour votre compte.</target>
       </segment>
     </unit>
     <unit id="d3BbIrK" name="Wie funktioniert das genau?">
@@ -3095,7 +3095,7 @@
       </notes>
       <segment>
         <source>Versende einen Einladungs-Link:</source>
-        <target>proposez-leur de s'inscrire depuis l'adresse:</target>
+        <target>Proposez-leur de s'inscrire depuis l'adresse:</target>
       </segment>
     </unit>
     <unit id="uB2Vk6P" name="oder">

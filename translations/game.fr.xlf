@@ -14125,7 +14125,7 @@
       </notes>
       <segment>
         <source>Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</source>
-        <target>Toute la zone est envahie par une végétation pourrissante, du sable et des débris de toutes sortes. Vous êtes sûr(e) que quelque chose se cache ici, mais il faudrait déblayer tout le secteur pour commencer les fouilles à proprement parler...</target>
+        <target><![CDATA[Toute la zone est envahie par une <strong>végétation pourrissante</strong>, du <strong>sable</strong> et des <strong>débris</strong> de toutes sortes. Vous êtes sûr(e) que quelque chose se cache ici, mais il faudrait déblayer tout le secteur pour commencer les fouilles à proprement parler...]]></target>
       </segment>
     </unit>
     <unit id="jImJojV" name="Der Batterienator">
@@ -15151,7 +15151,7 @@
       </notes>
       <segment>
         <source>in einer unheimlichen Ruine %location%</source>
-        <target>in einer unheimlichen Ruine %location%</target>
+        <target>au pied d'une ruine inquiétante %location%</target>
       </segment>
     </unit>
     <unit id="TP3m8zB" name="sitzt in der Falle und wartet auf den Tod...">
@@ -18434,7 +18434,7 @@
       </notes>
       <segment>
         <source>als Gruppe</source>
-        <target>als Gruppe</target>
+        <target>en expédition de groupe</target>
       </segment>
     </unit>
     <unit id=".eKZbiD">
