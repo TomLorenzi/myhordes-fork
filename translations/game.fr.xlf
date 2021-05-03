@@ -18407,7 +18407,7 @@
       </notes>
       <segment>
         <source>&lt;span&gt;Wir kontrollieren die Zone ab sofort.&lt;/span&gt;</source>
-        <target><![CDATA[<span>La zône est maintenant sous contrôle.</span>]]></target>
+        <target><![CDATA[<span>La zone est maintenant sous contrôle.</span>]]></target>
       </segment>
     </unit>
     <unit id="RzA6yig">
