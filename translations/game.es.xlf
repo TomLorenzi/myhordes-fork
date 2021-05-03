@@ -14252,7 +14252,7 @@
     </unit>
     <unit id="tz9Jwn2">
       <notes>
-        <note category="german">Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</note>
+        <note category="german">Die Zone ist vollständig mit &lt;strong&gt;verrottender Vegetation&lt;/strong&gt;, &lt;strong&gt;Sand&lt;/strong&gt; und allem möglichen &lt;strong&gt;Schrott&lt;/strong&gt; bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</note>
       </notes>
       <segment>
         <source>Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</source>
