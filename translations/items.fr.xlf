@@ -3130,7 +3130,7 @@
       </notes>
       <segment>
         <source>Du hast dein &lt;span class="tool"&gt;{item}&lt;/span&gt; ausgepackt und &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt; erhalten!</source>
-        <target><![CDATA[Vous avez ouvert <span class="tool">{item}</span>, vous trouvez : <span class="tool">{items_spawn}</span> à l'intérieur.]]></target>
+        <target><![CDATA[Vous avez ouvert <span class="tool">{item}</span>, vous trouvez <span class="tool">{items_spawn}</span> à l'intérieur.]]></target>
       </segment>
     </unit>
     <unit id="RG55Xgx">
@@ -3139,7 +3139,7 @@
       </notes>
       <segment>
         <source>Du hast die &lt;span class="tool"&gt;{item}&lt;/span&gt; geöffnet und darin &lt;span class="tool"&gt;{items_spawn}&lt;/span&gt; gefunden!</source>
-        <target><![CDATA[Vous avez ouvert <span class="tool">{item}</span>, vous trouvez : <span class="tool">{items_spawn}</span> à l'intérieur.]]></target>
+        <target><![CDATA[Vous avez ouvert <span class="tool">{item}</span>, vous trouvez <span class="tool">{items_spawn}</span> à l'intérieur.]]></target>
       </segment>
     </unit>
     <unit id="TbNnR3t">
@@ -3148,7 +3148,7 @@
       </notes>
       <segment>
         <source>&lt;nt-spawned&gt;Trotz aller Anstrengungen ist es dir nicht gelungen, den {item} zu öffnen...&lt;/nt-spawned&gt;&lt;t-spawned&gt;Du hast die {item} geöffnet und darin {items_spawn} gefunden!&lt;/t-spawned&gt;</source>
-        <target><![CDATA[<nt-spawned>Malgré tous les efforts, vous n'avez pas réussi à ouvrir le {item}...</nt-spawned><t-spawned>Vous avez ouvert {item} , vous trouvez : {items_spawn} à l'intérieur.</t-spawned>]]></target>
+        <target><![CDATA[<nt-spawned>Malgré tous les efforts, vous n'avez pas réussi à ouvrir le {item}...</nt-spawned><t-spawned>Vous avez ouvert {item} , vous trouvez {items_spawn} à l'intérieur.</t-spawned>]]></target>
       </segment>
     </unit>
     <unit id="ANXSLZW" name="Laden">
@@ -8090,7 +8090,7 @@
       </notes>
       <segment>
         <source>Du hast ein(e) {item_from} geöffnet und darin folgenden Gegenstand gefunden: {item_to}.</source>
-        <target>Vous avez ouvert {item_from} et avez trouvé {item_to} à l'intérieur.</target>
+        <target>Vous avez ouvert {item_from}, vous trouvez {item_to} à l'intérieur.</target>
       </segment>
     </unit>
     <unit id="dvSEUyn">
