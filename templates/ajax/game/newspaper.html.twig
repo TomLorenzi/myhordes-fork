@@ -66,16 +66,13 @@
                                     {% set v = (i % 3) + 1 %}
                                     <div class="tally tally-5-{{ v }}"></div>
                                 {% endfor %}
-                                <div class="tooltip normal">
-                                	{{'Das macht dann... %day% Tage'|trans({'%day%': v }, 'game')}}
-                            	</div>
                             {% endif %}
                             {% if gazette.days.final > 0 %}
                                 <div class="tally tally-{{ gazette.days.final }}"></div>
-                                <div class="tooltip normal">
-                                	{{'Das macht dann... %day% Tage'|trans({'%day%': gazette.days.final }, 'game')}}
-                            	</div>
                             {% endif %}
+                            <div class="tooltip normal">
+                                	{{'Das macht dann... %day% Tage'|trans({'%day%': clock.day }, 'game')}}
+                            	</div>
                         </div>
                     {% endif %}
                 </div>
