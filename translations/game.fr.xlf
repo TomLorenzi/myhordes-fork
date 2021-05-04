@@ -18452,7 +18452,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Ohne Wasser können bestimmte Verteidigungen (wie z.B. die Wassergeschütztürme) beim Angriff der Zombies nicht eingesetzt werden!</source>
-        <target><![CDATA[<strong>Achtung:</strong> Ohne Wasser können bestimmte Verteidigungen (wie z.B. die Wassergeschütztürme) beim Angriff der Zombies nicht eingesetzt werden!]]></target>
+        <target><![CDATA[<strong>Attention :</strong> sans eau, certaines défenses (comme les aqua-tourelles) peuvent ne pas fonctionner lors de l'attaque !]]></target>
       </segment>
     </unit>
     <unit id="8Gt_nOq">
