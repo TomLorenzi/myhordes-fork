@@ -2807,7 +2807,7 @@
       </notes>
       <segment>
         <source>Geworbener Spieler</source>
-        <target>Geworbener Spieler</target>
+        <target>Joueur parrainé</target>
       </segment>
     </unit>
     <unit id="4n2PgVx" name="Heldenerfahrung">
@@ -2816,7 +2816,7 @@
       </notes>
       <segment>
         <source>Heldenerfahrung</source>
-        <target>Heldenerfahrung</target>
+        <target>Expérience de héros</target>
       </segment>
     </unit>
     <unit id="QGRs.s1" name="Du hast keine Koalition.">
@@ -2825,7 +2825,7 @@
       </notes>
       <segment>
         <source>Du hast keine Koalition.</source>
-        <target>Du hast keine Koalition.</target>
+        <target>Vous n'avez pas de coalition.</target>
       </segment>
     </unit>
     <unit id="ljPPYyM" name="Du bist nicht Anführer deiner Koalition.">
@@ -2834,7 +2834,7 @@
       </notes>
       <segment>
         <source>Du bist nicht Anführer deiner Koalition.</source>
-        <target>Du bist nicht Anführer deiner Koalition.</target>
+        <target>Vous n'êtes pas le chef de votre coalition.</target>
       </segment>
     </unit>
     <unit id="nnaWQyL" name="Kein freier Platz">
@@ -2843,7 +2843,7 @@
       </notes>
       <segment>
         <source>Kein freier Platz</source>
-        <target>Kein freier Platz</target>
+        <target>Pas de place disponible</target>
       </segment>
     </unit>
     <unit id="vOzFwXw" name="Koalitionsmitglied">
@@ -2852,7 +2852,7 @@
       </notes>
       <segment>
         <source>Koalitionsmitglied</source>
-        <target>Koalitionsmitglied</target>
+        <target>Membre de votre coalition</target>
       </segment>
     </unit>
     <unit id="2.dDOzw" name="Noch nicht bestätigt...">
@@ -2861,7 +2861,7 @@
       </notes>
       <segment>
         <source>Noch nicht bestätigt...</source>
-        <target>Noch nicht bestätigt...</target>
+        <target>Pas encore de réponse...</target>
       </segment>
     </unit>
     <unit id="yf4a0g_" name="Koalitionseinladung">
@@ -2870,7 +2870,7 @@
       </notes>
       <segment>
         <source>Koalitionseinladung</source>
-        <target>Koalitionseinladung</target>
+        <target>Invitation à la coalition</target>
       </segment>
     </unit>
     <unit id="IDuEdUg" name="Die Freundschaftswerbung">
