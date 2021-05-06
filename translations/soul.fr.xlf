@@ -2834,7 +2834,7 @@
       </notes>
       <segment>
         <source>Du bist nicht Anführer deiner Koalition.</source>
-        <target>Vous n'êtes pas le leader de votre coalition.</target>
+        <target>Vous n'êtes pas le chef de votre coalition.</target>
       </segment>
     </unit>
     <unit id="nnaWQyL" name="Kein freier Platz">
@@ -2843,7 +2843,7 @@
       </notes>
       <segment>
         <source>Kein freier Platz</source>
-        <target>Pas de place libre</target>
+        <target>Pas de place disponible</target>
       </segment>
     </unit>
     <unit id="vOzFwXw" name="Koalitionsmitglied">
@@ -2852,7 +2852,7 @@
       </notes>
       <segment>
         <source>Koalitionsmitglied</source>
-        <target>Membre de la coalition</target>
+        <target>Membre de votre coalition</target>
       </segment>
     </unit>
     <unit id="2.dDOzw" name="Noch nicht bestätigt...">
@@ -2861,7 +2861,7 @@
       </notes>
       <segment>
         <source>Noch nicht bestätigt...</source>
-        <target>Invitation en attente...</target>
+        <target>Pas encore de réponse...</target>
       </segment>
     </unit>
     <unit id="yf4a0g_" name="Koalitionseinladung">
@@ -2870,7 +2870,7 @@
       </notes>
       <segment>
         <source>Koalitionseinladung</source>
-        <target>Inviter dans la coalition</target>
+        <target>Invitation à la coalition</target>
       </segment>
     </unit>
     <unit id="IDuEdUg" name="Die Freundschaftswerbung">
