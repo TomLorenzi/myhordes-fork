@@ -185,6 +185,7 @@ class GhostController extends CustomAbstractController
         $password = $parser->get('password', null);
         $lang = $parser->get('lang', '');
         $well = $parser->get('well', '');
+        $population = $parser->get('pop', '');
 
         $seed       = $crow_permissions ? $parser->get_int('seed', -1) : -1;
         $incarnated = $crow_permissions ? (bool)$parser->get('incarnated', true) : true;
@@ -233,6 +234,14 @@ class GhostController extends CustomAbstractController
                 'min' => $well,
                 'max' => $well
             ];
+        }
+
+        if(!empty($population) && is_numeric($population) && $population <= ($crow_permissions ? 80 : 40) && $population >= 10){
+            $customConf['population'] = [
+                'min' => $population,
+                'max' => $population
+            ];
+            $customConf['open_town_grace'] = $population;
         }
 
         $remove_chest_items = [];

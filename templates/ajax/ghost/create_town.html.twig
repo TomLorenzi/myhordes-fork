@@ -233,6 +233,21 @@
                         </div>
                         <div class="row">
                             <div class="cell padded rw-3 rw-md-6 rw-sm-12 note note-lightest">
+                                <label for="pop">{{'Einwohnerzahl'|trans({}, 'ghost')}}:</label>
+                            </div>
+                            <div class="cell padded rw-3 rw-md-6 rw-sm-12">
+                                <input type="text" name="pop" id="pop" x-payload="pop"/>
+                            </div>
+                            <div class="cell padded rw-6 rw-md-12">
+                                <div class="help">
+                                    {% trans from "ghost"%}
+                                    Muss zwischen 10 und 80 liegen.
+                                    {% endtrans %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="cell padded rw-3 rw-md-6 rw-sm-12 note note-lightest">
                                 <label for="seed">{{'Karten-Seed'|trans({}, 'ghost')}}:</label>
                             </div>
                             <div class="cell padded rw-3 rw-md-6 rw-sm-12">

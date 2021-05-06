@@ -1452,5 +1452,23 @@
         <target>Se lancer dans le jeu</target>
       </segment>
     </unit>
+    <unit id="Lj_OYdi" name="Einwohnerzahl">
+      <notes>
+        <note category="german">Einwohnerzahl</note>
+      </notes>
+      <segment>
+        <source>Einwohnerzahl</source>
+        <target>Population</target>
+      </segment>
+    </unit>
+    <unit id="kjZ829E" name="Muss zwischen 10 und 80 liegen.">
+      <notes>
+        <note category="german">Muss zwischen 10 und 80 liegen.</note>
+      </notes>
+      <segment>
+        <source>Muss zwischen 10 und 80 liegen.</source>
+        <target>Valeur comprise entre 10 et 80.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
