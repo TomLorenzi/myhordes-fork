@@ -3580,7 +3580,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... es ist: {color} {value}.</source>
-        <target>You draw a card ... it is a: {value} of {color}.</target>
+        <target>You draw a card ... it is the: {value} of {color}.</target>
       </segment>
     </unit>
     <unit id="m5CJEyF" name="Die Rückkehr des Helden">
@@ -6884,7 +6884,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Kreuz</source>
-        <target>Club</target>
+        <target>Clubs</target>
       </segment>
     </unit>
     <unit id="XnWnfMP" name="Pik">
@@ -6893,7 +6893,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Pik</source>
-        <target>Spade</target>
+        <target>Spades</target>
       </segment>
     </unit>
     <unit id="Rduezfz" name="Herz">
@@ -6902,7 +6902,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Herz</source>
-        <target>Heart</target>
+        <target>Hearts</target>
       </segment>
     </unit>
     <unit id="2P.dMD0" name="Karo">
@@ -6911,7 +6911,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Karo</source>
-        <target>Diamond</target>
+        <target>Diamonds</target>
       </segment>
     </unit>
     <unit id="cIg8Tyq" name="Bube">
