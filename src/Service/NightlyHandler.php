@@ -671,7 +671,8 @@ class NightlyHandler
         if ($this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_BUILDING_DAMAGE, false)) {
             // In panda, built buildings get damaged every night
             // Only 10% of the attack is inflicted to buildings
-            $damageInflicted = round($zombies * 0.1);
+            // zombies - amount of zombies killed by the watch
+            $damageInflicted = round(($zombies - ( $initial_overflow - $overflow )) * 0.1);
 
             $this->log->debug("Inflicting <info>$damageInflicted</info> damage to the buildings in town...");
 
