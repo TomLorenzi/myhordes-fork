@@ -327,7 +327,7 @@ class GameFactory
 
             if ($zombies_base > 0) {
                 $zombies_base = max(1, mt_rand( floor($zombies_base * 0.8), ceil($zombies_base * 1.2) ) );
-                $zone_list[$i]->setZombies( $zombies_base )->setInitialZombies( $zombies_base )->setStartZombies( $zombies_base );
+                $zone_list[$i]->setZombies( $zombies_base )->setInitialZombies( $zombies_base );
             }
         }
 
@@ -374,6 +374,7 @@ class GameFactory
         }
 
         $this->zone_handler->dailyZombieSpawn( $town, 1, ZoneHandler::RespawnModeNone );
+        foreach ($town->getZones() as $zone) $zone->setStartZombies( $zone->getZombies() );
 
         $town->setForum((new Forum())->setTitle($town->getName()));
         $this->crow->postToForum( $town->getForum(),

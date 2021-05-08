@@ -335,7 +335,7 @@ class AdminTownController extends AdminActionController
         if (str_starts_with($action, 'dbg_') && $kernel->getEnvironment() !== 'dev')
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($action, ['release', 'quarantine', 'advance', 'nullify', 'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage', 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress']) && !$this->isGranted('ROLE_ADMIN'))
+        if (in_array($action, ['release', 'quarantine', 'advance', 'nullify', 'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage', 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set']) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $param = $parser->get('param');
@@ -479,6 +479,52 @@ class AdminTownController extends AdminActionController
 
             case 'dbg_map_progress':
                 $this->zone_handler->dailyZombieSpawn( $town, ZoneHandler::RespawnModeAuto, 1 );
+                $this->entity_manager->persist( $town );
+                break;
+
+            case 'dbg_map_zombie_set':
+                $param_base = explode(',',$param);
+                if (count($param_base) !== 2) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+                if (trim($param_base[1]) === 'today') $zeds = -1;
+                elseif (trim($param_base[1]) === 'initial') $zeds = -2;
+                else {
+                    if (!is_numeric(trim($param_base[1]))) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                    $zeds = (int)trim($param_base[1]);
+                    if ($zeds < 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                }
+
+                if ($param_base[0] === 'all') {
+                    foreach ($town->getZones() as $zone) if (!$zone->isTownZone())
+                        $zone
+                            ->setZombies( $zeds === -1 ? $zone->getInitialZombies() : ( $zeds === -2 ? $zone->getStartZombies() : $zeds ) )
+                            ->setInitialZombies( $zeds === -2 ? $zone->getStartZombies() : $zone->getInitialZombies() );
+
+                } else {
+                    $param_vals = explode(':',$param_base[0]);
+                    if (count($param_vals) === 1) $param_vals[] = $param_vals[0];
+                    elseif (count($param_vals) > 2) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+                    $pair = explode( '/', $param_vals[0] );
+                    if (count($pair) !== 2 || !is_numeric(trim($pair[0])) || !is_numeric(trim($pair[1]))) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+                    $from_x = (int)trim($pair[0]);
+                    $from_y = (int)trim($pair[1]);
+
+                    $pair = explode( '/', $param_vals[1] );
+                    if (count($pair) !== 2 || !is_numeric(trim($pair[0])) || !is_numeric(trim($pair[1]))) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+                    $to_x = (int)trim($pair[0]);
+                    $to_y = (int)trim($pair[1]);
+
+                    for ($x = min($from_x,$to_x); $x <= max($from_x,$to_x); $x++)
+                        for ($y = min($from_y,$to_y); $y <= max($from_y,$to_y); $y++)
+                            if (($zone = $this->entity_manager->getRepository(Zone::class)->findOneByPosition($town,$x,$y)) && !$zone->isTownZone())
+                                $zone
+                                    ->setZombies( $zeds === -1 ? $zone->getInitialZombies() : ( $zeds === -2 ? $zone->getStartZombies() : $zeds ) )
+                                    ->setInitialZombies( $zeds === -2 ? $zone->getStartZombies() : $zone->getInitialZombies() );                }
+
+
                 $this->entity_manager->persist( $town );
                 break;
 
