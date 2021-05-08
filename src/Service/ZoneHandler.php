@@ -352,33 +352,48 @@ class ZoneHandler
         for ($c = 0; $c < $cycles; $c++) {
             $zone_original_db = $zone_db;
             foreach ($zone_db as $x => &$zone_row)
-                foreach ($zone_row as $y => &$current_zone_zombies) {
-                    $adj_zones_total = $adj_zones_infected = $zone_zed_difference = 0;
+                foreach ($zone_row as $y => &$current_zone_zombies)
 
-                    for ($dx = -1; $dx <= 1; $dx++)
-                        if (isset($zone_original_db[$x + $dx]))
-                            for ($dy = -1; $dy <= 1; $dy++) if ($dx !== 0 || $dy !== 0) {
-                                if (isset($zone_original_db[$x + $dx][$y + $dy])) {
-                                    $adj_zones_total++;
-                                    if ($zone_original_db[$x + $dx][$y + $dy] > $zone_original_db[$x][$y]) {
-                                        $adj_zones_infected++;
-                                        $dif = $zone_original_db[$x + $dx][$y + $dy] - $zone_original_db[$x][$y];
-                                        $zone_zed_difference += ( abs($dx) + abs($dy) == 2 ? ceil($dif/2) : $dif );
+                    if ($current_zone_zombies > 0)
+                        // If the zone already has zombies, increase count by 0 - 2
+                        $current_zone_zombies += mt_rand(0, 2);
+                    else {
+                        // Otherwise, count the total number of adjacent zones with zombies
+                        $adj_zones_total = $adj_zones_infected = 0;
+
+                        // We're iterating over the 4 directly adjacent zones
+                        for ($dx = -1; $dx <= 1; $dx++)
+                            if (isset($zone_original_db[$x + $dx]))
+                                for ($dy = -1; $dy <= 1; $dy++) if (abs($dx) !== abs($dy)) {
+                                    if (isset($zone_original_db[$x + $dx][$y + $dy])) {
+                                        // If the zone exist, increase number of neighboring zones
+                                        $adj_zones_total++;
+
+                                        // If the zone has zombies, increase the number of infected neighboring zones
+                                        if ($zone_original_db[$x + $dx][$y + $dy] > $zone_original_db[$x][$y])
+                                            $adj_zones_infected++;
                                     }
                                 }
-                            }
 
-                    if ($adj_zones_infected > 0) {
+                        // If we have infected neighboring zones
+                        if ($adj_zones_infected > 0) {
+                            // Number of zones with zombies, balanced by total number of neighboring zones
+                            $target_number = (int)round($adj_zones_infected * (4.0 / $adj_zones_total));
 
-                        $spread_chance = 1 - pow(0.875, $zone_zed_difference);
-                        if (mt_rand(0,100) > (100*$spread_chance)) continue;
+                            // Calculate random value between -3 and infected_zones 4; we're using -3 instead of 0 to
+                            // create a bias towards 0
+                            $new_zeds = mt_rand( -3, 4 );
 
-                        $max_zeds = ceil($zone_zed_difference / 8 );
-                        $min_zeds = min($max_zeds, floor($max_zeds * ($adj_zones_infected / $adj_zones_total)));
-                        $current_zone_zombies += mt_rand($min_zeds, $max_zeds);
+                            // Repeat if the result is > 0 and not the same as the number of neighboring infected zones
+                            // This created a bias towards spawning the same number of zombies as there are infected zones
+                            if ($new_zeds > 0 && $new_zeds !== $target_number)
+                                $new_zeds = mt_rand( -3, 4 );
+
+                            // Clamp the result to a 0 - 4 range.
+                            $current_zone_zombies += max(0, min( 4, $new_zeds ) );
+                        }
+
                     }
-
-                }
 
             foreach ($zone_db as $x => &$zone_row)
                 foreach ($zone_row as $y => &$current_zone_zombies) {
