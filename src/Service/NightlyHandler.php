@@ -882,9 +882,8 @@ class NightlyHandler
                 // Randomness
                 shuffle($toInfect);
                 // We infect the first half of the list
-                for ($i=0; $i < count($toInfect) / 2; $i++) { 
-                    $this->citizen_handler->inflictStatus($toInfect[$i], "infection");
-                }
+                for ($i=0; $i < count($toInfect) / 2; $i++)
+                    $this->citizen_handler->inflictStatus($toInfect[$i], "tg_meta_ginfect");
 
                 // Kill zombies around the town (all at 1km, none beyond 10km)
                 foreach ($town->getZones() as $zone) {
@@ -1036,6 +1035,8 @@ class NightlyHandler
                     $this->citizen_handler->removeStatus( $citizen, $st );
                 }
             if ($add_hangover) $this->citizen_handler->inflictStatus($citizen, 'hungover');
+
+            if ($citizen->hasRole('ghoul')) $this->citizen_handler->removeStatus($citizen, 'infection');
 
             $alarm = $this->inventory_handler->fetchSpecificItems($citizen->getInventory(), [new ItemRequest("alarm_on_#00")]);
             if (count($alarm) > 0) {

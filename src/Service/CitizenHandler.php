@@ -122,13 +122,17 @@ class CitizenHandler
             return true;
         }
 
-        // Prevent thirst and infection for ghouls
+        // Prevent thirst and infection for ghouls; ghoul infection is still possible
         if ((   $status->getName() === 'thirst1' ||
                 $status->getName() === 'thirst2' ||
                 $status->getName() === 'infection' ||
                 $status->getName() === 'tg_meta_winfect'
             ) && $citizen->hasRole('ghoul'))
             return false;
+
+        // Convert ghoul infection into normal infection
+        if ( $status->getName() === 'tg_meta_ginfect')
+            $status = $this->entity_manager->getRepository(CitizenStatus::class)->findOneByName('infection');
 
         // Prevent a normal infection when immune
         if ( $status->getName() === 'infection' && $this->hasStatusEffect( $citizen, 'immune' ) )
