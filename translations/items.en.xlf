@@ -3580,7 +3580,7 @@
       </notes>
       <segment>
         <source>Du ziehst eine Karte... es ist: {color} {value}.</source>
-        <target>You draw a card ... it is a: {value} of {color}.</target>
+        <target>You draw a card ... it is the: {value} of {color}.</target>
       </segment>
     </unit>
     <unit id="m5CJEyF" name="Die Rückkehr des Helden">
@@ -6884,7 +6884,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Kreuz</source>
-        <target>Club</target>
+        <target>Clubs</target>
       </segment>
     </unit>
     <unit id="XnWnfMP" name="Pik">
@@ -6893,7 +6893,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Pik</source>
-        <target>Spade</target>
+        <target>Spades</target>
       </segment>
     </unit>
     <unit id="Rduezfz" name="Herz">
@@ -6902,7 +6902,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Herz</source>
-        <target>Heart</target>
+        <target>Hearts</target>
       </segment>
     </unit>
     <unit id="2P.dMD0" name="Karo">
@@ -6911,7 +6911,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Karo</source>
-        <target>Diamond</target>
+        <target>Diamonds</target>
       </segment>
     </unit>
     <unit id="cIg8Tyq" name="Bube">
@@ -8180,7 +8180,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>&lt;t-consumed&gt;Du hetzt das/den/die {item} auf einen Zombie. Der Untote greift sich deinen tierischen Begleiter, zerquetscht es mit seinen Griffen und würgt es ganz langsam herunter... Dumm gelaufen.. aber wenigstens hast ihn damit eine Zeit lang beschäftigt...&lt;/t-consumed&gt;&lt;nt-consumed&gt;Dein Tier &lt;strong&gt;geht einem Zombie sofort an die Gurgel&lt;/strong&gt; und reißt sich ein paar schöne Happen! Bravo!&lt;/nt-consumed&gt;</source>
-        <target><![CDATA[<t-consumed>Du hetzt das/den/die {item} auf einen Zombie. Der Untote greift sich deinen tierischen Begleiter, zerquetscht es mit seinen Griffen und würgt es ganz langsam herunter... Dumm gelaufen.. aber wenigstens hast ihn damit eine Zeit lang beschäftigt...</t-consumed><nt-consumed>Dein Tier <strong>geht einem Zombie sofort an die Gurgel</strong> und reißt sich ein paar schöne Happen! Bravo!</nt-consumed>]]></target>
+        <target><![CDATA[<t-consumed>You send your {item} over to the zombie. The wretched individual isn't the quickest of cats, but he pounces (slowly) on the animal to devour it, groaning all the time... Goodbye brave friend. On the plus side, that's one less zombie to worry about now he's distracted...</t-consumed><nt-consumed>Dein Tier <strong>geht einem Zombie sofort an die Gurgel</strong> und reißt sich ein paar schöne Happen! Bravo!</nt-consumed>]]></target>
       </segment>
     </unit>
     <unit id="BnW7_fH">
