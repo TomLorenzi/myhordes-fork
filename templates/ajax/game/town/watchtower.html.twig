@@ -2,6 +2,9 @@
 {%block title %}{{'Wachturm'|trans({}, 'game')}}{% endblock %}
 {% block content %}
     {% set wtt = conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_WT_THRESHOLD'),33) %}
+
+    <h1 class="page-head">{{'Wachturm'|trans({}, 'buildings')}}</h1>
+
     <div class="help">
         {% trans from 'game' %}
             Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.
@@ -16,7 +19,6 @@
         {% endif %}
     </div>
 
-    <h5>{{ 'Wachturm'|trans({},'buildings') }}</h5>
     <div class="block watchtower">
         <div class="row">
             {% if z0[4] >= wtt %}
