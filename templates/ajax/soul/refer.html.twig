@@ -24,8 +24,6 @@
                             <div class="padded cell rw-3">
                                 {% if coa is null %}
                                     <span class="small"><i>{{ 'Du hast keine Koalition.'|trans({},'soul') }}</i></span>
-                                {% elseif not coa_leader %}
-                                    <span class="small"><i>{{ 'Du bist nicht Anführer deiner Koalition.'|trans({},'soul') }}</i></span>
                                 {% elseif coa_full %}
                                     <span class="small"><i>{{ 'Kein freier Platz'|trans({},'soul') }}</i></span>
                                 {% elseif coa_members[entry.user.id] is defined %}
