@@ -322,6 +322,8 @@ class AdminTownController extends AdminActionController
      * @param GameFactory $gameFactory
      * @param CrowService $crowService
      * @param KernelInterface $kernel
+     * @param JSONRequestParser $parser
+     * @param TownHandler $townHandler
      * @return Response
      */
     public function town_manager(int $id, string $action, ItemFactory $itemFactory, RandomGenerator $random, NightlyHandler $night, GameFactory $gameFactory, CrowService $crowService, KernelInterface $kernel, JSONRequestParser $parser, TownHandler $townHandler): Response
@@ -333,7 +335,7 @@ class AdminTownController extends AdminActionController
         if (str_starts_with($action, 'dbg_') && $kernel->getEnvironment() !== 'dev')
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($action, ['release', 'quarantine', 'advance', 'nullify', 'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage', 'dbg_set_well', 'dbg_unlock_buildings']) && !$this->isGranted('ROLE_ADMIN'))
+        if (in_array($action, ['release', 'quarantine', 'advance', 'nullify', 'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage', 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress']) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $param = $parser->get('param');
@@ -472,6 +474,11 @@ class AdminTownController extends AdminActionController
                     $found = !empty($possible);
                     foreach ($possible as $proto) $townHandler->addBuilding( $town, $proto );
                 } while ($found);
+                $this->entity_manager->persist( $town );
+                break;
+
+            case 'dbg_map_progress':
+                $this->zone_handler->dailyZombieSpawn( $town, ZoneHandler::RespawnModeAuto, 1 );
                 $this->entity_manager->persist( $town );
                 break;
 

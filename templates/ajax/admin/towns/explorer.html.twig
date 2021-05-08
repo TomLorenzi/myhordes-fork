@@ -106,6 +106,7 @@
                                                 {% endif %}
                                                 <option value="{{ url('admin_town_manage', {action: 'dbg_set_well', id: town.id}) }}" x-query="{{ 'Neuer Füllstand:'|trans({},'admin') }}">{{ 'Brunnen-Füllstand setzen'|trans({},'admin') }}</option>
                                                 <option value="{{ url('admin_town_manage', {action: 'dbg_unlock_buildings', id: town.id}) }}">{{ 'Alle Gebäude freischalten'|trans({},'admin') }}</option>
+                                                <option value="{{ url('admin_town_manage', {action: 'dbg_map_progress', id: town.id}) }}">{{ 'Zombie-Spread ausführen'|trans({},'admin') }}</option>
 
                                             </optgroup>
                                         {% endif %}
