@@ -321,7 +321,10 @@ class ZoneHandler
         $zones = $town->getZones()->getValues();
         $zone_db = []; $empty_zones = []; $despair_db = [];
         $killedZombies = 0;
+
+        $total_zombies = 0;
         foreach ($zones as &$zone) {
+            $total_zombies += $zone->getZombies();
             $killedZombies += ($zone->getInitialZombies() - $zone->getZombies());
 
             $despair = max(0,( $zone->getInitialZombies() - $zone->getZombies() - 1 ) / 2);
@@ -335,12 +338,15 @@ class ZoneHandler
 
         $factor = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RESPAWN_FACTOR, 1);
 
+        $town->getMapSize($map_x,$map_y);
+
         // Respawn
         $d = $town->getDay();
         if ($mode === self::RespawnModeForce ||
             ($mode === self::RespawnModeAuto && $d >= 3 && (
-                (count($empty_zones) > (count($zones)* 18/20)) /*|| ($killedZombies >= $town->getMapSize() * $town->getDay() * $factor)*/
+                ($total_zombies < ($map_x * $map_y)/13.0 * $town->getDay() * $factor)
             ))) {
+
             $keys = $d == 1 ? [array_rand($empty_zones)] : array_rand($empty_zones, min($d,count($empty_zones)));
             foreach ($keys as $spawn_zone_id)
                 /** @var Zone $spawn_zone */
