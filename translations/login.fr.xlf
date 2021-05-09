@@ -664,5 +664,14 @@
         <target>Si vous avez été référé à MyHordes par un autre joueur, entrez son nom ici. Il ou elle sera très reconnaissant(e)...</target>
       </segment>
     </unit>
+    <unit id="zPzPmd5">
+      <notes>
+        <note category="german">Dein E-Mail Anbieter stellt Nachrichten von MyHordes nicht oder nur sehr unzuverlässig zu. Wir empfehlen, wenn möglich eine andere E-Mail Adresse für die Registrierung zu verwenden. Bitte entschuldige die Unannehmlichkeiten.</note>
+      </notes>
+      <segment>
+        <source>Dein E-Mail Anbieter stellt Nachrichten von MyHordes nicht oder nur sehr unzuverlässig zu. Wir empfehlen, wenn möglich eine andere E-Mail Adresse für die Registrierung zu verwenden. Bitte entschuldige die Unannehmlichkeiten.</source>
+        <target>Votre fournisseur de messagerie ne délivre pas de manière fiable les e-mails de MyHordes. Nous vous recommandons fortement d’utiliser une autre adresse e-mail pour vous inscrire à MyHordes. Désolé pour le dérangement !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

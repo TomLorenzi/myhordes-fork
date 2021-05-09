@@ -29,6 +29,11 @@
                     <div class="cell padded-small rw-6 rw-md-12"><b><label for="register-email-2">{% trans from 'login' %}E-Mail Adresse{% endtrans %} ({% trans from 'login' %}wiederholen{% endtrans %})</label></b></div>
                     <div class="cell padded-small rw-6 rw-md-12"><input name="mail2" id="register-email-2" type="email" /></div>
                 </div>
+                <div class="row hidden" id="mail-warning-row">
+                    <div class="cell padded-small rw-12">
+                        <div class="note note-warning">{{ 'Dein E-Mail Anbieter stellt Nachrichten von MyHordes nicht oder nur sehr unzuverlässig zu. Wir empfehlen, wenn möglich eine andere E-Mail Adresse für die Registrierung zu verwenden. Bitte entschuldige die Unannehmlichkeiten.'|trans({},'login') }}</div>
+                    </div>
+                </div>
 
                 <br /><br />
 
@@ -82,6 +87,13 @@
             inputs[i].addEventListener('input', function() {
                 this.classList.remove('invalid');
             });
+
+        document.getElementById('register-email').addEventListener('change', () => {
+            const value = /^.*?@.*?(\w+)\.\w+$/gm.exec(document.getElementById('register-email').value);
+            const warning = (value && value.length === 2 && ['hotmail','outlook','live','msn','windowslive'].includes( value[1] ));
+            if (warning) document.getElementById('mail-warning-row').classList.remove('hidden');
+            else document.getElementById('mail-warning-row').classList.add('hidden');
+        });
 
         document.getElementById('register_button').addEventListener('click', function(e) {
             e.preventDefault();

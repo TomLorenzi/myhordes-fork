@@ -667,5 +667,14 @@
         <target>Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...</target>
       </segment>
     </unit>
+    <unit id="zPzPmd5">
+      <notes>
+        <note category="german">Dein E-Mail Anbieter stellt Nachrichten von MyHordes nicht oder nur sehr unzuverlässig zu. Wir empfehlen, wenn möglich eine andere E-Mail Adresse für die Registrierung zu verwenden. Bitte entschuldige die Unannehmlichkeiten.</note>
+      </notes>
+      <segment>
+        <source>Dein E-Mail Anbieter stellt Nachrichten von MyHordes nicht oder nur sehr unzuverlässig zu. Wir empfehlen, wenn möglich eine andere E-Mail Adresse für die Registrierung zu verwenden. Bitte entschuldige die Unannehmlichkeiten.</source>
+        <target>Dein E-Mail Anbieter stellt Nachrichten von MyHordes nicht oder nur sehr unzuverlässig zu. Wir empfehlen, wenn möglich eine andere E-Mail Adresse für die Registrierung zu verwenden. Bitte entschuldige die Unannehmlichkeiten.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
