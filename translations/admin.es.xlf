@@ -2692,7 +2692,7 @@
         <target>Impedir el juego</target>
       </segment>
     </unit>
-    <unit id="67OtxCl">
+    <unit id="67OtxCl" name="3e3c02a">
       <notes>
         <note category="german">Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.</note>
       </notes>
@@ -2710,7 +2710,7 @@
         <target>Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.</target>
       </segment>
     </unit>
-    <unit id="3Bzuyaj">
+    <unit id="3Bzuyaj" name="e76fc50">
       <notes>
         <note category="german">Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.</note>
       </notes>
@@ -3187,6 +3187,15 @@
         <target>Gesponsorte Spieler</target>
       </segment>
     </unit>
+    <unit id="QWjy74v" name="Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):">
+      <notes>
+        <note category="german">Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):</note>
+      </notes>
+      <segment>
+        <source>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):</source>
+        <target>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):</target>
+      </segment>
+    </unit>
     <unit id="m56Z2c0" name="Zombie-Spread ausführen">
       <notes>
         <note category="german">Zombie-Spread ausführen</note>
@@ -3196,7 +3205,7 @@
         <target>Zombie-Spread ausführen</target>
       </segment>
     </unit>
-    <unit id="EPOEUwe">
+    <unit id="EPOEUwe" name="746952b">
       <notes>
         <note category="german">Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).</note>
       </notes>

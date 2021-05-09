@@ -643,7 +643,7 @@
       </notes>
       <segment>
         <source>Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</source>
-        <target>Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</target>
+        <target>Le parrain saisi n'est pas valide. Pour vous inscrire sans parrain, laissez le champ vide.</target>
       </segment>
     </unit>
     <unit id="e_EqP86" name="Pate">
