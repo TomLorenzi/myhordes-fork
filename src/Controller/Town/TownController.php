@@ -1794,6 +1794,7 @@ class TownController extends InventoryAwareController
             $this->citizen_handler->removeStatus($c, $healedStatus);
             if($healedStatus == 'infection') {
                 $this->citizen_handler->removeStatus($c, "tg_meta_winfect");
+                $this->citizen_handler->removeStatus($c, "tg_meta_ginfect");
             }
 
             $message[] = $this->translator->trans($healableStatus[$healedStatus]['success'], ['%citizen%' => "<span>" . $c->getUser()->getName() . "</span>"], 'game');
@@ -1801,20 +1802,18 @@ class TownController extends InventoryAwareController
             $transfer = $this->random_generator->chance(0.1);
             if($transfer){
                 $do_transfer = true;
-                $witness = false;
-                if($this->citizen_handler->hasStatusEffect($citizen, 'tg_infect_wtns')) {
-                    if($this->random_generator->chance(0.5)){
+                $witness = $this->citizen_handler->hasStatusEffect($citizen, 'tg_infect_wtns');
+                if($healedStatus == 'infection' && $witness) {
+                    if($this->random_generator->chance(0.5))
                         $do_transfer = false;
-                    }
-                    $this->citizen_handler->removeStatus($citizen, 'th_infect_wtns');
+                    $this->citizen_handler->removeStatus($citizen, 'tg_infect_wtns');
                 }
                 if($do_transfer) {
-                    $this->citizen_handler->inflictStatus($citizen, $healedStatus);
+                    $this->citizen_handler->inflictStatus($citizen, $healedStatus === 'infection' ? 'tg_meta_ginfect' : $healedStatus);
                     $message[] = $this->translator->trans($healableStatus[$healedStatus]['transfer'], ['%citizen%' => "<span>" . $c->getUser()->getName() . "</span>"], 'game');
-                    if($witness){
-                    $message[] = $this->translator->trans('Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...', [], 'items');
-                    }
-                } else if($witness) {
+                    if ($healedStatus == 'infection' && $witness)
+                        $message[] = $this->translator->trans('Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...', [], 'items');
+                } else if ($witness) {
                     $message[] = $this->translator->trans('Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.', [], 'items');
                 }
             }

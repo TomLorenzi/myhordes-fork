@@ -18407,7 +18407,7 @@
       </notes>
       <segment>
         <source>&lt;span&gt;Wir kontrollieren die Zone ab sofort.&lt;/span&gt;</source>
-        <target><![CDATA[<span>La zône est maintenant sous contrôle.</span>]]></target>
+        <target><![CDATA[<span>La zone est maintenant sous contrôle.</span>]]></target>
       </segment>
     </unit>
     <unit id="RzA6yig">
@@ -18452,7 +18452,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Ohne Wasser können bestimmte Verteidigungen (wie z.B. die Wassergeschütztürme) beim Angriff der Zombies nicht eingesetzt werden!</source>
-        <target><![CDATA[<strong>Achtung:</strong> Ohne Wasser können bestimmte Verteidigungen (wie z.B. die Wassergeschütztürme) beim Angriff der Zombies nicht eingesetzt werden!]]></target>
+        <target><![CDATA[<strong>Attention :</strong> sans eau, certaines défenses (comme les aqua-tourelles) peuvent ne pas fonctionner lors de l'attaque !]]></target>
       </segment>
     </unit>
     <unit id="8Gt_nOq">
@@ -18902,7 +18902,7 @@
       </notes>
       <segment>
         <source>Wähle einen Gegenstand aus der Bank aus...</source>
-        <target>Wähle einen Gegenstand aus der Bank aus...</target>
+        <target>Choisissez l'objet que vous souhaitez voler dans la banque...</target>
       </segment>
     </unit>
     <unit id="B5sYzl." name="Aufklärer: Ruinen erkunden">
