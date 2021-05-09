@@ -2719,7 +2719,7 @@
         <target>Interdire le jeu</target>
       </segment>
     </unit>
-    <unit id="67OtxCl">
+    <unit id="67OtxCl" name="3e3c02a">
       <notes>
         <note category="german">Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.</note>
       </notes>
@@ -2737,7 +2737,7 @@
         <target>La durée de la restriction ne compte qu'à partir du moment où elle est activée.</target>
       </segment>
     </unit>
-    <unit id="3Bzuyaj">
+    <unit id="3Bzuyaj" name="e76fc50">
       <notes>
         <note category="german">Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.</note>
       </notes>
@@ -3214,22 +3214,31 @@
         <target>Joueurs parrainés</target>
       </segment>
     </unit>
+    <unit id="QWjy74v" name="Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):">
+      <notes>
+        <note category="german">Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):</note>
+      </notes>
+      <segment>
+        <source>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):</source>
+        <target>Basé sur le jour (laissez vide pour utiliser le jour en cours):</target>
+      </segment>
+    </unit>
     <unit id="m56Z2c0" name="Zombie-Spread ausführen">
       <notes>
         <note category="german">Zombie-Spread ausführen</note>
       </notes>
       <segment>
         <source>Zombie-Spread ausführen</source>
-        <target>Zombie-Spread ausführen</target>
+        <target>Exécuter le spawn de zombies</target>
       </segment>
     </unit>
-    <unit id="EPOEUwe">
+    <unit id="EPOEUwe" name="746952b">
       <notes>
         <note category="german">Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).</note>
       </notes>
       <segment>
         <source>Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).</source>
-        <target>Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).</target>
+        <target>Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Zone) ou "{x}/{y},{zombies}" (zone unique), par example "-1/3:-4/2,5". Au lieu de spécifier la position, "all" peut être utilisé. Au lieu d'une valeur numérique pour le nombre de zombies, ce qui suit est également valide: "today" (Nombre de zombies au dernier changement de jour), "initial" (Nombre de zombies au jour 1).</target>
       </segment>
     </unit>
     <unit id="_kkbddG" name="Zombies setzen">
@@ -3238,7 +3247,7 @@
       </notes>
       <segment>
         <source>Zombies setzen</source>
-        <target>Zombies setzen</target>
+        <target>Mettre des zombies</target>
       </segment>
     </unit>
   </file>
