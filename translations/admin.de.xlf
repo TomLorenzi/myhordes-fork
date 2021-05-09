@@ -3232,5 +3232,14 @@
         <target>Zombies setzen</target>
       </segment>
     </unit>
+    <unit id="TCnrA_Z" name="Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)">
+      <notes>
+        <note category="german">Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)</note>
+      </notes>
+      <segment>
+        <source>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)</source>
+        <target>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
