@@ -19254,5 +19254,14 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Available upgrade projects</target>
       </segment>
     </unit>
+    <unit id="sG6LFYJ" name="Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...">
+      <notes>
+        <note category="german">Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...</note>
+      </notes>
+      <segment>
+        <source>Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...</source>
+        <target>There is nothing in the bank which can be transformed at present...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

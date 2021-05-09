@@ -19285,5 +19285,14 @@
         <target>Verfügbare Verbesserungen des Tages</target>
       </segment>
     </unit>
+    <unit id="sG6LFYJ" name="Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...">
+      <notes>
+        <note category="german">Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...</note>
+      </notes>
+      <segment>
+        <source>Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...</source>
+        <target>Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

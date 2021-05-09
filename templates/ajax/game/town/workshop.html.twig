@@ -39,7 +39,15 @@
         </div>
     </div>
 
-    <div class="row-table">
+    {% set has_recipes = false %}
+    {% for recipe in recipes %}
+        {% if source[recipe.id] > 0 %}
+            {% set has_recipes = true %}
+        {% endif %}
+    {% endfor %}
+
+    {% if has_recipes %}
+        <div class="row-table">
         <div class="row header">
             <div class="padded cell rw-2">
                 <span class="hide-md hide-sm">{% trans from 'game' %}Vorrat{% endtrans %}</span>
@@ -99,7 +107,14 @@
             {% endif %}
         {% endfor %}
     </div>
-
+    {% else %}
+        <br />
+        <div class="row">
+            <div class="cell rw-12">
+                <div class="note note-lightest">{{ 'Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...'|trans({},'game') }}</div>
+            </div>
+        </div>
+    {% endif %}
     <div class="row">
         <h5>{{ 'Werkstatt-Register'|trans({},'game') }}</h5>
         <div class="cell rw-12">
