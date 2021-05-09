@@ -3220,7 +3220,7 @@
       </notes>
       <segment>
         <source>Zombie-Spread ausführen</source>
-        <target>Zombie-Spread ausführen</target>
+        <target>Lancer la prolifération des zombies</target>
       </segment>
     </unit>
     <unit id="EPOEUwe">
@@ -3229,7 +3229,7 @@
       </notes>
       <segment>
         <source>Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).</source>
-        <target>Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).</target>
+        <target>Format: "{x0}/{y0}:{x1}/{y1},{zombies} (zone) ou "{x}/{y},{zombies}" (case unique), par exemple "-1/3:-4/2,5". "all" peut être utilisé au lieu d’une position. Au lieu d’une valeur numérique pour le nombre de zombies, vous pouvez utiliser "today" (nombre de zombies après la dernière attaque) ou "initial" (nombre de zombies le jour 1).</target>
       </segment>
     </unit>
     <unit id="_kkbddG" name="Zombies setzen">
@@ -3238,7 +3238,7 @@
       </notes>
       <segment>
         <source>Zombies setzen</source>
-        <target>Zombies setzen</target>
+        <target>Définir le nombre de zombies</target>
       </segment>
     </unit>
     <unit id="TCnrA_Z" name="Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)">
@@ -3247,7 +3247,7 @@
       </notes>
       <segment>
         <source>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)</source>
-        <target>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)</target>
+        <target>Basé sur le jour (laisser libre pour utiliser le jour actuel):</target>
       </segment>
     </unit>
   </file>
