@@ -2398,7 +2398,7 @@
       </notes>
       <segment>
         <source>Private Stadt</source>
-        <target>Private Stadt</target>
+        <target>Private Towns</target>
       </segment>
     </unit>
     <unit id="G9tS6ug" name="Diese Sperre ist bis zu folgendem Zeitpunkt gültig:">
@@ -2425,7 +2425,7 @@
       </notes>
       <segment>
         <source>ALLE SAISONS</source>
-        <target>ALLE SAISONS</target>
+        <target>SEASONS</target>
       </segment>
     </unit>
     <unit id="9cNHWGl" name="Seelenpunkte">
@@ -2443,7 +2443,7 @@
       </notes>
       <segment>
         <source>Zugriff auf die Rangliste einer bestimmten Saison:</source>
-        <target>Zugriff auf die Rangliste einer bestimmten Saison:</target>
+        <target>Access a particular season's rankings:</target>
       </segment>
     </unit>
     <unit id="haNfUqH" name="Alle Saisons">
@@ -2452,7 +2452,7 @@
       </notes>
       <segment>
         <source>Alle Saisons</source>
-        <target>Alle Saisons</target>
+        <target>All Seasons</target>
       </segment>
     </unit>
     <unit id="9DAxndj" name="Spieler">
@@ -2461,7 +2461,7 @@
       </notes>
       <segment>
         <source>Spieler</source>
-        <target>Spieler</target>
+        <target>Player</target>
       </segment>
     </unit>
     <unit id="PBVB79s" name="Dein Account ist eingeschränkt!">
