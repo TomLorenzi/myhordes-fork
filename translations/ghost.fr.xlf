@@ -918,7 +918,7 @@
         <source>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
                                     Gib eine positive ganze Zahl ein, um es zu aktivieren.
                                     DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</source>
-        <target>Seed qui permet une génération de map maitrisée. Permets en cas d'events de générer des maps similaires. Mettre un entier positif pour l'activer. PENSER À CHANGER CET ENTIER D'UN EVENT À L'AUTRE !</target>
+        <target>Seed qui permet une génération de map maitrisée. Permet en cas d'events de générer des maps similaires. Mettre un entier positif pour l'activer. PENSER À CHANGER CET ENTIER D'UN EVENT À L'AUTRE !</target>
       </segment>
     </unit>
     <unit id="9SrqJ_A" name="Strikte Vergabe von Auszeichnungen:">
@@ -1450,6 +1450,24 @@
       <segment>
         <source>Spiel betreten</source>
         <target>Se lancer dans le jeu</target>
+      </segment>
+    </unit>
+    <unit id="Lj_OYdi" name="Einwohnerzahl">
+      <notes>
+        <note category="german">Einwohnerzahl</note>
+      </notes>
+      <segment>
+        <source>Einwohnerzahl</source>
+        <target>Population</target>
+      </segment>
+    </unit>
+    <unit id="kjZ829E" name="Muss zwischen 10 und 80 liegen.">
+      <notes>
+        <note category="german">Muss zwischen 10 und 80 liegen.</note>
+      </notes>
+      <segment>
+        <source>Muss zwischen 10 und 80 liegen.</source>
+        <target>Valeur comprise entre 10 et 80.</target>
       </segment>
     </unit>
   </file>
