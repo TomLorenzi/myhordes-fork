@@ -7874,5 +7874,14 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
         <target>Si tienes alguna pregunta, o no estás seguro de si alguna función cumple estas reglas, consúltaselo a los Moderadores o Administradores — Preferiblemente antes de que la implementes.</target>
       </segment>
     </unit>
+    <unit id="AGdUj1L" name="Gebäudeverbesserung">
+      <notes>
+        <note category="german">Gebäudeverbesserung</note>
+      </notes>
+      <segment>
+        <source>Gebäudeverbesserung</source>
+        <target>Mejoras en construcciones</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

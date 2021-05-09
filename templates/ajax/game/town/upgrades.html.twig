@@ -1,10 +1,17 @@
 {% extends "ajax/game/town/town.html.twig" %}
 {% block title %}{{'Verbessrung des Tages'|trans({}, 'game')}}{% endblock %}
 {% block content %}
+    {% set hour = "now"|date("G") %}
+    <div class="row">
+        <div class="cell rw-12 town-banner town-banner-upgrades time-{{ hour }} {% if town.isNight %}night{% endif %}"></div>
+    </div>
+
     <div class="help">
         {% trans from 'game' %}
             Einmal pro Tag können bestimmte Konstruktionen umsonst verbessert werden (ohne Einsatz von AP oder Ressourcen). Das nennt sich die Verbesserung des Tages. Jede Verbesserung bringt verschiedene Vorteile mit sich (Verteidigung, Wasser, spezielle Fähigkeiten...). Es ist eure Aufgabe die Verbesserung des Tages zu wählen, die euch am geeignetsten scheint.
         {% endtrans %}
+        <br />
+        <p>{{ help_lnk('Gebäudeverbesserung'|trans({},'help'), 'help', {'name': 'daily_upgrades'}) }}</p>
     </div>
 
     {% if banished %}
@@ -23,12 +30,14 @@
         </div>
     {% endif %}
 
+    <h5>{{ 'Diskussionen rund um die Verbesserung des Tages'|trans({},'game') }}</h5>
     <div class="forum-preview-container fix-height hide-sm">
         <div id="forum-content">
             <div class="center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Forum...'|trans({},'game') }}</div>
         </div>
     </div>
 
+    <h5>{{ 'Verfügbare Verbesserungen des Tages'|trans({},'game') }}</h5>
     <div class="town-upgrades">
         {% for building in buildings %}
             {# @var building \App\Entity\Building #}

@@ -19230,5 +19230,23 @@
         <target>Das macht dann... %day% Tage</target>
       </segment>
     </unit>
+    <unit id="BVQgW5g" name="Diskussionen rund um die Verbesserung des Tages">
+      <notes>
+        <note category="german">Diskussionen rund um die Verbesserung des Tages</note>
+      </notes>
+      <segment>
+        <source>Diskussionen rund um die Verbesserung des Tages</source>
+        <target>Charlas sobre la mejora del día</target>
+      </segment>
+    </unit>
+    <unit id="DDRQlGW" name="Verfügbare Verbesserungen des Tages">
+      <notes>
+        <note category="german">Verfügbare Verbesserungen des Tages</note>
+      </notes>
+      <segment>
+        <source>Verfügbare Verbesserungen des Tages</source>
+        <target>Mejoras del día disponibles</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -7967,5 +7967,14 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
         <target>Hast du Fragen oder bist unsicher, ob eine bestimmte Funktion nach diesen Regeln zulässig wäre, dann melde dich vertrauensvoll bei den Moderatoren oder Admins - idealerweise bevor du deine Idee tatsächlich implementierst.</target>
       </segment>
     </unit>
+    <unit id="AGdUj1L" name="Gebäudeverbesserung">
+      <notes>
+        <note category="german">Gebäudeverbesserung</note>
+      </notes>
+      <segment>
+        <source>Gebäudeverbesserung</source>
+        <target>Gebäudeverbesserung</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

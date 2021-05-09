@@ -1468,5 +1468,23 @@
         <target>Spiel betreten</target>
       </segment>
     </unit>
+    <unit id="Lj_OYdi" name="Einwohnerzahl">
+      <notes>
+        <note category="german">Einwohnerzahl</note>
+      </notes>
+      <segment>
+        <source>Einwohnerzahl</source>
+        <target>Einwohnerzahl</target>
+      </segment>
+    </unit>
+    <unit id="kjZ829E" name="Muss zwischen 10 und 80 liegen.">
+      <notes>
+        <note category="german">Muss zwischen 10 und 80 liegen.</note>
+      </notes>
+      <segment>
+        <source>Muss zwischen 10 und 80 liegen.</source>
+        <target>Muss zwischen 10 und 80 liegen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
