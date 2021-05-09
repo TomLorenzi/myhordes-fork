@@ -478,7 +478,12 @@ class AdminTownController extends AdminActionController
                 break;
 
             case 'dbg_map_progress':
-                $this->zone_handler->dailyZombieSpawn( $town, ZoneHandler::RespawnModeAuto, 1 );
+                if (empty($param)) $d = null;
+                else {
+                    if (!is_numeric($param) || (int)$param <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                    $d = (int)$param;
+                }
+                $this->zone_handler->dailyZombieSpawn( $town, 1, ZoneHandler::RespawnModeAuto, $d );
                 $this->entity_manager->persist( $town );
                 break;
 

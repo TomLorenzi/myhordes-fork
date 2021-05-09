@@ -1093,6 +1093,7 @@ class ExternalController extends InventoryAwareController {
                     }
                 }
             } else {
+                $this->town->getMapSize($map_x,$map_y);
                 switch ($field) {
                     case "id":
                         $data[$field] = $this->town->getId();
@@ -1102,8 +1103,10 @@ class ExternalController extends InventoryAwareController {
                         $data[$field] = $now->format('Y-m-d H:i:s');
                         break;
                     case "wid":
+                        $data[$field] = $map_x;
+                        break;
                     case "hei":
-                        $data[$field] = $this->town->getMapSize();
+                        $data[$field] = $map_y;
                         break;
                     case "conspiracy":
                         $data[$field] = $this->town->getInsurrectionProgress() >= 100;

@@ -293,18 +293,51 @@ class GameFactory
         $zone_list = array_filter($town->getZones()->getValues(), function(Zone $z) use ($ruin_km_range) {
             $km = sqrt( pow($z->getX(),2) + pow($z->getY(),2) );
             // $ap = abs($z->getX()) + abs($z->getY());
-            return $km !== 0 && $km >= $ruin_km_range[0] && $km <= $ruin_km_range[1];
+            return $km != 0 && $km >= $ruin_km_range[0] && $km <= $ruin_km_range[1];
         });
         shuffle($zone_list);
 
         $previous = [];
 
-        for ($i = 0; $i < min($spawn_ruins+2,count($zone_list)); $i++) {
+        $co_location_cache = [];
+        $cl_get = function(int $x, int $y) use (&$co_location_cache): int {
+            $m = 0;
+            for ($xo = -1; $xo <= 1; $xo++) for ($yo = -1; $yo <= 1; $yo++)
+                if (isset($co_location_cache[$id = (($x+$xo) . '.' . ($y+$yo))]))
+                    $m = max($m, count($co_location_cache[$id]));
+            return $m;
+        };
+        $cl_set = function(int $x, int $y) use (&$co_location_cache): void {
+            $a = [$x . '.' . $y];
+            for ($xo = -1; $xo <= 1; $xo++) for ($yo = -1; $yo <= 1; $yo++)
+                if (isset($co_location_cache[$id = (($x+$xo) . '.' . ($y+$yo))]))
+                    $a = array_merge($a,$co_location_cache[$id]);
+            $a = array_unique($a);
+            foreach ($a as $id) $co_location_cache[$id] = $a;
+        };
+
+        $o = 0;
+        for ($i = 0; $i < $spawn_ruins+2; $i++) {
+
+            $zombies_base = 0;
+            do {
+                if (($i+$o) >= count($zone_list)) continue 2;
+                $b = $cl_get( $zone_list[$i+$o]->getX(), $zone_list[$i+$o]->getY() );
+                if ($b <= 1) $keep_location = true;
+                else if ($b === 2) $keep_location = $this->random_generator->chance(0.25);
+                else $keep_location = false;
+
+                if (!$keep_location) $o++;
+            } while ( !$keep_location );
+
+            $cl_set( $zone_list[$i+$o]->getX(), $zone_list[$i+$o]->getY() );
+
             if ($i < $spawn_ruins) {
-                $zombies_base = 1 + floor(min(1,sqrt( pow($zone_list[$i]->getX(),2) + pow($zone_list[$i]->getY(),2) )/18) * 18);
+
+                $zombies_base = 1 + floor(min(1,sqrt( pow($zone_list[$i+$o]->getX(),2) + pow($zone_list[$i+$o]->getY(),2) )/18) * 18);
 
                 //$ruin_types = $this->entity_manager->getRepository(ZonePrototype::class)->findByDistance( abs($zone_list[$i]->getX()) + abs($zone_list[$i]->getY()) );
-                $ruin_types = $this->entity_manager->getRepository(ZonePrototype::class)->findByDistance(sqrt( pow($zone_list[$i]->getX(),2) + pow($zone_list[$i]->getY(),2) ));
+                $ruin_types = $this->entity_manager->getRepository(ZonePrototype::class)->findByDistance(sqrt( pow($zone_list[$i+$o]->getX(),2) + pow($zone_list[$i+$o]->getY(),2) ));
                 if (empty($ruin_types)) continue;
 
                 $iterations = 0;
@@ -316,18 +349,18 @@ class GameFactory
                 if (!isset( $previous[$target_ruin->getId()] )) $previous[$target_ruin->getId()] = 1;
                 else $previous[$target_ruin->getId()]++;
 
-                $zone_list[$i]->setPrototype( $target_ruin );
-                if ($conf->get(TownConf::CONF_FEATURE_CAMPING, false)) {
-                    $zone_list[$i]->setBlueprint(Zone::BlueprintAvailable);
-                }
+                $zone_list[$i+$o]->setPrototype( $target_ruin );
+                if ($conf->get(TownConf::CONF_FEATURE_CAMPING, false))
+                    $zone_list[$i+$o]->setBlueprint(Zone::BlueprintAvailable);
 
-                if ($this->random_generator->chance(0.4)) $zone_list[$i]->setBuryCount( mt_rand(6, 20) );
+                if ($this->random_generator->chance(0.4)) $zone_list[$i+$o]->setBuryCount( mt_rand(6, 20) );
             } else
-                $zombies_base = 1 + floor(min(1,sqrt( pow($zone_list[$i]->getX(),2) + pow($zone_list[$i]->getY(),2) )/18) * 3);
+                if ($this->random_generator->chance(0.1))
+                    $zombies_base = 1 + floor(min(1,sqrt( pow($zone_list[$i+$o]->getX(),2) + pow($zone_list[$i+$o]->getY(),2) )/18) * 3);
 
             if ($zombies_base > 0) {
                 $zombies_base = max(1, mt_rand( floor($zombies_base * 0.8), ceil($zombies_base * 1.2) ) );
-                $zone_list[$i]->setZombies( $zombies_base )->setInitialZombies( $zombies_base );
+                $zone_list[$i+$o]->setZombies( $zombies_base )->setInitialZombies( $zombies_base );
             }
         }
 
@@ -350,6 +383,10 @@ class GameFactory
                 $spawn_zone->setPrototype($spawning_ruin);
                 $this->maze_maker->createField( $spawn_zone );
                 $this->maze_maker->generateMaze( $spawn_zone );
+
+                $zombies_base = 1 + floor(min(1,sqrt( pow($spawn_zone->getX(),2) + pow($spawn_zone->getY(),2) )/18) * 3);
+                $zombies_base = max(1, mt_rand( floor($zombies_base * 0.8), ceil($zombies_base * 1.2) ) );
+                $spawn_zone->setZombies( $zombies_base )->setInitialZombies( $zombies_base );
             }
         }
 

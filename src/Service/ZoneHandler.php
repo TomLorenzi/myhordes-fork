@@ -315,13 +315,16 @@ class ZoneHandler
     const RespawnModeAuto = 1;
     const RespawnModeForce = 2;
 
-    public function dailyZombieSpawn( Town &$town, int $cycles = 1, int $mode = self::RespawnModeAuto ) {
+    public function dailyZombieSpawn( Town &$town, int $cycles = 1, int $mode = self::RespawnModeAuto, ?int $override_day = null ) {
 
         /** @var Zone[] $zones */
         $zones = $town->getZones()->getValues();
         $zone_db = []; $empty_zones = []; $despair_db = [];
         $killedZombies = 0;
+
+        $total_zombies = 0;
         foreach ($zones as &$zone) {
+            $total_zombies += $zone->getZombies();
             $killedZombies += ($zone->getInitialZombies() - $zone->getZombies());
 
             $despair = max(0,( $zone->getInitialZombies() - $zone->getZombies() - 1 ) / 2);
@@ -335,16 +338,19 @@ class ZoneHandler
 
         $factor = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_RESPAWN_FACTOR, 1);
 
+        $town->getMapSize($map_x,$map_y);
+
         // Respawn
-        $d = $town->getDay();
+        $d = $override_day ?? $town->getDay();
         if ($mode === self::RespawnModeForce ||
             ($mode === self::RespawnModeAuto && $d >= 3 && (
-                (count($empty_zones) > (count($zones)* 18/20)) /*|| ($killedZombies >= $town->getMapSize() * $town->getDay() * $factor)*/
+                ($total_zombies < ($map_x * $map_y)/13.0 * $d * $factor)
             ))) {
+
             $keys = $d == 1 ? [array_rand($empty_zones)] : array_rand($empty_zones, min($d,count($empty_zones)));
             foreach ($keys as $spawn_zone_id)
                 /** @var Zone $spawn_zone */
-                $zone_db[ $zones[$spawn_zone_id]->getX() ][ $zones[$spawn_zone_id]->getY() ] = mt_rand(1,intval(ceil($town->getDay() / 2)));
+                $zone_db[ $zones[$spawn_zone_id]->getX() ][ $zones[$spawn_zone_id]->getY() ] = mt_rand(1,intval(ceil($d / 2)));
             $cycles += ceil($d/2);
         }
 
@@ -353,31 +359,63 @@ class ZoneHandler
             $zone_original_db = $zone_db;
             foreach ($zone_db as $x => &$zone_row)
                 foreach ($zone_row as $y => &$current_zone_zombies) {
-                    $adj_zones_total = $adj_zones_infected = $zone_zed_difference = 0;
 
+                    // We're iterating over the 4 directly adjacent zones
+                    $adj_zones_total = $adj_zones_infected = $neighboring_zombies = $max_neighboring_zombies = 0;
                     for ($dx = -1; $dx <= 1; $dx++)
                         if (isset($zone_original_db[$x + $dx]))
-                            for ($dy = -1; $dy <= 1; $dy++) if ($dx !== 0 || $dy !== 0) {
+                            for ($dy = -1; $dy <= 1; $dy++) if (abs($dx) !== abs($dy)) {
                                 if (isset($zone_original_db[$x + $dx][$y + $dy])) {
+                                    // If the zone exist, increase number of neighboring zones
                                     $adj_zones_total++;
-                                    if ($zone_original_db[$x + $dx][$y + $dy] > $zone_original_db[$x][$y]) {
+
+                                    // Count the number of neighboring zombies
+                                    $neighboring_zombies += $zone_original_db[$x + $dx][$y + $dy];
+                                    $max_neighboring_zombies = max( $max_neighboring_zombies, $zone_original_db[$x + $dx][$y + $dy] );
+
+                                    // If the zone has zombies, increase the number of infected neighboring zones
+                                    if ($zone_original_db[$x + $dx][$y + $dy] > $zone_original_db[$x][$y])
                                         $adj_zones_infected++;
-                                        $dif = $zone_original_db[$x + $dx][$y + $dy] - $zone_original_db[$x][$y];
-                                        $zone_zed_difference += ( abs($dx) + abs($dy) == 2 ? ceil($dif/2) : $dif );
-                                    }
                                 }
                             }
 
-                    if ($adj_zones_infected > 0) {
+                    if ($current_zone_zombies > 0) {
+                        $avg_dif = max(0, floor($neighboring_zombies / $adj_zones_total) - $current_zone_zombies) + 2;
 
-                        $spread_chance = 1 - pow(0.875, $zone_zed_difference);
-                        if (mt_rand(0,100) > (100*$spread_chance)) continue;
+                        // If the zone already has zombies, increase count by 0 - 2
+                        // We're using -1 instead of 0 to increase the bias towards 0
+                        $current_zone_zombies += max(0, mt_rand(-1, $avg_dif));
+                    } else {
+                        // Otherwise, count the total number of adjacent zones with zombies
 
-                        $max_zeds = ceil($zone_zed_difference / 8 );
-                        $min_zeds = min($max_zeds, floor($max_zeds * ($adj_zones_infected / $adj_zones_total)));
-                        $current_zone_zombies += mt_rand($min_zeds, $max_zeds);
+                        // If we have infected neighboring zones
+                        if ($adj_zones_infected > 0) {
+                            // Number of zones with zombies, balanced by total number of neighboring zones
+                            $target_number = (int)round($adj_zones_infected * (4.0 / $adj_zones_total));
+
+                            // Depending on the number of neighboring zombies, we create a bias towards not spawning
+                            // any new zombies. More neighboring zombies = less bias.
+                            $bias = 0;
+                            if ($max_neighboring_zombies >= 15)    $bias = -1;
+                            elseif ($max_neighboring_zombies >= 8) $bias =  0;
+                            elseif ($neighboring_zombies < 5)  $bias = 4;
+                            elseif ($neighboring_zombies < 10) $bias = 3;
+                            elseif ($neighboring_zombies < 15) $bias = 2;
+                            elseif ($neighboring_zombies < 20) $bias = 1;
+
+                            // Calculate random value between bias and 4
+                            $new_zeds = mt_rand(-$bias, 4);
+
+                            // Repeat if the result is > 0 and not the same as the number of neighboring infected zones
+                            // This created a bias towards spawning the same number of zombies as there are infected zones
+                            if ($new_zeds > 0 && $new_zeds !== $target_number)
+                                $new_zeds = mt_rand(-$bias, 4);
+
+                            // Clamp the result to a 0 - 4 range.
+                            $current_zone_zombies += max(0, min(4, $new_zeds));
+                        }
+
                     }
-
                 }
 
             foreach ($zone_db as $x => &$zone_row)

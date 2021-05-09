@@ -363,6 +363,8 @@ class ExternalXML2Controller extends ExternalController {
                 $item_def_factor += (1+$building->getLevel()) * 0.5;
             }
 
+            $town->getMapSize($map_x,$map_y);
+
             $data['data'] = [
                 'attributes' => [
                     'cache-date' => $now->format('Y-m-d H:i:s'),
@@ -431,8 +433,8 @@ class ExternalXML2Controller extends ExternalController {
                 ],
                 'map' => [
                     'attributes' => [
-                        'hei' => $town->getMapSize(),
-                        'wid' => $town->getMapSize()
+                        'hei' => $map_y,
+                        'wid' => $map_x
                     ],
                     'list' => [
                         'name' => 'zone',

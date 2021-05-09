@@ -743,14 +743,18 @@ class Town
         return ['x' => abs($xOffset), 'y' => abs($yOffset)];
     }
 
-    public function getMapSize(): int {
-        $max = 0;
-        $min = 0;
+    public function getMapSize(?int &$x = null, ?int &$y = null): int {
+        $max_x = $min_x = $max_y = $min_y = 0;
         foreach($this->getZones() as $zone) {
-            $min = min($min, $zone->getX());
-            $max = max($max, $zone->getX());
+            $min_x = min($min_x, $zone->getX());
+            $max_x = max($max_x, $zone->getX());
+            $min_y = min($min_y, $zone->getY());
+            $max_y = max($max_y, $zone->getY());
         }
-        return abs($max) + abs($min) + 1;
+
+        $x = abs($max_x) + abs($min_x) + 1;
+        $y = abs($max_y) + abs($min_y) + 1;
+        return max($x,$y);
     }
 
     public function getInsurrectionProgress(): ?int
