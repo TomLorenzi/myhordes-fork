@@ -361,7 +361,7 @@ class ZoneHandler
                 foreach ($zone_row as $y => &$current_zone_zombies) {
 
                     // We're iterating over the 4 directly adjacent zones
-                    $adj_zones_total = $adj_zones_infected = $neighboring_zombies = 0;
+                    $adj_zones_total = $adj_zones_infected = $neighboring_zombies = $max_neighboring_zombies = 0;
                     for ($dx = -1; $dx <= 1; $dx++)
                         if (isset($zone_original_db[$x + $dx]))
                             for ($dy = -1; $dy <= 1; $dy++) if (abs($dx) !== abs($dy)) {
@@ -371,6 +371,7 @@ class ZoneHandler
 
                                     // Count the number of neighboring zombies
                                     $neighboring_zombies += $zone_original_db[$x + $dx][$y + $dy];
+                                    $max_neighboring_zombies = max( $max_neighboring_zombies, $zone_original_db[$x + $dx][$y + $dy] );
 
                                     // If the zone has zombies, increase the number of infected neighboring zones
                                     if ($zone_original_db[$x + $dx][$y + $dy] > $zone_original_db[$x][$y])
@@ -387,7 +388,6 @@ class ZoneHandler
                     } else {
                         // Otherwise, count the total number of adjacent zones with zombies
 
-
                         // If we have infected neighboring zones
                         if ($adj_zones_infected > 0) {
                             // Number of zones with zombies, balanced by total number of neighboring zones
@@ -396,7 +396,9 @@ class ZoneHandler
                             // Depending on the number of neighboring zombies, we create a bias towards not spawning
                             // any new zombies. More neighboring zombies = less bias.
                             $bias = 0;
-                            if ($neighboring_zombies < 5) $bias = 4;
+                            if ($max_neighboring_zombies >= 15)    $bias = -1;
+                            elseif ($max_neighboring_zombies >= 8) $bias =  0;
+                            elseif ($neighboring_zombies < 5)  $bias = 4;
                             elseif ($neighboring_zombies < 10) $bias = 3;
                             elseif ($neighboring_zombies < 15) $bias = 2;
                             elseif ($neighboring_zombies < 20) $bias = 1;
@@ -407,7 +409,7 @@ class ZoneHandler
                             // Repeat if the result is > 0 and not the same as the number of neighboring infected zones
                             // This created a bias towards spawning the same number of zombies as there are infected zones
                             if ($new_zeds > 0 && $new_zeds !== $target_number)
-                                $new_zeds = mt_rand(-3, 4);
+                                $new_zeds = mt_rand(-$bias, 4);
 
                             // Clamp the result to a 0 - 4 range.
                             $current_zone_zombies += max(0, min(4, $new_zeds));
