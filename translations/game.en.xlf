@@ -4973,7 +4973,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Häuser</source>
-        <target>Citizens' Houses</target>
+        <target>Citizens' Homes</target>
       </segment>
     </unit>
     <unit id="fTFJ5hh" name="Nachtwächter">
@@ -15174,7 +15174,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Temporäre Verteidigung</source>
-        <target>Temporary Defence</target>
+        <target>Temporary Defences</target>
       </segment>
     </unit>
     <unit id="9_pNKlL" name="Leichen-Bonus">
