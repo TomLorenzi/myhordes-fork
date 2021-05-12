@@ -7907,7 +7907,7 @@
       </notes>
       <segment>
         <source>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</source>
-        <target>Vous aussi, vous pouvez défendre la ville ce soir! Rejoignez les Veilleurs! Voulez-vous rejoindre les citoyens les plus suicid... euh ... courageux? Eh bien, n'attendez plus :</target>
+        <target><![CDATA[Vous aussi, défendez la ville ce soir ! Rejoignez <strong>l'équipe des Veilleurs !<br /><br />Vous souhaitez faire partie des <strong>citoyens</strong> les plus suicid... <strong>courageux</strong> ? Alors n'hésitez pas un seul instant :]]></target>
       </segment>
     </unit>
     <unit id="UPuSUuC" name="Ich möchte Wächter werden!">
