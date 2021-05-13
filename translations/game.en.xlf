@@ -4973,7 +4973,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Häuser</source>
-        <target>Citizens' Houses</target>
+        <target>Citizens' Homes</target>
       </segment>
     </unit>
     <unit id="fTFJ5hh" name="Nachtwächter">
@@ -5000,7 +5000,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Auf der Müllhalde kannst du Gegenstände aus der Bank verwenden, um temporär die Verteidigung der Stadt zu verbessern.</source>
-        <target>On the garbage dump, you can use items from the bank to temporarily improve the city's defense.</target>
+        <target><![CDATA[This place allows you to sacrifice objects from the bank to <strong>temporarily</strong> improve the city's defense.]]></target>
       </segment>
     </unit>
     <unit id="u3C29q0" name="Jeder so zerstörte Gegenstand kostet dich %ap%.">
@@ -14913,7 +14913,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.</source>
-        <target>Dieser Abwehrbonus verschwindet um Mitternacht, nach dem Angriff.</target>
+        <target>This defensive bonus disappears at midnight, after the attack.</target>
       </segment>
     </unit>
     <unit id="honrhKi" name="Die Bürger">
@@ -15174,7 +15174,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Temporäre Verteidigung</source>
-        <target>Temporary Defence</target>
+        <target>Temporary Defences</target>
       </segment>
     </unit>
     <unit id="9_pNKlL" name="Leichen-Bonus">

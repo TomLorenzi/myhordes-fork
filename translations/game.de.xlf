@@ -7891,7 +7891,7 @@
       </notes>
       <segment>
         <source>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</source>
-        <target>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</target>
+        <target><![CDATA[Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die <strong>Wächtergruppe</strong> ein!<br /><br />Du möchtest Mitglied der selbstmörd... <strong>tapfersten Bürger</strong> werden? Was zögerst du noch:]]></target>
       </segment>
     </unit>
     <unit id="UPuSUuC" name="Ich möchte Wächter werden!">
