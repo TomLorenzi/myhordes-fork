@@ -1453,7 +1453,7 @@ class BeyondController extends InventoryAwareController
         if ((!$citizen->getProfession()->getHeroic() && !$citizen->hasRole('guide')))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        if ($citizen->getBanished() && !$target_citizen->getBanished())
+        if ($citizen->getBanished())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         $max_escort_size = $conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_ESCORT_SIZE, 4);
