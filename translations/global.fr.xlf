@@ -2724,5 +2724,14 @@
         <target><![CDATA[Ce mot de passe sera demandé à tout citoyen désireux de rejoindre cette ville. Distribuez-le aux personnes que vous souhaitez inviter. <strong>N'utilisez pas votre mot de passe personnel !!!</strong>]]></target>
       </segment>
     </unit>
+    <unit id="JRCX8z2" name="Groß">
+      <notes>
+        <note category="german">Groß</note>
+      </notes>
+      <segment>
+        <source>Groß</source>
+        <target>Groß</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -2692,7 +2692,7 @@
         <target>Interdiction of playing</target>
       </segment>
     </unit>
-    <unit id="67OtxCl" name="3e3c02a">
+    <unit id="67OtxCl">
       <notes>
         <note category="german">Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.</note>
       </notes>
@@ -2710,7 +2710,7 @@
         <target>Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.</target>
       </segment>
     </unit>
-    <unit id="3Bzuyaj" name="e76fc50">
+    <unit id="3Bzuyaj">
       <notes>
         <note category="german">Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.</note>
       </notes>
@@ -3205,7 +3205,7 @@
         <target>Zombie-Spread ausführen</target>
       </segment>
     </unit>
-    <unit id="EPOEUwe" name="746952b">
+    <unit id="EPOEUwe">
       <notes>
         <note category="german">Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).</note>
       </notes>

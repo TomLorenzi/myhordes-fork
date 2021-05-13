@@ -2680,5 +2680,14 @@
         <target><![CDATA[Wenn Bürger deine Stadt betreten möchten, wird ein Zugangsdode abgefragt. Nur mit korrektem Zugangscode erhalten sie Zutritt. Verteile den Zugangscode darum an die Spieler, die du einladen möchtest. <strong>Und benutze nicht dein privates Passwort als Zugangscode!!!</strong>]]></target>
       </segment>
     </unit>
+    <unit id="JRCX8z2" name="Groß">
+      <notes>
+        <note category="german">Groß</note>
+      </notes>
+      <segment>
+        <source>Groß</source>
+        <target>Groß</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

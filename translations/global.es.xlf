@@ -2699,5 +2699,14 @@
         <target><![CDATA[Los habitantes que deseen ingresar a este pueblo deben usar esta contraseña. Dásela a las personas que quieras invitar. <strong>¡Sobre todo no uses tu contraseña personal!</strong>]]></target>
       </segment>
     </unit>
+    <unit id="JRCX8z2" name="Groß">
+      <notes>
+        <note category="german">Groß</note>
+      </notes>
+      <segment>
+        <source>Groß</source>
+        <target>Groß</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

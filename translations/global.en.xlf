@@ -2717,5 +2717,14 @@
         <target><![CDATA[Every citizen wishing to join the town will be asked for this password. Only give this password to those you wish to participate. <strong>Don't use your personal password!!!</strong>]]></target>
       </segment>
     </unit>
+    <unit id="JRCX8z2" name="Groß">
+      <notes>
+        <note category="german">Groß</note>
+      </notes>
+      <segment>
+        <source>Groß</source>
+        <target>Groß</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -8198,7 +8198,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>So 'ne Quali bekommt man nicht jeden Tag in die Finger! Sicher, Übelkeit, Zittern und Schweißausbrüche hast du auch damit bekommen, aber die Wirkung ist weitaus stärker als bei 'ner normalen Droge (Du hast einen &lt;strong&gt;AP Bonus&lt;/strong&gt; erhalten)... Übertreibe es aber nicht!</source>
-        <target><![CDATA[It's not every day you get to hit some quality drugs. All the same, the effects are nausea, trembling, cold sweats... But it gives you more of a boost than regular drugs (AP bonus received). Don't abuse it!]]></target>
+        <target>It's not every day you get to hit some quality drugs. All the same, the effects are nausea, trembling, cold sweats... But it gives you more of a boost than regular drugs (AP bonus received). Don't abuse it!</target>
       </segment>
     </unit>
   </file>

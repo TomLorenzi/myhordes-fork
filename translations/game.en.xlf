@@ -7669,7 +7669,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="_xMXxrI">
       <notes>
-        <note category="german">Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</note>
+        <note category="german">Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die &lt;strong&gt;Wächtergruppe&lt;/strong&gt; ein!&lt;br /&gt;&lt;br /&gt;Du möchtest Mitglied der selbstmörd... &lt;strong&gt;tapfersten Bürger&lt;/strong&gt; werden? Was zögerst du noch:</note>
       </notes>
       <segment>
         <source>Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:</source>
@@ -14486,7 +14486,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="qX1gDpX" name="Die Stadt ist zerstört! Flieht, irh Narren!">
       <notes>
-        <note category="german">Die Stadt ist zerstört! Flieht, irh Narren!</note>
+        <note category="german">Die Stadt ist zerstört! Flieht, ihr Narren!</note>
       </notes>
       <segment>
         <source>Die Stadt ist zerstört! Flieht, irh Narren!</source>
@@ -19261,6 +19261,51 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...</source>
         <target>There is nothing in the bank which can be transformed at present...</target>
+      </segment>
+    </unit>
+    <unit id="gLXdI1z" name="Diskussionen im Werkstatt-Forum">
+      <notes>
+        <note category="german">Diskussionen im Werkstatt-Forum</note>
+      </notes>
+      <segment>
+        <source>Diskussionen im Werkstatt-Forum</source>
+        <target>Discussions on the workshop forum</target>
+      </segment>
+    </unit>
+    <unit id="8Ur1ER9" name="Nachtwache">
+      <notes>
+        <note category="german">Nachtwache</note>
+      </notes>
+      <segment>
+        <source>Nachtwache</source>
+        <target>Watchmen</target>
+      </segment>
+    </unit>
+    <unit id="_ZqqBod">
+      <notes>
+        <note category="german">Achte darauf, keine &lt;strong&gt;nutzlosen Ressourcen&lt;/strong&gt; herzustellen! Wenn du dir nicht sicher bist, sieh in dem &lt;strong&gt;Forum&lt;/strong&gt; hier unten nach...</note>
+      </notes>
+      <segment>
+        <source>Achte darauf, keine &lt;strong&gt;nutzlosen Ressourcen&lt;/strong&gt; herzustellen! Wenn du dir nicht sicher bist, sieh in dem &lt;strong&gt;Forum&lt;/strong&gt; hier unten nach...</source>
+        <target><![CDATA[Be careful not to produce materials which the town does not need! If in doubt, ask someone in the forum below...]]></target>
+      </segment>
+    </unit>
+    <unit id="YWyyGKZ" name="Material">
+      <notes>
+        <note category="german">Material</note>
+      </notes>
+      <segment>
+        <source>Material</source>
+        <target>Use</target>
+      </segment>
+    </unit>
+    <unit id="41lnCy0" name="Hergestellter Gegenstand">
+      <notes>
+        <note category="german">Hergestellter Gegenstand</note>
+      </notes>
+      <segment>
+        <source>Hergestellter Gegenstand</source>
+        <target>Object obtained</target>
       </segment>
     </unit>
   </file>
