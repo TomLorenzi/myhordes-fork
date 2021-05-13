@@ -11,12 +11,13 @@
 
     <div class="help">
          {% if is_watcher %}
-            {{'Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:'|trans({}, 'game')}}<br />
+            <p>{{'Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:'|trans({}, 'game')}}</p>
             <button class="inline" id="unwatch-button">{{'Ich habe doch zu große Angst...'|trans({}, 'game')}}</button>
         {% else %}
-            {{'Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:'|trans({}, 'game')|raw}}<br />
+            <p>{{'Auch du musst diese Stadt heute Nacht verteidigen! Tritt in die Wächtergruppe ein! Du möchtest Mitglied der selbstmörd... tapfersten Bürger werden? Was zögerst du noch:'|trans({}, 'game')|raw}}</p>
             <button class="inline" id="watch-button">{{'Ich möchte Wächter werden!'|trans({}, 'game')}}</button>
         {% endif %}
+        <p>{{ help_lnk('Die Nachtwächter'|trans({},'help'), 'help', {'name': 'the_watchmen'}) }}</p>
     </div>
 
     {% if is_watcher %}
