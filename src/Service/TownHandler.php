@@ -860,8 +860,8 @@ class TownHandler
 
         $town->setDevastated(true)->setChaos(true)->setDoor( true );
 
-        foreach ($town->getBuildings() as $building)
-            if (!$building->getComplete() && $building->getAp() > 0)
-                $this->entity_manager->persist( $building->setAp( 0 ) );
+        //foreach ($town->getBuildings() as $building)
+        //    if (!$building->getComplete() && $building->getAp() > 0)
+        //        $this->entity_manager->persist( $building->setAp( 0 ) );
     }
 }
