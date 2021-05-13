@@ -2,60 +2,66 @@
 {% block ajax_base %}
     {# @var posts \App\Entity\Post[] #}
     {# @var permission \App\Structures\ForumPermissionAccessor #}
+    {% set first_buttons = true %}
     {% block buttons %}
-        <div class="row">
-            <div class="cell padded rw-6 left">
-                {% if permission.moderate() or owned %}
-                    {% if not locked %}
-                        <div x-forum-moderator-action="lock" class="forum-button">
-                            {% if not owned %}
-                                <img alt="" src="{{ asset('build/images/icons/mod.png') }}" />
-                            {% else %}
-                                <img alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
+        <div class="{% if first_buttons %}forum-control{% endif %}">
+            {% if first_buttons %}<div class="forum-header-bar"><i class="fa fa-comments"></i> {{ title }}</div>{% endif %}
+            <div class="row">
+                <div class="cell padded rw-6 left">
+                    {% if permission.moderate() or owned %}
+                        {% if not locked %}
+                            <div x-forum-moderator-action="lock" class="forum-button">
+                                {% if not owned %}
+                                    <img alt="" src="{{ asset('build/images/icons/mod.png') }}" />
+                                {% else %}
+                                    <img alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
+                                {% endif %}
+                                <span>{{ 'Schließen'|trans({},'global') }}</span></div>
+                        {% endif %}
+                        {% if permission.moderate() %}
+                            {% if locked %}
+                                <div x-forum-moderator-action="unlock" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unlock'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/icons/mod.png') }}" /><span>{{ 'Öffnen'|trans({},'global') }}</span></div>
                             {% endif %}
-                            <span>{{ 'Schließen'|trans({},'global') }}</span></div>
-                    {% endif %}
-                    {% if permission.moderate() %}
-                        {% if locked %}
-                            <div x-forum-moderator-action="unlock" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unlock'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/icons/mod.png') }}" /><span>{{ 'Öffnen'|trans({},'global') }}</span></div>
                         {% endif %}
                     {% endif %}
-                {% endif %}
 
-                {% if permission.moderate() %}
-                    {% if not pinned %}
-                        <div x-forum-moderator-action="pin" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'pin'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/icons/mod.png') }}" /><span>{{ 'Anpinnen'|trans({},'global') }}</span></div>
-                    {% else %}
-                        <div x-forum-moderator-action="unpin" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unpin'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/icons/mod.png') }}" /><span>{{ 'Loslösen'|trans({},'global') }}</span></div>
+                    {% if permission.moderate() %}
+                        {% if not pinned %}
+                            <div x-forum-moderator-action="pin" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'pin'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/icons/mod.png') }}" /><span>{{ 'Anpinnen'|trans({},'global') }}</span></div>
+                        {% else %}
+                            <div x-forum-moderator-action="unpin" x-forum-api-endpoint="{{ url('forum_thread_mod_controller', {fid: fid, tid: tid, mod: 'unpin'}) }}" class="forum-button"><img alt="" src="{{ asset('build/images/icons/mod.png') }}" /><span>{{ 'Loslösen'|trans({},'global') }}</span></div>
+                        {% endif %}
                     {% endif %}
-                {% endif %}
 
-            </div>
-            <div class="cell padded rw-6 right">
-                <div x-forum-action="{{ subscribed ? 'unsub' : 'sub' }}" class="forum-button">
-                    {% if subscribed %}
-                        <img alt="" src="{{ asset('build/images/icons/tickOn.gif') }}" />
-                    {% else %}
-                        <img alt="" src="{{ asset('build/images/icons/tickOff.gif') }}" />
-                    {% endif %}
-                    <span>{{ subscribed ? 'Abonniert'|trans({},'global') : 'Abonnieren'|trans({},'global') }}</span>
-                    <div class="tooltip forum-tooltip">{{ subscribed ? 'Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.'|trans({},'global') : 'Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt'|trans({}, 'global')}}</div>
                 </div>
+                <div class="cell padded rw-6 right">
+                    <div x-forum-action="{{ subscribed ? 'unsub' : 'sub' }}" class="forum-button">
+                        {% if subscribed %}
+                            <img alt="" src="{{ asset('build/images/icons/tickOn.gif') }}" />
+                        {% else %}
+                            <img alt="" src="{{ asset('build/images/icons/tickOff.gif') }}" />
+                        {% endif %}
+                        <span>{{ subscribed ? 'Abonniert'|trans({},'global') : 'Abonnieren'|trans({},'global') }}</span>
+                        <div class="tooltip forum-tooltip">{{ subscribed ? 'Du wirst nicht mehr informiert, wenn es neue Beiträge zu dieser Diskussion gibt.'|trans({},'global') : 'Du wirst informiert, wenn es neue Beiträge zu dieser Diskussion gibt'|trans({}, 'global')}}</div>
+                    </div>
 
-                {% if not locked and not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionForum')) and (permission.create_post or permission.moderate) %}
-                    <div x-forum-action="answer" class="forum-button"><span>{{ 'Antworten'|trans({},'global') }}</span></div>
-                {% else %}
-                    <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/lock.gif') }}" /><span>{{ 'Antworten'|trans({},'global') }}</span></div>
-                {% endif %}
+                    {% if not locked and not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionForum')) and (permission.create_post or permission.moderate) %}
+                        <div x-forum-action="answer" class="forum-button"><span>{{ 'Antworten'|trans({},'global') }}</span></div>
+                    {% else %}
+                        <div class="forum-button-disabled"><img alt="" src="{{ asset('build/images/icons/lock.gif') }}" /><span>{{ 'Antworten'|trans({},'global') }}</span></div>
+                    {% endif %}
+                </div>
             </div>
         </div>
-        <div class="cell padded rw-6 center {% if locked %}infoThread{% endif %}">
+        {% if first_buttons %}<br />{% endif %}
+        <div class="center {% if locked %}infoThread{% endif %}">
             {% if locked %}
                 <img alt="" src="{{ asset('build/images/icons/lock.gif') }}" /> {{ 'Diese Diskussion ist beendet.'|trans({},'global') }}
             {% endif %}
             {# TODO : if thread is resolved with "OK", it display "Diese Diskussion ist als gelöst markiert (oder der Anlass hat sich mittlerweile erledigt)." #}
         </div>
     {% endblock %}
+    {% set first_buttons = false %}
     {% macro pagenav(pages,current_page,id) %}
         {% if pages > 1 %}
             <div class="row">

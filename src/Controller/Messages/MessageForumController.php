@@ -618,6 +618,7 @@ class MessageForumController extends MessageController
             'owned' => $thread->getOwner() === $user,
             'locked' => $thread->getLocked(),
             'pinned' => $thread->getPinned(),
+            'title' => $thread->getTranslatable() ? $this->translator->trans($thread->getTitle(), [], 'game') : $thread->getTitle(),
             'fid' => $fid,
             'tid' => $tid,
             'current_page' => $page,
