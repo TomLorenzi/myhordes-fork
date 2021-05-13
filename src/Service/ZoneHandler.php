@@ -319,7 +319,7 @@ class ZoneHandler
 
         /** @var Zone[] $zones */
         $zones = $town->getZones()->getValues();
-        $zone_db = []; $empty_zones = []; $despair_db = [];
+        $zone_db = []; $despair_db = [];
         $killedZombies = 0;
 
         $total_zombies = 0;
@@ -331,7 +331,6 @@ class ZoneHandler
             if (!isset($zone_db[$zone->getX()])) $zone_db[$zone->getX()] = [];
             $zone_db[$zone->getX()][$zone->getY()] = $zone->getZombies();
             $despair_db[$zone->getX()][$zone->getY()] = $despair;
-            if ($zone_db[$zone->getX()][$zone->getY()] == 0) $empty_zones[] = $zone;
 
             $zone->setScoutEstimationOffset( mt_rand(-2,2) );
         }
@@ -340,25 +339,15 @@ class ZoneHandler
 
         $town->getMapSize($map_x,$map_y);
 
-        // Respawn
-        $d = $override_day ?? $town->getDay();
-        if ($mode === self::RespawnModeForce ||
-            ($mode === self::RespawnModeAuto && $d >= 3 && (
-                ($total_zombies < ($map_x * $map_y)/13.0 * $d * $factor)
-            ))) {
-
-            $keys = $d == 1 ? [array_rand($empty_zones)] : array_rand($empty_zones, min($d,count($empty_zones)));
-            foreach ($keys as $spawn_zone_id)
-                /** @var Zone $spawn_zone */
-                $zone_db[ $zones[$spawn_zone_id]->getX() ][ $zones[$spawn_zone_id]->getY() ] = mt_rand(1,intval(ceil($d / 2)));
-            $cycles += ceil($d/2);
-        }
-
-
-        for ($c = 0; $c < $cycles; $c++) {
+        $fun_cycle = function() use (&$zone_db): int {
+            $cycle_result = 0;
             $zone_original_db = $zone_db;
             foreach ($zone_db as $x => &$zone_row)
                 foreach ($zone_row as $y => &$current_zone_zombies) {
+
+                    if ($x === 0 && $y === 0) continue;
+
+                    $before = $current_zone_zombies;
 
                     // We're iterating over the 4 directly adjacent zones
                     $adj_zones_total = $adj_zones_infected = $neighboring_zombies = $max_neighboring_zombies = 0;
@@ -416,14 +405,49 @@ class ZoneHandler
                         }
 
                     }
+
+                    $cycle_result += ($current_zone_zombies - $before);
                 }
 
-            foreach ($zone_db as $x => &$zone_row)
-                foreach ($zone_row as $y => &$current_zone_zombies) {
-                    if ($x === 0 && $y === 0) continue;
-                    if ($current_zone_zombies > 0) $current_zone_zombies += max(0,mt_rand(-2, 1));
-                }
+            return $cycle_result;
+        };
+
+        $fun_check_respawn = function(int $zombies, int $mapx, int $mapy, int $day, float $f) : bool {
+            return $day > 3 && ($zombies < sqrt($mapx * $mapy) * $day * 2 * $f);
+        };
+
+        // Respawn
+        $d = $override_day ?? $town->getDay();
+        if ($mode === self::RespawnModeForce ||
+            ($mode === self::RespawnModeAuto && $fun_check_respawn($total_zombies,$map_x,$map_y,$d,$factor))) {
+
+            //$keys = $d == 1 ? [array_rand($empty_zones)] : array_rand($empty_zones, min($d,count($empty_zones)));
+            //foreach ($keys as $spawn_zone_id)
+            //    /** @var Zone $spawn_zone */
+            //    $zone_db[ $zones[$spawn_zone_id]->getX() ][ $zones[$spawn_zone_id]->getY() ] = mt_rand(1,intval(ceil($d / 2)));
+            //$cycles += ceil($d/2);
+
+            // Step 1: Make a backup of the current zombie distribution
+            $zone_db_before_respawn = $zone_db;
+
+            // Step 2: Return the map to D1 state and count the zombies
+            $total_zombies = 0;
+            foreach ($zones as &$zone)
+                $total_zombies += ($zone_db[$zone->getX()][$zone->getY()] = $zone->getStartZombies() ?? 0);
+
+            // Step 3: Spread until the min zombie count is reached again
+            while ( $fun_check_respawn($total_zombies,$map_x,$map_y,$d,$factor*2) )
+                $total_zombies += $fun_cycle();
+
+            // Step 4: Add the original zombies back onto the map
+            foreach ($zones as &$zone)
+                $zone_db[$zone->getX()][$zone->getY()] =
+                    $zone_db[$zone->getX()][$zone->getY()] + $zone_db_before_respawn[$zone->getX()][$zone->getY()];
         }
+
+
+        for ($c = 0; $c < $cycles; $c++)
+            $fun_cycle();
 
         foreach ($town->getZones() as &$zone) {
             if ($zone->getX() === 0 && $zone->getY() === 0) continue;
