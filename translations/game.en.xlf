@@ -19287,7 +19287,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Achte darauf, keine &lt;strong&gt;nutzlosen Ressourcen&lt;/strong&gt; herzustellen! Wenn du dir nicht sicher bist, sieh in dem &lt;strong&gt;Forum&lt;/strong&gt; hier unten nach...</source>
-        <target><![CDATA[Be careful not to produce materials which the town does not need! If in doubt, ask someone in the forum below...]]></target>
+        <target>Be careful not to produce materials which the town does not need! If in doubt, ask someone in the forum below...</target>
       </segment>
     </unit>
     <unit id="YWyyGKZ" name="Material">

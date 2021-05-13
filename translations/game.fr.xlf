@@ -19316,7 +19316,7 @@
       </notes>
       <segment>
         <source>Achte darauf, keine &lt;strong&gt;nutzlosen Ressourcen&lt;/strong&gt; herzustellen! Wenn du dir nicht sicher bist, sieh in dem &lt;strong&gt;Forum&lt;/strong&gt; hier unten nach...</source>
-        <target><![CDATA[Attention à ne pas produire de ressources inutiles pour la ville ! Dans le doute, renseignez-vous sur le forum ci-dessous...]]></target>
+        <target>Attention à ne pas produire de ressources inutiles pour la ville ! Dans le doute, renseignez-vous sur le forum ci-dessous...</target>
       </segment>
     </unit>
     <unit id="YWyyGKZ" name="Material">
