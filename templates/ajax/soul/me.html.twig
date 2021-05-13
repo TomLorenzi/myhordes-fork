@@ -37,7 +37,7 @@
                         {% if end_date is null %}
                             <li>{{ name }} {{ help_btn(desc ~ '<p><br/><i class="small">' ~ 'Dauerhafte Beschränkung'|trans({},'soul') ~ '</i></p>') }}</li>
                         {% else %}
-                            <li>{{ name }} {{ help_btn(desc ~ '<p><br/><i class="small">' ~ 'Ende der Beschränkung: %date%'|trans({'%date%': '<br/>' ~ end_date|date },'soul') ~ '</i></p>') }}</li>
+                            <li>{{ name }} {{ help_btn(desc ~ '<p><br/><i class="small">' ~ 'Ende der Beschränkung: %date%'|trans({'%date%': '<br/>' ~ end_date|format_datetime('medium', 'short') },'soul') ~ '</i></p>') }}</li>
                         {% endif %}
                     {% endif %}
                 {% endmacro %}
