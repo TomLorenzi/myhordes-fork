@@ -481,7 +481,7 @@ class GameController extends CustomAbstractController
 
         $this->getActiveCitizen()->setHasSeenGazette(true);
         $this->entity_manager->persist($this->getActiveCitizen());
-        //$this->entity_manager->flush();
+        $this->entity_manager->flush();
 
         return $this->render( 'ajax/game/newspaper.html.twig', $this->addDefaultTwigArgs(null, [
             'show_register'  => $show_register,
