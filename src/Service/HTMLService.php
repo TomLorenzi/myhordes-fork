@@ -94,7 +94,7 @@ class HTMLService {
                     'citizen', 'rpText',
                 ],
                 'span.class' => [
-                    'quoteauthor','bad','rpauthor','inline-code',
+                    'quoteauthor','bad','big','rpauthor','inline-code',
                 ]
             ],
             'oracle' => [

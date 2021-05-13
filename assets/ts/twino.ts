@@ -256,7 +256,7 @@ class TwinoConverterToBlocks {
                 blocks.push( new TwinoInterimBlock(nodeContent, 'a', match.nodeType(), [ ['href', match.nodeInfo()], ['target', '_blank'], ['x-raw','1'] ]) );
                 changed = true;
                 break;
-            case 'bad':
+            case 'bad': case 'big':
                 if (nested) blocks.push( new TwinoInterimBlock(nodeContent) )
                 else blocks.push( new TwinoInterimBlock(nodeContent, 'span', match.nodeType(), [['x-nested','1']]) );
                 changed = true; break;
@@ -380,7 +380,7 @@ class HTMLConverterFromBlocks {
 
         let ret = '';
 
-        let block: TwinoInterimBlock;
+        let block: TwinoInterimBlock, prev: TwinoInterimBlock|null;
         while (block = nextBlock()) {
 
             if (block.isEmpty()) continue;
@@ -419,6 +419,8 @@ class HTMLConverterFromBlocks {
                     }
                     else if (block.hasClass('bad'))
                         ret += HTMLConverterFromBlocks.wrapBlock( block, 'bad' );
+                    else if (block.hasClass('big'))
+                        ret += HTMLConverterFromBlocks.wrapBlock( block, 'big' );
                     else if (block.hasClass('inline-code'))
                         ret += HTMLConverterFromBlocks.wrapBlock( block, 'c' );
                     else ret += block.nodeText;
@@ -458,6 +460,8 @@ class HTMLConverterFromBlocks {
                     ret += raw_fallback ? HTMLConverterFromBlocks.rangeBlock( block.rawText, 'html' ) : block.nodeText;
                     break;
             }
+
+            prev = block;
         }
 
         return ret;
@@ -638,6 +642,14 @@ export default class TwinoAlikeParser {
         return s;
     }
 
+    private static postprocessText( s: string ): string {
+        // Remove single linebreak right after block elements
+        // Wrapped in try because it may fail on ancient browsers
+        try { s = s.replace(/(\{hr\}|<\/(?:div|blockquote|p|code)>)[\p{Zs}\u{9}]*\{br\}/gu,"$1")}
+        catch(e) {}
+        return s;
+    }
+
     parseTo( text: string, target: HTMLElement, resolver: emoteResolver ): void {
 
         let container_node = document.createElement('p');
@@ -645,6 +657,9 @@ export default class TwinoAlikeParser {
 
         let changed = true;
         while (changed) changed = changed && TwinoAlikeParser.parseRangeBlocks(container_node,false);
+
+        container_node.innerHTML = TwinoAlikeParser.postprocessText( container_node.innerHTML );
+
         TwinoAlikeParser.parseInsets(container_node);
         TwinoAlikeParser.parseEmotes(container_node, resolver);
 
@@ -725,7 +740,14 @@ export default class TwinoAlikeParser {
         if (opmode & this.OpModeRaw)   container_node.classList.add('raw-fallback');
         container_node.innerHTML = htmlText;
 
-        return TwinoAlikeParser.parseNestedBlock( container_node );
+        let s = TwinoAlikeParser.parseNestedBlock( container_node );
+        // Wrapping this in a try, because it may fail on ancient browsers
+        try { s = s
+            .replace(/(^\s+)|(\s+$)/g, '')  // Remove all space characters at the beginning and end
+            .replace( /\u{9}+/gu, ' ' )     // Replace tabs by whitespaces
+            .replace(/\p{Zs}{2,}/gu, ' ');  // Compact all whitespace sequences to a single space
+        } catch (e) {}
+        return s;
     }
 
 }
