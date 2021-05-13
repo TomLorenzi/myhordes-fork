@@ -59,9 +59,9 @@
             {% endif %}
             <p>
                 {% if first_take %}
-                    <button x-well-confirm="0" x-well-direction="up" {% if not allow_take %}disabled{% endif %}><img alt="" src="{{ asset('build/images/item/item_water.gif') }}" />{% trans from 'game' %}Deine Ration Wasser erhalten{% endtrans %}</button>
+                    <button x-well-confirm="0" x-well-direction="up" {% if not allow_take or rations_left <= 0 %}disabled{% endif %}><img alt="" src="{{ asset('build/images/item/item_water.gif') }}" />{% trans from 'game' %}Deine Ration Wasser erhalten{% endtrans %}</button>
                 {% else %}
-                    <button x-well-confirm="1" x-well-direction="up" {% if not allow_take %}disabled{% endif %}><img alt="" src="{{ asset('build/images/item/item_water.gif') }}" />{% trans from 'game' %}Eine weitere Ration erhalten{% endtrans %}</button>
+                    <button x-well-confirm="1" x-well-direction="up" {% if not allow_take or rations_left <= 0 %}disabled{% endif %}><img alt="" src="{{ asset('build/images/item/item_water.gif') }}" />{% trans from 'game' %}Eine weitere Ration erhalten{% endtrans %}</button>
                 {% endif %}
 
 
