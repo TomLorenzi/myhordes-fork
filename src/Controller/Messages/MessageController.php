@@ -75,7 +75,7 @@ class MessageController extends CustomAbstractController
         $tx = $post->getText();
         $this->html->htmlPrepare($user, $p, true, $tx, $town, $tx_len, $editable);
 
-        if ($town && (!is_a( $post, Post::class) || $post->getType() === 'USER')) {
+        if ($town && $user->getActiveCitizen() && $town->getCitizens()->contains($user->getActiveCitizen()) && (!is_a( $post, Post::class) || $post->getType() === 'USER')) {
             $citizen = $user->getActiveCitizen();
             $tx = $this->html->htmlDistort( $tx,
                     ($this->citizen_handler->hasStatusEffect($citizen, 'drunk') ? HTMLService::ModulationDrunk : HTMLService::ModulationNone) |
