@@ -2470,7 +2470,7 @@
       </notes>
       <segment>
         <source>Dein Account ist eingeschränkt!</source>
-        <target>Dein Account ist eingeschränkt!</target>
+        <target>Your account is restricted!</target>
       </segment>
     </unit>
     <unit id="6K1dKKS">
@@ -2479,7 +2479,7 @@
       </notes>
       <segment>
         <source>Einschränkungen werden von Moderatoren aufgrund von Fehlverhalten auferlegt. Im Folgenden siehst du eine Liste mit Funktionen, die dir aktuell nicht zur Verfügung stehen.</source>
-        <target>Einschränkungen werden von Moderatoren aufgrund von Fehlverhalten auferlegt. Im Folgenden siehst du eine Liste mit Funktionen, die dir aktuell nicht zur Verfügung stehen.</target>
+        <target>Restrictions can be imposed by moderators due to misconduct. Below is the list of functions that are not currently available to you.</target>
       </segment>
     </unit>
     <unit id="IHRCYe1" name="In Foren posten">
@@ -2596,7 +2596,7 @@
       </notes>
       <segment>
         <source>Dieser Hinweis ist nur für dich, nicht aber für Besucher auf deiner Seelenseite sichtbar.</source>
-        <target>Dieser Hinweis ist nur für dich, nicht aber für Besucher auf deiner Seelenseite sichtbar.</target>
+        <target>This note is only visible to you, not to visitors on your soul page.</target>
       </segment>
     </unit>
     <unit id="cKxZipz" name="Dauerhafte Beschränkung">
