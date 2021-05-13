@@ -194,6 +194,8 @@ class TownHomeController extends TownController
             'upgrade_costs' => $upgrade_cost,
             'complaints' => $this->entity_manager->getRepository(Complaint::class)->matching( $criteria ),
 
+            'devastated' => $town->getDevastated(),
+
             'def' => $summary,
             'deco' => $deco,
 
@@ -281,6 +283,9 @@ class TownHomeController extends TownController
         $citizen = $this->getActiveCitizen();
         $town = $citizen->getTown();
         $home = $citizen->getHome();
+
+        // Can't do it when the town is devastated
+        if ($town->getDevastated()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         // Attempt to get the next house level; fail if none exists
         /** @var CitizenHomePrototype $next */
@@ -401,6 +406,9 @@ class TownHomeController extends TownController
         // Make sure the citizen is a hero
         if (!$citizen->getProfession()->getHeroic())
             return AjaxResponse::error(ErrorHelper::ErrorMustBeHero);
+
+        // Can't do it when the town is devastated
+        if ($citizen->getTown()->getDevastated()) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         // Get the current extension object
         $current = $em->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($home, $proto);

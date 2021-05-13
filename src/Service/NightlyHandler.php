@@ -1100,9 +1100,7 @@ class NightlyHandler
                 }
 
                 $this->entity_manager->persist($this->logTemplates->nightlyAttackDevastated($town));
-                $town->setDevastated(true);
-                $town->setChaos(true);
-                $town->setDoor(true);
+                $this->town_handler->devastateTown($town);
 
                 $gazette = $town->findGazette($town->getDay());
 
