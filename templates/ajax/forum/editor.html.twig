@@ -56,7 +56,7 @@
         <div class="row classic-editor">
             <div class="padded cell rw-12">
                 {% if type != 'global-pm' %}
-                    <label>{{ 'Vorschau'|trans({},'global') }}</label>
+                    <label class="small pointer" id="{{ preview_name }}_toggle">{{ 'Vorschau'|trans({},'global') }}</label>
                     <div id="{{ preview_name }}"></div>
                     <br />
                 {% endif %}
@@ -631,6 +631,14 @@
                     }
                 }
             {% endif %}
+
+            $.html.addEventListenerAll('#{{ preview_name }}_toggle', 'click', () => {
+                let e = document.getElementById('{{ preview_name }}');
+                if (e) {
+                    if (e.classList.contains('hidden')) e.classList.remove('hidden');
+                    else e.classList.add('hidden');
+                }
+            })
         })();
     </script>
 {% endblock %}
