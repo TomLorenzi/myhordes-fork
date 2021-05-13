@@ -103,9 +103,9 @@
                                 {% endif %}
                             </div>
                         </div>
-                        {% if gazette.wind != "" or gazette.waterlost > 0 %}
+                        {% if gazette.windDirection != 0 or gazette.waterlost > 0 %}
                             <div id="buildingdetails" class="row">
-                                {% if gazette.wind != "" %}
+                                {% if gazette.windDirection != 0 %}
                                     {% if gazette.windDirection == constant('App\\Entity\\Zone::DirectionNorthWest') %}
                                         {% set dir = 'im Nordwesten'|trans({},'game') %}
                                     {% elseif gazette.windDirection == constant('App\\Entity\\Zone::DirectionNorth') %}

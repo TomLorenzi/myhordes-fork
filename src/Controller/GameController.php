@@ -204,10 +204,57 @@ class GameController extends CustomAbstractController
             $gazette->setDeaths(count($death_inside));
         }
 
+        $fun_make_wind = function(Gazette $gazette, int $day) {
+            if ($gazette->getWindDirection() === 0) return "";
+            $applicableEntryTemplates = $this->entity_manager->getRepository(GazetteEntryTemplate::class)->findBy(['type' => GazetteEntryTemplate::TypeGazetteWind]);
+            shuffle($applicableEntryTemplates);
+            /** @var GazetteEntryTemplate $townTemplate */
+            $townTemplate = $applicableEntryTemplates[array_key_first($applicableEntryTemplates)];
+            switch ($gazette->getWindDirection()) {
+                case Zone::DirectionNorthWest:
+                    $variables['sector'] = T::__('Nordwesten', 'game');
+                    $variables['sector2'] = T::__('im Nordwesten', 'game');
+                    break;
+                case Zone::DirectionNorth:
+                    $variables['sector'] = T::__('Norden', 'game');
+                    $variables['sector2'] = T::__('im Norden', 'game');
+                    break;
+                case Zone::DirectionNorthEast:
+                    $variables['sector'] = T::__('Nordosten', 'game');
+                    $variables['sector2'] = T::__('im Nordosten', 'game');
+                    break;
+                case Zone::DirectionWest:
+                    $variables['sector'] = T::__('Westen', 'game');
+                    $variables['sector2'] = T::__('im Westen', 'game');
+                    break;
+                case Zone::DirectionEast:
+                    $variables['sector'] = T::__('Osten', 'game');
+                    $variables['sector2'] = T::__('im Osten', 'game');
+                    break;
+                case Zone::DirectionSouthWest:
+                    $variables['sector'] = T::__('Südwesten', 'game');
+                    $variables['sector2'] = T::__('im Südwesten', 'game');
+                    break;
+                case Zone::DirectionSouth:
+                    $variables['sector'] = T::__('Süden', 'game');
+                    $variables['sector2'] = T::__('im Süden', 'game');
+                    break;
+                case Zone::DirectionSouthEast:
+                    $variables['sector'] = T::__('Südosten', 'game');
+                    $variables['sector2'] = T::__('im Südosten', 'game');
+                    break;
+            }
+            $news = new GazetteLogEntry();
+            $news->setDay($day)->setGazette($gazette)->setTemplate($townTemplate)->setVariables($variables);
+            $this->entity_manager->persist($news);
+            return $this->parseGazetteLog($news);
+        };
+
         /** @var GazetteLogEntry[] $gazette_logs */
         $gazette_logs = $this->entity_manager->getRepository(GazetteLogEntry::class)->findBy(['gazette' => $gazette]);
         $text = '';
         $wind = "";
+
         if (count($gazette_logs) == 0) {
             // No Gazette texts! Let's generate some...
             if ($day == 1) {
@@ -375,53 +422,8 @@ class GameController extends CustomAbstractController
                 // 3. FLAVOURS
                 // 4. ELECTION
                 // 5. SEARCH TOWER
-                if($gazette->getWindDirection() !== 0) {
-                    $criteria = [
-                        'type' => GazetteEntryTemplate::TypeGazetteWind,
-                    ];
-                    $applicableEntryTemplates = $this->entity_manager->getRepository(GazetteEntryTemplate::class)->findBy($criteria);
-                    shuffle($applicableEntryTemplates);
-                    /** @var GazetteEntryTemplate $townTemplate */
-                    $townTemplate = $applicableEntryTemplates[array_key_first($applicableEntryTemplates)];
-                    switch ($gazette->getWindDirection()){
-                        case Zone::DirectionNorthWest:
-                            $variables['sector'] = T::__('Nordwesten', 'game');
-                            $variables['sector2'] = T::__('im Nordwesten', 'game');
-                            break;
-                        case Zone::DirectionNorth:
-                            $variables['sector'] = T::__('Norden', 'game');
-                            $variables['sector2'] = T::__('im Norden', 'game');
-                            break;
-                        case Zone::DirectionNorthEast:
-                            $variables['sector'] = T::__('Nordosten', 'game');
-                            $variables['sector2'] = T::__('im Nordosten', 'game');
-                            break;
-                        case Zone::DirectionWest:
-                            $variables['sector'] = T::__('Westen', 'game');
-                            $variables['sector2'] = T::__('im Westen', 'game');
-                            break;
-                        case Zone::DirectionEast:
-                            $variables['sector'] = T::__('Osten', 'game');
-                            $variables['sector2'] = T::__('im Osten', 'game');
-                            break;
-                        case Zone::DirectionSouthWest:
-                            $variables['sector'] = T::__('Südwesten', 'game');
-                            $variables['sector2'] = T::__('im Südwesten', 'game');
-                            break;
-                        case Zone::DirectionSouth:
-                            $variables['sector'] = T::__('Süden', 'game');
-                            $variables['sector2'] = T::__('im Süden', 'game');
-                            break;
-                        case Zone::DirectionSouthEast:
-                            $variables['sector'] = T::__('Südosten', 'game');
-                            $variables['sector2'] = T::__('im Südosten', 'game');
-                            break;
-                    }
-                    $news = new GazetteLogEntry();
-                    $news->setDay($day)->setGazette($gazette)->setTemplate($townTemplate)->setVariables($variables);
-                    $this->entity_manager->persist($news);
-                    $wind = $this->parseGazetteLog($news);
-                }
+                $wind = $fun_make_wind($gazette,$day);
+
                 $this->entity_manager->flush();
             }
         }
@@ -434,6 +436,12 @@ class GameController extends CustomAbstractController
                     $text .= '<p>' . $this->parseGazetteLog($log) . '</p>';
                 else
                     $wind = $this->parseGazetteLog($log);
+            }
+
+            // Ensure the town has a wind direction log if applicable
+            if (empty($wind) && $gazette->getWindDirection() !== 0) {
+                $wind = $fun_make_wind($gazette,$day);
+                $this->entity_manager->flush();
             }
         }
         $textClass = "day$day";
@@ -473,7 +481,7 @@ class GameController extends CustomAbstractController
 
         $this->getActiveCitizen()->setHasSeenGazette(true);
         $this->entity_manager->persist($this->getActiveCitizen());
-        $this->entity_manager->flush();
+        //$this->entity_manager->flush();
 
         return $this->render( 'ajax/game/newspaper.html.twig', $this->addDefaultTwigArgs(null, [
             'show_register'  => $show_register,
