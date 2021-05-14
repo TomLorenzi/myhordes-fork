@@ -154,6 +154,7 @@ class GhostController extends CustomAbstractController
 
             'features' => [
                 'xml_feed' => !(bool)$parser->get('disablexml', false),
+                'citizen_alias' => (bool)$parser->get('citizenalias', false),
 
                 'ghoul_mode'    => $ghoulmode,
                 'shaman'        => $parser->get('shamanMode', 'normal', ['normal','job','none']),
