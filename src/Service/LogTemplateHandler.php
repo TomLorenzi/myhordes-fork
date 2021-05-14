@@ -1624,6 +1624,21 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
+    public function houseRecycled( Citizen $citizen, $items ): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId(),
+            'list' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
+            else { return array('id' => $e[0]->getId()); } }, $items ));
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => empty($items) ? 'houseRecycledEmpty' : 'houseRecycledItems']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
     public function zoneUnderControl( Zone $zone ): TownLogEntry {
         $variables = array();
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'zoneUnderControl']);

@@ -11,6 +11,7 @@ use App\Entity\BlackboardEdit;
 use App\Entity\Building;
 use App\Entity\BuildingVote;
 use App\Entity\Citizen;
+use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenRole;
@@ -48,6 +49,7 @@ use DateTime;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\Date;
@@ -1884,7 +1886,7 @@ class TownController extends InventoryAwareController
      * @param int $id
      * @return Response
      */
-    public function visit_recycle_home(int $id, ItemFactory $if): Response
+    public function visit_recycle_home(int $id, ItemFactory $if, Packages $asset): Response
     {
         if ($id === $this->getActiveCitizen()->getId())
             return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable );
@@ -1906,22 +1908,47 @@ class TownController extends InventoryAwareController
         $home = $c->getHome();
         $home->setRecycling($home->getRecycling() + 1);
 
-        if($home->getRecycling() >= 15 && $home->getPrototype()->getResources()) {
-            // Fetch upgrade resources
-            if ($home->getPrototype()->getResources()) {
-                $entries = $home->getPrototype()->getResources()->getEntries();
-                foreach ($entries as $entry) {
-                    for($i = 0 ; $i < $entry->getChance(); $i++){
-                        if ($this->random_generator->chance(0.4))
-                            $this->inventory_handler->forceMoveItem( $citizen->getTown()->getBank(), $if->createItem($entry->getPrototype()->getName()));
-                    }
-                }
+        if ($home->getRecycling() >= 15) {
+            $resources = [];
+            for ($l = $home->getPrototype()->getLevel(); $l >= 0; $l--) {
+                $prototype = $this->entity_manager->getRepository(CitizenHomePrototype::class)->findOneByLevel( $l );
+                if ($prototype && $prototype->getResources())
+                    foreach ($home->getPrototype()->getResources()->getEntries() as $entry)
+                        if (!isset($resources[$entry->getPrototype()->getName()])) $resources[$entry->getPrototype()->getName()] = $entry->getChance();
+                        else $resources[$entry->getPrototype()->getName()] += $entry->getChance();
             }
 
-            foreach ($home->getChest()->getItems() as $item) {
-                $this->inventory_handler->forceMoveItem($citizen->getTown()->getBank(), $item);
+            $item_list = [];
+            $item_list_p = [];
+
+            $has_recycled = false;
+            foreach ($resources as $item_name => &$count) {
+                $count = (int)floor($count * 0.4);
+                if ($count > 0) {
+                    $has_recycled = true;
+                    $p = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($item_name);
+                    $item_list_p[] = ['item' => $p, 'count' => $count];
+                    $item_list[] = "<span class='tool'><img alt='' src='{$asset->getUrl( "build/images/item/item_{$p->getIcon()}.gif" )}'> {$this->translator->trans($p->getLabel(), [], 'items')}" . ($count > 1 ? " x $count" : '') . "</span>";
+                }
+                for ($i = 0 ; $i < $count; $i++)
+                    $this->inventory_handler->forceMoveItem( $citizen->getTown()->getBank(), $if->createItem($item_name));
             }
-        }
+
+            foreach ($home->getChest()->getItems() as $item)
+                $this->inventory_handler->forceMoveItem($citizen->getTown()->getBank(), $item);
+
+            $msg = [ $this->translator->trans('Du hast das Haus von <strong>✝ %citizen%</strong> vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert.', ['%citizen%' => $home->getCitizen()->getUser()->getName()], 'game') ];
+            if ($has_recycled)
+                $msg[] = $this->translator->trans('Die Stadt hat zudem folgende Resourcen zurückgewinnen können: %item_list%', [
+                    '%item_list%' => implode(' ', $item_list)
+                ], 'game');
+            else
+                $msg[] = $this->translator->trans('Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...', [], 'game');
+
+            $this->addFlash('notice', implode('<hr/>',$msg));
+            $this->entity_manager->persist($this->log->houseRecycled($home->getCitizen(), $item_list_p));
+        } else
+            $this->addFlash('notice', $this->translator->trans('Du hast <strong>1AP</strong> aufgewendet, um das Haus von <strong>✝ %citizen%</strong> zu recyclen. Die Arbeiten sind noch nicht abgeschlossen...', ['%citizen%' => $home->getCitizen()->getUser()->getName()], 'game'));
 
         $this->entity_manager->persist($c);
         $this->entity_manager->persist($citizen);

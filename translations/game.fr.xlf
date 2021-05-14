@@ -11385,11 +11385,11 @@
     </unit>
     <unit id="4NEM2QG" name="Du hast %item_list% in der Werkstatt zu %item% umgewandelt.">
       <notes>
-        <note category="german">Du hast %item_list% in der Werkstatt zu %item% umgewandelt.</note>
+        <note category="german">Du hast ein(e,n) %item% hergestellt. Der Gegenstand wurde in der Bank abgelegt.&lt;hr /&gt;Du hast dafür &lt;strong&gt;%ap% Aktionspunkt(e)&lt;/strong&gt; verbraucht.</note>
       </notes>
       <segment>
         <source>Du hast %item_list% in der Werkstatt zu %item% umgewandelt.</source>
-          <target><![CDATA[Après quelques bricolages, vous avez obtenu %item% (l'objet a été placé en banque).<hr />Vous avez utilisé <strong>%ap% point(s) d'action</strong>.]]></target>
+        <target><![CDATA[Après quelques bricolages, vous avez obtenu %item% (l'objet a été placé en banque).<hr />Vous avez utilisé <strong>%ap% point(s) d'action</strong>.]]></target>
       </segment>
     </unit>
     <unit id="go91k6z" name="Du hast %item_list% zu %item% umgewandelt.">
@@ -19326,6 +19326,60 @@
       <segment>
         <source>Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</source>
         <target>Les objets à transformer sont à placer directement dans la Banque de la ville.</target>
+      </segment>
+    </unit>
+    <unit id="zFzJH3x">
+      <notes>
+        <note category="german">Die Bürger haben das Haus von &lt;strong&gt;✝ %citizen%&lt;/strong&gt; vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert. Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...</note>
+      </notes>
+      <segment>
+        <source>Die Bürger haben das Haus von &lt;strong&gt;✝ %citizen%&lt;/strong&gt; vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert. Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...</source>
+        <target><![CDATA[Les citoyens ont terminé de démanteler la maison de <strong>✝ %citizen%</strong> ! Tous les objets présents dans son coffre ont été placés dans la banque de la ville. La ville n'a rien récupéré d'utile sur la maison elle-même, il n'y avait <strong>vraiment rien</strong> à en tirer...]]></target>
+      </segment>
+    </unit>
+    <unit id="pQTisuC">
+      <notes>
+        <note category="german">Die Bürger haben das Haus von &lt;strong&gt;✝ %citizen%&lt;/strong&gt; vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert. Die Stadt hat zudem folgende Resourcen zurückgewinnen können: %list%.</note>
+      </notes>
+      <segment>
+        <source>Die Bürger haben das Haus von &lt;strong&gt;✝ %citizen%&lt;/strong&gt; vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert. Die Stadt hat zudem folgende Resourcen zurückgewinnen können: %list%.</source>
+        <target><![CDATA[Die Bürger haben das Haus von <strong>✝ %citizen%</strong> vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert. Die Stadt hat zudem folgende Resourcen zurückgewinnen können: %list%.]]></target>
+      </segment>
+    </unit>
+    <unit id="HX0f8s0">
+      <notes>
+        <note category="german">Du hast das Haus von &lt;strong&gt;✝ %citizen%&lt;/strong&gt; vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert.</note>
+      </notes>
+      <segment>
+        <source>Du hast das Haus von &lt;strong&gt;✝ %citizen%&lt;/strong&gt; vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert.</source>
+        <target><![CDATA[Vous avez terminé de démanteler la maison de <strong>✝ %citizen%</strong> ! Tous les objets présents dans son coffre ont été placés dans la banque de la ville.]]></target>
+      </segment>
+    </unit>
+    <unit id="JUftyHl" name="Die Stadt hat zudem folgende Resourcen zurückgewinnen können: %item_list%">
+      <notes>
+        <note category="german">Die Stadt hat zudem folgende Resourcen zurückgewinnen können: %item_list%</note>
+      </notes>
+      <segment>
+        <source>Die Stadt hat zudem folgende Resourcen zurückgewinnen können: %item_list%</source>
+        <target>Die Stadt hat zudem folgende Resourcen zurückgewinnen können: %item_list%</target>
+      </segment>
+    </unit>
+    <unit id="QDOrNez">
+      <notes>
+        <note category="german">Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...</note>
+      </notes>
+      <segment>
+        <source>Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...</source>
+        <target>La ville n'a rien récupéré d'utile sur sa maison, il n'y avait vraiment rien à en tirer...</target>
+      </segment>
+    </unit>
+    <unit id="PXIV0Uu">
+      <notes>
+        <note category="german">Du hast &lt;strong&gt;1AP&lt;/strong&gt; aufgewendet, um das Haus von &lt;strong&gt;✝ %citizen%&lt;/strong&gt; zu recyclen. Die Arbeiten sind noch nicht abgeschlossen...</note>
+      </notes>
+      <segment>
+        <source>Du hast &lt;strong&gt;1AP&lt;/strong&gt; aufgewendet, um das Haus von &lt;strong&gt;✝ %citizen%&lt;/strong&gt; zu recyclen. Die Arbeiten sind noch nicht abgeschlossen...</source>
+        <target><![CDATA[Du hast <strong>1AP</strong> aufgewendet, um das Haus von <strong>✝ %citizen%</strong> zu recyclen. Die Arbeiten sind noch nicht abgeschlossen...]]></target>
       </segment>
     </unit>
   </file>
