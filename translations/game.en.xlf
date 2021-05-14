@@ -1481,7 +1481,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Jede Verarbeitung kostet %ap% (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).</source>
-        <target>Each transformation costs %ap%</target>
+        <target>Each transformation costs %ap% (certain objects can reduce this cost).</target>
       </segment>
     </unit>
     <unit id="pVNCjNA" name="Du trägst eine Säge bei dir.">
@@ -19287,7 +19287,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind.</source>
-        <target>The workshop lets you manufacture advanced construction materials, which are necessary for certain construction sites.</target>
+        <target><![CDATA[The workshop lets you manufacture <strong>advanced construction materials</strong>, which are necessary for certain construction sites.]]></target>
       </segment>
     </unit>
     <unit id="DxR2pQ8" name="Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.">
