@@ -327,7 +327,7 @@
                                         {% endif %}
                                         <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
                                         <a class="link" href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">
-                                            <b class="citizen-name">{{ citizen.user.name }}</b>
+                                            <b class="citizen-name">{{ citizen.name }}</b>
                                         </a>&nbsp;
                                         {% for role in citizen.roles %}
                                             <img src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" alt="{{ role.label|trans({},'game') }}">&nbsp;
@@ -506,7 +506,7 @@
                             <div class="cell rw-6 padded">
                                 <h5>{{ 'Aktuelle Sitzung'|trans({},'admin') }}</h5>
                                 {% if exploration.ax %}
-                                    {{ _self.valuelist('Spieler'|trans({},'admin'), exploration.ax.citizen.user.name) }}
+                                    {{ _self.valuelist('Spieler'|trans({},'admin'), exploration.ax.citizen.name) }}
                                     {{ _self.valuelist('Position'|trans({},'admin'), exploration.ax.x ~ ' / ' ~ exploration.ax.y ) }}
                                     {{ _self.valuelist('Flucht'|trans({},'admin'), exploration.ax.escaping ) }}
                                     {{ _self.valuelist('Raum'|trans({},'admin'), exploration.ax.inRoom ) }}
@@ -517,7 +517,7 @@
                                 {% endif %}
                                 <h5>{{ 'Alle Sitzungen'|trans({},'admin') }}</h5>
                                 {% for x in exploration.x %}
-                                    <div>{{ x.citizen.user.name }}</div>
+                                    <div>{{ x.citizen.name }}</div>
                                 {% endfor %}
                             </div>
                         </div>

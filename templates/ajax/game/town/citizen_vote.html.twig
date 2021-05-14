@@ -51,7 +51,7 @@
                             <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
                         {% endif %}
                         <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
-                        <b>{{ citizen.user.name }}</b>
+                        <b>{{ citizen.name }}</b>
                     </span>
                 </div>
                 <div class="padded cell rw-3 ro-5 small right">

@@ -430,6 +430,7 @@ class MessageTownMessageController extends MessageController
             'emotes' => $this->getEmotesByUser($user,true),
 
             'forum' => false,
+            'username' => $user->getActiveCitizen()->getName(),
             'type' => 'pm',
             'target_url' => 'town_house_send_pm_controller',
             'town_controls' => true,
@@ -460,6 +461,7 @@ class MessageTownMessageController extends MessageController
 
             'emotes' => $this->getEmotesByUser($user,true),
             'forum' => false,
+            'username' => $user->getActiveCitizen()->getName(),
             'type' => $type,
             'target_url' => 'town_house_send_pm_controller',
             'town_controls' => true,
@@ -487,6 +489,7 @@ class MessageTownMessageController extends MessageController
 
             'emotes' => $this->getEmotesByUser($user,true),
             'forum' => false,
+            'username' => $user->getName(),
             'type' => $type,
             'target_url' => 'admin_send_pm_controller',
             'town_controls' => true,

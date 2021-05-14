@@ -34,7 +34,7 @@
                                 {% else %}
                                     {% for citizen in gazette.death_inside %}
                                     <span>
-                                        <span x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.user.name}}</span>,
+                                        <span x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.name}}</span>,
                                         <div class="tooltip normal">
                                             <h1>{{'Todesursache'|trans({}, 'game')}}</h1>
                                             {{citizen.causeOfDeath.label|trans({}, 'game')}}
@@ -50,7 +50,7 @@
                                     </div>
                                     {% for citizen in gazette.death_outside %}
                                     <span>
-                                        <span x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.user.name}}</span>,
+                                        <span x-ajax-href="{{ path('town_visit', {id: citizen.id}) }}" style="cursor: pointer; text-decoration: underline;">{{citizen.name}}</span>,
                                         <div class="tooltip normal">
                                             <h1>{{'Todesursache'|trans({}, 'game')}}</h1>
                                             {{citizen.causeOfDeath.label|trans({}, 'game')}}
@@ -163,7 +163,7 @@
                         <select id="citizen-filter" name="citizen-filter" class="cell rw-8 rw-sm-12 mb-1" x-filter-name="citizen">
                             <option value="-1">[ {{ 'Alles sehen'|trans({}, 'game')}} ]</option>
                             {% for citizen in town.citizens|sort((a,b) => a.user.name|lower <=> b.user.name|lower) %}
-                            <option value="{{ citizen.id }}">{% if not citizen.alive %}&dagger; {% endif %}{{ citizen.user.name }}</option>
+                            <option value="{{ citizen.id }}">{% if not citizen.alive %}&dagger; {% endif %}{{ citizen.name }}</option>
                             {% endfor %}
                         </select>
 

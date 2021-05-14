@@ -475,9 +475,9 @@
                                     {% endif %}
                                     <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
                                     {% if other_citizen != citizen %}
-                                        <a target="_blank" href="{{ path('soul_visit', {id: other_citizen.user.id}) }}"><b>{{ other_citizen.user.name }}</b></a>
+                                        <a target="_blank" href="{{ path('soul_visit', {id: other_citizen.user.id}) }}"><b>{{ other_citizen.name }}</b></a>
                                     {% else %}
-                                        <b>{{ other_citizen.user.name }}</b>
+                                        <b>{{ other_citizen.name }}</b>
                                     {% endif %}
                                 </div>
                                 <div class="padded cell rw-3">
@@ -534,13 +534,13 @@
                                         {% for escort_action in escort_actions[other_citizen.id] %}
                                             {# @var \App\Structures\EscortItemActionSet escort_action #}
                                             <button {% if not escort_action.hasAvailableActions %}disabled{% endif%} class="small inline" x-escort-meta-group x-escort-meta-action="{{ escort_action.group.id }}" x-citizen="{{ other_citizen.id }}" ><img alt="" src="{{ asset('build/images/actions/' ~ escort_action.group.icon ~ '.gif') }}" style="margin-right: 0;" />
-                                                {% if escort_action.group.tooltip is not null %}<div class="tooltip">{{ escort_action.group.tooltip|trans({'%citizen%': other_citizen.user.name},'items') }}</div>{% endif %}
+                                                {% if escort_action.group.tooltip is not null %}<div class="tooltip">{{ escort_action.group.tooltip|trans({'%citizen%': other_citizen.name},'items') }}</div>{% endif %}
                                             </button>
                                         {% endfor %}
                                     {% endif %}
                                     {% if zone.x != 0 or zone.y != 0 %}
                                         <button {% if other_citizen.digging or zone_blocked or other_citizen.digTimeout > 0 %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: other_citizen.id}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/icons/small_gather.gif') }}" style="margin-right: 0;" />
-                                            <div class="tooltip">{{ '%citizen% befehlen die Umgebung abzusuchen.'|trans({'%citizen%': other_citizen.user.name},'game') }}</div>
+                                            <div class="tooltip">{{ '%citizen% befehlen die Umgebung abzusuchen.'|trans({'%citizen%': other_citizen.name},'game') }}</div>
                                         </button>
                                         {% if not (other_citizen.digging or zone_blocked or other_citizen.digTimeout > 0) %}
                                             {% set can_escort_dig = can_escort_dig+1 %}
@@ -548,13 +548,13 @@
                                     {% endif %}
 
                                     <button {% if not can_attack_citizen %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" style="margin-right: 0;"/>
-                                        <div class="tooltip">{{ '%citizen% angreifen. Diese Aktion kostet dich %ap%.'|trans({'%citizen%': other_citizen.user.name,'%ap%': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),5) ~ '</div>'},'game')|raw }}</div>
+                                        <div class="tooltip">{{ '%citizen% angreifen. Diese Aktion kostet dich %ap%.'|trans({'%citizen%': other_citizen.name,'%ap%': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),5) ~ '</div>'},'game')|raw }}</div>
                                     </button>
                                     {% if can_devour_citizen %}
                                         <button {% if not allow_devour_citizen %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" style="margin-right: 0;" /></button>
                                     {% endif %}
                                     <button x-toggle-escort="0" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}" class="small inline" ><img alt="" src="{{ asset('build/images/icons/escort_off.gif') }}" style="margin-right: 0;" />
-                                        <div class="tooltip">{{ '%citizen% sagen mir nicht mehr zu folgen.'|trans({'%citizen%': other_citizen.user.name},'game') }}</div>
+                                        <div class="tooltip">{{ '%citizen% sagen mir nicht mehr zu folgen.'|trans({'%citizen%': other_citizen.name},'game') }}</div>
                                     </button>
 
                                     {% if escort_actions[other_citizen.id] is defined %}
@@ -639,9 +639,9 @@
                                     {% endif %}
                                     <img alt="{{ other_citizen.profession.label|trans({}, 'game') }}" src="{{ asset('build/images/professions/' ~ other_citizen.profession.icon ~ '.gif') }}">
                                     {% if other_citizen != citizen %}
-                                        <a target="_blank" href="{{ path('soul_visit', {id: other_citizen.user.id}) }}"><b>{{ other_citizen.user.name }}</b></a>
+                                        <a target="_blank" href="{{ path('soul_visit', {id: other_citizen.user.id}) }}"><b>{{ other_citizen.name }}</b></a>
                                     {% else %}
-                                        <b>{{ other_citizen.user.name }}</b>
+                                        <b>{{ other_citizen.name }}</b>
                                     {% endif %}
                                 </div>
                                 <div class="padded cell rw-4">
@@ -667,14 +667,14 @@
                                 <div class="padded cell rw-4 right">
                                     {% if not other_citizen.activeExplorerStats and other_citizen != citizen %}
                                         <button {% if not can_attack_citizen or citizen_hidden %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" style="margin-right: 0;" />
-                                            <div class="tooltip">{{ '%citizen% angreifen. Diese Aktion kostet dich %ap%.'|trans({'%citizen%': other_citizen.user.name,'%ap%': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),5) ~ '</div>'},'game')|raw }}</div>
+                                            <div class="tooltip">{{ '%citizen% angreifen. Diese Aktion kostet dich %ap%.'|trans({'%citizen%': other_citizen.name,'%ap%': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),5) ~ '</div>'},'game')|raw }}</div>
                                         </button>
                                         {% if can_devour_citizen %}
                                             <button {% if not allow_devour_citizen or citizen_hidden %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" style="margin-right: 0;" /></button>
                                         {% endif %}
                                         {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader is null %}
                                             <button {% if not citizen.profession.heroic or citizen_hidden %}disabled{% else %}x-toggle-escort="1" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}"{% endif%} class="small inline" ><img alt="" src="{{ asset('build/images/icons/escort_in.gif') }}" style="margin-right: 0;" />
-                                                <div class="tooltip">{{ '%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.'|trans({'%citizen%': other_citizen.user.name},'game') }}</div>
+                                                <div class="tooltip">{{ '%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.'|trans({'%citizen%': other_citizen.name},'game') }}</div>
                                             </button>
                                         {% endif %}
                                     {% endif %}

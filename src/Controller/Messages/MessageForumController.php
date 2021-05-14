@@ -642,10 +642,25 @@ class MessageForumController extends MessageController
      */
     public function editor_thread_api(int $id, EntityManagerInterface $em): Response {
         $forum = $em->getRepository(Forum::class)->find($id);
-        $permissions = $this->perm->getEffectivePermissions( $this->getUser(), $forum );
+        $user = $this->getUser();
+        $permissions = $this->perm->getEffectivePermissions( $user, $forum );
 
         if (!$forum || !$this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionCreateThread ))
             return new Response('');
+
+        $town = $forum->getTown();
+
+        if($town) {
+            // is there a O(1) method to find a user in a town ?
+            foreach ($town->getCitizens() as $citizen) {
+                if($citizen->getUser() === $user)
+                    $username = $citizen->getName();
+            }
+        }
+        // Not a town, or citizen wasn't found
+        if(!isset($username)) {
+            $username = $user->getName();
+        }
 
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => $id,
@@ -655,8 +670,8 @@ class MessageForumController extends MessageController
             'permission' => $this->getPermissionObject( $permissions ),
             'snippets' => $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsCrow ) ? $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll() : [],
 
-            'emotes' => $this->getEmotesByUser($this->getUser(),true),
-            'username' => $this->getUser()->getName(),
+            'emotes' => $this->getEmotesByUser($user,true),
+            'username' => $username,
             'forum' => true,
             'town_controls' => $forum->getTown() !== null,
         ] );
@@ -824,6 +839,7 @@ class MessageForumController extends MessageController
      */
     public function editor_post_api(int $fid, int $tid, EntityManagerInterface $em, JSONRequestParser $parser): Response {
         $user = $this->getUser();
+        $forum = $em->getRepository(Forum::class)->find($fid);
 
         $thread = $em->getRepository( Thread::class )->find( $tid );
         if ($thread === null || $thread->getForum()->getId() !== $fid) return new Response('');
@@ -842,6 +858,20 @@ class MessageForumController extends MessageController
                 )) return new Response('');
         }
 
+        $town = $forum->getTown();
+
+        if($town) {
+            // is there a O(1) method to find a user in a town ?
+            foreach ($town->getCitizens() as $citizen) {
+                if($citizen->getUser() === $user)
+                    $username = $citizen->getName();
+            }
+        }
+        // Not a town, or citizen wasn't found
+        if(!isset($username)) {
+            $username = $user->getName();
+        }
+
         return $this->render( 'ajax/forum/editor.html.twig', [
             'fid' => $fid,
             'tid' => $tid,
@@ -850,7 +880,8 @@ class MessageForumController extends MessageController
             'permission' => $this->getPermissionObject( $permissions ),
             'snippets' => $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsCrow ) ? $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll() : [],
 
-            'emotes' => $this->getEmotesByUser($this->getUser(),true),
+            'emotes' => $this->getEmotesByUser($user,true),
+            'username' => $username,
             'forum' => true,
             'town_controls' => $thread->getForum()->getTown() !== null,
         ] );
