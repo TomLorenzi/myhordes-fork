@@ -476,12 +476,14 @@ class UserHandler
                 if ($w / $h < 0.1 || $h / $w < 0.1 || $h < 16 || $w < 16)
                     return self::ErrorAvatarResolutionUnacceptable;
 
-                if ( (max($w,$h) > 200 || min($w,$h < 90)) &&
-                    !$im_image->resizeImage(
-                        min(200,max(90,$w,$h)),
-                        min(200,max(90,$w,$h)),
-                        imagick::FILTER_SINC, 1, true )
-                ) return self:: ErrorAvatarProcessingFailed;
+                if ( max($w,$h) > 200 || min($w,$h < 90) ) {
+                    foreach ($im_image as $frame)
+                        if (!$frame->resizeImage(
+                            min(200,max(90,$w,$h)),
+                            min(200,max(90,$w,$h)),
+                            imagick::FILTER_SINC, 1, true )
+                        ) return self:: ErrorAvatarProcessingFailed;
+                }
 
                 if ($im_image->getImageFormat() === 'GIF')
                     $im_image->setFirstIterator();
@@ -560,8 +562,11 @@ class UserHandler
 
                 $im_image->setFirstIterator();
 
-                if (!$im_image->cropImage( $dx, $dy, $x, $y ))
-                    return self::ErrorAvatarProcessingFailed;
+                foreach ($im_image as $frame) {
+                    if (!$frame->cropImage( $dx, $dy, $x, $y ))
+                        return self::ErrorAvatarProcessingFailed;
+                    $frame->setImagePage($dx,$dy,0,0);
+                }
 
                 $im_image->setFirstIterator();
 
@@ -569,14 +574,16 @@ class UserHandler
                 if ($iw < 90 || $ih < 30 || ($ih/$iw != 3)) {
                     $new_height = max(30,$ih);
                     $new_width = $new_height * 3;
-                    if (!$im_image->resizeImage(
-                        $new_width, $new_height,
-                        imagick::FILTER_SINC, 1, true ))
-                        return self::ErrorAvatarProcessingFailed;
+
+                    foreach ($im_image as $frame)
+                        if (!$frame->resizeImage(
+                            $new_width, $new_height,
+                            imagick::FILTER_SINC, 1, true ))
+                            return self::ErrorAvatarProcessingFailed;
                 }
 
-                if ($im_image->getImageFormat() === 'GIF')
-                    $im_image->setOption('optimize', true);
+                //if ($im_image->getImageFormat() === 'GIF')
+                //    $im_image->setOption('optimize', true);
 
                 $processed_image_data = $im_image->getImagesBlob();
 
