@@ -11322,7 +11322,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du hast %item_list% in der Werkstatt zu %item% umgewandelt.</source>
-        <target>You converted %item_list% to %item% in the Workshop.</target>
+        <target><![CDATA[After some DIY (thumb hammering, sweating, and colorful language), you have obtained a %item% (the object has been placed in the bank).<hr />You have used <strong>%ap% action point(s)</strong>.]]></target>
       </segment>
     </unit>
     <unit id="go91k6z" name="Du hast %item_list% zu %item% umgewandelt.">

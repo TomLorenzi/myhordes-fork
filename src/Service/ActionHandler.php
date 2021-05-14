@@ -1653,6 +1653,7 @@ class ActionHandler
         $message = $this->translator->trans( $base, [
             '%item_list%' => $this->wrap_concat( $list ),
             '%item%' => $this->wrap( $new_item ),
+            '%ap%' => $ap,
         ], 'game' );
 
         return self::ErrorNone;

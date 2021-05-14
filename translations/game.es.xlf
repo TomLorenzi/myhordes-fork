@@ -11304,7 +11304,7 @@
       </notes>
       <segment>
         <source>Du hast %item_list% in der Werkstatt zu %item% umgewandelt.</source>
-        <target>Has producido %item% en el taller (usando %item_list%).</target>
+        <target><![CDATA[Con un poco de ingenio, has obtenido %item% (el objeto ha sido puesto en el Almacén).<hr />Has utilizado <strong>%ap% Punto(s) de Acción</strong>.]]></target>
       </segment>
     </unit>
     <unit id="go91k6z" name="Du hast %item_list% zu %item% umgewandelt.">

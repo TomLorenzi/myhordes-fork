@@ -11389,7 +11389,7 @@
       </notes>
       <segment>
         <source>Du hast %item_list% in der Werkstatt zu %item% umgewandelt.</source>
-        <target>Vous avez transformé %item_list% en %item% dans l'Atelier.</target>
+          <target><![CDATA[Après quelques bricolages, vous avez obtenu %item% (l'objet a été placé en banque).<hr />Vous avez utilisé <strong>%ap% point(s) d'action</strong>.]]></target>
       </segment>
     </unit>
     <unit id="go91k6z" name="Du hast %item_list% zu %item% umgewandelt.">
