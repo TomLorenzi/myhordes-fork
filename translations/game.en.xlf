@@ -1466,15 +1466,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Vote(s):</target>
       </segment>
     </unit>
-    <unit id="qOmfTuV">
-      <notes>
-        <note category="german">In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</note>
-      </notes>
-      <segment>
-        <source>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</source>
-        <target>The workshop lets you manufacture advanced construction materials, which are necessary for certain construction sites. Objects to be transformed should be placed in the Bank. Each transformation has a basic cost: 3AP (certain objects can reduce this cost).</target>
-      </segment>
-    </unit>
     <unit id="pOcBXgj" name="Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.">
       <notes>
         <note category="german">Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.</note>
@@ -19288,6 +19279,24 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Hergestellter Gegenstand</source>
         <target>Object obtained</target>
+      </segment>
+    </unit>
+    <unit id="tA.qFY5">
+      <notes>
+        <note category="german">In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind.</note>
+      </notes>
+      <segment>
+        <source>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind.</source>
+        <target>The workshop lets you manufacture advanced construction materials, which are necessary for certain construction sites.</target>
+      </segment>
+    </unit>
+    <unit id="DxR2pQ8" name="Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.">
+      <notes>
+        <note category="german">Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</note>
+      </notes>
+      <segment>
+        <source>Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</source>
+        <target>Objects to be transformed should be placed in the Bank.</target>
       </segment>
     </unit>
   </file>

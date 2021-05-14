@@ -8,17 +8,20 @@
 
     <div class="help">
         {% trans from 'game' %}
-            In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.
-        {% endtrans %}
+            In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind.
+        {% endtrans %}<br />
         <i class="strong">
+            {% trans from 'game' %}
+                Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.
+            {% endtrans %}
             {% trans with {'%ap%': '<div class="ap">' ~ need_ap ~ '</div>'} from 'game' %}
                 Jede Verarbeitung kostet %ap% (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).
             {% endtrans %}
             {% if saw or manu %}
                 <p><b>
-                        {% if saw  %}{% trans from 'game' %}Du trägst eine Säge bei dir.{% endtrans %}{% endif %}
-                        {% if manu %}{% trans from 'game' %}Die Stadt verfügt über eine Manufaktur.{% endtrans %}{% endif %}
-                    </b></p>
+                    {% if saw  %}{% trans from 'game' %}Du trägst eine Säge bei dir.{% endtrans %}{% endif %}
+                    {% if manu %}{% trans from 'game' %}Die Stadt verfügt über eine Manufaktur.{% endtrans %}{% endif %}
+                </b></p>
                 <p><b></b></p>
             {% endif %}
         </i>

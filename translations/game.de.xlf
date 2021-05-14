@@ -1456,15 +1456,6 @@
         <target>Stimmen:</target>
       </segment>
     </unit>
-    <unit id="qOmfTuV">
-      <notes>
-        <note category="german">In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</note>
-      </notes>
-      <segment>
-        <source>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</source>
-        <target>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind. Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</target>
-      </segment>
-    </unit>
     <unit id="pOcBXgj" name="Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.">
       <notes>
         <note category="german">Du wurdest verbannt und kannst daher nicht länger in der Werkstatt arbeiten.</note>
@@ -19319,6 +19310,24 @@
       <segment>
         <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</source>
         <target><![CDATA[Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.]]></target>
+      </segment>
+    </unit>
+    <unit id="tA.qFY5">
+      <notes>
+        <note category="german">In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind.</note>
+      </notes>
+      <segment>
+        <source>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind.</source>
+        <target>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind.</target>
+      </segment>
+    </unit>
+    <unit id="DxR2pQ8" name="Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.">
+      <notes>
+        <note category="german">Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</note>
+      </notes>
+      <segment>
+        <source>Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</source>
+        <target>Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.</target>
       </segment>
     </unit>
   </file>
