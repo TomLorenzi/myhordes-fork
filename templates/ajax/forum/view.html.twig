@@ -8,7 +8,7 @@
 {# @var forum \App\Entity\Forum #}
 {# @var permission \App\Structures\ForumPermissionAccessor #}
 
-{% macro display_thread_list( list, fid, icon, title, select, jump, permission, in_town = false, add_seperators = false, paranoid = false ) %}
+{% macro display_thread_list( list, fid, icon, title, select, jump, permission, town = false, add_seperators = false, paranoid = false ) %}
     <div class="forum-note">
         <b><i class="fa {{ icon }}"></i> {{ title }}</b>
         {% set last_day = 'today'|to_date %}
@@ -96,14 +96,14 @@
                         {% if last_post.owner.name == 'Der Rabe' %}
                             {{ 'Der Rabe'|trans({},'global') }}
                         {% else %}
-                            {% set name = in_town ? last_post.owner.activecitizen.name : last_post.owner.name %}
+                            {% set name = town and last_post.owner.activecitizen.town.id == town.id ? last_post.owner.activecitizen.name : last_post.owner.name %}
                             {{ name }}
                         {% endif %}
                     {% elseif thread.owner %}
                         {% if thread.owner.name == 'Der Rabe' %}
                             {{ 'Der Rabe'|trans({},'global') }}
                         {% else %}
-                            {% set name = in_town ? thread.owner.activecitizen.name : thread.owner.name %}
+                            {% set name = town and thread.owner.activecitizen.town.id == town.id ? thread.owner.activecitizen.name : thread.owner.name %}
                             {{ name }}
                         {% endif %}
                     {% else %}
@@ -159,11 +159,11 @@
                     {% endif %}
 
                     {% if pinned_threads %}
-                        {{ _self.display_thread_list(pinned_threads, forum.id, 'fa-thumbtack', 'Sticky'|trans({}, 'global'), select, jump, permission, in_town) }}
+                        {{ _self.display_thread_list(pinned_threads, forum.id, 'fa-thumbtack', 'Sticky'|trans({}, 'global'), select, jump, permission, town) }}
                         <br />
                     {% endif %}
 
-                    {{ _self.display_thread_list(threads, forum.id, 'fa-scroll', forum.title, select, jump, permission, in_town, true, paranoid) }}
+                    {{ _self.display_thread_list(threads, forum.id, 'fa-scroll', forum.title, select, jump, permission, town, true, paranoid) }}
                     {% if pages > 1 %}
                         <div class="row">
                             <div class="cell rw-12 padded center">

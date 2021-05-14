@@ -127,7 +127,7 @@ class MessageForumController extends MessageController
             'permission' => $this->getPermissionObject( $permissions ),
             'select' => $tid,
             'jump' => $pid,
-            'in_town' => $forum->getTown() ? true : false,
+            'town' => $forum->getTown() ? $forum->getTown() : false,
             'pages' => $pages,
             'current_page' => $page,
             'paranoid' => $paranoid
@@ -503,7 +503,7 @@ class MessageForumController extends MessageController
         foreach ($posts as $post) $post->setText( $this->html->prepareEmotes( $post->getText() ) );
         return $this->render( 'ajax/forum/posts_small.html.twig', [
             'posts' => $posts,
-            'in_town' => $forum->getTown() ? true : false,
+            'town' => $forum->getTown() ? $forum->getTown() : false,
             'fid' => $fid,
             'tid' => $thread->getId(),
             'paranoid' => $paranoid
@@ -624,7 +624,7 @@ class MessageForumController extends MessageController
             'fid' => $fid,
             'tid' => $tid,
             'current_page' => $page,
-            'in_town' => $forum->getTown() ? true : false,
+            'town' => $forum->getTown() ? $forum->getTown() : false,
 
             'permission' => $this->getPermissionObject($permissions),
 
