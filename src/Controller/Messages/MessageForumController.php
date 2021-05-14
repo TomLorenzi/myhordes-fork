@@ -119,7 +119,7 @@ class MessageForumController extends MessageController
             if (!$marker || ($lastPost && $lastPost !== $marker->getPost()))
                 $thread->setNew();
         }
-
+        
         return $this->render( 'ajax/forum/view.html.twig', $this->addDefaultTwigArgs(null, [
             'forum' => $forum,
             'threads' => $threads,
@@ -127,6 +127,7 @@ class MessageForumController extends MessageController
             'permission' => $this->getPermissionObject( $permissions ),
             'select' => $tid,
             'jump' => $pid,
+            'in_town' => $forum->getTown() ? true : false,
             'pages' => $pages,
             'current_page' => $page,
             'paranoid' => $paranoid
@@ -502,6 +503,7 @@ class MessageForumController extends MessageController
         foreach ($posts as $post) $post->setText( $this->html->prepareEmotes( $post->getText() ) );
         return $this->render( 'ajax/forum/posts_small.html.twig', [
             'posts' => $posts,
+            'in_town' => $forum->getTown() ? true : false,
             'fid' => $fid,
             'tid' => $thread->getId(),
             'paranoid' => $paranoid
@@ -622,6 +624,7 @@ class MessageForumController extends MessageController
             'fid' => $fid,
             'tid' => $tid,
             'current_page' => $page,
+            'in_town' => $forum->getTown() ? true : false,
 
             'permission' => $this->getPermissionObject($permissions),
 
