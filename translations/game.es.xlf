@@ -19281,7 +19281,7 @@
       </notes>
       <segment>
         <source>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind.</source>
-        <target>En el taller transformarás los materiales de construcción avanzados que algunas construcciones necesitan.</target>
+        <target><![CDATA[En el taller transformarás <strong>los materiales de construcción avanzados</strong> que algunas construcciones necesitan.]]></target>
       </segment>
     </unit>
     <unit id="DxR2pQ8" name="Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.">
