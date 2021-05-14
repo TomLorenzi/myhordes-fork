@@ -148,7 +148,7 @@
             {% for citizenWithRole in citizensWithRole %}
                 {% for role in citizenWithRole.roles %}
                     {% if not role.secret and not role.hidden %}
-                        <p><img alt="•" src="{{ asset('build/images/icons/small_middot.gif') }}" />{{ "Der %rolename% der Stadt ist %username%"|trans({'%rolename%': "<strong>" ~ role.label|trans({}, 'game') ~ "</strong>", '%username%': "<strong>" ~ citizenWithRole.user.name ~ "</strong>"} , 'game')|raw }}</p>
+                        <p><img alt="•" src="{{ asset('build/images/icons/small_middot.gif') }}" />{{ "Der %rolename% der Stadt ist %username%"|trans({'%rolename%': "<strong>" ~ role.label|trans({}, 'game') ~ "</strong>", '%username%': "<strong>" ~ citizenWithRole.name ~ "</strong>"} , 'game')|raw }}</p>
                     {% endif %}
                 {% endfor %}
             {% endfor %}
@@ -162,7 +162,7 @@
                         <label for="citizen-filter" class="cell rw-4 rw-sm-12">{{ 'Bürger:'|trans({}, 'game') }}</label>
                         <select id="citizen-filter" name="citizen-filter" class="cell rw-8 rw-sm-12 mb-1" x-filter-name="citizen">
                             <option value="-1">[ {{ 'Alles sehen'|trans({}, 'game')}} ]</option>
-                            {% for citizen in town.citizens|sort((a,b) => a.user.name|lower <=> b.user.name|lower) %}
+                            {% for citizen in town.citizens|sort((a,b) => a.name|lower <=> b.name|lower) %}
                             <option value="{{ citizen.id }}">{% if not citizen.alive %}&dagger; {% endif %}{{ citizen.name }}</option>
                             {% endfor %}
                         </select>

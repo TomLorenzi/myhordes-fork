@@ -193,11 +193,11 @@
                         {{'%citizen% ist in der Wüste gestorben und hat seinen Mitbürgern nichts hinterlassen.'|trans({'%citizen%': "<strong>" ~ owner.name ~ "</strong>"}, 'game')|raw}}
                     {% else %}
                         {% if owner.disposed == constant('App\\Entity\\Citizen::Thrown') %}
-                            {{'Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.name ~ "</em>"}, 'game')|raw}}
+                            {{'Nicht ganz ekelfrei hat %disposing_citizen% den leblosen Körper von %citizen% entsorgt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].name ~ "</em>", '%citizen%': "<em>" ~ owner.name ~ "</em>"}, 'game')|raw}}
                         {% elseif owner.disposed == constant('App\\Entity\\Citizen::Watered') %}
-                            {{'Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.name ~ "</em>"}, 'game')|raw}}
+                            {{'Dank %disposing_citizen% hat sich der Körper von %citizen% in verfaultes Wasser verwandelt.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].name ~ "</em>", '%citizen%': "<em>" ~ owner.name ~ "</em>"}, 'game')|raw}}
                         {% elseif owner.disposed == constant('App\\Entity\\Citizen::Cooked') %}
-                            {{'%disposing_citizen% hat %citizen% ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].user.name ~ "</em>", '%citizen%': "<em>" ~ owner.name ~ "</em>"}, 'game')|raw}}
+                            {{'%disposing_citizen% hat %citizen% ordentlich Feuer gegeben. Du hättest Marshmallows vorbereiten können, wenn man dir Bescheid gegeben hätte.'|trans({'%disposing_citizen%': "<em>" ~ owner.disposedBy[0].name ~ "</em>", '%citizen%': "<em>" ~ owner.name ~ "</em>"}, 'game')|raw}}
                         {% elseif owner.disposed == constant('App\\Entity\\Citizen::Ghoul') %}
                             {{ 'Keine Ahnung. <strong>Der leblose Körper ist spurlos verschwunden...</strong> Vermutlich liegt er jetzt irgendwo vor der Stadt und verrottet vor sich hin... Vielleicht kommt er euch ja in der Nacht besuchen?'|trans({}, 'game')|raw }}
                         {% else %}
