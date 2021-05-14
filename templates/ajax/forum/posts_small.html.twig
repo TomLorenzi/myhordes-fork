@@ -3,7 +3,6 @@
     {# @var posts \App\Entity\Post[] #}
 
     <div class="forum-posts">
-                        {{ dump(post.owner)}}
         {% for post in posts %}
             {% if not post.hidden or is_granted("ROLE_CROW") %}
                 <div class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}" id="{{post.id}}">
@@ -32,7 +31,7 @@
                                 {% endif %}
                                 </a><br />
                                 {% if post.owner.activeTitle %}<span class="small" style="font-size: 0.7em; display: inline-block;overflow: hidden;text-overflow: ellipsis;max-width: calc(100% - 130px); white-space: nowrap;"><i>{{ post.owner.activeTitle.prototype.title|trans({},'game') }}</i></span>{% endif %}
-                            {% else %}
+                            {% endif %}
                         </b>
                         {% if post.note is not null %}<div class="float-right post-note">{{ post.note|replace({'%at_00%': 'in der Stadt oder am Stadttor'|trans({},'game')})|raw }}</div>{% endif %}
                     </div>
