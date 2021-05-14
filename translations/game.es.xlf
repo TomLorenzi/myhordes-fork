@@ -19254,7 +19254,7 @@
       </notes>
       <segment>
         <source>Achte darauf, keine &lt;strong&gt;nutzlosen Ressourcen&lt;/strong&gt; herzustellen! Wenn du dir nicht sicher bist, sieh in dem &lt;strong&gt;Forum&lt;/strong&gt; hier unten nach...</source>
-        <target>¡Trata de no producir recursos inútiles para el pueblo! Si tienes una duda, pregunta en el Foro.</target>
+        <target><![CDATA[¡Trata de no producir <strong>recursos inútiles</strong> para el pueblo! Si tienes una duda, pregunta en el <strong>Foro</strong>.]]></target>
       </segment>
     </unit>
     <unit id="YWyyGKZ" name="Material">
