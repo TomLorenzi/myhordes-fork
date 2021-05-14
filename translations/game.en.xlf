@@ -8677,15 +8677,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Your eye injury doesn't exactly make your search easier.</target>
       </segment>
     </unit>
-    <unit id="yvgmhoy">
-      <notes>
-        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</note>
-      </notes>
-      <segment>
-        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</source>
-        <target><![CDATA[Your <strong>sobriety, or lack thereof,</strong> is quite inconvenient. Things become pretty tricky pretty quickly when you're completely wasted...]]></target>
-      </segment>
-    </unit>
     <unit id="UhCUwjo" name="Du kannst heute keine weiteren Beschwerden vorbringen.">
       <notes>
         <note category="german">Du kannst heute keine weiteren Beschwerden vorbringen.</note>
@@ -18210,15 +18201,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target><![CDATA[<span>We control the zone from now on.</span>]]></target>
       </segment>
     </unit>
-    <unit id="20wAGQf">
-      <notes>
-        <note category="german">Your &lt;strong&gt;sobriety&lt;/strong&gt;, or lack thereof, is quite inconvenient. Things become pretty tricky pretty quickly when you're completely wasted...</note>
-      </notes>
-      <segment>
-        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</source>
-        <target><![CDATA[Your <strong>sobriety</strong>, or lack thereof, is quite inconvenient. Things become pretty tricky pretty quickly when you're completely wasted...]]></target>
-      </segment>
-    </unit>
     <unit id="bPobZD0">
       <notes>
         <note category="german">Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;Dieser Gegenstand wurde &lt;strong&gt;in deiner Truhe&lt;/strong&gt; abgelegt.</note>
@@ -18462,13 +18444,13 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Someone stole %item% from the bank, but he (or she) couldn't be identified by anyone.</target>
       </segment>
     </unit>
-    <unit id="pygRaEs">
+    <unit id="3YClH4I">
       <notes>
-        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</note>
+        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</note>
       </notes>
       <segment>
-        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</source>
-        <target><![CDATA[Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst]]></target>
+        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</source>
+        <target><![CDATA[Your <strong>sobriety, or lack thereof,</strong> is quite inconvenient. Things become pretty tricky pretty quickly when you're completely wasted...]]></target>
       </segment>
     </unit>
     <unit id="56UUc2e">

@@ -8677,15 +8677,6 @@
         <target>Tu herida en los ojos no facilita las cosas...</target>
       </segment>
     </unit>
-    <unit id="yvgmhoy">
-      <notes>
-        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</note>
-      </notes>
-      <segment>
-        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</source>
-        <target>Tu borrachera no te facilita las cosas...</target>
-      </segment>
-    </unit>
     <unit id="UhCUwjo" name="Du kannst heute keine weiteren Beschwerden vorbringen.">
       <notes>
         <note category="german">Du kannst heute keine weiteren Beschwerden vorbringen.</note>
@@ -18204,15 +18195,6 @@
         <target><![CDATA[<span>¡Ahora la zona está bajo control!</span>]]></target>
       </segment>
     </unit>
-    <unit id="20wAGQf">
-      <notes>
-        <note category="german">Your &lt;strong&gt;sobriety&lt;/strong&gt;, or lack thereof, is quite inconvenient. Things become pretty tricky pretty quickly when you're completely wasted...</note>
-      </notes>
-      <segment>
-        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</source>
-        <target><![CDATA[Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich night weiter. Das ist night gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst]]></target>
-      </segment>
-    </unit>
     <unit id="bPobZD0">
       <notes>
         <note category="german">Du hast dir folgenden Gegenstand unter den Nagel gerissen: %item%. Dein kleiner Hausbesuch bei † %victim% ist allerdings aufgeflogen...&lt;hr /&gt;Dieser Gegenstand wurde &lt;strong&gt;in deiner Truhe&lt;/strong&gt; abgelegt.</note>
@@ -18456,13 +18438,13 @@
         <target>Alguien ha tomado %item% de los cofres del Almacén y no pudo ser identificado</target>
       </segment>
     </unit>
-    <unit id="pygRaEs">
+    <unit id="3YClH4I">
       <notes>
-        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</note>
+        <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</note>
       </notes>
       <segment>
-        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst</source>
-        <target><![CDATA[Dein <strong>Trunkenheitszustand</strong> hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst]]></target>
+        <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</source>
+        <target>Tu borrachera no te facilita las cosas...</target>
       </segment>
     </unit>
     <unit id="56UUc2e">
