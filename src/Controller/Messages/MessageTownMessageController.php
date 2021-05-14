@@ -310,14 +310,14 @@ class MessageTownMessageController extends MessageController
                 case PrivateMessage::TEMPLATE_CROW_AGGRESSION_FAIL:
                     /** @var Citizen $aggressor */
                     $aggressor = $this->entity_manager->getRepository(Citizen::class)->find( $post->getForeignID() );
-                    $thread->setTitle( $this->translator->trans('%username% hat dich angegriffen!', ['%username%' => $aggressor->getUser()->getName()], 'game') );
-                    $post->setText( $this->html->prepareEmotes($post->getText()) . $this->translator->trans( 'Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.', ['%username%' => $aggressor->getUser()->getName()], 'game' ) );
+                    $thread->setTitle( $this->translator->trans('%username% hat dich angegriffen!', ['%username%' => $aggressor->getName()], 'game') );
+                    $post->setText( $this->html->prepareEmotes($post->getText()) . $this->translator->trans( 'Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.', ['%username%' => $aggressor->getName()], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_AGGRESSION_SUCCESS:
                     /** @var Citizen $aggressor */
                     $aggressor = $this->entity_manager->getRepository(Citizen::class)->find( $post->getForeignID() );
-                    $thread->setTitle( $this->translator->trans('%username% hat dich angegriffen und verletzt!', ['%username%' => $aggressor->getUser()->getName()], 'game') );
-                    $post->setText( $this->html->prepareEmotes($post->getText()) . $this->translator->trans( 'Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!', ['%username%' => $aggressor->getUser()->getName()], 'game' ) );
+                    $thread->setTitle( $this->translator->trans('%username% hat dich angegriffen und verletzt!', ['%username%' => $aggressor->getName()], 'game') );
+                    $post->setText( $this->html->prepareEmotes($post->getText()) . $this->translator->trans( 'Als du es dir gerade gemütlich machen wolltest, wurdest du von %username% übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!', ['%username%' => $aggressor->getName()], 'game' ) );
                     break;
                 case PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_WOUND:
                     $thread->setTitle( $this->translator->trans('Verletzt', [], 'game') );
@@ -399,7 +399,7 @@ class MessageTownMessageController extends MessageController
         $em->persist($newReport);
         $em->flush();
 
-        $message = $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $post->getOwner()->getUser()->getName() . '</span>'], 'game');
+        $message = $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $post->getOwner()->getName() . '</span>'], 'game');
         $this->addFlash('notice', $message);
 
         return AjaxResponse::success();

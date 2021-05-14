@@ -477,7 +477,7 @@ class TownController extends InventoryAwareController
                     return AjaxResponse::error( ErrorHelper::ErrorNoAP );
                 $this->citizen_handler->setAP($ac, true, -2);
                 $pictoName = "r_cgarb_#00";
-                $message = $this->translator->trans('Du hast die Leiche von %disposed% außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!', ['%disposed%' => '<span>' . $c->getUser()->getName() . '</span>'], 'game');
+                $message = $this->translator->trans('Du hast die Leiche von %disposed% außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!', ['%disposed%' => '<span>' . $c->getName() . '</span>'], 'game');
                 $c->setDisposed(Citizen::Thrown);
                 $c->addDisposedBy($ac);
                 break;
@@ -498,7 +498,7 @@ class TownController extends InventoryAwareController
                     return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
                 $spawn_items[] = [ 'item' => $em->getRepository( ItemPrototype::class )->findOneBy( ['name' => 'hmeat_#00'] ), 'count' => 4 ];
                 $pictoName = "r_cooked_#00";
-                $message = $this->translator->trans('Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?', ['%disposed%' => '<span>' . $c->getUser()->getName() . '</span>','%ration%' => '<span>4</span>'], 'game');
+                $message = $this->translator->trans('Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?', ['%disposed%' => '<span>' . $c->getName() . '</span>','%ration%' => '<span>4</span>'], 'game');
                 $c->setDisposed(Citizen::Cooked);
                 $c->addDisposedBy($ac);
                 break;
@@ -1797,7 +1797,7 @@ class TownController extends InventoryAwareController
                 $this->citizen_handler->removeStatus($c, "tg_meta_ginfect");
             }
 
-            $message[] = $this->translator->trans($healableStatus[$healedStatus]['success'], ['%citizen%' => "<span>" . $c->getUser()->getName() . "</span>"], 'game');
+            $message[] = $this->translator->trans($healableStatus[$healedStatus]['success'], ['%citizen%' => "<span>" . $c->getName() . "</span>"], 'game');
 
             $transfer = $this->random_generator->chance(0.1);
             if($transfer){
@@ -1810,7 +1810,7 @@ class TownController extends InventoryAwareController
                 }
                 if($do_transfer) {
                     $this->citizen_handler->inflictStatus($citizen, $healedStatus === 'infection' ? 'tg_meta_ginfect' : $healedStatus);
-                    $message[] = $this->translator->trans($healableStatus[$healedStatus]['transfer'], ['%citizen%' => "<span>" . $c->getUser()->getName() . "</span>"], 'game');
+                    $message[] = $this->translator->trans($healableStatus[$healedStatus]['transfer'], ['%citizen%' => "<span>" . $c->getName() . "</span>"], 'game');
                     if ($healedStatus == 'infection' && $witness)
                         $message[] = $this->translator->trans('Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...', [], 'items');
                 } else if ($witness) {
@@ -1818,7 +1818,7 @@ class TownController extends InventoryAwareController
                 }
             }
         } else {
-            $message[] = $this->translator->trans($healableStatus[$healedStatus]['fail'], ['%citizen%' => "<span>" . $c->getUser()->getName() . "</span>"], 'game');
+            $message[] = $this->translator->trans($healableStatus[$healedStatus]['fail'], ['%citizen%' => "<span>" . $c->getName() . "</span>"], 'game');
         }
         if ($citizen->hasRole('shaman')) {
             $citizen->setPM($citizen->getPM() - 2);

@@ -295,7 +295,7 @@ class HTMLService {
                 /** @var Citizen $cc */
                 $cc = $this->rand->pick($valid);
                 if ($group !== null) $cache['citizen'][$group] = $cc->getId();
-                $d->nodeValue = $cc->getUser()->getName();
+                $d->nodeValue = $cc->getName();
             },
 
             // This MUST be the last element!
