@@ -1469,7 +1469,7 @@
       </notes>
       <segment>
         <source>Jede Verarbeitung kostet %ap% (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).</source>
-        <target>Chaque transformation coûte %ap%</target>
+        <target>Chaque transformation coûte %ap% (certains objets peuvent réduire ce coût).</target>
       </segment>
     </unit>
     <unit id="pVNCjNA" name="Du trägst eine Säge bei dir.">
@@ -19316,7 +19316,7 @@
       </notes>
       <segment>
         <source>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind.</source>
-        <target>L'atelier permet la fabrication de matériaux de constructions avancés, nécessaires pour certains chantiers en ville.</target>
+        <target><![CDATA[L'atelier permet la fabrication de <strong>matériaux de constructions avancés</strong>, nécessaires pour certains chantiers en ville.]]></target>
       </segment>
     </unit>
     <unit id="DxR2pQ8" name="Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.">
