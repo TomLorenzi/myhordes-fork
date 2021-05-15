@@ -12,6 +12,7 @@ use App\Response\AjaxResponse;
 use App\Service\AdminActionHandler;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
+use App\Service\MediaService;
 use App\Service\RandomGenerator;
 use App\Service\UserFactory;
 use App\Translation\T;
@@ -93,7 +94,7 @@ class AdminAppController extends AdminActionController
      * @param RandomGenerator $rand
      * @return Response
      */
-    public function ext_app_update(int $id, JSONRequestParser $parser, RandomGenerator $rand): Response
+    public function ext_app_update(int $id, JSONRequestParser $parser, RandomGenerator $rand, MediaService $media): Response
     {
         if (!$this->isGranted('ROLE_ADMIN')) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
@@ -124,44 +125,12 @@ class AdminAppController extends AdminActionController
                 $payload = $parser->get_base64('icon');
 
                 if (strlen( $payload ) > 3145728) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-                if (!extension_loaded('imagick')) return AjaxResponse::error( ErrorHelper::ErrorInternalError );
 
-                $im_image = new Imagick();
+                if ($media->resizeImageSimple( $payload, 16, 16, $processed_format, false ) !== MediaService::ErrorNone)
+                    return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-                try {
-                    if (!$im_image->readImageBlob($payload)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
-                    if (!in_array($im_image->getImageFormat(), ['GIF','JPEG','BMP','PNG','WEBP'])) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                $app->setImage($payload)->setImageName(md5($payload))->setImageFormat( strtolower( $processed_format ) );
 
-                    if ($im_image->getImageFormat() === 'GIF') {
-                        $im_image->coalesceImages();
-                        $im_image->resetImagePage('0x0');
-                        $im_image->setFirstIterator();
-                    }
-
-                    $w = $im_image->getImageWidth();
-                    $h = $im_image->getImageHeight();
-
-                    if ( ($w !== 16 || $h !== 16) && !$im_image->resizeImage(16,16,imagick::FILTER_SINC, 1, true )) return AjaxResponse::error( ErrorHelper::ErrorInternalError );
-
-                    if ($im_image->getImageFormat() === 'GIF') $im_image->setFirstIterator();
-
-                    switch ($im_image->getImageFormat()) {
-                        case 'JPEG':
-                            $im_image->setImageCompressionQuality ( 100 );
-                            break;
-                        case 'PNG':
-                            $im_image->setOption('png:compression-level', 9);
-                            break;
-                        case 'GIF':
-                            $im_image->setOption('optimize', true);
-                            break;
-                        default: break;
-                    }
-                    $processed_image_data = $im_image->getImagesBlob();
-                    $app->setImage($processed_image_data)->setImageName(md5($processed_image_data))->setImageFormat( strtolower( $im_image->getImageFormat() ) );
-                } catch (\Exception $e) {
-                    return AjaxResponse::error( ErrorHelper::ErrorInternalError, ['msg' => $e->getMessage(), 'line' => $e->getLine()] );
-                }
             }
         }
 
