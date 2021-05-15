@@ -22,6 +22,7 @@ class UserGroup
 
     const GroupSmallCoalition = 101;
     const GroupMessageGroup = 201;
+    const GroupOfficialGroup = 301;
 
     /**
      * @ORM\Id

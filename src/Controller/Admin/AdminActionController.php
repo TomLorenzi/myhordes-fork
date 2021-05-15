@@ -57,6 +57,7 @@ class AdminActionController extends CustomAbstractController
             ['name' => T::__('AntiSpam', 'admin'),    'id' => 5, 'route' => 'admin_spam_domain_view'],
             ['name' => T::__('Apps', 'admin'),        'id' => 6, 'route' => 'admin_app_view'],
             ['name' => T::__('Saisons', 'admin'),     'id' => 7, 'route' => 'admin_seasons_view'],
+            ['name' => T::__('Gruppen', 'admin'),     'id' => 8, 'route' => 'admin_group_view'],
         ];
     }
 

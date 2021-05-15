@@ -7,7 +7,9 @@ use App\Controller\Admin\AdminActionController;
 use App\Controller\CustomAbstractController;
 use App\Entity\AdminAction;
 use App\Entity\ExternalApp;
+use App\Entity\OfficialGroup;
 use App\Entity\User;
+use App\Entity\UserGroup;
 use App\Service\AdminActionHandler;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
@@ -194,9 +196,31 @@ class WebController extends CustomAbstractController
         $app = $this->entity_manager->getRepository(ExternalApp::class)->find( $aid );
         if (!$app || !$app->getImage()) return $this->cdn_fallback( "app/{$aid}/{$name}/{$ext}" );
         if ($app->getImageName() !== $name || $app->getImageFormat() !== $ext)
-            return $this->cdn_fallback( "avatar/{$aid}/{$name}/{$ext}" );
+            return $this->cdn_fallback( "app/{$aid}/{$name}/{$ext}" );
 
         return $this->image_output($app->getImage(), $name, $ext);
+    }
+
+    /**
+     * @Route("/cdn/group/{gid<\d+>}/{name}.{ext<[\w\d]+>}",requirements={"name"="[0123456789abcdef]{32}"},condition="!request.isXmlHttpRequest()")
+     * @param int $gid
+     * @param string $name
+     * @param string $ext
+     * @return Response
+     */
+    public function group_icon(int $gid, string $name, string $ext): Response
+    {
+        /** @var UserGroup $group */
+        $group = $this->entity_manager->getRepository(UserGroup::class)->find( $gid );
+        if (!$group) return $this->cdn_fallback( "group/{$gid}/{$name}/{$ext}" );
+
+        $meta = $this->entity_manager->getRepository(OfficialGroup::class)->findOneBy(['usergroup' => $group]);
+        if (!$meta) return $this->cdn_fallback( "group/{$gid}/{$name}/{$ext}" );
+
+        if ($meta->getAvatarName() !== $name || $meta->getAvatarExt() !== $ext)
+            return $this->cdn_fallback( "group/{$gid}/{$name}/{$ext}" );
+
+        return $this->image_output($meta->getIcon(), $name, $ext);
     }
 
     /**

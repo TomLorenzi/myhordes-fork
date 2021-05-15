@@ -38,6 +38,17 @@ class PermissionHandler
         );
     }
 
+    /**
+     * @param UserGroup $group
+     * @return User[]
+     */
+    public function usersInGroup( UserGroup $group ): array {
+        return array_map(
+            fn( UserGroupAssociation $a ) => $a->getUser(),
+            $this->entity_manager->getRepository(UserGroupAssociation::class)->findBy(['association' => $group])
+        );
+    }
+
     public function getDefaultGroup( int $sem ): ?UserGroup {
         return $this->entity_manager->getRepository(UserGroup::class)->findOneBy(['type' => $sem]);
     }

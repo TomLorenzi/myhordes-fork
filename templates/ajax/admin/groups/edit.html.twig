@@ -1,0 +1,208 @@
+{% extends "ajax/ajax.html.twig" %}
+{% block title %}{% if current_group is null %}{{ 'Neue Gruppe'|trans({}, 'admin') }}{% else %}{{ 'Gruppe "%group%"'|trans({'%group%': current_group.usergroup.name}, "admin")|raw }}{% endif %}{% endblock %}
+{% block ajax %}
+    {# @var current_season \App\Entity\Season #}
+    <div class="row">
+        <div class="padded cell rw-12">
+
+            <div class="form">
+                <h5>{{ 'Gruppe'|trans({},'admin') }}</h5>
+
+                <div class="row">
+                    <div class="cell padded rw-4 note note-lightest"><label for="group-lang">{{ 'Sprache'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4">
+                        <select id="group-lang">
+                            {% for lang in ['de','fr','en','es','multi'] %}
+                                <option value="{{ lang }}">{{ lang }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="cell padded rw-4 note note-lightest"><label for="group-name">{{ 'Name'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4"><input id="group-name" type="text" value="{{ current_group is not null ? current_group.usergroup.name : '' }}" /></div>
+                </div>
+
+                <div class="row">
+                    <div class="cell padded rw-4 note note-lightest"><label for="group-desc">{{ 'Name'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4"><textarea id="group-desc">{{ current_group is not null ? current_group.description : '' }}</textarea></div>
+                </div>
+
+                <div class="row">
+                    <div class="cell padded rw-4 note note-lightest"><label for="group-icon">{{ 'Icon'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4">
+                        <div class="avatar {{ current_group is null ? 'hidden' : '' }}">
+                            <img id="group-icon" alt="[ {{ 'Avatar'|trans({},'admin') }} ]" src="{{ (current_group is not null) ? path('app_web_group_icon', { gid: current_group.usergroup.id, name: current_group.avatarName, ext: current_group.avatarExt }) : '' }}" />
+                        </div>
+                        <label for="group-icon-select" id="group-icon-edit" class="small inline float-right button"><i class="fa fa-edit"></i></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell padded ro-4 rw-4">
+                        <input class="hidden" type="file" id="group-icon-select" accept=".gif,.jpg,.jpeg,.jif,.jfif,.png,.webp,.bmp">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="cell padded rw-4 note note-lightest">{{ 'Mitglieder'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-4">
+
+                        <div id="group-member-container">
+                            {% for member in members %}
+                                <div><b>{{ member.name }}</b><div class="float-right pointer" x-member-id="{{ member.id }}"><i class="fa fa-trash"></i></div></div>
+                            {% endfor %}
+                        </div>
+
+                        <button id="group-member-add" class="small inline float-right"><i class="fa fa-plus"></i></button>
+                    </div>
+                </div>
+                <div class="row hidden" id="group-member-select">
+                    <div class="cell padded rw-4 ro-4">
+                        <div id="users-list-admin">{% include 'ajax/admin/snippets/user_search.html.twig' %}</div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="cell padded rw-4 note note-lightest"><label for="group-anon">{{ 'Anonyme Gruppe'|trans({},'admin') }}</label></div>
+                    <div class="cell padded rw-4"><input id="group-anon" type="checkbox" {% if current_group is null or current_group.anon %}checked{% endif %} /></div>
+                </div>
+
+                <div class="row">
+                    <div class="padded cell rw-4 ro-4">
+                        {% if current_group is null %}
+                            <button id="save_button">{{ 'Neue Gruppe anlegen'|trans({},'admin') }}</button>
+                        {% else %}
+                            <button id="save_button">{{ "Änderungen speichern"|trans({},'admin') }}</button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    {{ parent() }}
+    <script>
+        let image_upload = null;
+        let image_mime = '';
+        let members_added = [];
+        let members_removed = [];
+
+        let typingTimer, doneTypingInterval = 500;
+        let searchBox = document.getElementById('user-search');
+
+        const removeMember = function(id) {
+            if (members_removed.indexOf(id) < 0) members_removed.push(id);
+            const add_index = members_added.indexOf( id );
+            if (add_index >= 0) members_added.splice( add_index, 1);
+
+            let entry = document.querySelector('[x-member-id="' + id + '"]');
+            if (entry) entry.parentElement.remove();
+        }
+
+        $.html.addEventListenerAll('[x-member-id]','click',(e,elem) => removeMember( parseInt( elem.getAttribute('x-member-id') ) ));
+
+        $.html.addEventListenerAll('#group-member-add','click', () => {
+            document.getElementById('group-member-select').classList.remove('hidden');
+            document.getElementById('group-member-add').classList.add('hidden');
+        });
+
+        const userSearchHandler = function() {
+            $.ajax.background().load(
+                document.getElementById('users-list'),
+                '{{ path('admin_users_fuzzyfind') }}',
+                false,
+                {'name': searchBox.value, 'no-href': true},
+                () => $.html.addEventListenerAll('.users-list-entry', 'click', function(e,elem) {
+                    let container = document.getElementById('group-member-container');
+                    const m_id = parseInt(elem.getAttribute('x-user-id'));
+
+                    if (container.querySelector('[x-member-id="' + m_id + '"]'))
+                        return;
+
+                    if (members_added.indexOf(m_id) < 0) members_added.push(m_id);
+                    const rem_index = members_removed.indexOf( m_id );
+                    if (rem_index >= 0) members_removed.splice( rem_index, 1);
+
+                    let new_entry = $.html.createElement('<div/>');
+                    let control;
+                    new_entry.appendChild( $.html.createElement('<b/>',elem.getAttribute('x-user-name')) );
+                    new_entry.appendChild( control = $.html.createElement('<div class="float-right pointer" x-member-id="' + m_id + '"/>') );
+
+                    control.addEventListener('click', function() { removeMember( m_id ); });
+                    control.append($.html.createElement('<i class="fa fa-trash" />'));
+
+                    container.append(new_entry);
+                    document.getElementById('group-member-select').classList.add('hidden');
+                    document.getElementById('group-member-add').classList.remove('hidden');
+
+                    document.getElementById('users-list').innerHTML = '';
+                })
+            );
+        };
+
+        const userSearchHandlerUp = function () {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(userSearchHandler, doneTypingInterval);
+        };
+
+        const userSearchHandlerDown = function () {
+            clearTimeout(typingTimer);
+        };
+
+        searchBox.addEventListener('keyup', userSearchHandlerUp);
+        searchBox.addEventListener('keydown', userSearchHandlerDown);
+
+        $.html.addEventListenerAll('#group-icon-select','change', (e) => {
+
+            if (e.target.files.length !== 1) {
+                $.html.error('{{ 'Bitte wähle nur eine einzige Datei aus.'|trans({},'soul')|e('js') }}');
+                return;
+            }
+            /** @var file File */
+            const file = e.target.files[0];
+            if (file.size >= 3145728) {
+                $.html.error('{{ 'Die Datei ist zu groß.'|trans({},'soul')|e('js') }}');
+                return;
+            }
+
+            const type_info = file.type.split('/',2);
+            if (type_info.length < 2 || type_info[0] !== 'image') {
+                $.html.error('{{ 'Dieses Dateiformat wird nicht unterstützt.'|trans({},'soul')|e('js') }}');
+                return;
+            }
+
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                image_upload = btoa(e.target.result);
+                image_mime = type_info[1];
+                document.getElementById('group-icon').setAttribute('src','data:' + type_info[0] + '/' + type_info[1] + ';base64,' + image_upload);
+                document.getElementById('group-icon').parentElement.classList.remove('hidden');
+            };
+            reader.readAsBinaryString(file);
+
+        });
+
+        $.html.addEventListenerAll('#save_button','click', () => {
+
+            const payload = {
+                name: document.getElementById('group-name').value,
+                desc: document.getElementById('group-desc').value,
+                lang: document.getElementById('group-lang').value,
+                anon: document.getElementById('group-anon').checked,
+                icon: image_upload ? image_upload : false,
+                mime: image_upload ? image_mime : null,
+                m_add: members_added,
+                m_rem: members_removed,
+            }
+
+            $.ajax.easySend( '{{ path('admin_group_update', {id: current_group is null ? -1 : current_group.id }) }}', payload,
+                function () {
+                    $.ajax.load(null, '{{ path('admin_group_view') }}', true);
+                } );
+
+        });
+    </script>
+{% endblock %}
