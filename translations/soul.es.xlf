@@ -2461,7 +2461,7 @@
       </notes>
       <segment>
         <source>Dein Account ist eingeschränkt!</source>
-        <target>Dein Account ist eingeschränkt!</target>
+        <target>¡Tu cuenta está restringida!</target>
       </segment>
     </unit>
     <unit id="6K1dKKS">
@@ -2470,7 +2470,7 @@
       </notes>
       <segment>
         <source>Einschränkungen werden von Moderatoren aufgrund von Fehlverhalten auferlegt. Im Folgenden siehst du eine Liste mit Funktionen, die dir aktuell nicht zur Verfügung stehen.</source>
-        <target>Einschränkungen werden von Moderatoren aufgrund von Fehlverhalten auferlegt. Im Folgenden siehst du eine Liste mit Funktionen, die dir aktuell nicht zur Verfügung stehen.</target>
+        <target>Los moderadores pueden imponer restricciones debido a un mal comportamiento. A continuación, puedes ver la lista de funciones que están actualmente bloqueadas en tu cuenta.</target>
       </segment>
     </unit>
     <unit id="IHRCYe1" name="In Foren posten">
@@ -2587,7 +2587,7 @@
       </notes>
       <segment>
         <source>Dieser Hinweis ist nur für dich, nicht aber für Besucher auf deiner Seelenseite sichtbar.</source>
-        <target>Dieser Hinweis ist nur für dich, nicht aber für Besucher auf deiner Seelenseite sichtbar.</target>
+        <target>Esta nota es visible para ti, pero no para los jugadores que consulten tu alma.</target>
       </segment>
     </unit>
     <unit id="cKxZipz" name="Dauerhafte Beschränkung">
@@ -2605,7 +2605,7 @@
       </notes>
       <segment>
         <source>Ende der Beschränkung: %date%</source>
-        <target>Ende der Beschränkung: %date%</target>
+        <target>Fin de la restricción : %date%</target>
       </segment>
     </unit>
     <unit id="_33rQU1" name="Durch deinen Weggang hast du deine Koalition soeben aufgelöst.">
