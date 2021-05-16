@@ -3121,7 +3121,7 @@
       </notes>
       <segment>
         <source>Freundschaftswerbung</source>
-        <target>Freundschaftswerbung</target>
+        <target>Sponsorship</target>
       </segment>
     </unit>
     <unit id="uIkrK0q" name="Ref-Namen ändern">
@@ -3130,7 +3130,7 @@
       </notes>
       <segment>
         <source>Ref-Namen ändern</source>
-        <target>Ref-Namen ändern</target>
+        <target>Modify reference name</target>
       </segment>
     </unit>
     <unit id="o81xxnX" name="Ref-Namen sperren">
@@ -3139,7 +3139,7 @@
       </notes>
       <segment>
         <source>Ref-Namen sperren</source>
-        <target>Ref-Namen sperren</target>
+        <target>Block reference name</target>
       </segment>
     </unit>
     <unit id="hYqcqsf" name="Ref-Namen entsprerren">
@@ -3148,7 +3148,7 @@
       </notes>
       <segment>
         <source>Ref-Namen entsprerren</source>
-        <target>Ref-Namen entsprerren</target>
+        <target>Unblock reference name</target>
       </segment>
     </unit>
     <unit id="TcAZPZH" name="Sponsor setzen">
@@ -3157,7 +3157,7 @@
       </notes>
       <segment>
         <source>Sponsor setzen</source>
-        <target>Sponsor setzen</target>
+        <target>Set the sponsor</target>
       </segment>
     </unit>
     <unit id="eeN3gHp" name="Ref-Name">
@@ -3166,7 +3166,7 @@
       </notes>
       <segment>
         <source>Ref-Name</source>
-        <target>Ref-Name</target>
+        <target>Reference name</target>
       </segment>
     </unit>
     <unit id="ZzLzTI." name="Gesponsort von">
@@ -3175,7 +3175,7 @@
       </notes>
       <segment>
         <source>Gesponsort von</source>
-        <target>Gesponsort von</target>
+        <target>Sponsored by</target>
       </segment>
     </unit>
     <unit id="MJJ_lOb" name="Gesponsorte Spieler">
@@ -3184,7 +3184,7 @@
       </notes>
       <segment>
         <source>Gesponsorte Spieler</source>
-        <target>Gesponsorte Spieler</target>
+        <target>Sponsored players</target>
       </segment>
     </unit>
     <unit id="QWjy74v" name="Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):">
@@ -3193,7 +3193,7 @@
       </notes>
       <segment>
         <source>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):</source>
-        <target>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):</target>
+        <target>Based on day (leave empty to use current day):</target>
       </segment>
     </unit>
     <unit id="m56Z2c0" name="Zombie-Spread ausführen">
@@ -3202,7 +3202,7 @@
       </notes>
       <segment>
         <source>Zombie-Spread ausführen</source>
-        <target>Zombie-Spread ausführen</target>
+        <target>Execute zombie spread</target>
       </segment>
     </unit>
     <unit id="EPOEUwe">
@@ -3211,7 +3211,7 @@
       </notes>
       <segment>
         <source>Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).</source>
-        <target>Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).</target>
+        <target>Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Area) or "{x}/{y},{zombies}" (single zone), for example "-1/3:-4/2,5".  "all" can be used instead of a position. Instead of a numeric value for the zombie count, you can use "today" (number of zombies after the last attack) or "initial" (number of zombies on day 1).</target>
       </segment>
     </unit>
     <unit id="_kkbddG" name="Zombies setzen">
@@ -3220,7 +3220,7 @@
       </notes>
       <segment>
         <source>Zombies setzen</source>
-        <target>Zombies setzen</target>
+        <target>Set the number of zombies</target>
       </segment>
     </unit>
     <unit id="TCnrA_Z" name="Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)">
@@ -3229,7 +3229,7 @@
       </notes>
       <segment>
         <source>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)</source>
-        <target>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)</target>
+        <target>Based on day (leave empty to use current day)</target>
       </segment>
     </unit>
     <unit id="j9J2yMz" name="Gruppen">

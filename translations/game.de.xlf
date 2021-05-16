@@ -19318,7 +19318,7 @@
       </notes>
       <segment>
         <source>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind.</source>
-        <target>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind.</target>
+        <target><![CDATA[In der Werkstatt können <strong>Materialien</strong> zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind.]]></target>
       </segment>
     </unit>
     <unit id="DxR2pQ8" name="Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.">

@@ -18813,7 +18813,7 @@
       </notes>
       <segment>
         <source>Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:&lt;br /&gt;%list_head% oder %list_tail%.</source>
-        <target><![CDATA[Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:<br />%list_head% oder %list_tail%.]]></target>
+        <target><![CDATA[No puedes combinar %poison% con esto. Puedes hacerlo con uno de estos objetos:<br />%list_head% o %list_tail%.]]></target>
       </segment>
     </unit>
     <unit id="91d4rG_" name="Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...">
@@ -19254,7 +19254,7 @@
       </notes>
       <segment>
         <source>Achte darauf, keine &lt;strong&gt;nutzlosen Ressourcen&lt;/strong&gt; herzustellen! Wenn du dir nicht sicher bist, sieh in dem &lt;strong&gt;Forum&lt;/strong&gt; hier unten nach...</source>
-        <target>¡Trata de no producir recursos inútiles para el pueblo! Si tienes una duda, pregunta en el Foro.</target>
+        <target><![CDATA[¡Trata de no producir <strong>recursos inútiles</strong> para el pueblo! Si tienes una duda, pregunta en el <strong>Foro</strong>.]]></target>
       </segment>
     </unit>
     <unit id="YWyyGKZ" name="Material">
@@ -19281,7 +19281,7 @@
       </notes>
       <segment>
         <source>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind.</source>
-        <target>En el taller transformarás los materiales de construcción avanzados que algunas construcciones necesitan.</target>
+        <target><![CDATA[En el taller transformarás <strong>los materiales de construcción avanzados</strong> que algunas construcciones necesitan.]]></target>
       </segment>
     </unit>
     <unit id="DxR2pQ8" name="Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.">

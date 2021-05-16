@@ -3274,7 +3274,7 @@
       </notes>
       <segment>
         <source>Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</source>
-        <target>It vibrates, tickles and titillates you and even makes you forget all your worries for a short while. (Requires 1 battery).</target>
+        <target>You get comfortable back home and let yourself go... Bad surprise : the toy turns out to be incredibly painful to use ! Nonetheless, you end up getting a taste for it. After a few minutes, the effect is incredible: you are soaked in sweat, but you feel more... "zen". The battery inside is completely spent.</target>
       </segment>
     </unit>
     <unit id="EoaSigx" name="Das brauchst du gerade nicht ...">
@@ -7901,7 +7901,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Die Droge zeigt sofort Wirkung: Du bist auf einmal ganz &lt;strong&gt;ruhig&lt;/strong&gt; geworden, so ausgeglichen... Die schrecklichen Ereignisse der letzten Tage erscheinen dir plötzlich bedeutungslos und ganz weit weg... Es geht dir schon viel besser.</source>
-        <target><![CDATA[Die Droge zeigt sofort Wirkung: Du bist auf einmal ganz <strong>ruhig</strong> geworden, so ausgeglichen... Die schrecklichen Ereignisse der letzten Tage erscheinen dir plötzlich bedeutungslos und ganz weit weg... Es geht dir schon viel besser.]]></target>
+        <target>The drug took effect rapidly... Everything suddenly seems calmer, more serene... Even the horrendous events of the past few days now seem unimportant... That's better!</target>
       </segment>
     </unit>
     <unit id="EetudYS">
