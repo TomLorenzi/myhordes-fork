@@ -23,6 +23,9 @@ class UserGroupAssociation
     const GroupAssociationTypePrivateMessageMember         = 2000;
     const GroupAssociationTypePrivateMessageMemberInactive = 2001;
 
+    const GroupAssociationTypeOfficialGroupMember          = 3000;
+    const GroupAssociationTypeOfficialGroupMessageMember   = 3001;
+
     const GroupAssociationLevelDefault = 0;
     const GroupAssociationLevelFounder = 100;
 

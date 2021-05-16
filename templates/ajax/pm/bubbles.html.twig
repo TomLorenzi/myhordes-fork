@@ -18,7 +18,9 @@
             {% set endpoint_spring = path('api_pm_spring', {'id': entry.obj.association.id, 'domain': 'g'}) %}
         {% endif %}
         {% set endpoint_fetch  = path('pm_conv_group', {'id': entry.obj.association.id}) %}
-        {% set endpoint_trash  = path('pm_delete_conv_group', {'id': entry.obj.association.id}) %}
+        {% if entry.official is null %}
+            {% set endpoint_trash  = path('pm_delete_conv_group', {'id': entry.obj.association.id}) %}
+        {% endif %}
         {% set endpoint_unread = path('pm_unread_conv_group', {'id': entry.obj.association.id}) %}
         {% set message_id      = entry.obj.id %}
         {% set message_type    = 'g' %}
@@ -44,7 +46,7 @@
     {% endif %}
 
     <li x-title="{{ message_title }}" x-domain="{{ message_type }}" x-identifier="{{ message_id }}"
-        class="{% if entry.closed %}closed{% endif %} {% if entry.system %}system{% endif %} {% if entry.unread > 0 %}new{% endif %}"
+        class="{% if entry.closed %}closed{% endif %} {% if entry.system %}system{% endif %} {% if entry.official %}og{% endif %} {% if entry.unread > 0 %}new{% endif %}"
         {% if endpoint_hardlink is not null %}x-hardlink="{{ endpoint_hardlink }}"{% endif %}
             {% if endpoint_fetch  is not null %}x-endpoint="{{ endpoint_fetch }}"{% endif %}
             {% if endpoint_spring is not null %}x-spring="{{ endpoint_spring }}"{% endif %}
@@ -57,7 +59,9 @@
             <div class="pm-avatar-block">
                 {% if entry.system %}
                     <div class="pm-avatar-crow"></div>
-                {% elseif entry.users|length > 1 %}
+                {% elseif entry.official is not null and app.user in entry.users %}
+                    <div class="pm-avatar" style="background: url({{ path('app_web_group_icon', { gid: entry.official.usergroup.id, name: entry.official.avatarName, ext: entry.official.avatarExt }) }}) center/cover"></div>
+                {% elseif entry.users|length > 1 or entry.official is not null %}
                     {% set i = 0 %}
                     {% for message_partner in entry.users %}
                         {% if i < 4 and message_partner != app.user and message_partner != entry.owner and message_partner.avatar %}
@@ -88,6 +92,12 @@
 
         {% if entry.system %}
             <span class="author crow-note">{{ 'Der Rabe'|trans({},'global') }}</span>
+        {% elseif entry.official is not null and app.user not in entry.users %}
+            {% for message_partner in entry.users %}
+                <span class="author group-desc"><b class="sender">{{ message_partner.name }}</b></span>
+            {% endfor %}
+        {% elseif entry.official is not null %}
+            <span class="author group-desc"><b class="sender" style="color: #ddab76">[ {{ entry.official.usergroup.name }} ]</b></span>
         {% elseif entry.users|length > 2 and entry.owner != app.user %}
             <span class="author group-desc"><b class="sender">{{ entry.owner.name }}</b>, {{ '%n% Teilnehmer'|trans({'%n%': entry.users|length},'global') }}</span>
         {% elseif entry.users|length > 2 %}
@@ -112,6 +122,10 @@
                     {{ entry.date|format_datetime('medium', 'short') }}
                 {% endif %}
             </span>
+        {% endif %}
+
+        {% if entry.official is not null and app.user not in entry.users %}
+            <span class="date">{{ 'via %group_inbox%'|trans({'%group_inbox%': '<span style="color: #ddab76">' ~ entry.official.usergroup.name ~ '</span>'},'global')|raw }}</span>
         {% endif %}
     </li>
 {% endmacro %}
@@ -172,13 +186,28 @@
 {% macro bubble_group(message, last) %}
     {# @var message App\Entity\GlobalPrivateMessage #}
     <li  x-domain="m-d" x-identifier="{{ message.id }}" class="{% if message.sender == app.user %}own{% endif %} {% if message.id > last %}new{% endif %}">
-        {% if (message.sender.avatar) %}
-            <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': message.sender.id, 'name': message.sender.avatar.filename, 'ext': message.sender.avatar.format}) }}) center/cover"></div>
+        {% if message.senderGroup and message.senderGroup.anon %}
+            <div class="pm-avatar" style="background: url({{ path('app_web_group_icon', { gid: message.senderGroup.usergroup.id, name: message.senderGroup.avatarName, ext: message.senderGroup.avatarExt }) }}) center/cover"></div>
         {% else %}
-            <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ message.sender.name|slice(0,2) }}</div></div>
+            {% if (message.sender.avatar) %}
+                <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': message.sender.id, 'name': message.sender.avatar.filename, 'ext': message.sender.avatar.format}) }}) center/cover"></div>
+            {% else %}
+                <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ message.sender.name|slice(0,2) }}</div></div>
+            {% endif %}
         {% endif %}
+
         <div class="pm-message">
-            <div class="pm-message-header"><img src="{{ asset('build/images/icons/small_user.gif') }}" alt=""> <a class="link" href="{{ path('soul_visit', {id: message.sender.id}) }}">{{ message.sender.name }}</a></div>
+            <div class="pm-message-header">
+                {% if message.senderGroup and message.senderGroup.anon %}
+                    <img src="{{ asset('build/images/icons/small_star.gif') }}" alt=""> <b style="color: #6298fc">[ {{ message.senderGroup.usergroup.name }} ]</b>
+                {% elseif message.senderGroup %}
+                    <img src="{{ asset('build/images/icons/small_star.gif') }}" alt="">
+                    <a class="link" href="{{ path('soul_visit', {id: message.sender.id}) }}">{{ message.sender.name }}</a>
+                    <b style="color: #6298fc">[ {{ message.senderGroup.usergroup.name }} ]</b>
+                {% else %}
+                    <img src="{{ asset('build/images/icons/small_user.gif') }}" alt=""> <a class="link" href="{{ path('soul_visit', {id: message.sender.id}) }}">{{ message.sender.name }}</a>
+                {% endif %}
+            </div>
             <div class="pm-message-content">
                 {% if message.hidden %}
                     <div class="crowmsg">{{ 'Der Rabe hat diese Nachricht zerrissen.'|trans({},'game') }}</div>
@@ -197,7 +226,7 @@
                 {% else %}
                     {{ message.timestamp|format_datetime('medium', 'short') }}
                 {% endif %}
-                {% if message.sender != app.user %}
+                {% if message.sender != app.user and message.senderGroup is empty %}
                     &nbsp;<a class="pm-button" x-report-url="{{ path('pm_report_post_controller', {pid: message.id}) }}"><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a>
                 {% endif %}
             </div>

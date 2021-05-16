@@ -24,6 +24,9 @@
         let check_box = function () {
             const p = document.getElementById('postbox');
             if (p) {
+                {% if command is defined and command is not empty %}
+                    p.setAttribute('x-post-command', '{{ command|e('js') }}');
+                {% endif %}
                 p.click();
                 $.html.addEventListenerAll('#post-office-button-overlay>ul>li:last-child','click', function() {
                     document.getElementById('pm-proxy-loader').style.opacity = '0';

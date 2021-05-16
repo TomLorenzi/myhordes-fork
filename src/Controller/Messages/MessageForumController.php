@@ -10,6 +10,7 @@ use App\Entity\Forum;
 use App\Entity\ForumModerationSnippet;
 use App\Entity\ForumThreadSubscription;
 use App\Entity\ForumUsagePermissions;
+use App\Entity\OfficialGroup;
 use App\Entity\Post;
 use App\Entity\Thread;
 use App\Entity\ThreadReadMarker;
@@ -204,7 +205,8 @@ class MessageForumController extends MessageController
         return $this->render( 'ajax/forum/list.html.twig', $this->addDefaultTwigArgs(null, [
             'user' => $this->getUser(),
             'forums' => $forums,
-            'subscriptions' => $subscriptions
+            'subscriptions' => $subscriptions,
+            'official_groups' => $this->entity_manager->getRepository(OfficialGroup::class)->findBy(['lang' => [$this->getUserLanguage(),'multi']])
         ] ));
     }
 

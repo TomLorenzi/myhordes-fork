@@ -10,6 +10,8 @@ use App\Entity\ForumModerationSnippet;
 use App\Entity\ForumThreadSubscription;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\GlobalPrivateMessage;
+use App\Entity\OfficialGroup;
+use App\Entity\OfficialGroupMessageLink;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
@@ -131,7 +133,7 @@ class MessageGlobalPMController extends MessageController
 
                 /** @var UserGroupAssociation $group_association */
                 $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(), 'associationType' =>
-                    UserGroupAssociation::GroupAssociationTypePrivateMessageMember,
+                    [UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember],
                 'association' => $group]);
                 if (!$group_association) break;
 
@@ -164,15 +166,28 @@ class MessageGlobalPMController extends MessageController
         return $this->render( 'ajax/pm/proxy.html.twig', $this->addDefaultTwigArgs());
     }
 
+
     /**
-     * @Route("jx/pm/view", name="pm_view")
+     * @Route("jx/pm/short/{s}", name="pm_proxy_view_short")
+     * @param string|null $s
      * @return Response
      */
-    public function pm_view(): Response {
+    public function pm_proxy_view_short(?string $s = null): Response {
+        return $this->render( 'ajax/pm/proxy.html.twig', $this->addDefaultTwigArgs(null,['command' => $s]));
+    }
+
+    /**
+     * @Route("jx/pm/view", name="pm_view")
+     * @param JSONRequestParser $parser
+     * @return Response
+     */
+    public function pm_view(JSONRequestParser $parser): Response {
         $target = Request::createFromGlobals()->headers->get('X-Render-Target', '');
 
-        if ($target === 'post-office-content')
-            return $this->render( 'ajax/pm/view.html.twig', ['rk' => (new DateTime('now'))->getTimestamp()]);
+        if ($target === 'post-office-content') {
+            return $this->render( 'ajax/pm/view.html.twig', ['rk' => (new DateTime('now'))->getTimestamp(), 'command' => $parser->get('command')]);
+        }
+
         return $this->pm_proxy_view();
     }
 
@@ -188,9 +203,12 @@ class MessageGlobalPMController extends MessageController
             $last_post_date = new DateTime();
             $last_post_date->setTimestamp($association->getAssociation()->getRef2());
 
+            $official_meta = $this->entity_manager->getRepository(OfficialGroupMessageLink::class)->findOneBy(['messageGroup' => $association->getAssociation()]);
+
             $owner_assoc = $this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy([
                 'association' => $association->getAssociation(),
-                'associationLevel' => UserGroupAssociation::GroupAssociationLevelFounder,
+                'associationLevel' => $official_meta ? UserGroupAssociation::GroupAssociationLevelDefault : UserGroupAssociation::GroupAssociationLevelFounder,
+                'associationType' => $official_meta ? [UserGroupAssociation::GroupAssociationTypePrivateMessageMember,UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive] : UserGroupAssociation::GroupAssociationTypePrivateMessageMember,
             ]);
 
             $read_only = $association->getAssociationType() === UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive;
@@ -199,6 +217,7 @@ class MessageGlobalPMController extends MessageController
                 'obj'    => $association,
                 'date'   => $last_post_date,
                 'system' => false,
+                'official' => $official_meta ? $official_meta->getOfficialGroup() : null,
                 'title'  => $association->getAssociation()->getName(),
                 'closed' => $association->getAssociationType() === UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive,
                 'count'  => $read_only ? $association->getRef3() : $association->getAssociation()->getRef1(),
@@ -225,6 +244,7 @@ class MessageGlobalPMController extends MessageController
                 'obj'    => $announcement,
                 'date'   => $announcement->getTimestamp(),
                 'system' => false,
+                'official' => null,
                 'title'  => $announcement->getTitle(),
                 'closed' => false,
                 'count'  => 1,
@@ -260,6 +280,7 @@ class MessageGlobalPMController extends MessageController
                 'obj'    => $subscription->getThread(),
                 'date'   => new DateTime(),
                 'system' => false,
+                'official' => null,
                 'title'  => $subscription->getThread()->getTranslatable()
                         ? $this->translator->trans($subscription->getThread()->getTitle(), [], 'game') : $subscription->getThread()->getTitle()
                 ,
@@ -287,6 +308,7 @@ class MessageGlobalPMController extends MessageController
                 'obj'    => $latest_pm,
                 'date'   => $latest_pm->getTimestamp(),
                 'system' => true,
+                'official' => null,
                 'title'  => $this->translator->trans('Nachrichten des Raben', [], 'global'),
                 'closed' => false,
                 'count'  => $this->entity_manager->getRepository(GlobalPrivateMessage::class)->count(['receiverUser' => $this->getUser(), 'receiverGroup' => null]),
@@ -311,7 +333,7 @@ class MessageGlobalPMController extends MessageController
         $num = max(5,min(30,$p->get_int('num', 30)));
 
         $this->render_group_associations( $em->getRepository(UserGroupAssociation::class)->findByUserAssociation($this->getUser(), [
-            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive
+            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember
         ], $skip['g'] ?? [], $num+1), $entries );
 
         $this->render_announcements( $em->getRepository(Announcement::class)->findByLang($this->getUserLanguage(),
@@ -474,12 +496,15 @@ class MessageGlobalPMController extends MessageController
 
         /** @var UserGroupAssociation $group_association */
         $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(),
-            'associationType' => UserGroupAssociation::GroupAssociationTypePrivateMessageMember, 'association' => $group]);
+            'associationType' => [UserGroupAssociation::GroupAssociationTypePrivateMessageMember,UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember], 'association' => $group]);
         if (!$group_association) return new Response('not found');
 
         $all_associations = $em->getRepository(UserGroupAssociation::class)->findBy(['associationType' => [
             UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive
         ], 'association' => $group]);
+
+        if ($og_link = $this->entity_manager->getRepository(OfficialGroupMessageLink::class)->findOneBy(['messageGroup' => $group]))
+            $og_link = $og_link->getOfficialGroup();
 
         return $this->render( 'ajax/pm/user_list.html.twig', $this->addDefaultTwigArgs(null, [
             'gid' => $id,
@@ -487,6 +512,7 @@ class MessageGlobalPMController extends MessageController
             'can_add' => count($all_associations) < 100,
             'active'   => array_filter( array_map( fn(UserGroupAssociation $a): ?User => $a->getAssociationType() === UserGroupAssociation::GroupAssociationTypePrivateMessageMember ? $a->getUser() : null, $all_associations ) ),
             'inactive' => array_filter( array_map( fn(UserGroupAssociation $a): ?User => $a->getAssociationType() !== UserGroupAssociation::GroupAssociationTypePrivateMessageMember ? $a->getUser() : null, $all_associations ) ),
+            'og' => $og_link
         ] ));
     }
 
@@ -506,7 +532,7 @@ class MessageGlobalPMController extends MessageController
 
         /** @var UserGroupAssociation $group_association */
         $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(), 'associationType' => [
-            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive
+            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember
         ], 'association' => $group]);
         if (!$group_association) return new Response('not found');
 
@@ -671,12 +697,16 @@ class MessageGlobalPMController extends MessageController
      * @Route("api/pm/conversation/group/{id<\d+>}/delete", name="pm_delete_conv_group")
      * @param int $id
      * @param EntityManagerInterface $em
+     * @param PermissionHandler $perm
      * @return Response
      */
     public function pm_delete_conversation_group(int $id, EntityManagerInterface $em, PermissionHandler $perm): Response {
 
         $group = $em->getRepository( UserGroup::class )->find($id);
         if (!$group || $group->getType() !== UserGroup::GroupMessageGroup) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+
+        if ($em->getRepository(OfficialGroupMessageLink::class)->findOneBy(['messageGroup' => $group]))
+            return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
         /** @var UserGroupAssociation $group_association */
         $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(), 'associationType' => [
@@ -711,7 +741,7 @@ class MessageGlobalPMController extends MessageController
 
         /** @var UserGroupAssociation $group_association */
         $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(), 'associationType' => [
-            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive
+            UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember
         ], 'association' => $group]);
         if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
@@ -792,6 +822,19 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
+     * @Route("jx/pm/og_resolve", name="pm_og_resolve")
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function editor_og_group_preview(JSONRequestParser $parser) {
+        if (!$parser->has('og')) return new Response("");
+        $group = $this->entity_manager->getRepository(OfficialGroup::class)->find($parser->get_int('og'));
+        if (!$group) return new Response("");
+
+        return $this->render( 'ajax/pm/og.html.twig', ['group' => $group]);
+    }
+
+    /**
      * @Route("jx/pm/create-editor", name="pm_thread_editor_controller")
      * @param EntityManagerInterface $em
      * @return Response
@@ -822,7 +865,33 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
+     * @Route("jx/pm/create-og-editor", name="pm_og_thread_editor_controller")
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function editor_pm_og_thread_api(EntityManagerInterface $em): Response {
+
+        return $this->render( 'ajax/forum/editor.html.twig', [
+            'fid' => null,
+            'tid' => null,
+            'pid' => null,
+
+            'permission' => $this->getPermissionObject( ForumUsagePermissions::PermissionCreateThread ),
+            'snippets' => $this->isGranted('ROLE_CROW') ? $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll() : [],
+
+            'emotes' => $this->getEmotesByUser($this->getUser(),true),
+            'username' => $this->getUser()->getName(),
+            'forum' => false,
+            'town_controls' => null,
+
+            'type' => 'global-og-pm',
+            'target_url' => 'pm_new_og_thread_controller',
+        ] );
+    }
+
+    /**
      * @Route("jx/pm/answer-editor/{id<\d+>}", name="pm_post_editor_controller")
+     * @param int $id
      * @param EntityManagerInterface $em
      * @return Response
      */
@@ -854,6 +923,7 @@ class MessageGlobalPMController extends MessageController
      * @param JSONRequestParser $parser
      * @param EntityManagerInterface $em
      * @param UserHandler $userHandler
+     * @param PermissionHandler $perm
      * @return Response
      */
     public function new_thread_api(JSONRequestParser $parser, EntityManagerInterface $em, UserHandler $userHandler, PermissionHandler $perm): Response {
@@ -915,6 +985,65 @@ class MessageGlobalPMController extends MessageController
     }
 
     /**
+     * @Route("api/pm/og_post", name="pm_new_og_thread_controller")
+     * @param JSONRequestParser $parser
+     * @param EntityManagerInterface $em
+     * @param UserHandler $userHandler
+     * @param PermissionHandler $perm
+     * @return Response
+     */
+    public function new_og_thread_api(JSONRequestParser $parser, EntityManagerInterface $em, UserHandler $userHandler, PermissionHandler $perm): Response {
+
+        $user = $this->getUser();
+
+        if (!$parser->has_all(['title','content','og'], true))
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $title = $parser->trimmed('title');
+        $text  = $parser->trimmed('content');
+        $og = $parser->get_int('og');
+
+        $official_group = $this->entity_manager->getRepository(OfficialGroup::class)->find($og);
+        if (!$official_group) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if (mb_strlen($title) < 3 || mb_strlen($title) > 64)  return AjaxResponse::error( self::ErrorPostTitleLength );
+        if (mb_strlen($text) < 2 || mb_strlen($text) > 16384) return AjaxResponse::error( self::ErrorPostTextLength );
+
+        $ts = new DateTime();
+
+        $pg = (new UserGroup())->setType(UserGroup::GroupMessageGroup)->setName( $title )->setRef1(1)->setRef2( $ts->getTimestamp() )->setRef3( $ts->getTimestamp() );
+        $this->entity_manager->persist($pg);
+
+        $perm->associate( $user, $pg, UserGroupAssociation::GroupAssociationTypePrivateMessageMember );
+
+        $post = (new GlobalPrivateMessage())
+            ->setSender($user)->setTimestamp($ts)->setReceiverGroup($pg)->setText($text);
+
+        $tx_len = 0;
+        if (!$this->preparePost($user,null,$post,$tx_len, null, $edit))
+            return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest, ['a' => 10] );
+        if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+
+        $this->entity_manager->persist( (new OfficialGroupMessageLink())->setMessageGroup( $pg )->setOfficialGroup( $official_group ) );
+
+        foreach ($perm->usersInGroup( $official_group->getUsergroup()) as $group_member)
+            if ($group_member !== $user)
+                $perm->associate( $group_member, $pg, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember )
+                    ->setRef1( 0  )->setRef2( 0 );
+
+        $this->entity_manager->persist( $post );
+
+        try {
+            $em->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success( true , ['url' => $this->generateUrl('pm_view')] );
+    }
+
+
+    /**
      * @Route("api/pm/{id<\d+>}/answer", name="pm_new_post_controller")
      * @param int $id
      * @param JSONRequestParser $parser
@@ -925,18 +1054,22 @@ class MessageGlobalPMController extends MessageController
     public function new_post_api(int $id, JSONRequestParser $parser, EntityManagerInterface $em, UserHandler $userHandler): Response {
 
         $user = $this->getUser();
-        if ($this->userHandler->isRestricted( $user, AccountRestriction::RestrictionGlobalCommunication ))
+
+        $group = $em->getRepository( UserGroup::class )->find($id);
+        if (!$group || $group->getType() !== UserGroup::GroupMessageGroup) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $official = $this->entity_manager->getRepository(OfficialGroupMessageLink::class)->findOneBy(['messageGroup' => $group]);
+
+        if (!$official && $this->userHandler->isRestricted( $user, AccountRestriction::RestrictionGlobalCommunication ))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         if (!$parser->has('content', true))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $group = $em->getRepository( UserGroup::class )->find($id);
-        if (!$group || $group->getType() !== UserGroup::GroupMessageGroup) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-
         /** @var UserGroupAssociation $group_association */
         $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(),
-            'associationType' => UserGroupAssociation::GroupAssociationTypePrivateMessageMember, 'association' => $group]);
+            'associationType' => [UserGroupAssociation::GroupAssociationTypePrivateMessageMember,UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember], 'association' => $group]);
+
         if (!$group_association) return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         // Check the last 4 posts; if they were all made by the same user, they must wait 5min before they can post again
@@ -963,6 +1096,9 @@ class MessageGlobalPMController extends MessageController
         if (!$this->preparePost($user,null,$post,$tx_len, null, $edit))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest, ['a' => 10] );
         if ($tx_len < 2) return AjaxResponse::error( self::ErrorPostTextLength );
+
+        if ($group_association->getAssociationType() === UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember && $official)
+            $post->setSenderGroup($official->getOfficialGroup());
 
         $this->entity_manager->persist( $post );
 

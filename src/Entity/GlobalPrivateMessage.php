@@ -81,6 +81,11 @@ class GlobalPrivateMessage
      */
     private $moderator;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=OfficialGroup::class)
+     */
+    private $senderGroup;
+
     public function __construct()
     {
         $this->adminReports = new ArrayCollection();
@@ -249,6 +254,18 @@ class GlobalPrivateMessage
     public function setModerator(?User $moderator): self
     {
         $this->moderator = $moderator;
+
+        return $this;
+    }
+
+    public function getSenderGroup(): ?OfficialGroup
+    {
+        return $this->senderGroup;
+    }
+
+    public function setSenderGroup(?OfficialGroup $senderGroup): self
+    {
+        $this->senderGroup = $senderGroup;
 
         return $this;
     }

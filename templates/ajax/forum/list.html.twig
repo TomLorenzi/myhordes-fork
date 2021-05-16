@@ -61,6 +61,19 @@
                         {% endfor %}
                     {% endif %}
                 {% endif %}
+
+                {% if official_groups is not empty %}
+                    <h5>{{ 'Mit offiziellen Gruppen in Kontakt treten'|trans({},'global') }}</h5>
+                    {% for group in official_groups %}
+                        <div x-group-connect="oglink_{{ group.id }}" class="forum-preview forum-preview-og {% if group.description is not empty %}forum-preview-desc{% endif %}">
+                            <img alt="" src="{{ path('app_web_group_icon', { gid: group.usergroup.id, name: group.avatarName, ext: group.avatarExt }) }}" />
+                            <div>{{ group.usergroup.name }}</div>
+                            {% if group.description is not empty %}
+                                <span>{{ group.description }}</span>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
         <div class="cell padded header rw-4 rw-lg-12">
@@ -95,6 +108,13 @@
         (function() {
             $.html.addEventListenerAll('[x-unsubscribe-api]', 'click', (e,elem) => {
                 $.ajax.easySend(elem.getAttribute('x-unsubscribe-api'), {}, () => $.ajax.load(null,'{{ path('forum_list') }}'));
+            })
+            $.html.addEventListenerAll('[x-group-connect]','click', (e,elem) => {
+                const p = document.getElementById('postbox');
+                if (p) {
+                    p.setAttribute('x-post-command', elem.getAttribute('x-group-connect'));
+                    p.click();
+                } else alert('{{ 'Fehler beim Laden des Posteingangs.'|trans({},'global') }}')
             })
         })();
     </script>

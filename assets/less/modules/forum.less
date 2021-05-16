@@ -7,15 +7,18 @@
   transition: border-color 0.5s ease-in-out, box-shadow 0.25s ease-in-out, color 0.25s ease-in-out;
   color: rgba(255,255,255,0.8); text-shadow: 0 1px 1px rgba(0,0,0, 0.5);
 
-  &>img { margin-right: 10px; float: left }
+  &>img { margin-right: 10px; float: left; max-width: 100px; }
   &>div { margin-top: 2px; }
 
   &.forum-preview-desc {
     line-height: 14px;
     &>span { font-size: 0.6em; }
+
+    &.forum-preview-og > span { margin-top: 15px; display: block}
   }
 
   &:hover { border-color: @myhordes-smalltext; box-shadow: 0 0 10px rgba(0,0,0,0.8); color: rgba(255,255,255,1.0); }
+  &::after { clear: both; display: table; content: "";}
 }
 
 @myhordes-forum-button-color:  #a2321a;
@@ -647,8 +650,11 @@ ul.subscriptions {
         background-repeat: no-repeat; background-size: contain; background-position: top right;
       }
 
+      &.og { background-color: rgba(11, 142, 255, 0.25); }
+
       &.selected {
         background-color: rgba(0,0,0,0.2); box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+        &.og { background-color: rgba(5, 74, 131, 0.25); }
         &::before {
           display: block; content: " "; width: 16px; height: 16px; top: calc(50% - 8px); left: -5px;
           background-image: url(../../img/forum/selected.png); position: absolute;
@@ -670,7 +676,11 @@ ul.subscriptions {
       }
 
       &+li { border-top: 1px solid fade(@myhordes-smalltext, 50%); }
-      &:not(.selected):hover { background-color: rgba(255,255,255,0.2); box-shadow: 0 0 5px rgba(0,0,0,0.5) }
+      &:not(.selected):hover {
+        background-color: rgba(255,255,255,0.2); box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        &.og { background-color: rgba(118, 191, 255, 0.25); }
+      }
+
       b.title {
         font-size: 1.6em; font-weight: bold; display: block; max-width: calc(100% - 50px);
         &:not(.crow-note) { overflow: hidden; white-space: nowrap; text-overflow: " [...]"; }

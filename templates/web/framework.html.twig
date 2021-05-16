@@ -202,7 +202,16 @@
 
                 $.html.setTitleSegmentCount(0);
 
-                $.ajax.background().load( document.getElementById('post-office-content'),'{{ url('pm_view')|e('js') }}', false )
+                let data = {};
+                const command = document.getElementById('postbox').getAttribute('x-post-command');
+                if (command) {
+                    document.getElementById('postbox').removeAttribute('x-post-command');
+                    data.command = command;
+                }
+
+                $.ajax.background().load( document.getElementById('post-office-content'),'{{ url('pm_view')|e('js') }}', false, data
+
+                );
             }
         });
     })();

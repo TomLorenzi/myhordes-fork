@@ -5,9 +5,11 @@ namespace App\Controller\Admin;
 use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractController;
 use App\Entity\OfficialGroup;
+use App\Entity\OfficialGroupMessageLink;
 use App\Entity\Season;
 use App\Entity\User;
 use App\Entity\UserGroup;
+use App\Entity\UserGroupAssociation;
 use App\Response\AjaxResponse;
 use App\Service\ErrorHelper;
 use App\Service\JSONRequestParser;
@@ -100,22 +102,39 @@ class AdminGroupController extends CustomAbstractController
             ->setLang( $parser->get('lang', 'multi', ['de','en','fr','es','multi']) )
             ->setDescription($parser->get('desc'));
 
+        $am = $parser->get_array('m_add');
         $rm = $parser->get_array('m_rem');
-        foreach ($parser->get_array('m_add') as $add_id) {
+
+        $messages = [];
+        if (!empty($am) || !empty($rm))
+            $messages = array_map(fn(OfficialGroupMessageLink $m) => $m->getMessageGroup(), $this->entity_manager->getRepository(OfficialGroupMessageLink::class)->findBy(['officialGroup' => $group_meta]));
+
+        foreach ($am as $add_id) {
 
             if (in_array($add_id, $rm)) continue;
 
             $target_user = $this->entity_manager->getRepository(User::class)->find((int)$add_id);
             if (!$target_user) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-            $perm->associate( $target_user, $base_group );
+            if ($perm->userInGroup($target_user, $base_group)) continue;
+
+            $perm->associate( $target_user, $base_group, UserGroupAssociation::GroupAssociationTypeOfficialGroupMember );
+            foreach ($messages as $message)
+                if (!$perm->userInGroup($target_user, $message))
+                    $perm->associate( $target_user, $message, UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember )
+                        ->setRef1( $message->getRef2() < (time() - 5184000) ? $message->getRef1() : 0  )->setRef2( 0 );
         }
 
         foreach ($rm as $rem_id) {
             $target_user = $this->entity_manager->getRepository(User::class)->find((int)$rem_id);
             if (!$target_user) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
+            if (!$perm->userInGroup($target_user, $base_group)) continue;
+
             $perm->disassociate( $target_user, $base_group );
+            foreach ($messages as $message)
+                if ($this->entity_manager->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $target_user, 'association' => $message, 'associationType' => UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember]))
+                    $perm->disassociate($target_user, $message);
         }
 
         if ($parser->has('icon') && $parser->get('icon') !== false) {

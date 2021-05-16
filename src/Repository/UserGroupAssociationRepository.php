@@ -70,7 +70,7 @@ class UserGroupAssociationRepository extends ServiceEntityRepository
             ->andWhere('u.user = :user')->setParameter('user', $user)
             ->andWhere('u.ref1 < g.ref1 OR u.ref1 IS NULL')
             ->orderBy('g.ref2', 'DESC')
-            ->andWhere('u.associationType = :assoc')->setParameter('assoc', UserGroupAssociation::GroupAssociationTypePrivateMessageMember);
+            ->andWhere('u.associationType IN (:assoc)')->setParameter('assoc', [UserGroupAssociation::GroupAssociationTypePrivateMessageMember,UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember]);
 
         if ($newer_then !== null) $qb->andWhere('g.ref2 > :time')->setParameter('time', $newer_then->getTimestamp());
 
@@ -85,7 +85,7 @@ class UserGroupAssociationRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('u')->select('COUNT(u.id)')->leftJoin('u.association', 'g')
             ->andWhere('u.user = :user')->setParameter('user', $user)
             ->andWhere('u.ref1 < g.ref1 OR u.ref1 IS NULL')
-            ->andWhere('u.associationType = :assoc')->setParameter('assoc', UserGroupAssociation::GroupAssociationTypePrivateMessageMember);
+            ->andWhere('u.associationType IN (:assoc)')->setParameter('assoc', [UserGroupAssociation::GroupAssociationTypePrivateMessageMember,UserGroupAssociation::GroupAssociationTypeOfficialGroupMessageMember]);
 
         try {
             return $qb->getQuery()->getSingleScalarResult();

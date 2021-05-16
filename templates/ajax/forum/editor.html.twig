@@ -3,6 +3,8 @@
 {# @var permission \App\Structures\ForumPermissionAccessor #}
 
 {% set preview_name = 'forum-editor-preview' %}
+{% set og_editor = type is defined and type == 'global-og-pm' %}
+{% if og_editor %}{% set type = 'global-pm' %}{% endif %}
 {% if type is defined and type == 'global-pm' %}
     {% set preview_name = 'pm-editor-preview' %}
 {% endif %}
@@ -546,59 +548,66 @@
                         }
 
                         {% if not forum %}
-                        target_url = '{{ target_url is not empty ? path(target_url, target_data) : '' }}';
-                        target_payload = {
-                            'content': content_node.innerHTML,
-                            'type': "{{ type }}",
-                        };
-                        {% if tid is not null %}
-                        target_payload.tid = {{ tid }};
+                            target_url = '{{ target_url is not empty ? path(target_url, target_data) : '' }}';
+                            target_payload = {
+                                'content': content_node.innerHTML,
+                                'type': "{{ type }}",
+                            };
+                            {% if tid is not null %}
+                                target_payload.tid = {{ tid }};
+                            {% else %}
+                                let title_input = document.getElementById('{{ type }}-forum-editor-title');
+                                target_payload.title = title_input ? title_input.value : null;
+                                {% if type == 'pm' or type == 'global' %}
+                                    const rc = document.getElementById('pmidrecipient');
+                                    if (rc) target_payload.recipient = rc.value;
+                                    let sent_items = document.querySelectorAll("#sent-items .item");
+                                    if(sent_items.length > 0) {
+                                        target_payload.items = [];
+                                        for (let i = 0; i < sent_items.length; i++) {
+                                            target_payload.items.push(sent_items[i].attributes['x-item-id'].value);
+                                        }
+                                    }
+                                {% elseif type == "global-pm" %}
+                                    {% if not og_editor %}
+                                        const pm_list = [];
+                                        $.html.forEach('#pm-selected-users>li[x-soul-id]', function(elem) {
+                                            pm_list.push( parseInt(elem.getAttribute('x-soul-id')) );
+                                        });
+                                        target_payload.users = pm_list;
+                                    {% else  %}
+                                        let og_id = null, og_con = null;
+                                        if ((og_con = document.querySelector('[x-og-resolved]')))
+                                            og_id = og_con.getAttribute('x-og-resolved');
+                                        target_payload.og = og_id;
+                                    {% endif %}
+                                {% elseif type == "changelog" %}
+                                    target_payload.version = document.getElementById('{{ type }}-forum-editor-version').value;
+                                    target_payload.lang = document.getElementById('{{ type }}-forum-editor-lang').value;
+                                {% elseif type == "announcement" %}
+                                    target_payload.lang = document.getElementById('{{ type }}-forum-editor-lang').value;
+                                {% endif %}
+                            {% endif %}
                         {% else %}
-                        let title_input = document.getElementById('{{ type }}-forum-editor-title');
-                        target_payload.title = title_input ? title_input.value : null;
-                        {% if type == 'pm' or type == 'global' %}
-                        const rc = document.getElementById('pmidrecipient');
-                        if (rc) target_payload.recipient = rc.value;
-                        let sent_items = document.querySelectorAll("#sent-items .item");
-                        if(sent_items.length > 0) {
-                            target_payload.items = [];
-                            for (let i = 0; i < sent_items.length; i++) {
-                                target_payload.items.push(sent_items[i].attributes['x-item-id'].value);
-                            }
-                        }
-                        {% elseif type == "global-pm" %}
-                        const pm_list = [];
-                        $.html.forEach('#pm-selected-users>li[x-soul-id]', function(elem) {
-                            pm_list.push( parseInt(elem.getAttribute('x-soul-id')) );
-                        });
-                        target_payload.users = pm_list;
-                        {% elseif type == "changelog" %}
-                        target_payload.version = document.getElementById('{{ type }}-forum-editor-version').value;
-                        target_payload.lang = document.getElementById('{{ type }}-forum-editor-lang').value;
-                        {% elseif type == "announcement" %}
-                        target_payload.lang = document.getElementById('{{ type }}-forum-editor-lang').value;
-                        {% endif %}
-                        {% endif %}
-                        {% else %}
-                        {% if tid is null %}
-                        target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
-                        target_payload = {
-                            title: document.getElementById('{{ type }}-forum-editor-title').value,
-                            text: content_node.innerHTML,
-                            type: type
-                        };
-                        {% elseif (pid is null) %}
-                        target_url = '{{ path('forum_new_post_controller', {fid: fid, tid: tid}) }}';
-                        target_payload = {
-                            text: content_node.innerHTML,
-                            type: type,
-                        };
-                        {% else %}
-                        target_url = '{{ path('forum_edit_post_controller', {fid: fid, tid: tid, pid: pid}) }}';
-                        target_payload = {
-                            text: content_node.innerHTML
-                        };
-                        {% endif %}
+                            {% if tid is null %}
+                                target_url = '{{ path('forum_new_thread_controller', {id: fid}) }}';
+                                target_payload = {
+                                    title: document.getElementById('{{ type }}-forum-editor-title').value,
+                                    text: content_node.innerHTML,
+                                    type: type
+                                };
+                            {% elseif (pid is null) %}
+                                target_url = '{{ path('forum_new_post_controller', {fid: fid, tid: tid}) }}';
+                                target_payload = {
+                                    text: content_node.innerHTML,
+                                    type: type,
+                                };
+                            {% else %}
+                                target_url = '{{ path('forum_edit_post_controller', {fid: fid, tid: tid, pid: pid}) }}';
+                                target_payload = {
+                                    text: content_node.innerHTML
+                                };
+                            {% endif %}
                         {% endif %}
 
                         $.ajax.easySend( target_url, target_payload,
@@ -606,13 +615,13 @@
                                 $.client.config.editorCache.set('');
                                 $.client.config.scopedEditorCache.set(['','']);
                                 {% if type == 'global-pm' %}
-                                let selected = document.querySelector('.pm-conversation-list>li.selected');
-                                if (selected) selected.click();
-                                else $.ajax.load( document.getElementById('post-office-content'), data.url );
+                                    let selected = document.querySelector('.pm-conversation-list>li.selected');
+                                    if (selected) selected.click();
+                                    else $.ajax.load( document.getElementById('post-office-content'), data.url );
                                 {% elseif type == 'announcement' %}
-                                $.ajax.load( null, data.url, true, {}, ()=>$.msg.execute() );
+                                    $.ajax.load( null, data.url, true, {}, ()=>$.msg.execute() );
                                 {% else %}
-                                $.ajax.load( null, data.url, true );
+                                    $.ajax.load( null, data.url, true );
                                 {% endif %}
                             }
                         );
