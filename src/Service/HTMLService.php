@@ -119,7 +119,7 @@ class HTMLService {
         'img.*' => true,
         '*.class' => [
             'clear', 'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
-            'letter-a', 'letter-v', 'letter-c', 'rps', 'coin', 'card', 'citizen', 'rpText', 'html',
+            'letter-a', 'letter-v', 'letter-c', 'rps', 'coin', 'card', 'citizen', 'html',
             'oracleAnnounce', 'modAnnounce', 'adminAnnounce'
         ]
     ];
