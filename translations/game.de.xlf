@@ -664,7 +664,7 @@
       </notes>
       <segment>
         <source>Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!</source>
-        <target>Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!</target>
+        <target><![CDATA[Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das <strong>Tor</strong> zu schließen!]]></target>
       </segment>
     </unit>
     <unit id="UgTjBPn" name="Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.">
