@@ -3256,7 +3256,7 @@
       </notes>
       <segment>
         <source>Gruppen</source>
-        <target>Gruppen</target>
+        <target>Groupes</target>
       </segment>
     </unit>
     <unit id="OFylvr8" name="Anon.">
@@ -3274,7 +3274,7 @@
       </notes>
       <segment>
         <source>Mitglieder</source>
-        <target>Mitglieder</target>
+        <target>Membres</target>
       </segment>
     </unit>
     <unit id="TTOMzoJ" name="Mitglied">
@@ -3283,7 +3283,7 @@
       </notes>
       <segment>
         <source>Mitglied</source>
-        <target>Mitglied</target>
+        <target>Membre</target>
       </segment>
     </unit>
     <unit id="Kz_5uSy" name="Die Mitgliederliste ist versteckt.">
@@ -3292,7 +3292,7 @@
       </notes>
       <segment>
         <source>Die Mitgliederliste ist versteckt.</source>
-        <target>Die Mitgliederliste ist versteckt.</target>
+        <target>La liste des membres est masquée.</target>
       </segment>
     </unit>
     <unit id="zAjLutF" name="Neue Gruppe">
@@ -3301,7 +3301,7 @@
       </notes>
       <segment>
         <source>Neue Gruppe</source>
-        <target>Neue Gruppe</target>
+        <target>Nouveau groupe</target>
       </segment>
     </unit>
     <unit id="BbvwyR3" name="Gruppe &quot;%group%&quot;">
@@ -3310,7 +3310,7 @@
       </notes>
       <segment>
         <source>Gruppe "%group%"</source>
-        <target>Gruppe "%group%"</target>
+        <target>Groupe "%group%"</target>
       </segment>
     </unit>
     <unit id="tMAiZYW" name="Gruppe">
@@ -3319,7 +3319,7 @@
       </notes>
       <segment>
         <source>Gruppe</source>
-        <target>Gruppe</target>
+        <target>Groupe</target>
       </segment>
     </unit>
     <unit id="6SYvAH3" name="Beschreibung">
@@ -3328,7 +3328,7 @@
       </notes>
       <segment>
         <source>Beschreibung</source>
-        <target>Beschreibung</target>
+        <target>Description</target>
       </segment>
     </unit>
     <unit id="7Cc8BkZ" name="Anonyme Gruppe">
@@ -3337,7 +3337,7 @@
       </notes>
       <segment>
         <source>Anonyme Gruppe</source>
-        <target>Anonyme Gruppe</target>
+        <target>Groupe anonyme</target>
       </segment>
     </unit>
     <unit id="1uiWprE" name="Neue Gruppe anlegen">
@@ -3346,7 +3346,7 @@
       </notes>
       <segment>
         <source>Neue Gruppe anlegen</source>
-        <target>Neue Gruppe anlegen</target>
+        <target>Créer un nouveau groupe</target>
       </segment>
     </unit>
   </file>
