@@ -3178,5 +3178,14 @@
         <target>Freunde</target>
       </segment>
     </unit>
+    <unit id="LzzllLx" name="Empfänger">
+      <notes>
+        <note category="german">Empfänger</note>
+      </notes>
+      <segment>
+        <source>Empfänger</source>
+        <target>Empfänger</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

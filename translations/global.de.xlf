@@ -2689,5 +2689,32 @@
         <target>Groß</target>
       </segment>
     </unit>
+    <unit id="Dh.6Cm7" name="Mit offiziellen Gruppen in Kontakt treten">
+      <notes>
+        <note category="german">Mit offiziellen Gruppen in Kontakt treten</note>
+      </notes>
+      <segment>
+        <source>Mit offiziellen Gruppen in Kontakt treten</source>
+        <target>Mit offiziellen Gruppen in Kontakt treten</target>
+      </segment>
+    </unit>
+    <unit id="UsfYbvX" name="Eine offizielle Gruppe kontaktieren">
+      <notes>
+        <note category="german">Eine offizielle Gruppe kontaktieren</note>
+      </notes>
+      <segment>
+        <source>Eine offizielle Gruppe kontaktieren</source>
+        <target>Eine offizielle Gruppe kontaktieren</target>
+      </segment>
+    </unit>
+    <unit id="kjByjoe" name="via %group_inbox%">
+      <notes>
+        <note category="german">via %group_inbox%</note>
+      </notes>
+      <segment>
+        <source>via %group_inbox%</source>
+        <target>via %group_inbox%</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

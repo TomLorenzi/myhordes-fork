@@ -3250,5 +3250,104 @@
         <target>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)</target>
       </segment>
     </unit>
+    <unit id="j9J2yMz" name="Gruppen">
+      <notes>
+        <note category="german">Gruppen</note>
+      </notes>
+      <segment>
+        <source>Gruppen</source>
+        <target>Gruppen</target>
+      </segment>
+    </unit>
+    <unit id="OFylvr8" name="Anon.">
+      <notes>
+        <note category="german">Anon.</note>
+      </notes>
+      <segment>
+        <source>Anon.</source>
+        <target>Anon.</target>
+      </segment>
+    </unit>
+    <unit id="vBZ55s_" name="Mitglieder">
+      <notes>
+        <note category="german">Mitglieder</note>
+      </notes>
+      <segment>
+        <source>Mitglieder</source>
+        <target>Mitglieder</target>
+      </segment>
+    </unit>
+    <unit id="TTOMzoJ" name="Mitglied">
+      <notes>
+        <note category="german">Mitglied</note>
+      </notes>
+      <segment>
+        <source>Mitglied</source>
+        <target>Mitglied</target>
+      </segment>
+    </unit>
+    <unit id="Kz_5uSy" name="Die Mitgliederliste ist versteckt.">
+      <notes>
+        <note category="german">Die Mitgliederliste ist versteckt.</note>
+      </notes>
+      <segment>
+        <source>Die Mitgliederliste ist versteckt.</source>
+        <target>Die Mitgliederliste ist versteckt.</target>
+      </segment>
+    </unit>
+    <unit id="zAjLutF" name="Neue Gruppe">
+      <notes>
+        <note category="german">Neue Gruppe</note>
+      </notes>
+      <segment>
+        <source>Neue Gruppe</source>
+        <target>Neue Gruppe</target>
+      </segment>
+    </unit>
+    <unit id="BbvwyR3" name="Gruppe &quot;%group%&quot;">
+      <notes>
+        <note category="german">Gruppe "%group%"</note>
+      </notes>
+      <segment>
+        <source>Gruppe "%group%"</source>
+        <target>Gruppe "%group%"</target>
+      </segment>
+    </unit>
+    <unit id="tMAiZYW" name="Gruppe">
+      <notes>
+        <note category="german">Gruppe</note>
+      </notes>
+      <segment>
+        <source>Gruppe</source>
+        <target>Gruppe</target>
+      </segment>
+    </unit>
+    <unit id="6SYvAH3" name="Beschreibung">
+      <notes>
+        <note category="german">Beschreibung</note>
+      </notes>
+      <segment>
+        <source>Beschreibung</source>
+        <target>Beschreibung</target>
+      </segment>
+    </unit>
+    <unit id="7Cc8BkZ" name="Anonyme Gruppe">
+      <notes>
+        <note category="german">Anonyme Gruppe</note>
+      </notes>
+      <segment>
+        <source>Anonyme Gruppe</source>
+        <target>Anonyme Gruppe</target>
+      </segment>
+    </unit>
+    <unit id="1uiWprE" name="Neue Gruppe anlegen">
+      <notes>
+        <note category="german">Neue Gruppe anlegen</note>
+      </notes>
+      <segment>
+        <source>Neue Gruppe anlegen</source>
+        <target>Neue Gruppe anlegen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
