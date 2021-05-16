@@ -664,7 +664,7 @@
       </notes>
       <segment>
         <source>Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!</source>
-        <target>From here, you can leave the town and explore the World Beyond. Don't forget to keep the Town Gates closed during the midnight attack! </target>
+        <target><![CDATA[From here, you can leave the town and explore the World Beyond. Don't forget to keep the <strong>Town Gates</strong> closed during the midnight attack!]]></target>
       </segment>
     </unit>
     <unit id="UgTjBPn" name="Du wurdest verbannt und kannst daher das Stadttor weder öffnen noch schließen.">
