@@ -2732,7 +2732,7 @@
       </notes>
       <segment>
         <source>Mit offiziellen Gruppen in Kontakt treten</source>
-        <target>Mit offiziellen Gruppen in Kontakt treten</target>
+        <target>Contact the official groups</target>
       </segment>
     </unit>
     <unit id="UsfYbvX" name="Eine offizielle Gruppe kontaktieren">
@@ -2741,7 +2741,7 @@
       </notes>
       <segment>
         <source>Eine offizielle Gruppe kontaktieren</source>
-        <target>Eine offizielle Gruppe kontaktieren</target>
+        <target>Contact an official group</target>
       </segment>
     </unit>
     <unit id="kjByjoe" name="via %group_inbox%">
