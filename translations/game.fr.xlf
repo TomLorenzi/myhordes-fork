@@ -17436,7 +17436,7 @@
       </notes>
       <segment>
         <source>%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!</source>
-        <target>%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!</target>
+        <target>%zombies% zombies ont été tués par nos veilleurs !</target>
       </segment>
     </unit>
     <unit id="lDKOiMz">
