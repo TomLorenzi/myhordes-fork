@@ -660,7 +660,7 @@
     </unit>
     <unit id="dizwCRc">
       <notes>
-        <note category="german">Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!</note>
+        <note category="german">Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das &lt;strong&gt;Tor&lt;/strong&gt; zu schließen!</note>
       </notes>
       <segment>
         <source>Du kannst von hier aus die Stadt verlassen und die Außenwelt erkunden. Vergiss aber nicht, um Mitternacht das Tor zu schließen!</source>
@@ -19277,7 +19277,7 @@
     </unit>
     <unit id="tA.qFY5">
       <notes>
-        <note category="german">In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind.</note>
+        <note category="german">In der Werkstatt können &lt;strong&gt;Materialien&lt;/strong&gt; zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind.</note>
       </notes>
       <segment>
         <source>In der Werkstatt können Materialien zu brauchbaren Hilfsmitteln verarbeitet werden, die für bestimmte Gebäude und Konstruktionen in der Stadt notwendig sind.</source>
@@ -19345,6 +19345,15 @@
       <segment>
         <source>Du hast &lt;strong&gt;1AP&lt;/strong&gt; aufgewendet, um das Haus von &lt;strong&gt;✝ %citizen%&lt;/strong&gt; zu recyclen. Die Arbeiten sind noch nicht abgeschlossen...</source>
         <target><![CDATA[Du hast <strong>1AP</strong> aufgewendet, um das Haus von <strong>✝ %citizen%</strong> zu recyclen. Die Arbeiten sind noch nicht abgeschlossen...]]></target>
+      </segment>
+    </unit>
+    <unit id="zWIGzsD">
+      <notes>
+        <note category="german">Beachte: Behälter wie Rucksack, Einkaufswagen etc. werden nicht in der Bank abgelegt.</note>
+      </notes>
+      <segment>
+        <source>Beachte: Behälter wie Rucksack, Einkaufswagen etc. werden nicht in der Bank abgelegt.</source>
+        <target>Recuerda: Los contenedores (mochila, carritos, ...etc.) no son colocados en el Almacén.</target>
       </segment>
     </unit>
   </file>
