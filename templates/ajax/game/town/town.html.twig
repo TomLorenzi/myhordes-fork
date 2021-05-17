@@ -245,10 +245,15 @@
                                 {% elseif town.insurrectionProgress >= 80 %}
                                     {{ 'Die Revolte steht bevor!'|trans({}, 'game') }}
                                 {% endif %}
+                                {{ help_lnk('Aufstand der Verbannten'|trans({},'help'), 'help', {'name': 'shunned_citizens'}) }}
                             </div>
                         {% elseif can_do_insurrection %}
-                            <button id="do_insurrection"><img alt="" src="{{ asset('build/images/actions/insurrect.gif') }}" /> {{'Auf den Aufstand hinarbeiten'|trans({}, 'game')}}</button>
+                            <div class="banished-info">
+                                <button id="do_insurrection"><img alt="" src="{{ asset('build/images/actions/insurrect.gif') }}" /> {{'Auf den Aufstand hinarbeiten'|trans({}, 'game')}}</button>
+                                {{ help_lnk('Aufstand der Verbannten'|trans({},'help'), 'help', {'name': 'shunned_citizens'}) }}
+                            </div>
                         {% endif %}
+
                     {% endif %}
                     <div class="row town-menu {% if town.isNight %}night{% endif %}">
                         <div class="padded-small cell rw-12 town-overview {% if menu_section == '' %}selected{% endif %}">
