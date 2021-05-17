@@ -17455,7 +17455,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!</source>
-        <target>%zombies% Zombies wurden von unseren Nachtwächtern gemetzelt!</target>
+        <target>%zombies% zombies were killed by our watchmen!</target>
       </segment>
     </unit>
     <unit id="lDKOiMz">
