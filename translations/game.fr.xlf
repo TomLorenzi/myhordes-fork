@@ -268,7 +268,7 @@
       </notes>
       <segment>
         <source>Heute Nacht wurden von %building% folgende Gegenstände produziert: %items%</source>
-        <target>Le chantier %building% a produit : %items%</target>
+        <target>Le %building% a produit "%items%". Ces objets ont été placés dans la banque.</target>
       </segment>
     </unit>
     <unit id="ThZ6eEv">
