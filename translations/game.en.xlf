@@ -8152,7 +8152,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</source>
-        <target>%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</target>
+        <target>%citizen1% and %citizen2% were saved in the nick of time when getting ready to hang themselves in their home last night. They explained, "I thought they were going to eat me alive, and I didn't want to live to see that". In hindsight, it was a poor decision, as no zombies made it into town last night.</target>
       </segment>
     </unit>
     <unit id="6iAHRm0">
