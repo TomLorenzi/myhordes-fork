@@ -718,7 +718,7 @@
       </notes>
       <segment>
         <source>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</source>
-        <target>La tour de guet construite en ville permet d'obtenir une estimation de l'attaque de ce soir. La qualité de l'estimation dépend directement du nombre de citoyens qui auront pris le temps de venir ici.</target>
+        <target><![CDATA[La tour de guet construite en ville permet d'obtenir une estimation de l'attaque de ce soir. <strong>La qualité de l'estimation dépend directement du nombre de citoyens qui auront pris le temps de venir ici</strong>.]]></target>
       </segment>
     </unit>
     <unit id="MVukZx5" name="Heutige Abschätzung">
@@ -11443,7 +11443,7 @@
       </notes>
       <segment>
         <source>Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.</source>
-        <target>Grâce au Planificateur, vous pouvez estimer l'attaque de demain.</target>
+        <target>Le Planificateur permet d'estimer l'attaque du lendemain.</target>
       </segment>
     </unit>
     <unit id="BU8ToEO" name="Zuletzt bearbeitet: %date%">
