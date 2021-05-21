@@ -7985,5 +7985,14 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
         <target>Der Tod und die Berechnung der Seelepunkte</target>
       </segment>
     </unit>
+    <unit id="YhTESGO" name="Ranglisten und Saisons">
+      <notes>
+        <note category="german">Ranglisten und Saisons</note>
+      </notes>
+      <segment>
+        <source>Ranglisten und Saisons</source>
+        <target>Ranglisten und Saisons</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

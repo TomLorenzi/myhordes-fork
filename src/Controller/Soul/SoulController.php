@@ -465,7 +465,7 @@ class SoulController extends CustomAbstractController
             $currentSeason = $this->entity_manager->getRepository(Season::class)->find($seasonId);
         }
         if ($type === null) {
-            $currentType = $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true], ['id' => 'ASC'])[0];
+            $currentType = $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true], ['orderBy' => 'ASC'])[0];
         } else {
             $currentType = $this->entity_manager->getRepository(TownClass::class)->find($type);
         }
@@ -497,7 +497,7 @@ class SoulController extends CustomAbstractController
             'seasons' => $seasons,
             'currentSeason' => $currentSeason,
             'towns' => $towns,
-            'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true]),
+            'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true], ['orderBy' => 'ASC']),
             'currentType' => $currentType,
             'played' => $played,
             'user' => $user

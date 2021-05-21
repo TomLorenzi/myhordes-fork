@@ -7881,5 +7881,14 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
         <target>Understanding days survived and soul points</target>
       </segment>
     </unit>
+    <unit id="YhTESGO" name="Ranglisten und Saisons">
+      <notes>
+        <note category="german">Ranglisten und Saisons</note>
+      </notes>
+      <segment>
+        <source>Ranglisten und Saisons</source>
+        <target>Rankings and seasons</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

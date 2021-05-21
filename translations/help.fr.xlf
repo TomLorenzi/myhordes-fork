@@ -7897,5 +7897,14 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
         <target>Comprendre les jours survécus et les points d'âme</target>
       </segment>
     </unit>
+    <unit id="YhTESGO" name="Ranglisten und Saisons">
+      <notes>
+        <note category="german">Ranglisten und Saisons</note>
+      </notes>
+      <segment>
+        <source>Ranglisten und Saisons</source>
+        <target>Classements et saisons</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

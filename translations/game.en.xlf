@@ -732,7 +732,7 @@
     </unit>
     <unit id="oCYA07E">
       <notes>
-        <note category="german">Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</note>
+        <note category="german">Mit dem Wachturm können die Bürger jeden Tag eine Angriffsabschätzung durchführen. &lt;strong&gt;Die Qualität der Abschätzung hängt von der Anzahl der Bürger ab, die daran teil nehmen&lt;/strong&gt;.</note>
       </notes>
       <segment>
         <source>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</source>
@@ -19395,7 +19395,26 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat.Ein Tag gilt immer dann als &amp;quot;vollkommen überlebt&amp;quot;, &lt;strong&gt;wenn du beim Zombieangriff um 23:59 stirbst&lt;/strong&gt;. Solltest du vorher - im Laufe des Tages - sterben, gilt der Tag nicht als überlebt..</source>
-        <target><![CDATA[This colums indicates the number of full days each citizen has survived. A day is not counted as "complete" if a citizen dies <strong>for any reason OTHER than the attack of the Horde at 23:59</strong>.]]></target>      </segment>
+        <target><![CDATA[This colums indicates the number of full days each citizen has survived. A day is not counted as "complete" if a citizen dies <strong>for any reason OTHER than the attack of the Horde at 23:59</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="cEXdc4T" name="Die blau markierten Felder sind Städte, in denen du mitgespielt hast!">
+      <notes>
+        <note category="german">Die blau markierten Felder sind Städte, in denen du mitgespielt hast!</note>
+      </notes>
+      <segment>
+        <source>Die blau markierten Felder sind Städte, in denen du mitgespielt hast!</source>
+        <target>Lines with a blue background correspond to towns in which you participated!</target>
+      </segment>
+    </unit>
+    <unit id="zquwWt5" name="Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.">
+      <notes>
+        <note category="german">Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.</note>
+      </notes>
+      <segment>
+        <source>Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.</source>
+        <target>Rankings are updated after the midnight attack.</target>
+      </segment>
     </unit>
   </file>
 </xliff>

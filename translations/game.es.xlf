@@ -732,7 +732,7 @@
     </unit>
     <unit id="oCYA07E">
       <notes>
-        <note category="german">Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</note>
+        <note category="german">Mit dem Wachturm können die Bürger jeden Tag eine Angriffsabschätzung durchführen. &lt;strong&gt;Die Qualität der Abschätzung hängt von der Anzahl der Bürger ab, die daran teil nehmen&lt;/strong&gt;.</note>
       </notes>
       <segment>
         <source>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</source>
@@ -19390,6 +19390,24 @@
       <segment>
         <source>In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat.Ein Tag gilt immer dann als &amp;quot;vollkommen überlebt&amp;quot;, &lt;strong&gt;wenn du beim Zombieangriff um 23:59 stirbst&lt;/strong&gt;. Solltest du vorher - im Laufe des Tages - sterben, gilt der Tag nicht als überlebt..</source>
         <target><![CDATA[La cantidad de días que cada jugador ha sobrevivido íntegramente. Un día no es considerado como sobrevivido "íntegramente" <strong> si el habitante muere por OTRA causa que no sea el ataque de los zombies</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="cEXdc4T" name="Die blau markierten Felder sind Städte, in denen du mitgespielt hast!">
+      <notes>
+        <note category="german">Die blau markierten Felder sind Städte, in denen du mitgespielt hast!</note>
+      </notes>
+      <segment>
+        <source>Die blau markierten Felder sind Städte, in denen du mitgespielt hast!</source>
+        <target>¡Las líneas con fondo azul corresponden a los pueblos en los que has participado!</target>
+      </segment>
+    </unit>
+    <unit id="zquwWt5" name="Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.">
+      <notes>
+        <note category="german">Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.</note>
+      </notes>
+      <segment>
+        <source>Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.</source>
+        <target>Las clasificaciones son actualizadas después del ataque nocturno.</target>
       </segment>
     </unit>
   </file>
