@@ -809,9 +809,7 @@ class BeyondController extends InventoryAwareController
             $this->citizen_handler->setAP($mover, true, -1);
             $mover->setWalkingDistance( $mover->getWalkingDistance() + 1 );
             if ($mover->getWalkingDistance() > 10) {
-                if (!$mover->hasRole('ghoul')) {
-                    $this->citizen_handler->increaseThirstLevel($mover);
-                }
+                $this->citizen_handler->increaseThirstLevel($mover);
                 $mover->setWalkingDistance( 0 );
             }
 
