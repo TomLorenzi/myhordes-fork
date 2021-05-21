@@ -736,7 +736,7 @@
       </notes>
       <segment>
         <source>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</source>
-        <target>The construction of a Watchtower in town allows the magnitude of the night's attack to be estimated. The quality of the estimation depends directly on the number of citizens who take the time to come and look.</target>
+        <target><![CDATA[The construction of a Watchtower in town allows the magnitude of the night's attack to be estimated. <strong>The quality of the estimation depends directly on the number of citizens who take the time to come and look</strong>.]]></target>
       </segment>
     </unit>
     <unit id="MVukZx5" name="Heutige Abschätzung">

@@ -736,7 +736,7 @@
       </notes>
       <segment>
         <source>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</source>
-        <target>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</target>
+        <target><![CDATA[Mit dem Wachturm können die Bürger jeden Tag eine Angriffsabschätzung durchführen. <strong>Die Qualität der Abschätzung hängt von der Anzahl der Bürger ab, die daran teil nehmen</strong>.]]></target>
       </segment>
     </unit>
     <unit id="MVukZx5" name="Heutige Abschätzung">
