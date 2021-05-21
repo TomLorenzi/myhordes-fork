@@ -2735,5 +2735,23 @@
         <target>via %group_inbox%</target>
       </segment>
     </unit>
+    <unit id="GiaI_3b" name="Überlebte Tage">
+      <notes>
+        <note category="german">Überlebte Tage</note>
+      </notes>
+      <segment>
+        <source>Überlebte Tage</source>
+        <target>Días sobrevividos</target>
+      </segment>
+    </unit>
+    <unit id="nQMCt.n" name="Abschiedsworte">
+      <notes>
+        <note category="german">Abschiedsworte</note>
+      </notes>
+      <segment>
+        <source>Abschiedsworte</source>
+        <target>Comentario personal</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -7888,5 +7888,14 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
         <target>Évolutions de bâtiments</target>
       </segment>
     </unit>
+    <unit id="FIL0rIm" name="Der Tod und die Berechnung der Seelepunkte">
+      <notes>
+        <note category="german">Der Tod und die Berechnung der Seelepunkte</note>
+      </notes>
+      <segment>
+        <source>Der Tod und die Berechnung der Seelepunkte</source>
+        <target>Comprendre les jours survécus et les points d'âme</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

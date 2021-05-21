@@ -98,7 +98,8 @@
                         </select>
                     </div>
                     <div class="cell padded rw-6 right">
-                        <input type="checkbox" name="limit-10" id="limit-10" checked /> <label for="limit-10" class="small">{{'Nur 10 Städte anzeigen'|trans({}, 'soul')}}</label>
+                        <input type="checkbox" name="limit-10" id="limit-10" checked /> <label for="limit-10" class="small">{{'Nur 10 Städte anzeigen'|trans({}, 'soul')}}</label><br />
+                        <span class="link small" x-ajax-href="{{ path('soul_game_history') }}">{{ 'Verlauf meiner Städte'|trans({}, 'soul') }}</span>
                     </div>
                 </div>
             </div>

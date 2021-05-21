@@ -19391,5 +19391,41 @@
         <target>Note : les containers (sac à dos, caddie..etc.) ne seront pas placés en banque.</target>
       </segment>
     </unit>
+    <unit id="jB1RN29" name="Deine Nachricht wurde gespeichert.">
+      <notes>
+        <note category="german">Deine Nachricht wurde gespeichert.</note>
+      </notes>
+      <segment>
+        <source>Deine Nachricht wurde gespeichert.</source>
+        <target>Votre commentaire a bien été enregistré.</target>
+      </segment>
+    </unit>
+    <unit id="X21IBNl" name="Meine Partien">
+      <notes>
+        <note category="german">Meine Partien</note>
+      </notes>
+      <segment>
+        <source>Meine Partien</source>
+        <target>Mes parties</target>
+      </segment>
+    </unit>
+    <unit id="KAAmbDC" name="Name der Stadt">
+      <notes>
+        <note category="german">Name der Stadt</note>
+      </notes>
+      <segment>
+        <source>Name der Stadt</source>
+        <target>Nom de la ville</target>
+      </segment>
+    </unit>
+    <unit id="9in0QXU">
+      <notes>
+        <note category="german">In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat.Ein Tag gilt immer dann als &amp;quot;vollkommen überlebt&amp;quot;, &lt;strong&gt;wenn du beim Zombieangriff um 23:59 stirbst&lt;/strong&gt;. Solltest du vorher - im Laufe des Tages - sterben, gilt der Tag nicht als überlebt..</note>
+      </notes>
+      <segment>
+        <source>In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat.Ein Tag gilt immer dann als &amp;quot;vollkommen überlebt&amp;quot;, &lt;strong&gt;wenn du beim Zombieangriff um 23:59 stirbst&lt;/strong&gt;. Solltest du vorher - im Laufe des Tages - sterben, gilt der Tag nicht als überlebt..</source>
+        <target><![CDATA[Cette colonne indique le nombre de jours auxquels chaque citoyen a survécu intégralement. Une journée n'est pas considérée comme survécue "intégralement" <strong> si le citoyen meurt d'une cause AUTRE que l'attaque des Hordes à 23:59</strong>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

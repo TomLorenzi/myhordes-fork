@@ -7883,5 +7883,14 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
         <target>Mejoras en construcciones</target>
       </segment>
     </unit>
+    <unit id="FIL0rIm" name="Der Tod und die Berechnung der Seelepunkte">
+      <notes>
+        <note category="german">Der Tod und die Berechnung der Seelepunkte</note>
+      </notes>
+      <segment>
+        <source>Der Tod und die Berechnung der Seelepunkte</source>
+        <target>Comprender los días sobrevividos y los Puntos de Alma</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

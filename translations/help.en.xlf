@@ -7872,5 +7872,14 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
         <target>Building upgrades</target>
       </segment>
     </unit>
+    <unit id="FIL0rIm" name="Der Tod und die Berechnung der Seelepunkte">
+      <notes>
+        <note category="german">Der Tod und die Berechnung der Seelepunkte</note>
+      </notes>
+      <segment>
+        <source>Der Tod und die Berechnung der Seelepunkte</source>
+        <target>Understanding days survived and soul points</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
