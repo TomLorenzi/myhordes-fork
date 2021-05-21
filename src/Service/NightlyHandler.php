@@ -600,7 +600,7 @@ class NightlyHandler
             $woundOrTerrorChances = $deathChances + $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WOUND_TERROR_PENALTY, 0.05);
             $ctz = $watcher->getCitizen();
 
-            $this->log->debug("Watcher's chances are <info>{$deathChances}</info> for death and <info>{$woundOrTerrorChances}</info> for wound or terror.");
+            $this->log->debug("Watcher {$watcher->getCitizen()->getUser()->getName()} chances are <info>{$deathChances}</info> for death and <info>{$woundOrTerrorChances}</info> for wound or terror.");
 
             if ($this->random->chance($deathChances)) {
                 $this->log->debug("Watcher <info>{$watcher->getCitizen()->getUser()->getUsername()}</info> is now <info>dead</info> because of the watch");
@@ -660,7 +660,7 @@ class NightlyHandler
 
         $initial_overflow = $overflow;
 
-        $overflow = max(0, $overflow - $total_watch_def);
+        $overflow = max(0, $overflow - max(0, $total_watch_def));
 
         if ($overflow > 0 && $total_watch_def > 0) {
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchersZombieThrough($town, $overflow));
@@ -750,6 +750,7 @@ class NightlyHandler
                 $this->entity_manager->persist($this->logTemplates->nightlyAttackBankItemsDestroy($town, $itemsForLog));
             }
         }
+
         if ($overflow <= 0) {
             $this->entity_manager->persist($gazette);
             return;
