@@ -28,7 +28,7 @@
             {{ block('jobhelp') }}
         </div>
         <div class="cell padded rw-8 rw-md-12">
-            {% if town.conf and town.conf.features.citizen_alias %}
+            {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_CITIZEN_ALIAS'),false) %}
                 <h5>{{'Deine Identität'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Diese Stadt erlaubt es, einen Spitznamen zu tragen.'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
                 <div class="row-flex v-center">
                     <div class="cell padded note note-lightest rw-3">
@@ -112,7 +112,7 @@
 
         jobConfirm.addEventListener('click', function(e) {
             e.preventDefault();
-            {% if town.conf and town.conf.features.citizen_alias %}
+            {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_CITIZEN_ALIAS'),false) %}
                 form.citizenalias = document.getElementById('citizenalias').value;
                 if (form.citizenalias && form.citizenalias.length < 4) {
                     $.html.error('{{ 'Dein Name muss mindestens {{ limit }} Zeichen umfassen.'|trans({'{{ limit }}': '4'},'login')|e('js') }}');
