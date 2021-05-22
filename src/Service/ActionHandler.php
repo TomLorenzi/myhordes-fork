@@ -146,6 +146,8 @@ class ActionHandler
                     $role_is_active = $citizen->getRoles()->contains( $status->getRole() );
                     if ($role_is_active !== $status->getEnabled()) $current_state = min( $current_state, $this_state );
                 }
+
+                if ($status->getBanished() !== null && $citizen->getBanished() !== $status->getBanished()) $current_state = min( $current_state, $this_state );
             }
 
             if ($home = $meta_requirement->getHome()) {

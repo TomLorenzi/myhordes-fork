@@ -184,7 +184,12 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'must_have_control'   => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'zombies' => [ 'min' => 0, 'block' => false, 'temp' => true ] ], 'text' => 'Das kannst du nicht tun während du umzingelt bist...'],
 
             'must_have_micropur' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'water_cleaner_#00', 'prop' => null ] ], 'text_key' => 'item_needed_generic'],
+            'must_have_micropur_in' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'water_cleaner_#00', 'prop' => null ] ], 'text_key' => 'water_purification_impossible'],
             'must_have_drug'     => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'item' => [ 'item' => 'drug_#00',          'prop' => null ] ], 'text_key' => 'item_needed_generic'],
+
+            'must_not_be_banished'   => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'ban' => false ] ] ],
+            'must_not_be_banished_w' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'status' => [ 'ban' => false ] ], 'text_key' => 'water_purification_impossible' ],
+            'must_be_banished'       => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'status' => [ 'ban' => true ] ] ],
 
             'must_have_purifier'     => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_jerrycan_#00', 'complete' => true  ] ] ],
             'must_not_have_purifier' => [ 'type' => Requirement::HideOnFail, 'collection' => [ 'building' => [ 'prototype' => 'item_jerrycan_#00', 'complete' => false ] ] ],
@@ -777,15 +782,21 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'vibrator' => [ 'label' => 'Verwenden', 'meta' => [ 'must_be_inside', 'must_be_terrorized' ], 'result' => [ 'unterrorize', ['item' => ['morph' => 'vibr_empty_#00', 'consume' => false]], ['picto' => ['r_maso_#00']] ], 'message' => 'Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.' ],
 
-            'watercup_1' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside',  'must_have_micropur', 'must_not_have_purifier', 'must_not_have_filter' ], 'result' => [ 'consume_micropur', 'consume_item', ['spawn' => [ ['water_cup_#00', 2] ], 'picto' => ['r_solban_#00'] ] ], 'message_key' => 'item_clean' ],
+            'watercup_1' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside', 'must_have_micropur_in', 'must_not_have_purifier', 'must_not_have_filter', 'must_not_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', ['spawn' => [ ['water_cup_#00', 2] ], 'picto' => ['r_solban_#00'] ] ], 'message_key' => 'item_clean' ],
             'watercup_2' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_micropur' ],                                      'result' => [ 'consume_micropur', 'consume_item', ['spawn' => [ ['water_cup_#00', 2] ], 'picto' => ['r_solban_#00'] ] ], 'message_key' => 'item_clean' ],
-            'watercup_3' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_purifier' ], 'result' => [ 'consume_item', [ 'well' => [ 'min' => 2, 'max' => 2 ] ] ], 'message_key' => 'water_to_well' ],
-            'jerrycan_1' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside', 'must_have_micropur', 'must_not_have_purifier', 'must_not_have_filter' ], 'result' => [ 'consume_micropur', 'consume_item', ['group' => [
+            'watercup_3' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_purifier', 'must_not_be_banished' ], 'result' => [ 'consume_item', [ 'well' => [ 'min' => 2, 'max' => 2 ] ] ], 'message_key' => 'water_to_well' ],
+            'jerrycan_1' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside', 'must_have_micropur_in', 'must_not_have_purifier', 'must_not_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', ['group' => [
                 [ [ ['spawn' => [ ['water_#00', 2] ] ] ], 1 ],
                 [ [ ['spawn' => [ ['water_#00', 3] ] ] ], 1 ]
             ]] ], 'message_key' => 'item_clean' ],
-            'jerrycan_2' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_purifier', 'must_not_have_filter' ], 'result' => [ 'consume_item', [ 'well' => [ 'min' => 1, 'max' => 3 ] ] ], 'message_key' => 'water_to_well' ],
-            'jerrycan_3' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_filter' ], 'result' => [ 'consume_item', [ 'well' => [ 'min' => 4, 'max' => 9 ] ] ], 'message_key' => 'water_to_well' ],
+            'jerrycan_2' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_purifier', 'must_not_have_filter', 'must_not_be_banished' ], 'result' => [ 'consume_item', [ 'well' => [ 'min' => 1, 'max' => 3 ] ] ], 'message_key' => 'water_to_well' ],
+            'jerrycan_3' => [ 'label' => 'In den Brunnen schütten', 'meta' => [ 'must_be_inside', 'must_have_filter', 'must_not_be_banished' ], 'result' => [ 'consume_item', [ 'well' => [ 'min' => 4, 'max' => 9 ] ] ], 'message_key' => 'water_to_well' ],
+
+            'watercup_1b' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside',  'must_have_micropur_in', 'must_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', ['spawn' => [ ['water_cup_#00', 2] ], 'picto' => ['r_solban_#00'] ] ], 'message_key' => 'item_clean' ],
+            'jerrycan_1b' => [ 'label' => 'Reinigen (Wasser)', 'meta' => [ 'must_be_inside', 'must_have_micropur_in', 'must_be_banished' ], 'result' => [ 'consume_micropur', 'consume_item', ['group' => [
+                [ [ ['spawn' => [ ['water_#00', 2] ] ] ], 1 ],
+                [ [ ['spawn' => [ ['water_#00', 3] ] ] ], 1 ]
+            ]] ], 'message_key' => 'item_clean' ],
 
             'home_def_plus'    => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['home' => ['def' => 1]] ] ],
             'home_store_plus'  => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['home' => ['store' => 1]] ] ],
@@ -1186,8 +1197,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'bandage_#00'    => ['bandage'],
             'sport_elec_#00' => ['emt'],
 
-            'jerrycan_#00'       => ['jerrycan_1', 'jerrycan_2', 'jerrycan_3'],
-            'water_cup_part_#00' => ['watercup_1', 'watercup_2', 'watercup_3'],
+            'jerrycan_#00'       => ['jerrycan_1', 'jerrycan_1b', 'jerrycan_2', 'jerrycan_3'],
+            'water_cup_part_#00' => ['watercup_1', 'watercup_1b', 'watercup_2', 'watercup_3'],
 
             'cyanure_#00' => ['cyanide'],
 
@@ -1382,7 +1393,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         'home_heal_wound'           => 'Deine Wunde wurde geheilt, zumindest oberflächlich...',
         'home_heal_infect'          => 'Deine unselige Infektion wurde kuriert!',
 
-        'item_needed_generic'       => 'Du benötigst {items_required}.',
+        'item_needed_generic'           => 'Du benötigst {items_required}.',
+        'water_purification_impossible' => 'Um dieses Wasser trinkbar zu machen, brauchst du <strong>irgendein Reinigungsmittel</strong> oder deine Stadt muss über einen <strong>Wasserreiniger</strong> verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.',
         'once_a_day'                => 'Du kannst diesen Gegenstand nur <strong>einmal am Tag</strong> verwenden...',
     ];
     
@@ -1661,7 +1673,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             if (isset($data['profession']) && !$prof) throw new Exception('Profession not found: ' . $data['profession']);
             if (isset($data['role']) && !$role) throw new Exception('Role not found: ' . $data['role']);
 
-            $requirement->setName( $id )->setEnabled( $data['enabled'] ?? null )->setStatus( $status ?? null )->setProfession( $prof ?? null )->setRole( $role ?? null);
+            $requirement->setName( $id )->setEnabled( $data['enabled'] ?? null )->setStatus( $status ?? null )->setProfession( $prof ?? null )->setRole( $role ?? null)->setBanished( $data['ban'] ?? null );
             $manager->persist( $cache[$id] = $requirement );
         } else $out->writeln( "\t\t\t<comment>Skip</comment> condition <info>status/{$id}</info>", OutputInterface::VERBOSITY_DEBUG );
         
