@@ -160,9 +160,11 @@
                         <div class="cell padded rw-9 rw-md-6 rw-sm-12 mod">
                             <input type="checkbox" name="disablexml" id="disablexml" x-payload="disablexml" /> <label for="disablexml"><strong>{{'Kein XML Feed:'|trans({}, 'ghost')}}</strong> {{'XML Feed für diese Stadt deaktivieren'|trans({}, 'ghost')}}</label>
                         </div>
-                        <div class="cell padded rw-9 rw-md-6 rw-sm-12 mod">
-                            <input type="checkbox" name="citizenalias" id="citizenalias" x-payload="citizenalias" /> <label for="citizenalias"><strong>{{'Bürger-Aliase:'|trans({}, 'ghost')}}</strong> {{'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen'|trans({}, 'ghost')}}</label>
-                        </div>
+                        {% if is_granted('ROLE_CROW') %}
+                            <div class="cell padded rw-9 rw-md-6 rw-sm-12 mod">
+                                <input type="checkbox" name="citizenalias" id="citizenalias" x-payload="citizenalias" /> <label for="citizenalias"><strong>{{'Bürger-Aliase:'|trans({}, 'ghost')}}</strong> {{'Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen'|trans({}, 'ghost')}}</label>
+                            </div>
+                        {% endif %}
                     </div>
 
                     <h5>{{'Event-Stadt'|trans({}, 'ghost')}}</h5>

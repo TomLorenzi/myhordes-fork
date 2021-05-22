@@ -150,11 +150,11 @@ class GhostController extends CustomAbstractController
 
         $customConf = [
             'open_town_limit'      => ($crow_permissions && !(bool)$parser->get('negate', true)) ? -1 : 2,
-            'lock_door_until_full' => $crow_permissions ? (bool)$parser->get('lock_door', true) : true,
+            'lock_door_until_full' => !$crow_permissions || $parser->get('lock_door', true),
 
             'features' => [
                 'xml_feed' => !(bool)$parser->get('disablexml', false),
-                'citizen_alias' => (bool)$parser->get('citizenalias', false),
+                'citizen_alias' => $crow_permissions && $parser->get('citizenalias', false),
 
                 'ghoul_mode'    => $ghoulmode,
                 'shaman'        => $parser->get('shamanMode', 'normal', ['normal','job','none']),
