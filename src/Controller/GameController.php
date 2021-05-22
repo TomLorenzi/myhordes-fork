@@ -556,6 +556,7 @@ class GameController extends CustomAbstractController
             'professions' => $selectablesJobs,
             'prof_count' => $prof_count,
             'town' => $town,
+            'conf' => $this->getTownConf()
         ] );
     }
 

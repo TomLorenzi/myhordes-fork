@@ -8201,5 +8201,140 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>It's not every day you get to hit some quality drugs. All the same, the effects are nausea, trembling, cold sweats... But it gives you more of a boost than regular drugs (AP bonus received). Don't abuse it!</target>
       </segment>
     </unit>
+    <unit id="JAgvnnn" name="Du benötigst {items_required}.">
+      <notes>
+        <note category="german">Du benötigst {items_required}.</note>
+      </notes>
+      <segment>
+        <source>Du benötigst {items_required}.</source>
+        <target>You need {items_required}.</target>
+      </segment>
+    </unit>
+    <unit id="1LmNcmz">
+      <notes>
+        <note category="german">Kaum hast du deine Pille geschluckt, da verschwindet auch schon dein Durst. Hoffen wir mal, das alles gut geht...</note>
+      </notes>
+      <segment>
+        <source>Kaum hast du deine Pille geschluckt, da verschwindet auch schon dein Durst. Hoffen wir mal, das alles gut geht...</source>
+        <target>You swallow the pill... A few seconds later, your thirst has disappeared. But at what price...</target>
+      </segment>
+    </unit>
+    <unit id="izlHb1B">
+      <notes>
+        <note category="german">Verloren inmitten einer lächerlichen Menge sinnloser Dokumente hast du einen {item_to} entdeckt.</note>
+      </notes>
+      <segment>
+        <source>Verloren inmitten einer lächerlichen Menge sinnloser Dokumente hast du einen {item_to} entdeckt.</source>
+        <target>Lost in the middle of a ludicrous quantity of pointless documents, you have discovered {item_to}.</target>
+      </segment>
+    </unit>
+    <unit id="f1JKU7Q" name="Hierfür brauchst du mindestens 1 CP.">
+      <notes>
+        <note category="german">Hierfür brauchst du mindestens 1 CP.</note>
+      </notes>
+      <segment>
+        <source>Hierfür brauchst du mindestens 1 CP.</source>
+        <target>You need at least 1 CP for this.</target>
+      </segment>
+    </unit>
+    <unit id="dydc.v9">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} mit einer(m) {item_tool} zerstört. In den Resten auf dem Boden findest du: {item_to}.</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} mit einer(m) {item_tool} zerstört. In den Resten auf dem Boden findest du: {item_to}.</source>
+        <target>Du hast ein(e) {item_from} mit einer(m) {item_tool} zerstört. In den Resten auf dem Boden findest du: {item_to}.</target>
+      </segment>
+    </unit>
+    <unit id="kXs8w7H" name="Du kannst diesen Gegenstand nur &lt;strong&gt;einmal am Tag&lt;/strong&gt; verwenden...">
+      <notes>
+        <note category="german">Du kannst diesen Gegenstand nur &lt;strong&gt;einmal am Tag&lt;/strong&gt; verwenden...</note>
+      </notes>
+      <segment>
+        <source>Du kannst diesen Gegenstand nur &lt;strong&gt;einmal am Tag&lt;/strong&gt; verwenden...</source>
+        <target><![CDATA[Du kannst diesen Gegenstand nur <strong>einmal am Tag</strong> verwenden...]]></target>
+      </segment>
+    </unit>
+    <unit id="et83IYx" name="So, zur Desinfektion nur noch draufspucken und hopp: Sieht wie neu aus!">
+      <notes>
+        <note category="german">So, zur Desinfektion nur noch draufspucken und hopp: Sieht wie neu aus!</note>
+      </notes>
+      <segment>
+        <source>So, zur Desinfektion nur noch draufspucken und hopp: Sieht wie neu aus!</source>
+        <target>A snip of the scissors, spit on the wound to disinfect it... There you go, good as new.</target>
+      </segment>
+    </unit>
+    <unit id=".sG9vTq">
+      <notes>
+        <note category="german">Es geht doch nichts über einen schönen Stromstoß in die Wirbelsäule, um so richtig wach zu werden! Aber irgendwie riecht es jetzt hier nach verbranntem Fleisch...</note>
+      </notes>
+      <segment>
+        <source>Es geht doch nichts über einen schönen Stromstoß in die Wirbelsäule, um so richtig wach zu werden! Aber irgendwie riecht es jetzt hier nach verbranntem Fleisch...</source>
+        <target>A good dose of electricity into the spinal column, there's nothing quite like it to wake you up ! However, you smell like burnt meat.</target>
+      </segment>
+    </unit>
+    <unit id="35qZHee" name="Deine Wunde wurde geheilt, zumindest oberflächlich...">
+      <notes>
+        <note category="german">Deine Wunde wurde geheilt, zumindest oberflächlich...</note>
+      </notes>
+      <segment>
+        <source>Deine Wunde wurde geheilt, zumindest oberflächlich...</source>
+        <target>Your wound has been healed, at least superficially...</target>
+      </segment>
+    </unit>
+    <unit id="S3AHAPf" name="Hierfür brauchst du mindestens 5 AP.">
+      <notes>
+        <note category="german">Hierfür brauchst du mindestens 5 AP.</note>
+      </notes>
+      <segment>
+        <source>Hierfür brauchst du mindestens 5 AP.</source>
+        <target>You need at least 5 AP for this.</target>
+      </segment>
+    </unit>
+    <unit id="ndUWcPR" name="Deine unselige Infektion wurde kuriert!">
+      <notes>
+        <note category="german">Deine unselige Infektion wurde kuriert!</note>
+      </notes>
+      <segment>
+        <source>Deine unselige Infektion wurde kuriert!</source>
+        <target>Your wretched infection has been cured!</target>
+      </segment>
+    </unit>
+    <unit id="793QxjT" name="Hierfür brauchst du mindestens 1 PM.">
+      <notes>
+        <note category="german">Hierfür brauchst du mindestens 1 PM.</note>
+      </notes>
+      <segment>
+        <source>Hierfür brauchst du mindestens 1 PM.</source>
+        <target>You need at least 1 MP for this.</target>
+      </segment>
+    </unit>
+    <unit id="42uqd50">
+      <notes>
+        <note category="german">Du schluckst das {item}... Nur ein paar Sekunden später ergreift dich die Panik... Kalte Schweißausbrüche, Paranoia... Du rollst dich zu einem Ball zusammen, außer Atem, und wartest darauf, dass die Wirkung nachlässt... aber das passiert nicht.&lt;hr /&gt;Du bist &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Du schluckst das {item}... Nur ein paar Sekunden später ergreift dich die Panik... Kalte Schweißausbrüche, Paranoia... Du rollst dich zu einem Ball zusammen, außer Atem, und wartest darauf, dass die Wirkung nachlässt... aber das passiert nicht.&lt;hr /&gt;Du bist &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt;.</source>
+        <target><![CDATA[You swallow the {item}... Just a few seconds later, you panic... Cold sweats, paranoia... You curl up in a ball, out of breath, waiting for the feelings to subside... but it doesn't happen.<hr />You become <strong>Terrorised</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="3B3bDO.">
+      <notes>
+        <note category="german">Sofort bereust du, dieses {item} heruntergeschluckt zu haben... Das Produkt entpuppt sich als ein starkes Steroid für Tiere (die Art, die üblicherweise Pferden verabreicht wird). Deine APs wurden wiederhergestellt, aber du bist ab sofort &lt;strong&gt;drogenabhängig&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Sofort bereust du, dieses {item} heruntergeschluckt zu haben... Das Produkt entpuppt sich als ein starkes Steroid für Tiere (die Art, die üblicherweise Pferden verabreicht wird). Deine APs wurden wiederhergestellt, aber du bist ab sofort &lt;strong&gt;drogenabhängig&lt;/strong&gt;!</source>
+        <target><![CDATA[You immediately regret swallowing the {item}... The product turns out to be a powerful steroid for animals (the kind usually given to horses as it happens). Your APs have been restored, but you instantly become <strong>dependant on drugs</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="hh6kdGK">
+      <notes>
+        <note category="german">Du schluckst die {item} hinunter. Nach einigen Minuten beginnt dein Kopf zu pochen und deine Nase beginnt zu bluten. Der Schmerz ist nicht unerträglich, aber er ist ziemlich unangenehm...</note>
+      </notes>
+      <segment>
+        <source>Du schluckst die {item} hinunter. Nach einigen Minuten beginnt dein Kopf zu pochen und deine Nase beginnt zu bluten. Der Schmerz ist nicht unerträglich, aber er ist ziemlich unangenehm...</source>
+        <target>You gulp down the {item}. After several minutes, your head starts to throb and your nose starts bleeding. The pain is not unbearable, but it's pretty far from pleasant...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
