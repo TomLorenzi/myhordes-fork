@@ -19452,5 +19452,14 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:</target>
       </segment>
     </unit>
+    <unit id="BIzSHqq" name="Erforschung einer beengten Ruine in erstickender Atmosphäre">
+      <notes>
+        <note category="german">Erforschung einer beengten Ruine in erstickender Atmosphäre</note>
+      </notes>
+      <segment>
+        <source>Erforschung einer beengten Ruine in erstickender Atmosphäre</source>
+        <target>Erforschung einer beengten Ruine in erstickender Atmosphäre</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

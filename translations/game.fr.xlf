@@ -19481,5 +19481,14 @@
         <target>Nous pensons que l'attaque du lendemain tournera autour de :</target>
       </segment>
     </unit>
+    <unit id="BIzSHqq" name="Erforschung einer beengten Ruine in erstickender Atmosphäre">
+      <notes>
+        <note category="german">Erforschung einer beengten Ruine in erstickender Atmosphäre</note>
+      </notes>
+      <segment>
+        <source>Erforschung einer beengten Ruine in erstickender Atmosphäre</source>
+        <target>Erforschung einer beengten Ruine in erstickender Atmosphäre</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
