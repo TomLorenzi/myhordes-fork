@@ -103,7 +103,7 @@
                         {% if thread.owner.name == 'Der Rabe' %}
                             {{ 'Der Rabe'|trans({},'global') }}
                         {% else %}
-                            {% set name = town and thread.owner.activecitizen.town.id == town.id ? thread.owner.activecitizen.name : thread.owner.name %}
+                            {% set name = town and thread.owner.citizenFor(town) ? thread.owner.citizenFor(town).name : thread.owner.name %}
                             {{ name }}
                         {% endif %}
                     {% else %}
