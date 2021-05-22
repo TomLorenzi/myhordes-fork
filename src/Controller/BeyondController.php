@@ -729,11 +729,10 @@ class BeyondController extends InventoryAwareController
             return AjaxResponse::success();
         }
 
-        $movers = [];
+        $movers = [$citizen];
         foreach ($citizen->getValidLeadingEscorts() as $escort)
             $movers[] = $escort->getCitizen();
 
-        $movers[] = $citizen;
         $scouts = [];
 
         $others_are_here = $zone->getCitizens()->count() > count($movers);
