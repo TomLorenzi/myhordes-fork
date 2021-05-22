@@ -138,7 +138,7 @@
         {% for post in posts %}
             {# @var post \App\Entity\Post #}
             {% if not post.hidden or permission.moderate() %}
-                {% set author_name = (post.owner.name == 'Der Rabe') ? 'Der Rabe'|trans({},'global') : town and post.owner.activecitizen.town.id == town.id ? post.owner.activecitizen.name : post.owner.name %}
+                {% set author_name = (post.owner.name == 'Der Rabe') ? 'Der Rabe'|trans({},'global') : town and post.owner.citizenFor(town) ? post.owner.citizenFor(town).name : post.owner.name %}
                 <div x-post-wrapper-id="{{ post.id }}" class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}">
                     <div class="forum-post-header {% if post.owner.name == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
                         <i>

@@ -24,8 +24,8 @@
                                 {% if post.owner.activeTitle %}<span class="small" style="font-size: 0.7em"><i>{{ post.owner.activeTitle.prototype.title|trans({},'game') }}</i></span>{% endif %}
                             {% else %}
                                 <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">
-                                {% if town and post.owner.activecitizen.town.id == town.id %}
-                                    {{ post.owner.activecitizen.name }}
+                                {% if town and post.owner.citizenFor(town) %}
+                                    {{ post.owner.citizenFor(town).name }}
                                 {% else %}
                                     {{ post.owner.name }}
                                 {% endif %}
