@@ -19410,5 +19410,32 @@
         <target>Las clasificaciones son actualizadas después del ataque nocturno.</target>
       </segment>
     </unit>
+    <unit id="wZJl7Bp" name="Deine Identität">
+      <notes>
+        <note category="german">Deine Identität</note>
+      </notes>
+      <segment>
+        <source>Deine Identität</source>
+        <target>Deine Identität</target>
+      </segment>
+    </unit>
+    <unit id="0DPxQPn" name="Diese Stadt erlaubt es, einen Spitznamen zu tragen.">
+      <notes>
+        <note category="german">Diese Stadt erlaubt es, einen Spitznamen zu tragen.</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt erlaubt es, einen Spitznamen zu tragen.</source>
+        <target>Diese Stadt erlaubt es, einen Spitznamen zu tragen.</target>
+      </segment>
+    </unit>
+    <unit id="qYsZ1.g" name="Freilassen, um normalen Spielernamen zu verwenden.">
+      <notes>
+        <note category="german">Freilassen, um normalen Spielernamen zu verwenden.</note>
+      </notes>
+      <segment>
+        <source>Freilassen, um normalen Spielernamen zu verwenden.</source>
+        <target>Freilassen, um normalen Spielernamen zu verwenden.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -747,7 +747,7 @@
     </unit>
     <unit id="JmzKQyu">
       <notes>
-        <note category="german">Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?</note>
+        <note category="german">Beginne ein neues Leben in der Welt der Verdammten und versuche, so lang wie möglich zu überleben. Wer weiß, was dich in dieser neuen Stadt erwarten wird?</note>
       </notes>
       <segment>
         <source>Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?</source>
@@ -1484,6 +1484,33 @@
       <segment>
         <source>Muss zwischen 10 und 80 liegen.</source>
         <target>Muss zwischen 10 und 80 liegen.</target>
+      </segment>
+    </unit>
+    <unit id="aASpCwA" name="Bürger-Aliase:">
+      <notes>
+        <note category="german">Bürger-Aliase:</note>
+      </notes>
+      <segment>
+        <source>Bürger-Aliase:</source>
+        <target>Bürger-Aliase:</target>
+      </segment>
+    </unit>
+    <unit id="VcRaioj">
+      <notes>
+        <note category="german">Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen</note>
+      </notes>
+      <segment>
+        <source>Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen</source>
+        <target>Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen</target>
+      </segment>
+    </unit>
+    <unit id="CQsXVvw" name="Dein Name">
+      <notes>
+        <note category="german">Dein Name</note>
+      </notes>
+      <segment>
+        <source>Dein Name</source>
+        <target>Dein Name</target>
       </segment>
     </unit>
   </file>
