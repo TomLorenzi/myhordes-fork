@@ -587,32 +587,17 @@ class GameController extends CustomAbstractController
 
         $citizen_alias_active = $town_conf->get(TownConf::CONF_FEATURE_CITIZEN_ALIAS, false);
 
-        if($citizen_alias_active) {
+        $selected_alias = $parser->trimmed('citizenalias', '');
 
-            if (in_array($parser->trimmed('citizenalias', ''), ['Der Rabe','DerRabe','Der_Rabe','DerRaabe','TheCrow']))
+        if ($citizen_alias_active && !empty($selected_alias) && $selected_alias !== $citizen->getUser()->getName()) {
+
+            if (in_array($selected_alias, ['Der Rabe','DerRabe','Der_Rabe','DerRaabe','TheCrow']))
                 return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-            $violations = Validation::createValidator()->validate($parser->all( true ),  new Constraints\Collection([
-                'citizenalias' => [
-                    new Constraints\Regex( ['match' => false, 'pattern' => '/[^\w]/', 'message' => $translator->trans('Dein Name kann nur alphanumerische Zeichen enthalten.', [], 'login') ] ),
-                    new Constraints\Length(
-                        ['min' => 4, 'max' => 24,
-                            'minMessage' => $translator->trans('Dein Name muss mindestens {{ limit }} Zeichen umfassen.', [], 'login'),
-                            'maxMessage' => $translator->trans('Dein Name kann höchstens {{ limit }} Zeichen umfassen.', [], 'login'),
-                        ])
-                ]
-            ]), ['citizenalias']);
-            
-            if ($violations->count() === 0) {
-                $citizen->setAlias($parser->get('citizenalias'));
-            } else {
-                $v = [];
-                foreach ($violations as &$violation)
-                    /** @var ConstraintViolationInterface $violation */
-                    $v[] = $violation->getMessage();
+            if (mb_strlen($selected_alias) < 4 || mb_strlen($selected_alias) > 22 || preg_match('/[^\w]/', $selected_alias))
+                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-                return AjaxResponse::error( 'invalid_fields', ['fields' => $v] );
-            }
+            $citizen->setAlias( "· {$selected_alias}" );
         }
 
         $this->citizen_handler->applyProfession( $citizen, $new_profession );

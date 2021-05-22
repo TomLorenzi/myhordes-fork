@@ -493,10 +493,7 @@ class Citizen
 
     public function getName(): string
     {
-        $alias = $this->getAlias();
-
-        if($alias) return $alias;
-        return $this->getUser()->getName();
+        return $this->getAlias() ?? $this->getUser()->getName();
     }
 
     public function getHome(): ?CitizenHome
