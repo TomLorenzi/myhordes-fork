@@ -7,7 +7,7 @@
         <div class="{% if first_buttons %}forum-control{% endif %}">
             {% if first_buttons %}<div class="forum-header-bar"><i class="fa fa-comments"></i> {{ title }}</div>{% endif %}
             <div class="row">
-                <div class="cell padded rw-6 left">
+                <div class="cell padded rw-6 left rw-lg-12">
                     {% if permission.moderate() or owned %}
                         {% if not locked %}
                             <div x-forum-moderator-action="lock" class="forum-button">
@@ -34,7 +34,7 @@
                     {% endif %}
 
                 </div>
-                <div class="cell padded rw-6 right">
+                <div class="cell padded rw-6 right rw-lg-12">
                     <div x-forum-action="{{ subscribed ? 'unsub' : 'sub' }}" class="forum-button">
                         {% if subscribed %}
                             <img alt="" src="{{ asset('build/images/icons/tickOn.gif') }}" />
