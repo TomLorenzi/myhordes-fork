@@ -8336,5 +8336,23 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>You gulp down the {item}. After several minutes, your head starts to throb and your nose starts bleeding. The pain is not unbearable, but it's pretty far from pleasant...</target>
       </segment>
     </unit>
+    <unit id="poSLxEf">
+      <notes>
+        <note category="german">Um dieses Wasser trinkbar zu machen, brauchst du &lt;strong&gt;irgendein Reinigungsmittel&lt;/strong&gt; oder deine Stadt muss über einen &lt;strong&gt;Wasserreiniger&lt;/strong&gt; verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.</note>
+      </notes>
+      <segment>
+        <source>Um dieses Wasser trinkbar zu machen, brauchst du &lt;strong&gt;irgendein Reinigungsmittel&lt;/strong&gt; oder deine Stadt muss über einen &lt;strong&gt;Wasserreiniger&lt;/strong&gt; verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.</source>
+        <target><![CDATA[Um dieses Wasser trinkbar zu machen, brauchst du <strong>irgendein Reinigungsmittel</strong> oder deine Stadt muss über einen <strong>Wasserreiniger</strong> verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.]]></target>
+      </segment>
+    </unit>
+    <unit id="LB_nTi3">
+      <notes>
+        <note category="german">Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist &lt;strong&gt;nahezu unmöglich, es vom Original zu unterscheiden&lt;/strong&gt;, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.</note>
+      </notes>
+      <segment>
+        <source>Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist &lt;strong&gt;nahezu unmöglich, es vom Original zu unterscheiden&lt;/strong&gt;, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.</source>
+        <target><![CDATA[You have assembled {target} by combining {item} and {target} erzeugt.{hr}Warning! You have poisoned the {target}! It is now <strong>almost impossible to distinguish from a safe one</strong>, so be careful... It's up to you to do with it what you feel is "fair".]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

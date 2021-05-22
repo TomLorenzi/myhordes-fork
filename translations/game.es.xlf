@@ -19455,5 +19455,23 @@
         <target>Erforschung einer beengten Ruine in erstickender Atmosphäre</target>
       </segment>
     </unit>
+    <unit id="wGYcGMz" name="Diskussionen rund um Bauprojekte">
+      <notes>
+        <note category="german">Diskussionen rund um Bauprojekte</note>
+      </notes>
+      <segment>
+        <source>Diskussionen rund um Bauprojekte</source>
+        <target>Coordina con los demás sobre las construcciones</target>
+      </segment>
+    </unit>
+    <unit id="VVIGSg2" name="Vorhandene Bauprojekte">
+      <notes>
+        <note category="german">Vorhandene Bauprojekte</note>
+      </notes>
+      <segment>
+        <source>Vorhandene Bauprojekte</source>
+        <target>Obras disponibles</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

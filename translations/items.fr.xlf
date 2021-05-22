@@ -8255,5 +8255,23 @@
         <target>Vous gobez {item}. Après plusieurs minutes, vous sentez une douleur sourde vous serrer le crâne et votre nez se met à saigner. Rien d'insupportable, mais rien de positif non plus…</target>
       </segment>
     </unit>
+    <unit id="poSLxEf">
+      <notes>
+        <note category="german">Um dieses Wasser trinkbar zu machen, brauchst du &lt;strong&gt;irgendein Reinigungsmittel&lt;/strong&gt; oder deine Stadt muss über einen &lt;strong&gt;Wasserreiniger&lt;/strong&gt; verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.</note>
+      </notes>
+      <segment>
+        <source>Um dieses Wasser trinkbar zu machen, brauchst du &lt;strong&gt;irgendein Reinigungsmittel&lt;/strong&gt; oder deine Stadt muss über einen &lt;strong&gt;Wasserreiniger&lt;/strong&gt; verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.</source>
+        <target><![CDATA[Um dieses Wasser trinkbar zu machen, brauchst du <strong>irgendein Reinigungsmittel</strong> oder deine Stadt muss über einen <strong>Wasserreiniger</strong> verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.]]></target>
+      </segment>
+    </unit>
+    <unit id="LB_nTi3">
+      <notes>
+        <note category="german">Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist &lt;strong&gt;nahezu unmöglich, es vom Original zu unterscheiden&lt;/strong&gt;, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.</note>
+      </notes>
+      <segment>
+        <source>Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist &lt;strong&gt;nahezu unmöglich, es vom Original zu unterscheiden&lt;/strong&gt;, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.</source>
+        <target><![CDATA[Vous avez fabriqué {target} en combinant {item} et {target}.{hr}Attention, vous avez empoisonné {target} ! Il n'est dorénavant <strong>presque plus possible de distinguer cet objet d'une version saine</strong>, soyez donc très prudent(e)... Libre à vous d'en faire ce qui vous semblera "juste".]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

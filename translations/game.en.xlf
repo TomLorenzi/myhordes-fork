@@ -19461,5 +19461,23 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Erforschung einer beengten Ruine in erstickender Atmosphäre</target>
       </segment>
     </unit>
+    <unit id="wGYcGMz" name="Diskussionen rund um Bauprojekte">
+      <notes>
+        <note category="german">Diskussionen rund um Bauprojekte</note>
+      </notes>
+      <segment>
+        <source>Diskussionen rund um Bauprojekte</source>
+        <target>Discussions about construction sites</target>
+      </segment>
+    </unit>
+    <unit id="VVIGSg2" name="Vorhandene Bauprojekte">
+      <notes>
+        <note category="german">Vorhandene Bauprojekte</note>
+      </notes>
+      <segment>
+        <source>Vorhandene Bauprojekte</source>
+        <target>Available construction projects</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
