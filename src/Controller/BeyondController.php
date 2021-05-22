@@ -620,8 +620,6 @@ class BeyondController extends InventoryAwareController
             }
         }
 
-        $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
-
         try {
             $this->entity_manager->persist($citizen);
             $this->entity_manager->persist($zone);
@@ -629,6 +627,8 @@ class BeyondController extends InventoryAwareController
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
+
+        $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
 
         return AjaxResponse::success();
     }
@@ -807,12 +807,10 @@ class BeyondController extends InventoryAwareController
 
             // Set AP and increase walking distance counter
             $this->citizen_handler->setAP($mover, true, -1);
-            if (!$mover->hasRole('ghoul')) {
-                $mover->setWalkingDistance( $mover->getWalkingDistance() + 1 );
-                if ($mover->getWalkingDistance() > 10) {
-                    $this->citizen_handler->increaseThirstLevel( $mover );
-                    $mover->setWalkingDistance( 0 );
-                }
+            $mover->setWalkingDistance( $mover->getWalkingDistance() + 1 );
+            if ($mover->getWalkingDistance() > 10) {
+                $this->citizen_handler->increaseThirstLevel($mover);
+                $mover->setWalkingDistance( 0 );
             }
 
             $this->citizen_handler->inflictStatus($mover, "tg_chk_movewb");

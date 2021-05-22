@@ -732,11 +732,11 @@
     </unit>
     <unit id="oCYA07E">
       <notes>
-        <note category="german">Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</note>
+        <note category="german">Mit dem Wachturm können die Bürger jeden Tag eine Angriffsabschätzung durchführen. &lt;strong&gt;Die Qualität der Abschätzung hängt von der Anzahl der Bürger ab, die daran teil nehmen&lt;/strong&gt;.</note>
       </notes>
       <segment>
         <source>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</source>
-        <target>The construction of a Watchtower in town allows the magnitude of the night's attack to be estimated. The quality of the estimation depends directly on the number of citizens who take the time to come and look.</target>
+        <target><![CDATA[The construction of a Watchtower in town allows the magnitude of the night's attack to be estimated. <strong>The quality of the estimation depends directly on the number of citizens who take the time to come and look</strong>.]]></target>
       </segment>
     </unit>
     <unit id="MVukZx5" name="Heutige Abschätzung">
@@ -19360,6 +19360,60 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Beachte: Behälter wie Rucksack, Einkaufswagen etc. werden nicht in der Bank abgelegt.</source>
         <target>Note: Containers (such as a rucksack, trolley, etc...) will not automatically be placed in the bank.</target>
+      </segment>
+    </unit>
+    <unit id="jB1RN29" name="Deine Nachricht wurde gespeichert.">
+      <notes>
+        <note category="german">Deine Nachricht wurde gespeichert.</note>
+      </notes>
+      <segment>
+        <source>Deine Nachricht wurde gespeichert.</source>
+        <target>Your comment has been saved.</target>
+      </segment>
+    </unit>
+    <unit id="X21IBNl" name="Meine Partien">
+      <notes>
+        <note category="german">Meine Partien</note>
+      </notes>
+      <segment>
+        <source>Meine Partien</source>
+        <target>My games</target>
+      </segment>
+    </unit>
+    <unit id="KAAmbDC" name="Name der Stadt">
+      <notes>
+        <note category="german">Name der Stadt</note>
+      </notes>
+      <segment>
+        <source>Name der Stadt</source>
+        <target>Town name</target>
+      </segment>
+    </unit>
+    <unit id="9in0QXU">
+      <notes>
+        <note category="german">In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat.Ein Tag gilt immer dann als &amp;quot;vollkommen überlebt&amp;quot;, &lt;strong&gt;wenn du beim Zombieangriff um 23:59 stirbst&lt;/strong&gt;. Solltest du vorher - im Laufe des Tages - sterben, gilt der Tag nicht als überlebt..</note>
+      </notes>
+      <segment>
+        <source>In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat.Ein Tag gilt immer dann als &amp;quot;vollkommen überlebt&amp;quot;, &lt;strong&gt;wenn du beim Zombieangriff um 23:59 stirbst&lt;/strong&gt;. Solltest du vorher - im Laufe des Tages - sterben, gilt der Tag nicht als überlebt..</source>
+        <target><![CDATA[This colums indicates the number of full days each citizen has survived. A day is not counted as "complete" if a citizen dies <strong>for any reason OTHER than the attack of the Horde at 23:59</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="cEXdc4T" name="Die blau markierten Felder sind Städte, in denen du mitgespielt hast!">
+      <notes>
+        <note category="german">Die blau markierten Felder sind Städte, in denen du mitgespielt hast!</note>
+      </notes>
+      <segment>
+        <source>Die blau markierten Felder sind Städte, in denen du mitgespielt hast!</source>
+        <target>Lines with a blue background correspond to towns in which you participated!</target>
+      </segment>
+    </unit>
+    <unit id="zquwWt5" name="Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.">
+      <notes>
+        <note category="german">Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.</note>
+      </notes>
+      <segment>
+        <source>Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.</source>
+        <target>Rankings are updated after the midnight attack.</target>
       </segment>
     </unit>
   </file>

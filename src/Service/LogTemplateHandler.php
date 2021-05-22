@@ -963,7 +963,7 @@ class LogTemplateHandler
     }
 
     public function nightlyAttackWatchersCount( Town $town, int $watchers ): TownLogEntry {
-        $variables = array('zombies' => $watchers);
+        $variables = array('watchers' => $watchers);
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackWatcherCount']);
 
         return (new TownLogEntry())

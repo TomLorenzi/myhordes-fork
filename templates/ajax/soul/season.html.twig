@@ -193,6 +193,11 @@
         </div>
     </div>
     {% endif %}
+<div class="help">
+    <strong>{{'Die blau markierten Felder sind Städte, in denen du mitgespielt hast!'|trans({}, 'game')}}</strong>
+    {{'Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.'|trans({}, 'game')}}<br />
+    {{ help_lnk('Ranglisten und Saisons'|trans({}, 'help'), 'help', {'name': 'seasons_and_rankings'}) }}
+</div>
 
 {% endblock %}
 {% block js %}

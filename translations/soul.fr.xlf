@@ -3161,5 +3161,23 @@
         <target>Empfänger</target>
       </segment>
     </unit>
+    <unit id="P5HPUHF" name="Verlauf meiner Städte">
+      <notes>
+        <note category="german">Verlauf meiner Städte</note>
+      </notes>
+      <segment>
+        <source>Verlauf meiner Städte</source>
+        <target>Historique de mes parties</target>
+      </segment>
+    </unit>
+    <unit id="YC8wBlS" name="In diesem Abschnitt findest du alle bisher von dir gespielten Partien.">
+      <notes>
+        <note category="german">In diesem Abschnitt findest du alle bisher von dir gespielten Partien.</note>
+      </notes>
+      <segment>
+        <source>In diesem Abschnitt findest du alle bisher von dir gespielten Partien.</source>
+        <target>Cette section présente la liste de toutes vos parties jouées.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
