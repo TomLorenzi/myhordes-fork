@@ -68,6 +68,7 @@
             {% if z1[0] %}
             <div class="padded cell rw-12 center">
                 {% if z1[1] %}
+                    <div>{{'Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:'|trans({}, 'game')}}</div>
                     <b>{{ z1[2] }} - {{ z1[3] }}</b> <img alt="{{ 'Zombies'|trans({},'game') }}" src="{{ asset('build/images/icons/small_zombie.gif') }}" />
                 {% else %}
                     <b>???</b> <img alt="{{ 'Zombies'|trans({},'game') }}" src="{{ asset('build/images/icons/small_zombie.gif') }}" />
@@ -90,7 +91,7 @@
             </div>
             <div class="padded cell rw-12 center small">
                 {% if z1[1] %}
-                    <button {% if not z1_av %}disabled{% endif%} x-predict-attack="1"><img alt="" src="{{ asset('build/images/soul/r_explor.gif') }}" /> {{ 'Abschätzung verbessern'|trans({},'game') }}</button>
+                    <button {% if not z1_av %}disabled{% endif%} x-predict-attack="1"><img alt="" src="{{ asset('build/images/building/item_electro.gif') }}" /> {{ 'Den morgigen Angriff berechnen'|trans({},'game') }}</button>
                 {% endif %}
             </div>
             {% else %}
@@ -103,7 +104,6 @@
             {% endif %}
         </div>
     </div>
-
 
     <div class="small-note">
         {% trans from 'game' %}

@@ -19472,5 +19472,14 @@
         <target>Freilassen, um normalen Spielernamen zu verwenden.</target>
       </segment>
     </unit>
+    <unit id="G2mvpQw" name="Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:">
+      <notes>
+        <note category="german">Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:</note>
+      </notes>
+      <segment>
+        <source>Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:</source>
+        <target>Nous pensons que l'attaque du lendemain tournera autour de :</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

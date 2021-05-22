@@ -8254,7 +8254,7 @@
     </unit>
     <unit id="izlHb1B">
       <notes>
-        <note category="german">Verloren inmitten einer lächerlichen Menge sinnloser Dokumente hast du einen {item_to} entdeckt.</note>
+        <note category="german">Versteckt inmitten einer lächerlichen Menge sinnloser Dokumente hast du einen {item_to} entdeckt.</note>
       </notes>
       <segment>
         <source>Verloren inmitten einer lächerlichen Menge sinnloser Dokumente hast du einen {item_to} entdeckt.</source>
@@ -8317,7 +8317,7 @@
     </unit>
     <unit id="793QxjT" name="Hierfür brauchst du mindestens 1 PM.">
       <notes>
-        <note category="german">Hierfür brauchst du mindestens 1 PM.</note>
+        <note category="german">Hierfür brauchst du mindestens 1 MP.</note>
       </notes>
       <segment>
         <source>Hierfür brauchst du mindestens 1 PM.</source>
