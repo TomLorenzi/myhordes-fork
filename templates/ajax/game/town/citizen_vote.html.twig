@@ -34,7 +34,7 @@
             <div class="padded cell rw-4 left rw-md-7">{{ 'Bürger'|trans({},'game') }}</div>
             <div class="padded cell rw-8 right">{{ 'Aktionen'|trans({},'ghost') }}</div>
         </div>
-        {% for citizen in citizens|sort((a,b) => (a.alive == b.alive) ? ((a.alive) ? a.user.name|lower <=> b.user.name|lower : b.survivedDays <=> a.survivedDays) : b.alive <=> a.alive) %}
+        {% for citizen in citizens|sort((a,b) => (a.alive == b.alive) ? ((a.alive) ? a.name|lower <=> b.name|lower : b.survivedDays <=> a.survivedDays) : b.alive <=> a.alive) %}
             {# @var \App\Entity\Citizen citizen  #}
             {% if citizen.alive %}
             <div class="row {% if citizen == me%} me{% endif %}">
@@ -51,7 +51,7 @@
                             <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
                         {% endif %}
                         <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
-                        <b>{{ citizen.user.name }}</b>
+                        <b>{{ citizen.name }}</b>
                     </span>
                 </div>
                 <div class="padded cell rw-3 ro-5 small right">

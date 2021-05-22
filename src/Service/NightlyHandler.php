@@ -117,7 +117,7 @@ class NightlyHandler
         if ($town->getInsurrectionProgress() > 0)
             foreach ($town->getCitizens() as $citizen)
                 if ($citizen->getAlive() && $citizen->getBanished() && !$this->citizen_handler->hasStatusEffect($citizen, 'tg_insurrection')) {
-                    $this->log->info("Shunned citizen <info>{$citizen->getUser()->getName()}</info> did not contribute to the insurrection. Resetting.");
+                    $this->log->info("Shunned citizen <info>{$citizen->getName()}</info> did not contribute to the insurrection. Resetting.");
                     $town->setInsurrectionProgress(0);
                     break;
                 }
@@ -1354,14 +1354,14 @@ class NightlyHandler
                 $voted = $this->entity_manager->getRepository(CitizenVote::class)->findOneBy(['autor' => $citizen, 'role' => $role]); //findOneByCitizenAndRole($citizen, $role);
                 /** @var CitizenVote $voted */
                 if ($voted === null || !$voted->getVotedCitizen()->getAlive()) {
-                    $this->log->debug("Citizen {$citizen->getUser()->getName()} didn't vote, or voted for a dead citizen. We replace the vote.");
+                    $this->log->debug("Citizen {$citizen->getName()} didn't vote, or voted for a dead citizen. We replace the vote.");
                     // He has not voted, or the citizen he voted for is now dead, let's give his vote to someone who has votes
                     $vote_for_id = $this->random->pick(array_keys($votes), 1);
                     $votes[$vote_for_id]++;
 
-                    $this->log->debug("Citizen {$citizen->getUser()->getName()} then voted for citizen " . $this->entity_manager->getRepository(Citizen::class)->find($vote_for_id)->getUser()->getName());
+                    $this->log->debug("Citizen {$citizen->getName()} then voted for citizen " . $this->entity_manager->getRepository(Citizen::class)->find($vote_for_id)->getName());
                 } else {
-                    $this->log->debug("Citizen {$citizen->getUser()->getName()} voted for {$voted->getVotedCitizen()->getUser()->getName()}");
+                    $this->log->debug("Citizen {$citizen->getName()} voted for {$voted->getVotedCitizen()->getName()}");
                 }
             }
 

@@ -145,12 +145,12 @@ class TownHomeController extends TownController
                     case PrivateMessage::TEMPLATE_CROW_AGGRESSION_SUCCESS:
                         /** @var Citizen $aggressor */
                         $aggressor = $this->entity_manager->getRepository(Citizen::class)->find( $thread->getMessages()[0]->getForeignID() );
-                        $thread->setTitle( $this->translator->trans('%username% hat dich angegriffen und verletzt!', ['%username%' => $aggressor->getUser()->getName()], 'game') );
+                        $thread->setTitle( $this->translator->trans('%username% hat dich angegriffen und verletzt!', ['%username%' => $aggressor->getName()], 'game') );
                         break;
                     case PrivateMessage::TEMPLATE_CROW_AGGRESSION_FAIL:
                         /** @var Citizen $aggressor */
                         $aggressor = $this->entity_manager->getRepository(Citizen::class)->find( $thread->getMessages()[0]->getForeignID() );
-                        $thread->setTitle( $this->translator->trans('%username% hat dich angegriffen!', ['%username%' => $aggressor->getUser()->getName()], 'game') );
+                        $thread->setTitle( $this->translator->trans('%username% hat dich angegriffen!', ['%username%' => $aggressor->getName()], 'game') );
                         break;
                     case PrivateMessage::TEMPLATE_CROW_NIGHTWATCH_WOUND:
                         $thread->setTitle( $this->translator->trans('Verletzt', [], 'game') );

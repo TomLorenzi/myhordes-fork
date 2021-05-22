@@ -253,7 +253,7 @@
                                 <div class="padded cell rw-1">{{'Zone'|trans({}, 'admin')|slice(0,1)}}<div class="tooltip help">{{'Zone'|trans({}, 'admin')}}</div></div>
                                 <div class="padded cell left rw-9">{{ 'Bürger'|trans({},'game') }}</div>
                             </div>
-                            {% for citizen in town.citizens|sort((a,b) => (a.alive == b.alive) ? ((a.alive) ? a.user.name|lower <=> b.user.name|lower : b.survivedDays <=> a.survivedDays) : b.alive <=> a.alive) %}
+                            {% for citizen in town.citizens|sort((a,b) => (a.alive == b.alive) ? ((a.alive) ? a.name|lower <=> b.name|lower : b.survivedDays <=> a.survivedDays) : b.alive <=> a.alive) %}
                                 {# @var \App\Entity\Citizen citizen  #}
                                 <div class="row-flex stretch pointer" style="max-height: 100px;">
                                     <div class="cell rw-1">
@@ -327,7 +327,7 @@
                                         {% endif %}
                                         <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
                                         <a class="link" href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">
-                                            <b class="citizen-name">{{ citizen.user.name }}</b>
+                                            <b class="citizen-name">{{ citizen.name }}</b>
                                         </a>&nbsp;
                                         {% for role in citizen.roles %}
                                             <img src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" alt="{{ role.label|trans({},'game') }}">&nbsp;
@@ -370,8 +370,8 @@
                             {% for culprit, complaint in complaints %}
                                 <li>{{ 'Gegen %culprit%'|trans({'%culprit%': "<strong>" ~ culprit ~ "</strong>"}, 'admin')|raw }}
                                     <ul>
-                                    {% for cmp in complaint|sort((a,b) => a.autor.user.name <=> b.autor.user.name) %}
-                                        <li>{{ cmp.autor.user.name }} : {{ cmp.linkedReason.text|trans({}, 'game') }}</li>
+                                    {% for cmp in complaint|sort((a,b) => a.autor.name <=> b.autor.name) %}
+                                        <li>{{ cmp.autor.name }} : {{ cmp.linkedReason.text|trans({}, 'game') }}</li>
                                     {% endfor %}
                                     </ul>
                                 </li>
@@ -383,7 +383,7 @@
                                             <div class="log-entry log-entry log-entry-type-8 log-entry-class-{{ log_complaint.on ? 1 : 3 }}">
                                                 <span class="log-part-time" style="width: 120px">{{ log_complaint.time|format_datetime('medium', 'short') }}</span>
                                                 <span class="log-part-content">
-                                                    <span>{{ log_complaint.from.user.name }}</span> <i class="fa fa-arrow-right"></i> <span>{{ log_complaint.to.user.name }}</span>
+                                                    <span>{{ log_complaint.from.name }}</span> <i class="fa fa-arrow-right"></i> <span>{{ log_complaint.to.name }}</span>
                                                     (<i>{{ log_complaint.reason.text|trans({}, 'game') }}</i>)
                                                 </span>
                                             </div>
@@ -402,7 +402,7 @@
                                                 <li>{{ 'Für %target%'|trans({"%target%": target}, 'admin') }}
                                                     <ul>
                                                         {% for autor in autors %}
-                                                        <li>{{ autor.user.name }}</li>
+                                                        <li>{{ autor.name }}</li>
                                                         {% endfor %}
                                                     </ul>
                                                 </li>
@@ -437,7 +437,7 @@
                     {% for entry in blackboards %}
                         <div class="row">
                             <div class="padded cell rw-3">
-                                <a class="link" target="_blank" href="{{ url('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.user.name }}</a><br />
+                                <a class="link" target="_blank" href="{{ url('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.name }}</a><br />
                                 <i>{{ entry.time|format_datetime('medium', 'short') }}</i>
                             </div>
                             <div class="padded cell rw-9 pointer" x-blackboard-short="{{ entry.id }}">{{ entry.text }}</div>
@@ -506,7 +506,7 @@
                             <div class="cell rw-6 padded">
                                 <h5>{{ 'Aktuelle Sitzung'|trans({},'admin') }}</h5>
                                 {% if exploration.ax %}
-                                    {{ _self.valuelist('Spieler'|trans({},'admin'), exploration.ax.citizen.user.name) }}
+                                    {{ _self.valuelist('Spieler'|trans({},'admin'), exploration.ax.citizen.name) }}
                                     {{ _self.valuelist('Position'|trans({},'admin'), exploration.ax.x ~ ' / ' ~ exploration.ax.y ) }}
                                     {{ _self.valuelist('Flucht'|trans({},'admin'), exploration.ax.escaping ) }}
                                     {{ _self.valuelist('Raum'|trans({},'admin'), exploration.ax.inRoom ) }}
@@ -517,7 +517,7 @@
                                 {% endif %}
                                 <h5>{{ 'Alle Sitzungen'|trans({},'admin') }}</h5>
                                 {% for x in exploration.x %}
-                                    <div>{{ x.citizen.user.name }}</div>
+                                    <div>{{ x.citizen.name }}</div>
                                 {% endfor %}
                             </div>
                         </div>

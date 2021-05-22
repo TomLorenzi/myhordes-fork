@@ -677,7 +677,7 @@ class ExternalXML2Controller extends ExternalController {
                         $cadaver['cleanup'] = [
                             'attributes' => [
                                 'type' => $type,
-                                'user' => $citizen->getDisposedBy()->count() > 0 ? $citizen->getDisposedBy()[0]->getUser()->getName() : ""
+                                'user' => $citizen->getDisposedBy()->count() > 0 ? $citizen->getDisposedBy()[0]->getName() : ""
                             ]
                         ];
                     }

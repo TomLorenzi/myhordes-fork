@@ -111,6 +111,7 @@ parameters:
         nightmode: true
         shaman: 'normal'
         xml_feed: true
+        citizen_alias: false
         ghoul_mode: normal
         all_poison: false
         shun: true

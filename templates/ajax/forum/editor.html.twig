@@ -23,7 +23,9 @@
                 {% else %}
                     <i>{{ 'Bearbeiten'|trans({},'global') }}</i>
                 {% endif %}
-                <b>{{ app.user.name }}</b>
+                <b>
+                {{ username }}
+                </b>
             </div>
         {% endif %}
         {% if tid is null %}

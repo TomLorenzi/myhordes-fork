@@ -23,7 +23,7 @@
                 {% else %}
                     <div class="avatar small ua-{{ post.owner.user.id % 10 }}"><img alt="" src="{{ asset('build/images/forum/empty_avatar.gif') }}"></div>
                 {% endif %}
-                <b>{{ post.owner.user.name }}</b>
+                <b>{{ post.owner.name }}</b>
             </div>
             {% if post.adminReports(true)|length > 0 %}
                 <div class="modrev modWarnText pointer">

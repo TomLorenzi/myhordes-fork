@@ -54,6 +54,17 @@
                 {% endfor %}
             </div>
             <br />
+            {% if town.conf and town.conf.features.citizen_alias %}
+            <h5>{{'Deine Identität'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Diese Stadt erlaubt es, einen Spitznamen zu tragen.'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
+            <div class="row">
+                <div class="cell padded note note-lightest">
+                    <label for="citizenalias">{{'Dein Name'|trans({}, 'ghost')}}</label>
+                </div>
+                <div class="cell">
+                    <input type="text" name="citizenalias" id="citizenalias" />
+                </div>
+            </div>
+            {% endif %}
             <h5>{{'Zur zeit in der Stadt'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
             <div class="row prof-list">
             {% for elem in prof_count %}
@@ -83,12 +94,13 @@
 
         let selected_profession = 0;
         let jobConfirm = document.getElementById('job_confirm');
+        let form = {}
 
         let jobSelect = document.querySelectorAll('input[type=radio][name=job]');
         for (let i = 0; i < jobSelect.length; i++)
             jobSelect[i].addEventListener('click', function () {
                 jobConfirm.removeAttribute('disabled')
-                selected_profession = parseInt(this.value);
+                form.job = parseInt(this.value);
                 let previous = document.querySelectorAll('.jobs-choice.selected');
                 for (var i = previous.length - 1; i >= 0; i--) {
                 	previous[i].classList.remove('selected');
@@ -99,7 +111,10 @@
 
         jobConfirm.addEventListener('click', function(e) {
             e.preventDefault();
-            $.ajax.easySend( '{{ path('api_jobcenter') }}', {job: selected_profession},
+            {% if town.conf and town.conf.features.citizen_alias %}
+            form.citizenalias = document.getElementById('citizenalias').value;
+            {% endif %}
+            $.ajax.easySend( '{{ path('api_jobcenter') }}', form,
                     function () {
                         $.ajax.load(null, '{{ path('game_landing') }}', true);
                     } );

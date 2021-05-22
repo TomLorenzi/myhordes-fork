@@ -40,6 +40,7 @@ class MessageAnnouncementController extends MessageController
 
             'forum' => false,
             'type' => 'changelog',
+            'username' => $user->getName(),
             'target_url' => 'admin_changelog_new_changelog',
             'town_controls' => false
         ] );
@@ -63,6 +64,7 @@ class MessageAnnouncementController extends MessageController
 
             'forum' => false,
             'type' => 'announcement',
+            'username' => $user->getName(),
             'target_url' => 'admin_changelog_new_announcement',
             'town_controls' => false
         ] );
