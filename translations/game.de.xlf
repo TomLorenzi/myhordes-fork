@@ -19555,5 +19555,14 @@
         <target><![CDATA[<strong>Achtung!</strong> Das Betreten der Stadt erfordert <div class="ap">1</div> (die Kosten sind auf den Bau des <strong>Labyrinths</strong> zurückzuführen)!]]></target>
       </segment>
     </unit>
+    <unit id="_mE4ihs" name="Unser %building% hat reichhaltigen Ertrag gebracht: %items%">
+      <notes>
+        <note category="german">Unser %building% hat reichhaltigen Ertrag gebracht: %items%</note>
+      </notes>
+      <segment>
+        <source>Unser %building% hat reichhaltigen Ertrag gebracht: %items%</source>
+        <target>Unser %building% hat reichhaltigen Ertrag gebracht: %items%</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

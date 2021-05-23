@@ -1156,7 +1156,7 @@ class LogTemplateHandler
         $variables = array('building' => $building->getPrototype()->getId(), 
             'items' => array_map( function($e) { if(array_key_exists('count', $e)) {return array('id' => $e['item']->getId(),'count' => $e['count']);}
               else { return array('id' => $e[0]->getId()); } }, $items ));
-        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackProduction']);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $building->getPrototype()->getName() === 'item_vegetable_tasty_#00' ? 'nightlyAttackProductionVegetables' : 'nightlyAttackProduction']);
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
