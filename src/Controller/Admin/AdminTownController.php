@@ -28,6 +28,7 @@ use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Entity\RuinExplorerStats;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
@@ -333,10 +334,14 @@ class AdminTownController extends AdminActionController
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (str_starts_with($action, 'dbg_') && $kernel->getEnvironment() !== 'dev')
+        if ((str_starts_with($action, 'dbg_') || in_array($action, ['ex_inf'])) && $kernel->getEnvironment() !== 'dev')
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($action, ['release', 'quarantine', 'advance', 'nullify', 'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage', 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set']) && !$this->isGranted('ROLE_ADMIN'))
+        if (in_array($action, [
+            'release', 'quarantine', 'advance', 'nullify',
+                'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf',
+                'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage', 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set'
+            ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $param = $parser->get('param');
@@ -533,7 +538,37 @@ class AdminTownController extends AdminActionController
 
                 $this->entity_manager->persist( $town );
                 break;
+            case 'ex_del': case 'ex_co+': case 'ex_co-':case 'ex_ref':case 'ex_inf':
+                /** @var RuinExplorerStats $session */
+                $session = $this->entity_manager->getRepository(RuinExplorerStats::class)->find($param);
+                if (!$session || $session->getCitizen()->getTown() !== $town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
+                if ($action !== 'ex_del' && !$session->getActive()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                switch ($action) {
+                    case 'ex_del':
+                        $session->getCitizen()->removeExplorerStat( $session );
+                        $this->entity_manager->remove( $session );
+                        break;
+                    case 'ex_co+':
+                        $session->setTimeout(new \DateTime())->setActive(false);
+                        $this->entity_manager->persist($session);
+                        break;
+                    case 'ex_co-':
+                        $session->setTimeout(new \DateTime());
+                        $this->entity_manager->persist($session);
+                        break;
+                    case 'ex_ref':
+                        $session->setTimeout(clone $session->getTimeout()->modify('+1min'));
+                        $this->entity_manager->persist($session);
+                        break;
+                    case 'ex_inf':
+                        $session->setTimeout(clone $session->getTimeout()->modify('+24hours'));
+                        $this->entity_manager->persist($session);
+                        break;
+                    default: break;
+                }
+
+                break;
             default:
                 return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
