@@ -19568,7 +19568,7 @@
       </notes>
       <segment>
         <source>Name</source>
-        <target>Name</target>
+        <target>Nom</target>
       </segment>
     </unit>
     <unit id="qN3u6fP" name="Kosten">
@@ -19577,7 +19577,7 @@
       </notes>
       <segment>
         <source>Kosten</source>
-        <target>Kosten</target>
+        <target>Coût</target>
       </segment>
     </unit>
   </file>
