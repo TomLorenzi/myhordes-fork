@@ -19506,5 +19506,14 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Die Schätzung des heutigen Tages muss zuerst abgeschlossen werden, um die Schätzung des nächsten Tages zu berechnen.</target>
       </segment>
     </unit>
+    <unit id="NExVouj">
+      <notes>
+        <note category="german">Durch die Konstruktion von %building% wurden eine Menge Zombies in der Außenwelt vernichtet!</note>
+      </notes>
+      <segment>
+        <source>Durch die Konstruktion von %building% wurden eine Menge Zombies in der Außenwelt vernichtet!</source>
+        <target>Durch die Konstruktion von %building% wurden eine Menge Zombies in der Außenwelt vernichtet!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

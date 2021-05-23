@@ -496,6 +496,17 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') );
     }
 
+    public function constructionsBuildingCompleteZombieKill( Building $building ): TownLogEntry {
+        $variables = array('building' => $building->getPrototype()->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'constructionsBuildingCompleteZombieKill']);
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $building->getTown() )
+            ->setDay( $building->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
     public function doorControl( Citizen $citizen, bool $open ): TownLogEntry {
         if ($open)
             $action = "geöffnet";

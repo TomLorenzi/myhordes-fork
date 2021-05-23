@@ -19535,5 +19535,14 @@
         <target>Il faut d'abord calculer l'estimation du jour pour calculer celle du lendemain.</target>
       </segment>
     </unit>
+    <unit id="NExVouj">
+      <notes>
+        <note category="german">Durch die Konstruktion von %building% wurden eine Menge Zombies in der Außenwelt vernichtet!</note>
+      </notes>
+      <segment>
+        <source>Durch die Konstruktion von %building% wurden eine Menge Zombies in der Außenwelt vernichtet!</source>
+        <target>L'utilisation de %building% a totalement pulvérisé un bon nombre de zombies dans l'Outre-Monde !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
