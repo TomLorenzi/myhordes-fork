@@ -277,11 +277,11 @@ class InventoryAwareController extends CustomAbstractController
 
         foreach ($items as $item) if (!$item->getBroken()) {
 
-            $this->action_handler->getAvailableItemActions( $this->getActiveCitizen(), $item, $available, $crossed );
+            $this->action_handler->getAvailableItemActions( $this->getActiveCitizen(), $item, $available, $crossed, $messages );
             if (empty($available) && empty($crossed)) continue;
 
-            foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'item' => $item, 'action' => $a, 'targets' => $a->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getTarget() ) : null, 'target_mode' => $a->getTarget() ? $a->getTarget()->getSpawner() : 0, 'crossed' => false ];
-            foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'item' => $item, 'action' => $c, 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
+            foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'item' => $item, 'action' => $a, 'targets' => $a->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getTarget() ) : null, 'target_mode' => $a->getTarget() ? $a->getTarget()->getSpawner() : 0, 'crossed' => false, 'message' => null ];
+            foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'item' => $item, 'action' => $c, 'targets' => null, 'target_mode' => 0, 'crossed' => true, 'message' => $messages[$c->getId()] ?? null ];
         }
 
         return $ret;
