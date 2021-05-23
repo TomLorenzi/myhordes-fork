@@ -19546,5 +19546,14 @@
         <target>Durch die Konstruktion von %building% wurden eine Menge Zombies in der Außenwelt vernichtet!</target>
       </segment>
     </unit>
+    <unit id="U6fEEaj">
+      <notes>
+        <note category="german">&lt;strong&gt;Achtung!&lt;/strong&gt; Das Betreten der Stadt erfordert &lt;div class="ap"&gt;1&lt;/div&gt; (die Kosten sind auf den Bau des &lt;strong&gt;Labyrinths&lt;/strong&gt; zurückzuführen)!</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Achtung!&lt;/strong&gt; Das Betreten der Stadt erfordert &lt;div class="ap"&gt;1&lt;/div&gt; (die Kosten sind auf den Bau des &lt;strong&gt;Labyrinths&lt;/strong&gt; zurückzuführen)!</source>
+        <target><![CDATA[<strong>Achtung!</strong> Das Betreten der Stadt erfordert <div class="ap">1</div> (die Kosten sind auf den Bau des <strong>Labyrinths</strong> zurückzuführen)!]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

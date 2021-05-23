@@ -19544,5 +19544,14 @@
         <target>L'utilisation de %building% a totalement pulvérisé un bon nombre de zombies dans l'Outre-Monde !</target>
       </segment>
     </unit>
+    <unit id="U6fEEaj">
+      <notes>
+        <note category="german">&lt;strong&gt;Achtung!&lt;/strong&gt; Das Betreten der Stadt erfordert &lt;div class="ap"&gt;1&lt;/div&gt; (die Kosten sind auf den Bau des &lt;strong&gt;Labyrinths&lt;/strong&gt; zurückzuführen)!</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Achtung!&lt;/strong&gt; Das Betreten der Stadt erfordert &lt;div class="ap"&gt;1&lt;/div&gt; (die Kosten sind auf den Bau des &lt;strong&gt;Labyrinths&lt;/strong&gt; zurückzuführen)!</source>
+        <target><![CDATA[<strong>Attention !</strong> Entrer en ville nécessite <div class="ap">1</div> (ce coût est dû au chantier <strong>Labyrinthe</strong>) !]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
