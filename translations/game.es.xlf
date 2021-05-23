@@ -19533,7 +19533,7 @@
       </notes>
       <segment>
         <source>Name</source>
-        <target>Name</target>
+        <target>Nombre</target>
       </segment>
     </unit>
     <unit id="qN3u6fP" name="Kosten">
@@ -19542,7 +19542,7 @@
       </notes>
       <segment>
         <source>Kosten</source>
-        <target>Kosten</target>
+        <target>Coste</target>
       </segment>
     </unit>
   </file>
