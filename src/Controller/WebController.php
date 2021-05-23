@@ -152,6 +152,13 @@ class WebController extends CustomAbstractController
         return $this->render_web_framework(Request::createFromGlobals()->getBasePath() . '/jx/' . $ajax);
     }
 
+    private function check_cache(string $name): ?Response {
+        $request = Request::createFromGlobals();
+        if (!$request->headers->has('If-None-Match')) return null;
+
+        return $request->headers->get('If-None-Match') === $name ? new Response("",304) : null;
+    }
+
     private function image_output($data, string $name, string $ext): Response {
         $response = new Response(stream_get_contents( $data ));
         $disposition = HeaderUtils::makeDisposition(
@@ -161,6 +168,7 @@ class WebController extends CustomAbstractController
         $response->headers->set('Content-Disposition', $disposition);
         $response->headers->set('Content-Type', "image/{$ext}");
         $response->headers->set('Cache-Control', ['public','max-age=157680000','immutable']);
+        $response->headers->set('ETag', $name);
         return $response;
     }
 
@@ -173,6 +181,8 @@ class WebController extends CustomAbstractController
      */
     public function avatar(int $uid, string $name, string $ext): Response
     {
+        if ($r = $this->check_cache($name)) return $r;
+
         /** @var User $user */
         $user = $this->entity_manager->getRepository(User::class)->find( $uid );
         if (!$user || !$user->getAvatar()) return $this->cdn_fallback( "avatar/{$uid}/{$name}/{$ext}" );
@@ -192,6 +202,8 @@ class WebController extends CustomAbstractController
      */
     public function app_icon(int $aid, string $name, string $ext): Response
     {
+        if ($r = $this->check_cache($name)) return $r;
+
         /** @var ExternalApp $app */
         $app = $this->entity_manager->getRepository(ExternalApp::class)->find( $aid );
         if (!$app || !$app->getImage()) return $this->cdn_fallback( "app/{$aid}/{$name}/{$ext}" );
@@ -210,6 +222,8 @@ class WebController extends CustomAbstractController
      */
     public function group_icon(int $gid, string $name, string $ext): Response
     {
+        if ($r = $this->check_cache($name)) return $r;
+
         /** @var UserGroup $group */
         $group = $this->entity_manager->getRepository(UserGroup::class)->find( $gid );
         if (!$group) return $this->cdn_fallback( "group/{$gid}/{$name}/{$ext}" );
