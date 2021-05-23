@@ -19548,7 +19548,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Kosten</source>
-        <target>Kosten</target>
+        <target>Cost</target>
       </segment>
     </unit>
   </file>
