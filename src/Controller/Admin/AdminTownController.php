@@ -22,6 +22,7 @@ use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\ComplaintReason;
 use App\Entity\ExpeditionRoute;
+use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
@@ -1062,6 +1063,14 @@ class AdminTownController extends AdminActionController
                     $this->entity_manager->persist($citizen);
                 }
                 break;
+            case '_sh_':
+                foreach ($this->entity_manager->getRepository(HeroicActionPrototype::class)->findAll() as $heroic_action)
+                    foreach ($citizens as $citizen) {
+                        $citizen->addHeroicAction( $heroic_action );
+                        $this->citizen_handler->removeStatus($citizen,'tg_hero');
+                        $this->entity_manager->persist( $citizen );
+                    }
+                break;
             default: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         }
@@ -1084,7 +1093,7 @@ class AdminTownController extends AdminActionController
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($parser->get('role'), ['_ban_','_esc_','_nw_'] ))
+        if (in_array($parser->get('role'), ['_ban_','_esc_','_nw_','_sh_'] ))
             return $this->town_manage_pseudo_role($town,$parser,$handler);
 
         $role_id = $parser->get_int('role');
