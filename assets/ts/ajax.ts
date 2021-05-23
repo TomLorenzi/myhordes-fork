@@ -13,6 +13,7 @@ export default class Ajax {
     private defaultNode: HTMLElement;
     private no_load_spinner: boolean;
     private no_history_manipulation: boolean;
+    private no_connection_error_message: boolean;
 
     private render_queue: Array<ajaxStack> = [];
     private render_block_stack: number = 0;
@@ -39,6 +40,11 @@ export default class Ajax {
 
     no_loader(): Ajax {
         this.no_load_spinner = true;
+        return this;
+    }
+
+    soft_fail(): Ajax {
+        this.no_connection_error_message = true;
         return this;
     }
 
@@ -69,6 +75,12 @@ export default class Ajax {
     private fetch_no_history(): boolean {
         const r = this.no_history_manipulation;
         this.no_history_manipulation = false;
+        return r;
+    }
+
+    private fetch_soft_fail(): boolean {
+        const r = this.no_connection_error_message;
+        this.no_connection_error_message = false;
         return r;
     }
 
@@ -239,6 +251,7 @@ export default class Ajax {
 
         const no_hist    = this.fetch_no_history();
         const no_loader  = this.fetch_no_loader();
+        const no_error  = this.fetch_soft_fail();
         if (push_history) history.pushState( url, '', url );
 
         if (!no_loader) $.html.addLoadStack();
@@ -287,7 +300,7 @@ export default class Ajax {
             if (!no_loader) $.html.removeLoadStack();
         });
         request.addEventListener('error', function(e) {
-            alert('Error loading page.');
+            if (!no_error) alert('Error loading page.');
             if (!no_loader) $.html.removeLoadStack();
         });
         request.open('POST', url);
@@ -307,6 +320,7 @@ export default class Ajax {
 
         const no_hist   = this.fetch_no_history();
         const no_loader = this.fetch_no_loader();
+        const no_error  = this.fetch_soft_fail();
 
         if (!no_loader) $.html.addLoadStack();
         let request = new XMLHttpRequest();
@@ -327,7 +341,8 @@ export default class Ajax {
             if (!no_loader) $.html.removeLoadStack();
         });
         request.addEventListener('error', function(e) {
-            alert('Error transferring data.');
+            if (!no_error) alert('Error transferring data.');
+            else callback(this.response, 1 );
             if (!no_loader) $.html.removeLoadStack();
         });
         request.open('POST', url);

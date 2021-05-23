@@ -58,7 +58,7 @@ class networker<T extends payload> {
             return true;
         }
         if (this.pending || this.stack.empty()) return !this.stack.empty() && !(this.canceled = false);
-        else $.ajax.background().easySend(this.endpoint,this.last_key ? {rk: this.last_key} : {},(data: object) => {
+        else $.ajax.background().soft_fail().easySend(this.endpoint,this.last_key ? {rk: this.last_key} : {},(data: object) => {
             if (!this.canceled) {
                 this.last_key = data['response_key'] ?? this.last_key ?? null;
                 this.stack.trigger(new this.TType(data['payload'] ?? data), true);
