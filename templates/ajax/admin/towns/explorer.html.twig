@@ -511,13 +511,29 @@
                                     {{ _self.valuelist('Flucht'|trans({},'admin'), exploration.ax.escaping ) }}
                                     {{ _self.valuelist('Raum'|trans({},'admin'), exploration.ax.inRoom ) }}
                                     <div class="row">
-                                        <div class="cell rw-4"><b>{{ 'Zeit'|trans({},'admin') }}</b></div>
-                                        <div class="cell rw-8"><span x-countdown="{{ exploration.axt }}">...</span></div>
+                                        <div class="padded cell rw-4 note note-lightest"><b>{{ 'Zeit'|trans({},'admin') }}</b></div>
+                                        <div class="padded cell rw-8"><span x-countdown="{{ exploration.axt }}">...</span></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class=" padded cell rw-4 note note-lightest"><b>{{ 'Aktionen'|trans({},'admin') }}</b></div>
+                                        <div class=" padded cell rw-8">
+                                            <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_co+', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-door-open"></i></button>
+                                            <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_co-', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-door-closed"></i></button>
+                                            <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_ref', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-plus"></i></button>
+                                            {% if app.environment == 'dev' %}
+                                                <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_inf', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-plus-circle"></i></button>
+                                            {% endif %}
+                                        </div>
                                     </div>
                                 {% endif %}
                                 <h5>{{ 'Alle Sitzungen'|trans({},'admin') }}</h5>
                                 {% for x in exploration.x %}
-                                    <div>{{ x.citizen.name }}</div>
+                                    <div class="row">
+                                        <div class="cell rw-12 padded">
+                                            {{ x.citizen.name }}
+                                            <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_del', id: town.id}) }}" x-ex-session="{{ x.id }}" class="small inline float-right"><i class="fa fa-recycle"></i></button>
+                                        </div>
+                                    </div>
                                 {% endfor %}
                             </div>
                         </div>
@@ -567,6 +583,13 @@
                 $.ajax.easySend( document.getElementById('administer-town').value, {param: q_param},
                     function () {
                         $.ajax.load(null, url ? url : '{{ path('admin_town_explorer', {id: town.id}) }}', true);
+                    } );
+            });
+
+            $.html.addEventListenerAll('[x-ex-action][x-ex-session]', 'click', function(e,elem) {
+                $.ajax.easySend( elem.getAttribute('x-ex-action'), {param: parseInt(elem.getAttribute('x-ex-session'))},
+                    function () {
+                        $.ajax.load(null, url ? url : '{{ path('admin_town_explorer', {id: town.id, tab: 'explorer'}) }}', true);
                     } );
             });
 

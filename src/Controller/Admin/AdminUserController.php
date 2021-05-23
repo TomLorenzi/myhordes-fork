@@ -808,32 +808,43 @@ class AdminUserController extends AdminActionController
      * @param JSONRequestParser $parser The Request Parser
      * @return Response
      */
-    public function user_give_picto($id, JSONRequestParser $parser): Response
+    public function user_give_picto($id, JSONRequestParser $parser, KernelInterface $kernel): Response
     {
         $user = $this->entity_manager->getRepository(User::class)->find($id);
-        if(!$user) {
-            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-        }
+        if(!$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $prototype_id = $parser->get('prototype');
         $number = $parser->get('number', 1);
 
-        /** @var PictoPrototype $pictoPrototype */
-        $pictoPrototype = $this->entity_manager->getRepository(PictoPrototype::class)->find($prototype_id);
+        if ($prototype_id === -42 && $kernel->getEnvironment() === 'dev')
+            $prototypes = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
+        else {
+            /** @var PictoPrototype $prototype */
+            $prototype = $this->entity_manager->getRepository(PictoPrototype::class)->find($prototype_id);
+            if ($prototype === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        $picto = $this->entity_manager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
-        if (null === $picto) {
-            $picto = new Picto();
-            $picto->setPrototype($pictoPrototype)
-                ->setPersisted(2)
-                ->setUser($user);
-            $user->addPicto($picto);
-            $this->entity_manager->persist($user);
+            $prototypes = [$prototype];
         }
 
-        $picto->setCount($picto->getCount() + $number);
+        foreach ( $prototypes as $pictoPrototype ) {
+            $picto = $this->entity_manager->getRepository(Picto::class)->findByUserAndTownAndPrototype($user, null, $pictoPrototype);
+            if (null === $picto) {
+                $picto = new Picto();
+                $picto->setPrototype($pictoPrototype)
+                    ->setPersisted(2)
+                    ->setUser($user);
+                $user->addPicto($picto);
+                $this->entity_manager->persist($user);
+            }
 
-        $this->entity_manager->persist($picto);
+            $picto->setCount($picto->getCount() + $number);
+            if ($picto->getCount() > 0) $this->entity_manager->persist($picto);
+            else $this->entity_manager->remove($picto);
+        }
+
+        $this->entity_manager->flush();
+
+        $this->user_handler->computePictoUnlocks($user);
         $this->entity_manager->flush();
 
         return AjaxResponse::success();

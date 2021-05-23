@@ -51,7 +51,11 @@
                                 {{ _self.target_popup( entry.id, entry.item.id, entry.targets, entry.id ~ '--' ~ entry.item.id, 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false, entry.action.confirm, entry.action.confirmMsg ) }}
                             {% endif %}
                         {% endif %}
-                        {% embed "ajax/game/item_tooltip.html.twig" with {"item": entry.item} %}{% endembed %}
+                        {% if entry.message is defined and entry.message is not null %}
+                            <div class="tooltip">{{ entry.message|raw }}</div>
+                        {% elseif not entry.crossed %}
+                            {% embed "ajax/game/item_tooltip.html.twig" with {"item": entry.item} %}{% endembed %}
+                        {% endif %}
                     </li>
                 {% endfor %}
             {% endif %}

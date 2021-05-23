@@ -379,10 +379,11 @@ class ActionHandler
      * @param Item $item
      * @param ItemAction[] $available
      * @param ItemAction[] $crossed
+     * @param array|null $messages
      */
-    public function getAvailableItemActions(Citizen $citizen, Item $item, ?array &$available, ?array &$crossed ) {
+    public function getAvailableItemActions(Citizen $citizen, Item $item, ?array &$available, ?array &$crossed, ?array &$messages = null ) {
 
-        $available = $crossed = [];
+        $available = $crossed = $messages = [];
         if ($item->getBroken()) return;
 
         $is_at_00 = $citizen->getZone() && $citizen->getZone()->isTownZone();
@@ -391,6 +392,7 @@ class ActionHandler
             $mode = $this->evaluate( $citizen, $item, null, $action, $tx );
             if ($mode >= self::ActionValidityAllow) $available[] = $action;
             else if ($mode >= self::ActionValidityCrossed) $crossed[] = $action;
+            if (!empty($tx)) $messages[$action->getId()] = $tx;
         }
     }
 

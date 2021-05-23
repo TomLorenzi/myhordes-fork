@@ -77,6 +77,11 @@ class LogEntryTemplate
      */
     private $name;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $nonVolatile;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -150,6 +155,18 @@ class LogEntryTemplate
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getNonVolatile(): ?bool
+    {
+        return $this->nonVolatile;
+    }
+
+    public function setNonVolatile(bool $nonVolatile): self
+    {
+        $this->nonVolatile = $nonVolatile;
 
         return $this;
     }

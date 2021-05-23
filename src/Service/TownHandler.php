@@ -162,6 +162,7 @@ class TownHandler
                         $zone->setZombies(0);
                         $zone->getEscapeTimers()->clear();
                     }
+                $this->entity_manager->persist( $this->log->constructionsBuildingCompleteZombieKill( $building ) );
                 break;
             case 'small_cafet_#00':
                 $proto = $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy( ['name' => 'woodsteak_#00'] );

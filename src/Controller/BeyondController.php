@@ -115,7 +115,8 @@ class BeyondController extends InventoryAwareController
     }
 
     protected function deferZoneUpdate() {
-        $this->zone_handler->updateRuinZone( $this->getActiveCitizen()->getZone()->activeExplorerStats() );
+        $str = $this->zone_handler->updateRuinZone( $this->getActiveCitizen()->getZone()->activeExplorerStats() );
+        if ($str) $this->addFlash( 'error', $str );
         $str = $this->zone_handler->updateZone( $this->getActiveCitizen()->getZone(), null, $this->getActiveCitizen() );
         if ($str) $this->addFlash( 'notice', $str );
         $this->entity_manager->flush();
@@ -620,6 +621,8 @@ class BeyondController extends InventoryAwareController
             }
         }
 
+        $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
+
         try {
             $this->entity_manager->persist($citizen);
             $this->entity_manager->persist($zone);
@@ -627,8 +630,6 @@ class BeyondController extends InventoryAwareController
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
-
-        $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
 
         return AjaxResponse::success();
     }

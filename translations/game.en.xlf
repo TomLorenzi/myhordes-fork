@@ -19479,5 +19479,77 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Available construction projects</target>
       </segment>
     </unit>
+    <unit id="Ms44ehb">
+      <notes>
+        <note category="german">Die Atmosphäre wird unerträglich... Du kannst so nicht weitermachen; ohne zu wissen wie, du findest den Ausgang, aber du verletzt dich bei der Flucht.</note>
+      </notes>
+      <segment>
+        <source>Die Atmosphäre wird unerträglich... Du kannst so nicht weitermachen; ohne zu wissen wie, du findest den Ausgang, aber du verletzt dich bei der Flucht.</source>
+        <target>Die Atmosphäre wird unerträglich... Du kannst so nicht weitermachen; ohne zu wissen wie, du findest den Ausgang, aber du verletzt dich bei der Flucht.</target>
+      </segment>
+    </unit>
+    <unit id="mwmHgUh" name="Superheld">
+      <notes>
+        <note category="german">Superheld</note>
+      </notes>
+      <segment>
+        <source>Superheld</source>
+        <target>Super Hero</target>
+      </segment>
+    </unit>
+    <unit id="i7ayglv">
+      <notes>
+        <note category="german">Die Schätzung des heutigen Tages muss zuerst abgeschlossen werden, um die Schätzung des nächsten Tages zu berechnen.</note>
+      </notes>
+      <segment>
+        <source>Die Schätzung des heutigen Tages muss zuerst abgeschlossen werden, um die Schätzung des nächsten Tages zu berechnen.</source>
+        <target>Die Schätzung des heutigen Tages muss zuerst abgeschlossen werden, um die Schätzung des nächsten Tages zu berechnen.</target>
+      </segment>
+    </unit>
+    <unit id="NExVouj">
+      <notes>
+        <note category="german">Durch die Konstruktion von %building% wurden eine Menge Zombies in der Außenwelt vernichtet!</note>
+      </notes>
+      <segment>
+        <source>Durch die Konstruktion von %building% wurden eine Menge Zombies in der Außenwelt vernichtet!</source>
+        <target>Durch die Konstruktion von %building% wurden eine Menge Zombies in der Außenwelt vernichtet!</target>
+      </segment>
+    </unit>
+    <unit id="U6fEEaj">
+      <notes>
+        <note category="german">&lt;strong&gt;Achtung!&lt;/strong&gt; Das Betreten der Stadt erfordert &lt;div class="ap"&gt;1&lt;/div&gt; (die Kosten sind auf den Bau des &lt;strong&gt;Labyrinths&lt;/strong&gt; zurückzuführen)!</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Achtung!&lt;/strong&gt; Das Betreten der Stadt erfordert &lt;div class="ap"&gt;1&lt;/div&gt; (die Kosten sind auf den Bau des &lt;strong&gt;Labyrinths&lt;/strong&gt; zurückzuführen)!</source>
+        <target><![CDATA[<strong>Achtung!</strong> Das Betreten der Stadt erfordert <div class="ap">1</div> (die Kosten sind auf den Bau des <strong>Labyrinths</strong> zurückzuführen)!]]></target>
+      </segment>
+    </unit>
+    <unit id="_mE4ihs" name="Unser %building% hat reichhaltigen Ertrag gebracht: %items%">
+      <notes>
+        <note category="german">Unser %building% hat reichhaltigen Ertrag gebracht: %items%</note>
+      </notes>
+      <segment>
+        <source>Unser %building% hat reichhaltigen Ertrag gebracht: %items%</source>
+        <target>Several vegetables have sprouted in the  %building%: %items%</target>
+      </segment>
+    </unit>
+    <unit id="3NHVIj9" name="Name">
+      <notes>
+        <note category="german">Name</note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Name</target>
+      </segment>
+    </unit>
+    <unit id="qN3u6fP" name="Kosten">
+      <notes>
+        <note category="german">Kosten</note>
+      </notes>
+      <segment>
+        <source>Kosten</source>
+        <target>Kosten</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
