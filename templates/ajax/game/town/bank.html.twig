@@ -32,7 +32,7 @@
             </div>
 
             {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_NIGHTMODE'),true) and town.isNight %}
-                <button id="night-steal-button" {% if bank|length == 0 %}disabled{% endif %}>
+                <button style="margin-top: 5px;" id="night-steal-button" {% if bank|length == 0 %}disabled{% endif %}>
                     <img alt="" src="{{ asset('build/images/icons/theft.gif') }}"> {{ 'Versuchen etwas zu stehlen'|trans({},'game') }}
                     <div class="tooltip">{{ 'Diebstahlsversuche können nur <strong>während der Nacht</strong> unternommen werden: Sie haben eine reduzierte Erfolgschance und jeder Fehlschlag wird im Register vermerkt!'|trans({},'game')|raw }}</div>
                 </button>

@@ -41,6 +41,10 @@ use DateTime;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\Validator\Constraints;
+use Symfony\Component\Validator\ConstraintViolationInterface;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
+use Symfony\Component\Validator\Validation;
 
 /**
  * @Route("/",condition="request.isXmlHttpRequest()")
@@ -525,12 +529,14 @@ class GameController extends CustomAbstractController
 
         $jobs = $this->entity_manager->getRepository(CitizenProfession::class)->findSelectable();
 
-        $disabledJobs = $cf->getTownConfiguration($this->getActiveCitizen()->getTown())->get(TownConf::CONF_DISABLED_JOBS, ['shaman']);
+        $town = $this->getActiveCitizen()->getTown();
+
+        $disabledJobs = $cf->getTownConfiguration($town)->get(TownConf::CONF_DISABLED_JOBS, ['shaman']);
 
         $selectablesJobs = [];
         $prof_count = [];
 
-        foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $c) {
+        foreach ($town->getCitizens() as $c) {
             if ($c->getProfession()->getName() === CitizenProfession::DEFAULT) continue;
 
             if (!isset($prof_count[ $c->getProfession()->getId() ])) {
@@ -545,10 +551,12 @@ class GameController extends CustomAbstractController
             if(!in_array($job->getName(), $disabledJobs))
                 $selectablesJobs[] = $job;
         }
-
+        
         return $this->render( 'ajax/game/jobs.html.twig', [
             'professions' => $selectablesJobs,
-            'prof_count' => $prof_count
+            'prof_count' => $prof_count,
+            'town' => $town,
+            'conf' => $this->getTownConf()
         ] );
     }
 
@@ -562,7 +570,7 @@ class GameController extends CustomAbstractController
      * @param ConfMaster $cf
      * @return Response
      */
-    public function job_select_api(JSONRequestParser $parser, ItemFactory $if, ConfMaster $cf): Response {
+    public function job_select_api(JSONRequestParser $parser, ItemFactory $if, ConfMaster $cf, TranslatorInterface $translator): Response {
 
         $citizen = $this->getActiveCitizen();
         if ($citizen->getProfession()->getName() !== CitizenProfession::DEFAULT)
@@ -575,6 +583,23 @@ class GameController extends CustomAbstractController
         /** @var CitizenProfession $new_profession */
         $new_profession = $this->entity_manager->getRepository(CitizenProfession::class)->find( $job_id );
         if (!$new_profession) return AjaxResponse::error(self::ErrorJobInvalid);
+
+        $town_conf = $cf->getTownConfiguration($citizen->getTown());
+
+        $citizen_alias_active = $town_conf->get(TownConf::CONF_FEATURE_CITIZEN_ALIAS, false);
+
+        $selected_alias = $parser->trimmed('citizenalias', '');
+
+        if ($citizen_alias_active && !empty($selected_alias) && $selected_alias !== $citizen->getUser()->getName()) {
+
+            if (in_array($selected_alias, ['Der Rabe','DerRabe','Der_Rabe','DerRaabe','TheCrow']))
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+            if (mb_strlen($selected_alias) < 4 || mb_strlen($selected_alias) > 22 || preg_match('/[^\w]/', $selected_alias))
+                return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+            $citizen->setAlias( "· {$selected_alias}" );
+        }
 
         $this->citizen_handler->applyProfession( $citizen, $new_profession );
 
@@ -655,7 +680,8 @@ class GameController extends CustomAbstractController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        $item_spawns = $cf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_DEFAULT_CHEST_ITEMS, []);
+        $item_spawns = $town_conf->get(TownConf::CONF_DEFAULT_CHEST_ITEMS, []);
+
         $chest = $citizen->getHome()->getChest();
         foreach ($item_spawns as $spawn)
             $this->inventory_handler->placeItem($citizen, $if->createItem($this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => $spawn])), [$chest]);

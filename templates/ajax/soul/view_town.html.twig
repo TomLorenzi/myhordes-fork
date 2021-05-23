@@ -1,8 +1,14 @@
 {% extends "ajax/soul/shell.html.twig" %}
 {% block soul_content %}
+    {% if return_path is defined and return_path|trim != '' %}
+        {% set return_path = path(return_path) %}
+    {% else %}
+        {% set return_path = path('soul_me') %}
+    {% endif %}
+
     <div class="row">
         <div class="cell padded rw-4">
-            <button class='inline' x-ajax-href="{{path('soul_me')}}"><img src="{{asset('build/images/soul/small_back.gif')}}" alt ="" /> {{'Zurück'|trans({}, 'global')}}</button>
+            <button class='inline' x-ajax-href="{{return_path}}"><img src="{{asset('build/images/icons/small_back.gif')}}" alt ="" /> {{'Zurück'|trans({}, 'global')}}</button>
         </div>
     </div>
     {% include 'ajax/soul/view_town_content.html.twig' %}

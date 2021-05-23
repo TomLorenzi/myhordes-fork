@@ -27,8 +27,21 @@
             <img style="width: 100%; border: 1px solid #5c2b20;" alt="" src="{{ asset('build/images/professions/select/' ~ img) }}">
             {{ block('jobhelp') }}
         </div>
-        <div class="cell padded header rw-8 rw-md-12">
-            <h4>{% trans from 'game' %}Wähle einen Beruf{% endtrans %}</h4>
+        <div class="cell padded rw-8 rw-md-12">
+            {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_CITIZEN_ALIAS'),false) %}
+                <h5>{{'Deine Identität'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Diese Stadt erlaubt es, einen Spitznamen zu tragen.'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
+                <div class="row-flex v-center">
+                    <div class="cell padded note note-lightest rw-3">
+                        <label for="citizenalias">{{'Dein Name'|trans({}, 'ghost')}}</label>
+                    </div>
+                    <div class="padded cell rw-9">
+                        <input type="text" name="citizenalias" id="citizenalias" maxlength="22" minlength="4" />
+                        <div class="tooltip help">{{ 'Freilassen, um normalen Spielernamen zu verwenden.'|trans({},'game') }}</div>
+                    </div>
+                </div>
+            {% endif %}
+
+            <h5>{% trans from 'game' %}Wähle einen Beruf{% endtrans %}</h5>
             <div class="row">
                 {% for job in professions %}
                     {# @var job \App\Entity\CitizenProfession #}
@@ -53,7 +66,6 @@
                     </div>
                 {% endfor %}
             </div>
-            <br />
             <h5>{{'Zur zeit in der Stadt'|trans({}, 'game')}} <a class="help-button"><div class="tooltip help">{{ 'Die Bürger dieser Stadt haben die unten aufgeführten Berufe gewählt.'|trans({},'game') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></h5>
             <div class="row prof-list">
             {% for elem in prof_count %}
@@ -83,14 +95,15 @@
 
         let selected_profession = 0;
         let jobConfirm = document.getElementById('job_confirm');
+        let form = {}
 
         let jobSelect = document.querySelectorAll('input[type=radio][name=job]');
         for (let i = 0; i < jobSelect.length; i++)
             jobSelect[i].addEventListener('click', function () {
                 jobConfirm.removeAttribute('disabled')
-                selected_profession = parseInt(this.value);
+                form.job = parseInt(this.value);
                 let previous = document.querySelectorAll('.jobs-choice.selected');
-                for (var i = previous.length - 1; i >= 0; i--) {
+                for (let i = previous.length - 1; i >= 0; i--) {
                 	previous[i].classList.remove('selected');
                 }
                 let div = this.closest('.jobs-choice');
@@ -99,7 +112,22 @@
 
         jobConfirm.addEventListener('click', function(e) {
             e.preventDefault();
-            $.ajax.easySend( '{{ path('api_jobcenter') }}', {job: selected_profession},
+            {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_CITIZEN_ALIAS'),false) %}
+                form.citizenalias = document.getElementById('citizenalias').value;
+                if (form.citizenalias && form.citizenalias.length < 4) {
+                    $.html.error('{{ 'Dein Name muss mindestens {{ limit }} Zeichen umfassen.'|trans({'{{ limit }}': '4'},'login')|e('js') }}');
+                    return;
+                }
+                if (form.citizenalias && form.citizenalias.length > 22) {
+                    $.html.error('{{ 'Dein Name kann höchstens {{ limit }} Zeichen umfassen.'|trans({'{{ limit }}': '22'},'login')|e('js') }}');
+                    return;
+                }
+                if (form.citizenalias && form.citizenalias.match(/[^\w]/)) {
+                    $.html.error('{{ 'Dein Name kann nur alphanumerische Zeichen enthalten.'|trans({},'login')|e('js') }}');
+                    return;
+                }
+            {% endif %}
+            $.ajax.easySend( '{{ path('api_jobcenter') }}', form,
                     function () {
                         $.ajax.load(null, '{{ path('game_landing') }}', true);
                     } );

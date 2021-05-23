@@ -425,6 +425,13 @@ class User implements UserInterface, EquatableInterface
         return null;
     }
 
+    public function getCitizenFor(Town $town): ?Citizen {
+        foreach ($this->getCitizens() as $c)
+            if ($c->getTown() === $town)
+                return $c;
+        return null;
+    }
+
     public function getAliveCitizen(): ?Citizen {
         foreach ($this->getCitizens() as $c)
             if ($c->getAlive())

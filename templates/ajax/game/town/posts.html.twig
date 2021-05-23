@@ -47,7 +47,7 @@
                     {% if not post.owner or post.owner.user.name == 'Der Rabe' %}
                         {{ 'Der Rabe'|trans({},'global') }}
                     {% else %}
-                        {{ post.owner.user.name }}
+                        {{ post.owner.name }}
                     {% endif %}
                 </b>
             </div>

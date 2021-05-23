@@ -95,7 +95,7 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
 
     public function help_lnk(string $name, string $controller = null, array $args = []): string {
         $link = $controller !== null ? $this->router->generate($controller, $args) : "";
-        return "<span class='helpLink'>" . $this->translator->trans("Spielhilfe:", [], "global") . " <a class='link' x-ajax-href='$link' target='_blank'>$name</a></span>";
+        return "<span class='helpLink'><span class='helptitle'>" . $this->translator->trans("Spielhilfe:", [], "global") . "</span> <a class='link' x-ajax-href='$link' target='_blank'>$name</a></span>";
     }
 
     public function tooltip(string $content, string $classes = null): string {

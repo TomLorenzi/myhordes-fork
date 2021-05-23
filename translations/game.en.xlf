@@ -732,11 +732,11 @@
     </unit>
     <unit id="oCYA07E">
       <notes>
-        <note category="german">Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</note>
+        <note category="german">Mit dem Wachturm können die Bürger jeden Tag eine Angriffsabschätzung durchführen. &lt;strong&gt;Die Qualität der Abschätzung hängt von der Anzahl der Bürger ab, die daran teil nehmen&lt;/strong&gt;.</note>
       </notes>
       <segment>
         <source>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</source>
-        <target>The construction of a Watchtower in town allows the magnitude of the night's attack to be estimated. The quality of the estimation depends directly on the number of citizens who take the time to come and look.</target>
+        <target><![CDATA[The construction of a Watchtower in town allows the magnitude of the night's attack to be estimated. <strong>The quality of the estimation depends directly on the number of citizens who take the time to come and look</strong>.]]></target>
       </segment>
     </unit>
     <unit id="MVukZx5" name="Heutige Abschätzung">
@@ -8152,7 +8152,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</source>
-        <target>%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern zu erhängen. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend keine Zombies in die Stadt geschafft haben.</target>
+        <target>%citizen1% and %citizen2% were saved in the nick of time when getting ready to hang themselves in their home last night. They explained, "I thought they were going to eat me alive, and I didn't want to live to see that". In hindsight, it was a poor decision, as no zombies made it into town last night.</target>
       </segment>
     </unit>
     <unit id="6iAHRm0">
@@ -19305,7 +19305,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Bürger haben das Haus von &lt;strong&gt;✝ %citizen%&lt;/strong&gt; vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert. Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...</source>
-        <target><![CDATA[Die Bürger haben das Haus von <strong>✝ %citizen%</strong> vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert. Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...]]></target>
+        <target><![CDATA[The cítizens have finished dismantling <strong>✝ %citizen%</strong>'s house! All objects found in their house have been deposited in the bank. The town didn't recover anything useful from their house, there was really nothing of interest to take...]]></target>
       </segment>
     </unit>
     <unit id="pQTisuC">
@@ -19341,7 +19341,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...</source>
-        <target>Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...</target>
+        <target>The town didn't recover anything useful from their house, there was really nothing of interest to take...</target>
       </segment>
     </unit>
     <unit id="PXIV0Uu">
@@ -19360,6 +19360,123 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Beachte: Behälter wie Rucksack, Einkaufswagen etc. werden nicht in der Bank abgelegt.</source>
         <target>Note: Containers (such as a rucksack, trolley, etc...) will not automatically be placed in the bank.</target>
+      </segment>
+    </unit>
+    <unit id="jB1RN29" name="Deine Nachricht wurde gespeichert.">
+      <notes>
+        <note category="german">Deine Nachricht wurde gespeichert.</note>
+      </notes>
+      <segment>
+        <source>Deine Nachricht wurde gespeichert.</source>
+        <target>Your comment has been saved.</target>
+      </segment>
+    </unit>
+    <unit id="X21IBNl" name="Meine Partien">
+      <notes>
+        <note category="german">Meine Partien</note>
+      </notes>
+      <segment>
+        <source>Meine Partien</source>
+        <target>My games</target>
+      </segment>
+    </unit>
+    <unit id="KAAmbDC" name="Name der Stadt">
+      <notes>
+        <note category="german">Name der Stadt</note>
+      </notes>
+      <segment>
+        <source>Name der Stadt</source>
+        <target>Town name</target>
+      </segment>
+    </unit>
+    <unit id="9in0QXU">
+      <notes>
+        <note category="german">In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat.Ein Tag gilt immer dann als &amp;quot;vollkommen überlebt&amp;quot;, &lt;strong&gt;wenn du beim Zombieangriff um 23:59 stirbst&lt;/strong&gt;. Solltest du vorher - im Laufe des Tages - sterben, gilt der Tag nicht als überlebt..</note>
+      </notes>
+      <segment>
+        <source>In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat.Ein Tag gilt immer dann als &amp;quot;vollkommen überlebt&amp;quot;, &lt;strong&gt;wenn du beim Zombieangriff um 23:59 stirbst&lt;/strong&gt;. Solltest du vorher - im Laufe des Tages - sterben, gilt der Tag nicht als überlebt..</source>
+        <target><![CDATA[This colums indicates the number of full days each citizen has survived. A day is not counted as "complete" if a citizen dies <strong>for any reason OTHER than the attack of the Horde at 23:59</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="cEXdc4T" name="Die blau markierten Felder sind Städte, in denen du mitgespielt hast!">
+      <notes>
+        <note category="german">Die blau markierten Felder sind Städte, in denen du mitgespielt hast!</note>
+      </notes>
+      <segment>
+        <source>Die blau markierten Felder sind Städte, in denen du mitgespielt hast!</source>
+        <target>Lines with a blue background correspond to towns in which you participated!</target>
+      </segment>
+    </unit>
+    <unit id="zquwWt5" name="Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.">
+      <notes>
+        <note category="german">Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.</note>
+      </notes>
+      <segment>
+        <source>Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.</source>
+        <target>Rankings are updated after the midnight attack.</target>
+      </segment>
+    </unit>
+    <unit id="wZJl7Bp" name="Deine Identität">
+      <notes>
+        <note category="german">Deine Identität</note>
+      </notes>
+      <segment>
+        <source>Deine Identität</source>
+        <target>Deine Identität</target>
+      </segment>
+    </unit>
+    <unit id="0DPxQPn" name="Diese Stadt erlaubt es, einen Spitznamen zu tragen.">
+      <notes>
+        <note category="german">Diese Stadt erlaubt es, einen Spitznamen zu tragen.</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt erlaubt es, einen Spitznamen zu tragen.</source>
+        <target>Diese Stadt erlaubt es, einen Spitznamen zu tragen.</target>
+      </segment>
+    </unit>
+    <unit id="qYsZ1.g" name="Freilassen, um normalen Spielernamen zu verwenden.">
+      <notes>
+        <note category="german">Freilassen, um normalen Spielernamen zu verwenden.</note>
+      </notes>
+      <segment>
+        <source>Freilassen, um normalen Spielernamen zu verwenden.</source>
+        <target>Freilassen, um normalen Spielernamen zu verwenden.</target>
+      </segment>
+    </unit>
+    <unit id="G2mvpQw" name="Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:">
+      <notes>
+        <note category="german">Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:</note>
+      </notes>
+      <segment>
+        <source>Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:</source>
+        <target>Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:</target>
+      </segment>
+    </unit>
+    <unit id="BIzSHqq" name="Erforschung einer beengten Ruine in erstickender Atmosphäre">
+      <notes>
+        <note category="german">Erforschung einer beengten Ruine in erstickender Atmosphäre</note>
+      </notes>
+      <segment>
+        <source>Erforschung einer beengten Ruine in erstickender Atmosphäre</source>
+        <target>Exploring the maze of a ruin, in a cramped and suffocating environment</target>
+      </segment>
+    </unit>
+    <unit id="wGYcGMz" name="Diskussionen rund um Bauprojekte">
+      <notes>
+        <note category="german">Diskussionen rund um Bauprojekte</note>
+      </notes>
+      <segment>
+        <source>Diskussionen rund um Bauprojekte</source>
+        <target>Discussions about construction sites</target>
+      </segment>
+    </unit>
+    <unit id="VVIGSg2" name="Vorhandene Bauprojekte">
+      <notes>
+        <note category="german">Vorhandene Bauprojekte</note>
+      </notes>
+      <segment>
+        <source>Vorhandene Bauprojekte</source>
+        <target>Available construction projects</target>
       </segment>
     </unit>
   </file>

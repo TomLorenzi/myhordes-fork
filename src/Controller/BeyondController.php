@@ -620,8 +620,6 @@ class BeyondController extends InventoryAwareController
             }
         }
 
-        $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
-
         try {
             $this->entity_manager->persist($citizen);
             $this->entity_manager->persist($zone);
@@ -629,6 +627,8 @@ class BeyondController extends InventoryAwareController
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
         }
+
+        $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
 
         return AjaxResponse::success();
     }
@@ -729,11 +729,10 @@ class BeyondController extends InventoryAwareController
             return AjaxResponse::success();
         }
 
-        $movers = [];
+        $movers = [$citizen];
         foreach ($citizen->getValidLeadingEscorts() as $escort)
             $movers[] = $escort->getCitizen();
 
-        $movers[] = $citizen;
         $scouts = [];
 
         $others_are_here = $zone->getCitizens()->count() > count($movers);
@@ -752,7 +751,7 @@ class BeyondController extends InventoryAwareController
 
             // Check if escortee wants to go home
             if (count($movers) > 1 && $mover->getEscortSettings() && $mover->getEscortSettings()->getForceDirectReturn() && $away_from_town)
-                return AjaxResponse::errorMessage( $this->translator->trans('%citizen% möchte nicht in diese Richtung gehen! <strong>Er bittet dich darum, ihn in die Stadt zu bringen...</strong>', ['%citizen%' => "<span>{$mover->getUser()->getName()}</span>"], 'game') );
+                return AjaxResponse::errorMessage( $this->translator->trans('%citizen% möchte nicht in diese Richtung gehen! <strong>Er bittet dich darum, ihn in die Stadt zu bringen...</strong>', ['%citizen%' => "<span>{$mover->getName()}</span>"], 'game') );
         }
 
         foreach ($movers as $mover) {
@@ -800,19 +799,17 @@ class BeyondController extends InventoryAwareController
                         if ($mover->getId() === $citizen->getId())
                             $this->addFlash( 'notice', $this->translator->trans('Du wurdest von einem <strong>Zombie in der Zone entdeckt</strong>! Er hat sich in deine Richtung gedreht!<hr/>Deine Tarnung ist aufgeflogen!', [], 'game' ));
                         else 
-                            $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $mover->getUser()->getName()], 'game' ));
+                            $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $mover->getName()], 'game' ));
                     }
                 }
             }
 
             // Set AP and increase walking distance counter
             $this->citizen_handler->setAP($mover, true, -1);
-            if (!$mover->hasRole('ghoul')) {
-                $mover->setWalkingDistance( $mover->getWalkingDistance() + 1 );
-                if ($mover->getWalkingDistance() > 10) {
-                    $this->citizen_handler->increaseThirstLevel( $mover );
-                    $mover->setWalkingDistance( 0 );
-                }
+            $mover->setWalkingDistance( $mover->getWalkingDistance() + 1 );
+            if ($mover->getWalkingDistance() > 10) {
+                $this->citizen_handler->increaseThirstLevel($mover);
+                $mover->setWalkingDistance( 0 );
             }
 
             $this->citizen_handler->inflictStatus($mover, "tg_chk_movewb");
@@ -926,7 +923,7 @@ class BeyondController extends InventoryAwareController
 
         $uncover_fun = function(ItemAction &$a) use ($citizen) {
             if (!$a->getKeepsCover() && !$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($citizen))
-                $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $citizen->getUser()->getName()], 'game') );
+                $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $citizen->getName()], 'game') );
         };
 
         return $this->generic_action_api($parser, $uncover_fun, $citizen);

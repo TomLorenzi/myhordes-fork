@@ -23,7 +23,13 @@
                                 <img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}" />
                                 {% if post.owner.activeTitle %}<span class="small" style="font-size: 0.7em"><i>{{ post.owner.activeTitle.prototype.title|trans({},'game') }}</i></span>{% endif %}
                             {% else %}
-                                <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">{{ post.owner.name }}</a><br />
+                                <a class="link" href="{{ path('soul_visit', {id: post.owner.id}) }}">
+                                {% if town and post.owner.citizenFor(town) %}
+                                    {{ post.owner.citizenFor(town).name }}
+                                {% else %}
+                                    {{ post.owner.name }}
+                                {% endif %}
+                                </a><br />
                                 {% if post.owner.activeTitle %}<span class="small" style="font-size: 0.7em; display: inline-block;overflow: hidden;text-overflow: ellipsis;max-width: calc(100% - 130px); white-space: nowrap;"><i>{{ post.owner.activeTitle.prototype.title|trans({},'game') }}</i></span>{% endif %}
                             {% endif %}
                         </b>
