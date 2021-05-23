@@ -62,7 +62,7 @@ class DeathHandler
         $rucksack = $citizen->getInventory();
 
         $floor = ($citizen->getZone() ?
-            (($citizen->getZone()->getX() != 0 || $citizen->getZone()->getY() !== 0) ? $citizen->getZone()->getFloor() : $citizen->getTown()->getBank()) :
+            (!$citizen->getZone()->isTownZone() ? $citizen->getZone()->getFloor() : $citizen->getTown()->getBank()) :
             $citizen->getHome()->getChest());
         if ($citizen->activeExplorerStats()) {
             /** @var RuinZone $ruinZone */
@@ -112,8 +112,11 @@ class DeathHandler
         }
         else {
             $zone = $citizen->getZone(); $ok = $this->zone_handler->check_cp( $zone );
-            if ($zone->getX() === 0 && $zone->getY() === 0)
-                $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'), [$citizen->getTown()->getBank()]);
+            if ($zone->isTownZone())
+                $this->inventory_handler->forceMoveItem(
+                    $citizen->getTown()->getBank(),
+                    $this->item_factory->createItem('bone_meat_#00')
+                );
             else
                 $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'), [$zone->getFloor()]);
 
