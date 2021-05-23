@@ -19528,5 +19528,14 @@
         <target>Superheld</target>
       </segment>
     </unit>
+    <unit id="i7ayglv">
+      <notes>
+        <note category="german">Die Schätzung des heutigen Tages muss zuerst abgeschlossen werden, um die Schätzung des nächsten Tages zu berechnen.</note>
+      </notes>
+      <segment>
+        <source>Die Schätzung des heutigen Tages muss zuerst abgeschlossen werden, um die Schätzung des nächsten Tages zu berechnen.</source>
+        <target>Die Schätzung des heutigen Tages muss zuerst abgeschlossen werden, um die Schätzung des nächsten Tages zu berechnen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

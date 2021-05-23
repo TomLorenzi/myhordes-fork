@@ -19526,5 +19526,14 @@
         <target>Super-héros</target>
       </segment>
     </unit>
+    <unit id="i7ayglv">
+      <notes>
+        <note category="german">Die Schätzung des heutigen Tages muss zuerst abgeschlossen werden, um die Schätzung des nächsten Tages zu berechnen.</note>
+      </notes>
+      <segment>
+        <source>Die Schätzung des heutigen Tages muss zuerst abgeschlossen werden, um die Schätzung des nächsten Tages zu berechnen.</source>
+        <target>Il faut d'abord calculer l'estimation du jour pour calculer celle du lendemain.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
