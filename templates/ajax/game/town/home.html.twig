@@ -514,6 +514,12 @@
 
 
             <div class="row-table">
+                <div class="row header">
+                    <div class="padded cell {% if home.citizen.profession.heroic %}rw-8{% else %}rw-12{% endif %}">{{ 'Name'|trans({},'game') }}</div>
+                    {% if home.citizen.profession.heroic %}
+                        <div class="padded cell rw-4">{{ 'Kosten'|trans({},'game') }}</div>
+                    {% endif %}
+                </div>
                 {% for id,upgrade in upgrades %}
                     {# @var upgrade \App\Entity\CitizenHomeUpgradePrototype #}
                     <div class="row {% if upgrade_levels[id] != 0 %}highlight{% endif %}">
