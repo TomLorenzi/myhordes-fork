@@ -19562,5 +19562,23 @@
         <target>Plusieurs légumes ont poussé dans le %building%: %items%</target>
       </segment>
     </unit>
+    <unit id="3NHVIj9" name="Name">
+      <notes>
+        <note category="german">Name</note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Name</target>
+      </segment>
+    </unit>
+    <unit id="qN3u6fP" name="Kosten">
+      <notes>
+        <note category="german">Kosten</note>
+      </notes>
+      <segment>
+        <source>Kosten</source>
+        <target>Kosten</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
