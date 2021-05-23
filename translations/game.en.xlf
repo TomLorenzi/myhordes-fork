@@ -19479,5 +19479,23 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Available construction projects</target>
       </segment>
     </unit>
+    <unit id="Ms44ehb">
+      <notes>
+        <note category="german">Die Atmosphäre wird unerträglich... Du kannst so nicht weitermachen; ohne zu wissen wie, du findest den Ausgang, aber du verletzt dich bei der Flucht.</note>
+      </notes>
+      <segment>
+        <source>Die Atmosphäre wird unerträglich... Du kannst so nicht weitermachen; ohne zu wissen wie, du findest den Ausgang, aber du verletzt dich bei der Flucht.</source>
+        <target>Die Atmosphäre wird unerträglich... Du kannst so nicht weitermachen; ohne zu wissen wie, du findest den Ausgang, aber du verletzt dich bei der Flucht.</target>
+      </segment>
+    </unit>
+    <unit id="mwmHgUh" name="Superheld">
+      <notes>
+        <note category="german">Superheld</note>
+      </notes>
+      <segment>
+        <source>Superheld</source>
+        <target>Super Hero</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
