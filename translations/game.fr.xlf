@@ -714,11 +714,11 @@
     </unit>
     <unit id="oCYA07E">
       <notes>
-        <note category="german">Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</note>
+        <note category="german">Mit dem Wachturm können die Bürger jeden Tag eine Angriffsabschätzung durchführen. &lt;strong&gt;Die Qualität der Abschätzung hängt von der Anzahl der Bürger ab, die daran teil nehmen&lt;/strong&gt;.</note>
       </notes>
       <segment>
         <source>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</source>
-        <target>La tour de guet construite en ville permet d'obtenir une estimation de l'attaque de ce soir. La qualité de l'estimation dépend directement du nombre de citoyens qui auront pris le temps de venir ici.</target>
+        <target><![CDATA[La tour de guet construite en ville permet d'obtenir une estimation de l'attaque de ce soir. <strong>La qualité de l'estimation dépend directement du nombre de citoyens qui auront pris le temps de venir ici</strong>.]]></target>
       </segment>
     </unit>
     <unit id="MVukZx5" name="Heutige Abschätzung">
@@ -11443,7 +11443,7 @@
       </notes>
       <segment>
         <source>Dank der Rechenmaschine kannst du den morgigen Angriff abschätzen.</source>
-        <target>Grâce au Planificateur, vous pouvez estimer l'attaque de demain.</target>
+        <target>Le Planificateur permet d'estimer l'attaque du lendemain.</target>
       </segment>
     </unit>
     <unit id="BU8ToEO" name="Zuletzt bearbeitet: %date%">
@@ -15776,7 +15776,7 @@
       </notes>
       <segment>
         <source>Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.</source>
-        <target>Vous avez vraiment eu très très chaud aux fesses cette nuit ! Vous les avez entendu grogner, frapper voire hurler dehors. Votre porte a fini par céder et vous vous êtes réfugié(e) sous votre lit, serrant contre vous vos bibelots, pour ne plus penser à rien. Puis ils sont reparatis... Tremblant(e) de peur, vous avez finalement quitté votre achette, bien heureux(se) d'avoir survécu.</target>
+        <target>Vous avez vraiment eu très très chaud aux fesses cette nuit ! Vous les avez entendu grogner, frapper voire hurler dehors. Votre porte a fini par céder et vous vous êtes réfugié(e) sous votre lit, serrant contre vous vos bibelots, pour ne plus penser à rien. Puis ils sont repartis... Tremblant(e) de peur, vous avez finalement quitté votre cachette, bien heureux(se) d'avoir survécu.</target>
       </segment>
     </unit>
     <unit id="_2vb9p1" name="Du wurdest verbannt!">
@@ -19389,6 +19389,213 @@
       <segment>
         <source>Beachte: Behälter wie Rucksack, Einkaufswagen etc. werden nicht in der Bank abgelegt.</source>
         <target>Note : les containers (sac à dos, caddie..etc.) ne seront pas placés en banque.</target>
+      </segment>
+    </unit>
+    <unit id="jB1RN29" name="Deine Nachricht wurde gespeichert.">
+      <notes>
+        <note category="german">Deine Nachricht wurde gespeichert.</note>
+      </notes>
+      <segment>
+        <source>Deine Nachricht wurde gespeichert.</source>
+        <target>Votre commentaire a bien été enregistré.</target>
+      </segment>
+    </unit>
+    <unit id="X21IBNl" name="Meine Partien">
+      <notes>
+        <note category="german">Meine Partien</note>
+      </notes>
+      <segment>
+        <source>Meine Partien</source>
+        <target>Mes parties</target>
+      </segment>
+    </unit>
+    <unit id="KAAmbDC" name="Name der Stadt">
+      <notes>
+        <note category="german">Name der Stadt</note>
+      </notes>
+      <segment>
+        <source>Name der Stadt</source>
+        <target>Nom de la ville</target>
+      </segment>
+    </unit>
+    <unit id="9in0QXU">
+      <notes>
+        <note category="german">In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat.Ein Tag gilt immer dann als &amp;quot;vollkommen überlebt&amp;quot;, &lt;strong&gt;wenn du beim Zombieangriff um 23:59 stirbst&lt;/strong&gt;. Solltest du vorher - im Laufe des Tages - sterben, gilt der Tag nicht als überlebt..</note>
+      </notes>
+      <segment>
+        <source>In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat.Ein Tag gilt immer dann als &amp;quot;vollkommen überlebt&amp;quot;, &lt;strong&gt;wenn du beim Zombieangriff um 23:59 stirbst&lt;/strong&gt;. Solltest du vorher - im Laufe des Tages - sterben, gilt der Tag nicht als überlebt..</source>
+        <target><![CDATA[Cette colonne indique le nombre de jours auxquels chaque citoyen a survécu intégralement. Une journée n'est pas considérée comme survécue "intégralement" <strong> si le citoyen meurt d'une cause AUTRE que l'attaque des Hordes à 23:59</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="cEXdc4T" name="Die blau markierten Felder sind Städte, in denen du mitgespielt hast!">
+      <notes>
+        <note category="german">Die blau markierten Felder sind Städte, in denen du mitgespielt hast!</note>
+      </notes>
+      <segment>
+        <source>Die blau markierten Felder sind Städte, in denen du mitgespielt hast!</source>
+        <target>Les lignes dont le fond est bleu correspondent aux villes auxquelles vous avez participé !</target>
+      </segment>
+    </unit>
+    <unit id="zquwWt5" name="Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.">
+      <notes>
+        <note category="german">Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.</note>
+      </notes>
+      <segment>
+        <source>Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.</source>
+        <target>Les classements sont mis à jour après l'attaque de minuit.</target>
+      </segment>
+    </unit>
+    <unit id="wZJl7Bp" name="Deine Identität">
+      <notes>
+        <note category="german">Deine Identität</note>
+      </notes>
+      <segment>
+        <source>Deine Identität</source>
+        <target>Deine Identität</target>
+      </segment>
+    </unit>
+    <unit id="0DPxQPn" name="Diese Stadt erlaubt es, einen Spitznamen zu tragen.">
+      <notes>
+        <note category="german">Diese Stadt erlaubt es, einen Spitznamen zu tragen.</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt erlaubt es, einen Spitznamen zu tragen.</source>
+        <target>Diese Stadt erlaubt es, einen Spitznamen zu tragen.</target>
+      </segment>
+    </unit>
+    <unit id="qYsZ1.g" name="Freilassen, um normalen Spielernamen zu verwenden.">
+      <notes>
+        <note category="german">Freilassen, um normalen Spielernamen zu verwenden.</note>
+      </notes>
+      <segment>
+        <source>Freilassen, um normalen Spielernamen zu verwenden.</source>
+        <target>Freilassen, um normalen Spielernamen zu verwenden.</target>
+      </segment>
+    </unit>
+    <unit id="G2mvpQw" name="Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:">
+      <notes>
+        <note category="german">Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:</note>
+      </notes>
+      <segment>
+        <source>Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:</source>
+        <target>Nous pensons que l'attaque du lendemain tournera autour de :</target>
+      </segment>
+    </unit>
+    <unit id="BIzSHqq" name="Erforschung einer beengten Ruine in erstickender Atmosphäre">
+      <notes>
+        <note category="german">Erforschung einer beengten Ruine in erstickender Atmosphäre</note>
+      </notes>
+      <segment>
+        <source>Erforschung einer beengten Ruine in erstickender Atmosphäre</source>
+        <target>En exploration dans les dédales d'une ruine, dans un environnement exiguë et étouffant</target>
+      </segment>
+    </unit>
+    <unit id="wGYcGMz" name="Diskussionen rund um Bauprojekte">
+      <notes>
+        <note category="german">Diskussionen rund um Bauprojekte</note>
+      </notes>
+      <segment>
+        <source>Diskussionen rund um Bauprojekte</source>
+        <target>Discussions autour des chantiers</target>
+      </segment>
+    </unit>
+    <unit id="VVIGSg2" name="Vorhandene Bauprojekte">
+      <notes>
+        <note category="german">Vorhandene Bauprojekte</note>
+      </notes>
+      <segment>
+        <source>Vorhandene Bauprojekte</source>
+        <target>Chantiers disponibles</target>
+      </segment>
+    </unit>
+    <unit id="Ms44ehb">
+      <notes>
+        <note category="german">Die Atmosphäre wird unerträglich... Du kannst so nicht weitermachen; ohne zu wissen wie, du findest den Ausgang, aber du verletzt dich bei der Flucht.</note>
+      </notes>
+      <segment>
+        <source>Die Atmosphäre wird unerträglich... Du kannst so nicht weitermachen; ohne zu wissen wie, du findest den Ausgang, aber du verletzt dich bei der Flucht.</source>
+        <target>L'air devient irrespirable... Vous ne pouvez plus continuer, sans savoir comment, vous retrouvez la sortie, mais vous vous êtes blessé en vous échappant.</target>
+      </segment>
+    </unit>
+    <unit id="mwmHgUh" name="Superheld">
+      <notes>
+        <note category="german">Superheld</note>
+      </notes>
+      <segment>
+        <source>Superheld</source>
+        <target>Super-héros</target>
+      </segment>
+    </unit>
+    <unit id="i7ayglv">
+      <notes>
+        <note category="german">Die Schätzung des heutigen Tages muss zuerst abgeschlossen werden, um die Schätzung des nächsten Tages zu berechnen.</note>
+      </notes>
+      <segment>
+        <source>Die Schätzung des heutigen Tages muss zuerst abgeschlossen werden, um die Schätzung des nächsten Tages zu berechnen.</source>
+        <target>Il faut d'abord calculer l'estimation du jour pour calculer celle du lendemain.</target>
+      </segment>
+    </unit>
+    <unit id="NExVouj">
+      <notes>
+        <note category="german">Durch die Konstruktion von %building% wurden eine Menge Zombies in der Außenwelt vernichtet!</note>
+      </notes>
+      <segment>
+        <source>Durch die Konstruktion von %building% wurden eine Menge Zombies in der Außenwelt vernichtet!</source>
+        <target>L'utilisation de %building% a totalement pulvérisé un bon nombre de zombies dans l'Outre-Monde !</target>
+      </segment>
+    </unit>
+    <unit id="U6fEEaj">
+      <notes>
+        <note category="german">&lt;strong&gt;Achtung!&lt;/strong&gt; Das Betreten der Stadt erfordert &lt;div class="ap"&gt;1&lt;/div&gt; (die Kosten sind auf den Bau des &lt;strong&gt;Labyrinths&lt;/strong&gt; zurückzuführen)!</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Achtung!&lt;/strong&gt; Das Betreten der Stadt erfordert &lt;div class="ap"&gt;1&lt;/div&gt; (die Kosten sind auf den Bau des &lt;strong&gt;Labyrinths&lt;/strong&gt; zurückzuführen)!</source>
+        <target><![CDATA[<strong>Attention !</strong> Entrer en ville nécessite <div class="ap">1</div> (ce coût est dû au chantier <strong>Labyrinthe</strong>) !]]></target>
+      </segment>
+    </unit>
+    <unit id="_mE4ihs" name="Unser %building% hat reichhaltigen Ertrag gebracht: %items%">
+      <notes>
+        <note category="german">Unser %building% hat reichhaltigen Ertrag gebracht: %items%</note>
+      </notes>
+      <segment>
+        <source>Unser %building% hat reichhaltigen Ertrag gebracht: %items%</source>
+        <target>Plusieurs légumes ont poussé dans le %building%: %items%</target>
+      </segment>
+    </unit>
+    <unit id="3NHVIj9" name="Name">
+      <notes>
+        <note category="german">Name</note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Nom</target>
+      </segment>
+    </unit>
+    <unit id="qN3u6fP" name="Kosten">
+      <notes>
+        <note category="german">Kosten</note>
+      </notes>
+      <segment>
+        <source>Kosten</source>
+        <target>Coût</target>
+      </segment>
+    </unit>
+    <unit id="6spO8K_" name="Dieser Bürger hat sich für heute Nacht hier versteckt.">
+      <notes>
+        <note category="german">Dieser Bürger hat sich für heute Nacht hier versteckt.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger hat sich für heute Nacht hier versteckt.</source>
+        <target>Ce citoyen s'est caché pour passer la nuit ici...</target>
+      </segment>
+    </unit>
+    <unit id="PEGlllX">
+      <notes>
+        <note category="german">Du bist gerade dabei in dieser Zone zu graben. Wenn du bis zum Ende der angezeigten Zeit am gleichen Platz bleibst, &lt;strong&gt;hast du die Möglichkeit einen weiteren Gegenstand zu finden&lt;/strong&gt;!&lt;br /&gt;&lt;br /&gt;Du kannst so lange bleiben wie du möchtest.</note>
+      </notes>
+      <segment>
+        <source>Du bist gerade dabei in dieser Zone zu graben. Wenn du bis zum Ende der angezeigten Zeit am gleichen Platz bleibst, &lt;strong&gt;hast du die Möglichkeit einen weiteren Gegenstand zu finden&lt;/strong&gt;!&lt;br /&gt;&lt;br /&gt;Du kannst so lange bleiben wie du möchtest.</source>
+        <target><![CDATA[Vous êtes en train de fouiller la zone. Si vous restez sur place jusqu'à la fin du temps indiqué, <strong>vous obtiendrez peut-être un autre objet</strong> !<br /><br />Vous pouvez rester autant de temps que vous le souhaitez.]]></target>
       </segment>
     </unit>
   </file>

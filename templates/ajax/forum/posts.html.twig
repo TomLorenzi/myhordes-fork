@@ -7,7 +7,7 @@
         <div class="{% if first_buttons %}forum-control{% endif %}">
             {% if first_buttons %}<div class="forum-header-bar"><i class="fa fa-comments"></i> {{ title }}</div>{% endif %}
             <div class="row">
-                <div class="cell padded rw-6 left">
+                <div class="cell padded rw-6 left rw-lg-12">
                     {% if permission.moderate() or owned %}
                         {% if not locked %}
                             <div x-forum-moderator-action="lock" class="forum-button">
@@ -34,7 +34,7 @@
                     {% endif %}
 
                 </div>
-                <div class="cell padded rw-6 right">
+                <div class="cell padded rw-6 right rw-lg-12">
                     <div x-forum-action="{{ subscribed ? 'unsub' : 'sub' }}" class="forum-button">
                         {% if subscribed %}
                             <img alt="" src="{{ asset('build/images/icons/tickOn.gif') }}" />
@@ -138,7 +138,7 @@
         {% for post in posts %}
             {# @var post \App\Entity\Post #}
             {% if not post.hidden or permission.moderate() %}
-                {% set author_name = (post.owner.name == 'Der Rabe') ? 'Der Rabe'|trans({},'global') : post.owner.name %}
+                {% set author_name = (post.owner.name == 'Der Rabe') ? 'Der Rabe'|trans({},'global') : town and post.owner.citizenFor(town) ? post.owner.citizenFor(town).name : post.owner.name %}
                 <div x-post-wrapper-id="{{ post.id }}" class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}">
                     <div class="forum-post-header {% if post.owner.name == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
                         <i>
@@ -210,9 +210,9 @@
                         {% if not post.translate and paranoid and post.owner.name != 'Der Rabe' %}
                             {% set mode = (app.user.id + post.id + post.owner.id) % 12 %}
                             {% if mode == 0 %}
-                                <br/>{{ 'Hängt %user%!'|trans({'%user%': app.user.name},'game') }}
+                                <br/>{{ 'Hängt %user%!'|trans({'%user%': author_name},'game') }}
                             {% elseif mode == 1 %}
-                                <br/>{{ '%user% wir kriegen dich!'|trans({'%user%': app.user.name},'game') }}
+                                <br/>{{ '%user% wir kriegen dich!'|trans({'%user%': author_name},'game') }}
                             {% endif %}
                         {% endif %}
                     </div>

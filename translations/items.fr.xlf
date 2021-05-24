@@ -5488,7 +5488,7 @@
       </notes>
       <segment>
         <source>Man nehme eine Scheibe Fleisch, paniere das Ganze mit Sägemehl und streue anschließend einige Holzstücke darüber... et Voilà! Im Holz scheinen auch einige Holzwürmer gewesen zu sein, denn das Ding hört nicht auf sich zu bewegen.</source>
-        <target>Une tranche de viande recouverte de sciure et de copeaux de bois... A moins que ce ne soit pas des copeaux, mais des vers à bois, ce qui semblerait logique puisque ca n'arrête de pas de bouger.</target>
+        <target>Une tranche de viande recouverte de sciure et de copeaux de bois... A moins que ce ne soit pas des copeaux, mais des vers à bois, ce qui semblerait logique puisque ça n'arrête pas de bouger.</target>
       </segment>
     </unit>
     <unit id="2vmNmP2">
@@ -5875,7 +5875,7 @@
       </notes>
       <segment>
         <source>Ein elektronisches Bauteil aus alter Zeit. Du hast nicht viel Ahnung von dem Zeug, aber es scheint noch zu funktionieren.</source>
-        <target>Un composant électronique d'une époque révolue, dans l'état on peut s'en servir de juda, même si on ne voit pas à travers.</target>
+        <target>Un composant électronique d'une époque révolue, dans l'état on peut s'en servir de judas, même si on ne voit pas à travers.</target>
       </segment>
     </unit>
     <unit id="pP0JDNU">
@@ -8118,6 +8118,159 @@
       <segment>
         <source>So 'ne Quali bekommt man nicht jeden Tag in die Finger! Sicher, Übelkeit, Zittern und Schweißausbrüche hast du auch damit bekommen, aber die Wirkung ist weitaus stärker als bei 'ner normalen Droge (Du hast einen &lt;strong&gt;AP Bonus&lt;/strong&gt; erhalten)... Übertreibe es aber nicht!</source>
         <target><![CDATA[C'est pas tous les jours qu'on peut avaler de la came de qualité. Les effets sont quand même là: nausée, tremblements, sueurs froides... En bien plus intense que pour une drogue normale (<strong>bonus de PA</strong> reçu)... N'en abusez pas !]]></target>
+      </segment>
+    </unit>
+    <unit id="JAgvnnn" name="Du benötigst {items_required}.">
+      <notes>
+        <note category="german">Du benötigst {items_required}.</note>
+      </notes>
+      <segment>
+        <source>Du benötigst {items_required}.</source>
+        <target>Vous avez besoin de {items_required}.</target>
+      </segment>
+    </unit>
+    <unit id="1LmNcmz">
+      <notes>
+        <note category="german">Kaum hast du deine Pille geschluckt, da verschwindet auch schon dein Durst. Hoffen wir mal, das alles gut geht...</note>
+      </notes>
+      <segment>
+        <source>Kaum hast du deine Pille geschluckt, da verschwindet auch schon dein Durst. Hoffen wir mal, das alles gut geht...</source>
+        <target>Vous avalez votre pillule... Quelques instants plus tard, la sensation de soif finit par s'estomper. Mais à quel prix...</target>
+      </segment>
+    </unit>
+    <unit id="izlHb1B">
+      <notes>
+        <note category="german">Versteckt inmitten einer lächerlichen Menge sinnloser Dokumente hast du einen {item_to} entdeckt.</note>
+      </notes>
+      <segment>
+        <source>Verloren inmitten einer lächerlichen Menge sinnloser Dokumente hast du einen {item_to} entdeckt.</source>
+        <target>Perdu au milieu d'innombrable documents sans intérêt, vous avez découvert {item_to}.</target>
+      </segment>
+    </unit>
+    <unit id="f1JKU7Q" name="Hierfür brauchst du mindestens 1 CP.">
+      <notes>
+        <note category="german">Hierfür brauchst du mindestens 1 CP.</note>
+      </notes>
+      <segment>
+        <source>Hierfür brauchst du mindestens 1 CP.</source>
+        <target>Hierfür brauchst du mindestens 1 CP.</target>
+      </segment>
+    </unit>
+    <unit id="dydc.v9">
+      <notes>
+        <note category="german">Du hast ein(e) {item_from} mit einer(m) {item_tool} zerstört. In den Resten auf dem Boden findest du: {item_to}.</note>
+      </notes>
+      <segment>
+        <source>Du hast ein(e) {item_from} mit einer(m) {item_tool} zerstört. In den Resten auf dem Boden findest du: {item_to}.</source>
+        <target>Vous avez démoli {item_from} à grands coups de {item_tool}. Vous trouvez {item_to} dans les restes par terre.</target>
+      </segment>
+    </unit>
+    <unit id="kXs8w7H" name="Du kannst diesen Gegenstand nur &lt;strong&gt;einmal am Tag&lt;/strong&gt; verwenden...">
+      <notes>
+        <note category="german">Du kannst diesen Gegenstand nur &lt;strong&gt;einmal am Tag&lt;/strong&gt; verwenden...</note>
+      </notes>
+      <segment>
+        <source>Du kannst diesen Gegenstand nur &lt;strong&gt;einmal am Tag&lt;/strong&gt; verwenden...</source>
+        <target><![CDATA[Vous ne pouvez utiliser ce type d'objet qu'<strong>1 fois par jour</strong>...]]></target>
+      </segment>
+    </unit>
+    <unit id="et83IYx" name="So, zur Desinfektion nur noch draufspucken und hopp: Sieht wie neu aus!">
+      <notes>
+        <note category="german">So, zur Desinfektion nur noch draufspucken und hopp: Sieht wie neu aus!</note>
+      </notes>
+      <segment>
+        <source>So, zur Desinfektion nur noch draufspucken und hopp: Sieht wie neu aus!</source>
+        <target>Un coup de ciseau, on crache sur la plaie pour désinfecter... Voilà c'est comme neuf.</target>
+      </segment>
+    </unit>
+    <unit id=".sG9vTq">
+      <notes>
+        <note category="german">Es geht doch nichts über einen schönen Stromstoß in die Wirbelsäule, um so richtig wach zu werden! Aber irgendwie riecht es jetzt hier nach verbranntem Fleisch...</note>
+      </notes>
+      <segment>
+        <source>Es geht doch nichts über einen schönen Stromstoß in die Wirbelsäule, um so richtig wach zu werden! Aber irgendwie riecht es jetzt hier nach verbranntem Fleisch...</source>
+        <target>Un bon coup de courant électrique dans la colonne vertébrale, rien de tel pour se réveiller ! Par contre, vous sentez comme une odeur de viande brûlée.</target>
+      </segment>
+    </unit>
+    <unit id="35qZHee" name="Deine Wunde wurde geheilt, zumindest oberflächlich...">
+      <notes>
+        <note category="german">Deine Wunde wurde geheilt, zumindest oberflächlich...</note>
+      </notes>
+      <segment>
+        <source>Deine Wunde wurde geheilt, zumindest oberflächlich...</source>
+        <target>Voilà une blessure de guerrie, en tout cas surperficiellement...</target>
+      </segment>
+    </unit>
+    <unit id="S3AHAPf" name="Hierfür brauchst du mindestens 5 AP.">
+      <notes>
+        <note category="german">Hierfür brauchst du mindestens 5 AP.</note>
+      </notes>
+      <segment>
+        <source>Hierfür brauchst du mindestens 5 AP.</source>
+        <target>Hierfür brauchst du mindestens 5 AP.</target>
+      </segment>
+    </unit>
+    <unit id="ndUWcPR" name="Deine unselige Infektion wurde kuriert!">
+      <notes>
+        <note category="german">Deine unselige Infektion wurde kuriert!</note>
+      </notes>
+      <segment>
+        <source>Deine unselige Infektion wurde kuriert!</source>
+        <target>Cette satanée infection est maintenant soignée !</target>
+      </segment>
+    </unit>
+    <unit id="793QxjT" name="Hierfür brauchst du mindestens 1 PM.">
+      <notes>
+        <note category="german">Hierfür brauchst du mindestens 1 MP.</note>
+      </notes>
+      <segment>
+        <source>Hierfür brauchst du mindestens 1 PM.</source>
+        <target>Hierfür brauchst du mindestens 1 PM.</target>
+      </segment>
+    </unit>
+    <unit id="42uqd50">
+      <notes>
+        <note category="german">Du schluckst das {item}... Nur ein paar Sekunden später ergreift dich die Panik... Kalte Schweißausbrüche, Paranoia... Du rollst dich zu einem Ball zusammen, außer Atem, und wartest darauf, dass die Wirkung nachlässt... aber das passiert nicht.&lt;hr /&gt;Du bist &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Du schluckst das {item}... Nur ein paar Sekunden später ergreift dich die Panik... Kalte Schweißausbrüche, Paranoia... Du rollst dich zu einem Ball zusammen, außer Atem, und wartest darauf, dass die Wirkung nachlässt... aber das passiert nicht.&lt;hr /&gt;Du bist &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt;.</source>
+        <target><![CDATA[Vous avalez {item}. Quelques secondes à peine après, c'est la panique... Sueurs froides, sentiment de persécution... Vous vous recroquevillez, le souffle coupé, en espérant que ça passe... mais ça ne passe pas.<hr />Vous devenez <strong>Terrorisé(e)</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="3B3bDO.">
+      <notes>
+        <note category="german">Sofort bereust du, dieses {item} heruntergeschluckt zu haben... Das Produkt entpuppt sich als ein starkes Steroid für Tiere (die Art, die üblicherweise Pferden verabreicht wird). Deine APs wurden wiederhergestellt, aber du bist ab sofort &lt;strong&gt;drogenabhängig&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Sofort bereust du, dieses {item} heruntergeschluckt zu haben... Das Produkt entpuppt sich als ein starkes Steroid für Tiere (die Art, die üblicherweise Pferden verabreicht wird). Deine APs wurden wiederhergestellt, aber du bist ab sofort &lt;strong&gt;drogenabhängig&lt;/strong&gt;!</source>
+        <target><![CDATA[Vous regrettez rapidement d'avoir avalé {item}... Ce produit se révèle être un puissant stéroïde pour animaux (le genre que l'on donnait aux chevaux de course). Vous récupérez vos PA, mais vous devenez immédiatement <strong>Dépendant(e) aux drogues</strong> !]]></target>
+      </segment>
+    </unit>
+    <unit id="hh6kdGK">
+      <notes>
+        <note category="german">Du schluckst die {item} hinunter. Nach einigen Minuten beginnt dein Kopf zu pochen und deine Nase beginnt zu bluten. Der Schmerz ist nicht unerträglich, aber er ist ziemlich unangenehm...</note>
+      </notes>
+      <segment>
+        <source>Du schluckst die {item} hinunter. Nach einigen Minuten beginnt dein Kopf zu pochen und deine Nase beginnt zu bluten. Der Schmerz ist nicht unerträglich, aber er ist ziemlich unangenehm...</source>
+        <target>Vous gobez {item}. Après plusieurs minutes, vous sentez une douleur sourde vous serrer le crâne et votre nez se met à saigner. Rien d'insupportable, mais rien de positif non plus…</target>
+      </segment>
+    </unit>
+    <unit id="poSLxEf">
+      <notes>
+        <note category="german">Um dieses Wasser trinkbar zu machen, brauchst du &lt;strong&gt;irgendein Reinigungsmittel&lt;/strong&gt; oder deine Stadt muss über einen &lt;strong&gt;Wasserreiniger&lt;/strong&gt; verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.</note>
+      </notes>
+      <segment>
+        <source>Um dieses Wasser trinkbar zu machen, brauchst du &lt;strong&gt;irgendein Reinigungsmittel&lt;/strong&gt; oder deine Stadt muss über einen &lt;strong&gt;Wasserreiniger&lt;/strong&gt; verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.</source>
+        <target><![CDATA[Um dieses Wasser trinkbar zu machen, brauchst du <strong>irgendein Reinigungsmittel</strong> oder deine Stadt muss über einen <strong>Wasserreiniger</strong> verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.]]></target>
+      </segment>
+    </unit>
+    <unit id="LB_nTi3">
+      <notes>
+        <note category="german">Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist &lt;strong&gt;nahezu unmöglich, es vom Original zu unterscheiden&lt;/strong&gt;, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.</note>
+      </notes>
+      <segment>
+        <source>Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist &lt;strong&gt;nahezu unmöglich, es vom Original zu unterscheiden&lt;/strong&gt;, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.</source>
+        <target><![CDATA[Vous avez fabriqué {target} en combinant {item} et {target}.{hr}Attention, vous avez empoisonné {target} ! Il n'est dorénavant <strong>presque plus possible de distinguer cet objet d'une version saine</strong>, soyez donc très prudent(e)... Libre à vous d'en faire ce qui vous semblera "juste".]]></target>
       </segment>
     </unit>
   </file>

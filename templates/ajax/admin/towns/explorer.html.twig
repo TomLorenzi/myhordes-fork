@@ -108,7 +108,7 @@
                                                 <option value="{{ url('admin_town_manage', {action: 'dbg_unlock_buildings', id: town.id}) }}">{{ 'Alle Gebäude freischalten'|trans({},'admin') }}</option>
                                                 <option value="{{ url('admin_town_manage', {action: 'dbg_map_progress', id: town.id}) }}" x-query="{{ 'Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)'|trans({},'admin') }}">{{ 'Zombie-Spread ausführen'|trans({},'admin') }}</option>
                                                 <option value="{{ url('admin_town_manage', {action: 'dbg_map_zombie_set', id: town.id}) }}" x-query="{{ 'Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).'|trans({},'admin') }}">{{ 'Zombies setzen'|trans({},'admin') }}</option>
-
+                                                <option value="{{ url('admin_town_manage', {action: 'dbg_adv_days', id: town.id}) }}" x-query="{{ 'Anzahl der Tage'|trans({},'admin') }}">{{ 'Vorspulen'|trans({},'admin') }}</option>
                                             </optgroup>
                                         {% endif %}
                                     {% endif %}
@@ -253,7 +253,7 @@
                                 <div class="padded cell rw-1">{{'Zone'|trans({}, 'admin')|slice(0,1)}}<div class="tooltip help">{{'Zone'|trans({}, 'admin')}}</div></div>
                                 <div class="padded cell left rw-9">{{ 'Bürger'|trans({},'game') }}</div>
                             </div>
-                            {% for citizen in town.citizens|sort((a,b) => (a.alive == b.alive) ? ((a.alive) ? a.user.name|lower <=> b.user.name|lower : b.survivedDays <=> a.survivedDays) : b.alive <=> a.alive) %}
+                            {% for citizen in town.citizens|sort((a,b) => (a.alive == b.alive) ? ((a.alive) ? a.name|lower <=> b.name|lower : b.survivedDays <=> a.survivedDays) : b.alive <=> a.alive) %}
                                 {# @var \App\Entity\Citizen citizen  #}
                                 <div class="row-flex stretch pointer" style="max-height: 100px;">
                                     <div class="cell rw-1">
@@ -327,7 +327,7 @@
                                         {% endif %}
                                         <img alt="{{ citizen.profession.label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ citizen.profession.icon ~ '.gif') }}" />
                                         <a class="link" href="{{ url('admin_users_citizen_view', {id: citizen.user.id}) }}">
-                                            <b class="citizen-name">{{ citizen.user.name }}</b>
+                                            <b class="citizen-name">{{ citizen.name }}</b>
                                         </a>&nbsp;
                                         {% for role in citizen.roles %}
                                             <img src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" alt="{{ role.label|trans({},'game') }}">&nbsp;
@@ -370,8 +370,8 @@
                             {% for culprit, complaint in complaints %}
                                 <li>{{ 'Gegen %culprit%'|trans({'%culprit%': "<strong>" ~ culprit ~ "</strong>"}, 'admin')|raw }}
                                     <ul>
-                                    {% for cmp in complaint|sort((a,b) => a.autor.user.name <=> b.autor.user.name) %}
-                                        <li>{{ cmp.autor.user.name }} : {{ cmp.linkedReason.text|trans({}, 'game') }}</li>
+                                    {% for cmp in complaint|sort((a,b) => a.autor.name <=> b.autor.name) %}
+                                        <li>{{ cmp.autor.name }} : {{ cmp.linkedReason.text|trans({}, 'game') }}</li>
                                     {% endfor %}
                                     </ul>
                                 </li>
@@ -383,7 +383,7 @@
                                             <div class="log-entry log-entry log-entry-type-8 log-entry-class-{{ log_complaint.on ? 1 : 3 }}">
                                                 <span class="log-part-time" style="width: 120px">{{ log_complaint.time|format_datetime('medium', 'short') }}</span>
                                                 <span class="log-part-content">
-                                                    <span>{{ log_complaint.from.user.name }}</span> <i class="fa fa-arrow-right"></i> <span>{{ log_complaint.to.user.name }}</span>
+                                                    <span>{{ log_complaint.from.name }}</span> <i class="fa fa-arrow-right"></i> <span>{{ log_complaint.to.name }}</span>
                                                     (<i>{{ log_complaint.reason.text|trans({}, 'game') }}</i>)
                                                 </span>
                                             </div>
@@ -402,7 +402,7 @@
                                                 <li>{{ 'Für %target%'|trans({"%target%": target}, 'admin') }}
                                                     <ul>
                                                         {% for autor in autors %}
-                                                        <li>{{ autor.user.name }}</li>
+                                                        <li>{{ autor.name }}</li>
                                                         {% endfor %}
                                                     </ul>
                                                 </li>
@@ -437,7 +437,7 @@
                     {% for entry in blackboards %}
                         <div class="row">
                             <div class="padded cell rw-3">
-                                <a class="link" target="_blank" href="{{ url('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.user.name }}</a><br />
+                                <a class="link" target="_blank" href="{{ url('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.name }}</a><br />
                                 <i>{{ entry.time|format_datetime('medium', 'short') }}</i>
                             </div>
                             <div class="padded cell rw-9 pointer" x-blackboard-short="{{ entry.id }}">{{ entry.text }}</div>
@@ -506,18 +506,34 @@
                             <div class="cell rw-6 padded">
                                 <h5>{{ 'Aktuelle Sitzung'|trans({},'admin') }}</h5>
                                 {% if exploration.ax %}
-                                    {{ _self.valuelist('Spieler'|trans({},'admin'), exploration.ax.citizen.user.name) }}
+                                    {{ _self.valuelist('Spieler'|trans({},'admin'), exploration.ax.citizen.name) }}
                                     {{ _self.valuelist('Position'|trans({},'admin'), exploration.ax.x ~ ' / ' ~ exploration.ax.y ) }}
                                     {{ _self.valuelist('Flucht'|trans({},'admin'), exploration.ax.escaping ) }}
                                     {{ _self.valuelist('Raum'|trans({},'admin'), exploration.ax.inRoom ) }}
                                     <div class="row">
-                                        <div class="cell rw-4"><b>{{ 'Zeit'|trans({},'admin') }}</b></div>
-                                        <div class="cell rw-8"><span x-countdown="{{ exploration.axt }}">...</span></div>
+                                        <div class="padded cell rw-4 note note-lightest"><b>{{ 'Zeit'|trans({},'admin') }}</b></div>
+                                        <div class="padded cell rw-8"><span x-countdown="{{ exploration.axt }}">...</span></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class=" padded cell rw-4 note note-lightest"><b>{{ 'Aktionen'|trans({},'admin') }}</b></div>
+                                        <div class=" padded cell rw-8">
+                                            <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_co+', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-door-open"></i><div class="tooltip">{{ 'Herauswerfen (ohne Verletzung)'|trans({},'admin') }}</div></button>
+                                            <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_co-', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-door-closed"></i><div class="tooltip">{{ 'Herauswerfen (mit Verletzung)'|trans({},'admin') }}</div></button>
+                                            <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_ref', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-plus"></i><div class="tooltip">{{ 'Timer erhöhen (1min)'|trans({},'admin') }}</div></button>
+                                            {% if app.environment == 'dev' %}
+                                                <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_inf', id: town.id}) }}" x-ex-session="{{ exploration.ax.id }}" class="small inline"><i class="fa fa-plus-circle"></i><div class="tooltip">{{ 'Timer erhöhen (24h)'|trans({},'admin') }}</div></button>
+                                            {% endif %}
+                                        </div>
                                     </div>
                                 {% endif %}
                                 <h5>{{ 'Alle Sitzungen'|trans({},'admin') }}</h5>
                                 {% for x in exploration.x %}
-                                    <div>{{ x.citizen.user.name }}</div>
+                                    <div class="row">
+                                        <div class="cell rw-12 padded">
+                                            {{ x.citizen.name }}
+                                            <button x-ex-action="{{ url('admin_town_manage', {action: 'ex_del', id: town.id}) }}" x-ex-session="{{ x.id }}" class="small inline float-right"><i class="fa fa-recycle"></i><div class="tooltip">{{ 'Löschen (ermöglicht erneutes Betreten der Ruine)'|trans({},'admin') }}</div></button>
+                                        </div>
+                                    </div>
                                 {% endfor %}
                             </div>
                         </div>
@@ -567,6 +583,13 @@
                 $.ajax.easySend( document.getElementById('administer-town').value, {param: q_param},
                     function () {
                         $.ajax.load(null, url ? url : '{{ path('admin_town_explorer', {id: town.id}) }}', true);
+                    } );
+            });
+
+            $.html.addEventListenerAll('[x-ex-action][x-ex-session]', 'click', function(e,elem) {
+                $.ajax.easySend( elem.getAttribute('x-ex-action'), {param: parseInt(elem.getAttribute('x-ex-session'))},
+                    function () {
+                        $.ajax.load(null, '{{ path('admin_town_explorer', {id: town.id, tab: 'explorer'})|e('js') }}', true);
                     } );
             });
 

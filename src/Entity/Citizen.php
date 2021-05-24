@@ -198,6 +198,11 @@ class Citizen
     private $comment;
 
     /**
+     * @ORM\Column(type="text", nullable=true, length=24)
+     */
+    private $alias;
+
+    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $disposed;
@@ -472,6 +477,23 @@ class Citizen
         $this->town = $town;
 
         return $this;
+    }
+
+    public function getAlias(): ?string
+    {
+        return $this->alias;
+    }
+
+    public function setAlias(?string $alias): self
+    {
+        $this->alias = $alias;
+
+        return $this;
+    }
+
+    public function getName(): string
+    {
+        return $this->getAlias() ?? $this->getUser()->getName();
     }
 
     public function getHome(): ?CitizenHome

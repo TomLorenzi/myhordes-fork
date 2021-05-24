@@ -26,20 +26,24 @@ use App\Entity\Season;
 use App\Entity\TownClass;
 use App\Entity\ZonePrototype;
 use App\Entity\ZoneTag;
+use App\Service\Globals\TranslationConfigGlobal;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Translation\Extractor\ExtractorInterface;
 use Symfony\Component\Translation\MessageCatalogue;
 
 class DatabaseExtractor implements ExtractorInterface
 {
+    private TranslationConfigGlobal $config;
+
     protected $prefix;
     protected $em;
 
     protected static $has_been_run = false;
 
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, TranslationConfigGlobal $config)
     {
         $this->em = $em;
+        $this->config = $config;
     }
 
     private function insert(MessageCatalogue &$c, string $message, string $domain) {

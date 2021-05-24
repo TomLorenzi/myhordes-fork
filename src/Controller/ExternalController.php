@@ -1610,7 +1610,7 @@ class ExternalController extends InventoryAwareController {
     private function getAuthorInformation(ExpeditionRoute $expedition): array {
         $data = [];
         $data['id'] = $expedition->getOwner()->getUser()->getId();
-        $data['name'] = $expedition->getOwner()->getUser()->getName();
+        $data['name'] = $expedition->getOwner()->getName();
 
         $has_avatar = $expedition->getOwner()->getUser()->getAvatar();
         if ($has_avatar) {
@@ -1650,7 +1650,7 @@ class ExternalController extends InventoryAwareController {
             if (is_array($field)) {
                 if (key($field) == "cleanup" && $citizen->getDisposed() != null) {
                     $data['cleanup']['user'] =
-                        $citizen->getDisposedBy()->count() > 0 ? $citizen->getDisposedBy()[0]->getUser()->getName() : '';
+                        $citizen->getDisposedBy()->count() > 0 ? $citizen->getDisposedBy()[0]->getName() : '';
                     $data['cleanup']['type'] = $type;
                 }
 
@@ -1680,7 +1680,7 @@ class ExternalController extends InventoryAwareController {
                         }
                         break;
                     case "name":
-                        $data[$field] = $citizen->getUser()->getName();
+                        $data[$field] = $citizen->getName();
                         break;
                     case "mapName":
                         $data[$field] = $citizen->getTown()->getName();
@@ -1717,7 +1717,7 @@ class ExternalController extends InventoryAwareController {
                     case "cleanUp":
                         if ($citizen->getDisposed() != null) {
                             $data['cleanup']['user'] =
-                                $citizen->getDisposedBy()->count() > 0 ? $citizen->getDisposedBy()[0]->getUser()->getName() : '';
+                                $citizen->getDisposedBy()->count() > 0 ? $citizen->getDisposedBy()[0]->getName() : '';
                             $data['cleanup']['type'] = $type;
                         }
                         break;

@@ -62,7 +62,7 @@ class ZoneHandler
         $this->town_handler = $th;
     }
 
-    public function updateRuinZone(?RuinExplorerStats $ex) {
+    public function updateRuinZone(?RuinExplorerStats $ex): ?string {
         if ($ex === null || !$ex->getActive()) return false;
 
         $eject = $ex->getTimeout()->getTimestamp() < time() || $this->citizen_handler->isWounded( $ex->getCitizen() ) || $this->citizen_handler->hasStatusEffect($ex->getCitizen(), 'terror');
@@ -83,8 +83,8 @@ class ZoneHandler
             $this->entity_manager->persist( $ex );
             $this->entity_manager->persist( $ruinZone );
 
-            return true;
-        } else return false;
+            return $this->trans->trans('Die Atmosphäre wird unerträglich... Du kannst so nicht weitermachen; ohne zu wissen wie, du findest den Ausgang, aber du verletzt dich bei der Flucht.', [], 'game');
+        } else return null;
     }
 
     public function updateZone( Zone $zone, ?DateTime $up_to = null, ?Citizen $active = null ): ?string {
@@ -481,7 +481,7 @@ class ZoneHandler
                 $this->entity_manager->remove( $cst );
             foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $zone->getTown(), null, null, $zone, null, null ) as $entry)
                 /** @var TownLogEntry $entry */
-                if ($entry->getLogEntryTemplate() === null || $entry->getLogEntryTemplate()->getClass() !== LogEntryTemplate::ClassCritical)
+                if ($entry->getLogEntryTemplate() === null || !$entry->getLogEntryTemplate()->getNonVolatile() )
                     $this->entity_manager->remove( $entry );
         }
 

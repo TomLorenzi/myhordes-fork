@@ -49,6 +49,11 @@ class RequireStatus
      */
     private $role;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $banished;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -110,6 +115,18 @@ class RequireStatus
     public function setRole(?CitizenRole $role): self
     {
         $this->role = $role;
+
+        return $this;
+    }
+
+    public function getBanished(): ?bool
+    {
+        return $this->banished;
+    }
+
+    public function setBanished(?bool $banished): self
+    {
+        $this->banished = $banished;
 
         return $this;
     }

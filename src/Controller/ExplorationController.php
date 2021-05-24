@@ -81,7 +81,8 @@ class ExplorationController extends InventoryAwareController implements HookedIn
 
     public function before(): bool
     {
-        if ($this->zone_handler->updateRuinZone( $this->getActiveCitizen()->activeExplorerStats() )) {
+        if ($s = $this->zone_handler->updateRuinZone( $this->getActiveCitizen()->activeExplorerStats() )) {
+            $this->addFlash( 'error', $s );
             try {
                 $this->entity_manager->flush();
             } catch (Exception $e) {}

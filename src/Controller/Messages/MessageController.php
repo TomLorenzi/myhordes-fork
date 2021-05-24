@@ -163,6 +163,7 @@ class MessageController extends CustomAbstractController
 
             'forum' => false,
             'type' => 'numb',
+            'username' => $user->getName(),
             'target_url' => '',
             'town_controls' => false
         ] );

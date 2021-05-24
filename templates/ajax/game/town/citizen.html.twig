@@ -40,7 +40,7 @@
             <div class="padded cell rw-4 hide-md hide-sm center">{{ 'Nachricht'|trans({},'game') }}</div>
             <div class="padded cell rw-3 rw-md-5 right">{{ 'Draußen?'|trans({},'game') }}</div>
         </div>
-        {% for citizenInfo in citizens|sort((a,b) => (a.citizen.alive == b.citizen.alive) ? ((a.citizen.alive) ? a.citizen.user.name|lower <=> b.citizen.user.name|lower : b.citizen.survivedDays <=> a.citizen.survivedDays) : b.citizen.alive <=> a.citizen.alive) %}
+        {% for citizenInfo in citizens|sort((a,b) => (a.citizen.alive == b.citizen.alive) ? ((a.citizen.alive) ? a.citizen.name|lower <=> b.citizen.name|lower : b.citizen.survivedDays <=> a.citizen.survivedDays) : b.citizen.alive <=> a.citizen.alive) %}
             {% set citizen = citizenInfo.citizen %}
             {# @var \App\Entity\Citizen citizen  #}
             <div class="row-flex stretch pointer{% if citizen == me%} me{% endif %}" style="max-height: 100px;">
@@ -63,7 +63,7 @@
                                 {% if citizen.home.holdsBody %}
                                     <div class="inline-block">
                                     <img alt="{{ 'Leiche nicht beseitigt!'|trans({},'game') }}" src="{{ asset('build/images/icons/small_warning.gif') }}" />
-                                        <div class="tooltip normal"><span class="warning">{{'Der Leichnam von %citizen% wurde nicht zerstört.'|trans({'%citizen%': citizen.user.name}, 'game')}}</span> {{'Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.'|trans({}, 'game')}}</div>
+                                        <div class="tooltip normal"><span class="warning">{{'Der Leichnam von %citizen% wurde nicht zerstört.'|trans({'%citizen%': citizen.name}, 'game')}}</span> {{'Es ist gut möglich, dass er diese Nacht aufersteht und versuchen wird, uns anzugreifen.'|trans({}, 'game')}}</div>
                                     </div>
                                 {% else %}
                                     <img alt="" src="{{ asset('build/images/professions/void.gif') }}" />
@@ -73,12 +73,12 @@
                                     <div class="inline-block">
                                         <img alt="" src="{{ asset('build/images/professions/cannib.gif') }}" />
                                         <div class="tooltip normal">
-                                            {{'%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...'|trans({'%citizen%':citizen.user.name}, 'game')}}
+                                            {{'%citizen% hat einen Teil seines Heißhungers gestillt, indem er Teile seiner Mitbürger gegessen hat. Um sicherzustellen, dass so etwas nicht noch einmal passiert, übergieße die Verstorbenen das nächste Mal mit Wasser...'|trans({'%citizen%':citizen.name}, 'game')}}
                                         </div>
                                     </div>
                                 {% endif %}
                             {% endif %}
-                            <a class="link username" href="{{ path('soul_visit', {id: citizen.user.id}) }}"><b class="citizen-name">{{ citizen.user.name }}</b></a>
+                            <a class="link username" href="{{ path('soul_visit', {id: citizen.user.id}) }}"><b class="citizen-name">{{ citizen.name }}</b></a>
                             {% if citizen.alive %}
                                 {% for role in citizen.roles %}
                                     {% if not role.secret and not role.hidden %}

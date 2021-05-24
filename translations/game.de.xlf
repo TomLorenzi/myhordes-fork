@@ -732,11 +732,11 @@
     </unit>
     <unit id="oCYA07E">
       <notes>
-        <note category="german">Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</note>
+        <note category="german">Mit dem Wachturm können die Bürger jeden Tag eine Angriffsabschätzung durchführen. &lt;strong&gt;Die Qualität der Abschätzung hängt von der Anzahl der Bürger ab, die daran teil nehmen&lt;/strong&gt;.</note>
       </notes>
       <segment>
         <source>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</source>
-        <target>Mithilfe des Wachturms kann die Stärke des nächtlichen Angriffs abgeschätzt werden. Je mehr Bürger sich an der Abschätzung beteiligen, desto genauer wird das Ergebnis.</target>
+        <target><![CDATA[Mit dem Wachturm können die Bürger jeden Tag eine Angriffsabschätzung durchführen. <strong>Die Qualität der Abschätzung hängt von der Anzahl der Bürger ab, die daran teil nehmen</strong>.]]></target>
       </segment>
     </unit>
     <unit id="MVukZx5" name="Heutige Abschätzung">
@@ -19391,6 +19391,213 @@
       <segment>
         <source>Beachte: Behälter wie Rucksack, Einkaufswagen etc. werden nicht in der Bank abgelegt.</source>
         <target>Beachte: Behälter wie Rucksack, Einkaufswagen etc. werden nicht in der Bank abgelegt.</target>
+      </segment>
+    </unit>
+    <unit id="jB1RN29" name="Deine Nachricht wurde gespeichert.">
+      <notes>
+        <note category="german">Deine Nachricht wurde gespeichert.</note>
+      </notes>
+      <segment>
+        <source>Deine Nachricht wurde gespeichert.</source>
+        <target>Deine Nachricht wurde gespeichert.</target>
+      </segment>
+    </unit>
+    <unit id="X21IBNl" name="Meine Partien">
+      <notes>
+        <note category="german">Meine Partien</note>
+      </notes>
+      <segment>
+        <source>Meine Partien</source>
+        <target>Meine Partien</target>
+      </segment>
+    </unit>
+    <unit id="KAAmbDC" name="Name der Stadt">
+      <notes>
+        <note category="german">Name der Stadt</note>
+      </notes>
+      <segment>
+        <source>Name der Stadt</source>
+        <target>Name der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="9in0QXU">
+      <notes>
+        <note category="german">In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat.Ein Tag gilt immer dann als &amp;quot;vollkommen überlebt&amp;quot;, &lt;strong&gt;wenn du beim Zombieangriff um 23:59 stirbst&lt;/strong&gt;. Solltest du vorher - im Laufe des Tages - sterben, gilt der Tag nicht als überlebt..</note>
+      </notes>
+      <segment>
+        <source>In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat.Ein Tag gilt immer dann als &amp;quot;vollkommen überlebt&amp;quot;, &lt;strong&gt;wenn du beim Zombieangriff um 23:59 stirbst&lt;/strong&gt;. Solltest du vorher - im Laufe des Tages - sterben, gilt der Tag nicht als überlebt..</source>
+        <target><![CDATA[In dieser Spalte werden die Anzahl der vollen Tage angezeigt, die jeder Bürger überlebt hat.Ein Tag gilt immer dann als &quot;vollkommen überlebt&quot;, <strong>wenn du beim Zombieangriff um 23:59 stirbst</strong>. Solltest du vorher - im Laufe des Tages - sterben, gilt der Tag nicht als überlebt..]]></target>
+      </segment>
+    </unit>
+    <unit id="cEXdc4T" name="Die blau markierten Felder sind Städte, in denen du mitgespielt hast!">
+      <notes>
+        <note category="german">Die blau markierten Felder sind Städte, in denen du mitgespielt hast!</note>
+      </notes>
+      <segment>
+        <source>Die blau markierten Felder sind Städte, in denen du mitgespielt hast!</source>
+        <target>Die blau markierten Felder sind Städte, in denen du mitgespielt hast!</target>
+      </segment>
+    </unit>
+    <unit id="zquwWt5" name="Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.">
+      <notes>
+        <note category="german">Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.</note>
+      </notes>
+      <segment>
+        <source>Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.</source>
+        <target>Die Ranglisten aktualisieren sich jeden Tag nach dem mitternächtlichen Angriff.</target>
+      </segment>
+    </unit>
+    <unit id="wZJl7Bp" name="Deine Identität">
+      <notes>
+        <note category="german">Deine Identität</note>
+      </notes>
+      <segment>
+        <source>Deine Identität</source>
+        <target>Deine Identität</target>
+      </segment>
+    </unit>
+    <unit id="0DPxQPn" name="Diese Stadt erlaubt es, einen Spitznamen zu tragen.">
+      <notes>
+        <note category="german">Diese Stadt erlaubt es, einen Spitznamen zu tragen.</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt erlaubt es, einen Spitznamen zu tragen.</source>
+        <target>Diese Stadt erlaubt es, einen Spitznamen zu tragen.</target>
+      </segment>
+    </unit>
+    <unit id="qYsZ1.g" name="Freilassen, um normalen Spielernamen zu verwenden.">
+      <notes>
+        <note category="german">Freilassen, um normalen Spielernamen zu verwenden.</note>
+      </notes>
+      <segment>
+        <source>Freilassen, um normalen Spielernamen zu verwenden.</source>
+        <target>Freilassen, um normalen Spielernamen zu verwenden.</target>
+      </segment>
+    </unit>
+    <unit id="G2mvpQw" name="Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:">
+      <notes>
+        <note category="german">Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:</note>
+      </notes>
+      <segment>
+        <source>Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:</source>
+        <target>Wir denken, der morgige Angriff wird ungefähr folgendermaßen aussehen:</target>
+      </segment>
+    </unit>
+    <unit id="BIzSHqq" name="Erforschung einer beengten Ruine in erstickender Atmosphäre">
+      <notes>
+        <note category="german">Erforschung einer beengten Ruine in erstickender Atmosphäre</note>
+      </notes>
+      <segment>
+        <source>Erforschung einer beengten Ruine in erstickender Atmosphäre</source>
+        <target>Erforschung einer beengten Ruine in erstickender Atmosphäre</target>
+      </segment>
+    </unit>
+    <unit id="wGYcGMz" name="Diskussionen rund um Bauprojekte">
+      <notes>
+        <note category="german">Diskussionen rund um Bauprojekte</note>
+      </notes>
+      <segment>
+        <source>Diskussionen rund um Bauprojekte</source>
+        <target>Diskussionen rund um Bauprojekte</target>
+      </segment>
+    </unit>
+    <unit id="VVIGSg2" name="Vorhandene Bauprojekte">
+      <notes>
+        <note category="german">Vorhandene Bauprojekte</note>
+      </notes>
+      <segment>
+        <source>Vorhandene Bauprojekte</source>
+        <target>Vorhandene Bauprojekte</target>
+      </segment>
+    </unit>
+    <unit id="Ms44ehb">
+      <notes>
+        <note category="german">Die Atmosphäre wird unerträglich... Du kannst so nicht weitermachen; ohne zu wissen wie, du findest den Ausgang, aber du verletzt dich bei der Flucht.</note>
+      </notes>
+      <segment>
+        <source>Die Atmosphäre wird unerträglich... Du kannst so nicht weitermachen; ohne zu wissen wie, du findest den Ausgang, aber du verletzt dich bei der Flucht.</source>
+        <target>Die Atmosphäre wird unerträglich... Du kannst so nicht weitermachen; ohne zu wissen wie, du findest den Ausgang, aber du verletzt dich bei der Flucht.</target>
+      </segment>
+    </unit>
+    <unit id="mwmHgUh" name="Superheld">
+      <notes>
+        <note category="german">Superheld</note>
+      </notes>
+      <segment>
+        <source>Superheld</source>
+        <target>Superheld</target>
+      </segment>
+    </unit>
+    <unit id="i7ayglv">
+      <notes>
+        <note category="german">Die Schätzung des heutigen Tages muss zuerst abgeschlossen werden, um die Schätzung des nächsten Tages zu berechnen.</note>
+      </notes>
+      <segment>
+        <source>Die Schätzung des heutigen Tages muss zuerst abgeschlossen werden, um die Schätzung des nächsten Tages zu berechnen.</source>
+        <target>Die Schätzung des heutigen Tages muss zuerst abgeschlossen werden, um die Schätzung des nächsten Tages zu berechnen.</target>
+      </segment>
+    </unit>
+    <unit id="NExVouj">
+      <notes>
+        <note category="german">Durch die Konstruktion von %building% wurden eine Menge Zombies in der Außenwelt vernichtet!</note>
+      </notes>
+      <segment>
+        <source>Durch die Konstruktion von %building% wurden eine Menge Zombies in der Außenwelt vernichtet!</source>
+        <target>Durch die Konstruktion von %building% wurden eine Menge Zombies in der Außenwelt vernichtet!</target>
+      </segment>
+    </unit>
+    <unit id="U6fEEaj">
+      <notes>
+        <note category="german">&lt;strong&gt;Achtung!&lt;/strong&gt; Das Betreten der Stadt erfordert &lt;div class="ap"&gt;1&lt;/div&gt; (die Kosten sind auf den Bau des &lt;strong&gt;Labyrinths&lt;/strong&gt; zurückzuführen)!</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Achtung!&lt;/strong&gt; Das Betreten der Stadt erfordert &lt;div class="ap"&gt;1&lt;/div&gt; (die Kosten sind auf den Bau des &lt;strong&gt;Labyrinths&lt;/strong&gt; zurückzuführen)!</source>
+        <target><![CDATA[<strong>Achtung!</strong> Das Betreten der Stadt erfordert <div class="ap">1</div> (die Kosten sind auf den Bau des <strong>Labyrinths</strong> zurückzuführen)!]]></target>
+      </segment>
+    </unit>
+    <unit id="_mE4ihs" name="Unser %building% hat reichhaltigen Ertrag gebracht: %items%">
+      <notes>
+        <note category="german">Unser %building% hat reichhaltigen Ertrag gebracht: %items%</note>
+      </notes>
+      <segment>
+        <source>Unser %building% hat reichhaltigen Ertrag gebracht: %items%</source>
+        <target>Unser %building% hat reichhaltigen Ertrag gebracht: %items%</target>
+      </segment>
+    </unit>
+    <unit id="3NHVIj9" name="Name">
+      <notes>
+        <note category="german">Name</note>
+      </notes>
+      <segment>
+        <source>Name</source>
+        <target>Name</target>
+      </segment>
+    </unit>
+    <unit id="qN3u6fP" name="Kosten">
+      <notes>
+        <note category="german">Kosten</note>
+      </notes>
+      <segment>
+        <source>Kosten</source>
+        <target>Kosten</target>
+      </segment>
+    </unit>
+    <unit id="6spO8K_" name="Dieser Bürger hat sich für heute Nacht hier versteckt.">
+      <notes>
+        <note category="german">Dieser Bürger hat sich für heute Nacht hier versteckt.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger hat sich für heute Nacht hier versteckt.</source>
+        <target>Dieser Bürger hat sich für heute Nacht hier versteckt.</target>
+      </segment>
+    </unit>
+    <unit id="PEGlllX">
+      <notes>
+        <note category="german">Du bist gerade dabei in dieser Zone zu graben. Wenn du bis zum Ende der angezeigten Zeit am gleichen Platz bleibst, &lt;strong&gt;hast du die Möglichkeit einen weiteren Gegenstand zu finden&lt;/strong&gt;!&lt;br /&gt;&lt;br /&gt;Du kannst so lange bleiben wie du möchtest.</note>
+      </notes>
+      <segment>
+        <source>Du bist gerade dabei in dieser Zone zu graben. Wenn du bis zum Ende der angezeigten Zeit am gleichen Platz bleibst, &lt;strong&gt;hast du die Möglichkeit einen weiteren Gegenstand zu finden&lt;/strong&gt;!&lt;br /&gt;&lt;br /&gt;Du kannst so lange bleiben wie du möchtest.</source>
+        <target><![CDATA[Du bist gerade dabei in dieser Zone zu graben. Wenn du bis zum Ende der angezeigten Zeit am gleichen Platz bleibst, <strong>hast du die Möglichkeit einen weiteren Gegenstand zu finden</strong>!<br /><br />Du kannst so lange bleiben wie du möchtest.]]></target>
       </segment>
     </unit>
   </file>

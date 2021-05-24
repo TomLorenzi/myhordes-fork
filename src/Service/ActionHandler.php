@@ -103,6 +103,12 @@ class ActionHandler
         if ($target && (!$action->getTarget() || !$this->targetDefinitionApplies($target, $action->getTarget())))
             return self::ActionValidityNone;
 
+        $evaluate_info_cache = [
+            'missing_items' => [],
+        ];
+
+        $messages = [];
+
         $current_state = self::ActionValidityFull;
         foreach ($action->getRequirements() as $meta_requirement) {
             $last_state = $current_state;
@@ -140,6 +146,8 @@ class ActionHandler
                     $role_is_active = $citizen->getRoles()->contains( $status->getRole() );
                     if ($role_is_active !== $status->getEnabled()) $current_state = min( $current_state, $this_state );
                 }
+
+                if ($status->getBanished() !== null && $citizen->getBanished() !== $status->getBanished()) $current_state = min( $current_state, $this_state );
             }
 
             if ($home = $meta_requirement->getHome()) {
@@ -192,13 +200,18 @@ class ActionHandler
                 if ($count > 0) {
                     if (empty($this->inventory_handler->fetchSpecificItems( $source,
                         [new ItemRequest($item_str, $item_condition->getCount() ?? 1, false, $item_condition->getAllowPoison() ? null : false, $is_prop)]
-                    ))) $current_state = min( $current_state, $this_state );
+                    ))) {
+                        if (!$is_prop) for ($i = 0; $i < $item_condition->getCount() ?? 1; $i++) $evaluate_info_cache['missing_items'][] = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($item_str);
+                        $current_state = min($current_state, $this_state);
+                    }
                 } else {
                     if (!empty($this->inventory_handler->fetchSpecificItems( $source,
                         [new ItemRequest($item_str, 1, false, $item_condition->getAllowPoison() ? null : false, $is_prop)]
-                    ))) $current_state = min( $current_state, $this_state );
+                    ))) {
+                        if (!$is_prop) $evaluate_info_cache['missing_items'][] = $this->entity_manager->getRepository(ItemPrototype::class)->findOneByName($item_str);
+                        $current_state = min( $current_state, $this_state );
+                    }
                 }
-
             }
 
             if ($location_condition = $meta_requirement->getLocation()) {
@@ -330,9 +343,18 @@ class ActionHandler
                 }
 
 
-            if ($current_state < $last_state) $message = $this->translator->trans($meta_requirement->getFailureText(), [], 'items');
+            if ($current_state < $last_state) {
+                $thisMessage = $meta_requirement->getFailureText() ? $this->translator->trans( $meta_requirement->getFailureText(), [
+                    '{items_required}' => $this->wrap_concat($evaluate_info_cache['missing_items']),
+                    '{hr}'             => "<hr />",
+                ], 'items' ) : null;
+
+                if ($thisMessage) $messages[] = $thisMessage;
+            }
 
         }
+
+        if (!empty($messages)) $message = implode('<hr />', $messages);
 
         return $current_state;
 
@@ -345,13 +367,11 @@ class ActionHandler
     private function reformat_prototype_list(array $list): array {
 
         $cache = [];
-        foreach ( $list as $entry ) {
+        foreach ( $list as $entry )
             if (!isset( $cache[$entry->getId()] )) $cache[$entry->getId()] = [1,$entry];
             else $cache[$entry->getId()][0]++;
-        }
 
         return $cache;
-
     }
 
     /**
@@ -359,10 +379,11 @@ class ActionHandler
      * @param Item $item
      * @param ItemAction[] $available
      * @param ItemAction[] $crossed
+     * @param array|null $messages
      */
-    public function getAvailableItemActions(Citizen $citizen, Item $item, ?array &$available, ?array &$crossed ) {
+    public function getAvailableItemActions(Citizen $citizen, Item $item, ?array &$available, ?array &$crossed, ?array &$messages = null ) {
 
-        $available = $crossed = [];
+        $available = $crossed = $messages = [];
         if ($item->getBroken()) return;
 
         $is_at_00 = $citizen->getZone() && $citizen->getZone()->isTownZone();
@@ -371,6 +392,7 @@ class ActionHandler
             $mode = $this->evaluate( $citizen, $item, null, $action, $tx );
             if ($mode >= self::ActionValidityAllow) $available[] = $action;
             else if ($mode >= self::ActionValidityCrossed) $crossed[] = $action;
+            if (!empty($tx)) $messages[$action->getId()] = $tx;
         }
     }
 
@@ -514,10 +536,10 @@ class ActionHandler
 
     /**
      * @param ItemPrototype|BuildingPrototype|Citizen|string $o
-     * @param $c
+     * @param int $c
      * @return string
      */
-    private function wrap($o, $c=1) :string {
+    private function wrap($o, int $c=1) :string {
         $i = null;
         if (is_a($o, ItemPrototype::class)) {
             $s = $this->translator->trans($o->getLabel(), [], 'items');
@@ -526,7 +548,7 @@ class ActionHandler
             $s =  $this->translator->trans($o->getLabel(), [], 'buildings');
             $i = 'build/images/building/' . $o->getIcon() . '.gif';
         } else if (is_a($o, Citizen::class)) {
-            $s =  $o->getUser()->getName();
+            $s =  $o->getName();
             $i = 'build/images/professions/' . $o->getProfession()->getIcon() . '.gif';
         }
         else if (is_string($o)) $s = $o;
@@ -537,13 +559,13 @@ class ActionHandler
         return '<span>' . ($c > 1 ? "$c x " : '') . ($i ? "<img alt='' src='$i' />" : '') . $s .  '</span>';
     }
 
-    private function wrap_concat(array $c) {
+    private function wrap_concat(array $c): string {
         return implode(', ', array_map(function(array $e): string {
             return $this->wrap( $e[1], $e[0] );
         }, $this->reformat_prototype_list($c)));
     }
 
-    private function wrap_concat_hierarchy(array $c) {
+    private function wrap_concat_hierarchy(array $c): string {
         return implode(' > ', array_map(function(array $e): string {
             return $this->wrap( $e[1], $e[0] );
         }, $this->reformat_prototype_list($c)));

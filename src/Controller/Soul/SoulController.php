@@ -52,6 +52,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Validator\ConstraintViolationInterface;
@@ -464,7 +465,7 @@ class SoulController extends CustomAbstractController
             $currentSeason = $this->entity_manager->getRepository(Season::class)->find($seasonId);
         }
         if ($type === null) {
-            $currentType = $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true], ['id' => 'ASC'])[0];
+            $currentType = $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true], ['orderBy' => 'ASC'])[0];
         } else {
             $currentType = $this->entity_manager->getRepository(TownClass::class)->find($type);
         }
@@ -496,7 +497,7 @@ class SoulController extends CustomAbstractController
             'seasons' => $seasons,
             'currentSeason' => $currentSeason,
             'towns' => $towns,
-            'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true]),
+            'townTypes' => $this->entity_manager->getRepository(TownClass::class)->findBy(['ranked' => true], ['orderBy' => 'ASC']),
             'currentType' => $currentType,
             'played' => $played,
             'user' => $user
@@ -621,14 +622,21 @@ class SoulController extends CustomAbstractController
 
 
     /**
-     * @Route("jx/soul/{sid}/town/{idtown}", name="soul_view_town")
+     * @Route("jx/soul/{sid}/town/{idtown}/{return_path}", name="soul_view_town")
      * @param string $sid
      * @param int $idtown
+     * @param string $return_path
      * @return Response
      */
-    public function soul_view_town(int $idtown, $sid = 'me'): Response
+    public function soul_view_town(int $idtown, $sid = 'me', $return_path = "soul_me"): Response
     {
         $user = $this->getUser();
+
+        try {
+            $this->generateUrl($return_path);
+        } catch (RouteNotFoundException $e) {
+            $return_path = "soul_me";
+        }
 
         if ($sid !== 'me' && !is_numeric($sid))
             return $this->redirect($this->generateUrl('soul_me'));
@@ -658,7 +666,8 @@ class SoulController extends CustomAbstractController
         return $this->render(  $user === $target_user ? 'ajax/soul/view_town.html.twig' : 'ajax/soul/view_town_foreign.html.twig', $this->addDefaultTwigArgs("soul_visit", array(
             'user' => $target_user,
             'town' => $town,
-            'last_user_standing' => $picto !== null ? $picto->getUser() : null
+            'last_user_standing' => $picto !== null ? $picto->getUser() : null,
+            'return_path' => $return_path
         )));
     }
 
@@ -685,6 +694,8 @@ class SoulController extends CustomAbstractController
 
         $this->entity_manager->persist($citizenProxy);
         $this->entity_manager->flush();
+
+        $this->addFlash('notice', $this->translator->trans('Deine Nachricht wurde gespeichert.', [], 'game'));
 
         return AjaxResponse::success();
     }
@@ -1169,5 +1180,17 @@ class SoulController extends CustomAbstractController
         }
 
         return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("jx/soul/game_history", name="soul_game_history")
+     * @param JSONRequestParser $parser
+     * @param RandomGenerator $rand
+     * @return Response
+     */
+    public function soul_game_history(JSONRequestParser $parser, RandomGenerator $rand) {
+        return $this->render( 'ajax/soul/game_history.html.twig', $this->addDefaultTwigArgs('soul_me', [
+            'towns' => $this->getUser()->getPastLifes()
+        ]));
     }
 }

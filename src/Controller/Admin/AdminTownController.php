@@ -22,11 +22,13 @@ use App\Entity\CitizenWatch;
 use App\Entity\Complaint;
 use App\Entity\ComplaintReason;
 use App\Entity\ExpeditionRoute;
+use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
 use App\Entity\Item;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Entity\RuinExplorerStats;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
@@ -332,10 +334,14 @@ class AdminTownController extends AdminActionController
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (str_starts_with($action, 'dbg_') && $kernel->getEnvironment() !== 'dev')
+        if ((str_starts_with($action, 'dbg_') || in_array($action, ['ex_inf'])) && $kernel->getEnvironment() !== 'dev')
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($action, ['release', 'quarantine', 'advance', 'nullify', 'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage', 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set']) && !$this->isGranted('ROLE_ADMIN'))
+        if (in_array($action, [
+            'release', 'quarantine', 'advance', 'nullify',
+                'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf',
+                'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage', 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days'
+            ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         $param = $parser->get('param');
@@ -532,7 +538,52 @@ class AdminTownController extends AdminActionController
 
                 $this->entity_manager->persist( $town );
                 break;
+            case 'dbg_adv_days':
+                $days = (int)$param;
+                if ($days <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
+                for ($i = 0; $i < $days; $i++)
+                    if ($night->advance_day($town, $this->conf->getCurrentEvents($town))) {
+                        foreach ($night->get_cleanup_container() as $c) $this->entity_manager->remove($c);
+                        $town->setAttackFails(0);
+                        $this->entity_manager->persist($town);
+                        foreach ($town->getCitizens() as $c)
+                            if ($c->getAlive()) $this->citizen_handler->removeStatus($c, 'thirst2');
+                        $this->entity_manager->flush();
+                    } else break;
+
+                break;
+            case 'ex_del': case 'ex_co+': case 'ex_co-':case 'ex_ref':case 'ex_inf':
+                /** @var RuinExplorerStats $session */
+                $session = $this->entity_manager->getRepository(RuinExplorerStats::class)->find($param);
+                if (!$session || $session->getCitizen()->getTown() !== $town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+                if ($action !== 'ex_del' && !$session->getActive()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                switch ($action) {
+                    case 'ex_del':
+                        $session->getCitizen()->removeExplorerStat( $session );
+                        $this->entity_manager->remove( $session );
+                        break;
+                    case 'ex_co+':
+                        $session->setTimeout(new \DateTime())->setActive(false);
+                        $this->entity_manager->persist($session);
+                        break;
+                    case 'ex_co-':
+                        $session->setTimeout(new \DateTime());
+                        $this->entity_manager->persist($session);
+                        break;
+                    case 'ex_ref':
+                        $session->setTimeout(clone $session->getTimeout()->modify('+1min'));
+                        $this->entity_manager->persist($session);
+                        break;
+                    case 'ex_inf':
+                        $session->setTimeout(clone $session->getTimeout()->modify('+24hours'));
+                        $this->entity_manager->persist($session);
+                        break;
+                    default: break;
+                }
+
+                break;
             default:
                 return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
@@ -1062,6 +1113,14 @@ class AdminTownController extends AdminActionController
                     $this->entity_manager->persist($citizen);
                 }
                 break;
+            case '_sh_':
+                foreach ($this->entity_manager->getRepository(HeroicActionPrototype::class)->findAll() as $heroic_action)
+                    foreach ($citizens as $citizen) {
+                        $citizen->addHeroicAction( $heroic_action );
+                        $this->citizen_handler->removeStatus($citizen,'tg_hero');
+                        $this->entity_manager->persist( $citizen );
+                    }
+                break;
             default: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         }
@@ -1084,7 +1143,7 @@ class AdminTownController extends AdminActionController
         $town = $this->entity_manager->getRepository(Town::class)->find($id);
         if (!$town) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($parser->get('role'), ['_ban_','_esc_','_nw_'] ))
+        if (in_array($parser->get('role'), ['_ban_','_esc_','_nw_','_sh_'] ))
             return $this->town_manage_pseudo_role($town,$parser,$handler);
 
         $role_id = $parser->get_int('role');

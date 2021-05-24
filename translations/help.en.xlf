@@ -781,7 +781,7 @@
       </notes>
       <segment>
         <source>Kehre &lt;strong&gt;vor Mitternacht&lt;/strong&gt; wieder heim oder du wirst von den Zombies gefressen...</source>
-        <target><![CDATA[Always ensure you are back inside the gates <strong>before 23h00 (server time)</strong> (or you will be devoured by the Hordes...)]]></target>
+        <target><![CDATA[Always ensure you are back inside the gates <strong>before 00h00 (server time)</strong> (or you will be devoured by the Hordes...)]]></target>
       </segment>
     </unit>
     <unit id="hCNQJ1g">
@@ -790,7 +790,7 @@
       </notes>
       <segment>
         <source>Mache in der Nacht wieder das Stadttor zu, sonst erlebst du eine böse Überraschung...</source>
-        <target>Close the town gates before 23h00 (server time), or the zombies will rush into the town and wreak havoc on the citizens...</target>
+        <target>Close the town gates before 00h00 (server time), or the zombies will rush into the town and wreak havoc on the citizens...</target>
       </segment>
     </unit>
     <unit id="IU7M5.G" name="Aktionspunkte und Erschöpfung">
@@ -1111,7 +1111,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>In der Außenwelt wüten jede Nacht heftige Sandstürme. Bislang konnte keine logische Erklärung für diese Anomalien gefunden werden.</source>
-        <target>Violent sandstorms rage in the World Beyond around 23h00 (server time). No rational explanation for these phenomena has been found at this time.</target>
+        <target>Violent sandstorms rage in the World Beyond around 00h00 (server time). No rational explanation for these phenomena has been found at this time.</target>
       </segment>
     </unit>
     <unit id="i4IWldb">
@@ -1296,7 +1296,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt
         <source>Eine Zone gilt als gefährlich, wenn die Zombies in der Überzahl sind und du nicht mehr weg kannst, weil sie dir
     den Weg versperren! Anders gesagt: Um Mitternacht feiern sie eine kleine Party und du bist mittendrin - ob du willst
     oder nicht...</source>
-        <target>A zone is dangerous when you are outnumbered by zombies and you can't leave. It goes without saying that at 23h00 (server time), it's going to be zombie party time...</target>
+        <target>A zone is dangerous when you are outnumbered by zombies and you can't leave. It goes without saying that at 00h00 (server time), it's going to be zombie party time...</target>
       </segment>
     </unit>
     <unit id="2CHFA23" name="Die Flucht">
@@ -1688,7 +1688,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Wildes Campen ist eine etwas gewagte, aber erfolgreiche Spielweise, die darin besteht, sich beim Angriff um Mitternacht draußen zu verstecken.</source>
-        <target>Extreme camping is the risky, but potentially rewarding strategy of hiding in the World Beyond during the attack at 23h00 (server time).</target>
+        <target>Extreme camping is the risky, but potentially rewarding strategy of hiding in the World Beyond during the attack at 00h00 (server time).</target>
       </segment>
     </unit>
     <unit id="a8U92l3">
@@ -1786,7 +1786,7 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
       <segment>
         <source>&lt;strong&gt;Ein Versteck vorbereiten&lt;/strong&gt;: Du suchst dir ein paar Steintrümmer, ein paar verdörrte Baumzweige und gräbst ein Loch, um in der Nacht nicht von den Zombies entdeckt zu werden. Jeder Versteckausbau erhöht deine Überlebenschance in dieser Zone &lt;i&gt;ein wenig&lt;/i&gt;.
 &lt;strong&gt;Alle überlebenden Bürger, die sich in der betreffenden Zone befinden, ziehen einen Vorteil von Versteckausbauten. Außerdem gilt der Bonus der Ausbauten auch für alle folgenden Tage. Allerdings wird jede Nacht ein Teil dieser Ausbauten von den Zombies beschädigt.&lt;/strong&gt;</source>
-        <target><![CDATA[<strong>improve the site</strong>: you rearrange debris and dead branches, and look for a hole to hide in. Anything to even <i>slightly</i> improve your chances of survival should you eventually choose to spend the night here. <strong>These improvements benefit all citizens in that zone, and remain for days to come. However, the standard of the improvements will decrease every night at 23h00 (server time) (damage caused by the zombie attack).</strong>]]></target>
+        <target><![CDATA[<strong>improve the site</strong>: you rearrange debris and dead branches, and look for a hole to hide in. Anything to even <i>slightly</i> improve your chances of survival should you eventually choose to spend the night here. <strong>These improvements benefit all citizens in that zone, and remain for days to come. However, the standard of the improvements will decrease every night at 00h00 (server time) (damage caused by the zombie attack).</strong>]]></target>
       </segment>
     </unit>
     <unit id="BX84.Qk">
@@ -1831,7 +1831,7 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
       </notes>
       <segment>
         <source>&lt;strong&gt;Unmittelbar vor dem Stadttor kannst du nicht campen, denn das ist zu gefährlich.&lt;/strong&gt; Die Zombiehorde würde dich überrennen. Such dir einen besseren Platz aus.</source>
-        <target><![CDATA[<strong>It is impossible to camp at the town gates</strong>. This is the area in which all the zombies arrive at 23h00 (server time): by definition this is the worst choice possible!]]></target>
+        <target><![CDATA[<strong>It is impossible to camp at the town gates</strong>. This is the area in which all the zombies arrive at 00h00 (server time): by definition this is the worst choice possible!]]></target>
       </segment>
     </unit>
     <unit id="hGPfqUo">
@@ -1992,7 +1992,7 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
       </notes>
       <segment>
         <source>Wie läuft der Angriff um Mitternacht ab?</source>
-        <target>How do events unfold at 23h00 (server time)?</target>
+        <target>How do events unfold at 00h00 (server time)?</target>
       </segment>
     </unit>
     <unit id="y72QNPI">
@@ -2001,7 +2001,7 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
       </notes>
       <segment>
         <source>Spätestens um Mitternacht musst du in deinem Versteck sein. Abhängig von der Qualität deines Verstecks und der Höhe deiner Überlebenschancen, wirst du von den Untoten verschont, oder aber in Stücke gerissen.</source>
-        <target>At 23h00 (server time) you must be in your hiding place! According to your survival chances (as explained above), you will survive or be eaten alive.</target>
+        <target>At 00h00 (server time) you must be in your hiding place! According to your survival chances (as explained above), you will survive or be eaten alive.</target>
       </segment>
     </unit>
     <unit id="dK2DHZj">
@@ -2019,7 +2019,7 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
       </notes>
       <segment>
         <source>Wichtig zu wissen ist, dass die Zombieaktivität um Mitternacht besonders stark ist. Das bedeutet, dass&amp;nbsp;die Verteidigung deines Verstecks jedes Mal in Mitleidenschaft gezogen wird.</source>
-        <target>At 23h00 (server time), the zombies are particularly violent: any improvements you have made to your campsite will be less effective the following day.</target>
+        <target>At 00h00 (server time), the zombies are particularly violent: any improvements you have made to your campsite will be less effective the following day.</target>
       </segment>
     </unit>
     <unit id="Cvh3WWe">
@@ -2369,7 +2369,7 @@ Die in diesen Stunden erlittene panische &lt;strong&gt;Angst&lt;/strong&gt; ist 
       <segment>
         <source>00:10 Uhr - Die Zombiemeute hat es in die Stadt geschafft und trommelt nun wutschnaubend und gröhlend gegen deine Haustür. Dir gelingt es zwar sie aus deinem Haus zu halten, aber diesen Schock wirst du nicht so schnell vergessen... du bist &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt;.
 Die in diesen Stunden erlittene panische &lt;strong&gt;Angst&lt;/strong&gt; ist dir ins Rückenmark gegangen und geblieben. Deine Aktions- und Bewegungsfreiheit ist seitdem erheblich eingeschränkt: Du kannst dich unter keinen Umständen in die Nähe von Zombies begeben! Solltest du in diesem Zustand dennoch auf welche stoßen, verfällst du in eine Angststarre und kannst dich nicht mehr bewegen... bis sie dich auffressen. In der Wüste zählst du, ungeachtet deines Berufs und deiner Ausrüstung, 0 Kontrollpunkte. Alle Zonen, in denen die Zombies mehr Punkte haben, sind für dich tabu.</source>
-        <target><![CDATA[23h00 (server time) has arrived. The enraged hordes are beating down on your house, but you manage to keep them at bay. Nonetheless, the memory of such a close brush with death has left you <strong>terrorised</strong>. When in the grasp of <strong>terror</strong>, your actions will be heavily limited... In any event it is out of the question to be close to zombies! If you do end up in a zone with zombies, you will be paralysed with fear... until they devour you. In the desert, you will have 0 control points, regardless of your job or what equipment you are carrying. You will not be able to do anything in any zone controlled by zombies (where the zombies have more control points than the humans).]]></target>
+        <target><![CDATA[00h00 (server time) has arrived. The enraged hordes are beating down on your house, but you manage to keep them at bay. Nonetheless, the memory of such a close brush with death has left you <strong>terrorised</strong>. When in the grasp of <strong>terror</strong>, your actions will be heavily limited... In any event it is out of the question to be close to zombies! If you do end up in a zone with zombies, you will be paralysed with fear... until they devour you. In the desert, you will have 0 control points, regardless of your job or what equipment you are carrying. You will not be able to do anything in any zone controlled by zombies (where the zombies have more control points than the humans).]]></target>
       </segment>
     </unit>
     <unit id="isD8Ydk">
@@ -2492,7 +2492,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</source>
       </notes>
       <segment>
         <source>Wenn du dann erstmal süchtig bist &lt;strong&gt;musst du jeden Tag vor Mitternacht etwas zu dir nehmen&lt;/strong&gt;, andersfall stirbst du und das ist nicht gerade nett anzusehen: Unter starken Schmerzen, zitternd und sabbernd halluzinierst du dich in eine andere Welt...</source>
-        <target><![CDATA[From this point onwards, you must consume <strong>at least one drug every day before 23h00 (server time)</strong>, or you will die (foaming at the mouth and shaking uncontrolably, it's spectactularly unattractive...).]]></target>
+        <target><![CDATA[From this point onwards, you must consume <strong>at least one drug every day before 00h00 (server time)</strong>, or you will die (foaming at the mouth and shaking uncontrolably, it's spectactularly unattractive...).]]></target>
       </segment>
     </unit>
     <unit id="hbwi0z1" name="Verwundungsarten">
@@ -2852,7 +2852,7 @@ werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtun
       </notes>
       <segment>
         <source>Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines %img_meat% saftigen Steaks auf einer angerichteten Tafel!</source>
-        <target>Watch the clock - if you find yourself inside a building at 23h00 (server time), you have as much chance of surviving as a %img_meat% juicy steak in the town square!</target>
+        <target>Watch the clock - if you find yourself inside a building at 00h00 (server time), you have as much chance of surviving as a %img_meat% juicy steak in the town square!</target>
       </segment>
     </unit>
     <unit id="gns2u3H" name="Der Tod">
@@ -2943,7 +2943,7 @@ Auch dieser Tag wird nicht gezählt, da du nicht in der Lage warst, deine Grundb
         <source>&lt;strong&gt;Du stirbst um Mitternacht, allerdings nicht durch die Zombies, sondern an Wassermangel, an einer Infektion oder etwas ähnlichem:&lt;/strong&gt;
 Auch dieser Tag wird nicht gezählt, da du nicht in der Lage warst, deine Grundbedürfnisse zu befriedigen und für dich zu sorgen.
 &lt;em&gt;Solltest du zum Beispiel in der Nacht vom fünften auf den sechsten Tag an Wassermangel sterben, erhältst du Punkte nur für die vier überlebten Tage.&lt;/em&gt;</source>
-        <target><![CDATA[<strong>if you die at 23h00 (server time), but from dehydration, an infection or any cause not linked to the zombie assault:</strong> the day is still not considered complete, because you were unable to provide for your basic needs. <em>For example, if you die from dehydration on the night following day 5, you will only be awarded points for the 4 full days you survived.</em>]]></target>
+        <target><![CDATA[<strong>if you die at 00h00 (server time), but from dehydration, an infection or any cause not linked to the zombie assault:</strong> the day is still not considered complete, because you were unable to provide for your basic needs. <em>For example, if you die from dehydration on the night following day 5, you will only be awarded points for the 4 full days you survived.</em>]]></target>
       </segment>
     </unit>
     <unit id="IwZcTox">
@@ -2954,7 +2954,7 @@ Der Tag wird nicht gezählt (siehe vorangegangenes Beispiel).</note>
       <segment>
         <source>&lt;strong&gt;Du stirbst um Mitternacht in der Wüste:&lt;/strong&gt;
 Der Tag wird nicht gezählt (siehe vorangegangenes Beispiel).</source>
-        <target><![CDATA[<strong>if you die in the desert at 23h00 (server time):</strong> the day does not count as having been "lived in full". (see previous example).]]></target>
+        <target><![CDATA[<strong>if you die in the desert at 00h00 (server time):</strong> the day does not count as having been "lived in full". (see previous example).]]></target>
       </segment>
     </unit>
     <unit id="7V87v1y">
@@ -3648,7 +3648,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Du bist gegen die Wirkungen einer &lt;strong&gt;Infektion&lt;/strong&gt; immun und verspürst keinen &lt;strong&gt;Durst&lt;/strong&gt;.</source>
-        <target><![CDATA[you are immune to the effects of <strong>any infection</strong> and <strong>thirst</strong> ; you will not die while walking around the World Beyond or die at 23h00 (server time) as a result of an infected wound,]]></target>
+        <target><![CDATA[you are immune to the effects of <strong>any infection</strong> and <strong>thirst</strong> ; you will not die while walking around the World Beyond or die at 00h00 (server time) as a result of an infected wound,]]></target>
       </segment>
     </unit>
     <unit id="SY1__db">
@@ -3666,7 +3666,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Wenn deine Hungerleiste die &lt;strong&gt;rote Linie&lt;/strong&gt; überschreitet, stirbst du beim Zombieangriff um Mitternacht.</source>
-        <target><![CDATA[if your voracity meter <strong>crosses the red zone</strong>, you will die at 23h00 (server time) during the attack,]]></target>
+        <target><![CDATA[if your voracity meter <strong>crosses the red zone</strong>, you will die at 00h00 (server time) during the attack,]]></target>
       </segment>
     </unit>
     <unit id="5afbmiP" name="Wenn du Wasser trinkst, bist du &lt;strong&gt;verletzt&lt;/strong&gt;.">
@@ -3693,7 +3693,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Dein Hunger wird jeden Tag nach dem Angriff um Mitternacht größer: Wenn du als Ghul überleben möchtest, solltest du darauf achten, rechtzeitig "Nahrung" zu dir zu nehmen. Wenn die Stadt allerdings zerstört wurde, sinkt deine Lust und dein Hunger ein wenig.</source>
-        <target>your voracity increases at 23h00 (server time), after the attack: therefore, you must devour a citizen regularly to survive. Furthermore, if the town is devastated, you will feel less temptation and voracity.</target>
+        <target>your voracity increases at 00h00 (server time), after the attack: therefore, you must devour a citizen regularly to survive. Furthermore, if the town is devastated, you will feel less temptation and voracity.</target>
       </segment>
     </unit>
     <unit id="4t8w_0b">
@@ -4102,7 +4102,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       </notes>
       <segment>
         <source>Außerdem verfügst du über einen Vorteil beim Campen: Während die Überlebenschancen der anderen Einwohner nie mehr als 90% betragen (selbst wenn sie alles richtig gemacht haben, bleibt ein Restrisiko...), gilt diese Beschränkung beim Einsiedler nicht! Wenn er sich geschickt anstellt, kann er eine Überlebenschance von 100% erreichen!</source>
-        <target>You also have an advantage when extreme camping: for a normal citizen, the chances of survival are capped at 90% (as for most people there is always an inherent risk of dying at 23h00 (server time)). A Survivalist is unconcerned with "most people": if they take care of business, they have a 100% chance of survival.</target>
+        <target>You also have an advantage when extreme camping: for a normal citizen, the chances of survival are capped at 90% (as for most people there is always an inherent risk of dying at 00h00 (server time)). A Survivalist is unconcerned with "most people": if they take care of business, they have a 100% chance of survival.</target>
       </segment>
     </unit>
     <unit id="xJMePl2">
@@ -4766,7 +4766,7 @@ Die Stadteinwohner können  &lt;strong&gt;einmal&lt;/strong&gt; pro Tag für ein
       </notes>
       <segment>
         <source>Kurz vor Mitternacht wird dann jene &lt;strong&gt;Weiterentwicklung gebaut, die die meisten Stimmen bekommen hat&lt;/strong&gt;.</source>
-        <target><![CDATA[Just before the 23h00 (server time) attack, <strong>the upgrade which has received the most votes is accepted and constructed immediately.</strong>]]></target>
+        <target><![CDATA[Just before the 00h00 (server time) attack, <strong>the upgrade which has received the most votes is accepted and constructed immediately.</strong>]]></target>
       </segment>
     </unit>
     <unit id="lWknzoV">
@@ -5971,7 +5971,7 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
       </notes>
       <segment>
         <source>Die Chance, an einer Infektion zu sterben, beträgt 75%,</source>
-        <target>the chances of dying from an infection at 23h00 (server time) are 75%,</target>
+        <target>the chances of dying from an infection at 00h00 (server time) are 75%,</target>
       </segment>
     </unit>
     <unit id="Qiqpk6d" name="Die Wasserreserven zum Beginn einer Stadt sind kleiner als gewöhnlich,">
@@ -6434,7 +6434,7 @@ in die Rangliste aufgenommen. Kleine Städte oder Privatstädte werden nicht ins
       </notes>
       <segment>
         <source>Alle Ranglisten werden jeden Tag um Mitternacht aktualisiert.</source>
-        <target>The rankings are updated at 23h00 (server time).</target>
+        <target>The rankings are updated at 00h00 (server time).</target>
       </segment>
     </unit>
     <unit id="AnaQqW8">
@@ -6575,7 +6575,7 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
       </notes>
       <segment>
         <source>Der Mitternachtsangriff hat NICHT stattgefunden.</source>
-        <target>that the 23h00 (server time) attack did not take place,</target>
+        <target>that the 00h00 (server time) attack did not take place,</target>
       </segment>
     </unit>
     <unit id="mm9VzW_">
@@ -6620,7 +6620,7 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
       </notes>
       <segment>
         <source>Der nicht stattgefundene Angriff findet in diesem Fall wieder regulär um Mitternacht des folgenden Tags statt.</source>
-        <target>The attack which didn't occur at 23h00 (server time) will take place the following night.</target>
+        <target>The attack which didn't occur at 00h00 (server time) will take place the following night.</target>
       </segment>
     </unit>
     <unit id="Y9Uk1gC">
@@ -7870,6 +7870,24 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       <segment>
         <source>Gebäudeverbesserung</source>
         <target>Building upgrades</target>
+      </segment>
+    </unit>
+    <unit id="FIL0rIm" name="Der Tod und die Berechnung der Seelepunkte">
+      <notes>
+        <note category="german">Der Tod und die Berechnung der Seelepunkte</note>
+      </notes>
+      <segment>
+        <source>Der Tod und die Berechnung der Seelepunkte</source>
+        <target>Understanding days survived and soul points</target>
+      </segment>
+    </unit>
+    <unit id="YhTESGO" name="Ranglisten und Saisons">
+      <notes>
+        <note category="german">Ranglisten und Saisons</note>
+      </notes>
+      <segment>
+        <source>Ranglisten und Saisons</source>
+        <target>Rankings and seasons</target>
       </segment>
     </unit>
   </file>

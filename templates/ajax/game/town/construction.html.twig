@@ -10,6 +10,8 @@
         {% trans from 'game' %}
             In diesem Bereich kannst du an der <strong>Errichtung neuer Gebäude und Bauprojekte mitarbeiten</strong>. Dazu musst du zunächst die dafür notwendigen Materialien in der Wüste einsammeln (Holz, Metall,...). Anschließend kannst du deine Aktionspunkte (AP) für das Gebäude ausgeben, das dich am meisten interessiert.
         {% endtrans %}
+        <br />
+        <p>{{ help_lnk('Neue Gebäude bauen'|trans({},'help'), 'help', {'name': 'constructing_new_buildings'}) }}</p>
     </div>
 
     {% if banished %}
@@ -29,16 +31,17 @@
         {% endif %}
     {% endif %}
 
+    <h5 class="hide-sm">{{ 'Diskussionen rund um Bauprojekte'|trans({},'game') }}</h5>
     <div class="forum-preview-container fix-height hide-sm">
         <div id="forum-content">
             <div class="center"><i class="fa fa-spin fa-circle-notch"></i> {{ 'Lade Forum...'|trans({},'game') }}</div>
         </div>
     </div>
 
+    <h5>{{ 'Vorhandene Bauprojekte'|trans({},'game') }}</h5>
     {% if canvote %}
         <div class="hero-help">{{'Du kannst den Bürgern der Stadt die Errichtung eines bestimmten Gebäudes empfehlen. Bewege dafür den Mauszeiger über das Bauprojekt, das du empfehlen willst und klicke auf den Link <strong>Abstimmen</strong>, der darüber erscheint.'|trans({}, 'game')|raw}}</div>
     {% endif %}
-    
 
     {% if not voted_building is null %}
         <div class="voted-building">

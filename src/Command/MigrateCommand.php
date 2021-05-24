@@ -33,6 +33,7 @@ use App\Entity\ZoneTag;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\GameFactory;
+use App\Service\Globals\TranslationConfigGlobal;
 use App\Service\InventoryHandler;
 use App\Service\MazeMaker;
 use App\Service\PermissionHandler;
@@ -72,6 +73,8 @@ class MigrateCommand extends Command
     private UserFactory $user_factory;
     private PermissionHandler $perm;
 
+    private TranslationConfigGlobal $conf_trans;
+
     protected static $git_script_repository = [
         'ce5c1810ee2bde2c10cc694e80955b110bbed010' => [ ['app:migrate', ['--calculate-score' => true] ] ],
         'e3a28a35e8ade5c767480bb3d8b7fa6daaf69f4e' => [ ['app:migrate', ['--build-forum-search-index' => true] ] ],
@@ -84,7 +87,7 @@ class MigrateCommand extends Command
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
                                 RandomGenerator $rg, CitizenHandler $ch, InventoryHandler $ih, ConfMaster $conf,
                                 MazeMaker $maze, ParameterBagInterface $params, UserHandler $uh, PermissionHandler $p,
-                                UserFactory $uf)
+                                UserFactory $uf, TranslationConfigGlobal $conf_trans)
     {
         $this->kernel = $kernel;
 
@@ -99,6 +102,8 @@ class MigrateCommand extends Command
         $this->user_handler = $uh;
         $this->perm = $p;
         $this->user_factory = $uf;
+
+        $this->conf_trans = $conf_trans;
 
         parent::__construct();
     }
@@ -125,6 +130,10 @@ class MigrateCommand extends Command
             ->addOption('process-db-git', 'p',   InputOption::VALUE_NONE, 'Processes triggers for automated database actions')
 
             ->addOption('update-trans', 't', InputOption::VALUE_REQUIRED, 'Updates all translation files for a single language')
+            ->addOption('trans-file', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL, 'Limits translations to specific files', [])
+            ->addOption('trans-disable-php', null, InputOption::VALUE_NONE, 'Disables translation of PHP files')
+            ->addOption('trans-disable-db', null, InputOption::VALUE_NONE, 'Disables translation of database content')
+            ->addOption('trans-disable-twig', null, InputOption::VALUE_NONE, 'Disables translation of twig files')
 
             ->addOption('assign-heroic-actions-all', null, InputOption::VALUE_NONE, 'Resets the heroic actions for all citizens in all towns.')
             ->addOption('assign-special-actions-all', null, InputOption::VALUE_NONE, 'Resets the special actions for all citizens in all towns.')
@@ -476,6 +485,12 @@ class MigrateCommand extends Command
             $langs = ($lang === 'all') ? ['de','en','fr','es'] : [$lang];
             if (count($langs) === 1) {
 
+                if ($input->getOption('trans-disable-db')) $this->conf_trans->setDatabaseSearch(false);
+                if ($input->getOption('trans-disable-php')) $this->conf_trans->setPHPSearch(false);
+                if ($input->getOption('trans-disable-twig')) $this->conf_trans->setTwigSearch(false);
+                foreach ($input->getOption('trans-file') as $file_name)
+                    $this->conf_trans->addMatchedFileName($file_name);
+
                 $command = $this->getApplication()->find('translation:update');
 
                 $output->writeln("Now working on translations for <info>{$lang}</info>...");
@@ -498,8 +513,15 @@ class MigrateCommand extends Command
                 $threads = [];
                 foreach ($langs as $current_lang) {
 
-                    $threads[] = new class(function () use ($current_lang,$output) {
-                        $this->capsule("app:migrate -t $current_lang", $output);
+                    $com = "app:migrate -t $current_lang";
+                    if ($input->getOption('trans-disable-db')) $com .= " --trans-disable-db";
+                    if ($input->getOption('trans-disable-php')) $com .= " --trans-disable-php";
+                    if ($input->getOption('trans-disable-twig')) $com .= " --trans-disable-twig";
+                    foreach ($input->getOption('trans-file') as $file_name)
+                        $com .= " --trans-file $file_name";
+
+                    $threads[] = new class(function () use ($com,$output) {
+                        $this->capsule($com, $output);
                     }) extends \Worker {
                         private $_f;
                         public function __construct(callable $fun) { $this->_f = $fun; }
@@ -509,8 +531,17 @@ class MigrateCommand extends Command
 
                 foreach ($threads as $thread) $thread->start();
                 foreach ($threads as $thread) $thread->join();
-            } else foreach ($langs as $current_lang)
-                $this->capsule("app:migrate -t $current_lang", $output);
+            } else foreach ($langs as $current_lang) {
+                $com = "app:migrate -t $current_lang";
+                if ($input->getOption('trans-disable-db')) $com .= " --trans-disable-db";
+                if ($input->getOption('trans-disable-php')) $com .= " --trans-disable-php";
+                if ($input->getOption('trans-disable-twig')) $com .= " --trans-disable-twig";
+                foreach ($input->getOption('trans-file') as $file_name)
+                    $com .= " --trans-file $file_name";
+
+                $this->capsule($com, $output);
+            }
+
 
             return 0;
         }
