@@ -3349,5 +3349,68 @@
         <target>Neue Gruppe anlegen</target>
       </segment>
     </unit>
+    <unit id="gJH3HgQ" name="Anzahl der Tage">
+      <notes>
+        <note category="german">Anzahl der Tage</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Tage</source>
+        <target>Anzahl der Tage</target>
+      </segment>
+    </unit>
+    <unit id="VkIwwfC" name="Vorspulen">
+      <notes>
+        <note category="german">Vorspulen</note>
+      </notes>
+      <segment>
+        <source>Vorspulen</source>
+        <target>Vorspulen</target>
+      </segment>
+    </unit>
+    <unit id="omuvjZI" name="Herauswerfen (ohne Verletzung)">
+      <notes>
+        <note category="german">Herauswerfen (ohne Verletzung)</note>
+      </notes>
+      <segment>
+        <source>Herauswerfen (ohne Verletzung)</source>
+        <target>Herauswerfen (ohne Verletzung)</target>
+      </segment>
+    </unit>
+    <unit id="uo.zViv" name="Herauswerfen (mit Verletzung)">
+      <notes>
+        <note category="german">Herauswerfen (mit Verletzung)</note>
+      </notes>
+      <segment>
+        <source>Herauswerfen (mit Verletzung)</source>
+        <target>Herauswerfen (mit Verletzung)</target>
+      </segment>
+    </unit>
+    <unit id="g2hjSxs" name="Timer erhöhen (1min)">
+      <notes>
+        <note category="german">Timer erhöhen (1min)</note>
+      </notes>
+      <segment>
+        <source>Timer erhöhen (1min)</source>
+        <target>Timer erhöhen (1min)</target>
+      </segment>
+    </unit>
+    <unit id="Aybos0Z" name="Timer erhöhen (24h)">
+      <notes>
+        <note category="german">Timer erhöhen (24h)</note>
+      </notes>
+      <segment>
+        <source>Timer erhöhen (24h)</source>
+        <target>Timer erhöhen (24h)</target>
+      </segment>
+    </unit>
+    <unit id=".5H3ako" name="Löschen (ermöglicht erneutes Betreten der Ruine)">
+      <notes>
+        <note category="german">Löschen (ermöglicht erneutes Betreten der Ruine)</note>
+      </notes>
+      <segment>
+        <source>Löschen (ermöglicht erneutes Betreten der Ruine)</source>
+        <target>Löschen (ermöglicht erneutes Betreten der Ruine)</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
