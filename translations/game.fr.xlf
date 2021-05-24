@@ -6056,7 +6056,7 @@
       </notes>
       <segment>
         <source>Anzahl der sinnvollen (oder sinnlosen...) Nachrichten, die du im Stadtforum geschrieben hast.</source>
-        <target>Quantité de messages utiles (ou pas) que vous avez laissés sur le forum de ville.</target>
+        <target>Quantité de messages utiles (ou pas) que vous avez laissés sur le forum ville.</target>
       </segment>
     </unit>
     <unit id="WgUNYZY" name="In deinem Bett gestorben">
@@ -6074,7 +6074,7 @@
       </notes>
       <segment>
         <source>Großmutter, was hast du für große Zähne... Grrrooooaaar!</source>
-        <target>Mère grand, comme vous avez de grandes dents... GROAR !</target>
+        <target>Mère-grand, comme vous avez de grandes dents... GROAR !</target>
       </segment>
     </unit>
     <unit id="GmWG0wd" name="Dehydrationstode">
@@ -6218,7 +6218,7 @@
       </notes>
       <segment>
         <source>Anzahl der verschlossenen Türen, die du in verlassenen Gebäuden geöffnet hast.</source>
-        <target>Nombre de portes dévérouillées par vos soins dans les ruines.</target>
+        <target>Nombre de portes déverrouillées par vos soins dans les ruines.</target>
       </segment>
     </unit>
     <unit id="vzg1Vou" name="Hängend">
@@ -9752,7 +9752,7 @@
       </notes>
       <segment>
         <source>Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</source>
-        <target>Nombres de points d'âme que vous avez obtenu au cours de vos incarnations.</target>
+        <target>Nombre de points d'âme que vous avez obtenu au cours de vos incarnations.</target>
       </segment>
     </unit>
     <unit id="k9H0y76">
@@ -11335,7 +11335,7 @@
       </notes>
       <segment>
         <source>Du bist einer der am besten integrierten Spieler in Die Verdammten und verhälst dich immer fair, nicht nur aus Prinzip, sondern aus Überzeugung.</source>
-        <target>Vous faites partis des joueurs les plus intégres de Hordes, le fair-play, plus qu'un principe, c'est un état d'esprit.</target>
+        <target>Vous faites partie des joueurs les plus intégres de Hordes, le fair-play, plus qu'un principe, c'est un état d'esprit.</target>
       </segment>
     </unit>
     <unit id="XGrBqHH">
