@@ -3355,7 +3355,7 @@
       </notes>
       <segment>
         <source>Anzahl der Tage</source>
-        <target>Anzahl der Tage</target>
+        <target>Nombre de jours à passer</target>
       </segment>
     </unit>
     <unit id="VkIwwfC" name="Vorspulen">
@@ -3364,7 +3364,7 @@
       </notes>
       <segment>
         <source>Vorspulen</source>
-        <target>Vorspulen</target>
+        <target>Avance rapide</target>
       </segment>
     </unit>
     <unit id="omuvjZI" name="Herauswerfen (ohne Verletzung)">
@@ -3373,7 +3373,7 @@
       </notes>
       <segment>
         <source>Herauswerfen (ohne Verletzung)</source>
-        <target>Herauswerfen (ohne Verletzung)</target>
+        <target>Ejecter (sans blessure)</target>
       </segment>
     </unit>
     <unit id="uo.zViv" name="Herauswerfen (mit Verletzung)">
@@ -3382,7 +3382,7 @@
       </notes>
       <segment>
         <source>Herauswerfen (mit Verletzung)</source>
-        <target>Herauswerfen (mit Verletzung)</target>
+        <target>Ejecter (avec blessure)</target>
       </segment>
     </unit>
     <unit id="g2hjSxs" name="Timer erhöhen (1min)">
@@ -3391,7 +3391,7 @@
       </notes>
       <segment>
         <source>Timer erhöhen (1min)</source>
-        <target>Timer erhöhen (1min)</target>
+        <target>Augmenter le temps restant (1min)</target>
       </segment>
     </unit>
     <unit id="Aybos0Z" name="Timer erhöhen (24h)">
@@ -3400,7 +3400,7 @@
       </notes>
       <segment>
         <source>Timer erhöhen (24h)</source>
-        <target>Timer erhöhen (24h)</target>
+        <target>Augmenter le temps restant (24h)</target>
       </segment>
     </unit>
     <unit id=".5H3ako" name="Löschen (ermöglicht erneutes Betreten der Ruine)">
@@ -3409,7 +3409,7 @@
       </notes>
       <segment>
         <source>Löschen (ermöglicht erneutes Betreten der Ruine)</source>
-        <target>Löschen (ermöglicht erneutes Betreten der Ruine)</target>
+        <target>Effacer le passage (permet de retourner dans une ruine)</target>
       </segment>
     </unit>
   </file>
