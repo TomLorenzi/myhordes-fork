@@ -19580,5 +19580,14 @@
         <target>Coût</target>
       </segment>
     </unit>
+    <unit id="6spO8K_" name="Dieser Bürger hat sich für heute Nacht hier versteckt.">
+      <notes>
+        <note category="german">Dieser Bürger hat sich für heute Nacht hier versteckt.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger hat sich für heute Nacht hier versteckt.</source>
+        <target>Ce citoyen s'est caché pour passer la nuit ici...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

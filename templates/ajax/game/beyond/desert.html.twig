@@ -648,7 +648,9 @@
                                 <div class="padded cell rw-4">
                                     <ul class="status">
                                         {% if other_citizen.camping %}
-                                            <li class="status"><img src="{{ asset('build/images/status/status_camper.gif') }}" alt="{{ 'Camping'|trans({},'game') }}"></li>
+                                            <li class="status"><img src="{{ asset('build/images/status/status_camper.gif') }}" alt="{{ 'Camping'|trans({},'game') }}">
+                                                <div class="tooltip">{{ 'Dieser Bürger hat sich für heute Nacht hier versteckt.'|trans({},'game') }}</div>
+                                            </li>
                                         {% endif %}
                                         {% if other_citizen.digging %}
                                             <li class="status"><img src="{{ asset('build/images/icons/small_gather.gif') }}" alt="{{ 'In dieser Zone graben'|trans({},'game') }}">
