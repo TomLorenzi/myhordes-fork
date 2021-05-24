@@ -19554,5 +19554,14 @@
         <target>Dieser Bürger hat sich für heute Nacht hier versteckt.</target>
       </segment>
     </unit>
+    <unit id="PEGlllX">
+      <notes>
+        <note category="german">Du bist gerade dabei in dieser Zone zu graben. Wenn du bis zum Ende der angezeigten Zeit am gleichen Platz bleibst, &lt;strong&gt;hast du die Möglichkeit einen weiteren Gegenstand zu finden&lt;/strong&gt;!&lt;br /&gt;&lt;br /&gt;Du kannst so lange bleiben wie du möchtest.</note>
+      </notes>
+      <segment>
+        <source>Du bist gerade dabei in dieser Zone zu graben. Wenn du bis zum Ende der angezeigten Zeit am gleichen Platz bleibst, &lt;strong&gt;hast du die Möglichkeit einen weiteren Gegenstand zu finden&lt;/strong&gt;!&lt;br /&gt;&lt;br /&gt;Du kannst so lange bleiben wie du möchtest.</source>
+        <target><![CDATA[Estás escarbando la zona. ¡Si te quedas aquí hasta que termine el tiempo indicado, <strong>tal vez obtengas un objeto</strong>!<br /><br />Puedes quedarte todo el tiempo que quieras.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -19589,5 +19589,14 @@
         <target>Ce citoyen s'est caché pour passer la nuit ici...</target>
       </segment>
     </unit>
+    <unit id="PEGlllX">
+      <notes>
+        <note category="german">Du bist gerade dabei in dieser Zone zu graben. Wenn du bis zum Ende der angezeigten Zeit am gleichen Platz bleibst, &lt;strong&gt;hast du die Möglichkeit einen weiteren Gegenstand zu finden&lt;/strong&gt;!&lt;br /&gt;&lt;br /&gt;Du kannst so lange bleiben wie du möchtest.</note>
+      </notes>
+      <segment>
+        <source>Du bist gerade dabei in dieser Zone zu graben. Wenn du bis zum Ende der angezeigten Zeit am gleichen Platz bleibst, &lt;strong&gt;hast du die Möglichkeit einen weiteren Gegenstand zu finden&lt;/strong&gt;!&lt;br /&gt;&lt;br /&gt;Du kannst so lange bleiben wie du möchtest.</source>
+        <target><![CDATA[Vous êtes en train de fouiller la zone. Si vous restez sur place jusqu'à la fin du temps indiqué, <strong>vous obtiendrez peut-être un autre objet</strong> !<br /><br />Vous pouvez rester autant de temps que vous le souhaitez.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
