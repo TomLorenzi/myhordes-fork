@@ -6056,7 +6056,7 @@
       </notes>
       <segment>
         <source>Anzahl der sinnvollen (oder sinnlosen...) Nachrichten, die du im Stadtforum geschrieben hast.</source>
-        <target>Quantité de messages utiles (ou pas) que vous avez laissés sur le forum ville.</target>
+        <target>Quantité de messages utiles (ou pas) que vous avez laissés sur le forum de la ville.</target>
       </segment>
     </unit>
     <unit id="WgUNYZY" name="In deinem Bett gestorben">
