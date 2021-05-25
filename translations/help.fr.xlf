@@ -763,7 +763,7 @@
       </notes>
       <segment>
         <source>Um in die Außenwelt zu treten, musst du dich zum &lt;strong&gt;Stadttor&lt;/strong&gt; begeben und es aufmachen... Doch aufgepasst! Bevor du die Stadt verlässt, solltest du folgendes beachten:</source>
-        <target><![CDATA[Pour visiter l'Outre-Monde, rendez-vous dans la section <strong>Portes de la Ville</strong> et ouvrez bien grandes les portes... Attention toutefois ! Retenez les trois règles suivantes :]]></target>
+        <target><![CDATA[Pour visiter l'Outre-Monde, rendez-vous dans la section <strong>Portes de la Ville</strong> et ouvrez bien grand les portes... Attention toutefois ! Retenez les trois règles suivantes :]]></target>
       </segment>
     </unit>
     <unit id="hJ9V9EY" name="Nimm &lt;strong&gt;Nahrung&lt;/strong&gt; oder &lt;strong&gt;Wasser&lt;/strong&gt; mit.">
@@ -1141,7 +1141,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>Um diese "regenerierten" Zonen entdecken zu können, benötigt die Stadt einen &lt;strong&gt;Forschungsturm&lt;/strong&gt; (Konstruktion). Sein Bau erhöht zudem die Wahrscheinlichkeit, dass "regenerierte" Gebiete erneut Gegenstände enthalten.</source>
-        <target><![CDATA[Pour repérer les zones regénérées, la construction d'un <strong>Scrutateur</strong> (chantier) est requise. De plus, le Scrutateur permet également d'améliorer les chances de regénération des zones affectées.]]></target>
+        <target><![CDATA[Pour repérer les zones régénérées, la construction d'un <strong>Scrutateur</strong> (chantier) est requise. De plus, le Scrutateur permet également d'améliorer les chances de regénération des zones affectées.]]></target>
       </segment>
     </unit>
     <unit id="FYzGcLV">
@@ -1183,7 +1183,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>Bestimmte Vorteile durch Berufe, Erfahrung oder Gegenstände ermöglichen das Erhöhen oder Verringern der Kontrollpunkte eines Menschen.</source>
-        <target>Certains avantages de ce métier, d'expérience ou liés aux objets permettent d'augmenter les points de contrôle d'un humain ou de les réduire à néant.</target>
+        <target>Certains avantages de métier, d'expérience ou liés aux objets permettent d'augmenter les points de contrôle d'un humain ou de les réduire à néant.</target>
       </segment>
     </unit>
     <unit id="ObiiIuR">
@@ -1798,7 +1798,7 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
       </notes>
       <segment>
         <source>Es gibt andere Möglichkeiten, deine Überlebenschancen beim Campen in Bezug auf Berufe, Objekte und Gebiete zu erhöhen. Es liegt an dir das herauszufinden.</source>
-        <target>il existe d'autres méthodes pour augmenter vos chances de survie en camping liées aux métiers, aux objets et aux chantiers à vous de les découvrir.</target>
+        <target>il existe d'autres méthodes pour augmenter vos chances de survie en camping liées aux métiers, aux objets et aux chantiers, à vous de les découvrir.</target>
       </segment>
     </unit>
     <unit id="qQ6FYAf">
@@ -1959,7 +1959,7 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</note>
       <segment>
         <source>Der Beruf des &lt;strong&gt;Einsiedlers&lt;/strong&gt; verfügt über einen entscheidenden Vorteil: Seine Überlebenschancen 
 sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
-        <target><![CDATA[Le métier <strong>d'Ermite</strong> a un avantage décisif: ses chances de survie <strong>ne sont pas limitées à 90%</strong>.]]></target>
+        <target><![CDATA[Le métier <strong>d'Ermite</strong> a un avantage décisif : ses chances de survie <strong>ne sont pas limitées à 90%</strong>.]]></target>
       </segment>
     </unit>
     <unit id="TnJAv.." name="Wie läuft der Angriff um Mitternacht ab?">
@@ -2522,7 +2522,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Es liegt dann an der Stadt, sich zu organisieren, um diese verlorenen Seelen zu bergen. In der Tat haben diese Seelen eine große Chance, sich in gequälte Seelen %img_red_soul% zu verwandeln, wenn sie verlassen werden! Und dort wird es Zeit in Panik zu geraten, diese gequälten Seelen entwickeln die Zombie-Proliferation!</source>
-        <target>Il incombe alors à la ville de s'organiser pour aller récupérer ces âmes perdues. En effet, ces âmes si elles sont laissées à l'abandon, ont de fortes chances de se transformer en âme torturée %img_red_soul% ! Et là, il sera temps de paniquer, ces âmes torturées développant la prolifération zombie!</target>
+        <target>Il incombe alors à la ville de s'organiser pour aller récupérer ces âmes perdues. En effet, ces âmes, si elles sont laissées à l'abandon, ont de fortes chances de se transformer en âme torturée %img_red_soul% ! Et là, il sera temps de paniquer, ces âmes torturées développant la prolifération de zombies !</target>
       </segment>
     </unit>
     <unit id="Sz_Kc6M">
@@ -2549,7 +2549,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Der Schamane ist unempfindlich gegenüber ihm und kann diese Seelen daher ohne Risiko (aber nicht ohne Angst) manipulieren. Der Bürger muss seinen Schamanen bitten, einen Immunisierungstrank zuzubereiten. Aber Vorsicht, das Vertrauen in die Kräfte Ihres Schamanen sollte nicht unendlich sein...</source>
-        <target>Le Chaman, lui est insensible et peut donc manipuler ces âmes sans risque (mais non sans peur). Le citoyen quant à lui doit demander à son Chaman de préparer une potion immunisante. Mais attention toutefois, la confiance attribuée aux pouvoirs de votre Chaman ne devrait pas être infinie...</target>
+        <target>Le Chaman, lui, est insensible et peut donc manipuler ces âmes sans risque (mais non sans peur). Le citoyen quant à lui doit demander à son Chaman de préparer une potion immunisante. Mais attention toutefois, la confiance attribuée aux pouvoirs de votre Chaman ne devrait pas être infinie...</target>
       </segment>
     </unit>
     <unit id="Jly9usI">
@@ -2653,7 +2653,7 @@ Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf 
       <segment>
         <source>Um den Zombies zu entkommen, die sich hier herumtreiben, kannst du deine Gegenstände aus deinem Inventar benutzen und damit angreifen. Du kannst auch &lt;strong&gt;die Aktion "Die Flucht wagen" ausführen&lt;/strong&gt;: Dabei verbrauchst du einen Teil deines Sauerstoffvorrats. 
 Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf dich warten.</source>
-        <target><![CDATA[Pour échapper aux zombies peuplant ces zones, en plus de pouvoir utiliser vos objets offensifs, <strong>vous pourrez utiliser l'action de "S'enfuir"</strong>qui vous permettra de leur échapper en consommant une partie de votre oxygène, vous retrouverez tout de même le même nombre de zombies en revenant sur vos pas.]]></target>
+        <target><![CDATA[Pour échapper aux zombies peuplant ces zones, en plus de pouvoir utiliser vos objets offensifs, <strong>vous pourrez utiliser l'action de "S'enfuir" </strong>qui vous permettra de leur échapper en consommant une partie de votre oxygène, vous retrouverez tout de même le même nombre de zombies en revenant sur vos pas.]]></target>
       </segment>
     </unit>
     <unit id="Ro.Av4r">
