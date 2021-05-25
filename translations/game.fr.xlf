@@ -6119,7 +6119,7 @@
       </notes>
       <segment>
         <source>Tod durch Radioaktivität</source>
-        <target>Morts par l'atome</target>
+        <target>Mort par l'atome</target>
       </segment>
     </unit>
     <unit id="CupoGNI">
@@ -7817,7 +7817,7 @@
       </notes>
       <segment>
         <source>Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</source>
-        <target>Vous avez signalé le message de %username% aux Corbeaux. Qui sait, peut-être que %username% va mourrir ce soâââr...</target>
+        <target>Vous avez signalé le message de %username% aux Corbeaux. Qui sait, peut-être que %username% va mourir ce soâââr...</target>
       </segment>
     </unit>
     <unit id="2OREl7F" name="Was geschieht mit dieser Leiche?">
