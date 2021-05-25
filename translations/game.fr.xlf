@@ -14602,7 +14602,7 @@
       </notes>
       <segment>
         <source>Verlorenes Brunnenwasser: %count% Einhet(en)</source>
-        <target>Eau du puits perdue : %count% ration(s)</target>
+        <target>Eau du puits perdue : %count% unité(s)</target>
       </segment>
     </unit>
     <unit id="1RZZDef">
