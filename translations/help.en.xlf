@@ -2910,7 +2910,7 @@ Wenn du im Laufe des Tages stirbst, gilt der Tag als nicht überlebt.</note>
         <source>Ein Tag gilt immer dann als "vollkommen überlebt",
 &lt;strong&gt;wenn du beim Zombieangriff um Mitternacht stirbst&lt;/strong&gt;.
 Wenn du im Laufe des Tages stirbst, gilt der Tag als nicht überlebt.</source>
-        <target><![CDATA[A day is considered "lived in full" <strong>if you survive the night or die from consequences arising from the zombie attack at 23:00</strong>. Death of any other kind will render the day invalid.]]></target>
+        <target><![CDATA[A day is considered "lived in full" <strong>if you survive the night or die from consequences arising from the zombie attack at 00h00</strong>. Death of any other kind will render the day invalid.]]></target>
       </segment>
     </unit>
     <unit id="KsSxKXH" name="Mehrere Fälle sind denkbar:">
@@ -5212,7 +5212,7 @@ Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</sour
       </notes>
       <segment>
         <source>Du kannst deinen Posten bis 23:59 verlassen.</source>
-        <target>You can abandon your post until 22h59.</target>
+        <target>You can abandon your post until 23h59.</target>
       </segment>
     </unit>
     <unit id="XlKohlV">
