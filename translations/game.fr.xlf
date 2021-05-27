@@ -7192,7 +7192,7 @@
       </notes>
       <segment>
         <source>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</source>
-        <target>Non loin de votre cachette actuelle, vous voyez une cachette encore meilleure ... Hmmm ... vous devriez peut-être déménager ?</target>
+        <target>Vous remarquez une meilleure cachette que la votre, pas très loin… Peut-être qu'elle vaudrait le coup de changer de place ?</target>
       </segment>
     </unit>
     <unit id="ERjA3HO" name="Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.">
@@ -17463,7 +17463,7 @@
       </notes>
       <segment>
         <source>Die Route wurde gelöscht.</source>
-        <target>Die Route wurde gelöscht.</target>
+        <target>Votre expédition a été effacée.</target>
       </segment>
     </unit>
     <unit id="2610l.t">
