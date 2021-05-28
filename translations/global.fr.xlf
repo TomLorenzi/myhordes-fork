@@ -619,7 +619,7 @@
       </notes>
       <segment>
         <source>Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele &gt; Einstellungen und generiere eine ID.</source>
-        <target><![CDATA[Sans cela, vous ne pouvez pas utiliser d'applications externes. Pour définir un ID externe, accédez à Votre âme > Paramètres et générez un ID.]]></target>
+        <target><![CDATA[Sans cela, <strong>vous ne pouvez pas utiliser d'applications externes</strong>. Pour définir un ID externe, accédez à Votre âme > Paramètres et générez un ID.]]></target>
       </segment>
     </unit>
     <unit id="h0cXaFP" name="Sticky">
