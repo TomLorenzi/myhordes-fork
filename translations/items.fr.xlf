@@ -6577,7 +6577,7 @@
       </notes>
       <segment>
         <source>Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</source>
-        <target>Le boucher a bien pris soin de {item}... Vous avez maintenant reçu {items_spawn} pour cela. Au revoir, mon ami !</target>
+        <target>Le boucher a pris grand soin de {item}... Vous en tirez {items_spawn}. Adieu pépète.</target>
       </segment>
     </unit>
     <unit id="OeuOyF4" name="Haus aufräumen und putzen">
