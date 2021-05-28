@@ -9239,7 +9239,7 @@
       </notes>
       <segment>
         <source>Man kann es nicht oft genug sagen: Ab und zu müsst ihr mal etwas trinken. &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% ist das beste Beispiel, was ansonten passiert.</source>
-        <target><![CDATA[Man kann es nicht oft genug sagen: Ab und zu müsst ihr mal etwas trinken. <i class="dagger">†</i> %cadaver1% ist das beste Beispiel, was ansonten passiert.]]></target>
+        <target><![CDATA[On ne le dira jamais assez: vous devez boire de temps en temps. <i class="dagger">†</i> %cadaver1% en est un bon exemple.]]></target>
       </segment>
     </unit>
     <unit id="AGvRvLT">
