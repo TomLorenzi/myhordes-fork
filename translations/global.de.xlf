@@ -601,7 +601,7 @@
       </notes>
       <segment>
         <source>Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele &gt; Einstellungen und generiere eine ID.</source>
-        <target><![CDATA[Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.]]></target>
+        <target><![CDATA[Ohne diese <strong>kannst du keine externen Apps nutzen</strong>. Um eine Externe ID zu setzen, gehe in deine Seele > Einstellungen und generiere eine ID.]]></target>
       </segment>
     </unit>
     <unit id="SddpDzy" name="Verzeichnis">
