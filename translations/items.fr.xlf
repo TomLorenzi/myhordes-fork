@@ -8288,7 +8288,7 @@
       </notes>
       <segment>
         <source>Als Opfer der Großen Seuche hast du durch dein gestähltes Immunsystem eine Chance, Infektionen abzuwehren.</source>
-        <target>Als Opfer der Großen Seuche hast du durch dein gestähltes Immunsystem eine Chance, Infektionen abzuwehren.</target>
+        <target>En tant que victime de la Grande Contamination, votre système immunitaire vous a donné une chance de prévenir les infections.</target>
       </segment>
     </unit>
     <unit id="EOq8v7z" name="Zeuge des Armageddon">
@@ -8306,7 +8306,7 @@
       </notes>
       <segment>
         <source>Als Zeuge des Armagedon kannst du selbst aus ausweglosen Situationen fliehen.</source>
-        <target>Als Zeuge des Armagedon kannst du selbst aus ausweglosen Situationen fliehen.</target>
+        <target>En tant que témoin de l’Armagedon, tu peux fuir les situations sans issue.</target>
       </segment>
     </unit>
     <unit id="Fxoqglo" name="Ruhm">
@@ -8315,7 +8315,7 @@
       </notes>
       <segment>
         <source>Ruhm</source>
-        <target>Ruhm</target>
+        <target>Gloire</target>
       </segment>
     </unit>
     <unit id="FQo0T3F">
@@ -8324,7 +8324,7 @@
       </notes>
       <segment>
         <source>Als Champion kannst du deinen Nachrichten im Forum zusätzliche Authorität verleihen.</source>
-        <target>Als Champion kannst du deinen Nachrichten im Forum zusätzliche Authorität verleihen.</target>
+        <target>En tant que champion, vous pouvez ajouter du pouvoir à vos messages sur le forum.</target>
       </segment>
     </unit>
     <unit id="VDcKkt9" name="Kreischender Wecker">
