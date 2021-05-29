@@ -11,12 +11,15 @@ use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenStatus;
+use App\Entity\FeatureUnlock;
+use App\Entity\FeatureUnlockPrototype;
 use App\Entity\Forum;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\GitVersions;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Item;
 use App\Entity\Picto;
+use App\Entity\PictoPrototype;
 use App\Entity\Post;
 use App\Entity\RuinZone;
 use App\Entity\Season;
@@ -147,7 +150,8 @@ class MigrateCommand extends Command
             ->addOption('fix-ruin-inventories', null, InputOption::VALUE_NONE, 'Move each items belonging to a RuinRoom to its corresponding RuinZone')
             ->addOption('update-shaman-immune', null, InputOption::VALUE_NONE, 'Changes status tg_immune to tg_shaman_immune')
             ->addOption('place-explorables', null, InputOption::VALUE_NONE, 'Adds explorable ruins to all towns')
-            ->addOption('assign-awards', null, InputOption::VALUE_NONE, 'Adds explorable ruins to all towns')
+            ->addOption('assign-awards', null, InputOption::VALUE_NONE, '')
+            ->addOption('assign-features', null, InputOption::VALUE_NONE, '')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
         ;
@@ -650,6 +654,38 @@ class MigrateCommand extends Command
         if ($input->getOption('assign-awards')) {
             $this->leChunk($output, User::class, 100, [], true, true, function(User $user) {
                 $this->user_handler->computePictoUnlocks($user);
+            });
+
+            return 0;
+        }
+
+        if ($input->getOption('assign-features')) {
+
+            $p_arma = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_armag_#00');
+            $p_cont = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_ginfec_#00');
+
+            $f_arma = $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => 'f_arma']);
+            $f_cont = $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => 'f_wtns']);
+            $f_cam = $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => 'f_cam']);
+            $f_alarm = $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => 'f_alarm']);
+
+            $this->leChunk($output, User::class, 100, [], true, false, function(User $user) use ($p_arma,$p_cont,$f_arma,$f_cont,$f_cam,$f_alarm) {
+                if (!$this->user_handler->checkFeatureUnlock($user,$f_cont, false)) {
+                    if ($this->entity_manager->getRepository(Picto::class)->count(['prototype' => $p_cont, 'user' => $user, 'persisted' => 2]))
+                        $this->entity_manager->persist( (new FeatureUnlock())->setPrototype( $f_cont )->setUser( $user )->setExpirationMode( FeatureUnlock::FeatureExpirationNone ) );
+                }
+
+                if (!$this->user_handler->checkFeatureUnlock($user,$f_arma, false)) {
+                    if ($this->entity_manager->getRepository(Picto::class)->count(['prototype' => $p_arma, 'user' => $user, 'persisted' => 2]))
+                        $this->entity_manager->persist( (new FeatureUnlock())->setPrototype( $f_arma )->setUser( $user )->setExpirationMode( FeatureUnlock::FeatureExpirationNone ) );
+                }
+
+                if (!$this->user_handler->checkFeatureUnlock($user, $f_cam, false))
+                    $this->entity_manager->persist( (new FeatureUnlock())->setPrototype( $f_cam )->setUser( $user )->setExpirationMode( FeatureUnlock::FeatureExpirationTownCount )->setTownCount( 2 ) );
+                if (!$this->user_handler->checkFeatureUnlock($user, $f_alarm, false))
+                    $this->entity_manager->persist( (new FeatureUnlock())->setPrototype( $f_alarm )->setUser( $user )->setExpirationMode( FeatureUnlock::FeatureExpirationTownCount )->setTownCount( 2 ) );
+
+                return false;
             });
 
             return 0;
