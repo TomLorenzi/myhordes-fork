@@ -41,6 +41,7 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
             new TwigFilter('instance_of', [$this, 'instance_of']),
             new TwigFilter('to_date',  [$this, 'create_date']),
             new TwigFilter('is_granted',  [$this, 'check_granted']),
+            new TwigFilter('has_unlocked',  [$this, 'check_unlocked']),
             new TwigFilter('bin_contains',  [$this, 'check_flag_1']),
             new TwigFilter('bin_overlaps',  [$this, 'check_flag_2']),
             new TwigFilter('restricted',  [$this, 'user_is_restricted']),
@@ -87,6 +88,15 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
      */
     public function check_granted(User $u, string $role): bool {
         return $this->userHandler->hasRole($u,$role);
+    }
+
+    /**
+     * @param User $u
+     * @param string $feature
+     * @return bool
+     */
+    public function check_unlocked(User $u, string $feature): bool {
+        return $this->userHandler->checkFeatureUnlock($u, $feature, false);
     }
 
     public function help_btn(string $tooltipContent): string {

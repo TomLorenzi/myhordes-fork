@@ -1938,7 +1938,7 @@
     </unit>
     <unit id="GYf8Lr5" name="Eine Auszeichnungen auswählen:">
       <notes>
-        <note category="german">Eine Auszeichnungen auswählen:</note>
+        <note category="german">Eine Auszeichnung auswählen:</note>
       </notes>
       <segment>
         <source>Eine Auszeichnungen auswählen:</source>
@@ -3392,6 +3392,15 @@
       <segment>
         <source>Löschen (ermöglicht erneutes Betreten der Ruine)</source>
         <target>Delete (allows re-entering the ruins)</target>
+      </segment>
+    </unit>
+    <unit id="b7SFlpH" name="Feature freigeben:">
+      <notes>
+        <note category="german">Feature freigeben:</note>
+      </notes>
+      <segment>
+        <source>Feature freigeben:</source>
+        <target>Feature freigeben:</target>
       </segment>
     </unit>
   </file>

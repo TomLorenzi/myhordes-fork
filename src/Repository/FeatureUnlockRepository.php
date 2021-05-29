@@ -24,13 +24,18 @@ class FeatureUnlockRepository extends ServiceEntityRepository
 
     public function findActiveForUser(User $user, ?Season $season, $feature)
     {
-        if (is_string($feature)) $feature = $this->getEntityManager()->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name', $feature]);
+        if (is_string($feature)) $feature = $this->getEntityManager()->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => $feature]);
         if ($feature === null) return [];
-        return $this->createQueryBuilder('f')
-            ->orWhere('(f.expirationMode = :femn)')->setParameter('femn', FeatureUnlock::FeatureExpirationNone)
-            ->orWhere('(f.expirationMode = :fems AND f.season = :season)')->setParameter('fems', FeatureUnlock::FeatureExpirationSeason)->setParameter('season', $season)
-            ->orWhere('(f.expirationMode = :femt AND f.timestamp >= :now)')->setParameter('femt', FeatureUnlock::FeatureExpirationTimestamp)->setParameter('now', new \DateTime())
-            ->orWhere('(f.expirationMode = :femc AND f.townCount > 0)')->setParameter('femc', FeatureUnlock::FeatureExpirationTownCount)
+        $qb = $this->createQueryBuilder('f')
+            ->andWhere('f.user = :user')->setParameter('user',$user)
+            ->andWhere('f.prototype = :feature')->setParameter('feature', $feature)
+            ->andWhere('((f.expirationMode = :femn) OR (f.expirationMode = :fems AND f.season ' . ($season === null ? 'IS NULL' : '= :season') . ') OR (f.expirationMode = :femt AND f.timestamp >= :now) OR (f.expirationMode = :femc AND f.townCount > 0) )')
+            ->setParameter('femn', FeatureUnlock::FeatureExpirationNone)
+            ->setParameter('fems', FeatureUnlock::FeatureExpirationSeason);
+        if ($season !== null) $qb->setParameter('season', $season);
+
+        return $qb->setParameter('femt', FeatureUnlock::FeatureExpirationTimestamp)->setParameter('now', new \DateTime())
+            ->setParameter('femc', FeatureUnlock::FeatureExpirationTownCount)
             ->orderBy('f.expirationMode', 'DESC')
             ->getQuery()
             ->getResult()
