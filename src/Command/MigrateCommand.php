@@ -84,7 +84,8 @@ class MigrateCommand extends Command
         'd9960996e6d39ecc6431ef576470a048e4b43774' => [ ['app:migrate', ['--migrate-account-bans' => true] ] ],
         '2fd50ce43146b72886d94077a044bc22b94f3ef6' => [ ['app:migrate', ['--assign-awards' => true] ] ],
         '3007ba47a8815cf2b7ab36c34852196149016137' => [ ['app:migrate', ['--assign-awards' => true] ] ],
-        'e8fcdebaee7f62d2a74dfdaa1f352d7cbbdeb848' => [ ['app:migrate', ['--assign-awards' => true] ] ]
+        'e8fcdebaee7f62d2a74dfdaa1f352d7cbbdeb848' => [ ['app:migrate', ['--assign-awards' => true] ] ],
+        'd2e74544059a70b72cb89784544555663e4f0f9e' => [ ['app:migrate', ['--assign-features' => true] ] ]
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
