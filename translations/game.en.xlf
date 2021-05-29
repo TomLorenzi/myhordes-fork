@@ -19551,5 +19551,77 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Cost</target>
       </segment>
     </unit>
+    <unit id="6spO8K_" name="Dieser Bürger hat sich für heute Nacht hier versteckt.">
+      <notes>
+        <note category="german">Dieser Bürger hat sich für heute Nacht hier versteckt.</note>
+      </notes>
+      <segment>
+        <source>Dieser Bürger hat sich für heute Nacht hier versteckt.</source>
+        <target>Dieser Bürger hat sich für heute Nacht hier versteckt.</target>
+      </segment>
+    </unit>
+    <unit id="PEGlllX">
+      <notes>
+        <note category="german">Du bist gerade dabei in dieser Zone zu graben. Wenn du bis zum Ende der angezeigten Zeit am gleichen Platz bleibst, &lt;strong&gt;hast du die Möglichkeit einen weiteren Gegenstand zu finden&lt;/strong&gt;!&lt;br /&gt;&lt;br /&gt;Du kannst so lange bleiben wie du möchtest.</note>
+      </notes>
+      <segment>
+        <source>Du bist gerade dabei in dieser Zone zu graben. Wenn du bis zum Ende der angezeigten Zeit am gleichen Platz bleibst, &lt;strong&gt;hast du die Möglichkeit einen weiteren Gegenstand zu finden&lt;/strong&gt;!&lt;br /&gt;&lt;br /&gt;Du kannst so lange bleiben wie du möchtest.</source>
+        <target><![CDATA[You are currently searching the zone. If you stay here until the timer runs out, <strong>you may find another object</strong>!<br /><br />You can stay there for as long as you wish.]]></target>
+      </segment>
+    </unit>
+    <unit id="Clom3hI" name="Spiritueller Rucksack">
+      <notes>
+        <note category="german">Spiritueller Rucksack</note>
+      </notes>
+      <segment>
+        <source>Spiritueller Rucksack</source>
+        <target>Spiritual Rucksack</target>
+      </segment>
+    </unit>
+    <unit id="sUNCUak" name="Freigeschaltet:">
+      <notes>
+        <note category="german">Freigeschaltet:</note>
+      </notes>
+      <segment>
+        <source>Freigeschaltet:</source>
+        <target>Unlocked:</target>
+      </segment>
+    </unit>
+    <unit id="RuyZ5lt" name="Dauerhaft!">
+      <notes>
+        <note category="german">Dauerhaft!</note>
+      </notes>
+      <segment>
+        <source>Dauerhaft!</source>
+        <target>Forever!</target>
+      </segment>
+    </unit>
+    <unit id="hGatz34" name="Für diese Saison">
+      <notes>
+        <note category="german">Für diese Saison</note>
+      </notes>
+      <segment>
+        <source>Für diese Saison</source>
+        <target>For this season</target>
+      </segment>
+    </unit>
+    <unit id="GVd6OlM" name="Bis %date%">
+      <notes>
+        <note category="german">Bis %date%</note>
+      </notes>
+      <segment>
+        <source>Bis %date%</source>
+        <target>Until %date%</target>
+      </segment>
+    </unit>
+    <unit id="y.hXICd" name="Für %num% weitere Städte">
+      <notes>
+        <note category="german">Für %num% weitere Städte</note>
+      </notes>
+      <segment>
+        <source>Für %num% weitere Städte</source>
+        <target>For %num% more towns</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

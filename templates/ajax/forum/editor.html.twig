@@ -89,7 +89,9 @@
                     <div x-forum-action="edit" x-text-wrap-node="quote" class="forum-button"><i class="fa fa-quote-left"></i><span class="forum-button-tooltip">{{ 'Zitat'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="spoiler" class="forum-button"><i class="fa fa-eye-slash"></i><span class="forum-button-tooltip">{{ 'Spoiler'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-wrap-node="aparte" class="forum-button"><i class="fas fa-compress-alt"></i><span class="forum-button-tooltip">{{ 'Vertraulich'|trans({},'global') }}</span></div>
-                    <div x-forum-action="edit" x-text-wrap-node="glory" class="forum-button"><i class="fa fa-crown"></i><span class="forum-button-tooltip">{{ 'Ruhm'|trans({},'global') }}</span></div>
+                    {% if app.user|has_unlocked('f_glory') %}
+                        <div x-forum-action="edit" x-text-wrap-node="glory" class="forum-button"><i class="fa fa-crown"></i><span class="forum-button-tooltip">{{ 'Ruhm'|trans({},'global') }}</span></div>
+                    {% endif %}
                     <div x-forum-action="edit" x-text-wrap-node="code" class="forum-button"><i class="fa fa-code"></i><span class="forum-button-tooltip">{{ 'Code'|trans({},'global') }}</span></div>
                     <div x-forum-action="edit" x-text-insert-node="hr" class="forum-button"><i class="fa fa-grip-lines"></i><span class="forum-button-tooltip">{{ 'Linie'|trans({},'global') }}</span></div>
                     <div x-forum-action="modal" x-text-modal-node="rp" class="forum-button"><i class="fas fa-scroll"></i><span class="forum-button-tooltip">{{ 'Rollenspiel'|trans({},'global') }}</span></div>

@@ -12,6 +12,8 @@ use App\Entity\Changelog;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\Complaint;
 use App\Entity\ExternalApp;
+use App\Entity\FeatureUnlock;
+use App\Entity\FeatureUnlockPrototype;
 use App\Entity\FoundRolePlayText;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
@@ -176,9 +178,16 @@ class SoulController extends CustomAbstractController
 
         $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
 
+        $features = [];
+        $season = $this->entity_manager->getRepository(Season::class)->findLatest();
+        foreach ($this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findAll() as $p)
+            if ($ff = $this->entity_manager->getRepository(FeatureUnlock::class)->findOneActiveForUser($user,$season,$p))
+                $features[] = $ff;
+
         return $this->render( 'ajax/soul/me.html.twig', $this->addDefaultTwigArgs("soul_me", [
             'user' => $user,
             'pictos' => $pictos,
+            'features' => $features,
             'points' => round($points),
             'latestSkill' => $latestSkill,
             'progress' => floor($progress),

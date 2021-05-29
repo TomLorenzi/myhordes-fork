@@ -5,8 +5,10 @@ namespace App\DataFixtures;
 
 
 use App\Entity\AwardPrototype;
+use App\Entity\FeatureUnlockPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Repository\FeatureUnlockPrototypeRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\ORM\EntityManagerInterface;
@@ -562,6 +564,14 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         ['icon'=>'r_ripflash', 'unlockquantity'=>1, 'associatedpicto'=>'r_ripflash_#00'],
     ];
 
+    protected static $feature_data = [
+        'f_wtns'  => [ 'icon' => 'r_ginfec', 'label' => 'Zeuge der großen Verseuchung', 'desc' =>  'Als Opfer der Großen Seuche hast du durch dein gestähltes Immunsystem eine Chance, Infektionen abzuwehren.'],
+        'f_arma'  => [ 'icon' => 'r_armag' , 'label' => 'Zeuge des Armageddon',         'desc' =>  'Als Zeuge des Armagedon kannst du selbst aus ausweglosen Situationen fliehen.'],
+        'f_glory' => [ 'icon' => 'f_glory' , 'label' => 'Ruhm',                         'desc' =>  'Als Champion kannst du deinen Nachrichten im Forum zusätzliche Authorität verleihen.'],
+        'f_cam'   => [ 'icon' => 'f_cam'   , 'label' => 'Kamera aus Vorkriegs-Tagen',   'desc' =>  'Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!'],
+        'f_alarm' => [ 'icon' => 'f_alarm' , 'label' => 'Kreischender Wecker',          'desc' =>  'Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert.'],
+    ];
+
     private function insertAwards(ObjectManager $manager, ConsoleOutputInterface $out) {
         $out->writeln('<comment>Awards: ' . count(static::$award_data) . ' fixture entries available.</comment>');
 
@@ -604,10 +614,10 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
     }
 
     private function insertIconAwards(ObjectManager $manager, ConsoleOutputInterface $out) {
-        $out->writeln('<comment>Icon Awards: ' . count(static::$award_data) . ' fixture entries available.</comment>');
+        $out->writeln('<comment>Icon Awards: ' . count(static::$icon_data) . ' fixture entries available.</comment>');
 
         $progress = new ProgressBar( $out->section() );
-        $progress->start( count(static::$award_data) );
+        $progress->start( count(static::$icon_data) );
 
         $icons = [];
 
@@ -643,6 +653,38 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
         $progress->finish();
     }
 
+    private function insertFeatureUnlocks(ObjectManager $manager, ConsoleOutputInterface $out) {
+        $out->writeln('<comment>Unlockable Features: ' . count(static::$feature_data) . ' fixture entries available.</comment>');
+
+        $progress = new ProgressBar( $out->section() );
+        $progress->start( count(static::$feature_data) );
+
+        $names = [];
+
+        foreach(static::$feature_data as $name => $entry) {
+            $names[] = $name;
+            $entity = $this->entityManager->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => $name]) ?? new FeatureUnlockPrototype();
+
+            $entity
+                ->setName( $name )
+                ->setLabel( $entry['label'] )
+                ->setIcon( $entry['icon'] )
+                ->setDescription( $entry['desc'] );
+
+            $manager->persist($entity);
+            $progress->advance();
+        }
+
+        // Remove obsolete entries
+        $entities_to_delete = $this->entityManager->getRepository(FeatureUnlockPrototype::class)->createQueryBuilder('f')
+            ->andWhere('f.name NOT IN (:names)')->setParameter('names', $names)->getQuery()->execute();
+        foreach ($entities_to_delete as $entity)
+            $this->entityManager->remove($entity);
+
+        $manager->flush();
+        $progress->finish();
+    }
+
     public function __construct(EntityManagerInterface $em) {
         $this->entityManager = $em;
     }
@@ -654,6 +696,7 @@ class AwardFixtures extends Fixture implements DependentFixtureInterface {
 
         $this->insertAwards($manager, $output);
         $this->insertIconAwards($manager, $output);
+        $this->insertFeatureUnlocks($manager, $output);
         $output->writeln("");
     }
 

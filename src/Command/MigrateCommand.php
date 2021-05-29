@@ -11,12 +11,15 @@ use App\Entity\Building;
 use App\Entity\Citizen;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenStatus;
+use App\Entity\FeatureUnlock;
+use App\Entity\FeatureUnlockPrototype;
 use App\Entity\Forum;
 use App\Entity\ForumUsagePermissions;
 use App\Entity\GitVersions;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Item;
 use App\Entity\Picto;
+use App\Entity\PictoPrototype;
 use App\Entity\Post;
 use App\Entity\RuinZone;
 use App\Entity\Season;
@@ -33,6 +36,7 @@ use App\Entity\ZoneTag;
 use App\Service\CitizenHandler;
 use App\Service\ConfMaster;
 use App\Service\GameFactory;
+use App\Service\Globals\TranslationConfigGlobal;
 use App\Service\InventoryHandler;
 use App\Service\MazeMaker;
 use App\Service\PermissionHandler;
@@ -72,19 +76,22 @@ class MigrateCommand extends Command
     private UserFactory $user_factory;
     private PermissionHandler $perm;
 
+    private TranslationConfigGlobal $conf_trans;
+
     protected static $git_script_repository = [
         'ce5c1810ee2bde2c10cc694e80955b110bbed010' => [ ['app:migrate', ['--calculate-score' => true] ] ],
         'e3a28a35e8ade5c767480bb3d8b7fa6daaf69f4e' => [ ['app:migrate', ['--build-forum-search-index' => true] ] ],
         'd9960996e6d39ecc6431ef576470a048e4b43774' => [ ['app:migrate', ['--migrate-account-bans' => true] ] ],
         '2fd50ce43146b72886d94077a044bc22b94f3ef6' => [ ['app:migrate', ['--assign-awards' => true] ] ],
         '3007ba47a8815cf2b7ab36c34852196149016137' => [ ['app:migrate', ['--assign-awards' => true] ] ],
-        'e8fcdebaee7f62d2a74dfdaa1f352d7cbbdeb848' => [ ['app:migrate', ['--assign-awards' => true] ] ]
+        'e8fcdebaee7f62d2a74dfdaa1f352d7cbbdeb848' => [ ['app:migrate', ['--assign-awards' => true] ] ],
+        'd2e74544059a70b72cb89784544555663e4f0f9e' => [ ['app:migrate', ['--assign-features' => true] ] ]
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
                                 RandomGenerator $rg, CitizenHandler $ch, InventoryHandler $ih, ConfMaster $conf,
                                 MazeMaker $maze, ParameterBagInterface $params, UserHandler $uh, PermissionHandler $p,
-                                UserFactory $uf)
+                                UserFactory $uf, TranslationConfigGlobal $conf_trans)
     {
         $this->kernel = $kernel;
 
@@ -99,6 +106,8 @@ class MigrateCommand extends Command
         $this->user_handler = $uh;
         $this->perm = $p;
         $this->user_factory = $uf;
+
+        $this->conf_trans = $conf_trans;
 
         parent::__construct();
     }
@@ -125,6 +134,10 @@ class MigrateCommand extends Command
             ->addOption('process-db-git', 'p',   InputOption::VALUE_NONE, 'Processes triggers for automated database actions')
 
             ->addOption('update-trans', 't', InputOption::VALUE_REQUIRED, 'Updates all translation files for a single language')
+            ->addOption('trans-file', null, InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL, 'Limits translations to specific files', [])
+            ->addOption('trans-disable-php', null, InputOption::VALUE_NONE, 'Disables translation of PHP files')
+            ->addOption('trans-disable-db', null, InputOption::VALUE_NONE, 'Disables translation of database content')
+            ->addOption('trans-disable-twig', null, InputOption::VALUE_NONE, 'Disables translation of twig files')
 
             ->addOption('assign-heroic-actions-all', null, InputOption::VALUE_NONE, 'Resets the heroic actions for all citizens in all towns.')
             ->addOption('assign-special-actions-all', null, InputOption::VALUE_NONE, 'Resets the special actions for all citizens in all towns.')
@@ -138,7 +151,8 @@ class MigrateCommand extends Command
             ->addOption('fix-ruin-inventories', null, InputOption::VALUE_NONE, 'Move each items belonging to a RuinRoom to its corresponding RuinZone')
             ->addOption('update-shaman-immune', null, InputOption::VALUE_NONE, 'Changes status tg_immune to tg_shaman_immune')
             ->addOption('place-explorables', null, InputOption::VALUE_NONE, 'Adds explorable ruins to all towns')
-            ->addOption('assign-awards', null, InputOption::VALUE_NONE, 'Adds explorable ruins to all towns')
+            ->addOption('assign-awards', null, InputOption::VALUE_NONE, '')
+            ->addOption('assign-features', null, InputOption::VALUE_NONE, '')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
         ;
@@ -476,6 +490,12 @@ class MigrateCommand extends Command
             $langs = ($lang === 'all') ? ['de','en','fr','es'] : [$lang];
             if (count($langs) === 1) {
 
+                if ($input->getOption('trans-disable-db')) $this->conf_trans->setDatabaseSearch(false);
+                if ($input->getOption('trans-disable-php')) $this->conf_trans->setPHPSearch(false);
+                if ($input->getOption('trans-disable-twig')) $this->conf_trans->setTwigSearch(false);
+                foreach ($input->getOption('trans-file') as $file_name)
+                    $this->conf_trans->addMatchedFileName($file_name);
+
                 $command = $this->getApplication()->find('translation:update');
 
                 $output->writeln("Now working on translations for <info>{$lang}</info>...");
@@ -498,8 +518,15 @@ class MigrateCommand extends Command
                 $threads = [];
                 foreach ($langs as $current_lang) {
 
-                    $threads[] = new class(function () use ($current_lang,$output) {
-                        $this->capsule("app:migrate -t $current_lang", $output);
+                    $com = "app:migrate -t $current_lang";
+                    if ($input->getOption('trans-disable-db')) $com .= " --trans-disable-db";
+                    if ($input->getOption('trans-disable-php')) $com .= " --trans-disable-php";
+                    if ($input->getOption('trans-disable-twig')) $com .= " --trans-disable-twig";
+                    foreach ($input->getOption('trans-file') as $file_name)
+                        $com .= " --trans-file $file_name";
+
+                    $threads[] = new class(function () use ($com,$output) {
+                        $this->capsule($com, $output);
                     }) extends \Worker {
                         private $_f;
                         public function __construct(callable $fun) { $this->_f = $fun; }
@@ -509,8 +536,17 @@ class MigrateCommand extends Command
 
                 foreach ($threads as $thread) $thread->start();
                 foreach ($threads as $thread) $thread->join();
-            } else foreach ($langs as $current_lang)
-                $this->capsule("app:migrate -t $current_lang", $output);
+            } else foreach ($langs as $current_lang) {
+                $com = "app:migrate -t $current_lang";
+                if ($input->getOption('trans-disable-db')) $com .= " --trans-disable-db";
+                if ($input->getOption('trans-disable-php')) $com .= " --trans-disable-php";
+                if ($input->getOption('trans-disable-twig')) $com .= " --trans-disable-twig";
+                foreach ($input->getOption('trans-file') as $file_name)
+                    $com .= " --trans-file $file_name";
+
+                $this->capsule($com, $output);
+            }
+
 
             return 0;
         }
@@ -619,6 +655,38 @@ class MigrateCommand extends Command
         if ($input->getOption('assign-awards')) {
             $this->leChunk($output, User::class, 100, [], true, true, function(User $user) {
                 $this->user_handler->computePictoUnlocks($user);
+            });
+
+            return 0;
+        }
+
+        if ($input->getOption('assign-features')) {
+
+            $p_arma = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_armag_#00');
+            $p_cont = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_ginfec_#00');
+
+            $f_arma = $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => 'f_arma']);
+            $f_cont = $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => 'f_wtns']);
+            $f_cam = $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => 'f_cam']);
+            $f_alarm = $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => 'f_alarm']);
+
+            $this->leChunk($output, User::class, 100, [], true, false, function(User $user) use ($p_arma,$p_cont,$f_arma,$f_cont,$f_cam,$f_alarm) {
+                if (!$this->user_handler->checkFeatureUnlock($user,$f_cont, false)) {
+                    if ($this->entity_manager->getRepository(Picto::class)->count(['prototype' => $p_cont, 'user' => $user, 'persisted' => 2]))
+                        $this->entity_manager->persist( (new FeatureUnlock())->setPrototype( $f_cont )->setUser( $user )->setExpirationMode( FeatureUnlock::FeatureExpirationNone ) );
+                }
+
+                if (!$this->user_handler->checkFeatureUnlock($user,$f_arma, false)) {
+                    if ($this->entity_manager->getRepository(Picto::class)->count(['prototype' => $p_arma, 'user' => $user, 'persisted' => 2]))
+                        $this->entity_manager->persist( (new FeatureUnlock())->setPrototype( $f_arma )->setUser( $user )->setExpirationMode( FeatureUnlock::FeatureExpirationNone ) );
+                }
+
+                if (!$this->user_handler->checkFeatureUnlock($user, $f_cam, false))
+                    $this->entity_manager->persist( (new FeatureUnlock())->setPrototype( $f_cam )->setUser( $user )->setExpirationMode( FeatureUnlock::FeatureExpirationTownCount )->setTownCount( 2 ) );
+                if (!$this->user_handler->checkFeatureUnlock($user, $f_alarm, false))
+                    $this->entity_manager->persist( (new FeatureUnlock())->setPrototype( $f_alarm )->setUser( $user )->setExpirationMode( FeatureUnlock::FeatureExpirationTownCount )->setTownCount( 2 ) );
+
+                return false;
             });
 
             return 0;

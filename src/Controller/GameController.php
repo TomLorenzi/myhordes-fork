@@ -608,11 +608,15 @@ class GameController extends CustomAbstractController
             $inventory = $citizen->getInventory();
             $null = null;
 
-            $item = ($if->createItem( "photo_3_#00" ))->setEssential(true);
-            $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
+            if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_cam', true ) ) {
+                $item = ($if->createItem( "photo_3_#00" ))->setEssential(true);
+                $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
+            }
 
-            $item = ($if->createItem( "alarm_off_#00" ))->setEssential(true);
-            $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
+            if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_alarm', true ) ) {
+                $item = ($if->createItem( "alarm_off_#00" ))->setEssential(true);
+                $this->inventory_handler->transferItem($citizen,$item,$null,$inventory);
+            }
 
             foreach ($skills as $skill) {
                 switch($skill->getName()){
@@ -655,7 +659,7 @@ class GameController extends CustomAbstractController
             }
         }
 
-        if($this->picto_handler->has_picto($citizen, 'r_armag_#00')) {
+        if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_arma', true ) ) {
             $armag_day   = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_armag_d"]);
             $armag_night = $this->entity_manager->getRepository(SpecialActionPrototype::class)->findOneBy(['name' => "special_armag_n"]);
             $citizen->addSpecialAction($armag_day);
@@ -670,7 +674,7 @@ class GameController extends CustomAbstractController
         if ($vote_shaman) $citizen->addSpecialAction($vote_shaman);
         if ($vote_guide) $citizen->addSpecialAction($vote_guide);
 
-        if($this->picto_handler->has_picto($citizen, 'r_ginfec_#00'))
+        if ($this->user_handler->checkFeatureUnlock( $citizen->getUser(), 'f_wtns', true ) )
             $this->citizen_handler->inflictStatus($citizen, 'tg_infect_wtns');
 
         try {
