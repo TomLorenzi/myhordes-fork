@@ -2058,7 +2058,7 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
       </notes>
       <segment>
         <source>Eine oben auf der Seite platzierte Anzeige verrät dir mit einem Blick deinen aktuellen Gesundheitszustand und sagt dir, ob du etwas trinken musst, ob du verletzt bist usw. ...</source>
-        <target>Vous y apprendrez en un coup d'œil si vous avez besoin de boire, vous soigner, ..etc.</target>
+        <target>Vous y apprendrez en un coup d'œil si vous avez besoin de boire, vous soigner, etc...</target>
       </segment>
     </unit>
     <unit id="OAnJvWx" name="Erschöpfung">
@@ -2188,7 +2188,7 @@ Die in diesen Stunden erlittene panische &lt;strong&gt;Angst&lt;/strong&gt; ist 
       <segment>
         <source>00:10 Uhr - Die Zombiemeute hat es in die Stadt geschafft und trommelt nun wutschnaubend und gröhlend gegen deine Haustür. Dir gelingt es zwar sie aus deinem Haus zu halten, aber diesen Schock wirst du nicht so schnell vergessen... du bist &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt;.
 Die in diesen Stunden erlittene panische &lt;strong&gt;Angst&lt;/strong&gt; ist dir ins Rückenmark gegangen und geblieben. Deine Aktions- und Bewegungsfreiheit ist seitdem erheblich eingeschränkt: Du kannst dich unter keinen Umständen in die Nähe von Zombies begeben! Solltest du in diesem Zustand dennoch auf welche stoßen, verfällst du in eine Angststarre und kannst dich nicht mehr bewegen... bis sie dich auffressen. In der Wüste zählst du, ungeachtet deines Berufs und deiner Ausrüstung, 0 Kontrollpunkte. Alle Zonen, in denen die Zombies mehr Punkte haben, sind für dich tabu.</source>
-        <target><![CDATA[Il est minuit. Les Hordes s'abattent sur votre maison avec rage, mais vous arrivez à les repousser. Le souvenir de la mort si proche va vous <strong>terroriser</strong>. Sous l'emprise de la <strong>terreur</strong>, vous serez très limité(e) dans vos agissements... Hors de question de rester près des zombies quelles que soient les circonstances ! Et si vous n'avez pas le choix, vous serez tout simplement paralysé(e) par la terreur... jusqu'à ce que l'un d'eux vous dévore. Dans le désert, vous comptez pour 0 point de contrôle, quelque soit votre métier ou votre équipement. Vous ne pouvez pas agir sur une zone si le score de contrôle des zombies est supérieur à celui des humains.]]></target>
+        <target><![CDATA[Il est minuit. Les Hordes s'abattent sur votre maison avec rage, mais vous arrivez à les repousser. Le souvenir de la mort si proche va vous <strong>terroriser</strong>. Sous l'emprise de la <strong>terreur</strong>, vous serez très limité(e) dans vos agissements... Hors de question de rester près des zombies quelles que soient les circonstances ! Et si vous n'avez pas le choix, vous serez tout simplement paralysé(e) par la terreur... jusqu'à ce que l'un d'eux vous dévore. Dans le désert, vous comptez pour 0 point de contrôle, quel que soit votre métier ou votre équipement. Vous ne pouvez pas agir sur une zone si le score de contrôle des zombies est supérieur à celui des humains.]]></target>
       </segment>
     </unit>
     <unit id="isD8Ydk">
@@ -3199,7 +3199,7 @@ Es basiert auf folgenden zwei Konzepten:</source>
       </notes>
       <segment>
         <source>Die Koalition wird gebildet, sobald ihr 5 Spieler beigetreten sind. Die Spieler können anschließend Strategien besprechen, etc...</source>
-        <target>Une fois que 5 joueurs ont rejoint la coalition, ils peuvent discuter entre eux, définir des stratégies, ..etc.</target>
+        <target>Une fois que 5 joueurs ont rejoint la coalition, ils peuvent discuter entre eux, définir des stratégies, etc...</target>
       </segment>
     </unit>
     <unit id="yr8y3nx">
@@ -3563,7 +3563,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>&lt;strong&gt;Vorhang&lt;/strong&gt;: Verhindert allzu neugierige Blicke auf deine Truhe.</source>
-        <target><![CDATA[<strong>Rideau</strong>: permet de cacher le contenu de votre coffre de la vue de vos camarades...]]></target>
+        <target><![CDATA[<strong>Rideau</strong> : permet de cacher le contenu de votre coffre de la vue de vos camarades...]]></target>
       </segment>
     </unit>
     <unit id="j5QIYAA">
@@ -3673,7 +3673,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Du kannst die Stadt unerkannt betreten und verlassen (d.h.: Es wird nicht ins Register eingetragen).</source>
-        <target>vous pouvez, si vous le souhaitez, entrer ou sortir discrètement de la ville (ie. pas d'inscription au registre).</target>
+        <target>vous pouvez, si vous le souhaitez, entrer ou sortir discrètement de la ville (i.e. pas d'inscription au registre).</target>
       </segment>
     </unit>
     <unit id="87181SX">
@@ -3736,7 +3736,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Dieser Zustand kann nicht gewählt werden. Vielmehr handelt es sich um einen Fluch, von dem jeder Spieler, egal ob in der Stadt oder in der Außenwelt, getroffen werden kann.</source>
-        <target>Un citoyen a des chances de devenir une goule en mangeant de la nourriture plus ou moins suspecte : Cadavre de voyageur, melon d'intestin, viande Humaine et quelques autres... Bien sûr les chances peuvent être faibles, mais prendrez vous le risque de muter ?</target>
+        <target>Un citoyen a des chances de devenir une goule en mangeant de la nourriture plus ou moins suspecte : Cadavre de voyageur, melon d'intestin, viande humaine et quelques autres... Bien sûr les chances peuvent être faibles, mais prendrez vous le risque de muter ?</target>
       </segment>
     </unit>
     <unit id="5JpviwY">
@@ -3763,7 +3763,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Ein Ghul ist noch kein Zombie. Sein Körper kann sich nur schlecht gegen Angriffe wehren. Sowohl der Galgen, als auch Drogenabhängigkeit können einen Ghul umbringen. Allerdings kann ein Ghul weder verdursten, noch an einer Infektion sterben.</source>
-        <target>Une goule n'est pas tout à fait un zombie et elle peut donc mourir de certaines causes "normales" : pendaison et addiction aux drogues. Toutefois, elle est immunisée à la soif et à l'infection, et donc, aux morts qui correspondent.</target>
+        <target>Une goule n'est pas tout à fait un zombie et elle peut donc mourir de certaines causes "normales" : pendaison et addiction aux drogues. Toutefois, elle est immunisée à la soif et à l'infection, et donc aux morts qui correspondent.</target>
       </segment>
     </unit>
     <unit id="w0OQSf1">
@@ -4258,7 +4258,7 @@ Dies bedeutet, dass dieser Bürger Expiditionen organisieren, der Anführer sein
       <segment>
         <source>Der "Reiseleiter in der Außenwelt" ist ein besonderer Bürger. Die schwere Verantwortung, seinen Kameraden bei der Navigation durch die Außenwelt zu helfen, liegt auf seinen Schultern.
 Dies bedeutet, dass dieser Bürger Expiditionen organisieren, der Anführer sein kann (auch wenn er kein Held ist) und einen Kontrollpunkt für jeden anderen Bürger in seiner Zone hinzufügen kann.</source>
-        <target>Le Guide de l'Outre-Monde est un citoyen vraiment à part. Lui vient la responsabilité d'aider ses concitoyens à voyager dans l'Outre-Monde. Pour cela, il peut organiser des expéditions, être leader (même s'il n'est pas héro), et offre dans les zones où il se trouve un point de contrôle supplémentaire par personne présente.</target>
+        <target>Le Guide de l'Outre-Monde est un citoyen vraiment à part. Lui vient la responsabilité d'aider ses concitoyens à voyager dans l'Outre-Monde. Pour cela, il peut organiser des expéditions, être leader (même s'il n'est pas héros), et offre dans les zones où il se trouve un point de contrôle supplémentaire par personne présente.</target>
       </segment>
     </unit>
     <unit id="aVNJko." name="Wie werde ich dieser Anführer, von dem du sprichst?">
@@ -4282,7 +4282,7 @@ Von diesem Moment an verfügt der neue Anführer über besondere Fähigkeiten, d
 In der ersten Nacht in der Stadt und nach dem Tod jedes nachfolgenden Führers (ja, es ist ein gefährlicher Job) wird eine Wahl abgehalten.
 Während dieser Manifestation der Demokratie wird eine Debatte stattfinden und die Abstimmung wird folgen. Am Ende wird der... qualifizierteste... Bürger ausgewählt, um eine Zielscheibe, ich meine Hut zu tragen...
 Von diesem Moment an verfügt der neue Anführer über besondere Fähigkeiten, die er zum Wohle der Stadt nutzen kann.</source>
-        <target>En se faisant élire! Lors de la première nuit, et à chaque mort du Guide de l'Outre-Monde, une nouvelle assemblée citoyenne aura lieu. Durant cette assemblée, un débat prend place et l'assemblée termine par un vote, attribuant au citoyen le plus ...qualifié.. le titre de Guide de l'Outre-Monde. A partir de ce moment là, ce citoyen se voit attribuer des actions spécifiques qu'il pourra exploiter.</target>
+        <target>En se faisant élire ! Lors de la première nuit, et à chaque mort du Guide de l'Outre-Monde, une nouvelle assemblée citoyenne aura lieu. Durant cette assemblée, un débat prend place et l'assemblée termine par un vote, attribuant au citoyen le plus "qualifié" le titre de Guide de l'Outre-Monde. A partir de ce moment là, ce citoyen se voit attribuer des actions spécifiques qu'il pourra exploiter.</target>
       </segment>
     </unit>
     <unit id="9tmUsfs">
@@ -4302,7 +4302,7 @@ Der Schamane weiß, wie man das Nutzlose nutzt und wie man eine nützlichere Rei
       <segment>
         <source>Der Schamane ist ein unglaublich mächtiger Voodoo-Zauberer, der vom Tod anderer Bürger profitieren kann, um seine schwarze Magie auszuführen.
 Der Schamane weiß, wie man das Nutzlose nutzt und wie man eine nützlichere Reinkarnation für unsere Verstorbenen herbeiführt.</source>
-        <target>Le Chaman serait un sorcier vaudou surpuissant tirant profit de la mort des autres pour exercer sa magie noire. Dans les faits, c'est un citoyen à la sensibilité plus aigüe et qui fait preuve parfois de chance!</target>
+        <target>Le Chaman serait un sorcier vaudou surpuissant tirant profit de la mort des autres pour exercer sa magie noire. Dans les faits, c'est un citoyen à la sensibilité plus aigüe et qui fait preuve parfois de chance !</target>
       </segment>
     </unit>
     <unit id="TXxL0zS" name="Wie wirst du der Stadtschamane?">
@@ -4320,7 +4320,7 @@ Der Schamane weiß, wie man das Nutzlose nutzt und wie man eine nützlichere Rei
       </notes>
       <segment>
         <source>In der ersten Nacht und jedes Mal, wenn der Schamane stirbt, findet ein Stadttreffen statt. Während dieses Treffens findet eine Debatte statt und nach vielem Streiten, Ausweichen vor Verantwortung und zweifellos Trinken wird der ... "qualifizierteste" Bewohner als Schamane bezeichnet! Von diesem Moment an wird der Schamane Zugang zu neuen Kräften und neuen "Punkten" haben.</source>
-        <target>Lors de la première nuit, et à chaque mort du chaman, une nouvelle assemblée citoyenne aura lieu. Durant cette assemblée, un débat prend place et l'assemblée termine par un vote, attribuant au citoyen le plus ...qualifié.. le titre de "Chaman"! A partir de ce moment là, ce citoyen se voit attribuer des actions spécifiques qu'il pourra exploiter grâce à ses points de charlatanisme quotidiens.</target>
+        <target>Lors de la première nuit, et à chaque mort du chaman, une nouvelle assemblée citoyenne aura lieu. Durant cette assemblée, un débat prend place et l'assemblée termine par un vote, attribuant au citoyen le plus "qualifié" le titre de "Chaman"! A partir de ce moment là, ce citoyen se voit attribuer des actions spécifiques qu'il pourra exploiter grâce à ses points de charlatanisme quotidiens.</target>
       </segment>
     </unit>
     <unit id="lX6N9d4" name="Ich bin der Schamane, was mache ich?">
@@ -4358,7 +4358,7 @@ Der Schamane kann:</source>
       </notes>
       <segment>
         <source>Reinige Zonen, indem du Regen auf diese Bereiche fallen lässt. Wenn der Regen auf die Stadt fällt, füllt das Wasser den Brunnen ein wenig.</source>
-        <target>Purifier des zones en y faisant tomber de la pluie. Au niveau de la ville, cette pluie pourra remplir un peu le puit, dans l'Outre-Monde, elle sera utile pour nettoyer la zone de quelques zombies.</target>
+        <target>Purifier des zones en y faisant tomber de la pluie. Au niveau de la ville, cette pluie pourra remplir un peu le puits, dans l'Outre-Monde, elle sera utile pour nettoyer la zone de quelques zombies.</target>
       </segment>
     </unit>
     <unit id="GZCNcDN" name="Führe die Bürger zum Ort der Seelen in der Außenwelt.">
