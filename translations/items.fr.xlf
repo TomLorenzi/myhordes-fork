@@ -8273,5 +8273,68 @@
         <target><![CDATA[Vous avez fabriqué {target} en combinant {item} et {target}.{hr}Attention, vous avez empoisonné {target} ! Il n'est dorénavant <strong>presque plus possible de distinguer cet objet d'une version saine</strong>, soyez donc très prudent(e)... Libre à vous d'en faire ce qui vous semblera "juste".]]></target>
       </segment>
     </unit>
+    <unit id="i.fN8wb" name="Zeuge der großen Verseuchung">
+      <notes>
+        <note category="german">Zeuge der großen Verseuchung</note>
+      </notes>
+      <segment>
+        <source>Zeuge der großen Verseuchung</source>
+        <target>Témoin de la Grande Contamination</target>
+      </segment>
+    </unit>
+    <unit id="_4bq2jQ">
+      <notes>
+        <note category="german">Als Opfer der Großen Seuche hast du durch dein gestähltes Immunsystem eine Chance, Infektionen abzuwehren.</note>
+      </notes>
+      <segment>
+        <source>Als Opfer der Großen Seuche hast du durch dein gestähltes Immunsystem eine Chance, Infektionen abzuwehren.</source>
+        <target>Als Opfer der Großen Seuche hast du durch dein gestähltes Immunsystem eine Chance, Infektionen abzuwehren.</target>
+      </segment>
+    </unit>
+    <unit id="EOq8v7z" name="Zeuge des Armageddon">
+      <notes>
+        <note category="german">Zeuge des Armageddon</note>
+      </notes>
+      <segment>
+        <source>Zeuge des Armageddon</source>
+        <target>Témoin de l'Armageddon</target>
+      </segment>
+    </unit>
+    <unit id="N_DpPbR" name="Als Zeuge des Armagedon kannst du selbst aus ausweglosen Situationen fliehen.">
+      <notes>
+        <note category="german">Als Zeuge des Armagedon kannst du selbst aus ausweglosen Situationen fliehen.</note>
+      </notes>
+      <segment>
+        <source>Als Zeuge des Armagedon kannst du selbst aus ausweglosen Situationen fliehen.</source>
+        <target>Als Zeuge des Armagedon kannst du selbst aus ausweglosen Situationen fliehen.</target>
+      </segment>
+    </unit>
+    <unit id="Fxoqglo" name="Ruhm">
+      <notes>
+        <note category="german">Ruhm</note>
+      </notes>
+      <segment>
+        <source>Ruhm</source>
+        <target>Ruhm</target>
+      </segment>
+    </unit>
+    <unit id="FQo0T3F">
+      <notes>
+        <note category="german">Als Champion kannst du deinen Nachrichten im Forum zusätzliche Authorität verleihen.</note>
+      </notes>
+      <segment>
+        <source>Als Champion kannst du deinen Nachrichten im Forum zusätzliche Authorität verleihen.</source>
+        <target>Als Champion kannst du deinen Nachrichten im Forum zusätzliche Authorität verleihen.</target>
+      </segment>
+    </unit>
+    <unit id="VDcKkt9" name="Kreischender Wecker">
+      <notes>
+        <note category="german">Kreischender Wecker</note>
+      </notes>
+      <segment>
+        <source>Kreischender Wecker</source>
+        <target>Réveil-Hurleur</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -14,6 +14,7 @@ use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\ComplaintReason;
 use App\Entity\EscortActionGroup;
+use App\Entity\FeatureUnlockPrototype;
 use App\Entity\GazetteEntryTemplate;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\ItemAction;
@@ -105,6 +106,12 @@ class DatabaseExtractor implements ExtractorInterface
             /** @var AffectMessage $affectMessage */
             if ($affectMessage->getText())
                 $this->insert( $c, $affectMessage->getText(), 'items' );
+
+        foreach ($this->em->getRepository(FeatureUnlockPrototype::class)->findAll() as $feature) {
+            /** @var FeatureUnlockPrototype $feature */
+            $this->insert( $c, $feature->getLabel(), 'items' );
+            $this->insert( $c, $feature->getDescription(), 'items' );
+        }
 
         //</editor-fold>
 
