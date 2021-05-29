@@ -2765,7 +2765,7 @@ Wenn du in einer "Kleinen Karte" spielst und &lt;strong&gt;100 Seelenpunkte oder
       </notes>
       <segment>
         <source>Beispiel: Für jeden erledigten Zombie erhältst du die Auszeichung "Erlegte Zombies". Sobald du 100 Untote umgebracht hast erscheint der Titel "Brutalo" in deinem Profil! Je mehr Zombies du danach tötest, desto besser wird dein Titel.</source>
-        <target>Exemple: vous recevez une distinction "Zombies éliminés" pour chaque mort-vivant que vous éliminez. Au bout de 100, le titre "Grosse Brute" apparaît sur votre Nexus ! Continuez à gagner cette distinction et un nouveau titre apparaîtra.</target>
+        <target>Exemple: vous recevez une distinction "Zombies éliminés" pour chaque mort-vivant que vous éliminez. Au bout de 100, le titre "Grosse Brute" apparaît sur votre profil ! Continuez à gagner cette distinction et un nouveau titre apparaîtra.</target>
       </segment>
     </unit>
     <unit id="33cFnv8">
