@@ -8384,7 +8384,7 @@
       </notes>
       <segment>
         <source>Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden %citizen1% und %citizen2% dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.</source>
-        <target>Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden %citizen1% und %citizen2% dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.</target>
+        <target>Selon une rumeur, %citizen1% et %citizen2% ont été vus se baigner ensemble dans le Puits. Je vous déconseille vivement l'eau ce matin, c'est un coup à se choper une infection...</target>
       </segment>
     </unit>
     <unit id="HtB.MOi">
@@ -8465,7 +8465,7 @@
       </notes>
       <segment>
         <source>%citizen1% und %citizen2% wurden in letzter Minute gerettet, als sie sich gestern Abend bereit machten, sich in ihren Häusern &lt;strong&gt;zu erhängen&lt;/strong&gt;. Kommentar: "Ich dachte, sie würden mich bei lebendigem Leib auffressen, und das wollte ich nicht mehr erleben". Im Nachhinein betrachtet war es eine schlechte Entscheidung, da es gestern Abend &lt;strong&gt;keine Zombies&lt;/strong&gt; in die Stadt geschafft haben.</source>
-        <target><![CDATA[on a sauvé de justesse %citizen1% et %citizen2% qui s'apprêtaient à <strong>se pendre</strong> dans leur maison cette nuit : "je pensais qu'on allait se faire bouffer, je voulais pas être en vie pour voir ça". Mauvaise analyse semble-t-il, car <strong>aucun zombie</strong> n'a pu entrer chez nous cette nuit.]]></target>
+        <target><![CDATA[On a sauvé de justesse %citizen1% et %citizen2% qui s'apprêtaient à <strong>se pendre</strong> dans leur maison cette nuit : "je pensais qu'on allait se faire bouffer, je voulais pas être en vie pour voir ça". Mauvaise analyse semble-t-il, car <strong>aucun zombie</strong> n'a pu entrer chez nous cette nuit.]]></target>
       </segment>
     </unit>
     <unit id="6iAHRm0">
@@ -8519,7 +8519,7 @@
       </notes>
       <segment>
         <source>Es sei darauf hingewiesen, dass unsere Verteidigung nicht weit von der großen Südmauer entfernt dem furchterregenden Angriff der Horden letzte Nacht standgehalten hat. Um die %attack% Zombies versuchten alles, aber keine Verluste an Menschenleben während des Angriffs!</source>
-        <target>On avait ce qu'il fallait pour tenir pas loin de la muraille sud cette nuit contre les quelques %attack% macchabées de l'attaque, ça ne fait aucun doute. Aucune perte chez nous... Tout au plus quelques maisons sur lesquelles ils ont cogné.</target>
+        <target>On avait ce qu'il fallait pour tenir à la façade Sud cette nuit contre les quelques %attack% macchabées de l'attaque, ça ne fait aucun doute. Aucune perte chez nous... Tout au plus quelques maisons sur lesquelles ils ont cogné.</target>
       </segment>
     </unit>
     <unit id="4Z_UnE1">
@@ -8537,7 +8537,7 @@
       </notes>
       <segment>
         <source>Keine Todesopfer heute Abend. Alles ist in Ordnung. Ich garantiere Euch jedoch nur, dass die Zombies heute Nacht verhungern werden: Unsere morgigen Chancen sind..., naja, sagen wir, verbesserungswürdig.</source>
-        <target>Keine Todesopfer heute Abend. Alles ist in Ordnung. Ich garantiere Euch jedoch nur, dass die Zombies heute Nacht verhungern werden: Unsere morgigen Chancen sind..., naja, sagen wir, verbesserungswürdig.</target>
+        <target>Aucune victime ce soir. Tout va bien. Cependant, je vous garantis seulement que les zombies mourront de faim ce soir: nos chances pour demain sont... eh bien, disons-nous, pourraient être améliorées.</target>
       </segment>
     </unit>
     <unit id="t._G1SL">
@@ -8555,7 +8555,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung an der Ostmauer scheint zufriedenstellend zu sein. Die furchterregenden Kreaturen der Horde wurden in Schach gehalten... dieses Mal!</source>
-        <target><![CDATA[Les créatures terrifiantes de la horde ont pu être maintenues <strong>à distance</strong> près de la muraille pour cette fois. Les défenses semblent satisfaisantes.]]></target>
+        <target><![CDATA[Les créatures terrifiantes de la horde ont pu être maintenues <strong>à distance</strong> à proximité de la muraille pour cette fois. Les défenses semblent satisfaisantes.]]></target>
       </segment>
     </unit>
     <unit id="yz3M1Pn">
@@ -8573,7 +8573,7 @@
       </notes>
       <segment>
         <source>Die Zombies von gestern Abend hatten nichts außer unseren Fetzen, in die sie ihre Zähne bekommen konnten, und einige Tierkadaver... Unsere Verteidigung hat sich gut gehalten.</source>
-        <target>Les zombies de la nuit dernière n'avaient que nos chiffons pour se mettre les dents et quelques carcasses d'animaux ... Notre défense a bien résisté.</target>
+        <target>Les zombies de la nuit dernière n'ont eu que nos déchets à se mettre sous la dent et quelques cadavres d'animaux... Les défenses semblent avoir bien fonctionné.</target>
       </segment>
     </unit>
     <unit id="33A2X4_">
@@ -8582,7 +8582,7 @@
       </notes>
       <segment>
         <source>Die Zombies griffen uns eine Zeit lang hart an, aber keiner kam durch... Aber zweifelt nicht eine Sekunde daran, dass sie heute Abend zurückkommen werden, noch hungriger und sicherlich zahlenmäßig größer...</source>
-        <target><![CDATA[Les zombies ont cogné <strong>dur</strong> pendant un bon moment, mais aucun n'est passé... A n'en pas douter, ils reviendront ce soir, encore plus affamés et sûrement plus nombreux...]]></target>
+        <target><![CDATA[Les zombies ont cogné <strong>dur</strong> pendant un bon moment, mais aucun n'est passé... À n'en pas douter, ils reviendront ce soir, encore plus affamés et sûrement plus nombreux...]]></target>
       </segment>
     </unit>
     <unit id="h8UBn_c">
@@ -8600,7 +8600,7 @@
       </notes>
       <segment>
         <source>Wir verabschiedeten uns liebevoll von dem alten Hund, der im Dorf lebte... Das unaufhörliche Bellen, das alle in der Nachbarschaft verärgerte, ist seit dem Angriff von gestern Abend für immer verstummt. Das arme Ding... Die gute Nachricht ist, dass es in der Stadt keine nennenswerten Verluste an Menschenleben gab.</source>
-        <target>Nous avons dit au revoir avec amour au vieux chien qui vivait dans le village ... Les aboiements incessants qui agaçaient tout le monde dans le quartier ont cessé pour toujours depuis l'attaque de la nuit dernière. Pauvre chose ... La bonne nouvelle est qu'il n'y a pas eu de victimes importantes dans la ville.</target>
+        <target>Nous avons dit au revoir avec amour au vieux chien qui vivait dans le village... Ses aboiements incessants qui gonflaient tout le voisinage ont définitivement cessé lors de l'attaque de cette nuit. Pauvre bête... La bonne nouvelle c'est qu'à part ça, on n'a aucun mort humain en ville à déplorer.</target>
       </segment>
     </unit>
     <unit id="8lLyo5W">
@@ -8627,7 +8627,7 @@
       </notes>
       <segment>
         <source>Da gestern Abend rund %attack% Zombies vor den Toren standen, hätten wir das Schlimmste befürchten können, aber kein einziger ist reingekommen: gute Zeiten! Brecht Euch sich aber nicht den Arm, wenn Ihr Euch gegenseitig auf die Schulter klopft!</source>
-        <target>Comme il y avait environ %attack% zombies aux portes la nuit dernière, nous aurions pu craindre le pire, mais pas un seul n'est arrivé : le bon temps ! Mais ne vous cassez pas le bras en vous tapotant l'épaule !</target>
+        <target>Comme il y avait environ %attack% zombies aux portes la nuit dernière, nous aurions pu craindre le pire, mais pas un seul n'est arrivé : c'est très bien ! Mais ne vous cassez pas le bras en vous tapotant l'épaule !</target>
       </segment>
     </unit>
     <unit id="DHLa_0B">
@@ -8654,7 +8654,7 @@
       </notes>
       <segment>
         <source>Jeder hörte %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</source>
-        <target>Jeder hörte %cadaver1% schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</target>
+        <target>Tout le monde a entendu %cadaver1% hurler tandis que les zombies démembraient son corps. Personne n'a rien fait évidemment. Instinct de survie. Vous arriverez encore à dormir avec ça ?</target>
       </segment>
     </unit>
     <unit id=".sFRCVD">
@@ -8663,7 +8663,7 @@
       </notes>
       <segment>
         <source>Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit %cadaver1% zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</source>
-        <target>Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit %cadaver1% zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</target>
+        <target>Je suis sûr que je ne suis pas le seul à être d'avis que nous avions un compte à régler avec %cadaver1%. Donc, à la fin, il semble que ce soit du karma qu'il soit mort ce soir.</target>
       </segment>
     </unit>
     <unit id="DlvFZqE">
@@ -8672,7 +8672,7 @@
       </notes>
       <segment>
         <source>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</source>
-        <target>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für %cadaver1% gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</target>
+        <target><![CDATA[On a assisté à un truc étrange... On aurait dit que les zombies ne venaient que pour %cadaver1% cette nuit. Ils ont emporté son corps près des chantiers avant de le démembrer <strong>entièrement</strong> !]]></target>
       </segment>
     </unit>
     <unit id="70j37AW">
@@ -8681,7 +8681,7 @@
       </notes>
       <segment>
         <source>Einige sagen, daß der Tod von %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</source>
-        <target>Einige sagen, daß der Tod von %cadaver1% nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</target>
+        <target><![CDATA[Certains racontent que la mort de %cadaver1% ne serait pas le fruit du hasard... C'est la <strong>seule</strong> victime cette nuit. Quelqu'un parmi nous aurait-il <strong>provoqué</strong> cette mort ?]]></target>
       </segment>
     </unit>
     <unit id="b8ghZQk">
@@ -8690,7 +8690,7 @@
       </notes>
       <segment>
         <source>Ausgangssperre gilt für alle. Auch für %cadaver1% und %cadaver2% – das haben sie nun davon.</source>
-        <target>Ausgangssperre gilt für alle. Auch für %cadaver1% und %cadaver2% – das haben sie nun davon.</target>
+        <target>Le couvre-feu s'applique à tout le monde. Aussi pour %cadaver1% et %cadaver2% - c'est ce que vous obtenez.</target>
       </segment>
     </unit>
     <unit id="3N_kP9.">
@@ -8708,7 +8708,7 @@
       </notes>
       <segment>
         <source>Eine schreckliche Nacht für die Stadt. Die lebenden Toten massakrierten %deaths% unserer Gemeinde während des Angriffs. Vielleicht möchtet ihr vor heute Abend noch einmal einen Blick auf unsere Verteidigung werfen...</source>
-        <target>Eine schreckliche Nacht für die Stadt. Die lebenden Toten massakrierten %deaths% unserer Gemeinde während des Angriffs. Vielleicht möchtet ihr vor heute Abend noch einmal einen Blick auf unsere Verteidigung werfen...</target>
+        <target>Une nuit terrible pour la ville. Les morts-vivants ont massacré %deaths% membres de notre communauté lors de l'attaque. Peut-être que vous voulez jeter un autre regard sur nos défenses avant ce soir...</target>
       </segment>
     </unit>
     <unit id="Ze_fOCp">
@@ -8726,7 +8726,7 @@
       </notes>
       <segment>
         <source>Einige Bewohner brachen heute Morgen ob der Opfer in Tränen aus. Tränen der Freude mit Sicherheit, nicht eines der %deaths% Opfer des letzten Angriffs zu sein.</source>
-        <target>Certains résidents sont en larmes ce matin à cause des victimes. Des larmes de joie pour ne pas faire partie des %deaths% victimes de la dernière attaque.</target>
+        <target>Certains résidents sont en larmes ce matin à cause des victimes (les nerfs sans doute). Trop heureux de ne pas faire partie des %deaths% victimes de cette nuit.</target>
       </segment>
     </unit>
     <unit id="21ggXgm">
@@ -8744,7 +8744,7 @@
       </notes>
       <segment>
         <source>Eine Flutwelle von Zombies stürzte letzte Nacht gegen unsere Stadt! Bürger wurden in ihren eigenen Häusern verschlungen oder in die Wüste geschleift... Noch so eine Nacht, und wir werden nicht mehr hier sein, um darüber zu reden.</source>
-        <target>Un raz de marée de zombies s'est écrasé contre notre ville la nuit dernière! Les citoyens ont été dévorés chez eux ou traînés dans le désert ... Une autre nuit et nous ne serons pas là pour en parler.</target>
+        <target>Un raz de marée de zombies s'est écrasé contre notre ville la nuit dernière! Les citoyens ont été dévorés chez eux ou traînés dans le désert... Une autre nuit et nous ne serons pas là pour en parler.</target>
       </segment>
     </unit>
     <unit id="Zi60bF7">
@@ -8753,7 +8753,7 @@
       </notes>
       <segment>
         <source>Wir müssen uns beeilen; unsere Unfähigkeit, zufriedenstellende Verteidigungsanlagen zu errichten, kostete letzte Nacht %deaths% Bürgern das Leben. Zu eurer Information: Gestern Abend wurde die Stadt von %attack% Zombies angegriffen.</source>
-        <target>Également, il faudrait se bouger un peu; notre incapacité à bâtir des défenses suffisantes a coûté la vie à %deaths% citoyens cette nuit. Pour rappel, les zombies étaient près de %attack% pendant cet assaut. Super.</target>
+        <target>Également, il faudrait se bouger un peu; notre incapacité à bâtir des défenses suffisantes a coûté la vie à %deaths% citoyens cette nuit. Pour rappel, les zombies étaient près de %attack% pendant cet assaut.</target>
       </segment>
     </unit>
     <unit id="dXpzNiz">
@@ -8780,7 +8780,7 @@
       </notes>
       <segment>
         <source>Was für ein Riesenschlamassel: %deaths% starben letzte Nacht in der Stadt! Ein Massaker, zu dem noch der zertrümmerter Schädel eines Haustiers zu zählen ist, der in den Toren verkeilt gefunden wurde. Vermisst jemand einen Hund?</source>
-        <target>Was für ein Riesenschlamassel: %deaths% starben letzte Nacht in der Stadt! Ein Massaker, zu dem noch der zertrümmerter Schädel eines Haustiers zu zählen ist, der in den Toren verkeilt gefunden wurde. Vermisst jemand einen Hund?</target>
+        <target>du grand n'importe quoi : <strong>%deaths% morts</strong> chez nous hier soir ! Une hécatombe à laquelle il faut ajouter le crâne brisé d'un animal de compagnie trouvé coincé dans la Grande Porte.</target>
       </segment>
     </unit>
     <unit id="fbPbjvi">
@@ -9221,7 +9221,7 @@
       </notes>
       <segment>
         <source>"Auf wiedersehen, du schnöde Welt...", dachte sich wohl &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1%. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.</source>
-        <target><![CDATA["Au revoir, monde ennuyeux ...", pensait probablement <i class="dagger">†</i> %cadaver1%. En tout cas, il a fait le travail des zombies et s'est suicidé.]]></target>
+        <target><![CDATA["Au revoir, monde ennuyeux...", pensait probablement <i class="dagger">†</i> %cadaver1%. En tout cas, il a fait le travail des zombies et s'est suicidé.]]></target>
       </segment>
     </unit>
     <unit id="5DETBHl">
@@ -9239,7 +9239,7 @@
       </notes>
       <segment>
         <source>Man kann es nicht oft genug sagen: Ab und zu müsst ihr mal etwas trinken. &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% ist das beste Beispiel, was ansonten passiert.</source>
-        <target><![CDATA[Man kann es nicht oft genug sagen: Ab und zu müsst ihr mal etwas trinken. <i class="dagger">†</i> %cadaver1% ist das beste Beispiel, was ansonten passiert.]]></target>
+        <target><![CDATA[On ne le répétera jamais assez : de temps en temps, il faut prendre un verre. <i class="dagger">†</i> %cadaver1% est le meilleur exemple de ce qui se passe autrement.]]></target>
       </segment>
     </unit>
     <unit id="AGvRvLT">
@@ -9248,7 +9248,7 @@
       </notes>
       <segment>
         <source>Eindeutig! &lt;i class="dagger"&gt;†&lt;/i&gt; %cadaver1% starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber %citizen1% verhielt sich sehr verdächtig.</source>
-        <target><![CDATA[Eindeutig! <i class="dagger">†</i> %cadaver1% starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber %citizen1% verhielt sich sehr verdächtig.]]></target>
+        <target><![CDATA[Je serais vous, je vérifierais à deux fois avant d'avaler quoi que ce soit. En effet, <i class="dagger">†</i> %cadaver1% aura manqué de prudence hier. Victime d'un empoisonnement au cyanure. Acte criminel ? Accident ? La faute à %citizen1% ? Qui sait ? ... Ah si... <strong>Moi je sais</strong>.]]></target>
       </segment>
     </unit>
     <unit id="hlbd5tY">
@@ -16613,7 +16613,7 @@
       </notes>
       <segment>
         <source>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
-        <target>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen massiven Zusammenbruch hatten. Letzte Nacht gab es keine Toten in der Stadt.</target>
+        <target><![CDATA[%citizen1% a passé toute la nuit à hurler dans sa maison, au point que tout le monde pensait que les zombies se taillaient un steak dessus. Ben non, en fait c'était juste une <strong>grosse crise de nerfs</strong> : aucun mort en ville hier soir.]]></target>
       </segment>
     </unit>
     <unit id="ZV3brVh">
