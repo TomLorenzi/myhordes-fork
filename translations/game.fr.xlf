@@ -19604,7 +19604,7 @@
       </notes>
       <segment>
         <source>Spiritueller Rucksack</source>
-        <target>Spiritueller Rucksack</target>
+        <target>Sac à dos spirituel</target>
       </segment>
     </unit>
     <unit id="sUNCUak" name="Freigeschaltet:">
@@ -19613,7 +19613,7 @@
       </notes>
       <segment>
         <source>Freigeschaltet:</source>
-        <target>Freigeschaltet:</target>
+        <target>Déverrouillé :</target>
       </segment>
     </unit>
     <unit id="RuyZ5lt" name="Dauerhaft!">
@@ -19622,7 +19622,7 @@
       </notes>
       <segment>
         <source>Dauerhaft!</source>
-        <target>Dauerhaft!</target>
+        <target>Permanent !</target>
       </segment>
     </unit>
     <unit id="hGatz34" name="Für diese Saison">
@@ -19631,7 +19631,7 @@
       </notes>
       <segment>
         <source>Für diese Saison</source>
-        <target>Für diese Saison</target>
+        <target>Pour cette saison</target>
       </segment>
     </unit>
     <unit id="GVd6OlM" name="Bis %date%">
@@ -19640,7 +19640,7 @@
       </notes>
       <segment>
         <source>Bis %date%</source>
-        <target>Bis %date%</target>
+        <target>Jusqu'au %date%</target>
       </segment>
     </unit>
     <unit id="y.hXICd" name="Für %num% weitere Städte">
@@ -19649,7 +19649,7 @@
       </notes>
       <segment>
         <source>Für %num% weitere Städte</source>
-        <target>Für %num% weitere Städte</target>
+        <target>Pour %num% villes supplémentaires</target>
       </segment>
     </unit>
     <unit id=".Qkxxst" name="Stadttor zerstört!">
