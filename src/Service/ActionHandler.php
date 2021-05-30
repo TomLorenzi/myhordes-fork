@@ -908,11 +908,10 @@ class ActionHandler
                         $execute_info_cache['kills'] = $kills;
                         $this->entity_manager->persist( $this->log->zombieKill( $citizen, $execute_info_cache['item'], $kills, $action->getName() ) );
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
-                        if($citizen->getZone()->getZombies() <= 0){
+                        $tags[] = 'kills';
+                        if($citizen->getZone()->getZombies() <= 0)
                             $tags[] = 'kill-latest';
-                        } else {
-                            $tags[] = 'kills';
-                        }
+
                     }
                 }
 

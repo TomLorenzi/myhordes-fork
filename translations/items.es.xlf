@@ -7442,15 +7442,6 @@
         <target>Probablemente has tenido suerte... Como víctima de la Gran Plaga, esta vez has evitado una desagradable infección.</target>
       </segment>
     </unit>
-    <unit id="uHEMxan">
-      <notes>
-        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</note>
-      </notes>
-      <segment>
-        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} utilizando: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
-      </segment>
-    </unit>
     <unit id="5DH1uFn">
       <notes>
         <note category="german">Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</note>
@@ -7559,13 +7550,13 @@
         <target><![CDATA[<nt-fail>Lanzaste una Bola de arena a la cara de {citizen}.</nt-fail><t-fail>No hay nadie aquí a quien tirarle la Bola de arena.</t-fail>]]></target>
       </segment>
     </unit>
-    <unit id="KlIypjZ">
+    <unit id="9DhFqNf">
       <notes>
-        <note category="german">&lt;t-kill-latest&gt;:Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</note>
+        <note category="german">&lt;t-kill-latest&gt;:Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/nt-kill-latest&gt;</note>
       </notes>
       <segment>
-        <source>&lt;t-kill-latest&gt;:Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} utilizando: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
+        <source>&lt;t-kill-latest&gt;:Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/nt-kill-latest&gt;</source>
+        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><nt-kill-latest>Has eliminado {kills} utilizando: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</nt-kill-latest>]]></target>
       </segment>
     </unit>
     <unit id="DJF1Mzv">
@@ -7829,13 +7820,13 @@
         <target>No tienes nada para abrir eso...</target>
       </segment>
     </unit>
-    <unit id="L3OUyqa">
+    <unit id="BmWCshI">
       <notes>
-        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</note>
+        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/nt-kill-latest&gt;</note>
       </notes>
       <segment>
-        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} utilizando: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
+        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/nt-kill-latest&gt;</source>
+        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><nt-kill-latest>Has eliminado {kills} utilizando: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</nt-kill-latest>]]></target>
       </segment>
     </unit>
     <unit id="5N_N9nB" name="Weicher Kürbis">
@@ -8189,13 +8180,13 @@
         <target><![CDATA[<t-consumed>Lanzas {item} sobre el zombie. Empieza entre ellos un sangriennto combate de mordidas y golpes... "Adiós mi fiel mascota, tu muerte no fue en vano". Ese zombie no molestará más.</t-consumed><nt-consumed>¡Tu {item} <strong>se lanza al cuello de un zombie</strong> y logra arrancarle la cabeza! ¡Esa es mi mascota!</nt-consumed>]]></target>
       </segment>
     </unit>
-    <unit id="sU9PQTX">
+    <unit id="WvhcAeX">
       <notes>
-        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</note>
+        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/nt-kill-latest&gt;</note>
       </notes>
       <segment>
-        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><t-kills>Has eliminado {kills} utilizando: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</t-kills>]]></target>
+        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/nt-kill-latest&gt;</source>
+        <target><![CDATA[<t-kill-latest>¡Todos los zombies de la zona fueron aniquilados utilizando: {item} ! Puedes tomar un descanso... ¿o no?</t-kill-latest><nt-kill-latest>Has eliminado {kills} utilizando: {item}. ¡Ja, ja, ja! Se siente muy bien matar algunos zombies de vez en cuando.</nt-kill-latest>]]></target>
       </segment>
     </unit>
     <unit id="BnW7_fH">

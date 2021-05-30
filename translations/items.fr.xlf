@@ -7372,15 +7372,6 @@
         <target><![CDATA[Toutefois, votre arme s'est <strong>cassée</strong> sous le choc...]]></target>
       </segment>
     </unit>
-    <unit id="uHEMxan">
-      <notes>
-        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</note>
-      </notes>
-      <segment>
-        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie(s) en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ça soulage de supprimer du zombie de temps en temps.</t-kills>]]></target>
-      </segment>
-    </unit>
     <unit id="Ri.5LgC">
       <notes>
         <note category="german">Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).</note>
@@ -7507,13 +7498,13 @@
         <target><![CDATA[<nt-fail>Vous avez jeté une boule de sable au visage de {citizen}.</nt-fail><t-fail>Vous ne voyez <strong>aucune cible</strong> à qui envoyer votre boule de sable (soit il n'y a personne, soit vous avez déjà touché tout le monde il y a 30 minutes ou moins)...</t-fail>]]></target>
       </segment>
     </unit>
-    <unit id="sU9PQTX">
+    <unit id="WvhcAeX">
       <notes>
-        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</note>
+        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/nt-kill-latest&gt;</note>
       </notes>
       <segment>
-        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie(s) en utilisant {item}. Ha ! Ha ! Un peu plus de chair étalée... Ça soulage de supprimer du zombie de temps en temps.</t-kills>]]></target>
+        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/nt-kill-latest&gt;</source>
+        <target><![CDATA[<t-kill-latest>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</t-kill-latest><nt-kill-latest>Vous avez éliminé {kills} zombie(s) en utilisant {item}. Ha ! Ha ! Un peu plus de chair étalée... Ça soulage de supprimer du zombie de temps en temps.</nt-kill-latest>]]></target>
       </segment>
     </unit>
     <unit id="DJF1Mzv">
@@ -7813,13 +7804,13 @@
         <target><![CDATA[<t-fail><t-no-room>Vous n'avez pas assez d'espace pour ces objets ...</t-no-room><t-door-closed>La porte de la ville est fermée ...</t-door-closed><t-too-heavy>{item} kann keine schweren Gegenstände tragen...</t-too-heavy></t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
       </segment>
     </unit>
-    <unit id="L3OUyqa">
+    <unit id="BmWCshI">
       <notes>
-        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</note>
+        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/nt-kill-latest&gt;</note>
       </notes>
       <segment>
-        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><t-kills>Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!</t-kills>]]></target>
+        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/nt-kill-latest&gt;</source>
+        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><nt-kill-latest>Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!</nt-kill-latest>]]></target>
       </segment>
     </unit>
     <unit id="EetudYS">
