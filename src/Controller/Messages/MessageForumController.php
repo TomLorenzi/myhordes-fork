@@ -1025,7 +1025,8 @@ class MessageForumController extends MessageController
                 /** @var Post $post */
                 $post = $this->entity_manager->getRepository(Post::class)->find((int)$parser->get('postId'));
                 $reason = $parser->get( 'reason', '' );
-                if (!$post || empty($reason)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                if (!$post) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                if (empty($reason)) $reason = "---";
 
                 if (!$this->perm->checkEffectivePermissions($this->getUser(), $forum, ForumUsagePermissions::PermissionModerate))
                     return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
