@@ -662,6 +662,8 @@ class MigrateCommand extends Command
 
         if ($input->getOption('assign-features')) {
 
+            $season = $this->entity_manager->getRepository(Season::class)->findLatest();
+
             $p_arma = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_armag_#00');
             $p_cont = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_ginfec_#00');
 
@@ -671,7 +673,7 @@ class MigrateCommand extends Command
             $f_alarm = $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => 'f_alarm']);
             $f_glory = $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => 'f_glory']);
 
-            $this->leChunk($output, User::class, 100, [], true, false, function(User $user) use ($p_arma,$p_cont,$f_arma,$f_cont,$f_cam,$f_alarm,$f_glory) {
+            $this->leChunk($output, User::class, 100, [], true, false, function(User $user) use ($season,$p_arma,$p_cont,$f_arma,$f_cont,$f_cam,$f_alarm,$f_glory) {
                 if (!$this->user_handler->checkFeatureUnlock($user,$f_cont, false)) {
                     if ($this->entity_manager->getRepository(Picto::class)->count(['prototype' => $p_cont, 'user' => $user, 'persisted' => 2]))
                         $this->entity_manager->persist( (new FeatureUnlock())->setPrototype( $f_cont )->setUser( $user )->setExpirationMode( FeatureUnlock::FeatureExpirationNone ) );
@@ -683,7 +685,7 @@ class MigrateCommand extends Command
                 }
 
                 if (!$this->user_handler->checkFeatureUnlock($user, $f_cam, false))
-                    $this->entity_manager->persist( (new FeatureUnlock())->setPrototype( $f_cam )->setUser( $user )->setExpirationMode( FeatureUnlock::FeatureExpirationTownCount )->setTownCount( 1 ) );
+                    $this->entity_manager->persist( (new FeatureUnlock())->setPrototype( $f_cam )->setUser( $user )->setExpirationMode( FeatureUnlock::FeatureExpirationSeason)->setSeason( $season ) );
                 if (!$this->user_handler->checkFeatureUnlock($user, $f_alarm, false))
                     $this->entity_manager->persist( (new FeatureUnlock())->setPrototype( $f_alarm )->setUser( $user )->setExpirationMode( FeatureUnlock::FeatureExpirationTownCount )->setTownCount( 1 ) );
                 if (!$this->user_handler->checkFeatureUnlock($user, $f_glory, false))
