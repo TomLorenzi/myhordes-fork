@@ -1201,8 +1201,15 @@ class SoulController extends CustomAbstractController
      * @return Response
      */
     public function soul_game_history(JSONRequestParser $parser, RandomGenerator $rand) {
+        $lifes = $this->getUser()->getPastLifes()->getValues();
+        usort($lifes, fn(CitizenRankingProxy $b, CitizenRankingProxy $a) =>
+            ($a->getTown()->getSeason() ? $a->getTown()->getSeason()->getNumber() : 0) <=> ($b->getTown()->getSeason() ? $b->getTown()->getSeason()->getNumber() : 0) ?:
+            ($a->getTown()->getSeason() ? $a->getTown()->getSeason()->getSubNumber() : 100) <=> ($b->getTown()->getSeason() ? $b->getTown()->getSeason()->getSubNumber() : 100) ?:
+            ($a->getImportID() ?? 0) <=> ($b->getImportID() ?? 0) ?:
+            $a->getID() <=> $b->getID()
+        );
         return $this->render( 'ajax/soul/game_history.html.twig', $this->addDefaultTwigArgs('soul_me', [
-            'towns' => $this->getUser()->getPastLifes()
+            'towns' => $lifes
         ]));
     }
 }
