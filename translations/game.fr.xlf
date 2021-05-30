@@ -8807,7 +8807,7 @@
       </notes>
       <segment>
         <source>Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!</source>
-        <target>Lorsque vous êtes finalement certain(e) que votre victime ne se relèvera plus, vous finissez votre besogne en la dévorant. Ça, c'est fait.</target>
+        <target><![CDATA[Lorsque vous êtes finalement certain(e) que votre victime ne se relèvera plus, <strong>vous finissez votre besogne en la dévorant</strong>. Ça, c'est fait.]]></target>
       </segment>
     </unit>
     <unit id="wzmYlE_" name="Gut gemacht!">
