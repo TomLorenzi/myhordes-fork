@@ -97,7 +97,7 @@
       </notes>
       <segment>
         <source>Hierfür fehlen dir notwendige Gegenstände.</source>
-        <target>Vous n'avez pas les élements nécessaire pour cela.</target>
+        <target>Vous n'avez pas les élements nécessaires pour cela.</target>
       </segment>
     </unit>
     <unit id="OAMaKv3" name="Diese Aktion steht nur Helden zur Verfügung.">
