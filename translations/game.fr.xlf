@@ -19649,7 +19649,7 @@
       </notes>
       <segment>
         <source>Für %num% weitere Städte</source>
-        <target>Pour %num% villes supplémentaires</target>
+        <target>Pour %num% villes supplémentaire(s)</target>
       </segment>
     </unit>
     <unit id=".Qkxxst" name="Stadttor zerstört!">
