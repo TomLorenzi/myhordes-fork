@@ -427,8 +427,8 @@ class InventoryHandler
 
             $this->bankAbuseService->increaseBankCount($actor);
 
-            if ($modality === self::ModalityBankTheft && $this->rand->chance(0.6667))
-                return InventoryHandler::ErrorBankTheftFailed;
+            //if ($modality === self::ModalityBankTheft && $this->rand->chance(0.6667))
+            //    return InventoryHandler::ErrorBankTheftFailed;
         }
 
         if ( $type_to === self::TransferTypeSteal && !$to->getHome()->getCitizen()->getAlive())

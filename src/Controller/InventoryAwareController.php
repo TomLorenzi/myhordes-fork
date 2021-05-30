@@ -625,9 +625,13 @@ class InventoryAwareController extends CustomAbstractController
 
                             if ($bank_theft) {
 
-                                // If transferItem has not returned an error, the theft was successful
-                                $this->entity_manager->persist( $this->log->bankItemStealLog( $citizen, $current_item->getPrototype(), true, $current_item->getBroken() ) );
-                                $this->addFlash('notice',$this->translator->trans('Du hast soeben %item% aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...', ['%item%' => $this->log->wrap($this->log->iconize($current_item), 'tool')], "game"));
+                                if ($this->random_generator->chance(0.6667)) {
+                                    $this->entity_manager->persist( $this->log->bankItemStealLog( $citizen, $current_item->getPrototype(), false, $current_item->getBroken() ) );
+                                    $this->addFlash('error',$this->translator->trans('Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!', [], "game"));
+                                } else {
+                                    $this->entity_manager->persist( $this->log->bankItemStealLog( $citizen, $current_item->getPrototype(), true, $current_item->getBroken() ) );
+                                    $this->addFlash('notice',$this->translator->trans('Du hast soeben %item% aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...', ['%item%' => $this->log->wrap($this->log->iconize($current_item), 'tool')], "game"));
+                                }
 
                             } else {
                                 $this->entity_manager->persist( $this->log->bankItemLog( $target_citizen, $current_item->getPrototype(), !$bank_up, $current_item->getBroken() ) );
