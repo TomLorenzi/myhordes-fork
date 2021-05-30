@@ -19686,5 +19686,23 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>ZERSTÖRT!!</target>
       </segment>
     </unit>
+    <unit id="3I5M2q.">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. &lt;strong&gt;Sie werden nur für andere verbannte Bürger sichtbar sein.&lt;/strong&gt; Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. &lt;strong&gt;Sie werden nur für andere verbannte Bürger sichtbar sein.&lt;/strong&gt; Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.</source>
+        <target><![CDATA[Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. <strong>Sie werden nur für andere verbannte Bürger sichtbar sein.</strong> Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.]]></target>
+      </segment>
+    </unit>
+    <unit id="_.uzAIq">
+      <notes>
+        <note category="german">Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</note>
+      </notes>
+      <segment>
+        <source>Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</source>
+        <target>Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

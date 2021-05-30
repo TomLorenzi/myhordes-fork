@@ -359,12 +359,18 @@
                     {% endembed %}
 
                     {% if (banished or town_chaos) and not citizen_hidden %}
-                        <button id="bury_rucksack_button">{{ 'Rucksack verstecken'|trans({},'game') }} (<div class="ap">2</div>)</button>
+                        <button id="bury_rucksack_button">
+                            {{ 'Rucksack verstecken'|trans({},'game') }} (<div class="ap">2</div>)
+                            <div class="tooltip">{{ 'Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. <strong>Sie werden nur für andere verbannte Bürger sichtbar sein.</strong> Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.'|trans({},'game')|raw }}</div>
+                        </button>
                     {% endif %}
 
                 {% else %}
                     {% if banished or town_chaos %}
-                        <button {% if lock_trash %}disabled{% endif%} id="trash_button">{{ 'Müll durchwühlen'|trans({},'game') }} (<div class="ap">1</div>)</button>
+                        <button {% if lock_trash %}disabled{% endif%} id="trash_button">
+                            {{ 'Müll durchwühlen'|trans({},'game') }} (<div class="ap">1</div>)
+                            <div class="tooltip">{{ 'Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...'|trans({},'game')|raw }}</div>
+                        </button>
                     {% endif %}
                 {% endif %}
 

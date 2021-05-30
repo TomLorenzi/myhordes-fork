@@ -19715,5 +19715,23 @@
         <target>DETRUITES !!</target>
       </segment>
     </unit>
+    <unit id="3I5M2q.">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. &lt;strong&gt;Sie werden nur für andere verbannte Bürger sichtbar sein.&lt;/strong&gt; Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. &lt;strong&gt;Sie werden nur für andere verbannte Bürger sichtbar sein.&lt;/strong&gt; Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.</source>
+        <target><![CDATA[Cette action vous permet de cacher l'ensemble des objets de votre sac dans la zone. <strong>Ils ne seront visibles que pour les autres citoyens bannis.</strong> Toutefois, un non-banni a une petite chance de les trouver lors d'une fouille.]]></target>
+      </segment>
+    </unit>
+    <unit id="_.uzAIq">
+      <notes>
+        <note category="german">Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</note>
+      </notes>
+      <segment>
+        <source>Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</source>
+        <target>Les citoyens bannis d'une ville ont le droit de fouiller les ordures rejetées par la ville pour y puiser des objets qui pourraient leur être utile...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
