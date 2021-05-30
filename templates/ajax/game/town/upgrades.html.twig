@@ -70,7 +70,12 @@
                         <p>&nbsp;</p>
                     {% endif %}
                     {% if vote is null and building.level < building.prototype.maxLevel %}
-                        <button {% if banished or is_devastated %}disabled{% endif%} x-building-id="{{ building.id }}">{% trans from 'game' %}Abstimmen{% endtrans %}</button>
+                        <div>
+                            <button {% if banished or is_devastated %}disabled{% endif%} x-building-id="{{ building.id }}">{% trans from 'game' %}Abstimmen{% endtrans %}</button>
+                            {% if is_devastated %}
+                                <div class="tooltip">{{ 'Die Stadt ist von Zombies zerstört worden: Es können keine Verbesserungen mehr stattfinden.'|trans({},'game') }}</div>
+                            {% endif %}
+                        </div>
                     {% elseif building.level < building.prototype.maxLevel %}
                         {% trans from 'game' %}Stimmen:{% endtrans %} {{ building.dailyUpgradeVotes|length }}
                         {% if building.dailyUpgradeVotes|length == max_votes %}

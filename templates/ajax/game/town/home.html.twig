@@ -454,6 +454,11 @@
                     {% endtrans %}
                 {% endif %}
             </div>
+
+            {% if town.devastated %}
+                <div class="note note-critical">{{ 'Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.'|trans({},'game') }}</div>
+            {% endif %}
+
             {# @var next_level_req \App\Entity\BuildingPrototype #}
             <div class="row">
                 <div class="padded cell rw-5 rw-md-12">

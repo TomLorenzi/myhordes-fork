@@ -3808,9 +3808,8 @@ es besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht au
     </unit>
     <unit id="m3f6S65">
       <notes>
-        <note category="german">Jeder Spieler startet in "MyHordes" als einfacher Bürger. 
-Daneben gibt es jedoch noch &lt;strong&gt;7 außergewöhnliche Berufe&lt;/strong&gt;. 
-Diese Berufe sind aber den Spielern vorbehalten sind, die als Held spielen.</note>
+        <note category="german">Jeder Spieler startet in "MyHordes" entweder als einfacher Bürger oder sucht sich einen von &lt;strong&gt;7 außergewöhnlichen Berufe&lt;/strong&gt; aus.
+Spieler mit solchen Berufen werden als Helden bezeichnet.</note>
       </notes>
       <segment>
         <source>Jeder Spieler startet in "Die Verdammten" als einfacher Bürger. 
@@ -3821,7 +3820,7 @@ Diese Berufe sind aber den Spielern vorbehalten sind, die als Held spielen.</sou
     </unit>
     <unit id="9ySXrH1">
       <notes>
-        <note category="german">Helden können zum Beginn einer Stadt einen Beruf wählen. Jeder Beruf bietet besondere Vorteile. 
+        <note category="german">Jeder Beruf bietet besondere Vorteile.
 Der Buddler zum Beispiel findet in der Wüste im Durchschnitt mehr Gegenstände als ein normaler 
 Einwohner. Der Einsiedler hat bessere Überlebenschancen beim Campen in der Wildnis.
 Darüber hinaus erhält man je nach Beruf einen &lt;strong&gt;speziellen Gegenstand&lt;/strong&gt;. 
@@ -4060,7 +4059,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
     </unit>
     <unit id="SoFK1VJ">
       <notes>
-        <note category="german">Wenn ein Wächter Nachtwache hält, gibt er der Stadt 30 zusätzliche Verteidigungspunkte. Außerdem haben sie eine um 5% höhere Überlebenschance, wenn der Angriff der Zombiehorden den Verteidigungspunkten der Stadt unterlegen ist.</note>
+        <note category="german">Wenn ein Wächter Nachtwache hält, gibt er der Stadt 30 zusätzliche Verteidigungspunkte. Außerdem haben sie eine um 5% höhere Überlebenschance.</note>
       </notes>
       <segment>
         <source>Wenn ein Wächter Nachtwache hält, gibt er der Stadt 30 zusätzliche Verteidigungspunkte. Außerdem haben sie eine um 5% höhere Überlebenschance, wenn der Angriff der Zombiehorden den Verteidigungspunkten der Stadt unterlegen ist.</source>
@@ -6127,7 +6126,7 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
     </unit>
     <unit id="L0SipSu">
       <notes>
-        <note category="german">Negierung: Wenn eine Privatstadt nicht bis Mitternacht des übernächsten Tages gefüllt ist, wird sie wieder negiert. Der Stadtgründer erhält dann alle investierten Heldentage zurück. Alle bereits getätigten Einschreibungen werden rückgängig gemacht.</note>
+        <note category="german">Negierung: Wenn eine Privatstadt nicht bis Mitternacht des übernächsten Tages gefüllt ist, wird sie wieder negiert. Alle bereits getätigten Einschreibungen werden rückgängig gemacht.</note>
       </notes>
       <segment>
         <source>Negierung: Wenn eine Privatstadt nicht bis Mitternacht des übernächsten Tages gefüllt ist, wird sie wieder negiert. Der Stadtgründer erhält dann alle investierten Heldentage zurück. Alle bereits getätigten Einschreibungen werden rückgängig gemacht.</source>
@@ -7827,7 +7826,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
     </unit>
     <unit id="rj2MQgA">
       <notes>
-        <note category="german">Informationen über &lt;strong&gt;"Geheime Rollen"&lt;/strong&gt; eines Spielers, wie beispielsweise den Ghul-Zustand, dürfen ebenfalls nicht übertragen werden. Dies schließt alle Informationen ein, die einen Spieler als Forenmoderator enttarnen könnten,</note>
+        <note category="german">Informationen über &lt;strong&gt;"Geheime Rollen"&lt;/strong&gt; eines Spielers, wie beispielsweise den Ghul-Zustand, dürfen ebenfalls nicht übertragen werden. Dies schließt alle Informationen ein, die einen Spieler als Forenmoderator enttarnen könnten.</note>
       </notes>
       <segment>
         <source>Informationen über &lt;strong&gt;"Geheime Rollen"&lt;/strong&gt; eines Spielers, wie beispielsweise den Ghul-Zustand, dürfen ebenfalls nicht übertragen werden. Dies schließt alle Informationen ein, die einen Spieler als Forenmoderator enttarnen könnten.</source>
