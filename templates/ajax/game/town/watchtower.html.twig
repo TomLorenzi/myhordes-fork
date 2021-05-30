@@ -23,7 +23,7 @@
         <div class="row">
             {% if z0[4] >= wtt %}
             <div class="padded cell rw-12 center">
-                <strong>{{ 'Heutige Abschätzung'|trans({},'game') }}</strong>
+                {{ 'Heutige Abschätzung'|trans({},'game') }}
             </div>
             <div class="cell rw-12 center">
                 <b>{{ z0[2] }} - {{ z0[3] }}</b> <img alt="{{ 'Zombies'|trans({},'game') }}" src="{{ asset('build/images/icons/small_zombie.gif') }}" />
