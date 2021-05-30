@@ -3815,7 +3815,7 @@ Spieler mit solchen Berufen werden als Helden bezeichnet.</note>
         <source>Jeder Spieler startet in "Die Verdammten" als einfacher Bürger. 
 Daneben gibt es jedoch noch &lt;strong&gt;7 außergewöhnliche Berufe&lt;/strong&gt;. 
 Diese Berufe sind aber den Spielern vorbehalten sind, die als Held spielen.</source>
-        <target><![CDATA[<strong>Chaque citoyen dans MyHordes commence en tant que simple Habitant.</strong>. Les héros, quant à eux, peuvent choisir un métier qui leur apporte un avantage dans un domaine spécifique : le métier de Fouineur permet par exemple de trouver plus d'objets dans le désert que la moyenne.]]></target>
+        <target><![CDATA[<strong>Chaque citoyen dans MyHordes peut commencer en tant que simple Habitant ou choisir un métier qui lui apporte un avantage dans un domaine spécifique : le métier de Fouineur permet par exemple de trouver plus d'objets dans le désert que la moyenne.]]></target>
       </segment>
     </unit>
     <unit id="9ySXrH1">
@@ -4063,7 +4063,7 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
       </notes>
       <segment>
         <source>Wenn ein Wächter Nachtwache hält, gibt er der Stadt 30 zusätzliche Verteidigungspunkte. Außerdem haben sie eine um 5% höhere Überlebenschance, wenn der Angriff der Zombiehorden den Verteidigungspunkten der Stadt unterlegen ist.</source>
-        <target>En veille, un gardien apporte 30 points supplémentaires à la ville, il a 5% de chances supplémentaires de survivre si l'attaque des hordes est inférieure à la défense de la ville.</target>
+        <target>En veille, un gardien apporte 30 points supplémentaires à la ville et il a 5% de chances supplémentaires de survivre.</target>
       </segment>
     </unit>
     <unit id="xfwq_Tw">
@@ -6130,7 +6130,7 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
       </notes>
       <segment>
         <source>Negierung: Wenn eine Privatstadt nicht bis Mitternacht des übernächsten Tages gefüllt ist, wird sie wieder negiert. Der Stadtgründer erhält dann alle investierten Heldentage zurück. Alle bereits getätigten Einschreibungen werden rückgängig gemacht.</source>
-        <target>Annulation : une ville privée non remplie après 2 jours est annulée. Son créateur récupère les jours héros investis et tous les citoyens inscrits sont renvoyés.</target>
+        <target>Annulation : une ville privée non remplie après 2 jours est annulée. Tous les citoyens inscrits sont renvoyés.</target>
       </segment>
     </unit>
     <unit id="QvajNih">
