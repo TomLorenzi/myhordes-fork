@@ -437,7 +437,7 @@
                     {% for entry in blackboards %}
                         <div class="row">
                             <div class="padded cell rw-3">
-                                <a class="link" target="_blank" href="{{ url('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.name }}</a><br />
+                                <a class="link" target="_blank" href="{{ url('admin_users_account_view', {id: entry.user.id}) }}">{{ entry.user.name }}</a><br />
                                 <i>{{ entry.time|format_datetime('medium', 'short') }}</i>
                             </div>
                             <div class="padded cell rw-9 pointer" x-blackboard-short="{{ entry.id }}">{{ entry.text }}</div>
