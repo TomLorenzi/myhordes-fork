@@ -155,6 +155,7 @@ class MigrateCommand extends Command
             ->addOption('assign-features', null, InputOption::VALUE_NONE, '')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
+            ->addOption('count-admin-reports', null, InputOption::VALUE_NONE, '')
         ;
     }
 
@@ -659,6 +660,15 @@ class MigrateCommand extends Command
 
             return 0;
         }
+
+        if ($input->getOption('count-admin-reports')) {
+            $this->leChunk($output, Post::class, 1000, [], true, true, function(Post $post) {
+                $post->setReported( $post->getAdminReports(false)->count() );
+            });
+
+            return 0;
+        }
+
 
         if ($input->getOption('assign-features')) {
 
