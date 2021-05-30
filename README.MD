@@ -417,6 +417,30 @@ yarn run etwin
 # yarn run etwin &
 ```
 
+### Modify the bank lock permanently
+
+The bank lock is set in the `rules.yml` file which is by default located in the `config/app` directory.
+
+First copy the `rules.yml` file in the `config/packages/dev/app` directory.
+```
+cp config/app/rules.yml config/packages/dev/app
+```
+The file you created is going to be the one used in the game instead of the original one. So you need to edit this one and not the other, else it will not work. 
+```
+nano config/packages/dev/app/rules.yml
+```
+Then search for the `bank abuse` block and edit the values of `limit` and `chaos_limit` to 5000 for example. Don't forget to save the file when you're done.
+```
+bank_abuse:
+        limit: 5000
+        chaos_limit: 5000
+        base_range_min: 5
+        lock_range_min: 15
+```
+It will allow you to take up to 5000 items in the bank without being blocked. It will apply to all existing towns and new ones.
+
+Note : if you want to reactivate the bank lock or modify the values, you'll just have to modify that same file again.
+
 # Various commands
 
 ## Create the crow account and 79 other test accounts

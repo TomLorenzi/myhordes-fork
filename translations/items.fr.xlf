@@ -6577,7 +6577,7 @@
       </notes>
       <segment>
         <source>Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</source>
-        <target>Le boucher a bien pris soin de {item}... Vous avez maintenant reçu {items_spawn} pour cela. Au revoir, mon ami !</target>
+        <target>Le boucher a pris grand soin de {item}... Vous en tirez {items_spawn}. Adieu pépète.</target>
       </segment>
     </unit>
     <unit id="OeuOyF4" name="Haus aufräumen und putzen">
@@ -7513,7 +7513,7 @@
       </notes>
       <segment>
         <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie en utilisant {item}. Ha ! Ha ! Un peu plus de chair étalée... Ça soulage de supprimer du zombie de temps en temps.</t-kills>]]></target>
+        <target><![CDATA[<t-kill-latest>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie(s) en utilisant {item}. Ha ! Ha ! Un peu plus de chair étalée... Ça soulage de supprimer du zombie de temps en temps.</t-kills>]]></target>
       </segment>
     </unit>
     <unit id="DJF1Mzv">
@@ -8288,7 +8288,7 @@
       </notes>
       <segment>
         <source>Als Opfer der Großen Seuche hast du durch dein gestähltes Immunsystem eine Chance, Infektionen abzuwehren.</source>
-        <target>Als Opfer der Großen Seuche hast du durch dein gestähltes Immunsystem eine Chance, Infektionen abzuwehren.</target>
+        <target>En tant que victime de la Grande Contamination, votre système immunitaire vous a donné une chance de prévenir les infections.</target>
       </segment>
     </unit>
     <unit id="EOq8v7z" name="Zeuge des Armageddon">
@@ -8306,7 +8306,7 @@
       </notes>
       <segment>
         <source>Als Zeuge des Armagedon kannst du selbst aus ausweglosen Situationen fliehen.</source>
-        <target>Als Zeuge des Armagedon kannst du selbst aus ausweglosen Situationen fliehen.</target>
+        <target>En tant que témoin de l’Armagedon, tu peux fuir les situations sans issue.</target>
       </segment>
     </unit>
     <unit id="Fxoqglo" name="Ruhm">
@@ -8315,7 +8315,7 @@
       </notes>
       <segment>
         <source>Ruhm</source>
-        <target>Ruhm</target>
+        <target>Gloire</target>
       </segment>
     </unit>
     <unit id="FQo0T3F">
@@ -8324,7 +8324,7 @@
       </notes>
       <segment>
         <source>Als Champion kannst du deinen Nachrichten im Forum zusätzliche Authorität verleihen.</source>
-        <target>Als Champion kannst du deinen Nachrichten im Forum zusätzliche Authorität verleihen.</target>
+        <target>En tant que champion, vous pouvez ajouter du pouvoir à vos messages sur le forum.</target>
       </segment>
     </unit>
     <unit id="VDcKkt9" name="Kreischender Wecker">

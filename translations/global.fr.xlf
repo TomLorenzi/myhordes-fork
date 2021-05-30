@@ -619,7 +619,7 @@
       </notes>
       <segment>
         <source>Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele &gt; Einstellungen und generiere eine ID.</source>
-        <target><![CDATA[Sans cela, vous ne pouvez pas utiliser d'applications externes. Pour définir un ID externe, accédez à Votre âme > Paramètres et générez un ID.]]></target>
+        <target><![CDATA[Sans cela, <strong>vous ne pouvez pas utiliser d'applications externes</strong>. Pour définir un ID externe, accédez à Votre âme > Paramètres et générez un ID.]]></target>
       </segment>
     </unit>
     <unit id="h0cXaFP" name="Sticky">
@@ -1845,7 +1845,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Die Stadt versinkt im Chaos!&lt;/strong&gt;&lt;/p&gt;Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!&lt;p&gt;&lt;em&gt;... Oder euch gegenseitig abschlachten, je nachdem.&lt;/em&gt;</source>
-        <target><![CDATA[<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>]]></target>
+        <target><![CDATA[<strong>La ville est en situation de Chaos total !</strong></p>Plus aucune loi n'a cours... Il va falloir se serrer les coudes et composer avec les quelques derniers survivants !<p><em>... Ou vous entretuer. Au choix.</em>]]></target>
       </segment>
     </unit>
     <unit id="aGhiyb5" name="Entwickler-Einstellungen">

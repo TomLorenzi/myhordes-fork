@@ -1971,7 +1971,7 @@
       </notes>
       <segment>
         <source>Müll durchwühlen</source>
-        <target>Fouiller les poubelles</target>
+        <target>Fouiller les déchets</target>
       </segment>
     </unit>
     <unit id="s5pZm5S" name="Wenn du einen Gegenstand aufnimmst oder ablegst, verlierst du deine Tarnung!">
@@ -6056,7 +6056,7 @@
       </notes>
       <segment>
         <source>Anzahl der sinnvollen (oder sinnlosen...) Nachrichten, die du im Stadtforum geschrieben hast.</source>
-        <target>Quantité de messages utiles (ou pas) que vous avez laissés sur le forum de ville.</target>
+        <target>Quantité de messages utiles (ou pas) que vous avez laissés sur le forum de la ville.</target>
       </segment>
     </unit>
     <unit id="WgUNYZY" name="In deinem Bett gestorben">
@@ -6074,7 +6074,7 @@
       </notes>
       <segment>
         <source>Großmutter, was hast du für große Zähne... Grrrooooaaar!</source>
-        <target>Mère grand, comme vous avez de grandes dents... GROAR !</target>
+        <target>Mère-grand, comme vous avez de grandes dents... GROAR !</target>
       </segment>
     </unit>
     <unit id="GmWG0wd" name="Dehydrationstode">
@@ -6119,7 +6119,7 @@
       </notes>
       <segment>
         <source>Tod durch Radioaktivität</source>
-        <target>Morts par l'atome</target>
+        <target>Mort par l'atome</target>
       </segment>
     </unit>
     <unit id="CupoGNI">
@@ -6218,7 +6218,7 @@
       </notes>
       <segment>
         <source>Anzahl der verschlossenen Türen, die du in verlassenen Gebäuden geöffnet hast.</source>
-        <target>Nombre de portes dévérouillées par vos soins dans les ruines.</target>
+        <target>Nombre de portes déverrouillées par vos soins dans les ruines.</target>
       </segment>
     </unit>
     <unit id="vzg1Vou" name="Hängend">
@@ -6922,7 +6922,7 @@
       </notes>
       <segment>
         <source>"Einen Schritt weiter..." stand auf %victim%s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</source>
-        <target>"Un pas de plus ...", disait-il sur le paillasson de %victim%s. Votre explosion vous a laissé une impression durable. Si vous pouvez encore marcher, mieux vaut trouver un médecin.</target>
+        <target>"Un pas de plus ...", disait le paillasson de %victim%. L'explosion vous a laissé une impression durable. Si vous pouvez encore marcher, mieux vaut trouver un médecin.</target>
       </segment>
     </unit>
     <unit id="Eg1H7Qy" name="Während Zombies die Zone kontrollieren, kannst du nicht graben.">
@@ -7192,7 +7192,7 @@
       </notes>
       <segment>
         <source>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</source>
-        <target>Non loin de votre cachette actuelle, vous voyez une cachette encore meilleure ... Hmmm ... vous devriez peut-être déménager ?</target>
+        <target>Vous remarquez une meilleure cachette que la votre, pas très loin… Peut-être qu'elle vaudrait le coup de changer de place ?</target>
       </segment>
     </unit>
     <unit id="ERjA3HO" name="Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.">
@@ -7817,7 +7817,7 @@
       </notes>
       <segment>
         <source>Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...</source>
-        <target>Vous avez signalé le message de %username% aux Corbeaux. Qui sait, peut-être que %username% va mourrir ce soâââr...</target>
+        <target>Vous avez signalé le message de %username% aux Corbeaux. Qui sait, peut-être que %username% va mourir ce soâââr...</target>
       </segment>
     </unit>
     <unit id="2OREl7F" name="Was geschieht mit dieser Leiche?">
@@ -9752,7 +9752,7 @@
       </notes>
       <segment>
         <source>Anzahl der Seelenpunkte, die du durch deine Inkarnationen erhalten hast.</source>
-        <target>Nombres de points d'âme que vous avez obtenu au cours de vos incarnations.</target>
+        <target>Nombre de points d'âme que vous avez obtenu au cours de vos incarnations.</target>
       </segment>
     </unit>
     <unit id="k9H0y76">
@@ -11335,7 +11335,7 @@
       </notes>
       <segment>
         <source>Du bist einer der am besten integrierten Spieler in Die Verdammten und verhälst dich immer fair, nicht nur aus Prinzip, sondern aus Überzeugung.</source>
-        <target>Vous faites partis des joueurs les plus intégres de Hordes, le fair-play, plus qu'un principe, c'est un état d'esprit.</target>
+        <target>Vous faites partie des joueurs les plus intégres de Hordes, le fair-play, plus qu'un principe, c'est un état d'esprit.</target>
       </segment>
     </unit>
     <unit id="XGrBqHH">
@@ -14602,7 +14602,7 @@
       </notes>
       <segment>
         <source>Verlorenes Brunnenwasser: %count% Einhet(en)</source>
-        <target>Eau du puits perdue : %count% ration(s)</target>
+        <target>Eau du puits perdue : %count% unité(s)</target>
       </segment>
     </unit>
     <unit id="1RZZDef">
@@ -17463,7 +17463,7 @@
       </notes>
       <segment>
         <source>Die Route wurde gelöscht.</source>
-        <target>Die Route wurde gelöscht.</target>
+        <target>Votre expédition a été effacée.</target>
       </segment>
     </unit>
     <unit id="2610l.t">
