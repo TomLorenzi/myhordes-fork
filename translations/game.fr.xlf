@@ -19733,5 +19733,23 @@
         <target>Les citoyens bannis d'une ville ont le droit de fouiller les ordures rejetées par la ville pour y puiser des objets qui pourraient leur être utile...</target>
       </segment>
     </unit>
+    <unit id="V5pq7bw">
+      <notes>
+        <note category="german">Mangels Diskretion konnte jeder sehen, wie %citizen% versuchte %item% in dieser Zone zu verstecken.</note>
+      </notes>
+      <segment>
+        <source>Mangels Diskretion konnte jeder sehen, wie %citizen% versuchte %item% in dieser Zone zu verstecken.</source>
+        <target>Manquant de discrétion, tout le monde a pu apercevoir %citizen% tenter de dissimuler %item% dans le secteur...</target>
+      </segment>
+    </unit>
+    <unit id="jDLzkBE">
+      <notes>
+        <note category="german">Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.&lt;hr/&gt;Du hast 2 Aktionspunkte verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.&lt;hr/&gt;Du hast 2 Aktionspunkte verbraucht.</source>
+        <target><![CDATA[Un ou plusieurs citoyens non-bannis dans la zone <strong>vous ont vu faire</strong> !<hr />Vous avez utilisé 2 point(s) d'action.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
