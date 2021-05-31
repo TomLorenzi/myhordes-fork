@@ -17176,7 +17176,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>(Allein)</source>
-        <target>(Allein)</target>
+        <target>(alone)</target>
       </segment>
     </unit>
     <unit id="WWzkuFQ" name="(Mit Eskorte)">
@@ -17185,7 +17185,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>(Mit Eskorte)</source>
-        <target>(Mit Eskorte)</target>
+        <target>(with your escort)</target>
       </segment>
     </unit>
     <unit id="5xLwZCN" name="Du hast dich in einen %role% verwandelt!">
