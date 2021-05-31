@@ -23,6 +23,7 @@ class HTMLService {
     private TranslatorInterface $translator;
     private RandomGenerator $rand;
     private Packages $asset;
+    private UserHandler $userHandler;
 
     const ModulationNone    = 0;
     const ModulationDrunk   = 1 << 1;
@@ -30,13 +31,14 @@ class HTMLService {
     const ModulationHead    = 1 << 3;
 
 
-    public function __construct(EntityManagerInterface $em, PermissionHandler $perm, TranslatorInterface $trans, RandomGenerator $rand, Packages $a)
+    public function __construct(EntityManagerInterface $em, PermissionHandler $perm, TranslatorInterface $trans, RandomGenerator $rand, Packages $a, UserHandler $uh)
     {
         $this->entity_manager = $em;
         $this->perm = $perm;
         $this->translator = $trans;
         $this->rand = $rand;
         $this->asset = $a;
+        $this->userHandler = $uh;
     }
 
     protected const HTML_LIB = [
@@ -84,10 +86,11 @@ class HTMLService {
                     'rps', 'coin', 'card'
                 ],
             ],
+            'glory' => [ 'div.class' => [ 'glory' ] ],
             'extended' => [
                 'div.class' => [
                     'clear',
-                    'glory', 'spoiler', 'sideNote',
+                    'spoiler', 'sideNote',
                     'dice-4', 'dice-6', 'dice-8', 'dice-10', 'dice-12', 'dice-20', 'dice-100',
                     'letter-a', 'letter-v', 'letter-c',
                     'rps', 'coin', 'card',
@@ -124,7 +127,7 @@ class HTMLService {
         ]
     ];
 
-    protected function getAllowedHTML(int $permissions, bool $extended = true, array $all_ext = []): array {
+    protected function getAllowedHTML(User $user, int $permissions, bool $extended = true, array $all_ext = []): array {
         $mods_enabled = ['core'];
         if ($extended) $mods_enabled[] = 'extended';
         $mods_enabled = array_merge($mods_enabled, $all_ext);
@@ -135,6 +138,9 @@ class HTMLService {
             $mods_enabled[] = 'crow';
         if ($this->perm->isPermitted($permissions, ForumUsagePermissions::PermissionFormattingAdmin))
             $mods_enabled[] = 'admin';
+
+        if (in_array('extended', $mods_enabled) && $this->userHandler->checkFeatureUnlock($user,'f_glory',false))
+            $mods_enabled[] = 'glory';
 
         $r = [];
         $a = [];
@@ -220,7 +226,7 @@ class HTMLService {
         $body = $dom->getElementsByTagName('body');
         if (!$body || $body->length > 1) return false;
 
-        if (!$this->htmlValidator($this->getAllowedHTML($permissions,is_bool($extended) ? $extended : false, is_array($extended) ? $extended : []), $body->item(0),$tx_len))
+        if (!$this->htmlValidator($this->getAllowedHTML($user, $permissions,is_bool($extended) ? $extended : false, is_array($extended) ? $extended : []), $body->item(0),$tx_len))
             return false;
 
         $emotes = array_keys($this->get_emotes());

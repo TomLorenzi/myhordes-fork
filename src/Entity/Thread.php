@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -51,7 +52,7 @@ class Thread
     private $locked = false;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="thread", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="thread", cascade={"persist", "remove"}, fetch="EXTRA_LAZY")
      */
     private $posts;
 
@@ -176,8 +177,8 @@ class Thread
     {
         if ($this->getPosts()->isEmpty()) return null;
         for ($i = 0; $i < $this->getPosts()->count(); $i++)
-            if ($include_hidden || !$this->getPosts()[$i]->getHidden())
-                return $this->getPosts()[$i];
+            if ($include_hidden || !$this->getPosts()->get($i)->getHidden())
+                return $this->getPosts()->get($i);
         return null;
     }
 
@@ -189,8 +190,8 @@ class Thread
     {
         if ($this->getPosts()->isEmpty()) return null;
         for ($i = $this->getPosts()->count() - 1; $i >= 0; $i--)
-            if ($include_hidden || !$this->getPosts()[$i]->getHidden())
-                return $this->getPosts()[$i];
+            if ($include_hidden || !$this->getPosts()->get($i)->getHidden())
+                return $this->getPosts()->get($i);
         return null;
     }
 
@@ -251,8 +252,11 @@ class Thread
 
     public function hasReportedPosts(): bool
     {
-        foreach ($this->posts as $post) if (count($post->getAdminReports(true)) > 0) return true;
-        return false;
+        $criteria = Criteria::create();
+        $criteria->where(Criteria::expr()->gt('reported', 0));
+        return $this->posts->matching($criteria)->filter(fn(Post $p) => !$p->getAdminReports(true)->isEmpty())->count() > 0;
+        //foreach ($this->posts as $post) if (count($post->getAdminReports(true)) > 0) return true;
+        //return false;
     }
 
     /**
@@ -260,7 +264,9 @@ class Thread
      */
     public function getUnseenReportedPosts(): Collection
     {
-        return $this->posts->filter(fn(Post $p) => !$p->getAdminReports(true)->isEmpty());
+        $criteria = Criteria::create();
+        $criteria->where(Criteria::expr()->gt('reported', 0));
+        return $this->posts->matching($criteria)->filter(fn(Post $p) => !$p->getAdminReports(true)->isEmpty());
     }
 
     public function isNew(): bool {
@@ -273,21 +279,15 @@ class Thread
     }
 
     public function hasAdminAnnounce(): bool {
-        foreach ($this->posts as $post){
-            if (preg_match("/adminAnnounce/m", $post->getText()))
-                return true;
-        }
-
-        return false;
+        $criteria = Criteria::create();
+        $criteria->where(Criteria::expr()->contains('text', '<div class="adminAnnounce">'));
+        return $this->posts->matching($criteria)->count() > 0;
     }
 
     public function hasOracleAnnounce(): bool {
-        foreach ($this->posts as $post){
-            if (preg_match("/oracleAnnounce/m", $post->getText()))
-                return true;
-        }
-
-        return false;
+        $criteria = Criteria::create();
+        $criteria->where(Criteria::expr()->contains('text', '<div class="oracleAnnounce">'));
+        return $this->posts->matching($criteria)->count() > 0;
     }
 
     public function getSemantic(): ?int

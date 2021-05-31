@@ -1938,7 +1938,7 @@
     </unit>
     <unit id="GYf8Lr5" name="Eine Auszeichnungen auswählen:">
       <notes>
-        <note category="german">Eine Auszeichnungen auswählen:</note>
+        <note category="german">Eine Auszeichnung auswählen:</note>
       </notes>
       <segment>
         <source>Eine Auszeichnungen auswählen:</source>
@@ -3329,6 +3329,78 @@
       <segment>
         <source>Neue Gruppe anlegen</source>
         <target>Create a new group</target>
+      </segment>
+    </unit>
+    <unit id="gJH3HgQ" name="Anzahl der Tage">
+      <notes>
+        <note category="german">Anzahl der Tage</note>
+      </notes>
+      <segment>
+        <source>Anzahl der Tage</source>
+        <target>Number of days to skip</target>
+      </segment>
+    </unit>
+    <unit id="VkIwwfC" name="Vorspulen">
+      <notes>
+        <note category="german">Vorspulen</note>
+      </notes>
+      <segment>
+        <source>Vorspulen</source>
+        <target>Fast Forward</target>
+      </segment>
+    </unit>
+    <unit id="omuvjZI" name="Herauswerfen (ohne Verletzung)">
+      <notes>
+        <note category="german">Herauswerfen (ohne Verletzung)</note>
+      </notes>
+      <segment>
+        <source>Herauswerfen (ohne Verletzung)</source>
+        <target>Eject (without injury)</target>
+      </segment>
+    </unit>
+    <unit id="uo.zViv" name="Herauswerfen (mit Verletzung)">
+      <notes>
+        <note category="german">Herauswerfen (mit Verletzung)</note>
+      </notes>
+      <segment>
+        <source>Herauswerfen (mit Verletzung)</source>
+        <target>Eject (with injury)</target>
+      </segment>
+    </unit>
+    <unit id="g2hjSxs" name="Timer erhöhen (1min)">
+      <notes>
+        <note category="german">Timer erhöhen (1min)</note>
+      </notes>
+      <segment>
+        <source>Timer erhöhen (1min)</source>
+        <target>Add remaining time (1min)</target>
+      </segment>
+    </unit>
+    <unit id="Aybos0Z" name="Timer erhöhen (24h)">
+      <notes>
+        <note category="german">Timer erhöhen (24h)</note>
+      </notes>
+      <segment>
+        <source>Timer erhöhen (24h)</source>
+        <target>Add remaining time (24h)</target>
+      </segment>
+    </unit>
+    <unit id=".5H3ako" name="Löschen (ermöglicht erneutes Betreten der Ruine)">
+      <notes>
+        <note category="german">Löschen (ermöglicht erneutes Betreten der Ruine)</note>
+      </notes>
+      <segment>
+        <source>Löschen (ermöglicht erneutes Betreten der Ruine)</source>
+        <target>Delete (allows re-entering the ruins)</target>
+      </segment>
+    </unit>
+    <unit id="b7SFlpH" name="Feature freigeben:">
+      <notes>
+        <note category="german">Feature freigeben:</note>
+      </notes>
+      <segment>
+        <source>Feature freigeben:</source>
+        <target>Unlock Feature:</target>
       </segment>
     </unit>
   </file>

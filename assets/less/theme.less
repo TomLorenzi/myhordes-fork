@@ -656,7 +656,7 @@ button, *.button, *.modal-button {
   &.blue { background: url(../img/background/bg_button_blue.gif) 50%/cover no-repeat; }
 }
 
-input[type='text'],input[type='number'],input[type='password'],input[type='email'],input[type='url'],textarea {
+input[type='text'],input[type='number'],input[type='password'],input[type='email'],input[type='url'],input[type='date'],textarea {
   transition: outline-color 0.5s; outline: 1px solid rgba(0,0,0,0); color: black;
   &:not(textarea) { background: @myhordes-input-background; }
   &:not(input)    { background: @myhordes-input-text-background; resize: vertical; max-width: 100%; min-height: 250px; }
@@ -702,11 +702,24 @@ ul.inventory {
 
     }
   }
-  &.rucksack {
-    background: url("../img/background/inventory/inv_bag.gif") no-repeat top left;
+  &.soul {
+    background: url("../img/background/inventory/inv_soul.gif") no-repeat top left;
     li {
       margin: 0;
+      &.title:first-child {
+        &:empty {display: none}
+        background: #4d5061; padding: 2px 6px; margin-right: 2px;
+        border: 1px solid #64677d;
+      }
+      &.item {
+        &:hover { border-color: #64677d; background-color: #4d5061; }
+      }
     }
+
+  }
+  &.rucksack {
+    background: url("../img/background/inventory/inv_bag.gif") no-repeat top left;
+    li { margin: 0; }
   }
   &.rucksack-escort { background: rgba(0,0,0,0.1); border: 1px solid @myhordes-cell-header-background-color; margin: 0; }
   &.desert, &.desert-escort { background: url("../img/background/inventory/inv_ground.gif") repeat top left;}
@@ -732,7 +745,7 @@ ul.actions, ul.special_actions, ul.heroic_actions {
   &>li {
     list-style: none; padding: 2px 2px 2px 10px; font-size: 1.2rem; font-variant: small-caps;
     color: @myhordes-smalltext; position: relative;
-    &:not(.open):not([disabled]) {
+    &:not(.open):not([disabled]):not(.help) {
       cursor: pointer;
       &:hover { color: white; background: lighten(@myhordes-cell-header-background-color, 10%) }
     }

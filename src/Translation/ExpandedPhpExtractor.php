@@ -3,6 +3,7 @@
 
 namespace App\Translation;
 
+use App\Service\Globals\TranslationConfigGlobal;
 use Iterator;
 use Symfony\Component\Translation\Extractor\PhpExtractor;
 use Symfony\Component\Translation\Extractor\PhpStringTokenParser;
@@ -10,6 +11,8 @@ use Symfony\Component\Translation\MessageCatalogue;
 
 class ExpandedPhpExtractor extends PhpExtractor
 {
+
+    private TranslationConfigGlobal $config;
 
     /**
      * Prefix for new found message.
@@ -61,6 +64,11 @@ class ExpandedPhpExtractor extends PhpExtractor
             ')'
         ],
     ];
+
+    public function __construct(TranslationConfigGlobal $config)
+    {
+        $this->config = $config;
+    }
 
     /**
      * Seeks to a non-whitespace token.
@@ -216,6 +224,17 @@ class ExpandedPhpExtractor extends PhpExtractor
                 }
             }
         }
+    }
+
+    /**
+     * @return bool
+     *
+     * @throws \InvalidArgumentException
+     */
+    protected function canBeExtracted(string $file)
+    {
+        if (!$this->config->usePHP() || !parent::canBeExtracted($file)) return false;
+        return !$this->config->useFileNameMatching() || in_array(basename($file),$this->config->matchingFileNames());
     }
 
 }

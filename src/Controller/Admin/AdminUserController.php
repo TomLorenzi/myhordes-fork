@@ -10,9 +10,12 @@ use App\Entity\CitizenProfession;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\ConnectionWhitelist;
+use App\Entity\FeatureUnlock;
+use App\Entity\FeatureUnlockPrototype;
 use App\Entity\ItemPrototype;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
+use App\Entity\Season;
 use App\Entity\ShadowBan;
 use App\Entity\TwinoidImport;
 use App\Entity\TwinoidImportPreview;
@@ -787,28 +790,36 @@ class AdminUserController extends AdminActionController
     {
         $user = $this->entity_manager->getRepository(User::class)->find($id);
 
-        $pictos = $this->entity_manager->getRepository(Picto::class)->findByUser($user);
         $protos = $this->entity_manager->getRepository(PictoPrototype::class)->findAll();
         usort($protos, function($a, $b) {
             return strcmp($this->translator->trans($a->getLabel(), [], 'game'), $this->translator->trans($b->getLabel(), [], 'game'));
         });
 
+        $f_protos = $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findAll();
+        $features = [];
+        $season = $this->entity_manager->getRepository(Season::class)->findLatest();
+        foreach ($f_protos as $p)
+            if ($ff = $this->entity_manager->getRepository(FeatureUnlock::class)->findOneActiveForUser($user,$season,$p))
+                $features[] = $ff;
+
         return $this->render( 'ajax/admin/users/pictos.html.twig', $this->addDefaultTwigArgs("admin_users_pictos", [
             'user' => $user,
-            'pictos' => $pictos,
-            'pictoPrototypes' => $protos
-        ]));        
+            'pictos' => $this->entity_manager->getRepository(Picto::class)->findByUser($user),
+            'pictoPrototypes' => $protos,
+            'features' => $features,
+            'featurePrototypes' => $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findAll()
+        ]));
     }
 
     /**
      * @Route("/api/admin/users/{id}/picto/give", name="admin_user_give_picto", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
-     * Add or remove an item from the bank
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser
+     * @param KernelInterface $kernel
      * @return Response
      */
-    public function user_give_picto($id, JSONRequestParser $parser, KernelInterface $kernel): Response
+    public function user_give_picto(int $id, JSONRequestParser $parser, KernelInterface $kernel): Response
     {
         $user = $this->entity_manager->getRepository(User::class)->find($id);
         if(!$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -845,6 +856,59 @@ class AdminUserController extends AdminActionController
         $this->entity_manager->flush();
 
         $this->user_handler->computePictoUnlocks($user);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("/api/admin/users/{id}/feature/give", name="admin_user_give_feature", requirements={"id"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * @param int $id User ID
+     * @param JSONRequestParser $parser The Request Parser
+     * @return Response
+     */
+    public function user_give_feature(int $id, JSONRequestParser $parser): Response
+    {
+        $user = $this->entity_manager->getRepository(User::class)->find($id);
+        if(!$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $prototype_id = $parser->get('prototype');
+        $number = $parser->get_int('number', 1);
+        $date = new \DateTime($parser->get('date'));
+
+        /** @var FeatureUnlockPrototype $prototype */
+        $prototype = $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->find($prototype_id);
+        if ($prototype === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $feature = (new FeatureUnlock())
+            ->setUser($user)
+            ->setPrototype($prototype);
+
+        switch ($parser->get_int('type', -1)) {
+            case 0:
+                $feature->setExpirationMode(FeatureUnlock::FeatureExpirationNone);
+                break;
+            case 1:
+                $feature
+                    ->setExpirationMode(FeatureUnlock::FeatureExpirationSeason)
+                    ->setSeason( $this->entity_manager->getRepository(Season::class)->findLatest() );
+                break;
+            case 2:
+                $feature
+                    ->setExpirationMode(FeatureUnlock::FeatureExpirationTimestamp)
+                    ->setTimestamp( $date );
+                break;
+            case 3:
+                if ($number <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                $feature
+                    ->setExpirationMode(FeatureUnlock::FeatureExpirationTownCount)
+                    ->setTownCount( $number );
+                break;
+            default: return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+        }
+
+        $this->entity_manager->persist($feature);
         $this->entity_manager->flush();
 
         return AjaxResponse::success();

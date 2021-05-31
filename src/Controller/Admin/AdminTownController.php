@@ -340,7 +340,7 @@ class AdminTownController extends AdminActionController
         if (in_array($action, [
             'release', 'quarantine', 'advance', 'nullify',
                 'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf',
-                'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage', 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set'
+                'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage', 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days'
             ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
@@ -537,6 +537,21 @@ class AdminTownController extends AdminActionController
 
 
                 $this->entity_manager->persist( $town );
+                break;
+            case 'dbg_adv_days':
+                $days = (int)$param;
+                if ($days <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+                for ($i = 0; $i < $days; $i++)
+                    if ($night->advance_day($town, $this->conf->getCurrentEvents($town))) {
+                        foreach ($night->get_cleanup_container() as $c) $this->entity_manager->remove($c);
+                        $town->setAttackFails(0);
+                        $this->entity_manager->persist($town);
+                        foreach ($town->getCitizens() as $c)
+                            if ($c->getAlive()) $this->citizen_handler->removeStatus($c, 'thirst2');
+                        $this->entity_manager->flush();
+                    } else break;
+
                 break;
             case 'ex_del': case 'ex_co+': case 'ex_co-':case 'ex_ref':case 'ex_inf':
                 /** @var RuinExplorerStats $session */

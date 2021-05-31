@@ -8,6 +8,7 @@ use App\Entity\Building;
 use App\Entity\BuildingPrototype;
 use App\Entity\Citizen;
 use App\Entity\CitizenHome;
+use App\Entity\CitizenHomePrototype;
 use App\Entity\CitizenHomeUpgrade;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenRole;
@@ -861,8 +862,9 @@ class TownHandler
 
         $town->setDevastated(true)->setChaos(true)->setDoor( true );
 
-        //foreach ($town->getBuildings() as $building)
-        //    if (!$building->getComplete() && $building->getAp() > 0)
-        //        $this->entity_manager->persist( $building->setAp( 0 ) );
+        $lv0_home = $this->entity_manager->getRepository( CitizenHomePrototype::class )->findOneBy(['level' => 0]);
+        foreach ($town->getCitizens() as $c)
+            if ($c->getHome()->getPrototype()->getLevel() > 0)
+                $this->entity_manager->persist( $c->getHome()->setPrototype($lv0_home) );
     }
 }

@@ -83,12 +83,30 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    # Symfony\Component\Translation\Extractor\PhpExtractor:
+    #   tags:
+    #     - { name: translation.extractort, alias: 'none', priority: 0 }
+
+    translation.extractor.myhordes:
+      public: false
+      abstract: true
+
     App\Translation\DatabaseExtractor:
         tags:
-            - { name: translation.extractor, alias: DatabaseExtractor }
+            - { name: translation.extractor, alias: 'db' }
+            - { name: translation.extractor.myhordes, alias: 'db' }
+    App\Translation\CorePhpExtractor:
+      tags:
+            - { name: translation.extractor, alias: 'php0' }
+            - { name: translation.extractor.myhordes, alias: 'php0' }
     App\Translation\ExpandedPhpExtractor:
         tags:
-            - { name: translation.extractor, alias: ExpandedPhpExtractor }
+            - { name: translation.extractor, alias: 'php' }
+            - { name: translation.extractor.myhordes, alias: 'php' }
+    App\Translation\ExpandedTwigExtractor:
+        tags:
+            - { name: translation.extractor, alias: 'twig' }
+            - { name: translation.extractor.myhordes, alias: 'twig' }
 
     App\Translation\ExpandedDumper:
         tags:

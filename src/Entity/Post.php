@@ -112,6 +112,11 @@ class Post
      */
     private $searchForum = null;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $reported;
+
     public function __construct()
     {
         $this->adminReports = new ArrayCollection();
@@ -235,6 +240,8 @@ class Post
             $adminReport->setPost($this);
         }
 
+        $this->setReported( $this->getReported() + 1);
+
         return $this;
     }
 
@@ -247,6 +254,8 @@ class Post
                 $adminReport->setPost(null);
             }
         }
+
+        $this->setReported( max(0, $this->getReported() + 1));
 
         return $this;
     }
@@ -346,6 +355,18 @@ class Post
     public function setSearchForum(?Forum $searchForum): self
     {
         $this->searchForum = $searchForum;
+
+        return $this;
+    }
+
+    public function getReported(): ?bool
+    {
+        return $this->reported;
+    }
+
+    public function setReported(?bool $reported): self
+    {
+        $this->reported = $reported;
 
         return $this;
     }

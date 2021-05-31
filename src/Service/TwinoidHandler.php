@@ -6,6 +6,8 @@ namespace App\Service;
 
 
 use App\Entity\CitizenRankingProxy;
+use App\Entity\FeatureUnlock;
+use App\Entity\FeatureUnlockPrototype;
 use App\Entity\FoundRolePlayText;
 use App\Entity\Picto;
 use App\Entity\RolePlayText;
@@ -21,21 +23,23 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class TwinoidHandler
 {
 
-    private $conf;
-    private $generator;
-    private $em;
-    private $rand;
+    private MyHordesConf $conf;
+    private UrlGeneratorInterface $generator;
+    private EntityManagerInterface $em;
+    private RandomGenerator $rand;
+    private UserHandler $userHandler;
 
     private $fallback_sk = null;
     private $fallback_id = null;
     private $code = null;
     private $token = null;
 
-    public function __construct( ConfMaster $confMaster, UrlGeneratorInterface $generator, EntityManagerInterface $em, RandomGenerator $rand ) {
+    public function __construct( ConfMaster $confMaster, UrlGeneratorInterface $generator, EntityManagerInterface $em, RandomGenerator $rand, UserHandler $uh) {
         $this->conf = $confMaster->getGlobalConf();
         $this->generator = $generator;
         $this->em = $em;
         $this->rand = $rand;
+        $this->userHandler = $uh;
     }
 
     public function hasBuiltInTwinoidAccess(): bool {
@@ -273,7 +277,6 @@ class TwinoidHandler
             if ($entry) {
                 $entry->setComment( $town->getComment() )->setLastWords( $town->getMessage() )->setDay( $town->getSurvivedDays() )->setPoints( $town->getScore() )->setCod( $town->convertDeath() );
                 $entry->getTown()->setV1($town->isOld());
-                // $this->em->persist( $entry );
                 $this->em->persist( $entry );
             }
         }
@@ -302,19 +305,41 @@ class TwinoidHandler
                 }
             }
 
+            $already_persisted = [];
+            $fun_unlock_feature = function ($feature) use ($user,&$already_persisted) {
+                if (in_array($feature,$already_persisted)) return;
+                $f = $this->em->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => $feature]);
+                if (!$f) return;
+
+                $e = $this->em->getRepository(FeatureUnlock::class)->findBy([
+                    'user' => $user, 'expirationMode' => FeatureUnlock::FeatureExpirationNone, 'prototype' => $f
+                ]);
+                $already_persisted[] = $feature;
+                if (empty($e)) $this->em->persist( (new FeatureUnlock)->setUser($user)->setPrototype($f)->setExpirationMode(FeatureUnlock::FeatureExpirationNone) );
+            };
+
             foreach ($data->getPictos() as $picto) if ($picto->convertPicto()) {
 
                 $entry = $this->em->getRepository(Picto::class)->findOneBy( ['imported' => true, 'user' => $user, 'prototype' => $picto->convertPicto()] );
-                if ($entry === null)
+                if ($entry === null) {
                     $entry = (new Picto())
                         ->setUser($user)
                         ->setImported(true)
                         ->setPersisted(2)
                         ->setPrototype($picto->convertPicto());
+                }
+
+                if ($entry->getPrototype()->getName() === 'r_ginfec_#00') $fun_unlock_feature('f_wtns');
+                if ($entry->getPrototype()->getName() === 'r_armag_#00') $fun_unlock_feature('f_arma');
+
                 $entry->setCount($picto->getCount());
                 $this->em->persist( $entry );
             }
             //</editor-fold>
+
+            $f_cam = $this->em->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => 'f_cam']);
+            if ($this->em->getRepository(Season::class)->findLatest() === null && $this->userHandler->checkFeatureUnlock($user, $f_cam, false))
+                $this->em->persist( (new FeatureUnlock())->setPrototype( $f_cam )->setUser( $user )->setExpirationMode( FeatureUnlock::FeatureExpirationSeason)->setSeason( null ) );
 
             $existing_rps    = $this->em->getRepository(FoundRolePlayText::class)->findBy(['imported' => true,  'user' => $user]);
             if (count($existing_rps) < $rps) {
@@ -345,6 +370,9 @@ class TwinoidHandler
 
             $user->setImportedSoulPoints( $data->getSummarySoulPoints() );
             $user->setImportedHeroDaysSpent( $data->getSummaryHeroDays() );
+            $this->em->persist($user);
+
+            $this->userHandler->computePictoUnlocks($user);
             $this->em->persist($user);
         }
 
