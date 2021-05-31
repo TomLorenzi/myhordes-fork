@@ -97,8 +97,8 @@ services:
             - { name: translation.extractor.myhordes, alias: 'db' }
     App\Translation\CorePhpExtractor:
       tags:
-        - { name: translation.extractor, alias: 'php' }
-        - { name: translation.extractor.myhordes, alias: 'php' }
+            - { name: translation.extractor, alias: 'php0' }
+            - { name: translation.extractor.myhordes, alias: 'php0' }
     App\Translation\ExpandedPhpExtractor:
         tags:
             - { name: translation.extractor, alias: 'php' }

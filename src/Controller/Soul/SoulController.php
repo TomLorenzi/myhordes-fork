@@ -12,6 +12,8 @@ use App\Entity\Changelog;
 use App\Entity\CitizenRankingProxy;
 use App\Entity\Complaint;
 use App\Entity\ExternalApp;
+use App\Entity\FeatureUnlock;
+use App\Entity\FeatureUnlockPrototype;
 use App\Entity\FoundRolePlayText;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
@@ -176,9 +178,16 @@ class SoulController extends CustomAbstractController
 
         $desc = $this->entity_manager->getRepository(UserDescription::class)->findOneBy(['user' => $user]);
 
+        $features = [];
+        $season = $this->entity_manager->getRepository(Season::class)->findLatest();
+        foreach ($this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findAll() as $p)
+            if ($ff = $this->entity_manager->getRepository(FeatureUnlock::class)->findOneActiveForUser($user,$season,$p))
+                $features[] = $ff;
+
         return $this->render( 'ajax/soul/me.html.twig', $this->addDefaultTwigArgs("soul_me", [
             'user' => $user,
             'pictos' => $pictos,
+            'features' => $features,
             'points' => round($points),
             'latestSkill' => $latestSkill,
             'progress' => floor($progress),
@@ -688,6 +697,9 @@ class SoulController extends CustomAbstractController
         if ($citizenProxy === null || $citizenProxy->getUser() !== $user )
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
+        if ($citizenProxy->getCitizen() !== null && $citizenProxy->getCitizen()->getAlive())
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
         $comment = $parser->get("comment");
         $citizenProxy->setComment($comment);
         if ($citizenProxy->getCitizen()) $citizenProxy->getCitizen()->setComment($comment);
@@ -1189,8 +1201,15 @@ class SoulController extends CustomAbstractController
      * @return Response
      */
     public function soul_game_history(JSONRequestParser $parser, RandomGenerator $rand) {
+        $lifes = $this->getUser()->getPastLifes()->getValues();
+        usort($lifes, fn(CitizenRankingProxy $b, CitizenRankingProxy $a) =>
+            ($a->getTown()->getSeason() ? $a->getTown()->getSeason()->getNumber() : 0) <=> ($b->getTown()->getSeason() ? $b->getTown()->getSeason()->getNumber() : 0) ?:
+            ($a->getTown()->getSeason() ? $a->getTown()->getSeason()->getSubNumber() : 100) <=> ($b->getTown()->getSeason() ? $b->getTown()->getSeason()->getSubNumber() : 100) ?:
+            ($a->getImportID() ?? 0) <=> ($b->getImportID() ?? 0) ?:
+            $a->getID() <=> $b->getID()
+        );
         return $this->render( 'ajax/soul/game_history.html.twig', $this->addDefaultTwigArgs('soul_me', [
-            'towns' => $this->getUser()->getPastLifes()
+            'towns' => $lifes
         ]));
     }
 }

@@ -19569,5 +19569,158 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target><![CDATA[You are currently searching the zone. If you stay here until the timer runs out, <strong>you may find another object</strong>!<br /><br />You can stay there for as long as you wish.]]></target>
       </segment>
     </unit>
+    <unit id="Clom3hI" name="Spiritueller Rucksack">
+      <notes>
+        <note category="german">Spiritueller Rucksack</note>
+      </notes>
+      <segment>
+        <source>Spiritueller Rucksack</source>
+        <target>Spiritual Rucksack</target>
+      </segment>
+    </unit>
+    <unit id="sUNCUak" name="Freigeschaltet:">
+      <notes>
+        <note category="german">Freigeschaltet:</note>
+      </notes>
+      <segment>
+        <source>Freigeschaltet:</source>
+        <target>Unlocked:</target>
+      </segment>
+    </unit>
+    <unit id="RuyZ5lt" name="Dauerhaft!">
+      <notes>
+        <note category="german">Dauerhaft!</note>
+      </notes>
+      <segment>
+        <source>Dauerhaft!</source>
+        <target>Forever!</target>
+      </segment>
+    </unit>
+    <unit id="hGatz34" name="Für diese Saison">
+      <notes>
+        <note category="german">Für diese Saison</note>
+      </notes>
+      <segment>
+        <source>Für diese Saison</source>
+        <target>For this season</target>
+      </segment>
+    </unit>
+    <unit id="GVd6OlM" name="Bis %date%">
+      <notes>
+        <note category="german">Bis %date%</note>
+      </notes>
+      <segment>
+        <source>Bis %date%</source>
+        <target>Until %date%</target>
+      </segment>
+    </unit>
+    <unit id="y.hXICd" name="Für %num% weitere Städte">
+      <notes>
+        <note category="german">Für %num% weitere Städte</note>
+      </notes>
+      <segment>
+        <source>Für %num% weitere Städte</source>
+        <target>For %num% more towns</target>
+      </segment>
+    </unit>
+    <unit id=".Qkxxst" name="Stadttor zerstört!">
+      <notes>
+        <note category="german">Stadttor zerstört!</note>
+      </notes>
+      <segment>
+        <source>Stadttor zerstört!</source>
+        <target>Stadttor zerstört!</target>
+      </segment>
+    </unit>
+    <unit id="i02hvai">
+      <notes>
+        <note category="german">Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.</source>
+        <target>Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.</target>
+      </segment>
+    </unit>
+    <unit id="omwkh4e">
+      <notes>
+        <note category="german">Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.</note>
+      </notes>
+      <segment>
+        <source>Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.</source>
+        <target>Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.</target>
+      </segment>
+    </unit>
+    <unit id="WUioDKI" name="Das Stadttor ist zerstört!">
+      <notes>
+        <note category="german">Das Stadttor ist zerstört!</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor ist zerstört!</source>
+        <target>Das Stadttor ist zerstört!</target>
+      </segment>
+    </unit>
+    <unit id="ixRzzXD">
+      <notes>
+        <note category="german">Die Stadt ist von Zombies zerstört worden: Es können keine Verbesserungen mehr stattfinden.</note>
+      </notes>
+      <segment>
+        <source>Die Stadt ist von Zombies zerstört worden: Es können keine Verbesserungen mehr stattfinden.</source>
+        <target>Die Stadt ist von Zombies zerstört worden: Es können keine Verbesserungen mehr stattfinden.</target>
+      </segment>
+    </unit>
+    <unit id="70HaeRK">
+      <notes>
+        <note category="german">Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.</note>
+      </notes>
+      <segment>
+        <source>Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.</source>
+        <target>Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.</target>
+      </segment>
+    </unit>
+    <unit id="sO7EUbm" name="ZERSTÖRT!!">
+      <notes>
+        <note category="german">ZERSTÖRT!!</note>
+      </notes>
+      <segment>
+        <source>ZERSTÖRT!!</source>
+        <target>ZERSTÖRT!!</target>
+      </segment>
+    </unit>
+    <unit id="3I5M2q.">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. &lt;strong&gt;Sie werden nur für andere verbannte Bürger sichtbar sein.&lt;/strong&gt; Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. &lt;strong&gt;Sie werden nur für andere verbannte Bürger sichtbar sein.&lt;/strong&gt; Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.</source>
+        <target><![CDATA[Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. <strong>Sie werden nur für andere verbannte Bürger sichtbar sein.</strong> Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.]]></target>
+      </segment>
+    </unit>
+    <unit id="_.uzAIq">
+      <notes>
+        <note category="german">Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</note>
+      </notes>
+      <segment>
+        <source>Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</source>
+        <target>Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</target>
+      </segment>
+    </unit>
+    <unit id="V5pq7bw">
+      <notes>
+        <note category="german">Mangels Diskretion konnte jeder sehen, wie %citizen% versuchte %item% in dieser Zone zu verstecken.</note>
+      </notes>
+      <segment>
+        <source>Mangels Diskretion konnte jeder sehen, wie %citizen% versuchte %item% in dieser Zone zu verstecken.</source>
+        <target>Mangels Diskretion konnte jeder sehen, wie %citizen% versuchte %item% in dieser Zone zu verstecken.</target>
+      </segment>
+    </unit>
+    <unit id="jDLzkBE">
+      <notes>
+        <note category="german">Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.&lt;hr/&gt;Du hast 2 Aktionspunkte verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.&lt;hr/&gt;Du hast 2 Aktionspunkte verbraucht.</source>
+        <target><![CDATA[Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.<hr/>Du hast 2 Aktionspunkte verbraucht.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

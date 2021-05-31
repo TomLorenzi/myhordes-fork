@@ -111,6 +111,74 @@
 {% endmacro %}
 <!-- </editor-fold> -->
 
+<!-- <editor-fold desc="Feature Unlock Creator Widget"> -->
+{% macro widget_feature_creator(featurePrototypes, prefix = '') %}
+    <div class="lightbox">
+        <div class="row">
+            <div class="padded cell rw-12">
+                <label for="{{ _self.gen_id(prefix,'featurewidget','select')}}">{{'Feature freigeben:'|trans({}, 'admin')}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="padded cell rw-12">
+                <select id="{{ _self.gen_id(prefix,'featurewidget','select')}}">
+                    {% for featurePrototype in featurePrototypes %}
+                        <option value="{{featurePrototype.id}}">{{ featurePrototype.label|trans({}, 'items') }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="row-flex wrap">
+            <div class="padded cell"><label><input type="radio" name="{{ _self.gen_id(prefix,'featurewidget','expire')}}" id="{{ _self.gen_id(prefix,'featurewidget','expire_none')}}" />{{ 'Dauerhaft'|trans({},'admin') }}</label></div>
+            <div class="padded cell"><label><input type="radio" name="{{ _self.gen_id(prefix,'featurewidget','expire')}}" id="{{ _self.gen_id(prefix,'featurewidget','expire_season')}}" />{{ 'Aktuelle Saison'|trans({},'admin') }}</label></div>
+            <div class="padded cell"><label><input type="radio" name="{{ _self.gen_id(prefix,'featurewidget','expire')}}" id="{{ _self.gen_id(prefix,'featurewidget','expire_timeout')}}" />{{ 'Zeit'|trans({},'admin') }}</label></div>
+            <div class="padded cell"><label><input type="radio" name="{{ _self.gen_id(prefix,'featurewidget','expire')}}" id="{{ _self.gen_id(prefix,'featurewidget','expire_towns')}}" />{{ 'Städte'|trans({},'admin') }}</label></div>
+        </div>
+        <div class="row">
+            <div class="padded cell rw-12">
+                <label class="hidden"><input type="date" id="{{ _self.gen_id(prefix,'featurewidget','expire_timeout_value')}}" /></label>
+                <label class="hidden"><input type="number" id="{{ _self.gen_id(prefix,'featurewidget','expire_towns_value')}}" value="1" /></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="padded cell rw-12">
+                <button id="{{ _self.gen_id(prefix,'featurewidget','give')}}">{{'Vergeben!'|trans({}, 'admin')}}</button>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+{% macro widget_feature_creator_js(api_url, load_url, prefix = '') %}
+    <script>
+        $.html.addEventListenerAll("[name='{{ _self.gen_id(prefix,'featurewidget','expire')}}']", 'click', function(){
+            if (document.getElementById('{{ _self.gen_id(prefix,'featurewidget','expire_timeout')}}').checked)
+                document.getElementById('{{ _self.gen_id(prefix,'featurewidget','expire_timeout_value')}}').parentElement.classList.remove('hidden');
+            else document.getElementById('{{ _self.gen_id(prefix,'featurewidget','expire_timeout_value')}}').parentElement.classList.add('hidden');
+            if (document.getElementById('{{ _self.gen_id(prefix,'featurewidget','expire_towns')}}').checked)
+                document.getElementById('{{ _self.gen_id(prefix,'featurewidget','expire_towns_value')}}').parentElement.classList.remove('hidden');
+            else document.getElementById('{{ _self.gen_id(prefix,'featurewidget','expire_towns_value')}}').parentElement.classList.add('hidden');
+        });
+        $.html.addEventListenerAll('#{{ _self.gen_id(prefix,'featurewidget','give')}}', 'click', function(){
+            const date   = document.getElementById("{{ _self.gen_id(prefix,'featurewidget','expire_timeout_value')}}").value;
+            const number = parseInt(document.getElementById("{{ _self.gen_id(prefix,'featurewidget','expire_towns_value')}}").value);
+            let type = -1;
+            if (document.getElementById('{{ _self.gen_id(prefix,'featurewidget','expire_none')}}').checked) type = 0;
+            else if (document.getElementById('{{ _self.gen_id(prefix,'featurewidget','expire_season')}}').checked) type = 1;
+            else if (document.getElementById('{{ _self.gen_id(prefix,'featurewidget','expire_timeout')}}').checked) type = 2;
+            else if (document.getElementById('{{ _self.gen_id(prefix,'featurewidget','expire_towns')}}').checked) type = 3;
+            $.ajax.easySend('{{ api_url }}',
+                {
+                    prototype: parseInt(document.getElementById('{{ _self.gen_id(prefix,'featurewidget','select')}}').value),
+                    number: isNaN(number) ? 0 : number,
+                    date: date,
+                    type: type
+                },
+                () => $.ajax.load(null, '{{ load_url }}', true)
+            );
+        });
+    </script>
+{% endmacro %}
+<!-- </editor-fold> -->
+
 <!-- <editor-fold desc="Status Manager Widget"> -->
 {% macro widget_status_control(citizenStati, prefix = '') %}
     <div class="lightbox">

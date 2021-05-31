@@ -288,10 +288,10 @@ class LogTemplateHandler
             ->setCitizen( $citizen );
     }
 
-    public function beyondItemLog( Citizen $citizen, ItemPrototype $item, bool $toFloor, bool $broken = false ): TownLogEntry {
+    public function beyondItemLog( Citizen $citizen, ItemPrototype $item, bool $toFloor, bool $broken = false, $hide = false ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(), 'item' => $item->getId(), 'broken' => $broken);
         if ($toFloor)
-            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'itemFloorDrop']);
+            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $hide ? 'itemFloorHide' : 'itemFloorDrop']);
         else
             $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'itemFloorTake']);
         return (new TownLogEntry())

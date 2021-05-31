@@ -9,8 +9,10 @@ use App\Entity\AwardPrototype;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
 use App\Entity\ConsecutiveDeathMarker;
+use App\Entity\FeatureUnlock;
 use App\Entity\HeroSkillPrototype;
 use App\Entity\Picto;
+use App\Entity\Season;
 use App\Entity\Shoutbox;
 use App\Entity\ShoutboxEntry;
 use App\Entity\User;
@@ -665,5 +667,22 @@ class UserHandler
     public function isRestricted(User $user, ?int $restriction = null): bool {
         $r = $this->getActiveRestrictions($user);
         return $restriction === null ? ($r !== AccountRestriction::RestrictionNone) : (($r & $restriction) === $restriction);
+    }
+
+    public function checkFeatureUnlock(User $user, $feature, bool $deduct): bool {
+        /** @var FeatureUnlock $r */
+        $r = $this->entity_manager->getRepository(FeatureUnlock::class)->findOneActiveForUser(
+            $user,
+            $this->entity_manager->getRepository(Season::class)->findLatest(),
+            $feature
+        );
+
+        // If we're not in deduct mode or don't have an entity, simply return if an entity was found
+        if (!$deduct || $r === null) return $r !== null;
+
+        // If we're in deduct mode and the feature has a town count expiration, reduce town count
+        if ($r->getExpirationMode() === FeatureUnlock::FeatureExpirationTownCount)
+            $this->entity_manager->persist( $r->setTownCount( max(0,$r->getTownCount() - 1 )) );
+        return true;
     }
 }

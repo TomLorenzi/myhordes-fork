@@ -718,7 +718,7 @@
       </notes>
       <segment>
         <source>Weiter</source>
-        <target>Suite</target>
+        <target>Suite </target>
       </segment>
     </unit>
     <unit id="jDfhi6M">
@@ -763,7 +763,7 @@
       </notes>
       <segment>
         <source>Um in die Außenwelt zu treten, musst du dich zum &lt;strong&gt;Stadttor&lt;/strong&gt; begeben und es aufmachen... Doch aufgepasst! Bevor du die Stadt verlässt, solltest du folgendes beachten:</source>
-        <target><![CDATA[Pour visiter l'Outre-Monde, rendez-vous dans la section <strong>Portes de la Ville</strong> et ouvrez bien grandes les portes... Attention toutefois ! Retenez les trois règles suivantes :]]></target>
+        <target><![CDATA[Pour visiter l'Outre-Monde, rendez-vous dans la section <strong>Portes de la Ville</strong> et ouvrez bien grand les portes... Attention toutefois ! Retenez les trois règles suivantes :]]></target>
       </segment>
     </unit>
     <unit id="hJ9V9EY" name="Nimm &lt;strong&gt;Nahrung&lt;/strong&gt; oder &lt;strong&gt;Wasser&lt;/strong&gt; mit.">
@@ -1141,7 +1141,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>Um diese "regenerierten" Zonen entdecken zu können, benötigt die Stadt einen &lt;strong&gt;Forschungsturm&lt;/strong&gt; (Konstruktion). Sein Bau erhöht zudem die Wahrscheinlichkeit, dass "regenerierte" Gebiete erneut Gegenstände enthalten.</source>
-        <target><![CDATA[Pour repérer les zones regénérées, la construction d'un <strong>Scrutateur</strong> (chantier) est requise. De plus, le Scrutateur permet également d'améliorer les chances de regénération des zones affectées.]]></target>
+        <target><![CDATA[Pour repérer les zones régénérées, la construction d'un <strong>Scrutateur</strong> (chantier) est requise. De plus, le Scrutateur permet également d'améliorer les chances de regénération des zones affectées.]]></target>
       </segment>
     </unit>
     <unit id="FYzGcLV">
@@ -1183,7 +1183,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
       </notes>
       <segment>
         <source>Bestimmte Vorteile durch Berufe, Erfahrung oder Gegenstände ermöglichen das Erhöhen oder Verringern der Kontrollpunkte eines Menschen.</source>
-        <target>Certains avantages de ce métier, d'expérience ou liés aux objets permettent d'augmenter les points de contrôle d'un humain ou de les réduire à néant.</target>
+        <target>Certains avantages de métier, d'expérience ou liés aux objets permettent d'augmenter les points de contrôle d'un humain ou de les réduire à néant.</target>
       </segment>
     </unit>
     <unit id="ObiiIuR">
@@ -1798,7 +1798,7 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
       </notes>
       <segment>
         <source>Es gibt andere Möglichkeiten, deine Überlebenschancen beim Campen in Bezug auf Berufe, Objekte und Gebiete zu erhöhen. Es liegt an dir das herauszufinden.</source>
-        <target>il existe d'autres méthodes pour augmenter vos chances de survie en camping liées aux métiers, aux objets et aux chantiers à vous de les découvrir.</target>
+        <target>il existe d'autres méthodes pour augmenter vos chances de survie en camping liées aux métiers, aux objets et aux chantiers, à vous de les découvrir.</target>
       </segment>
     </unit>
     <unit id="qQ6FYAf">
@@ -1959,7 +1959,7 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</note>
       <segment>
         <source>Der Beruf des &lt;strong&gt;Einsiedlers&lt;/strong&gt; verfügt über einen entscheidenden Vorteil: Seine Überlebenschancen 
 sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
-        <target><![CDATA[Le métier <strong>d'Ermite</strong> a un avantage décisif: ses chances de survie <strong>ne sont pas limitées à 90%</strong>.]]></target>
+        <target><![CDATA[Le métier <strong>d'Ermite</strong> a un avantage décisif : ses chances de survie <strong>ne sont pas limitées à 90%</strong>.]]></target>
       </segment>
     </unit>
     <unit id="TnJAv.." name="Wie läuft der Angriff um Mitternacht ab?">
@@ -2031,7 +2031,7 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
       </notes>
       <segment>
         <source>Für jede Nacht, die du draußen überlebt hast, als die Stadt schon &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt; war, bekommst du zusätzlich zu der normalen Auszeichnung, eine &lt;strong&gt;besonders seltene Auszeichnung&lt;/strong&gt;.</source>
-        <target><![CDATA[Pour chaque nuit survécue alors que la ville a été <span x-ajax-href=%url_devast%>dévastée</span> , les campeurs reçoivent <strong>une distinction rare spéciale</strong>.]]></target>
+        <target><![CDATA[Pour chaque nuit survécue alors que la ville a été <span x-ajax-href=%url_devast%>dévastée</span> , les campeurs reçoivent <strong>une distinction rare unique</strong>.]]></target>
       </segment>
     </unit>
     <unit id="x56srvE">
@@ -2058,7 +2058,7 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
       </notes>
       <segment>
         <source>Eine oben auf der Seite platzierte Anzeige verrät dir mit einem Blick deinen aktuellen Gesundheitszustand und sagt dir, ob du etwas trinken musst, ob du verletzt bist usw. ...</source>
-        <target>Vous y apprendrez en un coup d'œil si vous avez besoin de boire, vous soigner, ..etc.</target>
+        <target>Vous y apprendrez en un coup d'œil si vous avez besoin de boire, vous soigner, etc...</target>
       </segment>
     </unit>
     <unit id="OAnJvWx" name="Erschöpfung">
@@ -2188,7 +2188,7 @@ Die in diesen Stunden erlittene panische &lt;strong&gt;Angst&lt;/strong&gt; ist 
       <segment>
         <source>00:10 Uhr - Die Zombiemeute hat es in die Stadt geschafft und trommelt nun wutschnaubend und gröhlend gegen deine Haustür. Dir gelingt es zwar sie aus deinem Haus zu halten, aber diesen Schock wirst du nicht so schnell vergessen... du bist &lt;strong&gt;vor Angst erstarrt&lt;/strong&gt;.
 Die in diesen Stunden erlittene panische &lt;strong&gt;Angst&lt;/strong&gt; ist dir ins Rückenmark gegangen und geblieben. Deine Aktions- und Bewegungsfreiheit ist seitdem erheblich eingeschränkt: Du kannst dich unter keinen Umständen in die Nähe von Zombies begeben! Solltest du in diesem Zustand dennoch auf welche stoßen, verfällst du in eine Angststarre und kannst dich nicht mehr bewegen... bis sie dich auffressen. In der Wüste zählst du, ungeachtet deines Berufs und deiner Ausrüstung, 0 Kontrollpunkte. Alle Zonen, in denen die Zombies mehr Punkte haben, sind für dich tabu.</source>
-        <target><![CDATA[Il est minuit. Les Hordes s'abattent sur votre maison avec rage, mais vous arrivez à les repousser. Le souvenir de la mort si proche va vous <strong>terroriser</strong>. Sous l'emprise de la <strong>terreur</strong>, vous serez très limité(e) dans vos agissements... Hors de question de rester près des zombies quelles que soient les circonstances ! Et si vous n'avez pas le choix, vous serez tout simplement paralysé(e) par la terreur... jusqu'à ce que l'un d'eux vous dévore. Dans le désert, vous comptez pour 0 point de contrôle, quelque soit votre métier ou votre équipement. Vous ne pouvez pas agir sur une zone si le score de contrôle des zombies est supérieur à celui des humains.]]></target>
+        <target><![CDATA[Il est minuit. Les Hordes s'abattent sur votre maison avec rage, mais vous arrivez à les repousser. Le souvenir de la mort si proche va vous <strong>terroriser</strong>. Sous l'emprise de la <strong>terreur</strong>, vous serez très limité(e) dans vos agissements... Hors de question de rester près des zombies quelles que soient les circonstances ! Et si vous n'avez pas le choix, vous serez tout simplement paralysé(e) par la terreur... jusqu'à ce que l'un d'eux vous dévore. Dans le désert, vous comptez pour 0 point de contrôle, quel que soit votre métier ou votre équipement. Vous ne pouvez pas agir sur une zone si le score de contrôle des zombies est supérieur à celui des humains.]]></target>
       </segment>
     </unit>
     <unit id="isD8Ydk">
@@ -2522,7 +2522,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Es liegt dann an der Stadt, sich zu organisieren, um diese verlorenen Seelen zu bergen. In der Tat haben diese Seelen eine große Chance, sich in gequälte Seelen %img_red_soul% zu verwandeln, wenn sie verlassen werden! Und dort wird es Zeit in Panik zu geraten, diese gequälten Seelen entwickeln die Zombie-Proliferation!</source>
-        <target>Il incombe alors à la ville de s'organiser pour aller récupérer ces âmes perdues. En effet, ces âmes si elles sont laissées à l'abandon, ont de fortes chances de se transformer en âme torturée %img_red_soul% ! Et là, il sera temps de paniquer, ces âmes torturées développant la prolifération zombie!</target>
+        <target>Il incombe alors à la ville de s'organiser pour aller récupérer ces âmes perdues. En effet, ces âmes, si elles sont laissées à l'abandon, ont de fortes chances de se transformer en âme torturée %img_red_soul% ! Et là, il sera temps de paniquer, ces âmes torturées développant la prolifération de zombies !</target>
       </segment>
     </unit>
     <unit id="Sz_Kc6M">
@@ -2549,7 +2549,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
       </notes>
       <segment>
         <source>Der Schamane ist unempfindlich gegenüber ihm und kann diese Seelen daher ohne Risiko (aber nicht ohne Angst) manipulieren. Der Bürger muss seinen Schamanen bitten, einen Immunisierungstrank zuzubereiten. Aber Vorsicht, das Vertrauen in die Kräfte Ihres Schamanen sollte nicht unendlich sein...</source>
-        <target>Le Chaman, lui est insensible et peut donc manipuler ces âmes sans risque (mais non sans peur). Le citoyen quant à lui doit demander à son Chaman de préparer une potion immunisante. Mais attention toutefois, la confiance attribuée aux pouvoirs de votre Chaman ne devrait pas être infinie...</target>
+        <target>Le Chaman, lui, est insensible et peut donc manipuler ces âmes sans risque (mais non sans peur). Le citoyen quant à lui doit demander à son Chaman de préparer une potion immunisante. Mais attention toutefois, la confiance attribuée aux pouvoirs de votre Chaman ne devrait pas être infinie...</target>
       </segment>
     </unit>
     <unit id="Jly9usI">
@@ -2653,7 +2653,7 @@ Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf 
       <segment>
         <source>Um den Zombies zu entkommen, die sich hier herumtreiben, kannst du deine Gegenstände aus deinem Inventar benutzen und damit angreifen. Du kannst auch &lt;strong&gt;die Aktion "Die Flucht wagen" ausführen&lt;/strong&gt;: Dabei verbrauchst du einen Teil deines Sauerstoffvorrats. 
 Solltest du später noch einmal zurückkommen, werden genauso viele Zombies auf dich warten.</source>
-        <target><![CDATA[Pour échapper aux zombies peuplant ces zones, en plus de pouvoir utiliser vos objets offensifs, <strong>vous pourrez utiliser l'action de "S'enfuir"</strong>qui vous permettra de leur échapper en consommant une partie de votre oxygène, vous retrouverez tout de même le même nombre de zombies en revenant sur vos pas.]]></target>
+        <target><![CDATA[Pour échapper aux zombies peuplant ces zones, en plus de pouvoir utiliser vos objets offensifs, <strong>vous pourrez utiliser l'action de "S'enfuir" </strong>qui vous permettra de leur échapper en consommant une partie de votre oxygène, vous retrouverez tout de même le même nombre de zombies en revenant sur vos pas.]]></target>
       </segment>
     </unit>
     <unit id="Ro.Av4r">
@@ -2765,7 +2765,7 @@ Wenn du in einer "Kleinen Karte" spielst und &lt;strong&gt;100 Seelenpunkte oder
       </notes>
       <segment>
         <source>Beispiel: Für jeden erledigten Zombie erhältst du die Auszeichung "Erlegte Zombies". Sobald du 100 Untote umgebracht hast erscheint der Titel "Brutalo" in deinem Profil! Je mehr Zombies du danach tötest, desto besser wird dein Titel.</source>
-        <target>Exemple: vous recevez une distinction "Zombies éliminés" pour chaque mort-vivant que vous éliminez. Au bout de 100, le titre "Grosse Brute" apparaît sur votre Nexus ! Continuez à gagner cette distinction et un nouveau titre apparaîtra.</target>
+        <target>Exemple: vous recevez une distinction "Zombies éliminés" pour chaque mort-vivant que vous éliminez. Au bout de 100, le titre "Grosse Brute" apparaît sur votre profil ! Continuez à gagner cette distinction et un nouveau titre apparaîtra.</target>
       </segment>
     </unit>
     <unit id="33cFnv8">
@@ -3199,7 +3199,7 @@ Es basiert auf folgenden zwei Konzepten:</source>
       </notes>
       <segment>
         <source>Die Koalition wird gebildet, sobald ihr 5 Spieler beigetreten sind. Die Spieler können anschließend Strategien besprechen, etc...</source>
-        <target>Une fois que 5 joueurs ont rejoint la coalition, ils peuvent discuter entre eux, définir des stratégies, ..etc.</target>
+        <target>Une fois que 5 joueurs ont rejoint la coalition, ils peuvent discuter entre eux, définir des stratégies, etc...</target>
       </segment>
     </unit>
     <unit id="yr8y3nx">
@@ -3563,7 +3563,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>&lt;strong&gt;Vorhang&lt;/strong&gt;: Verhindert allzu neugierige Blicke auf deine Truhe.</source>
-        <target><![CDATA[<strong>Rideau</strong>: permet de cacher le contenu de votre coffre de la vue de vos camarades...]]></target>
+        <target><![CDATA[<strong>Rideau</strong> : permet de cacher le contenu de votre coffre de la vue de vos camarades...]]></target>
       </segment>
     </unit>
     <unit id="j5QIYAA">
@@ -3673,7 +3673,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Du kannst die Stadt unerkannt betreten und verlassen (d.h.: Es wird nicht ins Register eingetragen).</source>
-        <target>vous pouvez, si vous le souhaitez, entrer ou sortir discrètement de la ville (ie. pas d'inscription au registre).</target>
+        <target>vous pouvez, si vous le souhaitez, entrer ou sortir discrètement de la ville (i.e. pas d'inscription au registre).</target>
       </segment>
     </unit>
     <unit id="87181SX">
@@ -3736,7 +3736,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Dieser Zustand kann nicht gewählt werden. Vielmehr handelt es sich um einen Fluch, von dem jeder Spieler, egal ob in der Stadt oder in der Außenwelt, getroffen werden kann.</source>
-        <target>Un citoyen a des chances de devenir une goule en mangeant de la nourriture plus ou moins suspecte : Cadavre de voyageur, melon d'intestin, viande Humaine et quelques autres... Bien sûr les chances peuvent être faibles, mais prendrez vous le risque de muter ?</target>
+        <target>Un citoyen a des chances de devenir une goule en mangeant de la nourriture plus ou moins suspecte : Cadavre de voyageur, melon d'intestin, viande humaine et quelques autres... Bien sûr les chances peuvent être faibles, mais prendrez vous le risque de muter ?</target>
       </segment>
     </unit>
     <unit id="5JpviwY">
@@ -3763,7 +3763,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
       </notes>
       <segment>
         <source>Ein Ghul ist noch kein Zombie. Sein Körper kann sich nur schlecht gegen Angriffe wehren. Sowohl der Galgen, als auch Drogenabhängigkeit können einen Ghul umbringen. Allerdings kann ein Ghul weder verdursten, noch an einer Infektion sterben.</source>
-        <target>Une goule n'est pas tout à fait un zombie et elle peut donc mourir de certaines causes "normales" : pendaison et addiction aux drogues. Toutefois, elle est immunisée à la soif et à l'infection, et donc, aux morts qui correspondent.</target>
+        <target>Une goule n'est pas tout à fait un zombie et elle peut donc mourir de certaines causes "normales" : pendaison et addiction aux drogues. Toutefois, elle est immunisée à la soif et à l'infection, et donc aux morts qui correspondent.</target>
       </segment>
     </unit>
     <unit id="w0OQSf1">
@@ -3808,20 +3808,19 @@ es besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht au
     </unit>
     <unit id="m3f6S65">
       <notes>
-        <note category="german">Jeder Spieler startet in "MyHordes" als einfacher Bürger. 
-Daneben gibt es jedoch noch &lt;strong&gt;7 außergewöhnliche Berufe&lt;/strong&gt;. 
-Diese Berufe sind aber den Spielern vorbehalten sind, die als Held spielen.</note>
+        <note category="german">Jeder Spieler startet in "MyHordes" entweder als einfacher Bürger oder sucht sich einen von &lt;strong&gt;7 außergewöhnlichen Berufe&lt;/strong&gt; aus.
+Spieler mit solchen Berufen werden als Helden bezeichnet.</note>
       </notes>
       <segment>
         <source>Jeder Spieler startet in "Die Verdammten" als einfacher Bürger. 
 Daneben gibt es jedoch noch &lt;strong&gt;7 außergewöhnliche Berufe&lt;/strong&gt;. 
 Diese Berufe sind aber den Spielern vorbehalten sind, die als Held spielen.</source>
-        <target><![CDATA[<strong>Chaque citoyen dans MyHordes commence en tant que simple Habitant.</strong>. Les héros, quant à eux, peuvent choisir un métier qui leur apporte un avantage dans un domaine spécifique : le métier de Fouineur permet par exemple de trouver plus d'objets dans le désert que la moyenne.]]></target>
+        <target><![CDATA[<strong>Chaque citoyen dans MyHordes peut commencer en tant que simple Habitant ou choisir un métier qui lui apporte un avantage dans un domaine spécifique : le métier de Fouineur permet par exemple de trouver plus d'objets dans le désert que la moyenne.]]></target>
       </segment>
     </unit>
     <unit id="9ySXrH1">
       <notes>
-        <note category="german">Helden können zum Beginn einer Stadt einen Beruf wählen. Jeder Beruf bietet besondere Vorteile. 
+        <note category="german">Jeder Beruf bietet besondere Vorteile.
 Der Buddler zum Beispiel findet in der Wüste im Durchschnitt mehr Gegenstände als ein normaler 
 Einwohner. Der Einsiedler hat bessere Überlebenschancen beim Campen in der Wildnis.
 Darüber hinaus erhält man je nach Beruf einen &lt;strong&gt;speziellen Gegenstand&lt;/strong&gt;. 
@@ -4060,11 +4059,11 @@ Achtung: Wenn er in seiner Deckung eine Aktion ausführt, verliert er seine Tarn
     </unit>
     <unit id="SoFK1VJ">
       <notes>
-        <note category="german">Wenn ein Wächter Nachtwache hält, gibt er der Stadt 30 zusätzliche Verteidigungspunkte. Außerdem haben sie eine um 5% höhere Überlebenschance, wenn der Angriff der Zombiehorden den Verteidigungspunkten der Stadt unterlegen ist.</note>
+        <note category="german">Wenn ein Wächter Nachtwache hält, gibt er der Stadt 30 zusätzliche Verteidigungspunkte. Außerdem haben sie eine um 5% höhere Überlebenschance.</note>
       </notes>
       <segment>
         <source>Wenn ein Wächter Nachtwache hält, gibt er der Stadt 30 zusätzliche Verteidigungspunkte. Außerdem haben sie eine um 5% höhere Überlebenschance, wenn der Angriff der Zombiehorden den Verteidigungspunkten der Stadt unterlegen ist.</source>
-        <target>En veille, un gardien apporte 30 points supplémentaires à la ville, il a 5% de chances supplémentaires de survivre si l'attaque des hordes est inférieure à la défense de la ville.</target>
+        <target>En veille, un gardien apporte 30 points supplémentaires à la ville et il a 5% de chances supplémentaires de survivre.</target>
       </segment>
     </unit>
     <unit id="xfwq_Tw">
@@ -4258,7 +4257,7 @@ Dies bedeutet, dass dieser Bürger Expiditionen organisieren, der Anführer sein
       <segment>
         <source>Der "Reiseleiter in der Außenwelt" ist ein besonderer Bürger. Die schwere Verantwortung, seinen Kameraden bei der Navigation durch die Außenwelt zu helfen, liegt auf seinen Schultern.
 Dies bedeutet, dass dieser Bürger Expiditionen organisieren, der Anführer sein kann (auch wenn er kein Held ist) und einen Kontrollpunkt für jeden anderen Bürger in seiner Zone hinzufügen kann.</source>
-        <target>Le Guide de l'Outre-Monde est un citoyen vraiment à part. Lui vient la responsabilité d'aider ses concitoyens à voyager dans l'Outre-Monde. Pour cela, il peut organiser des expéditions, être leader (même s'il n'est pas héro), et offre dans les zones où il se trouve un point de contrôle supplémentaire par personne présente.</target>
+        <target>Le Guide de l'Outre-Monde est un citoyen vraiment à part. Lui vient la responsabilité d'aider ses concitoyens à voyager dans l'Outre-Monde. Pour cela, il peut organiser des expéditions, être leader (même s'il n'est pas héros), et offre dans les zones où il se trouve un point de contrôle supplémentaire par personne présente.</target>
       </segment>
     </unit>
     <unit id="aVNJko." name="Wie werde ich dieser Anführer, von dem du sprichst?">
@@ -4282,7 +4281,7 @@ Von diesem Moment an verfügt der neue Anführer über besondere Fähigkeiten, d
 In der ersten Nacht in der Stadt und nach dem Tod jedes nachfolgenden Führers (ja, es ist ein gefährlicher Job) wird eine Wahl abgehalten.
 Während dieser Manifestation der Demokratie wird eine Debatte stattfinden und die Abstimmung wird folgen. Am Ende wird der... qualifizierteste... Bürger ausgewählt, um eine Zielscheibe, ich meine Hut zu tragen...
 Von diesem Moment an verfügt der neue Anführer über besondere Fähigkeiten, die er zum Wohle der Stadt nutzen kann.</source>
-        <target>En se faisant élire! Lors de la première nuit, et à chaque mort du Guide de l'Outre-Monde, une nouvelle assemblée citoyenne aura lieu. Durant cette assemblée, un débat prend place et l'assemblée termine par un vote, attribuant au citoyen le plus ...qualifié.. le titre de Guide de l'Outre-Monde. A partir de ce moment là, ce citoyen se voit attribuer des actions spécifiques qu'il pourra exploiter.</target>
+        <target>En se faisant élire ! Lors de la première nuit, et à chaque mort du Guide de l'Outre-Monde, une nouvelle assemblée citoyenne aura lieu. Durant cette assemblée, un débat prend place et l'assemblée termine par un vote, attribuant au citoyen le plus "qualifié" le titre de Guide de l'Outre-Monde. A partir de ce moment là, ce citoyen se voit attribuer des actions spécifiques qu'il pourra exploiter.</target>
       </segment>
     </unit>
     <unit id="9tmUsfs">
@@ -4302,7 +4301,7 @@ Der Schamane weiß, wie man das Nutzlose nutzt und wie man eine nützlichere Rei
       <segment>
         <source>Der Schamane ist ein unglaublich mächtiger Voodoo-Zauberer, der vom Tod anderer Bürger profitieren kann, um seine schwarze Magie auszuführen.
 Der Schamane weiß, wie man das Nutzlose nutzt und wie man eine nützlichere Reinkarnation für unsere Verstorbenen herbeiführt.</source>
-        <target>Le Chaman serait un sorcier vaudou surpuissant tirant profit de la mort des autres pour exercer sa magie noire. Dans les faits, c'est un citoyen à la sensibilité plus aigüe et qui fait preuve parfois de chance!</target>
+        <target>Le Chaman serait un sorcier vaudou surpuissant tirant profit de la mort des autres pour exercer sa magie noire. Dans les faits, c'est un citoyen à la sensibilité plus aigüe et qui fait preuve parfois de chance !</target>
       </segment>
     </unit>
     <unit id="TXxL0zS" name="Wie wirst du der Stadtschamane?">
@@ -4320,7 +4319,7 @@ Der Schamane weiß, wie man das Nutzlose nutzt und wie man eine nützlichere Rei
       </notes>
       <segment>
         <source>In der ersten Nacht und jedes Mal, wenn der Schamane stirbt, findet ein Stadttreffen statt. Während dieses Treffens findet eine Debatte statt und nach vielem Streiten, Ausweichen vor Verantwortung und zweifellos Trinken wird der ... "qualifizierteste" Bewohner als Schamane bezeichnet! Von diesem Moment an wird der Schamane Zugang zu neuen Kräften und neuen "Punkten" haben.</source>
-        <target>Lors de la première nuit, et à chaque mort du chaman, une nouvelle assemblée citoyenne aura lieu. Durant cette assemblée, un débat prend place et l'assemblée termine par un vote, attribuant au citoyen le plus ...qualifié.. le titre de "Chaman"! A partir de ce moment là, ce citoyen se voit attribuer des actions spécifiques qu'il pourra exploiter grâce à ses points de charlatanisme quotidiens.</target>
+        <target>Lors de la première nuit, et à chaque mort du chaman, une nouvelle assemblée citoyenne aura lieu. Durant cette assemblée, un débat prend place et l'assemblée termine par un vote, attribuant au citoyen le plus "qualifié" le titre de "Chaman"! A partir de ce moment là, ce citoyen se voit attribuer des actions spécifiques qu'il pourra exploiter grâce à ses points de charlatanisme quotidiens.</target>
       </segment>
     </unit>
     <unit id="lX6N9d4" name="Ich bin der Schamane, was mache ich?">
@@ -4358,7 +4357,7 @@ Der Schamane kann:</source>
       </notes>
       <segment>
         <source>Reinige Zonen, indem du Regen auf diese Bereiche fallen lässt. Wenn der Regen auf die Stadt fällt, füllt das Wasser den Brunnen ein wenig.</source>
-        <target>Purifier des zones en y faisant tomber de la pluie. Au niveau de la ville, cette pluie pourra remplir un peu le puit, dans l'Outre-Monde, elle sera utile pour nettoyer la zone de quelques zombies.</target>
+        <target>Purifier des zones en y faisant tomber de la pluie. Au niveau de la ville, cette pluie pourra remplir un peu le puits, dans l'Outre-Monde, elle sera utile pour nettoyer la zone de quelques zombies.</target>
       </segment>
     </unit>
     <unit id="GZCNcDN" name="Führe die Bürger zum Ort der Seelen in der Außenwelt.">
@@ -4439,7 +4438,7 @@ Der Schamane kann:</source>
       </notes>
       <segment>
         <source>Damit die Stadt Gebäude bauen und ihre Verteidigung verbessern kann, &lt;strong&gt;sollten&lt;/strong&gt; alle Spieler die Beute ihrer Ausflüge in der Bank abliefern. Jede gespendete Blechplatte trägt dazu bei, dass die Stadt möglichst bald ihre Stadtmauer verstärken kann. Ebenso ermöglicht das Spenden von Holz und Metall den zügigen Bau verbesserter Verteidigungsanlagen oder anderer Konstruktionen.</source>
-        <target><![CDATA[Afin de pouvoir construire des bâtiments et de renforcer les défenses de la ville, les aventuriers peuvent donner à la ville le fruit de leurs recherches <strong>s'ils en ont envie</strong>. Ainsi donner des morceaux de tôle récupérés sur de vieilles carlingues d'avion, permettra de renforcer le blindage des murs extérieurs. De la même façon donner du bois ou du métal, permettra la construction des bâtiments communautaires]]></target>
+        <target><![CDATA[Afin de pouvoir construire des bâtiments et de renforcer les défenses de la ville, les aventuriers peuvent donner à la ville le fruit de leurs recherches <strong>s'ils en ont envie</strong>. Ainsi donner des morceaux de tôle récupérés sur de vieilles carlingues d'avion permettra de renforcer le blindage des murs extérieurs. De la même façon donner du bois ou du métal permettra la construction des bâtiments communautaires.]]></target>
       </segment>
     </unit>
     <unit id="4fvRlNu">
@@ -4802,7 +4801,7 @@ Die Stadt kann in vielerlei Hinsicht von diesen Weiterentwicklungen profitieren:
       <segment>
         <source>Es gibt bis zu &lt;strong&gt;5&lt;/strong&gt; verschiedene Entwicklungsstufen. Je höher die Stufe, desto effektiver das Gebäude oder die Konstruktion.
 Die Stadt kann in vielerlei Hinsicht von diesen Weiterentwicklungen profitieren:</source>
-        <target><![CDATA[Chaque évolution peut être améliorée sur <strong>5 niveaux</strong>, chaque niveau étant de plus en plus puissant. Ces évolutions peuvent avoir de nombreux impacts sur une ville :]]></target>
+        <target><![CDATA[Chaque évolution peut être améliorée sur <strong>plusieurs niveaux</strong>, chaque niveau étant de plus en plus puissant. Ces évolutions peuvent avoir de nombreux impacts sur une ville :]]></target>
       </segment>
     </unit>
     <unit id="01pp8mB" name="Eine bessere Verteidigung.">
@@ -4968,7 +4967,7 @@ müssen durchdacht geplant werden.</source>
       </notes>
       <segment>
         <source>Die privaten Häuser der Bürger zählen jeweils die Hälfte.</source>
-        <target>Par ailleurs, chaque Maison de citoyen compte pour 50% de sa valeur de défense !</target>
+        <target>Par ailleurs, chaque Maison de citoyen compte pour 40% de sa valeur de défense !</target>
       </segment>
     </unit>
     <unit id="813vPJo">
@@ -5042,7 +5041,7 @@ Lies dir den entsprechenden Abschnitt bitte &lt;span x-ajax-href=%url_lms%&gt;hi
       <segment>
         <source>Wenn bei einem Angriff alle Einwohner umkommen, bekommt einer von ihnen den Titel des &lt;strong&gt;Letzten Todes!&lt;/strong&gt;
 Lies dir den entsprechenden Abschnitt bitte &lt;span x-ajax-href=%url_lms%&gt;hier&lt;/span&gt; durch.</source>
-        <target><![CDATA[Si l'attaque tue tous les habitants, l'un d'eux sera désigné comme gagnant du titre de la <strong>Mort Ultime!</strong> Consultez l'aide sur la Mort Ultime <span x-ajax-href=%url_lms%>ici</span>.]]></target>
+        <target><![CDATA[Si l'attaque tue tous les habitants, l'un d'eux sera désigné comme gagnant du titre de la <strong>Mort Ultime !</strong> Consultez l'aide sur la Mort Ultime <span x-ajax-href=%url_lms%>ici</span>.]]></target>
       </segment>
     </unit>
     <unit id="YCjG1h6" name="Phase 4: Gebäudeschäden (Pandämonium)">
@@ -5062,7 +5061,7 @@ Lies dir den entsprechenden Abschnitt bitte &lt;span x-ajax-href=%url_lms%&gt;hi
       <segment>
         <source>Alle fertiggestellen Gebäude der Stadt können beim Angriff der Zombiehorde beschädigt werden.
 &lt;strong&gt;Es handelt sich dabei um Zombies, die von den Verteitigungsvorrichtungen der Stadt aufgehalten wurden. Sie lassen ihrer Wut freien Lauf und beschädigen so eure Konstruktionen.&lt;/strong&gt;</source>
-        <target><![CDATA[Toutes les constructions achevées de la ville peuvent être endommagés par l'attaque de la horde de zombies. <strong>Ce sont des zombies qui ont été arrêtés par les défenses de la ville. Ils laissent libre cours à leur colère et endommagent vos constructions.</strong>]]></target>
+        <target><![CDATA[Toutes les constructions achevées de la ville peuvent être endommagées par l'attaque de la horde de zombies. <strong>Ce sont des zombies qui ont été arrêtés par les défenses de la ville. Ils laissent libre cours à leur colère et endommagent vos constructions.</strong>]]></target>
       </segment>
     </unit>
     <unit id="hsKmUOh">
@@ -5138,7 +5137,7 @@ Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</sour
       </notes>
       <segment>
         <source>Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehr als einem Schuss werden eine Ladung verlie</source>
-        <target>Toutes les armes ou protections portées seront détruites ou cassées à la fin d'une veille, les armes ayant plusieurs charges se videront une durant cette nuit.</target>
+        <target>Toutes les armes ou protections portées seront détruites ou cassées à la fin d'une veille, les armes ayant plusieurs charges se videront d'une charge durant cette nuit.</target>
       </segment>
     </unit>
     <unit id="4yvcfEV" name="Wie funktioniert das?">
@@ -5284,7 +5283,7 @@ Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</sour
       </notes>
       <segment>
         <source>Alle wichtigen Gegenstände des Verbannten (Holz, Metall, Waffen etc...) werden &lt;strong&gt;der Bank zurückgegeben&lt;/strong&gt;.</source>
-        <target><![CDATA[Tous les objets considérés comme primordiaux pour la communauté <strong>sont renvoyés dans la banque de la ville</strong> (bois, métal, défenses...etc).]]></target>
+        <target><![CDATA[Tous les objets considérés comme primordiaux pour la communauté <strong>sont renvoyés dans la banque de la ville</strong> (bois, métal, défenses etc).]]></target>
       </segment>
     </unit>
     <unit id="kYx3L.F" name="Darüber hinaus kann ein Verbannter folgende Dinge nicht mehr tun:">
@@ -5538,7 +5537,7 @@ Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</sour
       </notes>
       <segment>
         <source>Folgende Möglichkeiten stehen ihm offen:</source>
-        <target>À partir de ce moment, ils auront deux actions spéciales:</target>
+        <target>À partir de ce moment, ils aura deux actions spéciales :</target>
       </segment>
     </unit>
     <unit id="mD2oD1y">
@@ -5834,7 +5833,7 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
       </notes>
       <segment>
         <source>etc.</source>
-        <target>etc etc</target>
+        <target>etc.</target>
       </segment>
     </unit>
     <unit id="BbrZo2U">
@@ -5897,7 +5896,7 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
       </notes>
       <segment>
         <source>Der &lt;strong&gt;Chaosmodus&lt;/strong&gt; wurde aktiviert (dies gilt auch dann, wenn die ansonsten dafür benötigten Bedingungen nicht erfüllt wurden).</source>
-        <target><![CDATA[le mode <strong>chaos</strong> est immédiatement activé (même si les conditions normales ne sont pas réalisées).]]></target>
+        <target><![CDATA[le mode <strong>chaos</strong> est immédiatement activé (même si les conditions normales ne sont pas réalisées),]]></target>
       </segment>
     </unit>
     <unit id="2C542tA" name="Der Heißhunger der Ghule nimmt um Mitternacht nicht mehr so stark zu.">
@@ -5960,7 +5959,7 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
       </notes>
       <segment>
         <source>Die mitternächtlichen Zombieangriffe richten Schäden an den gebauten Gebäuden und Konstruktionen an. Diese Schäden müssen repariert werden.</source>
-        <target>Les attaques de zombies de minuit endommagent les chantiers et les structures qui ont été construits. Ces dommages doivent être réparés.</target>
+        <target>Les attaques de zombies de minuit endommagent les chantiers et les structures qui ont été construits, ces dommages doivent être réparés,</target>
       </segment>
     </unit>
     <unit id="XssioYa">
@@ -5969,7 +5968,7 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
       </notes>
       <segment>
         <source>Beschädigte Verteidigungsbauten verlieren ihre Wirkung, wenn sie nicht repariert werden.</source>
-        <target>Les structures de défense endommagées perdent leur efficacité si elles ne sont pas réparées.</target>
+        <target>Les structures de défense endommagées perdent leur efficacité si elles ne sont pas réparées,</target>
       </segment>
     </unit>
     <unit id="y9_6DNA" name="Die Überlebenschancen beim Camping sind geringer.">
@@ -5978,7 +5977,7 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
       </notes>
       <segment>
         <source>Die Überlebenschancen beim Camping sind geringer.</source>
-        <target>Les chances de survie en camping sont plus faibles.</target>
+        <target>Les chances de survie en camping sont plus faibles,</target>
       </segment>
     </unit>
     <unit id="dIsy9OZ" name="Die Chance, an einer Infektion zu sterben, beträgt 75%,">
@@ -6127,11 +6126,11 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
     </unit>
     <unit id="L0SipSu">
       <notes>
-        <note category="german">Negierung: Wenn eine Privatstadt nicht bis Mitternacht des übernächsten Tages gefüllt ist, wird sie wieder negiert. Der Stadtgründer erhält dann alle investierten Heldentage zurück. Alle bereits getätigten Einschreibungen werden rückgängig gemacht.</note>
+        <note category="german">Negierung: Wenn eine Privatstadt nicht bis Mitternacht des übernächsten Tages gefüllt ist, wird sie wieder negiert. Alle bereits getätigten Einschreibungen werden rückgängig gemacht.</note>
       </notes>
       <segment>
         <source>Negierung: Wenn eine Privatstadt nicht bis Mitternacht des übernächsten Tages gefüllt ist, wird sie wieder negiert. Der Stadtgründer erhält dann alle investierten Heldentage zurück. Alle bereits getätigten Einschreibungen werden rückgängig gemacht.</source>
-        <target>Annulation : une ville privée non remplie après 2 jours est annulée. Son créateur récupère les jours héros investis et tous les citoyens inscrits sont renvoyés.</target>
+        <target>Annulation : une ville privée non remplie après 2 jours est annulée. Tous les citoyens inscrits sont renvoyés.</target>
       </segment>
     </unit>
     <unit id="QvajNih">
@@ -6140,7 +6139,7 @@ Die Punkte für den Titel "Spiritueller Führer" kumulieren sich mit jedem Tag. 
       </notes>
       <segment>
         <source>Auszeichnungnen: Für seltene Auszeichnungen werden Privatstädte nicht berücksichtigt. Normale Auszeichnungen werden teilweise angerechnet. Die Hälfte aller erworbenen Auszeichnungen wird zufällig ausgewählt und behalten. Bei einer ungeraden Anzahl an erworbenen Auszeichnungen wird vorher abgerundet.</source>
-        <target>Distinctions : ces villes privées ne sont pas prises en compte pour les récompenses rares. Les récompenses normales sont partiellement créditées. 33% des récompenses gagnées sont sélectionnées au hasard et conservées. En cas de nombre impair de récompenses acquises, il est préalablement arrondi.</target>
+        <target>Distinctions : ces villes privées ne sont pas prises en compte pour les récompenses rares. Les récompenses normales sont partiellement créditées. 33% des récompenses gagnées sont sélectionnées au hasard et conservées. Si la quantité de récompenses acquises ne donne pas un compte rond, il est préalablement arrondi.</target>
       </segment>
     </unit>
     <unit id="J6AiXBy">
@@ -6307,7 +6306,7 @@ Falls sich nicht genug Spieler finden, die deine Stadt spielen wollen, wird sie 
       </notes>
       <segment>
         <source>Du kannst dich ihrer bedienen, um neue (Foren-)Spiele zu erfinden oder bestimmte Entscheidungen nach dem Zufallsprinzip zu treffen. Gehe jedoch sparsam damit um!</source>
-        <target>N'abusez pas de ces commandes ! Utilisez-les pour inventer de nouveaux jeux entre citoyens, résoudre des situations par le hasard...etc.</target>
+        <target>N'abusez pas de ces commandes ! Utilisez-les pour inventer de nouveaux jeux entre citoyens, résoudre des situations par le hasard, etc.</target>
       </segment>
     </unit>
     <unit id="WvrIr29" name="Das Spiel wird in &lt;strong&gt;Saisons&lt;/strong&gt; aufgeteilt.">
@@ -6331,7 +6330,7 @@ Je höher die Punkteanzahl, desto ausgeprägter war die Organisations- und Koord
 Saisons kommen einer zeitlich begrenzten Liga gleich. Alle in einer Saison gespielten Städte werden in einer Rangliste geführt. 
 Je höher die Punkteanzahl, desto ausgeprägter war die Organisations- und Koordinationsfähigkeit der Bürger dieser Stadt.
 &lt;strong&gt;Die Punkteanzahl einer Stadt ist die Summe aller überlebten Tage ihrer Einwohner.&lt;/strong&gt;</source>
-        <target><![CDATA[Durant cette période, les villes sont classées selon un score reflétant la capacité à s'organiser pour survivre en groupe. <strong>Il est calculé en additionnant le nombre de jours survécus de tous les citoyens présents dans cette ville.</strong>]]></target>
+        <target><![CDATA[Pendant chaque saison, les villes sont classées selon un score reflétant la capacité à s'organiser pour survivre en groupe. <strong>Il est calculé en additionnant le nombre de jours survécus de tous les citoyens présents dans cette ville.</strong>]]></target>
       </segment>
     </unit>
     <unit id="5euLoAL">
@@ -6441,7 +6440,7 @@ in die Rangliste aufgenommen. Kleine Städte oder Privatstädte werden nicht ins
       </notes>
       <segment>
         <source>Wenn eine Stadt am Ende einer Saison startet, aber in der darauf folgenden Saison stirbt, wird sie punktemäßig der neuen Saison zugeschlagen.</source>
-        <target>Une ville en saison 1 doit être terminée en saison 1 pour compter dans ce classement. Si elle se termine plus tard, elle ne comptera pour aucun classement.</target>
+        <target>Une ville en saison 1 doit être terminée en saison 1 pour compter dans ce classement. Si elle se termine plus tard, elle ne comptera pour aucun classement,</target>
       </segment>
     </unit>
     <unit id="hdmUiOX" name="Alle Ranglisten werden jeden Tag um Mitternacht aktualisiert.">
@@ -6450,7 +6449,7 @@ in die Rangliste aufgenommen. Kleine Städte oder Privatstädte werden nicht ins
       </notes>
       <segment>
         <source>Alle Ranglisten werden jeden Tag um Mitternacht aktualisiert.</source>
-        <target>Les classements sont mis à jour à minuit.</target>
+        <target>Les classements sont mis à jour à minuit,</target>
       </segment>
     </unit>
     <unit id="AnaQqW8">
@@ -6497,7 +6496,7 @@ Lies dir bitte die offizielle &lt;span x-ajax-href=%url_support%&gt;Technische S
       </notes>
       <segment>
         <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href=%url_forums%&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
-        <target><![CDATA[<strong>DISCUTER AVEC LES JOUEURS:</strong> vous trouverez souvent la réponse à vos questions directement sur les <span x-ajax-href=%url_forums%>forums du site</span>, disponibles si vous êtes connecté(e).]]></target>
+        <target><![CDATA[<strong>DISCUTER AVEC LES JOUEURS:</strong> vous trouverez souvent la réponse à vos questions directement sur les <span x-ajax-href=%url_forums%>forums du site</span>, disponibles si vous êtes connecté(e),]]></target>
       </segment>
     </unit>
     <unit id="aa47hQY">
@@ -6508,7 +6507,7 @@ Wenn sich ein anderer Spieler daneben benommen hat oder ausfällig geworden ist,
       <segment>
         <source>&lt;strong&gt;EINEN REGELVERSTOSS MELDEN:&lt;/strong&gt;&lt;strong&gt;&lt;/strong&gt;
 Wenn sich ein anderer Spieler daneben benommen hat oder ausfällig geworden ist, bitten wir dich den Abschnitt &lt;span x-ajax-href=%url_report%&gt;Fehlverhalten melden&lt;/span&gt; zu lesen.</source>
-        <target><![CDATA[<strong>SIGNALER UN COMPORTEMENT:</strong> en cas de problème de <strong>comportement</strong> de la part d'un joueur, merci de lire la section <span x-ajax-href=%url_report%>On m'embête</span>.]]></target>
+        <target><![CDATA[<strong>SIGNALER UN COMPORTEMENT :</strong> en cas de problème de <strong>comportement</strong> de la part d'un joueur, merci de lire la section <span x-ajax-href=%url_report%>On m'embête</span>,]]></target>
       </segment>
     </unit>
     <unit id="7NLAbue">
@@ -6519,7 +6518,7 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
       <segment>
         <source>&lt;strong&gt;EINEN BUG MELDEN:&lt;/strong&gt;
 Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: &lt;a href=%url_git%&gt;Buglisten&lt;/a&gt;.</source>
-        <target><![CDATA[<strong>SIGNALER UN BUG:</strong> pour signaler un bug, utilisez l'espace de discussion suivant : <a href=%url_git%>Rapport de bugs sur Gitlab</a>.]]></target>
+        <target><![CDATA[<strong>SIGNALER UN BUG :</strong> pour signaler un bug, utilisez l'espace de discussion suivant : <a href=%url_git%>Rapport de bugs sur Gitlab</a>.]]></target>
       </segment>
     </unit>
     <unit id="AgElrGm">
@@ -6546,7 +6545,7 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
       </notes>
       <segment>
         <source>Dein Passwort darf keine Sonderzeichen enthalten.</source>
-        <target>Choisissez un mot de passe sans caractères spéciaux</target>
+        <target>Choisissez un mot de passe sans caractères spéciaux,</target>
       </segment>
     </unit>
     <unit id="Dy_CnNy">
@@ -6555,7 +6554,7 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
       </notes>
       <segment>
         <source>Ein Passwort darf Großbuchstaben, Buchstaben und Zahlen enthalten. Nutze diese Möglichkeit!</source>
-        <target>Mélangez des chiffres, des lettres, des minuscules et des majuscules</target>
+        <target>Mélangez des chiffres, des lettres, des minuscules et des majuscules,</target>
       </segment>
     </unit>
     <unit id="yfB5oOq">
@@ -6564,7 +6563,7 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
       </notes>
       <segment>
         <source>Wenn du noch Fragen hast, empfehlen wir dir folgende Seite: &lt;a href=%url_pass%&gt;Password Tester&lt;/a&gt;</source>
-        <target><![CDATA[En cas de doute, utilisez le site <a href=%url_pass%>Password Tester</a>]]></target>
+        <target><![CDATA[En cas de doute, utilisez le site <a href=%url_pass%>Password Tester</a>.]]></target>
       </segment>
     </unit>
     <unit id="CtzpIg6">
@@ -6691,7 +6690,7 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
       </notes>
       <segment>
         <source>Beiträge, deren Inhalt gegen geltende Gesetze oder gute Sitten verstößt.</source>
-        <target>contraire à l'ordre public et aux bonnes moeurs</target>
+        <target>contraires à l'ordre public et aux bonnes moeurs,</target>
       </segment>
     </unit>
     <unit id="DHP2sV9" name="Fremdenfeindliche und homophobe Beiträge.">
@@ -6922,7 +6921,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>&lt;strong&gt;Paare&lt;/strong&gt; und &lt;strong&gt;Familien&lt;/strong&gt; nichts zu befürchten haben. Unser System filtert "normale" Fälle von IP-Sharing und "sich einen PC teilen" heraus.</source>
-        <target><![CDATA[<strong>les couples</strong> et <strong>familles</strong> n'ont rien à craindre de ce système : nous filtrons aisément les cas normaux de partage d'ordinateur ou d'IP.]]></target>
+        <target><![CDATA[<strong>les couples</strong> et <strong>familles</strong> n'ont rien à craindre de ce système : nous filtrons aisément les cas normaux de partage d'ordinateur ou d'IP,]]></target>
       </segment>
     </unit>
     <unit id="sOq5v5T">
@@ -6931,7 +6930,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>das Verleihen von Accounts und Accountpasswörtern strengstens verboten bleibt. Gebt euer Passwort nicht weiter und fragt auch nicht nach einem anderen Passwort (Don't Ask, Don't Tell).</source>
-        <target>ne prêtez jamais votre compte à quelqu'un d'autre et ne vous connectez jamais sur le compte d'un joueur qui vous le demanderait (vous seriez alors en situation hors-charte).</target>
+        <target>ne prêtez jamais votre compte à quelqu'un d'autre et ne vous connectez jamais sur le compte d'un joueur qui vous le demanderait (vous seriez alors en situation hors-charte),</target>
       </segment>
     </unit>
     <unit id="qzft9Kj" name="ihr nichts zu befürchten habt, wenn ihr eine reine Seele habt">
@@ -7021,7 +7020,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Du darfst keine &lt;strong&gt;automatischen Skripte zum regelmäßigen Datenabgleich&lt;/strong&gt; mit der API verwenden (Cron, automatisierte Tasks...),</source>
-        <target><![CDATA[vous n'êtes pas autorisé à utiliser des <strong>scripts automatisés pour récupérer régulièrement</strong> les informations d'un flux (cron, tâches automatisées ...),]]></target>
+        <target><![CDATA[Vous n'êtes pas autorisé à utiliser des <strong>scripts automatisés pour récupérer régulièrement</strong> les informations d'un flux (cron, tâches automatisées ...),]]></target>
       </segment>
     </unit>
     <unit id="pH0Mwkj">
@@ -7633,7 +7632,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Mithilfe von Scripten können Spieler die Funktionen und Benutzeroberfläche von MyHordes an ihre Bedürfnisse anpassen. Damit das Spiel dennoch für alle fair bleibt, gelten einige Regeln für den Einsatz von Scripten (unabhängig davon, ob ihr eure Scripte weitergebt oder nur für euch selbst verwendet).</source>
-        <target>Avec l'aide de scripts, les joueurs peuvent adapter les fonctions et l'interface utilisateur du MyHordes à leurs besoins. Pour que le jeu reste toujours équitable pour tout le monde, certaines règles s'appliquent à l'utilisation de scripts (indépendamment de savoir si votre script est utilisé par d'autres ou utilisé uniquement par vous-même).</target>
+        <target>Avec l'aide de scripts, les joueurs peuvent adapter les fonctions et l'interface utilisateur de MyHordes à leurs besoins. Pour que le jeu reste toujours équitable pour tout le monde, certaines règles s'appliquent à l'utilisation de scripts (indépendamment de savoir si votre script est utilisé par d'autres ou utilisé uniquement par vous-même).</target>
       </segment>
     </unit>
     <unit id="XY_OEJT">
@@ -7696,7 +7695,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Ein Script darf keine Funktionen von MyHordes blockieren oder verstecken. Es ist jedoch erlaubt, Aktionen mit einer Warn- oder Bestätigungsmeldung zu versehen, solange diese vom Anwender ignoriert und die Aktion dennoch durchgeführt werden kann. Die Fähigkeit des Anwenders das Script zu deinstallieren, zählt ausdrücklich &lt;strong&gt;nicht&lt;/strong&gt; als legitime Möglichkeit solch eine Blockade zu umgehen</source>
-        <target><![CDATA[Un script ne doit en aucun cas bloquer ou masquer les fonctions de MyHordes. Cependant, il est autorisé à fournir des actions avec un message d'avertissement ou de confirmation tant que l'utilisateur peut l'ignorer et l'action peut toujours être effectuée. La capacité de l'utilisateur à désinstaller le script, <strong>ne compte pas</strong> comme une possibilité légitime d'éviter un tel blocage]]></target>
+        <target><![CDATA[Un script ne doit en aucun cas bloquer ou masquer les fonctions de MyHordes. Cependant, il est autorisé à fournir des actions avec un message d'avertissement ou de confirmation tant que l'utilisateur peut l'ignorer et que l'action peut toujours être effectuée. La capacité de l'utilisateur à désinstaller le script, <strong>ne compte pas</strong> comme une possibilité légitime d'éviter un tel blocage]]></target>
       </segment>
     </unit>
     <unit id=".J2Tho5">
@@ -7795,7 +7794,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Das Senden von Informationen darf &lt;strong&gt;nicht automatisiert&lt;/strong&gt; werden oder im Rahmen anderer Aktionen geschehen, wie beispielsweise bei jedem Neuladen der Seite oder bei jeder Bewegung in der Außenwelt. Stattdessen darf der Datentransfer nur durch die Betätigung einer klar beschrifteten Schaltfläche geschehen, welche das Script in der Benutzeroberfläche platziert.</source>
-        <target><![CDATA[L'envoi d'informations <strong>ne doit pas être automatisé</strong> ou se produire dans d'autres actions, telles que chaque rechargement de la page ou à chaque mouvement dans l'Outre-Monde. Au lieu de cela, le transfert de données ne peut être effectué que lorsque que l'utilisateur appuie sur un bouton clairement étiqueté, qui peut être placé par le script dans l'interface utilisateur.]]></target>
+        <target><![CDATA[L'envoi d'informations <strong>ne doit pas être automatisé</strong> ou se produire dans d'autres actions, telles que chaque rechargement de la page ou à chaque mouvement dans l'Outre-Monde. Au lieu de cela, le transfert de données ne peut être effectué que lorsque que l'utilisateur appuie sur un bouton clairement étiqueté, qui peut être placé par le script dans l'interface utilisateur,]]></target>
       </segment>
     </unit>
     <unit id="QjopWu6">
@@ -7804,7 +7803,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Es dürfen nur Informationen übertragen werden, welche dem Spieler &lt;strong&gt;im Augenblick der Übertragung&lt;/strong&gt; zur Verfügung stehen. Es ist beispielsweise nicht zulässig, während der Bewegung durch die Außenwelt Informationen über Zonen zu sammeln und diese dann gebündelt zu übertragen. Stattdessen dürfen nur Informationen über die aktuelle Zone des Spielers übertragen werden.</source>
-        <target><![CDATA[Seules les informations disponibles pour le joueur <strong>au moment de la transmission</strong> peuvent être transmises. Par exemple, il n'est pas autorisé de collecter des informations sur les zones pendant les mouvements dans l'Outre-Monde, puis les grouper. Au lieu de cela, seules les informations sur la zone actuelle du joueur peuvent être transférées.]]></target>
+        <target><![CDATA[Seules les informations disponibles pour le joueur <strong>au moment de la transmission</strong> peuvent être transmises. Par exemple, il n'est pas autorisé de collecter des informations sur les zones pendant les mouvements dans l'Outre-Monde, puis de les grouper. Au lieu de cela, seules les informations sur la zone actuelle du joueur peuvent être transférées,]]></target>
       </segment>
     </unit>
     <unit id="xDsEr25">
@@ -7813,7 +7812,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>&lt;strong&gt;Persönliche Informationen&lt;/strong&gt; über den Anwender sowie dessen &lt;strong&gt;Kommunikation mit anderen Spielern&lt;/strong&gt; dürfen niemals übertragen werden. Dies schließt Informationen wie die E-Mail Adresse, Passwort, Sitzungs-Tokens sowie Inhalte von Forenposts und Privaten Nachrichten ein.</source>
-        <target><![CDATA[<strong>Les informations personnelles</strong> à propos de l'utilisateur et de sa communication <strong>avec d'autres joueurs</strong> ne doivent jamais être transférées. Cela inclut des informations telles que l'adresse e-mail, le mot de passe, les jetons de session et le contenu des messages de forums et des messages privés.]]></target>
+        <target><![CDATA[<strong>Les informations personnelles</strong> à propos de l'utilisateur et de sa communication <strong>avec d'autres joueurs</strong> ne doivent jamais être transférées. Cela inclut des informations telles que l'adresse e-mail, le mot de passe, les jetons de session et le contenu des messages de forums et des messages privés,]]></target>
       </segment>
     </unit>
     <unit id="Y3yaVQ.">
@@ -7822,7 +7821,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Geheime Schlüssel des Spielers dürfen nur an diejenige Externe Anwendung gesendet werden, zu welcher sie gehören.</source>
-        <target>La clé secrète du joueur ne peut être envoyée qu'à l'application externe liée au script uniquement.</target>
+        <target>La clé secrète du joueur ne peut être envoyée qu'à l'application externe liée au script uniquement,</target>
       </segment>
     </unit>
     <unit id="rj2MQgA">
@@ -7831,7 +7830,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Informationen über &lt;strong&gt;"Geheime Rollen"&lt;/strong&gt; eines Spielers, wie beispielsweise den Ghul-Zustand, dürfen ebenfalls nicht übertragen werden. Dies schließt alle Informationen ein, die einen Spieler als Forenmoderator enttarnen könnten.</source>
-        <target><![CDATA[Les informations sur les <strong>"rôles secrets"</strong> d'un joueur, tel que l'état de Goule, ne doivent pas être transférées. Cela inclut également toutes les informations pouvant potentiellement révéler un utilisateur comme étant un modérateur sur le forum.]]></target>
+        <target><![CDATA[Les informations sur les <strong>"rôles secrets"</strong> d'un joueur, tel que l'état de Goule, ne doivent pas être transférées. Cela inclut également toutes les informations pouvant potentiellement révéler un utilisateur comme étant un modérateur sur le forum,]]></target>
       </segment>
     </unit>
     <unit id="n8MMaiP">
@@ -7858,7 +7857,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
       </notes>
       <segment>
         <source>Visuelle Elemente, welche durch ein Script in das Spiel integriert werden, dürfen sich in ihrem Design an MyHordes orientieren. Es sollte jedoch für den Spieler jederzeit erkennbar sein, dass es sich um ein Element des Scripts und nicht des Spiels selbst handelt.</source>
-        <target>Les éléments visuels introduits dans MyHordes par le script peuvent adapter le style général de MyHordes, mais il doit être clair pour l'utilisateur qu'ils proviennent d'un script malgré tout.</target>
+        <target>Les éléments visuels introduits dans MyHordes par le script peuvent adapter le style général de MyHordes, mais il doit être clair pour l'utilisateur qu'ils proviennent d'un script malgré tout,</target>
       </segment>
     </unit>
     <unit id="5IonOmt">

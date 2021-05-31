@@ -979,7 +979,7 @@
       </notes>
       <segment>
         <source>Kettensäge (ohne Strom)</source>
-        <target>Chainsaw (incomplete)</target>
+        <target>Chainsaw (empty)</target>
       </segment>
     </unit>
     <unit id="4yWesEi" name="Batteriewerfer 1-PDTG (entladen)">
@@ -7436,15 +7436,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.</target>
       </segment>
     </unit>
-    <unit id="uHEMxan">
-      <notes>
-        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</note>
-      </notes>
-      <segment>
-        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>All the zombies in the area have been wiped out using the {item} ! You can relax for a while... Or...</t-kill-latest><t-kills>You have eliminated {kills} using the {item} . Ha! Ha! A little bit more scattered flesh... It feels good to waste a zombie now and again.</t-kills>]]></target>
-      </segment>
-    </unit>
     <unit id="5DH1uFn">
       <notes>
         <note category="german">Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</note>
@@ -7553,13 +7544,13 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target><![CDATA[<nt-fail>You threw a sandball in {citizen}'s face.</nt-fail><t-fail>There is no one here to throw the sandball...</t-fail>]]></target>
       </segment>
     </unit>
-    <unit id="sU9PQTX">
+    <unit id="WvhcAeX">
       <notes>
-        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</note>
+        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/nt-kill-latest&gt;</note>
       </notes>
       <segment>
-        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>All the zombies in the area have been wiped out using the {item} ! You can relax for a while... Or...</t-kill-latest><t-kills>You have eliminated {kills} zombie(s) using the {item}. Ha! Ha! A little bit more scattered flesh... It feels good to waste a zombie now and again.</t-kills>]]></target>
+        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/nt-kill-latest&gt;</source>
+        <target><![CDATA[<t-kill-latest>All the zombies in the area have been wiped out using the {item} ! You can relax for a while... Or...</t-kill-latest><nt-kill-latest>You have eliminated {kills} zombie(s) using the {item}. Ha! Ha! A little bit more scattered flesh... It feels good to waste a zombie now and again.</nt-kill-latest>]]></target>
       </segment>
     </unit>
     <unit id="DJF1Mzv">
@@ -7823,13 +7814,13 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>You have nothing to open it with...</target>
       </segment>
     </unit>
-    <unit id="L3OUyqa">
+    <unit id="BmWCshI">
       <notes>
-        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</note>
+        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/nt-kill-latest&gt;</note>
       </notes>
       <segment>
-        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><t-kills>Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!</t-kills>]]></target>
+        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/nt-kill-latest&gt;</source>
+        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><nt-kill-latest>Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!</nt-kill-latest>]]></target>
       </segment>
     </unit>
     <unit id="5N_N9nB" name="Weicher Kürbis">
@@ -8352,6 +8343,69 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>Du hast {target} mit {item} kombiniert und {target} erzeugt.{hr}Achtung: Du hast {target} vergiftet. Es ist &lt;strong&gt;nahezu unmöglich, es vom Original zu unterscheiden&lt;/strong&gt;, sei also vorsichtig... Es liegt ganz an dir, was du damit jetzt tun möchtest.</source>
         <target><![CDATA[You have assembled {target} by combining {item} and {target} erzeugt.{hr}Warning! You have poisoned the {target}! It is now <strong>almost impossible to distinguish from a safe one</strong>, so be careful... It's up to you to do with it what you feel is "fair".]]></target>
+      </segment>
+    </unit>
+    <unit id="i.fN8wb" name="Zeuge der großen Verseuchung">
+      <notes>
+        <note category="german">Zeuge der großen Verseuchung</note>
+      </notes>
+      <segment>
+        <source>Zeuge der großen Verseuchung</source>
+        <target>Witness to the Great Contamination</target>
+      </segment>
+    </unit>
+    <unit id="_4bq2jQ">
+      <notes>
+        <note category="german">Als Opfer der Großen Seuche hast du durch dein gestähltes Immunsystem eine Chance, Infektionen abzuwehren.</note>
+      </notes>
+      <segment>
+        <source>Als Opfer der Großen Seuche hast du durch dein gestähltes Immunsystem eine Chance, Infektionen abzuwehren.</source>
+        <target>As a victim of the Great Contamination, you have a chance to fight off infections because of your strengthened immune system.</target>
+      </segment>
+    </unit>
+    <unit id="EOq8v7z" name="Zeuge des Armageddon">
+      <notes>
+        <note category="german">Zeuge des Armageddon</note>
+      </notes>
+      <segment>
+        <source>Zeuge des Armageddon</source>
+        <target>Armageddon Witness</target>
+      </segment>
+    </unit>
+    <unit id="N_DpPbR" name="Als Zeuge des Armagedon kannst du selbst aus ausweglosen Situationen fliehen.">
+      <notes>
+        <note category="german">Als Zeuge des Armageddon kannst du selbst aus ausweglosen Situationen fliehen.</note>
+      </notes>
+      <segment>
+        <source>Als Zeuge des Armagedon kannst du selbst aus ausweglosen Situationen fliehen.</source>
+        <target>As a witness to Armageddon, you can escape even from hopeless situations.</target>
+      </segment>
+    </unit>
+    <unit id="Fxoqglo" name="Ruhm">
+      <notes>
+        <note category="german">Ruhm</note>
+      </notes>
+      <segment>
+        <source>Ruhm</source>
+        <target>Glory</target>
+      </segment>
+    </unit>
+    <unit id="FQo0T3F">
+      <notes>
+        <note category="german">Als Champion kannst du deinen Nachrichten im Forum zusätzliche Authorität verleihen.</note>
+      </notes>
+      <segment>
+        <source>Als Champion kannst du deinen Nachrichten im Forum zusätzliche Authorität verleihen.</source>
+        <target>As a champion you can give additional authority to your messages in the forum.</target>
+      </segment>
+    </unit>
+    <unit id="VDcKkt9" name="Kreischender Wecker">
+      <notes>
+        <note category="german">Kreischender Wecker</note>
+      </notes>
+      <segment>
+        <source>Kreischender Wecker</source>
+        <target>Screaming Alarm Clock</target>
       </segment>
     </unit>
   </file>

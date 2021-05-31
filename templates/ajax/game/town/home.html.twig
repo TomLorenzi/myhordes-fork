@@ -454,8 +454,12 @@
                     {% endtrans %}
                 {% endif %}
             </div>
-            {# @var next_level_req \App\Entity\BuildingPrototype #}
-            <div class="row">
+
+            {% if town.devastated %}
+                <div class="note note-critical">{{ 'Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.'|trans({},'game') }}</div>
+            {% else %}
+                {# @var next_level_req \App\Entity\BuildingPrototype #}
+                <div class="row">
                 <div class="padded cell rw-5 rw-md-12">
                     <button id="upgrade_home_level" {% if devastated %}disabled{% endif %}>
                         <img alt="" src="{{ asset('build/images/icons/home.gif') }}" />
@@ -492,7 +496,7 @@
                     </div>
                 </div>
             </div>
-
+            {% endif %}
         {% endif %}
 
         {% if home.prototype.allowSubUpgrades %}

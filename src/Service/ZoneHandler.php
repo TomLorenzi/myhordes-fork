@@ -339,13 +339,13 @@ class ZoneHandler
 
         $town->getMapSize($map_x,$map_y);
 
-        $fun_cycle = function() use (&$zone_db): int {
+        $fun_cycle = function(bool $observe_despair = false) use (&$zone_db,$despair_db): int {
             $cycle_result = 0;
             $zone_original_db = $zone_db;
             foreach ($zone_db as $x => &$zone_row)
                 foreach ($zone_row as $y => &$current_zone_zombies) {
 
-                    if ($x === 0 && $y === 0) continue;
+                    if (($x === 0 && $y === 0) || ($despair_db[$x][$y] > 0 && $observe_despair)) continue;
 
                     $before = $current_zone_zombies;
 
@@ -447,7 +447,7 @@ class ZoneHandler
 
 
         for ($c = 0; $c < $cycles; $c++)
-            $fun_cycle();
+            $fun_cycle($c == 0);
 
         foreach ($town->getZones() as &$zone) {
             if ($zone->getX() === 0 && $zone->getY() === 0) continue;

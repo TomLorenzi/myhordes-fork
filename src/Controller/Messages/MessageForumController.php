@@ -102,7 +102,7 @@ class MessageForumController extends MessageController
             /** @var ThreadReadMarker $marker */
             $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser($user, $thread);
             $lastPost = $thread->lastPost( $show_hidden_threads );
-            if (!$marker || ($lastPost && $lastPost !== $marker->getPost()))
+            if (!$marker || ($lastPost && $lastPost->getId() > $marker->getPost()->getId()))
                 $thread->setNew();
         }
 
@@ -117,7 +117,7 @@ class MessageForumController extends MessageController
             /** @var ThreadReadMarker $marker */
             $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser($user, $thread);
             $lastPost = $thread->lastPost( $show_hidden_threads );
-            if (!$marker || ($lastPost && $lastPost !== $marker->getPost()))
+            if (!$marker || ($lastPost && $lastPost->getId() > $marker->getPost()->getId()))
                 $thread->setNew();
         }
         
@@ -128,7 +128,7 @@ class MessageForumController extends MessageController
             'permission' => $this->getPermissionObject( $permissions ),
             'select' => $tid,
             'jump' => $pid,
-            'town' => $forum->getTown() ? $forum->getTown() : false,
+            'town' => $forum->getTown() ?? false,
             'pages' => $pages,
             'current_page' => $page,
             'paranoid' => $paranoid
@@ -1025,7 +1025,8 @@ class MessageForumController extends MessageController
                 /** @var Post $post */
                 $post = $this->entity_manager->getRepository(Post::class)->find((int)$parser->get('postId'));
                 $reason = $parser->get( 'reason', '' );
-                if (!$post || empty($reason)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                if (!$post) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                if (empty($reason)) $reason = "---";
 
                 if (!$this->perm->checkEffectivePermissions($this->getUser(), $forum, ForumUsagePermissions::PermissionModerate))
                     return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -1150,12 +1151,14 @@ class MessageForumController extends MessageController
             if ($report->getSourceUser()->getId() == $user->getId())
                 return AjaxResponse::success();
 
-        $newReport = (new AdminReport())
-            ->setSourceUser($user)
-            ->setTs(new DateTime('now'))
-            ->setPost($post);
+        $post->addAdminReport(
+            $newReport = (new AdminReport())
+                ->setSourceUser($user)
+                ->setTs(new DateTime('now'))
+        );
 
         try {
+            $em->persist($post);
             $em->persist($newReport);
             $em->flush();
         } catch (Exception $e) {
