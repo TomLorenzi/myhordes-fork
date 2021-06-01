@@ -3421,5 +3421,14 @@
         <target>Débloquer une fonctionnalité :</target>
       </segment>
     </unit>
+    <unit id="hORe5zQ" name="Bearbeiten">
+      <notes>
+        <note category="german">Bearbeiten</note>
+      </notes>
+      <segment>
+        <source>Bearbeiten</source>
+        <target>Modifier</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

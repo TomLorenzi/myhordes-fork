@@ -3403,5 +3403,14 @@
         <target>Feature freigeben:</target>
       </segment>
     </unit>
+    <unit id="hORe5zQ" name="Bearbeiten">
+      <notes>
+        <note category="german">Bearbeiten</note>
+      </notes>
+      <segment>
+        <source>Bearbeiten</source>
+        <target>Editar</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

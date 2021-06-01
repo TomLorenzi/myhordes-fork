@@ -100,6 +100,11 @@ class CitizenRankingProxy
      */
     private $dayOfDeath = 1;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $commentLocked;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -308,6 +313,18 @@ class CitizenRankingProxy
     public function setDayOfDeath(int $dayOfDeath): self
     {
         $this->dayOfDeath = $dayOfDeath;
+
+        return $this;
+    }
+
+    public function getCommentLocked(): ?bool
+    {
+        return $this->commentLocked;
+    }
+
+    public function setCommentLocked(?bool $commentLocked): self
+    {
+        $this->commentLocked = $commentLocked;
 
         return $this;
     }
