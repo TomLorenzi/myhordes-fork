@@ -14634,7 +14634,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>im Nordwesten</source>
-        <target>im Nordwesten</target>
+        <target>in the Northwest</target>
       </segment>
     </unit>
     <unit id="dHF9hg3" name="im Norden">
@@ -14643,7 +14643,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>im Norden</source>
-        <target>im Norden</target>
+        <target>in the North</target>
       </segment>
     </unit>
     <unit id="8VW_Ac6" name="im Nordosten">
@@ -14652,7 +14652,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>im Nordosten</source>
-        <target>im Nordosten</target>
+        <target>in the Northeast</target>
       </segment>
     </unit>
     <unit id="CGH7WpP" name="im Westen">
@@ -14661,7 +14661,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>im Westen</source>
-        <target>im Westen</target>
+        <target>in the West</target>
       </segment>
     </unit>
     <unit id="GrDc37F" name="im Osten">
@@ -14670,7 +14670,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>im Osten</source>
-        <target>im Osten</target>
+        <target>in the East</target>
       </segment>
     </unit>
     <unit id="luEGXBn" name="im Südwesten">
@@ -14679,7 +14679,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>im Südwesten</source>
-        <target>im Südwesten</target>
+        <target>in the Southwest</target>
       </segment>
     </unit>
     <unit id="UpG6M6C" name="im Süden">
@@ -14688,7 +14688,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>im Süden</source>
-        <target>im Süden</target>
+        <target>in the South</target>
       </segment>
     </unit>
     <unit id="G2GbQ43" name="im Südosten">
@@ -14697,7 +14697,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>im Südosten</source>
-        <target>im Südosten</target>
+        <target>in the Southeast</target>
       </segment>
     </unit>
     <unit id="AISIM8E" name="Du bist für das Katapult verantwortlich">
@@ -14850,7 +14850,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen &lt;strong&gt;%sector% der Stadt&lt;/strong&gt; regeneriert haben.&lt;p&gt;&lt;em&gt;Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!&lt;/em&gt;&lt;/p&gt;</source>
-        <target><![CDATA[No doubt affected by the mysterious meterological phenomena which occur around midnight, certain zones <strong>in the %sector% not a million miles from the town</strong> could have regenerated.<p><em>So it will again be possible to find objects when searching, even if the zone was previously depleted!</em></p>]]></target>
+        <target><![CDATA[No doubt affected by the mysterious meterological phenomena which occur around midnight, certain zones <strong>%sector% not a million miles from the town</strong> could have regenerated.<p><em>So it will again be possible to find objects when searching, even if the zone was previously depleted!</em></p>]]></target>
       </segment>
     </unit>
     <unit id="88_o8Q3" name="Verlorenes Brunnenwasser: %count% Einhet(en)">
