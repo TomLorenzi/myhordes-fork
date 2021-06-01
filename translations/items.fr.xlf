@@ -7390,13 +7390,13 @@
         <target>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</target>
       </segment>
     </unit>
-    <unit id="5DH1uFn">
+    <unit id="LekZSqE">
       <notes>
-        <note category="german">Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</note>
+        <note category="german">Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber &lt;strong&gt;es scheint ihm nichts anzuhaben&lt;/strong&gt;!</note>
       </notes>
       <segment>
-        <source>Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</source>
-        <target>Vous frappez un zombie de toutes vos forces, plusieurs fois, mais celui-ci ne s'effrondre pas sous vos coups !</target>
+        <source>Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber &lt;strong&gt;es scheint ihm nichts anzuhaben&lt;/strong&gt;!</source>
+        <target><![CDATA[Vous frappez un zombie de toutes vos forces, plusieurs fois, mais <strong>celui-ci ne s'effrondre pas sous vos coups !</strong>]]></target>
       </segment>
     </unit>
     <unit id="y3qU7qO">

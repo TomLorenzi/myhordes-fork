@@ -7438,11 +7438,11 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     </unit>
     <unit id="5DH1uFn">
       <notes>
-        <note category="german">Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</note>
+        <note category="german">Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber &lt;strong&gt;es scheint ihm nichts anzuhaben&lt;/strong&gt;!</note>
       </notes>
       <segment>
-        <source>Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</source>
-        <target>You hit a zombie with all your strength, several times, but your punches turned out to be more Joe Quimby than Joe Calzaghe... You couldn't get him to go down !</target>
+        <source>Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber &lt;strong&gt;es scheint ihm nichts anzuhaben&lt;/strong&gt;!</source>
+        <target><![CDATA[You hit a zombie with all your strength, several times, but your punches turned out to be more Joe Quimby than Joe Calzaghe... <strong>You couldn't get him to go down</strong>!]]></target>
       </segment>
     </unit>
     <unit id="tT6PQwS" name="Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...">

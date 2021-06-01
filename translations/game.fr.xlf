@@ -19751,5 +19751,14 @@
         <target><![CDATA[Un ou plusieurs citoyens non-bannis dans la zone <strong>vous ont vu faire</strong> !<hr />Vous avez utilisé 2 point(s) d'action.]]></target>
       </segment>
     </unit>
+    <unit id="euqAojU">
+      <notes>
+        <note category="german">Als du folgendes Gebäude: %building% erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: %item%.</note>
+      </notes>
+      <segment>
+        <source>Als du folgendes Gebäude: %building% erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: %item%.</source>
+        <target>La peur vous prend aux tripes tandis que vous explorez %building%... Néanmoins, ça n'aura pas été inutile puisque vous finissez par trouver %item%.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

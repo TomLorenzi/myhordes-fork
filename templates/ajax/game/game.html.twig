@@ -55,7 +55,7 @@
             <div>
                 <div>
                     <ul class="ap">
-                        <li><b class="{{ ap == 0 ? 'red' : '' }}">{{ ap }}</b><em>/{{ max_ap }}</em></li>
+                        <li><b class="{{ ap == 0 ? 'red' : '' }}">{{ ap }}</b><em {% if has_wound is defined and has_wound %}class="warning"{% endif %}>/{{ max_ap }}</em></li>
                     </ul>
                     <div class="tooltip help">
                         <h1>{{ 'Aktionspunkte'|trans({},'game') }}</h1>
