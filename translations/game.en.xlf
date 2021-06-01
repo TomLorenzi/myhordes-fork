@@ -15345,7 +15345,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die in der Stadt liegengebliebenen Körper der ehemaligen Einwohner erwachten in der Zwischenzeit wieder zu Leben...</source>
-        <target>Die in der Stadt liegengebliebenen Körper der ehemaligen Einwohner erwachten in der Zwischenzeit wieder zu Leben...</target>
+        <target>Meanwhile, the corpses of former citizens remaining in town woke up...</target>
       </segment>
     </unit>
     <unit id="Oys88cl">
@@ -15372,7 +15372,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. %town% existiert nicht mehr...</source>
-        <target><![CDATA[Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: <strong>das Stadttor wurde aufgebrochen</strong> und <strong>liegt nun in Trümmern</strong>. %town% existiert nicht mehr...]]></target>
+        <target><![CDATA[The town is no more than a vast, sickening cemetery. There was nobody here last night to resist the last attack : the town gates were forced open and reduced to splinters. %town% is no more.]]></target>
       </segment>
     </unit>
     <unit id="GH4aDYM">
@@ -17491,7 +17491,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es ist kein Nachtwächter da, um die Stadt zu verteidigen.</source>
-        <target>Es ist kein Nachtwächter da, um die Stadt zu verteidigen.</target>
+        <target>There were no watchman present to defend the town.</target>
       </segment>
     </unit>
     <unit id="gWz67fx">
