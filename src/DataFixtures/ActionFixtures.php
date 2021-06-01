@@ -257,7 +257,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         'meta_results' => [
             'do_nothing' => [],
-            'do_nothing_attack' => ['message' => ['text' => 'Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!']],
+            'do_nothing_attack' => ['message' => ['text' => 'Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber <strong>es scheint ihm nichts anzuhaben</strong>!']],
 
             'contaminated_zone_infect'  => [ 'collection' => [ 'custom' => [22] ] ],
 
