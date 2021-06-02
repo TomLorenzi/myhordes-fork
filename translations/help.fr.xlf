@@ -3815,7 +3815,7 @@ Spieler mit solchen Berufen werden als Helden bezeichnet.</note>
         <source>Jeder Spieler startet in "Die Verdammten" als einfacher Bürger. 
 Daneben gibt es jedoch noch &lt;strong&gt;7 außergewöhnliche Berufe&lt;/strong&gt;. 
 Diese Berufe sind aber den Spielern vorbehalten sind, die als Held spielen.</source>
-        <target><![CDATA[<strong>Chaque citoyen dans MyHordes peut commencer en tant que simple Habitant ou choisir un métier qui lui apporte un avantage dans un domaine spécifique : le métier de Fouineur permet par exemple de trouver plus d'objets dans le désert que la moyenne.]]></target>
+        <target><![CDATA[<strong>Chaque citoyen dans MyHordes peut commencer en tant que simple Habitant ou choisir un métier</strong> qui lui apporte un avantage dans un domaine spécifique : le métier de Fouineur permet par exemple de trouver plus d'objets dans le désert que la moyenne.]]></target>
       </segment>
     </unit>
     <unit id="9ySXrH1">
