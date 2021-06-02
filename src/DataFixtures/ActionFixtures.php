@@ -563,7 +563,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'water_no_effect' => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ ], 'result' => [ 'contaminated_zone_infect', 'consume_item' ], 'message' => 'Du hast {item} getrunken, aber scheinbar geschieht nichts...'  ],
 
             'alcohol'    => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_drunk', 'not_hungover' ], 'result' => [ 'contaminated_zone_infect', 'just_ap6', 'drunk', 'consume_item' ], 'message' => 'Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>.' ],
-            'alcohol_dx' => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ ], 'result' => [ 'contaminated_zone_infect', 'just_ap6', 'drunk', 'consume_item' ] ],
+            'alcohol_dx' => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ ], 'result' => [ 'contaminated_zone_infect', 'just_ap6', 'drunk', 'consume_item' ], 'message' => 'Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>.' ],
 
             'coffee' => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ ], 'result' => [ 'contaminated_zone_infect', 'plus_4ap', 'consume_item' ] ],
 
