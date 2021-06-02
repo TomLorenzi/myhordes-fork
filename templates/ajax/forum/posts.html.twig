@@ -225,7 +225,9 @@
                                     {{ 'Von einem Moderator bearbeitet.'|trans({},'game') }}
                                 {% endif %}
                             {% else %}
-                                {% if post.lastAdminActionBy is not null and post.edited is not null %}
+                                {% if post.edited is not null and post.lastAdminActionBy is null %}
+                                    {{ 'Zuletzt bearbeitet: %date%'|trans({'%date%': post.edited|format_datetime('medium', 'short')},'game') }}
+                                {% elseif post.lastAdminActionBy is not null and post.edited is not null %}
                                     {{ 'Zuletzt bearbeitet: %date%'|trans({'%date%': post.edited|format_datetime('medium', 'short')},'game') }}
                                     {{ ' ~ MOD: ' ~ post.lastAdminActionBy.name }}
                                 {% elseif post.lastAdminActionBy is not null and post.edited is null %}
