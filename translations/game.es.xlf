@@ -19761,5 +19761,14 @@
         <target>Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</target>
       </segment>
     </unit>
+    <unit id="if9Rvma">
+      <notes>
+        <note category="german">Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche &lt;strong&gt;in Verpflegung umwandeln&lt;/strong&gt;. Aber willst du das wirklich tun?</note>
+      </notes>
+      <segment>
+        <source>Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche &lt;strong&gt;in Verpflegung umwandeln&lt;/strong&gt;. Aber willst du das wirklich tun?</source>
+        <target><![CDATA[Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche <strong>in Verpflegung umwandeln</strong>. Aber willst du das wirklich tun?]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

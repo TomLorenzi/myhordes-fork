@@ -19796,5 +19796,14 @@
         <target>Cela nécessite 2 points d'action. Confirmer ?</target>
       </segment>
     </unit>
+    <unit id="if9Rvma">
+      <notes>
+        <note category="german">Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche &lt;strong&gt;in Verpflegung umwandeln&lt;/strong&gt;. Aber willst du das wirklich tun?</note>
+      </notes>
+      <segment>
+        <source>Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche &lt;strong&gt;in Verpflegung umwandeln&lt;/strong&gt;. Aber willst du das wirklich tun?</source>
+        <target><![CDATA[Grace au Crémato-Cue construit par la ville, vous pouvez <strong>transformer ce corps en rations</strong>.. Mais voulez-vous vraiment faire cela ?]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
