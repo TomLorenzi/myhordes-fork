@@ -179,8 +179,18 @@
                 <h5>{% trans from 'game' %}Was geschieht mit dieser Leiche?{% endtrans %}</h5>
                 {% if owner.home.holdsBody %}
                     <span class="disposal">{{'Da %citizen% tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>%townname%</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.'|trans({'%citizen%': owner.name, '%townname%': owner.town.name}, 'game')|raw}}</span>
-                    <button x-disposal-id="{{ constant('App\\Entity\\Citizen::Watered') }}"><img alt="" src="{{ asset('build/images/item/item_water.gif') }}" />{{ 'Leiche mit Wasser übergießen'|trans({},'game') }}</button>
-                    <button x-disposal-id="{{ constant('App\\Entity\\Citizen::Thrown') }}">{{ 'Leiche aus der Stadt ziehen'|trans({},'game') }} (<div class="ap">2</div>)</button>
+                    <button x-disposal-id="{{ constant('App\\Entity\\Citizen::Watered') }}">
+                        <img alt="" src="{{ asset('build/images/item/item_water.gif') }}" />{{ 'Leiche mit Wasser übergießen'|trans({},'game') }}
+                        <div class="tooltip help">
+                            {{'Die Zeremonie besteht darin, die Leiche mit einer 1x <strong>Ration Wasser</strong> zu übergießen. Die Leiche wird dann sofort zerstört.'|trans({}, 'game')|raw}}
+                        </div>
+                    </button>
+                    <button x-disposal-id="{{ constant('App\\Entity\\Citizen::Thrown') }}">
+                        {{ 'Leiche aus der Stadt ziehen'|trans({},'game') }} (<div class="ap">2</div>)
+                        <div class="tooltip help">
+                            {{'Wenn du eine Leiche entsorgen möchtest, ohne dafür Wasser zu verbrauchen, kannst du sie <strong>nach draußen ziehen</strong>. Diese Aktion verbraucht <strong>2 Aktionspunkte</strong>.'|trans({}, 'game')|raw}}
+                        </div>
+                    </button>
                     {% if has_cremato %}
                         <button x-disposal-id="{{ constant('App\\Entity\\Citizen::Cooked') }}"><img alt="" src="{{ asset('build/images/item/item_hmeat.gif') }}" />{{ 'Leiche grillen'|trans({},'game') }}</button>
                     {% endif %}
@@ -451,6 +461,23 @@
             const disposalButtons = document.querySelectorAll('[x-disposal-id]');
             for (let i = 0; i < disposalButtons.length; i++)
                 disposalButtons[i].addEventListener('click', function() {
+                    let confirmMsg = "";
+                    let dispose_id = disposalButtons[i].getAttribute('x-disposal-id');
+                    switch(dispose_id) {
+                        case "{{ constant('App\\Entity\\Citizen::Watered') }}":
+                            confirmMsg = "{{ 'Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?'|trans({}, 'game') }}";
+                            break;
+                        case "{{ constant('App\\Entity\\Citizen::Thrown') }}":
+                            confirmMsg = "{{ 'Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?'|trans({}, 'game') }}";
+                            break;
+                        default:
+                            confirmMsg = "{{ 'Bestätigen?'|trans({},'global')|e('js') }}";
+                            break;
+                    }
+
+                    if (!confirm(confirmMsg))
+                        return;
+
                     $.ajax.easySend( '{{ path('town_visit_dispose_controller', {id: owner.id}) }}', {action: parseInt(disposalButtons[i].getAttribute('x-disposal-id'))},
                         function () {
                             $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
