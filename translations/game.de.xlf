@@ -19753,5 +19753,68 @@
         <target><![CDATA[Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.<hr/>Du hast 2 Aktionspunkte verbraucht.]]></target>
       </segment>
     </unit>
+    <unit id="euqAojU">
+      <notes>
+        <note category="german">Als du folgendes Gebäude: %building% erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: %item%.</note>
+      </notes>
+      <segment>
+        <source>Als du folgendes Gebäude: %building% erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: %item%.</source>
+        <target>Als du folgendes Gebäude: %building% erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: %item%.</target>
+      </segment>
+    </unit>
+    <unit id="ijrzep1">
+      <notes>
+        <note category="german">Die Zeremonie besteht darin, die Leiche mit einer 1x &lt;strong&gt;Ration Wasser&lt;/strong&gt; zu übergießen. Die Leiche wird dann sofort zerstört.</note>
+      </notes>
+      <segment>
+        <source>Die Zeremonie besteht darin, die Leiche mit einer 1x &lt;strong&gt;Ration Wasser&lt;/strong&gt; zu übergießen. Die Leiche wird dann sofort zerstört.</source>
+        <target><![CDATA[Die Zeremonie besteht darin, die Leiche mit einer 1x <strong>Ration Wasser</strong> zu übergießen. Die Leiche wird dann sofort zerstört.]]></target>
+      </segment>
+    </unit>
+    <unit id="o7WUM4t">
+      <notes>
+        <note category="german">Wenn du eine Leiche entsorgen möchtest, ohne dafür Wasser zu verbrauchen, kannst du sie &lt;strong&gt;nach draußen ziehen&lt;/strong&gt;. Diese Aktion verbraucht &lt;strong&gt;2 Aktionspunkte&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Wenn du eine Leiche entsorgen möchtest, ohne dafür Wasser zu verbrauchen, kannst du sie &lt;strong&gt;nach draußen ziehen&lt;/strong&gt;. Diese Aktion verbraucht &lt;strong&gt;2 Aktionspunkte&lt;/strong&gt;.</source>
+        <target><![CDATA[Wenn du eine Leiche entsorgen möchtest, ohne dafür Wasser zu verbrauchen, kannst du sie <strong>nach draußen ziehen</strong>. Diese Aktion verbraucht <strong>2 Aktionspunkte</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="uLW8jwG" name="Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?">
+      <notes>
+        <note category="german">Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</source>
+        <target>Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</target>
+      </segment>
+    </unit>
+    <unit id="dk0TbNl" name="Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?">
+      <notes>
+        <note category="german">Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</source>
+        <target>Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</target>
+      </segment>
+    </unit>
+    <unit id="if9Rvma">
+      <notes>
+        <note category="german">Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche &lt;strong&gt;in Verpflegung umwandeln&lt;/strong&gt;. Aber willst du das wirklich tun?</note>
+      </notes>
+      <segment>
+        <source>Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche &lt;strong&gt;in Verpflegung umwandeln&lt;/strong&gt;. Aber willst du das wirklich tun?</source>
+        <target><![CDATA[Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche <strong>in Verpflegung umwandeln</strong>. Aber willst du das wirklich tun?]]></target>
+      </segment>
+    </unit>
+    <unit id="JQAKEqq">
+      <notes>
+        <note category="german">Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.</note>
+      </notes>
+      <segment>
+        <source>Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.</source>
+        <target>Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

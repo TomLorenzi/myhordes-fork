@@ -331,7 +331,7 @@ class InventoryAwareController extends CustomAbstractController
             ->leftJoin('App:ItemCategory', 'c', Join::WITH, 'p.category = c.id')
             ->leftJoin('App:ItemCategory', 'cr', Join::WITH, 'c.parent = cr.id')
             ->addOrderBy('c.ordering','ASC')
-            ->addOrderBy('p.id', 'ASC')
+            ->addOrderBy('p.icon', 'DESC')
             ->addOrderBy('i.id', 'ASC');
 
         $data = $qb->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY);
