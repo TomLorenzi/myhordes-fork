@@ -8414,7 +8414,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Das brauchst du gerade nicht...</source>
-        <target>Das brauchst du gerade nicht...</target>
+        <target>You don't need that right now...</target>
       </segment>
     </unit>
   </file>
