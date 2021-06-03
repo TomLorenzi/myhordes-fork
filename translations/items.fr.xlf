@@ -8327,5 +8327,14 @@
         <target>Réveil-Hurleur</target>
       </segment>
     </unit>
+    <unit id="9ZHsnl1" name="Das brauchst du gerade nicht...">
+      <notes>
+        <note category="german">Das brauchst du gerade nicht...</note>
+      </notes>
+      <segment>
+        <source>Das brauchst du gerade nicht...</source>
+        <target>Vous n'avez pas besoin de cela pour le moment...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
