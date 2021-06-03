@@ -19782,7 +19782,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.</source>
-        <target>Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.</target>
+        <target>Each citizen that visits the tower and scans the horizon will improve the quality of the estimation.</target>
       </segment>
     </unit>
   </file>
