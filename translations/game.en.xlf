@@ -18162,7 +18162,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Das ist die bestmögliche Schätzung, die wir für diesen Angriff abgeben konnten.</source>
-        <target>This is the best possible estimate we can give for this attack.</target>
+        <target>This is the best estimation we can make of this attack.</target>
       </segment>
     </unit>
     <unit id="tN9xF04">

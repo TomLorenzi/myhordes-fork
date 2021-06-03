@@ -3203,7 +3203,7 @@
       </notes>
       <segment>
         <source>%citizen% hat etwas Schutt entfernt.</source>
-        <target>%citizen% a déblayé quelques débris.</target>
+        <target>%citizen% a déblayé un peu la zone...</target>
       </segment>
     </unit>
     <unit id="WmDHw.1" name="%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!">
@@ -3212,7 +3212,7 @@
       </notes>
       <segment>
         <source>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</source>
-        <target>%citizen% a déterré le bâtiment, révélant %type%. Hourra !</target>
+        <target>La zone a été totalement déblayée, révélant : %type%.</target>
       </segment>
     </unit>
     <unit id="zTh0a4e">
