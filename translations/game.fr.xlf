@@ -19805,5 +19805,14 @@
         <target><![CDATA[Grace au Crémato-Cue construit par la ville, vous pouvez <strong>transformer ce corps en rations</strong>.. Mais voulez-vous vraiment faire cela ?]]></target>
       </segment>
     </unit>
+    <unit id="JQAKEqq">
+      <notes>
+        <note category="german">Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.</note>
+      </notes>
+      <segment>
+        <source>Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.</source>
+        <target>Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -73,7 +73,12 @@
                         <div class="forum-button-disabled"><i class="fa fa-fast-backward"></i></div>
                         <div class="forum-button-disabled"><i class="fa fa-backward"></i></div>
                     {% endif %}
-                    <div class="forum-button">{{ 'Seite %page%/%pages%'|trans({'%page%': current_page, '%pages%': pages},'global') }}</div>
+                    <div class="forum-button" x-forum-action="post-select-page">
+                        {{ 'Seite %page%/%pages%'|trans({'%page%': '<span class="current_page_marker">&nbsp;' ~ current_page ~ '</span>', '%pages%': pages},'global')|raw }}
+                        <div class="tooltip">
+                            {{ 'Zum Wechsein der Seite hier klicken'|trans({}, 'global') }}
+                        </div>
+                    </div>
                     {% if current_page < pages %}
                         <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ current_page + 1 }}"><i class="fa fa-forward"></i></div>
                         <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ pages }}"><i class="fa fa-fast-forward"></i></div>
@@ -412,6 +417,34 @@
                 }
             );
         } );
+
+        $.html.addEventListenerAll( '[x-forum-action="post-select-page"]', 'click', function(e,elem) {
+            e.preventDefault();
+            e.stopPropagation();
+            let pagMarker = elem.querySelector(".current_page_marker");
+            pagMarker.innerHTML = '<input type="text" name="page_to_go" class="page_to_go inline" style="width: 24px;margin: 0 5px" />';
+            elem.querySelector("input.page_to_go").focus();
+            $.html.addEventListenerAll('[x-forum-action="post-select-page"] input.page_to_go', 'click', function(e, elem){
+                e.preventDefault();
+                e.stopPropagation();
+            });
+            $.html.addEventListenerAll('[x-forum-action="post-select-page"] input.page_to_go', 'change', function(e, elem){
+                let editor = document.getElementById('forum-forum-editor');
+                {% if editor is defined %}
+                {let c; while ((c = editor.firstChild)) editor.removeChild(c);}
+                {% endif %}
+                let to_page = parseInt( elem.value );
+                if (isNaN(to_page))
+                    return;
+                if (to_page > {{ pages }})
+                    to_page = {{ pages }};
+                $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: to_page});
+            });
+        } );
+
+        $.html.addEventListenerAll('[x-forum-action="post-select-page"]', 'focusout', function(e, elem){
+            elem.innerHTML = '{{ 'Seite %page%/%pages%'|trans({'%page%': '<span class="current_page_marker">&nbsp;' ~ current_page ~ '</span>', '%pages%': pages},'global')|raw }}';
+        });
 
         {% if pages == current_page %}
             $.html.forEach( '[x-thread-id="{{ tid }}"]', e => e.classList.remove('forum-thread-unread') );

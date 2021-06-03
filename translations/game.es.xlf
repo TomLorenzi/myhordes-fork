@@ -19770,5 +19770,14 @@
         <target><![CDATA[Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche <strong>in Verpflegung umwandeln</strong>. Aber willst du das wirklich tun?]]></target>
       </segment>
     </unit>
+    <unit id="JQAKEqq">
+      <notes>
+        <note category="german">Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.</note>
+      </notes>
+      <segment>
+        <source>Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.</source>
+        <target>Cada habitante que venga aquí para observar el horizonte mejorará la precisión de este cálculo.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
