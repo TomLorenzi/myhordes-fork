@@ -19227,7 +19227,7 @@
       </notes>
       <segment>
         <source>Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...</source>
-        <target>Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...</target>
+        <target>De momento no hay nada que transformar en el Almacén...</target>
       </segment>
     </unit>
     <unit id="gLXdI1z" name="Diskussionen im Werkstatt-Forum">
