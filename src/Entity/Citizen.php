@@ -913,7 +913,7 @@ class Citizen
      */
     public function getValidLeadingEscorts(): array {
         return array_filter( $this->getLeadingEscorts()->getValues(), function(CitizenEscortSettings $s) {
-            return $s->getCitizen()->getZone()->getId() === $s->getLeader()->getZone()->getId();
+            return $s->getCitizen()->getZone() !== null && $s->getCitizen()->getZone() === $s->getLeader()->getZone();
         } );
     }
 
