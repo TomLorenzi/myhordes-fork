@@ -8389,14 +8389,5 @@
         <target>Kreischender Wecker</target>
       </segment>
     </unit>
-    <unit id="9ZHsnl1" name="Das brauchst du gerade nicht...">
-      <notes>
-        <note category="german">Das brauchst du gerade nicht...</note>
-      </notes>
-      <segment>
-        <source>Das brauchst du gerade nicht...</source>
-        <target>Das brauchst du gerade nicht...</target>
-      </segment>
-    </unit>
   </file>
 </xliff>

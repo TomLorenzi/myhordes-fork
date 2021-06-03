@@ -98,7 +98,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
             'no_bonus_ap'    => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'ap' => [ 'min' => 0, 'max' => 0,  'relative' => true ] ]],
             'no_full_ap'     => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'ap' => [ 'min' => 0, 'max' => -1, 'relative' => true ] ]],
-            'no_full_ap_msg' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'ap' => [ 'min' => 0, 'max' => -1, 'relative' => true ] ], 'text' => 'Das brauchst du gerade nicht...'],
+            'no_full_ap_msg' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'ap' => [ 'min' => 0, 'max' => -1, 'relative' => true ] ], 'text' => 'Das brauchst du gerade nicht ...'],
             'min_6_ap'       => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'ap' => [ 'min' => 6, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 6 AP.'],
             'min_5_ap'       => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'ap' => [ 'min' => 5, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 5 AP.'],
             'min_1_ap'       => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'ap' => [ 'min' => 1, 'max' => 999999, 'relative' => true ] ]],
