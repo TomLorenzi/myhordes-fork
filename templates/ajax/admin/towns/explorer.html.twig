@@ -478,7 +478,7 @@
                 <div x-tab-group="admin-town" x-tab-id="explorer" x-tab-target>
                     {% for exploration in explorables %}
                         <div class="row">
-                            <div class="cell rw-6 padded">
+                            <div class="cell rw-6 rw-md-12 padded">
                                 <h5>{{ exploration.z.prototype.label|trans({},'game') }} - {{ exploration.z.x }}/{{ exploration.z.y }}</h5>
                                 <div class="adm-exploration">
                                     {% for rz in exploration.rz %}
@@ -503,7 +503,7 @@
                                     {% endfor %}
                                 </div>
                             </div>
-                            <div class="cell rw-6 padded">
+                            <div class="cell rw-6 rw-md-12 padded">
                                 <h5>{{ 'Aktuelle Sitzung'|trans({},'admin') }}</h5>
                                 {% if exploration.ax %}
                                     {{ _self.valuelist('Spieler'|trans({},'admin'), exploration.ax.citizen.name) }}
