@@ -8575,7 +8575,7 @@
       </notes>
       <segment>
         <source>Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</source>
-        <target>Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</target>
+        <target><![CDATA[Es gibt keinen Grund, in Panik zu geraten. Alles deutet im Moment darauf hin, dass es in unserer Stadt <strong>noch keinen Ghul</strong> gibt.]]></target>
       </segment>
     </unit>
     <unit id="i2Ptm8n" name="%citizen% ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.">
