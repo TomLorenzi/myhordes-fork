@@ -100,6 +100,11 @@ class CitizenRankingProxy
      */
     private $dayOfDeath = 1;
 
+    /**
+     * @ORM\Column(type="string", length=24, nullable=true)
+     */
+    private $alias;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -243,7 +248,8 @@ class CitizenRankingProxy
             ->setComment( $citizen->getComment() )
             ->setLastWords( $citizen->getLastWords() )
             ->setConfirmed( !$citizen->getActive() )
-            ->setPoints( $citizen->getSurvivedDays() * ( $citizen->getSurvivedDays() + 1 ) / 2 );
+            ->setPoints( $citizen->getSurvivedDays() * ( $citizen->getSurvivedDays() + 1 ) / 2 )
+            ->setAlias($citizen->getAlias());
 
         if ($obj->getBegin() === null) $obj->setBegin( new \DateTime('now') );
         if (!$citizen->getAlive() && $obj->getEnd() === null) $obj->setEnd( new \DateTime('now') );
@@ -310,5 +316,22 @@ class CitizenRankingProxy
         $this->dayOfDeath = $dayOfDeath;
 
         return $this;
+    }
+
+    public function getAlias(): ?string
+    {
+        return $this->alias;
+    }
+
+    public function setAlias(?string $alias): self
+    {
+        $this->alias = $alias;
+
+        return $this;
+    }
+
+    public function getName(): string
+    {
+        return $this->getAlias() ?? $this->getUser()->getName();
     }
 }
