@@ -432,6 +432,14 @@ class MessageForumController extends MessageController
             ->setText( $text )
             ->setEdited( new DateTime() );
 
+        if ($post === $thread->firstPost(true) && $parser->has('title',true) && !$thread->getTranslatable()) {
+            $title = $parser->get('title');
+            if (mb_strlen($title) >= 3 && mb_strlen($title) <= 64) {
+                $thread->setTitle($title);
+                $this->entity_manager->persist($thread);
+            }
+        }
+
         $tx_len = 0;
         if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit))
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -453,7 +461,6 @@ class MessageForumController extends MessageController
             );
             if ($notification) $em->persist($notification);
         }
-
 
         $tx_len = 0;
         if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit))
@@ -856,6 +863,7 @@ class MessageForumController extends MessageController
         }
 
         $pid = $parser->get('pid', null);
+        $post = null;
         if ($pid !== null) {
             $post = $em->getRepository(Post::class)->find((int)$pid);
             if (!$post || (!$post->isEditable() && !$this->isGranted("ROLE_CROW")) || $post->getThread() !== $thread || (
@@ -881,6 +889,8 @@ class MessageForumController extends MessageController
             'fid' => $fid,
             'tid' => $tid,
             'pid' => $pid,
+
+            'edit_title' => ($post !== null && $post === $thread->firstPost(true) && !$thread->getTranslatable()) ? $thread->getTitle() : null,
 
             'permission' => $this->getPermissionObject( $permissions ),
             'snippets' => $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsCrow ) ? $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll() : [],

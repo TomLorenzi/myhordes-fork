@@ -28,14 +28,14 @@
                 </b>
             </div>
         {% endif %}
-        {% if tid is null %}
+        {% if tid is null or (edit_title is defined and edit_title is not null) %}
             <div class="row">
                 {% if type != 'global-pm' and type != 'numb' %}
                     <div class="cell rw-4 padded">
                         <label for="{{ type }}-forum-editor-title">{{ 'Titel'|trans({},'global') }}</label>
                     </div>
                     <div class="cell rw-8 padded">
-                        <input type="text" id="{{ type }}-forum-editor-title" />
+                        <input type="text" id="{{ type }}-forum-editor-title" {% if edit_title is defined and edit_title is not null %}value="{{ edit_title }}"{% endif%} />
                     </div>
                 {% endif %}
                 {% if type == "changelog" or type == "announcement" %}
@@ -609,6 +609,7 @@
                             {% else %}
                                 target_url = '{{ path('forum_edit_post_controller', {fid: fid, tid: tid, pid: pid}) }}';
                                 target_payload = {
+                                    {% if edit_title is defined %}title: document.getElementById('{{ type }}-forum-editor-title').value,{% endif %}
                                     text: content_node.innerHTML
                                 };
                             {% endif %}
