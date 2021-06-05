@@ -19806,5 +19806,14 @@
         <target>Diese Aktion ermöglicht es dir, diesen Bürger zu verschlingen, um deinen unersättlichen Heißhunger zu stillen!</target>
       </segment>
     </unit>
+    <unit id="WfrT9D_">
+      <notes>
+        <note category="german">Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für %citizen%! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</note>
+      </notes>
+      <segment>
+        <source>Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für %citizen%! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</source>
+        <target>Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für %citizen%! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

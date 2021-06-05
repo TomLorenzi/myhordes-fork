@@ -19841,5 +19841,14 @@
         <target>Cette action vous permettra de dévorer ce citoyen pour calmer votre appétit... vorace !</target>
       </segment>
     </unit>
+    <unit id="WfrT9D_">
+      <notes>
+        <note category="german">Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für %citizen%! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</note>
+      </notes>
+      <segment>
+        <source>Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für %citizen%! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</source>
+        <target>A en juger par ce qui est marqué au dos de ce papier, le message ci-dessous était en réalité destiné à %citizen% ! Par un hasard mystérieux, il a atterri dans votre boîte aux lettres…</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
