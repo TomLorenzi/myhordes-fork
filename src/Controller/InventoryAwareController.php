@@ -956,6 +956,7 @@ class InventoryAwareController extends CustomAbstractController
             $heroic_action = $heroic->getAction();
             if ($trigger_after) $trigger_after($heroic_action);
             $citizen->removeHeroicAction($heroic);
+            $citizen->addUsedHeroicAction($heroic);
 
             // Add the picto Heroic Action
             $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_heroac_#00");

@@ -272,6 +272,12 @@ class Citizen
      */
     private $dayOfDeath = 1;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=HeroicActionPrototype::class)
+     * @ORM\JoinTable(name="citizen_used_heroic_action_prototype")
+     */
+    private $usedHeroicActions;
+
     public function __construct()
     {
         $this->status = new ArrayCollection();
@@ -289,6 +295,7 @@ class Citizen
         $this->explorerStats = new ArrayCollection();
         $this->helpNotifications = new ArrayCollection();
         $this->specialActions = new ArrayCollection();
+        $this->usedHeroicActions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -1241,6 +1248,30 @@ class Citizen
     public function setDayOfDeath(int $dayOfDeath): self
     {
         $this->dayOfDeath = $dayOfDeath;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|HeroicActionPrototype[]
+     */
+    public function getUsedHeroicActions(): Collection
+    {
+        return $this->usedHeroicActions;
+    }
+
+    public function addUsedHeroicAction(HeroicActionPrototype $usedHeroicAction): self
+    {
+        if (!$this->usedHeroicActions->contains($usedHeroicAction)) {
+            $this->usedHeroicActions[] = $usedHeroicAction;
+        }
+
+        return $this;
+    }
+
+    public function removeUsedHeroicAction(HeroicActionPrototype $usedHeroicAction): self
+    {
+        $this->usedHeroicActions->removeElement($usedHeroicAction);
 
         return $this;
     }
