@@ -27,9 +27,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="row-flex">
-                    <div class="padded cell rw-12">
+                <div class="row">
+                    <div class="padded cell ro-6 rw-6">
                         <a href="{{ url('gateway-etwin') }}" target="_self"><button><img style="width: 16px;" alt="" src="{{ asset('build/images/eternal-twin/icon_small.png') }}">{{ 'Über EternalTwin einloggen'|trans({},'login') }}</button></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="padded cell ro-6 rw-6">
+                        <a href="{{ url('gateway-etwin-reg') }}" target="_blank"><button class="blue"><img style="width: 16px;" alt="" src="{{ asset('build/images/eternal-twin/icon_small.png') }}">{{ 'Registrieren'|trans({},'login') }}</button></a>
                     </div>
                 </div>
 
@@ -48,8 +53,8 @@
                             <img alt="myhordes" src="{{ asset('build/images/eternal-twin/legacy.png') }}" class="fit" />
                         </div>
                     </div>
-                    <div class="row-flex">
-                        <div class="padded cell rw-12">
+                    <div class="row">
+                        <div class="padded cell ro-6 rw-6">
                             <button id="myh">{{ 'Über MyHordes einloggen'|trans({},'login') }}</button>
                         </div>
                     </div>

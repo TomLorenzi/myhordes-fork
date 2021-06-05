@@ -359,7 +359,6 @@ class PublicController extends CustomAbstractController
      */
     public function login_via_etwin(string $code, TranslatorInterface $translator, EternalTwinHandler $etwin, SessionInterface $session): Response {
 
-
         $myhordes_user = $this->getUser();
         if ($myhordes_user && $myhordes_user->getEternalID())
             throw new DynamicAjaxResetException(Request::createFromGlobals());
@@ -386,7 +385,9 @@ class PublicController extends CustomAbstractController
             $session->set('_etwin_local', $myhordes_user ? $myhordes_user->getId() : null);
 
             return $this->render( 'ajax/public/et_welcome.html.twig', [
+                'refer' => $session->get('refer'),
                 'etwin_user' => $user,
+                'etwin_mail' => $user->getEmailAddress(),
                 'target_user' => $potential_user,
                 'current_user' => $myhordes_user
             ] );
@@ -409,7 +410,7 @@ class PublicController extends CustomAbstractController
      * @return Response
      */
     public function etwin_confirm_api(Request $request, JSONRequestParser $parser, SessionInterface $session, UserFactory $userFactory,
-                                      UserPasswordEncoderInterface $pass, TranslatorInterface $trans, ConfMaster $conf): Response {
+                                      UserPasswordEncoderInterface $pass, TranslatorInterface $trans, ConfMaster $conf, TranslatorInterface $translator): Response {
 
         $myhordes_user = $this->getUser();
         $password = $parser->get('pass', null);
@@ -443,27 +444,96 @@ class PublicController extends CustomAbstractController
 
         // Case B - Account Creation
         elseif ($myhordes_user === null && $session->has('_etwin_user') && !$session->get('_etwin_login', false)) {
-
             if ($this->entity_manager->getRepository(RegistrationLog::class)->countRecentRegistrations($request->getClientIp()) >= $conf->getGlobalConf()->get(MyHordesConf::CONF_ANTI_GRIEF_REG, 2))
                 return AjaxResponse::error(UserFactory::ErrorTooManyRegistrations);
 
-            $new_user = $userFactory->importUser( $etwin_user );
-            $this->entity_manager->persist( $new_user );
+            if (!$parser->valid()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+            if (!$parser->has_all( ['mail1','mail2'], true ))
+                return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-            try {
-                $this->entity_manager->persist( (new RegistrationLog())
-                    ->setUser($new_user)
-                    ->setDate(new \DateTime())
-                    ->setIdentifier( md5($request->getClientIp()) )
-                );
+            $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
+                'fields' => [
+                    'mail1' => [
+                        new Constraints\Email( ['message' => $translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login')]),
+                        new Constraints\Callback( [ 'callback' => function(string $mail, ExecutionContextInterface $context) use ($parser,$translator) {
+                            $parts = explode('@', $mail, 2);
+                            if (count($parts) < 2) return;
+                            $parts = explode('.', $parts[1]);
 
-                $this->entity_manager->flush();
-            } catch (Exception $e) {
-                return AjaxResponse::error( ErrorHelper::ErrorDatabaseException );
+                            $repo = $this->entity_manager->getRepository(AntiSpamDomains::class);
+                            $test = '';
+                            while (!empty($parts)) {
+                                $d = array_pop($parts);
+                                if (empty($d)) continue;
+                                $test = $d . (empty($test) ? '' : ".{$test}");
+                                if ($repo->findOneBy(['domain' => $test])) {
+                                    $context->buildViolation($translator->trans('Die eingegebene E-Mail Adresse ist nicht gültig.', [], 'login'))
+                                        ->atPath('mail1')
+                                        ->addViolation();
+                                }
+                            }
+                        } ] )
+                    ],
+                    'mail2' => new Constraints\EqualTo(
+                        ['value' => $parser->trimmed( 'mail1'), 'message' => $translator->trans('Die eingegebenen E-Mail Adressen stimmen nicht überein.', [], 'login')]),
+                ],
+                'allowExtraFields' => true,
+            ]) );
+
+            if ($violations->count() > 0) {
+                $v = [];
+                foreach ($violations as &$violation)
+                    /** @var ConstraintViolationInterface $violation */
+                    $v[] = $violation->getMessage();
+
+                return AjaxResponse::error( 'invalid_fields', ['fields' => $v] );
             }
 
-            $session->set('_etwin_login', true);
-            return new RedirectResponse($this->generateUrl( 'api_login' ));
+            $referred_player = null;
+            if ($parser->has('refer', true)) {
+
+                $refer = $parser->get('refer', true);
+
+                $refer = $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['name' => $refer, 'active' => true]);
+
+                if ($refer) $referred_player = $refer->getUser();
+                else return AjaxResponse::error( 'invalid_fields', ['fields' => [$translator->trans('Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.', [], 'login')]] );
+            }
+
+            $new_user = $userFactory->importUser( $etwin_user, $parser->get('mail1'), false, $error );
+
+            switch ($error) {
+                case UserFactory::ErrorNone:
+                    try {
+                        $this->entity_manager->persist( $new_user );
+                        $new_user->setLanguage($this->getUserLanguage());
+                        $this->entity_manager->persist( (new RegistrationLog())
+                                                            ->setUser($new_user)
+                                                            ->setDate(new \DateTime())
+                                                            ->setIdentifier( md5($request->getClientIp()) )
+                        );
+
+                        if ($referred_player)
+                            $this->entity_manager->persist( (new UserSponsorship())
+                                                                ->setSponsor( $referred_player )
+                                                                ->setUser( $new_user )
+                                                                ->setCountedHeroExp(0)->setCountedSoulPoints(0)
+                            );
+
+
+                        $this->entity_manager->flush();
+                    } catch (Exception $e) {
+                        return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['e' => $e->getMessage()] );
+                    }
+
+                    $session->set('_etwin_login', true);
+                    return AjaxResponse::success( 'validation');
+
+                case UserFactory::ErrorInvalidParams:
+                    return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+                default: return AjaxResponse::error($error);
+            }
         }
 
         // Case C - Account linking

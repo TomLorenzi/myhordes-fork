@@ -8553,7 +8553,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="9goEXWW">
       <notes>
-        <note category="german">Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</note>
+        <note category="german">Es gibt keinen Grund, in Panik zu geraten. Alles deutet im Moment darauf hin, dass es in unserer Stadt &lt;strong&gt;noch keinen Ghul&lt;/strong&gt; gibt.</note>
       </notes>
       <segment>
         <source>Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</source>
@@ -15372,7 +15372,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. %town% existiert nicht mehr...</source>
-        <target><![CDATA[The town is no more than a vast, sickening cemetery. There was nobody here last night to resist the last attack : the town gates were forced open and reduced to splinters. %town% is no more.]]></target>
+        <target>The town is no more than a vast, sickening cemetery. There was nobody here last night to resist the last attack : the town gates were forced open and reduced to splinters. %town% is no more.</target>
       </segment>
     </unit>
     <unit id="GH4aDYM">
@@ -16879,7 +16879,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem &lt;strong&gt;er splitternackt durch die Straßen rannte&lt;/strong&gt;. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
-        <target><![CDATA[This morning, %citizen1% celebrated last night's thwarting of the zombie hordes by running buck naked through the streets. "I wanted to celebrate the dawning of this new day in an appropriate fashion", the citizen explained.]]></target>
+        <target>This morning, %citizen1% celebrated last night's thwarting of the zombie hordes by running buck naked through the streets. "I wanted to celebrate the dawning of this new day in an appropriate fashion", the citizen explained.</target>
       </segment>
     </unit>
     <unit id="eunLp3W" name="Ich habe Magenschmerzen...">
