@@ -23,6 +23,14 @@
         {% endif %})
     </h5>
 
+    {% if not owner.alive and owner.hasRole('ghoul') %}
+        <div class="note note-critical">
+            {% trans with {'%user%': owner.name} from 'game' %}
+                Die offensichtlichen Spuren zeigen, dass %user% die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: <strong>%user% war ein Ghoul</strong>!
+            {% endtrans %}
+        </div>
+    {% endif %}
+
     {% if hasClairvoyance and owner.alive %}
         <div class="clairvoyance">
             <img src="{{ asset('build/images/heroskill/small_view.gif') }}" /> <strong>{{'Hellseherei'|trans({},'game')}} : </strong>
@@ -118,7 +126,10 @@
                 {% if not owner.zone %}
                     <button x-attack-citizen {% if not can_attack %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" /> {{ 'Diesen Bürger angreifen!'|trans({},'game') }} (<div class="ap">{{ attackAP }}</div>)</button>
                     {% if can_devour %}
-                        <button x-devour-citizen {% if not allow_devour %}disabled{% endif %}><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" /> {{ 'Diesen Bürger verspeisen!'|trans({},'game') }}</button>
+                        <button x-devour-citizen {% if not allow_devour %}disabled{% endif %}>
+                            <img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" /> {{ 'Diesen Bürger verspeisen!'|trans({},'game') }}
+                            <div class="tooltip help">{{ 'WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...'|trans({},'game') }}</div>
+                        </button>
                     {% endif %}
                     {% if is_shaman and not banished %}
                         <button x-heal-citizen>
@@ -453,7 +464,7 @@
 
         {% if can_devour and (allow_devour or allow_devour_corpse) %}
             $.html.addEventListenerAll('[x-devour-citizen]', 'click', function() {
-                if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                if (!confirm('{{ 'Diese Aktion ermöglicht es dir, diesen Bürger zu verschlingen, um deinen unersättlichen Heißhunger zu stillen!'|trans({},'game')|e('js') }}'))
                     return;
                 $.ajax.easySend( '{{ path('visit_devour_citizen', {id: owner.id}) }}', {},
                     function () {

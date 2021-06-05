@@ -8530,7 +8530,7 @@
       </notes>
       <segment>
         <source>Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.</source>
-        <target>No es tan delicioso como la carne humana fresca, pero te permite calmar tu hambre... al menos un poco. Por lo menos la carne todavía estaba medio tierna.</target>
+        <target>No es tan apetecible como un humano fresco y vigoroso, pero logra al menos calmar tu voracidad. Felizmente la carne estaba un poco sazonada...</target>
       </segment>
     </unit>
     <unit id="VMYfBZH">
@@ -19777,6 +19777,33 @@
       <segment>
         <source>Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.</source>
         <target>Cada habitante que venga aquí para observar el horizonte mejorará la precisión de este cálculo.</target>
+      </segment>
+    </unit>
+    <unit id="Fu0IcEb">
+      <notes>
+        <note category="german">WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</note>
+      </notes>
+      <segment>
+        <source>WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</source>
+        <target>WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</target>
+      </segment>
+    </unit>
+    <unit id="4sVRjER">
+      <notes>
+        <note category="german">Die offensichtlichen Spuren zeigen, dass %user% die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: &lt;strong&gt;%user% war ein Ghoul&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Die offensichtlichen Spuren zeigen, dass %user% die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: &lt;strong&gt;%user% war ein Ghoul&lt;/strong&gt;!</source>
+        <target><![CDATA[Die offensichtlichen Spuren zeigen, dass %user% die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: <strong>%user% war ein Ghoul</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="rUnZoOv">
+      <notes>
+        <note category="german">Diese Aktion ermöglicht es dir, diesen Bürger zu verschlingen, um deinen unersättlichen Heißhunger zu stillen!</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion ermöglicht es dir, diesen Bürger zu verschlingen, um deinen unersättlichen Heißhunger zu stillen!</source>
+        <target>Diese Aktion ermöglicht es dir, diesen Bürger zu verschlingen, um deinen unersättlichen Heißhunger zu stillen!</target>
       </segment>
     </unit>
   </file>

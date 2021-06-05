@@ -8389,5 +8389,14 @@
         <target>Kreischender Wecker</target>
       </segment>
     </unit>
+    <unit id="1sicavE">
+      <notes>
+        <note category="german">Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?</note>
+      </notes>
+      <segment>
+        <source>Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?</source>
+        <target>Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
