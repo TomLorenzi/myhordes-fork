@@ -826,7 +826,7 @@
       </notes>
       <segment>
         <source>Pop.</source>
-        <target>Pop.</target>
+        <target>Pob.</target>
       </segment>
     </unit>
     <unit id="Vlb5Lbe" name="Aktionen">
@@ -907,7 +907,7 @@
       </notes>
       <segment>
         <source>Admin Dashboard</source>
-        <target>Admin Dashboard</target>
+        <target>Panel de contol del Administrator</target>
       </segment>
     </unit>
     <unit id="aZibx3x" name="Server-Log herunterladen">
