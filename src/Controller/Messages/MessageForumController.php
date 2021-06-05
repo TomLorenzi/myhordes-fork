@@ -416,7 +416,7 @@ class MessageForumController extends MessageController
         if ((($post->getOwner() !== $user && $post->getOwner()->getId() !== 66) || !$post->isEditable()) && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionEditPost) )
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
-        if (($thread->getLocked() || $thread->getHidden()) && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate))
+        if (($thread->getLocked() || $thread->getHidden() || $post !== $thread->lastPost(false)) && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         /** @var Forum $forum */
@@ -630,6 +630,7 @@ class MessageForumController extends MessageController
             'locked' => $thread->getLocked(),
             'pinned' => $thread->getPinned(),
             'title' => $thread->getTranslatable() ? $this->translator->trans($thread->getTitle(), [], 'game') : $thread->getTitle(),
+            'thread' => $thread,
             'fid' => $fid,
             'tid' => $tid,
             'current_page' => $page,

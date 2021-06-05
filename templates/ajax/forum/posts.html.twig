@@ -258,7 +258,7 @@
                                 </label>
                             {% endif %}
                             {% if not locked %}
-                            {% if (post.owner == app.user or (post.owner.id == 66 and permission.post_as_crow())) and post.editable %}
+                            {% if (post.owner == app.user or (post.owner.id == 66 and permission.post_as_crow())) and post.editable and post == thread.lastPost %}
                                     [ <a class="action-button" id="edit_post"  x-forum-action="edit-post"  x-post-id={{ post.id }} ><img alt="" src="{{ asset('build/images/forum/edit.png') }}"><div class="tooltip forum-tooltip">{{'Bearbeiten'|trans({}, 'global')}}</div></a> ]
                                 {% endif %}
                             {% endif %}

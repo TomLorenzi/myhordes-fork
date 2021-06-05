@@ -609,7 +609,7 @@
                             {% else %}
                                 target_url = '{{ path('forum_edit_post_controller', {fid: fid, tid: tid, pid: pid}) }}';
                                 target_payload = {
-                                    {% if edit_title is defined %}title: document.getElementById('{{ type }}-forum-editor-title').value,{% endif %}
+                                    {% if edit_title is defined %}title: document.getElementById('{{ type }}-forum-editor-title') ? document.getElementById('{{ type }}-forum-editor-title').value : null,{% endif %}
                                     text: content_node.innerHTML
                                 };
                             {% endif %}
