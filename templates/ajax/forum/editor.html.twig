@@ -98,7 +98,7 @@
                 </div>
             </div>
 
-            <textarea id="{{ type }}-forum-editor-text" {% if type == 'global-pm' %}style="min-height: 90px; height: 90px;"{% endif %}></textarea>
+            <textarea tabindex="0" id="{{ type }}-forum-editor-text" {% if type == 'global-pm' %}style="min-height: 90px; height: 90px;"{% endif %}></textarea>
 
             <div class="row">
                 <div x-extended class="padded cell rw-12">
@@ -217,7 +217,7 @@
                     </div>
                 {% endif %}
                 {% if type != 'numb' %}
-                    <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
+                    <div x-forum-action="send" class="forum-button" tabindex="0">{{ 'Absenden'|trans({},'global') }}</div>
                 {% endif %}
             </div>
         </div>
@@ -630,6 +630,12 @@
                                 {% endif %}
                             }
                         );
+                    });
+                    send_buttons[i].addEventListener('keydown', function(event) {
+                        if (event.keyCode === 13) {
+                            event.preventDefault();
+                            send_buttons[i].click();
+                        }
                     });
                 }
             {% endif %}
