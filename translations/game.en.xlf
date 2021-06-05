@@ -8557,7 +8557,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</source>
-        <target>Steady on there, by all accounts there are no ghouls in town, so there's no need to go smacking people. Mmkay pumpkin?</target>
+        <target><![CDATA[Steady on there, by all accounts there are <strong>no ghouls in town</strong>, so there's no need to go smacking people. Mmkay pumpkin?]]></target>
       </segment>
     </unit>
     <unit id="i2Ptm8n" name="%citizen% ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.">
@@ -19782,7 +19782,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.</source>
-        <target>Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.</target>
+        <target>Each citizen that visits the tower and scans the horizon will improve the quality of the estimation.</target>
       </segment>
     </unit>
   </file>
