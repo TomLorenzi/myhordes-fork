@@ -13,23 +13,37 @@
     </div><br />
     <div class="row">
         <div class="cell rw-12"><strong>{{ 'Punkte'|trans({},'admin') }}</strong></div>
-        <div class="cell rw-4"><div class="ap">{{ citizen.ap }}</div></div>
-        <div class="cell rw-4"><div class="bp">{{ citizen.bp }}</div></div>
-        <div class="cell rw-4"><div class="pm">{{ citizen.pm }}</div></div>
+    </div>
+    <div class="row-flex wrap">
+        <div class="padded cell"><div class="ap">{{ citizen.ap }}</div></div>
+        <div class="padded cell"><div class="bp">{{ citizen.bp }}</div></div>
+        <div class="padded cell"><div class="pm">{{ citizen.pm }}</div></div>
+    </div><br />
+    <div class="row">
+        <div class="cell rw-12"><strong>{{ 'Werte'|trans({},'admin') }}</strong></div>
+    </div>
+    <div class="row">
+        <div class="padded cell rw-4"><b>{{ 'Hunger'|trans({},'admin') }}</b></div><div class="padded cell rw-2">{{ citizen.ghulHunger }}%</div>
+        <div class="padded cell rw-4"><b>{{ 'Camp Chance'|trans({},'admin') }}</b></div><div class="padded cell rw-2">{{ (citizen.campingChance * 100)|round }}%</div>
+        <div class="padded cell rw-4"><b>{{ 'Camp Zähler'|trans({},'admin') }}</b></div><div class="padded cell rw-2">{{ citizen.campingCounter }}</div>
     </div><br />
     <div class="row">
         <div class="cell rw-12"><strong>{{ 'Rollen'|trans({},'admin') }}</strong></div>
+    </div>
+    <div class="row-flex wrap">
         {% for role in citizen.roles %}
             {# @var \App\Entity\CitizenRole role #}
-            <div class="cell rw-6">{{ role.label }}</div>
+            <div class="padded cell">{{ role.label }}</div>
         {% endfor %}
     </div><br />
     <div class="row">
         <div class="cell rw-12"><strong>{{ 'Versteckter Status'|trans({},'admin') }}</strong></div>
+    </div>
+    <div class="row-flex wrap">
         {% for status in citizen.status %}
             {# @var \App\Entity\CitizenStatus status #}
             {% if status.hidden %}
-                <div class="cell rw-6">{{ status.label }}</div>
+                <div class="padded cell">{{ status.label }}</div>
             {% endif %}
         {% endfor %}
     </div><br />
