@@ -141,11 +141,15 @@
 
     <div class="forum-posts">
         {% for post in posts %}
+            {% set variant = null %}
+            {% if post.owner.name == 'Der Rabe' or post.type == "CROW" %}{% set variant = 'crow' %}{% endif %}
+            {% if post.type == "DEV" %}{% set variant = 'dev' %}{% endif %}
+
             {# @var post \App\Entity\Post #}
             {% if not post.hidden or permission.moderate() %}
                 {% set author_name = (post.owner.name == 'Der Rabe') ? 'Der Rabe'|trans({},'global') : town and post.owner.citizenFor(town) ? post.owner.citizenFor(town).name : post.owner.name %}
-                <div x-post-wrapper-id="{{ post.id }}" class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}">
-                    <div class="forum-post-header {% if post.owner.name == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
+                <div x-post-wrapper-id="{{ post.id }}" class="forum-post {% if variant is not null %}forum-post-variant-{{ variant }}{% endif %} {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}">
+                    <div class="forum-post-header {% if variant is not null %}header-variant-{{ variant }}{% endif %}">
                         <i>
                             {% if post.date >= 'today'|to_date %}
                                 {{ 'Heute um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
