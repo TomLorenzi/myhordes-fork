@@ -3436,7 +3436,7 @@
       </notes>
       <segment>
         <source>Werte</source>
-        <target>Werte</target>
+        <target>Valeurs</target>
       </segment>
     </unit>
     <unit id="N89SWeP" name="Hunger">
@@ -3445,7 +3445,7 @@
       </notes>
       <segment>
         <source>Hunger</source>
-        <target>Hunger</target>
+        <target>Faim</target>
       </segment>
     </unit>
     <unit id="7JnkyKJ" name="Camp Chance">
@@ -3454,7 +3454,7 @@
       </notes>
       <segment>
         <source>Camp Chance</source>
-        <target>Camp Chance</target>
+        <target>Chances camping</target>
       </segment>
     </unit>
     <unit id="b5V7Hy2" name="Camp Zähler">
@@ -3463,7 +3463,7 @@
       </notes>
       <segment>
         <source>Camp Zähler</source>
-        <target>Camp Zähler</target>
+        <target>Compteurs camping</target>
       </segment>
     </unit>
   </file>
