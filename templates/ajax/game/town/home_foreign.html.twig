@@ -202,9 +202,9 @@
                             {{'Wenn du eine Leiche entsorgen möchtest, ohne dafür Wasser zu verbrauchen, kannst du sie <strong>nach draußen ziehen</strong>. Diese Aktion verbraucht <strong>2 Aktionspunkte</strong>.'|trans({}, 'game')|raw}}
                         </div>
                     </button>
-                    {% if has_cremato %}
+                    {% if has_cremato or true %}
                         <button x-disposal-id="{{ constant('App\\Entity\\Citizen::Cooked') }}">
-                            <img alt="" src="{{ asset('build/images/item/item_hmeat.gif') }}" />{{ 'Leiche grillen'|trans({},'game') }}
+                            <img alt="" src="{{ asset('build/images/item/item_meat.gif') }}" />{{ 'Leiche grillen'|trans({},'game') }}
                             <div class="tooltip help">
                                 {{'Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche <strong>in Verpflegung umwandeln</strong>. Aber willst du das wirklich tun?'|trans({}, 'game')|raw}}
                             </div>
@@ -481,10 +481,10 @@
                     let dispose_id = disposalButtons[i].getAttribute('x-disposal-id');
                     switch(dispose_id) {
                         case "{{ constant('App\\Entity\\Citizen::Watered') }}":
-                            confirmMsg = "{{ 'Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?'|trans({}, 'game') }}";
+                            confirmMsg = "{{ 'Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?'|trans({}, 'game')|e('js') }}";
                             break;
                         case "{{ constant('App\\Entity\\Citizen::Thrown') }}":
-                            confirmMsg = "{{ 'Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?'|trans({}, 'game') }}";
+                            confirmMsg = "{{ 'Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?'|trans({}, 'game')|e('js') }}";
                             break;
                         default:
                             confirmMsg = "{{ 'Bestätigen?'|trans({},'global')|e('js') }}";
