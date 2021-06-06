@@ -68,7 +68,6 @@ class ExternalController extends InventoryAwareController {
     protected                        $item_factory;
     protected DeathHandler           $death_handler;
     protected EntityManagerInterface $entity_manager;
-    protected Packages               $asset;
     protected                        $available_langs = ['en', 'fr', 'de', 'es'];
 
     /**
@@ -99,12 +98,11 @@ class ExternalController extends InventoryAwareController {
                                 RandomGenerator $rg, ItemFactory $if, LogTemplateHandler $lh,
                                 ConfMaster $conf, ZoneHandler $zh, UserHandler $uh,
                                 CrowService $armbrust, Packages $a, TownHandler $th) {
-        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th);
+        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th, $a);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
         $this->entity_manager = $em;
-        $this->asset = $a;
     }
 
     /**

@@ -79,7 +79,6 @@ class BeyondController extends InventoryAwareController
     protected ZoneHandler $zone_handler;
     protected $item_factory;
     protected DeathHandler $death_handler;
-    protected $asset;
 
     /**
      * BeyondController constructor.
@@ -100,6 +99,7 @@ class BeyondController extends InventoryAwareController
      * @param Packages $a
      * @param UserHandler $uh
      * @param CrowService $armbrust
+     * @param TownHandler $th
      */
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk,
@@ -107,11 +107,10 @@ class BeyondController extends InventoryAwareController
         ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf, Packages $a, UserHandler $uh,
         CrowService $armbrust, TownHandler $th)
     {
-        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th);
+        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th, $a);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
-        $this->asset = $a;
     }
 
     protected function deferZoneUpdate() {

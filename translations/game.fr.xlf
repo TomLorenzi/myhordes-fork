@@ -3370,7 +3370,7 @@
     </unit>
     <unit id="TxkwDJh" name="Leiche aus der Stadt ziehen">
       <notes>
-        <note category="german">Leiche aus der Stadt ziehen</note>
+        <note category="german">Aus der Stadt ziehen</note>
       </notes>
       <segment>
         <source>Leiche aus der Stadt ziehen</source>
@@ -19848,6 +19848,33 @@
       <segment>
         <source>Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für %citizen%! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</source>
         <target>A en juger par ce qui est marqué au dos de ce papier, le message ci-dessous était en réalité destiné à %citizen% ! Par un hasard mystérieux, il a atterri dans votre boîte aux lettres…</target>
+      </segment>
+    </unit>
+    <unit id="XyOziHn">
+      <notes>
+        <note category="german">%actor% hat heimlich versucht diesen Gegenstand: %item% bei %victim% abzulegen... Leider wurde er dabei ertappt! Jetzt fragen sich alle: Was wollte er damit bezwecken?</note>
+      </notes>
+      <segment>
+        <source>%actor% hat heimlich versucht diesen Gegenstand: %item% bei %victim% abzulegen... Leider wurde er dabei ertappt! Jetzt fragen sich alle: Was wollte er damit bezwecken?</source>
+        <target>%actor% a tenté de déposer discrètement %item% chez %victim%... Malheureusement pour ce citoyen, il a été remarqué ! Une question demeure : que manigançait-il ?</target>
+      </segment>
+    </unit>
+    <unit id="1YjMwtR" name="Du hast den(die,das) %item% bei %victim% abgelegt...">
+      <notes>
+        <note category="german">Du hast den(die,das) %item% bei %victim% abgelegt...</note>
+      </notes>
+      <segment>
+        <source>Du hast den(die,das) %item% bei %victim% abgelegt...</source>
+        <target>Vous avez déposé %item% chez %victim%...</target>
+      </segment>
+    </unit>
+    <unit id="rcIyf3M">
+      <notes>
+        <note category="german">Du bist bei deiner Aktion aufgeflogen! &lt;strong&gt;Deine Mitbürger wissen jetz Bescheid!&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Du bist bei deiner Aktion aufgeflogen! &lt;strong&gt;Deine Mitbürger wissen jetz Bescheid!&lt;/strong&gt;</source>
+        <target><![CDATA[Votre action a été remarquée ! <strong>Les citoyens ont été avertis !</strong>]]></target>
       </segment>
     </unit>
   </file>

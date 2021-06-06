@@ -3357,7 +3357,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="TxkwDJh" name="Leiche aus der Stadt ziehen">
       <notes>
-        <note category="german">Leiche aus der Stadt ziehen</note>
+        <note category="german">Aus der Stadt ziehen</note>
       </notes>
       <segment>
         <source>Leiche aus der Stadt ziehen</source>
@@ -19819,6 +19819,33 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für %citizen%! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</source>
         <target>Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für %citizen%! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</target>
+      </segment>
+    </unit>
+    <unit id="XyOziHn">
+      <notes>
+        <note category="german">%actor% hat heimlich versucht diesen Gegenstand: %item% bei %victim% abzulegen... Leider wurde er dabei ertappt! Jetzt fragen sich alle: Was wollte er damit bezwecken?</note>
+      </notes>
+      <segment>
+        <source>%actor% hat heimlich versucht diesen Gegenstand: %item% bei %victim% abzulegen... Leider wurde er dabei ertappt! Jetzt fragen sich alle: Was wollte er damit bezwecken?</source>
+        <target>%actor% hat heimlich versucht diesen Gegenstand: %item% bei %victim% abzulegen... Leider wurde er dabei ertappt! Jetzt fragen sich alle: Was wollte er damit bezwecken?</target>
+      </segment>
+    </unit>
+    <unit id="1YjMwtR" name="Du hast den(die,das) %item% bei %victim% abgelegt...">
+      <notes>
+        <note category="german">Du hast den(die,das) %item% bei %victim% abgelegt...</note>
+      </notes>
+      <segment>
+        <source>Du hast den(die,das) %item% bei %victim% abgelegt...</source>
+        <target>You have given the %item% to %victim%...</target>
+      </segment>
+    </unit>
+    <unit id="rcIyf3M">
+      <notes>
+        <note category="german">Du bist bei deiner Aktion aufgeflogen! &lt;strong&gt;Deine Mitbürger wissen jetz Bescheid!&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Du bist bei deiner Aktion aufgeflogen! &lt;strong&gt;Deine Mitbürger wissen jetz Bescheid!&lt;/strong&gt;</source>
+        <target><![CDATA[Your were spotted! <strong>The citizens have been warned!</strong>]]></target>
       </segment>
     </unit>
   </file>
