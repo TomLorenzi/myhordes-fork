@@ -122,7 +122,7 @@
                                 <div class="ghoul-hunger-indicator" style="left: 40%"></div>
                             </div>
                             {% if hunger > 40 %}
-                                <div class="ghoul-message hide-sm"><img src="{{ asset('build/images/icons/small_warning.gif') }}" alt="/!\"> {{"Du wirst heute Nacht sterben!"|trans({}, 'game')}}</div>
+                                <div class="ghoul-message hide-sm"><img src="{{ asset('build/images/icons/warning_anim.gif') }}" alt="/!\"> {{"Du wirst heute Nacht sterben!"|trans({}, 'game')}}</div>
                             {% endif %}
                             <div class="tooltip help">
                                 {{ (role.message ?? 'Du bist der %rolename% dieser Stadt.')|trans({'%rolename%': role.label|trans({}, 'game')}, 'game')}}
@@ -133,7 +133,7 @@
                                     <div class="ghoul-hunger-indicator" style="left: 40%"></div>
                                 </div>
                                 {% if hunger > 40 %}
-                                    <div class="ghoul-message hide-lg hide-desktop"><img src="{{ asset('build/images/icons/small_warning.gif') }}" alt="/!\"> {{"Du wirst heute Nacht sterben!"|trans({}, 'game')}}</div>
+                                    <div class="ghoul-message hide-lg hide-desktop"><img src="{{ asset('build/images/icons/warning_anim.gif') }}" alt="/!\"> {{"Du wirst heute Nacht sterben!"|trans({}, 'game')}}</div>
                                 {% endif %}
                             </div>
                         {% endif %}
