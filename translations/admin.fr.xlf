@@ -3418,7 +3418,52 @@
       </notes>
       <segment>
         <source>Feature freigeben:</source>
-        <target>Feature freigeben:</target>
+        <target>Débloquer une fonctionnalité :</target>
+      </segment>
+    </unit>
+    <unit id="hORe5zQ" name="Bearbeiten">
+      <notes>
+        <note category="german">Bearbeiten</note>
+      </notes>
+      <segment>
+        <source>Bearbeiten</source>
+        <target>Modifier</target>
+      </segment>
+    </unit>
+    <unit id="b6xEh89" name="Werte">
+      <notes>
+        <note category="german">Werte</note>
+      </notes>
+      <segment>
+        <source>Werte</source>
+        <target>Werte</target>
+      </segment>
+    </unit>
+    <unit id="N89SWeP" name="Hunger">
+      <notes>
+        <note category="german">Hunger</note>
+      </notes>
+      <segment>
+        <source>Hunger</source>
+        <target>Hunger</target>
+      </segment>
+    </unit>
+    <unit id="7JnkyKJ" name="Camp Chance">
+      <notes>
+        <note category="german">Camp Chance</note>
+      </notes>
+      <segment>
+        <source>Camp Chance</source>
+        <target>Camp Chance</target>
+      </segment>
+    </unit>
+    <unit id="b5V7Hy2" name="Camp Zähler">
+      <notes>
+        <note category="german">Camp Zähler</note>
+      </notes>
+      <segment>
+        <source>Camp Zähler</source>
+        <target>Camp Zähler</target>
       </segment>
     </unit>
   </file>

@@ -7,6 +7,7 @@ use App\Entity\AccountRestriction;
 use App\Entity\Citizen;
 use App\Entity\CitizenHomeUpgradePrototype;
 use App\Entity\CitizenProfession;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\ConnectionWhitelist;
@@ -862,11 +863,44 @@ class AdminUserController extends AdminActionController
     }
 
     /**
+     * @Route("/api/admin/users/{id}/comments/{cid}", name="admin_user_edit_comment", requirements={"id"="\d+","cid"="\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
+     * @param int $id User ID
+     * @param int $cid
+     * @param JSONRequestParser $parser The Request Parser
+     * @return Response
+     */
+    public function user_edit_comments(int $id, int $cid, JSONRequestParser $parser): Response
+    {
+        $user = $this->entity_manager->getRepository(User::class)->find($id);
+        if(!$user) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $citizen_proxy = $this->entity_manager->getRepository(CitizenRankingProxy::class)->find($cid);
+        if(!$citizen_proxy || $citizen_proxy->getUser() !== $user)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $mode = $parser->get('mod', null, ['last','com']);
+        if ($mode === null) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $text = $parser->get('txt', null);
+        if (empty($text)) $text = null;
+
+        if ($mode === 'last') $citizen_proxy->setLastWords($text);
+        else $citizen_proxy->setComment($text)->setCommentLocked(true);
+
+        $this->entity_manager->persist($citizen_proxy);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("/api/admin/users/{id}/feature/give", name="admin_user_give_feature", requirements={"id"="\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      * @param int $id User ID
      * @param JSONRequestParser $parser The Request Parser
      * @return Response
+     * @throws Exception
      */
     public function user_give_feature(int $id, JSONRequestParser $parser): Response
     {

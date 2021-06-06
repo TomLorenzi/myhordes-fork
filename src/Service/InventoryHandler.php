@@ -391,6 +391,10 @@ class InventoryHandler
                 !empty($this->fetchSpecificItems( $to, [ new ItemRequest( 'cart_#00' ) ] ))
               ))) {
               return self::ErrorExpandBlocked;
+            } else if (($type_to === self::TransferTypeRucksack || $type_to === self::TransferTypeEscort) &&
+                $item->getPrototype()->getName() == "pocket_belt_#00" &&
+                !empty($this->fetchSpecificItems( $to, [ new ItemRequest( 'pocket_belt_#00' ) ] ))) {
+                return self::ErrorExpandBlocked;
             }
         }
 
@@ -427,8 +431,8 @@ class InventoryHandler
 
             $this->bankAbuseService->increaseBankCount($actor);
 
-            if ($modality === self::ModalityBankTheft && $this->rand->chance(0.6667))
-                return InventoryHandler::ErrorBankTheftFailed;
+            //if ($modality === self::ModalityBankTheft && $this->rand->chance(0.6667))
+            //    return InventoryHandler::ErrorBankTheftFailed;
         }
 
         if ( $type_to === self::TransferTypeSteal && !$to->getHome()->getCitizen()->getAlive())

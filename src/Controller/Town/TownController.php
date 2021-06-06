@@ -19,6 +19,7 @@ use App\Entity\CitizenVote;
 use App\Entity\Complaint;
 use App\Entity\ComplaintReason;
 use App\Entity\ExpeditionRoute;
+use App\Entity\ForumThreadSubscription;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
@@ -1697,11 +1698,13 @@ class TownController extends InventoryAwareController
         if ($this->user_handler->isRestricted($this->getActiveCitizen()->getUser(), AccountRestriction::RestrictionTownCommunication))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
+        $new_words_of_heroes = mb_substr($parser->get('content', ''), 0, 500);
+
         // Get town
         $town = $this->getActiveCitizen()->getTown();
 
-        $new_words_of_heroes = mb_substr($parser->get('content', ''), 0, 500);
-
+        // No need to update WoH is there is no change
+        if ($town->getWordsOfHeroes() === $new_words_of_heroes) return AjaxResponse::success();
         $town->setWordsOfHeroes($new_words_of_heroes);
 
         $this->entity_manager->persist(

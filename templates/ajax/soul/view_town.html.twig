@@ -11,5 +11,5 @@
             <button class='inline' x-ajax-href="{{return_path}}"><img src="{{asset('build/images/icons/small_back.gif')}}" alt ="" /> {{'Zurück'|trans({}, 'global')}}</button>
         </div>
     </div>
-    {% include 'ajax/soul/view_town_content.html.twig' %}
+    {% include 'ajax/soul/view_town_content.html.twig' with {'return_to': self_path} %}
 {% endblock %}

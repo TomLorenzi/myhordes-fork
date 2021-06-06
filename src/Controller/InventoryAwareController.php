@@ -47,10 +47,12 @@ use App\Structures\BankItem;
 use App\Structures\ItemRequest;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
+use App\Translation\T;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Expr\Join;
 use Exception;
+use Symfony\Component\Asset\Packages;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -72,11 +74,12 @@ class InventoryAwareController extends CustomAbstractController
     protected UserHandler $user_handler;
     protected CrowService $crow;
     protected TownHandler $town_handler;
+    protected Packages $asset;
 
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, DeathHandler $dh, PictoHandler $ph,
         TranslatorInterface $translator, LogTemplateHandler $lt, TimeKeeperService $tk, RandomGenerator $rd, ConfMaster $conf,
-        ZoneHandler $zh, UserHandler $uh, CrowService $armbrust, TownHandler $th)
+        ZoneHandler $zh, UserHandler $uh, CrowService $armbrust, TownHandler $th, Packages $asset)
     {
         parent::__construct($conf, $em, $tk, $ch, $ih, $translator);
         $this->action_handler = $ah;
@@ -89,6 +92,7 @@ class InventoryAwareController extends CustomAbstractController
         $this->user_handler = $uh;
         $this->crow = $armbrust;
         $this->town_handler = $th;
+        $this->asset = $asset;
     }
 
     public function before(): bool
@@ -331,7 +335,7 @@ class InventoryAwareController extends CustomAbstractController
             ->leftJoin('App:ItemCategory', 'c', Join::WITH, 'p.category = c.id')
             ->leftJoin('App:ItemCategory', 'cr', Join::WITH, 'c.parent = cr.id')
             ->addOrderBy('c.ordering','ASC')
-            ->addOrderBy('p.id', 'ASC')
+            ->addOrderBy('p.icon', 'DESC')
             ->addOrderBy('i.id', 'ASC');
 
         $data = $qb->getQuery()->getResult(AbstractQuery::HYDRATE_ARRAY);
@@ -625,9 +629,13 @@ class InventoryAwareController extends CustomAbstractController
 
                             if ($bank_theft) {
 
-                                // If transferItem has not returned an error, the theft was successful
-                                $this->entity_manager->persist( $this->log->bankItemStealLog( $citizen, $current_item->getPrototype(), true, $current_item->getBroken() ) );
-                                $this->addFlash('notice',$this->translator->trans('Du hast soeben %item% aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...', ['%item%' => $this->log->wrap($this->log->iconize($current_item), 'tool')], "game"));
+                                if ($this->random_generator->chance(0.6667)) {
+                                    $this->entity_manager->persist( $this->log->bankItemStealLog( $citizen, $current_item->getPrototype(), false, $current_item->getBroken() ) );
+                                    $this->addFlash('error',$this->translator->trans('Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!', [], "game"));
+                                } else {
+                                    $this->entity_manager->persist( $this->log->bankItemStealLog( $citizen, $current_item->getPrototype(), true, $current_item->getBroken() ) );
+                                    $this->addFlash('notice',$this->translator->trans('Du hast soeben %item% aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...', ['%item%' => $this->log->wrap($this->log->iconize($current_item), 'tool')], "game"));
+                                }
 
                             } else {
                                 $this->entity_manager->persist( $this->log->bankItemLog( $target_citizen, $current_item->getPrototype(), !$bank_up, $current_item->getBroken() ) );
@@ -643,7 +651,13 @@ class InventoryAwareController extends CustomAbstractController
                                     $this->picto_handler->give_picto($target_citizen, "r_collec2_#00");
                                 $this->entity_manager->persist($current_item);
                             }
-                            if (!$hide && !$current_item->getHidden()) $this->entity_manager->persist( $this->log->beyondItemLog( $target_citizen, $current_item->getPrototype(), !$floor_up, $current_item->getBroken() ) );
+                            if (!$hide && !$current_item->getHidden()) $this->entity_manager->persist( $this->log->beyondItemLog( $target_citizen, $current_item->getPrototype(), !$floor_up, $current_item->getBroken(), false ) );
+                            elseif ($hide && !$floor_up) {
+                                $others = false;
+                                if (!$target_citizen->getTown()->getChaos() && $target_citizen->getZone()) foreach ($target_citizen->getZone()->getCitizens() as $c) if (!$c->getBanished()) $others = true;
+                                if ($others)
+                                    $this->entity_manager->persist( $this->log->beyondItemLog( $target_citizen, $current_item->getPrototype(), !$floor_up, $current_item->getBroken(), true ) );
+                            }
                         }
                         if ($steal_up !== null) {
 
@@ -714,8 +728,15 @@ class InventoryAwareController extends CustomAbstractController
                                 }
     
                                 $this->crow->postAsPM( $victim_home->getCitizen(), '', '', PrivateMessage::TEMPLATE_CROW_THEFT, $current_item->getPrototype()->getId() );
-                            } else if($this->random_generator->chance(0.1)) {
-                                $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
+                            } else {
+
+                                $messages = [ $this->translator->trans('Du hast den(die,das) %item% bei %victim% abgelegt...', ['%item%' => "<strong><img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$current_item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($current_item->getPrototype()->getLabel(),[],'items')}</strong>",  '%victim%' => "<strong>{$victim_home->getCitizen()->getName()}</strong>"], 'game')];
+                                if($this->random_generator->chance(0.1)) {
+                                    $messages[] = $this->translator->trans('Du bist bei deiner Aktion aufgeflogen! <strong>Deine Mitbürger wissen jetz Bescheid!</strong>', [], 'game');
+                                    $this->entity_manager->persist( $this->log->townSteal( $victim_home->getCitizen(), $citizen, $current_item->getPrototype(), $steal_up, false, $current_item->getBroken() ) );
+                                }
+
+                                $this->addFlash( 'notice', implode('<hr/>', $messages) );
                             }
                         }
                         if(!$floor_up && $hide) {
@@ -946,6 +967,7 @@ class InventoryAwareController extends CustomAbstractController
             $heroic_action = $heroic->getAction();
             if ($trigger_after) $trigger_after($heroic_action);
             $citizen->removeHeroicAction($heroic);
+            $citizen->addUsedHeroicAction($heroic);
 
             // Add the picto Heroic Action
             $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName("r_heroac_#00");

@@ -118,6 +118,10 @@ class MessageTownMessageController extends MessageController
         ) : null;
 
         $recipients = [];
+
+        $correct_receiver = null;
+        $incorrect_receiver = null;
+
         if ($type === 'pm') {
             $recipient = $global_recipient ?? $em->getRepository(Citizen::class)->find($recipient);
 
@@ -141,12 +145,27 @@ class MessageTownMessageController extends MessageController
                 }
 
                 // Check inventory size
-                $max_size = $this->inventory_handler->getSize($recipient->getHome()->getChest());
-                if ($max_size > 0 && count($recipient->getHome()->getChest()->getItems()) + count($linked_items) > $max_size)
+                if ($this->inventory_handler->getFreeSize($recipient->getHome()->getChest()) < count($linked_items))
                     return AjaxResponse::error(InventoryHandler::ErrorInventoryFull);
             }
 
-            if ($recipient) $recipients[] = $recipient;
+            // Special drunk handler
+            if ($recipient && $this->citizen_handler->hasStatusEffect($sender,'drunk')) {
+
+                $list = $sender->getTown()->getCitizens()->filter(fn(Citizen $c) => $c !== $sender && $c !== $recipient && $c->getAlive())->getValues();
+                shuffle($list);
+
+                if ($this->rand->chance(0.5))
+                    foreach ($list as $incorrect_receiver_candidate)
+                        if ($this->inventory_handler->getFreeSize($incorrect_receiver_candidate->getHome()->getChest()) >= count($linked_items)) {
+                            $correct_receiver = $recipient;
+                            $incorrect_receiver = $incorrect_receiver_candidate;
+                            $global_thread = null;
+                            break;
+                        }
+
+                $recipients[] = $incorrect_receiver ?? $recipient;
+            } else if ($recipient) $recipients[] = $recipient;
 
         } else {
 
@@ -170,7 +189,7 @@ class MessageTownMessageController extends MessageController
                 $thread = new PrivateMessageThread();
 
                 $thread->setSender($sender)
-                    ->setTitle($title)
+                    ->setTitle($title ?: "...")
                     ->setLocked(false)
                     ->setLastMessage(new DateTime('now'))
                     ->setRecipient($recipient);
@@ -183,6 +202,7 @@ class MessageTownMessageController extends MessageController
                 ->setPrivateMessageThread($thread)
                 ->setOwner($sender)
                 ->setNew(true)
+                ->setOriginalRecipient( $correct_receiver )
                 ->setRecipient($recipient);
 
             $items_prototype = [];
@@ -206,7 +226,12 @@ class MessageTownMessageController extends MessageController
             $em->persist($post);
         }
 
-        $em->flush();
+        try {
+            $em->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error( ErrorHelper::ErrorDatabaseException, ['e' => $e->getMessage()] );
+        }
+
 
         if ($success === 0) {
             return AjaxResponse::error( ErrorHelper::ErrorInternalError );

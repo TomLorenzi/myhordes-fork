@@ -13,6 +13,7 @@ parameters:
       sk: ~
       id: ~
     etwin:
+      reg: ~
       auth: ~
       api: ~
       sk: ~

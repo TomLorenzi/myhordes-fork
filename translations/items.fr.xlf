@@ -3283,7 +3283,7 @@
       </notes>
       <segment>
         <source>Das brauchst du gerade nicht ...</source>
-        <target>Vous n'avez pas besoin de ça maintenant ...</target>
+        <target>Vous n'avez pas besoin de ça maintenant...</target>
       </segment>
     </unit>
     <unit id="INqBtd7" name="Aufstellen">
@@ -6577,7 +6577,7 @@
       </notes>
       <segment>
         <source>Der Metzger hat sich gut um {item} gekümmert... Dafür hast du nun {items_spawn} erhalten. Auf wiedersehen, mein Freund!</source>
-        <target>Le boucher a bien pris soin de {item}... Vous avez maintenant reçu {items_spawn} pour cela. Au revoir, mon ami !</target>
+        <target>Le boucher a pris grand soin de {item}... Vous en tirez {items_spawn}. Adieu pépète.</target>
       </segment>
     </unit>
     <unit id="OeuOyF4" name="Haus aufräumen und putzen">
@@ -7018,7 +7018,7 @@
       </notes>
       <segment>
         <source>Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.</source>
-        <target>Vous installez solidement {item} puis placez dessus quelques débris et branches séchées pour camoufler le tout. Voilà qui devrait améliorer vos chances de vous cacher ici cette nuit. Vous avez utilisé 1 point(s) d'action.</target>
+        <target><![CDATA[Vous installez solidement {item} puis placez dessus quelques débris et branches séchées pour camoufler le tout. Voilà qui devrait <strong>améliorer vos chances de vous cacher ici</strong> cette nuit.{hr}Vous avez utilisé <strong>1 point(s) d'action</strong>.]]></target>
       </segment>
     </unit>
     <unit id="68c4rQB">
@@ -7372,15 +7372,6 @@
         <target><![CDATA[Toutefois, votre arme s'est <strong>cassée</strong> sous le choc...]]></target>
       </segment>
     </unit>
-    <unit id="uHEMxan">
-      <notes>
-        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</note>
-      </notes>
-      <segment>
-        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Vous avez éliminé {kills} zombie en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ca soulage de supprimer du zombie de temps en temps.&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie(s) en utilisant {item} . Ha ! Ha ! Un peu plus de chair étalée... Ça soulage de supprimer du zombie de temps en temps.</t-kills>]]></target>
-      </segment>
-    </unit>
     <unit id="Ri.5LgC">
       <notes>
         <note category="german">Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).</note>
@@ -7399,13 +7390,13 @@
         <target>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</target>
       </segment>
     </unit>
-    <unit id="5DH1uFn">
+    <unit id="LekZSqE">
       <notes>
-        <note category="german">Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</note>
+        <note category="german">Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber &lt;strong&gt;es scheint ihm nichts anzuhaben&lt;/strong&gt;!</note>
       </notes>
       <segment>
-        <source>Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</source>
-        <target>Vous frappez un zombie de toutes vos forces, plusieurs fois, mais celui-ci ne s'effrondre pas sous vos coups !</target>
+        <source>Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber &lt;strong&gt;es scheint ihm nichts anzuhaben&lt;/strong&gt;!</source>
+        <target><![CDATA[Vous frappez un zombie de toutes vos forces, plusieurs fois, mais <strong>celui-ci ne s'effrondre pas sous vos coups !</strong>]]></target>
       </segment>
     </unit>
     <unit id="y3qU7qO">
@@ -7507,13 +7498,13 @@
         <target><![CDATA[<nt-fail>Vous avez jeté une boule de sable au visage de {citizen}.</nt-fail><t-fail>Vous ne voyez <strong>aucune cible</strong> à qui envoyer votre boule de sable (soit il n'y a personne, soit vous avez déjà touché tout le monde il y a 30 minutes ou moins)...</t-fail>]]></target>
       </segment>
     </unit>
-    <unit id="sU9PQTX">
+    <unit id="WvhcAeX">
       <notes>
-        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</note>
+        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/nt-kill-latest&gt;</note>
       </notes>
       <segment>
-        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</t-kill-latest><t-kills>Vous avez éliminé {kills} zombie en utilisant {item}. Ha ! Ha ! Un peu plus de chair étalée... Ça soulage de supprimer du zombie de temps en temps.</t-kills>]]></target>
+        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Du hast mit dieser Waffe: {item} {kills} Zombie getötet. Ha! Ha! Ha! Das tut wirklich gut, ab und zu mal ein paar Zombies fertig zu machen...&lt;/nt-kill-latest&gt;</source>
+        <target><![CDATA[<t-kill-latest>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</t-kill-latest><nt-kill-latest>Vous avez éliminé {kills} zombie(s) en utilisant {item}. Ha ! Ha ! Un peu plus de chair étalée... Ça soulage de supprimer du zombie de temps en temps.</nt-kill-latest>]]></target>
       </segment>
     </unit>
     <unit id="DJF1Mzv">
@@ -7813,13 +7804,13 @@
         <target><![CDATA[<t-fail><t-no-room>Vous n'avez pas assez d'espace pour ces objets ...</t-no-room><t-door-closed>La porte de la ville est fermée ...</t-door-closed><t-too-heavy>{item} kann keine schweren Gegenstände tragen...</t-too-heavy></t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
       </segment>
     </unit>
-    <unit id="L3OUyqa">
+    <unit id="BmWCshI">
       <notes>
-        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</note>
+        <note category="german">&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/nt-kill-latest&gt;</note>
       </notes>
       <segment>
-        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;t-kills&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/t-kills&gt;</source>
-        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><t-kills>Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!</t-kills>]]></target>
+        <source>&lt;t-kill-latest&gt;Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?&lt;/t-kill-latest&gt;&lt;nt-kill-latest&gt;Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!&lt;/nt-kill-latest&gt;</source>
+        <target><![CDATA[<t-kill-latest>Du hast alle Zombies in dieser Zone mit dieser Waffe umgebracht: {item} ! Entspann dich mal... oder vielleicht besser nicht?</t-kill-latest><nt-kill-latest>Das hast {kills} Zombies mit dieser Waffe umgebracht: {item}. Haha! Es tut gut, es den Zombies ab und zu mal richtig zu zeigen!</nt-kill-latest>]]></target>
       </segment>
     </unit>
     <unit id="EetudYS">
@@ -8288,7 +8279,7 @@
       </notes>
       <segment>
         <source>Als Opfer der Großen Seuche hast du durch dein gestähltes Immunsystem eine Chance, Infektionen abzuwehren.</source>
-        <target>Als Opfer der Großen Seuche hast du durch dein gestähltes Immunsystem eine Chance, Infektionen abzuwehren.</target>
+        <target>En tant que victime de la Grande Contamination, votre système immunitaire vous a donné une chance de prévenir les infections.</target>
       </segment>
     </unit>
     <unit id="EOq8v7z" name="Zeuge des Armageddon">
@@ -8306,7 +8297,7 @@
       </notes>
       <segment>
         <source>Als Zeuge des Armagedon kannst du selbst aus ausweglosen Situationen fliehen.</source>
-        <target>Als Zeuge des Armagedon kannst du selbst aus ausweglosen Situationen fliehen.</target>
+        <target>En tant que témoin de l’Armageddon, vous pouvez fuir les situations sans issue.</target>
       </segment>
     </unit>
     <unit id="Fxoqglo" name="Ruhm">
@@ -8315,7 +8306,7 @@
       </notes>
       <segment>
         <source>Ruhm</source>
-        <target>Ruhm</target>
+        <target>Gloire</target>
       </segment>
     </unit>
     <unit id="FQo0T3F">
@@ -8324,7 +8315,7 @@
       </notes>
       <segment>
         <source>Als Champion kannst du deinen Nachrichten im Forum zusätzliche Authorität verleihen.</source>
-        <target>Als Champion kannst du deinen Nachrichten im Forum zusätzliche Authorität verleihen.</target>
+        <target>En tant que champion, vous pouvez ajouter du pouvoir à vos messages sur le forum.</target>
       </segment>
     </unit>
     <unit id="VDcKkt9" name="Kreischender Wecker">
@@ -8334,6 +8325,15 @@
       <segment>
         <source>Kreischender Wecker</source>
         <target>Réveil-Hurleur</target>
+      </segment>
+    </unit>
+    <unit id="1sicavE">
+      <notes>
+        <note category="german">Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?</note>
+      </notes>
+      <segment>
+        <source>Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?</source>
+        <target>Vous n'en revenez pas ! Toute la voracité qui vous rongeait de l'intérieur disparaît petit à petit. Est-ce vraiment possible que vous soyez redevenu humain ?</target>
       </segment>
     </unit>
   </file>

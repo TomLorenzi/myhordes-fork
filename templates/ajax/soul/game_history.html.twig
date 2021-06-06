@@ -26,37 +26,39 @@
         </div>
         <div class="town-container">
             {% for incarnation in towns %}
-            <div class="row-flex stretch {% if incarnation.town.type.name == 'panda' %}hardcore{% elseif incarnation.town.type.name == 'custom' %}custom{% endif %}">
-                <div class="cell padded rw-1 center season bold">
-                    {% if incarnation.town.season is null %}
-                        --
-                    {% elseif incarnation.town.season.number == 0 %}
-                        {{ incarnation.town.language|upper }}-{{ incarnation.town.season.subNumber }}
-                    {% else %}
-                        {{ incarnation.town.season.number }}
-                    {% endif %}
-                </div>
-                <div class="cell padded rw-4 town-name">
-                    <div class="pointer" x-ajax-href="{{ path('soul_view_town',  {sid: app.user == incarnation.user ? 'me' : incarnation.user.id, idtown: incarnation.town.id, return_path: 'soul_game_history'}) }}" x-ajax-target="default">
-                        <img src="{{ asset('build/images/icons/small_more.gif') }}" alt="+" /> {{ incarnation.town.name }}
-                    </div>
-                </div>
-                <div class="cell padded rw-1 center town-days bold">
-                    {{ incarnation.day }}
-                    {% if incarnation.town.town is not null and incarnation.town.town.aliveCitizen %}
-                        <span>
-                        <img src="{{asset('build/images/icons/small_new.gif')}}" />
-                        <div class="tooltip">
-                            {{ 'Es sind in dieser Stadt noch ein paar Bürger übrig...'|trans({}, 'soul') }}
+                {% if incarnation.citizen is null or not incarnation.citizen.alive %}
+                    <div class="row-flex stretch {% if incarnation.town.type.name == 'panda' %}hardcore{% elseif incarnation.town.type.name == 'custom' %}custom{% endif %}">
+                        <div class="cell padded rw-1 center season bold">
+                            {% if incarnation.town.season is null %}
+                                --
+                            {% elseif incarnation.town.season.number == 0 %}
+                                {{ incarnation.town.language|upper }}-{{ incarnation.town.season.subNumber }}
+                            {% else %}
+                                {{ incarnation.town.season.number }}
+                            {% endif %}
                         </div>
-                    </span>
-                    {% endif %}
-                </div>
-                <div class="cell padded rw-6 bold">
-                    <input x-comment-town-id="{{ incarnation.id }}" type="text" class="comment" value="{{ incarnation.comment }}"/>
-                    <button x-town-id="{{ incarnation.id }}" x-update-comment class="inline mt-1">{{ 'Bestätigen'|trans({}, 'global') }}</button>
-                </div>
-            </div>
+                        <div class="cell padded rw-4 town-name">
+                            <div class="pointer" x-ajax-href="{{ path('soul_view_town',  {sid: app.user == incarnation.user ? 'me' : incarnation.user.id, idtown: incarnation.town.id, return_path: 'soul_game_history'}) }}" x-ajax-target="default">
+                                <img src="{{ asset('build/images/icons/small_more.gif') }}" alt="+" /> {{ incarnation.town.name }}
+                            </div>
+                        </div>
+                        <div class="cell padded rw-1 center town-days bold">
+                            {{ incarnation.day }}
+                            {% if incarnation.town.town is not null and incarnation.town.town.aliveCitizen %}
+                                <span>
+                                <img src="{{asset('build/images/icons/small_new.gif')}}" />
+                                <div class="tooltip">
+                                    {{ 'Es sind in dieser Stadt noch ein paar Bürger übrig...'|trans({}, 'soul') }}
+                                </div>
+                            </span>
+                            {% endif %}
+                        </div>
+                        <div class="cell padded rw-6 bold">
+                            <input {% if incarnation.commentLocked %}readonly{% endif %} x-comment-town-id="{{ incarnation.id }}" type="text" class="comment" value="{{ incarnation.comment }}"/>
+                            <button x-town-id="{{ incarnation.id }}" {% if incarnation.commentLocked %}disabled{% endif %} x-update-comment class="inline mt-1">{{ 'Bestätigen'|trans({}, 'global') }}</button>
+                        </div>
+                    </div>
+                {% endif %}
             {% endfor %}
         </div>
     </div>

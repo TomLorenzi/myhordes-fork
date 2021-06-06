@@ -3340,7 +3340,7 @@
     </unit>
     <unit id="TxkwDJh" name="Leiche aus der Stadt ziehen">
       <notes>
-        <note category="german">Leiche aus der Stadt ziehen</note>
+        <note category="german">Aus der Stadt ziehen</note>
       </notes>
       <segment>
         <source>Leiche aus der Stadt ziehen</source>
@@ -8530,7 +8530,7 @@
       </notes>
       <segment>
         <source>Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.</source>
-        <target>No es tan delicioso como la carne humana fresca, pero te permite calmar tu hambre... al menos un poco. Por lo menos la carne todavía estaba medio tierna.</target>
+        <target>No es tan apetecible como un humano fresco y vigoroso, pero logra al menos calmar tu voracidad. Felizmente la carne estaba un poco sazonada...</target>
       </segment>
     </unit>
     <unit id="VMYfBZH">
@@ -8553,7 +8553,7 @@
     </unit>
     <unit id="9goEXWW">
       <notes>
-        <note category="german">Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</note>
+        <note category="german">Es gibt keinen Grund, in Panik zu geraten. Alles deutet im Moment darauf hin, dass es in unserer Stadt &lt;strong&gt;noch keinen Ghul&lt;/strong&gt; gibt.</note>
       </notes>
       <segment>
         <source>Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</source>
@@ -19227,7 +19227,7 @@
       </notes>
       <segment>
         <source>Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...</source>
-        <target>Die Bank enthält zur Zeit keine Gegenstände, die bearbeitet werden können...</target>
+        <target>De momento no hay nada que transformar en el Almacén...</target>
       </segment>
     </unit>
     <unit id="gLXdI1z" name="Diskussionen im Werkstatt-Forum">
@@ -19615,6 +19615,231 @@
       <segment>
         <source>Für %num% weitere Städte</source>
         <target>Für %num% weitere Städte</target>
+      </segment>
+    </unit>
+    <unit id=".Qkxxst" name="Stadttor zerstört!">
+      <notes>
+        <note category="german">Stadttor zerstört!</note>
+      </notes>
+      <segment>
+        <source>Stadttor zerstört!</source>
+        <target>Stadttor zerstört!</target>
+      </segment>
+    </unit>
+    <unit id="i02hvai">
+      <notes>
+        <note category="german">Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.</source>
+        <target>Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.</target>
+      </segment>
+    </unit>
+    <unit id="omwkh4e">
+      <notes>
+        <note category="german">Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.</note>
+      </notes>
+      <segment>
+        <source>Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.</source>
+        <target>Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.</target>
+      </segment>
+    </unit>
+    <unit id="WUioDKI" name="Das Stadttor ist zerstört!">
+      <notes>
+        <note category="german">Das Stadttor ist zerstört!</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor ist zerstört!</source>
+        <target>Das Stadttor ist zerstört!</target>
+      </segment>
+    </unit>
+    <unit id="ixRzzXD">
+      <notes>
+        <note category="german">Die Stadt ist von Zombies zerstört worden: Es können keine Verbesserungen mehr stattfinden.</note>
+      </notes>
+      <segment>
+        <source>Die Stadt ist von Zombies zerstört worden: Es können keine Verbesserungen mehr stattfinden.</source>
+        <target>Die Stadt ist von Zombies zerstört worden: Es können keine Verbesserungen mehr stattfinden.</target>
+      </segment>
+    </unit>
+    <unit id="70HaeRK">
+      <notes>
+        <note category="german">Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.</note>
+      </notes>
+      <segment>
+        <source>Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.</source>
+        <target>Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.</target>
+      </segment>
+    </unit>
+    <unit id="sO7EUbm" name="ZERSTÖRT!!">
+      <notes>
+        <note category="german">ZERSTÖRT!!</note>
+      </notes>
+      <segment>
+        <source>ZERSTÖRT!!</source>
+        <target>ZERSTÖRT!!</target>
+      </segment>
+    </unit>
+    <unit id="3I5M2q.">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. &lt;strong&gt;Sie werden nur für andere verbannte Bürger sichtbar sein.&lt;/strong&gt; Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. &lt;strong&gt;Sie werden nur für andere verbannte Bürger sichtbar sein.&lt;/strong&gt; Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.</source>
+        <target><![CDATA[Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. <strong>Sie werden nur für andere verbannte Bürger sichtbar sein.</strong> Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.]]></target>
+      </segment>
+    </unit>
+    <unit id="_.uzAIq">
+      <notes>
+        <note category="german">Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</note>
+      </notes>
+      <segment>
+        <source>Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</source>
+        <target>Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</target>
+      </segment>
+    </unit>
+    <unit id="V5pq7bw">
+      <notes>
+        <note category="german">Mangels Diskretion konnte jeder sehen, wie %citizen% versuchte %item% in dieser Zone zu verstecken.</note>
+      </notes>
+      <segment>
+        <source>Mangels Diskretion konnte jeder sehen, wie %citizen% versuchte %item% in dieser Zone zu verstecken.</source>
+        <target>Mangels Diskretion konnte jeder sehen, wie %citizen% versuchte %item% in dieser Zone zu verstecken.</target>
+      </segment>
+    </unit>
+    <unit id="jDLzkBE">
+      <notes>
+        <note category="german">Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.&lt;hr/&gt;Du hast 2 Aktionspunkte verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.&lt;hr/&gt;Du hast 2 Aktionspunkte verbraucht.</source>
+        <target><![CDATA[Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.<hr/>Du hast 2 Aktionspunkte verbraucht.]]></target>
+      </segment>
+    </unit>
+    <unit id="euqAojU">
+      <notes>
+        <note category="german">Als du folgendes Gebäude: %building% erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: %item%.</note>
+      </notes>
+      <segment>
+        <source>Als du folgendes Gebäude: %building% erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: %item%.</source>
+        <target>Als du folgendes Gebäude: %building% erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: %item%.</target>
+      </segment>
+    </unit>
+    <unit id="ijrzep1">
+      <notes>
+        <note category="german">Die Zeremonie besteht darin, die Leiche mit einer 1x &lt;strong&gt;Ration Wasser&lt;/strong&gt; zu übergießen. Die Leiche wird dann sofort zerstört.</note>
+      </notes>
+      <segment>
+        <source>Die Zeremonie besteht darin, die Leiche mit einer 1x &lt;strong&gt;Ration Wasser&lt;/strong&gt; zu übergießen. Die Leiche wird dann sofort zerstört.</source>
+        <target><![CDATA[Esta ceremonia consiste en rociar el cuerpo con 1x <strong>Ración de agua</strong>. Esto lo destruirá por completo.]]></target>
+      </segment>
+    </unit>
+    <unit id="o7WUM4t">
+      <notes>
+        <note category="german">Wenn du eine Leiche entsorgen möchtest, ohne dafür Wasser zu verbrauchen, kannst du sie &lt;strong&gt;nach draußen ziehen&lt;/strong&gt;. Diese Aktion verbraucht &lt;strong&gt;2 Aktionspunkte&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Wenn du eine Leiche entsorgen möchtest, ohne dafür Wasser zu verbrauchen, kannst du sie &lt;strong&gt;nach draußen ziehen&lt;/strong&gt;. Diese Aktion verbraucht &lt;strong&gt;2 Aktionspunkte&lt;/strong&gt;.</source>
+        <target><![CDATA[Para deshacerte de un cadáver sin utilizar agua, puedes <strong>sacarlo del pueblo</strong>. Esta acción requiere <strong>2 Puntos de Acción</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="uLW8jwG" name="Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?">
+      <notes>
+        <note category="german">Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</source>
+        <target>Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</target>
+      </segment>
+    </unit>
+    <unit id="dk0TbNl" name="Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?">
+      <notes>
+        <note category="german">Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</source>
+        <target>Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</target>
+      </segment>
+    </unit>
+    <unit id="if9Rvma">
+      <notes>
+        <note category="german">Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche &lt;strong&gt;in Verpflegung umwandeln&lt;/strong&gt;. Aber willst du das wirklich tun?</note>
+      </notes>
+      <segment>
+        <source>Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche &lt;strong&gt;in Verpflegung umwandeln&lt;/strong&gt;. Aber willst du das wirklich tun?</source>
+        <target><![CDATA[Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche <strong>in Verpflegung umwandeln</strong>. Aber willst du das wirklich tun?]]></target>
+      </segment>
+    </unit>
+    <unit id="JQAKEqq">
+      <notes>
+        <note category="german">Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.</note>
+      </notes>
+      <segment>
+        <source>Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.</source>
+        <target>Cada habitante que venga aquí para observar el horizonte mejorará la precisión de este cálculo.</target>
+      </segment>
+    </unit>
+    <unit id="Fu0IcEb">
+      <notes>
+        <note category="german">WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</note>
+      </notes>
+      <segment>
+        <source>WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</source>
+        <target>WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</target>
+      </segment>
+    </unit>
+    <unit id="4sVRjER">
+      <notes>
+        <note category="german">Die offensichtlichen Spuren zeigen, dass %user% die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: &lt;strong&gt;%user% war ein Ghoul&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Die offensichtlichen Spuren zeigen, dass %user% die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: &lt;strong&gt;%user% war ein Ghoul&lt;/strong&gt;!</source>
+        <target><![CDATA[Die offensichtlichen Spuren zeigen, dass %user% die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: <strong>%user% war ein Ghoul</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="rUnZoOv">
+      <notes>
+        <note category="german">Diese Aktion ermöglicht es dir, diesen Bürger zu verschlingen, um deinen unersättlichen Heißhunger zu stillen!</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion ermöglicht es dir, diesen Bürger zu verschlingen, um deinen unersättlichen Heißhunger zu stillen!</source>
+        <target>Diese Aktion ermöglicht es dir, diesen Bürger zu verschlingen, um deinen unersättlichen Heißhunger zu stillen!</target>
+      </segment>
+    </unit>
+    <unit id="WfrT9D_">
+      <notes>
+        <note category="german">Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für %citizen%! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</note>
+      </notes>
+      <segment>
+        <source>Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für %citizen%! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</source>
+        <target>Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für %citizen%! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</target>
+      </segment>
+    </unit>
+    <unit id="XyOziHn">
+      <notes>
+        <note category="german">%actor% hat heimlich versucht diesen Gegenstand: %item% bei %victim% abzulegen... Leider wurde er dabei ertappt! Jetzt fragen sich alle: Was wollte er damit bezwecken?</note>
+      </notes>
+      <segment>
+        <source>%actor% hat heimlich versucht diesen Gegenstand: %item% bei %victim% abzulegen... Leider wurde er dabei ertappt! Jetzt fragen sich alle: Was wollte er damit bezwecken?</source>
+        <target>%actor% ha infenfado dejar discretamente %item% en casa de %victim%... Para su mala suerte, ha sido visto. ¿Qué habrá estado tramando?</target>
+      </segment>
+    </unit>
+    <unit id="1YjMwtR" name="Du hast den(die,das) %item% bei %victim% abgelegt...">
+      <notes>
+        <note category="german">Du hast den(die,das) %item% bei %victim% abgelegt...</note>
+      </notes>
+      <segment>
+        <source>Du hast den(die,das) %item% bei %victim% abgelegt...</source>
+        <target>Has dejado %item% en la casa de %victim%...</target>
+      </segment>
+    </unit>
+    <unit id="rcIyf3M">
+      <notes>
+        <note category="german">Du bist bei deiner Aktion aufgeflogen! &lt;strong&gt;Deine Mitbürger wissen jetz Bescheid!&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Du bist bei deiner Aktion aufgeflogen! &lt;strong&gt;Deine Mitbürger wissen jetz Bescheid!&lt;/strong&gt;</source>
+        <target><![CDATA[¡Tu acción ha sido descubierta! <strong>¡Los habitantes han sido informados!</strong>]]></target>
       </segment>
     </unit>
   </file>

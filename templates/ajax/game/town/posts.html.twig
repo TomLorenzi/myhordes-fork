@@ -13,8 +13,11 @@
     <h5>{% trans from 'game'%}Betreff:{% endtrans %} {{thread.title}}</h5>
 
     {% for post in posts %}
-        <div class="forum-post {% if not post.owner %}crow-pm{% endif %}">
-            <div class="forum-post-header {% if not post.owner or post.owner.user.name == 'Der Rabe' %}header-variant-crow{% endif %}">
+        {% set variant = null %}
+        {% if not post.owner or post.owner.user.name == 'Der Rabe' %}{% set variant = 'crow' %}{% endif %}
+
+        <div class="forum-post {% if variant is not null %}forum-post-variant-{{ variant }}{% endif %} {% if not post.owner %}crow-pm{% endif %}">
+            <div class="forum-post-header {% if variant is not null %}header-variant-{{ variant }}{% endif %}">
                 <i>
                     {% if post.date.format('Ymd') == today|date("Ymd") %}
                         {{ 'Heute um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
@@ -54,6 +57,10 @@
             <div class="forum-post-content" >
                 {% if not post.owner %}
                     <div class="crowmsg {% if not app.user.preferSmallAvatars %}fixMargin{% endif %}">{{ 'Dies ist eine offizielle Nachricht.'|trans({},'game') }} <a class="help-button"><div class="tooltip help">{{ 'Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...'|trans({},'global') }}</div>{{ 'Hilfe'|trans({},'global') }}</a></div>
+                {% endif %}
+
+                {% if post.originalRecipient is not null and post.originalRecipient != post.recipient %}
+                    [ <i>{{ 'Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für %citizen%! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...'|trans({'%citizen%': '<strong>' ~ post.originalRecipient.name ~ '</strong>'},'game')|raw }}</i> ]<br /><br />
                 {% endif %}
 
                 {% if post.hidden %}

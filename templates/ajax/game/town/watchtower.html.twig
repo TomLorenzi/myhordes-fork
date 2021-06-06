@@ -22,7 +22,7 @@
     <div class="block watchtower">
         <div class="row">
             {% if z0[4] >= wtt %}
-            <div class="padded cell rw-12 left">
+            <div class="padded cell rw-12 center">
                 {{ 'Heutige Abschätzung'|trans({},'game') }}
             </div>
             <div class="cell rw-12 center">
@@ -42,6 +42,9 @@
                     <div class="watchtower-prediction-bar">
                         <div class="watchtower-prediction-progress" style="width: {{ z0[4] }}%;"></div>
                         <div class="watchtower-prediction-text" style="width: {{ z0[4] }}%;">{{ z0[4] }}%</div>
+                        <div class="tooltip help">
+                            {{ 'Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.'|trans({}, 'game') }}
+                        </div>
                     </div>
                 </div>
                 {% else %}

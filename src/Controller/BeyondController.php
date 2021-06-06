@@ -79,7 +79,6 @@ class BeyondController extends InventoryAwareController
     protected ZoneHandler $zone_handler;
     protected $item_factory;
     protected DeathHandler $death_handler;
-    protected $asset;
 
     /**
      * BeyondController constructor.
@@ -100,6 +99,7 @@ class BeyondController extends InventoryAwareController
      * @param Packages $a
      * @param UserHandler $uh
      * @param CrowService $armbrust
+     * @param TownHandler $th
      */
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk,
@@ -107,11 +107,10 @@ class BeyondController extends InventoryAwareController
         ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf, Packages $a, UserHandler $uh,
         CrowService $armbrust, TownHandler $th)
     {
-        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th);
+        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th, $a);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
-        $this->asset = $a;
     }
 
     protected function deferZoneUpdate() {
@@ -481,16 +480,18 @@ class BeyondController extends InventoryAwareController
         if ($citizen->getAp() < 2 || $this->citizen_handler->isTired( $citizen ))
             return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
-        $hide_items = true;
-        foreach ($citizen->getZone()->getCitizens() as $fellow_citizen) {
+        $hide_items = $hide_success = true;
+        foreach ($citizen->getZone()->getCitizens() as $fellow_citizen)
             if(!$fellow_citizen->getBanished() && !$town->getChaos()) // If there's a non-banished citizen on the zone during a non-chaos town, the items are not hidden
-                $hide_items = false;
-        }
+                $hide_success = false;
 
         $r = $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler, $citizen, $hide_items, $processed);
-        if ($r->isSuccessResponse() && $hide_items && $processed > 0)
-            $this->addFlash('notice', $this->translator->trans('Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.', [], 'game'));
-        elseif ($r->isSuccessResponse() && !$hide_items && $processed > 0)
+        if ($r->isSuccessResponse() && $hide_items && $processed > 0) {
+            if (!$hide_success)
+                $this->addFlash('notice', $this->translator->trans('Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.<hr/>Du hast 2 Aktionspunkte verbraucht.', [], 'game'));
+            else $this->addFlash('notice', $this->translator->trans('Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.', [], 'game'));
+
+        } elseif ($r->isSuccessResponse() && !$hide_items && $processed > 0)
             $this->addFlash('notice', $this->translator->trans('Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...', [], 'game'));
         elseif ($r->isSuccessResponse() && $hide_items && $processed === 0) {
             $this->addFlash('notice', $this->translator->trans('Du hast keine Gegenstände, die du verstecken könntest.', [], 'game'));
@@ -1271,8 +1272,9 @@ class BeyondController extends InventoryAwareController
                     $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoName]);
                     $this->picto_handler->give_picto($citizen, $picto);
                 }
-                $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
-                    '%item%' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>"
+                $this->addFlash( 'notice', $this->translator->trans( 'Als du folgendes Gebäude: %building% erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: %item%.', [
+                    '%item%' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>",
+                    "%building%" => "<strong>" . $this->translator->trans($zone->getPrototype()->getLabel(), [], "game") . "</strong>"
                 ], 'game' ) . "$noPlaceLeftMsg");
             } else {
                 $this->addFlash( 'notice', $this->translator->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));

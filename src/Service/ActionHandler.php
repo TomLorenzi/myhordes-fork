@@ -480,6 +480,12 @@ class ActionHandler
             else if ($mode >= self::ActionValidityCrossed) $crossed[] = $heroic;
         }
 
+        foreach ($citizen->getUsedHeroicActions() as $used_heroic) {
+            if ($citizen->getHeroicActions()->contains($used_heroic) || ($is_at_00 && !$used_heroic->getAction()->getAllowedAtGate())) continue;
+            $mode = $this->evaluate( $citizen, null, null, $used_heroic->getAction(), $tx );
+            if ($mode >= self::ActionValidityCrossed) $crossed[] = $used_heroic;
+        }
+
     }
 
     /**
@@ -908,11 +914,10 @@ class ActionHandler
                         $execute_info_cache['kills'] = $kills;
                         $this->entity_manager->persist( $this->log->zombieKill( $citizen, $execute_info_cache['item'], $kills, $action->getName() ) );
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
-                        if($citizen->getZone()->getZombies() <= 0){
+                        $tags[] = 'kills';
+                        if($citizen->getZone()->getZombies() <= 0)
                             $tags[] = 'kill-latest';
-                        } else {
-                            $tags[] = 'kills';
-                        }
+
                     }
                 }
 

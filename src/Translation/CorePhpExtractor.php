@@ -16,7 +16,6 @@ class CorePhpExtractor extends PhpExtractor
 
     public function __construct(TranslationConfigGlobal $config)
     {
-        echo "php created.\n";
         $this->config = $config;
     }
 

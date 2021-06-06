@@ -120,6 +120,17 @@ class WebController extends CustomAbstractController
     }
 
     /**
+     * @Route("gateway/eternal-twin-registration", name="gateway-etwin-reg")
+     * @param EternalTwinHandler $etwin
+     * @param ConfMaster $conf
+     * @return Response
+     */
+    public function gateway_etwin_reg(EternalTwinHandler $etwin, ConfMaster $conf): Response {
+        if (!$etwin->isReady()) return new Response('Error: No gateway to EternalTwin is configured.');
+        return new RedirectResponse( $conf->getGlobalConf()->get( MyHordesConf::CONF_ETWIN_REG ) );
+    }
+
+    /**
      * @Route("/twinoid", name="twinoid_auth_endpoint")
      * @return Response
      */

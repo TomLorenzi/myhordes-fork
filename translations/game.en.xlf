@@ -3357,7 +3357,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="TxkwDJh" name="Leiche aus der Stadt ziehen">
       <notes>
-        <note category="german">Leiche aus der Stadt ziehen</note>
+        <note category="german">Aus der Stadt ziehen</note>
       </notes>
       <segment>
         <source>Leiche aus der Stadt ziehen</source>
@@ -8553,11 +8553,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="9goEXWW">
       <notes>
-        <note category="german">Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</note>
+        <note category="german">Es gibt keinen Grund, in Panik zu geraten. Alles deutet im Moment darauf hin, dass es in unserer Stadt &lt;strong&gt;noch keinen Ghul&lt;/strong&gt; gibt.</note>
       </notes>
       <segment>
         <source>Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</source>
-        <target>Steady on there, by all accounts there are no ghouls in town, so there's no need to go smacking people. Mmkay pumpkin?</target>
+        <target><![CDATA[Steady on there, by all accounts there are <strong>no ghouls in town</strong>, so there's no need to go smacking people. Mmkay pumpkin?]]></target>
       </segment>
     </unit>
     <unit id="i2Ptm8n" name="%citizen% ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.">
@@ -14634,7 +14634,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>im Nordwesten</source>
-        <target>im Nordwesten</target>
+        <target>in the Northwest</target>
       </segment>
     </unit>
     <unit id="dHF9hg3" name="im Norden">
@@ -14643,7 +14643,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>im Norden</source>
-        <target>im Norden</target>
+        <target>in the North</target>
       </segment>
     </unit>
     <unit id="8VW_Ac6" name="im Nordosten">
@@ -14652,7 +14652,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>im Nordosten</source>
-        <target>im Nordosten</target>
+        <target>in the Northeast</target>
       </segment>
     </unit>
     <unit id="CGH7WpP" name="im Westen">
@@ -14661,7 +14661,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>im Westen</source>
-        <target>im Westen</target>
+        <target>in the West</target>
       </segment>
     </unit>
     <unit id="GrDc37F" name="im Osten">
@@ -14670,7 +14670,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>im Osten</source>
-        <target>im Osten</target>
+        <target>in the East</target>
       </segment>
     </unit>
     <unit id="luEGXBn" name="im Südwesten">
@@ -14679,7 +14679,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>im Südwesten</source>
-        <target>im Südwesten</target>
+        <target>in the Southwest</target>
       </segment>
     </unit>
     <unit id="UpG6M6C" name="im Süden">
@@ -14688,7 +14688,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>im Süden</source>
-        <target>im Süden</target>
+        <target>in the South</target>
       </segment>
     </unit>
     <unit id="G2GbQ43" name="im Südosten">
@@ -14697,7 +14697,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>im Südosten</source>
-        <target>im Südosten</target>
+        <target>in the Southeast</target>
       </segment>
     </unit>
     <unit id="AISIM8E" name="Du bist für das Katapult verantwortlich">
@@ -14850,7 +14850,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen &lt;strong&gt;%sector% der Stadt&lt;/strong&gt; regeneriert haben.&lt;p&gt;&lt;em&gt;Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!&lt;/em&gt;&lt;/p&gt;</source>
-        <target><![CDATA[No doubt affected by the mysterious meterological phenomena which occur around midnight, certain zones <strong>in the %sector% not a million miles from the town</strong> could have regenerated.<p><em>So it will again be possible to find objects when searching, even if the zone was previously depleted!</em></p>]]></target>
+        <target><![CDATA[No doubt affected by the mysterious meterological phenomena which occur around midnight, certain zones <strong>%sector% not a million miles from the town</strong> could have regenerated.<p><em>So it will again be possible to find objects when searching, even if the zone was previously depleted!</em></p>]]></target>
       </segment>
     </unit>
     <unit id="88_o8Q3" name="Verlorenes Brunnenwasser: %count% Einhet(en)">
@@ -15345,7 +15345,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die in der Stadt liegengebliebenen Körper der ehemaligen Einwohner erwachten in der Zwischenzeit wieder zu Leben...</source>
-        <target>Die in der Stadt liegengebliebenen Körper der ehemaligen Einwohner erwachten in der Zwischenzeit wieder zu Leben...</target>
+        <target>Meanwhile, the corpses of former citizens remaining in town woke up...</target>
       </segment>
     </unit>
     <unit id="Oys88cl">
@@ -15372,7 +15372,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. %town% existiert nicht mehr...</source>
-        <target><![CDATA[Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: <strong>das Stadttor wurde aufgebrochen</strong> und <strong>liegt nun in Trümmern</strong>. %town% existiert nicht mehr...]]></target>
+        <target>The town is no more than a vast, sickening cemetery. There was nobody here last night to resist the last attack : the town gates were forced open and reduced to splinters. %town% is no more.</target>
       </segment>
     </unit>
     <unit id="GH4aDYM">
@@ -16879,7 +16879,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem &lt;strong&gt;er splitternackt durch die Straßen rannte&lt;/strong&gt;. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
-        <target><![CDATA[Heute Morgen feierte %citizen1% das Vereiteln der Zombiehorden von gestern Abend, indem <strong>er splitternackt durch die Straßen rannte</strong>. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.]]></target>
+        <target>This morning, %citizen1% celebrated last night's thwarting of the zombie hordes by running buck naked through the streets. "I wanted to celebrate the dawning of this new day in an appropriate fashion", the citizen explained.</target>
       </segment>
     </unit>
     <unit id="eunLp3W" name="Ich habe Magenschmerzen...">
@@ -17176,7 +17176,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>(Allein)</source>
-        <target>(Allein)</target>
+        <target>(alone)</target>
       </segment>
     </unit>
     <unit id="WWzkuFQ" name="(Mit Eskorte)">
@@ -17185,7 +17185,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>(Mit Eskorte)</source>
-        <target>(Mit Eskorte)</target>
+        <target>(with your escort)</target>
       </segment>
     </unit>
     <unit id="5xLwZCN" name="Du hast dich in einen %role% verwandelt!">
@@ -17491,7 +17491,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es ist kein Nachtwächter da, um die Stadt zu verteidigen.</source>
-        <target>Es ist kein Nachtwächter da, um die Stadt zu verteidigen.</target>
+        <target>There were no watchman present to defend the town.</target>
       </segment>
     </unit>
     <unit id="gWz67fx">
@@ -18162,7 +18162,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Das ist die bestmögliche Schätzung, die wir für diesen Angriff abgeben konnten.</source>
-        <target>This is the best possible estimate we can give for this attack.</target>
+        <target>This is the best estimation we can make of this attack.</target>
       </segment>
     </unit>
     <unit id="tN9xF04">
@@ -19621,6 +19621,231 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Für %num% weitere Städte</source>
         <target>For %num% more towns</target>
+      </segment>
+    </unit>
+    <unit id=".Qkxxst" name="Stadttor zerstört!">
+      <notes>
+        <note category="german">Stadttor zerstört!</note>
+      </notes>
+      <segment>
+        <source>Stadttor zerstört!</source>
+        <target>Stadttor zerstört!</target>
+      </segment>
+    </unit>
+    <unit id="i02hvai">
+      <notes>
+        <note category="german">Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.</source>
+        <target>Das Stadttor wurde bei einem besonders furchtbaren Angriff aus den Angeln gerissen und in die Aussenwelt geschleudert. Du solltest dich heute Nacht besser nicht hier aufhalten, sonst wird diese Stadt dein Grab.</target>
+      </segment>
+    </unit>
+    <unit id="omwkh4e">
+      <notes>
+        <note category="german">Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.</note>
+      </notes>
+      <segment>
+        <source>Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.</source>
+        <target>Das passiert eben, wenn man eine Stadt ohne einen einzigen Einwohner zurücklässt.</target>
+      </segment>
+    </unit>
+    <unit id="WUioDKI" name="Das Stadttor ist zerstört!">
+      <notes>
+        <note category="german">Das Stadttor ist zerstört!</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor ist zerstört!</source>
+        <target>Das Stadttor ist zerstört!</target>
+      </segment>
+    </unit>
+    <unit id="ixRzzXD">
+      <notes>
+        <note category="german">Die Stadt ist von Zombies zerstört worden: Es können keine Verbesserungen mehr stattfinden.</note>
+      </notes>
+      <segment>
+        <source>Die Stadt ist von Zombies zerstört worden: Es können keine Verbesserungen mehr stattfinden.</source>
+        <target>Die Stadt ist von Zombies zerstört worden: Es können keine Verbesserungen mehr stattfinden.</target>
+      </segment>
+    </unit>
+    <unit id="70HaeRK">
+      <notes>
+        <note category="german">Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.</note>
+      </notes>
+      <segment>
+        <source>Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.</source>
+        <target>Die Stadt ist verwüstet! Du kannst dein Haus nicht mehr ausbauen, weil es ebenfalls niedergebrannt ist.</target>
+      </segment>
+    </unit>
+    <unit id="sO7EUbm" name="ZERSTÖRT!!">
+      <notes>
+        <note category="german">ZERSTÖRT!!</note>
+      </notes>
+      <segment>
+        <source>ZERSTÖRT!!</source>
+        <target>ZERSTÖRT!!</target>
+      </segment>
+    </unit>
+    <unit id="3I5M2q.">
+      <notes>
+        <note category="german">Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. &lt;strong&gt;Sie werden nur für andere verbannte Bürger sichtbar sein.&lt;/strong&gt; Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.</note>
+      </notes>
+      <segment>
+        <source>Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. &lt;strong&gt;Sie werden nur für andere verbannte Bürger sichtbar sein.&lt;/strong&gt; Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.</source>
+        <target><![CDATA[Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. <strong>Sie werden nur für andere verbannte Bürger sichtbar sein.</strong> Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.]]></target>
+      </segment>
+    </unit>
+    <unit id="_.uzAIq">
+      <notes>
+        <note category="german">Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</note>
+      </notes>
+      <segment>
+        <source>Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</source>
+        <target>Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</target>
+      </segment>
+    </unit>
+    <unit id="V5pq7bw">
+      <notes>
+        <note category="german">Mangels Diskretion konnte jeder sehen, wie %citizen% versuchte %item% in dieser Zone zu verstecken.</note>
+      </notes>
+      <segment>
+        <source>Mangels Diskretion konnte jeder sehen, wie %citizen% versuchte %item% in dieser Zone zu verstecken.</source>
+        <target>Mangels Diskretion konnte jeder sehen, wie %citizen% versuchte %item% in dieser Zone zu verstecken.</target>
+      </segment>
+    </unit>
+    <unit id="jDLzkBE">
+      <notes>
+        <note category="german">Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.&lt;hr/&gt;Du hast 2 Aktionspunkte verbraucht.</note>
+      </notes>
+      <segment>
+        <source>Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.&lt;hr/&gt;Du hast 2 Aktionspunkte verbraucht.</source>
+        <target><![CDATA[Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.<hr/>Du hast 2 Aktionspunkte verbraucht.]]></target>
+      </segment>
+    </unit>
+    <unit id="euqAojU">
+      <notes>
+        <note category="german">Als du folgendes Gebäude: %building% erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: %item%.</note>
+      </notes>
+      <segment>
+        <source>Als du folgendes Gebäude: %building% erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: %item%.</source>
+        <target>Als du folgendes Gebäude: %building% erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: %item%.</target>
+      </segment>
+    </unit>
+    <unit id="ijrzep1">
+      <notes>
+        <note category="german">Die Zeremonie besteht darin, die Leiche mit einer 1x &lt;strong&gt;Ration Wasser&lt;/strong&gt; zu übergießen. Die Leiche wird dann sofort zerstört.</note>
+      </notes>
+      <segment>
+        <source>Die Zeremonie besteht darin, die Leiche mit einer 1x &lt;strong&gt;Ration Wasser&lt;/strong&gt; zu übergießen. Die Leiche wird dann sofort zerstört.</source>
+        <target><![CDATA[The ceremony consists of watering the body with 1x <strong>Water ration</strong>. This will destroy the corpse instantly.]]></target>
+      </segment>
+    </unit>
+    <unit id="o7WUM4t">
+      <notes>
+        <note category="german">Wenn du eine Leiche entsorgen möchtest, ohne dafür Wasser zu verbrauchen, kannst du sie &lt;strong&gt;nach draußen ziehen&lt;/strong&gt;. Diese Aktion verbraucht &lt;strong&gt;2 Aktionspunkte&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Wenn du eine Leiche entsorgen möchtest, ohne dafür Wasser zu verbrauchen, kannst du sie &lt;strong&gt;nach draußen ziehen&lt;/strong&gt;. Diese Aktion verbraucht &lt;strong&gt;2 Aktionspunkte&lt;/strong&gt;.</source>
+        <target><![CDATA[To get rid of a body without using water, you can <strong>drag it outside</strong>. This action requires <strong>2 action points</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="uLW8jwG" name="Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?">
+      <notes>
+        <note category="german">Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</source>
+        <target>Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</target>
+      </segment>
+    </unit>
+    <unit id="dk0TbNl" name="Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?">
+      <notes>
+        <note category="german">Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</source>
+        <target>Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</target>
+      </segment>
+    </unit>
+    <unit id="if9Rvma">
+      <notes>
+        <note category="german">Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche &lt;strong&gt;in Verpflegung umwandeln&lt;/strong&gt;. Aber willst du das wirklich tun?</note>
+      </notes>
+      <segment>
+        <source>Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche &lt;strong&gt;in Verpflegung umwandeln&lt;/strong&gt;. Aber willst du das wirklich tun?</source>
+        <target><![CDATA[Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche <strong>in Verpflegung umwandeln</strong>. Aber willst du das wirklich tun?]]></target>
+      </segment>
+    </unit>
+    <unit id="JQAKEqq">
+      <notes>
+        <note category="german">Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.</note>
+      </notes>
+      <segment>
+        <source>Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.</source>
+        <target>Each citizen that visits the tower and scans the horizon will improve the quality of the estimation.</target>
+      </segment>
+    </unit>
+    <unit id="Fu0IcEb">
+      <notes>
+        <note category="german">WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</note>
+      </notes>
+      <segment>
+        <source>WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</source>
+        <target>WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</target>
+      </segment>
+    </unit>
+    <unit id="4sVRjER">
+      <notes>
+        <note category="german">Die offensichtlichen Spuren zeigen, dass %user% die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: &lt;strong&gt;%user% war ein Ghoul&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Die offensichtlichen Spuren zeigen, dass %user% die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: &lt;strong&gt;%user% war ein Ghoul&lt;/strong&gt;!</source>
+        <target><![CDATA[Die offensichtlichen Spuren zeigen, dass %user% die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: <strong>%user% war ein Ghoul</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="rUnZoOv">
+      <notes>
+        <note category="german">Diese Aktion ermöglicht es dir, diesen Bürger zu verschlingen, um deinen unersättlichen Heißhunger zu stillen!</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion ermöglicht es dir, diesen Bürger zu verschlingen, um deinen unersättlichen Heißhunger zu stillen!</source>
+        <target>Diese Aktion ermöglicht es dir, diesen Bürger zu verschlingen, um deinen unersättlichen Heißhunger zu stillen!</target>
+      </segment>
+    </unit>
+    <unit id="WfrT9D_">
+      <notes>
+        <note category="german">Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für %citizen%! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</note>
+      </notes>
+      <segment>
+        <source>Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für %citizen%! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</source>
+        <target>Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für %citizen%! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</target>
+      </segment>
+    </unit>
+    <unit id="XyOziHn">
+      <notes>
+        <note category="german">%actor% hat heimlich versucht diesen Gegenstand: %item% bei %victim% abzulegen... Leider wurde er dabei ertappt! Jetzt fragen sich alle: Was wollte er damit bezwecken?</note>
+      </notes>
+      <segment>
+        <source>%actor% hat heimlich versucht diesen Gegenstand: %item% bei %victim% abzulegen... Leider wurde er dabei ertappt! Jetzt fragen sich alle: Was wollte er damit bezwecken?</source>
+        <target>%actor% hat heimlich versucht diesen Gegenstand: %item% bei %victim% abzulegen... Leider wurde er dabei ertappt! Jetzt fragen sich alle: Was wollte er damit bezwecken?</target>
+      </segment>
+    </unit>
+    <unit id="1YjMwtR" name="Du hast den(die,das) %item% bei %victim% abgelegt...">
+      <notes>
+        <note category="german">Du hast den(die,das) %item% bei %victim% abgelegt...</note>
+      </notes>
+      <segment>
+        <source>Du hast den(die,das) %item% bei %victim% abgelegt...</source>
+        <target>You have given the %item% to %victim%...</target>
+      </segment>
+    </unit>
+    <unit id="rcIyf3M">
+      <notes>
+        <note category="german">Du bist bei deiner Aktion aufgeflogen! &lt;strong&gt;Deine Mitbürger wissen jetz Bescheid!&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Du bist bei deiner Aktion aufgeflogen! &lt;strong&gt;Deine Mitbürger wissen jetz Bescheid!&lt;/strong&gt;</source>
+        <target><![CDATA[Your were spotted! <strong>The citizens have been warned!</strong>]]></target>
       </segment>
     </unit>
   </file>

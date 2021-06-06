@@ -597,11 +597,11 @@
     </unit>
     <unit id="Y1oTzsk">
       <notes>
-        <note category="german">Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele &gt; Einstellungen und generiere eine ID.</note>
+        <note category="german">Ohne diese &lt;strong&gt;kannst du keine externen Apps nutzen&lt;/strong&gt;. Um eine Externe ID zu setzen, gehe in deine Seele &gt; Einstellungen und generiere eine ID.</note>
       </notes>
       <segment>
         <source>Ohne diese kannst du keine externen Apps nutzen. Um eine Externe ID zu setzen, gehe in deine Seele &gt; Einstellungen und generiere eine ID.</source>
-        <target><![CDATA[Without these, you cannot use external apps. To set an external ID, go into your Soul > Settings and generate an ID.]]></target>
+        <target><![CDATA[Without these, <strong>you cannot use external apps</strong>. To set an external ID, go into your Soul > Settings and generate an ID.]]></target>
       </segment>
     </unit>
     <unit id="SddpDzy" name="Verzeichnis">
@@ -2769,6 +2769,15 @@
       <segment>
         <source>Abschiedsworte</source>
         <target>Personal message</target>
+      </segment>
+    </unit>
+    <unit id="sqGIX9S" name="Zum Wechsein der Seite hier klicken">
+      <notes>
+        <note category="german">Zum Wechsein der Seite hier klicken</note>
+      </notes>
+      <segment>
+        <source>Zum Wechsein der Seite hier klicken</source>
+        <target>Click to change page</target>
       </segment>
     </unit>
   </file>

@@ -45,7 +45,6 @@ class ExplorationController extends InventoryAwareController implements HookedIn
     protected ZoneHandler $zone_handler;
     protected $item_factory;
     protected DeathHandler $death_handler;
-    protected $asset;
 
     /**
      * BeyondController constructor.
@@ -72,11 +71,10 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf, Packages $a, UserHandler $uh,
         CrowService $armbrust, TownHandler $th)
     {
-        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th);
+        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th, $a);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
-        $this->asset = $a;
     }
 
     public function before(): bool

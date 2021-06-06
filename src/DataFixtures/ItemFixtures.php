@@ -976,6 +976,7 @@ class ItemFixtures extends Fixture
             array('item' => 'deto_#00', 'count' => '935'),
             array('item' => 'repair_one_#00', 'count' => '907'),
             array('item' => 'pet_snake_#00', 'count' => '877'),
+            array('item' => 'pet_snake2_#00', 'count' => '877'),
             array('item' => 'electro_box_#00', 'count' => '854'),
             array('item' => 'tekel_#00', 'count' => '845'),
             array('item' => 'door_#00', 'count' => '841'),
@@ -1080,6 +1081,7 @@ class ItemFixtures extends Fixture
             array('item' => 'cdelvi_#00', 'count' => '82'),
             array('item' => 'cdphil_#00', 'count' => '67'),
             array('item' => 'cinema_#00', 'count' => '53'),
+
             //array('item' => 'vodka_de_#00', 'count' => '6'),
         ),
         'christmas_dig' => [

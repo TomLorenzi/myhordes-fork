@@ -102,7 +102,7 @@ class MessageForumController extends MessageController
             /** @var ThreadReadMarker $marker */
             $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser($user, $thread);
             $lastPost = $thread->lastPost( $show_hidden_threads );
-            if (!$marker || ($lastPost && $lastPost !== $marker->getPost()))
+            if (!$marker || ($lastPost && $lastPost->getId() > $marker->getPost()->getId()))
                 $thread->setNew();
         }
 
@@ -117,7 +117,7 @@ class MessageForumController extends MessageController
             /** @var ThreadReadMarker $marker */
             $marker = $em->getRepository(ThreadReadMarker::class)->findByThreadAndUser($user, $thread);
             $lastPost = $thread->lastPost( $show_hidden_threads );
-            if (!$marker || ($lastPost && $lastPost !== $marker->getPost()))
+            if (!$marker || ($lastPost && $lastPost->getId() > $marker->getPost()->getId()))
                 $thread->setNew();
         }
         
@@ -128,7 +128,7 @@ class MessageForumController extends MessageController
             'permission' => $this->getPermissionObject( $permissions ),
             'select' => $tid,
             'jump' => $pid,
-            'town' => $forum->getTown() ? $forum->getTown() : false,
+            'town' => $forum->getTown() ?? false,
             'pages' => $pages,
             'current_page' => $page,
             'paranoid' => $paranoid
@@ -416,7 +416,7 @@ class MessageForumController extends MessageController
         if ((($post->getOwner() !== $user && $post->getOwner()->getId() !== 66) || !$post->isEditable()) && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate | ForumUsagePermissions::PermissionEditPost) )
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
-        if (($thread->getLocked() || $thread->getHidden()) && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate))
+        if (($thread->getLocked() || $thread->getHidden() || ($post !== $thread->lastPost(false) && $post !== $thread->firstPost(true))) && !$mod_permissions && !$this->perm->isPermitted($permission, ForumUsagePermissions::PermissionModerate))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         /** @var Forum $forum */
@@ -431,6 +431,14 @@ class MessageForumController extends MessageController
         $post
             ->setText( $text )
             ->setEdited( new DateTime() );
+
+        if ($post === $thread->firstPost(true) && $parser->has('title',true) && !$thread->getTranslatable()) {
+            $title = $parser->get('title');
+            if (mb_strlen($title) >= 3 && mb_strlen($title) <= 64) {
+                $thread->setTitle($title);
+                $this->entity_manager->persist($thread);
+            }
+        }
 
         $tx_len = 0;
         if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit))
@@ -453,7 +461,6 @@ class MessageForumController extends MessageController
             );
             if ($notification) $em->persist($notification);
         }
-
 
         $tx_len = 0;
         if (!$this->preparePost($user,$forum,$post,$tx_len, null, $edit))
@@ -623,6 +630,7 @@ class MessageForumController extends MessageController
             'locked' => $thread->getLocked(),
             'pinned' => $thread->getPinned(),
             'title' => $thread->getTranslatable() ? $this->translator->trans($thread->getTitle(), [], 'game') : $thread->getTitle(),
+            'thread' => $thread,
             'fid' => $fid,
             'tid' => $tid,
             'current_page' => $page,
@@ -856,6 +864,7 @@ class MessageForumController extends MessageController
         }
 
         $pid = $parser->get('pid', null);
+        $post = null;
         if ($pid !== null) {
             $post = $em->getRepository(Post::class)->find((int)$pid);
             if (!$post || (!$post->isEditable() && !$this->isGranted("ROLE_CROW")) || $post->getThread() !== $thread || (
@@ -881,6 +890,8 @@ class MessageForumController extends MessageController
             'fid' => $fid,
             'tid' => $tid,
             'pid' => $pid,
+
+            'edit_title' => ($post !== null && $post === $thread->firstPost(true) && !$thread->getTranslatable()) ? $thread->getTitle() : null,
 
             'permission' => $this->getPermissionObject( $permissions ),
             'snippets' => $this->perm->isPermitted( $permissions, ForumUsagePermissions::PermissionPostAsCrow ) ? $this->entity_manager->getRepository(ForumModerationSnippet::class)->findAll() : [],
@@ -1025,7 +1036,8 @@ class MessageForumController extends MessageController
                 /** @var Post $post */
                 $post = $this->entity_manager->getRepository(Post::class)->find((int)$parser->get('postId'));
                 $reason = $parser->get( 'reason', '' );
-                if (!$post || empty($reason)) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                if (!$post) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+                if (empty($reason)) $reason = "---";
 
                 if (!$this->perm->checkEffectivePermissions($this->getUser(), $forum, ForumUsagePermissions::PermissionModerate))
                     return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
@@ -1150,12 +1162,14 @@ class MessageForumController extends MessageController
             if ($report->getSourceUser()->getId() == $user->getId())
                 return AjaxResponse::success();
 
-        $newReport = (new AdminReport())
-            ->setSourceUser($user)
-            ->setTs(new DateTime('now'))
-            ->setPost($post);
+        $post->addAdminReport(
+            $newReport = (new AdminReport())
+                ->setSourceUser($user)
+                ->setTs(new DateTime('now'))
+        );
 
         try {
+            $em->persist($post);
             $em->persist($newReport);
             $em->flush();
         } catch (Exception $e) {

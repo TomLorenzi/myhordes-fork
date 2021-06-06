@@ -85,7 +85,8 @@ class MigrateCommand extends Command
         '2fd50ce43146b72886d94077a044bc22b94f3ef6' => [ ['app:migrate', ['--assign-awards' => true] ] ],
         '3007ba47a8815cf2b7ab36c34852196149016137' => [ ['app:migrate', ['--assign-awards' => true] ] ],
         'e8fcdebaee7f62d2a74dfdaa1f352d7cbbdeb848' => [ ['app:migrate', ['--assign-awards' => true] ] ],
-        'd2e74544059a70b72cb89784544555663e4f0f9e' => [ ['app:migrate', ['--assign-features' => true] ] ]
+        'd2e74544059a70b72cb89784544555663e4f0f9e' => [ ['app:migrate', ['--assign-features' => true] ] ],
+        '982adb8ebb6f71be8acd2550fc42a8594264ece3' => [ ['app:migrate', ['--count-admin-reports' => true] ] ]
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -155,6 +156,7 @@ class MigrateCommand extends Command
             ->addOption('assign-features', null, InputOption::VALUE_NONE, '')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
+            ->addOption('count-admin-reports', null, InputOption::VALUE_NONE, '')
         ;
     }
 
@@ -487,7 +489,7 @@ class MigrateCommand extends Command
 
         if ($lang = $input->getOption('update-trans')) {
 
-            $langs = ($lang === 'all') ? ['de','en','fr','es'] : [$lang];
+            $langs = ($lang === 'all') ? ['en','fr','es','de'] : [$lang];
             if (count($langs) === 1) {
 
                 if ($input->getOption('trans-disable-db')) $this->conf_trans->setDatabaseSearch(false);
@@ -515,6 +517,7 @@ class MigrateCommand extends Command
                 }
 
             } elseif (extension_loaded('pthreads')) {
+                $output->writeln("Using pthreads !");
                 $threads = [];
                 foreach ($langs as $current_lang) {
 
@@ -660,7 +663,18 @@ class MigrateCommand extends Command
             return 0;
         }
 
+        if ($input->getOption('count-admin-reports')) {
+            $this->leChunk($output, Post::class, 1000, [], true, true, function(Post $post) {
+                $post->setReported( $post->getAdminReports(false)->count() );
+            });
+
+            return 0;
+        }
+
+
         if ($input->getOption('assign-features')) {
+
+            $season = $this->entity_manager->getRepository(Season::class)->findLatest();
 
             $p_arma = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_armag_#00');
             $p_cont = $this->entity_manager->getRepository(PictoPrototype::class)->findOneByName('r_ginfec_#00');
@@ -671,7 +685,7 @@ class MigrateCommand extends Command
             $f_alarm = $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => 'f_alarm']);
             $f_glory = $this->entity_manager->getRepository(FeatureUnlockPrototype::class)->findOneBy(['name' => 'f_glory']);
 
-            $this->leChunk($output, User::class, 100, [], true, false, function(User $user) use ($p_arma,$p_cont,$f_arma,$f_cont,$f_cam,$f_alarm,$f_glory) {
+            $this->leChunk($output, User::class, 100, [], true, false, function(User $user) use ($season,$p_arma,$p_cont,$f_arma,$f_cont,$f_cam,$f_alarm,$f_glory) {
                 if (!$this->user_handler->checkFeatureUnlock($user,$f_cont, false)) {
                     if ($this->entity_manager->getRepository(Picto::class)->count(['prototype' => $p_cont, 'user' => $user, 'persisted' => 2]))
                         $this->entity_manager->persist( (new FeatureUnlock())->setPrototype( $f_cont )->setUser( $user )->setExpirationMode( FeatureUnlock::FeatureExpirationNone ) );
@@ -683,7 +697,7 @@ class MigrateCommand extends Command
                 }
 
                 if (!$this->user_handler->checkFeatureUnlock($user, $f_cam, false))
-                    $this->entity_manager->persist( (new FeatureUnlock())->setPrototype( $f_cam )->setUser( $user )->setExpirationMode( FeatureUnlock::FeatureExpirationTownCount )->setTownCount( 1 ) );
+                    $this->entity_manager->persist( (new FeatureUnlock())->setPrototype( $f_cam )->setUser( $user )->setExpirationMode( FeatureUnlock::FeatureExpirationSeason)->setSeason( $season ) );
                 if (!$this->user_handler->checkFeatureUnlock($user, $f_alarm, false))
                     $this->entity_manager->persist( (new FeatureUnlock())->setPrototype( $f_alarm )->setUser( $user )->setExpirationMode( FeatureUnlock::FeatureExpirationTownCount )->setTownCount( 1 ) );
                 if (!$this->user_handler->checkFeatureUnlock($user, $f_glory, false))
