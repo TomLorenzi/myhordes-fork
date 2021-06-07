@@ -3418,7 +3418,7 @@
       </notes>
       <segment>
         <source>Werte</source>
-        <target>Werte</target>
+        <target>Values</target>
       </segment>
     </unit>
     <unit id="N89SWeP" name="Hunger">
@@ -3445,7 +3445,7 @@
       </notes>
       <segment>
         <source>Camp Zähler</source>
-        <target>Camp Zähler</target>
+        <target>Camp Counter</target>
       </segment>
     </unit>
   </file>
