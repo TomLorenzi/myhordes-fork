@@ -1024,7 +1024,7 @@ class BeyondController extends InventoryAwareController
 
         if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
             $this->addFlash( 'notice', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
-        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler, $this->getActiveCitizen());
+        return $this->generic_item_api( $up_inv, $down_inv, $escort === null, $parser, $handler, $this->getActiveCitizen());
     }
 
     /**
