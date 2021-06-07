@@ -575,8 +575,8 @@ class InventoryAwareController extends CustomAbstractController
                 $item = $this->entity_manager->getRepository(Item::class)->find( $item_id );
                 if ($item && $item->getInventory()) $items = [$item];
             } else{
-                $items = $drop_carriers ? $citizen->getInventory()->getItems() : array_filter($citizen->getInventory()->getItems()->getValues(), function(Item $i) use ($carrier_items) {
-                    return !in_array($i->getPrototype()->getName(), $carrier_items) && !$i->getEssential();
+                $items = array_filter($citizen->getInventory()->getItems()->getValues(), function(Item $i) use ($carrier_items, $drop_carriers) {
+                    return ($drop_carriers || !in_array($i->getPrototype()->getName(), $carrier_items)) && !$i->getEssential();
                 });
             }
 
@@ -603,7 +603,6 @@ class InventoryAwareController extends CustomAbstractController
             $target_citizen = $inv_target->getCitizen() ?? $inv_source->getCitizen() ?? $citizen;
 
             $has_hidden = false;
-
             foreach ($items as $current_item){
                 if($current_item->getPrototype()->getName() == 'soul_red_#00' && $floor_up) {
                     // We pick a read soul in the World Beyond
