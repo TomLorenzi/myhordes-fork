@@ -5,11 +5,14 @@ namespace App\Structures;
 
 class MyHordesConf extends Conf
 {
+    const CONF_DOMAINS = 'domains';
+
     const CONF_FATAL_MAIL_TARGET = 'fatalmail.target';
     const CONF_FATAL_MAIL_SOURCE = 'fatalmail.source';
 
     const CONF_TWINOID_SK = 'twinoid.sk';
     const CONF_TWINOID_ID = 'twinoid.id';
+    const CONF_TWINOID_DOMAIN = 'twinoid.domain';
 
     const CONF_ETWIN_REG        = 'etwin.reg';
     const CONF_ETWIN_SK         = 'etwin.sk';

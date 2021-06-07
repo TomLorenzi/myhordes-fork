@@ -9,9 +9,11 @@ parameters:
     fatalmail:
       target: ~
       source: ~
+    domains: []
     twinoid:
       sk: ~
       id: ~
+      domain: ~
     etwin:
       reg: ~
       auth: ~
