@@ -3193,7 +3193,7 @@
       </notes>
       <segment>
         <source>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):</source>
-        <target>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):</target>
+        <target>Basado en el día (dejar en blanco para usar el día actual):</target>
       </segment>
     </unit>
     <unit id="m56Z2c0" name="Zombie-Spread ausführen">
@@ -3202,7 +3202,7 @@
       </notes>
       <segment>
         <source>Zombie-Spread ausführen</source>
-        <target>Zombie-Spread ausführen</target>
+        <target>Activar repoblación de zombies</target>
       </segment>
     </unit>
     <unit id="EPOEUwe">
@@ -3211,7 +3211,7 @@
       </notes>
       <segment>
         <source>Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).</source>
-        <target>Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).</target>
+        <target>Formato: "{x0}/{y0}:{x1}/{y1},{zombies}" (zona) o "{x}/{y},{zombies}" (zona única), por ejemplo "-1/3:-4/2,5". Se puede utilizar "all" en lugar de una posición. En lugar de un valor numérico para el número de zombies, puedes utilizar "today" (número de zombis después del último ataque) o "initial" (número de zombis en el día 1).</target>
       </segment>
     </unit>
     <unit id="_kkbddG" name="Zombies setzen">
@@ -3220,7 +3220,7 @@
       </notes>
       <segment>
         <source>Zombies setzen</source>
-        <target>Zombies setzen</target>
+        <target>Establecer el número de zombies</target>
       </segment>
     </unit>
     <unit id="TCnrA_Z" name="Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)">
@@ -3229,7 +3229,7 @@
       </notes>
       <segment>
         <source>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)</source>
-        <target>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)</target>
+        <target>Basado en el día (dejar en blanco para usar el día actual)</target>
       </segment>
     </unit>
     <unit id="j9J2yMz" name="Gruppen">
@@ -3238,7 +3238,7 @@
       </notes>
       <segment>
         <source>Gruppen</source>
-        <target>Gruppen</target>
+        <target>Grupos</target>
       </segment>
     </unit>
     <unit id="OFylvr8" name="Anon.">
@@ -3256,7 +3256,7 @@
       </notes>
       <segment>
         <source>Mitglieder</source>
-        <target>Mitglieder</target>
+        <target>Miembros</target>
       </segment>
     </unit>
     <unit id="TTOMzoJ" name="Mitglied">
@@ -3265,7 +3265,7 @@
       </notes>
       <segment>
         <source>Mitglied</source>
-        <target>Mitglied</target>
+        <target>Miembro</target>
       </segment>
     </unit>
     <unit id="Kz_5uSy" name="Die Mitgliederliste ist versteckt.">
@@ -3274,7 +3274,7 @@
       </notes>
       <segment>
         <source>Die Mitgliederliste ist versteckt.</source>
-        <target>Die Mitgliederliste ist versteckt.</target>
+        <target>La lista de miembros está oculta.</target>
       </segment>
     </unit>
     <unit id="zAjLutF" name="Neue Gruppe">
@@ -3283,7 +3283,7 @@
       </notes>
       <segment>
         <source>Neue Gruppe</source>
-        <target>Neue Gruppe</target>
+        <target>Nuevo grupo</target>
       </segment>
     </unit>
     <unit id="BbvwyR3" name="Gruppe &quot;%group%&quot;">
@@ -3292,7 +3292,7 @@
       </notes>
       <segment>
         <source>Gruppe "%group%"</source>
-        <target>Gruppe "%group%"</target>
+        <target>Grupo "%group%"</target>
       </segment>
     </unit>
     <unit id="tMAiZYW" name="Gruppe">
@@ -3301,7 +3301,7 @@
       </notes>
       <segment>
         <source>Gruppe</source>
-        <target>Gruppe</target>
+        <target>Groupo</target>
       </segment>
     </unit>
     <unit id="6SYvAH3" name="Beschreibung">
@@ -3310,7 +3310,7 @@
       </notes>
       <segment>
         <source>Beschreibung</source>
-        <target>Beschreibung</target>
+        <target>Descripción</target>
       </segment>
     </unit>
     <unit id="7Cc8BkZ" name="Anonyme Gruppe">
@@ -3319,7 +3319,7 @@
       </notes>
       <segment>
         <source>Anonyme Gruppe</source>
-        <target>Anonyme Gruppe</target>
+        <target>Grupo anónimo</target>
       </segment>
     </unit>
     <unit id="1uiWprE" name="Neue Gruppe anlegen">
@@ -3328,7 +3328,7 @@
       </notes>
       <segment>
         <source>Neue Gruppe anlegen</source>
-        <target>Neue Gruppe anlegen</target>
+        <target>Crear un nuevo grupo</target>
       </segment>
     </unit>
     <unit id="gJH3HgQ" name="Anzahl der Tage">
@@ -3337,7 +3337,7 @@
       </notes>
       <segment>
         <source>Anzahl der Tage</source>
-        <target>Anzahl der Tage</target>
+        <target>Número de días</target>
       </segment>
     </unit>
     <unit id="VkIwwfC" name="Vorspulen">
@@ -3346,7 +3346,7 @@
       </notes>
       <segment>
         <source>Vorspulen</source>
-        <target>Vorspulen</target>
+        <target>Avance rápido</target>
       </segment>
     </unit>
     <unit id="omuvjZI" name="Herauswerfen (ohne Verletzung)">
@@ -3355,7 +3355,7 @@
       </notes>
       <segment>
         <source>Herauswerfen (ohne Verletzung)</source>
-        <target>Herauswerfen (ohne Verletzung)</target>
+        <target>Expulsar (sin herida)</target>
       </segment>
     </unit>
     <unit id="uo.zViv" name="Herauswerfen (mit Verletzung)">
@@ -3364,7 +3364,7 @@
       </notes>
       <segment>
         <source>Herauswerfen (mit Verletzung)</source>
-        <target>Herauswerfen (mit Verletzung)</target>
+        <target>Expulsar (con herida)</target>
       </segment>
     </unit>
     <unit id="g2hjSxs" name="Timer erhöhen (1min)">
@@ -3373,7 +3373,7 @@
       </notes>
       <segment>
         <source>Timer erhöhen (1min)</source>
-        <target>Timer erhöhen (1min)</target>
+        <target>Aumentar el tiempo restante (1min)</target>
       </segment>
     </unit>
     <unit id="Aybos0Z" name="Timer erhöhen (24h)">
@@ -3382,7 +3382,7 @@
       </notes>
       <segment>
         <source>Timer erhöhen (24h)</source>
-        <target>Timer erhöhen (24h)</target>
+        <target>Aumentar el tiempo restante (24h)</target>
       </segment>
     </unit>
     <unit id=".5H3ako" name="Löschen (ermöglicht erneutes Betreten der Ruine)">
@@ -3391,7 +3391,7 @@
       </notes>
       <segment>
         <source>Löschen (ermöglicht erneutes Betreten der Ruine)</source>
-        <target>Löschen (ermöglicht erneutes Betreten der Ruine)</target>
+        <target>Borrar la entrada (permite volver a entrar en la ruina)</target>
       </segment>
     </unit>
     <unit id="b7SFlpH" name="Feature freigeben:">
@@ -3400,7 +3400,7 @@
       </notes>
       <segment>
         <source>Feature freigeben:</source>
-        <target>Feature freigeben:</target>
+        <target>Desbloquear una función:</target>
       </segment>
     </unit>
     <unit id="hORe5zQ" name="Bearbeiten">
@@ -3418,7 +3418,7 @@
       </notes>
       <segment>
         <source>Werte</source>
-        <target>Werte</target>
+        <target>Valores</target>
       </segment>
     </unit>
     <unit id="N89SWeP" name="Hunger">
@@ -3427,7 +3427,7 @@
       </notes>
       <segment>
         <source>Hunger</source>
-        <target>Hunger</target>
+        <target>Hambre</target>
       </segment>
     </unit>
     <unit id="7JnkyKJ" name="Camp Chance">
@@ -3436,7 +3436,7 @@
       </notes>
       <segment>
         <source>Camp Chance</source>
-        <target>Camp Chance</target>
+        <target>Posibilidades de superviviencia campamento</target>
       </segment>
     </unit>
     <unit id="b5V7Hy2" name="Camp Zähler">
@@ -3445,7 +3445,7 @@
       </notes>
       <segment>
         <source>Camp Zähler</source>
-        <target>Camp Zähler</target>
+        <target>Contador de campamento</target>
       </segment>
     </unit>
   </file>
