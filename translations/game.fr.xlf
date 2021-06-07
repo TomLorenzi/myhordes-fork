@@ -15493,7 +15493,7 @@
       </notes>
       <segment>
         <source>Aggressiver Mitbürger</source>
-        <target>Citoyen aggressif !</target>
+        <target>Citoyen agressif !</target>
       </segment>
     </unit>
     <unit id="zLJ.A.A" name="Anzeigen">
@@ -17589,7 +17589,7 @@
       </notes>
       <segment>
         <source>Verbrechen</source>
-        <target>Vols et aggressions</target>
+        <target>Vols et agressions</target>
       </segment>
     </unit>
     <unit id="EimCTw3" name="Baustelle">
