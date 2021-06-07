@@ -27,7 +27,7 @@
                             <div>
                                 <img alt="" src="{{  asset('build/images/pictos/' ~ picto.icon ~ '.gif') }}" /><br />
                                 <div class="counter">
-                                    {% for number in picto.c|split('') %}<span class="count" title="{{number}}">{{number}}</span>{% endfor %}
+                                    {% for number in picto.c|split('') %}<span class="count" num="{{number}}">{{number}}</span>{% endfor %}
                                 </div>
                             </div>
                             <div class="tooltip forum-tooltip">

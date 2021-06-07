@@ -100,8 +100,8 @@ div.tooltip.badge-tooltip {
                 margin-top: -10px;
                 .count {
                     background: url("../../fonts/fontBitmap.png") no-repeat; line-height: 0; font-size: 0; width: 5px; height: 8px; display: inline-block;
-                    .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i = 1) { &[title="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+4,@m,@i+1); }
-                    .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i <= @m) and not (@i = 1) { &[title="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+5,@m,@i+1); }
+                    .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i = 1) { &[num="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+4,@m,@i+1); }
+                    .pictoBitmapFont(@o:0px;@m:9;@i:0) when (@i <= @m) and not (@i = 1) { &[num="@{i}"]{ background-position: -@o 0;} .pictoBitmapFont(@o+5,@m,@i+1); }
                     .pictoBitmapFont();
                 }
             }
