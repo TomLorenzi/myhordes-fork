@@ -19569,7 +19569,7 @@
       </notes>
       <segment>
         <source>Spiritueller Rucksack</source>
-        <target>Spiritueller Rucksack</target>
+        <target>Mochila espiritual</target>
       </segment>
     </unit>
     <unit id="sUNCUak" name="Freigeschaltet:">
@@ -19578,7 +19578,7 @@
       </notes>
       <segment>
         <source>Freigeschaltet:</source>
-        <target>Freigeschaltet:</target>
+        <target>Desbloqueado:</target>
       </segment>
     </unit>
     <unit id="RuyZ5lt" name="Dauerhaft!">
@@ -19587,7 +19587,7 @@
       </notes>
       <segment>
         <source>Dauerhaft!</source>
-        <target>Dauerhaft!</target>
+        <target>¡Permanente!</target>
       </segment>
     </unit>
     <unit id="hGatz34" name="Für diese Saison">
@@ -19596,7 +19596,7 @@
       </notes>
       <segment>
         <source>Für diese Saison</source>
-        <target>Für diese Saison</target>
+        <target>Para esta Temporada</target>
       </segment>
     </unit>
     <unit id="GVd6OlM" name="Bis %date%">
@@ -19605,7 +19605,7 @@
       </notes>
       <segment>
         <source>Bis %date%</source>
-        <target>Bis %date%</target>
+        <target>Hasta el %date%</target>
       </segment>
     </unit>
     <unit id="y.hXICd" name="Für %num% weitere Städte">
@@ -19614,7 +19614,7 @@
       </notes>
       <segment>
         <source>Für %num% weitere Städte</source>
-        <target>Für %num% weitere Städte</target>
+        <target>Para %num% pueblo(s) más</target>
       </segment>
     </unit>
     <unit id=".Qkxxst" name="Stadttor zerstört!">

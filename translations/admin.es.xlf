@@ -826,7 +826,7 @@
       </notes>
       <segment>
         <source>Pop.</source>
-        <target>Pop.</target>
+        <target>Pob.</target>
       </segment>
     </unit>
     <unit id="Vlb5Lbe" name="Aktionen">
@@ -907,7 +907,7 @@
       </notes>
       <segment>
         <source>Admin Dashboard</source>
-        <target>Admin Dashboard</target>
+        <target>Panel de contol del Administrator</target>
       </segment>
     </unit>
     <unit id="aZibx3x" name="Server-Log herunterladen">
@@ -2347,7 +2347,7 @@
       </notes>
       <segment>
         <source>Gib den Namen oder die ID der Stadt ein.</source>
-        <target>Gib den Namen oder die ID der Stadt ein.</target>
+        <target>Ingresa el nombre o el ID del pueblo.</target>
       </segment>
     </unit>
     <unit id="U4p3p8Q" name="Stimmen">
@@ -2356,7 +2356,7 @@
       </notes>
       <segment>
         <source>Stimmen</source>
-        <target>Stimmen</target>
+        <target>Votos</target>
       </segment>
     </unit>
     <unit id="cLQ9dCO" name="Für %target%">
@@ -2365,7 +2365,7 @@
       </notes>
       <segment>
         <source>Für %target%</source>
-        <target>Für %target%</target>
+        <target>Para %target%</target>
       </segment>
     </unit>
     <unit id="jBGmXFb" name="Ersteller">
@@ -2419,7 +2419,7 @@
       </notes>
       <segment>
         <source>Bestätigt von</source>
-        <target>Bestätigt von</target>
+        <target>Confirmado por</target>
       </segment>
     </unit>
     <unit id="kTWILTI" name="Datum">
@@ -2428,7 +2428,7 @@
       </notes>
       <segment>
         <source>Datum</source>
-        <target>Datum</target>
+        <target>Fecha</target>
       </segment>
     </unit>
     <unit id="hrvEXJr" name="Endet">
@@ -2437,7 +2437,7 @@
       </notes>
       <segment>
         <source>Endet</source>
-        <target>Endet</target>
+        <target>Termina</target>
       </segment>
     </unit>
     <unit id="DJfkxFo" name="Nicht bestätigt!">
@@ -2446,7 +2446,7 @@
       </notes>
       <segment>
         <source>Nicht bestätigt!</source>
-        <target>Nicht bestätigt!</target>
+        <target>¡No confirmado!</target>
       </segment>
     </unit>
     <unit id="jpPy6FB" name="Abgelaufen">
@@ -2455,7 +2455,7 @@
       </notes>
       <segment>
         <source>Abgelaufen</source>
-        <target>Abgelaufen</target>
+        <target>Expirado</target>
       </segment>
     </unit>
     <unit id="ifwhezW" name="Deaktiviert">
@@ -2464,7 +2464,7 @@
       </notes>
       <segment>
         <source>Deaktiviert</source>
-        <target>Deaktiviert</target>
+        <target>Desactivado</target>
       </segment>
     </unit>
     <unit id="IvHcoEk" name="Interner Vermerk">
@@ -2482,7 +2482,7 @@
       </notes>
       <segment>
         <source>Art</source>
-        <target>Art</target>
+        <target>Tipo</target>
       </segment>
     </unit>
     <unit id="Dm3TgUa" name="Sozial">
@@ -2491,7 +2491,7 @@
       </notes>
       <segment>
         <source>Sozial</source>
-        <target>Sozial</target>
+        <target>Social</target>
       </segment>
     </unit>
     <unit id="3a9NlWd" name="Stadt-Kom.">
@@ -2500,7 +2500,7 @@
       </notes>
       <segment>
         <source>Stadt-Kom.</source>
-        <target>Stadt-Kom.</target>
+        <target>Com. pueblo</target>
       </segment>
     </unit>
     <unit id="gIfLcdm" name="Globale Kom.">
@@ -2509,7 +2509,7 @@
       </notes>
       <segment>
         <source>Globale Kom.</source>
-        <target>Globale Kom.</target>
+        <target>Com. global</target>
       </segment>
     </unit>
     <unit id="4L8kPem" name="Kommentare">
@@ -2518,7 +2518,7 @@
       </notes>
       <segment>
         <source>Kommentare</source>
-        <target>Kommentare</target>
+        <target>Comentario</target>
       </segment>
     </unit>
     <unit id="mQVpay." name="Org.">
@@ -2536,7 +2536,7 @@
       </notes>
       <segment>
         <source>Spiel</source>
-        <target>Spiel</target>
+        <target>Juego</target>
       </segment>
     </unit>
     <unit id="FbY7TeM" name="Bestätigen">
@@ -2545,7 +2545,7 @@
       </notes>
       <segment>
         <source>Bestätigen</source>
-        <target>Bestätigen</target>
+        <target>Confirmar</target>
       </segment>
     </unit>
     <unit id="ymT9mze" name="%d% Tage">
@@ -2581,7 +2581,7 @@
       </notes>
       <segment>
         <source>Bestätigung erforderlich</source>
-        <target>Bestätigung erforderlich</target>
+        <target>Confirmación necesaria</target>
       </segment>
     </unit>
     <unit id="j.lIpae" name="1 Jahr">
@@ -2599,7 +2599,7 @@
       </notes>
       <segment>
         <source>Admin-Bestätigung erforderlich</source>
-        <target>Admin-Bestätigung erforderlich</target>
+        <target>Confirmación del Administrador necesaría</target>
       </segment>
     </unit>
     <unit id="rX0oy40" name="2 Jahre">
@@ -2698,7 +2698,7 @@
       </notes>
       <segment>
         <source>Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.</source>
-        <target>Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.</target>
+        <target>Esta restricción de la cuenta debe ser aprobada por otro moderador antes de que se active.</target>
       </segment>
     </unit>
     <unit id="6q.DKYz" name="Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.">
@@ -2707,7 +2707,7 @@
       </notes>
       <segment>
         <source>Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.</source>
-        <target>Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.</target>
+        <target>La duración de la restricción sólo cuenta a partir del momento en que se activa.</target>
       </segment>
     </unit>
     <unit id="3Bzuyaj">
@@ -2716,7 +2716,7 @@
       </notes>
       <segment>
         <source>Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.</source>
-        <target>Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.</target>
+        <target>Esta restricción de la cuenta debe ser aprobada por un Administrador antes de que se active.</target>
       </segment>
     </unit>
     <unit id="vsOyofZ" name="Schwarzes Brett">
@@ -2788,7 +2788,7 @@
       </notes>
       <segment>
         <source>Zone</source>
-        <target>Zone</target>
+        <target>Zona</target>
       </segment>
     </unit>
     <unit id="QzMRMH1" name="Leere Zone">
@@ -2797,7 +2797,7 @@
       </notes>
       <segment>
         <source>Leere Zone</source>
-        <target>Leere Zone</target>
+        <target>Zona vacía</target>
       </segment>
     </unit>
     <unit id="dgw_NYB" name="Entkoppelte Leben">
@@ -2860,7 +2860,7 @@
       </notes>
       <segment>
         <source>Kein Bürger ausgewählt!</source>
-        <target>Kein Bürger ausgewählt!</target>
+        <target>¡Ningún habitante seleccionado!</target>
       </segment>
     </unit>
     <unit id="NrcXgR7" name="BP">
@@ -2914,7 +2914,7 @@
       </notes>
       <segment>
         <source>Profilbeschreibung</source>
-        <target>Profilbeschreibung</target>
+        <target>Descripción del perfil</target>
       </segment>
     </unit>
     <unit id="5AoQtM8" name="Änderungen am Profil verbieten">
@@ -2968,7 +2968,7 @@
       </notes>
       <segment>
         <source>Anzeigenamen entfernen</source>
-        <target>Anzeigenamen entfernen</target>
+        <target>Eliminar el nombre visible</target>
       </segment>
     </unit>
     <unit id="ZBGzbqz" name="Avatar entfernen">
@@ -3004,7 +3004,7 @@
       </notes>
       <segment>
         <source>Neuer Füllstand:</source>
-        <target>Neuer Füllstand:</target>
+        <target>Nuevo nivel:</target>
       </segment>
     </unit>
     <unit id="dIVIxL." name="Brunnen-Füllstand setzen">
@@ -3040,7 +3040,7 @@
       </notes>
       <segment>
         <source>Integrität setzen:</source>
-        <target>Integrität setzen:</target>
+        <target>Integridad:</target>
       </segment>
     </unit>
     <unit id="PmdlsrB" name="Neue Anzahl:">
@@ -3049,7 +3049,7 @@
       </notes>
       <segment>
         <source>Neue Anzahl:</source>
-        <target>Neue Anzahl:</target>
+        <target>Nuevo número:</target>
       </segment>
     </unit>
     <unit id="VxMIE8o" name="Heldentage setzen">
@@ -3121,7 +3121,7 @@
       </notes>
       <segment>
         <source>Freundschaftswerbung</source>
-        <target>Freundschaftswerbung</target>
+        <target>Patrocinio</target>
       </segment>
     </unit>
     <unit id="uIkrK0q" name="Ref-Namen ändern">
@@ -3130,7 +3130,7 @@
       </notes>
       <segment>
         <source>Ref-Namen ändern</source>
-        <target>Ref-Namen ändern</target>
+        <target>Modificar el nombre de referencia</target>
       </segment>
     </unit>
     <unit id="o81xxnX" name="Ref-Namen sperren">
@@ -3139,7 +3139,7 @@
       </notes>
       <segment>
         <source>Ref-Namen sperren</source>
-        <target>Ref-Namen sperren</target>
+        <target>Bloquear el nombre de referencia</target>
       </segment>
     </unit>
     <unit id="hYqcqsf" name="Ref-Namen entsprerren">
@@ -3148,7 +3148,7 @@
       </notes>
       <segment>
         <source>Ref-Namen entsprerren</source>
-        <target>Ref-Namen entsprerren</target>
+        <target>Desbloquear el nombre de referencia</target>
       </segment>
     </unit>
     <unit id="TcAZPZH" name="Sponsor setzen">
@@ -3157,7 +3157,7 @@
       </notes>
       <segment>
         <source>Sponsor setzen</source>
-        <target>Sponsor setzen</target>
+        <target>Establecer el patrocinador</target>
       </segment>
     </unit>
     <unit id="eeN3gHp" name="Ref-Name">
@@ -3166,7 +3166,7 @@
       </notes>
       <segment>
         <source>Ref-Name</source>
-        <target>Ref-Name</target>
+        <target>Nombre de referencia</target>
       </segment>
     </unit>
     <unit id="ZzLzTI." name="Gesponsort von">
@@ -3175,7 +3175,7 @@
       </notes>
       <segment>
         <source>Gesponsort von</source>
-        <target>Gesponsort von</target>
+        <target>Patrocinado por</target>
       </segment>
     </unit>
     <unit id="MJJ_lOb" name="Gesponsorte Spieler">
@@ -3184,7 +3184,7 @@
       </notes>
       <segment>
         <source>Gesponsorte Spieler</source>
-        <target>Gesponsorte Spieler</target>
+        <target>Jugadores patrocinados</target>
       </segment>
     </unit>
     <unit id="QWjy74v" name="Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):">
