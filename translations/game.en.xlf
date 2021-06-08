@@ -19848,5 +19848,14 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target><![CDATA[Your were spotted! <strong>The citizens have been warned!</strong>]]></target>
       </segment>
     </unit>
+    <unit id="U4ZJpTo" name="@deads Tot">
+      <notes>
+        <note category="german">@deads Tot</note>
+      </notes>
+      <segment>
+        <source>@deads Tot</source>
+        <target>@deads dead</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

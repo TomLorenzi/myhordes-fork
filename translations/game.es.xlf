@@ -19842,5 +19842,14 @@
         <target><![CDATA[¡Tu acción ha sido descubierta! <strong>¡Los habitantes han sido informados!</strong>]]></target>
       </segment>
     </unit>
+    <unit id="U4ZJpTo" name="@deads Tot">
+      <notes>
+        <note category="german">@deads Tot</note>
+      </notes>
+      <segment>
+        <source>@deads Tot</source>
+        <target>@deads muertos</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

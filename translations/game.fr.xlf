@@ -5237,7 +5237,7 @@
       </notes>
       <segment>
         <source>@citizens Bürger</source>
-        <target>@citizens Citoyens</target>
+        <target>@citizens citoyens</target>
       </segment>
     </unit>
     <unit id="NyGp8KR" name="Anzahl der Tage, die du als Aufklärer gespielt hast.">
@@ -19875,6 +19875,15 @@
       <segment>
         <source>Du bist bei deiner Aktion aufgeflogen! &lt;strong&gt;Deine Mitbürger wissen jetz Bescheid!&lt;/strong&gt;</source>
         <target><![CDATA[Votre action a été remarquée ! <strong>Les citoyens ont été avertis !</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="U4ZJpTo" name="@deads Tot">
+      <notes>
+        <note category="german">@deads Tot</note>
+      </notes>
+      <segment>
+        <source>@deads Tot</source>
+        <target>@deads morts</target>
       </segment>
     </unit>
   </file>
