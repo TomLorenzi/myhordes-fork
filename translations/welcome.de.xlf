@@ -19,33 +19,6 @@
         <target>Willkommen bei MyHordes</target>
       </segment>
     </unit>
-    <unit id="Cny3Jgk">
-      <notes>
-        <note category="german">MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
-                    "Die Verdammten" und seine anderen Versionen von %motiontwin%.</note>
-      </notes>
-      <segment>
-        <source>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
-                    "Die Verdammten" und seine anderen Versionen von %motiontwin%.</source>
-        <target>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
-                    "Die Verdammten" und seine anderen Versionen von %motiontwin%.</target>
-      </segment>
-    </unit>
-    <unit id="wuuGs9i">
-      <notes>
-        <note category="german">Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der
-                    Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
-                    Inhalten versorgt werden kann.</note>
-      </notes>
-      <segment>
-        <source>Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der
-                    Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
-                    Inhalten versorgt werden kann.</source>
-        <target>Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der
-                    Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
-                    Inhalten versorgt werden kann.</target>
-      </segment>
-    </unit>
     <unit id="mbIzlHW" name="Zum Spiel">
       <notes>
         <note category="german">Zum Spiel</note>
@@ -71,18 +44,6 @@
       <segment>
         <source>Zum Login</source>
         <target>Zum Login</target>
-      </segment>
-    </unit>
-    <unit id="RaJYSbq">
-      <notes>
-        <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind
-                    damit Eigentum von %motiontwin%.</note>
-      </notes>
-      <segment>
-        <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind
-                    damit Eigentum von %motiontwin%.</source>
-        <target>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind
-                    damit Eigentum von %motiontwin%.</target>
       </segment>
     </unit>
     <unit id="lHIUXzm" name="Bürger gestorben">
@@ -137,6 +98,33 @@
       <segment>
         <source>Abonnierte Themen</source>
         <target>Abonnierte Themen</target>
+      </segment>
+    </unit>
+    <unit id="f63iKfV">
+      <notes>
+        <note category="german">MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von %motiontwin%.</note>
+      </notes>
+      <segment>
+        <source>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von %motiontwin%.</source>
+        <target>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von %motiontwin%.</target>
+      </segment>
+    </unit>
+    <unit id="JyLklnq">
+      <notes>
+        <note category="german">Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen Inhalten versorgt werden kann.</note>
+      </notes>
+      <segment>
+        <source>Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen Inhalten versorgt werden kann.</source>
+        <target>Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen Inhalten versorgt werden kann.</target>
+      </segment>
+    </unit>
+    <unit id="GEQa89m">
+      <notes>
+        <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von %motiontwin%.</note>
+      </notes>
+      <segment>
+        <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von %motiontwin%.</source>
+        <target>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von %motiontwin%.</target>
       </segment>
     </unit>
   </file>

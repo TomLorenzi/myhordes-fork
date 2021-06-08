@@ -2734,5 +2734,14 @@
         <target>Abschiedsworte</target>
       </segment>
     </unit>
+    <unit id="sqGIX9S" name="Zum Wechsein der Seite hier klicken">
+      <notes>
+        <note category="german">Zum Wechsein der Seite hier klicken</note>
+      </notes>
+      <segment>
+        <source>Zum Wechsein der Seite hier klicken</source>
+        <target>Zum Wechsein der Seite hier klicken</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

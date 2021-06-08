@@ -70,10 +70,7 @@
             <p>Einzelheiten über Google Web Fonts finden Sie unter: <a href="https://www.google.com/fonts#AboutPlace:about">https://www.google.com/fonts#AboutPlace:about</a> und weitere Informationen in den Datenschutzbestimmungen von Google: <a href="https://policies.google.com/privacy/partners?hl=de">https://policies.google.com/privacy/partners?hl=de</a></p>
 
             <p>
-                {% trans with {'%motiontwin%':'<b>MotionTwin</b>'} from 'welcome' %}
-                    Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind
-                    damit Eigentum von %motiontwin%.
-                {% endtrans %}
+                {{ 'Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von %motiontwin%.'|trans({'%motiontwin%':'<b>MotionTwin</b>'},'welcome')|raw }}
             </p>
         </div>
     </div>

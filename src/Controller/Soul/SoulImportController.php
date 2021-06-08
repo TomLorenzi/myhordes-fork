@@ -12,6 +12,7 @@ use App\Service\TwinoidHandler;
 use DateTime;
 use Exception;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -96,7 +97,8 @@ class SoulImportController extends SoulController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
         }
 
-        return AjaxResponse::success(true, ['goto' => $twin->getTwinoidAuthURL('import',$scope)]);
+        $request = Request::createFromGlobals();
+        return AjaxResponse::success(true, ['goto' => $twin->getTwinoidAuthURL('import#'  . $request->getHost() . $request->getBaseUrl(),$scope)]);
     }
 
     /**

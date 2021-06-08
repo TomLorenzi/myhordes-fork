@@ -480,6 +480,12 @@ class ActionHandler
             else if ($mode >= self::ActionValidityCrossed) $crossed[] = $heroic;
         }
 
+        foreach ($citizen->getUsedHeroicActions() as $used_heroic) {
+            if ($citizen->getHeroicActions()->contains($used_heroic) || ($is_at_00 && !$used_heroic->getAction()->getAllowedAtGate())) continue;
+            $mode = $this->evaluate( $citizen, null, null, $used_heroic->getAction(), $tx );
+            if ($mode >= self::ActionValidityCrossed) $crossed[] = $used_heroic;
+        }
+
     }
 
     /**

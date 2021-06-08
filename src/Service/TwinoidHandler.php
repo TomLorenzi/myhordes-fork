@@ -116,9 +116,9 @@ class TwinoidHandler
         return $this->hasTwinoidAccess() ?
             'https://twinoid.com/oauth/auth?response_type=code' .
             "&client_id={$this->twinoidID()}" .
-            '&redirect_uri=' . $this->generator->generate('twinoid_auth_endpoint', [], UrlGeneratorInterface::ABSOLUTE_URL) .
+            '&redirect_uri=' . ($this->conf->get(MyHordesConf::CONF_TWINOID_DOMAIN) ?? $this->generator->generate('twinoid_auth_endpoint', [], UrlGeneratorInterface::ABSOLUTE_URL)) .
             "&scope={$scope}" .
-            "&state={$state}" .
+            "&state=" . urlencode($state) .
             '&access_type=online'
             : null;
     }

@@ -3203,7 +3203,7 @@
       </notes>
       <segment>
         <source>%citizen% hat etwas Schutt entfernt.</source>
-        <target>%citizen% a déblayé quelques débris.</target>
+        <target>%citizen% a déblayé un peu la zone...</target>
       </segment>
     </unit>
     <unit id="WmDHw.1" name="%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!">
@@ -3212,7 +3212,7 @@
       </notes>
       <segment>
         <source>%citizen% hat diese Ruine freigelegt. Es handelt sich um %type%. Hurra!</source>
-        <target>%citizen% a déterré le bâtiment, révélant %type%. Hourra !</target>
+        <target>La zone a été totalement déblayée, révélant : %type%.</target>
       </segment>
     </unit>
     <unit id="zTh0a4e">
@@ -3370,7 +3370,7 @@
     </unit>
     <unit id="TxkwDJh" name="Leiche aus der Stadt ziehen">
       <notes>
-        <note category="german">Leiche aus der Stadt ziehen</note>
+        <note category="german">Aus der Stadt ziehen</note>
       </notes>
       <segment>
         <source>Leiche aus der Stadt ziehen</source>
@@ -4805,7 +4805,7 @@
       </notes>
       <segment>
         <source>Jemand hat hier vor langer Zeit gelebt. Vielleicht jemand, der von einer Familie umgeben war, die ihn liebte und mit der er viele glückliche Stunden zusammen verbrachte ? Heute ist alles, was bleibt, ein wenig Staub und völlige Verwüstung... und gelegentlich eine Leiche, die mit den Zähnen knirschend auf einen zustürmt.</source>
-        <target>Quelqu'un a vécu ici, il y a très longtemps. Peut-être même que cette personne était entourée d'une famille qui l'aimait et qu'ils y ont coulé des jours heureux tous ensembles ? Aujourd'hui il n'en reste rien ; un peu de poussière et la désolation la plus totale. Et parfois même un cadavre qui marche vers vous en grinçant des dents.</target>
+        <target>Quelqu'un a vécu ici, il y a très longtemps. Peut-être même que cette personne était entourée d'une famille qui l'aimait et qu'ils y ont coulé des jours heureux tous ensemble ? Aujourd'hui il n'en reste rien ; un peu de poussière et la désolation la plus totale. Et parfois même un cadavre qui marche vers vous en grinçant des dents.</target>
       </segment>
     </unit>
     <unit id="Mk_nOE9">
@@ -5237,7 +5237,7 @@
       </notes>
       <segment>
         <source>@citizens Bürger</source>
-        <target>@citizens Citoyens</target>
+        <target>@citizens citoyens</target>
       </segment>
     </unit>
     <unit id="NyGp8KR" name="Anzahl der Tage, die du als Aufklärer gespielt hast.">
@@ -8857,11 +8857,11 @@
     </unit>
     <unit id="9goEXWW">
       <notes>
-        <note category="german">Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</note>
+        <note category="german">Es gibt keinen Grund, in Panik zu geraten. Alles deutet im Moment darauf hin, dass es in unserer Stadt &lt;strong&gt;noch keinen Ghul&lt;/strong&gt; gibt.</note>
       </notes>
       <segment>
         <source>Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</source>
-        <target>De toute évidence, il n'y a pas de goules en ville, il n'est donc pas nécessaire d'aller frapper les gens. M'Kay?</target>
+        <target><![CDATA[Pas besoin de vous énerver pour le moment, tout porte à croire qu'il n'y a <strong>aucune goule en ville</strong> pour le moment.]]></target>
       </segment>
     </unit>
     <unit id="i2Ptm8n" name="%citizen% ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.">
@@ -15493,7 +15493,7 @@
       </notes>
       <segment>
         <source>Aggressiver Mitbürger</source>
-        <target>Citoyen aggressif !</target>
+        <target>Citoyen agressif !</target>
       </segment>
     </unit>
     <unit id="zLJ.A.A" name="Anzeigen">
@@ -17589,7 +17589,7 @@
       </notes>
       <segment>
         <source>Verbrechen</source>
-        <target>Vols et aggressions</target>
+        <target>Vols et agressions</target>
       </segment>
     </unit>
     <unit id="EimCTw3" name="Baustelle">
@@ -19749,6 +19749,168 @@
       <segment>
         <source>Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.&lt;hr/&gt;Du hast 2 Aktionspunkte verbraucht.</source>
         <target><![CDATA[Un ou plusieurs citoyens non-bannis dans la zone <strong>vous ont vu faire</strong> !<hr />Vous avez utilisé 2 point(s) d'action.]]></target>
+      </segment>
+    </unit>
+    <unit id="euqAojU">
+      <notes>
+        <note category="german">Als du folgendes Gebäude: %building% erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: %item%.</note>
+      </notes>
+      <segment>
+        <source>Als du folgendes Gebäude: %building% erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: %item%.</source>
+        <target>La peur vous prend aux tripes tandis que vous explorez %building%... Néanmoins, ça n'aura pas été inutile puisque vous finissez par trouver %item%.</target>
+      </segment>
+    </unit>
+    <unit id="ijrzep1">
+      <notes>
+        <note category="german">Die Zeremonie besteht darin, die Leiche mit einer 1x &lt;strong&gt;Ration Wasser&lt;/strong&gt; zu übergießen. Die Leiche wird dann sofort zerstört.</note>
+      </notes>
+      <segment>
+        <source>Die Zeremonie besteht darin, die Leiche mit einer 1x &lt;strong&gt;Ration Wasser&lt;/strong&gt; zu übergießen. Die Leiche wird dann sofort zerstört.</source>
+        <target><![CDATA[Cette cérémonie consiste à arroser le corps avec 1x <strong>Ration d'eau</strong>. Cela aura l'effet de le détruire immédiatement.]]></target>
+      </segment>
+    </unit>
+    <unit id="o7WUM4t">
+      <notes>
+        <note category="german">Wenn du eine Leiche entsorgen möchtest, ohne dafür Wasser zu verbrauchen, kannst du sie &lt;strong&gt;nach draußen ziehen&lt;/strong&gt;. Diese Aktion verbraucht &lt;strong&gt;2 Aktionspunkte&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Wenn du eine Leiche entsorgen möchtest, ohne dafür Wasser zu verbrauchen, kannst du sie &lt;strong&gt;nach draußen ziehen&lt;/strong&gt;. Diese Aktion verbraucht &lt;strong&gt;2 Aktionspunkte&lt;/strong&gt;.</source>
+        <target><![CDATA[Pour vous débarrasser d'un cadavre sans utiliser de l'eau, vous pouvez <strong>le traîner dehors</strong>. Cette action requiert <strong>2 points d'action</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="uLW8jwG" name="Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?">
+      <notes>
+        <note category="german">Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</source>
+        <target>Cela consommera 1x Ration d'eau. Confirmer ?</target>
+      </segment>
+    </unit>
+    <unit id="dk0TbNl" name="Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?">
+      <notes>
+        <note category="german">Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</source>
+        <target>Cela nécessite 2 points d'action. Confirmer ?</target>
+      </segment>
+    </unit>
+    <unit id="if9Rvma">
+      <notes>
+        <note category="german">Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche &lt;strong&gt;in Verpflegung umwandeln&lt;/strong&gt;. Aber willst du das wirklich tun?</note>
+      </notes>
+      <segment>
+        <source>Dank des von der Stadt gebauten Kremato-Cue kannst du diese Leiche &lt;strong&gt;in Verpflegung umwandeln&lt;/strong&gt;. Aber willst du das wirklich tun?</source>
+        <target><![CDATA[Grace au Crémato-Cue construit par la ville, vous pouvez <strong>transformer ce corps en rations</strong>.. Mais voulez-vous vraiment faire cela ?]]></target>
+      </segment>
+    </unit>
+    <unit id="JQAKEqq">
+      <notes>
+        <note category="german">Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.</note>
+      </notes>
+      <segment>
+        <source>Jeder Bürger, der herkommt, um den Horizont abzusuchen, kann die Qualität der Abschätzung verbessern.</source>
+        <target>Chaque citoyen qui viendra scruter l'horizon ici pourra améliorer la qualité de l'estimation.</target>
+      </segment>
+    </unit>
+    <unit id="Fu0IcEb">
+      <notes>
+        <note category="german">WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</note>
+      </notes>
+      <segment>
+        <source>WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</source>
+        <target>ATTENTION: vous avez une chance importante d'être repéré(e) par les autres citoyens si vous dévorez quelqu'un en ville ! Préférez un meurtre dans l'outre-monde...</target>
+      </segment>
+    </unit>
+    <unit id="4sVRjER">
+      <notes>
+        <note category="german">Die offensichtlichen Spuren zeigen, dass %user% die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: &lt;strong&gt;%user% war ein Ghoul&lt;/strong&gt;!</note>
+      </notes>
+      <segment>
+        <source>Die offensichtlichen Spuren zeigen, dass %user% die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: &lt;strong&gt;%user% war ein Ghoul&lt;/strong&gt;!</source>
+        <target><![CDATA[Des traces on ne peut plus évidentes portent à croire que %user% aurait franchi les limites de la démence : des os rongés, des membres humains déchiquetés, des restes d'animaux à moitié dévorés... Son ancienne habitation est un véritable charnier puant qui ne laisse planer aucun doute : <strong>%user% était une goule</strong> !]]></target>
+      </segment>
+    </unit>
+    <unit id="rUnZoOv">
+      <notes>
+        <note category="german">Diese Aktion ermöglicht es dir, diesen Bürger zu verschlingen, um deinen unersättlichen Heißhunger zu stillen!</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion ermöglicht es dir, diesen Bürger zu verschlingen, um deinen unersättlichen Heißhunger zu stillen!</source>
+        <target>Cette action vous permettra de dévorer ce citoyen pour calmer votre appétit... vorace !</target>
+      </segment>
+    </unit>
+    <unit id="WfrT9D_">
+      <notes>
+        <note category="german">Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für %citizen%! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</note>
+      </notes>
+      <segment>
+        <source>Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für %citizen%! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...</source>
+        <target>A en juger par ce qui est marqué au dos de ce papier, le message ci-dessous était en réalité destiné à %citizen% ! Par un hasard mystérieux, il a atterri dans votre boîte aux lettres…</target>
+      </segment>
+    </unit>
+    <unit id="XyOziHn">
+      <notes>
+        <note category="german">%actor% hat heimlich versucht diesen Gegenstand: %item% bei %victim% abzulegen... Leider wurde er dabei ertappt! Jetzt fragen sich alle: Was wollte er damit bezwecken?</note>
+      </notes>
+      <segment>
+        <source>%actor% hat heimlich versucht diesen Gegenstand: %item% bei %victim% abzulegen... Leider wurde er dabei ertappt! Jetzt fragen sich alle: Was wollte er damit bezwecken?</source>
+        <target>%actor% a tenté de déposer discrètement %item% chez %victim%... Malheureusement pour ce citoyen, il a été remarqué ! Une question demeure : que manigançait-il ?</target>
+      </segment>
+    </unit>
+    <unit id="1YjMwtR" name="Du hast den(die,das) %item% bei %victim% abgelegt...">
+      <notes>
+        <note category="german">Du hast den(die,das) %item% bei %victim% abgelegt...</note>
+      </notes>
+      <segment>
+        <source>Du hast den(die,das) %item% bei %victim% abgelegt...</source>
+        <target>Vous avez déposé %item% chez %victim%...</target>
+      </segment>
+    </unit>
+    <unit id="rcIyf3M">
+      <notes>
+        <note category="german">Du bist bei deiner Aktion aufgeflogen! &lt;strong&gt;Deine Mitbürger wissen jetz Bescheid!&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>Du bist bei deiner Aktion aufgeflogen! &lt;strong&gt;Deine Mitbürger wissen jetz Bescheid!&lt;/strong&gt;</source>
+        <target><![CDATA[Votre action a été remarquée ! <strong>Les citoyens ont été avertis !</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="U4ZJpTo" name="@deads Tot">
+      <notes>
+        <note category="german">@deads Tot</note>
+      </notes>
+      <segment>
+        <source>@deads Tot</source>
+        <target>@deads morts</target>
+      </segment>
+    </unit>
+    <unit id="6ntsFNr">
+      <notes>
+        <note category="german">Ihre Reklamation wurde gut aufgenommen, wird aber in der aktuellen Situation &lt;strong&gt;nicht sehr hilfreich&lt;/strong&gt; sein.&lt;hr&gt;Die Stadt ist im totalen &lt;strong&gt;Chaos&lt;/strong&gt; versunken... Bei so wenigen Überlebenden sind &lt;strong&gt;die Gesetze des Landes gebrochen worden&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Ihre Reklamation wurde gut aufgenommen, wird aber in der aktuellen Situation &lt;strong&gt;nicht sehr hilfreich&lt;/strong&gt; sein.&lt;hr&gt;Die Stadt ist im totalen &lt;strong&gt;Chaos&lt;/strong&gt; versunken... Bei so wenigen Überlebenden sind &lt;strong&gt;die Gesetze des Landes gebrochen worden&lt;/strong&gt;.</source>
+        <target><![CDATA[Votre plainte a bien été consignée mais ne sera <strong>pas très utile</strong> dans la situation actuelle.<hr>La ville a sombré dans le <strong>chaos</strong> le plus total... Vu le faible nombre de survivants, <strong>les lois n'ont plus cours</strong> en ville.]]></target>
+      </segment>
+    </unit>
+    <unit id="62YJBIX">
+      <notes>
+        <note category="german">Sie haben eine Beschwerde gegen &lt;strong&gt;%citizen%&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird %citizen% aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</note>
+      </notes>
+      <segment>
+        <source>Sie haben eine Beschwerde gegen &lt;strong&gt;%citizen%&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird %citizen% aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</source>
+        <target><![CDATA[Vous avez déposé une plainte contre <strong>%citizen%</strong>. Si suffisament de plaintes sont accumulées, <strong>%citizen% set banni(e) de la communauté</strong>, ou pendu(e) si une potence existe.]]></target>
+      </segment>
+    </unit>
+    <unit id="CgXv4BN">
+      <notes>
+        <note category="german">Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...</note>
+      </notes>
+      <segment>
+        <source>Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...</source>
+        <target>Votre plainte a été retirée... Réfléchissez plus la prochaine fois...</target>
       </segment>
     </unit>
   </file>

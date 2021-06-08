@@ -158,28 +158,47 @@ class UserFactory
         return $new_user;
     }
 
-    public function importUser( \EternalTwinClient\Object\User $etwin_user ): User {
-        $i = 0;
-        $new_name = $etwin_user->getDisplayName();
+    public function importUser( \EternalTwinClient\Object\User $etwin_user, ?string $mail, $validated, ?int &$error ): ?User {
+        $error = 0;
 
-        if ($this->entity_manager->getRepository(User::class)->findOneByName($new_name))
-            do {
-                $it = "" . (++$i);
-                $new_name = substr( $etwin_user->getUsername(), 0, 16 - mb_strlen( $it ) ) . $it;
-            } while (!$this->entity_manager->getRepository(User::class)->findOneByName($new_name));
+        $lock = $this->locksmith->waitForLock( 'user-creation' );
+
+        $i = 0;
+        $user_mail = $mail ?? "{$etwin_user->getID()}@user.eternal-twin.net";
+        $display_name = preg_replace('/[^\w]/', '', trim($etwin_user->getDisplayName()));
+        $new_name = $display_name;
+
+        if ($this->entity_manager->getRepository(User::class)->findOneByMail( $user_mail )) {
+            $error = self::ErrorMailExists;
+            return null;
+        }
+
+        while ($this->entity_manager->getRepository(User::class)->findOneByName($new_name)) {
+            $it = "" . (++$i);
+            $new_name = substr( $display_name, 0, 16 - mb_strlen( $it ) ) . $it;
+        }
 
         $new_user = (new User())
             ->setName( $new_name )
-            ->setEmail( "{$etwin_user->getID()}@user.eternal-twin.net" )
+            ->setEmail( $user_mail )
             ->setPassword( null )
-            ->setValidated( true )
+            ->setValidated( $validated )
             ->setEternalID( $etwin_user->getID() )
             ->setSoulPoints(0);
 
-        if ($new_name !== $etwin_user->getUsername())
-            $new_user->setDisplayName( $etwin_user->getUsername() );
+        if ($new_name !== $display_name)
+            $new_user->setDisplayName( $display_name );
 
-        $this->entity_manager->persist($this->perm->associate($new_user, $this->perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup )));
+        $validator = Validation::createValidator();
+        if ($validator->validate($new_user)->count() > 0) {
+            $error = self::ErrorInvalidParams;
+            return null;
+        }
+
+        if (!$validated)
+            $this->announceValidationToken( $this->ensureValidation( $new_user, UserPendingValidation::EMailValidation ) );
+        else $this->entity_manager->persist($this->perm->associate($new_user, $this->perm->getDefaultGroup( UserGroup::GroupTypeDefaultUserGroup )));
+
         return $new_user;
     }
 
