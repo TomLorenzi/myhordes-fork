@@ -1724,7 +1724,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Nutzer</source>
-        <target>EternalTwin-Nutzer</target>
+        <target>Utilisateurs de EternalTwin</target>
       </segment>
     </unit>
     <unit id="0T9At.g">
@@ -1733,7 +1733,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
-        <target>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</target>
+        <target>Ce joueur utilise un compte EternalTwin. Nous sommes impatients de l’accueillir sur MyHordes !</target>
       </segment>
     </unit>
     <unit id="XRvl7w0">
@@ -1751,7 +1751,7 @@
       </notes>
       <segment>
         <source>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</source>
-        <target>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</target>
+        <target>MyHordes est une fière partie du réseau EternalTwin !</target>
       </segment>
     </unit>
     <unit id="WVIMH8t">
@@ -1760,7 +1760,7 @@
       </notes>
       <segment>
         <source>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</source>
-        <target>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</target>
+        <target>Afin de pouvoir continuer à jouer à MyHordes à l’avenir, vous devez lier votre ancien compte MyHordes à un compte EternalTwin.</target>
       </segment>
     </unit>
     <unit id="CACKQCH" name="EternalTwin-Account verknüpfen">
@@ -1769,7 +1769,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Account verknüpfen</source>
-        <target>EternalTwin-Account verknüpfen</target>
+        <target>Lier votre compte EternalTwin</target>
       </segment>
     </unit>
     <unit id="lqipl75" name="%name%'s Koalition">
