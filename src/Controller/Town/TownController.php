@@ -653,6 +653,16 @@ class TownController extends InventoryAwareController
                 $em->flush();
             }
 
+            if($severity > 0) {
+                if($town->getChaos()) {
+                    $this->addFlash('notice', $this->translator->trans('Ihre Reklamation wurde gut aufgenommen, wird aber in der aktuellen Situation <strong>nicht sehr hilfreich</strong> sein.<hr>Die Stadt ist im totalen <strong>Chaos</strong> versunken... Bei so wenigen Überlebenden sind <strong>die Gesetze des Landes gebrochen worden</strong>.', [], 'game'));
+                } else {
+                    $this->addFlash('notice', $this->translator->trans('Sie haben eine Beschwerde gegen <strong>%citizen%</strong> eingereicht. Wenn sich genug Beschwerden ansammeln, <strong>wird %citizen% aus der Gemeinschaft verbannt oder gehängt</strong>, falls ein Galgen vorhanden ist.', ['%citizen%' => $culprit->getName()], 'game'));
+                }
+            } else {
+                $this->addFlash('notice', $this->translator->trans('Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...', ['%citizen%' => $culprit->getName()], 'game'));
+            }
+
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }

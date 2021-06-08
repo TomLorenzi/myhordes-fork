@@ -19886,5 +19886,32 @@
         <target>@deads morts</target>
       </segment>
     </unit>
+    <unit id="6ntsFNr">
+      <notes>
+        <note category="german">Ihre Reklamation wurde gut aufgenommen, wird aber in der aktuellen Situation &lt;strong&gt;nicht sehr hilfreich&lt;/strong&gt; sein.&lt;hr&gt;Die Stadt ist im totalen &lt;strong&gt;Chaos&lt;/strong&gt; versunken... Bei so wenigen Überlebenden sind &lt;strong&gt;die Gesetze des Landes gebrochen worden&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Ihre Reklamation wurde gut aufgenommen, wird aber in der aktuellen Situation &lt;strong&gt;nicht sehr hilfreich&lt;/strong&gt; sein.&lt;hr&gt;Die Stadt ist im totalen &lt;strong&gt;Chaos&lt;/strong&gt; versunken... Bei so wenigen Überlebenden sind &lt;strong&gt;die Gesetze des Landes gebrochen worden&lt;/strong&gt;.</source>
+        <target><![CDATA[Votre plainte a bien été consignée mais ne sera <strong>pas très utile</strong> dans la situation actuelle.<hr>La ville a sombré dans le <strong>chaos</strong> le plus total... Vu le faible nombre de survivants, <strong>les lois n'ont plus cours</strong> en ville.]]></target>
+      </segment>
+    </unit>
+    <unit id="62YJBIX">
+      <notes>
+        <note category="german">Sie haben eine Beschwerde gegen &lt;strong&gt;%citizen%&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird %citizen% aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</note>
+      </notes>
+      <segment>
+        <source>Sie haben eine Beschwerde gegen &lt;strong&gt;%citizen%&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird %citizen% aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</source>
+        <target><![CDATA[Vous avez déposé une plainte contre <strong>%citizen%</strong>. Si suffisament de plaintes sont accumulées, <strong>%citizen% set banni(e) de la communauté</strong>, ou pendu(e) si une potence existe.]]></target>
+      </segment>
+    </unit>
+    <unit id="CgXv4BN">
+      <notes>
+        <note category="german">Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...</note>
+      </notes>
+      <segment>
+        <source>Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...</source>
+        <target>Votre plainte a été retirée... Réfléchissez plus la prochaine fois...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
