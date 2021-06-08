@@ -316,7 +316,7 @@ class BeyondController extends InventoryAwareController
                 $camping_chance = "";
             }
 
-            $camping_improvable = ($survival_chance < $this->citizen_handler->getCampingChance($this->getActiveCitizen())) ? T::__("Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?", 'game') : "";
+            $camping_improvable = ($survival_chance < $this->citizen_handler->getCampingChance($this->getActiveCitizen())) ? $this->translator->trans("Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?", [], 'game') : "";
 
             $camping_blueprint = "";
             $blueprintFound = false;
