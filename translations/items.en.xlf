@@ -3283,7 +3283,7 @@
       </notes>
       <segment>
         <source>Das brauchst du gerade nicht ...</source>
-        <target>You don't need that right now ...</target>
+        <target>You don't need that right now...</target>
       </segment>
     </unit>
     <unit id="INqBtd7" name="Aufstellen">
@@ -7436,13 +7436,13 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.</target>
       </segment>
     </unit>
-    <unit id="5DH1uFn">
+    <unit id="LekZSqE">
       <notes>
-        <note category="german">Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</note>
+        <note category="german">Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber &lt;strong&gt;es scheint ihm nichts anzuhaben&lt;/strong&gt;!</note>
       </notes>
       <segment>
-        <source>Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</source>
-        <target>You hit a zombie with all your strength, several times, but your punches turned out to be more Joe Quimby than Joe Calzaghe... You couldn't get him to go down !</target>
+        <source>Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber &lt;strong&gt;es scheint ihm nichts anzuhaben&lt;/strong&gt;!</source>
+        <target><![CDATA[You hit a zombie with all your strength, several times, but your punches turned out to be more Joe Quimby than Joe Calzaghe... <strong>You couldn't get him to go down</strong>!]]></target>
       </segment>
     </unit>
     <unit id="tT6PQwS" name="Deine Waffe ist durch den harten Aufschlag &lt;strong&gt;kaputt&lt;/strong&gt; gegangen...">
@@ -8406,6 +8406,15 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>Kreischender Wecker</source>
         <target>Screaming Alarm Clock</target>
+      </segment>
+    </unit>
+    <unit id="1sicavE">
+      <notes>
+        <note category="german">Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?</note>
+      </notes>
+      <segment>
+        <source>Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?</source>
+        <target>Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?</target>
       </segment>
     </unit>
   </file>

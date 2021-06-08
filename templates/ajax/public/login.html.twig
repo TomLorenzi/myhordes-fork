@@ -17,26 +17,31 @@
             <br /><br />
 
             <div id="login-etwin">
-                <div class="row-flex v-center">
-                    <div class="padded cell rw-8">
+                <div class="row-flex v-center wrap">
+                    <div class="padded cell rw-8 rw-md-12">
                         <img alt="eternal-twin" src="{{ asset('build/images/eternal-twin/logo.png') }}" class="fit" />
                     </div>
-                    <div class="padded cell rw-4">
+                    <div class="padded cell rw-4 rw-md-12">
                         <div class="note justify">
                             {{ 'MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!'|trans({},'login') }}
                         </div>
                     </div>
                 </div>
-                <div class="row-flex">
-                    <div class="padded cell rw-12">
+                <div class="row">
+                    <div class="padded cell ro-3 rw-6 ro-md-0 rw-md-12">
                         <a href="{{ url('gateway-etwin') }}" target="_self"><button><img style="width: 16px;" alt="" src="{{ asset('build/images/eternal-twin/icon_small.png') }}">{{ 'Über EternalTwin einloggen'|trans({},'login') }}</button></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="padded cell ro-3 rw-6 ro-md-0 rw-md-12">
+                        <a href="{{ url('gateway-etwin-reg') }}" target="_blank"><button class="blue"><img style="width: 16px;" alt="" src="{{ asset('build/images/eternal-twin/icon_small.png') }}">{{ 'Registrieren'|trans({},'login') }}</button></a>
                     </div>
                 </div>
 
                 {% if myh %}
-                    <div class="band"><span>{{ 'oder'|trans({},'global') }}</span></div>
-                    <div class="row-flex v-center">
-                        <div class="padded cell rw-6">
+                    <div class="or"></div>
+                    <div class="row-flex v-center wrap">
+                        <div class="padded cell rw-6 hide-md hide-sm">
                             <div class="note justify">
                                 {{ 'Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.'|trans({},'login') }}
                                 <strong>{{ 'Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.'|trans({},'login') }}</strong>
@@ -44,12 +49,20 @@
                             </div>
                         </div>
 
-                        <div class="padded cell rw-6">
+                        <div class="padded cell rw-6 rw-md-12">
                             <img alt="myhordes" src="{{ asset('build/images/eternal-twin/legacy.png') }}" class="fit" />
                         </div>
+
+                        <div class="padded cell rw-12 hide-lg hide-desktop">
+                            <div class="note justify">
+                                {{ 'Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.'|trans({},'login') }}
+                                <strong>{{ 'Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.'|trans({},'login') }}</strong>
+                                {{ 'Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.'|trans({},'login') }}
+                            </div>
+                        </div>
                     </div>
-                    <div class="row-flex">
-                        <div class="padded cell rw-12">
+                    <div class="row">
+                        <div class="padded cell ro-3 rw-6 ro-md-0 rw-md-12">
                             <button id="myh">{{ 'Über MyHordes einloggen'|trans({},'login') }}</button>
                         </div>
                     </div>

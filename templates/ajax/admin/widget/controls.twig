@@ -270,10 +270,13 @@
         <div class="row-flex">
             <div class="padded cell grow-2 shrink-1">
                 <label><select id="{{ _self.gen_id(prefix,'pointwidget','select')}}">
-                        <option value="ap">{{'AP'|trans({}, 'admin')}}</option>
-                        <option value="bp">{{'BP'|trans({}, 'admin')}}</option>
-                        <option value="mp">{{'MP'|trans({}, 'admin')}}</option>
-                    </select></label>
+                    <option value="ap">{{'AP'|trans({}, 'admin')}}</option>
+                    <option value="bp">{{'BP'|trans({}, 'admin')}}</option>
+                    <option value="mp">{{'MP'|trans({}, 'admin')}}</option>
+                    <option value="gh">{{'Hunger'|trans({}, 'admin')}} (%)</option>
+                    <option value="cc">{{'Camp Chance'|trans({}, 'admin')}} (%)</option>
+                    <option value="cn">{{'Camp Zähler'|trans({}, 'admin')}}</option>
+                </select></label>
             </div>
             <div class="padded cell grow-1 shrink-3">
                 <label><input type="number" id="{{ _self.gen_id(prefix,'pointwidget','number')}}" value="6"/></label>

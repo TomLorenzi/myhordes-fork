@@ -3283,7 +3283,7 @@
       </notes>
       <segment>
         <source>Das brauchst du gerade nicht ...</source>
-        <target>Vous n'avez pas besoin de ça maintenant ...</target>
+        <target>Vous n'avez pas besoin de ça maintenant...</target>
       </segment>
     </unit>
     <unit id="INqBtd7" name="Aufstellen">
@@ -3769,7 +3769,7 @@
       </notes>
       <segment>
         <source>Um Schrauben festzudrehen oder zu lösen. Du kannst mit ihm etwas reparieren und zur Not auch eine Konservendose aufmachen. Wenn du ihn mit voller Wucht in einen Kopf rammst, kann er dir in Extremsituationen auch mal das Leben retten... </source>
-        <target>Le tournevis visse et dévisse, il vous permet de réparer des choses et à la limite, d'ouvrir des boîtes de conserve. En dernier ressort, plantez-le dans une tête: ça pourrait bien vous sauver la vie…</target>
+        <target>Le tournevis visse et dévisse, il vous permet de réparer des choses et à la limite, d'ouvrir des boîtes de conserve. En dernier ressort, plantez-le dans une tête : ça pourrait bien vous sauver la vie…</target>
       </segment>
     </unit>
     <unit id="dwk9h7d">
@@ -4048,7 +4048,7 @@
       </notes>
       <segment>
         <source>Es ist labbrig wie weiches Gummi und es riecht nach Fisch ... Was das wohl für ein Fleisch ist? Jedenfalls hat es bestimmt viele Vitamine und Proteine (und sonst hoffentlich nichts).</source>
-        <target>C'est un peu élastique et ça sent même le poisson… On se demande bien ce que ça Peut être, mais c'est surement plein de vitamines (et pas d'autres choses, espérez-vous).</target>
+        <target>C'est un peu élastique et ça sent même le poisson… On se demande bien ce que ça peut être, mais c'est surement plein de vitamines (et pas d'autres choses, espérez-vous).</target>
       </segment>
     </unit>
     <unit id="CiklaSg">
@@ -4183,7 +4183,7 @@
       </notes>
       <segment>
         <source>Eine alte Plastiktüte aus dem Supermarkt. Wenn du sie mit Wasser füllst, verwandelt sie sich in eine gefürchtete Waffe...</source>
-        <target>Un vieux sac plastique de super-marché qui peut se transformer en arme redoutable si vous le remplissez d'eau...</target>
+        <target>Un vieux sac plastique de supermarché qui peut se transformer en arme redoutable si vous le remplissez d'eau...</target>
       </segment>
     </unit>
     <unit id="4O9j8jG">
@@ -7063,7 +7063,7 @@
       </notes>
       <segment>
         <source>Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</source>
-        <target>Cette authentique breloque du siècle dernier aurait, parait-il, à son actif des centaines de rétines brûlées. Son flash mal réglé vous permettra de vous sortir de toutes les situations désespérées en aveuglant les zombies !</target>
+        <target>Cette authentique breloque du siècle dernier aurait, paraît-il, à son actif des centaines de rétines brûlées. Son flash mal réglé vous permettra de vous sortir de toutes les situations désespérées en aveuglant les zombies !</target>
       </segment>
     </unit>
     <unit id="q1MWl8S" name="Benutzen">
@@ -7390,13 +7390,13 @@
         <target>Tous les zombies de la zone ont été pulvérisés en utilisant {item} ! Vous pouvez vous détendre... Ou pas...</target>
       </segment>
     </unit>
-    <unit id="5DH1uFn">
+    <unit id="LekZSqE">
       <notes>
-        <note category="german">Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</note>
+        <note category="german">Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber &lt;strong&gt;es scheint ihm nichts anzuhaben&lt;/strong&gt;!</note>
       </notes>
       <segment>
-        <source>Du schlägst einen Zombie mit aller Kraft, mehrmals, aber er bricht nicht unter deinen Schlägen zusammen!</source>
-        <target>Vous frappez un zombie de toutes vos forces, plusieurs fois, mais celui-ci ne s'effrondre pas sous vos coups !</target>
+        <source>Mit aller Kraft schlägst du mehrmals auf einen Zombie ein, aber &lt;strong&gt;es scheint ihm nichts anzuhaben&lt;/strong&gt;!</source>
+        <target><![CDATA[Vous frappez un zombie de toutes vos forces, plusieurs fois, mais <strong>celui-ci ne s'effrondre pas sous vos coups !</strong>]]></target>
       </segment>
     </unit>
     <unit id="y3qU7qO">
@@ -8126,7 +8126,7 @@
       </notes>
       <segment>
         <source>Kaum hast du deine Pille geschluckt, da verschwindet auch schon dein Durst. Hoffen wir mal, das alles gut geht...</source>
-        <target>Vous avalez votre pillule... Quelques instants plus tard, la sensation de soif finit par s'estomper. Mais à quel prix...</target>
+        <target>Vous avalez votre pilule... Quelques instants plus tard, la sensation de soif finit par s'estomper. Mais à quel prix...</target>
       </segment>
     </unit>
     <unit id="izlHb1B">
@@ -8325,6 +8325,15 @@
       <segment>
         <source>Kreischender Wecker</source>
         <target>Réveil-Hurleur</target>
+      </segment>
+    </unit>
+    <unit id="1sicavE">
+      <notes>
+        <note category="german">Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?</note>
+      </notes>
+      <segment>
+        <source>Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?</source>
+        <target>Vous n'en revenez pas ! Toute la voracité qui vous rongeait de l'intérieur disparaît petit à petit. Est-ce vraiment possible que vous soyez redevenu humain ?</target>
       </segment>
     </unit>
   </file>

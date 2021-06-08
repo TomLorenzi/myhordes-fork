@@ -79,7 +79,6 @@ class BeyondController extends InventoryAwareController
     protected ZoneHandler $zone_handler;
     protected $item_factory;
     protected DeathHandler $death_handler;
-    protected $asset;
 
     /**
      * BeyondController constructor.
@@ -100,6 +99,7 @@ class BeyondController extends InventoryAwareController
      * @param Packages $a
      * @param UserHandler $uh
      * @param CrowService $armbrust
+     * @param TownHandler $th
      */
     public function __construct(
         EntityManagerInterface $em, InventoryHandler $ih, CitizenHandler $ch, ActionHandler $ah, TimeKeeperService $tk,
@@ -107,11 +107,10 @@ class BeyondController extends InventoryAwareController
         ItemFactory $if, ZoneHandler $zh, LogTemplateHandler $lh, ConfMaster $conf, Packages $a, UserHandler $uh,
         CrowService $armbrust, TownHandler $th)
     {
-        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th);
+        parent::__construct($em, $ih, $ch, $ah, $dh, $ph, $translator, $lh, $tk, $rg, $conf, $zh, $uh, $armbrust, $th, $a);
         $this->game_factory = $gf;
         $this->item_factory = $if;
         $this->zone_handler = $zh;
-        $this->asset = $a;
     }
 
     protected function deferZoneUpdate() {
@@ -317,7 +316,7 @@ class BeyondController extends InventoryAwareController
                 $camping_chance = "";
             }
 
-            $camping_improvable = ($survival_chance < $this->citizen_handler->getCampingChance($this->getActiveCitizen())) ? T::__("Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?", 'game') : "";
+            $camping_improvable = ($survival_chance < $this->citizen_handler->getCampingChance($this->getActiveCitizen())) ? $this->translator->trans("Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?", [], 'game') : "";
 
             $camping_blueprint = "";
             $blueprintFound = false;
@@ -1025,7 +1024,7 @@ class BeyondController extends InventoryAwareController
 
         if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
             $this->addFlash( 'notice', $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game') );
-        return $this->generic_item_api( $up_inv, $down_inv, true, $parser, $handler, $this->getActiveCitizen());
+        return $this->generic_item_api( $up_inv, $down_inv, $escort === null, $parser, $handler, $this->getActiveCitizen());
     }
 
     /**
@@ -1273,8 +1272,9 @@ class BeyondController extends InventoryAwareController
                     $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoName]);
                     $this->picto_handler->give_picto($citizen, $picto);
                 }
-                $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
-                    '%item%' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>"
+                $this->addFlash( 'notice', $this->translator->trans( 'Als du folgendes Gebäude: %building% erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: %item%.', [
+                    '%item%' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>",
+                    "%building%" => "<strong>" . $this->translator->trans($zone->getPrototype()->getLabel(), [], "game") . "</strong>"
                 ], 'game' ) . "$noPlaceLeftMsg");
             } else {
                 $this->addFlash( 'notice', $this->translator->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));

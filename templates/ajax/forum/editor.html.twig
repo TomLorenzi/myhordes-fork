@@ -28,14 +28,14 @@
                 </b>
             </div>
         {% endif %}
-        {% if tid is null %}
+        {% if tid is null or (edit_title is defined and edit_title is not null) %}
             <div class="row">
                 {% if type != 'global-pm' and type != 'numb' %}
                     <div class="cell rw-4 padded">
                         <label for="{{ type }}-forum-editor-title">{{ 'Titel'|trans({},'global') }}</label>
                     </div>
                     <div class="cell rw-8 padded">
-                        <input type="text" id="{{ type }}-forum-editor-title" />
+                        <input type="text" id="{{ type }}-forum-editor-title" {% if edit_title is defined and edit_title is not null %}value="{{ edit_title }}"{% endif%} />
                     </div>
                 {% endif %}
                 {% if type == "changelog" or type == "announcement" %}
@@ -98,7 +98,7 @@
                 </div>
             </div>
 
-            <textarea id="{{ type }}-forum-editor-text" {% if type == 'global-pm' %}style="min-height: 90px; height: 90px;"{% endif %}></textarea>
+            <textarea tabindex="0" id="{{ type }}-forum-editor-text" {% if type == 'global-pm' %}style="min-height: 90px; height: 90px;"{% endif %}></textarea>
 
             <div class="row">
                 <div x-extended class="padded cell rw-12">
@@ -217,7 +217,7 @@
                     </div>
                 {% endif %}
                 {% if type != 'numb' %}
-                    <div x-forum-action="send" class="forum-button">{{ 'Absenden'|trans({},'global') }}</div>
+                    <div x-forum-action="send" class="forum-button" tabindex="0">{{ 'Absenden'|trans({},'global') }}</div>
                 {% endif %}
             </div>
         </div>
@@ -609,6 +609,7 @@
                             {% else %}
                                 target_url = '{{ path('forum_edit_post_controller', {fid: fid, tid: tid, pid: pid}) }}';
                                 target_payload = {
+                                    {% if edit_title is defined %}title: document.getElementById('{{ type }}-forum-editor-title') ? document.getElementById('{{ type }}-forum-editor-title').value : null,{% endif %}
                                     text: content_node.innerHTML
                                 };
                             {% endif %}
@@ -629,6 +630,12 @@
                                 {% endif %}
                             }
                         );
+                    });
+                    send_buttons[i].addEventListener('keydown', function(event) {
+                        if (event.keyCode === 13) {
+                            event.preventDefault();
+                            send_buttons[i].click();
+                        }
                     });
                 }
             {% endif %}

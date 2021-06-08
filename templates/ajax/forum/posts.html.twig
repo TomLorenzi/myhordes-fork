@@ -73,7 +73,12 @@
                         <div class="forum-button-disabled"><i class="fa fa-fast-backward"></i></div>
                         <div class="forum-button-disabled"><i class="fa fa-backward"></i></div>
                     {% endif %}
-                    <div class="forum-button">{{ 'Seite %page%/%pages%'|trans({'%page%': current_page, '%pages%': pages},'global') }}</div>
+                    <div class="forum-button" x-forum-action="post-select-page">
+                        {{ 'Seite %page%/%pages%'|trans({'%page%': '<span class="current_page_marker">&nbsp;' ~ current_page ~ '</span>', '%pages%': pages},'global')|raw }}
+                        <div class="tooltip">
+                            {{ 'Zum Wechsein der Seite hier klicken'|trans({}, 'global') }}
+                        </div>
+                    </div>
                     {% if current_page < pages %}
                         <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ current_page + 1 }}"><i class="fa fa-forward"></i></div>
                         <div class="forum-button" x-forum-action="post-pager" x-to-page="{{ pages }}"><i class="fa fa-fast-forward"></i></div>
@@ -136,11 +141,15 @@
 
     <div class="forum-posts">
         {% for post in posts %}
+            {% set variant = null %}
+            {% if post.owner.name == 'Der Rabe' or post.type == "CROW" %}{% set variant = 'crow' %}{% endif %}
+            {% if post.type == "DEV" %}{% set variant = 'dev' %}{% endif %}
+
             {# @var post \App\Entity\Post #}
             {% if not post.hidden or permission.moderate() %}
                 {% set author_name = (post.owner.name == 'Der Rabe') ? 'Der Rabe'|trans({},'global') : town and post.owner.citizenFor(town) ? post.owner.citizenFor(town).name : post.owner.name %}
-                <div x-post-wrapper-id="{{ post.id }}" class="forum-post {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}">
-                    <div class="forum-post-header {% if post.owner.name == 'Der Rabe' %}header-variant-crow{% elseif post.type == "DEV" %}header-variant-dev{% endif %}">
+                <div x-post-wrapper-id="{{ post.id }}" class="forum-post {% if variant is not null %}forum-post-variant-{{ variant }}{% endif %} {% if not post.hidden %}{% else %}forum-post-hidden{% endif %} {% if post.new %}forum-post-new{% endif %} {% if markedPost is defined and post.id == markedPost %}forum-post-marked{% endif %}">
+                    <div class="forum-post-header {% if variant is not null %}header-variant-{{ variant }}{% endif %}">
                         <i>
                             {% if post.date >= 'today'|to_date %}
                                 {{ 'Heute um'|trans({},'global') }} {{ post.date|format_datetime('none', 'short') }}
@@ -225,7 +234,9 @@
                                     {{ 'Von einem Moderator bearbeitet.'|trans({},'game') }}
                                 {% endif %}
                             {% else %}
-                                {% if post.lastAdminActionBy is not null and post.edited is not null %}
+                                {% if post.edited is not null and post.lastAdminActionBy is null %}
+                                    {{ 'Zuletzt bearbeitet: %date%'|trans({'%date%': post.edited|format_datetime('medium', 'short')},'game') }}
+                                {% elseif post.lastAdminActionBy is not null and post.edited is not null %}
                                     {{ 'Zuletzt bearbeitet: %date%'|trans({'%date%': post.edited|format_datetime('medium', 'short')},'game') }}
                                     {{ ' ~ MOD: ' ~ post.lastAdminActionBy.name }}
                                 {% elseif post.lastAdminActionBy is not null and post.edited is null %}
@@ -251,7 +262,7 @@
                                 </label>
                             {% endif %}
                             {% if not locked %}
-                            {% if (post.owner == app.user or (post.owner.id == 66 and permission.post_as_crow())) and post.editable %}
+                            {% if (post.owner == app.user or (post.owner.id == 66 and permission.post_as_crow())) and post.editable and (post == thread.firstPost(true) or post == thread.lastPost(false)) %}
                                     [ <a class="action-button" id="edit_post"  x-forum-action="edit-post"  x-post-id={{ post.id }} ><img alt="" src="{{ asset('build/images/forum/edit.png') }}"><div class="tooltip forum-tooltip">{{'Bearbeiten'|trans({}, 'global')}}</div></a> ]
                                 {% endif %}
                             {% endif %}
@@ -412,6 +423,34 @@
                 }
             );
         } );
+
+        $.html.addEventListenerAll( '[x-forum-action="post-select-page"]', 'click', function(e,elem) {
+            e.preventDefault();
+            e.stopPropagation();
+            let pagMarker = elem.querySelector(".current_page_marker");
+            pagMarker.innerHTML = '<input type="text" name="page_to_go" class="page_to_go inline" style="width: 24px;margin: 0 5px" />';
+            elem.querySelector("input.page_to_go").focus();
+            $.html.addEventListenerAll('[x-forum-action="post-select-page"] input.page_to_go', 'click', function(e, elem){
+                e.preventDefault();
+                e.stopPropagation();
+            });
+            $.html.addEventListenerAll('[x-forum-action="post-select-page"] input.page_to_go', 'change', function(e, elem){
+                let editor = document.getElementById('forum-forum-editor');
+                {% if editor is defined %}
+                {let c; while ((c = editor.firstChild)) editor.removeChild(c);}
+                {% endif %}
+                let to_page = parseInt( elem.value );
+                if (isNaN(to_page))
+                    return;
+                if (to_page > {{ pages }})
+                    to_page = {{ pages }};
+                $.ajax.no_history().load( document.getElementById('forum-content'), '{{ path('forum_viewer_controller', {fid: fid, tid: tid}) }}', false, {page: to_page});
+            });
+        } );
+
+        $.html.addEventListenerAll('[x-forum-action="post-select-page"]', 'focusout', function(e, elem){
+            elem.innerHTML = '{{ 'Seite %page%/%pages%'|trans({'%page%': '<span class="current_page_marker">&nbsp;' ~ current_page ~ '</span>', '%pages%': pages},'global')|raw }}';
+        });
 
         {% if pages == current_page %}
             $.html.forEach( '[x-thread-id="{{ tid }}"]', e => e.classList.remove('forum-thread-unread') );

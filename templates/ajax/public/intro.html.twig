@@ -12,45 +12,45 @@
     {% endif %}
 {% endblock %}
 {% block ajax %}
-    <div class="row">
-        <div class="cell padded header rw-8 ro-2 rw-lg-12 ro-lg-0">
-            <h4>{% trans from 'welcome' %}Willkommen bei MyHordes{% endtrans %}</h4>
-            <p class="justify">
-                {% trans with {'%motiontwin%':'<b>MotionTwin</b>'} from 'welcome' %}
-                    MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels
-                    "Die Verdammten" und seine anderen Versionen von %motiontwin%.
-                {% endtrans %}
-                <br />
-                {% trans from 'welcome' %}
-                    Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der
-                    Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen
-                    Inhalten versorgt werden kann.
-                {% endtrans %}
-            </p>
+    <div class="row-flex v-center">
+        <div class="cell padded header rw-7 rw-lg-12 manual-background">
 
             <div class="row">
-                <div class="cell rw-12 right">
-                    {% if is_granted('ROLE_USER') %}
-                        <button x-ajax-href="{{ path('initial_landing') }}" class="inline hide-sm">{% trans from 'welcome' %}Zum Spiel{% endtrans %}</button>
-                        <button x-ajax-href="{{ path('initial_landing') }}" class="hide-desktop hide-lg hide-md">{% trans from 'welcome' %}Zum Spiel{% endtrans %}</button>
-                    {% elseif is_granted('ROLE_REGISTERED') %}
-                        <button x-ajax-href="{{ path('public_validate') }}" class="inline hide-sm">{% trans from 'welcome' %}Account validieren{% endtrans %}</button>
-                        <button x-ajax-href="{{ path('public_validate') }}" class="hide-desktop hide-lg hide-md">{% trans from 'welcome' %}Account validieren{% endtrans %}</button>
-                    {% else %}
-                        <button x-ajax-href="{{ path('public_login') }}" class="inline hide-sm">{% trans from 'welcome' %}Zum Login{% endtrans %}</button>
-                        <button x-ajax-href="{{ path('public_login') }}" class="hide-desktop hide-lg hide-md">{% trans from 'welcome' %}Zum Login{% endtrans %}</button>
-                    {% endif %}
+                <div class="padded cell background header ro-1 rw-10 ro-md-0 rw-md-12">
+                    <h4>{% trans from 'welcome' %}Willkommen bei MyHordes{% endtrans %}</h4>
+                    <p class="justify">
+                        {{ 'MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von %motiontwin%.'|trans({'%motiontwin%':'<b>MotionTwin</b>'},'welcome')|raw }}
+                        <br />
+                        {{ 'Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen Inhalten versorgt werden kann.'|trans({},'welcome') }}
+                    </p>
+
+                    <div class="row">
+                        <div class="cell rw-12 right">
+                            {% if is_granted('ROLE_USER') %}
+                                <button x-ajax-href="{{ path('initial_landing') }}" class="inline hide-sm">{% trans from 'welcome' %}Zum Spiel{% endtrans %}</button>
+                                <button x-ajax-href="{{ path('initial_landing') }}" class="hide-desktop hide-lg hide-md">{% trans from 'welcome' %}Zum Spiel{% endtrans %}</button>
+                            {% elseif is_granted('ROLE_REGISTERED') %}
+                                <button x-ajax-href="{{ path('public_validate') }}" class="inline hide-sm">{% trans from 'welcome' %}Account validieren{% endtrans %}</button>
+                                <button x-ajax-href="{{ path('public_validate') }}" class="hide-desktop hide-lg hide-md">{% trans from 'welcome' %}Account validieren{% endtrans %}</button>
+                            {% else %}
+                                <button x-ajax-href="{{ path('public_login') }}" class="inline hide-sm">{% trans from 'welcome' %}Zum Login{% endtrans %}</button>
+                                <button x-ajax-href="{{ path('public_login') }}" class="hide-desktop hide-lg hide-md">{% trans from 'welcome' %}Zum Login{% endtrans %}</button>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <p>
+                        {{ 'Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von %motiontwin%.'|trans({'%motiontwin%':'<b>MotionTwin</b>'},'welcome')|raw }}
+                    </p>
                 </div>
             </div>
 
-            <p>
-                {% trans with {'%motiontwin%':'<b>MotionTwin</b>'} from 'welcome' %}
-                    Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind
-                    damit Eigentum von %motiontwin%.
-                {% endtrans %}
-            </p>
+
 
         </div>
+        <div class="cell rw-5 rw-lg-12 hide-lg hide-md hide-sm manual-background"><div class="welcome-teaser teaser-{{ random(10)+1 }}"><span>MyHordes</span></div></div>
+    </div>
+    <div class="row">
         <div class="cell rw-12 fact" style="padding-left: 35px;">
             {{ fact.content }} - <span class="author"> {{ fact.author }}</span>
         </div>

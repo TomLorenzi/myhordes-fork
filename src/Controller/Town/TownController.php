@@ -19,6 +19,7 @@ use App\Entity\CitizenVote;
 use App\Entity\Complaint;
 use App\Entity\ComplaintReason;
 use App\Entity\ExpeditionRoute;
+use App\Entity\ForumThreadSubscription;
 use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\LogEntryTemplate;
@@ -650,6 +651,16 @@ class TownController extends InventoryAwareController
             if ($complaint_level != 0) {
                 $this->crow->postAsPM( $culprit, '', '', $complaint_level > 0 ? PrivateMessage::TEMPLATE_CROW_COMPLAINT_ON : PrivateMessage::TEMPLATE_CROW_COMPLAINT_OFF, $complaintReason ? $complaintReason->getId() : 0 );
                 $em->flush();
+            }
+
+            if($severity > 0) {
+                if($town->getChaos()) {
+                    $this->addFlash('notice', $this->translator->trans('Ihre Reklamation wurde gut aufgenommen, wird aber in der aktuellen Situation <strong>nicht sehr hilfreich</strong> sein.<hr>Die Stadt ist im totalen <strong>Chaos</strong> versunken... Bei so wenigen Überlebenden sind <strong>die Gesetze des Landes gebrochen worden</strong>.', [], 'game'));
+                } else {
+                    $this->addFlash('notice', $this->translator->trans('Sie haben eine Beschwerde gegen <strong>%citizen%</strong> eingereicht. Wenn sich genug Beschwerden ansammeln, <strong>wird %citizen% aus der Gemeinschaft verbannt oder gehängt</strong>, falls ein Galgen vorhanden ist.', ['%citizen%' => $culprit->getName()], 'game'));
+                }
+            } else {
+                $this->addFlash('notice', $this->translator->trans('Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...', ['%citizen%' => $culprit->getName()], 'game'));
             }
 
         } catch (Exception $e) {
@@ -1697,11 +1708,13 @@ class TownController extends InventoryAwareController
         if ($this->user_handler->isRestricted($this->getActiveCitizen()->getUser(), AccountRestriction::RestrictionTownCommunication))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
+        $new_words_of_heroes = mb_substr($parser->get('content', ''), 0, 500);
+
         // Get town
         $town = $this->getActiveCitizen()->getTown();
 
-        $new_words_of_heroes = mb_substr($parser->get('content', ''), 0, 500);
-
+        // No need to update WoH is there is no change
+        if ($town->getWordsOfHeroes() === $new_words_of_heroes) return AjaxResponse::success();
         $town->setWordsOfHeroes($new_words_of_heroes);
 
         $this->entity_manager->persist(

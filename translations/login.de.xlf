@@ -676,5 +676,26 @@
         <target>Dein E-Mail Anbieter stellt Nachrichten von MyHordes nicht oder nur sehr unzuverlässig zu. Wir empfehlen, wenn möglich eine andere E-Mail Adresse für die Registrierung zu verwenden. Bitte entschuldige die Unannehmlichkeiten.</target>
       </segment>
     </unit>
+    <unit id="uQUHCC6">
+      <notes>
+        <note category="german">Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</note>
+      </notes>
+      <segment>
+        <source>Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</source>
+        <target>Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</target>
+      </segment>
+    </unit>
+    <unit id="wmjJuDK">
+      <notes>
+        <note category="german">Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
+                                            Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</note>
+      </notes>
+      <segment>
+        <source>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
+                                            Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</source>
+        <target>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
+                                            Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

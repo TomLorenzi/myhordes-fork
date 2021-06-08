@@ -100,6 +100,11 @@ class PrivateMessage
      */
     private $moderator;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Citizen::class)
+     */
+    private $originalRecipient;
+
     public function __construct()
     {
         $this->adminReports = new ArrayCollection();
@@ -281,6 +286,18 @@ class PrivateMessage
     public function setModerator(?User $moderator): self
     {
         $this->moderator = $moderator;
+
+        return $this;
+    }
+
+    public function getOriginalRecipient(): ?Citizen
+    {
+        return $this->originalRecipient;
+    }
+
+    public function setOriginalRecipient(?Citizen $originalRecipient): self
+    {
+        $this->originalRecipient = $originalRecipient;
 
         return $this;
     }

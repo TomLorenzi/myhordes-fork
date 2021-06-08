@@ -116,22 +116,42 @@ class WebController extends CustomAbstractController
      */
     public function gateway_etwin(EternalTwinHandler $etwin): Response {
         if (!$etwin->isReady()) return new Response('Error: No gateway to EternalTwin is configured.');
-        return new RedirectResponse($etwin->createAuthorizationRequest('etwin-login'));
+        $request = Request::createFromGlobals();
+        return new RedirectResponse($etwin->createAuthorizationRequest('etwin-login#' . $request->getHost() . $request->getBaseUrl()));
+    }
+
+    /**
+     * @Route("gateway/eternal-twin-registration", name="gateway-etwin-reg")
+     * @param EternalTwinHandler $etwin
+     * @param ConfMaster $conf
+     * @return Response
+     */
+    public function gateway_etwin_reg(EternalTwinHandler $etwin, ConfMaster $conf): Response {
+        if (!$etwin->isReady()) return new Response('Error: No gateway to EternalTwin is configured.');
+        return new RedirectResponse( $conf->getGlobalConf()->get( MyHordesConf::CONF_ETWIN_REG ) );
     }
 
     /**
      * @Route("/twinoid", name="twinoid_auth_endpoint")
      * @return Response
      */
-    public function framework_import(): Response
+    public function framework_import(ConfMaster $conf): Response
     {
         $request = Request::createFromGlobals();
-        $state = $request->query->get('state');
+        $state = explode('#',$request->query->get('state'));
+        $target_domain = count($state) === 1 ? null : $state[1];
+        $state = $state[0];
         $code  = $request->query->get('code');
         $error = $request->query->get('error');
 
         if ($error) return new Response('Error: No code obtained! Reported error is "' . htmlentities($error) . '".');
         if (empty( $code )) return new Response('Error: No code obtained!');
+
+        if ($target_domain !== null && Request::createFromGlobals()->getHost() !== null && !str_starts_with($target_domain, $request->getHost())) {
+            foreach ($conf->getGlobalConf()->get(MyHordesConf::CONF_DOMAINS) as $domain)
+                if (str_starts_with( $target_domain, $domain )) return new RedirectResponse( "https://{$target_domain}/twinoid?code={$code}&state={$state}" );
+            return new Response('Error: Untrusted domain!');
+        }
 
         switch ($state) {
             case 'import': return $this->render_web_framework($this->generateUrl('soul_import', ['code' => $code]));

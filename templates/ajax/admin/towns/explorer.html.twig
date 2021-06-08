@@ -31,15 +31,15 @@
         <div class="cell padded rw-12">
             <div class="tab-floater">
                 <ul class="tabs plain" x-tab-group="admin-town" x-tab-control x-tab-default="{{ tab }}">
-                    <li class="tab" x-tab-id="dash"><div class="tab-link">{{ 'Übersicht'|trans({},'admin') }}</div></li>
-                    <li class="tab" x-tab-id="bank"><div class="tab-link">{{ 'Bank'|trans({},'admin') }}</div></li>
-                    <li class="tab" x-tab-id="citizens"><div class="tab-link">{{ 'Bürger'|trans({},'admin') }}</div></li>
-                    <li class="tab" x-tab-id="register"><div class="tab-link">{{ 'Stadtregister'|trans({},'admin') }}</div></li>
-                    <li class="tab" x-tab-id="blackboard"><div class="tab-link">{{ 'Schwarzes Brett'|trans({},'admin') }}</div></li>
-                    <li class="tab" x-tab-id="estimations"><div class="tab-link">{{ 'Admin-Wachturm'|trans({},'admin') }}</div></li>
+                    <li class="tab" x-tab-id="dash"><div class="tab-link"><img src="{{ asset('build/images/icons/planner.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Übersicht'|trans({},'admin') }}</span></div></li>
+                    <li class="tab" x-tab-id="bank"><div class="tab-link"><img src="{{ asset('build/images/icons/home.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Bank'|trans({},'admin') }}</span></div></li>
+                    <li class="tab" x-tab-id="citizens"><div class="tab-link"><img src="{{ asset('build/images/icons/small_human.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Bürger'|trans({},'admin') }}</span></div></li>
+                    <li class="tab" x-tab-id="register"><div class="tab-link"><img src="{{ asset('build/images/icons/small_rp.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Stadtregister'|trans({},'admin') }}</span></div></li>
+                    <li class="tab" x-tab-id="blackboard"><div class="tab-link"><img src="{{ asset('build/images/icons/small_talk.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Schwarzes Brett'|trans({},'admin') }}</span></div></li>
+                    <li class="tab" x-tab-id="estimations"><div class="tab-link"><img src="{{ asset('build/images/item/item_scope.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Admin-Wachturm'|trans({},'admin') }}</span></div></li>
                 {% if is_granted("ROLE_ADMIN") %}
-                    <li class="tab" x-tab-id="buildings"><div class="tab-link">{{ 'Konstruktionen'|trans({},'admin') }}</div></li>
-                    <li class="tab" x-tab-id="explorer"><div class="tab-link">{{ 'Ruinenscanner'|trans({},'admin') }}</div></li>
+                    <li class="tab" x-tab-id="buildings"><div class="tab-link"><img src="{{ asset('build/images/icons/title/r_buildr.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Konstruktionen'|trans({},'admin') }}</span></div></li>
+                    <li class="tab" x-tab-id="explorer"><div class="tab-link"><img src="{{ asset('build/images/icons/title/r_explo2.gif') }}" alt="" /><span class="hide-md hide-sm hide-lg">{{ 'Ruinenscanner'|trans({},'admin') }}</span></div></li>
                 {% endif %}
                 </ul>
             </div>
@@ -478,7 +478,7 @@
                 <div x-tab-group="admin-town" x-tab-id="explorer" x-tab-target>
                     {% for exploration in explorables %}
                         <div class="row">
-                            <div class="cell rw-6 padded">
+                            <div class="cell rw-6 rw-md-12 padded">
                                 <h5>{{ exploration.z.prototype.label|trans({},'game') }} - {{ exploration.z.x }}/{{ exploration.z.y }}</h5>
                                 <div class="adm-exploration">
                                     {% for rz in exploration.rz %}
@@ -503,7 +503,7 @@
                                     {% endfor %}
                                 </div>
                             </div>
-                            <div class="cell rw-6 padded">
+                            <div class="cell rw-6 rw-md-12 padded">
                                 <h5>{{ 'Aktuelle Sitzung'|trans({},'admin') }}</h5>
                                 {% if exploration.ax %}
                                     {{ _self.valuelist('Spieler'|trans({},'admin'), exploration.ax.citizen.name) }}

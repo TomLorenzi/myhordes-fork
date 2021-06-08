@@ -637,7 +637,7 @@ class SoulController extends CustomAbstractController
      * @param string $return_path
      * @return Response
      */
-    public function soul_view_town(int $idtown, $sid = 'me', $return_path = "soul_me"): Response
+    public function soul_view_town(int $idtown, string $sid = 'me', string $return_path = "soul_me"): Response
     {
         $user = $this->getUser();
 
@@ -676,7 +676,8 @@ class SoulController extends CustomAbstractController
             'user' => $target_user,
             'town' => $town,
             'last_user_standing' => $picto !== null ? $picto->getUser() : null,
-            'return_path' => $return_path
+            'return_path' => $return_path,
+            'self_path' => $this->generateUrl('soul_view_town', ['sid' => $sid, 'idtown' => $idtown, 'return_path' => $return_path])
         )));
     }
 
@@ -694,7 +695,7 @@ class SoulController extends CustomAbstractController
         $id = $parser->get("id");
         /** @var CitizenRankingProxy $citizenProxy */
         $citizenProxy = $this->entity_manager->getRepository(CitizenRankingProxy::class)->find($id);
-        if ($citizenProxy === null || $citizenProxy->getUser() !== $user )
+        if ($citizenProxy === null || $citizenProxy->getUser() !== $user || $citizenProxy->getCommentLocked() )
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         if ($citizenProxy->getCitizen() !== null && $citizenProxy->getCitizen()->getAlive())

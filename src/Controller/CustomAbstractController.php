@@ -90,6 +90,7 @@ class CustomAbstractController extends AbstractController {
             $data['conf'] = $this->getTownConf();
             $data['ap'] = $this->getActiveCitizen()->getAp();
             $data['max_ap'] = $this->citizen_handler->getMaxAP( $this->getActiveCitizen() );
+            $data['has_wound'] = $this->citizen_handler->isWounded($this->getActiveCitizen());
             $data['banished'] = $this->getActiveCitizen()->getBanished();
             $data['town_chaos'] = $this->getActiveCitizen()->getTown()->getChaos();
             $data['bp'] = $this->getActiveCitizen()->getBp();

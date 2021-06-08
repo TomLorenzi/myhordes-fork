@@ -489,7 +489,7 @@ class MigrateCommand extends Command
 
         if ($lang = $input->getOption('update-trans')) {
 
-            $langs = ($lang === 'all') ? ['de','en','fr','es'] : [$lang];
+            $langs = ($lang === 'all') ? ['en','fr','es','de'] : [$lang];
             if (count($langs) === 1) {
 
                 if ($input->getOption('trans-disable-db')) $this->conf_trans->setDatabaseSearch(false);
@@ -517,6 +517,7 @@ class MigrateCommand extends Command
                 }
 
             } elseif (extension_loaded('pthreads')) {
+                $output->writeln("Using pthreads !");
                 $threads = [];
                 foreach ($langs as $current_lang) {
 
