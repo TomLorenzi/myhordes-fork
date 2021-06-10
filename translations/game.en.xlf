@@ -8197,7 +8197,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es sieht so aus, als hätten wir alles richtig gemacht, da letzte Nacht keine Zombies die Mauern durchbrochen haben.</source>
-        <target>Es sieht so aus, als hätten wir alles richtig gemacht, da letzte Nacht keine Zombies die Mauern durchbrochen haben.</target>
+        <target>It looks like we got it right, since no zombies breached the walls last night.</target>
       </segment>
     </unit>
     <unit id="pmixolq">
