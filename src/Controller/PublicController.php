@@ -553,7 +553,7 @@ class PublicController extends CustomAbstractController
             if ($this->entity_manager->getRepository(User::class)->findOneByEternalID( $etwin_user->getID() ))
                 return AjaxResponse::error( SoulController::ErrorETwinImportProfileInUse );
 
-            $myhordes_user->setEternalID( $etwin_user->getID() )->setPassword(null);
+            $myhordes_user->setEternalID( $etwin_user->getID() );
             if ($etwin_user->getDisplayName() !== $myhordes_user->getUsername())
                 $myhordes_user->setDisplayName( $etwin_user->getDisplayName() );
 
