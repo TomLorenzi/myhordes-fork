@@ -8170,7 +8170,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Eine friedliche Nacht in der Stadt. Die Horde von %attack% Zombies, die letzte Nacht kam, traf einige Teile der Stadt ziemlich hart, aber es gibt nichts Bemerkenswertes zu berichten.</source>
-        <target>Eine friedliche Nacht in der Stadt. Die Horde von %attack% Zombies, die letzte Nacht kam, traf einige Teile der Stadt ziemlich hart, aber es gibt nichts Bemerkenswertes zu berichten.</target>
+        <target>A peaceful night in town. The %attack% zombies that came last night hit some parts of town pretty hard, but there's nothing remarkable to report.</target>
       </segment>
     </unit>
     <unit id="qOMf2gJ">
@@ -9358,7 +9358,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target>Ce bâtiment délabré semble avoir été un hôtel. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</target>
+        <target>Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</target>
       </segment>
     </unit>
     <unit id="rnmrpxG" name="Verlassenes Hospital">
