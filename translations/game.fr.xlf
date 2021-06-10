@@ -3194,7 +3194,7 @@
       </notes>
       <segment>
         <source>%citizen% hat hier durch Graben nichts gefunden...</source>
-        <target>Après des recherches épuisantes, %citizen% n'a rien trouvé d'autre que la vacuité de ces moments perdus...</target>
+        <target>Lors de sa dernière fouille, %citizen% n'a rien trouvé...</target>
       </segment>
     </unit>
     <unit id="J84MRtT" name="%citizen% hat etwas Schutt entfernt.">
