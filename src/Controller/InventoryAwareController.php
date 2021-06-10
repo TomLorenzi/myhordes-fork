@@ -24,6 +24,7 @@ use App\Entity\LogEntryTemplate;
 use App\Entity\PictoPrototype;
 use App\Entity\PrivateMessage;
 use App\Entity\Recipe;
+use App\Entity\RuinZone;
 use App\Entity\SpecialActionPrototype;
 use App\Entity\TownLogEntry;
 use App\Entity\Zone;
@@ -273,7 +274,21 @@ class InventoryAwareController extends CustomAbstractController
     protected function getItemActions(): array {
         $ret = [];
 
-        $av_inv = [$this->getActiveCitizen()->getInventory(), $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getFloor() : $this->getActiveCitizen()->getHome()->getChest()];
+        $av_inv = [$this->getActiveCitizen()->getInventory() ];
+
+        if($this->getActiveCitizen()->getZone()) {
+            if ($this->conf->getTownConfiguration($this->getActiveCitizen()->getTown())->get(TownConf::CONF_MODIFIER_FLOOR_ASMBLY, false)) {
+                if(!$this->getActiveCitizen()->activeExplorerStats())
+                    $av_inv[] =  $this->getActiveCitizen()->getZone()->getFloor();
+                else {
+                    $ex = $this->getActiveCitizen()->activeExplorerStats();
+                    $ruinZone = $this->entity_manager->getRepository(RuinZone::class)->findOneByPosition($this->getActiveCitizen()->getZone(), $ex->getX(), $ex->getY());
+                    $av_inv[] = $ruinZone->getFloor();
+                }
+            }
+        } else {
+            $this->getActiveCitizen()->getHome()->getChest();
+        }
 
         $items = [];
         foreach ($this->getActiveCitizen()->getInventory()->getItems() as $item) $items[] = $item;
@@ -1138,8 +1153,6 @@ class InventoryAwareController extends CustomAbstractController
         /** @var ItemAction|null $action */
         $action = ($action_id < 0) ? null : $this->entity_manager->getRepository(ItemAction::class)->find( $action_id );
 
-
-
         $escort_mode = $base_citizen !== null;
         if ( !$item || !$action || $item->getBroken() ) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
         if ( $escort_mode && $item->getPoison() ) return AjaxResponse::error( BeyondController::ErrorEscortActionRefused );
@@ -1152,9 +1165,25 @@ class InventoryAwareController extends CustomAbstractController
         if (!$action->getAllowedAtGate() && $zone && $zone->isTownZone())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
 
-        $secondary_inv = $zone ? $zone->getFloor() : $citizen->getHome()->getChest();
-        if (!$citizen->getInventory()->getItems()->contains( $item ) && !$secondary_inv->getItems()->contains( $item )) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
-        if (!$this->extract_target_object( $target_id, $action->getTarget(), [ $citizen->getInventory(), $zone ? $zone->getFloor() : $citizen->getHome()->getChest() ], $target ))
+        // $secondary_inv = $zone ? $zone->getFloor() : $citizen->getHome()->getChest();
+        if($zone) {
+            if($this->conf->getTownConfiguration($this->getActiveCitizen()->getTown())->get(TownConf::CONF_MODIFIER_FLOOR_ASMBLY, false)) {
+                if(!$this->getActiveCitizen()->activeExplorerStats()) {
+                    $secondary_inv = $zone->getFloor();
+                } else {
+                    $ex = $this->getActiveCitizen()->activeExplorerStats();
+                    $ruinZone = $this->entity_manager->getRepository(RuinZone::class)->findOneByPosition($this->getActiveCitizen()->getZone(), $ex->getX(), $ex->getY());
+                    $secondary_inv = $ruinZone->getFloor();
+                }
+            } else {
+                $secondary_inv = null;
+            }
+        } else {
+            $secondary_inv = $citizen->getHome()->getChest();
+        }
+
+        if (!$citizen->getInventory()->getItems()->contains( $item ) && ($secondary_inv && !$secondary_inv->getItems()->contains( $item ))) return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
+        if (!$this->extract_target_object( $target_id, $action->getTarget(), [ $citizen->getInventory(), $secondary_inv ], $target ))
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
         $url = null;
 
