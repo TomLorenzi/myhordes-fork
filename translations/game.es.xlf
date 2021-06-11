@@ -19857,7 +19857,7 @@
       </notes>
       <segment>
         <source>Einrichtungsgegenstände bringen dir viele Vorteile. Sie müssen lediglich in deiner &lt;strong&gt;Truhe&lt;/strong&gt; abgelegt werden, um verwendet werden zu können.</source>
-        <target><![CDATA[Einrichtungsgegenstände bringen dir viele Vorteile. Sie müssen lediglich in deiner <strong>Truhe</strong> abgelegt werden, um verwendet werden zu können.]]></target>
+        <target><![CDATA[Los objetos a continuación son utilizados automáticamente en tu <strong>casa</strong> para darte diversas ventajas.]]></target>
       </segment>
     </unit>
     <unit id="b1xfDlq" name="Zuhause">
@@ -19866,7 +19866,7 @@
       </notes>
       <segment>
         <source>Zuhause</source>
-        <target>Zuhause</target>
+        <target>Vivienda</target>
       </segment>
     </unit>
     <unit id="Rlw1G2Y" name="Hausverteidigung">
@@ -19875,7 +19875,7 @@
       </notes>
       <segment>
         <source>Hausverteidigung</source>
-        <target>Hausverteidigung</target>
+        <target>Defensas de la casa</target>
       </segment>
     </unit>
     <unit id="aZTP5kd" name="Behausung:">
@@ -19884,7 +19884,7 @@
       </notes>
       <segment>
         <source>Behausung:</source>
-        <target>Behausung:</target>
+        <target>Vivienda:</target>
       </segment>
     </unit>
     <unit id="DPEWu9n" name="Bauarbeiten:">
@@ -19893,7 +19893,7 @@
       </notes>
       <segment>
         <source>Bauarbeiten:</source>
-        <target>Bauarbeiten:</target>
+        <target>Construcciones:</target>
       </segment>
     </unit>
     <unit id="da5HmMo" name="Verteidigungsgegenstände:">
@@ -19902,7 +19902,7 @@
       </notes>
       <segment>
         <source>Verteidigungsgegenstände:</source>
-        <target>Verteidigungsgegenstände:</target>
+        <target>Objetos de defensa:</target>
       </segment>
     </unit>
     <unit id="82mfAu." name="Heldenbonus:">
@@ -19911,7 +19911,7 @@
       </notes>
       <segment>
         <source>Heldenbonus:</source>
-        <target>Heldenbonus:</target>
+        <target>Bonus Héroe:</target>
       </segment>
     </unit>
     <unit id="GOhyviN" name="Total:">
@@ -19929,7 +19929,7 @@
       </notes>
       <segment>
         <source>Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</source>
-        <target>Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</target>
+        <target>Los objetos de defensa (láminas de metal, etc.) deben ser depositados en el Baúl.</target>
       </segment>
     </unit>
     <unit id="HUYhE2a" name="kein Verteidigungsbonus">
@@ -19938,7 +19938,7 @@
       </notes>
       <segment>
         <source>kein Verteidigungsbonus</source>
-        <target>kein Verteidigungsbonus</target>
+        <target>ningún bonus de defensa</target>
       </segment>
     </unit>
     <unit id="Myp3YkU" name="Stufe %lvl%">
@@ -19947,7 +19947,7 @@
       </notes>
       <segment>
         <source>Stufe %lvl%</source>
-        <target>Stufe %lvl%</target>
+        <target>Nivel %lvl%</target>
       </segment>
     </unit>
     <unit id="ilcgFcS" name="Keine">
@@ -19956,7 +19956,7 @@
       </notes>
       <segment>
         <source>Keine</source>
-        <target>Keine</target>
+        <target>Ninguna</target>
       </segment>
     </unit>
     <unit id="VNJaq3_">
@@ -19965,7 +19965,7 @@
       </notes>
       <segment>
         <source>Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?</source>
-        <target>Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?</target>
+        <target>¿Cómo, aún no has decorado tu hogar? ¡En el desierto puedes hallar encantadores detalles! Un magnífico sillón de piel de zombie, un exótico pie fresco...</target>
       </segment>
     </unit>
     <unit id="bb8bUie" name="Deko-Punkte">
@@ -19974,7 +19974,7 @@
       </notes>
       <segment>
         <source>Deko-Punkte</source>
-        <target>Deko-Punkte</target>
+        <target>puntos de decoración</target>
       </segment>
     </unit>
     <unit id="trQhpwX" name="Komiteenote:">
@@ -19983,7 +19983,7 @@
       </notes>
       <segment>
         <source>Komiteenote:</source>
-        <target>Komiteenote:</target>
+        <target>Nota del comité:</target>
       </segment>
     </unit>
     <unit id="rRcdZf0">
@@ -19992,7 +19992,7 @@
       </notes>
       <segment>
         <source>Diese Note wird vom &lt;strong&gt;Komitee des guten Geschmacks der Stadt %townname%&lt;/strong&gt; vergeben.</source>
-        <target><![CDATA[Diese Note wird vom <strong>Komitee des guten Geschmacks der Stadt %townname%</strong> vergeben.]]></target>
+        <target><![CDATA[Esta nota es otorgada por el <strong>Comité del Buen Gusto de Fosa Morada</strong>.]]></target>
       </segment>
     </unit>
   </file>
