@@ -504,9 +504,20 @@ div.town-banner {
   }
 }
 
-.overview-list {
+.overview-list,
+ul.list{
   list-style: url("../../img/icons/small_dot.gif");
   padding-left: 20px;
+  &.list {
+    li {
+      color: white;
+      &.separator {
+        margin-top: 1.5rem;
+        padding-top: 1.2rem;
+        border-top: 1px solid @myhordes-cell-header-text-color;
+      }
+    }
+  }
   .warning {
     color: #f86;
   }

@@ -349,6 +349,60 @@
     </div>
 
     <div x-tab-group="home-main" x-tab-id="values" x-tab-target>
+        {% set upgrade_count = 0 %}
+        {% for id,upgrade in upgrades %}
+            {% if upgrade_levels[id] > 0 %}
+                {% set upgrade_count = upgrade_count+1 %}
+            {% endif %}
+        {% endfor %}
+        <div class="help">{{ 'Einrichtungsgegenstände bringen dir viele Vorteile. Sie müssen lediglich in deiner <strong>Truhe</strong> abgelegt werden, um verwendet werden zu können.'|trans({}, 'game')|raw }}</div>
+        <div class="row-flex wrap town-summary">
+            <div class="padded cell rw-4 ellipsis row-header"><img src="{{ asset('build/images/icons/small_home.gif') }}" /> {{'Zuhause'|trans({}, 'game')}}</div>
+            <div class="padded cell rw-8 ellipsis row-detail">
+                <img alt="{{ home.prototype.level }}" src="{{ asset('build/images/home/' ~ home.prototype.icon ~ '.gif') }}" /> <strong>{{ home.prototype.label|trans({}, 'buildings') }}<div class="tooltip normal">{{ 'Stufe %lvl%'|trans({'%lvl%': home.prototype.level}, 'game') }}</div></strong>
+                [
+                {% if home.prototype.defense == 0 %}
+                    {{ 'kein Verteidigungsbonus'|trans({}, 'game') }}
+                {% else %}
+                    + {{ home.prototype.defense }} <img src="{{ asset('build/images/icons/small_def.gif') }}" />
+                {% endif %}
+                ]
+            </div>
+            <div class="padded cell rw-4 ellipsis row-header"><img src="{{ asset('build/images/icons/small_home_up.gif') }}" /> {{'Bauarbeiten'|trans({}, 'game')}}</div>
+            <div class="padded cell rw-8 ellipsis row-detail">{% if upgrade_count == 0 %}{{ 'Keine'|trans({}, 'game') }}{% else %}{% for upgrade in home.citizenHomeUpgrades %}
+                    {% if loop.index0 > 0  %}, {% endif %}<b>{{ upgrade.prototype.label|trans({}, 'buildings') }} {{ upgrade.level }}</b>
+                {% endfor %}{% endif %}</div>
+            <div class="padded cell rw-4 ellipsis row-header"><img src="{{ asset('build/images/icons/small_deco.gif') }}" /> {{'Einrichtung'|trans({}, 'game')}}</div>
+            <div class="padded cell rw-8 ellipsis row-detail">{{ deco }} {{ 'Punkt(e)'|trans({}, 'game') }}</div>
+            <div class="padded cell rw-4 ellipsis row-header"><img src="{{ asset('build/images/item/item_plate.gif') }}" /> {{'Hausverteidigung'|trans({}, 'game')}}</div>
+            <div class="padded cell rw-8 ellipsis row-detail">{{ def.sum }} <img src="{{ asset('build/images/icons/small_def.gif') }}" />
+                <a class='help-button'>
+                    <div class='tooltip help'>
+                        <ul class="defList">
+                            <li>{{ 'Behausung:'|trans({}, 'game') }} <strong>+{{ def.house_defense }} {{ 'Punkt(e)'|trans({}, 'game') }}</strong></li>
+                            <li>{{ 'Bauarbeiten:'|trans({}, 'game') }} <strong>+{{ def.upgrades_defense }} {{ 'Punkt(e)'|trans({}, 'game') }}</strong></li>
+                            <li>{{ 'Verteidigungsgegenstände:'|trans({}, 'game')}} <strong>+{{ def.item_defense}} {{ 'Punkt(e)'|trans({}, 'game') }}</strong></li>
+                            <li>{{ 'Heldenbonus:'|trans({}, 'game')}} <strong>+{{ def.job_defense + def.job_guard_defense}} {{ 'Punkt(e)'|trans({}, 'game') }}</strong></li>
+                            <li class="total">{{ 'Total:'|trans({}, 'game') }}<strong> {{ def.sum }} {{ 'Punkt(e)'|trans({}, 'game') }}</strong> </li>
+                        </ul>
+                        <em>{{'Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.'|trans({}, 'game')}}</em>
+                    </div>{{ "Hilfe"|trans({}, "global")}}
+                </a>
+            </div>
+        </div>
+        <div class="note">
+        {% if deco == 0 %}
+                {{'Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?'|trans({}, 'game')}}
+        {% else %}
+            <ul class="list">
+                {% for item in decoItems %}
+                    <li><img src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ ".gif") }}" alt="[]"/> {{ item.prototype.label|trans({}, 'items') }} <em>(+{{ item.prototype.deco }} {{ 'Deko-Punkte'|trans({}, 'game') }})</em> </li>
+                {% endfor %}
+                <li class="separator">{{ 'Komiteenote:'|trans({}, 'game') }} <strong>{{ deco }}  {{ 'Punkt(e)'|trans({}, 'game') }}</strong> {{ help_btn(('Diese Note wird vom <strong>Komitee des guten Geschmacks der Stadt %townname%</strong> vergeben.'|trans({"%townname%": home.citizen.town.name}, 'game'))) }}</li>
+            </ul>
+        {% endif %}
+        </div>
+        {#
         <h5>{% trans from 'game' %}Verteidigung und Dekoration{% endtrans %}</h5>
         <div class="row">
             <div class="padded cell rw-6 rw-md-12">
@@ -381,7 +435,7 @@
         <h5>{% trans from 'game' %}Gegenstände{% endtrans %}</h5>
         <div class="row-table">
             {% for item in chest.items %}
-                {# @var item \App\Entity\Item #}
+                {# @var item \App\Entity\Item # }
                 <div class="row">
                     <div class="padded cell rw-8 left">
                         <img alt="" src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ '.gif') }}" />
@@ -392,7 +446,7 @@
                             <span><img alt="{{ 'Dekoration'|trans({},'game') }}" src="{{ asset('build/images/icons/deco.gif') }}"> {{ item.prototype.deco }}</span>
                         {% endif %}
                         {% for prop in item.prototype.properties %}
-                            {# @var prop \App\Entity\ItemProperty #}
+                            {# @var prop \App\Entity\ItemProperty # }
                             {% if prop.name == 'defence' %}
                                 <span><img alt="{{ 'Verteidigung'|trans({},'game') }}" src="{{ asset('build/images/icons/def.gif') }}"> 1</span>
                             {% endif %}
@@ -421,7 +475,7 @@
             {% endif %}
             <div class="row-table">
                 {% for id,upgrade in upgrades %}
-                    {# @var upgrade \App\Entity\CitizenHomeUpgradePrototype #}
+                    {# @var upgrade \App\Entity\CitizenHomeUpgradePrototype # }
                     {% if upgrade_levels[id] > 0 %}
                         <div class="row">
                             <div class="padded cell rw-8 left">
@@ -436,6 +490,7 @@
                 {% endfor %}
             </div>
         {% endif %}
+        #}
     </div>
 
     <div x-tab-group="home-main" x-tab-id="build" x-tab-target>
