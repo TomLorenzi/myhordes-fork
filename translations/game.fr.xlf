@@ -20054,7 +20054,7 @@
       </notes>
       <segment>
         <source>Diese Note wird vom &lt;strong&gt;Komitee des guten Geschmacks der Stadt %townname%&lt;/strong&gt; vergeben.</source>
-        <target><![CDATA[Cette notre est attribuée par le <strong>Comité du Bon Goût de %townname%</strong>.]]></target>
+        <target><![CDATA[Cette note est attribuée par le <strong>Comité du Bon Goût de %townname%</strong>.]]></target>
       </segment>
     </unit>
   </file>
