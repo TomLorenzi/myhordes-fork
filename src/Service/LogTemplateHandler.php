@@ -792,7 +792,7 @@ class LogTemplateHandler
             ->setZone( $citizen->getZone() );
     }
 
-    public function outsideFoundHiddenItems( Citizen $citizen, $items ): TownLogEntry {
+    public function outsideFoundHiddenItems( Citizen $citizen, ?array $items ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(), 'items' => array_map( function($e) {
             if(array_key_exists('count', $e)) {
                 return array('id' => $e['item']->getPrototype()->getId(),'count' => $e['count']);

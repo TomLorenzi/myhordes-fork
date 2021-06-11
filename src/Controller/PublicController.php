@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\AntiSpamDomains;
 use App\Controller\Soul\SoulController;
 use App\Entity\Citizen;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\HordesFact;
 use App\Entity\Picto;
 use App\Entity\PictoPrototype;
@@ -21,6 +22,7 @@ use App\Service\JSONRequestParser;
 use App\Service\UserFactory;
 use App\Response\AjaxResponse;
 use App\Structures\MyHordesConf;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -47,7 +49,11 @@ class PublicController extends CustomAbstractController
     protected function addDefaultTwigArgs(?string $section = null, ?array $data = null): array {
         $data = parent::addDefaultTwigArgs($section, $data);
 
-        $deadCitizenCount = count($this->entity_manager->getRepository(Citizen::class)->findBy(['alive' => 0]));
+        $criteria = new Criteria();
+        $criteria->andWhere($criteria->expr()->neq('end', null));
+        $criteria->orWhere($criteria->expr()->neq('importID', 0));
+
+        $deadCitizenCount = $this->entity_manager->getRepository(CitizenRankingProxy::class)->matching($criteria)->count() + $this->entity_manager->getRepository(Citizen::class)->count(['alive' => 0]);
         
         $pictoKillZombies = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => 'r_killz_#00']);
         $zombiesKilled = $this->entity_manager->getRepository(Picto::class)->countPicto($pictoKillZombies);

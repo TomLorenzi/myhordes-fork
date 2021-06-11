@@ -13,6 +13,7 @@ use App\Entity\DigRuinMarker;
 use App\Entity\DigTimer;
 use App\Entity\EscapeTimer;
 use App\Entity\EscortActionGroup;
+use App\Entity\Item;
 use App\Entity\ItemAction;
 use App\Entity\ItemGroup;
 use App\Entity\ItemPrototype;
@@ -837,7 +838,19 @@ class BeyondController extends InventoryAwareController
 
             // Banished citizen's stash check
             if(!$mover->getBanished() && $this->zone_handler->hasHiddenItem($new_zone) && $this->random_generator->chance(0.05)){
-                $this->entity_manager->persist($this->log->outsideFoundHiddenItems($mover, $new_zone->getFloor()->getItems()->toArray()));
+                $itemsForLog = [];
+                foreach ($new_zone->getFloor()->getItems() as $item) {
+                    /** @var Item $item */
+                    if(isset($itemsForLog[$item->getPrototype()->getId()])) {
+                        $itemsForLog[$item->getPrototype()->getId()]['count'] += 1;
+                    } else {
+                        $itemsForLog[$item->getPrototype()->getId()] = [
+                            'item' => $item,
+                            'count' => 1
+                        ];
+                    }
+                }
+                $this->entity_manager->persist($this->log->outsideFoundHiddenItems($mover, $itemsForLog));
                 foreach ($new_zone->getFloor()->getItems() as $item) {
                     if($item->getHidden()){
                         $item->setHidden(false);

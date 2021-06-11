@@ -109,6 +109,7 @@ class ActionHandler
 
         $messages = [];
 
+
         $current_state = self::ActionValidityFull;
         foreach ($action->getRequirements() as $meta_requirement) {
             $last_state = $current_state;
@@ -510,7 +511,6 @@ class ActionHandler
      * @return bool
      */
     public function targetDefinitionApplies($target, ItemTargetDefinition $definition): bool {
-
         switch ($definition->getSpawner()) {
             case ItemTargetDefinition::ItemSelectionType:case ItemTargetDefinition::ItemSelectionTypePoison:
                 if (!is_a( $target, Item::class )) return false;

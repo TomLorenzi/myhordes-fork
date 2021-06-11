@@ -19857,5 +19857,149 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>@deads dead</target>
       </segment>
     </unit>
+    <unit id="r4KXho0">
+      <notes>
+        <note category="german">Einrichtungsgegenstände bringen dir viele Vorteile. Sie müssen lediglich in deiner &lt;strong&gt;Truhe&lt;/strong&gt; abgelegt werden, um verwendet werden zu können.</note>
+      </notes>
+      <segment>
+        <source>Einrichtungsgegenstände bringen dir viele Vorteile. Sie müssen lediglich in deiner &lt;strong&gt;Truhe&lt;/strong&gt; abgelegt werden, um verwendet werden zu können.</source>
+        <target><![CDATA[Einrichtungsgegenstände bringen dir viele Vorteile. Sie müssen lediglich in deiner <strong>Truhe</strong> abgelegt werden, um verwendet werden zu können.]]></target>
+      </segment>
+    </unit>
+    <unit id="b1xfDlq" name="Zuhause">
+      <notes>
+        <note category="german">Zuhause</note>
+      </notes>
+      <segment>
+        <source>Zuhause</source>
+        <target>Zuhause</target>
+      </segment>
+    </unit>
+    <unit id="Rlw1G2Y" name="Hausverteidigung">
+      <notes>
+        <note category="german">Hausverteidigung</note>
+      </notes>
+      <segment>
+        <source>Hausverteidigung</source>
+        <target>Hausverteidigung</target>
+      </segment>
+    </unit>
+    <unit id="aZTP5kd" name="Behausung:">
+      <notes>
+        <note category="german">Behausung:</note>
+      </notes>
+      <segment>
+        <source>Behausung:</source>
+        <target>Behausung:</target>
+      </segment>
+    </unit>
+    <unit id="DPEWu9n" name="Bauarbeiten:">
+      <notes>
+        <note category="german">Bauarbeiten:</note>
+      </notes>
+      <segment>
+        <source>Bauarbeiten:</source>
+        <target>Bauarbeiten:</target>
+      </segment>
+    </unit>
+    <unit id="da5HmMo" name="Verteidigungsgegenstände:">
+      <notes>
+        <note category="german">Verteidigungsgegenstände:</note>
+      </notes>
+      <segment>
+        <source>Verteidigungsgegenstände:</source>
+        <target>Verteidigungsgegenstände:</target>
+      </segment>
+    </unit>
+    <unit id="82mfAu." name="Heldenbonus:">
+      <notes>
+        <note category="german">Heldenbonus:</note>
+      </notes>
+      <segment>
+        <source>Heldenbonus:</source>
+        <target>Heldenbonus:</target>
+      </segment>
+    </unit>
+    <unit id="GOhyviN" name="Total:">
+      <notes>
+        <note category="german">Total:</note>
+      </notes>
+      <segment>
+        <source>Total:</source>
+        <target>Total:</target>
+      </segment>
+    </unit>
+    <unit id="wyKmZM_">
+      <notes>
+        <note category="german">Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</note>
+      </notes>
+      <segment>
+        <source>Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</source>
+        <target>Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</target>
+      </segment>
+    </unit>
+    <unit id="HUYhE2a" name="kein Verteidigungsbonus">
+      <notes>
+        <note category="german">kein Verteidigungsbonus</note>
+      </notes>
+      <segment>
+        <source>kein Verteidigungsbonus</source>
+        <target>kein Verteidigungsbonus</target>
+      </segment>
+    </unit>
+    <unit id="Myp3YkU" name="Stufe %lvl%">
+      <notes>
+        <note category="german">Stufe %lvl%</note>
+      </notes>
+      <segment>
+        <source>Stufe %lvl%</source>
+        <target>Stufe %lvl%</target>
+      </segment>
+    </unit>
+    <unit id="ilcgFcS" name="Keine">
+      <notes>
+        <note category="german">Keine</note>
+      </notes>
+      <segment>
+        <source>Keine</source>
+        <target>Keine</target>
+      </segment>
+    </unit>
+    <unit id="VNJaq3_">
+      <notes>
+        <note category="german">Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?</note>
+      </notes>
+      <segment>
+        <source>Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?</source>
+        <target>Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?</target>
+      </segment>
+    </unit>
+    <unit id="bb8bUie" name="Deko-Punkte">
+      <notes>
+        <note category="german">Deko-Punkte</note>
+      </notes>
+      <segment>
+        <source>Deko-Punkte</source>
+        <target>Deko-Punkte</target>
+      </segment>
+    </unit>
+    <unit id="trQhpwX" name="Komiteenote:">
+      <notes>
+        <note category="german">Komiteenote:</note>
+      </notes>
+      <segment>
+        <source>Komiteenote:</source>
+        <target>Komiteenote:</target>
+      </segment>
+    </unit>
+    <unit id="rRcdZf0">
+      <notes>
+        <note category="german">Diese Note wird vom &lt;strong&gt;Komitee des guten Geschmacks der Stadt %townname%&lt;/strong&gt; vergeben.</note>
+      </notes>
+      <segment>
+        <source>Diese Note wird vom &lt;strong&gt;Komitee des guten Geschmacks der Stadt %townname%&lt;/strong&gt; vergeben.</source>
+        <target><![CDATA[Diese Note wird vom <strong>Komitee des guten Geschmacks der Stadt %townname%</strong> vergeben.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -19913,5 +19913,149 @@
         <target>Votre plainte a été retirée... Réfléchissez plus la prochaine fois...</target>
       </segment>
     </unit>
+    <unit id="r4KXho0">
+      <notes>
+        <note category="german">Einrichtungsgegenstände bringen dir viele Vorteile. Sie müssen lediglich in deiner &lt;strong&gt;Truhe&lt;/strong&gt; abgelegt werden, um verwendet werden zu können.</note>
+      </notes>
+      <segment>
+        <source>Einrichtungsgegenstände bringen dir viele Vorteile. Sie müssen lediglich in deiner &lt;strong&gt;Truhe&lt;/strong&gt; abgelegt werden, um verwendet werden zu können.</source>
+        <target><![CDATA[Le mobilier vous apporte des avantages divers et variés. Ils doivent simplement être présents dans votre <strong>Coffre</strong> pour fonctionner.]]></target>
+      </segment>
+    </unit>
+    <unit id="b1xfDlq" name="Zuhause">
+      <notes>
+        <note category="german">Zuhause</note>
+      </notes>
+      <segment>
+        <source>Zuhause</source>
+        <target>Habitation</target>
+      </segment>
+    </unit>
+    <unit id="Rlw1G2Y" name="Hausverteidigung">
+      <notes>
+        <note category="german">Hausverteidigung</note>
+      </notes>
+      <segment>
+        <source>Hausverteidigung</source>
+        <target>Défenses maison</target>
+      </segment>
+    </unit>
+    <unit id="aZTP5kd" name="Behausung:">
+      <notes>
+        <note category="german">Behausung:</note>
+      </notes>
+      <segment>
+        <source>Behausung:</source>
+        <target>Habitation :</target>
+      </segment>
+    </unit>
+    <unit id="DPEWu9n" name="Bauarbeiten:">
+      <notes>
+        <note category="german">Bauarbeiten:</note>
+      </notes>
+      <segment>
+        <source>Bauarbeiten:</source>
+        <target>Travaux :</target>
+      </segment>
+    </unit>
+    <unit id="da5HmMo" name="Verteidigungsgegenstände:">
+      <notes>
+        <note category="german">Verteidigungsgegenstände:</note>
+      </notes>
+      <segment>
+        <source>Verteidigungsgegenstände:</source>
+        <target>Objets de défense :</target>
+      </segment>
+    </unit>
+    <unit id="82mfAu." name="Heldenbonus:">
+      <notes>
+        <note category="german">Heldenbonus:</note>
+      </notes>
+      <segment>
+        <source>Heldenbonus:</source>
+        <target>Bonus héros :</target>
+      </segment>
+    </unit>
+    <unit id="GOhyviN" name="Total:">
+      <notes>
+        <note category="german">Total:</note>
+      </notes>
+      <segment>
+        <source>Total:</source>
+        <target>Total :</target>
+      </segment>
+    </unit>
+    <unit id="wyKmZM_">
+      <notes>
+        <note category="german">Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</note>
+      </notes>
+      <segment>
+        <source>Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</source>
+        <target>Les objets de défense (plaques de tôle, ...etc.) sont à poser dans le Coffre.</target>
+      </segment>
+    </unit>
+    <unit id="HUYhE2a" name="kein Verteidigungsbonus">
+      <notes>
+        <note category="german">kein Verteidigungsbonus</note>
+      </notes>
+      <segment>
+        <source>kein Verteidigungsbonus</source>
+        <target>aucun bonus de défense</target>
+      </segment>
+    </unit>
+    <unit id="Myp3YkU" name="Stufe %lvl%">
+      <notes>
+        <note category="german">Stufe %lvl%</note>
+      </notes>
+      <segment>
+        <source>Stufe %lvl%</source>
+        <target>Niveau %lvl%</target>
+      </segment>
+    </unit>
+    <unit id="ilcgFcS" name="Keine">
+      <notes>
+        <note category="german">Keine</note>
+      </notes>
+      <segment>
+        <source>Keine</source>
+        <target>Aucun.</target>
+      </segment>
+    </unit>
+    <unit id="VNJaq3_">
+      <notes>
+        <note category="german">Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?</note>
+      </notes>
+      <segment>
+        <source>Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?</source>
+        <target>Comment ! vous n'avez pas encore de déco dans votre humble demeure ? Qu'attendez-vous pour fouiller le désert et ramener de magnifiques canapés en peau de zombie ? Ou encore un de ces adorables grigris un peu mous : une main ou un pied encore frais.</target>
+      </segment>
+    </unit>
+    <unit id="bb8bUie" name="Deko-Punkte">
+      <notes>
+        <note category="german">Deko-Punkte</note>
+      </notes>
+      <segment>
+        <source>Deko-Punkte</source>
+        <target>points déco</target>
+      </segment>
+    </unit>
+    <unit id="trQhpwX" name="Komiteenote:">
+      <notes>
+        <note category="german">Komiteenote:</note>
+      </notes>
+      <segment>
+        <source>Komiteenote:</source>
+        <target>Note du comité :</target>
+      </segment>
+    </unit>
+    <unit id="rRcdZf0">
+      <notes>
+        <note category="german">Diese Note wird vom &lt;strong&gt;Komitee des guten Geschmacks der Stadt %townname%&lt;/strong&gt; vergeben.</note>
+      </notes>
+      <segment>
+        <source>Diese Note wird vom &lt;strong&gt;Komitee des guten Geschmacks der Stadt %townname%&lt;/strong&gt; vergeben.</source>
+        <target><![CDATA[Cette note est attribuée par le <strong>Comité du Bon Goût de %townname%</strong>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
