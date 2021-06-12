@@ -20091,5 +20091,41 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Kein Wasser mehr!</target>
       </segment>
     </unit>
+    <unit id="DjCbLrn">
+      <notes>
+        <note category="german">&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen der Bürger wurden unterbrochen!</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen der Bürger wurden unterbrochen!</source>
+        <target><![CDATA[<strong>Verlust der Zonenkontrolle</strong>: Die Suchen der Bürger wurden unterbrochen!]]></target>
+      </segment>
+    </unit>
+    <unit id="ihMj9Wy">
+      <notes>
+        <note category="german">%citizen% hat die Zone verlassen, &lt;strong&gt;die Zombies werden in wenigen Minuten die Kontrolle erlangen wenn wir nichts unternehmen.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat die Zone verlassen, &lt;strong&gt;die Zombies werden in wenigen Minuten die Kontrolle erlangen wenn wir nichts unternehmen.&lt;/strong&gt;</source>
+        <target><![CDATA[%citizen% has left, <strong>the zone will be controlled by the zombies in a matter of minutes if nothing is done to stop it</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="QZHPoCR" name="&lt;span&gt;Es ist soweit: Der Schmaus kann beginnen!&lt;/span&gt;">
+      <notes>
+        <note category="german">&lt;span&gt;Es ist soweit: Der Schmaus kann beginnen!&lt;/span&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;span&gt;Es ist soweit: Der Schmaus kann beginnen!&lt;/span&gt;</source>
+        <target><![CDATA[<span>Time has run out: let the festivities begin!</span>]]></target>
+      </segment>
+    </unit>
+    <unit id="XvH9iDl">
+      <notes>
+        <note category="german">Du warst gerade dabei dich daheim einzubunkern, als dir plötzlich auffällt dass etwas mit dem Reaktor nicht zu stimmen scheint, auf den die anderen Bürger so stolz sind... jetzt wurden sie durch eine ohrenbetäubende Explosion ausgelöscht. Als du wieder zu dir kommst liegst du in einem riesigen Krater, der einmal deine Stadt war; dein Blut kocht und deine Haut schmilzt dir vom Fleisch. Erst nach einigen Minuten unerträglicher Schmerzen verlässt auch du diese Welt.</note>
+      </notes>
+      <segment>
+        <source>Du warst gerade dabei dich daheim einzubunkern, als dir plötzlich auffällt dass etwas mit dem Reaktor nicht zu stimmen scheint, auf den die anderen Bürger so stolz sind... jetzt wurden sie durch eine ohrenbetäubende Explosion ausgelöscht. Als du wieder zu dir kommst liegst du in einem riesigen Krater, der einmal deine Stadt war; dein Blut kocht und deine Haut schmilzt dir vom Fleisch. Erst nach einigen Minuten unerträglicher Schmerzen verlässt auch du diese Welt.</source>
+        <target>You were just about to bunker down at home, when suddenly you realize that something seems to be wrong with the reactor that the other citizens are so proud of... now they have been wiped out by a deafening explosion. When you regain consciousness, you lie in a huge crater that was once your city; your blood boils and your skin melts from your flesh. Only after a few minutes of unbearable pain do you leave this world.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

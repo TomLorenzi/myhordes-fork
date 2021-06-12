@@ -1663,6 +1663,42 @@ class LogTemplateHandler
             ->setZone($zone);
     }
 
+    public function zoneSearchInterrupted( Zone $zone ): TownLogEntry {
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'zoneSearchInterrupted']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables([])
+            ->setTown( $zone->getTown() )
+            ->setDay( $zone->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setZone($zone);
+    }
+
+    public function zoneEscapeTimerExpired( Zone $zone, ?DateTimeInterface $time = null): TownLogEntry {
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'zoneEscapeTimerExpired']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables([])
+            ->setTown( $zone->getTown() )
+            ->setDay( $zone->getTown()->getDay() )
+            ->setTimestamp( $time ?? new DateTime('now') )
+            ->setZone($zone);
+    }
+
+    public function zoneLostControlLeaving( Zone $zone, Citizen $leaving_citizen ): TownLogEntry {
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'zoneLostControlLeaving']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables(['citizen' => $leaving_citizen->getId(),])
+            ->setTown( $zone->getTown() )
+            ->setDay( $zone->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setZone($zone);
+    }
+
     public function zoneEscapeItemUsed( Citizen $citizen, ItemPrototype $item, int $duration): TownLogEntry {
         $variables = array();
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'zoneEscapeItemUsed']);

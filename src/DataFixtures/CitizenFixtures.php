@@ -207,8 +207,8 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         [
             'ref' => CauseOfDeath::Radiations,
             'label' => 'Tod durch Radioaktivität',
-            'icon' => 'infection',
-            'desc' => 'Gibt an, wie oft du unter dem Einfluß von Radioaktivität das Zeitliche gesegnet hast.',
+            'icon' => 'reactor',
+            'desc' => 'Du warst gerade dabei dich daheim einzubunkern, als dir plötzlich auffällt dass etwas mit dem Reaktor nicht zu stimmen scheint, auf den die anderen Bürger so stolz sind... jetzt wurden sie durch eine ohrenbetäubende Explosion ausgelöscht. Als du wieder zu dir kommst liegst du in einem riesigen Krater, der einmal deine Stadt war; dein Blut kocht und deine Haut schmilzt dir vom Fleisch. Erst nach einigen Minuten unerträglicher Schmerzen verlässt auch du diese Welt.',
             'pictos' => ['r_dnucl_#00', 'r_dinfec_#00']
         ],
         [

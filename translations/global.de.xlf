@@ -2743,5 +2743,14 @@
         <target>Zum Wechsein der Seite hier klicken</target>
       </segment>
     </unit>
+    <unit id="r7op6WZ">
+      <notes>
+        <note category="german">Es ist nicht erlaubt, im Chaos-Modus einen Gegenstand an einen Bürger zu senden, der sich außerhalb der Stadt befindet.</note>
+      </notes>
+      <segment>
+        <source>Es ist nicht erlaubt, im Chaos-Modus einen Gegenstand an einen Bürger zu senden, der sich außerhalb der Stadt befindet.</source>
+        <target>Es ist nicht erlaubt, im Chaos-Modus einen Gegenstand an einen Bürger zu senden, der sich außerhalb der Stadt befindet.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
