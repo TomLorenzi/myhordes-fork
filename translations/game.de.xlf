@@ -20113,5 +20113,14 @@
         <target>Das Gebäude betreten? (Diese Aktion kostet 1AP)</target>
       </segment>
     </unit>
+    <unit id="LkEJIMQ" name="Kein Wasser mehr!">
+      <notes>
+        <note category="german">Kein Wasser mehr!</note>
+      </notes>
+      <segment>
+        <source>Kein Wasser mehr!</source>
+        <target>Kein Wasser mehr!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

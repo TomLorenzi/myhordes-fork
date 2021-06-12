@@ -20076,5 +20076,14 @@
         <target>¿Entrar al edificio? (esta accíon cuesta 1PA)</target>
       </segment>
     </unit>
+    <unit id="LkEJIMQ" name="Kein Wasser mehr!">
+      <notes>
+        <note category="german">Kein Wasser mehr!</note>
+      </notes>
+      <segment>
+        <source>Kein Wasser mehr!</source>
+        <target>¡No hay más agua!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

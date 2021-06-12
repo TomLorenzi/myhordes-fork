@@ -20138,5 +20138,14 @@
         <target>Entrer dans le bâtiment ? (cette action coûte 1 PA)</target>
       </segment>
     </unit>
+    <unit id="LkEJIMQ" name="Kein Wasser mehr!">
+      <notes>
+        <note category="german">Kein Wasser mehr!</note>
+      </notes>
+      <segment>
+        <source>Kein Wasser mehr!</source>
+        <target>Plus d'eau !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
