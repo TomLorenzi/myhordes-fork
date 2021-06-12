@@ -3032,7 +3032,7 @@
       </notes>
       <segment>
         <source>%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%</source>
-        <target>%citizen% a pris %item% dans le coffre de la Banque !</target>
+        <target>%citizen% a pris %item% dans les coffres de la Banque !</target>
       </segment>
     </unit>
     <unit id="R43wWvR" name="%citizen% hat folgenden Gegenstand hier abgelegt: %item%">
