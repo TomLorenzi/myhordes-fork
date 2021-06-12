@@ -20057,5 +20057,14 @@
         <target><![CDATA[Cette note est attribuée par le <strong>Comité du Bon Goût de %townname%</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="Ng_nMhX">
+      <notes>
+        <note category="german">Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!</note>
+      </notes>
+      <segment>
+        <source>Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!</source>
+        <target>Notre tour de guet améliorée permet le rapatriement gratuit de n'importe quel citoyen qui se trouve à proximité de la ville !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

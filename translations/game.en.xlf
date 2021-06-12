@@ -20001,5 +20001,14 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target><![CDATA[This mark is given by the <strong>Theatre of miracles Committee for the Upkeep of Neat and Tastefully-decorated Shacks, (formerly the Working Association for Nicely Kept Shacks)</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="Ng_nMhX">
+      <notes>
+        <note category="german">Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!</note>
+      </notes>
+      <segment>
+        <source>Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!</source>
+        <target>Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

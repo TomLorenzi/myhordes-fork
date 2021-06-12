@@ -20032,5 +20032,14 @@
         <target><![CDATA[Diese Note wird vom <strong>Komitee des guten Geschmacks der Stadt %townname%</strong> vergeben.]]></target>
       </segment>
     </unit>
+    <unit id="Ng_nMhX">
+      <notes>
+        <note category="german">Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!</note>
+      </notes>
+      <segment>
+        <source>Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!</source>
+        <target>Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
