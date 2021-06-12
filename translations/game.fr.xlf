@@ -20174,5 +20174,14 @@
         <target><![CDATA[<span>PLUS DE TEMPS : LE FESTIN COMMENCE !</span>]]></target>
       </segment>
     </unit>
+    <unit id="XvH9iDl">
+      <notes>
+        <note category="german">Du warst gerade dabei dich daheim einzubunkern, als dir plötzlich auffällt dass etwas mit dem Reaktor nicht zu stimmen scheint, auf den die anderen Bürger so stolz sind... jetzt wurden sie durch eine ohrenbetäubende Explosion ausgelöscht. Als du wieder zu dir kommst liegst du in einem riesigen Krater, der einmal deine Stadt war; dein Blut kocht und deine Haut schmilzt dir vom Fleisch. Erst nach einigen Minuten unerträglicher Schmerzen verlässt auch du diese Welt.</note>
+      </notes>
+      <segment>
+        <source>Du warst gerade dabei dich daheim einzubunkern, als dir plötzlich auffällt dass etwas mit dem Reaktor nicht zu stimmen scheint, auf den die anderen Bürger so stolz sind... jetzt wurden sie durch eine ohrenbetäubende Explosion ausgelöscht. Als du wieder zu dir kommst liegst du in einem riesigen Krater, der einmal deine Stadt war; dein Blut kocht und deine Haut schmilzt dir vom Fleisch. Erst nach einigen Minuten unerträglicher Schmerzen verlässt auch du diese Welt.</source>
+        <target>Du warst gerade dabei dich daheim einzubunkern, als dir plötzlich auffällt dass etwas mit dem Reaktor nicht zu stimmen scheint, auf den die anderen Bürger so stolz sind... jetzt wurden sie durch eine ohrenbetäubende Explosion ausgelöscht. Als du wieder zu dir kommst liegst du in einem riesigen Krater, der einmal deine Stadt war; dein Blut kocht und deine Haut schmilzt dir vom Fleisch. Erst nach einigen Minuten unerträglicher Schmerzen verlässt auch du diese Welt.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
