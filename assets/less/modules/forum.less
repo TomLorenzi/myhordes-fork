@@ -258,6 +258,14 @@ ul.subscriptions {
   background-color: #4a261e; box-shadow: 0 0 5px rgba(0,0,0,0.2);  padding: 0;
   border: 1px solid #704328; margin-bottom: 10px;
 
+  &.forum-post-small {
+    .avatar, .avatarcrow {
+      margin: 0 15px 0 0; float: left; z-index: 1;
+      &>img { width: 90px !important; height: 30px !important; object-fit: cover }
+    }
+    margin-bottom: 2px;
+  }
+
   &>.forum-post-header {
     display: block;
     padding: 4px;
