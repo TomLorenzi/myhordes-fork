@@ -19901,7 +19901,7 @@
       </notes>
       <segment>
         <source>Sie haben eine Beschwerde gegen &lt;strong&gt;%citizen%&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird %citizen% aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</source>
-        <target><![CDATA[Vous avez déposé une plainte contre <strong>%citizen%</strong>. Si suffisament de plaintes sont accumulées, <strong>%citizen% set banni(e) de la communauté</strong>, ou pendu(e) si une potence existe.]]></target>
+        <target><![CDATA[Vous avez déposé une plainte contre <strong>%citizen%</strong>. Si suffisamment de plaintes sont accumulées, <strong>%citizen% sera banni(e) de la communauté</strong>, ou pendu(e) si une potence existe.]]></target>
       </segment>
     </unit>
     <unit id="CgXv4BN">
