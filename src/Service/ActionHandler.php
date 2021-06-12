@@ -926,8 +926,12 @@ class ActionHandler
                     if ($kills > 0) {
                         $ruinZone->setZombies( $ruinZone->getZombies() - $kills );
                         $ruinZone->setKilledZombies( $ruinZone->getKilledZombies() + $kills );
+                        $execute_info_cache['kills'] = $kills;
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
                         $this->entity_manager->persist( $this->log->zombieKill( $citizen, $execute_info_cache['item'], $kills, $action->getName() ) );
+                        $tags[] = 'kills';
+                        if($ruinZone->getZombies() <= 0)
+                            $tags[] = 'kill-latest';
                     }
                 }
             }
