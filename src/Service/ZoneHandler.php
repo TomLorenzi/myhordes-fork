@@ -504,7 +504,7 @@ class ZoneHandler
         else if ($cp_ok_before !== null) {
             if ( $cp_ok_before && !$this->check_cp( $zone ) ) {
                 if ( $leaving_citizen && !$zone->getCitizens()->isEmpty() ) $this->entity_manager->persist( $this->log->zoneLostControlLeaving( $zone, $leaving_citizen ) );
-                $zone->addEscapeTimer( (new EscapeTimer())->setTime( new DateTime('+1min') ) );
+                $zone->addEscapeTimer( (new EscapeTimer())->setTime( new DateTime('+30min') ) );
                 // Disable all dig timers
                 $has_dt = false;
                 foreach ($zone->getDigTimers() as $dig_timer) {
