@@ -1286,7 +1286,7 @@ class ActionHandler
                         if ( $result->getCustom() === 9 )
                             $this->entity_manager->persist( $this->log->heroicRescueLog( $citizen, $jumper, $zone ) );
                         else $this->entity_manager->persist( $this->log->doorPass( $jumper, true ) );
-                        $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
+                        $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok, $jumper );
 
                         break;
                     }

@@ -623,7 +623,7 @@ class BeyondController extends InventoryAwareController
             }
         }
 
-        $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
+        $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok, $movers[array_key_last($movers)] );
 
         try {
             $this->entity_manager->persist($citizen);
@@ -722,7 +722,7 @@ class BeyondController extends InventoryAwareController
         if (!$new_zone) return AjaxResponse::error( self::ErrorNotReachableFromHere );
 
         $cp_ok_new_zone = $this->zone_handler->check_cp($new_zone, $cp_before_new_zone);
-        if($cp_ok_new_zone <= 0) $cp_ok_new_zone = null;
+        if($cp_before_new_zone <= 0) $cp_ok_new_zone = null;
 
         if($this->citizen_handler->hasStatusEffect($citizen, 'wound4') && $this->random_generator->chance(0.20)) {
             $this->addFlash('notice', $this->translator->trans('Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...', [], 'game'));
@@ -869,7 +869,7 @@ class BeyondController extends InventoryAwareController
             ->setZombieStatus( max($upgraded_map ? Zone::ZombieStateExact : Zone::ZombieStateEstimate, $new_zone->getZombieStatus() ) );
 
         try {
-            $this->zone_handler->handleCitizenCountUpdate($zone, $cp_ok);
+            $this->zone_handler->handleCitizenCountUpdate($zone, $cp_ok, $movers[array_key_last($movers)]);
             $this->zone_handler->handleCitizenCountUpdate($new_zone, $cp_ok_new_zone);
         } catch (Exception $e) {
             return AjaxResponse::error( ErrorHelper::ErrorInternalError );

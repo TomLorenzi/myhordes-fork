@@ -20122,5 +20122,32 @@
         <target>Kein Wasser mehr!</target>
       </segment>
     </unit>
+    <unit id="DjCbLrn">
+      <notes>
+        <note category="german">&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen der Bürger wurden unterbrochen!</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen der Bürger wurden unterbrochen!</source>
+        <target><![CDATA[<strong>Verlust der Zonenkontrolle</strong>: Die Suchen der Bürger wurden unterbrochen!]]></target>
+      </segment>
+    </unit>
+    <unit id="ihMj9Wy">
+      <notes>
+        <note category="german">%citizen% hat die Zone verlassen, &lt;strong&gt;die Zombies werden in wenigen Minuten die Kontrolle erlangen wenn wir nichts unternehmen.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat die Zone verlassen, &lt;strong&gt;die Zombies werden in wenigen Minuten die Kontrolle erlangen wenn wir nichts unternehmen.&lt;/strong&gt;</source>
+        <target><![CDATA[%citizen% hat die Zone verlassen, <strong>die Zombies werden in wenigen Minuten die Kontrolle erlangen wenn wir nichts unternehmen.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="QZHPoCR" name="&lt;span&gt;Es ist soweit: Der Schmaus kann beginnen!&lt;/span&gt;">
+      <notes>
+        <note category="german">&lt;span&gt;Es ist soweit: Der Schmaus kann beginnen!&lt;/span&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;span&gt;Es ist soweit: Der Schmaus kann beginnen!&lt;/span&gt;</source>
+        <target><![CDATA[<span>Es ist soweit: Der Schmaus kann beginnen!</span>]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
