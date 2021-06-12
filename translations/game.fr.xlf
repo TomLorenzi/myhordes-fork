@@ -19343,7 +19343,7 @@
       </notes>
       <segment>
         <source>Die Bürger haben das Haus von &lt;strong&gt;✝ %citizen%&lt;/strong&gt; vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert. Die Stadt hat zudem folgende Resourcen zurückgewinnen können: %list%.</source>
-        <target><![CDATA[Die Bürger haben das Haus von <strong>✝ %citizen%</strong> vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert. Die Stadt hat zudem folgende Resourcen zurückgewinnen können: %list%.]]></target>
+        <target><![CDATA[Les citoyens ont terminé de démanteler la maison de <strong>✝ %citizen%</strong> ! Tous les objets présents dans son coffre ont été placés dans la banque de la ville. La ville a également récupéré les ressources suivantes :  %list%.]]></target>
       </segment>
     </unit>
     <unit id="HX0f8s0">
