@@ -19148,7 +19148,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="QOeiiDo">
       <notes>
-        <note category="german">Jede &lt;strong&gt;Aufräumaktion&lt;/strong&gt; enfernt einen Haufen von der Leiste. Wenn alle Häufen verschwunden sind, kann die Zone nach Lust und Laune erforscht werden.</note>
+        <note category="german">Jede &lt;strong&gt;Aufräumaktion&lt;/strong&gt; entfernt einen Haufen von der Leiste. Wenn alle Häufen verschwunden sind, kann die Zone nach Lust und Laune erforscht werden.</note>
       </notes>
       <segment>
         <source>Jede &lt;strong&gt;Aufräumaktion&lt;/strong&gt; enfernt einen Haufen von der Leiste. Wenn alle Häufen verschwunden sind, kann die Zone nach Lust und Laune erforscht werden.</source>
@@ -20008,6 +20008,78 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!</source>
         <target>Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!</target>
+      </segment>
+    </unit>
+    <unit id="Tf8a568">
+      <notes>
+        <note category="german">Du kannst einen Teil deines Sauerstoffs zur Flucht verwenden, indem du in die gewünschte Richtung sprintest.</note>
+      </notes>
+      <segment>
+        <source>Du kannst einen Teil deines Sauerstoffs zur Flucht verwenden, indem du in die gewünschte Richtung sprintest.</source>
+        <target>Du kannst einen Teil deines Sauerstoffs zur Flucht verwenden, indem du in die gewünschte Richtung sprintest.</target>
+      </segment>
+    </unit>
+    <unit id="ywafrVf" name="Du kannst dieses Gebäude mit allen gefundenen Ressourcen verlassen.">
+      <notes>
+        <note category="german">Du kannst dieses Gebäude mit allen gefundenen Ressourcen verlassen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst dieses Gebäude mit allen gefundenen Ressourcen verlassen.</source>
+        <target>Du kannst dieses Gebäude mit allen gefundenen Ressourcen verlassen.</target>
+      </segment>
+    </unit>
+    <unit id="Tg_wgai">
+      <notes>
+        <note category="german">Verzweifelt suchst du in diesem Raum nach etwas, aber wie lange wirst du an diesem unheilvollen Ort durchhalten?</note>
+      </notes>
+      <segment>
+        <source>Verzweifelt suchst du in diesem Raum nach etwas, aber wie lange wirst du an diesem unheilvollen Ort durchhalten?</source>
+        <target>Verzweifelt suchst du in diesem Raum nach etwas, aber wie lange wirst du an diesem unheilvollen Ort durchhalten?</target>
+      </segment>
+    </unit>
+    <unit id="jDpq7iy">
+      <notes>
+        <note category="german">Du kannst die üblen Gerüche und den Anblick dieses Raumes nicht länger ertragen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst die üblen Gerüche und den Anblick dieses Raumes nicht länger ertragen.</source>
+        <target>Du kannst die üblen Gerüche und den Anblick dieses Raumes nicht länger ertragen.</target>
+      </segment>
+    </unit>
+    <unit id="2Zr9t8H">
+      <notes>
+        <note category="german">Du kannst diesen Raum betreten, vielleicht findest du einige interessante Gegenstände.</note>
+      </notes>
+      <segment>
+        <source>Du kannst diesen Raum betreten, vielleicht findest du einige interessante Gegenstände.</source>
+        <target>Du kannst diesen Raum betreten, vielleicht findest du einige interessante Gegenstände.</target>
+      </segment>
+    </unit>
+    <unit id="SHnNJFY" name="Diese Aktion kostet dich Sauerstoff, trotzdem flüchten?">
+      <notes>
+        <note category="german">Diese Aktion kostet dich Sauerstoff, trotzdem flüchten?</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion kostet dich Sauerstoff, trotzdem flüchten?</source>
+        <target>Diese Aktion kostet dich Sauerstoff, trotzdem flüchten?</target>
+      </segment>
+    </unit>
+    <unit id="RlEfb.v">
+      <notes>
+        <note category="german">Diese Aktion ermöglicht es dir, die Tiefen dieses Gebäude zu erkunden und wertvolle Ressourcen zu bergen. Sei aber nicht zu gierig, denn deine Zeit ist begrenzt!</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion ermöglicht es dir, die Tiefen dieses Gebäude zu erkunden und wertvolle Ressourcen zu bergen. Sei aber nicht zu gierig, denn deine Zeit ist begrenzt!</source>
+        <target>Diese Aktion ermöglicht es dir, die Tiefen dieses Gebäude zu erkunden und wertvolle Ressourcen zu bergen. Sei aber nicht zu gierig, denn deine Zeit ist begrenzt!</target>
+      </segment>
+    </unit>
+    <unit id="AGQV69U" name="Das Gebäude betreten? (Diese Aktion kostet 1AP)">
+      <notes>
+        <note category="german">Das Gebäude betreten? (Diese Aktion kostet 1AP)</note>
+      </notes>
+      <segment>
+        <source>Das Gebäude betreten? (Diese Aktion kostet 1AP)</source>
+        <target>Das Gebäude betreten? (Diese Aktion kostet 1AP)</target>
       </segment>
     </unit>
   </file>
