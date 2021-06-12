@@ -742,7 +742,10 @@ ul.subscriptions {
   #gpm-forum-content {
     ul {
 
-      &:not(.announcement) { padding: 0 0 0 40px; }
+      &:not(.announcement) {
+        padding: 0 0 0 40px;
+        &>li[x-domain="m-d"][x-pinned] { margin-left: -46px; }
+      }
       &.announcement { padding: 0; }
 
       margin: 10px;
@@ -784,6 +787,18 @@ ul.subscriptions {
           }
         }
 
+        .unveil { padding: 6px; margin: 5px 0 5px 10px; background-color: #4a261e; filter: drop-shadow(0 0 3px rgba(0,0,0,0.35)); position: relative; }
+
+        &.collapsed {
+          div.pm-avatar, div.pm-avatar-crow, div.pm-message { display: none }
+          &.new .unveil::after {
+            content: " "; position: absolute; width: 20px; height: 20px; border: 1px solid #fe7d00; border-radius: 10px;
+            background: url("../../img/forum/new.png") top center no-repeat, #bd3d00; top: 4px; left: -20px;
+          }
+          &+li.collapsed { margin-top: 5px; }
+        }
+        &:not(.collapsed) { .unveil { display: none; } }
+
         div.pm-announce {
 
           div.pm-avatar { left: 6px; top: 3px; }
@@ -802,16 +817,19 @@ ul.subscriptions {
           }
 
           &>div.pm-message-footer {
-            margin-top: 4px; padding: 4px 5px 0 50px; min-height: 50px; position: relative;
+            margin-top: 4px; padding: 8px 5px 0 60px; min-height: 50px; position: relative;
             .pm-announcement-sender { font-size: 2em; color: @myhordes-smalltext }
             .pm-announcement-date { font-size: 0.8em; opacity: 0.6; }
 
           }
         }
 
-        &.own div.pm-message {
-          &:before { border-right: 6px solid #65382e; }
-          background-color: #65382e;
+        &.own {
+          .unveil { background-color: #65382e; }
+          div.pm-message {
+            &:before { border-right: 6px solid #65382e; }
+            background-color: #65382e;
+          }
         }
 
         &.new:not(.own) div.pm-avatar::after, &.new:not(.own) div.pm-avatar-crow::after {

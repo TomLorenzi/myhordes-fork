@@ -146,7 +146,7 @@ class MessageGlobalPMController extends MessageController
                 } catch (\Exception $e) {}
 
                 foreach ($messages as $message) $message->setText( $this->html->prepareEmotes( $message->getText() ) );
-                $focus = $this->render( 'ajax/pm/bubbles.html.twig', ['raw_gp' => $messages] )->getContent();
+                $focus = $this->render( 'ajax/pm/bubbles.html.twig', ['raw_gp' => $messages, 'raw_gp_owner' => $group_association->getAssociationLevel() == UserGroupAssociation::GroupAssociationLevelFounder] )->getContent();
 
                 break;
         }
@@ -558,10 +558,14 @@ class MessageGlobalPMController extends MessageController
         /** @var GlobalPrivateMessage[] $sliced */
         $sliced = array_slice($messages, 0, $num);
 
+        $pinned =  $em->getRepository(GlobalPrivateMessage::class)->findOneBy(['receiverGroup' => $group, 'pinned' => true]);
+
         return $this->render( 'ajax/pm/conversation_group.html.twig', $this->addDefaultTwigArgs(null, [
             'gid' => $id,
+            'owner' => $group_association->getAssociationLevel() === UserGroupAssociation::GroupAssociationLevelFounder,
             'last' => $last,
             'more' => count($messages) > $num,
+            'pinned' => $pinned,
             'messages' => $sliced,
             'last_message' => $sliced[array_key_last($sliced)]->getId()
         ] ));
@@ -1156,5 +1160,88 @@ class MessageGlobalPMController extends MessageController
         }
 
         return AjaxResponse::success( true, ['msg' => $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $message->getSender()->getName() . '</span>'], 'game')]);
+    }
+
+    /**
+     * @Route("api/pm/{pid<\d+>}/pin/{action<\d+>}", name="pm_pin_post_controller")
+     * @param int $pid
+     * @param int $action
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function report_pin_api(int $pid, int $action, EntityManagerInterface $em): Response {
+        $user = $this->getUser();
+
+        if ($action !== 0 && $action !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $message = $em->getRepository( GlobalPrivateMessage::class )->find( $pid );
+        if (!$message || $message->getHidden()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $group = $message->getReceiverGroup();
+        if (!$group || $group->getType() !== UserGroup::GroupMessageGroup)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var UserGroupAssociation $group_association */
+        $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(),
+                                                                                            'associationType' => [UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive], 'association' => $group]);
+        if (!$group_association || $group_association->getAssociationLevel() !== UserGroupAssociation::GroupAssociationLevelFounder)
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        if ($action === 1) {
+            $message->setCollapsed( false );
+            foreach ($em->getRepository( GlobalPrivateMessage::class )->findBy(['receiverGroup' => $group, 'pinned' => true]) as $pinned)
+                $this->entity_manager->persist($pinned->setPinned(false));
+        }
+
+        $message->setPinned( $action === 1 );
+
+        $this->entity_manager->persist($message);
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/pm/{pid<\d+>}/collapse/{action<\d+>}", name="pm_collapse_post_controller")
+     * @param int $pid
+     * @param int $action
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    public function report_collapse_api(int $pid, int $action, EntityManagerInterface $em): Response {
+        $user = $this->getUser();
+
+        if ($action !== 0 && $action !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $message = $em->getRepository( GlobalPrivateMessage::class )->find( $pid );
+        if (!$message || $message->getHidden()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $group = $message->getReceiverGroup();
+        if (!$group || $group->getType() !== UserGroup::GroupMessageGroup)
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        /** @var UserGroupAssociation $group_association */
+        $group_association = $em->getRepository(UserGroupAssociation::class)->findOneBy(['user' => $this->getUser(),
+                                                                                            'associationType' => [UserGroupAssociation::GroupAssociationTypePrivateMessageMember, UserGroupAssociation::GroupAssociationTypePrivateMessageMemberInactive], 'association' => $group]);
+        if (!$group_association || $group_association->getAssociationLevel() !== UserGroupAssociation::GroupAssociationLevelFounder)
+            return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
+
+        $message->setCollapsed( $action === 1 );
+        if ($action === 1) $message->setPinned(false);
+
+        $this->entity_manager->persist($message);
+
+        try {
+            $this->entity_manager->flush();
+        } catch (\Exception $e) {
+            return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
+        }
+
+        return AjaxResponse::success();
     }
 }

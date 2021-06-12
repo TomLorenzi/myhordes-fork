@@ -2789,5 +2789,41 @@
         <target>Es ist nicht erlaubt, im Chaos-Modus einen Gegenstand an einen Bürger zu senden, der sich außerhalb der Stadt befindet.</target>
       </segment>
     </unit>
+    <unit id="Ot4PwfY" name="Pin entfernen">
+      <notes>
+        <note category="german">Pin entfernen</note>
+      </notes>
+      <segment>
+        <source>Pin entfernen</source>
+        <target>Unpin</target>
+      </segment>
+    </unit>
+    <unit id="oQRkk47" name="Angepinnte Nachricht">
+      <notes>
+        <note category="german">Angepinnte Nachricht</note>
+      </notes>
+      <segment>
+        <source>Angepinnte Nachricht</source>
+        <target>Pinned Message</target>
+      </segment>
+    </unit>
+    <unit id="qsFANcA" name="Einblenden">
+      <notes>
+        <note category="german">Einblenden</note>
+      </notes>
+      <segment>
+        <source>Einblenden</source>
+        <target>Show</target>
+      </segment>
+    </unit>
+    <unit id="fufp5fd" name="Ausgeblendete Nachricht von %user%. Klicken, um anzuzeigen.">
+      <notes>
+        <note category="german">Ausgeblendete Nachricht von %user%. Klicken, um anzuzeigen.</note>
+      </notes>
+      <segment>
+        <source>Ausgeblendete Nachricht von %user%. Klicken, um anzuzeigen.</source>
+        <target>Hidden message from %user%. Click to show.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -86,6 +86,16 @@ class GlobalPrivateMessage
      */
     private $senderGroup;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $collapsed;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $pinned;
+
     public function __construct()
     {
         $this->adminReports = new ArrayCollection();
@@ -266,6 +276,30 @@ class GlobalPrivateMessage
     public function setSenderGroup(?OfficialGroup $senderGroup): self
     {
         $this->senderGroup = $senderGroup;
+
+        return $this;
+    }
+
+    public function getCollapsed(): ?bool
+    {
+        return $this->collapsed;
+    }
+
+    public function setCollapsed(?bool $collapsed): self
+    {
+        $this->collapsed = $collapsed;
+
+        return $this;
+    }
+
+    public function getPinned(): ?bool
+    {
+        return $this->pinned;
+    }
+
+    public function setPinned(?bool $pinned): self
+    {
+        $this->pinned = $pinned;
 
         return $this;
     }
