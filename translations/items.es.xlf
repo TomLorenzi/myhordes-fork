@@ -8249,7 +8249,7 @@
       </notes>
       <segment>
         <source>Verloren inmitten einer lächerlichen Menge sinnloser Dokumente hast du einen {item_to} entdeckt.</source>
-        <target>Verloren inmitten einer lächerlichen Menge sinnloser Dokumente hast du einen {item_to} entdeckt.</target>
+        <target>Perdido entre inumerables papeles sin importancia, ¡has descubierto {item_to} !</target>
       </segment>
     </unit>
     <unit id="f1JKU7Q" name="Hierfür brauchst du mindestens 1 CP.">

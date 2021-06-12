@@ -8170,7 +8170,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Eine friedliche Nacht in der Stadt. Die Horde von %attack% Zombies, die letzte Nacht kam, traf einige Teile der Stadt ziemlich hart, aber es gibt nichts Bemerkenswertes zu berichten.</source>
-        <target>Eine friedliche Nacht in der Stadt. Die Horde von %attack% Zombies, die letzte Nacht kam, traf einige Teile der Stadt ziemlich hart, aber es gibt nichts Bemerkenswertes zu berichten.</target>
+        <target>A peaceful night in town. The %attack% zombies that came last night hit some parts of town pretty hard, but there's nothing remarkable to report.</target>
       </segment>
     </unit>
     <unit id="qOMf2gJ">
@@ -8197,7 +8197,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Es sieht so aus, als hätten wir alles richtig gemacht, da letzte Nacht keine Zombies die Mauern durchbrochen haben.</source>
-        <target>Es sieht so aus, als hätten wir alles richtig gemacht, da letzte Nacht keine Zombies die Mauern durchbrochen haben.</target>
+        <target>It looks like we got it right, since no zombies breached the walls last night.</target>
       </segment>
     </unit>
     <unit id="pmixolq">
@@ -9358,7 +9358,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese heruntergekommene Gebäude scheint einmal ein Hotel gewesen zu sein. Du entdeckst einen Einstieg ins Gebäude, modriger Gestank schlägt dir entgegen. Du verziehst das Gesicht, aber hier könntest du mit ziemlicher Sicherheit etwas Nützliches finden...</source>
-        <target>Ce bâtiment délabré semble avoir été un hôtel. Vous découvrez une entrée dans le bâtiment, une odeur de moisi vous frappe. Vous faites la grimace, mais vous pourriez presque certainement trouver quelque chose d'utile ici...</target>
+        <target>Formerly luxury hotels, which no doubt welcomed some highly privileged guests over the years. However, it didn't take long for these buildings to come under attack from the two hordes, firstly the horde of immigrants from contaminated countries and secondly their putrefied pursuers.</target>
       </segment>
     </unit>
     <unit id="rnmrpxG" name="Verlassenes Hospital">
@@ -19863,7 +19863,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Einrichtungsgegenstände bringen dir viele Vorteile. Sie müssen lediglich in deiner &lt;strong&gt;Truhe&lt;/strong&gt; abgelegt werden, um verwendet werden zu können.</source>
-        <target><![CDATA[Einrichtungsgegenstände bringen dir viele Vorteile. Sie müssen lediglich in deiner <strong>Truhe</strong> abgelegt werden, um verwendet werden zu können.]]></target>
+        <target><![CDATA[Furniture can provide various bonuses. Simply put it in your <strong>chest</strong> to get the bonuses.]]></target>
       </segment>
     </unit>
     <unit id="b1xfDlq" name="Zuhause">
@@ -19872,7 +19872,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Zuhause</source>
-        <target>Zuhause</target>
+        <target>Home</target>
       </segment>
     </unit>
     <unit id="Rlw1G2Y" name="Hausverteidigung">
@@ -19881,7 +19881,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Hausverteidigung</source>
-        <target>Hausverteidigung</target>
+        <target>Home defences</target>
       </segment>
     </unit>
     <unit id="aZTP5kd" name="Behausung:">
@@ -19890,7 +19890,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Behausung:</source>
-        <target>Behausung:</target>
+        <target>House:</target>
       </segment>
     </unit>
     <unit id="DPEWu9n" name="Bauarbeiten:">
@@ -19899,7 +19899,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Bauarbeiten:</source>
-        <target>Bauarbeiten:</target>
+        <target>Improvements:</target>
       </segment>
     </unit>
     <unit id="da5HmMo" name="Verteidigungsgegenstände:">
@@ -19908,7 +19908,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Verteidigungsgegenstände:</source>
-        <target>Verteidigungsgegenstände:</target>
+        <target>Defensive Objects:</target>
       </segment>
     </unit>
     <unit id="82mfAu." name="Heldenbonus:">
@@ -19917,7 +19917,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Heldenbonus:</source>
-        <target>Heldenbonus:</target>
+        <target>Hero Bonuses:</target>
       </segment>
     </unit>
     <unit id="GOhyviN" name="Total:">
@@ -19935,7 +19935,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</source>
-        <target>Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</target>
+        <target>Defensive objects (sheetmetal, trestles etc...) should be placed in the Chest.</target>
       </segment>
     </unit>
     <unit id="HUYhE2a" name="kein Verteidigungsbonus">
@@ -19944,7 +19944,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>kein Verteidigungsbonus</source>
-        <target>kein Verteidigungsbonus</target>
+        <target>no defensive bonus</target>
       </segment>
     </unit>
     <unit id="Myp3YkU" name="Stufe %lvl%">
@@ -19953,7 +19953,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Stufe %lvl%</source>
-        <target>Stufe %lvl%</target>
+        <target>Level %lvl%</target>
       </segment>
     </unit>
     <unit id="ilcgFcS" name="Keine">
@@ -19962,7 +19962,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Keine</source>
-        <target>Keine</target>
+        <target>None</target>
       </segment>
     </unit>
     <unit id="VNJaq3_">
@@ -19971,7 +19971,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?</source>
-        <target>Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?</target>
+        <target>Do you not have enough decorations in your humble abode already? Seriously, there's no pleasing some folks... Are you going scavenging in the desert hoping to find a magnificent zombie-skin chaise longue? Or some more slightly damp charms, maybe a freshly chopped lucky foot? Remember, it wasn't that lucky for the previous owner...</target>
       </segment>
     </unit>
     <unit id="bb8bUie" name="Deko-Punkte">
@@ -19980,7 +19980,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Deko-Punkte</source>
-        <target>Deko-Punkte</target>
+        <target>points for decor</target>
       </segment>
     </unit>
     <unit id="trQhpwX" name="Komiteenote:">
@@ -19989,7 +19989,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Komiteenote:</source>
-        <target>Komiteenote:</target>
+        <target>Judges score:</target>
       </segment>
     </unit>
     <unit id="rRcdZf0">
@@ -19998,7 +19998,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese Note wird vom &lt;strong&gt;Komitee des guten Geschmacks der Stadt %townname%&lt;/strong&gt; vergeben.</source>
-        <target><![CDATA[Diese Note wird vom <strong>Komitee des guten Geschmacks der Stadt %townname%</strong> vergeben.]]></target>
+        <target><![CDATA[This mark is given by the <strong>Theatre of miracles Committee for the Upkeep of Neat and Tastefully-decorated Shacks, (formerly the Working Association for Nicely Kept Shacks)</strong>.]]></target>
       </segment>
     </unit>
   </file>

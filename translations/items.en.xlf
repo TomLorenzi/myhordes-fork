@@ -8234,7 +8234,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du hast ein(e) {item_from} mit einer(m) {item_tool} zerstört. In den Resten auf dem Boden findest du: {item_to}.</source>
-        <target>Du hast ein(e) {item_from} mit einer(m) {item_tool} zerstört. In den Resten auf dem Boden findest du: {item_to}.</target>
+        <target>You destroyed the {item_from} by attacking it with the {item_tool} ... You find {item_to} amongst the remains on the ground.</target>
       </segment>
     </unit>
     <unit id="kXs8w7H" name="Du kannst diesen Gegenstand nur &lt;strong&gt;einmal am Tag&lt;/strong&gt; verwenden...">

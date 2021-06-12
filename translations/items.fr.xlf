@@ -4093,7 +4093,7 @@
       </notes>
       <segment>
         <source>Ein total verschimmeltes Holzbrett, das noch einigermaßen stabil ist...</source>
-        <target>Une planche de bois complètement moisie mais encore à peu près solide… Note: le bois est utilisé pour la construction de bâtiments en ville (ramenez-le dans la Section Banque).</target>
+        <target>Une planche de bois complètement moisie mais encore à peu près solide… Note : le bois est utilisé pour la construction de bâtiments en ville (ramenez-le dans la Section Banque).</target>
       </segment>
     </unit>
     <unit id="MsbPzc_" name="Stinknormales Metall, das zwar schwer ist, aber immer verwendet werden kann!">
@@ -4102,7 +4102,7 @@
       </notes>
       <segment>
         <source>Stinknormales Metall, das zwar schwer ist, aber immer verwendet werden kann!</source>
-        <target>Du métal… Un peu lourd, mais ça sert toujours ! Note: le métal est utilisé pour la construction de bâtiments en ville (ramenez-le à la Section Banque).</target>
+        <target>Du métal… Un peu lourd, mais ça sert toujours ! Note : le métal est utilisé pour la construction de bâtiments en ville (ramenez-le à la Section Banque).</target>
       </segment>
     </unit>
     <unit id="RIS2inC">
@@ -4120,7 +4120,7 @@
       </notes>
       <segment>
         <source>Fast nichts ist besser als eine rostige Blechplatte, um die Zombies am Eindringen zu hindern... Anmerkung: Verteidigungsgegenstände zählen mehr Punkte, wenn sie in der Bank aufbewahrt werden anstatt daheim.</source>
-        <target>Rien ne vaut une plaque de tôle rouillée pour empêcher les zombies de vous atteindre… Note: les défenses comptent double si elles sont installées en ville plutôt que chez soi.</target>
+        <target>Rien ne vaut une plaque de tôle rouillée pour empêcher les zombies de vous atteindre… Note : les défenses comptent double si elles sont installées en ville plutôt que chez soi.</target>
       </segment>
     </unit>
     <unit id="gTDRDQA">
@@ -4822,7 +4822,7 @@
       </notes>
       <segment>
         <source>Ein großer Baumstumpf, der von schleimigen Pilzen bedeckt ist. Damit kannst du nichts anfangen, es sei denn, du schneidest ihn dir in der Stadt zurecht.</source>
-        <target>Une grosse souche de bois couverte de champignons visqueux. On ne pourra sans doute rien en faire, à moins de le découper proprement en ville…</target>
+        <target>Une grosse souche de bois couverte de champignons visqueux. On ne pourra sans doute rien en faire, à moins de la découper proprement en ville…</target>
       </segment>
     </unit>
     <unit id="f5wZWxD">
@@ -7675,7 +7675,7 @@
       </notes>
       <segment>
         <source>Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.</source>
-        <target>Note: vous avez déjà bu pour récuperer vos Points d'action au cours de la journée.</target>
+        <target>Note : vous avez déjà bu pour récuperer vos Points d'action au cours de la journée.</target>
       </segment>
     </unit>
     <unit id="8vj_Qd7" name="Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!">
