@@ -3032,7 +3032,7 @@
       </notes>
       <segment>
         <source>%citizen% hat folgenden Gegenstand aus der Bank genommen: %item%</source>
-        <target>%citizen% a pris %item% dans le coffre de la Banque !</target>
+        <target>%citizen% a pris %item% dans les coffres de la Banque !</target>
       </segment>
     </unit>
     <unit id="R43wWvR" name="%citizen% hat folgenden Gegenstand hier abgelegt: %item%">
@@ -7880,7 +7880,7 @@
       </notes>
       <segment>
         <source>Hast du schließlich doch Angst Wächter zu sein? Was zögerst du noch:</source>
-        <target>Finalement être veilleur vous effraie ? Alors n'hésitez pas un seul instant:</target>
+        <target>Finalement être veilleur vous effraie ? Alors n'hésitez pas un seul instant :</target>
       </segment>
     </unit>
     <unit id="sSdGp03" name="Ich habe doch zu große Angst...">
@@ -19343,7 +19343,7 @@
       </notes>
       <segment>
         <source>Die Bürger haben das Haus von &lt;strong&gt;✝ %citizen%&lt;/strong&gt; vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert. Die Stadt hat zudem folgende Resourcen zurückgewinnen können: %list%.</source>
-        <target><![CDATA[Die Bürger haben das Haus von <strong>✝ %citizen%</strong> vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert. Die Stadt hat zudem folgende Resourcen zurückgewinnen können: %list%.]]></target>
+        <target><![CDATA[Les citoyens ont terminé de démanteler la maison de <strong>✝ %citizen%</strong> ! Tous les objets présents dans son coffre ont été placés dans la banque de la ville. La ville a également récupéré les ressources suivantes :  %list%.]]></target>
       </segment>
     </unit>
     <unit id="HX0f8s0">
@@ -19901,7 +19901,7 @@
       </notes>
       <segment>
         <source>Sie haben eine Beschwerde gegen &lt;strong&gt;%citizen%&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird %citizen% aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</source>
-        <target><![CDATA[Vous avez déposé une plainte contre <strong>%citizen%</strong>. Si suffisament de plaintes sont accumulées, <strong>%citizen% set banni(e) de la communauté</strong>, ou pendu(e) si une potence existe.]]></target>
+        <target><![CDATA[Vous avez déposé une plainte contre <strong>%citizen%</strong>. Si suffisamment de plaintes sont accumulées, <strong>%citizen% sera banni(e) de la communauté</strong>, ou pendu(e) si une potence existe.]]></target>
       </segment>
     </unit>
     <unit id="CgXv4BN">
@@ -20180,7 +20180,7 @@
       </notes>
       <segment>
         <source>Du warst gerade dabei dich daheim einzubunkern, als dir plötzlich auffällt dass etwas mit dem Reaktor nicht zu stimmen scheint, auf den die anderen Bürger so stolz sind... jetzt wurden sie durch eine ohrenbetäubende Explosion ausgelöscht. Als du wieder zu dir kommst liegst du in einem riesigen Krater, der einmal deine Stadt war; dein Blut kocht und deine Haut schmilzt dir vom Fleisch. Erst nach einigen Minuten unerträglicher Schmerzen verlässt auch du diese Welt.</source>
-        <target>Du warst gerade dabei dich daheim einzubunkern, als dir plötzlich auffällt dass etwas mit dem Reaktor nicht zu stimmen scheint, auf den die anderen Bürger so stolz sind... jetzt wurden sie durch eine ohrenbetäubende Explosion ausgelöscht. Als du wieder zu dir kommst liegst du in einem riesigen Krater, der einmal deine Stadt war; dein Blut kocht und deine Haut schmilzt dir vom Fleisch. Erst nach einigen Minuten unerträglicher Schmerzen verlässt auch du diese Welt.</target>
+        <target>Cloitré dans votre maison, vous vous croyiez en sécurité. Cependant, lorsque le réacteur dont vos concitoyens étaient si fiers a commencé à émettre un signal d'alerte, le regret s'est immédiatement installé. La plupart ont été emportés dans une explosion assourdissante. Vous avez été propulsé au sol et votre chair s'est mise à fondre, votre sang est entré en ébullition. C'est seulement après avoir agonisé durant de longues minutes que vous avez finalement péri.</target>
       </segment>
     </unit>
   </file>
