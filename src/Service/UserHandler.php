@@ -15,6 +15,7 @@ use App\Entity\Picto;
 use App\Entity\Season;
 use App\Entity\Shoutbox;
 use App\Entity\ShoutboxEntry;
+use App\Entity\SocialRelation;
 use App\Entity\User;
 use App\Entity\UserGroup;
 use App\Entity\UserGroupAssociation;
@@ -667,6 +668,15 @@ class UserHandler
     public function isRestricted(User $user, ?int $restriction = null): bool {
         $r = $this->getActiveRestrictions($user);
         return $restriction === null ? ($r !== AccountRestriction::RestrictionNone) : (($r & $restriction) === $restriction);
+    }
+
+    protected array $_relation_cache = [];
+    public function checkRelation( User $user, User $relation, int $type ) {
+        if ($user === $relation) return false;
+        $key = "{$user->getId()}:{$relation->getId()}:{$type}";
+        return
+            $this->_relation_cache[$key] ??
+            ( $this->_relation_cache[$key] = (bool)$this->entity_manager->getRepository(SocialRelation::class)->findOneBy(['owner' => $user, 'related' => $relation, 'type' => $type]) );
     }
 
     public function checkFeatureUnlock(User $user, $feature, bool $deduct): bool {

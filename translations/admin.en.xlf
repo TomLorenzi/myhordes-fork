@@ -3448,5 +3448,14 @@
         <target>Camp Counter</target>
       </segment>
     </unit>
+    <unit id="L4jLopa" name="Verwendung des Schwarzen Bretts verbieten">
+      <notes>
+        <note category="german">Verwendung des Schwarzen Bretts verbieten</note>
+      </notes>
+      <segment>
+        <source>Verwendung des Schwarzen Bretts verbieten</source>
+        <target>Prevent writing to the Black Board</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

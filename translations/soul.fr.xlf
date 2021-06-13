@@ -3179,5 +3179,23 @@
         <target>Cette section présente la liste de toutes vos parties jouées.</target>
       </segment>
     </unit>
+    <unit id="vsOyofZ" name="Schwarzes Brett">
+      <notes>
+        <note category="german">Schwarzes Brett</note>
+      </notes>
+      <segment>
+        <source>Schwarzes Brett</source>
+        <target>Schwarzes Brett</target>
+      </segment>
+    </unit>
+    <unit id="Q2jvlBg" name="Du kannst das Schwarze Brett nicht verwenden.">
+      <notes>
+        <note category="german">Du kannst das Schwarze Brett nicht verwenden.</note>
+      </notes>
+      <segment>
+        <source>Du kannst das Schwarze Brett nicht verwenden.</source>
+        <target>Du kannst das Schwarze Brett nicht verwenden.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

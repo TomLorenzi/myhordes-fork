@@ -2788,5 +2788,131 @@
         <target>Ausgeblendete Nachricht von %user%. Klicken, um anzuzeigen.</target>
       </segment>
     </unit>
+    <unit id="iZZF_a6">
+      <notes>
+        <note category="german">%user% hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</note>
+      </notes>
+      <segment>
+        <source>%user% hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</source>
+        <target>%user% hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</target>
+      </segment>
+    </unit>
+    <unit id="eEWrS7n" name="%users% und %last_user%">
+      <notes>
+        <note category="german">%users% und %last_user%</note>
+      </notes>
+      <segment>
+        <source>%users% und %last_user%</source>
+        <target>%users% und %last_user%</target>
+      </segment>
+    </unit>
+    <unit id="9JfHrKu">
+      <notes>
+        <note category="german">%users% haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</note>
+      </notes>
+      <segment>
+        <source>%users% haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</source>
+        <target>%users% haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</target>
+      </segment>
+    </unit>
+    <unit id="tgTK6TI" name="Du hast diesen Spieler auf deine Blacklist gesetzt.">
+      <notes>
+        <note category="german">Du hast diesen Spieler auf deine Blacklist gesetzt.</note>
+      </notes>
+      <segment>
+        <source>Du hast diesen Spieler auf deine Blacklist gesetzt.</source>
+        <target>Du hast diesen Spieler auf deine Blacklist gesetzt.</target>
+      </segment>
+    </unit>
+    <unit id="C4uSYMq" name="Du hast diesen Spieler von deiner Blacklist genommen.">
+      <notes>
+        <note category="german">Du hast diesen Spieler von deiner Blacklist genommen.</note>
+      </notes>
+      <segment>
+        <source>Du hast diesen Spieler von deiner Blacklist genommen.</source>
+        <target>Du hast diesen Spieler von deiner Blacklist genommen.</target>
+      </segment>
+    </unit>
+    <unit id="lYFv71g" name="Du hast %user% blockiert.">
+      <notes>
+        <note category="german">Du hast %user% blockiert.</note>
+      </notes>
+      <segment>
+        <source>Du hast %user% blockiert.</source>
+        <target>Du hast %user% blockiert.</target>
+      </segment>
+    </unit>
+    <unit id="gURDnkT" name="Blockade aufheben">
+      <notes>
+        <note category="german">Blockade aufheben</note>
+      </notes>
+      <segment>
+        <source>Blockade aufheben</source>
+        <target>Blockade aufheben</target>
+      </segment>
+    </unit>
+    <unit id="NJp6yhE" name="Spieler blockieren">
+      <notes>
+        <note category="german">Spieler blockieren</note>
+      </notes>
+      <segment>
+        <source>Spieler blockieren</source>
+        <target>Spieler blockieren</target>
+      </segment>
+    </unit>
+    <unit id="Ki.EhtV" name="%user% blockieren">
+      <notes>
+        <note category="german">%user% blockieren</note>
+      </notes>
+      <segment>
+        <source>%user% blockieren</source>
+        <target>%user% blockieren</target>
+      </segment>
+    </unit>
+    <unit id="cIrelgU">
+      <notes>
+        <note category="german">Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</note>
+      </notes>
+      <segment>
+        <source>Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</source>
+        <target>Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</target>
+      </segment>
+    </unit>
+    <unit id="XZjzgfL" name="Möchtest du fortfahren?">
+      <notes>
+        <note category="german">Möchtest du fortfahren?</note>
+      </notes>
+      <segment>
+        <source>Möchtest du fortfahren?</source>
+        <target>Möchtest du fortfahren?</target>
+      </segment>
+    </unit>
+    <unit id="hQmss_b" name="Absender blockieren">
+      <notes>
+        <note category="german">Absender blockieren</note>
+      </notes>
+      <segment>
+        <source>Absender blockieren</source>
+        <target>Absender blockieren</target>
+      </segment>
+    </unit>
+    <unit id="aN1frHt">
+      <notes>
+        <note category="german">Wenn du den Absender dieser Nachricht blockierst, kann dieser dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</note>
+      </notes>
+      <segment>
+        <source>Wenn du den Absender dieser Nachricht blockierst, kann dieser dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</source>
+        <target>Wenn du den Absender dieser Nachricht blockierst, kann dieser dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</target>
+      </segment>
+    </unit>
+    <unit id="q8KTox4" name="Dieser Spieler hat dich geblockt. Du kannst ihm keine Nachricht mehr schicken.">
+      <notes>
+        <note category="german">Dieser Spieler hat dich geblockt. Du kannst ihm keine Nachricht mehr schicken.</note>
+      </notes>
+      <segment>
+        <source>Dieser Spieler hat dich geblockt. Du kannst ihm keine Nachricht mehr schicken.</source>
+        <target>Dieser Spieler hat dich geblockt. Du kannst ihm keine Nachricht mehr schicken.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

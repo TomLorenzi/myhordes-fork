@@ -25,6 +25,14 @@
                 </div>
                 <div class="cell padded rw-7 rw-sm-12">
                     <div class="score"><img src="{{ asset('build/images/soul/small_score.gif') }}" alt="" /> {{ 'Seelenpunktzahl'|trans({}, 'global') }} : <strong>{{ '%points% Punkte'|trans({'%points%': user.allSoulPoints}, 'global') }}</strong></div>
+
+                    {% if app.user|related(user,constant('App\\Entity\\SocialRelation::SocialRelationTypeBlock')) %}
+                        <div class="note note-warning">
+                            <b>{{ 'Du hast %user% blockiert.'|trans({'%user%': user.name},'global') }}</b>
+                            <a href="#" id="user_unblock_button">{{ 'Blockade aufheben'|trans({'%user%': user.name},'global') }}</a>
+                        </div>
+                    {% endif %}
+
                     {# @var user \App\Entity\User #}
                     {% if user.activeCitizen is not null and user.activeCitizen.alive %}
                         <div class="current">
@@ -64,12 +72,19 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             {% if citizen_id is not null %}
                 <div class="row">
                     <div class="padded cell rw-4 rw-md-6 rw-sm-12">
                         <button x-ajax-href="{{ path('town_visit', {'id': citizen_id}) }}"><img alt="" src="{{ asset('build/images/icons/home.gif') }}">{{ 'Haus besuchen'|trans({},'soul') }}</button>
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if not user|is_granted('ROLE_CROW') and not app.user|related(user,constant('App\\Entity\\SocialRelation::SocialRelationTypeBlock')) %}
+                <div class="row">
+                    <div class="cell rw-12 padded right">
+                        <a href="#" id="user_block_button" style="color: #5a0000; font-size: 0.5em;"><i class="fa fa-shield-alt"></i> {{ 'Spieler blockieren'|trans({'%user%': user.name},'global') }}</a>
                     </div>
                 </div>
             {% endif %}
@@ -81,6 +96,28 @@
     {{parent()}}
 
     <script>
+        $.html.addEventListenerAll('#user_unblock_button','click',(e,elem) => {
+            e.preventDefault();
+            if (confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                $.ajax.easySend( '{{ path('soul_block_control', {id: user.id, action: 0}) }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('soul_visit', {id: user.id}) }}', true);
+                    } );
+        });
+
+        $.html.addEventListenerAll('#user_block_button','click',(e,elem) => {
+            e.preventDefault();
+            if (confirm(
+                '{{ '%user% blockieren'|trans({'%user%': user.name},'global')|e('js') }}\n\n' +
+                '{{ 'Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.'|trans({},'global')|e('js') }}' +
+                '\n\n{{ 'Möchtest du fortfahren?'|trans({},'global')|e('js') }}'
+            ))
+                $.ajax.easySend( '{{ path('soul_block_control', {id: user.id, action: 1}) }}', {},
+                    function () {
+                        $.ajax.load(null, '{{ path('soul_visit', {id: user.id}) }}', true);
+                    } );
+        });
+
         let season_select = document.getElementById('season');
         $.ajax.no_history().load( document.getElementById('town-list'), '{{ path('soul_get_towns', {user_id: user.id}) }}', false, {season: season_select.value, limit10: document.getElementById("limit-10").checked } )
         if (season)

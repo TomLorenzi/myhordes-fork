@@ -6,6 +6,8 @@
     {% set endpoint_trash   = null %}
     {% set endpoint_unread  = null %}
     {% set endpoint_users   = null %}
+    {% set endpoint_block   = null %}
+    {% set endpoint_block_n = null %}
     {% set message_title_pre= null %}
     {% set message_title    = entry.title %}
     {% set message_id       = 0 %}
@@ -22,6 +24,10 @@
             {% set endpoint_trash  = path('pm_delete_conv_group', {'id': entry.obj.association.id}) %}
         {% endif %}
         {% set endpoint_unread = path('pm_unread_conv_group', {'id': entry.obj.association.id}) %}
+        {% if entry.official is null and entry.owner is not null and entry.owner != app.user and not app.user|related(entry.owner,constant('App\\Entity\\SocialRelation::SocialRelationTypeBlock')) %}
+            {% set endpoint_block   = path('pm_block_conv_group', {'id': entry.obj.association.id}) %}
+            {% set endpoint_block_n = entry.owner.name %}
+        {% endif %}
         {% set message_id      = entry.obj.id %}
         {% set message_type    = 'g' %}
     {% elseif entry.obj|instance_of('App\\Entity\\Announcement') %}
@@ -54,6 +60,8 @@
             {% if endpoint_trash  is not null %}x-trash="{{ endpoint_trash }}"{% endif %}
             {% if endpoint_unread is not null %}x-unread="{{ endpoint_unread }}"{% endif %}
             {% if endpoint_users  is not null %}x-userlist="{{ endpoint_users }}"{% endif %}
+            {% if endpoint_block  is not null %}x-block="{{ endpoint_block }}"{% endif %}
+            {% if endpoint_block_n is not null %}x-block-name="{{ endpoint_block_n }}"{% endif %}
     >
         {% if message_show_ava %}
             <div class="pm-avatar-block">
@@ -230,7 +238,7 @@
 {% endmacro %}
 {% macro bubble_group(message, last, group_owner = false) %}
     {# @var message App\Entity\GlobalPrivateMessage #}
-    <li x-domain="m-d" x-identifier="{{ message.id }}" class="{% if message.sender == app.user %}own{% endif %} {% if message.id > last %}new{% endif %} {% if message.collapsed %}collapsed{% endif %}">
+    <li x-domain="m-d" x-identifier="{{ message.id }}" class="{% if message.sender == app.user %}own{% endif %} {% if message.id > last %}new{% endif %} {% if message.collapsed or (message.senderGroup is empty and app.user|related(message.sender,constant('App\\Entity\\SocialRelation::SocialRelationTypeBlock'))) %}collapsed{% endif %}">
         <div x-unveil="{{ message.id }}" class="unveil pointer"><i class="fa fa-eye-slash"></i> {{ 'Ausgeblendete Nachricht von %user%. Klicken, um anzuzeigen.'|trans({'%user%': '<strong>' ~ message.sender.name ~ '</strong>'}, 'global')|raw }}</div>
         {% if message.senderGroup and message.senderGroup.anon %}
             <div class="pm-avatar" style="background: url({{ path('app_web_group_icon', { gid: message.senderGroup.usergroup.id, name: message.senderGroup.avatarName, ext: message.senderGroup.avatarExt }) }}) center/cover"></div>

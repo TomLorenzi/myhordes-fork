@@ -20127,5 +20127,32 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>You were just about to bunker down at home, when suddenly you realize that something seems to be wrong with the reactor that the other citizens are so proud of... now they have been wiped out by a deafening explosion. When you regain consciousness, you lie in a huge crater that was once your city; your blood boils and your skin melts from your flesh. Only after a few minutes of unbearable pain do you leave this world.</target>
       </segment>
     </unit>
+    <unit id="6ntsFNr">
+      <notes>
+        <note category="german">Ihre Reklamation wurde gut aufgenommen, wird aber in der aktuellen Situation &lt;strong&gt;nicht sehr hilfreich&lt;/strong&gt; sein.&lt;hr&gt;Die Stadt ist im totalen &lt;strong&gt;Chaos&lt;/strong&gt; versunken... Bei so wenigen Überlebenden sind &lt;strong&gt;die Gesetze des Landes gebrochen worden&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Ihre Reklamation wurde gut aufgenommen, wird aber in der aktuellen Situation &lt;strong&gt;nicht sehr hilfreich&lt;/strong&gt; sein.&lt;hr&gt;Die Stadt ist im totalen &lt;strong&gt;Chaos&lt;/strong&gt; versunken... Bei so wenigen Überlebenden sind &lt;strong&gt;die Gesetze des Landes gebrochen worden&lt;/strong&gt;.</source>
+        <target><![CDATA[Deine Beschwerde wurde aufgenommen, wird aber in der aktuellen Situation <strong>nicht sehr hilfreich</strong> sein.<hr>Die Stadt ist im totalen <strong>Chaos</strong> versunken... Bei so wenigen Überlebenden sind <strong>die Gesetze des Landes außer Kraft</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="62YJBIX">
+      <notes>
+        <note category="german">Sie haben eine Beschwerde gegen &lt;strong&gt;%citizen%&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird %citizen% aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</note>
+      </notes>
+      <segment>
+        <source>Sie haben eine Beschwerde gegen &lt;strong&gt;%citizen%&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird %citizen% aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</source>
+        <target><![CDATA[Du hast eine Beschwerde gegen <strong>%citizen%</strong> eingereicht. Wenn sich genug Beschwerden ansammeln, <strong>wird %citizen% aus der Gemeinschaft verbannt oder gehängt</strong>, falls ein Galgen vorhanden ist.]]></target>
+      </segment>
+    </unit>
+    <unit id="CgXv4BN">
+      <notes>
+        <note category="german">Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...</note>
+      </notes>
+      <segment>
+        <source>Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...</source>
+        <target>Deine Beschwerde wurde zurückgezogen... Denke das nächste Mal besser nach...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

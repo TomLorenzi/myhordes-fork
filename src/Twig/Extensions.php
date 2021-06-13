@@ -57,6 +57,7 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
             new TwigFilter('items',  [$this, 'item_prototypes_with']),
             new TwigFilter('group_titles',  [$this, 'group_titles']),
             new TwigFilter('watchpoint',  [$this, 'fetch_watch_points']),
+            new TwigFilter('related',  [$this, 'user_relation']),
         ];
     }
 
@@ -130,6 +131,10 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
 
     public function user_is_restricted(User $user, ?int $mask = null): bool {
         return $this->userHandler->isRestricted($user,$mask);
+    }
+
+    public function user_relation(User $user, User $other, int $relation): bool {
+        return $this->userHandler->checkRelation($user,$other,$relation);
     }
 
     public function town_whitelisted(Town $town, ?User $user = null): bool {
