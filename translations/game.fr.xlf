@@ -19888,7 +19888,7 @@
     </unit>
     <unit id="6ntsFNr">
       <notes>
-        <note category="german">Ihre Reklamation wurde gut aufgenommen, wird aber in der aktuellen Situation &lt;strong&gt;nicht sehr hilfreich&lt;/strong&gt; sein.&lt;hr&gt;Die Stadt ist im totalen &lt;strong&gt;Chaos&lt;/strong&gt; versunken... Bei so wenigen Überlebenden sind &lt;strong&gt;die Gesetze des Landes gebrochen worden&lt;/strong&gt;.</note>
+        <note category="german">Deine Beschwerde wurde aufgenommen, wird aber in der aktuellen Situation &lt;strong&gt;nicht sehr hilfreich&lt;/strong&gt; sein.&lt;hr&gt;Die Stadt ist im totalen &lt;strong&gt;Chaos&lt;/strong&gt; versunken... Bei so wenigen Überlebenden sind &lt;strong&gt;die Gesetze des Landes außer Kraft&lt;/strong&gt;.</note>
       </notes>
       <segment>
         <source>Ihre Reklamation wurde gut aufgenommen, wird aber in der aktuellen Situation &lt;strong&gt;nicht sehr hilfreich&lt;/strong&gt; sein.&lt;hr&gt;Die Stadt ist im totalen &lt;strong&gt;Chaos&lt;/strong&gt; versunken... Bei so wenigen Überlebenden sind &lt;strong&gt;die Gesetze des Landes gebrochen worden&lt;/strong&gt;.</source>
@@ -19897,7 +19897,7 @@
     </unit>
     <unit id="62YJBIX">
       <notes>
-        <note category="german">Sie haben eine Beschwerde gegen &lt;strong&gt;%citizen%&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird %citizen% aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</note>
+        <note category="german">Du hast eine Beschwerde gegen &lt;strong&gt;%citizen%&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird %citizen% aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</note>
       </notes>
       <segment>
         <source>Sie haben eine Beschwerde gegen &lt;strong&gt;%citizen%&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird %citizen% aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</source>
@@ -19906,7 +19906,7 @@
     </unit>
     <unit id="CgXv4BN">
       <notes>
-        <note category="german">Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...</note>
+        <note category="german">Deine Beschwerde wurde zurückgezogen... Denke das nächste Mal besser nach...</note>
       </notes>
       <segment>
         <source>Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...</source>
@@ -20176,11 +20176,20 @@
     </unit>
     <unit id="XvH9iDl">
       <notes>
-        <note category="german">Du warst gerade dabei dich daheim einzubunkern, als dir plötzlich auffällt dass etwas mit dem Reaktor nicht zu stimmen scheint, auf den die anderen Bürger so stolz sind... jetzt wurden sie durch eine ohrenbetäubende Explosion ausgelöscht. Als du wieder zu dir kommst liegst du in einem riesigen Krater, der einmal deine Stadt war; dein Blut kocht und deine Haut schmilzt dir vom Fleisch. Erst nach einigen Minuten unerträglicher Schmerzen verlässt auch du diese Welt.</note>
+        <note category="german">Du dachtest, eingebunkert in deinem Haus wärst du heute Nacht sicher. Als du die Notfallsirenen des Reaktors aufheulen hörst, stellst du fest dass du dich geirrt hast. Die meisten deiner Mitbürger, die so stolz auf den Reaktor waren, lösten sich durch die ohrenbetäubende Explosion sofort in Staub auf. Du wurdest zu Boden geschleudert, dein Fleisch begann zu schmelzen und dein zu Blut kochen. Erst nach einigen Minuten unerträglicher Schmerzen verlässt auch du diese Welt.</note>
       </notes>
       <segment>
         <source>Du warst gerade dabei dich daheim einzubunkern, als dir plötzlich auffällt dass etwas mit dem Reaktor nicht zu stimmen scheint, auf den die anderen Bürger so stolz sind... jetzt wurden sie durch eine ohrenbetäubende Explosion ausgelöscht. Als du wieder zu dir kommst liegst du in einem riesigen Krater, der einmal deine Stadt war; dein Blut kocht und deine Haut schmilzt dir vom Fleisch. Erst nach einigen Minuten unerträglicher Schmerzen verlässt auch du diese Welt.</source>
         <target>Cloitré dans votre maison, vous vous croyiez en sécurité. Cependant, lorsque le réacteur dont vos concitoyens étaient si fiers a commencé à émettre un signal d'alerte, le regret s'est immédiatement installé. La plupart ont été emportés dans une explosion assourdissante. Vous avez été propulsé au sol et votre chair s'est mise à fondre, votre sang est entré en ébullition. C'est seulement après avoir agonisé durant de longues minutes que vous avez finalement péri.</target>
+      </segment>
+    </unit>
+    <unit id="XG1ubVr">
+      <notes>
+        <note category="german">Achtung! Alle Spieler, die sich außerhalb der Stadt befinden, können danach nicht mehr rein.</note>
+      </notes>
+      <segment>
+        <source>Achtung! Alle Spieler, die sich außerhalb der Stadt befinden, können danach nicht mehr rein.</source>
+        <target>Attention, les joueurs hors de la ville ne pourront plus rentrer.</target>
       </segment>
     </unit>
   </file>
