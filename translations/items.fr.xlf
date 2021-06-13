@@ -8345,5 +8345,23 @@
         <target>Vous avez utilisé {items_consume_1} pour purifier l'eau contenue dans {item_from}. Vous avez obtenu {items_spawn}...</target>
       </segment>
     </unit>
+    <unit id="FZmpHwV">
+      <notes>
+        <note category="german">Sie greifen einen Zombie mit Ihrem {item} an, aber &lt;strong&gt;er reagiert nicht einmal&lt;/strong&gt; und macht weiter!</note>
+      </notes>
+      <segment>
+        <source>Sie greifen einen Zombie mit Ihrem {item} an, aber &lt;strong&gt;er reagiert nicht einmal&lt;/strong&gt; und macht weiter!</source>
+        <target><![CDATA[Vous attaquez un zombie avec votre {item}, mais <strong>celui-ci ne réagit même pas</strong> et continue à avancer !]]></target>
+      </segment>
+    </unit>
+    <unit id="nnxBJDq" name="Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.</source>
+        <target><![CDATA[L'arme n'a <strong>plus de pile</strong>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
