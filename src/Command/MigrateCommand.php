@@ -86,7 +86,8 @@ class MigrateCommand extends Command
         '3007ba47a8815cf2b7ab36c34852196149016137' => [ ['app:migrate', ['--assign-awards' => true] ] ],
         'e8fcdebaee7f62d2a74dfdaa1f352d7cbbdeb848' => [ ['app:migrate', ['--assign-awards' => true] ] ],
         'd2e74544059a70b72cb89784544555663e4f0f9e' => [ ['app:migrate', ['--assign-features' => true] ] ],
-        '982adb8ebb6f71be8acd2550fc42a8594264ece3' => [ ['app:migrate', ['--count-admin-reports' => true] ] ]
+        '982adb8ebb6f71be8acd2550fc42a8594264ece3' => [ ['app:migrate', ['--count-admin-reports' => true] ] ],
+        '1a5f0dbc64f5c185e023d3c655014f59f8c8059d' => [ ['app:migrate', ['--repair-restrictions' => true] ] ]
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -156,6 +157,7 @@ class MigrateCommand extends Command
             ->addOption('assign-features', null, InputOption::VALUE_NONE, '')
 
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
+            ->addOption('repair-restrictions', null, InputOption::VALUE_NONE, '')
             ->addOption('count-admin-reports', null, InputOption::VALUE_NONE, '')
         ;
     }
@@ -666,6 +668,14 @@ class MigrateCommand extends Command
         if ($input->getOption('count-admin-reports')) {
             $this->leChunk($output, Post::class, 1000, [], true, true, function(Post $post) {
                 $post->setReported( $post->getAdminReports(false)->count() );
+            });
+
+            return 0;
+        }
+
+        if ($input->getOption('repair-restrictions')) {
+            $this->leChunk($output, AccountRestriction::class, 1000, [], true, true, function(AccountRestriction $r) {
+                if ($r->getRestriction() & (1 << 2)) $r->setRestriction( $r->getRestriction() | AccountRestriction::RestrictionBlackboard );
             });
 
             return 0;
