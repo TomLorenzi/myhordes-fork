@@ -1705,7 +1705,7 @@ class TownController extends InventoryAwareController
         if ($this->getActiveCitizen()->getBanished())
             return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable);
 
-        if ($this->user_handler->isRestricted($this->getActiveCitizen()->getUser(), AccountRestriction::RestrictionTownCommunication))
+        if ($this->user_handler->isRestricted($this->getActiveCitizen()->getUser(), AccountRestriction::RestrictionTownCommunication) || $this->user_handler->isRestricted($this->getActiveCitizen()->getUser(), AccountRestriction::RestrictionBlackboard))
             return AjaxResponse::error( ErrorHelper::ErrorPermissionError );
 
         $new_words_of_heroes = mb_substr($parser->get('content', ''), 0, 500);

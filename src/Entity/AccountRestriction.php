@@ -15,10 +15,11 @@ class AccountRestriction
     // Social restrictions
     const RestrictionNone = 0;
     const RestrictionForum               = 1 << 1;
-    const RestrictionTownCommunication   = 1 << 2;
     const RestrictionGlobalCommunication = 1 << 3;
     const RestrictionComments            = 1 << 4;
     const RestrictionOrganization        = 1 << 5;
+    const RestrictionBlackboard          = 1 << 6;
+    const RestrictionTownCommunication   = 1 << 2 | AccountRestriction::RestrictionBlackboard;
     const RestrictionSocial              = AccountRestriction::RestrictionForum |
                                            AccountRestriction::RestrictionTownCommunication |
                                            AccountRestriction::RestrictionGlobalCommunication |
