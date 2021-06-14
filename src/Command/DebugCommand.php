@@ -6,6 +6,7 @@ namespace App\Command;
 
 use App\Entity\Citizen;
 use App\Entity\CitizenProfession;
+use App\Entity\CitizenRankingProxy;
 use App\Entity\CitizenRole;
 use App\Entity\CitizenStatus;
 use App\Entity\ItemPrototype;
@@ -27,6 +28,7 @@ use App\Service\TwinoidHandler;
 use App\Service\UserHandler;
 use App\Structures\EventConf;
 use DateTime;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use Symfony\Component\Console\Command\Command;
@@ -407,27 +409,30 @@ class DebugCommand extends Command
         }
 
         if ($tid = $input->getOption('confirm-deaths')) {
-            $users = $this->entity_manager->getRepository(User::class)->findAll();
+            $criteria = new Criteria();
+            $criteria->andWhere($criteria->expr()->contains('email', '@localhost'));
 
+            $users = $this->entity_manager->getRepository(User::class)->matching($criteria);
+
+            /** @var User $user */
             foreach ($users as $user) {
-                if (strstr($user->getEmail(), "@localhost") === "@localhost") {
-                    $activeCitizen = $user->getActiveCitizen();
-                    if(isset($activeCitizen)) {
-                        if (!$activeCitizen->getAlive()) {                           
-                            $activeCitizen->setActive(false);
-    
-                            // Delete not validated picto from DB
-                            // Here, every validated picto should have persisted to 2
-                            $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUserAndTown($user, $activeCitizen->getTown());
-                            foreach ($pendingPictosOfUser as $pendingPicto) {
-                                $this->entity_manager->remove($pendingPicto);
-                            }
-    
-                            $this->entity_manager->persist( $activeCitizen );                            
+                /** @var CitizenRankingProxy $nextDeath */
+                $nextDeaths = $this->entity_manager->getRepository(CitizenRankingProxy::class)->findAllUnconfirmedDeath($user);
+                foreach ($nextDeaths as $nextDeath) {
+                    if ($nextDeath !== null && ($nextDeath->getCitizen() && !$nextDeath->getCitizen()->getAlive())) {
+                        echo "Confirm death of user {$user->getName()} in town {$nextDeath->getTown()->getName()}\n";
+                        // Delete not validated picto from DB
+                        // Here, every validated picto should have persisted to 2
+                        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUserAndTown($user, $nextDeath->getTown());
+                        foreach ($pendingPictosOfUser as $pendingPicto) {
+                            $this->entity_manager->remove($pendingPicto);
                         }
+
+                        $nextDeath->setConfirmed(true);
+                        $this->entity_manager->persist($nextDeath);
                     }
                 }
-            }           
+            }
             $this->entity_manager->flush();
             
             return 0;

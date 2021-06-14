@@ -23,6 +23,19 @@ class CitizenRankingProxyRepository extends ServiceEntityRepository
         parent::__construct($registry, CitizenRankingProxy::class);
     }
 
+    public function findAllUnconfirmedDeath(User $user): ?array
+    {
+        try {
+            return $this->createQueryBuilder('c')
+                ->andWhere('c.confirmed = false')->andWhere('c.end is not NULL')
+                ->andWhere('c.user = :user')->setParameter('user', $user)
+                ->getQuery()
+                ->getResult();
+        } catch (Exception $e) {
+            return null;
+        }
+    }
+
     public function findNextUnconfirmedDeath(User $user): ?CitizenRankingProxy
     {
         try {

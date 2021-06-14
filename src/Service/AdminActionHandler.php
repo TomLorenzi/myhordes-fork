@@ -87,6 +87,7 @@ class AdminActionHandler
 
         /** @var User $targetUser */
         $targetUser = $this->entity_manager->getRepository(User::class)->find($targetUserId);
+
         $activeCitizen = $targetUser->getActiveCitizen();
         if (!(isset($activeCitizen)))
             return false;
