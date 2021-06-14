@@ -33,7 +33,7 @@
                                     {{ other_life.town.name }}
                                 </div>
                                 <div class="padded cell grow-0 shrink-0">
-                                    <button {% if not is_granted("ROLE_ADMIN") or not other_life.alive %}disabled{% endif %} x-engage="{{ path('admin_users_citizen_engage', {id: user.id, cid: other_life.id}) }}"><i class="fa fa-recycle"></i></button>
+                                    <button {% if not is_granted("ROLE_ADMIN") or (not other_life.alive and other_life.profession.name != constant("App\\Entity\\CitizenProfession::DEFAULT") and other_life.rankingEntry.confirmed) %}disabled{% endif %} x-engage="{{ path('admin_users_citizen_engage', {id: user.id, cid: other_life.id}) }}"><i class="fa fa-recycle"></i></button>
                                 </div>
                             </div>
                         {% endif %}

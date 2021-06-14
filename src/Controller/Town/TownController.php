@@ -257,7 +257,7 @@ class TownController extends InventoryAwareController
 
     /**
      * @Route("jx/town/visit/{id}/headshot", name="town_visit_headshot", requirements={"id"="\d+"})
-     * @param int $id
+     * @param int $id Citizen's ID
      * @param AdminActionHandler $admh
      * @return Response
      */
@@ -265,6 +265,7 @@ class TownController extends InventoryAwareController
     {
         $sourceUserId = $this->getUser()->getId();
         $message = $admh->headshot($sourceUserId, $id);
+
         $this->addFlash('notice', $message);
         return AjaxResponse::success();
     }

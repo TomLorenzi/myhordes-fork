@@ -252,7 +252,7 @@ class CitizenRankingProxy
             ->setCitizen( $citizen )
             ->setComment( $citizen->getComment() )
             ->setLastWords( $citizen->getLastWords() )
-            ->setConfirmed( !$citizen->getActive() )
+            // ->setConfirmed( !$citizen->getActive() )
             ->setPoints( $citizen->getSurvivedDays() * ( $citizen->getSurvivedDays() + 1 ) / 2 )
             ->setAlias($citizen->getAlias());
 

@@ -373,7 +373,7 @@
                 for (let i = 0; i < adminButtons.length; i++)
                     adminButtons[i].addEventListener('click', function() {
                     if (confirm('{{ 'Diesen Bürger töten?'|trans({},'admin') }}'))
-                        $.ajax.easySend( '{{ path('town_visit_headshot', {id: owner.user.id}) }}', {},
+                        $.ajax.easySend( '{{ path('town_visit_headshot', {id: owner.id}) }}', {},
                             function () {
                                 $.ajax.load(null, '{{ path('town_visit', {id: owner.id}) }}', true);
                             } );

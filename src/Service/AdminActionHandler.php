@@ -60,15 +60,13 @@ class AdminActionHandler
         return $acting_user && $this->userHandler->hasRole( $acting_user, $this->requiredRole[$desiredAction] );
     }
 
-    public function headshot(int $sourceUser, int $targetUserId): string
+    public function headshot(int $sourceUser, int $targetCitizenId): string
     {
         if(!$this->hasRights($sourceUser, 'headshot'))
             return $this->translator->trans('Dazu hast Du kein Recht.', [], 'game');        
-        /** @var User $user */
-        $user = $this->entity_manager->getRepository(User::class)->find($targetUserId);
-
-        $citizen = $user->getActiveCitizen();
-        if (isset($citizen)) {
+        /** @var Citizen $citizen */
+        $citizen = $this->entity_manager->getRepository(Citizen::class)->find($targetCitizenId);
+        if ($citizen && $citizen->getAlive()) {
             $rem = [];
             $this->death_handler->kill( $citizen, CauseOfDeath::Headshot, $rem );
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
@@ -76,7 +74,7 @@ class AdminActionHandler
             $message = $this->translator->trans('%username% wurde standrechtlich erschossen.', ['%username%' => '<span>' . $citizen->getName() . '</span>'], 'game');
         }
         else {
-            $message = $this->translator->trans('%username% gehört keiner Stadt an.', ['%username%' => '<span>' . $citizen->getName() . '</span>'], 'game');
+            $message = $this->translator->trans('Dieser Bürger gehört keiner Stadt an.', [], 'game');
         }
         return $message;
     }

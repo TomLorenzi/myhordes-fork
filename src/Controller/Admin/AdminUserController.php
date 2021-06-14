@@ -761,7 +761,7 @@ class AdminUserController extends AdminActionController
 
         if ($cid !== 0) {
             $citizen = $this->entity_manager->getRepository(Citizen::class)->find($cid);
-            if (!$citizen || $citizen->getUser() !== $user || !$citizen->getAlive())
+            if (!$citizen || $citizen->getUser() !== $user || (!$citizen->getAlive() && $citizen->getProfession()->getName() !== CitizenProfession::DEFAULT))
                 return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
             $this->entity_manager->persist($citizen->setActive(true));
         }
