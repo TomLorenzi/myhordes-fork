@@ -21,6 +21,7 @@ use App\Entity\PictoPrototype;
 use App\Entity\RememberMeTokens;
 use App\Entity\ShoutboxEntry;
 use App\Entity\ShoutboxReadMarker;
+use App\Entity\SocialRelation;
 use App\Entity\TownClass;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
@@ -1019,6 +1020,39 @@ class SoulController extends CustomAbstractController
     }
 
     /**
+     * @Route("api/soul/{id}/block/{action}", name="soul_block_control", requirements={"id"="\d+", "action"="\d+"})
+     * @param int $id
+     * @param int $action
+     * @return Response
+     */
+    public function soul_control_block(int $id, int $action): Response
+    {
+        if ($action !== 0 && $action !== 1) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        $target_user = $this->entity_manager->getRepository(User::class)->find($id);
+        if ($target_user === null || $target_user === $this->getUser())
+            return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+
+        if ($this->user_handler->hasRole($target_user, 'ROLE_CROW'))
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
+        $is_blocked = $this->user_handler->checkRelation($this->getUser(), $target_user, SocialRelation::SocialRelationTypeBlock);
+        if (($is_blocked && $action === 1) || (!$is_blocked && $action === 0)) return AjaxResponse::success();
+
+        if ($action === 1) $this->entity_manager->persist( (new SocialRelation())->setType( SocialRelation::SocialRelationTypeBlock )->setOwner( $this->getUser())->setRelated( $target_user ) );
+        else $this->entity_manager->remove( $this->entity_manager->getRepository( SocialRelation::class )->findOneBy( ['owner' => $this->getUser(), 'related' => $target_user, 'type' => SocialRelation::SocialRelationTypeBlock ] ) );
+
+        try {
+            $this->entity_manager->flush();
+        } catch (Exception $e) { return AjaxResponse::error( ErrorHelper::ErrorDatabaseException ); }
+
+        if ($action === 1) $this->addFlash('notice', $this->translator->trans('Du hast diesen Spieler auf deine Blacklist gesetzt.', [], 'global'));
+        else $this->addFlash('notice', $this->translator->trans('Du hast diesen Spieler von deiner Blacklist genommen.', [], 'global'));
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("api/soul/unsubscribe", name="api_unsubscribe")
      * @param JSONRequestParser $parser
      * @param SessionInterface $session
@@ -1039,7 +1073,7 @@ class SoulController extends CustomAbstractController
         // Here, we delete picto with persisted = 0,
         // and definitively validate picto with persisted = 1
         /** @var Picto[] $pendingPictosOfUser */
-        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($user);
+        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUserAndTown($user, $nextDeath->getTown());
         foreach ($pendingPictosOfUser as $pendingPicto) {
             if($pendingPicto->getPersisted() == 0)
                 $this->entity_manager->remove($pendingPicto);

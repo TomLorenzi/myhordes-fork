@@ -6838,13 +6838,13 @@
         <target>%username% wurde standrechtlich erschossen.</target>
       </segment>
     </unit>
-    <unit id="tkJcWLe" name="%username% gehört keiner Stadt an.">
+    <unit id="tkJcWLe" name="Dieser Bürger gehört keiner Stadt an.">
       <notes>
-        <note category="german">%username% gehört keiner Stadt an.</note>
+        <note category="german">Dieser Bürger gehört keiner Stadt an.</note>
       </notes>
       <segment>
-        <source>%username% gehört keiner Stadt an.</source>
-        <target>%username% gehört keiner Stadt an.</target>
+        <source>Dieser Bürger gehört keiner Stadt an.</source>
+        <target>Dieser Bürger gehört keiner Stadt an.</target>
       </segment>
     </unit>
     <unit id="a8CDdVQ" name="%citizen% wurde standrechtlich erschossen. Lang lebe das Diktat!">
@@ -19170,11 +19170,11 @@
     </unit>
     <unit id="QOeiiDo">
       <notes>
-        <note category="german">Jede &lt;strong&gt;Aufräumaktion&lt;/strong&gt; enfernt einen Haufen von der Leiste. Wenn alle Häufen verschwunden sind, kann die Zone nach Lust und Laune erforscht werden.</note>
+        <note category="german">Jede &lt;strong&gt;Aufräumaktion&lt;/strong&gt; entfernt einen Haufen von der Leiste. Wenn alle Häufen verschwunden sind, kann die Zone nach Lust und Laune erforscht werden.</note>
       </notes>
       <segment>
         <source>Jede &lt;strong&gt;Aufräumaktion&lt;/strong&gt; enfernt einen Haufen von der Leiste. Wenn alle Häufen verschwunden sind, kann die Zone nach Lust und Laune erforscht werden.</source>
-        <target><![CDATA[Jede <strong>Aufräumaktion</strong> enfernt einen Haufen von der Leiste. Wenn alle Häufen verschwunden sind, kann die Zone nach Lust und Laune erforscht werden.]]></target>
+        <target><![CDATA[Jede <strong>Aufräumaktion</strong> entfernt einen Haufen von der Leiste. Wenn alle Häufen verschwunden sind, kann die Zone nach Lust und Laune erforscht werden.]]></target>
       </segment>
     </unit>
     <unit id="3Aw6Y48">
@@ -19886,6 +19886,312 @@
       <segment>
         <source>@deads Tot</source>
         <target>@deads Tot</target>
+      </segment>
+    </unit>
+    <unit id="r4KXho0">
+      <notes>
+        <note category="german">Einrichtungsgegenstände bringen dir viele Vorteile. Sie müssen lediglich in deiner &lt;strong&gt;Truhe&lt;/strong&gt; abgelegt werden, um verwendet werden zu können.</note>
+      </notes>
+      <segment>
+        <source>Einrichtungsgegenstände bringen dir viele Vorteile. Sie müssen lediglich in deiner &lt;strong&gt;Truhe&lt;/strong&gt; abgelegt werden, um verwendet werden zu können.</source>
+        <target><![CDATA[Einrichtungsgegenstände bringen dir viele Vorteile. Sie müssen lediglich in deiner <strong>Truhe</strong> abgelegt werden, um verwendet werden zu können.]]></target>
+      </segment>
+    </unit>
+    <unit id="b1xfDlq" name="Zuhause">
+      <notes>
+        <note category="german">Zuhause</note>
+      </notes>
+      <segment>
+        <source>Zuhause</source>
+        <target>Zuhause</target>
+      </segment>
+    </unit>
+    <unit id="Rlw1G2Y" name="Hausverteidigung">
+      <notes>
+        <note category="german">Hausverteidigung</note>
+      </notes>
+      <segment>
+        <source>Hausverteidigung</source>
+        <target>Hausverteidigung</target>
+      </segment>
+    </unit>
+    <unit id="aZTP5kd" name="Behausung:">
+      <notes>
+        <note category="german">Behausung:</note>
+      </notes>
+      <segment>
+        <source>Behausung:</source>
+        <target>Behausung:</target>
+      </segment>
+    </unit>
+    <unit id="DPEWu9n" name="Bauarbeiten:">
+      <notes>
+        <note category="german">Bauarbeiten:</note>
+      </notes>
+      <segment>
+        <source>Bauarbeiten:</source>
+        <target>Bauarbeiten:</target>
+      </segment>
+    </unit>
+    <unit id="da5HmMo" name="Verteidigungsgegenstände:">
+      <notes>
+        <note category="german">Verteidigungsgegenstände:</note>
+      </notes>
+      <segment>
+        <source>Verteidigungsgegenstände:</source>
+        <target>Verteidigungsgegenstände:</target>
+      </segment>
+    </unit>
+    <unit id="82mfAu." name="Heldenbonus:">
+      <notes>
+        <note category="german">Heldenbonus:</note>
+      </notes>
+      <segment>
+        <source>Heldenbonus:</source>
+        <target>Heldenbonus:</target>
+      </segment>
+    </unit>
+    <unit id="GOhyviN" name="Total:">
+      <notes>
+        <note category="german">Total:</note>
+      </notes>
+      <segment>
+        <source>Total:</source>
+        <target>Total:</target>
+      </segment>
+    </unit>
+    <unit id="wyKmZM_">
+      <notes>
+        <note category="german">Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</note>
+      </notes>
+      <segment>
+        <source>Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</source>
+        <target>Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</target>
+      </segment>
+    </unit>
+    <unit id="HUYhE2a" name="kein Verteidigungsbonus">
+      <notes>
+        <note category="german">kein Verteidigungsbonus</note>
+      </notes>
+      <segment>
+        <source>kein Verteidigungsbonus</source>
+        <target>kein Verteidigungsbonus</target>
+      </segment>
+    </unit>
+    <unit id="Myp3YkU" name="Stufe %lvl%">
+      <notes>
+        <note category="german">Stufe %lvl%</note>
+      </notes>
+      <segment>
+        <source>Stufe %lvl%</source>
+        <target>Stufe %lvl%</target>
+      </segment>
+    </unit>
+    <unit id="ilcgFcS" name="Keine">
+      <notes>
+        <note category="german">Keine</note>
+      </notes>
+      <segment>
+        <source>Keine</source>
+        <target>Keine</target>
+      </segment>
+    </unit>
+    <unit id="VNJaq3_">
+      <notes>
+        <note category="german">Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?</note>
+      </notes>
+      <segment>
+        <source>Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?</source>
+        <target>Was soll denn das heißen, du hast noch keine Deko für dein bescheidenes Zuhause gefunden?! Worauf wartest du noch? In der Wüste findest du bestimmt ein wunderbares Sofa aus Zombiehaut! Oder darf es vielleicht eines dieser warmen, weichen Talismänner sein: Eine abgerissene Hand oder ein frisch abgetrennter Fuß?</target>
+      </segment>
+    </unit>
+    <unit id="bb8bUie" name="Deko-Punkte">
+      <notes>
+        <note category="german">Deko-Punkte</note>
+      </notes>
+      <segment>
+        <source>Deko-Punkte</source>
+        <target>Deko-Punkte</target>
+      </segment>
+    </unit>
+    <unit id="trQhpwX" name="Komiteenote:">
+      <notes>
+        <note category="german">Komiteenote:</note>
+      </notes>
+      <segment>
+        <source>Komiteenote:</source>
+        <target>Komiteenote:</target>
+      </segment>
+    </unit>
+    <unit id="rRcdZf0">
+      <notes>
+        <note category="german">Diese Note wird vom &lt;strong&gt;Komitee des guten Geschmacks der Stadt %townname%&lt;/strong&gt; vergeben.</note>
+      </notes>
+      <segment>
+        <source>Diese Note wird vom &lt;strong&gt;Komitee des guten Geschmacks der Stadt %townname%&lt;/strong&gt; vergeben.</source>
+        <target><![CDATA[Diese Note wird vom <strong>Komitee des guten Geschmacks der Stadt %townname%</strong> vergeben.]]></target>
+      </segment>
+    </unit>
+    <unit id="Ng_nMhX">
+      <notes>
+        <note category="german">Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!</note>
+      </notes>
+      <segment>
+        <source>Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!</source>
+        <target>Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!</target>
+      </segment>
+    </unit>
+    <unit id="Tf8a568">
+      <notes>
+        <note category="german">Du kannst einen Teil deines Sauerstoffs zur Flucht verwenden, indem du in die gewünschte Richtung sprintest.</note>
+      </notes>
+      <segment>
+        <source>Du kannst einen Teil deines Sauerstoffs zur Flucht verwenden, indem du in die gewünschte Richtung sprintest.</source>
+        <target>Du kannst einen Teil deines Sauerstoffs zur Flucht verwenden, indem du in die gewünschte Richtung sprintest.</target>
+      </segment>
+    </unit>
+    <unit id="ywafrVf" name="Du kannst dieses Gebäude mit allen gefundenen Ressourcen verlassen.">
+      <notes>
+        <note category="german">Du kannst dieses Gebäude mit allen gefundenen Ressourcen verlassen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst dieses Gebäude mit allen gefundenen Ressourcen verlassen.</source>
+        <target>Du kannst dieses Gebäude mit allen gefundenen Ressourcen verlassen.</target>
+      </segment>
+    </unit>
+    <unit id="Tg_wgai">
+      <notes>
+        <note category="german">Verzweifelt suchst du in diesem Raum nach etwas, aber wie lange wirst du an diesem unheilvollen Ort durchhalten?</note>
+      </notes>
+      <segment>
+        <source>Verzweifelt suchst du in diesem Raum nach etwas, aber wie lange wirst du an diesem unheilvollen Ort durchhalten?</source>
+        <target>Verzweifelt suchst du in diesem Raum nach etwas, aber wie lange wirst du an diesem unheilvollen Ort durchhalten?</target>
+      </segment>
+    </unit>
+    <unit id="jDpq7iy">
+      <notes>
+        <note category="german">Du kannst die üblen Gerüche und den Anblick dieses Raumes nicht länger ertragen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst die üblen Gerüche und den Anblick dieses Raumes nicht länger ertragen.</source>
+        <target>Du kannst die üblen Gerüche und den Anblick dieses Raumes nicht länger ertragen.</target>
+      </segment>
+    </unit>
+    <unit id="2Zr9t8H">
+      <notes>
+        <note category="german">Du kannst diesen Raum betreten, vielleicht findest du einige interessante Gegenstände.</note>
+      </notes>
+      <segment>
+        <source>Du kannst diesen Raum betreten, vielleicht findest du einige interessante Gegenstände.</source>
+        <target>Du kannst diesen Raum betreten, vielleicht findest du einige interessante Gegenstände.</target>
+      </segment>
+    </unit>
+    <unit id="SHnNJFY" name="Diese Aktion kostet dich Sauerstoff, trotzdem flüchten?">
+      <notes>
+        <note category="german">Diese Aktion kostet dich Sauerstoff, trotzdem flüchten?</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion kostet dich Sauerstoff, trotzdem flüchten?</source>
+        <target>Diese Aktion kostet dich Sauerstoff, trotzdem flüchten?</target>
+      </segment>
+    </unit>
+    <unit id="RlEfb.v">
+      <notes>
+        <note category="german">Diese Aktion ermöglicht es dir, die Tiefen dieses Gebäude zu erkunden und wertvolle Ressourcen zu bergen. Sei aber nicht zu gierig, denn deine Zeit ist begrenzt!</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion ermöglicht es dir, die Tiefen dieses Gebäude zu erkunden und wertvolle Ressourcen zu bergen. Sei aber nicht zu gierig, denn deine Zeit ist begrenzt!</source>
+        <target>Diese Aktion ermöglicht es dir, die Tiefen dieses Gebäude zu erkunden und wertvolle Ressourcen zu bergen. Sei aber nicht zu gierig, denn deine Zeit ist begrenzt!</target>
+      </segment>
+    </unit>
+    <unit id="AGQV69U" name="Das Gebäude betreten? (Diese Aktion kostet 1AP)">
+      <notes>
+        <note category="german">Das Gebäude betreten? (Diese Aktion kostet 1AP)</note>
+      </notes>
+      <segment>
+        <source>Das Gebäude betreten? (Diese Aktion kostet 1AP)</source>
+        <target>Das Gebäude betreten? (Diese Aktion kostet 1AP)</target>
+      </segment>
+    </unit>
+    <unit id="LkEJIMQ" name="Kein Wasser mehr!">
+      <notes>
+        <note category="german">Kein Wasser mehr!</note>
+      </notes>
+      <segment>
+        <source>Kein Wasser mehr!</source>
+        <target>Kein Wasser mehr!</target>
+      </segment>
+    </unit>
+    <unit id="DjCbLrn">
+      <notes>
+        <note category="german">&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen der Bürger wurden unterbrochen!</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Verlust der Zonenkontrolle&lt;/strong&gt;: Die Suchen der Bürger wurden unterbrochen!</source>
+        <target><![CDATA[<strong>Verlust der Zonenkontrolle</strong>: Die Suchen der Bürger wurden unterbrochen!]]></target>
+      </segment>
+    </unit>
+    <unit id="ihMj9Wy">
+      <notes>
+        <note category="german">%citizen% hat die Zone verlassen, &lt;strong&gt;die Zombies werden in wenigen Minuten die Kontrolle erlangen wenn wir nichts unternehmen.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>%citizen% hat die Zone verlassen, &lt;strong&gt;die Zombies werden in wenigen Minuten die Kontrolle erlangen wenn wir nichts unternehmen.&lt;/strong&gt;</source>
+        <target><![CDATA[%citizen% hat die Zone verlassen, <strong>die Zombies werden in wenigen Minuten die Kontrolle erlangen wenn wir nichts unternehmen.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="QZHPoCR" name="&lt;span&gt;Es ist soweit: Der Schmaus kann beginnen!&lt;/span&gt;">
+      <notes>
+        <note category="german">&lt;span&gt;Es ist soweit: Der Schmaus kann beginnen!&lt;/span&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;span&gt;Es ist soweit: Der Schmaus kann beginnen!&lt;/span&gt;</source>
+        <target><![CDATA[<span>Es ist soweit: Der Schmaus kann beginnen!</span>]]></target>
+      </segment>
+    </unit>
+    <unit id="XvH9iDl">
+      <notes>
+        <note category="german">Du dachtest, eingebunkert in deinem Haus wärst du heute Nacht sicher. Als du die Notfallsirenen des Reaktors aufheulen hörst, stellst du fest dass du dich geirrt hast. Die meisten deiner Mitbürger, die so stolz auf den Reaktor waren, lösten sich durch die ohrenbetäubende Explosion sofort in Staub auf. Du wurdest zu Boden geschleudert, dein Fleisch begann zu schmelzen und dein zu Blut kochen. Erst nach einigen Minuten unerträglicher Schmerzen verlässt auch du diese Welt.</note>
+      </notes>
+      <segment>
+        <source>Du warst gerade dabei dich daheim einzubunkern, als dir plötzlich auffällt dass etwas mit dem Reaktor nicht zu stimmen scheint, auf den die anderen Bürger so stolz sind... jetzt wurden sie durch eine ohrenbetäubende Explosion ausgelöscht. Als du wieder zu dir kommst liegst du in einem riesigen Krater, der einmal deine Stadt war; dein Blut kocht und deine Haut schmilzt dir vom Fleisch. Erst nach einigen Minuten unerträglicher Schmerzen verlässt auch du diese Welt.</source>
+        <target>Du dachtest, eingebunkert in deinem Haus wärst du heute Nacht sicher. Als du die Notfallsirenen des Reaktors aufheulen hörst, stellst du fest dass du dich geirrt hast. Die meisten deiner Mitbürger, die so stolz auf den Reaktor waren, lösten sich durch die ohrenbetäubende Explosion sofort in Staub auf. Du wurdest zu Boden geschleudert, dein Fleisch begann zu schmelzen und dein zu Blut kochen. Erst nach einigen Minuten unerträglicher Schmerzen verlässt auch du diese Welt.</target>
+      </segment>
+    </unit>
+    <unit id="6ntsFNr">
+      <notes>
+        <note category="german">Deine Beschwerde wurde aufgenommen, wird aber in der aktuellen Situation &lt;strong&gt;nicht sehr hilfreich&lt;/strong&gt; sein.&lt;hr&gt;Die Stadt ist im totalen &lt;strong&gt;Chaos&lt;/strong&gt; versunken... Bei so wenigen Überlebenden sind &lt;strong&gt;die Gesetze des Landes außer Kraft&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Ihre Reklamation wurde gut aufgenommen, wird aber in der aktuellen Situation &lt;strong&gt;nicht sehr hilfreich&lt;/strong&gt; sein.&lt;hr&gt;Die Stadt ist im totalen &lt;strong&gt;Chaos&lt;/strong&gt; versunken... Bei so wenigen Überlebenden sind &lt;strong&gt;die Gesetze des Landes gebrochen worden&lt;/strong&gt;.</source>
+        <target><![CDATA[Deine Beschwerde wurde aufgenommen, wird aber in der aktuellen Situation <strong>nicht sehr hilfreich</strong> sein.<hr>Die Stadt ist im totalen <strong>Chaos</strong> versunken... Bei so wenigen Überlebenden sind <strong>die Gesetze des Landes außer Kraft</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="62YJBIX">
+      <notes>
+        <note category="german">Du hast eine Beschwerde gegen &lt;strong&gt;%citizen%&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird %citizen% aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</note>
+      </notes>
+      <segment>
+        <source>Sie haben eine Beschwerde gegen &lt;strong&gt;%citizen%&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird %citizen% aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</source>
+        <target><![CDATA[Du hast eine Beschwerde gegen <strong>%citizen%</strong> eingereicht. Wenn sich genug Beschwerden ansammeln, <strong>wird %citizen% aus der Gemeinschaft verbannt oder gehängt</strong>, falls ein Galgen vorhanden ist.]]></target>
+      </segment>
+    </unit>
+    <unit id="CgXv4BN">
+      <notes>
+        <note category="german">Deine Beschwerde wurde zurückgezogen... Denke das nächste Mal besser nach...</note>
+      </notes>
+      <segment>
+        <source>Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...</source>
+        <target>Deine Beschwerde wurde zurückgezogen... Denke das nächste Mal besser nach...</target>
+      </segment>
+    </unit>
+    <unit id="XG1ubVr">
+      <notes>
+        <note category="german">Achtung! Alle Spieler, die sich außerhalb der Stadt befinden, können danach nicht mehr rein.</note>
+      </notes>
+      <segment>
+        <source>Achtung! Alle Spieler, die sich außerhalb der Stadt befinden, können danach nicht mehr rein.</source>
+        <target>Achtung! Alle Spieler, die sich außerhalb der Stadt befinden, können danach nicht mehr rein.</target>
       </segment>
     </unit>
   </file>

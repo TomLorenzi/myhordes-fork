@@ -1724,7 +1724,7 @@
       </notes>
       <segment>
         <source>EternalTwin-Nutzer</source>
-        <target>Utilisateurs de EternalTwin</target>
+        <target>Utilisateur EternalTwin</target>
       </segment>
     </unit>
     <unit id="0T9At.g">
@@ -1733,7 +1733,7 @@
       </notes>
       <segment>
         <source>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
-        <target>Ce joueur utilise un compte EternalTwin. Nous sommes impatients de l’accueillir sur MyHordes !</target>
+        <target>Ce joueur utilise un compte EternalTwin. Nous avons hâte de l'accueillir sur MyHordes !</target>
       </segment>
     </unit>
     <unit id="XRvl7w0">
@@ -3177,6 +3177,24 @@
       <segment>
         <source>In diesem Abschnitt findest du alle bisher von dir gespielten Partien.</source>
         <target>Cette section présente la liste de toutes vos parties jouées.</target>
+      </segment>
+    </unit>
+    <unit id="vsOyofZ" name="Schwarzes Brett">
+      <notes>
+        <note category="german">Schwarzes Brett</note>
+      </notes>
+      <segment>
+        <source>Schwarzes Brett</source>
+        <target>Schwarzes Brett</target>
+      </segment>
+    </unit>
+    <unit id="Q2jvlBg" name="Du kannst das Schwarze Brett nicht verwenden.">
+      <notes>
+        <note category="german">Du kannst das Schwarze Brett nicht verwenden.</note>
+      </notes>
+      <segment>
+        <source>Du kannst das Schwarze Brett nicht verwenden.</source>
+        <target>Du kannst das Schwarze Brett nicht verwenden.</target>
       </segment>
     </unit>
   </file>

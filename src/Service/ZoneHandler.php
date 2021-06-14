@@ -98,6 +98,20 @@ class ZoneHandler
         $found_by_escorts = [];
         $ret_str = [];
 
+        $timers_to_remove = [];
+        foreach ($zone->getEscapeTimers() as $timer)
+            if ($timer->getTime() < $up_to) $timers_to_remove[] = $timer;
+
+        $longest_timer = null;
+        foreach ($timers_to_remove as $timer) {
+            if (!$timer->getCitizen() && ( $longest_timer == null || $timer->getTime() > $longest_timer ))
+                $longest_timer = $timer->getTime();
+            $this->entity_manager->remove( $timer );
+        }
+
+        if ($longest_timer !== null && !$this->check_cp($zone))
+            $this->entity_manager->persist( $this->log->zoneEscapeTimerExpired($zone, $longest_timer) );
+
         /** @var DigTimer[] $dig_timers */
         $dig_timers = [];
         $cp = 0;
@@ -471,8 +485,9 @@ class ZoneHandler
     /**
      * @param Zone $zone
      * @param $cp_ok_before
+     * @param Citizen|null $leaving_citizen
      */
-    public function handleCitizenCountUpdate(&$zone, $cp_ok_before) {
+    public function handleCitizenCountUpdate(Zone &$zone, $cp_ok_before, ?Citizen $leaving_citizen = null) {
         // If no citizens remain in a zone, invalidate all associated escape timers and clear the log
         if (!count($zone->getCitizens())) {
             foreach ($zone->getEscapeTimers() as $et)
@@ -488,12 +503,17 @@ class ZoneHandler
         // If zombies can take control after leaving the zone and there are citizens remaining, install a grace escape timer
         else if ($cp_ok_before !== null) {
             if ( $cp_ok_before && !$this->check_cp( $zone ) ) {
+                if ( $leaving_citizen && !$zone->getCitizens()->isEmpty() ) $this->entity_manager->persist( $this->log->zoneLostControlLeaving( $zone, $leaving_citizen ) );
                 $zone->addEscapeTimer( (new EscapeTimer())->setTime( new DateTime('+30min') ) );
                 // Disable all dig timers
+                $has_dt = false;
                 foreach ($zone->getDigTimers() as $dig_timer) {
+                    $has_dt = $has_dt || !$dig_timer->getPassive();
                     $dig_timer->setPassive(true);
                     $this->entity_manager->persist( $dig_timer );
                 }
+                if ($has_dt) $this->entity_manager->persist( $this->log->zoneSearchInterrupted( $zone ) );
+
             }
             // If we took back control of the zone, logs it
             elseif (!$cp_ok_before && $this->check_cp($zone)) {

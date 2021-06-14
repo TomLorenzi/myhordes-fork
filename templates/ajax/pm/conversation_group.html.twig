@@ -1,11 +1,15 @@
 {% extends "ajax/ajax_plain.html.twig" %}
 
 {% from "ajax/pm/bubbles.html.twig" import bubble_group as bubble %}
+{% from "ajax/pm/bubbles.html.twig" import bubble_group_pinned as bubble_pinned %}
 
 {% block ajax_base %}
     <ul class="group-conversation">
+        {% if pinned is not null %}
+            {{ bubble_pinned(pinned, last, owner) }}
+        {% endif %}
         {% for message in messages %}
-            {{ bubble(message, last) }}
+            {{ bubble(message, last, owner) }}
         {% endfor %}
     </ul>
     {% if more %}

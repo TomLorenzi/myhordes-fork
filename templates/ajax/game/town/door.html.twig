@@ -99,6 +99,8 @@
                         <button id="door_closer" {% if town.devastated %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/small_action.gif') }}" />{% trans from 'game' %}Tor schließen{% endtrans %} (<div class="ap">1</div>)</button>
                         {% if town.devastated %}
                             <div class="tooltip">{{ 'Das Stadttor ist zerstört!'|trans({},'game') }}</div>
+                        {% else %}
+                            <div class="tooltip help">{{ 'Achtung! Alle Spieler, die sich außerhalb der Stadt befinden, können danach nicht mehr rein.'|trans({},'game') }}</div>
                         {% endif %}
                     </div>
                 {% else %}

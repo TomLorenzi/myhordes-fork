@@ -48,6 +48,9 @@
                     <ul>
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionForum'), 'In Foren posten'|trans({},'soul'), 'Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.'|trans({},'soul')) }}
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionTownCommunication'), 'Kommunikation in der Stadt'|trans({},'soul'), 'Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.'|trans({},'soul')) }}
+                        {% if not app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionTownCommunication')) %}
+                            {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionBlackboard'), 'Schwarzes Brett'|trans({},'soul'), 'Du kannst das Schwarze Brett nicht verwenden.'|trans({},'soul')) }}
+                        {% endif %}
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionGlobalCommunication'), 'Stadtübergreifende Kommunikation'|trans({},'soul'), 'Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.'|trans({},'soul')) }}
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionComments'), 'Kommentare'|trans({},'soul'), 'Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.'|trans({},'soul')) }}
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionOrganization'), 'Gruppenorganisation'|trans({},'soul'), 'Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.'|trans({},'soul')) }}

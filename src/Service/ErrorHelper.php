@@ -39,4 +39,6 @@ class ErrorHelper
     const ErrorActionNotAvailableWounded = 55;
     const ErrorActionNotAvailableSP      = 56;
     const ErrorActionNotAvailableTerror  = 57;
+
+    const ErrorBlockedByUser             = 71;
 }

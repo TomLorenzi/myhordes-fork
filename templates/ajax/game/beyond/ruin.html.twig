@@ -28,7 +28,13 @@
                         {% endtrans %}
                     </span>
                     <div class="row">
-                        <div class="padded-small cell rw-6"><button id="escape-btn"><img alt="" src="{{ asset('build/images/icons/small_sprint.gif') }}" />{% trans from 'game' %}Flüchten{% endtrans %}</button></div>
+                        <div class="padded-small cell rw-6">
+                            <button id="escape-btn">
+                                <img alt="" src="{{ asset('build/images/icons/small_sprint.gif') }}" />
+                                {% trans from 'game' %}Flüchten{% endtrans %}
+                                <div class="tooltip help">{{ 'Du kannst einen Teil deines Sauerstoffs zur Flucht verwenden, indem du in die gewünschte Richtung sprintest.'|trans({},'game') }}</div>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -44,6 +50,7 @@
                     <button id="exit_ruin_button"  >
                         <img class="icon left" alt="" src="{{ asset('build/images/icons/exit.gif') }}" />
                         {% trans from 'game' %}Gebäude verlassen{% endtrans %}
+                        <div class="tooltip help">{{ 'Du kannst dieses Gebäude mit allen gefundenen Ressourcen verlassen.'|trans({},'game') }}</div>
                     </button>
                 {% endif %}
 
@@ -57,6 +64,7 @@
                                 <img class="icon left" alt="" src="{{ asset('build/images/icons/lock.gif') }}" />
                             {% endif %}
                             {{ 'Raum durchsuchen'|trans({},'game') }}
+                            <div class="tooltip help">{{ 'Verzweifelt suchst du in diesem Raum nach etwas, aber wie lange wirst du an diesem unheilvollen Ort durchhalten?'|trans({},'game') }}</div>
                         </button>
                     {% endif %}
                     <br />
@@ -68,8 +76,10 @@
                         {% endif %}
                         {% if shifted %}
                             {{ 'Raum verlassen'|trans({},'game') }}
+                            <div class="tooltip help">{{ 'Du kannst die üblen Gerüche und den Anblick dieses Raumes nicht länger ertragen.'|trans({},'game') }}</div>
                         {% else %}
                             {{ 'Raum betreten'|trans({},'game') }}
+                            <div class="tooltip help">{{ 'Du kannst diesen Raum betreten, vielleicht findest du einige interessante Gegenstände.'|trans({},'game') }}</div>
                         {% endif %}
                     </button>
 
@@ -81,7 +91,6 @@
                             </button>
                         {% endif %}
                         <button id="unlock_button">
-                            <img class="icon left" alt="" src="{{ asset('build/images/item/item_' ~ zone.prototype.keyItem.icon ~ '.gif') }}" />
                             {{ 'Tür aufschließen'|trans({},'game') }}
                         </button>
                     {% endif %}
@@ -205,9 +214,10 @@
 
         {% if zone_zombies > 0 and not escaping %}
             $.html.addEventListenerAll( '#escape-btn', 'click', function() {
-                $.ajax.easySend( '{{ path('beyond_ruin_escape_controller') }}', {},
-                    function () {
-                        $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
+                if (confirm('{{ 'Diese Aktion kostet dich Sauerstoff, trotzdem flüchten?'|trans({},'game')|e('js') }}'))
+                    $.ajax.easySend( '{{ path('beyond_ruin_escape_controller') }}', {},
+                        function () {
+                            $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
                     } );
             } );
         {% endif %}

@@ -205,7 +205,7 @@ class AdminForumController extends AdminActionController
             foreach ($pm->getAdminReports(true) as $report)
                 $this->entity_manager->persist($report->setSeen(true));
 
-        if ($hide) $pm->setHidden(true);
+        if ($hide) $pm->setHidden(true)->setPinned(false)->setCollapsed(false);
         if ($message) $pm->setModMessage( $message );
         $this->entity_manager->persist($pm->setModerator($user));
 

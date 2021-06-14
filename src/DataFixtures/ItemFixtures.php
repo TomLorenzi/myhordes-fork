@@ -94,7 +94,7 @@ class ItemFixtures extends Fixture
         ['label' => 'Best of The King CD', 'icon' => 'cdelvi', 'category' => 'Furniture', 'deco' =>7, 'heavy' =>false, 'watchpoint' => 0],                                 // -- ---
         ['label' => 'Rock n Roll HiFi', 'icon' => 'dfhifi', 'category' => 'Furniture', 'deco' =>10, 'heavy' =>true, 'watchpoint' => 0],                                     // -- ---
         ['label' => 'Verteidigende HiFi', 'icon' => 'dfhifi', 'category' => 'Furniture', 'deco' =>10, 'heavy' =>true, 'watchpoint' => 0],                                   // -- ---
-		['label' => 'Großer knuddeliger Kater', 'icon' => 'pet_cat', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 10, 'fragile' => true],                              // -- Out
+		['label' => 'Großer knuddeliger Kater', 'icon' => 'pet_cat', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>false, 'watchpoint' => 8, 'fragile' => true],                              // -- Out
 		['label' => 'Kaffeekocher', 'icon' => 'coffee_machine', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>true, 'watchpoint' => 0],                                       // -- ---
 		['label' => 'PC-Gehäuse', 'icon' => 'pc', 'category' => 'Furniture', 'deco' =>3, 'heavy' =>true, 'watchpoint' => 11],                                                  // -- Out
 		['label' => 'Selbstgebaute Gitarre', 'icon' => 'guitar', 'category' => 'Furniture', 'deco' =>6, 'heavy' =>false, 'watchpoint' => 19],                                     // In ---

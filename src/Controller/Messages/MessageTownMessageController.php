@@ -130,7 +130,7 @@ class MessageTownMessageController extends MessageController
                     return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
                 if ($sender->getTown()->getChaos()){
                     if($recipient->getZone())
-                        return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
+                        return AjaxResponse::error(self::ErrorPMItemChaosOut);
                     else {
                         $counter = $sender->getSpecificActionCounter(ActionCounter::ActionTypeSendPMItem);
                         if($counter->getCount() > 3)

@@ -6,6 +6,8 @@
     {% set endpoint_trash   = null %}
     {% set endpoint_unread  = null %}
     {% set endpoint_users   = null %}
+    {% set endpoint_block   = null %}
+    {% set endpoint_block_n = null %}
     {% set message_title_pre= null %}
     {% set message_title    = entry.title %}
     {% set message_id       = 0 %}
@@ -22,6 +24,10 @@
             {% set endpoint_trash  = path('pm_delete_conv_group', {'id': entry.obj.association.id}) %}
         {% endif %}
         {% set endpoint_unread = path('pm_unread_conv_group', {'id': entry.obj.association.id}) %}
+        {% if entry.official is null and entry.owner is not null and entry.owner != app.user and not app.user|related(entry.owner,constant('App\\Entity\\SocialRelation::SocialRelationTypeBlock')) %}
+            {% set endpoint_block   = path('pm_block_conv_group', {'id': entry.obj.association.id}) %}
+            {% set endpoint_block_n = entry.owner.name %}
+        {% endif %}
         {% set message_id      = entry.obj.id %}
         {% set message_type    = 'g' %}
     {% elseif entry.obj|instance_of('App\\Entity\\Announcement') %}
@@ -54,6 +60,8 @@
             {% if endpoint_trash  is not null %}x-trash="{{ endpoint_trash }}"{% endif %}
             {% if endpoint_unread is not null %}x-unread="{{ endpoint_unread }}"{% endif %}
             {% if endpoint_users  is not null %}x-userlist="{{ endpoint_users }}"{% endif %}
+            {% if endpoint_block  is not null %}x-block="{{ endpoint_block }}"{% endif %}
+            {% if endpoint_block_n is not null %}x-block-name="{{ endpoint_block_n }}"{% endif %}
     >
         {% if message_show_ava %}
             <div class="pm-avatar-block">
@@ -183,9 +191,55 @@
         </div>
     </li>
 {% endmacro %}
-{% macro bubble_group(message, last) %}
+{% macro bubble_group_pinned(message, last, group_owner = false) %}
+    {# @var announcement App\Entity\Announcement #}
+    <li x-domain="m-d" x-pinned x-identifier="{{ message.id }}">
+        <div class="pm-announce">
+            <div class="pm-message-content">
+                {{ message.text|raw }}
+                {% if message.modMessage %}
+                    <div class="modAnnounce">{{ message.modMessage }}</div>
+                {% endif %}
+                <div class="small right">
+                    {% if group_owner %}
+                        &nbsp;
+                        <a class="pm-button pointer {% if message.pinned%}hidden{% endif %}" x-message-id="{{ message.id }}" x-pin-state="1" x-pin-url="{{ path('pm_pin_post_controller', {pid: message.id, action: 1}) }}">
+                            <i class="fa fa-map-pin"></i><div class="tooltip forum-tooltip">{{'Anpinnen'|trans({}, 'global')}}</div>
+                        </a>
+                        <a class="pm-button pointer {% if not message.pinned%}hidden{% endif %}" x-message-id="{{ message.id }}" x-pin-state="0" x-pin-url="{{ path('pm_pin_post_controller', {pid: message.id, action: 0}) }}">
+                            <i class="fa fa-times"></i><div class="tooltip forum-tooltip">{{'Pin entfernen'|trans({}, 'global')}}</div>
+                        </a>
+                    {% endif %}
+                    {% if message.sender != app.user and message.senderGroup is empty %}
+                        &nbsp;<a class="pm-button pointer" x-report-url="{{ path('pm_report_post_controller', {pid: message.id}) }}"><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="pm-message-footer">
+                {% if (message.sender.avatar) %}
+                    <div class="pm-avatar" style="background: url({{ path('app_web_avatar', {'uid': message.sender.id, 'name': message.sender.avatar.filename, 'ext': message.sender.avatar.format}) }}) center/cover"></div>
+                {% else %}
+                    <div class="pm-avatar row-flex v-center"><div class="cell rw-12 center">{{ message.sender.name|slice(0,2) }}</div></div>
+                {% endif %}
+                <span class="pm-announcement-sender"><span class="hide-md">{{ message.sender.name }}</span></span>
+                <span class="pm-announcement-date right float-right">
+                    <b>{{ 'Angepinnte Nachricht'|trans({},'global') }}</b><br />
+                    {% if message.timestamp >= "today"|to_date %}
+                        {{ 'Heute um'|trans({},'global') }} {{ message.timestamp|format_datetime('none', 'short') }}
+                    {% elseif message.timestamp >= "yesterday"|to_date %}
+                        {{ 'Gestern um'|trans({},'global') }} {{ message.timestamp|format_datetime('none', 'short') }}
+                    {% else %}
+                        {{ message.timestamp|format_datetime('medium', 'short') }}
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+    </li>
+{% endmacro %}
+{% macro bubble_group(message, last, group_owner = false) %}
     {# @var message App\Entity\GlobalPrivateMessage #}
-    <li  x-domain="m-d" x-identifier="{{ message.id }}" class="{% if message.sender == app.user %}own{% endif %} {% if message.id > last %}new{% endif %}">
+    <li x-domain="m-d" x-identifier="{{ message.id }}" class="{% if message.sender == app.user %}own{% endif %} {% if message.id > last %}new{% endif %} {% if message.collapsed or (message.senderGroup is empty and app.user|related(message.sender,constant('App\\Entity\\SocialRelation::SocialRelationTypeBlock'))) %}collapsed{% endif %}">
+        <div x-unveil="{{ message.id }}" class="unveil pointer"><i class="fa fa-eye-slash"></i> {{ 'Ausgeblendete Nachricht von %user%. Klicken, um anzuzeigen.'|trans({'%user%': '<strong>' ~ message.sender.name ~ '</strong>'}, 'global')|raw }}</div>
         {% if message.senderGroup and message.senderGroup.anon %}
             <div class="pm-avatar" style="background: url({{ path('app_web_group_icon', { gid: message.senderGroup.usergroup.id, name: message.senderGroup.avatarName, ext: message.senderGroup.avatarExt }) }}) center/cover"></div>
         {% else %}
@@ -219,6 +273,10 @@
                 {% endif %}
             </div>
             <div class="pm-message-footer">
+                {% if message.pinned %}
+                    <b>[ {{ 'Angepinnte Nachricht'|trans({},'global') }} ]</b>
+                {% endif %}
+
                 {% if message.timestamp >= "today"|to_date %}
                     {{ 'Heute um'|trans({},'global') }} {{ message.timestamp|format_datetime('none', 'short') }}
                 {% elseif message.timestamp >= "yesterday"|to_date %}
@@ -226,7 +284,23 @@
                 {% else %}
                     {{ message.timestamp|format_datetime('medium', 'short') }}
                 {% endif %}
-                {% if message.sender != app.user and message.senderGroup is empty %}
+                {% if group_owner and not message.hidden %}
+                    &nbsp;
+                    <a class="pm-button {% if message.pinned%}hidden{% endif %}" x-message-id="{{ message.id }}" x-pin-state="1" x-pin-url="{{ path('pm_pin_post_controller', {pid: message.id, action: 1}) }}">
+                        <i class="fa fa-map-pin"></i><div class="tooltip forum-tooltip">{{'Anpinnen'|trans({}, 'global')}}</div>
+                    </a>
+                    <a class="pm-button {% if not message.pinned%}hidden{% endif %}" x-message-id="{{ message.id }}" x-pin-state="0" x-pin-url="{{ path('pm_pin_post_controller', {pid: message.id, action: 0}) }}">
+                        <i class="fa fa-times"></i><div class="tooltip forum-tooltip">{{'Pin entfernen'|trans({}, 'global')}}</div>
+                    </a>
+                    &nbsp;
+                    <a class="pm-button {% if message.collapsed%}hidden{% endif %}" x-message-id="{{ message.id }}" x-collapse-state="1" x-collapse-url="{{ path('pm_collapse_post_controller', {pid: message.id, action: 1}) }}">
+                        <i class="fa fa-eye-slash"></i><div class="tooltip forum-tooltip">{{'Ausblenden'|trans({}, 'global')}}</div>
+                    </a>
+                    <a class="pm-button {% if not message.collapsed%}hidden{% endif %}" x-message-id="{{ message.id }}" x-collapse-state="0" x-collapse-url="{{ path('pm_collapse_post_controller', {pid: message.id, action: 0}) }}">
+                        <i class="fa fa-eye"></i><div class="tooltip forum-tooltip">{{'Einblenden'|trans({}, 'global')}}</div>
+                    </a>
+                {% endif %}
+                {% if message.sender != app.user and message.senderGroup is empty and not message.hidden %}
                     &nbsp;<a class="pm-button" x-report-url="{{ path('pm_report_post_controller', {pid: message.id}) }}"><img alt="!" src="{{ asset('build/images/forum/warning.png') }}"><div class="tooltip forum-tooltip">{{'Unangemessene Nachricht blockieren'|trans({}, 'global')}}</div></a>
                 {% endif %}
             </div>
@@ -234,6 +308,6 @@
     </li>
 {% endmacro %}
 {% if raw_id is defined %}{% for index   in raw_id %}{{ _self.bubble_index(index)            }}{% endfor %}{% endif %}
-{% if raw_gp is defined %}{% for message in raw_gp %}{{ _self.bubble_group(message,0)        }}{% endfor %}{% endif %}
+{% if raw_gp is defined %}{% for message in raw_gp %}{{ _self.bubble_group(message,0,raw_gp_owner is defined ? raw_gp_owner : false) }}{% endfor %}{% endif %}
 {% if raw_dm is defined %}{% for message in raw_dm %}{{ _self.bubble_dm(message,0)           }}{% endfor %}{% endif %}
 {% if raw_an is defined %}{% for message in raw_an %}{{ _self.bubble_announcement(message,0) }}{% endfor %}{% endif %}

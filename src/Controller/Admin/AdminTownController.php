@@ -51,6 +51,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -338,7 +339,7 @@ class AdminTownController extends AdminActionController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if (in_array($action, [
-            'release', 'quarantine', 'advance', 'nullify',
+                'release', 'quarantine', 'advance', 'nullify',
                 'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf',
                 'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage', 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days'
             ]) && !$this->isGranted('ROLE_ADMIN'))
@@ -381,7 +382,11 @@ class AdminTownController extends AdminActionController
                     );
                 $gameFactory->nullifyTown($town, true);
                 break;
-
+            case 'clear_bb':
+                $town->setWordsOfHeroes("");
+                $this->entity_manager->persist((new BlackboardEdit())->setText("")->setTime(new \DateTime())->setTown($town)->setUser($this->getUser()));
+                $this->entity_manager->persist($town);
+                break;
             case 'dbg_disengage':
                 foreach ($town->getCitizens() as $citizen)
                     if ($citizen->getAlive() && $citizen->getActive())

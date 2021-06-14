@@ -52,7 +52,6 @@ class LandingController extends CustomAbstractController
             else
                 return $this->redirect($this->generateUrl('ghost_welcome'));
         }
-
     }
 
     /**

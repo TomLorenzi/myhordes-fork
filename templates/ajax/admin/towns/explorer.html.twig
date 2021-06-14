@@ -432,7 +432,8 @@
                 <div class="row-table">
                     <div class="row header">
                         <div class="padded cell rw-3">{{ 'Benutzername'|trans({},'admin') }}</div>
-                        <div class="padded cell rw-9">{{ 'Info'|trans({},'admin') }}</div>
+                        <div class="padded cell rw-6">{{ 'Info'|trans({},'admin') }}</div>
+                        <div class="padded cell rw-3"><button x-api-trigger="{{ url('admin_town_manage', {action: 'clear_bb', id: town.id}) }}">{{ 'Löschen'|trans({},'admin') }}</button></div>
                     </div>
                     {% for entry in blackboards %}
                         <div class="row">
@@ -569,10 +570,10 @@
     <script>
         (function() {
 
-            document.getElementById('execute_button').addEventListener('click', function() {
-                if (!document.getElementById('administer-town').value) return;
-                const url = document.querySelector('#administer-town option:checked').getAttribute('x-alt-url');
-                const query = document.querySelector('#administer-town option:checked').getAttribute('x-query');
+            let fun_api_call = function(api_url, elem) {
+                if (!api_url) return;
+                const url = elem.getAttribute('x-alt-url');
+                const query = elem.getAttribute('x-query');
 
                 let q_param = null;
                 if (query) {
@@ -580,10 +581,17 @@
                     if (q_param === null) return;
                 }
 
-                $.ajax.easySend( document.getElementById('administer-town').value, {param: q_param},
+                $.ajax.easySend( api_url, {param: q_param},
                     function () {
                         $.ajax.load(null, url ? url : '{{ path('admin_town_explorer', {id: town.id}) }}', true);
                     } );
+            }
+
+            document.getElementById('execute_button').addEventListener('click', function() {
+                fun_api_call(document.getElementById('administer-town').value,document.querySelector('#administer-town option:checked'));
+            });
+            $.html.addEventListenerAll('[x-api-trigger]', 'click', function(e,elem) {
+                fun_api_call(elem.getAttribute('x-api-trigger'),elem);
             });
 
             $.html.addEventListenerAll('[x-ex-action][x-ex-session]', 'click', function(e,elem) {

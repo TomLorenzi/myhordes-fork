@@ -3214,5 +3214,23 @@
         <target>My game history</target>
       </segment>
     </unit>
+    <unit id="vsOyofZ" name="Schwarzes Brett">
+      <notes>
+        <note category="german">Schwarzes Brett</note>
+      </notes>
+      <segment>
+        <source>Schwarzes Brett</source>
+        <target>Black Board</target>
+      </segment>
+    </unit>
+    <unit id="Q2jvlBg" name="Du kannst das Schwarze Brett nicht verwenden.">
+      <notes>
+        <note category="german">Du kannst das Schwarze Brett nicht verwenden.</note>
+      </notes>
+      <segment>
+        <source>Du kannst das Schwarze Brett nicht verwenden.</source>
+        <target>You can no longer write to the Black Board.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

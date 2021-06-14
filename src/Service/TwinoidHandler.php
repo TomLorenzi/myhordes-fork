@@ -81,7 +81,7 @@ class TwinoidHandler
                 'content' => http_build_query($form = [
                     'client_id'         => "{$this->twinoidID()}",
                     'client_secret'     => $this->twinoidSK(),
-                    'redirect_uri'      => $this->generator->generate('twinoid_auth_endpoint', [], UrlGeneratorInterface::ABSOLUTE_URL),
+                    'redirect_uri'      => $this->conf->get(MyHordesConf::CONF_TWINOID_DOMAIN) ?? $this->generator->generate('twinoid_auth_endpoint', [], UrlGeneratorInterface::ABSOLUTE_URL),
                     'code'              => "{$this->code}",
                     'grant_type'        => 'authorization_code',
                 ])

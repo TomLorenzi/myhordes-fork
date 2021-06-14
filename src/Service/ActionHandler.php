@@ -109,6 +109,7 @@ class ActionHandler
 
         $messages = [];
 
+
         $current_state = self::ActionValidityFull;
         foreach ($action->getRequirements() as $meta_requirement) {
             $last_state = $current_state;
@@ -510,7 +511,6 @@ class ActionHandler
      * @return bool
      */
     public function targetDefinitionApplies($target, ItemTargetDefinition $definition): bool {
-
         switch ($definition->getSpawner()) {
             case ItemTargetDefinition::ItemSelectionType:case ItemTargetDefinition::ItemSelectionTypePoison:
                 if (!is_a( $target, Item::class )) return false;
@@ -926,8 +926,12 @@ class ActionHandler
                     if ($kills > 0) {
                         $ruinZone->setZombies( $ruinZone->getZombies() - $kills );
                         $ruinZone->setKilledZombies( $ruinZone->getKilledZombies() + $kills );
+                        $execute_info_cache['kills'] = $kills;
                         $this->picto_handler->give_picto($citizen, 'r_killz_#00', $kills);
                         $this->entity_manager->persist( $this->log->zombieKill( $citizen, $execute_info_cache['item'], $kills, $action->getName() ) );
+                        $tags[] = 'kills';
+                        if($ruinZone->getZombies() <= 0)
+                            $tags[] = 'kill-latest';
                     }
                 }
             }
@@ -1282,7 +1286,7 @@ class ActionHandler
                         if ( $result->getCustom() === 9 )
                             $this->entity_manager->persist( $this->log->heroicRescueLog( $citizen, $jumper, $zone ) );
                         else $this->entity_manager->persist( $this->log->doorPass( $jumper, true ) );
-                        $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok );
+                        $this->zone_handler->handleCitizenCountUpdate( $zone, $cp_ok, $jumper );
 
                         break;
                     }
@@ -1552,7 +1556,7 @@ class ActionHandler
         	$addedContent = [];
         	foreach ($execute_info_cache['message'] as $contentMessage) {
 
-                $contentMessage = $this->translator->trans( $contentMessage, [
+                $placeholders = [
 	                '{ap}'            => $execute_info_cache['ap'],
 	                '{minus_ap}'      => -$execute_info_cache['ap'],
 	                '{well}'          => $execute_info_cache['well'],
@@ -1577,7 +1581,16 @@ class ActionHandler
 	                '{kills}'         => $execute_info_cache['kills'],
 	                '{bury_count}'    => $execute_info_cache['bury_count'],
 	                '{hr}'            => "<hr />",
-	            ], 'items' );
+	            ];
+
+                // How many indexes we need for array placeholders seeks
+                // Currently only items_consume, more can be added in this loop as needed
+                $seekIndexes = 2;
+                for($currentIndex = 0; $currentIndex < $seekIndexes; $currentIndex++) {
+                    $placeholders['{items_consume_'.$currentIndex.'}'] = isset($execute_info_cache['items_consume'][$currentIndex]) ? ($this->wrap($execute_info_cache['items_consume'][$currentIndex])) : "-";
+                }
+
+                $contentMessage = $this->translator->trans( $contentMessage, $placeholders, 'items' );
 	        	do {
 	                $contentMessage = preg_replace_callback( '/<t-(.*?)>(.*?)<\/t-\1>/' , function(array $m) use ($tags): string {
 	                    [, $tag, $text] = $m;

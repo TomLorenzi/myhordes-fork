@@ -4093,7 +4093,7 @@
       </notes>
       <segment>
         <source>Ein total verschimmeltes Holzbrett, das noch einigermaßen stabil ist...</source>
-        <target>Une planche de bois complètement moisie mais encore à peu près solide… Note: le bois est utilisé pour la construction de bâtiments en ville (ramenez-le dans la Section Banque).</target>
+        <target>Une planche de bois complètement moisie mais encore à peu près solide… Note : le bois est utilisé pour la construction de bâtiments en ville (ramenez-le dans la Section Banque).</target>
       </segment>
     </unit>
     <unit id="MsbPzc_" name="Stinknormales Metall, das zwar schwer ist, aber immer verwendet werden kann!">
@@ -4102,7 +4102,7 @@
       </notes>
       <segment>
         <source>Stinknormales Metall, das zwar schwer ist, aber immer verwendet werden kann!</source>
-        <target>Du métal… Un peu lourd, mais ça sert toujours ! Note: le métal est utilisé pour la construction de bâtiments en ville (ramenez-le à la Section Banque).</target>
+        <target>Du métal… Un peu lourd, mais ça sert toujours ! Note : le métal est utilisé pour la construction de bâtiments en ville (ramenez-le à la Section Banque).</target>
       </segment>
     </unit>
     <unit id="RIS2inC">
@@ -4120,7 +4120,7 @@
       </notes>
       <segment>
         <source>Fast nichts ist besser als eine rostige Blechplatte, um die Zombies am Eindringen zu hindern... Anmerkung: Verteidigungsgegenstände zählen mehr Punkte, wenn sie in der Bank aufbewahrt werden anstatt daheim.</source>
-        <target>Rien ne vaut une plaque de tôle rouillée pour empêcher les zombies de vous atteindre… Note: les défenses comptent double si elles sont installées en ville plutôt que chez soi.</target>
+        <target>Rien ne vaut une plaque de tôle rouillée pour empêcher les zombies de vous atteindre… Note : les défenses comptent double si elles sont installées en ville plutôt que chez soi.</target>
       </segment>
     </unit>
     <unit id="gTDRDQA">
@@ -4822,7 +4822,7 @@
       </notes>
       <segment>
         <source>Ein großer Baumstumpf, der von schleimigen Pilzen bedeckt ist. Damit kannst du nichts anfangen, es sei denn, du schneidest ihn dir in der Stadt zurecht.</source>
-        <target>Une grosse souche de bois couverte de champignons visqueux. On ne pourra sans doute rien en faire, à moins de le découper proprement en ville…</target>
+        <target>Une grosse souche de bois couverte de champignons visqueux. On ne pourra sans doute rien en faire, à moins de la découper proprement en ville…</target>
       </segment>
     </unit>
     <unit id="f5wZWxD">
@@ -7675,7 +7675,7 @@
       </notes>
       <segment>
         <source>Beachte: Du hast heute bereits getrunken und deine Aktionspunkte für diesen Tag bereits erhalten.</source>
-        <target>Note: vous avez déjà bu pour récuperer vos Points d'action au cours de la journée.</target>
+        <target>Note : vous avez déjà bu pour récuperer vos Points d'action au cours de la journée.</target>
       </segment>
     </unit>
     <unit id="8vj_Qd7" name="Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!">
@@ -8334,6 +8334,33 @@
       <segment>
         <source>Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?</source>
         <target>Vous n'en revenez pas ! Toute la voracité qui vous rongeait de l'intérieur disparaît petit à petit. Est-ce vraiment possible que vous soyez redevenu humain ?</target>
+      </segment>
+    </unit>
+    <unit id="s9W2MOB">
+      <notes>
+        <note category="german">Du hast {items_consume_1} verwendet, um das Wasser in {item_from} zu reinigen. Du hast {items_spawn} erhalten...</note>
+      </notes>
+      <segment>
+        <source>Du hast {items_consume_1} verwendet, um das Wasser in {item_from} zu reinigen. Du hast {items_spawn} erhalten...</source>
+        <target>Vous avez utilisé {items_consume_1} pour purifier l'eau contenue dans {item_from}. Vous avez obtenu {items_spawn}...</target>
+      </segment>
+    </unit>
+    <unit id="FZmpHwV">
+      <notes>
+        <note category="german">Sie greifen einen Zombie mit Ihrem {item} an, aber &lt;strong&gt;er reagiert nicht einmal&lt;/strong&gt; und macht weiter!</note>
+      </notes>
+      <segment>
+        <source>Sie greifen einen Zombie mit Ihrem {item} an, aber &lt;strong&gt;er reagiert nicht einmal&lt;/strong&gt; und macht weiter!</source>
+        <target><![CDATA[Vous attaquez un zombie avec votre {item}, mais <strong>celui-ci ne réagit même pas</strong> et continue à avancer !]]></target>
+      </segment>
+    </unit>
+    <unit id="nnxBJDq" name="Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.">
+      <notes>
+        <note category="german">Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.</note>
+      </notes>
+      <segment>
+        <source>Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.</source>
+        <target><![CDATA[L'arme n'a <strong>plus de pile</strong>.]]></target>
       </segment>
     </unit>
   </file>
