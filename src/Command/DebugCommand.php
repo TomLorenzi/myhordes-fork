@@ -418,7 +418,7 @@ class DebugCommand extends Command
     
                             // Delete not validated picto from DB
                             // Here, every validated picto should have persisted to 2
-                            $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($user);
+                            $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUserAndTown($user, $activeCitizen->getTown());
                             foreach ($pendingPictosOfUser as $pendingPicto) {
                                 $this->entity_manager->remove($pendingPicto);
                             }

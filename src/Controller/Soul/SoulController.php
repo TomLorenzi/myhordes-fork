@@ -1073,7 +1073,7 @@ class SoulController extends CustomAbstractController
         // Here, we delete picto with persisted = 0,
         // and definitively validate picto with persisted = 1
         /** @var Picto[] $pendingPictosOfUser */
-        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUser($user);
+        $pendingPictosOfUser = $this->entity_manager->getRepository(Picto::class)->findPendingByUserAndTown($user, $nextDeath->getTown());
         foreach ($pendingPictosOfUser as $pendingPicto) {
             if($pendingPicto->getPersisted() == 0)
                 $this->entity_manager->remove($pendingPicto);
