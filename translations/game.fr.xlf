@@ -10328,7 +10328,7 @@
       </notes>
       <segment>
         <source>Und wieder 'ne Leiche weniger! %citizen% wurde von † %disposed% entsorgt!</source>
-        <target>Et un cadavre de moins ! %disposed% a été jeté dehors par † %citizen% !</target>
+        <target>Et un cadavre de moins ! † %disposed% a été jeté dehors par %citizen% !</target>
       </segment>
     </unit>
     <unit id="E0yx4Bm" name="%citizen% hat mit etwas Wasser † %disposed% &quot;verbrannt&quot;.">
