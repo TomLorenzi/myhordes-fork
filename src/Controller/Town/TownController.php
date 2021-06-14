@@ -257,7 +257,7 @@ class TownController extends InventoryAwareController
 
     /**
      * @Route("jx/town/visit/{id}/headshot", name="town_visit_headshot", requirements={"id"="\d+"})
-     * @param int $id
+     * @param int $id Citizen's ID
      * @param AdminActionHandler $admh
      * @return Response
      */
@@ -265,6 +265,7 @@ class TownController extends InventoryAwareController
     {
         $sourceUserId = $this->getUser()->getId();
         $message = $admh->headshot($sourceUserId, $id);
+
         $this->addFlash('notice', $message);
         return AjaxResponse::success();
     }
@@ -486,7 +487,7 @@ class TownController extends InventoryAwareController
                 break;
             case Citizen::Watered:
                 // Watered
-                $items = $this->inventory_handler->fetchSpecificItems( $ac->getInventory(), [new ItemRequest('water_#00')] );
+                $items = $this->inventory_handler->fetchSpecificItems( $ac->getInventory(), [new ItemRequest('water_#00', 1, null, false)] );
                 if (!$items) return AjaxResponse::error(ErrorHelper::ErrorItemsMissing );
                 $this->inventory_handler->forceRemoveItem( $items[0] );
                 $pictoName = "r_cwater_#00";
@@ -836,7 +837,7 @@ class TownController extends InventoryAwareController
 
                 if(!$pump) return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
-                $items = $handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest('water_#00')] );
+                $items = $handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest('water_#00', 1, null, false)] );
                 if (empty($items)) $items = $handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest('water_can_1_#00')] );
                 if (empty($items)) $items = $handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest('water_can_2_#00')] );
                 if (empty($items)) $items = $handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest('water_can_3_#00')] );

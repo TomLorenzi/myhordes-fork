@@ -353,7 +353,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
         'com046' => ['type' => Recipe::ManualAnywhere, 'out' => 'christmas_suit_full_#00',  'provoking' => 'christmas_suit_2_#00',  'in' => ['christmas_suit_1_#00', 'christmas_suit_2_#00', 'christmas_suit_3_#00'] ],
         'com047' => ['type' => Recipe::ManualAnywhere, 'out' => 'christmas_suit_full_#00',  'provoking' => 'christmas_suit_3_#00',  'in' => ['christmas_suit_1_#00', 'christmas_suit_2_#00', 'christmas_suit_3_#00'] ],
         'com048' => ['type' => Recipe::ManualAnywhere, 'out' => 'pumpkin_on_#00',           'provoking' => 'pumpkin_off_#00',       'in' => ['pumpkin_off_#00', 'lights_#00', 'pharma_#00'] ],
-        'com049' => ['type' => Recipe::ManualAnywhere, 'out' => 'angryc_#00',               'provoking' => 'pet_snake2_#00',        'in' => ['pet_snake2_#00', 'cutter_#00'],       'keep' => ['cutter_#00'] ],
+        'com049' => ['type' => Recipe::ManualAnywhere, 'out' => 'angryc_#00',               'provoking' => 'pet_snake2_#00',        'in' => ['pet_snake2_#00', 'cutter_#00'] ],
         'com050' => ['type' => Recipe::ManualAnywhere, 'out' => 'pumpkin_off_#00',          'provoking' => 'pumpkin_raw_#00',       'in' => ['pumpkin_raw_#00', 'small_knife_#00'], 'keep' => ['small_knife_#00'] ],
     ];
 
@@ -479,6 +479,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             if ($recipe->getSource()) { $manager->remove( $recipe->getSource() ); $recipe->setSource( null ); }
             if ($recipe->getResult()) { $manager->remove( $recipe->getResult() ); $recipe->setResult( null ); }
             $recipe->getProvoking()->clear();
+            $recipe->getKeep()->clear();
 
             $unpack = function( $data ): array {
                 if (!is_array($data)) return [ $data => 1 ];
