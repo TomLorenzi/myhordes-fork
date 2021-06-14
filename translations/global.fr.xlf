@@ -2802,7 +2802,7 @@
       </notes>
       <segment>
         <source>Pin entfernen</source>
-        <target>Pin entfernen</target>
+        <target>Désépingler</target>
       </segment>
     </unit>
     <unit id="oQRkk47" name="Angepinnte Nachricht">
@@ -2811,7 +2811,7 @@
       </notes>
       <segment>
         <source>Angepinnte Nachricht</source>
-        <target>Angepinnte Nachricht</target>
+        <target>Message épinglé</target>
       </segment>
     </unit>
     <unit id="qsFANcA" name="Einblenden">
@@ -2820,7 +2820,7 @@
       </notes>
       <segment>
         <source>Einblenden</source>
-        <target>Einblenden</target>
+        <target>Montrer</target>
       </segment>
     </unit>
     <unit id="fufp5fd" name="Ausgeblendete Nachricht von %user%. Klicken, um anzuzeigen.">
@@ -2829,7 +2829,7 @@
       </notes>
       <segment>
         <source>Ausgeblendete Nachricht von %user%. Klicken, um anzuzeigen.</source>
-        <target>Ausgeblendete Nachricht von %user%. Klicken, um anzuzeigen.</target>
+        <target>Message caché de %user%. Cliquer pour montrer.</target>
       </segment>
     </unit>
     <unit id="iZZF_a6">
@@ -2838,7 +2838,7 @@
       </notes>
       <segment>
         <source>%user% hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</source>
-        <target>%user% hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</target>
+        <target>%user% vous a bloqué et a donc été supprimé de la liste des destinataires de ce message.</target>
       </segment>
     </unit>
     <unit id="eEWrS7n" name="%users% und %last_user%">
@@ -2847,7 +2847,7 @@
       </notes>
       <segment>
         <source>%users% und %last_user%</source>
-        <target>%users% und %last_user%</target>
+        <target>%users% et %last_user%</target>
       </segment>
     </unit>
     <unit id="9JfHrKu">
@@ -2856,7 +2856,7 @@
       </notes>
       <segment>
         <source>%users% haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</source>
-        <target>%users% haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</target>
+        <target>%users% vous ont bloqué et ont donc été supprimés de la liste des destinataires de ce message.</target>
       </segment>
     </unit>
     <unit id="tgTK6TI" name="Du hast diesen Spieler auf deine Blacklist gesetzt.">
@@ -2883,7 +2883,7 @@
       </notes>
       <segment>
         <source>Du hast %user% blockiert.</source>
-        <target>Du hast %user% blockiert.</target>
+        <target>Vous avez bloqué %user%.</target>
       </segment>
     </unit>
     <unit id="gURDnkT" name="Blockade aufheben">
@@ -2901,7 +2901,7 @@
       </notes>
       <segment>
         <source>Spieler blockieren</source>
-        <target>Spieler blockieren</target>
+        <target>Bloquer le joueur</target>
       </segment>
     </unit>
     <unit id="Ki.EhtV" name="%user% blockieren">
@@ -2910,7 +2910,7 @@
       </notes>
       <segment>
         <source>%user% blockieren</source>
-        <target>%user% blockieren</target>
+        <target>Bloquer %user%</target>
       </segment>
     </unit>
     <unit id="cIrelgU">
@@ -2919,7 +2919,7 @@
       </notes>
       <segment>
         <source>Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</source>
-        <target>Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</target>
+        <target>Si vous bloquez ce joueur, il ne pourra pas vous envoyer de nouveaux messages. Si vous êtes tous les deux ajoutés à un message de groupe par une tierce personne, les publications du joueur bloqué vous seront masquées par défaut.</target>
       </segment>
     </unit>
     <unit id="XZjzgfL" name="Möchtest du fortfahren?">
@@ -2928,7 +2928,7 @@
       </notes>
       <segment>
         <source>Möchtest du fortfahren?</source>
-        <target>Möchtest du fortfahren?</target>
+        <target>Continuer ?</target>
       </segment>
     </unit>
     <unit id="hQmss_b" name="Absender blockieren">
@@ -2937,7 +2937,7 @@
       </notes>
       <segment>
         <source>Absender blockieren</source>
-        <target>Absender blockieren</target>
+        <target>Bloquer l'expéditeur</target>
       </segment>
     </unit>
     <unit id="aN1frHt">
@@ -2946,7 +2946,7 @@
       </notes>
       <segment>
         <source>Wenn du den Absender dieser Nachricht blockierst, kann dieser dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</source>
-        <target>Wenn du den Absender dieser Nachricht blockierst, kann dieser dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</target>
+        <target>Si vous bloquez l’expéditeur de ce message, il ne pourra pas vous envoyer de nouveaux messages. Si vous êtes tous les deux ajoutés à un message de groupe par une tierce personne, les publications du joueur bloqué vous seront masquées par défaut.</target>
       </segment>
     </unit>
     <unit id="q8KTox4" name="Dieser Spieler hat dich geblockt. Du kannst ihm keine Nachricht mehr schicken.">
