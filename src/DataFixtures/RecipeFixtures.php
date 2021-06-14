@@ -479,6 +479,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             if ($recipe->getSource()) { $manager->remove( $recipe->getSource() ); $recipe->setSource( null ); }
             if ($recipe->getResult()) { $manager->remove( $recipe->getResult() ); $recipe->setResult( null ); }
             $recipe->getProvoking()->clear();
+            $recipe->getKeep()->clear();
 
             $unpack = function( $data ): array {
                 if (!is_array($data)) return [ $data => 1 ];
