@@ -18165,7 +18165,7 @@
       </notes>
       <segment>
         <source>&lt;span&gt;%citizen% hat einen Zombie mit seinen bloßen Händen niedergestreckt!&lt;/span&gt;</source>
-        <target><![CDATA[<span>%citizen% hat einen Zombie mit seinen bloßen Händen niedergestreckt!</span>]]></target>
+        <target><![CDATA[<span>¡%citizen% ha derribado un zombie con sus propias manos!</span>]]></target>
       </segment>
     </unit>
     <unit id="1_rcdLL">
