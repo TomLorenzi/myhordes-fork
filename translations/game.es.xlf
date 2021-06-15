@@ -11331,7 +11331,7 @@
       </notes>
       <segment>
         <source>Nach einem zähen Kampf gelingt es dir endlich &lt;strong&gt;einen Zombie&lt;/strong&gt; gegen einen Felsen zu werfen... Sein Kopf ist &lt;strong&gt;explodiert&lt;/strong&gt; und die ganze Soße klebt jetzt an deinen Füßen! Du torkelst ein paar Meter vom Ort des Geschehens weg und keuchst leise vor dich hin: Einer weniger.. Ha... ha...</source>
-        <target>En el enfrentamiento, lograste empujar a un zombie y cayó sobre unas rocas... Su cabeza ha estallado ¡y su contenido ha salpicado sobre tus zapatos! Retrocedes pasmado, agotado. Un zombie menos...</target>
+        <target>En el enfrentamiento, lograste <strong>empujar a un zombie</strong> y cayó sobre unas rocas... Su cabeza ha <strong>estallado</strong> ¡y su contenido ha salpicado sobre tus zapatos! Retrocedes pasmado, agotado. Un zombie menos...</target>
       </segment>
     </unit>
     <unit id=".gJvXXq">
