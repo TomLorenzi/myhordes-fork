@@ -2901,7 +2901,7 @@
       </notes>
       <segment>
         <source>Spieler blockieren</source>
-        <target>Spieler blockieren</target>
+        <target>Bloquer ce joueur</target>
       </segment>
     </unit>
     <unit id="Ki.EhtV" name="%user% blockieren">
@@ -2910,7 +2910,7 @@
       </notes>
       <segment>
         <source>%user% blockieren</source>
-        <target>%user% blockieren</target>
+        <target>bloquer %user%</target>
       </segment>
     </unit>
     <unit id="cIrelgU">
@@ -2937,7 +2937,7 @@
       </notes>
       <segment>
         <source>Absender blockieren</source>
-        <target>Absender blockieren</target>
+        <target>Bloquer l'expéditeur</target>
       </segment>
     </unit>
     <unit id="aN1frHt">
