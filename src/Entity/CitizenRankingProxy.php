@@ -83,7 +83,7 @@ class CitizenRankingProxy
     /**
      * @ORM\Column(type="boolean")
      */
-    private $confirmed;
+    private $confirmed = false;
 
     /**
      * @ORM\Column(type="integer")
