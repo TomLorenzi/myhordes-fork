@@ -6838,7 +6838,7 @@
         <target>%username% wurde standrechtlich erschossen.</target>
       </segment>
     </unit>
-    <unit id="tkJcWLe" name="Dieser Bürger gehört keiner Stadt an.">
+    <unit id="3mZhglJ" name="Dieser Bürger gehört keiner Stadt an.">
       <notes>
         <note category="german">Dieser Bürger gehört keiner Stadt an.</note>
       </notes>
@@ -20192,6 +20192,15 @@
       <segment>
         <source>Achtung! Alle Spieler, die sich außerhalb der Stadt befinden, können danach nicht mehr rein.</source>
         <target>Achtung! Alle Spieler, die sich außerhalb der Stadt befinden, können danach nicht mehr rein.</target>
+      </segment>
+    </unit>
+    <unit id="cEtAFQ0" name="Es wurde eine Rauchbombe eingesetzt!">
+      <notes>
+        <note category="german">Es wurde eine Rauchbombe eingesetzt!</note>
+      </notes>
+      <segment>
+        <source>Es wurde eine Rauchbombe eingesetzt!</source>
+        <target>Es wurde eine Rauchbombe eingesetzt!</target>
       </segment>
     </unit>
   </file>

@@ -1715,4 +1715,15 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') )
             ->setZone($citizen->getZone());
     }
+
+    public function smokeBombUsage( Zone $zone ): TownLogEntry {
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'smokeBombUsage']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setTown( $zone->getTown() )
+            ->setDay( $zone->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setZone($zone);
+    }
 }
