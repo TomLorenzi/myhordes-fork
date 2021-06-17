@@ -129,5 +129,15 @@
       </g>
     </g>
   </g>
-
+  <g
+          inkscape:label="Layer 1"
+          inkscape:groupmode="layer"
+          id="layer1"
+          transform="translate(0,-290.3854)">
+    <path
+            style="fill:#ffffff;fill-opacity:0.49803922;stroke:none;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+            d="M 7 7 L 7 18 L 18 18 L 18 7 L 7 7 z M 12.5 8.9648438 L 16.035156 12.5 L 12.5 16.035156 L 8.9648438 12.5 L 12.5 8.9648438 z "
+            transform="matrix(0.26458333,0,0,0.26458333,0,290.3854)"
+            id="path3715" />
+  </g>
 </svg>
