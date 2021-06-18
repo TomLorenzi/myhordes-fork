@@ -49,6 +49,16 @@ class CitizenStatus implements NamedEntity
      */
     private $icon;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $nightWatchDefenseBonus;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $nightWatchDeathChancePenalty;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -83,7 +93,7 @@ class CitizenStatus implements NamedEntity
         return $this->description;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 
@@ -110,6 +120,30 @@ class CitizenStatus implements NamedEntity
     public function setIcon(string $icon): self
     {
         $this->icon = $icon;
+
+        return $this;
+    }
+
+    public function getNightWatchDefenseBonus(): ?int
+    {
+        return $this->nightWatchDefenseBonus;
+    }
+
+    public function setNightWatchDefenseBonus(int $nightWatchDefenseBonus): self
+    {
+        $this->nightWatchDefenseBonus = $nightWatchDefenseBonus;
+
+        return $this;
+    }
+
+    public function getNightWatchDeathChancePenalty(): ?float
+    {
+        return $this->nightWatchDeathChancePenalty;
+    }
+
+    public function setNightWatchDeathChancePenalty(float $nightWatchDeathChancePenalty): self
+    {
+        $this->nightWatchDeathChancePenalty = $nightWatchDeathChancePenalty;
 
         return $this;
     }

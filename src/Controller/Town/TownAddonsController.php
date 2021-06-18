@@ -484,87 +484,14 @@ class TownAddonsController extends TownController
                 'items' => array()
             );
 
-            foreach ($watcher->getCitizen()->getStatus() as $status) {
-                switch($status->getName()){
-                    case 'drunk':
-                        $watchers[$watcher->getId()]['status'][] = array(
-                            'icon' => $status->getIcon(),
-                            'label' => $status->getLabel(),
-                            'defImpact' => 20,
-                            'deathImpact' => 4
-                        );
-                        break;
-                    case 'hungover':
-                        $watchers[$watcher->getId()]['status'][] = array(
-                            'icon' => $status->getIcon(),
-                            'label' => $status->getLabel(),
-                            'defImpact' => -15,
-                            'deathImpact' => 5
-                        );
-                        break;
-                    case 'terror':
-                        $watchers[$watcher->getId()]['status'][] = array(
-                            'icon' => $status->getIcon(),
-                            'label' => $status->getLabel(),
-                            'defImpact' => -30,
-                            'deathImpact' => 45
-                        );
-                        break;
-                    case 'drugged':
-                        $watchers[$watcher->getId()]['status'][] = array(
-                            'icon' => $status->getIcon(),
-                            'label' => $status->getLabel(),
-                            'defImpact' => 10,
-                            'deathImpact' => 0
-                        );
-                        break;
-                    case 'addict':
-                        $watchers[$watcher->getId()]['status'][] = array(
-                            'icon' => $status->getIcon(),
-                            'label' => $status->getLabel(),
-                            'defImpact' => 15,
-                            'deathImpact' => 15
-                        );
-                        break;
-                    case 'wound1':
-                    case 'wound2':
-                    case 'wound3':
-                    case 'wound4':
-                    case 'wound5':
-                    case 'wound6':
-                        $watchers[$watcher->getId()]['status'][] = array(
-                            'icon' => $status->getIcon(),
-                            'label' => $status->getLabel(),
-                            'defImpact' => -20,
-                            'deathImpact' => 20
-                        );
-                        break;
-                    case 'healed':
-                        $watchers[$watcher->getId()]['status'][] = array(
-                            'icon' => $status->getIcon(),
-                            'label' => $status->getLabel(),
-                            'defImpact' => -10,
-                            'deathImpact' => 10
-                        );
-                        break;
-                    case 'infection':
-                        $watchers[$watcher->getId()]['status'][] = array(
-                            'icon' => $status->getIcon(),
-                            'label' => $status->getLabel(),
-                            'defImpact' => -15,
-                            'deathImpact' => 20
-                        );
-                        break;
-                    case 'thirst2':
-                        $watchers[$watcher->getId()]['status'][] = array(
-                            'icon' => $status->getIcon(),
-                            'label' => $status->getLabel(),
-                            'defImpact' => -10,
-                            'deathImpact' => 0
-                        );
-                        break;
-                }
-            }
+            foreach ($watcher->getCitizen()->getStatus() as $status)
+                if ($status->getNightWatchDefenseBonus() !== 0 || $status->getNightWatchDeathChancePenalty() !== 0.0)
+                    $watchers[$watcher->getId()]['status'][] = array(
+                        'icon' => $status->getIcon(),
+                        'label' => $status->getLabel(),
+                        'defImpact' => $status->getNightWatchDefenseBonus(),
+                        'deathImpact' => round($status->getNightWatchDeathChancePenalty() * 100)
+                    );
 
             if ($watcher->getCitizen()->hasRole('ghoul')) 
                 $watchers[$watcher->getId()]['status'][] = array(

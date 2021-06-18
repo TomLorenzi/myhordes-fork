@@ -40,28 +40,28 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
     ];
 
     public static $citizen_status = [
-        ['name' => 'clean', 'label' => 'Clean', 'description' => 'Du hast noch keine Drogen genommen.'],
-        ['name' => 'hasdrunk', 'label' => 'Getrunken', 'description' => 'Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.'],
-        ['name' => 'haseaten', 'label' => 'Satt', 'description' => 'Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.'],
-        ['name' => 'camper', 'label' => 'Umsichtiger Camper', 'description' => 'Du hast die letzte Nacht in der Kälte der Außenwelt verbracht. Dabei konntest du die Windrichtung und den Marsch der Zombiehorde beobachten. Damit bist du für den Rest des Tages in der Lage, erfolgreicher Gegenstände zu finden.'],
-        ['name' => 'immune', 'label' => 'Immunisiert', 'description' => 'Du hast Medizin eingenommen, die dich vor Infektionen schützt und dich davor bewahrt, zu einem Ghul zu werden.'],
-        ['name' => 'hsurvive', 'label' => 'Den Tod besiegen', 'description' => 'Du hast deine Heldenfähigkeit "Den Tod besiegen" verwendet!'],
-        ['name' => 'tired', 'label' => 'Erschöpfung', 'description' => 'Du bist völlig erschöpft... Ruh dich aus oder iss etwas, um wieder zu Kräften zu kommen!'],
-        ['name' => 'terror', 'label' => 'Angststarre', 'description' => 'Dir ist etwas furchtbares wiederfahren, und du bist vor Angst erstarrt! Du kannst dich nicht länger in einer von Zombies kontrollierten Zone aufhalten. Wenn du gefangen bist, kannst du nicht länger fliehen.'],
-        ['name' => 'thirst1', 'label' => 'Durst', 'description' => 'Du bist durstig... Das passiert immer dann wenn du am Vortag nichts getrunken hast oder wenn du in der Wüste lange Strecken gelaufen bist...'],
-        ['name' => 'thirst2', 'label' => 'Dehydriert', 'description' => 'Dein Durst hat ein kritisches Level erreicht! Trinke schnell etwas, oder du riskierst zu sterben!'],
-        ['name' => 'drugged', 'label' => 'Rauschzustand', 'description' => 'Du hast heute bereits Drogen konsumiert. Wenn du noch weitere Drogen nimmst, riskierst du eine Abhängigkeit!'],
-        ['name' => 'addict', 'label' => 'Drogenabhängig', 'description' => 'Du musst jeden Tag Drogen einnehmen! Wenn du eines morgens aufwachst, ohne am Tag zuvor Drogen genommen zu haben, wirst du sterben!'],
-        ['name' => 'infection', 'label' => 'Infektion', 'description' => 'Eine furchtbare Krankheit brennt sich durch dein Innerstes... Vielleicht eine Art Infektion? Das beste, was du jetzt tun kannst, ist die richtige Medizin einzunehmen... Wenn du hingegen nichts tust, hast du eine 50/50 Chance, morgen tot aufzuwachen.'],
-        ['name' => 'drunk', 'label' => 'Trunkenheit', 'description' => 'Du stehst unter dem Einfluss von ziemlich starkem Alkohol... Du kannst vorerst keinen weiteren Alkohol zu dir nehmen.'],
-        ['name' => 'hungover', 'label' => 'Kater', 'description' => 'Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.'],
-        ['name' => 'wound1', 'label' => 'Verwundung - Kopf', 'description' => 'Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
-        ['name' => 'wound2', 'label' => 'Verwundung - Hände', 'description' => 'Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
-        ['name' => 'wound3', 'label' => 'Verwundung - Arme', 'description' => 'Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
-        ['name' => 'wound4', 'label' => 'Verwundung - Bein', 'description' => 'Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
-        ['name' => 'wound5', 'label' => 'Verwundung - Auge', 'description' => 'Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
-        ['name' => 'wound6', 'label' => 'Verwundung - Fuß', 'description' => 'Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
-        ['name' => 'healed', 'label' => 'Bandagiert', 'description' => 'Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.'],
+        ['name' => 'clean',                                            'label' => 'Clean', 'description' => 'Du hast noch keine Drogen genommen.'],
+        ['name' => 'hasdrunk',                                         'label' => 'Getrunken', 'description' => 'Du hast heute bereits getrunken. Eine weitere Essensration erlaubt dir heute nicht weitere AP.'],
+        ['name' => 'haseaten',                                         'label' => 'Satt', 'description' => 'Du hast heute bereits gegessen. Eine weitere Essensration erlaubt dir heute nicht weitere AP.'],
+        ['name' => 'camper',                                           'label' => 'Umsichtiger Camper', 'description' => 'Du hast die letzte Nacht in der Kälte der Außenwelt verbracht. Dabei konntest du die Windrichtung und den Marsch der Zombiehorde beobachten. Damit bist du für den Rest des Tages in der Lage, erfolgreicher Gegenstände zu finden.'],
+        ['name' => 'immune',                                           'label' => 'Immunisiert', 'description' => 'Du hast Medizin eingenommen, die dich vor Infektionen schützt und dich davor bewahrt, zu einem Ghul zu werden.'],
+        ['name' => 'hsurvive',                                         'label' => 'Den Tod besiegen', 'description' => 'Du hast deine Heldenfähigkeit "Den Tod besiegen" verwendet!'],
+        ['name' => 'tired',                                            'label' => 'Erschöpfung', 'description' => 'Du bist völlig erschöpft... Ruh dich aus oder iss etwas, um wieder zu Kräften zu kommen!'],
+        ['name' => 'terror',    'nw_def' => -30, 'nw_death' =>  0.45,  'label' => 'Angststarre', 'description' => 'Dir ist etwas furchtbares wiederfahren, und du bist vor Angst erstarrt! Du kannst dich nicht länger in einer von Zombies kontrollierten Zone aufhalten. Wenn du gefangen bist, kannst du nicht länger fliehen.'],
+        ['name' => 'thirst1',                                          'label' => 'Durst', 'description' => 'Du bist durstig... Das passiert immer dann wenn du am Vortag nichts getrunken hast oder wenn du in der Wüste lange Strecken gelaufen bist...'],
+        ['name' => 'thirst2',   'nw_def' => -10,                       'label' => 'Dehydriert', 'description' => 'Dein Durst hat ein kritisches Level erreicht! Trinke schnell etwas, oder du riskierst zu sterben!'],
+        ['name' => 'drugged',   'nw_def' =>  10,                       'label' => 'Rauschzustand', 'description' => 'Du hast heute bereits Drogen konsumiert. Wenn du noch weitere Drogen nimmst, riskierst du eine Abhängigkeit!'],
+        ['name' => 'addict',    'nw_def' => -15, 'nw_death' =>  0.10,  'label' => 'Drogenabhängig', 'description' => 'Du musst jeden Tag Drogen einnehmen! Wenn du eines morgens aufwachst, ohne am Tag zuvor Drogen genommen zu haben, wirst du sterben!'],
+        ['name' => 'infection', 'nw_def' => -15, 'nw_death' =>  0.20,  'label' => 'Infektion', 'description' => 'Eine furchtbare Krankheit brennt sich durch dein Innerstes... Vielleicht eine Art Infektion? Das beste, was du jetzt tun kannst, ist die richtige Medizin einzunehmen... Wenn du hingegen nichts tust, hast du eine 50/50 Chance, morgen tot aufzuwachen.'],
+        ['name' => 'drunk',     'nw_def' =>  20, 'nw_death' => -0.04,  'label' => 'Trunkenheit', 'description' => 'Du stehst unter dem Einfluss von ziemlich starkem Alkohol... Du kannst vorerst keinen weiteren Alkohol zu dir nehmen.'],
+        ['name' => 'hungover',  'nw_def' => -15, 'nw_death' =>  0.05,  'label' => 'Kater', 'description' => 'Du hast furchtbare Kopfschmerzen... Keinesfalls kannst du heute weiteren Alkohol zu dir nehmen.'],
+        ['name' => 'wound1',    'nw_def' => -20, 'nw_death' =>  0.20,  'label' => 'Verwundung - Kopf', 'description' => 'Du bist am Kopf verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
+        ['name' => 'wound2',    'nw_def' => -20, 'nw_death' =>  0.20,  'label' => 'Verwundung - Hände', 'description' => 'Du bist an der Hand verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
+        ['name' => 'wound3',    'nw_def' => -20, 'nw_death' =>  0.20,  'label' => 'Verwundung - Arme', 'description' => 'Du bist an deinem Arm verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
+        ['name' => 'wound4',    'nw_def' => -20, 'nw_death' =>  0.20,  'label' => 'Verwundung - Bein', 'description' => 'Du bist an deinen Beinen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
+        ['name' => 'wound5',    'nw_def' => -20, 'nw_death' =>  0.20,  'label' => 'Verwundung - Auge', 'description' => 'Du bist an den Augen verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
+        ['name' => 'wound6',    'nw_def' => -20, 'nw_death' =>  0.20,  'label' => 'Verwundung - Fuß', 'description' => 'Du bist am Fuß verletzt! Essen, trinken und Ausruhen wird dir 1AP weniger verschaffen.'],
+        ['name' => 'healed',    'nw_def' => -10, 'nw_death' =>  0.10,  'label' => 'Bandagiert', 'description' => 'Du hast dich bereits von einer Verletzung erholt. Du kannst heute nicht erneut geheilt werden.'],
 
         ['name' => 'tg_dice' ],
         ['name' => 'tg_cards'],
@@ -374,12 +374,14 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
             if ($entity === null) $entity = new CitizenStatus();
 
             // Set property
-            $entity->setName( $entry['name'] );
-            $entity->setLabel( isset($entry['label']) ? $entry['label'] : $entry['name'] );
-            $entity->setIcon( isset($entry['icon']) ? $entry['icon'] : $entry['name'] );
-            $entity->setHidden( !isset($entry['label']) );
-            if(isset($entry['description']))
-                $entity->setDescription($entry['description']);
+            $entity
+                ->setName( $entry['name'] )
+                ->setLabel( $entry['label'] ?? $entry['name'] )
+                ->setIcon( $entry['icon'] ?? $entry['name'] )
+                ->setHidden( !isset($entry['label']) )
+                ->setDescription($entry['description'] ?? null)
+                ->setNightWatchDefenseBonus( $entry['nw_def'] ?? 0 )
+                ->setNightWatchDeathChancePenalty( $entry['nw_death'] ?? 0.0 );
 
             $manager->persist( $entity );
 
