@@ -16861,7 +16861,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen &lt;strong&gt;massiven Zusammenbruch&lt;/strong&gt; hatten. Letzte Nacht gab es keine Toten in der Stadt.</source>
-        <target><![CDATA[%citizen1% verbrachten die ganze Nacht heulend in ihrem Haus, bis zu dem Punkt, dass jeder dachte, die Zombies würden Bürger-Steaks aus ihm machen. Es stellte sich heraus, dass sie gerade einen <strong>massiven Zusammenbruch</strong> hatten. Letzte Nacht gab es keine Toten in der Stadt.]]></target>
+        <target><![CDATA[%citizen1% spent the whole night howling in their house, to the point that everyone thought that the zombies were making citizen steaks out of him. It turns out that they were just having a <strong>massive breakdown</strong>. No deaths in town last night.]]></target>
       </segment>
     </unit>
     <unit id="ycaiqp4">
