@@ -4,7 +4,7 @@
   background: @myhordes-cell-header-background-color; border: 1px solid @myhordes-input-border;
   padding: 4px;
   &>.log-content {
-    font-size: 1.2rem; color: #f0d79e; max-height: 300px; overflow-y: auto;
+    font-size: 1.2rem; color: @myhordes-cell-header-text-color; max-height: 300px; overflow-y: auto;
     &>.log-spinner, &>.log-complete-link { padding: 5px; }
     &>.log-complete-link { cursor: pointer; text-decoration: underline; display: inline-block; }
     &>.log-entry {
@@ -19,6 +19,11 @@
       &>span.log-part-content {
         &>span { 
           color: white; font-weight: bold; font-variant: small-caps; &>img { vertical-align: text-top }
+          &.jobName {
+            font-weight: normal;
+            font-style: italic;
+            color: @myhordes-cell-header-text-color;
+          }
           &.tool {
             padding-left: 3px;
             padding-right: 3px;
@@ -34,11 +39,11 @@
       }
 
       &.log-entry-class-0 {}
-      &.log-entry-class-1 { background-color: #820000 }
-      &.log-entry-class-2 { background-color: #ad2714 }
+      &.log-entry-class-1 { background-color: #820000; }
+      &.log-entry-class-2 { background-color: #ad2714; }
       &.log-entry-class-3 { background-color: #965c36; font-weight: bold; }
-      &.log-entry-class-4 { background-color: #3b3249 }
-      &.log-entry-class-5 { background-color: #b05502 }
+      &.log-entry-class-4 { background-color: #3b3249; .log-part-content { font-style: italic; } }
+      &.log-entry-class-5 { background-color: #b05502; }
 
       &.log-entry-type-0  {}
       &.log-entry-type-1  {}

@@ -129,5 +129,16 @@
       </g>
     </g>
   </g>
-
+  <g
+          inkscape:label="Layer 1"
+          inkscape:groupmode="layer"
+          id="layer1"
+          transform="translate(0,-290.3854)">
+    <path
+            style="fill:#ffffff;fill-opacity:0.49803922;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+            d="m 1.8520833,292.23748 v 2.91042 H 4.7625 v -2.91042 z"
+            id="path3715"
+            inkscape:connector-curvature="0"
+            sodipodi:nodetypes="ccccc" />
+  </g>
 </svg>

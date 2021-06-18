@@ -103,6 +103,7 @@ class LogTemplateHandler
                 $object = $this->entity_manager->getRepository(BuildingPrototype::class)->find($key);
                 break;
             case 'profession':
+            case 'professionFull':
                 $object = $this->entity_manager->getRepository(CitizenProfession::class)->find($key);
                 break;
             case 'cod':
@@ -214,7 +215,7 @@ class LogTemplateHandler
                     }
                 }
                 else {
-                    $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), false, $variables['broken'] ?? false ) );
+                    $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun( $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), $typeEntry['type'] === 'profession', $variables['broken'] ?? false ), $typeEntry['type'] === 'professionFull' ? 'jobName': '' );
                 }
             }
             catch (Exception $e) {
@@ -587,6 +588,19 @@ class LogTemplateHandler
     public function citizenProfession( Citizen $citizen ): TownLogEntry {
         $variables = array('citizen' => $citizen->getId(), 'profession' => $citizen->getProfession()->getId());
         $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'citizenProfession']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables($variables)
+            ->setTown( $citizen->getTown() )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
+    public function citizenJoinProfession( Citizen $citizen ): TownLogEntry {
+        $variables = array('citizen' => $citizen->getId(), 'profession' => $citizen->getProfession()->getId());
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'citizenJoinProfession']);
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
@@ -1714,5 +1728,16 @@ class LogTemplateHandler
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setZone($citizen->getZone());
+    }
+
+    public function smokeBombUsage( Zone $zone ): TownLogEntry {
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'smokeBombUsage']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setTown( $zone->getTown() )
+            ->setDay( $zone->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setZone($zone);
     }
 }

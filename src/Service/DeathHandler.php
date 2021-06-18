@@ -111,14 +111,16 @@ class DeathHandler
                 );
         }
         else {
-            $zone = $citizen->getZone(); $ok = $this->zone_handler->check_cp( $zone );
-            if ($zone->isTownZone())
-                $this->inventory_handler->forceMoveItem(
-                    $citizen->getTown()->getBank(),
-                    $this->item_factory->createItem('bone_meat_#00')
-                );
-            else
-                $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'), [$zone->getFloor()]);
+            if ($cod->getRef() === CauseOfDeath::NightlyAttack){
+                $zone = $citizen->getZone(); $ok = $this->zone_handler->check_cp( $zone );
+                if ($zone->isTownZone())
+                    $this->inventory_handler->forceMoveItem(
+                        $citizen->getTown()->getBank(),
+                        $this->item_factory->createItem('bone_meat_#00')
+                    );
+                else
+                    $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'), [$zone->getFloor()]);
+            }
 
             $citizen->setZone(null);
             $zone->removeCitizen( $citizen );

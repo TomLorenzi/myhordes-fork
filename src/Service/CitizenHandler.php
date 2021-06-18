@@ -288,6 +288,7 @@ class CitizenHandler
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::FleshCage, $rem );
                 $cage->setTempDefenseBonus( $cage->getTempDefenseBonus() + ( $citizen->getProfession()->getHeroic() ? 60 : 40 ) );
                 $this->entity_manager->persist( $cage );
+                $citizen->getHome()->setHoldsBody(false);
             }
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, null ) );
             foreach ($rem as $r) $this->entity_manager->remove( $r );
@@ -503,7 +504,7 @@ class CitizenHandler
         $this->setPM($citizen, false, 0);
 
         if ($profession->getName() !== 'none')
-            $this->entity_manager->persist( $this->log->citizenProfession( $citizen ) );
+            $this->entity_manager->persist( $this->log->citizenJoinProfession( $citizen ) );
 
     }
 

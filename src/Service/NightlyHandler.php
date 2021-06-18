@@ -27,6 +27,7 @@ use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Entity\ZoneTag;
 use App\Structures\EventConf;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
@@ -1130,6 +1131,8 @@ class NightlyHandler
 
         $upgraded_map = $this->town_handler->getBuilding($town,'item_electro_#00', true);
 
+        $zone_tag_none = $this->entity_manager->getRepository(ZoneTag::class)->findOneBy(['ref' => ZoneTag::TagNone]);
+
         $gazette = $town->findGazette($town->getDay());
 
         if ($watchtower) switch ($watchtower->getLevel()) {
@@ -1166,7 +1169,6 @@ class NightlyHandler
 
         foreach ($town->getZones() as $zone) {
             /** @var Zone $zone */
-
             if ($zone->getPrototype() && $zone->getPrototype()->getExplorable()) {
                 foreach ($zone->getExplorerStats() as $ex) {
                     $ex->getCitizen()->removeExplorerStat( $ex );
@@ -1212,6 +1214,10 @@ class NightlyHandler
             if ($zone->getImprovementLevel() > 0) {
               $zone->setImprovementLevel(max(($zone->getImprovementLevel() - 3), 0));
               $this->log->debug( "Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Improvement Level has been reduced to <info>{$zone->getImprovementLevel()}</info>." );
+            }
+
+            if ($zone->getTag() !== null && $zone->getTag()->getTemporary()) {
+                $zone->setTag($zone_tag_none);
             }
         }
         $this->log->debug("Recovered <info>{$reco_counter[0]}</info>/<info>{$reco_counter[1]}</info> zones." );

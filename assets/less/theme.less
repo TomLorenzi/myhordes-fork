@@ -675,7 +675,14 @@ input[type='text'],input[type='number'],input[type='password'],input[type='email
 a { color: @myhordes-smalltext; font-weight: bold; }
 
 ul.inventory {
-  border: 1px solid @myhordes-input-border; padding: 6px; font-size: 1.1rem; font-variant: small-caps;
+  &:not(.borderless){
+    border: 1px solid @myhordes-input-border; padding: 6px;
+  }
+  &.borderless {
+    padding: 0;
+    margin: 0;
+  }
+  font-size: 1.1rem; font-variant: small-caps;
   &>li {
     &:not(.category) { display: inline-block; border: 1px solid @myhordes-input-border;}
     &.category { font-size: 1rem; font-weight: bold; }
@@ -1307,9 +1314,9 @@ div.tooltip {
     color: #F0D79E;
     &:not(.stack) {clear: both;}
     li {
-        margin: 0; padding-left: 4px; padding-right: 4px;
-        background-color: #524053;
-        border-top: 0px; border-bottom: 2px solid #5c2b20;
+        margin: 0;
+        &:not(.item) { padding-left: 4px; padding-right: 4px; background-color: #524053; }
+        border-top: 0; border-bottom: 2px solid #5c2b20;
         &:last-child { border-bottom: 0; }
         i { color: #f0d79e; font-style: italic; }
         strong { font-variant: small-caps; }
