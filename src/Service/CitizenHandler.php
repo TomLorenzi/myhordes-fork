@@ -759,24 +759,9 @@ class CitizenHandler
         if($citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'prowatch'))
             $fatigue /= 2;
 
-        $fatigue = max($this->getNightwatchBaseFatigue($citizen), $fatigue);
-
-        $chances = $fatigue;
-
-        $status_effect_list = [
-            'drunk'     => -0.04,
-            'hungover'  =>  0.05,
-            'terror'    =>  0.45,
-            'addict'    =>  0.10,
-            'healed'    =>  0.10,
-            'infection' =>  0.20,
-        ];
-
-        foreach ($status_effect_list as $status => $value)
-            if ($this->hasStatusEffect($citizen, $status))
-                $chances += $value;
-
-        if($this->isWounded($citizen)) $chances += 0.20;
+        $chances = max($this->getNightwatchBaseFatigue($citizen), $fatigue);
+        foreach ($citizen->getStatus() as $status)
+            $chances += $status->getNightWatchDeathChancePenalty();
         if($citizen->hasRole('ghoul')) $chances -= 0.05;
 
         return round($chances, 2, PHP_ROUND_HALF_DOWN);
@@ -795,25 +780,10 @@ class CitizenHandler
     }
 
     public function getNightWatchDefense(Citizen $citizen, bool $shooting_gallery, bool $trebuchet, bool $ikea, bool $armory): int {
-        $def = 10;
-        $def += $this->getNightwatchProfessionDefenseBonus($citizen);
+        $def = 10 + $this->getNightwatchProfessionDefenseBonus($citizen);
 
-        $status_effect_list = [
-            'drunk'     =>  20,
-            'hungover'  => -15,
-            'terror'    => -30,
-            'drugged'   =>  10,
-            'addict'    =>  15,
-            'healed'    => -10,
-            'infection' => -15,
-            'thirst2'   => -10,
-        ];
-
-        foreach ($status_effect_list as $status => $value)
-            if ($this->hasStatusEffect($citizen, $status))
-                $def += $value;
-
-        if($this->isWounded($citizen)) $def -= 20;
+        foreach ($citizen->getStatus() as $status)
+            $def += $status->getNightWatchDefenseBonus();
 
         foreach ($citizen->getInventory()->getItems() as $item)
             $def += $this->getNightWatchItemDefense($item, $shooting_gallery, $trebuchet, $ikea, $armory);
