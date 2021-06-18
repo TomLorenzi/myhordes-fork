@@ -339,7 +339,7 @@ class AdminTownController extends AdminActionController
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         if (in_array($action, [
-                'release', 'quarantine', 'advance', 'nullify',
+                'release', 'quarantine', 'advance', 'nullify', 'pw_change',
                 'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf',
                 'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage', 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days'
             ]) && !$this->isGranted('ROLE_ADMIN'))
@@ -374,6 +374,10 @@ class AdminTownController extends AdminActionController
                     $town->setAttackFails(0);
                     $this->entity_manager->persist($town);
                 }
+                break;
+            case 'pw_change':
+                if (!$town->isOpen()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                $town->setPassword( empty(trim($param)) ? null : $param );
                 break;
             case 'nullify':
                 foreach ($town->getCitizens() as $citizen)

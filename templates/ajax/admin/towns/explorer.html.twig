@@ -55,7 +55,7 @@
                         {{ _self.valuelist('Population'|trans({},'admin'), town.population) }}
                         {{ _self.valuelist('Saison'|trans({},'admin'),     town.season ? town.season.number : '--') }}
                         {{ _self.valuelist('Tag'|trans({},'admin'),        town.day) }}
-                        {{ _self.valuelist('Offen'|trans({},'admin'),      town.open) }}
+                        {{ _self.valuelist('Offen'|trans({},'admin'),      town.open ? (town.password ? 'Passwort-geschützt'|trans({},'admin') : true) : false ) }}
                         {{ _self.valuelist('Chaos'|trans({},'admin'),      town.chaos) }}
                         {{ _self.valuelist('Zerstört'|trans({},'admin'),   town.devastated) }}
                         {{ _self.valuelist('Tor offen'|trans({},'admin'),  town.door) }}
@@ -80,6 +80,14 @@
                                         </optgroup>
                                         <optgroup label="{{ 'Verwaltung'|trans({},'admin') }}">
                                             <option x-alt-url="{{ path('admin_town_list') }}" value="{{ url('admin_town_manage', {action: 'nullify', id: town.id}) }}">{{ 'Annulieren'|trans({},'admin') }}</option>
+                                            {% if town.open %}
+                                                {% if town.password is not null %}
+                                                    <option value="{{ url('admin_town_manage', {action: 'pw_change', id: town.id}) }}" x-query="{{ 'Neues Passwort eingeben.'|trans({},'admin') }}">{{ 'Passwort ändern'|trans({},'admin') }}</option>
+                                                    <option value="{{ url('admin_town_manage', {action: 'pw_change', id: town.id}) }}">{{ 'Passwort entfernen'|trans({},'admin') }}</option>
+                                                {% else %}
+                                                    <option value="{{ url('admin_town_manage', {action: 'pw_change', id: town.id}) }}" x-query="{{ 'Neues Passwort eingeben.'|trans({},'admin') }}">{{ 'Passwort setzen'|trans({},'admin') }}</option>
+                                                {% endif %}
+                                            {% endif %}
                                         </optgroup>
                                         {% if app.environment == 'dev' %}
                                             <optgroup label="Debug">
