@@ -1807,7 +1807,7 @@
       </notes>
       <segment>
         <source>Kiste mit Materialien (3)</source>
-        <target>Caisse de matériel (3)</target>
+        <target>Carton de matériaux (3)</target>
       </segment>
     </unit>
     <unit id="_Ya0SdM" name="Kiste mit Materialien (2)">
@@ -1816,7 +1816,7 @@
       </notes>
       <segment>
         <source>Kiste mit Materialien (2)</source>
-        <target>Caisse de matériel (2)</target>
+        <target>Carton de matériaux (2)</target>
       </segment>
     </unit>
     <unit id="C60bLXY" name="Kiste mit Materialien (1)">
@@ -1825,7 +1825,7 @@
       </notes>
       <segment>
         <source>Kiste mit Materialien (1)</source>
-        <target>Caisse de matériel (1)</target>
+        <target>Carton de matériaux (1)</target>
       </segment>
     </unit>
     <unit id="TeBNdiF" name="Autotür">
@@ -2284,7 +2284,7 @@
       </notes>
       <segment>
         <source>Normaler Bauplan (sehr selten!)</source>
-        <target>Plan de chantier (très rare)</target>
+        <target>Plan de chantier (très rare !)</target>
       </segment>
     </unit>
     <unit id="jQi8Ua2" name="Architektenkoffer">
@@ -2563,7 +2563,7 @@
       </notes>
       <segment>
         <source>Schnellgebauter Tisch</source>
-        <target>Bureau monté à l'arrache</target>
+        <target>Bureau monté à la rache</target>
       </segment>
     </unit>
     <unit id="yikN.Mw" name="Leerer Automat">
@@ -2590,7 +2590,7 @@
       </notes>
       <segment>
         <source>Osterei</source>
-        <target>Oeuf de pâques</target>
+        <target>Oeuf de Pâques</target>
       </segment>
     </unit>
     <unit id="AEI8mQM" name="ANZAC Badge">
@@ -2716,7 +2716,7 @@
       </notes>
       <segment>
         <source>Starker Laserpointer (1 Schuss)</source>
-        <target>Pointeur laser brûlant (1 charges)</target>
+        <target>Pointeur laser brûlant (1 charge)</target>
       </segment>
     </unit>
     <unit id="mlUmSZt" name="Starker Laserpointer (Leer)">
@@ -3760,7 +3760,7 @@
       </notes>
       <segment>
         <source>Mit einem verstellbaren Schraubenschlüssel kannst du wahlweise an einem Gegenstand herumbasteln oder etwas zerstören (muss nicht unbedingt ein Gegenstand sein...)</source>
-        <target>Avec une clé à Molette, vous pouvez au choix bricoler un objet ou détruire quelque chose. Pas forcement un objet d'ailleurs…</target>
+        <target>Avec une clé à Molette, vous pouvez au choix bricoler un objet ou détruire quelque chose. Pas forcément un objet d'ailleurs…</target>
       </segment>
     </unit>
     <unit id="DN2IVby">
@@ -7828,7 +7828,7 @@
       </notes>
       <segment>
         <source>Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache &lt;strong&gt;du bekommst wieder einen klaren Kopf&lt;/strong&gt;.</source>
-        <target><![CDATA[Vous avez la tête qui tourne, limite envie de vomir, mais au moins <strong>ça vous a reveillé</strong>. Il ne vous reste plus qu'à courir...]]></target>
+        <target><![CDATA[Vous avez la tête qui tourne, limite envie de vomir, mais au moins <strong>ça vous a réveillé</strong>. Il ne vous reste plus qu'à courir...]]></target>
       </segment>
     </unit>
     <unit id="9P67IDx">
