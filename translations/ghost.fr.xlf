@@ -1476,7 +1476,7 @@
       </notes>
       <segment>
         <source>Bürger-Aliase:</source>
-        <target>Bürger-Aliase:</target>
+        <target>Alias de citoyen:</target>
       </segment>
     </unit>
     <unit id="VcRaioj">
@@ -1485,7 +1485,7 @@
       </notes>
       <segment>
         <source>Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen</source>
-        <target>Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen</target>
+        <target>Permet à un citoyen de sélectionner un alias au lieu de son nom habituel pour cette ville</target>
       </segment>
     </unit>
     <unit id="CQsXVvw" name="Dein Name">
@@ -1494,7 +1494,7 @@
       </notes>
       <segment>
         <source>Dein Name</source>
-        <target>Dein Name</target>
+        <target>Votre nom</target>
       </segment>
     </unit>
     <unit id="U59mj2e" name="Zeitzone:">
@@ -1503,7 +1503,7 @@
       </notes>
       <segment>
         <source>Zeitzone:</source>
-        <target>Zeitzone:</target>
+        <target>Zone de temps :</target>
       </segment>
     </unit>
     <unit id="e3MFczK" name="Die eingestellte Zeit gibt die Dauer des Tages an.">
@@ -1512,7 +1512,7 @@
       </notes>
       <segment>
         <source>Die eingestellte Zeit gibt die Dauer des Tages an.</source>
-        <target>Die eingestellte Zeit gibt die Dauer des Tages an.</target>
+        <target>L’heure donnée contrôle la durée de la journée.</target>
       </segment>
     </unit>
     <unit id="GhcEWUz">
@@ -1521,7 +1521,7 @@
       </notes>
       <segment>
         <source>Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.</source>
-        <target>Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.</target>
+        <target>Si le mode nuit est désactivé, ce paramètre est purement cosmétique.</target>
       </segment>
     </unit>
     <unit id="lLT6O3P" name="Tagesphase">
@@ -1530,7 +1530,7 @@
       </notes>
       <segment>
         <source>Tagesphase</source>
-        <target>Tagesphase</target>
+        <target>Période de la journée</target>
       </segment>
     </unit>
     <unit id="Xhpz327" name="Die eingestellte Zeit gibt die Dauer der Nacht an.">
@@ -1539,7 +1539,7 @@
       </notes>
       <segment>
         <source>Die eingestellte Zeit gibt die Dauer der Nacht an.</source>
-        <target>Die eingestellte Zeit gibt die Dauer der Nacht an.</target>
+        <target>L’heure donnée contrôle la durée de la nuit.</target>
       </segment>
     </unit>
     <unit id="dkUvCKc" name="Nachtphase">
@@ -1548,7 +1548,7 @@
       </notes>
       <segment>
         <source>Nachtphase</source>
-        <target>Nachtphase</target>
+        <target>Phase nocturne</target>
       </segment>
     </unit>
   </file>
