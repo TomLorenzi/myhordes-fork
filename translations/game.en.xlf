@@ -20172,5 +20172,14 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Es wurde eine Rauchbombe eingesetzt!</target>
       </segment>
     </unit>
+    <unit id="RoDLkY." name="Ein neuer Bürger ist in der Stadt angekommen: %citizen% (%profession%).">
+      <notes>
+        <note category="german">Ein neuer Bürger ist in der Stadt angekommen: %citizen% (%profession%).</note>
+      </notes>
+      <segment>
+        <source>Ein neuer Bürger ist in der Stadt angekommen: %citizen% (%profession%).</source>
+        <target>A new citizen has arrived: %citizen% (%profession%).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

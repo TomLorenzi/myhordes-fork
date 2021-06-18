@@ -504,7 +504,7 @@ class CitizenHandler
         $this->setPM($citizen, false, 0);
 
         if ($profession->getName() !== 'none')
-            $this->entity_manager->persist( $this->log->citizenProfession( $citizen ) );
+            $this->entity_manager->persist( $this->log->citizenJoinProfession( $citizen ) );
 
     }
 

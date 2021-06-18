@@ -20201,5 +20201,14 @@
         <target>Un fumigène a été utilisé !</target>
       </segment>
     </unit>
+    <unit id="RoDLkY." name="Ein neuer Bürger ist in der Stadt angekommen: %citizen% (%profession%).">
+      <notes>
+        <note category="german">Ein neuer Bürger ist in der Stadt angekommen: %citizen% (%profession%).</note>
+      </notes>
+      <segment>
+        <source>Ein neuer Bürger ist in der Stadt angekommen: %citizen% (%profession%).</source>
+        <target>Un nouveau citoyen est arrivé : %citizen% (%profession%).</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
