@@ -872,58 +872,71 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
     ];
 
     public static $zone_tags = array(
-        'none' => array(
+        'none' => [
             'label' => '[nichts]',
             'icon' => '',
-            'ref' => ZoneTag::TagNone),
-        'help' => array(
+            'ref' => ZoneTag::TagNone,
+            'temp' => false],
+        'help' => [
             'label' => 'Notruf',
             'icon' => 'tag_1',
-            'ref' => ZoneTag::TagHelp),
-        'resources' => array(
+            'ref' => ZoneTag::TagHelp,
+            'temp' => false],
+        'resources' => [
             'label' => 'Rohstoff am Boden (Holz, Metall...)',
             'icon' => 'tag_2',
-            'ref' => ZoneTag::TagResource),
-        'items' => array(
+            'ref' => ZoneTag::TagResource,
+            'temp' => false],
+        'items' => [
             'label' => 'Verschiedene Gegenstände am Boden',
             'icon' => 'tag_3',
-            'ref' => ZoneTag::TagItems),
-        'impItem' => array(
+            'ref' => ZoneTag::TagItems,
+            'temp' => false],
+        'impItem' => [
             'label' => 'Wichtige(r) Gegenstand/-ände!',
             'icon' => 'tag_4',
-            'ref' => ZoneTag::TagImportantItems),
-        'depleted' => array(
+            'ref' => ZoneTag::TagImportantItems,
+            'temp' => false],
+        'depleted' => [
             'label' => 'Zone leer',
             'icon' => 'tag_5',
-            'ref' => ZoneTag::TagDepleted),
-        'tempSecure' => array(
+            'ref' => ZoneTag::TagDepleted,
+            'temp' => false],
+        'tempSecure' => [
             'label' => 'Zone tempörar gesichert',
             'icon' => 'tag_6',
-            'ref' => ZoneTag::TagTempSecured),
-        'needDig' => array(
+            'ref' => ZoneTag::TagTempSecured,
+            'temp' => false],
+        'needDig' => [
             'label' => 'Zone muss freigeräumt werden',
             'icon' => 'tag_7',
-            'ref' => ZoneTag::TagRuinDig),
-        '5to8zeds' => array(
+            'ref' => ZoneTag::TagRuinDig,
+            'temp' => false],
+        '5to8zeds' => [
             'label' => 'Zwichen 5 und 8 Zombies',
             'icon' => 'tag_8',
-            'ref' => ZoneTag::Tag5To8Zombies),
-        '9zeds' => array(
+            'ref' => ZoneTag::Tag5To8Zombies,
+            'temp' => false],
+        '9zeds' => [
             'label' => '9 oder mehr Zombies!',
             'icon' => 'tag_9',
-            'ref' => ZoneTag::Tag9OrMoreZombies),
-        'camping' => array(
+            'ref' => ZoneTag::Tag9OrMoreZombies,
+            'temp' => false],
+        'camping' => [
             'label' => 'Camping geplant',
             'icon' => 'tag_10',
-            'ref' => ZoneTag::TagCamping),
-        'exploreRuin' => array(
+            'ref' => ZoneTag::TagCamping,
+            'temp' => true],
+        'exploreRuin' => [
             'label' => 'Zu untersuchende Ruine',
             'icon' => 'tag_11',
-            'ref' => ZoneTag::TagExploreRuin),
-        'soul' => array(
+            'ref' => ZoneTag::TagExploreRuin,
+            'temp' => false],
+        'soul' => [
             'label' => 'Verlorene Seele',
             'icon' => 'tag_12',
-            'ref' => ZoneTag::TagLostSoul),
+            'ref' => ZoneTag::TagLostSoul,
+            'temp' => false],
     );
 
     private $entityManager;
@@ -1024,6 +1037,7 @@ class BeyondFixtures extends Fixture implements DependentFixtureInterface
                 ->setLabel( $entry['label'] )
                 ->setIcon( $entry['icon'] )
                 ->setRef( $entry['ref'] )
+                ->setTemporary( $entry['temp'] )
             ;
             $manager->persist( $entity );
 
