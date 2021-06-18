@@ -58,18 +58,18 @@ div.town-banner {
   color: @myhordes-cell-header-text-color;
   font-variant: small-caps;
   &>.cell {
-    &>div:first-child { width: 100%; padding-top: 55.1724138%; border: 1px solid black; }
+    &>div:first-child { width: 100%; padding-top: 55.1724138%; border: 1px solid black;text-decoration: underline; }
     &>div:last-child {
-      font-size: 1.1rem; padding: 1px 4px; background: @myhordes-cell-header-background-color; height: 20px;
+      font-size: 1.1rem; padding: 1px 4px; background: #3e2417; height: 20px;
       &>img { vertical-align: bottom };
     }
     cursor: pointer;
     &:hover {
       &>div:last-child { color: @myhordes-input-border; }
-      outline: 1px solid @myhordes-input-border;
+      &>div:first-child { outline: 1px solid @myhordes-input-border; }
     }
     &.selected {
-      &>div:first-child { background-color: #965C36 !important; }
+      &:not(.town-overview)>div:first-child { background-color: #965C36 !important;outline: 1px solid white; }
       &>div:last-child { background: #965C36; color: white; border: 1px solid #693e29; };
     }
   }
@@ -151,7 +151,7 @@ div.town-banner {
 
       & > div {
         height: 36px; width: 36px; margin: 2px;
-        border: 1px dotted @myhordes-cell-header-background-color;
+        border: 1px dotted #90563b;
         background: repeating-linear-gradient( -45deg, #7e4a31 4px, #693e29 8px );
       }
     }
@@ -216,6 +216,8 @@ div.town-banner {
   &>ul{
     background-color: #3e2417;
     list-style-type: none;
+    margin-left: 0px;
+    padding-left: 2.5rem;
     font-size: 1.1rem;
     background-image: url("../../img/icons/home.gif");
     background-repeat: no-repeat;;

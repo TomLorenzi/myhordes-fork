@@ -243,28 +243,24 @@
         <div class="tilemap_controls">
             <div class="row">
                 <div class="float-left">
-                    <button x-control="plus"   class="small inline"><i class="fa fa-plus"></i></button>
-                    <button x-control="center" {% if default_zoom == 0 %}disabled{% endif %} class="small inline"><i class="fa fa-map-marker-alt"></i></button>
-                    <button x-control="minus"  {% if default_zoom == 0 %}disabled{% endif %} class="small inline"><i class="fa fa-minus"></i></button>
+                    <button x-control="plus"   class="small inline map_button map_button_left"><i class="fa fa-plus"></i></button>
+                    <button x-control="center" {% if default_zoom == 0 %}disabled{% endif %} class="small inline map_button map_button_left"><i class="fa fa-map-marker-alt"></i></button>
+                    <button x-control="minus"  {% if default_zoom == 0 %}disabled{% endif %} class="small inline map_button map_button_left"><i class="fa fa-minus"></i></button>
                 </div>
                 <div class="float-right">
-                    <button x-control="tags" class="small inline hide-tags">{% trans from 'game' %}Mark.{% endtrans %}</button>
+                    <button x-control="tags" class="small inline hide-tags map_button map_button_right">{% trans from 'game' %}Mark.{% endtrans %}</button>
                     {% if map.routes|length > 0 %}
-                        <button x-control="routes" class="small inline">{% trans from 'game' %}Routen{% endtrans %}</button>
+                        <button x-control="routes" class="small inline map_button map_button_right">{% trans from 'game' %}Routen{% endtrans %}</button>
                     {% endif %}
                     {% if allow_zone_view %}
-                        <button x-control="zone" class="small inline"><i class="fa fa-compress-arrows-alt"></i></button>
+                        <button x-control="zone" class="small inline map_button map_button_right"><i class="fa fa-compress-arrows-alt"></i></button>
                     {% endif %}
                 </div>
             </div>
         </div>
         {% if allow_zone_view %}
             <div class="zonemap_controls">
-                <div class="row">
-                    <div class="cell rw-12 right">
-                        <button x-control="map" class="small inline">{% trans from 'game' %}Karte{% endtrans %}</button>
-                    </div>
-                </div>
+                <button x-control="map" class="small inline map_button map_button_left">{% trans from 'game' %}Karte{% endtrans %}</button>
             </div>
         {% endif %}
     </div>

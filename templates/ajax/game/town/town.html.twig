@@ -214,7 +214,7 @@
             {% set hour = "now"|date("G") %}
             <div class="row">
 
-                <div class="background cell rw-12">
+                <div class="background cell map-box rw-12">
                     {% if citizen.hasRole('ghoul') %}
                         <div class="green-note warning-box">
                             <img src="{{ asset('build/images/status/status_ghoul.gif') }}" alt=""> {{'Du hast dich in einen %role% verwandelt!'|trans({'%role%': '<strong>' ~ 'Ghul'|trans({},'game') ~ '</strong>'}, 'game')|raw}}<br />
