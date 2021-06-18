@@ -1810,7 +1810,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Die Stadt versinkt im Chaos!&lt;/strong&gt;&lt;/p&gt;Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!&lt;p&gt;&lt;em&gt;... Oder euch gegenseitig abschlachten, je nachdem.&lt;/em&gt;</source>
-        <target><![CDATA[<strong>¡La ciudad ha caído en el caos!</strong></p> Ya no rige ninguna ley... ¡Deben mantenerse unidos y llevarse bien entre ustedes...!<p><em> O matarse los unos a los otros, dependiendo de la situación.</em>]]></target>
+        <target><![CDATA[<strong>¡El pueblo está en Caos Total!</strong></p> Ninguna ley se aplica... ¡Habrá que mantenerse unidos...!<p><em> O matarse los unos a los otros.</em>]]></target>
       </segment>
     </unit>
     <unit id="aGhiyb5" name="Entwickler-Einstellungen">
