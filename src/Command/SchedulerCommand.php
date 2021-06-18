@@ -241,7 +241,7 @@ class SchedulerCommand extends Command
             $progress->finish();
 
             return true;
-        } else return false;
+        } else return true;
     }
 
     /**
