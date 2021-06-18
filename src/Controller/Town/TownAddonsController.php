@@ -491,7 +491,7 @@ class TownAddonsController extends TownController
                             'icon' => $status->getIcon(),
                             'label' => $status->getLabel(),
                             'defImpact' => 20,
-                            'deathImpact' => 4
+                            'deathImpact' => -4
                         );
                         break;
                     case 'hungover':
