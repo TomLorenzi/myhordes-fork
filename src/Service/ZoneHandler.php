@@ -189,9 +189,9 @@ class ZoneHandler
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'camper' )) $factor += 0.1;
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'wound5' )) $factor -= 0.3; // Totally arbitrary
                     if ($this->citizen_handler->hasStatusEffect( $timer->getCitizen(), 'drunk'  )) $factor -= 0.3; // Totally arbitrary
-                    if ($conf->get(TownConf::CONF_FEATURE_NIGHTMODE, true) && $timer->getCitizen()->getTown()->isNight() && $this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) $factor -= 0.2;
+                    if ($conf->isNightMode() && $this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) $factor -= 0.2;
 
-                    if ($conf->get(TownConf::CONF_FEATURE_NIGHTMODE, true) && $timer->getCitizen()->getTown()->isNight()) {
+                    if ($conf->isNightMode()) {
 
                         // If there are items that prevent night mode present, the night malus is set to 0
                         $night_mode_malue = ($this->inventory_handler->countSpecificItems($zone->getFloor(), 'prevent_night', true) == 0) ? 0.2 : 0.0;

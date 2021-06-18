@@ -690,12 +690,6 @@ class Town
         return $this;
     }
 
-    public function isNight(): bool
-    {
-    	$now = new DateTime();
-    	return $now->format('H') < 7 || $now->format('H') > 18;
-    }
-
     public function getDayWithoutAttack(): ?int
     {
         return $this->dayWithoutAttack;

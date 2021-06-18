@@ -705,9 +705,8 @@ class CitizenHandler
         $camping_datetime = new DateTime();
         if ($citizen->getCampingTimestamp() > 0)
             $camping_datetime->setTimestamp( $citizen->getCampingTimestamp() );
-        if ($config->get(TownConf::CONF_FEATURE_NIGHTMODE, true) && $citizen->getTown()->isNight()) {
+        if ($config->isNightMode())
             $camping_values['night'] = 2;
-        }
 
         // Leuchtturm
         $camping_values['lighthouse'] = 0;

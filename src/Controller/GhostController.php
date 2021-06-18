@@ -179,6 +179,10 @@ class GhostController extends CustomAbstractController
 
             'modifiers' => [
                 'strict_picto_distribution' => $crow_permissions ? (bool)$parser->get('strict_pictos', false) : false,
+                'daytime' => [
+                    'range' => [$parser->get_int('nighttime0', 7, 0, 23),$parser->get_int('nighttime1', 18, 1, 24)],
+                    'invert' => $parser->get('nighttime', 'day', ['day','night']) === 'night',
+                ]
             ]
         ];
 

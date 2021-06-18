@@ -305,11 +305,11 @@ class ActionHandler
 
                     // Day & Night
                     case 1:
-                        if ($this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_NIGHTMODE, true) && $citizen->getTown()->isNight() )
+                        if ($this->conf->getTownConfiguration($citizen->getTown())->isNightMode() )
                             $current_state = min($current_state, Requirement::HideOnFail);
                         break;
                     case 2:
-                        if (!$this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_NIGHTMODE, true) || !$citizen->getTown()->isNight() )
+                        if (!$this->conf->getTownConfiguration($citizen->getTown())->isNightMode() )
                             $current_state = min($current_state, Requirement::HideOnFail);
                         break;
 
