@@ -20172,7 +20172,7 @@
       </notes>
       <segment>
         <source>Ein neuer Bürger ist in der Stadt angekommen: %citizen% (%profession%).</source>
-        <target>Ein neuer Bürger ist in der Stadt angekommen: %citizen% (%profession%).</target>
+        <target>Un nuevo habitante ha llegado: %citizen% (%profession%).</target>
       </segment>
     </unit>
   </file>
