@@ -1483,7 +1483,7 @@
       </notes>
       <segment>
         <source>Einwohnerzahl</source>
-        <target>Einwohnerzahl</target>
+        <target>Number of Citizens</target>
       </segment>
     </unit>
     <unit id="kjZ829E" name="Muss zwischen 10 und 80 liegen.">
@@ -1492,7 +1492,7 @@
       </notes>
       <segment>
         <source>Muss zwischen 10 und 80 liegen.</source>
-        <target>Muss zwischen 10 und 80 liegen.</target>
+        <target>Must be between 10 an 80.</target>
       </segment>
     </unit>
     <unit id="aASpCwA" name="Bürger-Aliase:">
@@ -1501,7 +1501,7 @@
       </notes>
       <segment>
         <source>Bürger-Aliase:</source>
-        <target>Bürger-Aliase:</target>
+        <target>Citizen Aliases:</target>
       </segment>
     </unit>
     <unit id="VcRaioj">
@@ -1510,7 +1510,7 @@
       </notes>
       <segment>
         <source>Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen</source>
-        <target>Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen</target>
+        <target>Allows a citizen to select an alias instead of their usual name for this town</target>
       </segment>
     </unit>
     <unit id="CQsXVvw" name="Dein Name">
@@ -1519,7 +1519,61 @@
       </notes>
       <segment>
         <source>Dein Name</source>
-        <target>Dein Name</target>
+        <target>Your Name</target>
+      </segment>
+    </unit>
+    <unit id="U59mj2e" name="Zeitzone:">
+      <notes>
+        <note category="german">Zeitzone:</note>
+      </notes>
+      <segment>
+        <source>Zeitzone:</source>
+        <target>Time Zone:</target>
+      </segment>
+    </unit>
+    <unit id="e3MFczK" name="Die eingestellte Zeit gibt die Dauer des Tages an.">
+      <notes>
+        <note category="german">Die eingestellte Zeit gibt die Dauer des Tages an.</note>
+      </notes>
+      <segment>
+        <source>Die eingestellte Zeit gibt die Dauer des Tages an.</source>
+        <target>The given time controls the duration of the day.</target>
+      </segment>
+    </unit>
+    <unit id="GhcEWUz">
+      <notes>
+        <note category="german">Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.</note>
+      </notes>
+      <segment>
+        <source>Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.</source>
+        <target>If Night Mode is disabled, this setting is purely cosmetic.</target>
+      </segment>
+    </unit>
+    <unit id="lLT6O3P" name="Tagesphase">
+      <notes>
+        <note category="german">Tagesphase</note>
+      </notes>
+      <segment>
+        <source>Tagesphase</source>
+        <target>Day Time Phase</target>
+      </segment>
+    </unit>
+    <unit id="Xhpz327" name="Die eingestellte Zeit gibt die Dauer der Nacht an.">
+      <notes>
+        <note category="german">Die eingestellte Zeit gibt die Dauer der Nacht an.</note>
+      </notes>
+      <segment>
+        <source>Die eingestellte Zeit gibt die Dauer der Nacht an.</source>
+        <target>The given time controls the duration of the night.</target>
+      </segment>
+    </unit>
+    <unit id="dkUvCKc" name="Nachtphase">
+      <notes>
+        <note category="german">Nachtphase</note>
+      </notes>
+      <segment>
+        <source>Nachtphase</source>
+        <target>Night Time Phase</target>
       </segment>
     </unit>
   </file>

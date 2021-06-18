@@ -3457,5 +3457,41 @@
         <target>Prevent writing to the Black Board</target>
       </segment>
     </unit>
+    <unit id="Oxn3AlI" name="Passwort-geschützt">
+      <notes>
+        <note category="german">Passwort-geschützt</note>
+      </notes>
+      <segment>
+        <source>Passwort-geschützt</source>
+        <target>Password protected</target>
+      </segment>
+    </unit>
+    <unit id="TabP5k8" name="Passwort ändern">
+      <notes>
+        <note category="german">Passwort ändern</note>
+      </notes>
+      <segment>
+        <source>Passwort ändern</source>
+        <target>Change Password</target>
+      </segment>
+    </unit>
+    <unit id="SvdvL6C" name="Passwort entfernen">
+      <notes>
+        <note category="german">Passwort entfernen</note>
+      </notes>
+      <segment>
+        <source>Passwort entfernen</source>
+        <target>Remove Password</target>
+      </segment>
+    </unit>
+    <unit id="WgvpXRX" name="Passwort setzen">
+      <notes>
+        <note category="german">Passwort setzen</note>
+      </notes>
+      <segment>
+        <source>Passwort setzen</source>
+        <target>Set Password</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

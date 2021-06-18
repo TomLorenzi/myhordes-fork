@@ -3475,5 +3475,41 @@
         <target>Utilisation du tableau noir</target>
       </segment>
     </unit>
+    <unit id="Oxn3AlI" name="Passwort-geschützt">
+      <notes>
+        <note category="german">Passwort-geschützt</note>
+      </notes>
+      <segment>
+        <source>Passwort-geschützt</source>
+        <target>Passwort-geschützt</target>
+      </segment>
+    </unit>
+    <unit id="TabP5k8" name="Passwort ändern">
+      <notes>
+        <note category="german">Passwort ändern</note>
+      </notes>
+      <segment>
+        <source>Passwort ändern</source>
+        <target>Passwort ändern</target>
+      </segment>
+    </unit>
+    <unit id="SvdvL6C" name="Passwort entfernen">
+      <notes>
+        <note category="german">Passwort entfernen</note>
+      </notes>
+      <segment>
+        <source>Passwort entfernen</source>
+        <target>Passwort entfernen</target>
+      </segment>
+    </unit>
+    <unit id="WgvpXRX" name="Passwort setzen">
+      <notes>
+        <note category="german">Passwort setzen</note>
+      </notes>
+      <segment>
+        <source>Passwort setzen</source>
+        <target>Passwort setzen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

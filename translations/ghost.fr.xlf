@@ -1497,5 +1497,59 @@
         <target>Dein Name</target>
       </segment>
     </unit>
+    <unit id="U59mj2e" name="Zeitzone:">
+      <notes>
+        <note category="german">Zeitzone:</note>
+      </notes>
+      <segment>
+        <source>Zeitzone:</source>
+        <target>Zeitzone:</target>
+      </segment>
+    </unit>
+    <unit id="e3MFczK" name="Die eingestellte Zeit gibt die Dauer des Tages an.">
+      <notes>
+        <note category="german">Die eingestellte Zeit gibt die Dauer des Tages an.</note>
+      </notes>
+      <segment>
+        <source>Die eingestellte Zeit gibt die Dauer des Tages an.</source>
+        <target>Die eingestellte Zeit gibt die Dauer des Tages an.</target>
+      </segment>
+    </unit>
+    <unit id="GhcEWUz">
+      <notes>
+        <note category="german">Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.</note>
+      </notes>
+      <segment>
+        <source>Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.</source>
+        <target>Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.</target>
+      </segment>
+    </unit>
+    <unit id="lLT6O3P" name="Tagesphase">
+      <notes>
+        <note category="german">Tagesphase</note>
+      </notes>
+      <segment>
+        <source>Tagesphase</source>
+        <target>Tagesphase</target>
+      </segment>
+    </unit>
+    <unit id="Xhpz327" name="Die eingestellte Zeit gibt die Dauer der Nacht an.">
+      <notes>
+        <note category="german">Die eingestellte Zeit gibt die Dauer der Nacht an.</note>
+      </notes>
+      <segment>
+        <source>Die eingestellte Zeit gibt die Dauer der Nacht an.</source>
+        <target>Die eingestellte Zeit gibt die Dauer der Nacht an.</target>
+      </segment>
+    </unit>
+    <unit id="dkUvCKc" name="Nachtphase">
+      <notes>
+        <note category="german">Nachtphase</note>
+      </notes>
+      <segment>
+        <source>Nachtphase</source>
+        <target>Nachtphase</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
