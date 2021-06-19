@@ -1504,5 +1504,455 @@
         <target>Étude des quarantaines</target>
       </segment>
     </unit>
+    <unit id="2t2ppQ_" name="Psychose">
+      <notes>
+        <note category="german">Psychose</note>
+      </notes>
+      <segment>
+        <source>Psychose</source>
+        <target>Psychoses</target>
+      </segment>
+    </unit>
+    <unit id="K2Wbd.A" name="Demenz">
+      <notes>
+        <note category="german">Demenz</note>
+      </notes>
+      <segment>
+        <source>Demenz</source>
+        <target>Démence</target>
+      </segment>
+    </unit>
+    <unit id="EYYevn6" name="Leid">
+      <notes>
+        <note category="german">Leid</note>
+      </notes>
+      <segment>
+        <source>Leid</source>
+        <target>Agonie</target>
+      </segment>
+    </unit>
+    <unit id="NDIpR9F" name="Trinke">
+      <notes>
+        <note category="german">Trinke</note>
+      </notes>
+      <segment>
+        <source>Trinke</source>
+        <target>Boire</target>
+      </segment>
+    </unit>
+    <unit id="Na4chUa" name="Schlaf">
+      <notes>
+        <note category="german">Schlaf</note>
+      </notes>
+      <segment>
+        <source>Schlaf</source>
+        <target>Dormir</target>
+      </segment>
+    </unit>
+    <unit id="ts.41ge" name="Blut">
+      <notes>
+        <note category="german">Blut</note>
+      </notes>
+      <segment>
+        <source>Blut</source>
+        <target>Sang</target>
+      </segment>
+    </unit>
+    <unit id="WEwnSQW" name="Wut">
+      <notes>
+        <note category="german">Wut</note>
+      </notes>
+      <segment>
+        <source>Wut</source>
+        <target>Rage</target>
+      </segment>
+    </unit>
+    <unit id="G.Cu2aP" name="Hass">
+      <notes>
+        <note category="german">Hass</note>
+      </notes>
+      <segment>
+        <source>Hass</source>
+        <target>Haine</target>
+      </segment>
+    </unit>
+    <unit id="nbLDtAU" name="Töte">
+      <notes>
+        <note category="german">Töte</note>
+      </notes>
+      <segment>
+        <source>Töte</source>
+        <target>Tuer</target>
+      </segment>
+    </unit>
+    <unit id="25tJTf3" name="Töte sie">
+      <notes>
+        <note category="german">Töte sie</note>
+      </notes>
+      <segment>
+        <source>Töte sie</source>
+        <target>Tues-les</target>
+      </segment>
+    </unit>
+    <unit id="b15cXr8" name="Mord">
+      <notes>
+        <note category="german">Mord</note>
+      </notes>
+      <segment>
+        <source>Mord</source>
+        <target>Meurtre</target>
+      </segment>
+    </unit>
+    <unit id=".flbaw." name="Drogen">
+      <notes>
+        <note category="german">Drogen</note>
+      </notes>
+      <segment>
+        <source>Drogen</source>
+        <target>Drogues</target>
+      </segment>
+    </unit>
+    <unit id="nVEhLBk" name="Der Tod wartet">
+      <notes>
+        <note category="german">Der Tod wartet</note>
+      </notes>
+      <segment>
+        <source>Der Tod wartet</source>
+        <target>La mort t'attend</target>
+      </segment>
+    </unit>
+    <unit id="AQoCjlG" name="Du wirst sterben">
+      <notes>
+        <note category="german">Du wirst sterben</note>
+      </notes>
+      <segment>
+        <source>Du wirst sterben</source>
+        <target>Tu vas mourir</target>
+      </segment>
+    </unit>
+    <unit id="YbqI5Bm" name="Du wirst heute sterben">
+      <notes>
+        <note category="german">Du wirst heute sterben</note>
+      </notes>
+      <segment>
+        <source>Du wirst heute sterben</source>
+        <target>Tu mourras cette nuit</target>
+      </segment>
+    </unit>
+    <unit id="RdgKJ.d" name="Folge den Schatten">
+      <notes>
+        <note category="german">Folge den Schatten</note>
+      </notes>
+      <segment>
+        <source>Folge den Schatten</source>
+        <target>Rejoins les ombres</target>
+      </segment>
+    </unit>
+    <unit id="kuk0yC." name="Alpträume">
+      <notes>
+        <note category="german">Alpträume</note>
+      </notes>
+      <segment>
+        <source>Alpträume</source>
+        <target>Cauchemars</target>
+      </segment>
+    </unit>
+    <unit id="tRWS2l6" name="Verstümmelung">
+      <notes>
+        <note category="german">Verstümmelung</note>
+      </notes>
+      <segment>
+        <source>Verstümmelung</source>
+        <target>Mutilations</target>
+      </segment>
+    </unit>
+    <unit id="bL1VSbZ" name="Keine Hoffnung">
+      <notes>
+        <note category="german">Keine Hoffnung</note>
+      </notes>
+      <segment>
+        <source>Keine Hoffnung</source>
+        <target>Aucun espoir</target>
+      </segment>
+    </unit>
+    <unit id="WFp8AyZ" name="Sie beobachten dich">
+      <notes>
+        <note category="german">Sie beobachten dich</note>
+      </notes>
+      <segment>
+        <source>Sie beobachten dich</source>
+        <target>Ils t'espionnent</target>
+      </segment>
+    </unit>
+    <unit id="v70UGnq" name="Sie wollen dich töten">
+      <notes>
+        <note category="german">Sie wollen dich töten</note>
+      </notes>
+      <segment>
+        <source>Sie wollen dich töten</source>
+        <target>Ils veulent ta mort</target>
+      </segment>
+    </unit>
+    <unit id="pyauuvK" name="Traue niemandem">
+      <notes>
+        <note category="german">Traue niemandem</note>
+      </notes>
+      <segment>
+        <source>Traue niemandem</source>
+        <target>Ne leur fais pas confiance</target>
+      </segment>
+    </unit>
+    <unit id="ca2GnpZ" name="Lauf lauf weg">
+      <notes>
+        <note category="german">Lauf lauf weg</note>
+      </notes>
+      <segment>
+        <source>Lauf lauf weg</source>
+        <target>Enfuis toi loin</target>
+      </segment>
+    </unit>
+    <unit id="ZS_oYub" name="Hör nicht auf sie">
+      <notes>
+        <note category="german">Hör nicht auf sie</note>
+      </notes>
+      <segment>
+        <source>Hör nicht auf sie</source>
+        <target>Ne les écoutes pas</target>
+      </segment>
+    </unit>
+    <unit id="legDNfw" name="Sie werden dich töten">
+      <notes>
+        <note category="german">Sie werden dich töten</note>
+      </notes>
+      <segment>
+        <source>Sie werden dich töten</source>
+        <target>Ils te tueront</target>
+      </segment>
+    </unit>
+    <unit id="PHrbHvI" name="Dein Nachbar will deinen Tod">
+      <notes>
+        <note category="german">Dein Nachbar will deinen Tod</note>
+      </notes>
+      <segment>
+        <source>Dein Nachbar will deinen Tod</source>
+        <target>Ton voisin veut ta mort</target>
+      </segment>
+    </unit>
+    <unit id="zyCSipi" name="Sie wollen dich hängen">
+      <notes>
+        <note category="german">Sie wollen dich hängen</note>
+      </notes>
+      <segment>
+        <source>Sie wollen dich hängen</source>
+        <target>Sie wollen dich hängen</target>
+      </segment>
+    </unit>
+    <unit id="Iikq2RH" name="Sie werden dich umbringen">
+      <notes>
+        <note category="german">Sie werden dich umbringen</note>
+      </notes>
+      <segment>
+        <source>Sie werden dich umbringen</source>
+        <target>Ils veulent te pendre</target>
+      </segment>
+    </unit>
+    <unit id="1SlXsSD" name="Bleib hier">
+      <notes>
+        <note category="german">Bleib hier</note>
+      </notes>
+      <segment>
+        <source>Bleib hier</source>
+        <target>Tu y passeras</target>
+      </segment>
+    </unit>
+    <unit id="z1q5NeJ" name="Koste ihr Blut">
+      <notes>
+        <note category="german">Koste ihr Blut</note>
+      </notes>
+      <segment>
+        <source>Koste ihr Blut</source>
+        <target>Goûte leur sang</target>
+      </segment>
+    </unit>
+    <unit id="gK89Qa1" name="Wir beobachten dich">
+      <notes>
+        <note category="german">Wir beobachten dich</note>
+      </notes>
+      <segment>
+        <source>Wir beobachten dich</source>
+        <target>On t'observe</target>
+      </segment>
+    </unit>
+    <unit id="_U2RPMV" name="Sie sind VERRÜCKT">
+      <notes>
+        <note category="german">Sie sind VERRÜCKT</note>
+      </notes>
+      <segment>
+        <source>Sie sind VERRÜCKT</source>
+        <target>Ils sont FOUS</target>
+      </segment>
+    </unit>
+    <unit id="4UhQdcm" name="Wir wollen deine Haut">
+      <notes>
+        <note category="german">Wir wollen deine Haut</note>
+      </notes>
+      <segment>
+        <source>Wir wollen deine Haut</source>
+        <target>On veut ta peau</target>
+      </segment>
+    </unit>
+    <unit id="IY2Ysbc" name="Koste ihr Fleisch">
+      <notes>
+        <note category="german">Koste ihr Fleisch</note>
+      </notes>
+      <segment>
+        <source>Koste ihr Fleisch</source>
+        <target>Goûte leur chair</target>
+      </segment>
+    </unit>
+    <unit id="fVDjqAf" name="Iss ihn">
+      <notes>
+        <note category="german">Iss ihn</note>
+      </notes>
+      <segment>
+        <source>Iss ihn</source>
+        <target>Manges en un</target>
+      </segment>
+    </unit>
+    <unit id="RFODCm." name="Töte ihn">
+      <notes>
+        <note category="german">Töte ihn</note>
+      </notes>
+      <segment>
+        <source>Töte ihn</source>
+        <target>Tues en un</target>
+      </segment>
+    </unit>
+    <unit id="Fy78.sn" name="Lass ihn zahlen">
+      <notes>
+        <note category="german">Lass ihn zahlen</note>
+      </notes>
+      <segment>
+        <source>Lass ihn zahlen</source>
+        <target>Fais lui payer</target>
+      </segment>
+    </unit>
+    <unit id="CleaC28" name="Räche dich">
+      <notes>
+        <note category="german">Räche dich</note>
+      </notes>
+      <segment>
+        <source>Räche dich</source>
+        <target>Venge-toi</target>
+      </segment>
+    </unit>
+    <unit id="DtRCEDn" name="Verrate sie">
+      <notes>
+        <note category="german">Verrate sie</note>
+      </notes>
+      <segment>
+        <source>Verrate sie</source>
+        <target>Trahis-les</target>
+      </segment>
+    </unit>
+    <unit id="Fzgol4h" name="Ohne Gnade">
+      <notes>
+        <note category="german">Ohne Gnade</note>
+      </notes>
+      <segment>
+        <source>Ohne Gnade</source>
+        <target>Sans pitié</target>
+      </segment>
+    </unit>
+    <unit id="nhW0K2J" name="Ich bin nicht verrückt">
+      <notes>
+        <note category="german">Ich bin nicht verrückt</note>
+      </notes>
+      <segment>
+        <source>Ich bin nicht verrückt</source>
+        <target>Je ne suis pas fou</target>
+      </segment>
+    </unit>
+    <unit id="b3DbmRg" name="Ich sehe nichts">
+      <notes>
+        <note category="german">Ich sehe nichts</note>
+      </notes>
+      <segment>
+        <source>Ich sehe nichts</source>
+        <target>Je ne vois rien</target>
+      </segment>
+    </unit>
+    <unit id="ScQz1FJ" name="Sie sind wahnsinnig">
+      <notes>
+        <note category="german">Sie sind wahnsinnig</note>
+      </notes>
+      <segment>
+        <source>Sie sind wahnsinnig</source>
+        <target>Ils sont fous</target>
+      </segment>
+    </unit>
+    <unit id="RJM4_Pj" name="Bis zum Tod">
+      <notes>
+        <note category="german">Bis zum Tod</note>
+      </notes>
+      <segment>
+        <source>Bis zum Tod</source>
+        <target>A mort</target>
+      </segment>
+    </unit>
+    <unit id="FsIaYVJ" name="Töte sie alle">
+      <notes>
+        <note category="german">Töte sie alle</note>
+      </notes>
+      <segment>
+        <source>Töte sie alle</source>
+        <target>Tue les tous</target>
+      </segment>
+    </unit>
+    <unit id="JaBlp76" name="Sie werden sterben">
+      <notes>
+        <note category="german">Sie werden sterben</note>
+      </notes>
+      <segment>
+        <source>Sie werden sterben</source>
+        <target>Ils mourront</target>
+      </segment>
+    </unit>
+    <unit id="P.WLZrc" name="Lass sie sterben">
+      <notes>
+        <note category="german">Lass sie sterben</note>
+      </notes>
+      <segment>
+        <source>Lass sie sterben</source>
+        <target>Qu'ils meurent</target>
+      </segment>
+    </unit>
+    <unit id="1hHqy07" name="Verschlinge sie">
+      <notes>
+        <note category="german">Verschlinge sie</note>
+      </notes>
+      <segment>
+        <source>Verschlinge sie</source>
+        <target>Dévore-les</target>
+      </segment>
+    </unit>
+    <unit id="NLjEZ7p" name="Gib auf">
+      <notes>
+        <note category="german">Gib auf</note>
+      </notes>
+      <segment>
+        <source>Gib auf</source>
+        <target>Abandonne</target>
+      </segment>
+    </unit>
+    <unit id="8KUUEzj" name="Alles... ist ... OK …">
+      <notes>
+        <note category="german">Alles... ist... gut...</note>
+      </notes>
+      <segment>
+        <source>Alles... ist ... OK …</source>
+        <target>Tout … va … bien …</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

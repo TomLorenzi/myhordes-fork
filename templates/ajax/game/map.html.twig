@@ -276,81 +276,77 @@
         {% endif %}
     </div>
 </div>
-{#
+
 <script>
-var words = [
-    'Psychoses',
-    'Démence',
-    'Agonie',
-    'Boire',
-    'Dormir',
-    'Sang',
-    'Rage',
-    'Haine',
-    'Tuer',
-    'Tues-les',
-    'Meurtre',
-    'Drogues',
-    'La mort t\'attend',
-    'Tu vas mourir',
-    'Tu mourras cette nuit',
-    'Rejoins les ombres',
-    'Cauchemars',
-    'Mutilations',
-    'Aucun espoir',
-    'Ils t\'espionnent',
-    'Ils veulent ta mort',
-    'Ne leur fais pas confiance',
-    'Enfuis toi loin',
-    'Ne les écoute pas',
-    'Ils te tueront',
-    'Ton voisin veut ta mort',
-    'Ils veulent te pendre',
-    'Ils vont te tuer',
-    'Tu y passeras',
-    'Goûte leur sang',
-    'On t\'observe',
-    'Ils sont FOUS',
-    'On veut ta peau',
-    'Goûte leur chair',
-    'Manges en un',
-    'Tues en un',
-    'Fais lui payer',
-    'Venge-toi',
-    'Trahis-les',
-    'Sans pitié',
-    'Je ne suis pas fou',
-    'Je ne vois rien',
-    'Ils sont fous',
-    'A mort',
-    'Tue les tous',
-    'Ils mourront',
-    'Qu\'ils meurent',
-    'Dévore-les',
-    'Abandonne',
-    'Tout...va...bien...',
-    'Nous étions mieux sans eux',
-];
+    {% if allow_zone_view %}
+        (function() {
+        const words = [
+            '{{ 'Psychose'|trans({}, 'names')|e('js') }}',
+            '{{ 'Demenz'|trans({}, 'names')|e('js') }}',
+            '{{ 'Leid'|trans({}, 'names')|e('js') }}',
+            '{{ 'Trinke'|trans({}, 'names')|e('js') }}',
+            '{{ 'Schlaf'|trans({}, 'names')|e('js') }}',
+            '{{ 'Blut'|trans({}, 'names')|e('js') }}',
+            '{{ 'Wut'|trans({}, 'names')|e('js') }}',
+            '{{ 'Hass'|trans({}, 'names')|e('js') }}',
+            '{{ 'Töte'|trans({}, 'names')|e('js') }}',
+            '{{ 'Töte sie'|trans({}, 'names')|e('js') }}',
+            '{{ 'Mord'|trans({}, 'names')|e('js') }}',
+            '{{ 'Drogen'|trans({}, 'names')|e('js') }}',
+            '{{ 'Der Tod wartet'|trans({}, 'names')|e('js') }}',
+            '{{ 'Du wirst sterben'|trans({}, 'names')|e('js') }}',
+            '{{ 'Du wirst heute sterben'|trans({}, 'names')|e('js') }}',
+            '{{ 'Folge den Schatten'|trans({}, 'names')|e('js') }}',
+            '{{ 'Alpträume'|trans({}, 'names')|e('js') }}',
+            '{{ 'Verstümmelung'|trans({}, 'names')|e('js') }}',
+            '{{ 'Keine Hoffnung'|trans({}, 'names')|e('js') }}',
+            '{{ 'Sie beobachten dich'|trans({}, 'names')|e('js') }}',
+            '{{ 'Sie wollen dich töten'|trans({}, 'names')|e('js') }}',
+            '{{ 'Traue niemandem'|trans({}, 'names')|e('js') }}',
+            '{{ 'Lauf lauf weg'|trans({}, 'names')|e('js') }}',
+            '{{ 'Hör nicht auf sie'|trans({}, 'names')|e('js') }}',
+            '{{ 'Sie werden dich töten'|trans({}, 'names')|e('js') }}',
+            '{{ 'Dein Nachbar will deinen Tod'|trans({}, 'names')|e('js') }}',
+            '{{ 'Sie wollen dich hängen'|trans({}, 'names')|e('js') }}',
+            '{{ 'Sie werden dich umbringen'|trans({}, 'names')|e('js') }}',
+            '{{ 'Bleib hier'|trans({}, 'names')|e('js') }}',
+            '{{ 'Koste ihr Blut'|trans({}, 'names')|e('js') }}',
+            '{{ 'Wir beobachten dich'|trans({}, 'names')|e('js') }}',
+            '{{ 'Sie sind VERRÜCKT'|trans({}, 'names')|e('js') }}',
+            '{{ 'Wir wollen deine Haut'|trans({}, 'names')|e('js') }}',
+            '{{ 'Koste ihr Fleisch'|trans({}, 'names')|e('js') }}',
+            '{{ 'Iss ihn'|trans({}, 'names')|e('js') }}',
+            '{{ 'Töte ihn'|trans({}, 'names')|e('js') }}',
+            '{{ 'Lass ihn zahlen'|trans({}, 'names')|e('js') }}',
+            '{{ 'Räche dich'|trans({}, 'names')|e('js') }}',
+            '{{ 'Verrate sie'|trans({}, 'names')|e('js') }}',
+            '{{ 'Ohne Gnade'|trans({}, 'names')|e('js') }}',
+            '{{ 'Ich bin nicht verrückt'|trans({}, 'names')|e('js') }}',
+            '{{ 'Ich sehe nichts'|trans({}, 'names')|e('js') }}',
+            '{{ 'Sie sind wahnsinnig'|trans({}, 'names')|e('js') }}',
+            '{{ 'Bis zum Tod'|trans({}, 'names')|e('js') }}',
+            '{{ 'Töte sie alle'|trans({}, 'names')|e('js') }}',
+            '{{ 'Sie werden sterben'|trans({}, 'names')|e('js') }}',
+            '{{ 'Lass sie sterben'|trans({}, 'names')|e('js') }}',
+            '{{ 'Verschlinge sie'|trans({}, 'names')|e('js') }}',
+            '{{ 'Gib auf'|trans({}, 'names')|e('js') }}',
+            '{{ 'Alles... ist ... OK …'|trans({}, 'names')|e('js') }}'
+        ];
 
-function pickRandomWord(){
-    var word = words[Math.floor(Math.random() * words.length)];
+        $.html.addEventListenerAll('.tooltip-map', 'appear', function(e,elem) {
+            if (!elem.hasAttribute('x-original-content') && Math.random() > 0.70) {
+                setTimeout(function() {
+                    const word = words[Math.floor(Math.random() * words.length)];
+                    elem.setAttribute('x-original-content', elem.innerHTML);
 
-    var tooltip = document.getElementById('tooltip_container');
-
-    if(tooltip.innerText != "") {
-        var content = document.querySelector("#tooltip_container .tooltip");
-        var oldcontent = content.innerHTML;
-        content.innerHTML = "<div class='row'><div class='cell rw-12'>" + word + "</div></div>";
-        setTimeout(function(){
-            content.innerHTML = oldcontent;
-        }, 500);
-    }
-
-    setTimeout(pickRandomWord, Math.random() * 30000);
-}
-
-setTimeout(pickRandomWord, Math.random() * 30000);
-
-
+                    elem.innerHTML = "<div class='row'><div class='cell rw-12'>" + word + "</div></div>";
+                    setTimeout(function() {
+                        elem.innerHTML = elem.getAttribute('x-original-content');
+                        elem.removeAttribute('x-original-content');
+                    }, 500 * (Math.random()+1.0));
+                }, 100 + (2000 * Math.random()));
+            }
+        });
+    })();
+    {% endif %}
 </script>
-#}

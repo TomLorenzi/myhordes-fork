@@ -319,9 +319,11 @@ export default class HTML {
             element.style.display = 'block';
             container.append( element );
             fun_tooltip_pos(e);
+            element.dispatchEvent( new Event('appear') );
         }
 
         const fun_tooltip_hide = function(e: PointerEvent|TouchEvent|MouseEvent) {
+            element.dispatchEvent( new Event('disappear') );
             element.style.display = 'none';
             parent.append( element );
         }
