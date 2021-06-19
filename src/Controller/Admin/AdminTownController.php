@@ -32,6 +32,7 @@ use App\Entity\RuinExplorerStats;
 use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\User;
+use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
 use App\Response\AjaxResponse;
 use App\Service\CrowService;
@@ -341,7 +342,9 @@ class AdminTownController extends AdminActionController
         if (in_array($action, [
                 'release', 'quarantine', 'advance', 'nullify', 'pw_change',
                 'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf',
-                'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage', 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days'
+                'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage',
+                'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days',
+                'dbg_set_attack'
             ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
@@ -561,6 +564,28 @@ class AdminTownController extends AdminActionController
                         $this->entity_manager->flush();
                     } else break;
 
+                break;
+            case 'dbg_set_attack':
+                if (empty($param)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                $list = explode(':', $param);
+                if (count($list) === 1) $list = [ $town->getDay(), (int)$list[0] ];
+                else $list = [ (int)$list[0], (int)$list[1] ];
+
+                if ($list[0] < $town->getDay() || $list[1] <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest, [$list[0],$town->getDay(),$list[1]]);
+                $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town,$list[0]);
+                if ($est === null) {
+                    $off_min = mt_rand( 10, 24 );
+                    $off_max = 34 - $off_min;
+                    $town->addZombieEstimation(
+                        $est = (new ZombieEstimation())
+                            ->setDay( $list[0] )
+                            ->setZombies( $list[1] )
+                            ->setOffsetMin( $off_min )
+                            ->setOffsetMax( $off_max )
+                    );
+                } else $est->setZombies($list[1]);
+
+                $this->entity_manager->persist($est);
                 break;
             case 'ex_del': case 'ex_co+': case 'ex_co-':case 'ex_ref':case 'ex_inf':
                 /** @var RuinExplorerStats $session */
