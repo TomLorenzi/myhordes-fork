@@ -88,6 +88,29 @@ div.ruin_map_area {
     &>.zone-plane, &>.zone-plane-controls {
       transition: opacity 0.25s ease, transform 0.25s ease, top 0.75s ease, left 0.75s ease; position: absolute;
     }
+
+    &>.frame-plane {
+      &>* { position: absolute; }
+      &>.tl  { height: 33px; width:  33px; top: 0;    left:  0; background: url("../../img/map/glass_tl.png") no-repeat; }
+      &>.tr  { height: 33px; width:  33px; top: 0;    right: 0; background: url("../../img/map/glass_tr.png") no-repeat; }
+      &>.bl  { height: 33px; width:  33px; bottom: 0; left:  0; background: url("../../img/map/glass_bl.png") no-repeat; }
+      &>.br  { height: 33px; width:  33px; bottom: 0; right: 0; background: url("../../img/map/glass_br.png") no-repeat; }
+      &>.t0l { height: 33px; left: 33px; top: 0; width: calc( 50% - 133px ); background: url("../../img/map/glass_t0.png") repeat-x; }
+      &>.t1  { height: 33px; width: 140px; top: 0; left: calc( 50% - 100px ); background: url("../../img/map/glass_t1.png") no-repeat; }
+      &>.t0r { height: 33px; top: 0; left: calc( 50% + 40px ); right: 33px; background: url("../../img/map/glass_t0.png") repeat-x; }
+      &>.l0t { left: 0; top: 33px; width: 33px; bottom: calc( 50% + 8px ); background: url("../../img/map/glass_l0.png") repeat-y; }
+      &>.l1  { left: 0; top: calc( 50% - 8px );  width: 33px; height: 17px; background: url("../../img/map/glass_l1.png") no-repeat; }
+      &>.l0m { left: 0; top: calc( 50% + 9px );  width: 33px; bottom: calc( 25% + 16px ); background: url("../../img/map/glass_l0.png") repeat-y; }
+      &>.l2  { left: 0; top: calc( 75% - 16px ); width: 33px; height: 33px; background: url("../../img/map/glass_l2.png") no-repeat; }
+      &>.l0b { left: 0; top: calc( 75% + 17px ); width: 33px; bottom: 33px; background: url("../../img/map/glass_l0.png") repeat-y; }
+      &>.r0t { right: 0; top: 33px; width: 33px; bottom: calc( 50% + 22px ); background: url("../../img/map/glass_r0.png") repeat-y; }
+      &>.r1  { right: 0; top: calc( 50% - 22px ); width: 33px; height: 45px; background: url("../../img/map/glass_r1.png") no-repeat; }
+      &>.r0b { right: 0; top: calc( 50% + 23px ); width: 33px; bottom: 33px; background: url("../../img/map/glass_r0.png") repeat-y; }
+      &>.b   { height: 33px; bottom: 0; left: 33px; right: 33px; background: url("../../img/map/glass_b.png") repeat-x; }
+
+      pointer-events: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 10;
+    }
+
     &>.zone-plane {
       background: black; z-index: 2;
       top: -100%; left: -100%; width: 300%; height: 300%; font-size: 0;
@@ -228,4 +251,5 @@ div.ruin_map_area {
       }
     }
   }
+  div.controls { background: @myhordes-map-footer; height: 16px; }
 }

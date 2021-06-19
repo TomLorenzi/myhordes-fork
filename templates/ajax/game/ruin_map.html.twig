@@ -1,5 +1,14 @@
 <div class="ruin_map_area">
     <div class="map {{ map.shifted ? 'in_room' : '' }}">
+
+        <div class="frame-plane">
+            <div class="tl"></div><div class="tr"></div><div class="bl"></div><div class="br"></div>
+            <div class="t0l"></div><div class="t1"></div><div class="t0r"></div>
+            <div class="l0t"></div><div class="l1"></div><div class="l0m"></div><div class="l0b"></div><div class="l2"></div>
+            <div class="r0t"></div><div class="r1"></div><div class="r0b"></div>
+            <div class="b"></div>
+        </div>
+
         <div class="zone-plane retro">
                 <div class="zone-sub-container">
                     {% for plane_y in 1..-1 %}
@@ -79,6 +88,7 @@
             <div class="scanner"></div>
         </div>
     </div>
+    <div class="controls"></div>
 </div>
 {#
 <script>

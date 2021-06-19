@@ -1,7 +1,21 @@
 <div class="map_area {% if default_show_zone %}zone-viewer-mode{% endif %}">
-    <div class="map">
+    {% if not conf.isNightTime %}
+        {% set css = 'day' %}
+    {% else %}
+        {% set css = 'night' %}
+    {% endif %}
+
+    <div class="map {{ css }}">
         {% set cellnum = 1+map.map_x1-map.map_x0 %}
         {% set size = 100.0/cellnum %}
+
+        <div class="frame-plane">
+            <div class="tl"></div><div class="tr"></div><div class="bl"></div><div class="br"></div>
+            <div class="t0l"></div><div class="t1"></div><div class="t0r"></div>
+            <div class="l0t"></div><div class="l1"></div><div class="l0m"></div><div class="l0b"></div><div class="l2"></div>
+            <div class="r0t"></div><div class="r1"></div><div class="r0b"></div>
+            <div class="b"></div>
+        </div>
 
         <div class="scroll-plane" x-default-size="{{ cellnum*20 }}" x-current-scroll-level="{{ default_zoom }}">
             <div class="svg">
@@ -130,8 +144,10 @@
                                             {% set ruin_icon = current_surrounding.prototype.icon %}
                                         {% endif %}
                                         <div class="ruin" style="background-image: url({{ asset('build/images/ruin/' ~ ruin_icon ~ '.gif') }})"></div>
+                                        <div class="hovertext"><span>{{ current_surrounding.buryCount > 0 ? 'Verschüttete Ruine'|trans({},'game') : current_surrounding.prototype.label|trans({},'game') }}</span></div>
                                     {% elseif (map.pos_x + plane_x) == 0 and (map.pos_y + plane_y) == 0 %}
                                         <div class="ruin" style="background-image: url({{ asset('build/images/ruin/town.gif') }})"></div>
+                                        <div class="hovertext"><span>{{ map.zones[x][y].town.name }}</span></div>
                                     {% endif %}
 
                                     {% if plane_x == 0 and plane_y == 0 %}
@@ -145,6 +161,12 @@
                                                 <div class="actor zombie" style="left: {{ random([random(25,45),random(55,75)]) }}%; top: {{ random([random(25,45),random(55,75)]) }}%"></div>
                                             {% endfor %}
                                         {% endif %}
+                                    {% endif %}
+
+                                    {% if current_surrounding.discoveryStatus != constant('App\\Entity\\Zone::DiscoveryStateNone') and current_surrounding.prototype %}
+                                        <div class="hovertext"><span>{{ current_surrounding.buryCount > 0 ? 'Verschüttete Ruine'|trans({},'game') : current_surrounding.prototype.label|trans({},'game') }}</span></div>
+                                    {% elseif (map.pos_x + plane_x) == 0 and (map.pos_y + plane_y) == 0 %}
+                                        <div class="hovertext"><span>{{ map.zones[x][y].town.name }}</span></div>
                                     {% endif %}
                                 {% endif %}
                             </div>
@@ -171,16 +193,7 @@
                 </div>
             </div>
 
-            {% if "now"|date('H') >= 6 and "now"|date('H') < 9 %}
-                {% set css = 'morning' %}
-            {% elseif "now"|date('H') < 18 %}
-                {% set css = 'day' %}
-            {% elseif "now"|date('H') < 20 %}
-                {% set css = 'evening' %}
-            {% else %}
-                {% set css = 'night' %}
-            {% endif %}
-            <div class="zone-plane-controls {% if not app.user.disableFx %}retro{% endif %} {{ css }} {% if blocked %}blocked{% endif %}">
+            <div class="zone-plane-controls {% if not app.user.disableFx %}retro{% endif %} {% if blocked %}blocked{% endif %}">
                 <div class="marker-direction"></div>
                 {% if move %}
                     {% if citizen.escortSettings is null or citizen.escortSettings.leader is null %}
