@@ -144,10 +144,8 @@
                                             {% set ruin_icon = current_surrounding.prototype.icon %}
                                         {% endif %}
                                         <div class="ruin" style="background-image: url({{ asset('build/images/ruin/' ~ ruin_icon ~ '.gif') }})"></div>
-                                        <div class="hovertext"><span>{{ current_surrounding.buryCount > 0 ? 'Verschüttete Ruine'|trans({},'game') : current_surrounding.prototype.label|trans({},'game') }}</span></div>
                                     {% elseif (map.pos_x + plane_x) == 0 and (map.pos_y + plane_y) == 0 %}
                                         <div class="ruin" style="background-image: url({{ asset('build/images/ruin/town.gif') }})"></div>
-                                        <div class="hovertext"><span>{{ map.zones[x][y].town.name }}</span></div>
                                     {% endif %}
 
                                     {% if plane_x == 0 and plane_y == 0 %}
@@ -166,7 +164,7 @@
                                     {% if current_surrounding.discoveryStatus != constant('App\\Entity\\Zone::DiscoveryStateNone') and current_surrounding.prototype %}
                                         <div class="hovertext"><span>{{ current_surrounding.buryCount > 0 ? 'Verschüttete Ruine'|trans({},'game') : current_surrounding.prototype.label|trans({},'game') }}</span></div>
                                     {% elseif (map.pos_x + plane_x) == 0 and (map.pos_y + plane_y) == 0 %}
-                                        <div class="hovertext"><span>{{ map.zones[x][y].town.name }}</span></div>
+                                        <div class="hovertext"><span>{{ current_surrounding.town.name }}</span></div>
                                     {% endif %}
                                 {% endif %}
                             </div>
