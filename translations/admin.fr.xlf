@@ -2374,7 +2374,7 @@
       </notes>
       <segment>
         <source>Gib den Namen oder die ID der Stadt ein.</source>
-        <target>Gib den Namen oder die ID der Stadt ein.</target>
+        <target>Entrez ici le nom ou l'ID de la ville.</target>
       </segment>
     </unit>
     <unit id="U4p3p8Q" name="Stimmen">
@@ -3481,7 +3481,7 @@
       </notes>
       <segment>
         <source>Passwort-geschützt</source>
-        <target>Passwort-geschützt</target>
+        <target>Mot de passe protégé</target>
       </segment>
     </unit>
     <unit id="TabP5k8" name="Passwort ändern">
@@ -3490,7 +3490,7 @@
       </notes>
       <segment>
         <source>Passwort ändern</source>
-        <target>Passwort ändern</target>
+        <target>Changer le mot de passe</target>
       </segment>
     </unit>
     <unit id="SvdvL6C" name="Passwort entfernen">
@@ -3499,7 +3499,7 @@
       </notes>
       <segment>
         <source>Passwort entfernen</source>
-        <target>Passwort entfernen</target>
+        <target>Supprimer le mot de passe</target>
       </segment>
     </unit>
     <unit id="WgvpXRX" name="Passwort setzen">
@@ -3508,7 +3508,7 @@
       </notes>
       <segment>
         <source>Passwort setzen</source>
-        <target>Passwort setzen</target>
+        <target>Définir un mot de passe</target>
       </segment>
     </unit>
   </file>
