@@ -344,7 +344,7 @@ class AdminTownController extends AdminActionController
                 'ex_del', 'ex_co+', 'ex_co-', 'ex_ref', 'ex_inf',
                 'dbg_fill_town', 'dbg_fill_bank', 'dbg_unlock_bank', 'dbg_hydrate', 'dbg_disengage', 'dbg_engage',
                 'dbg_set_well', 'dbg_unlock_buildings', 'dbg_map_progress', 'dbg_map_zombie_set', 'dbg_adv_days',
-                'dbg_set_attack'
+                'dbg_set_attack', 'dbg_toggle_chaos', 'dbg_toggle_devas'
             ]) && !$this->isGranted('ROLE_ADMIN'))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
@@ -550,6 +550,7 @@ class AdminTownController extends AdminActionController
 
                 $this->entity_manager->persist( $town );
                 break;
+
             case 'dbg_adv_days':
                 $days = (int)$param;
                 if ($days <= 0) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
@@ -565,6 +566,7 @@ class AdminTownController extends AdminActionController
                     } else break;
 
                 break;
+
             case 'dbg_set_attack':
                 if (empty($param)) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
                 $list = explode(':', $param);
@@ -587,6 +589,19 @@ class AdminTownController extends AdminActionController
 
                 $this->entity_manager->persist($est);
                 break;
+
+            case 'dbg_toggle_chaos':
+                if ($town->getChaos()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                $town->setChaos(true);
+                foreach ($town->getCitizens() as $target_citizen)
+                    $target_citizen->setBanished(false);
+                break;
+
+            case 'dbg_toggle_devas':
+                if ($town->getDevastated()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                $townHandler->devastateTown($town);
+                break;
+
             case 'ex_del': case 'ex_co+': case 'ex_co-':case 'ex_ref':case 'ex_inf':
                 /** @var RuinExplorerStats $session */
                 $session = $this->entity_manager->getRepository(RuinExplorerStats::class)->find($param);

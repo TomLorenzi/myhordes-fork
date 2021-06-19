@@ -3511,5 +3511,41 @@
         <target>Définir un mot de passe</target>
       </segment>
     </unit>
+    <unit id="fDbnikT">
+      <notes>
+        <note category="german">Format: {zombies} (heutiger Angriff) oder {tag}:{zombies} (Angriff an einem bestimmten Tag). Es können keine Tage in der Vergangenheit gewählt werden.</note>
+      </notes>
+      <segment>
+        <source>Format: {zombies} (heutiger Angriff) oder {tag}:{zombies} (Angriff an einem bestimmten Tag). Es können keine Tage in der Vergangenheit gewählt werden.</source>
+        <target>Format: {zombies} (heutiger Angriff) oder {tag}:{zombies} (Angriff an einem bestimmten Tag). Es können keine Tage in der Vergangenheit gewählt werden.</target>
+      </segment>
+    </unit>
+    <unit id="mKJLGIS" name="Stärke des Angriffs setzen">
+      <notes>
+        <note category="german">Stärke des Angriffs setzen</note>
+      </notes>
+      <segment>
+        <source>Stärke des Angriffs setzen</source>
+        <target>Stärke des Angriffs setzen</target>
+      </segment>
+    </unit>
+    <unit id="oVZvTco" name="Chaos-Modus">
+      <notes>
+        <note category="german">Chaos-Modus</note>
+      </notes>
+      <segment>
+        <source>Chaos-Modus</source>
+        <target>Chaos-Modus</target>
+      </segment>
+    </unit>
+    <unit id="cCl3Gqe" name="Stadt zerstören">
+      <notes>
+        <note category="german">Stadt zerstören</note>
+      </notes>
+      <segment>
+        <source>Stadt zerstören</source>
+        <target>Stadt zerstören</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
