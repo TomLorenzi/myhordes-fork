@@ -18846,7 +18846,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wähle einen Gegenstand aus der Bank aus...</source>
-        <target>Wähle einen Gegenstand aus der Bank aus...</target>
+        <target>Select an item from the bank...</target>
       </segment>
     </unit>
     <unit id="B5sYzl." name="Aufklärer: Ruinen erkunden">
