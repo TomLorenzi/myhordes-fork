@@ -298,7 +298,7 @@
       </notes>
       <segment>
         <source>Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300</source>
-        <target>Valeur normale comprise entre 100 et 180. Valeur réduite d'un tier si pandémonium. Valeur maximale à 300.</target>
+        <target>Valeur normale comprise entre 100 et 180. Valeur réduite d'un tiers si ville Pandémonium. Valeur maximale à 300.</target>
       </segment>
     </unit>
     <unit id="9XUKXXI" name="Einstellungen">
