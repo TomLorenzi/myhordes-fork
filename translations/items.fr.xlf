@@ -6757,7 +6757,7 @@
       </notes>
       <segment>
         <source>In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.</source>
-        <target>Vous avez cuisiné {items_consume} et avez obtenu {items_spawn}.</target>
+        <target>Vous utilisez {items_consume} et quelques autres trucs.{hr}Vous préparez le tout du mieux que vous pouvez. Puis, après de longues minutes de cuisson, vous sortez du feu un {items_spawn}.</target>
       </segment>
     </unit>
     <unit id="QwC3IQO" name="Mystischer Trank">
