@@ -8363,5 +8363,23 @@
         <target><![CDATA[L'arme n'a <strong>plus de pile</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="3YKCcgW">
+      <notes>
+        <note category="german">&lt;nt-stat-up-infection&gt;&lt;nt-role-up-ghoul&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...&lt;/nt-role-up-ghoul&gt;&lt;/nt-stat-up-infection&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;nt-stat-up-infection&gt;&lt;nt-role-up-ghoul&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...&lt;/nt-role-up-ghoul&gt;&lt;/nt-stat-up-infection&gt;</source>
+        <target><![CDATA[<nt-stat-up-infection><nt-role-up-ghoul>Vous notez, quelques secondes après, que cette chose avait vraiment un arrière-goût horrible...</nt-role-up-ghoul></nt-stat-up-infection>]]></target>
+      </segment>
+    </unit>
+    <unit id="w9a_4Rx">
+      <notes>
+        <note category="german">Dieses Gefühl des Wohlbefindens, das dieser kleine Kaffee hervorruft, bringt dich sofort wieder auf die Beine. Aah!</note>
+      </notes>
+      <segment>
+        <source>Dieses Gefühl des Wohlbefindens, das dieser kleine Kaffee hervorruft, bringt dich sofort wieder auf die Beine. Aah!</source>
+        <target>La sensation de bien-être procurée par ce bon petit café vous remet d'aplomb instantanément. Ah !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
