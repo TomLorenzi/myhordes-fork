@@ -950,13 +950,24 @@ class LogTemplateHandler
             ->setTimestamp( new DateTime('now') );
     }
 
-    public function nightlyAttackBegin( Town $town, int $num_zombies ): TownLogEntry {
+    public function nightlyAttackBegin( Town $town, int $num_zombies, bool $former_citizens = false ): TownLogEntry {
         $variables = array('num' => $num_zombies);
-        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackBegin']);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => $former_citizens ? 'nightlyAttackBeginWithCitizens' : 'nightlyAttackBegin']);
 
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)
             ->setVariables($variables)
+            ->setTown( $town )
+            ->setDay( $town->getDay() )
+            ->setTimestamp( new DateTime('now') );
+    }
+
+    public function nightlyAttackDisappointed( Town $town ): TownLogEntry {
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackDisappointed']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables([])
             ->setTown( $town )
             ->setDay( $town->getDay() )
             ->setTimestamp( new DateTime('now') );

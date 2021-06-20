@@ -578,13 +578,24 @@ class NightlyHandler
         $inactive_watchers = array_filter( $watchers, fn(CitizenWatch $w) => $w->getCitizen()->getZone() !== null );
         $watchers = array_filter( $watchers, fn(CitizenWatch $w) => $w->getCitizen()->getZone() === null );
 
+        $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow, count($watchers) > 0 && $has_nightwatch));
+
+        $count_zombified_citizens = 0;
+        foreach ($town->getCitizens() as $citizen)
+            if (!$citizen->getAlive() && $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Vanished)
+                $count_zombified_citizens++;
+
+        if ($count_zombified_citizens > 0)
+            $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $count_zombified_citizens, true) );
+
         if(count($watchers) > 0)
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchers($town, $watchers));
         else if ($overflow > 0 && $has_nightwatch) {
             $this->entity_manager->persist($this->logTemplates->nightlyAttackNoWatchers($town));
         }
 
-        $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow, count($watchers) > 0 && $has_nightwatch));
+        if ($overflow <= 0 && $count_zombified_citizens > 0)
+            $this->entity_manager->persist( $this->logTemplates->nightlyAttackDisappointed($town) );
 
         if ($overflow > 0 && count($watchers) > 0 && $has_nightwatch)
             $this->entity_manager->persist( $this->logTemplates->nightlyAttackWatchersCount($town, count($watchers)) );

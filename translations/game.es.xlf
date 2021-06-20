@@ -20211,5 +20211,23 @@
         <target><![CDATA[Du kannst nicht <strong>mehr als 2 Rationen Wasser pro Tag</strong> entnehmen.]]></target>
       </segment>
     </unit>
+    <unit id="nOa7S62">
+      <notes>
+        <note category="german">In der Horde der Zombies wurden %num% ehemalige Bürger gesichtet, die in der Aussenwelt gestorben sind und sich der Stadt nun zähnefletschend und mit düsterem Blick nähern...</note>
+      </notes>
+      <segment>
+        <source>In der Horde der Zombies wurden %num% ehemalige Bürger gesichtet, die in der Aussenwelt gestorben sind und sich der Stadt nun zähnefletschend und mit düsterem Blick nähern...</source>
+        <target>In der Horde der Zombies wurden %num% ehemalige Bürger gesichtet, die in der Aussenwelt gestorben sind und sich der Stadt nun zähnefletschend und mit düsterem Blick nähern...</target>
+      </segment>
+    </unit>
+    <unit id="DLc6Njb">
+      <notes>
+        <note category="german">Von den Verteidigungsanlagen der Stadt aufgehalten, gingen eure ehemaligen Mitbürger mit leeren Händen und mampften stattdessen die Überreste ihrer eigenen verrottenden Gliedmaßen.</note>
+      </notes>
+      <segment>
+        <source>Von den Verteidigungsanlagen der Stadt aufgehalten, gingen eure ehemaligen Mitbürger mit leeren Händen und mampften stattdessen die Überreste ihrer eigenen verrottenden Gliedmaßen.</source>
+        <target>Von den Verteidigungsanlagen der Stadt aufgehalten, gingen eure ehemaligen Mitbürger mit leeren Händen und mampften stattdessen die Überreste ihrer eigenen verrottenden Gliedmaßen.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

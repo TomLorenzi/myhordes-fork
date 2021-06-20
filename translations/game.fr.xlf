@@ -20246,5 +20246,23 @@
         <target><![CDATA[Vous ne pouvez pas prendre <strong>plus de 2 rations d'eau par jour</strong>.]]></target>
       </segment>
     </unit>
+    <unit id="nOa7S62">
+      <notes>
+        <note category="german">In der Horde der Zombies wurden %num% ehemalige Bürger gesichtet, die in der Aussenwelt gestorben sind und sich der Stadt nun zähnefletschend und mit düsterem Blick nähern...</note>
+      </notes>
+      <segment>
+        <source>In der Horde der Zombies wurden %num% ehemalige Bürger gesichtet, die in der Aussenwelt gestorben sind und sich der Stadt nun zähnefletschend und mit düsterem Blick nähern...</source>
+        <target>En plus de cette horde, %num% anciens citoyens morts dans l'Outre-Monde sont revenus, les dents en avant et le regard morne...</target>
+      </segment>
+    </unit>
+    <unit id="DLc6Njb">
+      <notes>
+        <note category="german">Von den Verteidigungsanlagen der Stadt aufgehalten, gingen eure ehemaligen Mitbürger mit leeren Händen und mampften stattdessen die Überreste ihrer eigenen verrottenden Gliedmaßen.</note>
+      </notes>
+      <segment>
+        <source>Von den Verteidigungsanlagen der Stadt aufgehalten, gingen eure ehemaligen Mitbürger mit leeren Händen und mampften stattdessen die Überreste ihrer eigenen verrottenden Gliedmaßen.</source>
+        <target>Arrêtés par les défenses de la ville, vos anciens concitoyens sont repartis bredouilles en grignotant les restes de leurs propres membres en putréfaction.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
