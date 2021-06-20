@@ -469,6 +469,8 @@ class TownAddonsController extends TownController
 
         /** @var CitizenWatch $watcher */
         foreach ($citizenWatch as $watcher) {
+            if ($watcher->getCitizen()->getZone() !== null) continue;
+
             if($watcher->getCitizen()->getId() === $this->getActiveCitizen()->getId())
                 $is_watcher = true;
 

@@ -574,6 +574,9 @@ class NightlyHandler
         /** @var CitizenWatch[] $watchers */
         $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town, $town->getDay() - 1); // -1 because day has been advanced before stage2
 
+        $inactive_watchers = array_filter( $watchers, fn(CitizenWatch $w) => $w->getCitizen()->getZone() !== null );
+        $watchers = array_filter( $watchers, fn(CitizenWatch $w) => $w->getCitizen()->getZone() === null );
+
         if(count($watchers) > 0)
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchers($town, $watchers));
         else if ($overflow > 0 && $has_nightwatch) {
@@ -653,6 +656,11 @@ class NightlyHandler
                 $watcher->setSkipped(true);
                 $this->entity_manager->persist($watcher);
             }
+        }
+
+        foreach ($inactive_watchers as $inactive_watcher) {
+            $inactive_watcher->setSkipped(true);
+            $this->entity_manager->persist($inactive_watcher);
         }
 
         if ($total_watch_def > 0 && $overflow > 0) {
