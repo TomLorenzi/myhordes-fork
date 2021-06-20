@@ -119,7 +119,7 @@
                 document.getElementById('x-headshot').addEventListener('click', function(e) {
                     e.preventDefault();
                     if (confirm('{{ 'Das Leben dieses Bürgers sofort beenden?'|trans({},'admin') }}'))
-                        $.ajax.easySend( '{{ path('admin_users_citizen_headshot', { 'id': user.Id }) }}', [],
+                        $.ajax.easySend( '{{ path('admin_users_citizen_headshot', { 'id': user_citizen.id }) }}', [],
                             function () {
                                 $.ajax.load(null, '{{ path('admin_users_citizen_view', { 'id': user.Id }) }}', true);
                             } )
