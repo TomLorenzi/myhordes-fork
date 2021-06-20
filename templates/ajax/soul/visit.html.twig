@@ -78,15 +78,16 @@
                     <div class="padded cell rw-4 rw-md-6 rw-sm-12">
                         <button x-ajax-href="{{ path('town_visit', {'id': citizen_id}) }}"><img alt="" src="{{ asset('build/images/icons/home.gif') }}">{{ 'Haus besuchen'|trans({},'soul') }}</button>
                     </div>
-                    {% if not user|is_granted('ROLE_CROW') and not app.user|related(user,constant('App\\Entity\\SocialRelation::SocialRelationTypeBlock')) %}
-                        <div class="padded cell rw-8 rw-md-6 rw-sm-12 right">
-                            <a href="#" id="user_block_button" style="color: #5a0000;"><i class="fa fa-shield-alt"></i> {{ 'Spieler blockieren'|trans({'%user%': user.name},'global') }}</a>
-                        </div>
-                    {% endif %}
                 </div>
             {% endif %}
 
-
+            {% if not user|is_granted('ROLE_CROW') and not app.user|related(user,constant('App\\Entity\\SocialRelation::SocialRelationTypeBlock')) %}
+                <div class="row">
+                    <div class="padded cell rw-12 right">
+                        <button class="inline small" id="user_block_button"><i class="fa fa-shield-alt"></i> {{ 'Spieler blockieren'|trans({'%user%': user.name},'global') }}</button>
+                    </div>
+                </div>
+            {% endif %}
         </div>
 
     </div>
