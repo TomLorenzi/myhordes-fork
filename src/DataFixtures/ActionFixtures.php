@@ -821,13 +821,13 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'eat_fleshroom_1'  => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item', ['group' => [ ['do_nothing', 9], ['become_ghoul_25', 1] ]] ] ],
             'eat_fleshroom_2'  => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item' ], ],
 
-            'eat_meat_1'    => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item', ['picto' => ['r_cannib_#00'], 'group' => [ ['do_nothing', 9], ['become_ghoul_25', 1] ]] ] ],
+            'eat_meat_1'    => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item', ['picto' => ['r_cannib_#00'], 'group' => [ ['do_nothing', 9], ['become_ghoul_25', 1] ]] ], 'message_key' => 'eat_human_meat' ],
             'eat_meat_2'    => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item', ['picto' => ['r_cannib_#00'], 'status' => 'satisfy_ghoul_10' ] ], ],
 
-            'eat_bone_1'    => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'group' => [ ['do_nothing', 9], [ 'infect', 10 ], ['become_ghoul_25', 1] ]] ] ],
+            'eat_bone_1'    => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'group' => [ ['do_nothing', 9], [ 'infect', 10 ], ['become_ghoul_25', 1] ]] ], 'message_key' => 'eat_human_meat' ],
             'eat_bone_2'    => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'status' => 'satisfy_ghoul_10' ] ], ],
 
-            'eat_cadaver_1' => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'] ], ['group' => [ [ 'infect', 1 ], ['become_ghoul_5', 9] ]] ], 'message' => '<nt-stat-up-infection><nt-role-up-ghoul>Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</nt-role-up-ghoul></nt-stat-up-infection>' ],
+            'eat_cadaver_1' => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'] ], ['group' => [ [ 'infect', 1 ], ['become_ghoul_5', 9] ]] ] ],
             'eat_cadaver_2' => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'], 'status' => 'satisfy_ghoul_30' ] ] ],
 
             'ghoul_serum' => [ 'label' => 'Einnehmen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'role_ghoul' ], 'result' => [ 'consume_item', ['status' => 'heal_ghoul' ] ], 'message' => 'Unglaublich! Die ganze Gier, die dich innerlich aufgefressen hat, verschwindet langsam. Ist es wirklich möglich, dass du wieder ein Mensch geworden bist?' ],
@@ -1401,6 +1401,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         'item_needed_generic'           => 'Du benötigst {items_required}.',
         'water_purification_impossible' => 'Um dieses Wasser trinkbar zu machen, brauchst du <strong>irgendein Reinigungsmittel</strong> oder deine Stadt muss über einen <strong>Wasserreiniger</strong> verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.',
         'once_a_day'                => 'Du kannst diesen Gegenstand nur <strong>einmal am Tag</strong> verwenden...',
+
+        'eat_human_meat' => '<nt-stat-up-infection><nt-role-up-ghoul>Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</nt-role-up-ghoul></nt-stat-up-infection>',
     ];
     
     private $entityManager;
