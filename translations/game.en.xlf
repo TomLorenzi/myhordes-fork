@@ -20214,7 +20214,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du kannst nicht &lt;strong&gt;mehr als 2 Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.</source>
-        <target><![CDATA[Du kannst nicht <strong>mehr als 2 Rationen Wasser pro Tag</strong> entnehmen.]]></target>
+        <target><![CDATA[You cannot take <strong>more than 2 rations of water per day</strong>.]]></target>
       </segment>
     </unit>
     <unit id="nOa7S62">
