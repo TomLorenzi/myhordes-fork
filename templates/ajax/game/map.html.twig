@@ -280,7 +280,7 @@
 <script>
     {% if allow_zone_view %}
         (function() {
-        const words = [
+            const words = [
             '{{ 'Psychose'|trans({}, 'names')|e('js') }}',
             '{{ 'Demenz'|trans({}, 'names')|e('js') }}',
             '{{ 'Leid'|trans({}, 'names')|e('js') }}',
@@ -333,20 +333,34 @@
             '{{ 'Alles... ist ... OK …'|trans({}, 'names')|e('js') }}'
         ];
 
-        $.html.addEventListenerAll('.tooltip-map', 'appear', function(e,elem) {
-            if (!elem.hasAttribute('x-original-content') && Math.random() > 0.70) {
-                setTimeout(function() {
-                    const word = words[Math.floor(Math.random() * words.length)];
-                    elem.setAttribute('x-original-content', elem.innerHTML);
+            const fun_trigger_horror = function(elem) {
+                if (elem.isConnected && !elem.hasAttribute('x-horror-trigger')) {
+                    elem.setAttribute('x-horror-trigger', setTimeout(function() {
+                        const word = words[Math.floor(Math.random() * words.length)];
+                        elem.setAttribute('x-original-content', elem.innerHTML);
 
-                    elem.innerHTML = "<div class='row'><div class='cell rw-12'>" + word + "</div></div>";
-                    setTimeout(function() {
-                        elem.innerHTML = elem.getAttribute('x-original-content');
-                        elem.removeAttribute('x-original-content');
-                    }, 500 * (Math.random()+1.0));
-                }, 1000 + (1000 * Math.random()));
+                        elem.innerHTML = word;
+                        setTimeout(function() {
+                            elem.innerHTML = elem.getAttribute('x-original-content');
+                            elem.removeAttribute('x-original-content');
+                            elem.removeAttribute('x-horror-trigger');
+                            fun_trigger_horror(elem);
+                        }, 500 * (Math.random()+1.0));
+                    }, 1000 + (30000 * Math.random())));
+                }
+            };
+
+            const fun_untrigger_horror = function(elem) {
+                if (elem.hasAttribute('x-horror-trigger')) {
+                    clearTimeout( elem.getAttribute('x-horror-trigger') )
+                    elem.removeAttribute('x-original-content');
+                    elem.removeAttribute('x-horror-trigger');
+                }
             }
-        });
-    })();
+
+            $.html.addEventListenerAll('.tooltip-map', 'appear', function(e,elem) { fun_trigger_horror(elem); });
+            $.html.addEventListenerAll('.tooltip-map', 'disappear', function(e,elem) { fun_untrigger_horror(elem); });
+            $.html.forEach('.zone-subplane > .hovertext > span', fun_trigger_horror );
+        })();
     {% endif %}
 </script>
