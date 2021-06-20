@@ -18063,7 +18063,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du bist nun der Reiseleiter in der Außenwelt.</source>
-        <target><![CDATA[>You are noe the Guide to the World Beyond.]]></target>
+        <target><![CDATA[> You are now the Guide to the World Beyond.]]></target>
       </segment>
     </unit>
     <unit id="fytWhzm">
