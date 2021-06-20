@@ -109,9 +109,15 @@
         let wellButtons = document.querySelectorAll('*[x-well-confirm]:not([disabled])');
         for (let i = 0; i < wellButtons.length; i++)
             wellButtons[i].addEventListener('click', function() {
-                if (this.getAttribute('x-well-confirm') === '1')
-                    if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                if (this.getAttribute('x-well-confirm') === '1') {
+                    {% if not allow_take %}
+                        $.html.error('{{ 'Du kannst nicht <strong>mehr als 2 Rationen Wasser pro Tag</strong> entnehmen.'|trans({},'game')|e('js') }}');
                         return;
+                    {% else %}
+                        if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                            return;
+                    {% endif %}
+                }
 
                 take_water( this.getAttribute('x-well-direction') );
             });
