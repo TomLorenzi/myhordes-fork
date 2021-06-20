@@ -1582,7 +1582,7 @@
       </notes>
       <segment>
         <source>Hass</source>
-        <target>Hatred</target>
+        <target>Hate</target>
       </segment>
     </unit>
     <unit id="nbLDtAU" name="Töte">
@@ -1645,7 +1645,7 @@
       </notes>
       <segment>
         <source>Du wirst heute sterben</source>
-        <target>You will die tonight</target>
+        <target>You'll die tonight'</target>
       </segment>
     </unit>
     <unit id="RdgKJ.d" name="Folge den Schatten">
@@ -1672,7 +1672,7 @@
       </notes>
       <segment>
         <source>Verstümmelung</source>
-        <target>Mutilation</target>
+        <target>Mutilations</target>
       </segment>
     </unit>
     <unit id="bL1VSbZ" name="Keine Hoffnung">
@@ -1690,7 +1690,7 @@
       </notes>
       <segment>
         <source>Sie beobachten dich</source>
-        <target>They spy on you</target>
+        <target>They're watching you</target>
       </segment>
     </unit>
     <unit id="v70UGnq" name="Sie wollen dich töten">
@@ -1699,7 +1699,7 @@
       </notes>
       <segment>
         <source>Sie wollen dich töten</source>
-        <target>They want you dead</target>
+        <target>They want you to die</target>
       </segment>
     </unit>
     <unit id="pyauuvK" name="Traue niemandem">
@@ -1708,7 +1708,7 @@
       </notes>
       <segment>
         <source>Traue niemandem</source>
-        <target>Don't trust them</target>
+        <target>Trust No One</target>
       </segment>
     </unit>
     <unit id="ca2GnpZ" name="Lauf lauf weg">
@@ -1717,7 +1717,7 @@
       </notes>
       <segment>
         <source>Lauf lauf weg</source>
-        <target>Run away away</target>
+        <target>Run away</target>
       </segment>
     </unit>
     <unit id="ZS_oYub" name="Hör nicht auf sie">
@@ -1735,7 +1735,7 @@
       </notes>
       <segment>
         <source>Sie werden dich töten</source>
-        <target>They will kill you</target>
+        <target>They'll kill you</target>
       </segment>
     </unit>
     <unit id="PHrbHvI" name="Dein Nachbar will deinen Tod">
@@ -1762,7 +1762,7 @@
       </notes>
       <segment>
         <source>Sie werden dich umbringen</source>
-        <target>They will kill you</target>
+        <target>They're going to kill you</target>
       </segment>
     </unit>
     <unit id="1SlXsSD" name="Bleib hier">
@@ -1771,7 +1771,7 @@
       </notes>
       <segment>
         <source>Bleib hier</source>
-        <target>You will spend there</target>
+        <target>You'll survive</target>
       </segment>
     </unit>
     <unit id="z1q5NeJ" name="Koste ihr Blut">
@@ -1789,7 +1789,7 @@
       </notes>
       <segment>
         <source>Wir beobachten dich</source>
-        <target>We are watching you</target>
+        <target>You're being watched</target>
       </segment>
     </unit>
     <unit id="_U2RPMV" name="Sie sind VERRÜCKT">
@@ -1807,7 +1807,7 @@
       </notes>
       <segment>
         <source>Wir wollen deine Haut</source>
-        <target>We want your skin</target>
+        <target>They'll take your skin</target>
       </segment>
     </unit>
     <unit id="IY2Ysbc" name="Koste ihr Fleisch">
@@ -1825,7 +1825,7 @@
       </notes>
       <segment>
         <source>Iss ihn</source>
-        <target>Eat one</target>
+        <target>Eat one of them</target>
       </segment>
     </unit>
     <unit id="RFODCm." name="Töte ihn">
@@ -1834,7 +1834,7 @@
       </notes>
       <segment>
         <source>Töte ihn</source>
-        <target>Kill one</target>
+        <target>Kill one of them</target>
       </segment>
     </unit>
     <unit id="Fy78.sn" name="Lass ihn zahlen">
@@ -1852,7 +1852,7 @@
       </notes>
       <segment>
         <source>Räche dich</source>
-        <target>Avenge yourself</target>
+        <target>Take revenge</target>
       </segment>
     </unit>
     <unit id="DtRCEDn" name="Verrate sie">
@@ -1870,7 +1870,7 @@
       </notes>
       <segment>
         <source>Ohne Gnade</source>
-        <target>Without mercy</target>
+        <target>No pity</target>
       </segment>
     </unit>
     <unit id="nhW0K2J" name="Ich bin nicht verrückt">
@@ -1879,7 +1879,7 @@
       </notes>
       <segment>
         <source>Ich bin nicht verrückt</source>
-        <target>I am not crazy</target>
+        <target>I'm not crazy</target>
       </segment>
     </unit>
     <unit id="b3DbmRg" name="Ich sehe nichts">
@@ -1888,7 +1888,7 @@
       </notes>
       <segment>
         <source>Ich sehe nichts</source>
-        <target>I see nothing</target>
+        <target>I don't see anything</target>
       </segment>
     </unit>
     <unit id="ScQz1FJ" name="Sie sind wahnsinnig">
@@ -1906,7 +1906,7 @@
       </notes>
       <segment>
         <source>Bis zum Tod</source>
-        <target>To death</target>
+        <target>Die</target>
       </segment>
     </unit>
     <unit id="FsIaYVJ" name="Töte sie alle">
@@ -1933,7 +1933,7 @@
       </notes>
       <segment>
         <source>Lass sie sterben</source>
-        <target>Let them die</target>
+        <target>Hope for their death</target>
       </segment>
     </unit>
     <unit id="1hHqy07" name="Verschlinge sie">
@@ -1951,7 +1951,7 @@
       </notes>
       <segment>
         <source>Gib auf</source>
-        <target>Give up</target>
+        <target>Abandon</target>
       </segment>
     </unit>
     <unit id="8KUUEzj" name="Alles... ist ... OK …">

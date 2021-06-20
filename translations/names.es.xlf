@@ -1519,7 +1519,7 @@
       </notes>
       <segment>
         <source>Psychose</source>
-        <target>Psychose</target>
+        <target>Psicosis</target>
       </segment>
     </unit>
     <unit id="K2Wbd.A" name="Demenz">
@@ -1528,7 +1528,7 @@
       </notes>
       <segment>
         <source>Demenz</source>
-        <target>Demenz</target>
+        <target>Demencia</target>
       </segment>
     </unit>
     <unit id="EYYevn6" name="Leid">
@@ -1537,7 +1537,7 @@
       </notes>
       <segment>
         <source>Leid</source>
-        <target>Leid</target>
+        <target>Agonía</target>
       </segment>
     </unit>
     <unit id="NDIpR9F" name="Trinke">
@@ -1546,7 +1546,7 @@
       </notes>
       <segment>
         <source>Trinke</source>
-        <target>Trinke</target>
+        <target>Sed</target>
       </segment>
     </unit>
     <unit id="Na4chUa" name="Schlaf">
@@ -1555,7 +1555,7 @@
       </notes>
       <segment>
         <source>Schlaf</source>
-        <target>Schlaf</target>
+        <target>Sueño</target>
       </segment>
     </unit>
     <unit id="ts.41ge" name="Blut">
@@ -1564,7 +1564,7 @@
       </notes>
       <segment>
         <source>Blut</source>
-        <target>Blut</target>
+        <target>Sangre</target>
       </segment>
     </unit>
     <unit id="WEwnSQW" name="Wut">
@@ -1573,7 +1573,7 @@
       </notes>
       <segment>
         <source>Wut</source>
-        <target>Wut</target>
+        <target>Rabia</target>
       </segment>
     </unit>
     <unit id="G.Cu2aP" name="Hass">
@@ -1582,7 +1582,7 @@
       </notes>
       <segment>
         <source>Hass</source>
-        <target>Hass</target>
+        <target>Odio</target>
       </segment>
     </unit>
     <unit id="nbLDtAU" name="Töte">
@@ -1591,7 +1591,7 @@
       </notes>
       <segment>
         <source>Töte</source>
-        <target>Töte</target>
+        <target>Matar</target>
       </segment>
     </unit>
     <unit id="25tJTf3" name="Töte sie">
@@ -1600,7 +1600,7 @@
       </notes>
       <segment>
         <source>Töte sie</source>
-        <target>Töte sie</target>
+        <target>Mátalos</target>
       </segment>
     </unit>
     <unit id="b15cXr8" name="Mord">
@@ -1609,7 +1609,7 @@
       </notes>
       <segment>
         <source>Mord</source>
-        <target>Mord</target>
+        <target>Asesinato</target>
       </segment>
     </unit>
     <unit id=".flbaw." name="Drogen">
@@ -1618,7 +1618,7 @@
       </notes>
       <segment>
         <source>Drogen</source>
-        <target>Drogen</target>
+        <target>Drogas</target>
       </segment>
     </unit>
     <unit id="nVEhLBk" name="Der Tod wartet">
@@ -1627,7 +1627,7 @@
       </notes>
       <segment>
         <source>Der Tod wartet</source>
-        <target>Der Tod wartet</target>
+        <target>La muerte te espera</target>
       </segment>
     </unit>
     <unit id="AQoCjlG" name="Du wirst sterben">
@@ -1636,7 +1636,7 @@
       </notes>
       <segment>
         <source>Du wirst sterben</source>
-        <target>Du wirst sterben</target>
+        <target>Vas a morir</target>
       </segment>
     </unit>
     <unit id="YbqI5Bm" name="Du wirst heute sterben">
@@ -1645,7 +1645,7 @@
       </notes>
       <segment>
         <source>Du wirst heute sterben</source>
-        <target>Du wirst heute sterben</target>
+        <target>Morirás esta noche</target>
       </segment>
     </unit>
     <unit id="RdgKJ.d" name="Folge den Schatten">
@@ -1654,7 +1654,7 @@
       </notes>
       <segment>
         <source>Folge den Schatten</source>
-        <target>Folge den Schatten</target>
+        <target>Ven a las tinieblas</target>
       </segment>
     </unit>
     <unit id="kuk0yC." name="Alpträume">
@@ -1663,7 +1663,7 @@
       </notes>
       <segment>
         <source>Alpträume</source>
-        <target>Alpträume</target>
+        <target>Pesadillas</target>
       </segment>
     </unit>
     <unit id="tRWS2l6" name="Verstümmelung">
@@ -1672,7 +1672,7 @@
       </notes>
       <segment>
         <source>Verstümmelung</source>
-        <target>Verstümmelung</target>
+        <target>Mutilaciones</target>
       </segment>
     </unit>
     <unit id="bL1VSbZ" name="Keine Hoffnung">
@@ -1681,7 +1681,7 @@
       </notes>
       <segment>
         <source>Keine Hoffnung</source>
-        <target>Keine Hoffnung</target>
+        <target>No hay esperanza</target>
       </segment>
     </unit>
     <unit id="WFp8AyZ" name="Sie beobachten dich">
@@ -1690,7 +1690,7 @@
       </notes>
       <segment>
         <source>Sie beobachten dich</source>
-        <target>Sie beobachten dich</target>
+        <target>No estás solo</target>
       </segment>
     </unit>
     <unit id="v70UGnq" name="Sie wollen dich töten">
@@ -1699,7 +1699,7 @@
       </notes>
       <segment>
         <source>Sie wollen dich töten</source>
-        <target>Sie wollen dich töten</target>
+        <target>Quieren verte muerto</target>
       </segment>
     </unit>
     <unit id="pyauuvK" name="Traue niemandem">
@@ -1708,7 +1708,7 @@
       </notes>
       <segment>
         <source>Traue niemandem</source>
-        <target>Traue niemandem</target>
+        <target>No confíes en ellos</target>
       </segment>
     </unit>
     <unit id="ca2GnpZ" name="Lauf lauf weg">
@@ -1717,7 +1717,7 @@
       </notes>
       <segment>
         <source>Lauf lauf weg</source>
-        <target>Lauf lauf weg</target>
+        <target>Huye lejos</target>
       </segment>
     </unit>
     <unit id="ZS_oYub" name="Hör nicht auf sie">
@@ -1726,7 +1726,7 @@
       </notes>
       <segment>
         <source>Hör nicht auf sie</source>
-        <target>Hör nicht auf sie</target>
+        <target>No les escuches</target>
       </segment>
     </unit>
     <unit id="legDNfw" name="Sie werden dich töten">
@@ -1735,7 +1735,7 @@
       </notes>
       <segment>
         <source>Sie werden dich töten</source>
-        <target>Sie werden dich töten</target>
+        <target>Te matarán</target>
       </segment>
     </unit>
     <unit id="PHrbHvI" name="Dein Nachbar will deinen Tod">
@@ -1744,7 +1744,7 @@
       </notes>
       <segment>
         <source>Dein Nachbar will deinen Tod</source>
-        <target>Dein Nachbar will deinen Tod</target>
+        <target>Tu vecino te odia</target>
       </segment>
     </unit>
     <unit id="zyCSipi" name="Sie wollen dich hängen">
@@ -1753,7 +1753,7 @@
       </notes>
       <segment>
         <source>Sie wollen dich hängen</source>
-        <target>Sie wollen dich hängen</target>
+        <target>Te quieren llevar</target>
       </segment>
     </unit>
     <unit id="Iikq2RH" name="Sie werden dich umbringen">
@@ -1762,7 +1762,7 @@
       </notes>
       <segment>
         <source>Sie werden dich umbringen</source>
-        <target>Sie werden dich umbringen</target>
+        <target>Te quieren matar</target>
       </segment>
     </unit>
     <unit id="1SlXsSD" name="Bleib hier">
@@ -1771,7 +1771,7 @@
       </notes>
       <segment>
         <source>Bleib hier</source>
-        <target>Bleib hier</target>
+        <target>No estás solo</target>
       </segment>
     </unit>
     <unit id="z1q5NeJ" name="Koste ihr Blut">
@@ -1780,7 +1780,7 @@
       </notes>
       <segment>
         <source>Koste ihr Blut</source>
-        <target>Koste ihr Blut</target>
+        <target>Prueba la sangre</target>
       </segment>
     </unit>
     <unit id="gK89Qa1" name="Wir beobachten dich">
@@ -1789,7 +1789,7 @@
       </notes>
       <segment>
         <source>Wir beobachten dich</source>
-        <target>Wir beobachten dich</target>
+        <target>Te estoy mirando</target>
       </segment>
     </unit>
     <unit id="_U2RPMV" name="Sie sind VERRÜCKT">
@@ -1798,7 +1798,7 @@
       </notes>
       <segment>
         <source>Sie sind VERRÜCKT</source>
-        <target>Sie sind VERRÜCKT</target>
+        <target>Es una locura</target>
       </segment>
     </unit>
     <unit id="4UhQdcm" name="Wir wollen deine Haut">
@@ -1807,7 +1807,7 @@
       </notes>
       <segment>
         <source>Wir wollen deine Haut</source>
-        <target>Wir wollen deine Haut</target>
+        <target>Quieren tu cabeza</target>
       </segment>
     </unit>
     <unit id="IY2Ysbc" name="Koste ihr Fleisch">
@@ -1816,7 +1816,7 @@
       </notes>
       <segment>
         <source>Koste ihr Fleisch</source>
-        <target>Koste ihr Fleisch</target>
+        <target>Prueba la carne</target>
       </segment>
     </unit>
     <unit id="fVDjqAf" name="Iss ihn">
@@ -1825,7 +1825,7 @@
       </notes>
       <segment>
         <source>Iss ihn</source>
-        <target>Iss ihn</target>
+        <target>Cómete a alguien</target>
       </segment>
     </unit>
     <unit id="RFODCm." name="Töte ihn">
@@ -1834,7 +1834,7 @@
       </notes>
       <segment>
         <source>Töte ihn</source>
-        <target>Töte ihn</target>
+        <target>Mata a alguien</target>
       </segment>
     </unit>
     <unit id="Fy78.sn" name="Lass ihn zahlen">
@@ -1843,7 +1843,7 @@
       </notes>
       <segment>
         <source>Lass ihn zahlen</source>
-        <target>Lass ihn zahlen</target>
+        <target>Dolor</target>
       </segment>
     </unit>
     <unit id="CleaC28" name="Räche dich">
@@ -1852,7 +1852,7 @@
       </notes>
       <segment>
         <source>Räche dich</source>
-        <target>Räche dich</target>
+        <target>Véngate</target>
       </segment>
     </unit>
     <unit id="DtRCEDn" name="Verrate sie">
@@ -1861,7 +1861,7 @@
       </notes>
       <segment>
         <source>Verrate sie</source>
-        <target>Verrate sie</target>
+        <target>Traiciónales</target>
       </segment>
     </unit>
     <unit id="Fzgol4h" name="Ohne Gnade">
@@ -1870,7 +1870,7 @@
       </notes>
       <segment>
         <source>Ohne Gnade</source>
-        <target>Ohne Gnade</target>
+        <target>Sin piedad</target>
       </segment>
     </unit>
     <unit id="nhW0K2J" name="Ich bin nicht verrückt">
@@ -1879,7 +1879,7 @@
       </notes>
       <segment>
         <source>Ich bin nicht verrückt</source>
-        <target>Ich bin nicht verrückt</target>
+        <target>No estoy loco</target>
       </segment>
     </unit>
     <unit id="b3DbmRg" name="Ich sehe nichts">
@@ -1888,7 +1888,7 @@
       </notes>
       <segment>
         <source>Ich sehe nichts</source>
-        <target>Ich sehe nichts</target>
+        <target>Veo gente muerta</target>
       </segment>
     </unit>
     <unit id="ScQz1FJ" name="Sie sind wahnsinnig">
@@ -1897,7 +1897,7 @@
       </notes>
       <segment>
         <source>Sie sind wahnsinnig</source>
-        <target>Sie sind wahnsinnig</target>
+        <target>Perdieron la razón</target>
       </segment>
     </unit>
     <unit id="RJM4_Pj" name="Bis zum Tod">
@@ -1906,7 +1906,7 @@
       </notes>
       <segment>
         <source>Bis zum Tod</source>
-        <target>Bis zum Tod</target>
+        <target>¿Tienes miedo?</target>
       </segment>
     </unit>
     <unit id="FsIaYVJ" name="Töte sie alle">
@@ -1915,7 +1915,7 @@
       </notes>
       <segment>
         <source>Töte sie alle</source>
-        <target>Töte sie alle</target>
+        <target>Mátalos a todos</target>
       </segment>
     </unit>
     <unit id="JaBlp76" name="Sie werden sterben">
@@ -1924,7 +1924,7 @@
       </notes>
       <segment>
         <source>Sie werden sterben</source>
-        <target>Sie werden sterben</target>
+        <target>Morirán</target>
       </segment>
     </unit>
     <unit id="P.WLZrc" name="Lass sie sterben">
@@ -1933,7 +1933,7 @@
       </notes>
       <segment>
         <source>Lass sie sterben</source>
-        <target>Lass sie sterben</target>
+        <target>Que se mueran todos</target>
       </segment>
     </unit>
     <unit id="1hHqy07" name="Verschlinge sie">
@@ -1942,7 +1942,7 @@
       </notes>
       <segment>
         <source>Verschlinge sie</source>
-        <target>Verschlinge sie</target>
+        <target>Atento</target>
       </segment>
     </unit>
     <unit id="NLjEZ7p" name="Gib auf">
@@ -1951,7 +1951,7 @@
       </notes>
       <segment>
         <source>Gib auf</source>
-        <target>Gib auf</target>
+        <target>Nada será igual</target>
       </segment>
     </unit>
     <unit id="8KUUEzj" name="Alles... ist ... OK …">
@@ -1960,7 +1960,7 @@
       </notes>
       <segment>
         <source>Alles... ist ... OK …</source>
-        <target>Alles... ist ... OK …</target>
+        <target>Estás muerto</target>
       </segment>
     </unit>
   </file>
