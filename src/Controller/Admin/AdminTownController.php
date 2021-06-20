@@ -1383,7 +1383,10 @@ class AdminTownController extends AdminActionController
             $hp = $building->getPrototype()->getHp();
         }
 
-        if (!$building->getComplete() || ($hp < $building->getPrototype()->getHp() && $building->getPrototype()->getImpervious()))
+        $impervious = $building->getPrototype()->getImpervious();
+        if (in_array($building->getPrototype()->getName(), ['small_arma_#00'])) $impervious = false;
+
+        if (!$building->getComplete() || ($hp < $building->getPrototype()->getHp() && $impervious))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $building->setHp($hp);

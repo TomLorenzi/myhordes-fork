@@ -20175,5 +20175,32 @@
         <target>Un nuevo habitante ha llegado: %citizen% (%profession%).</target>
       </segment>
     </unit>
+    <unit id="U1LbEa4">
+      <notes>
+        <note category="german">Unser %plan% hat beim Angriff %damage% Punkte Schaden genommen: das sollte dringend repariert werden, ansonsten riskieren wir heute Nacht unser Leben!</note>
+      </notes>
+      <segment>
+        <source>Unser %plan% hat beim Angriff %damage% Punkte Schaden genommen: das sollte dringend repariert werden, ansonsten riskieren wir heute Nacht unser Leben!</source>
+        <target>Unser %plan% hat beim Angriff %damage% Punkte Schaden genommen: das sollte dringend repariert werden, ansonsten riskieren wir heute Nacht unser Leben!</target>
+      </segment>
+    </unit>
+    <unit id="0XFFVJl">
+      <notes>
+        <note category="german">Die gesamte Region wurde durch die &lt;strong&gt;Explosion des %plan%&lt;/strong&gt; verstrahlt!</note>
+      </notes>
+      <segment>
+        <source>Die gesamte Region wurde durch die &lt;strong&gt;Explosion des %plan%&lt;/strong&gt; verstrahlt!</source>
+        <target><![CDATA[Die gesamte Region wurde durch die <strong>Explosion des %plan%</strong> verstrahlt!]]></target>
+      </segment>
+    </unit>
+    <unit id="sXukPwK" name="Immerhin wurden alle Bürger aus der Stadt geschleudert...">
+      <notes>
+        <note category="german">Immerhin wurden alle Bürger aus der Stadt geschleudert...</note>
+      </notes>
+      <segment>
+        <source>Immerhin wurden alle Bürger aus der Stadt geschleudert...</source>
+        <target>Immerhin wurden alle Bürger aus der Stadt geschleudert...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -20210,5 +20210,32 @@
         <target>Un nouveau citoyen est arrivé : %citizen% (%profession%).</target>
       </segment>
     </unit>
+    <unit id="U1LbEa4">
+      <notes>
+        <note category="german">Unser %plan% hat beim Angriff %damage% Punkte Schaden genommen: das sollte dringend repariert werden, ansonsten riskieren wir heute Nacht unser Leben!</note>
+      </notes>
+      <segment>
+        <source>Unser %plan% hat beim Angriff %damage% Punkte Schaden genommen: das sollte dringend repariert werden, ansonsten riskieren wir heute Nacht unser Leben!</source>
+        <target>Notre %plan% a subi %damage% points de dégâts structurels internes cette nuit : nous devons le réparer ou risquer de mourir ce soir !</target>
+      </segment>
+    </unit>
+    <unit id="0XFFVJl">
+      <notes>
+        <note category="german">Die gesamte Region wurde durch die &lt;strong&gt;Explosion des %plan%&lt;/strong&gt; verstrahlt!</note>
+      </notes>
+      <segment>
+        <source>Die gesamte Region wurde durch die &lt;strong&gt;Explosion des %plan%&lt;/strong&gt; verstrahlt!</source>
+        <target><![CDATA[Toute la région a été irradiée par la <strong>destruction de %plan%</strong> !]]></target>
+      </segment>
+    </unit>
+    <unit id="sXukPwK" name="Immerhin wurden alle Bürger aus der Stadt geschleudert...">
+      <notes>
+        <note category="german">Immerhin wurden alle Bürger aus der Stadt geschleudert...</note>
+      </notes>
+      <segment>
+        <source>Immerhin wurden alle Bürger aus der Stadt geschleudert...</source>
+        <target>Immerhin wurden alle Bürger aus der Stadt geschleudert...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -363,6 +363,14 @@ class GazetteEntryTemplateFixtures extends Fixture
             ],
         ],
 
+        // Reactor Death
+        ['text'=> 'Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!',
+            'name'=>'gazetteTownReactor_001',
+            'type'=>GazetteEntryTemplate::TypeGazetteReactor,
+            'requirement'=>GazetteEntryTemplate::RequiresNothing,
+            'variableTypes'=>[],
+        ],
+
         // Vanish and other Deaths
         ['text'=>'Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr <i class="dagger">†</i> %cadaver1% gesehen.',
             'name'=>'gazetteTownVanished_001',

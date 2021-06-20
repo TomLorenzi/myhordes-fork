@@ -243,23 +243,24 @@ class NightlyHandler
             $this->log->debug("The <info>reactor</info> has taken <info>$damages</info> damages. It now has $newDef defense...");
 
             $reactor->setDefense($newDef);
-            if($reactor->getHp() <= 0){
-                $gazette = $town->findGazette( $town->getDay() );
 
+            if($reactor->getHp() <= 0){
+
+                $gazette = $town->findGazette( $town->getDay(), true );
                 $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $reactor->getPrototype(), $damages ));
                 $this->town_handler->destroy_building($town, $reactor);
 
                 $this->log->debug("The reactor is destroyed. Everybody dies !");
 
                 // It is destroyed, let's kill everyone with the good cause of death
-                $citizens = $this->town_handler->get_alive_citizens($town);
-
-                foreach ($citizens as $citizen) {
+                foreach ($this->town_handler->get_alive_citizens($town) as $citizen) {
                     $gazette->setDeaths($gazette->getDeaths() + 1);
                     $this->kill_wrap($citizen, $cod, true, 0, false, $town->getDay());
                 }
 
+                $gazette->setReactorExplosion(true);
                 $this->entity_manager->persist($gazette);
+
             } else {
                 $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $reactor->getPrototype(), $damages ));
             }
@@ -347,7 +348,7 @@ class NightlyHandler
             $n = [0,2,4,6,9,12];
             if ($town->getWell() >= $n[ $watertower->getLevel() ]) {
                 $town->setWell( $town->getWell() - $n[ $watertower->getLevel() ] );
-                $gazette = $town->findGazette( $town->getDay() );
+                $gazette = $town->findGazette( $town->getDay(), true );
                 $gazette->setWaterlost($gazette->getWaterlost() + $n[$watertower->getLevel()]);
                 $this->entity_manager->persist($gazette);
                 $this->entity_manager->persist( $this->logTemplates->nightlyAttackBuildingDefenseWater( $watertower, $n[ $watertower->getLevel() ] ) );
@@ -474,7 +475,7 @@ class NightlyHandler
             $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackStart($town) );
         }
 
-        $gazette = $town->findGazette( $town->getDay() );
+        $gazette = $town->findGazette( $town->getDay(), true );
         $useless = 0;
 
         foreach ($houses as $id => $corpse) {
@@ -541,7 +542,7 @@ class NightlyHandler
 
         // Day already advanced, let's get today's gazette!
         /** @var Gazette $gazette */
-        $gazette = $town->findGazette( $town->getDay() );
+        $gazette = $town->findGazette( $town->getDay(), true );
         $gazette->setDoor($town->getDoor());
 
         /** @var TownDefenseSummary|null $def_summary */
@@ -1112,12 +1113,14 @@ class NightlyHandler
                 $this->entity_manager->persist($this->logTemplates->nightlyAttackDevastated($town));
                 $this->town_handler->devastateTown($town);
 
-                $gazette = $town->findGazette($town->getDay());
+                $gazette = $town->findGazette($town->getDay(), true);
 
-                $townTemplate = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gazetteTownLastAttack']);
-                $news = new GazetteLogEntry();
-                $news->setDay($town->getDay())->setGazette($gazette)->setLogEntryTemplate($townTemplate)->setVariables(['town' => $town->getName()]);
-                $this->entity_manager->persist($news);
+                if (!$gazette->getReactorExplosion()) {
+                    $townTemplate = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gazetteTownLastAttack']);
+                    $news = new GazetteLogEntry();
+                    $news->setDay($town->getDay())->setGazette($gazette)->setLogEntryTemplate($townTemplate)->setVariables(['town' => $town->getName()]);
+                    $this->entity_manager->persist($news);
+                }
 
                 foreach ($town->getCitizens() as $target_citizen)
                     $target_citizen->setBanished(false);
@@ -1141,7 +1144,7 @@ class NightlyHandler
 
         $zone_tag_none = $this->entity_manager->getRepository(ZoneTag::class)->findOneBy(['ref' => ZoneTag::TagNone]);
 
-        $gazette = $town->findGazette($town->getDay());
+        $gazette = $town->findGazette($town->getDay(), true);
 
         if ($watchtower) switch ($watchtower->getLevel()) {
             case 0: $discover_range  = 0;  break;

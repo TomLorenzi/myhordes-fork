@@ -150,7 +150,7 @@ class DeathHandler
             $this->entity_manager->persist($cdm->setNumber(0)->setDeath($cod));
         }
 
-        $gazette = $citizen->getTown()->findGazette( ($citizen->getTown()->getDay() + ($cod->getRef() == CauseOfDeath::NightlyAttack ? 0 : 1)) );
+        $gazette = $citizen->getTown()->findGazette( ($citizen->getTown()->getDay() + (in_array($cod->getRef(), [CauseOfDeath::NightlyAttack,CauseOfDeath::Radiations]) ? 0 : 1)), true );
         /** @var Gazette $gazette */
         if($gazette !== null){
             $gazette->addVictim($citizen);

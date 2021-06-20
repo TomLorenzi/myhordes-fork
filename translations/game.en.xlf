@@ -20181,5 +20181,32 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>A new citizen has arrived: %citizen% (%profession%).</target>
       </segment>
     </unit>
+    <unit id="U1LbEa4">
+      <notes>
+        <note category="german">Unser %plan% hat beim Angriff %damage% Punkte Schaden genommen: das sollte dringend repariert werden, ansonsten riskieren wir heute Nacht unser Leben!</note>
+      </notes>
+      <segment>
+        <source>Unser %plan% hat beim Angriff %damage% Punkte Schaden genommen: das sollte dringend repariert werden, ansonsten riskieren wir heute Nacht unser Leben!</source>
+        <target>Our %plan% has taken %damage% points of structural damage tonight: this has to be repaired or we all risk dying tonight!</target>
+      </segment>
+    </unit>
+    <unit id="0XFFVJl">
+      <notes>
+        <note category="german">Die gesamte Region wurde durch die &lt;strong&gt;Explosion des %plan%&lt;/strong&gt; verstrahlt!</note>
+      </notes>
+      <segment>
+        <source>Die gesamte Region wurde durch die &lt;strong&gt;Explosion des %plan%&lt;/strong&gt; verstrahlt!</source>
+        <target><![CDATA[The whole region has been irradiated by the <strong>destruction of the %plan%</strong>!]]></target>
+      </segment>
+    </unit>
+    <unit id="sXukPwK" name="Immerhin wurden alle Bürger aus der Stadt geschleudert...">
+      <notes>
+        <note category="german">Immerhin wurden alle Bürger aus der Stadt geschleudert...</note>
+      </notes>
+      <segment>
+        <source>Immerhin wurden alle Bürger aus der Stadt geschleudert...</source>
+        <target>After all, the citizens have been thrown out of town by the explosion...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
