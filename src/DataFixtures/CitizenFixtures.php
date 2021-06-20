@@ -221,7 +221,7 @@ class CitizenFixtures extends Fixture implements DependentFixtureInterface
         [
             'ref' => CauseOfDeath::ExplosiveDoormat,
             'label' => 'Explosion',
-            'icon' => 'unknown',
+            'icon' => 'exploded',
             'desc' => '???',
         ],
         [
