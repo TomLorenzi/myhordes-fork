@@ -600,7 +600,8 @@ class ZoneHandler
         } else {
             if (!$admin && $zone->getDiscoveryStatus() === Zone::DiscoveryStatePast) {
                 $attributes[] = 'past';
-            } elseif(!$admin && $citizen && !($zone->getX() == 0 && $zone->getY() == 0) && !$citizen->getVisitedZones()->contains($zone)) {
+            } 
+            if(!$admin && $citizen && !($zone->getX() == 0 && $zone->getY() == 0) && !$citizen->getVisitedZones()->contains($zone)) {
                 $attributes[] = 'global';
             }
             if ($zone->getPrototype()) {
