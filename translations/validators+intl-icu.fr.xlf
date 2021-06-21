@@ -21,7 +21,7 @@
     </unit>
     <unit id="OjM_kpf" name="This value should be of type {{ type }}.">
       <notes>
-        <note category="german">Dieser Wert sollte vom Typ {{ type }} sein.</note>
+        <note category="german">Dieser Wert sollte vom Typ { type } sein.</note>
       </notes>
       <segment>
         <source>This value should be of type {{ type }}.</source>
@@ -51,8 +51,8 @@
         <note category="german">Sie müssen mindestens {{ limit }} Möglichkeit wählen.|Sie müssen mindestens {{ limit }} Möglichkeiten wählen.</note>
       </notes>
       <segment>
-        <source>You must select at least {{ limit }} choice.|You must select at least {{ limit }} choices.</source>
-        <target>Vous devez sélectionner au moins {{ limit }} choix.|Vous devez sélectionner au moins {{ limit }} choix.</target>
+        <source>You must select at least { limit } choice.|You must select at least { limit } choices.</source>
+        <target>Vous devez sélectionner au moins { limit } choix.|Vous devez sélectionner au moins { limit } choix.</target>
       </segment>
     </unit>
     <unit id="nIvOQ_o">
@@ -60,8 +60,8 @@
         <note category="german">Sie dürfen höchstens {{ limit }} Möglichkeit wählen.|Sie dürfen höchstens {{ limit }} Möglichkeiten wählen.</note>
       </notes>
       <segment>
-        <source>You must select at most {{ limit }} choice.|You must select at most {{ limit }} choices.</source>
-        <target>Vous devez sélectionner au maximum {{ limit }} choix.|Vous devez sélectionner au maximum {{ limit }} choix.</target>
+        <source>You must select at most { limit } choice.|You must select at most { limit } choices.</source>
+        <target>Vous devez sélectionner au maximum { limit } choix.|Vous devez sélectionner au maximum { limit } choix.</target>
       </segment>
     </unit>
     <unit id="87zjiHi" name="One or more of the given values is invalid.">
@@ -154,12 +154,12 @@
         <target>Le type du fichier est invalide ({{ type }}). Les types autorisés sont {{ types }}.</target>
       </segment>
     </unit>
-    <unit id="NubOmrs" name="This value should be {{ limit }} or less.">
+    <unit id="NubOmrs" name="This value should be { limit } or less.">
       <notes>
-        <note category="german">Dieser Wert sollte kleiner oder gleich {{ limit }} sein.</note>
+        <note category="german">Dieser Wert sollte kleiner oder gleich { limit } sein.</note>
       </notes>
       <segment>
-        <source>This value should be {{ limit }} or less.</source>
+        <source>This value should be { limit } or less.</source>
         <target>Cette valeur doit être inférieure ou égale à {{ limit }}.</target>
       </segment>
     </unit>
@@ -168,16 +168,16 @@
         <note category="german">Diese Zeichenkette ist zu lang. Sie sollte höchstens {{ limit }} Zeichen haben.|Diese Zeichenkette ist zu lang. Sie sollte höchstens {{ limit }} Zeichen haben.</note>
       </notes>
       <segment>
-        <source>This value is too long. It should have {{ limit }} character or less.|This value is too long. It should have {{ limit }} characters or less.</source>
-        <target>Cette chaîne est trop longue. Elle doit avoir au maximum {{ limit }} caractère.|Cette chaîne est trop longue. Elle doit avoir au maximum {{ limit }} caractères.</target>
+        <source>This value is too long. It should have { limit } character or less.|This value is too long. It should have { limit } characters or less.</source>
+        <target>Cette chaîne est trop longue. Elle doit avoir au maximum { limit } caractère.|Cette chaîne est trop longue. Elle doit avoir au maximum { limit } caractères.</target>
       </segment>
     </unit>
-    <unit id="qgR8M_U" name="This value should be {{ limit }} or more.">
+    <unit id="qgR8M_U" name="This value should be { limit } or more.">
       <notes>
-        <note category="german">Dieser Wert sollte größer oder gleich {{ limit }} sein.</note>
+        <note category="german">Dieser Wert sollte größer oder gleich { limit } sein.</note>
       </notes>
       <segment>
-        <source>This value should be {{ limit }} or more.</source>
+        <source>This value should be { limit } or more.</source>
         <target>Cette valeur doit être supérieure ou égale à {{ limit }}.</target>
       </segment>
     </unit>
@@ -186,8 +186,8 @@
         <note category="german">Diese Zeichenkette ist zu kurz. Sie sollte mindestens {{ limit }} Zeichen haben.|Diese Zeichenkette ist zu kurz. Sie sollte mindestens {{ limit }} Zeichen haben.</note>
       </notes>
       <segment>
-        <source>This value is too short. It should have {{ limit }} character or more.|This value is too short. It should have {{ limit }} characters or more.</source>
-        <target>Cette chaîne est trop courte. Elle doit avoir au minimum {{ limit }} caractère.|Cette chaîne est trop courte. Elle doit avoir au minimum {{ limit }} caractères.</target>
+        <source>This value is too short. It should have { limit } character or more.|This value is too short. It should have { limit } characters or more.</source>
+        <target>Cette chaîne est trop courte. Elle doit avoir au minimum { limit } caractère.|Cette chaîne est trop courte. Elle doit avoir au minimum { limit } caractères.</target>
       </segment>
     </unit>
     <unit id="1KV4L.t" name="This value should not be blank.">
@@ -402,8 +402,8 @@
         <note category="german">Dieser Wert sollte genau {{ limit }} Zeichen lang sein.|Dieser Wert sollte genau {{ limit }} Zeichen lang sein.</note>
       </notes>
       <segment>
-        <source>This value should have exactly {{ limit }} character.|This value should have exactly {{ limit }} characters.</source>
-        <target>Cette chaîne doit avoir exactement {{ limit }} caractère.|Cette chaîne doit avoir exactement {{ limit }} caractères.</target>
+        <source>This value should have exactly { limit } character.|This value should have exactly { limit } characters.</source>
+        <target>Cette chaîne doit avoir exactement { limit } caractère.|Cette chaîne doit avoir exactement { limit } caractères.</target>
       </segment>
     </unit>
     <unit id="xJ2Bcr_" name="The file was only partially uploaded.">
@@ -453,20 +453,20 @@
     </unit>
     <unit id="gTJYRl6">
       <notes>
-        <note category="german">Diese Sammlung sollte {{ limit }} oder mehr Elemente beinhalten.|Diese Sammlung sollte {{ limit }} oder mehr Elemente beinhalten.</note>
+        <note category="german">Diese Sammlung sollte { limit } oder mehr Elemente beinhalten.|Diese Sammlung sollte { limit } oder mehr Elemente beinhalten.</note>
       </notes>
       <segment>
-        <source>This collection should contain {{ limit }} element or more.|This collection should contain {{ limit }} elements or more.</source>
-        <target>Cette collection doit contenir {{ limit }} élément ou plus.|Cette collection doit contenir {{ limit }} éléments ou plus.</target>
+        <source>This collection should contain { limit } element or more.|This collection should contain { limit } elements or more.</source>
+        <target>Cette collection doit contenir { limit } élément ou plus.|Cette collection doit contenir { limit } éléments ou plus.</target>
       </segment>
     </unit>
     <unit id="FFn3lVn">
       <notes>
-        <note category="german">Diese Sammlung sollte {{ limit }} oder weniger Elemente beinhalten.|Diese Sammlung sollte {{ limit }} oder weniger Elemente beinhalten.</note>
+        <note category="german">Diese Sammlung sollte { limit } oder weniger Elemente beinhalten.|Diese Sammlung sollte { limit } oder weniger Elemente beinhalten.</note>
       </notes>
       <segment>
-        <source>This collection should contain {{ limit }} element or less.|This collection should contain {{ limit }} elements or less.</source>
-        <target>Cette collection doit contenir {{ limit }} élément ou moins.|Cette collection doit contenir {{ limit }} éléments ou moins.</target>
+        <source>This collection should contain { limit } element or less.|This collection should contain { limit } elements or less.</source>
+        <target>Cette collection doit contenir { limit } élément ou moins.|Cette collection doit contenir { limit } éléments ou moins.</target>
       </segment>
     </unit>
     <unit id="bSdilZv">
@@ -474,8 +474,8 @@
         <note category="german">Diese Sammlung sollte genau {{ limit }} Element beinhalten.|Diese Sammlung sollte genau {{ limit }} Elemente beinhalten.</note>
       </notes>
       <segment>
-        <source>This collection should contain exactly {{ limit }} element.|This collection should contain exactly {{ limit }} elements.</source>
-        <target>Cette collection doit contenir exactement {{ limit }} élément.|Cette collection doit contenir exactement {{ limit }} éléments.</target>
+        <source>This collection should contain exactly { limit } element.|This collection should contain exactly { limit } elements.</source>
+        <target>Cette collection doit contenir exactement { limit } élément.|Cette collection doit contenir exactement { limit } éléments.</target>
       </segment>
     </unit>
     <unit id="MAzmID7" name="Invalid card number.">
@@ -552,7 +552,7 @@
     </unit>
     <unit id="c.WxzFW" name="This value should be equal to {{ compared_value }}.">
       <notes>
-        <note category="german">Dieser Wert sollte gleich {{ compared_value }} sein.</note>
+        <note category="german">Dieser Wert sollte gleich { compared_value } sein.</note>
       </notes>
       <segment>
         <source>This value should be equal to {{ compared_value }}.</source>
@@ -561,7 +561,7 @@
     </unit>
     <unit id="_jdjkwq" name="This value should be greater than {{ compared_value }}.">
       <notes>
-        <note category="german">Dieser Wert sollte größer als {{ compared_value }} sein.</note>
+        <note category="german">Dieser Wert sollte größer als { compared_value } sein.</note>
       </notes>
       <segment>
         <source>This value should be greater than {{ compared_value }}.</source>
@@ -570,7 +570,7 @@
     </unit>
     <unit id="o8A8a0H" name="This value should be greater than or equal to {{ compared_value }}.">
       <notes>
-        <note category="german">Dieser Wert sollte größer oder gleich {{ compared_value }} sein.</note>
+        <note category="german">Dieser Wert sollte größer oder gleich { compared_value } sein.</note>
       </notes>
       <segment>
         <source>This value should be greater than or equal to {{ compared_value }}.</source>
@@ -588,7 +588,7 @@
     </unit>
     <unit id="jG0QFKw" name="This value should be less than {{ compared_value }}.">
       <notes>
-        <note category="german">Dieser Wert sollte kleiner als {{ compared_value }} sein.</note>
+        <note category="german">Dieser Wert sollte kleiner als { compared_value } sein.</note>
       </notes>
       <segment>
         <source>This value should be less than {{ compared_value }}.</source>
@@ -597,7 +597,7 @@
     </unit>
     <unit id="9lWrKmm" name="This value should be less than or equal to {{ compared_value }}.">
       <notes>
-        <note category="german">Dieser Wert sollte kleiner oder gleich {{ compared_value }} sein.</note>
+        <note category="german">Dieser Wert sollte kleiner oder gleich { compared_value } sein.</note>
       </notes>
       <segment>
         <source>This value should be less than or equal to {{ compared_value }}.</source>
@@ -606,7 +606,7 @@
     </unit>
     <unit id="ftTwGs." name="This value should not be equal to {{ compared_value }}.">
       <notes>
-        <note category="german">Dieser Wert sollte nicht {{ compared_value }} sein.</note>
+        <note category="german">Dieser Wert sollte nicht { compared_value } sein.</note>
       </notes>
       <segment>
         <source>This value should not be equal to {{ compared_value }}.</source>
@@ -685,13 +685,13 @@
         <target>Le nom de domaine n'a pas pu être résolu.</target>
       </segment>
     </unit>
-    <unit id="NtzKvgt" name="This value does not match the expected {{ charset }} charset.">
+    <unit id="NtzKvgt" name="This value does not match the expected { charset } charset.">
       <notes>
         <note category="german">Dieser Wert entspricht nicht dem erwarteten Zeichensatz {{ charset }}.</note>
       </notes>
       <segment>
-        <source>This value does not match the expected {{ charset }} charset.</source>
-        <target>Cette valeur ne correspond pas au jeu de caractères {{ charset }} attendu.</target>
+        <source>This value does not match the expected { charset } charset.</source>
+        <target>Cette valeur ne correspond pas au jeu de caractères { charset } attendu.</target>
       </segment>
     </unit>
     <unit id="Wi2y9.N" name="This is not a valid Business Identifier Code (BIC).">
@@ -723,7 +723,7 @@
     </unit>
     <unit id="ru.4wkH" name="This value should be a multiple of {{ compared_value }}.">
       <notes>
-        <note category="german">Dieser Wert sollte ein Vielfaches von {{ compared_value }} sein.</note>
+        <note category="german">Dieser Wert sollte ein Vielfaches von { compared_value } sein.</note>
       </notes>
       <segment>
         <source>This value should be a multiple of {{ compared_value }}.</source>
@@ -811,13 +811,13 @@
         <target>Ce mot de passe a été divulgué lors d'une fuite de données, il ne doit plus être utilisé. Veuillez utiliser un autre mot de passe.</target>
       </segment>
     </unit>
-    <unit id="VvxxWas" name="This value should be between {{ min }} and {{ max }}.">
+    <unit id="VvxxWas" name="This value should be between { min } and {{ max }}.">
       <notes>
-        <note category="german">Dieser Wert sollte zwischen {{ min }} und {{ max }} sein.</note>
+        <note category="german">Dieser Wert sollte zwischen { min } und {{ max }} sein.</note>
       </notes>
       <segment>
-        <source>This value should be between {{ min }} and {{ max }}.</source>
-        <target>Cette valeur doit être comprise entre {{ min }} et {{ max }}.</target>
+        <source>This value should be between { min } and {{ max }}.</source>
+        <target>Cette valeur doit être comprise entre { min } et {{ max }}.</target>
       </segment>
     </unit>
     <unit id="7g313cV" name="This value is not a valid hostname.">
@@ -831,7 +831,7 @@
     </unit>
     <unit id="xwtBimR">
       <notes>
-        <note category="german">Die Anzahl an Elementen in dieser Sammlung sollte ein Vielfaches von {{ compared_value }} sein.</note>
+        <note category="german">Die Anzahl an Elementen in dieser Sammlung sollte ein Vielfaches von { compared_value } sein.</note>
       </notes>
       <segment>
         <source>The number of elements in this collection should be a multiple of {{ compared_value }}.</source>

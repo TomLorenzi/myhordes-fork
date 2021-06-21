@@ -7,7 +7,7 @@
       </notes>
       <segment>
         <source>Dein Name muss mindestens {{ limit }} Zeichen umfassen.</source>
-        <target>Le pseudo doit contenir {{ limit }} caractères au minimum.</target>
+        <target>Le pseudo doit contenir { limit } caractères au minimum.</target>
       </segment>
     </unit>
     <unit id="ouF_pon" name="Dein Name kann höchstens {{ limit }} Zeichen umfassen.">
@@ -16,7 +16,7 @@
       </notes>
       <segment>
         <source>Dein Name kann höchstens {{ limit }} Zeichen umfassen.</source>
-        <target>Le pseudo doit contenir {{ limit }} caractères au maximum.</target>
+        <target>Le pseudo doit contenir { limit } caractères au maximum.</target>
       </segment>
     </unit>
     <unit id="WvW8_JI" name="Die eingegebene E-Mail Adresse ist nicht gültig.">
@@ -43,7 +43,7 @@
       </notes>
       <segment>
         <source>Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.</source>
-        <target>Votre mot de passe doit contenir au moins {{ limit }} caractères.</target>
+        <target>Votre mot de passe doit contenir au moins { limit } caractères.</target>
       </segment>
     </unit>
     <unit id="OK9eVbg" name="Die eingegebenen Passwörter stimmen nicht überein.">
@@ -61,7 +61,7 @@
       </notes>
       <segment>
         <source>Der Validierungscode muss {{ limit }} Zeichen umfassen.</source>
-        <target>Le code de vérification est composé de {{ limit }} caractères.</target>
+        <target>Le code de vérification est composé de { limit } caractères.</target>
       </segment>
     </unit>
     <unit id="0f1ZNLd" name="Der angegebene Validierungscode ist nicht gültig.">
