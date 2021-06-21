@@ -321,6 +321,14 @@ div.map_area {
       }
     }
 
+    &.show-global {
+      &>.scroll-plane {
+        &>.zone {
+          &.global>div.icon { background-image: url("../../img/icons/map/map_zone_unknown.png"); background-repeat: no-repeat; background-position: center; }
+        }
+      }
+    }
+
     &>.routes-plane {
       transition: opacity 0.25s ease;
       position: absolute; padding: 16px; top: 0; left: 0; bottom: 0; right: 0; z-index: 3; background: rgba(0,0,0,0.5);

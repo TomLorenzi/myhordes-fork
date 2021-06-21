@@ -5,7 +5,7 @@
         {% set css = 'night' %}
     {% endif %}
 
-    <div class="map {{ css }}">
+    <div class="map {{ css }} {% if not in_town %}show-global{% endif %}">
         {% set cellnum = 1+map.map_x1-map.map_x0 %}
         {% set size = 100.0/cellnum %}
 
@@ -258,7 +258,7 @@
                         <button x-control="zone" class="small inline map_button map_button_left"><div>{% trans from 'game' %}Schließen{% endtrans %}</div></button>
                     {% endif %}
                     <button x-control="tags" class="small inline hide-tags map_button map_button_left"><div>{% trans from 'game' %}Mark.{% endtrans %}</div></button>
-                    <button x-control="global" class="small inline hide-tags map_button map_button_left"><div>{% trans from 'game' %}Global{% endtrans %}</div></button>
+                    <button x-control="global" class="small inline {% if in_town %}show-tags{% else %}hide-tags{% endif %} map_button map_button_left"><div>{% trans from 'game' %}Global{% endtrans %}</div></button>
                 </div>
                 <div class="float-right">
                     <button x-control="plus"   class="small inline map_button map_button_icon map_button_right"><i class="fa fa-plus"></i></button>
