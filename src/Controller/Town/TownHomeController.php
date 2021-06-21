@@ -343,7 +343,7 @@ class TownHomeController extends TownController
             $text[] = $resText;
         }
 
-        $text[]= " " . $this->translator->trans("Du hast {count} Aktionspunkt(e) benutzt.", ['{count}' => "<strong>" . $next->getAp() . "</strong>"], "game");
+        $text[]= " " . $this->translator->trans("Du hast {count} Aktionspunkt(e) benutzt.", ['{count}' => "<strong>" . $next->getAp() . "</strong>", '{raw_count}' => $next->getAp()], "game");
 
         $this->addFlash('notice', implode("<hr />", $text));
 

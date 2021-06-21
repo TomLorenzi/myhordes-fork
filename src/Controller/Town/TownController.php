@@ -1278,7 +1278,7 @@ class TownController extends InventoryAwareController
             }
         }
 
-        $messages[] = $this->translator->trans("Du hast dafür {count} Aktionspunkt(e) verbraucht.", ['{count}' => "<strong>$ap</strong>"], "game");
+        $messages[] = $this->translator->trans("Du hast dafür {count} Aktionspunkt(e) verbraucht.", ['{count}' => "<strong>$ap</strong>", 'raw_count' => $ap], "game");
 
         // Set the activity status
         $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
