@@ -88,7 +88,7 @@
                                         {% endif %}
                                     
                                     </div>
-                                    <div class="cell rw-5 right"><span>{% if zone.x != 0 or zone.y != 0 %}{{ zone_zombies }} {% trans from 'game' %}Punkt(e){% endtrans %}{% else %}--{% endif %}</span> <img src="{{ asset('build/images/icons/small_zombie.gif') }}" alt="ZP" /></div>
+                                    <div class="cell rw-5 right"><span>{% if zone.x != 0 or zone.y != 0 %}{% trans with {'{points}': zone_zombies} from 'game' %}{points} Punkt(e){% endtrans %}{% else %}--{% endif %}</span> <img src="{{ asset('build/images/icons/small_zombie.gif') }}" alt="ZP" /></div>
                                 </div>
                                 {% if zone.x != 0 or zone.y != 0 %}
                                     <div class="row zone-dist note note-light">
