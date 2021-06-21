@@ -26,7 +26,7 @@ class CitizenWatchRepository extends ServiceEntityRepository
          return $this->findWatchersOfDay( $town, $town->getDay() );
     }
 
-    public function findWatchersOfDay(Town $town, int $day){
+    public function findWatchersOfDay(Town $town, int $day) {
          return $this->createQueryBuilder('c')
             ->andWhere('c.town = :town')
             ->andWhere('c.day = :day')

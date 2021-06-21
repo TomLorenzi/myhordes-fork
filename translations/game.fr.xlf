@@ -223,7 +223,7 @@
       </notes>
       <segment>
         <source>%num% Zombies attackieren die Stadtbewohner!</source>
-        <target>%num% zombies ont attaqués les citoyens !</target>
+        <target>%num% zombies ont attaqué les citoyens !</target>
       </segment>
     </unit>
     <unit id="eJyeGor">
@@ -637,7 +637,7 @@
       </notes>
       <segment>
         <source>Kombinieren</source>
-        <target>Combiner</target>
+        <target>Combiner </target>
       </segment>
     </unit>
     <unit id="dizwCRc">
@@ -3239,7 +3239,7 @@
       </notes>
       <segment>
         <source>%zombie% ist von den Toten auferstanden und verlangt nach einem Kaffee!</source>
-        <target>%zombie% s'est relevé et veut du café!</target>
+        <target>%zombie% s'est relevé et veut du café !</target>
       </segment>
     </unit>
     <unit id="vlEPrgk">
@@ -3266,7 +3266,7 @@
       </notes>
       <segment>
         <source>%num% Zombies sind durch unsere Verteidigung gebrochen!</source>
-        <target>%num% zombies ont percé nos défenses !</target>
+        <target>%num% zombies ont pénétré en ville !</target>
       </segment>
     </unit>
     <unit id="IT1iVPi" name="Nicht ein Zombie hat die Stadt betreten!">
@@ -5210,7 +5210,7 @@
       </notes>
       <segment>
         <source>Du kannst helfen und dich der heutigen Nachtwache anschließen!</source>
-        <target>Vous pouvez aider en devenant veilleur !</target>
+        <target>Vous pouvez faire veilleurs cette nuit !</target>
       </segment>
     </unit>
     <unit id="xyPBCmM" name="Gefahr">
@@ -7183,7 +7183,7 @@
       </notes>
       <segment>
         <source>Unsere Verteidigung ist nicht stark genug, um dem Angriff heute Nacht standzuhalten.</source>
-        <target>Notre défense n'est pas suffisante pour encaisser l'attaque de ce soir.</target>
+        <target>Nous n'avons pas les défenses requises pour encaisser l'attaque de ce soir !</target>
       </segment>
     </unit>
     <unit id="FoS7MOU">
@@ -7192,7 +7192,7 @@
       </notes>
       <segment>
         <source>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</source>
-        <target>Vous remarquez une meilleure cachette que la votre, pas très loin… Peut-être qu'elle vaudrait le coup de changer de place ?</target>
+        <target>Vous remarquez une meilleure cachette que la vôtre, pas très loin… Peut-être qu'elle vaudrait le coup de changer de place ?</target>
       </segment>
     </unit>
     <unit id="ERjA3HO" name="Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.">
@@ -7210,7 +7210,7 @@
       </notes>
       <segment>
         <source>Hier wurde bereits ein Bauplan gefunden.</source>
-        <target>Un plan de chantier a déjà été trouvé.</target>
+        <target>Ce bâtiment a déjà été étudié par quelqu'un et il n'est plus possible d'obtenir de plan de chantier ici...</target>
       </segment>
     </unit>
     <unit id="Ci7U3L." name="Aktualisierung">
@@ -7258,7 +7258,7 @@
         <target>%username% a été abattu.</target>
       </segment>
     </unit>
-    <unit id="tkJcWLe" name="Dieser Bürger gehört keiner Stadt an.">
+    <unit id="3mZhglJ" name="Dieser Bürger gehört keiner Stadt an.">
       <notes>
         <note category="german">Dieser Bürger gehört keiner Stadt an.</note>
       </notes>
@@ -7480,7 +7480,7 @@
       </notes>
       <segment>
         <source>%citizen% hat sich für heute Nacht ein Versteck gesucht ...</source>
-        <target>%citizen% a trouvé une cachette pour la nuit. Souhaitons-lui bonne chance...</target>
+        <target>%citizen% a décidé de se trouver une planque pour passer la nuit. Souhaitons-lui bonne chance !</target>
       </segment>
     </unit>
     <unit id="HyDSnff" name="%citizen% hat sein Versteck verlassen.">
@@ -7862,7 +7862,7 @@
       </notes>
       <segment>
         <source>Zusammenbauen</source>
-        <target>Assembler</target>
+        <target>Assembler </target>
       </segment>
     </unit>
     <unit id="jqa.16L">
@@ -8240,7 +8240,7 @@
       </notes>
       <segment>
         <source>%citizen% wurde von %num% Zombies zerfleischt!</source>
-        <target>%citizen% a été dévoré par %num% zombies !</target>
+        <target>%citizen% a été dévoré(e) par %num% zombies !</target>
       </segment>
     </unit>
     <unit id="0OgA2rX">
@@ -8834,7 +8834,7 @@
       </notes>
       <segment>
         <source>Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.</source>
-        <target>Pas aussi appétissante que la chair humaine fraîche, mais elle satisfera toujours votre faim ... au moins un peu. Au moins, la viande était encore raisonnablement tendre.</target>
+        <target>Un corps froid qui n'a même pas eu le temps de pourrir un minimum, c'est vraiment insipide. Votre voracité a pu être un peu calmée, mais vous n'avez rien tiré d'autre de bénéfique de ce "repas".</target>
       </segment>
     </unit>
     <unit id="VMYfBZH">
@@ -9590,7 +9590,7 @@
       </notes>
       <segment>
         <source>Meine Nachrichten lesen.</source>
-        <target>Lire mes messages.</target>
+        <target>Lire mon courrier.</target>
       </segment>
     </unit>
     <unit id="bYjLN7a" name="Draußen">
@@ -11569,7 +11569,7 @@
       </notes>
       <segment>
         <source>Explosion</source>
-        <target>Explosion</target>
+        <target>Pulvérisé un peu partout</target>
       </segment>
     </unit>
     <unit id="oDsiHGx" name="???">
@@ -15394,7 +15394,7 @@
       </notes>
       <segment>
         <source>%count% Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</source>
-        <target>%count% Zombies wurden in der Stadt gesichtet, aber sie haben niemanden angegriffen: Was für ein Glücksfall...</target>
+        <target>%count% zombies auraient été aperçus errant dans la ville, mais sans attaquer qui que ce soit : une aubaine...</target>
       </segment>
     </unit>
     <unit id="PgQR75x" name="Zahlreiche Diebstähle begangen">
@@ -17643,7 +17643,7 @@
       </notes>
       <segment>
         <source>Da keine lebendigen Bürger beim Angriff in der Stadt waren, wurde sie von den Zombies vollständig zerstört...</source>
-        <target>N'ayant plus de citoyens vivants dans la ville lorsqu'elle a été attaquée, elle a été complètement détruite par les zombies....</target>
+        <target>Faute de personnes vivantes, la ville a été totalement dévastée par le passage des zombies...</target>
       </segment>
     </unit>
     <unit id="OwJiT_2">
@@ -18443,7 +18443,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Achtung&lt;/strong&gt;: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</source>
-        <target><![CDATA[<strong>Attention</strong>: sans eau, certaines évolutions (comme les Aqua-tourelles) ne fonctionneront pas lors de l'attaque !]]></target>
+        <target><![CDATA[<strong>Attention</strong> : sans eau, certaines évolutions (comme les Aqua-tourelles) ne fonctionneront pas lors de l'attaque !]]></target>
       </segment>
     </unit>
     <unit id="5sc0Prt" name="Diese Leiche wurde bereits außerhalb der Stadt entsorgt!">
@@ -19199,7 +19199,7 @@
       </notes>
       <segment>
         <source>Du kannst nicht flüchten, da du keine Aktionspunkte mehr übrig hast. Echt schade...</source>
-        <target>Vous ne pouvez plus fuir, vous n'avez plus de poins d'action. Dommage...</target>
+        <target>Vous ne pouvez plus fuir, vous n'avez plus de points d'action. Dommage...</target>
       </segment>
     </unit>
     <unit id="5daVnSF">
@@ -19208,7 +19208,7 @@
       </notes>
       <segment>
         <source>Du kannst nicht kämpfen, da du keine Aktionspunkte mehr übrig hast. Wie schade...</source>
-        <target>Vous ne pouvez plus lutter, vous n'avez plus de poins d'action. Dommage...</target>
+        <target>Vous ne pouvez plus lutter, vous n'avez plus de points d'action. Dommage...</target>
       </segment>
     </unit>
     <unit id="RllpyIm" name="In einer von den Zombies kontrollierten Zone ist das nicht möglich!">
@@ -19730,7 +19730,7 @@
       </notes>
       <segment>
         <source>Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</source>
-        <target>Les citoyens bannis d'une ville ont le droit de fouiller les ordures rejetées par la ville pour y puiser des objets qui pourraient leur être utile...</target>
+        <target>Les citoyens bannis d'une ville ont le droit de fouiller les ordures rejetées par la ville pour y puiser des objets qui pourraient leur être utiles...</target>
       </segment>
     </unit>
     <unit id="V5pq7bw">
@@ -20190,6 +20190,78 @@
       <segment>
         <source>Achtung! Alle Spieler, die sich außerhalb der Stadt befinden, können danach nicht mehr rein.</source>
         <target>Attention, les joueurs hors de la ville ne pourront plus rentrer.</target>
+      </segment>
+    </unit>
+    <unit id="cEtAFQ0" name="Es wurde eine Rauchbombe eingesetzt!">
+      <notes>
+        <note category="german">Es wurde eine Rauchbombe eingesetzt!</note>
+      </notes>
+      <segment>
+        <source>Es wurde eine Rauchbombe eingesetzt!</source>
+        <target>Un fumigène a été utilisé !</target>
+      </segment>
+    </unit>
+    <unit id="RoDLkY." name="Ein neuer Bürger ist in der Stadt angekommen: %citizen% (%profession%).">
+      <notes>
+        <note category="german">Ein neuer Bürger ist in der Stadt angekommen: %citizen% (%profession%).</note>
+      </notes>
+      <segment>
+        <source>Ein neuer Bürger ist in der Stadt angekommen: %citizen% (%profession%).</source>
+        <target>Un nouveau citoyen est arrivé : %citizen% (%profession%).</target>
+      </segment>
+    </unit>
+    <unit id="U1LbEa4">
+      <notes>
+        <note category="german">Unser %plan% hat beim Angriff %damage% Punkte Schaden genommen: das sollte dringend repariert werden, ansonsten riskieren wir heute Nacht unser Leben!</note>
+      </notes>
+      <segment>
+        <source>Unser %plan% hat beim Angriff %damage% Punkte Schaden genommen: das sollte dringend repariert werden, ansonsten riskieren wir heute Nacht unser Leben!</source>
+        <target>Notre %plan% a subi %damage% points de dégâts structurels internes cette nuit : nous devons le réparer ou risquer de mourir ce soir !</target>
+      </segment>
+    </unit>
+    <unit id="0XFFVJl">
+      <notes>
+        <note category="german">Die gesamte Region wurde durch die &lt;strong&gt;Explosion des %plan%&lt;/strong&gt; verstrahlt!</note>
+      </notes>
+      <segment>
+        <source>Die gesamte Region wurde durch die &lt;strong&gt;Explosion des %plan%&lt;/strong&gt; verstrahlt!</source>
+        <target><![CDATA[Toute la région a été irradiée par la <strong>destruction de %plan%</strong> !]]></target>
+      </segment>
+    </unit>
+    <unit id="sXukPwK" name="Immerhin wurden alle Bürger aus der Stadt geschleudert...">
+      <notes>
+        <note category="german">Immerhin wurden alle Bürger aus der Stadt geschleudert...</note>
+      </notes>
+      <segment>
+        <source>Immerhin wurden alle Bürger aus der Stadt geschleudert...</source>
+        <target>Immerhin wurden alle Bürger aus der Stadt geschleudert...</target>
+      </segment>
+    </unit>
+    <unit id="OXoMte5" name="Du kannst nicht &lt;strong&gt;mehr als 2 Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.">
+      <notes>
+        <note category="german">Du kannst nicht &lt;strong&gt;mehr als 2 Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst nicht &lt;strong&gt;mehr als 2 Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.</source>
+        <target><![CDATA[Vous ne pouvez pas prendre <strong>plus de 2 rations d'eau par jour</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="nOa7S62">
+      <notes>
+        <note category="german">In der Horde der Zombies wurden %num% ehemalige Bürger gesichtet, die in der Aussenwelt gestorben sind und sich der Stadt nun zähnefletschend und mit düsterem Blick nähern...</note>
+      </notes>
+      <segment>
+        <source>In der Horde der Zombies wurden %num% ehemalige Bürger gesichtet, die in der Aussenwelt gestorben sind und sich der Stadt nun zähnefletschend und mit düsterem Blick nähern...</source>
+        <target>En plus de cette horde, %num% anciens citoyens morts dans l'Outre-Monde sont revenus, les dents en avant et le regard morne...</target>
+      </segment>
+    </unit>
+    <unit id="DLc6Njb">
+      <notes>
+        <note category="german">Von den Verteidigungsanlagen der Stadt aufgehalten, gingen eure ehemaligen Mitbürger mit leeren Händen und mampften stattdessen die Überreste ihrer eigenen verrottenden Gliedmaßen.</note>
+      </notes>
+      <segment>
+        <source>Von den Verteidigungsanlagen der Stadt aufgehalten, gingen eure ehemaligen Mitbürger mit leeren Händen und mampften stattdessen die Überreste ihrer eigenen verrottenden Gliedmaßen.</source>
+        <target>Arrêtés par les défenses de la ville, vos anciens concitoyens sont repartis bredouilles en grignotant les restes de leurs propres membres en putréfaction.</target>
       </segment>
     </unit>
   </file>

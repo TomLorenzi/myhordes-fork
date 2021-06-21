@@ -57,10 +57,15 @@
 
 @myhordes-panel-color: white;
 @myhordes-panel-bg: #7e4d2a;
+@myhordes-panel-box-bg: #693e29;
 @myhordes-panel-border: url("../img/background/box/panel_00.gif") top left no-repeat, url("../img/background/box/panel_02.gif") top right no-repeat,
                         url("../img/background/box/panel_20.gif") bottom left no-repeat, url("../img/background/box/panel_22.gif") bottom right no-repeat,
                         url("../img/background/box/panel_01.gif") top left repeat-x, url("../img/background/box/panel_10.gif") top left repeat-y,
                         url("../img/background/box/panel_12.gif") top right repeat-y, url("../img/background/box/panel_21.gif") bottom left repeat-x;
+@myhordes-panel-border-box: url("../img/background/box/panel_00.png") top left no-repeat, url("../img/background/box/panel_02.png") top right no-repeat,
+                      url("../img/background/box/panel_20.png") bottom left no-repeat, url("../img/background/box/panel_22.png") bottom right no-repeat,
+                      url("../img/background/box/panel_01.png") top left repeat-x, url("../img/background/box/panel_10.png") top left repeat-y,
+                      url("../img/background/box/panel_12.png") top right repeat-y, url("../img/background/box/panel_21.png") bottom left repeat-x;
 @myhordes-panel-border-a00: url("../img/background/box/panel_00a.gif") top left no-repeat, url("../img/background/box/panel_02.gif") top right no-repeat,
                             url("../img/background/box/panel_20.gif") bottom left no-repeat, url("../img/background/box/panel_22.gif") bottom right no-repeat,
                             url("../img/background/box/panel_01.gif") top left repeat-x, url("../img/background/box/panel_10.gif") top left repeat-y,
@@ -254,8 +259,9 @@ x-message {
       &.padded-small { padding: 12px + @myhordes-grid-padsize-small; }
       &.padded-none, &:not(.padded):not(.padded-small)  { padding: 12px; }
 
-      &:not(.fact):not(.flavour-quote):not(.edge-top-left) {background: @myhordes-panel-border, @myhordes-panel-bg; color: @myhordes-panel-color;}
+      &:not(.fact):not(.flavour-quote):not(.edge-top-left):not(.map-box) {background: @myhordes-panel-border, @myhordes-panel-bg; color: @myhordes-panel-color;}
       &:not(.fact):not(.flavour-quote).edge-top-left {background: @myhordes-panel-border-a00, @myhordes-panel-bg; color: @myhordes-panel-color;}
+      &.map-box {background: @myhordes-panel-border-box, @myhordes-panel-box-bg; color: @myhordes-panel-color;}
 
       &.fact {
         color: white; height: 43px; margin-bottom: -25px; z-index: 1;
@@ -675,7 +681,14 @@ input[type='text'],input[type='number'],input[type='password'],input[type='email
 a { color: @myhordes-smalltext; font-weight: bold; }
 
 ul.inventory {
-  border: 1px solid @myhordes-input-border; padding: 6px; font-size: 1.1rem; font-variant: small-caps;
+  &:not(.borderless){
+    border: 1px solid @myhordes-input-border; padding: 6px;
+  }
+  &.borderless {
+    padding: 0;
+    margin: 0;
+  }
+  font-size: 1.1rem; font-variant: small-caps;
   &>li {
     &:not(.category) { display: inline-block; border: 1px solid @myhordes-input-border;}
     &.category { font-size: 1rem; font-weight: bold; }
@@ -857,7 +870,7 @@ div.game-menu-area {
 
   &>div.game-dropdown {
     &.hidden { pointer-events: none; opacity: 0; }
-    position: relative; z-index: 10; width: 100%; top: 0; display: block; background: @myhordes-panel-bg;
+    position: relative; z-index: 10; width: 100%; top: 0; display: block; background: @myhordes-panel-box-bg;
     box-shadow: 0 0 5px black; transition: height 0.4s ease, opacity 0.4s ease; overflow: hidden;
     &>ul.text-menu {
       padding: 10px; margin: 0;
@@ -865,7 +878,7 @@ div.game-menu-area {
         &.burger-button { display: none; }
         padding: 5px; font-size: 1.6rem; font-weight: bold; font-variant: small-caps; list-style: none;
         cursor: pointer;
-        &:hover { background: lighten(@myhordes-panel-bg, 10%) }
+        &:hover { background: lighten(@myhordes-panel-box-bg, 10%) }
       }
     }
   }
@@ -1307,9 +1320,9 @@ div.tooltip {
     color: #F0D79E;
     &:not(.stack) {clear: both;}
     li {
-        margin: 0; padding-left: 4px; padding-right: 4px;
-        background-color: #524053;
-        border-top: 0px; border-bottom: 2px solid #5c2b20;
+        margin: 0;
+        &:not(.item) { padding-left: 4px; padding-right: 4px; background-color: #524053; }
+        border-top: 0; border-bottom: 2px solid #5c2b20;
         &:last-child { border-bottom: 0; }
         i { color: #f0d79e; font-style: italic; }
         strong { font-variant: small-caps; }

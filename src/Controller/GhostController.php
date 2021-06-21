@@ -179,6 +179,10 @@ class GhostController extends CustomAbstractController
 
             'modifiers' => [
                 'strict_picto_distribution' => $crow_permissions ? (bool)$parser->get('strict_pictos', false) : false,
+                'daytime' => [
+                    'range' => [$parser->get_int('nighttime0', 7, 0, 23),$parser->get_int('nighttime1', 18, 1, 24)],
+                    'invert' => $parser->get('nighttime', 'day', ['day','night']) === 'night',
+                ]
             ]
         ];
 
@@ -387,7 +391,7 @@ class GhostController extends CustomAbstractController
               return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
             }
 
-            $em->persist( $log->citizenJoin( $citizen ) );
+            // $em->persist( $log->citizenJoin( $citizen ) );
             try {
                 $em->flush();
             } catch (Exception $e) {
@@ -450,8 +454,8 @@ class GhostController extends CustomAbstractController
         }
 
         try {
-            foreach ($all as $new_citizen)
-                $this->entity_manager->persist( $log->citizenJoin( $new_citizen ) );
+            /*foreach ($all as $new_citizen)
+                $this->entity_manager->persist( $log->citizenJoin( $new_citizen ) );*/
             $this->entity_manager->flush();
         }
         catch (Exception $e) {

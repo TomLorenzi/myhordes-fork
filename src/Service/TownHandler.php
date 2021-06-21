@@ -503,6 +503,7 @@ class TownHandler
         $has_armory           = (bool)$this->getBuilding($town, 'small_armor_#00', true);
 
         foreach ($watchers as $watcher) {
+            if ($watcher->getCitizen()->getZone() !== null) continue;
             $total_def += $this->citizen_handler->getNightWatchDefense($watcher->getCitizen(), $has_shooting_gallery, $has_trebuchet, $has_ikea, $has_armory);
             foreach ($watcher->getCitizen()->getInventory()->getItems() as $item) {
                 if($item->getPrototype()->getName() == 'chkspk_#00') {

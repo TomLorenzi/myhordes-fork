@@ -183,13 +183,7 @@ class GameController extends CustomAbstractController
             return $this->redirect($this->generateUrl('game_landing'));
 
         /** @var Gazette $gazette */
-        $gazette = $town->findGazette( $day );
-        if (!$gazette) {
-            $gazette = new Gazette();
-            $gazette->setTown($town)->setDay($town->getDay());
-            $town->addGazette($gazette);
-        }
-
+        $gazette = $town->findGazette( $day, true );
         $survivors = [];
         foreach ($town->getCitizens() as $citizen) {
             if(!$citizen->getAlive()) continue;
@@ -271,15 +265,11 @@ class GameController extends CustomAbstractController
                 }
             } else {
                 // 1. TOWN
-                if($town->getDevastated()){
-                    $criteria = [
-                        'name' => 'gazetteTownDevastated'
-                    ];
-                } else {
-                    $criteria = [
+                if ( $gazette->getReactorExplosion() ) $criteria = [ 'type' => GazetteEntryTemplate::TypeGazetteReactor ];
+                elseif ( $town->getDevastated() ) $criteria = [ 'name' => 'gazetteTownDevastated' ];
+                else $criteria = [
                         'type' => GazetteEntryTemplate::TypeGazetteNoDeaths + (count($death_inside) < 3 ? count($death_inside) : 3),
                     ];
-                }
 
                 $applicableEntryTemplates = $this->entity_manager->getRepository(GazetteEntryTemplate::class)->findBy($criteria);
                 shuffle($applicableEntryTemplates);
@@ -331,7 +321,7 @@ class GameController extends CustomAbstractController
                 $text .= '<p>' . $this->parseGazetteLog($news) . '</p>';
 
                 // 2. INDIVIDUAL DEATHS
-                if (!$town->getDevastated() && count($death_outside) > 0) {
+                if (!$town->getDevastated() && !$gazette->getReactorExplosion() && count($death_outside) > 0) {
                     $other_deaths = $death_outside;
                     shuffle($other_deaths);
                     /** @var Citizen $featured_cadaver */
@@ -467,6 +457,7 @@ class GameController extends CustomAbstractController
             'devast' => $town->getDevastated(),
             'chaos' => $town->getChaos(),
             'door' => $gazette->getDoor(),
+            'reactorExplosion' => $gazette->getReactorExplosion(),
             'death_outside' => $death_outside,
             'death_inside' => $death_inside,
             'attack' => $gazette->getAttack(),

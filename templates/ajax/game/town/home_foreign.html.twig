@@ -9,7 +9,7 @@
 {% block content %}
     {% set hour = "now"|date("G") %}
     <div class="row">
-        <div class="cell rw-12 town-banner town-banner-visit time-{{ hour }} {% if town.isNight %}night{% endif %}"></div>
+        <div class="cell rw-12 town-banner town-banner-visit time-{{ hour }} {% if conf.isNightTime %}night{% endif %}"></div>
     </div>
 
     {# @var \App\Entity\Citizen owner #}
@@ -279,10 +279,8 @@
                             {% block title %}{% trans from 'game' %}Mein Rucksack{% endtrans %}{% endblock %}
                         {% endembed %}
                     </div>
-                    {% if owner.zone and not protect%}
-                        {% if chest.items|length > 0 %}
-                            <button x-action-id="enablesteal"><img src="{{asset('build/images/icons/home.gif')}}" alt="" /> {{'Einen Gegenstand stehlen'|trans({}, 'game')}}</button>
-                        {% endif %}
+                    {% if owner.zone and not protect %}
+                        <button x-action-id="enablesteal"><img src="{{asset('build/images/icons/home.gif')}}" alt="" /> {{'Einen Gegenstand stehlen'|trans({}, 'game')}}</button>
                         {% if not owner.town.chaos  %}
                             <button x-action-id="enablesneak">{{'Einen Gegenstand hinterlassen'|trans({}, 'game')}}</button>
                         {% endif %}

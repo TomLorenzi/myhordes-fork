@@ -298,7 +298,7 @@
       </notes>
       <segment>
         <source>Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300</source>
-        <target>Valeur normale comprise entre 100 et 180. Valeur réduite d'un tier si pandémonium. Valeur maximale à 300.</target>
+        <target>Valeur normale comprise entre 100 et 180. Valeur réduite d'un tiers si ville Pandémonium. Valeur maximale à 300.</target>
       </segment>
     </unit>
     <unit id="9XUKXXI" name="Einstellungen">
@@ -1476,7 +1476,7 @@
       </notes>
       <segment>
         <source>Bürger-Aliase:</source>
-        <target>Bürger-Aliase:</target>
+        <target>Alias de citoyen:</target>
       </segment>
     </unit>
     <unit id="VcRaioj">
@@ -1485,7 +1485,7 @@
       </notes>
       <segment>
         <source>Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen</source>
-        <target>Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen</target>
+        <target>Permet à un citoyen de sélectionner un alias au lieu de son nom habituel pour cette ville</target>
       </segment>
     </unit>
     <unit id="CQsXVvw" name="Dein Name">
@@ -1494,7 +1494,61 @@
       </notes>
       <segment>
         <source>Dein Name</source>
-        <target>Dein Name</target>
+        <target>Votre nom</target>
+      </segment>
+    </unit>
+    <unit id="U59mj2e" name="Zeitzone:">
+      <notes>
+        <note category="german">Zeitzone:</note>
+      </notes>
+      <segment>
+        <source>Zeitzone:</source>
+        <target>Zone de temps :</target>
+      </segment>
+    </unit>
+    <unit id="e3MFczK" name="Die eingestellte Zeit gibt die Dauer des Tages an.">
+      <notes>
+        <note category="german">Die eingestellte Zeit gibt die Dauer des Tages an.</note>
+      </notes>
+      <segment>
+        <source>Die eingestellte Zeit gibt die Dauer des Tages an.</source>
+        <target>L’heure donnée contrôle la durée de la journée.</target>
+      </segment>
+    </unit>
+    <unit id="GhcEWUz">
+      <notes>
+        <note category="german">Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.</note>
+      </notes>
+      <segment>
+        <source>Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.</source>
+        <target>Si le mode nuit est désactivé, ce paramètre est purement cosmétique.</target>
+      </segment>
+    </unit>
+    <unit id="lLT6O3P" name="Tagesphase">
+      <notes>
+        <note category="german">Tagesphase</note>
+      </notes>
+      <segment>
+        <source>Tagesphase</source>
+        <target>Période de la journée</target>
+      </segment>
+    </unit>
+    <unit id="Xhpz327" name="Die eingestellte Zeit gibt die Dauer der Nacht an.">
+      <notes>
+        <note category="german">Die eingestellte Zeit gibt die Dauer der Nacht an.</note>
+      </notes>
+      <segment>
+        <source>Die eingestellte Zeit gibt die Dauer der Nacht an.</source>
+        <target>L’heure donnée contrôle la durée de la nuit.</target>
+      </segment>
+    </unit>
+    <unit id="dkUvCKc" name="Nachtphase">
+      <notes>
+        <note category="german">Nachtphase</note>
+      </notes>
+      <segment>
+        <source>Nachtphase</source>
+        <target>Phase nocturne</target>
       </segment>
     </unit>
   </file>

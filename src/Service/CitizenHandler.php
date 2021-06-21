@@ -194,11 +194,10 @@ class CitizenHandler
         $nbComplaint = $this->entity_manager->getRepository(Complaint::class)->countComplaintsFor($citizen, Complaint::SeverityBanish);
 
         $conf = $this->conf->getTownConfiguration( $citizen->getTown() );
-        $complaintNeeded = $conf->get(TownConf::CONF_MODIFIER_COMPLAINTS_SHUN, 7);  
-        $complaintNeededKill = $conf->get(TownConf::CONF_MODIFIER_COMPLAINTS_KILL, 8); 
+        $complaintNeeded = $conf->get(TownConf::CONF_MODIFIER_COMPLAINTS_SHUN, 8);
+        $complaintNeededKill = $conf->get(TownConf::CONF_MODIFIER_COMPLAINTS_KILL, 6);
         $shunningEnabled = $conf->get(TownConf::CONF_FEATURE_SHUN, true);
 
-        // If the citizen is already shunned, we need 1 more complains to hang him
         // If the citizen is already shunned and cage/gallows is not built, do nothing
         if ($citizen->getBanished()) {
             if (!$gallows && !$cage) return false;
@@ -208,9 +207,8 @@ class CitizenHandler
         if (($shunningEnabled || $gallows || $cage) && $nbComplaint >= $complaintNeeded)
             $action = true;
 
-        if ($nbComplaint >= $complaintNeededKill && $action && ($gallows || $cage)) {
+        if ($action && ($gallows || $cage))
             $kill = true;
-        }
 
         if ($action) {
             if (!$citizen->getBanished() && !$kill) $this->entity_manager->persist( $this->log->citizenBanish( $citizen ) );
@@ -288,6 +286,7 @@ class CitizenHandler
                 $this->container->get(DeathHandler::class)->kill( $citizen, CauseOfDeath::FleshCage, $rem );
                 $cage->setTempDefenseBonus( $cage->getTempDefenseBonus() + ( $citizen->getProfession()->getHeroic() ? 60 : 40 ) );
                 $this->entity_manager->persist( $cage );
+                $citizen->getHome()->setHoldsBody(false);
             }
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, null ) );
             foreach ($rem as $r) $this->entity_manager->remove( $r );
@@ -503,7 +502,7 @@ class CitizenHandler
         $this->setPM($citizen, false, 0);
 
         if ($profession->getName() !== 'none')
-            $this->entity_manager->persist( $this->log->citizenProfession( $citizen ) );
+            $this->entity_manager->persist( $this->log->citizenJoinProfession( $citizen ) );
 
     }
 
@@ -704,9 +703,8 @@ class CitizenHandler
         $camping_datetime = new DateTime();
         if ($citizen->getCampingTimestamp() > 0)
             $camping_datetime->setTimestamp( $citizen->getCampingTimestamp() );
-        if ($config->get(TownConf::CONF_FEATURE_NIGHTMODE, true) && $citizen->getTown()->isNight()) {
+        if ($config->isNightMode())
             $camping_values['night'] = 2;
-        }
 
         // Leuchtturm
         $camping_values['lighthouse'] = 0;

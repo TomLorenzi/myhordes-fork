@@ -214,7 +214,7 @@
             {% set hour = "now"|date("G") %}
             <div class="row">
 
-                <div class="background cell rw-12">
+                <div class="background cell map-box rw-12">
                     {% if citizen.hasRole('ghoul') %}
                         <div class="green-note warning-box">
                             <img src="{{ asset('build/images/status/status_ghoul.gif') }}" alt=""> {{'Du hast dich in einen %role% verwandelt!'|trans({'%role%': '<strong>' ~ 'Ghul'|trans({},'game') ~ '</strong>'}, 'game')|raw}}<br />
@@ -255,7 +255,7 @@
                         {% endif %}
 
                     {% endif %}
-                    <div class="row town-menu {% if town.isNight %}night{% endif %}">
+                    <div class="row town-menu {% if conf.isNightTime %}night{% endif %}">
                         <div class="padded-small cell rw-12 town-overview {% if menu_section == '' %}selected{% endif %}">
                             <div x-ajax-href="{{ url('town_dashboard') }}"><img src="{{asset('build/images/icons/small_view.gif')}}" alt =""/>{% trans from 'game' %}Übersicht{% endtrans %}</div>
                         </div>

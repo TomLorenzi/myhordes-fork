@@ -112,13 +112,16 @@ class DeathHandler
         }
         else {
             $zone = $citizen->getZone(); $ok = $this->zone_handler->check_cp( $zone );
-            if ($zone->isTownZone())
-                $this->inventory_handler->forceMoveItem(
-                    $citizen->getTown()->getBank(),
-                    $this->item_factory->createItem('bone_meat_#00')
-                );
-            else
-                $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'), [$zone->getFloor()]);
+            if ($cod->getRef() === CauseOfDeath::Vanished
+             || $cod->getRef() === CauseOfDeath::GhulEaten) {
+                if ($zone->isTownZone())
+                    $this->inventory_handler->forceMoveItem(
+                        $citizen->getTown()->getBank(),
+                        $this->item_factory->createItem('bone_meat_#00')
+                    );
+                else
+                    $this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem('bone_meat_#00'), [$zone->getFloor()]);
+            }
 
             $citizen->setZone(null);
             $zone->removeCitizen( $citizen );
@@ -148,7 +151,7 @@ class DeathHandler
             $this->entity_manager->persist($cdm->setNumber(0)->setDeath($cod));
         }
 
-        $gazette = $citizen->getTown()->findGazette( ($citizen->getTown()->getDay() + ($cod->getRef() == CauseOfDeath::NightlyAttack ? 0 : 1)) );
+        $gazette = $citizen->getTown()->findGazette( ($citizen->getTown()->getDay() + (in_array($cod->getRef(), [CauseOfDeath::NightlyAttack,CauseOfDeath::Radiations]) ? 0 : 1)), true );
         /** @var Gazette $gazette */
         if($gazette !== null){
             $gazette->addVictim($citizen);

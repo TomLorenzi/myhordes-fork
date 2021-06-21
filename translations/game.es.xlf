@@ -6821,7 +6821,7 @@
         <target>%username% ha sido asesinado de un balazo.</target>
       </segment>
     </unit>
-    <unit id="tkJcWLe" name="Dieser Bürger gehört keiner Stadt an.">
+    <unit id="3mZhglJ" name="Dieser Bürger gehört keiner Stadt an.">
       <notes>
         <note category="german">Dieser Bürger gehört keiner Stadt an.</note>
       </notes>
@@ -11331,7 +11331,7 @@
       </notes>
       <segment>
         <source>Nach einem zähen Kampf gelingt es dir endlich &lt;strong&gt;einen Zombie&lt;/strong&gt; gegen einen Felsen zu werfen... Sein Kopf ist &lt;strong&gt;explodiert&lt;/strong&gt; und die ganze Soße klebt jetzt an deinen Füßen! Du torkelst ein paar Meter vom Ort des Geschehens weg und keuchst leise vor dich hin: Einer weniger.. Ha... ha...</source>
-        <target>En el enfrentamiento, lograste empujar a un zombie y cayó sobre unas rocas... Su cabeza ha estallado ¡y su contenido ha salpicado sobre tus zapatos! Retrocedes pasmado, agotado. Un zombie menos...</target>
+        <target><![CDATA[En el enfrentamiento, lograste <strong>empujar a un zombie</strong> y cayó sobre unas rocas... Su cabeza ha <strong>estallado</strong> ¡y su contenido ha salpicado sobre tus zapatos! Retrocedes pasmado, agotado. Un zombie menos...]]></target>
       </segment>
     </unit>
     <unit id=".gJvXXq">
@@ -18165,7 +18165,7 @@
       </notes>
       <segment>
         <source>&lt;span&gt;%citizen% hat einen Zombie mit seinen bloßen Händen niedergestreckt!&lt;/span&gt;</source>
-        <target><![CDATA[<span>%citizen% hat einen Zombie mit seinen bloßen Händen niedergestreckt!</span>]]></target>
+        <target><![CDATA[<span>¡%citizen% ha derribado un zombie con sus propias manos!</span>]]></target>
       </segment>
     </unit>
     <unit id="1_rcdLL">
@@ -20118,7 +20118,7 @@
       </notes>
       <segment>
         <source>Du warst gerade dabei dich daheim einzubunkern, als dir plötzlich auffällt dass etwas mit dem Reaktor nicht zu stimmen scheint, auf den die anderen Bürger so stolz sind... jetzt wurden sie durch eine ohrenbetäubende Explosion ausgelöscht. Als du wieder zu dir kommst liegst du in einem riesigen Krater, der einmal deine Stadt war; dein Blut kocht und deine Haut schmilzt dir vom Fleisch. Erst nach einigen Minuten unerträglicher Schmerzen verlässt auch du diese Welt.</source>
-        <target>Du warst gerade dabei dich daheim einzubunkern, als dir plötzlich auffällt dass etwas mit dem Reaktor nicht zu stimmen scheint, auf den die anderen Bürger so stolz sind... jetzt wurden sie durch eine ohrenbetäubende Explosion ausgelöscht. Als du wieder zu dir kommst liegst du in einem riesigen Krater, der einmal deine Stadt war; dein Blut kocht und deine Haut schmilzt dir vom Fleisch. Erst nach einigen Minuten unerträglicher Schmerzen verlässt auch du diese Welt.</target>
+        <target>Estabas a punto de refugiarte en tu casa, cuando de repente te das cuenta de que algo va mal en el reactor del que los demás ciudadanos están tan orgullosos... ahora han sido aniquilados por una explosión ensordecedora. Cuando recuperas la conciencia, yaces en un enorme cráter que antes era tu ciudad; la sangre te hierve y la piel se te derrite. Sólo después de unos minutos de dolor insoportable dejas este mundo.</target>
       </segment>
     </unit>
     <unit id="6ntsFNr">
@@ -20155,6 +20155,78 @@
       <segment>
         <source>Achtung! Alle Spieler, die sich außerhalb der Stadt befinden, können danach nicht mehr rein.</source>
         <target>Atención, los jugadores fuera del pueblo no podrán entrar.</target>
+      </segment>
+    </unit>
+    <unit id="cEtAFQ0" name="Es wurde eine Rauchbombe eingesetzt!">
+      <notes>
+        <note category="german">Es wurde eine Rauchbombe eingesetzt!</note>
+      </notes>
+      <segment>
+        <source>Es wurde eine Rauchbombe eingesetzt!</source>
+        <target>Es wurde eine Rauchbombe eingesetzt!</target>
+      </segment>
+    </unit>
+    <unit id="RoDLkY." name="Ein neuer Bürger ist in der Stadt angekommen: %citizen% (%profession%).">
+      <notes>
+        <note category="german">Ein neuer Bürger ist in der Stadt angekommen: %citizen% (%profession%).</note>
+      </notes>
+      <segment>
+        <source>Ein neuer Bürger ist in der Stadt angekommen: %citizen% (%profession%).</source>
+        <target>Un nuevo habitante ha llegado: %citizen% (%profession%).</target>
+      </segment>
+    </unit>
+    <unit id="U1LbEa4">
+      <notes>
+        <note category="german">Unser %plan% hat beim Angriff %damage% Punkte Schaden genommen: das sollte dringend repariert werden, ansonsten riskieren wir heute Nacht unser Leben!</note>
+      </notes>
+      <segment>
+        <source>Unser %plan% hat beim Angriff %damage% Punkte Schaden genommen: das sollte dringend repariert werden, ansonsten riskieren wir heute Nacht unser Leben!</source>
+        <target>Unser %plan% hat beim Angriff %damage% Punkte Schaden genommen: das sollte dringend repariert werden, ansonsten riskieren wir heute Nacht unser Leben!</target>
+      </segment>
+    </unit>
+    <unit id="0XFFVJl">
+      <notes>
+        <note category="german">Die gesamte Region wurde durch die &lt;strong&gt;Explosion des %plan%&lt;/strong&gt; verstrahlt!</note>
+      </notes>
+      <segment>
+        <source>Die gesamte Region wurde durch die &lt;strong&gt;Explosion des %plan%&lt;/strong&gt; verstrahlt!</source>
+        <target><![CDATA[Die gesamte Region wurde durch die <strong>Explosion des %plan%</strong> verstrahlt!]]></target>
+      </segment>
+    </unit>
+    <unit id="sXukPwK" name="Immerhin wurden alle Bürger aus der Stadt geschleudert...">
+      <notes>
+        <note category="german">Immerhin wurden alle Bürger aus der Stadt geschleudert...</note>
+      </notes>
+      <segment>
+        <source>Immerhin wurden alle Bürger aus der Stadt geschleudert...</source>
+        <target>Immerhin wurden alle Bürger aus der Stadt geschleudert...</target>
+      </segment>
+    </unit>
+    <unit id="OXoMte5" name="Du kannst nicht &lt;strong&gt;mehr als 2 Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.">
+      <notes>
+        <note category="german">Du kannst nicht &lt;strong&gt;mehr als 2 Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst nicht &lt;strong&gt;mehr als 2 Rationen Wasser pro Tag&lt;/strong&gt; entnehmen.</source>
+        <target><![CDATA[No puedes tomar <strong>más de 2 raciones de agua al día</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="nOa7S62">
+      <notes>
+        <note category="german">In der Horde der Zombies wurden %num% ehemalige Bürger gesichtet, die in der Aussenwelt gestorben sind und sich der Stadt nun zähnefletschend und mit düsterem Blick nähern...</note>
+      </notes>
+      <segment>
+        <source>In der Horde der Zombies wurden %num% ehemalige Bürger gesichtet, die in der Aussenwelt gestorben sind und sich der Stadt nun zähnefletschend und mit düsterem Blick nähern...</source>
+        <target>In der Horde der Zombies wurden %num% ehemalige Bürger gesichtet, die in der Aussenwelt gestorben sind und sich der Stadt nun zähnefletschend und mit düsterem Blick nähern...</target>
+      </segment>
+    </unit>
+    <unit id="DLc6Njb">
+      <notes>
+        <note category="german">Von den Verteidigungsanlagen der Stadt aufgehalten, gingen eure ehemaligen Mitbürger mit leeren Händen und mampften stattdessen die Überreste ihrer eigenen verrottenden Gliedmaßen.</note>
+      </notes>
+      <segment>
+        <source>Von den Verteidigungsanlagen der Stadt aufgehalten, gingen eure ehemaligen Mitbürger mit leeren Händen und mampften stattdessen die Überreste ihrer eigenen verrottenden Gliedmaßen.</source>
+        <target>Von den Verteidigungsanlagen der Stadt aufgehalten, gingen eure ehemaligen Mitbürger mit leeren Händen und mampften stattdessen die Überreste ihrer eigenen verrottenden Gliedmaßen.</target>
       </segment>
     </unit>
   </file>

@@ -89,6 +89,11 @@ class Gazette
      */
     private $votes_needed;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $reactorExplosion;
+
     public function __construct()
     {
         $this->victims = new ArrayCollection();
@@ -266,6 +271,18 @@ class Gazette
     public function removeVotesNeeded(CitizenRole $votesNeeded): self
     {
         $this->votes_needed->removeElement($votesNeeded);
+
+        return $this;
+    }
+
+    public function getReactorExplosion(): ?bool
+    {
+        return $this->reactorExplosion;
+    }
+
+    public function setReactorExplosion(?bool $reactorExplosion): self
+    {
+        $this->reactorExplosion = $reactorExplosion;
 
         return $this;
     }

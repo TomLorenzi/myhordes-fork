@@ -305,11 +305,11 @@ class ActionHandler
 
                     // Day & Night
                     case 1:
-                        if ($this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_NIGHTMODE, true) && $citizen->getTown()->isNight() )
+                        if ($this->conf->getTownConfiguration($citizen->getTown())->isNightMode() )
                             $current_state = min($current_state, Requirement::HideOnFail);
                         break;
                     case 2:
-                        if (!$this->conf->getTownConfiguration($citizen->getTown())->get(TownConf::CONF_FEATURE_NIGHTMODE, true) || !$citizen->getTown()->isNight() )
+                        if (!$this->conf->getTownConfiguration($citizen->getTown())->isNightMode() )
                             $current_state = min($current_state, Requirement::HideOnFail);
                         break;
 
@@ -995,16 +995,34 @@ class ActionHandler
                 if($zoneEffect->getChatSilence() !== null && $zoneEffect->getChatSilence() > 0) {
                     $base_zone->addChatSilenceTimer((new ChatSilenceTimer())->setTime(new DateTime("+{$zoneEffect->getChatSilence()}sec"))->setCitizen($citizen));
                     $limit = new DateTime("-3min");
-                    $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'smokeBombReplacement']);
 
-                    foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $base_zone->getTown(), null, null, $base_zone, null, null ) as $entry)
+                    foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $base_zone->getTown(), null, null, $base_zone ) as $entry) {
                         /** @var TownLogEntry $entry */
-                        if ($entry->getLogEntryTemplate() !== null){
-                            if($entry->getTimestamp() > $limit) {
+                        if ($entry->getLogEntryTemplate() !== null) {
+                            $suffix = '';
+                            switch ($entry->getLogEntryTemplate()->getClass()) {
+                                case LogEntryTemplate::ClassWarning:
+                                    $suffix = "Warning";
+                                    break;
+                                case LogEntryTemplate::ClassCritical:
+                                    $suffix = "Critical";
+                                    break;
+                                case LogEntryTemplate::ClassChat:
+                                    $suffix = "Chat";
+                                    break;
+                                case LogEntryTemplate::ClassDanger:
+                                    $suffix = "Danger";
+                                    break;
+                            }
+
+                            $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'smokeBombReplacement' . $suffix]);
+                            if ($entry->getTimestamp() > $limit) {
                                 $entry->setLogEntryTemplate($template);
-                                $this->entity_manager->persist( $entry );
+                                $this->entity_manager->persist($entry);
                             }
                         }
+                    }
+                    $this->entity_manager->persist($this->log->smokeBombUsage($base_zone));
                 }
             }
 

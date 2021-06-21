@@ -1,7 +1,21 @@
 <div class="map_area {% if default_show_zone %}zone-viewer-mode{% endif %}">
-    <div class="map">
+    {% if not conf.isNightTime %}
+        {% set css = 'day' %}
+    {% else %}
+        {% set css = 'night' %}
+    {% endif %}
+
+    <div class="map {{ css }}">
         {% set cellnum = 1+map.map_x1-map.map_x0 %}
         {% set size = 100.0/cellnum %}
+
+        <div class="frame-plane">
+            <div class="tl"></div><div class="tr"></div><div class="bl"></div><div class="br"></div>
+            <div class="t0l"></div><div class="t1"></div><div class="t0r"></div>
+            <div class="l0t"></div><div class="l1"></div><div class="l0m"></div><div class="l0b"></div><div class="l2"></div>
+            <div class="r0t"></div><div class="r1"></div><div class="r0b"></div>
+            <div class="b"></div>
+        </div>
 
         <div class="scroll-plane" x-default-size="{{ cellnum*20 }}" x-current-scroll-level="{{ default_zoom }}">
             <div class="svg">
@@ -146,6 +160,12 @@
                                             {% endfor %}
                                         {% endif %}
                                     {% endif %}
+
+                                    {% if current_surrounding.discoveryStatus != constant('App\\Entity\\Zone::DiscoveryStateNone') and current_surrounding.prototype %}
+                                        <div class="hovertext"><span>{{ current_surrounding.buryCount > 0 ? 'Verschüttete Ruine'|trans({},'game') : current_surrounding.prototype.label|trans({},'game') }}</span></div>
+                                    {% elseif (map.pos_x + plane_x) == 0 and (map.pos_y + plane_y) == 0 %}
+                                        <div class="hovertext"><span>{{ current_surrounding.town.name }}</span></div>
+                                    {% endif %}
                                 {% endif %}
                             </div>
                         {% endfor %}
@@ -171,16 +191,7 @@
                 </div>
             </div>
 
-            {% if "now"|date('H') >= 6 and "now"|date('H') < 9 %}
-                {% set css = 'morning' %}
-            {% elseif "now"|date('H') < 18 %}
-                {% set css = 'day' %}
-            {% elseif "now"|date('H') < 20 %}
-                {% set css = 'evening' %}
-            {% else %}
-                {% set css = 'night' %}
-            {% endif %}
-            <div class="zone-plane-controls {% if not app.user.disableFx %}retro{% endif %} {{ css }} {% if blocked %}blocked{% endif %}">
+            <div class="zone-plane-controls {% if not app.user.disableFx %}retro{% endif %} {% if blocked %}blocked{% endif %}">
                 <div class="marker-direction"></div>
                 {% if move %}
                     {% if citizen.escortSettings is null or citizen.escortSettings.leader is null %}
@@ -243,107 +254,113 @@
         <div class="tilemap_controls">
             <div class="row">
                 <div class="float-left">
-                    <button x-control="plus"   class="small inline"><i class="fa fa-plus"></i></button>
-                    <button x-control="center" {% if default_zoom == 0 %}disabled{% endif %} class="small inline"><i class="fa fa-map-marker-alt"></i></button>
-                    <button x-control="minus"  {% if default_zoom == 0 %}disabled{% endif %} class="small inline"><i class="fa fa-minus"></i></button>
+                    <button x-control="plus"   class="small inline map_button map_button_left"><i class="fa fa-plus"></i></button>
+                    <button x-control="center" {% if default_zoom == 0 %}disabled{% endif %} class="small inline map_button map_button_left"><i class="fa fa-map-marker-alt"></i></button>
+                    <button x-control="minus"  {% if default_zoom == 0 %}disabled{% endif %} class="small inline map_button map_button_left"><i class="fa fa-minus"></i></button>
                 </div>
                 <div class="float-right">
-                    <button x-control="tags" class="small inline hide-tags">{% trans from 'game' %}Mark.{% endtrans %}</button>
+                    <button x-control="tags" class="small inline hide-tags map_button map_button_right">{% trans from 'game' %}Mark.{% endtrans %}</button>
                     {% if map.routes|length > 0 %}
-                        <button x-control="routes" class="small inline">{% trans from 'game' %}Routen{% endtrans %}</button>
+                        <button x-control="routes" class="small inline map_button map_button_right">{% trans from 'game' %}Routen{% endtrans %}</button>
                     {% endif %}
                     {% if allow_zone_view %}
-                        <button x-control="zone" class="small inline"><i class="fa fa-compress-arrows-alt"></i></button>
+                        <button x-control="zone" class="small inline map_button map_button_right"><i class="fa fa-compress-arrows-alt"></i></button>
                     {% endif %}
                 </div>
             </div>
         </div>
         {% if allow_zone_view %}
             <div class="zonemap_controls">
-                <div class="row">
-                    <div class="cell rw-12 right">
-                        <button x-control="map" class="small inline">{% trans from 'game' %}Karte{% endtrans %}</button>
-                    </div>
-                </div>
+                <button x-control="map" class="small inline map_button map_button_left">{% trans from 'game' %}Karte{% endtrans %}</button>
             </div>
         {% endif %}
     </div>
 </div>
-{#
+
 <script>
-var words = [
-    'Psychoses',
-    'Démence',
-    'Agonie',
-    'Boire',
-    'Dormir',
-    'Sang',
-    'Rage',
-    'Haine',
-    'Tuer',
-    'Tues-les',
-    'Meurtre',
-    'Drogues',
-    'La mort t\'attend',
-    'Tu vas mourir',
-    'Tu mourras cette nuit',
-    'Rejoins les ombres',
-    'Cauchemars',
-    'Mutilations',
-    'Aucun espoir',
-    'Ils t\'espionnent',
-    'Ils veulent ta mort',
-    'Ne leur fais pas confiance',
-    'Enfuis toi loin',
-    'Ne les écoute pas',
-    'Ils te tueront',
-    'Ton voisin veut ta mort',
-    'Ils veulent te pendre',
-    'Ils vont te tuer',
-    'Tu y passeras',
-    'Goûte leur sang',
-    'On t\'observe',
-    'Ils sont FOUS',
-    'On veut ta peau',
-    'Goûte leur chair',
-    'Manges en un',
-    'Tues en un',
-    'Fais lui payer',
-    'Venge-toi',
-    'Trahis-les',
-    'Sans pitié',
-    'Je ne suis pas fou',
-    'Je ne vois rien',
-    'Ils sont fous',
-    'A mort',
-    'Tue les tous',
-    'Ils mourront',
-    'Qu\'ils meurent',
-    'Dévore-les',
-    'Abandonne',
-    'Tout...va...bien...',
-    'Nous étions mieux sans eux',
-];
+    {% if allow_zone_view %}
+        (function() {
+            const words = [
+            '{{ 'Psychose'|trans({}, 'names')|e('js') }}',
+            '{{ 'Demenz'|trans({}, 'names')|e('js') }}',
+            '{{ 'Leid'|trans({}, 'names')|e('js') }}',
+            '{{ 'Trinke'|trans({}, 'names')|e('js') }}',
+            '{{ 'Schlaf'|trans({}, 'names')|e('js') }}',
+            '{{ 'Blut'|trans({}, 'names')|e('js') }}',
+            '{{ 'Wut'|trans({}, 'names')|e('js') }}',
+            '{{ 'Hass'|trans({}, 'names')|e('js') }}',
+            '{{ 'Töte'|trans({}, 'names')|e('js') }}',
+            '{{ 'Töte sie'|trans({}, 'names')|e('js') }}',
+            '{{ 'Mord'|trans({}, 'names')|e('js') }}',
+            '{{ 'Drogen'|trans({}, 'names')|e('js') }}',
+            '{{ 'Der Tod wartet'|trans({}, 'names')|e('js') }}',
+            '{{ 'Du wirst sterben'|trans({}, 'names')|e('js') }}',
+            '{{ 'Du wirst heute sterben'|trans({}, 'names')|e('js') }}',
+            '{{ 'Folge den Schatten'|trans({}, 'names')|e('js') }}',
+            '{{ 'Alpträume'|trans({}, 'names')|e('js') }}',
+            '{{ 'Verstümmelung'|trans({}, 'names')|e('js') }}',
+            '{{ 'Keine Hoffnung'|trans({}, 'names')|e('js') }}',
+            '{{ 'Sie beobachten dich'|trans({}, 'names')|e('js') }}',
+            '{{ 'Sie wollen dich töten'|trans({}, 'names')|e('js') }}',
+            '{{ 'Traue niemandem'|trans({}, 'names')|e('js') }}',
+            '{{ 'Lauf lauf weg'|trans({}, 'names')|e('js') }}',
+            '{{ 'Hör nicht auf sie'|trans({}, 'names')|e('js') }}',
+            '{{ 'Sie werden dich töten'|trans({}, 'names')|e('js') }}',
+            '{{ 'Dein Nachbar will deinen Tod'|trans({}, 'names')|e('js') }}',
+            '{{ 'Sie wollen dich hängen'|trans({}, 'names')|e('js') }}',
+            '{{ 'Sie werden dich umbringen'|trans({}, 'names')|e('js') }}',
+            '{{ 'Bleib hier'|trans({}, 'names')|e('js') }}',
+            '{{ 'Koste ihr Blut'|trans({}, 'names')|e('js') }}',
+            '{{ 'Wir beobachten dich'|trans({}, 'names')|e('js') }}',
+            '{{ 'Sie sind VERRÜCKT'|trans({}, 'names')|e('js') }}',
+            '{{ 'Wir wollen deine Haut'|trans({}, 'names')|e('js') }}',
+            '{{ 'Koste ihr Fleisch'|trans({}, 'names')|e('js') }}',
+            '{{ 'Iss ihn'|trans({}, 'names')|e('js') }}',
+            '{{ 'Töte ihn'|trans({}, 'names')|e('js') }}',
+            '{{ 'Lass ihn zahlen'|trans({}, 'names')|e('js') }}',
+            '{{ 'Räche dich'|trans({}, 'names')|e('js') }}',
+            '{{ 'Verrate sie'|trans({}, 'names')|e('js') }}',
+            '{{ 'Ohne Gnade'|trans({}, 'names')|e('js') }}',
+            '{{ 'Ich bin nicht verrückt'|trans({}, 'names')|e('js') }}',
+            '{{ 'Ich sehe nichts'|trans({}, 'names')|e('js') }}',
+            '{{ 'Sie sind wahnsinnig'|trans({}, 'names')|e('js') }}',
+            '{{ 'Bis zum Tod'|trans({}, 'names')|e('js') }}',
+            '{{ 'Töte sie alle'|trans({}, 'names')|e('js') }}',
+            '{{ 'Sie werden sterben'|trans({}, 'names')|e('js') }}',
+            '{{ 'Lass sie sterben'|trans({}, 'names')|e('js') }}',
+            '{{ 'Verschlinge sie'|trans({}, 'names')|e('js') }}',
+            '{{ 'Gib auf'|trans({}, 'names')|e('js') }}',
+            '{{ 'Alles... ist ... OK …'|trans({}, 'names')|e('js') }}'
+        ];
 
-function pickRandomWord(){
-    var word = words[Math.floor(Math.random() * words.length)];
+            const fun_trigger_horror = function(elem) {
+                if (elem.isConnected && !elem.hasAttribute('x-horror-trigger')) {
+                    elem.setAttribute('x-horror-trigger', setTimeout(function() {
+                        const word = words[Math.floor(Math.random() * words.length)];
+                        elem.setAttribute('x-original-content', elem.innerHTML);
 
-    var tooltip = document.getElementById('tooltip_container');
+                        elem.innerHTML = word;
+                        setTimeout(function() {
+                            elem.innerHTML = elem.getAttribute('x-original-content');
+                            elem.removeAttribute('x-original-content');
+                            elem.removeAttribute('x-horror-trigger');
+                            fun_trigger_horror(elem);
+                        }, 500 * (Math.random()+1.0));
+                    }, 1000 + (30000 * Math.random())));
+                }
+            };
 
-    if(tooltip.innerText != "") {
-        var content = document.querySelector("#tooltip_container .tooltip");
-        var oldcontent = content.innerHTML;
-        content.innerHTML = "<div class='row'><div class='cell rw-12'>" + word + "</div></div>";
-        setTimeout(function(){
-            content.innerHTML = oldcontent;
-        }, 500);
-    }
+            const fun_untrigger_horror = function(elem) {
+                if (elem.hasAttribute('x-horror-trigger')) {
+                    clearTimeout( elem.getAttribute('x-horror-trigger') )
+                    elem.removeAttribute('x-original-content');
+                    elem.removeAttribute('x-horror-trigger');
+                }
+            }
 
-    setTimeout(pickRandomWord, Math.random() * 30000);
-}
-
-setTimeout(pickRandomWord, Math.random() * 30000);
-
-
+            $.html.addEventListenerAll('.tooltip-map', 'appear', function(e,elem) { fun_trigger_horror(elem); });
+            $.html.addEventListenerAll('.tooltip-map', 'disappear', function(e,elem) { fun_untrigger_horror(elem); });
+            $.html.forEach('.zone-subplane > .hovertext > span', fun_trigger_horror );
+        })();
+    {% endif %}
 </script>
-#}

@@ -3457,5 +3457,77 @@
         <target>Verwendung des Schwarzen Bretts verbieten</target>
       </segment>
     </unit>
+    <unit id="Oxn3AlI" name="Passwort-geschützt">
+      <notes>
+        <note category="german">Passwort-geschützt</note>
+      </notes>
+      <segment>
+        <source>Passwort-geschützt</source>
+        <target>Passwort-geschützt</target>
+      </segment>
+    </unit>
+    <unit id="TabP5k8" name="Passwort ändern">
+      <notes>
+        <note category="german">Passwort ändern</note>
+      </notes>
+      <segment>
+        <source>Passwort ändern</source>
+        <target>Passwort ändern</target>
+      </segment>
+    </unit>
+    <unit id="SvdvL6C" name="Passwort entfernen">
+      <notes>
+        <note category="german">Passwort entfernen</note>
+      </notes>
+      <segment>
+        <source>Passwort entfernen</source>
+        <target>Passwort entfernen</target>
+      </segment>
+    </unit>
+    <unit id="WgvpXRX" name="Passwort setzen">
+      <notes>
+        <note category="german">Passwort setzen</note>
+      </notes>
+      <segment>
+        <source>Passwort setzen</source>
+        <target>Passwort setzen</target>
+      </segment>
+    </unit>
+    <unit id="fDbnikT">
+      <notes>
+        <note category="german">Format: {zombies} (heutiger Angriff) oder {tag}:{zombies} (Angriff an einem bestimmten Tag). Es können keine Tage in der Vergangenheit gewählt werden.</note>
+      </notes>
+      <segment>
+        <source>Format: {zombies} (heutiger Angriff) oder {tag}:{zombies} (Angriff an einem bestimmten Tag). Es können keine Tage in der Vergangenheit gewählt werden.</source>
+        <target>Format: {zombies} (heutiger Angriff) oder {tag}:{zombies} (Angriff an einem bestimmten Tag). Es können keine Tage in der Vergangenheit gewählt werden.</target>
+      </segment>
+    </unit>
+    <unit id="mKJLGIS" name="Stärke des Angriffs setzen">
+      <notes>
+        <note category="german">Stärke des Angriffs setzen</note>
+      </notes>
+      <segment>
+        <source>Stärke des Angriffs setzen</source>
+        <target>Stärke des Angriffs setzen</target>
+      </segment>
+    </unit>
+    <unit id="oVZvTco" name="Chaos-Modus">
+      <notes>
+        <note category="german">Chaos-Modus</note>
+      </notes>
+      <segment>
+        <source>Chaos-Modus</source>
+        <target>Chaos-Modus</target>
+      </segment>
+    </unit>
+    <unit id="cCl3Gqe" name="Stadt zerstören">
+      <notes>
+        <note category="german">Stadt zerstören</note>
+      </notes>
+      <segment>
+        <source>Stadt zerstören</source>
+        <target>Stadt zerstören</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

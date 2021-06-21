@@ -27,6 +27,7 @@ use App\Entity\Town;
 use App\Entity\TownRankingProxy;
 use App\Entity\ZombieEstimation;
 use App\Entity\Zone;
+use App\Entity\ZoneTag;
 use App\Structures\EventConf;
 use App\Structures\ItemRequest;
 use App\Structures\TownConf;
@@ -242,23 +243,24 @@ class NightlyHandler
             $this->log->debug("The <info>reactor</info> has taken <info>$damages</info> damages. It now has $newDef defense...");
 
             $reactor->setDefense($newDef);
-            if($reactor->getHp() <= 0){
-                $gazette = $town->findGazette( $town->getDay() );
 
+            if($reactor->getHp() <= 0){
+
+                $gazette = $town->findGazette( $town->getDay(), true );
                 $this->entity_manager->persist($this->logTemplates->constructionsDestroy($town, $reactor->getPrototype(), $damages ));
                 $this->town_handler->destroy_building($town, $reactor);
 
                 $this->log->debug("The reactor is destroyed. Everybody dies !");
 
                 // It is destroyed, let's kill everyone with the good cause of death
-                $citizens = $this->town_handler->get_alive_citizens($town);
-
-                foreach ($citizens as $citizen) {
+                foreach ($this->town_handler->get_alive_citizens($town) as $citizen) {
                     $gazette->setDeaths($gazette->getDeaths() + 1);
                     $this->kill_wrap($citizen, $cod, true, 0, false, $town->getDay());
                 }
 
+                $gazette->setReactorExplosion(true);
                 $this->entity_manager->persist($gazette);
+
             } else {
                 $this->entity_manager->persist($this->logTemplates->constructionsDamage($town, $reactor->getPrototype(), $damages ));
             }
@@ -346,7 +348,7 @@ class NightlyHandler
             $n = [0,2,4,6,9,12];
             if ($town->getWell() >= $n[ $watertower->getLevel() ]) {
                 $town->setWell( $town->getWell() - $n[ $watertower->getLevel() ] );
-                $gazette = $town->findGazette( $town->getDay() );
+                $gazette = $town->findGazette( $town->getDay(), true );
                 $gazette->setWaterlost($gazette->getWaterlost() + $n[$watertower->getLevel()]);
                 $this->entity_manager->persist($gazette);
                 $this->entity_manager->persist( $this->logTemplates->nightlyAttackBuildingDefenseWater( $watertower, $n[ $watertower->getLevel() ] ) );
@@ -473,7 +475,7 @@ class NightlyHandler
             $this->entity_manager->persist( $this->logTemplates->nightlyInternalAttackStart($town) );
         }
 
-        $gazette = $town->findGazette( $town->getDay() );
+        $gazette = $town->findGazette( $town->getDay(), true );
         $useless = 0;
 
         foreach ($houses as $id => $corpse) {
@@ -540,7 +542,7 @@ class NightlyHandler
 
         // Day already advanced, let's get today's gazette!
         /** @var Gazette $gazette */
-        $gazette = $town->findGazette( $town->getDay() );
+        $gazette = $town->findGazette( $town->getDay(), true );
         $gazette->setDoor($town->getDoor());
 
         /** @var TownDefenseSummary|null $def_summary */
@@ -573,13 +575,27 @@ class NightlyHandler
         /** @var CitizenWatch[] $watchers */
         $watchers = $this->entity_manager->getRepository(CitizenWatch::class)->findWatchersOfDay($town, $town->getDay() - 1); // -1 because day has been advanced before stage2
 
+        $inactive_watchers = array_filter( $watchers, fn(CitizenWatch $w) => $w->getCitizen()->getZone() !== null );
+        $watchers = array_filter( $watchers, fn(CitizenWatch $w) => $w->getCitizen()->getZone() === null );
+
+        $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow, count($watchers) > 0 && $has_nightwatch));
+
+        $count_zombified_citizens = 0;
+        foreach ($town->getCitizens() as $citizen)
+            if (!$citizen->getAlive() && $citizen->getCauseOfDeath()->getRef() === CauseOfDeath::Vanished)
+                $count_zombified_citizens++;
+
+        if ($count_zombified_citizens > 0)
+            $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $count_zombified_citizens, true) );
+
         if(count($watchers) > 0)
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchers($town, $watchers));
         else if ($overflow > 0 && $has_nightwatch) {
             $this->entity_manager->persist($this->logTemplates->nightlyAttackNoWatchers($town));
         }
 
-        $this->entity_manager->persist( $this->logTemplates->nightlyAttackSummary($town, $town->getDoor(), $overflow, count($watchers) > 0 && $has_nightwatch));
+        if ($overflow <= 0 && $count_zombified_citizens > 0)
+            $this->entity_manager->persist( $this->logTemplates->nightlyAttackDisappointed($town) );
 
         if ($overflow > 0 && count($watchers) > 0 && $has_nightwatch)
             $this->entity_manager->persist( $this->logTemplates->nightlyAttackWatchersCount($town, count($watchers)) );
@@ -652,6 +668,11 @@ class NightlyHandler
                 $watcher->setSkipped(true);
                 $this->entity_manager->persist($watcher);
             }
+        }
+
+        foreach ($inactive_watchers as $inactive_watcher) {
+            $inactive_watcher->setSkipped(true);
+            $this->entity_manager->persist($inactive_watcher);
         }
 
         if ($total_watch_def > 0 && $overflow > 0) {
@@ -1103,12 +1124,14 @@ class NightlyHandler
                 $this->entity_manager->persist($this->logTemplates->nightlyAttackDevastated($town));
                 $this->town_handler->devastateTown($town);
 
-                $gazette = $town->findGazette($town->getDay());
+                $gazette = $town->findGazette($town->getDay(), true);
 
-                $townTemplate = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gazetteTownLastAttack']);
-                $news = new GazetteLogEntry();
-                $news->setDay($town->getDay())->setGazette($gazette)->setLogEntryTemplate($townTemplate)->setVariables(['town' => $town->getName()]);
-                $this->entity_manager->persist($news);
+                if (!$gazette->getReactorExplosion()) {
+                    $townTemplate = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gazetteTownLastAttack']);
+                    $news = new GazetteLogEntry();
+                    $news->setDay($town->getDay())->setGazette($gazette)->setLogEntryTemplate($townTemplate)->setVariables(['town' => $town->getName()]);
+                    $this->entity_manager->persist($news);
+                }
 
                 foreach ($town->getCitizens() as $target_citizen)
                     $target_citizen->setBanished(false);
@@ -1130,7 +1153,9 @@ class NightlyHandler
 
         $upgraded_map = $this->town_handler->getBuilding($town,'item_electro_#00', true);
 
-        $gazette = $town->findGazette($town->getDay());
+        $zone_tag_none = $this->entity_manager->getRepository(ZoneTag::class)->findOneBy(['ref' => ZoneTag::TagNone]);
+
+        $gazette = $town->findGazette($town->getDay(), true);
 
         if ($watchtower) switch ($watchtower->getLevel()) {
             case 0: $discover_range  = 0;  break;
@@ -1166,7 +1191,6 @@ class NightlyHandler
 
         foreach ($town->getZones() as $zone) {
             /** @var Zone $zone */
-
             if ($zone->getPrototype() && $zone->getPrototype()->getExplorable()) {
                 foreach ($zone->getExplorerStats() as $ex) {
                     $ex->getCitizen()->removeExplorerStat( $ex );
@@ -1212,6 +1236,10 @@ class NightlyHandler
             if ($zone->getImprovementLevel() > 0) {
               $zone->setImprovementLevel(max(($zone->getImprovementLevel() - 3), 0));
               $this->log->debug( "Zone <info>{$zone->getX()}/{$zone->getY()}</info>: Improvement Level has been reduced to <info>{$zone->getImprovementLevel()}</info>." );
+            }
+
+            if ($zone->getTag() !== null && $zone->getTag()->getTemporary()) {
+                $zone->setTag($zone_tag_none);
             }
         }
         $this->log->debug("Recovered <info>{$reco_counter[0]}</info>/<info>{$reco_counter[1]}</info> zones." );

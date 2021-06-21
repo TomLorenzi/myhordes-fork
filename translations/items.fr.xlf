@@ -1807,7 +1807,7 @@
       </notes>
       <segment>
         <source>Kiste mit Materialien (3)</source>
-        <target>Caisse de matériel (3)</target>
+        <target>Carton de matériaux (3)</target>
       </segment>
     </unit>
     <unit id="_Ya0SdM" name="Kiste mit Materialien (2)">
@@ -1816,7 +1816,7 @@
       </notes>
       <segment>
         <source>Kiste mit Materialien (2)</source>
-        <target>Caisse de matériel (2)</target>
+        <target>Carton de matériaux (2)</target>
       </segment>
     </unit>
     <unit id="C60bLXY" name="Kiste mit Materialien (1)">
@@ -1825,7 +1825,7 @@
       </notes>
       <segment>
         <source>Kiste mit Materialien (1)</source>
-        <target>Caisse de matériel (1)</target>
+        <target>Carton de matériaux (1)</target>
       </segment>
     </unit>
     <unit id="TeBNdiF" name="Autotür">
@@ -2284,7 +2284,7 @@
       </notes>
       <segment>
         <source>Normaler Bauplan (sehr selten!)</source>
-        <target>Plan de chantier (très rare)</target>
+        <target>Plan de chantier (très rare !)</target>
       </segment>
     </unit>
     <unit id="jQi8Ua2" name="Architektenkoffer">
@@ -2563,7 +2563,7 @@
       </notes>
       <segment>
         <source>Schnellgebauter Tisch</source>
-        <target>Bureau monté à l'arrache</target>
+        <target>Bureau monté à la rache</target>
       </segment>
     </unit>
     <unit id="yikN.Mw" name="Leerer Automat">
@@ -2590,7 +2590,7 @@
       </notes>
       <segment>
         <source>Osterei</source>
-        <target>Oeuf de pâques</target>
+        <target>Oeuf de Pâques</target>
       </segment>
     </unit>
     <unit id="AEI8mQM" name="ANZAC Badge">
@@ -2716,7 +2716,7 @@
       </notes>
       <segment>
         <source>Starker Laserpointer (1 Schuss)</source>
-        <target>Pointeur laser brûlant (1 charges)</target>
+        <target>Pointeur laser brûlant (1 charge)</target>
       </segment>
     </unit>
     <unit id="mlUmSZt" name="Starker Laserpointer (Leer)">
@@ -3760,7 +3760,7 @@
       </notes>
       <segment>
         <source>Mit einem verstellbaren Schraubenschlüssel kannst du wahlweise an einem Gegenstand herumbasteln oder etwas zerstören (muss nicht unbedingt ein Gegenstand sein...)</source>
-        <target>Avec une clé à Molette, vous pouvez au choix bricoler un objet ou détruire quelque chose. Pas forcement un objet d'ailleurs…</target>
+        <target>Avec une clé à Molette, vous pouvez au choix bricoler un objet ou détruire quelque chose. Pas forcément un objet d'ailleurs…</target>
       </segment>
     </unit>
     <unit id="DN2IVby">
@@ -6757,7 +6757,7 @@
       </notes>
       <segment>
         <source>In deiner Küche hast du {items_consume} in {items_spawn} umgewandelt.</source>
-        <target>Vous avez cuisiné {items_consume} et avez obtenu {items_spawn}.</target>
+        <target>Vous utilisez {items_consume} et quelques autres trucs.{hr}Vous préparez le tout du mieux que vous pouvez. Puis, après de longues minutes de cuisson, vous sortez du feu un {items_spawn}.</target>
       </segment>
     </unit>
     <unit id="QwC3IQO" name="Mystischer Trank">
@@ -7828,7 +7828,7 @@
       </notes>
       <segment>
         <source>Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache &lt;strong&gt;du bekommst wieder einen klaren Kopf&lt;/strong&gt;.</source>
-        <target><![CDATA[Vous avez la tête qui tourne, limite envie de vomir, mais au moins <strong>ça vous a reveillé</strong>. Il ne vous reste plus qu'à courir...]]></target>
+        <target><![CDATA[Vous avez la tête qui tourne, limite envie de vomir, mais au moins <strong>ça vous a réveillé</strong>. Il ne vous reste plus qu'à courir...]]></target>
       </segment>
     </unit>
     <unit id="9P67IDx">
@@ -8361,6 +8361,24 @@
       <segment>
         <source>Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.</source>
         <target><![CDATA[L'arme n'a <strong>plus de pile</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="3YKCcgW">
+      <notes>
+        <note category="german">&lt;nt-stat-up-infection&gt;&lt;nt-role-up-ghoul&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...&lt;/nt-role-up-ghoul&gt;&lt;/nt-stat-up-infection&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;nt-stat-up-infection&gt;&lt;nt-role-up-ghoul&gt;Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...&lt;/nt-role-up-ghoul&gt;&lt;/nt-stat-up-infection&gt;</source>
+        <target><![CDATA[<nt-stat-up-infection><nt-role-up-ghoul>Vous notez, quelques secondes après, que cette chose avait vraiment un arrière-goût horrible...</nt-role-up-ghoul></nt-stat-up-infection>]]></target>
+      </segment>
+    </unit>
+    <unit id="w9a_4Rx">
+      <notes>
+        <note category="german">Dieses Gefühl des Wohlbefindens, das dieser kleine Kaffee hervorruft, bringt dich sofort wieder auf die Beine. Aah!</note>
+      </notes>
+      <segment>
+        <source>Dieses Gefühl des Wohlbefindens, das dieser kleine Kaffee hervorruft, bringt dich sofort wieder auf die Beine. Aah!</source>
+        <target>La sensation de bien-être procurée par ce bon petit café vous remet d'aplomb instantanément. Ah !</target>
       </segment>
     </unit>
   </file>

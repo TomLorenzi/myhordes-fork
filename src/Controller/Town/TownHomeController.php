@@ -298,7 +298,7 @@ class TownHomeController extends TownController
         if (!$next) return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
         // Make sure the citizen is not tired
-        if ($ch->isTired( $citizen ) || ($citizen->getAp() + $citizen->getBp()) < $next->getAp()) return AjaxResponse::error( ErrorHelper::ErrorNoAP );
+        if ($ch->isTired( $citizen ) || $citizen->getAp() < $next->getAp()) return AjaxResponse::error( ErrorHelper::ErrorNoAP );
 
         // Make sure the citizen has not upgraded their home today, only if we're not in chaos
         if ($ch->hasStatusEffect($citizen, 'tg_home_upgrade') && !$town->getChaos())
@@ -319,7 +319,7 @@ class TownHomeController extends TownController
         $home->setPrototype($next);
 
         // Deduct AP and set the has-upgraded status
-        $this->citizen_handler->deductAPBP( $citizen, $next->getAp() );
+        $this->citizen_handler->setAP( $citizen, true, -$next->getAp() );
         $ch->inflictStatus( $citizen, 'tg_home_upgrade' );
 
         // Consume items

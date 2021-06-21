@@ -286,6 +286,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'reset_thirst_counter' => [ 'status' => 'reset_thirst_counter' ],
 
             'eat_ap6'     => [ 'status' => 'add_has_eaten', 'ap' => 'to_max_plus_0', 'message' => ['escort' => false, 'text' => 'Es schmeckt wirklich komisch... aber es erfüllt seinen Zweck: Dein Hunger ist gestillt. Glaub aber nicht, dass du dadurch zusätzliche APs erhältst...'] ],
+            'eat_ap6_silent' => [ 'status' => 'add_has_eaten', 'ap' => 'to_max_plus_0' ],
             'eat_ap7'     => [ 'status' => 'add_has_eaten', 'ap' => 'to_max_plus_1', 'message' => ['escort' => false, 'text' => 'Einmal ist zwar keinmal, dennoch genießt du dein(e) <span class="tool">{item}</span>. Das ist mal ne echte Abwechslung zu dem sonstigen Fraß... Du spürst deine Kräfte wieder zurückkehren.{hr}Du hast <strong>1 zusätzlichen AP erhalten!</strong>'] ],
 
             'drunk' => [ 'status' => 'add_drunk', 'picto' => ['r_alcool_#00']],
@@ -568,7 +569,7 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'alcohol'    => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'not_drunk', 'not_hungover' ], 'result' => [ 'contaminated_zone_infect', 'just_ap6', 'drunk', 'consume_item' ], 'message' => 'Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>.' ],
             'alcohol_dx' => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ ], 'result' => [ 'contaminated_zone_infect', 'just_ap6', 'drunk', 'consume_item' ], 'message' => 'Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>.' ],
 
-            'coffee' => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ ], 'result' => [ 'contaminated_zone_infect', 'plus_4ap', 'consume_item' ] ],
+            'coffee' => [ 'label' => 'Trinken', 'cover' => true, 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ ], 'result' => [ 'contaminated_zone_infect', 'plus_4ap', 'consume_item' ], 'message' => 'Dieses Gefühl des Wohlbefindens, das dieser kleine Kaffee hervorruft, bringt dich sofort wieder auf die Beine. Aah!' ],
 
             'special_dice'   => [ 'label' => 'Werfen',       'cover' => true, 'at00' => true, 'meta' => [ 'not_yet_dice', 'no_bonus_ap' ],      'result' => [ 'casino_dice'   ], 'message' => '{casino}' ],
             'special_card'   => [ 'label' => 'Karte ziehen', 'cover' => true, 'at00' => true, 'meta' => [ 'not_yet_card', 'no_bonus_ap' ],      'result' => [ 'casino_card'   ], 'message' => '{casino}' ],
@@ -821,10 +822,10 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'eat_fleshroom_1'  => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item', ['group' => [ ['do_nothing', 9], ['become_ghoul_25', 1] ]] ] ],
             'eat_fleshroom_2'  => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item' ], ],
 
-            'eat_meat_1'    => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item', ['picto' => ['r_cannib_#00'], 'group' => [ ['do_nothing', 9], ['become_ghoul_25', 1] ]] ] ],
+            'eat_meat_1'    => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', 'consume_item', ['picto' => ['r_cannib_#00'], 'group' => [ ['do_nothing', 9], ['become_ghoul_25', 1] ]] ], 'message_key' => 'eat_human_meat' ],
             'eat_meat_2'    => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6', 'consume_item', ['picto' => ['r_cannib_#00'], 'status' => 'satisfy_ghoul_10' ] ], ],
 
-            'eat_bone_1'    => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'group' => [ ['do_nothing', 9], [ 'infect', 10 ], ['become_ghoul_25', 1] ]] ] ],
+            'eat_bone_1'    => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6_silent', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'group' => [ ['do_nothing', 9], [ 'infect', 10 ], ['become_ghoul_25', 1] ]] ], 'message_key' => 'eat_human_meat' ],
             'eat_bone_2'    => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'role_ghoul' ],     'result' => [ 'contaminated_zone_infect', 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'bone_#00'], 'status' => 'satisfy_ghoul_10' ] ], ],
 
             'eat_cadaver_1' => [ 'label' => 'Essen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerConsume, 'meta' => [ 'eat_ap', 'not_role_ghoul' ], 'result' => [ 'contaminated_zone_infect', 'eat_ap6', ['picto' => ['r_cannib_#00'], 'item' => ['consume' => false, 'morph' => 'cadaver_remains_#00'] ], ['group' => [ [ 'infect', 1 ], ['become_ghoul_5', 9] ]] ] ],
@@ -1401,6 +1402,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
         'item_needed_generic'           => 'Du benötigst {items_required}.',
         'water_purification_impossible' => 'Um dieses Wasser trinkbar zu machen, brauchst du <strong>irgendein Reinigungsmittel</strong> oder deine Stadt muss über einen <strong>Wasserreiniger</strong> verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.',
         'once_a_day'                => 'Du kannst diesen Gegenstand nur <strong>einmal am Tag</strong> verwenden...',
+
+        'eat_human_meat' => '<nt-stat-up-infection><nt-role-up-ghoul>Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</nt-role-up-ghoul></nt-stat-up-infection>',
     ];
     
     private $entityManager;

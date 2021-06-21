@@ -535,10 +535,17 @@ class Town
         return $this;
     }
 
-    public function findGazette( int $day ): ?Gazette {
+    public function findGazette( int $day, bool $make = false ): ?Gazette {
         foreach ($this->getGazettes() as $gazette)
             if ($gazette->getDay() === $day)
                 return $gazette;
+        if ($make) {
+            $this->addGazette(
+                ($gazette = new Gazette())
+                    ->setTown($this)->setDay($day)
+            );
+            return $gazette;
+        }
         return null;
     }
 
@@ -688,12 +695,6 @@ class Town
         $this->password = $password;
 
         return $this;
-    }
-
-    public function isNight(): bool
-    {
-    	$now = new DateTime();
-    	return $now->format('H') < 7 || $now->format('H') > 18;
     }
 
     public function getDayWithoutAttack(): ?int
