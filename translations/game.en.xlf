@@ -20223,7 +20223,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>In der Horde der Zombies wurden %num% ehemalige Bürger gesichtet, die in der Aussenwelt gestorben sind und sich der Stadt nun zähnefletschend und mit düsterem Blick nähern...</source>
-        <target>In der Horde der Zombies wurden %num% ehemalige Bürger gesichtet, die in der Aussenwelt gestorben sind und sich der Stadt nun zähnefletschend und mit düsterem Blick nähern...</target>
+        <target>In last night's horde, %num% former residents who died in the World Beyond came back, gnashing their teeth and looking famished...</target>
       </segment>
     </unit>
     <unit id="DLc6Njb">
