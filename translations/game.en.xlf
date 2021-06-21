@@ -11484,7 +11484,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Explosion</source>
-        <target>Explosion</target>
+        <target>Seriously smashed up!</target>
       </segment>
     </unit>
     <unit id="oDsiHGx" name="???">
