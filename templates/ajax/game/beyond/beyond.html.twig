@@ -73,19 +73,22 @@
                             } %}{% endembed %}
                             <div class="zone-info">
                                 <div class="row zone-cp note note-light">
-                                    <div class="cell rw-5 left"><img src="{{ asset('build/images/icons/small_human.gif') }}" alt="CP" /> <span>{% if zone.x or zone.y %}{{ zone_cp }} {% trans from 'game' %}Punkt(e){% endtrans %} {% else %} -- {% endif %}</span></div>
+                                    <div class="cell rw-5 left"><img src="{{ asset('build/images/icons/small_human.gif') }}" alt="CP" /> <span>{% if zone.x != 0 or zone.y != 0 %}{{ zone_cp }} {% trans from 'game' %}Punkt(e){% endtrans %}{% else %}--{% endif %}</span></div>
                                     <div class="cell rw-2 center">
-                                    
-                                        {% if zone_cp < zone_zombies %}
-                                            <img src="{{ asset("build/images/beyond/less.gif") }}" alt="<" {% if not zone.x and not zone.y %}style="visibility:hidden"{% endif %}/>
-                                        {% elseif zone_cp > zone_zombies %}
-                                            <img src="{{ asset("build/images/beyond/more.gif") }}" alt=">" {% if not zone.x and not zone.y %}style="visibility:hidden"{% endif %}/>
+                                        {% if zone.x != 0 or zone.y != 0 %}
+                                            {% if zone_cp < zone_zombies %}
+                                                <img src="{{ asset("build/images/beyond/less.gif") }}" alt="<" />
+                                            {% elseif zone_cp > zone_zombies %}
+                                                <img src="{{ asset("build/images/beyond/more.gif") }}" alt=">" />
+                                            {% else %}
+                                                <img src="{{ asset("build/images/beyond/equal.gif") }}" alt="=" />
+                                            {% endif %}
                                         {% else %}
-                                            <img src="{{ asset("build/images/beyond/equal.gif") }}" alt="=" {% if not zone.x and not zone.y %}style="visibility:hidden"{% endif %}/>
+                                            &nbsp;
                                         {% endif %}
                                     
                                     </div>
-                                    <div class="cell rw-5 right"><span>{% if zone.x or zone.y %}{{ zone_zombies }} {% trans from 'game' %}Punkt(e){% endtrans %} {% else %} -- {% endif %}</span> <img src="{{ asset('build/images/icons/small_zombie.gif') }}" alt="ZP" /></div>
+                                    <div class="cell rw-5 right"><span>{% if zone.x != 0 or zone.y != 0 %}{{ zone_zombies }} {% trans from 'game' %}Punkt(e){% endtrans %}{% else %}--{% endif %}</span> <img src="{{ asset('build/images/icons/small_zombie.gif') }}" alt="ZP" /></div>
                                 </div>
                                 {% if zone.x != 0 or zone.y != 0 %}
                                     <div class="row zone-dist note note-light">
