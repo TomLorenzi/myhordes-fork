@@ -280,6 +280,7 @@ class Citizen
 
     /**
      * @ORM\ManyToMany(targetEntity=Zone::class, orphanRemoval=true, cascade={"persist", "remove"})
+     * @ORM\JoinTable(name="citizen_visited_zones")
      */
     private $visitedZones;
 
@@ -1283,10 +1284,16 @@ class Citizen
         return $this;
     }
 
+    /**
+     * @return Collection|Zone[]
+     */
+    public function getVisitedZones(): Collection
+    {
+        return $this->visitedZones;
+    }
+
     public function addVisitedZone(Zone $visitedZone): self
     {
-        dump($this);
-        dump($visitedZone);
         if (!$this->visitedZones->contains($visitedZone)) {
             $this->visitedZones[] = $visitedZone;
         }
