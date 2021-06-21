@@ -258,7 +258,7 @@
                         <button x-control="zone" class="small inline map_button map_button_left"><div>{% trans from 'game' %}Schließen{% endtrans %}</div></button>
                     {% endif %}
                     <button x-control="tags" class="small inline hide-tags map_button map_button_left"><div>{% trans from 'game' %}Mark.{% endtrans %}</div></button>
-                    <button x-control="global" class="small inline {% if in_town %}show-tags{% else %}hide-tags{% endif %} map_button map_button_left"><div>{% trans from 'game' %}Global{% endtrans %}</div></button>
+                    {% if not in_town %}<button x-control="global" class="small inline hide-tags map_button map_button_left"><div>{% trans from 'game' %}Global{% endtrans %}</div></button>{% endif %}
                 </div>
                 <div class="float-right">
                     <button x-control="plus"   class="small inline map_button map_button_icon map_button_right"><i class="fa fa-plus"></i></button>
