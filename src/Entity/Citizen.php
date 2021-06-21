@@ -279,7 +279,7 @@ class Citizen
     private $usedHeroicActions;
 
     /**
-     * @ORM\OneToMany(targetEntity=Zone::class, mappedBy="citizen", orphanRemoval=true, cascade={"persist", "remove"})
+     * @ORM\ManyToMany(targetEntity=Zone::class, orphanRemoval=true, cascade={"persist", "remove"})
      */
     private $visitedZones;
 
@@ -529,7 +529,7 @@ class Citizen
     public function setZone(?Zone $zone): self
     {
         $this->zone = $zone;
-        $this->addVisitedZone($zone);
+        if($zone) $this->addVisitedZone($zone);
 
         return $this;
     }
@@ -1285,6 +1285,8 @@ class Citizen
 
     public function addVisitedZone(Zone $visitedZone): self
     {
+        dump($this);
+        dump($visitedZone);
         if (!$this->visitedZones->contains($visitedZone)) {
             $this->visitedZones[] = $visitedZone;
         }
