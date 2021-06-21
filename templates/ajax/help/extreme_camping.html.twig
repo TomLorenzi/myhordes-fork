@@ -50,7 +50,7 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
 {{ '<strong>Ein "Grab" schaufeln</strong>: Du gräbst ein Loch und bedeckst dich mit allem, was du in deiner unmittelbaren Umgebung auftreiben kannst. Diese Aktion verleiht dir einen größeren Bonus als die Verbesserung deines Campingplatzes. Allerdings kannst du dich danach nicht mehr bewegen. Du verlierst diesen Bonus, wenn du aus deinem Versteck hervorkriechst.'|trans({},'help')|raw }}
 </li>
 <li>
-{{ '<strong>Verteidigungsgegenstände gebrauchen</strong>: Mit manchen Gegenständen kannst du deinen Campingplatz erheblich verbessern. Der Gebrauch dieser Gegenstände verbraucht allerdings 1 %img_ap%.'|trans({'%img_ap%' : '<span class="ap"></span>'},'help')|raw }}
+{{ '<strong>Verteidigungsgegenstände gebrauchen</strong>: Mit manchen Gegenständen kannst du deinen Campingplatz erheblich verbessern. Der Gebrauch dieser Gegenstände verbraucht allerdings 1 {img_ap}.'|trans({'{img_ap}' : '<span class="ap"></span>'},'help')|raw }}
 </li>
 <li>{{ 'Es gibt andere Möglichkeiten, deine Überlebenschancen beim Campen in Bezug auf Berufe, Objekte und Gebiete zu erhöhen. Es liegt an dir das herauszufinden.'|trans({},'help')|raw }}</li>
 </ul>
@@ -96,7 +96,7 @@ sind <strong>nicht auf 90%</strong> beschränkt.'|trans({},'help')|raw }}
 {{ 'Spätestens um Mitternacht musst du in deinem Versteck sein. Abhängig von der Qualität deines Verstecks und der Höhe deiner Überlebenschancen, wirst du von den Untoten verschont, oder aber in Stücke gerissen.'|trans({},'help')|raw }}
 </p>
 <p>
-{{ 'Wenn du überlebst, <strong>erhältst du neue %img_ap% sowie verschiedene Auszeichnungen.</strong>'|trans({'%img_ap%' : '<span class="ap"></span>'},'help')|raw }}
+{{ 'Wenn du überlebst, <strong>erhältst du neue {img_ap} sowie verschiedene Auszeichnungen.</strong>'|trans({'{img_ap}' : '<span class="ap"></span>'},'help')|raw }}
 </p>
 <p>
 {{ 'Wichtig zu wissen ist, dass die Zombieaktivität um Mitternacht besonders stark ist. Das bedeutet, dass&nbsp;die Verteidigung deines Verstecks jedes Mal in Mitleidenschaft gezogen wird.'|trans({},'help')|raw }}
@@ -105,11 +105,11 @@ sind <strong>nicht auf 90%</strong> beschränkt.'|trans({},'help')|raw }}
 {{ '<strong>Achtung: </strong> Wenn du die Nacht in der Wüste überlebst, fliegt deine Tarnung am nächsten Morgen auf! Solltest du beabsichtigen wieder draußen zu schlafen, musst du dein Versteck <strong>erneut</strong> ausbauen.'|trans({},'help')|raw }}
 </p>
 <p>
-{{ 'Sollte der Fall eintreten, dass sich beim Angriff der Zombiehorde niemand mehr in der Stadt befindet (da zum Beispiel alle Überlebenden draußen campen), wird die Stadt von den Untoten <span x-ajax-href=%url_devast%>zerstört</span>.'|trans({'%url_devast%': url('help', {'name': 'devastated_town'})},'help')|raw }}
+{{ 'Sollte der Fall eintreten, dass sich beim Angriff der Zombiehorde niemand mehr in der Stadt befindet (da zum Beispiel alle Überlebenden draußen campen), wird die Stadt von den Untoten <span x-ajax-href={url_devast}>zerstört</span>.'|trans({'{url_devast}': url('help', {'name': 'devastated_town'})},'help')|raw }}
 </p>
 <h2>{{ '"Auszeichnung: Camper im Jenseits"'|trans({},'help')|raw }}</h2>
 <p>
-{{ 'Für jede Nacht, die du draußen überlebt hast, als die Stadt schon <span x-ajax-href=%url_devast%>zerstört</span> war, bekommst du zusätzlich zu der normalen Auszeichnung, eine <strong>besonders seltene Auszeichnung</strong>.'|trans({'%url_devast%': url('help', {'name': 'devastated_town'})},'help')|raw }}
+{{ 'Für jede Nacht, die du draußen überlebt hast, als die Stadt schon <span x-ajax-href={url_devast}>zerstört</span> war, bekommst du zusätzlich zu der normalen Auszeichnung, eine <strong>besonders seltene Auszeichnung</strong>.'|trans({'{url_devast}': url('help', {'name': 'devastated_town'})},'help')|raw }}
 </p>
 <p>
 {{ 'Um diese Auszeichnung zu erhalten, muss die Stadt mindestens <strong>10 volle Tage</strong> überlebt haben.'|trans({},'help')|raw }}

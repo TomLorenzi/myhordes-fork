@@ -19,13 +19,13 @@
         <target>Réinitialiser le mot de passe</target>
       </segment>
     </unit>
-    <unit id="Yf9Z7KC" name="Hallo %user%! Willkommen bei MyHordes!">
+    <unit id="Yf9Z7KC" name="Hallo {user}! Willkommen bei MyHordes!">
       <notes>
-        <note category="german">Hallo %user%! Willkommen bei MyHordes!</note>
+        <note category="german">Hallo {user}! Willkommen bei MyHordes!</note>
       </notes>
       <segment>
-        <source>Hallo %user%! Willkommen bei MyHordes!</source>
-        <target>Bonjour %user%! Bienvenue sur MyHordes!</target>
+        <source>Hallo {user}! Willkommen bei MyHordes!</source>
+        <target>Bonjour {user}! Bienvenue sur MyHordes!</target>
       </segment>
     </unit>
     <unit id="_WvOCkO" name="Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:">
@@ -49,13 +49,13 @@
         Si vous ne vous êtes pas inscrit sur MyHordes, ignorez ce message.</target>
       </segment>
     </unit>
-    <unit id="DKEI.Ty" name="Hallo %user%!">
+    <unit id="DKEI.Ty" name="Hallo {user}!">
       <notes>
-        <note category="german">Hallo %user%!</note>
+        <note category="german">Hallo {user}!</note>
       </notes>
       <segment>
-        <source>Hallo %user%!</source>
-        <target>Bonjour %user% !</target>
+        <source>Hallo {user}!</source>
+        <target>Bonjour {user} !</target>
       </segment>
     </unit>
     <unit id="SWaK66s" name="Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :">

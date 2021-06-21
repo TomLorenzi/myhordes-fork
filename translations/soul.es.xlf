@@ -499,13 +499,13 @@
         <target>Descubierto</target>
       </segment>
     </unit>
-    <unit id="fUgR4gE" name="Gefundene Texte: %count%">
+    <unit id="fUgR4gE" name="Gefundene Texte: {count}">
       <notes>
-        <note category="german">Gefundene Texte: %count%</note>
+        <note category="german">Gefundene Texte: {count}</note>
       </notes>
       <segment>
-        <source>Gefundene Texte: %count%</source>
-        <target>Textos descubiertos: %count%</target>
+        <source>Gefundene Texte: {count}</source>
+        <target>Textos descubiertos: {count}</target>
       </segment>
     </unit>
     <unit id="elfn6js" name="Einen Kommentar hinzufügen">
@@ -646,13 +646,13 @@
         <target>Alianza</target>
       </segment>
     </unit>
-    <unit id="wG0.yX3" name="Saison %season%">
+    <unit id="wG0.yX3" name="Saison {season}">
       <notes>
-        <note category="german">Saison %season%</note>
+        <note category="german">Saison {season}</note>
       </notes>
       <segment>
-        <source>Saison %season%</source>
-        <target>Temporada %season%</target>
+        <source>Saison {season}</source>
+        <target>Temporada {season}</target>
       </segment>
     </unit>
     <unit id="x3_4s4O" name="Alte Städte">
@@ -844,13 +844,13 @@
         <target>Puntos</target>
       </segment>
     </unit>
-    <unit id="bRng7VP" name="%d% überlebt">
+    <unit id="bRng7VP" name="{d} überlebt">
       <notes>
-        <note category="german">%d% überlebt</note>
+        <note category="german">{d} überlebt</note>
       </notes>
       <segment>
-        <source>%d% überlebt</source>
-        <target>%d% sobrevivió</target>
+        <source>{d} überlebt</source>
+        <target>{d} sobrevivió</target>
       </segment>
     </unit>
     <unit id="rD2ZHAN" name="Letzte Worte">
@@ -871,13 +871,13 @@
         <target>Confirmar importación</target>
       </segment>
     </unit>
-    <unit id="Asz_NPm" name="Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?">
+    <unit id="Asz_NPm" name="Hast du ein Seele bei {hordes}, {dv}, {d2n} oder {zn}?">
       <notes>
-        <note category="german">Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?</note>
+        <note category="german">Hast du ein Seele bei {hordes}, {dv}, {d2n} oder {zn}?</note>
       </notes>
       <segment>
-        <source>Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?</source>
-        <target>¿Tienes un alma en %d2n%, %hordes%, %dv%, o %zn%?</target>
+        <source>Hast du ein Seele bei {hordes}, {dv}, {d2n} oder {zn}?</source>
+        <target>¿Tienes un alma en {d2n}, {hordes}, {dv}, o {zn}?</target>
       </segment>
     </unit>
     <unit id="VVu6KAH" name="Seele importieren">
@@ -952,31 +952,31 @@
         <target>Resumen</target>
       </segment>
     </unit>
-    <unit id="iDRsxF8" name="%c% Städte">
+    <unit id="iDRsxF8" name="{c} Städte">
       <notes>
-        <note category="german">%c% Städte</note>
+        <note category="german">{c} Städte</note>
       </notes>
       <segment>
-        <source>%c% Städte</source>
-        <target>%c% Pueblos</target>
+        <source>{c} Städte</source>
+        <target>{c} Pueblos</target>
       </segment>
     </unit>
-    <unit id="URb5dXE" name="zwischen Saison %smin% und %smax%">
+    <unit id="URb5dXE" name="zwischen Saison {smin} und {smax}">
       <notes>
-        <note category="german">zwischen Saison %smin% und %smax%</note>
+        <note category="german">zwischen Saison {smin} und {smax}</note>
       </notes>
       <segment>
-        <source>zwischen Saison %smin% und %smax%</source>
-        <target>entre Temporada %smin% y %smax%</target>
+        <source>zwischen Saison {smin} und {smax}</source>
+        <target>entre Temporada {smin} y {smax}</target>
       </segment>
     </unit>
-    <unit id="tZke4d7" name="%num% Städte zw. Saison %smin% und %smax%">
+    <unit id="tZke4d7" name="{num} Städte zw. Saison {smin} und {smax}">
       <notes>
-        <note category="german">%num% Städte zw. Saison %smin% und %smax%</note>
+        <note category="german">{num} Städte zw. Saison {smin} und {smax}</note>
       </notes>
       <segment>
-        <source>%num% Städte zw. Saison %smin% und %smax%</source>
-        <target>%num% Ciudades entre Temporada %smin% y %smax%</target>
+        <source>{num} Städte zw. Saison {smin} und {smax}</source>
+        <target>{num} Ciudades entre Temporada {smin} y {smax}</target>
       </segment>
     </unit>
     <unit id=".j1I3aE" name="aus vergangener Zeit">
@@ -988,13 +988,13 @@
         <target>de tiempos pasados</target>
       </segment>
     </unit>
-    <unit id="uHHqmXL" name="%num% Städte aus vergangener Zeit">
+    <unit id="uHHqmXL" name="{num} Städte aus vergangener Zeit">
       <notes>
-        <note category="german">%num% Städte aus vergangener Zeit</note>
+        <note category="german">{num} Städte aus vergangener Zeit</note>
       </notes>
       <segment>
-        <source>%num% Städte aus vergangener Zeit</source>
-        <target>%num% Pueblos de tiempos pasados</target>
+        <source>{num} Städte aus vergangener Zeit</source>
+        <target>{num} Pueblos de tiempos pasados</target>
       </segment>
     </unit>
     <unit id="vGn3Jql" name="Keine Städte">
@@ -1006,31 +1006,31 @@
         <target>Sin ciudades</target>
       </segment>
     </unit>
-    <unit id="3Nam8Wg" name="%c% Titel &amp; Icons">
+    <unit id="3Nam8Wg" name="{c} Titel &amp; Icons">
       <notes>
-        <note category="german">%c% Titel &amp; Icons</note>
+        <note category="german">{c} Titel &amp; Icons</note>
       </notes>
       <segment>
-        <source>%c% Titel &amp; Icons</source>
-        <target><![CDATA[%c% Títulos & Iconos]]></target>
+        <source>{c} Titel &amp; Icons</source>
+        <target><![CDATA[{c} Títulos & Iconos]]></target>
       </segment>
     </unit>
-    <unit id="VDr4lbM" name="%c% Titel, %cc% Icons">
+    <unit id="VDr4lbM" name="{c} Titel, {cc} Icons">
       <notes>
-        <note category="german">%c% Titel, %cc% Icons</note>
+        <note category="german">{c} Titel, {cc} Icons</note>
       </notes>
       <segment>
-        <source>%c% Titel, %cc% Icons</source>
-        <target>%c% Títulos, %cc% Íconos</target>
+        <source>{c} Titel, {cc} Icons</source>
+        <target>{c} Títulos, {cc} Íconos</target>
       </segment>
     </unit>
-    <unit id="xhN5lts" name="%num% unbekannte Objekte!">
+    <unit id="xhN5lts" name="{num} unbekannte Objekte!">
       <notes>
-        <note category="german">%num% unbekannte Objekte!</note>
+        <note category="german">{num} unbekannte Objekte!</note>
       </notes>
       <segment>
-        <source>%num% unbekannte Objekte!</source>
-        <target>%num% objetos desconocidos!</target>
+        <source>{num} unbekannte Objekte!</source>
+        <target>{num} objetos desconocidos!</target>
       </segment>
     </unit>
     <unit id="tJ5C7kL" name="Keine Freischaltungen">
@@ -1042,49 +1042,49 @@
         <target>Sin activaciones</target>
       </segment>
     </unit>
-    <unit id="DW8tL5I" name="%c% Seelenpunkte">
+    <unit id="DW8tL5I" name="{c} Seelenpunkte">
       <notes>
-        <note category="german">%c% Seelenpunkte</note>
+        <note category="german">{c} Seelenpunkte</note>
       </notes>
       <segment>
-        <source>%c% Seelenpunkte</source>
-        <target>%c% Puntos de Alma</target>
+        <source>{c} Seelenpunkte</source>
+        <target>{c} Puntos de Alma</target>
       </segment>
     </unit>
-    <unit id="_GxcfFk" name="%c% Auszeichnungen">
+    <unit id="_GxcfFk" name="{c} Auszeichnungen">
       <notes>
-        <note category="german">%c% Auszeichnungen</note>
+        <note category="german">{c} Auszeichnungen</note>
       </notes>
       <segment>
-        <source>%c% Auszeichnungen</source>
-        <target>%c% Premios</target>
+        <source>{c} Auszeichnungen</source>
+        <target>{c} Premios</target>
       </segment>
     </unit>
-    <unit id="v2GNzO7" name="%c% Auszeichnungs-Typen, %cc% davon selten">
+    <unit id="v2GNzO7" name="{c} Auszeichnungs-Typen, {cc} davon selten">
       <notes>
-        <note category="german">%c% Auszeichnungs-Typen, %cc% davon selten</note>
+        <note category="german">{c} Auszeichnungs-Typen, {cc} davon selten</note>
       </notes>
       <segment>
-        <source>%c% Auszeichnungs-Typen, %cc% davon selten</source>
-        <target>%c% Tipos de premios y %cc% que son raros</target>
+        <source>{c} Auszeichnungs-Typen, {cc} davon selten</source>
+        <target>{c} Tipos de premios y {cc} que son raros</target>
       </segment>
     </unit>
-    <unit id="2lB01ka" name="%c% Auszeichnungs-Typen">
+    <unit id="2lB01ka" name="{c} Auszeichnungs-Typen">
       <notes>
-        <note category="german">%c% Auszeichnungs-Typen</note>
+        <note category="german">{c} Auszeichnungs-Typen</note>
       </notes>
       <segment>
-        <source>%c% Auszeichnungs-Typen</source>
-        <target>%c% Tipos de premios</target>
+        <source>{c} Auszeichnungs-Typen</source>
+        <target>{c} Tipos de premios</target>
       </segment>
     </unit>
-    <unit id="mgoVWcN" name="%num% unbekannte Auszeichnungen!">
+    <unit id="mgoVWcN" name="{num} unbekannte Auszeichnungen!">
       <notes>
-        <note category="german">%num% unbekannte Auszeichnungen!</note>
+        <note category="german">{num} unbekannte Auszeichnungen!</note>
       </notes>
       <segment>
-        <source>%num% unbekannte Auszeichnungen!</source>
-        <target>%num% premios desconocidos!</target>
+        <source>{num} unbekannte Auszeichnungen!</source>
+        <target>{num} premios desconocidos!</target>
       </segment>
     </unit>
     <unit id="304pJcq" name="Keine Auszeichnungen">
@@ -1096,13 +1096,13 @@
         <target>Sin premios</target>
       </segment>
     </unit>
-    <unit id="8p1rMBE" name="%c% Tage als Held">
+    <unit id="8p1rMBE" name="{c} Tage als Held">
       <notes>
-        <note category="german">%c% Tage als Held</note>
+        <note category="german">{c} Tage als Held</note>
       </notes>
       <segment>
-        <source>%c% Tage als Held</source>
-        <target>%c% Días como héroe</target>
+        <source>{c} Tage als Held</source>
+        <target>{c} Días como héroe</target>
       </segment>
     </unit>
     <unit id="WE..GeJ">
@@ -1159,13 +1159,13 @@
         <target>Sobrevivió</target>
       </segment>
     </unit>
-    <unit id="ymT9mze" name="%d% Tage">
+    <unit id="ymT9mze" name="{d} Tage">
       <notes>
-        <note category="german">%d% Tage</note>
+        <note category="german">{d} Tage</note>
       </notes>
       <segment>
-        <source>%d% Tage</source>
-        <target>%d% Días</target>
+        <source>{d} Tage</source>
+        <target>{d} Días</target>
       </segment>
     </unit>
     <unit id="fcC4_EM" name="Auszeichnungen">
@@ -1285,13 +1285,13 @@
         <target>¡Tu alma se importó con éxito!</target>
       </segment>
     </unit>
-    <unit id="p3Cx_go" name="Saison %n%">
+    <unit id="p3Cx_go" name="Saison {n}">
       <notes>
-        <note category="german">Saison %n%</note>
+        <note category="german">Saison {n}</note>
       </notes>
       <segment>
-        <source>Saison %n%</source>
-        <target>Temporada %n%</target>
+        <source>Saison {n}</source>
+        <target>Temporada {n}</target>
       </segment>
     </unit>
     <unit id="yoZbT75" name="Gute Alte Zeit">
@@ -1339,22 +1339,22 @@
         <target>Aún no has importado Almas.</target>
       </segment>
     </unit>
-    <unit id="xroX___" name="Angelegt: %d%">
+    <unit id="xroX___" name="Angelegt: {d}">
       <notes>
-        <note category="german">Angelegt: %d%</note>
+        <note category="german">Angelegt: {d}</note>
       </notes>
       <segment>
-        <source>Angelegt: %d%</source>
-        <target>Creado: %d%</target>
+        <source>Angelegt: {d}</source>
+        <target>Creado: {d}</target>
       </segment>
     </unit>
-    <unit id="wgHBoF8" name="Letztes Update: %d%">
+    <unit id="wgHBoF8" name="Letztes Update: {d}">
       <notes>
-        <note category="german">Letztes Update: %d%</note>
+        <note category="german">Letztes Update: {d}</note>
       </notes>
       <segment>
-        <source>Letztes Update: %d%</source>
-        <target>Última actualización: %d%</target>
+        <source>Letztes Update: {d}</source>
+        <target>Última actualización: {d}</target>
       </segment>
     </unit>
     <unit id="eJBYptN" name="Daten aktualisieren">
@@ -1665,11 +1665,11 @@
     </unit>
     <unit id="stLn0.b">
       <notes>
-        <note category="german">Diese Stadt wurde von %host% importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</note>
+        <note category="german">Diese Stadt wurde von {host} importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</note>
       </notes>
       <segment>
-        <source>Diese Stadt wurde von %host% importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</source>
-        <target>Esta ciudad ha sido importada de %host%. La información de esta página puede estar incompleta.</target>
+        <source>Diese Stadt wurde von {host} importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</source>
+        <target>Esta ciudad ha sido importada de {host}. La información de esta página puede estar incompleta.</target>
       </segment>
     </unit>
     <unit id="Z3DDGf9" name="Tage">
@@ -1798,13 +1798,13 @@
         <target>Enlazar cuenta de EternalTwin</target>
       </segment>
     </unit>
-    <unit id="lqipl75" name="%name%'s Koalition">
+    <unit id="lqipl75" name="{name}'s Koalition">
       <notes>
-        <note category="german">%name%'s Koalition</note>
+        <note category="german">{name}'s Koalition</note>
       </notes>
       <segment>
-        <source>%name%'s Koalition</source>
-        <target>Alianza de %name%</target>
+        <source>{name}'s Koalition</source>
+        <target>Alianza de {name}</target>
       </segment>
     </unit>
     <unit id="j8VraNU" name="Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!">
@@ -2095,13 +2095,13 @@
         <target>Hace 1 día</target>
       </segment>
     </unit>
-    <unit id="BFD31Nv" name="Vor %d% Tagen">
+    <unit id="BFD31Nv" name="Vor {d} Tagen">
       <notes>
-        <note category="german">Vor %d% Tagen</note>
+        <note category="german">Vor {d} Tagen</note>
       </notes>
       <segment>
-        <source>Vor %d% Tagen</source>
-        <target>Hace %d% Días</target>
+        <source>Vor {d} Tagen</source>
+        <target>Hace {d} Días</target>
       </segment>
     </unit>
     <unit id="zeYLnSy" name="Klick auf diesen Link, um die Seite neu zu laden.">
@@ -2122,49 +2122,49 @@
         <target>Si no deseas sumarte automáticamente a una partida cuando un miembro de tu alianza ingrese a un pueblo, ponte en modo No disponible.</target>
       </segment>
     </unit>
-    <unit id="vKZiHzm" name="&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.">
+    <unit id="vKZiHzm" name="&lt;b&gt;{u1}&lt;/b&gt; hat &lt;b&gt;{u2}&lt;/b&gt; in die Koalition eingeladen.">
       <notes>
-        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.</note>
+        <note category="german">&lt;b&gt;{u1}&lt;/b&gt; hat &lt;b&gt;{u2}&lt;/b&gt; in die Koalition eingeladen.</note>
       </notes>
       <segment>
-        <source>&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; in die Koalition eingeladen.</source>
-        <target><![CDATA[<b>%u1%</b> ha invitado a <b>%u2%</b> a unirse a nosotros.]]></target>
+        <source>&lt;b&gt;{u1}&lt;/b&gt; hat &lt;b&gt;{u2}&lt;/b&gt; in die Koalition eingeladen.</source>
+        <target><![CDATA[<b>{u1}</b> ha invitado a <b>{u2}</b> a unirse a nosotros.]]></target>
       </segment>
     </unit>
-    <unit id="bvTtAAO" name="&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!">
+    <unit id="bvTtAAO" name="&lt;b&gt;{u1}&lt;/b&gt; ist der Koalition soeben beigetreten!">
       <notes>
-        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!</note>
+        <note category="german">&lt;b&gt;{u1}&lt;/b&gt; ist der Koalition soeben beigetreten!</note>
       </notes>
       <segment>
-        <source>&lt;b&gt;%u1%&lt;/b&gt; ist der Koalition soeben beigetreten!</source>
-        <target><![CDATA[¡<b>%u1%</b> acaba de unirse a la alianza!]]></target>
+        <source>&lt;b&gt;{u1}&lt;/b&gt; ist der Koalition soeben beigetreten!</source>
+        <target><![CDATA[¡<b>{u1}</b> acaba de unirse a la alianza!]]></target>
       </segment>
     </unit>
-    <unit id="ztPAknj" name="&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.">
+    <unit id="ztPAknj" name="&lt;b&gt;{u1}&lt;/b&gt; hat die Koalition verlassen.">
       <notes>
-        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.</note>
+        <note category="german">&lt;b&gt;{u1}&lt;/b&gt; hat die Koalition verlassen.</note>
       </notes>
       <segment>
-        <source>&lt;b&gt;%u1%&lt;/b&gt; hat die Koalition verlassen.</source>
-        <target><![CDATA[<b>%u1%</b> ha dejado la alianza.]]></target>
+        <source>&lt;b&gt;{u1}&lt;/b&gt; hat die Koalition verlassen.</source>
+        <target><![CDATA[<b>{u1}</b> ha dejado la alianza.]]></target>
       </segment>
     </unit>
-    <unit id="tMzLQiv" name="&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.">
+    <unit id="tMzLQiv" name="&lt;b&gt;{u1}&lt;/b&gt; hat &lt;b&gt;{u2}&lt;/b&gt; aus der Koalition entfernt.">
       <notes>
-        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.</note>
+        <note category="german">&lt;b&gt;{u1}&lt;/b&gt; hat &lt;b&gt;{u2}&lt;/b&gt; aus der Koalition entfernt.</note>
       </notes>
       <segment>
-        <source>&lt;b&gt;%u1%&lt;/b&gt; hat &lt;b&gt;%u2%&lt;/b&gt; aus der Koalition entfernt.</source>
-        <target><![CDATA[<b>%u1%</b> despidió a <b>%u2%</b> de la alianza.]]></target>
+        <source>&lt;b&gt;{u1}&lt;/b&gt; hat &lt;b&gt;{u2}&lt;/b&gt; aus der Koalition entfernt.</source>
+        <target><![CDATA[<b>{u1}</b> despidió a <b>{u2}</b> de la alianza.]]></target>
       </segment>
     </unit>
-    <unit id="bCn1heW" name="&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt &quot;&lt;b&gt;%town%&lt;/b&gt;&quot; eingeschrieben!">
+    <unit id="bCn1heW" name="&lt;b&gt;{u1}&lt;/b&gt; hat sich soeben in die Stadt &quot;&lt;b&gt;{town}&lt;/b&gt;&quot; eingeschrieben!">
       <notes>
-        <note category="german">&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt "&lt;b&gt;%town%&lt;/b&gt;" eingeschrieben!</note>
+        <note category="german">&lt;b&gt;{u1}&lt;/b&gt; hat sich soeben in die Stadt "&lt;b&gt;{town}&lt;/b&gt;" eingeschrieben!</note>
       </notes>
       <segment>
-        <source>&lt;b&gt;%u1%&lt;/b&gt; hat sich soeben in die Stadt "&lt;b&gt;%town%&lt;/b&gt;" eingeschrieben!</source>
-        <target><![CDATA[¡<b>%u1%</b> empezó su aventura en "<b>%town%</b>"!]]></target>
+        <source>&lt;b&gt;{u1}&lt;/b&gt; hat sich soeben in die Stadt "&lt;b&gt;{town}&lt;/b&gt;" eingeschrieben!</source>
+        <target><![CDATA[¡<b>{u1}</b> empezó su aventura en "<b>{town}</b>"!]]></target>
       </segment>
     </unit>
     <unit id="Hb1dhIr">
@@ -2257,13 +2257,13 @@
         <target>Alianzas</target>
       </segment>
     </unit>
-    <unit id="TE.pp6F" name="Saison %number%">
+    <unit id="TE.pp6F" name="Saison {number}">
       <notes>
-        <note category="german">Saison %number%</note>
+        <note category="german">Saison {number}</note>
       </notes>
       <segment>
-        <source>Saison %number%</source>
-        <target>Temporada %number%</target>
+        <source>Saison {number}</source>
+        <target>Temporada {number}</target>
       </segment>
     </unit>
     <unit id="J6NchKS" name="Pos.">
@@ -2599,13 +2599,13 @@
         <target>Dauerhafte Beschränkung</target>
       </segment>
     </unit>
-    <unit id="JH6DUBR" name="Ende der Beschränkung: %date%">
+    <unit id="JH6DUBR" name="Ende der Beschränkung: {date}">
       <notes>
-        <note category="german">Ende der Beschränkung: %date%</note>
+        <note category="german">Ende der Beschränkung: {date}</note>
       </notes>
       <segment>
-        <source>Ende der Beschränkung: %date%</source>
-        <target>Fin de la restricción : %date%</target>
+        <source>Ende der Beschränkung: {date}</source>
+        <target>Fin de la restricción : {date}</target>
       </segment>
     </unit>
     <unit id="_33rQU1" name="Durch deinen Weggang hast du deine Koalition soeben aufgelöst.">

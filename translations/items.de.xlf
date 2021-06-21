@@ -3655,13 +3655,13 @@
         <target>Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!</target>
       </segment>
     </unit>
-    <unit id="vgypnNf" name="%action%: %item%">
+    <unit id="vgypnNf" name="{action}: {item}">
       <notes>
-        <note category="german">%action%: %item%</note>
+        <note category="german">{action}: {item}</note>
       </notes>
       <segment>
-        <source>%action%: %item%</source>
-        <target>%action%: %item%</target>
+        <source>{action}: {item}</source>
+        <target>{action}: {item}</target>
       </segment>
     </unit>
     <unit id="mXiqRuJ">
@@ -7795,13 +7795,13 @@
         <target>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei.</target>
       </segment>
     </unit>
-    <unit id="ApkAd1P" name="Möchtest du %target% heimbringen?">
+    <unit id="ApkAd1P" name="Möchtest du {target} heimbringen?">
       <notes>
-        <note category="german">Möchtest du %target% heimbringen?</note>
+        <note category="german">Möchtest du {target} heimbringen?</note>
       </notes>
       <segment>
-        <source>Möchtest du %target% heimbringen?</source>
-        <target>Möchtest du %target% heimbringen?</target>
+        <source>Möchtest du {target} heimbringen?</source>
+        <target>Möchtest du {target} heimbringen?</target>
       </segment>
     </unit>
     <unit id="Y5MBnJg" name="Du hast {item_from} in {item_to} verwandelt.">
@@ -7948,22 +7948,22 @@
         <target><![CDATA[Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>.]]></target>
       </segment>
     </unit>
-    <unit id="Cp5Hvee" name="%citizen% befehlen etwas zu trinken.">
+    <unit id="Cp5Hvee" name="{citizen} befehlen etwas zu trinken.">
       <notes>
-        <note category="german">%citizen% befehlen etwas zu trinken.</note>
+        <note category="german">{citizen} befehlen etwas zu trinken.</note>
       </notes>
       <segment>
-        <source>%citizen% befehlen etwas zu trinken.</source>
-        <target>%citizen% befehlen etwas zu trinken.</target>
+        <source>{citizen} befehlen etwas zu trinken.</source>
+        <target>{citizen} befehlen etwas zu trinken.</target>
       </segment>
     </unit>
-    <unit id="M83i5Y." name="%citizen% befehlen etwas zu essen.">
+    <unit id="M83i5Y." name="{citizen} befehlen etwas zu essen.">
       <notes>
-        <note category="german">%citizen% befehlen etwas zu essen.</note>
+        <note category="german">{citizen} befehlen etwas zu essen.</note>
       </notes>
       <segment>
-        <source>%citizen% befehlen etwas zu essen.</source>
-        <target>%citizen% befehlen etwas zu essen.</target>
+        <source>{citizen} befehlen etwas zu essen.</source>
+        <target>{citizen} befehlen etwas zu essen.</target>
       </segment>
     </unit>
     <unit id="P9ubaaO" name="Schwarzer Zervixschleim">

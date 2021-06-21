@@ -1149,25 +1149,25 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
     </unit>
     <unit id=".OrP_HR">
       <notes>
-        <note category="german">Jeder in einer Zone anwesende %img_human% &lt;strong&gt;Mensch&lt;/strong&gt; zählt
+        <note category="german">Jeder in einer Zone anwesende {img_human} &lt;strong&gt;Mensch&lt;/strong&gt; zählt
         &lt;strong&gt;2 Punkte&lt;/strong&gt;.</note>
       </notes>
       <segment>
-        <source>Jeder in einer Zone anwesende %img_human% &lt;strong&gt;Mensch&lt;/strong&gt; zählt
+        <source>Jeder in einer Zone anwesende {img_human} &lt;strong&gt;Mensch&lt;/strong&gt; zählt
         &lt;strong&gt;2 Punkte&lt;/strong&gt;.</source>
-        <target><![CDATA[Jeder in einer Zone anwesende %img_human% <strong>Mensch</strong> zählt
+        <target><![CDATA[Jeder in einer Zone anwesende {img_human} <strong>Mensch</strong> zählt
         <strong>2 Punkte</strong>.]]></target>
       </segment>
     </unit>
     <unit id="__T7p8r">
       <notes>
-        <note category="german">Jeder in einer Zone anwesende %img_zombie% &lt;strong&gt;Zombie&lt;/strong&gt; zählt
+        <note category="german">Jeder in einer Zone anwesende {img_zombie} &lt;strong&gt;Zombie&lt;/strong&gt; zählt
         &lt;strong&gt;1 Punkt&lt;/strong&gt;.</note>
       </notes>
       <segment>
-        <source>Jeder in einer Zone anwesende %img_zombie% &lt;strong&gt;Zombie&lt;/strong&gt; zählt
+        <source>Jeder in einer Zone anwesende {img_zombie} &lt;strong&gt;Zombie&lt;/strong&gt; zählt
         &lt;strong&gt;1 Punkt&lt;/strong&gt;.</source>
-        <target><![CDATA[Jeder in einer Zone anwesende %img_zombie% <strong>Zombie</strong> zählt
+        <target><![CDATA[Jeder in einer Zone anwesende {img_zombie} <strong>Zombie</strong> zählt
         <strong>1 Punkt</strong>.]]></target>
       </segment>
     </unit>
@@ -1237,13 +1237,13 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
     <unit id="G_5XfFC">
       <notes>
         <note category="german">Du kannst versuchen, die Zombies einen nach dem anderen mit bloßen Händen umzubringen... Jeder Versuch kostet
-        dich 1 %img_ap%. Die Erfolgsaussichten sind eher gering.</note>
+        dich 1 {img_ap}. Die Erfolgsaussichten sind eher gering.</note>
       </notes>
       <segment>
         <source>Du kannst versuchen, die Zombies einen nach dem anderen mit bloßen Händen umzubringen... Jeder Versuch kostet
-        dich 1 %img_ap%. Die Erfolgsaussichten sind eher gering.</source>
+        dich 1 {img_ap}. Die Erfolgsaussichten sind eher gering.</source>
         <target>Du kannst versuchen, die Zombies einen nach dem anderen mit bloßen Händen umzubringen... Jeder Versuch kostet
-        dich 1 %img_ap%. Die Erfolgsaussichten sind eher gering.</target>
+        dich 1 {img_ap}. Die Erfolgsaussichten sind eher gering.</target>
       </segment>
     </unit>
     <unit id="RTb1qPa">
@@ -1326,14 +1326,14 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
     </unit>
     <unit id="KvyR.t.">
       <notes>
-        <note category="german">Solange du genügend %img_ap% &lt;strong&gt;Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
-Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</note>
+        <note category="german">Solange du genügend {img_ap} &lt;strong&gt;Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
+Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du {img_tired} &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</note>
       </notes>
       <segment>
-        <source>Solange du genügend %img_ap% &lt;strong&gt;Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
-Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</source>
-        <target><![CDATA[Solange du genügend %img_ap% <strong>Aktionspunkte</strong> besitzt, kannst du dich in der Außenwelt bewegen:
-Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <strong>Erschöpft</strong> und kannst dich nicht mehr bewegen.]]></target>
+        <source>Solange du genügend {img_ap} &lt;strong&gt;Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
+Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du {img_tired} &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</source>
+        <target><![CDATA[Solange du genügend {img_ap} <strong>Aktionspunkte</strong> besitzt, kannst du dich in der Außenwelt bewegen:
+Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du {img_tired} <strong>Erschöpft</strong> und kannst dich nicht mehr bewegen.]]></target>
       </segment>
     </unit>
     <unit id="rTyffgm" name="MyHordes?">
@@ -1374,11 +1374,11 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
     </unit>
     <unit id="ZI9ipy1">
       <notes>
-        <note category="german">Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine %img_wound% &lt;span x-ajax-href=%url_health%&gt;schwere Verletzung&lt;/span&gt;.</note>
+        <note category="german">Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine {img_wound} &lt;span x-ajax-href={url_health}&gt;schwere Verletzung&lt;/span&gt;.</note>
       </notes>
       <segment>
-        <source>Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine %img_wound% &lt;span x-ajax-href=%url_health%&gt;schwere Verletzung&lt;/span&gt;.</source>
-        <target><![CDATA[Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine %img_wound% <span x-ajax-href=%url_health%>schwere Verletzung</span>.]]></target>
+        <source>Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine {img_wound} &lt;span x-ajax-href={url_health}&gt;schwere Verletzung&lt;/span&gt;.</source>
+        <target><![CDATA[Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine {img_wound} <span x-ajax-href={url_health}>schwere Verletzung</span>.]]></target>
       </segment>
     </unit>
     <unit id="FMm6m0B">
@@ -1500,11 +1500,11 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
     </unit>
     <unit id="6P6JS.Y">
       <notes>
-        <note category="german">Klassischerweise, indem man seinen Kopf vom Körper trennt. Neuerdings schwören manche auch auf Bowlingkugeln... Die Wahrheit allerdings ist: Erlaubt ist, was gefällt. Alle stimmen darin überein, dass &lt;strong&gt;reines Wasser&lt;/strong&gt; die Waffe der ersten Wahl ist. Dieses Wasser muss aber irgendwie transportiert werden. Plastiktüten eignen sich dazu hervorragend, denn sie geben zugleich tolle %img_grenade% Wasserbomben ab.</note>
+        <note category="german">Klassischerweise, indem man seinen Kopf vom Körper trennt. Neuerdings schwören manche auch auf Bowlingkugeln... Die Wahrheit allerdings ist: Erlaubt ist, was gefällt. Alle stimmen darin überein, dass &lt;strong&gt;reines Wasser&lt;/strong&gt; die Waffe der ersten Wahl ist. Dieses Wasser muss aber irgendwie transportiert werden. Plastiktüten eignen sich dazu hervorragend, denn sie geben zugleich tolle {img_grenade} Wasserbomben ab.</note>
       </notes>
       <segment>
-        <source>Klassischerweise, indem man seinen Kopf vom Körper trennt. Neuerdings schwören manche auch auf Bowlingkugeln... Die Wahrheit allerdings ist: Erlaubt ist, was gefällt. Alle stimmen darin überein, dass &lt;strong&gt;reines Wasser&lt;/strong&gt; die Waffe der ersten Wahl ist. Dieses Wasser muss aber irgendwie transportiert werden. Plastiktüten eignen sich dazu hervorragend, denn sie geben zugleich tolle %img_grenade% Wasserbomben ab.</source>
-        <target><![CDATA[Klassischerweise, indem man seinen Kopf vom Körper trennt. Neuerdings schwören manche auch auf Bowlingkugeln... Die Wahrheit allerdings ist: Erlaubt ist, was gefällt. Alle stimmen darin überein, dass <strong>reines Wasser</strong> die Waffe der ersten Wahl ist. Dieses Wasser muss aber irgendwie transportiert werden. Plastiktüten eignen sich dazu hervorragend, denn sie geben zugleich tolle %img_grenade% Wasserbomben ab.]]></target>
+        <source>Klassischerweise, indem man seinen Kopf vom Körper trennt. Neuerdings schwören manche auch auf Bowlingkugeln... Die Wahrheit allerdings ist: Erlaubt ist, was gefällt. Alle stimmen darin überein, dass &lt;strong&gt;reines Wasser&lt;/strong&gt; die Waffe der ersten Wahl ist. Dieses Wasser muss aber irgendwie transportiert werden. Plastiktüten eignen sich dazu hervorragend, denn sie geben zugleich tolle {img_grenade} Wasserbomben ab.</source>
+        <target><![CDATA[Klassischerweise, indem man seinen Kopf vom Körper trennt. Neuerdings schwören manche auch auf Bowlingkugeln... Die Wahrheit allerdings ist: Erlaubt ist, was gefällt. Alle stimmen darin überein, dass <strong>reines Wasser</strong> die Waffe der ersten Wahl ist. Dieses Wasser muss aber irgendwie transportiert werden. Plastiktüten eignen sich dazu hervorragend, denn sie geben zugleich tolle {img_grenade} Wasserbomben ab.]]></target>
       </segment>
     </unit>
     <unit id="NFLPXTS" name="Ein paar Vorschläge">
@@ -1563,11 +1563,11 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du %img_tired% <st
     </unit>
     <unit id="0nfxF12">
       <notes>
-        <note category="german">Wenn's mal Probleme geben sollte, ist eine &lt;span x-ajax-href=%url_cp%&gt;Flucht&lt;/span&gt; nicht verkehrt...</note>
+        <note category="german">Wenn's mal Probleme geben sollte, ist eine &lt;span x-ajax-href={url_cp}&gt;Flucht&lt;/span&gt; nicht verkehrt...</note>
       </notes>
       <segment>
-        <source>Wenn's mal Probleme geben sollte, ist eine &lt;span x-ajax-href=%url_cp%&gt;Flucht&lt;/span&gt; nicht verkehrt...</source>
-        <target><![CDATA[Wenn's mal Probleme geben sollte, ist eine <span x-ajax-href=%url_cp%>Flucht</span> nicht verkehrt...]]></target>
+        <source>Wenn's mal Probleme geben sollte, ist eine &lt;span x-ajax-href={url_cp}&gt;Flucht&lt;/span&gt; nicht verkehrt...</source>
+        <target><![CDATA[Wenn's mal Probleme geben sollte, ist eine <span x-ajax-href={url_cp}>Flucht</span> nicht verkehrt...]]></target>
       </segment>
     </unit>
     <unit id="THFtKTb">
@@ -1791,11 +1791,11 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
     </unit>
     <unit id="kWTiIOz">
       <notes>
-        <note category="german">&lt;strong&gt;Verteidigungsgegenstände gebrauchen&lt;/strong&gt;: Mit manchen Gegenständen kannst du deinen Campingplatz erheblich verbessern. Der Gebrauch dieser Gegenstände verbraucht allerdings 1 %img_ap%.</note>
+        <note category="german">&lt;strong&gt;Verteidigungsgegenstände gebrauchen&lt;/strong&gt;: Mit manchen Gegenständen kannst du deinen Campingplatz erheblich verbessern. Der Gebrauch dieser Gegenstände verbraucht allerdings 1 {img_ap}.</note>
       </notes>
       <segment>
-        <source>&lt;strong&gt;Verteidigungsgegenstände gebrauchen&lt;/strong&gt;: Mit manchen Gegenständen kannst du deinen Campingplatz erheblich verbessern. Der Gebrauch dieser Gegenstände verbraucht allerdings 1 %img_ap%.</source>
-        <target><![CDATA[<strong>Verteidigungsgegenstände gebrauchen</strong>: Mit manchen Gegenständen kannst du deinen Campingplatz erheblich verbessern. Der Gebrauch dieser Gegenstände verbraucht allerdings 1 %img_ap%.]]></target>
+        <source>&lt;strong&gt;Verteidigungsgegenstände gebrauchen&lt;/strong&gt;: Mit manchen Gegenständen kannst du deinen Campingplatz erheblich verbessern. Der Gebrauch dieser Gegenstände verbraucht allerdings 1 {img_ap}.</source>
+        <target><![CDATA[<strong>Verteidigungsgegenstände gebrauchen</strong>: Mit manchen Gegenständen kannst du deinen Campingplatz erheblich verbessern. Der Gebrauch dieser Gegenstände verbraucht allerdings 1 {img_ap}.]]></target>
       </segment>
     </unit>
     <unit id="A3wujEo">
@@ -1992,11 +1992,11 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
     </unit>
     <unit id="dK2DHZj">
       <notes>
-        <note category="german">Wenn du überlebst, &lt;strong&gt;erhältst du neue %img_ap% sowie verschiedene Auszeichnungen.&lt;/strong&gt;</note>
+        <note category="german">Wenn du überlebst, &lt;strong&gt;erhältst du neue {img_ap} sowie verschiedene Auszeichnungen.&lt;/strong&gt;</note>
       </notes>
       <segment>
-        <source>Wenn du überlebst, &lt;strong&gt;erhältst du neue %img_ap% sowie verschiedene Auszeichnungen.&lt;/strong&gt;</source>
-        <target><![CDATA[Wenn du überlebst, <strong>erhältst du neue %img_ap% sowie verschiedene Auszeichnungen.</strong>]]></target>
+        <source>Wenn du überlebst, &lt;strong&gt;erhältst du neue {img_ap} sowie verschiedene Auszeichnungen.&lt;/strong&gt;</source>
+        <target><![CDATA[Wenn du überlebst, <strong>erhältst du neue {img_ap} sowie verschiedene Auszeichnungen.</strong>]]></target>
       </segment>
     </unit>
     <unit id="Cua0mtD">
@@ -2019,11 +2019,11 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
     </unit>
     <unit id="iBuxE_N">
       <notes>
-        <note category="german">Sollte der Fall eintreten, dass sich beim Angriff der Zombiehorde niemand mehr in der Stadt befindet (da zum Beispiel alle Überlebenden draußen campen), wird die Stadt von den Untoten &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt;.</note>
+        <note category="german">Sollte der Fall eintreten, dass sich beim Angriff der Zombiehorde niemand mehr in der Stadt befindet (da zum Beispiel alle Überlebenden draußen campen), wird die Stadt von den Untoten &lt;span x-ajax-href={url_devast}&gt;zerstört&lt;/span&gt;.</note>
       </notes>
       <segment>
-        <source>Sollte der Fall eintreten, dass sich beim Angriff der Zombiehorde niemand mehr in der Stadt befindet (da zum Beispiel alle Überlebenden draußen campen), wird die Stadt von den Untoten &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt;.</source>
-        <target><![CDATA[Sollte der Fall eintreten, dass sich beim Angriff der Zombiehorde niemand mehr in der Stadt befindet (da zum Beispiel alle Überlebenden draußen campen), wird die Stadt von den Untoten <span x-ajax-href=%url_devast%>zerstört</span>.]]></target>
+        <source>Sollte der Fall eintreten, dass sich beim Angriff der Zombiehorde niemand mehr in der Stadt befindet (da zum Beispiel alle Überlebenden draußen campen), wird die Stadt von den Untoten &lt;span x-ajax-href={url_devast}&gt;zerstört&lt;/span&gt;.</source>
+        <target><![CDATA[Sollte der Fall eintreten, dass sich beim Angriff der Zombiehorde niemand mehr in der Stadt befindet (da zum Beispiel alle Überlebenden draußen campen), wird die Stadt von den Untoten <span x-ajax-href={url_devast}>zerstört</span>.]]></target>
       </segment>
     </unit>
     <unit id="DV.uQFd" name="&quot;Auszeichnung: Camper im Jenseits&quot;">
@@ -2037,11 +2037,11 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
     </unit>
     <unit id="eK5ymSE">
       <notes>
-        <note category="german">Für jede Nacht, die du draußen überlebt hast, als die Stadt schon &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt; war, bekommst du zusätzlich zu der normalen Auszeichnung, eine &lt;strong&gt;besonders seltene Auszeichnung&lt;/strong&gt;.</note>
+        <note category="german">Für jede Nacht, die du draußen überlebt hast, als die Stadt schon &lt;span x-ajax-href={url_devast}&gt;zerstört&lt;/span&gt; war, bekommst du zusätzlich zu der normalen Auszeichnung, eine &lt;strong&gt;besonders seltene Auszeichnung&lt;/strong&gt;.</note>
       </notes>
       <segment>
-        <source>Für jede Nacht, die du draußen überlebt hast, als die Stadt schon &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt; war, bekommst du zusätzlich zu der normalen Auszeichnung, eine &lt;strong&gt;besonders seltene Auszeichnung&lt;/strong&gt;.</source>
-        <target><![CDATA[Für jede Nacht, die du draußen überlebt hast, als die Stadt schon <span x-ajax-href=%url_devast%>zerstört</span> war, bekommst du zusätzlich zu der normalen Auszeichnung, eine <strong>besonders seltene Auszeichnung</strong>.]]></target>
+        <source>Für jede Nacht, die du draußen überlebt hast, als die Stadt schon &lt;span x-ajax-href={url_devast}&gt;zerstört&lt;/span&gt; war, bekommst du zusätzlich zu der normalen Auszeichnung, eine &lt;strong&gt;besonders seltene Auszeichnung&lt;/strong&gt;.</source>
+        <target><![CDATA[Für jede Nacht, die du draußen überlebt hast, als die Stadt schon <span x-ajax-href={url_devast}>zerstört</span> war, bekommst du zusätzlich zu der normalen Auszeichnung, eine <strong>besonders seltene Auszeichnung</strong>.]]></target>
       </segment>
     </unit>
     <unit id="x56srvE">
@@ -2082,11 +2082,11 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
     </unit>
     <unit id="LosQOVV">
       <notes>
-        <note category="german">Wenn du keine %img_ap% Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: &lt;span x-ajax-href=%url_move%&gt;Sich bewegen&lt;/span&gt;).</note>
+        <note category="german">Wenn du keine {img_ap} Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: &lt;span x-ajax-href={url_move}&gt;Sich bewegen&lt;/span&gt;).</note>
       </notes>
       <segment>
-        <source>Wenn du keine %img_ap% Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: &lt;span x-ajax-href=%url_move%&gt;Sich bewegen&lt;/span&gt;).</source>
-        <target><![CDATA[Wenn du keine %img_ap% Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: <span x-ajax-href=%url_move%>Sich bewegen</span>).]]></target>
+        <source>Wenn du keine {img_ap} Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: &lt;span x-ajax-href={url_move}&gt;Sich bewegen&lt;/span&gt;).</source>
+        <target><![CDATA[Wenn du keine {img_ap} Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: <span x-ajax-href={url_move}>Sich bewegen</span>).]]></target>
       </segment>
     </unit>
     <unit id="MDmkyh9" name="Durst">
@@ -2101,13 +2101,13 @@ sind <strong>nicht auf 90%</strong> beschränkt.]]></target>
     <unit id="g0AGvrO">
       <notes>
         <note category="german">Du musst etwas trinken... Warte nicht zu lang, sonst bist du
-&lt;strong&gt;%img_dehy% Dehydriert&lt;/strong&gt;!</note>
+&lt;strong&gt;{img_dehy} Dehydriert&lt;/strong&gt;!</note>
       </notes>
       <segment>
         <source>Du musst etwas trinken... Warte nicht zu lang, sonst bist du
-&lt;strong&gt;%img_dehy% Dehydriert&lt;/strong&gt;!</source>
+&lt;strong&gt;{img_dehy} Dehydriert&lt;/strong&gt;!</source>
         <target><![CDATA[Du musst etwas trinken... Warte nicht zu lang, sonst bist du
-<strong>%img_dehy% Dehydriert</strong>!]]></target>
+<strong>{img_dehy} Dehydriert</strong>!]]></target>
       </segment>
     </unit>
     <unit id="uB2Vk6P" name="oder">
@@ -2292,11 +2292,11 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
     </unit>
     <unit id="FAn5Q8v">
       <notes>
-        <note category="german">Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen &lt;span x-ajax-href=%url_ghoul%&gt;Ghul&lt;/span&gt; verwandelt.</note>
+        <note category="german">Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen &lt;span x-ajax-href={url_ghoul}&gt;Ghul&lt;/span&gt; verwandelt.</note>
       </notes>
       <segment>
-        <source>Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen &lt;span x-ajax-href=%url_ghoul%&gt;Ghul&lt;/span&gt; verwandelt.</source>
-        <target><![CDATA[Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen <span x-ajax-href=%url_ghoul%>Ghul</span> verwandelt.]]></target>
+        <source>Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen &lt;span x-ajax-href={url_ghoul}&gt;Ghul&lt;/span&gt; verwandelt.</source>
+        <target><![CDATA[Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen <span x-ajax-href={url_ghoul}>Ghul</span> verwandelt.]]></target>
       </segment>
     </unit>
     <unit id="gPbg.WJ" name="Die Drogenabhängigkeit">
@@ -2311,13 +2311,13 @@ Der Schutz endet nach dem Angriff um Mitternacht.</target>
     <unit id="A79xfl2">
       <notes>
         <note category="german">Wenn du zu viele Drogen nimmst (mehr als eine Dosis am Tag), wirst du
-&lt;strong&gt;%img_addict% Abhängig&lt;/strong&gt;! Darüber hinaus wirst du diese &lt;strong&gt;Sucht auch nicht mehr los&lt;/strong&gt;.</note>
+&lt;strong&gt;{img_addict} Abhängig&lt;/strong&gt;! Darüber hinaus wirst du diese &lt;strong&gt;Sucht auch nicht mehr los&lt;/strong&gt;.</note>
       </notes>
       <segment>
         <source>Wenn du zu viele Drogen nimmst (mehr als eine Dosis am Tag), wirst du
-&lt;strong&gt;%img_addict% Abhängig&lt;/strong&gt;! Darüber hinaus wirst du diese &lt;strong&gt;Sucht auch nicht mehr los&lt;/strong&gt;.</source>
+&lt;strong&gt;{img_addict} Abhängig&lt;/strong&gt;! Darüber hinaus wirst du diese &lt;strong&gt;Sucht auch nicht mehr los&lt;/strong&gt;.</source>
         <target><![CDATA[Wenn du zu viele Drogen nimmst (mehr als eine Dosis am Tag), wirst du
-<strong>%img_addict% Abhängig</strong>! Darüber hinaus wirst du diese <strong>Sucht auch nicht mehr los</strong>.]]></target>
+<strong>{img_addict} Abhängig</strong>! Darüber hinaus wirst du diese <strong>Sucht auch nicht mehr los</strong>.]]></target>
       </segment>
     </unit>
     <unit id="Ye1f5W8">
@@ -2523,23 +2523,23 @@ Außerdem führst du <strong>zusätzlich</strong> zu deiner normalen Bürgerklei
     </unit>
     <unit id="P6K6ed5">
       <notes>
-        <note category="german">&lt;strong&gt;Die Seelen %img_blue_soul% verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.&lt;/strong&gt;
+        <note category="german">&lt;strong&gt;Die Seelen {img_blue_soul} verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.&lt;/strong&gt;
 Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine blaue Seele in der Außenwelt. Jeder Bürger kann eine Seele einsammeln und sie in die Stadt bringen.</note>
       </notes>
       <segment>
-        <source>&lt;strong&gt;Die Seelen %img_blue_soul% verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.&lt;/strong&gt;
+        <source>&lt;strong&gt;Die Seelen {img_blue_soul} verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.&lt;/strong&gt;
 Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine blaue Seele in der Außenwelt. Jeder Bürger kann eine Seele einsammeln und sie in die Stadt bringen. Beachtet, dass eine Seele als "sperriger Gegenstand" gilt.</source>
-        <target><![CDATA[<strong>Die Seelen %img_blue_soul% verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.</strong>
+        <target><![CDATA[<strong>Die Seelen {img_blue_soul} verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.</strong>
 Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine blaue Seele in der Außenwelt. Jeder Bürger kann eine Seele einsammeln und sie in die Stadt bringen.]]></target>
       </segment>
     </unit>
     <unit id="8TquK3o">
       <notes>
-        <note category="german">Es liegt dann an der Stadt, sich zu organisieren, um diese verlorenen Seelen zu bergen. In der Tat haben diese Seelen eine große Chance, sich in gequälte Seelen %img_red_soul% zu verwandeln, wenn sie verlassen werden! Und dort wird es Zeit in Panik zu geraten, diese gequälten Seelen entwickeln die Zombie-Proliferation!</note>
+        <note category="german">Es liegt dann an der Stadt, sich zu organisieren, um diese verlorenen Seelen zu bergen. In der Tat haben diese Seelen eine große Chance, sich in gequälte Seelen {img_red_soul} zu verwandeln, wenn sie verlassen werden! Und dort wird es Zeit in Panik zu geraten, diese gequälten Seelen entwickeln die Zombie-Proliferation!</note>
       </notes>
       <segment>
-        <source>Es liegt dann an der Stadt, sich zu organisieren, um diese verlorenen Seelen zu bergen. In der Tat haben diese Seelen eine große Chance, sich in gequälte Seelen %img_red_soul% zu verwandeln, wenn sie verlassen werden! Und dort wird es Zeit in Panik zu geraten, diese gequälten Seelen entwickeln die Zombie-Proliferation!</source>
-        <target>Es liegt dann an der Stadt, sich zu organisieren, um diese verlorenen Seelen zu bergen. In der Tat haben diese Seelen eine große Chance, sich in gequälte Seelen %img_red_soul% zu verwandeln, wenn sie verlassen werden! Und dort wird es Zeit in Panik zu geraten, diese gequälten Seelen entwickeln die Zombie-Proliferation!</target>
+        <source>Es liegt dann an der Stadt, sich zu organisieren, um diese verlorenen Seelen zu bergen. In der Tat haben diese Seelen eine große Chance, sich in gequälte Seelen {img_red_soul} zu verwandeln, wenn sie verlassen werden! Und dort wird es Zeit in Panik zu geraten, diese gequälten Seelen entwickeln die Zombie-Proliferation!</source>
+        <target>Es liegt dann an der Stadt, sich zu organisieren, um diese verlorenen Seelen zu bergen. In der Tat haben diese Seelen eine große Chance, sich in gequälte Seelen {img_red_soul} zu verwandeln, wenn sie verlassen werden! Und dort wird es Zeit in Panik zu geraten, diese gequälten Seelen entwickeln die Zombie-Proliferation!</target>
       </segment>
     </unit>
     <unit id="Sz_Kc6M">
@@ -2841,41 +2841,41 @@ Wenn du in einer "Kleinen Karte" spielst und <strong>100 Seelenpunkte oder mehr 
     </unit>
     <unit id="GVvf.A.">
       <notes>
-        <note category="german">Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine &lt;strong&gt;%img_infect% Infektion&lt;/strong&gt; (geht in der Regel tödlich aus...)!</note>
+        <note category="german">Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine &lt;strong&gt;{img_infect} Infektion&lt;/strong&gt; (geht in der Regel tödlich aus...)!</note>
       </notes>
       <segment>
-        <source>Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine &lt;strong&gt;%img_infect% Infektion&lt;/strong&gt; (geht in der Regel tödlich aus...)!</source>
-        <target><![CDATA[Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine <strong>%img_infect% Infektion</strong> (geht in der Regel tödlich aus...)!]]></target>
+        <source>Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine &lt;strong&gt;{img_infect} Infektion&lt;/strong&gt; (geht in der Regel tödlich aus...)!</source>
+        <target><![CDATA[Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine <strong>{img_infect} Infektion</strong> (geht in der Regel tödlich aus...)!]]></target>
       </segment>
     </unit>
     <unit id="DwNHYeS">
       <notes>
-        <note category="german">Manche Gegenstände, wie zum Beispiel der &lt;strong&gt;%img_carpet% Teppich&lt;/strong&gt;,
+        <note category="german">Manche Gegenstände, wie zum Beispiel der &lt;strong&gt;{img_carpet} Teppich&lt;/strong&gt;,
 werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtung&lt;/strong&gt; hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)</note>
       </notes>
       <segment>
-        <source>Manche Gegenstände, wie zum Beispiel der &lt;strong&gt;%img_carpet% Teppich&lt;/strong&gt;,
+        <source>Manche Gegenstände, wie zum Beispiel der &lt;strong&gt;{img_carpet} Teppich&lt;/strong&gt;,
 werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtung&lt;/strong&gt; hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)</source>
-        <target><![CDATA[Manche Gegenstände, wie zum Beispiel der <strong>%img_carpet% Teppich</strong>,
+        <target><![CDATA[Manche Gegenstände, wie zum Beispiel der <strong>{img_carpet} Teppich</strong>,
 werden <strong>automatisch</strong> der <strong>Hauseinrichtung</strong> hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)]]></target>
       </segment>
     </unit>
     <unit id="_PQd7sk">
       <notes>
-        <note category="german">Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du &lt;strong&gt;%img_addict% Abhängig&lt;/strong&gt; werden.</note>
+        <note category="german">Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du &lt;strong&gt;{img_addict} Abhängig&lt;/strong&gt; werden.</note>
       </notes>
       <segment>
-        <source>Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du &lt;strong&gt;%img_addict% Abhängig&lt;/strong&gt; werden.</source>
-        <target><![CDATA[Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du <strong>%img_addict% Abhängig</strong> werden.]]></target>
+        <source>Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du &lt;strong&gt;{img_addict} Abhängig&lt;/strong&gt; werden.</source>
+        <target><![CDATA[Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du <strong>{img_addict} Abhängig</strong> werden.]]></target>
       </segment>
     </unit>
     <unit id="ywk869u">
       <notes>
-        <note category="german">Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine %img_drunk% &lt;strong&gt;Trunkenheit&lt;/strong&gt; weicht am nächsten Tag einem üblen %img_hung% &lt;strong&gt;Kater&lt;/strong&gt;... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.</note>
+        <note category="german">Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine {img_drunk} &lt;strong&gt;Trunkenheit&lt;/strong&gt; weicht am nächsten Tag einem üblen {img_hung} &lt;strong&gt;Kater&lt;/strong&gt;... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.</note>
       </notes>
       <segment>
-        <source>Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine %img_drunk% &lt;strong&gt;Trunkenheit&lt;/strong&gt; weicht am nächsten Tag einem üblen %img_hung% &lt;strong&gt;Kater&lt;/strong&gt;... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.</source>
-        <target><![CDATA[Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine %img_drunk% <strong>Trunkenheit</strong> weicht am nächsten Tag einem üblen %img_hung% <strong>Kater</strong>... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.]]></target>
+        <source>Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine {img_drunk} &lt;strong&gt;Trunkenheit&lt;/strong&gt; weicht am nächsten Tag einem üblen {img_hung} &lt;strong&gt;Kater&lt;/strong&gt;... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.</source>
+        <target><![CDATA[Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine {img_drunk} <strong>Trunkenheit</strong> weicht am nächsten Tag einem üblen {img_hung} <strong>Kater</strong>... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.]]></target>
       </segment>
     </unit>
     <unit id="Ltaudos">
@@ -2889,11 +2889,11 @@ werden <strong>automatisch</strong> der <strong>Hauseinrichtung</strong> hinzuge
     </unit>
     <unit id="pCjfjXL">
       <notes>
-        <note category="german">Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines %img_meat% saftigen Steaks auf einer angerichteten Tafel!</note>
+        <note category="german">Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines {img_meat} saftigen Steaks auf einer angerichteten Tafel!</note>
       </notes>
       <segment>
-        <source>Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines %img_meat% saftigen Steaks auf einer angerichteten Tafel!</source>
-        <target>Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines %img_meat% saftigen Steaks auf einer angerichteten Tafel!</target>
+        <source>Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines {img_meat} saftigen Steaks auf einer angerichteten Tafel!</source>
+        <target>Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines {img_meat} saftigen Steaks auf einer angerichteten Tafel!</target>
       </segment>
     </unit>
     <unit id="gns2u3H" name="Der Tod">
@@ -3072,11 +3072,11 @@ Dein überlebter Tag wird gezählt! <em>Wenn du zum Beispiel in der Nacht vom f�
     </unit>
     <unit id="8I4_Kv5">
       <notes>
-        <note category="german">Die Stadt darf in den vorangegangenen Tagen nicht &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt; worden sein. &lt;i&gt;Eine Stadt gilt dann als zerstört, wenn sich in einer Nacht keine Bürger in ihr ("intra muros") aufgehalten haben.&lt;/i&gt;</note>
+        <note category="german">Die Stadt darf in den vorangegangenen Tagen nicht &lt;span x-ajax-href={url_devast}&gt;zerstört&lt;/span&gt; worden sein. &lt;i&gt;Eine Stadt gilt dann als zerstört, wenn sich in einer Nacht keine Bürger in ihr ("intra muros") aufgehalten haben.&lt;/i&gt;</note>
       </notes>
       <segment>
-        <source>Die Stadt darf in den vorangegangenen Tagen nicht &lt;span x-ajax-href=%url_devast%&gt;zerstört&lt;/span&gt; worden sein. &lt;i&gt;Eine Stadt gilt dann als zerstört, wenn sich in einer Nacht keine Bürger in ihr ("intra muros") aufgehalten haben.&lt;/i&gt;</source>
-        <target><![CDATA[Die Stadt darf in den vorangegangenen Tagen nicht <span x-ajax-href=%url_devast%>zerstört</span> worden sein. <i>Eine Stadt gilt dann als zerstört, wenn sich in einer Nacht keine Bürger in ihr ("intra muros") aufgehalten haben.</i>]]></target>
+        <source>Die Stadt darf in den vorangegangenen Tagen nicht &lt;span x-ajax-href={url_devast}&gt;zerstört&lt;/span&gt; worden sein. &lt;i&gt;Eine Stadt gilt dann als zerstört, wenn sich in einer Nacht keine Bürger in ihr ("intra muros") aufgehalten haben.&lt;/i&gt;</source>
+        <target><![CDATA[Die Stadt darf in den vorangegangenen Tagen nicht <span x-ajax-href={url_devast}>zerstört</span> worden sein. <i>Eine Stadt gilt dann als zerstört, wenn sich in einer Nacht keine Bürger in ihr ("intra muros") aufgehalten haben.</i>]]></target>
       </segment>
     </unit>
     <unit id="9xaYy6q">
@@ -3678,11 +3678,11 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
     </unit>
     <unit id="I5rvSru">
       <notes>
-        <note category="german">Der Verzehr von kalten oder warmen Menschenfleisch gibt dir %img_ap% zurück und senkt deinen Heißhunger.</note>
+        <note category="german">Der Verzehr von kalten oder warmen Menschenfleisch gibt dir {img_ap} zurück und senkt deinen Heißhunger.</note>
       </notes>
       <segment>
-        <source>Der Verzehr von kalten oder warmen Menschenfleisch gibt dir %img_ap% zurück und senkt deinen Heißhunger.</source>
-        <target>Der Verzehr von kalten oder warmen Menschenfleisch gibt dir %img_ap% zurück und senkt deinen Heißhunger.</target>
+        <source>Der Verzehr von kalten oder warmen Menschenfleisch gibt dir {img_ap} zurück und senkt deinen Heißhunger.</source>
+        <target>Der Verzehr von kalten oder warmen Menschenfleisch gibt dir {img_ap} zurück und senkt deinen Heißhunger.</target>
       </segment>
     </unit>
     <unit id="h_gD9Uq">
@@ -3805,15 +3805,15 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
     <unit id="w0OQSf1">
       <notes>
         <note category="german">&lt;strong&gt;Die effektivste Methode einen Ghul zu töten, ist es ihn anzugreifen. Er stirbt dann sofort.&lt;/strong&gt;
-Doch aufgepasst: Ein körperlicher Angriff kostet einiges an %img_ap% und
+Doch aufgepasst: Ein körperlicher Angriff kostet einiges an {img_ap} und
 es besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht auch nicht den/die falschen anzugreifen, es könnte auf euch zurückfallen. ;)</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;Die effektivste Methode einen Ghul zu töten, ist es ihn anzugreifen. Er stirbt dann sofort.&lt;/strong&gt;
-Doch aufgepasst: Ein körperlicher Angriff kostet einiges an %img_ap% und
+Doch aufgepasst: Ein körperlicher Angriff kostet einiges an {img_ap} und
 es besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht auch nicht den/die falschen anzugreifen, es könnte auf euch zurückfallen. ;)</source>
         <target><![CDATA[<strong>Die effektivste Methode einen Ghul zu töten, ist es ihn anzugreifen. Er stirbt dann sofort.</strong>
-Doch aufgepasst: Ein körperlicher Angriff kostet einiges an %img_ap% und
+Doch aufgepasst: Ein körperlicher Angriff kostet einiges an {img_ap} und
 es besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht auch nicht den/die falschen anzugreifen, es könnte auf euch zurückfallen. ;)]]></target>
       </segment>
     </unit>
@@ -4265,19 +4265,19 @@ Du kannst dieses "Manko" allerdings durch Steroide beseitigen... Hör auf zu gri
     <unit id="EPAYkGB">
       <notes>
         <note category="german">Dank seines unglaublichen Potentials, ist der Techniker eine große Hilfe beim Bauen &amp;amp; Reparieren von Gebäuden.
-Jeden Tag besitzt er &lt;strong&gt;6%img_bp% Baupunkte&lt;/strong&gt;, mit denen er auch dann noch auf den Baustellen arbeiten kann, wenn andere Bürger schon längst müde sind.
-Um seine Baupunkte einsetzen zu können, muss er jedoch mindestens noch &lt;strong&gt;1%img_ap% Aktionspunkt&lt;/strong&gt; übrig haben. Ansonsten verliert er seine gesamte
-Motivation und kann seine &lt;strong&gt;%img_bp% Baupunkte&lt;/strong&gt; nicht einsetzen.</note>
+Jeden Tag besitzt er &lt;strong&gt;6{img_bp} Baupunkte&lt;/strong&gt;, mit denen er auch dann noch auf den Baustellen arbeiten kann, wenn andere Bürger schon längst müde sind.
+Um seine Baupunkte einsetzen zu können, muss er jedoch mindestens noch &lt;strong&gt;1{img_ap} Aktionspunkt&lt;/strong&gt; übrig haben. Ansonsten verliert er seine gesamte
+Motivation und kann seine &lt;strong&gt;{img_bp} Baupunkte&lt;/strong&gt; nicht einsetzen.</note>
       </notes>
       <segment>
         <source>Dank seines unglaublichen Potentials, ist der Techniker eine große Hilfe beim Bauen &amp;amp; Reparieren von Gebäuden.
-Jeden Tag besitzt er &lt;strong&gt;6%img_bp% Baupunkte&lt;/strong&gt;, mit denen er auch dann noch auf den Baustellen arbeiten kann, wenn andere Bürger schon längst müde sind.
-Um seine Baupunkte einsetzen zu können, muss er jedoch mindestens noch &lt;strong&gt;1%img_ap% Aktionspunkt&lt;/strong&gt; übrig haben. Ansonsten verliert er seine gesamte
-Motivation und kann seine &lt;strong&gt;%img_bp% Baupunkte&lt;/strong&gt; nicht einsetzen.</source>
+Jeden Tag besitzt er &lt;strong&gt;6{img_bp} Baupunkte&lt;/strong&gt;, mit denen er auch dann noch auf den Baustellen arbeiten kann, wenn andere Bürger schon längst müde sind.
+Um seine Baupunkte einsetzen zu können, muss er jedoch mindestens noch &lt;strong&gt;1{img_ap} Aktionspunkt&lt;/strong&gt; übrig haben. Ansonsten verliert er seine gesamte
+Motivation und kann seine &lt;strong&gt;{img_bp} Baupunkte&lt;/strong&gt; nicht einsetzen.</source>
         <target><![CDATA[Dank seines unglaublichen Potentials, ist der Techniker eine große Hilfe beim Bauen &amp; Reparieren von Gebäuden.
-Jeden Tag besitzt er <strong>6%img_bp% Baupunkte</strong>, mit denen er auch dann noch auf den Baustellen arbeiten kann, wenn andere Bürger schon längst müde sind.
-Um seine Baupunkte einsetzen zu können, muss er jedoch mindestens noch <strong>1%img_ap% Aktionspunkt</strong> übrig haben. Ansonsten verliert er seine gesamte
-Motivation und kann seine <strong>%img_bp% Baupunkte</strong> nicht einsetzen.]]></target>
+Jeden Tag besitzt er <strong>6{img_bp} Baupunkte</strong>, mit denen er auch dann noch auf den Baustellen arbeiten kann, wenn andere Bürger schon längst müde sind.
+Um seine Baupunkte einsetzen zu können, muss er jedoch mindestens noch <strong>1{img_ap} Aktionspunkt</strong> übrig haben. Ansonsten verliert er seine gesamte
+Motivation und kann seine <strong>{img_bp} Baupunkte</strong> nicht einsetzen.]]></target>
       </segment>
     </unit>
     <unit id=".pjn_lU">
@@ -4780,11 +4780,11 @@ in einem Gebäude nur <strong>einmal pro Partie</strong> einen Bauplan erhalten 
     </unit>
     <unit id="sV3TVhz">
       <notes>
-        <note category="german">Klicke auf den Knopf &lt;strong&gt;Teilnehmen&lt;/strong&gt;. Es wird dir &lt;strong&gt;1 %img_ap%&lt;/strong&gt; abgezogen.</note>
+        <note category="german">Klicke auf den Knopf &lt;strong&gt;Teilnehmen&lt;/strong&gt;. Es wird dir &lt;strong&gt;1 {img_ap}&lt;/strong&gt; abgezogen.</note>
       </notes>
       <segment>
-        <source>Klicke auf den Knopf &lt;strong&gt;Teilnehmen&lt;/strong&gt;. Es wird dir &lt;strong&gt;1 %img_ap%&lt;/strong&gt; abgezogen.</source>
-        <target><![CDATA[Klicke auf den Knopf <strong>Teilnehmen</strong>. Es wird dir <strong>1 %img_ap%</strong> abgezogen.]]></target>
+        <source>Klicke auf den Knopf &lt;strong&gt;Teilnehmen&lt;/strong&gt;. Es wird dir &lt;strong&gt;1 {img_ap}&lt;/strong&gt; abgezogen.</source>
+        <target><![CDATA[Klicke auf den Knopf <strong>Teilnehmen</strong>. Es wird dir <strong>1 {img_ap}</strong> abgezogen.]]></target>
       </segment>
     </unit>
     <unit id="SXMlsAY">
@@ -5102,13 +5102,13 @@ müssen durchdacht geplant werden.</target>
     <unit id="LqUytij">
       <notes>
         <note category="german">Wenn bei einem Angriff alle Einwohner umkommen, bekommt einer von ihnen den Titel des &lt;strong&gt;Letzten Todes!&lt;/strong&gt;
-Lies dir den entsprechenden Abschnitt bitte &lt;span x-ajax-href=%url_lms%&gt;hier&lt;/span&gt; durch.</note>
+Lies dir den entsprechenden Abschnitt bitte &lt;span x-ajax-href={url_lms}&gt;hier&lt;/span&gt; durch.</note>
       </notes>
       <segment>
         <source>Wenn bei einem Angriff alle Einwohner umkommen, bekommt einer von ihnen den Titel des &lt;strong&gt;Letzten Todes!&lt;/strong&gt;
-Lies dir den entsprechenden Abschnitt bitte &lt;span x-ajax-href=%url_lms%&gt;hier&lt;/span&gt; durch.</source>
+Lies dir den entsprechenden Abschnitt bitte &lt;span x-ajax-href={url_lms}&gt;hier&lt;/span&gt; durch.</source>
         <target><![CDATA[Wenn bei einem Angriff alle Einwohner umkommen, bekommt einer von ihnen den Titel des <strong>Letzten Todes!</strong>
-Lies dir den entsprechenden Abschnitt bitte <span x-ajax-href=%url_lms%>hier</span> durch.]]></target>
+Lies dir den entsprechenden Abschnitt bitte <span x-ajax-href={url_lms}>hier</span> durch.]]></target>
       </segment>
     </unit>
     <unit id="YCjG1h6" name="Phase 4: Gebäudeschäden (Pandämonium)">
@@ -5422,11 +5422,11 @@ Eine davon ist es der <strong>Nachtwache</strong> beizutreten.]]></target>
     </unit>
     <unit id="mIfaDz.">
       <notes>
-        <note category="german">Allerdings verfügt er über &lt;span x-ajax-href=%url_shun%&gt;neue Fähigkeiten&lt;/span&gt;, die ihm zu überleben helfen.</note>
+        <note category="german">Allerdings verfügt er über &lt;span x-ajax-href={url_shun}&gt;neue Fähigkeiten&lt;/span&gt;, die ihm zu überleben helfen.</note>
       </notes>
       <segment>
-        <source>Allerdings verfügt er über &lt;span x-ajax-href=%url_shun%&gt;neue Fähigkeiten&lt;/span&gt;, die ihm zu überleben helfen.</source>
-        <target><![CDATA[Allerdings verfügt er über <span x-ajax-href=%url_shun%>neue Fähigkeiten</span>, die ihm zu überleben helfen.]]></target>
+        <source>Allerdings verfügt er über &lt;span x-ajax-href={url_shun}&gt;neue Fähigkeiten&lt;/span&gt;, die ihm zu überleben helfen.</source>
+        <target><![CDATA[Allerdings verfügt er über <span x-ajax-href={url_shun}>neue Fähigkeiten</span>, die ihm zu überleben helfen.]]></target>
       </segment>
     </unit>
     <unit id="gUwGqzo" name="Einen anderen Einwohner bestehlen">
@@ -5743,11 +5743,11 @@ Darüber hinaus besteht die Gefahr, dass manche, <i>seltene</i> Gegenstände den
     </unit>
     <unit id="6IQLOf8">
       <notes>
-        <note category="german">Die Aktivierung des Katapults kostet %img_ap%. Diese Kosten können gesenkt werden, wenn das Katapult verbessert wird,</note>
+        <note category="german">Die Aktivierung des Katapults kostet {img_ap}. Diese Kosten können gesenkt werden, wenn das Katapult verbessert wird,</note>
       </notes>
       <segment>
-        <source>Die Aktivierung des Katapults kostet %img_ap%. Diese Kosten können gesenkt werden, wenn das Katapult verbessert wird,</source>
-        <target>Die Aktivierung des Katapults kostet %img_ap%. Diese Kosten können gesenkt werden, wenn das Katapult verbessert wird,</target>
+        <source>Die Aktivierung des Katapults kostet {img_ap}. Diese Kosten können gesenkt werden, wenn das Katapult verbessert wird,</source>
+        <target>Die Aktivierung des Katapults kostet {img_ap}. Diese Kosten können gesenkt werden, wenn das Katapult verbessert wird,</target>
       </segment>
     </unit>
     <unit id="WWlZZMn" name="Wer ist für das Katapult verantwortlich?">
@@ -6563,55 +6563,55 @@ in die Rangliste aufgenommen. Kleine Städte oder Privatstädte werden nicht ins
     <unit id="4JTe4YC">
       <notes>
         <note category="german">&lt;strong&gt;HÄUFIG GESTELLTE FRAGEN:&lt;/strong&gt;
-Lies dir bitte die offizielle &lt;span x-ajax-href=%url_support%&gt;Technische Supportseite von MyHordes&lt;/span&gt; durch!</note>
+Lies dir bitte die offizielle &lt;span x-ajax-href={url_support}&gt;Technische Supportseite von MyHordes&lt;/span&gt; durch!</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;HÄUFIG GESTELLTE FRAGEN:&lt;/strong&gt;
-Lies dir bitte die offizielle &lt;span x-ajax-href=%url_support%&gt;Technische Supportseite von MyHordes&lt;/span&gt; durch!</source>
+Lies dir bitte die offizielle &lt;span x-ajax-href={url_support}&gt;Technische Supportseite von MyHordes&lt;/span&gt; durch!</source>
         <target><![CDATA[<strong>HÄUFIG GESTELLTE FRAGEN:</strong>
-Lies dir bitte die offizielle <span x-ajax-href=%url_support%>Technische Supportseite von MyHordes</span> durch!]]></target>
+Lies dir bitte die offizielle <span x-ajax-href={url_support}>Technische Supportseite von MyHordes</span> durch!]]></target>
       </segment>
     </unit>
     <unit id="MjcwNAj">
       <notes>
-        <note category="german">&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href=%url_forums%&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</note>
+        <note category="german">&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href={url_forums}&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</note>
       </notes>
       <segment>
-        <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href=%url_forums%&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
-        <target><![CDATA[<strong>MIT ANDEREN SPIELERN REDEN:</strong> Die meisten Spielfragen werden oder wurden meistens schon in den <span x-ajax-href=%url_forums%>Foren</span> beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.]]></target>
+        <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href={url_forums}&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
+        <target><![CDATA[<strong>MIT ANDEREN SPIELERN REDEN:</strong> Die meisten Spielfragen werden oder wurden meistens schon in den <span x-ajax-href={url_forums}>Foren</span> beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.]]></target>
       </segment>
     </unit>
     <unit id="aa47hQY">
       <notes>
         <note category="german">&lt;strong&gt;EINEN REGELVERSTOSS MELDEN:&lt;/strong&gt;
-Wenn sich ein anderer Spieler daneben benommen hat oder ausfällig geworden ist, bitten wir dich den Abschnitt &lt;span x-ajax-href=%url_report%&gt;Fehlverhalten melden&lt;/span&gt; zu lesen.</note>
+Wenn sich ein anderer Spieler daneben benommen hat oder ausfällig geworden ist, bitten wir dich den Abschnitt &lt;span x-ajax-href={url_report}&gt;Fehlverhalten melden&lt;/span&gt; zu lesen.</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;EINEN REGELVERSTOSS MELDEN:&lt;/strong&gt;&lt;strong&gt;&lt;/strong&gt;
-Wenn sich ein anderer Spieler daneben benommen hat oder ausfällig geworden ist, bitten wir dich den Abschnitt &lt;span x-ajax-href=%url_report%&gt;Fehlverhalten melden&lt;/span&gt; zu lesen.</source>
+Wenn sich ein anderer Spieler daneben benommen hat oder ausfällig geworden ist, bitten wir dich den Abschnitt &lt;span x-ajax-href={url_report}&gt;Fehlverhalten melden&lt;/span&gt; zu lesen.</source>
         <target><![CDATA[<strong>EINEN REGELVERSTOSS MELDEN:</strong>
-Wenn sich ein anderer Spieler daneben benommen hat oder ausfällig geworden ist, bitten wir dich den Abschnitt <span x-ajax-href=%url_report%>Fehlverhalten melden</span> zu lesen.]]></target>
+Wenn sich ein anderer Spieler daneben benommen hat oder ausfällig geworden ist, bitten wir dich den Abschnitt <span x-ajax-href={url_report}>Fehlverhalten melden</span> zu lesen.]]></target>
       </segment>
     </unit>
     <unit id="7NLAbue">
       <notes>
         <note category="german">&lt;strong&gt;EINEN BUG MELDEN:&lt;/strong&gt;
-Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: &lt;a href=%url_git%&gt;Buglisten auf Gitlab&lt;/a&gt;.</note>
+Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: &lt;a href={url_git}&gt;Buglisten auf Gitlab&lt;/a&gt;.</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;EINEN BUG MELDEN:&lt;/strong&gt;
-Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: &lt;a href=%url_git%&gt;Buglisten&lt;/a&gt;.</source>
+Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: &lt;a href={url_git}&gt;Buglisten&lt;/a&gt;.</source>
         <target><![CDATA[<strong>EINEN BUG MELDEN:</strong>
-Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: <a href=%url_git%>Buglisten auf Gitlab</a>.]]></target>
+Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: <a href={url_git}>Buglisten auf Gitlab</a>.]]></target>
       </segment>
     </unit>
     <unit id="AgElrGm">
       <notes>
-        <note category="german">Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die &lt;strong&gt;MyHordes-Community&lt;/strong&gt; betreffen, kannst dem &lt;span x-ajax-href=%url_oracle%&gt;Orakels&lt;/span&gt; anschreiben.</note>
+        <note category="german">Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die &lt;strong&gt;MyHordes-Community&lt;/strong&gt; betreffen, kannst dem &lt;span x-ajax-href={url_oracle}&gt;Orakels&lt;/span&gt; anschreiben.</note>
       </notes>
       <segment>
-        <source>Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die &lt;strong&gt;MyHordes-Community&lt;/strong&gt; betreffen, kannst dem &lt;span x-ajax-href=%url_oracle%&gt;Orakels&lt;/span&gt; anschreiben.</source>
-        <target><![CDATA[Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die <strong>MyHordes-Community</strong> betreffen, kannst dem <span x-ajax-href=%url_oracle%>Orakels</span> anschreiben.]]></target>
+        <source>Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die &lt;strong&gt;MyHordes-Community&lt;/strong&gt; betreffen, kannst dem &lt;span x-ajax-href={url_oracle}&gt;Orakels&lt;/span&gt; anschreiben.</source>
+        <target><![CDATA[Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die <strong>MyHordes-Community</strong> betreffen, kannst dem <span x-ajax-href={url_oracle}>Orakels</span> anschreiben.]]></target>
       </segment>
     </unit>
     <unit id="jcxOFSe">
@@ -6643,11 +6643,11 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
     </unit>
     <unit id="yfB5oOq">
       <notes>
-        <note category="german">Wenn du noch Fragen hast, empfehlen wir dir folgende Seite: &lt;a href=%url_pass%&gt;Password Tester&lt;/a&gt;</note>
+        <note category="german">Wenn du noch Fragen hast, empfehlen wir dir folgende Seite: &lt;a href={url_pass}&gt;Password Tester&lt;/a&gt;</note>
       </notes>
       <segment>
-        <source>Wenn du noch Fragen hast, empfehlen wir dir folgende Seite: &lt;a href=%url_pass%&gt;Password Tester&lt;/a&gt;</source>
-        <target><![CDATA[Wenn du noch Fragen hast, empfehlen wir dir folgende Seite: <a href=%url_pass%>Password Tester</a>]]></target>
+        <source>Wenn du noch Fragen hast, empfehlen wir dir folgende Seite: &lt;a href={url_pass}&gt;Password Tester&lt;/a&gt;</source>
+        <target><![CDATA[Wenn du noch Fragen hast, empfehlen wir dir folgende Seite: <a href={url_pass}>Password Tester</a>]]></target>
       </segment>
     </unit>
     <unit id="CtzpIg6">
@@ -6679,11 +6679,11 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
     </unit>
     <unit id="mm9VzW_">
       <notes>
-        <note category="german">Du hast keine neuen %img_ap% bekommen und dein Gesundheitszustand hat sich nicht geändert.</note>
+        <note category="german">Du hast keine neuen {img_ap} bekommen und dein Gesundheitszustand hat sich nicht geändert.</note>
       </notes>
       <segment>
-        <source>Du hast keine neuen %img_ap% bekommen und dein Gesundheitszustand hat sich nicht geändert.</source>
-        <target>Du hast keine neuen %img_ap% bekommen und dein Gesundheitszustand hat sich nicht geändert.</target>
+        <source>Du hast keine neuen {img_ap} bekommen und dein Gesundheitszustand hat sich nicht geändert.</source>
+        <target>Du hast keine neuen {img_ap} bekommen und dein Gesundheitszustand hat sich nicht geändert.</target>
       </segment>
     </unit>
     <unit id="W_Orr5F" name="Der gestrige Tag ist nicht vorbei, sondern wird heute fortgesetzt.">
@@ -6942,15 +6942,15 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
     <unit id="w3nwN24">
       <notes>
         <note category="german">Das Städteranking bei "MyHordes" soll zeigen, wie lange eine Gemeinschaft durch Kooperation überleben kann. Der menschliche Faktor und das reale Leben haben selbstverständlich einen Einfluss auf das Abschneiden einer Stadt.
-Profimäßiges Sitting verändert den Grundgedanken unseres Spiels und lässt Bürger zu reinen &lt;i&gt;%img_ap%-Reserven&lt;/i&gt; verkommen. Wir werden dies nicht dulden.
+Profimäßiges Sitting verändert den Grundgedanken unseres Spiels und lässt Bürger zu reinen &lt;i&gt;{img_ap}-Reserven&lt;/i&gt; verkommen. Wir werden dies nicht dulden.
 Aus diesem Grund werden Städte, die verstärkt Sittingmethoden anwenden, ab der 2. Saison aus dem Ranking ausgeschlossen.</note>
       </notes>
       <segment>
         <source>Das Städteranking bei "Die Verdammten" soll zeigen, wie lange eine Gemeinschaft durch Kooperation überleben kann. Der menschliche Faktor und das reale Leben haben selbstverständlich einen Einfluss auf das Abschneiden einer Stadt.
-Profimäßiges Sitting verändert den Grundgedanken unseres Spiels und lässt Bürger zu reinen &lt;i&gt;%img_ap%-Reserven&lt;/i&gt; verkommen. Wir werden dies nicht dulden.
+Profimäßiges Sitting verändert den Grundgedanken unseres Spiels und lässt Bürger zu reinen &lt;i&gt;{img_ap}-Reserven&lt;/i&gt; verkommen. Wir werden dies nicht dulden.
 Aus diesem Grund werden Städte, die verstärkt Sittingmethoden anwenden, ab der 2. Saison aus dem Ranking ausgeschlossen.</source>
         <target><![CDATA[Das Städteranking bei "MyHordes" soll zeigen, wie lange eine Gemeinschaft durch Kooperation überleben kann. Der menschliche Faktor und das reale Leben haben selbstverständlich einen Einfluss auf das Abschneiden einer Stadt.
-Profimäßiges Sitting verändert den Grundgedanken unseres Spiels und lässt Bürger zu reinen <i>%img_ap%-Reserven</i> verkommen. Wir werden dies nicht dulden.
+Profimäßiges Sitting verändert den Grundgedanken unseres Spiels und lässt Bürger zu reinen <i>{img_ap}-Reserven</i> verkommen. Wir werden dies nicht dulden.
 Aus diesem Grund werden Städte, die verstärkt Sittingmethoden anwenden, ab der 2. Saison aus dem Ranking ausgeschlossen.]]></target>
       </segment>
     </unit>
@@ -7121,11 +7121,11 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
     </unit>
     <unit id="7RdBVY5">
       <notes>
-        <note category="german">&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href="%url_forums%"&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</note>
+        <note category="german">&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href="{url_forums}"&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</note>
       </notes>
       <segment>
-        <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href="%url_forums%"&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
-        <target><![CDATA[<strong>MIT ANDEREN SPIELERN REDEN:</strong> Die meisten Spielfragen werden oder wurden meistens schon in den <span x-ajax-href="%url_forums%">Foren</span> beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.]]></target>
+        <source>&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href="{url_forums}"&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</source>
+        <target><![CDATA[<strong>MIT ANDEREN SPIELERN REDEN:</strong> Die meisten Spielfragen werden oder wurden meistens schon in den <span x-ajax-href="{url_forums}">Foren</span> beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.]]></target>
       </segment>
     </unit>
     <unit id="26VxGUx">

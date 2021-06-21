@@ -102,11 +102,11 @@
     </unit>
     <unit id="1Wm5ylA">
       <notes>
-        <note category="german">Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</note>
+        <note category="german">Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.</note>
       </notes>
       <segment>
-        <source>Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</source>
-        <target>The language of the selected town is %lang_town%. Your current language setting is %lang_user%.</target>
+        <source>Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.</source>
+        <target>The language of the selected town is {lang_town}. Your current language setting is {lang_user}.</target>
       </segment>
     </unit>
     <unit id="0C3XaFv">
@@ -129,11 +129,11 @@
     </unit>
     <unit id="HPqIAMR">
       <notes>
-        <note category="german">Do you wish to enter the terrible world of MyHordes as an inhabitant of the town %town_name%?</note>
+        <note category="german">Do you wish to enter the terrible world of MyHordes as an inhabitant of the town {town_name}?</note>
       </notes>
       <segment>
-        <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten?</source>
-        <target>Do you wish to enter the terrible world of MyHordes as an inhabitant of the town %town_name%?</target>
+        <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten?</source>
+        <target>Do you wish to enter the terrible world of MyHordes as an inhabitant of the town {town_name}?</target>
       </segment>
     </unit>
     <unit id="uwIFRKe" name="Deine Seele genügt den Anforderungen für diesen Stadttypen.">
@@ -147,11 +147,11 @@
     </unit>
     <unit id="Ap6glg5">
       <notes>
-        <note category="german">Möchtest du die schreckliche Welt der Verdammten als Bürger der Stadt %town_name% betreten?</note>
+        <note category="german">Möchtest du die schreckliche Welt der Verdammten als Bürger der Stadt {town_name} betreten?</note>
       </notes>
       <segment>
-        <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</source>
-        <target>Do you want to enter the terrible world of MyHordes as a citizen of %town_name%</target>
+        <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten</source>
+        <target>Do you want to enter the terrible world of MyHordes as a citizen of {town_name}</target>
       </segment>
     </unit>
     <unit id="AwZY28C">

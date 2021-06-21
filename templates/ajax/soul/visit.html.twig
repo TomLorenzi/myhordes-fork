@@ -24,19 +24,19 @@
                     {% include 'ajax/soul/distinctions.html.twig' with {pictos: pictos, points: points, user: user} %}
                 </div>
                 <div class="cell padded rw-7 rw-sm-12">
-                    <div class="score"><img src="{{ asset('build/images/soul/small_score.gif') }}" alt="" /> {{ 'Seelenpunktzahl'|trans({}, 'global') }} : <strong>{{ '%points% Punkte'|trans({'%points%': user.allSoulPoints}, 'global') }}</strong></div>
+                    <div class="score"><img src="{{ asset('build/images/soul/small_score.gif') }}" alt="" /> {{ 'Seelenpunktzahl'|trans({}, 'global') }} : <strong>{{ '{points} Punkte'|trans({'{points}': user.allSoulPoints}, 'global') }}</strong></div>
 
                     {% if app.user|related(user,constant('App\\Entity\\SocialRelation::SocialRelationTypeBlock')) %}
                         <div class="note note-warning">
-                            <b>{{ 'Du hast %user% blockiert.'|trans({'%user%': user.name},'global') }}</b>
-                            <a href="#" id="user_unblock_button">{{ 'Blockade aufheben'|trans({'%user%': user.name},'global') }}</a>
+                            <b>{{ 'Du hast {user} blockiert.'|trans({'{user}': user.name},'global') }}</b>
+                            <a href="#" id="user_unblock_button">{{ 'Blockade aufheben'|trans({'{user}': user.name},'global') }}</a>
                         </div>
                     {% endif %}
 
                     {# @var user \App\Entity\User #}
                     {% if user.activeCitizen is not null and user.activeCitizen.alive %}
                         <div class="current">
-                            <em>{{'Aktuelles Leben'|trans({}, 'global')}} : </em><br /><strong><img src="{{ asset('build/images/soul/r_explor.gif') }}" alt="" /> {{ user.activeCitizen.town.name }}</strong> ({{ 'Tag %day%'|trans({'%day%':user.activeCitizen.town.day}, 'game') }})
+                            <em>{{'Aktuelles Leben'|trans({}, 'global')}} : </em><br /><strong><img src="{{ asset('build/images/soul/r_explor.gif') }}" alt="" /> {{ user.activeCitizen.town.name }}</strong> ({{ 'Tag {day}'|trans({'{day}':user.activeCitizen.town.day}, 'game') }})
                         </div>
                     {% endif %}
                     {% if user_desc %}
@@ -51,7 +51,7 @@
                                     {% for season in seasons %}
                                         {% if season.number > 0 %}
                                             <option value="{{season.id}}">
-                                                {{ 'Saison %n%'|trans({'%n%': season.number},'soul') }} - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}
+                                                {{ 'Saison {n}'|trans({'{n}': season.number},'soul') }} - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}
                                             </option>
                                         {% endif %}
                                     {% endfor %}
@@ -60,7 +60,7 @@
                                         {% if season.number == 0 %}
                                             <option value="{{season.id}}">
                                                 {{ 'Gute Alte Zeit'|trans({},'soul') }} -
-                                                {{ 'Saison %n%'|trans({'%n%': season.subNumber},'soul') }}
+                                                {{ 'Saison {n}'|trans({'{n}': season.subNumber},'soul') }}
                                             </option>
                                         {% endif %}
                                     {% endfor %}
@@ -84,7 +84,7 @@
             {% if not user|is_granted('ROLE_CROW') and not app.user|related(user,constant('App\\Entity\\SocialRelation::SocialRelationTypeBlock')) %}
                 <div class="row">
                     <div class="padded cell rw-12 right">
-                        <button class="inline small" id="user_block_button"><i class="fa fa-shield-alt"></i> {{ 'Spieler blockieren'|trans({'%user%': user.name},'global') }}</button>
+                        <button class="inline small" id="user_block_button"><i class="fa fa-shield-alt"></i> {{ 'Spieler blockieren'|trans({'{user}': user.name},'global') }}</button>
                     </div>
                 </div>
             {% endif %}
@@ -108,7 +108,7 @@
         $.html.addEventListenerAll('#user_block_button','click',(e,elem) => {
             e.preventDefault();
             if (confirm(
-                '{{ '%user% blockieren'|trans({'%user%': user.name},'global')|e('js') }}\n\n' +
+                '{{ '{user} blockieren'|trans({'{user}': user.name},'global')|e('js') }}\n\n' +
                 '{{ 'Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.'|trans({},'global')|e('js') }}' +
                 '\n\n{{ 'Möchtest du fortfahren?'|trans({},'global')|e('js') }}'
             ))

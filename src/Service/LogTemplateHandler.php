@@ -207,10 +207,10 @@ class LogTemplateHandler
                         $m = floor($i /    60); $i -= ($m *    60);
 
                         $stack = [];
-                        if ($d > 0) $stack[] = $d > 1 ? $this->trans->trans('%n% Tage', ['%n%' => $d], 'global') : $this->trans->trans('1 Tag', [], 'global');
-                        if ($h > 0) $stack[] = $h > 1 ? $this->trans->trans('%n% Stunden', ['%n%' => $h], 'global') : $this->trans->trans('1 Stunde', [], 'global');
-                        if ($m > 0) $stack[] = $m > 1 ? $this->trans->trans('%n% Minuten', ['%n%' => $m], 'global') : $this->trans->trans('1 Minute', [], 'global');
-                        if ($i > 0) $stack[] = $i > 1 ? $this->trans->trans('%n% Sekunden', ['%n%' => $i], 'global') : $this->trans->trans('1 Sekunde', [], 'global');
+                        if ($d > 0) $stack[] = $d > 1 ? $this->trans->trans('{n} Tage', ['{n}' => $d], 'global') : $this->trans->trans('1 Tag', [], 'global');
+                        if ($h > 0) $stack[] = $h > 1 ? $this->trans->trans('{n} Stunden', ['{n}' => $h], 'global') : $this->trans->trans('1 Stunde', [], 'global');
+                        if ($m > 0) $stack[] = $m > 1 ? $this->trans->trans('{n} Minuten', ['{n}' => $m], 'global') : $this->trans->trans('1 Minute', [], 'global');
+                        if ($i > 0) $stack[] = $i > 1 ? $this->trans->trans('{n} Sekunden', ['{n}' => $i], 'global') : $this->trans->trans('1 Sekunde', [], 'global');
                         $transParams['%'.$typeEntry['name'].'%'] = $wrap_fun( implode(', ', $stack) );
                     }
                 }

@@ -199,13 +199,13 @@
         <target>The Crow</target>
       </segment>
     </unit>
-    <unit id="81dFh4o" name="Seite %page%/%pages%">
+    <unit id="81dFh4o" name="Seite {page}/{pages}">
       <notes>
-        <note category="german">Seite %page%/%pages%</note>
+        <note category="german">Seite {page}/{pages}</note>
       </notes>
       <segment>
-        <source>Seite %page%/%pages%</source>
-        <target>Page %page%/%pages%</target>
+        <source>Seite {page}/{pages}</source>
+        <target>Page {page}/{pages}</target>
       </segment>
     </unit>
     <unit id="xtsvLHK" name="Bitte halte dich an die Regeln:">
@@ -469,13 +469,13 @@
         <target>Statistics</target>
       </segment>
     </unit>
-    <unit id="9jh.PAO" name="%points% Punkte">
+    <unit id="9jh.PAO" name="{points} Punkte">
       <notes>
-        <note category="german">%points% Punkte</note>
+        <note category="german">{points} Punkte</note>
       </notes>
       <segment>
-        <source>%points% Punkte</source>
-        <target>%points% Points</target>
+        <source>{points} Punkte</source>
+        <target>{points} Points</target>
       </segment>
     </unit>
     <unit id="LM1P67a" name="Dieser Spieler hat bisher noch keine Preise gewonnen...">
@@ -568,13 +568,13 @@
         <target>even if they ask you nicely!</target>
       </segment>
     </unit>
-    <unit id="gjZ3uMC" name="Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.">
+    <unit id="gjZ3uMC" name="Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte {contact}.">
       <notes>
-        <note category="german">Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.</note>
+        <note category="german">Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte {contact}.</note>
       </notes>
       <segment>
-        <source>Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.</source>
-        <target>In the event of problems or concerns regarding this site, please contact %contact%.</target>
+        <source>Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte {contact}.</source>
+        <target>In the event of problems or concerns regarding this site, please contact {contact}.</target>
       </segment>
     </unit>
     <unit id="EGfY674" name="Weiter zu">
@@ -1108,22 +1108,22 @@
         <target>Oracle Announcement</target>
       </segment>
     </unit>
-    <unit id="8_r8k2t" name="Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:">
+    <unit id="8_r8k2t" name="Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:">
       <notes>
-        <note category="german">Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</note>
+        <note category="german">Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:</note>
       </notes>
       <segment>
-        <source>Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</source>
-        <target>This thread contains %count% official announcement(s) from MyHordes Administrators :</target>
+        <source>Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:</source>
+        <target>This thread contains {count} official announcement(s) from MyHordes Administrators :</target>
       </segment>
     </unit>
-    <unit id="GfGOj1g" name="Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:">
+    <unit id="GfGOj1g" name="Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:">
       <notes>
-        <note category="german">Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</note>
+        <note category="german">Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:</note>
       </notes>
       <segment>
-        <source>Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</source>
-        <target>This thread contains %count% Announcement(s) from community representatives:</target>
+        <source>Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:</source>
+        <target>This thread contains {count} Announcement(s) from community representatives:</target>
       </segment>
     </unit>
     <unit id="1DOwo4V" name="Dieses Thema enthält offizielle Ansagen der Website Administratoren.">
@@ -1621,31 +1621,31 @@
         <target>At least one post on this Topic has been reported to the Moderators.</target>
       </segment>
     </unit>
-    <unit id="KV1uMW3" name="Dieses Thema enthält %count% gemeldete Posts:">
+    <unit id="KV1uMW3" name="Dieses Thema enthält {count} gemeldete Posts:">
       <notes>
-        <note category="german">Dieses Thema enthält %count% gemeldete Posts:</note>
+        <note category="german">Dieses Thema enthält {count} gemeldete Posts:</note>
       </notes>
       <segment>
-        <source>Dieses Thema enthält %count% gemeldete Posts:</source>
-        <target>This Topic contains %count% reported posts:</target>
+        <source>Dieses Thema enthält {count} gemeldete Posts:</source>
+        <target>This Topic contains {count} reported posts:</target>
       </segment>
     </unit>
-    <unit id="XvJRBeq" name="%num% Meldungen. Klicken, um Benutzer anzuzeigen.">
+    <unit id="XvJRBeq" name="{num} Meldungen. Klicken, um Benutzer anzuzeigen.">
       <notes>
-        <note category="german">%num% Meldungen. Klicken, um Benutzer anzuzeigen.</note>
+        <note category="german">{num} Meldungen. Klicken, um Benutzer anzuzeigen.</note>
       </notes>
       <segment>
-        <source>%num% Meldungen. Klicken, um Benutzer anzuzeigen.</source>
-        <target>%num% Messages. Click to view users.</target>
+        <source>{num} Meldungen. Klicken, um Benutzer anzuzeigen.</source>
+        <target>{num} Messages. Click to view users.</target>
       </segment>
     </unit>
-    <unit id="uVEhYFM" name="Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.">
+    <unit id="uVEhYFM" name="Gelöscht von {user} ({time}). Klicken, um den Grund einzublenden.">
       <notes>
-        <note category="german">Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.</note>
+        <note category="german">Gelöscht von {user} ({time}). Klicken, um den Grund einzublenden.</note>
       </notes>
       <segment>
-        <source>Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.</source>
-        <target>Deleted by %user% (%time%). Click to reveal the reason.</target>
+        <source>Gelöscht von {user} ({time}). Klicken, um den Grund einzublenden.</source>
+        <target>Deleted by {user} ({time}). Click to reveal the reason.</target>
       </segment>
     </unit>
     <unit id="gAhtva3" name="Überprüft">
@@ -2003,13 +2003,13 @@
         <target>Permanent</target>
       </segment>
     </unit>
-    <unit id="6Ql8d6C" name="%n% Tage">
+    <unit id="6Ql8d6C" name="{n} Tage">
       <notes>
-        <note category="german">%n% Tage</note>
+        <note category="german">{n} Tage</note>
       </notes>
       <segment>
-        <source>%n% Tage</source>
-        <target>%n% Days</target>
+        <source>{n} Tage</source>
+        <target>{n} Days</target>
       </segment>
     </unit>
     <unit id="1E2BbPr" name="1 Tag">
@@ -2021,13 +2021,13 @@
         <target>1 Day</target>
       </segment>
     </unit>
-    <unit id="j5aKYuL" name="%n% Stunden">
+    <unit id="j5aKYuL" name="{n} Stunden">
       <notes>
-        <note category="german">%n% Stunden</note>
+        <note category="german">{n} Stunden</note>
       </notes>
       <segment>
-        <source>%n% Stunden</source>
-        <target>%n% Hours</target>
+        <source>{n} Stunden</source>
+        <target>{n} Hours</target>
       </segment>
     </unit>
     <unit id="2iHBadX" name="1 Stunde">
@@ -2039,13 +2039,13 @@
         <target>1 Hour</target>
       </segment>
     </unit>
-    <unit id="p._haUN" name="%n% Minuten">
+    <unit id="p._haUN" name="{n} Minuten">
       <notes>
-        <note category="german">%n% Minuten</note>
+        <note category="german">{n} Minuten</note>
       </notes>
       <segment>
-        <source>%n% Minuten</source>
-        <target>%n% Minutes</target>
+        <source>{n} Minuten</source>
+        <target>{n} Minutes</target>
       </segment>
     </unit>
     <unit id="ST5ILqV" name="1 Minute">
@@ -2057,13 +2057,13 @@
         <target>1 Minute</target>
       </segment>
     </unit>
-    <unit id="kk4m10D" name="%n% Sekunden">
+    <unit id="kk4m10D" name="{n} Sekunden">
       <notes>
-        <note category="german">%n% Sekunden</note>
+        <note category="german">{n} Sekunden</note>
       </notes>
       <segment>
-        <source>%n% Sekunden</source>
-        <target>%n% Seconds</target>
+        <source>{n} Sekunden</source>
+        <target>{n} Seconds</target>
       </segment>
     </unit>
     <unit id="1rEgLVY" name="1 Sekunde">
@@ -2300,13 +2300,13 @@
         <target>Announcement</target>
       </segment>
     </unit>
-    <unit id="2vjDBX2" name="%n% Teilnehmer">
+    <unit id="2vjDBX2" name="{n} Teilnehmer">
       <notes>
-        <note category="german">%n% Teilnehmer</note>
+        <note category="german">{n} Teilnehmer</note>
       </notes>
       <segment>
-        <source>%n% Teilnehmer</source>
-        <target>%n% Participants</target>
+        <source>{n} Teilnehmer</source>
+        <target>{n} Participants</target>
       </segment>
     </unit>
     <unit id="Kb6Avwp" name="Weitere Einträge laden">
@@ -2354,13 +2354,13 @@
         <target>Yesterday</target>
       </segment>
     </unit>
-    <unit id="_KsSa.z" name="Neuer Beitrag in %topic%">
+    <unit id="_KsSa.z" name="Neuer Beitrag in {topic}">
       <notes>
-        <note category="german">Neuer Beitrag in %topic%</note>
+        <note category="german">Neuer Beitrag in {topic}</note>
       </notes>
       <segment>
-        <source>Neuer Beitrag in %topic%</source>
-        <target>New answer in %topic%</target>
+        <source>Neuer Beitrag in {topic}</source>
+        <target>New answer in {topic}</target>
       </segment>
     </unit>
     <unit id="0lz2qGs" name="Abonniert">
@@ -2699,13 +2699,13 @@
         <target>Avatar</target>
       </segment>
     </unit>
-    <unit id="hDhyhlE" name="Gruppe aus %num% Spielern">
+    <unit id="hDhyhlE" name="Gruppe aus {num} Spielern">
       <notes>
-        <note category="german">Gruppe aus %num% Spielern</note>
+        <note category="german">Gruppe aus {num} Spielern</note>
       </notes>
       <segment>
-        <source>Gruppe aus %num% Spielern</source>
-        <target>Group of %num% players</target>
+        <source>Gruppe aus {num} Spielern</source>
+        <target>Group of {num} players</target>
       </segment>
     </unit>
     <unit id="o8cBnVX">
@@ -2744,13 +2744,13 @@
         <target>Eine offizielle Gruppe kontaktieren</target>
       </segment>
     </unit>
-    <unit id="kjByjoe" name="via %group_inbox%">
+    <unit id="kjByjoe" name="via {group_inbox}">
       <notes>
-        <note category="german">via %group_inbox%</note>
+        <note category="german">via {group_inbox}</note>
       </notes>
       <segment>
-        <source>via %group_inbox%</source>
-        <target>via %group_inbox%</target>
+        <source>via {group_inbox}</source>
+        <target>via {group_inbox}</target>
       </segment>
     </unit>
     <unit id="GiaI_3b" name="Überlebte Tage">
@@ -2816,40 +2816,40 @@
         <target>Show</target>
       </segment>
     </unit>
-    <unit id="fufp5fd" name="Ausgeblendete Nachricht von %user%. Klicken, um anzuzeigen.">
+    <unit id="fufp5fd" name="Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.">
       <notes>
-        <note category="german">Ausgeblendete Nachricht von %user%. Klicken, um anzuzeigen.</note>
+        <note category="german">Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.</note>
       </notes>
       <segment>
-        <source>Ausgeblendete Nachricht von %user%. Klicken, um anzuzeigen.</source>
-        <target>Hidden message from %user%. Click to show.</target>
+        <source>Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.</source>
+        <target>Hidden message from {user}. Click to show.</target>
       </segment>
     </unit>
     <unit id="iZZF_a6">
       <notes>
-        <note category="german">%user% hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</note>
+        <note category="german">{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</note>
       </notes>
       <segment>
-        <source>%user% hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</source>
-        <target>%user% user has blocked you and has therefore been removed from the list of recipients for this message.</target>
+        <source>{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</source>
+        <target>{user} user has blocked you and has therefore been removed from the list of recipients for this message.</target>
       </segment>
     </unit>
-    <unit id="eEWrS7n" name="%users% und %last_user%">
+    <unit id="eEWrS7n" name="{users} und {last_user}">
       <notes>
-        <note category="german">%users% und %last_user%</note>
+        <note category="german">{users} und {last_user}</note>
       </notes>
       <segment>
-        <source>%users% und %last_user%</source>
-        <target>%users% and %last_user%</target>
+        <source>{users} und {last_user}</source>
+        <target>{users} and {last_user}</target>
       </segment>
     </unit>
     <unit id="9JfHrKu">
       <notes>
-        <note category="german">%users% haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</note>
+        <note category="german">{users} haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</note>
       </notes>
       <segment>
-        <source>%users% haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</source>
-        <target>%users% have blocked you and have therefore been removed from the list of recipients for this message.</target>
+        <source>{users} haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</source>
+        <target>{users} have blocked you and have therefore been removed from the list of recipients for this message.</target>
       </segment>
     </unit>
     <unit id="tgTK6TI" name="Du hast diesen Spieler auf deine Blacklist gesetzt.">
@@ -2870,13 +2870,13 @@
         <target>This user has been removed from your blacklist.</target>
       </segment>
     </unit>
-    <unit id="lYFv71g" name="Du hast %user% blockiert.">
+    <unit id="lYFv71g" name="Du hast {user} blockiert.">
       <notes>
-        <note category="german">Du hast %user% blockiert.</note>
+        <note category="german">Du hast {user} blockiert.</note>
       </notes>
       <segment>
-        <source>Du hast %user% blockiert.</source>
-        <target>You've blacklisted %user%.</target>
+        <source>Du hast {user} blockiert.</source>
+        <target>You've blacklisted {user}.</target>
       </segment>
     </unit>
     <unit id="gURDnkT" name="Blockade aufheben">
@@ -2897,13 +2897,13 @@
         <target>Block player</target>
       </segment>
     </unit>
-    <unit id="Ki.EhtV" name="%user% blockieren">
+    <unit id="Ki.EhtV" name="{user} blockieren">
       <notes>
-        <note category="german">%user% blockieren</note>
+        <note category="german">{user} blockieren</note>
       </notes>
       <segment>
-        <source>%user% blockieren</source>
-        <target>Block %user%</target>
+        <source>{user} blockieren</source>
+        <target>Block {user}</target>
       </segment>
     </unit>
     <unit id="cIrelgU">

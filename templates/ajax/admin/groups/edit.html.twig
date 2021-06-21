@@ -1,5 +1,5 @@
 {% extends "ajax/ajax.html.twig" %}
-{% block title %}{% if current_group is null %}{{ 'Neue Gruppe'|trans({}, 'admin') }}{% else %}{{ 'Gruppe "%group%"'|trans({'%group%': current_group.usergroup.name}, "admin")|raw }}{% endif %}{% endblock %}
+{% block title %}{% if current_group is null %}{{ 'Neue Gruppe'|trans({}, 'admin') }}{% else %}{{ 'Gruppe "{group}"'|trans({'{group}': current_group.usergroup.name}, "admin")|raw }}{% endif %}{% endblock %}
 {% block ajax %}
     {# @var current_season \App\Entity\Season #}
     <div class="row">

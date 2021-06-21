@@ -102,11 +102,11 @@
     </unit>
     <unit id="f63iKfV">
       <notes>
-        <note category="german">MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von %motiontwin%.</note>
+        <note category="german">MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von {motiontwin}.</note>
       </notes>
       <segment>
-        <source>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von %motiontwin%.</source>
-        <target>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von %motiontwin%.</target>
+        <source>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von {motiontwin}.</source>
+        <target>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von {motiontwin}.</target>
       </segment>
     </unit>
     <unit id="JyLklnq">
@@ -120,11 +120,11 @@
     </unit>
     <unit id="GEQa89m">
       <notes>
-        <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von %motiontwin%.</note>
+        <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von {motiontwin}.</note>
       </notes>
       <segment>
-        <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von %motiontwin%.</source>
-        <target>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von %motiontwin%.</target>
+        <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von {motiontwin}.</source>
+        <target>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von {motiontwin}.</target>
       </segment>
     </unit>
   </file>

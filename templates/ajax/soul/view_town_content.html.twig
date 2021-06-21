@@ -17,7 +17,7 @@
                     {% elseif town.language == 'es' %}{% set host = '<b>Zombinoia</b>' %}
                     {% else %}{% set host = '<b>Twinoid</b>' %}
                     {% endif %}
-                    {{ 'Diese Stadt wurde von %host% importiert. Die angezeigten Informationen sind möglicherweise unvollständig.'|trans({'%host%': host},'soul')|raw }}
+                    {{ 'Diese Stadt wurde von {host} importiert. Die angezeigten Informationen sind möglicherweise unvollständig.'|trans({'{host}': host},'soul')|raw }}
                 </div>
             </div>
         </div>

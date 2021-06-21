@@ -10,7 +10,7 @@
 {% from "ajax/admin/widget/controls.twig" import widget_profession_control as profession_control, widget_profession_control_js as profession_control_js %}
 {% from "ajax/admin/widget/controls.twig" import widget_teleport_control as teleport_control, widget_teleport_control_js as teleport_control_js %}
 
-{% block title %}{{'Stadt %townname%'|trans({'%townname%': town.name}, 'admin')|raw}}{% endblock %}
+{% block title %}{{'Stadt {townname}'|trans({'{townname}': town.name}, 'admin')|raw}}{% endblock %}
 {% block ajax %}
     {% macro valuelist(prop,val) %}
         <div class="row">
@@ -383,7 +383,7 @@
                             <h5>{{ 'Anzeigen'|trans({}, 'admin') }}</h5>
                             <ul>
                             {% for culprit, complaint in complaints %}
-                                <li>{{ 'Gegen %culprit%'|trans({'%culprit%': "<strong>" ~ culprit ~ "</strong>"}, 'admin')|raw }}
+                                <li>{{ 'Gegen {culprit}'|trans({'{culprit}': "<strong>" ~ culprit ~ "</strong>"}, 'admin')|raw }}
                                     <ul>
                                     {% for cmp in complaint|sort((a,b) => a.autor.name <=> b.autor.name) %}
                                         <li>{{ cmp.autor.name }} : {{ cmp.linkedReason.text|trans({}, 'game') }}</li>
@@ -414,7 +414,7 @@
                                     <li>{{ role.label|trans({}, 'game')|raw }}
                                         <ul>
                                             {% for target, autors in votes[role.id]|sort %}
-                                                <li>{{ 'Für %target%'|trans({"%target%": target}, 'admin') }}
+                                                <li>{{ 'Für {target}'|trans({"{target}": target}, 'admin') }}
                                                     <ul>
                                                         {% for autor in autors %}
                                                         <li>{{ autor.name }}</li>

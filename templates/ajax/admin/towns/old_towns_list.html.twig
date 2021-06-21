@@ -14,7 +14,7 @@
             </ul>
             <h5>{{ 'Liste aller Städte'|trans({},'admin') }}</h5>
             <div class="rw-2">
-                {{ 'Seite %page%/%total%'|trans({'%page%': currentPage, '%total%': pagesCount}, 'admin') }}
+                {{ 'Seite {page}/{total}'|trans({'{page}': currentPage, '{total}': pagesCount}, 'admin') }}
             </div>
             <div class="rw-8">
                 {% if currentPage > 1 %}

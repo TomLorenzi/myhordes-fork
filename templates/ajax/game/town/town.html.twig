@@ -217,7 +217,7 @@
                 <div class="background cell map-box rw-12">
                     {% if citizen.hasRole('ghoul') %}
                         <div class="green-note warning-box">
-                            <img src="{{ asset('build/images/status/status_ghoul.gif') }}" alt=""> {{'Du hast dich in einen %role% verwandelt!'|trans({'%role%': '<strong>' ~ 'Ghul'|trans({},'game') ~ '</strong>'}, 'game')|raw}}<br />
+                            <img src="{{ asset('build/images/status/status_ghoul.gif') }}" alt=""> {{'Du hast dich in einen {role} verwandelt!'|trans({'{role}': '<strong>' ~ 'Ghul'|trans({},'game') ~ '</strong>'}, 'game')|raw}}<br />
                             <em>{{ "Erzähle niemandem davon oder du wirst sofort erschossen!"|trans({}, 'game') }}</em><br />
                             {{ help_lnk('Wie man als Ghul spielt ?'|trans({},'game'), 'help', {'name' : 'ghouls'}) }}
                         </div>
@@ -327,7 +327,7 @@
                                     {% endif %}
                                     <br />
                                     {% if building.defense > 0 %}<em>+ {{building.defense + building.defenseBonus}} {% trans from "buildings" %}Verteidigung{% endtrans %} </em>{% endif %}
-                                    {% if building.prototype.maxLevel > 0 and building.level > 0 %}<em>{% trans with {'%lv%': building.level} from 'game' %}Level %lv%{% endtrans %}</em>{% endif %}
+                                    {% if building.prototype.maxLevel > 0 and building.level > 0 %}<em>{% trans with {'{lv}': building.level} from 'game' %}Level {lv}{% endtrans %}</em>{% endif %}
                                     <div class='tooltip normal'>
                                         {{ building.prototype.description|trans({}, 'buildings') }}
                                     </div>
@@ -341,7 +341,7 @@
             {% if app.user.expert %}
                 <div class="row">
                     <div class="cell rw-12 background">
-                        <div class="beginner-link">{{ 'Brauchst du Hilfe? Benutze den %modelink%!'|trans({'%modelink%': ('<a href="#" x-toggle-expert-mode>' ~ ('Anfängermodus'|trans({},'game')) ~ '</a>')},'game')|raw }}</div>
+                        <div class="beginner-link">{{ 'Brauchst du Hilfe? Benutze den {modelink}!'|trans({'{modelink}': ('<a href="#" x-toggle-expert-mode>' ~ ('Anfängermodus'|trans({},'game')) ~ '</a>')},'game')|raw }}</div>
                     </div>
                 </div>
             {% endif %}

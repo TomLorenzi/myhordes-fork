@@ -100,13 +100,13 @@
         <target>E-Mail Adresse validieren</target>
       </segment>
     </unit>
-    <unit id="TM0i7i7" name="Hallo %name%!">
+    <unit id="TM0i7i7" name="Hallo {name}!">
       <notes>
-        <note category="german">Hallo %name%!</note>
+        <note category="german">Hallo {name}!</note>
       </notes>
       <segment>
-        <source>Hallo %name%!</source>
-        <target>Hallo %name%!</target>
+        <source>Hallo {name}!</source>
+        <target>Hallo {name}!</target>
       </segment>
     </unit>
     <unit id="UA_FeeT" name="Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.">
@@ -321,11 +321,11 @@
     </unit>
     <unit id="U4wx4AP">
       <notes>
-        <note category="german">Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</note>
+        <note category="german">Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</note>
       </notes>
       <segment>
-        <source>Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</source>
-        <target>Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</target>
+        <source>Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</source>
+        <target>Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</target>
       </segment>
     </unit>
     <unit id="e99uiXA" name="Aktuelles Passwort">
@@ -541,13 +541,13 @@
         <target>Los geht's!</target>
       </segment>
     </unit>
-    <unit id="e0idyWf" name="Hallo %username%!">
+    <unit id="e0idyWf" name="Hallo {username}!">
       <notes>
-        <note category="german">Hallo %username%!</note>
+        <note category="german">Hallo {username}!</note>
       </notes>
       <segment>
-        <source>Hallo %username%!</source>
-        <target>Hallo %username%!</target>
+        <source>Hallo {username}!</source>
+        <target>Hallo {username}!</target>
       </segment>
     </unit>
     <unit id="2WaNcqR" name="Dein Account wurde erfolgreich verknüpft!">
@@ -570,11 +570,11 @@
     </unit>
     <unit id="pEAthLZ">
       <notes>
-        <note category="german">Vielen Dank, dass du deinen MyHordes-Account %namecheck_mh% mit deinem EternalTwin-Account %namecheck_et% verknüpfst!</note>
+        <note category="german">Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem EternalTwin-Account {namecheck_et} verknüpfst!</note>
       </notes>
       <segment>
-        <source>Vielen Dank, dass du deinen MyHordes-Account %namecheck_mh% mit deinem EternalTwin-Account %namecheck_et% verknüpfst!</source>
-        <target>Vielen Dank, dass du deinen MyHordes-Account %namecheck_mh% mit deinem EternalTwin-Account %namecheck_et% verknüpfst!</target>
+        <source>Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem EternalTwin-Account {namecheck_et} verknüpfst!</source>
+        <target>Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem EternalTwin-Account {namecheck_et} verknüpfst!</target>
       </segment>
     </unit>
     <unit id="7JD3pLt">

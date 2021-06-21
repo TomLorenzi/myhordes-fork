@@ -199,13 +199,13 @@
         <target>El Cuervo</target>
       </segment>
     </unit>
-    <unit id="81dFh4o" name="Seite %page%/%pages%">
+    <unit id="81dFh4o" name="Seite {page}/{pages}">
       <notes>
-        <note category="german">Seite %page%/%pages%</note>
+        <note category="german">Seite {page}/{pages}</note>
       </notes>
       <segment>
-        <source>Seite %page%/%pages%</source>
-        <target>Página %page%/%pages%</target>
+        <source>Seite {page}/{pages}</source>
+        <target>Página {page}/{pages}</target>
       </segment>
     </unit>
     <unit id="xtsvLHK" name="Bitte halte dich an die Regeln:">
@@ -469,13 +469,13 @@
         <target>Estadísticas</target>
       </segment>
     </unit>
-    <unit id="9jh.PAO" name="%points% Punkte">
+    <unit id="9jh.PAO" name="{points} Punkte">
       <notes>
-        <note category="german">%points% Punkte</note>
+        <note category="german">{points} Punkte</note>
       </notes>
       <segment>
-        <source>%points% Punkte</source>
-        <target>%points% Puntos</target>
+        <source>{points} Punkte</source>
+        <target>{points} Puntos</target>
       </segment>
     </unit>
     <unit id="LM1P67a" name="Dieser Spieler hat bisher noch keine Preise gewonnen...">
@@ -568,13 +568,13 @@
         <target>¡Ni siquiera si te la piden!</target>
       </segment>
     </unit>
-    <unit id="gjZ3uMC" name="Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.">
+    <unit id="gjZ3uMC" name="Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte {contact}.">
       <notes>
-        <note category="german">Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.</note>
+        <note category="german">Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte {contact}.</note>
       </notes>
       <segment>
-        <source>Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte %contact%.</source>
-        <target>Si tienes alguna duda o pregunta respecto a ese sitio, contacta con %contact%.</target>
+        <source>Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte {contact}.</source>
+        <target>Si tienes alguna duda o pregunta respecto a ese sitio, contacta con {contact}.</target>
       </segment>
     </unit>
     <unit id="EGfY674" name="Weiter zu">
@@ -1135,22 +1135,22 @@
         <target>Este tema tiene uno o varios anuncios de representantes de la comunidad.</target>
       </segment>
     </unit>
-    <unit id="8_r8k2t" name="Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:">
+    <unit id="8_r8k2t" name="Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:">
       <notes>
-        <note category="german">Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</note>
+        <note category="german">Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:</note>
       </notes>
       <segment>
-        <source>Dieses Thema enthält %count% offizielle Ansage(n) der MyHordes-Administratoren:</source>
-        <target>Este tema contiene %count% anuncio(s) oficial(es) de la Administración de MyHordes :</target>
+        <source>Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:</source>
+        <target>Este tema contiene {count} anuncio(s) oficial(es) de la Administración de MyHordes :</target>
       </segment>
     </unit>
-    <unit id="GfGOj1g" name="Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:">
+    <unit id="GfGOj1g" name="Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:">
       <notes>
-        <note category="german">Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</note>
+        <note category="german">Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:</note>
       </notes>
       <segment>
-        <source>Dieses Thema enthält %count% Ansage(n) von Community-Vertretern:</source>
-        <target>Este tema tiene %count% anuncio(s) de representantes de la comunidad :</target>
+        <source>Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:</source>
+        <target>Este tema tiene {count} anuncio(s) de representantes de la comunidad :</target>
       </segment>
     </unit>
     <unit id="wg02Gq4" name="Zitieren">
@@ -1594,31 +1594,31 @@
         <target>Se ha informado a los moderadores de al menos una publicación sobre este tema.</target>
       </segment>
     </unit>
-    <unit id="KV1uMW3" name="Dieses Thema enthält %count% gemeldete Posts:">
+    <unit id="KV1uMW3" name="Dieses Thema enthält {count} gemeldete Posts:">
       <notes>
-        <note category="german">Dieses Thema enthält %count% gemeldete Posts:</note>
+        <note category="german">Dieses Thema enthält {count} gemeldete Posts:</note>
       </notes>
       <segment>
-        <source>Dieses Thema enthält %count% gemeldete Posts:</source>
-        <target>Este tema contiene %count% publicaciones reportadas:</target>
+        <source>Dieses Thema enthält {count} gemeldete Posts:</source>
+        <target>Este tema contiene {count} publicaciones reportadas:</target>
       </segment>
     </unit>
-    <unit id="XvJRBeq" name="%num% Meldungen. Klicken, um Benutzer anzuzeigen.">
+    <unit id="XvJRBeq" name="{num} Meldungen. Klicken, um Benutzer anzuzeigen.">
       <notes>
-        <note category="german">%num% Meldungen. Klicken, um Benutzer anzuzeigen.</note>
+        <note category="german">{num} Meldungen. Klicken, um Benutzer anzuzeigen.</note>
       </notes>
       <segment>
-        <source>%num% Meldungen. Klicken, um Benutzer anzuzeigen.</source>
-        <target>%num% Mensajes. Haz click para mostrar quién los ha enviado.</target>
+        <source>{num} Meldungen. Klicken, um Benutzer anzuzeigen.</source>
+        <target>{num} Mensajes. Haz click para mostrar quién los ha enviado.</target>
       </segment>
     </unit>
-    <unit id="uVEhYFM" name="Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.">
+    <unit id="uVEhYFM" name="Gelöscht von {user} ({time}). Klicken, um den Grund einzublenden.">
       <notes>
-        <note category="german">Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.</note>
+        <note category="german">Gelöscht von {user} ({time}). Klicken, um den Grund einzublenden.</note>
       </notes>
       <segment>
-        <source>Gelöscht von %user% (%time%). Klicken, um den Grund einzublenden.</source>
-        <target>Eliminado por %user% (%time%). Haz clic para revelar el motivo.</target>
+        <source>Gelöscht von {user} ({time}). Klicken, um den Grund einzublenden.</source>
+        <target>Eliminado por {user} ({time}). Haz clic para revelar el motivo.</target>
       </segment>
     </unit>
     <unit id="gAhtva3" name="Überprüft">
@@ -1975,13 +1975,13 @@
         <target>Permanente</target>
       </segment>
     </unit>
-    <unit id="6Ql8d6C" name="%n% Tage">
+    <unit id="6Ql8d6C" name="{n} Tage">
       <notes>
-        <note category="german">%n% Tage</note>
+        <note category="german">{n} Tage</note>
       </notes>
       <segment>
-        <source>%n% Tage</source>
-        <target>%n% días</target>
+        <source>{n} Tage</source>
+        <target>{n} días</target>
       </segment>
     </unit>
     <unit id="1E2BbPr" name="1 Tag">
@@ -1993,13 +1993,13 @@
         <target>1 día</target>
       </segment>
     </unit>
-    <unit id="j5aKYuL" name="%n% Stunden">
+    <unit id="j5aKYuL" name="{n} Stunden">
       <notes>
-        <note category="german">%n% Stunden</note>
+        <note category="german">{n} Stunden</note>
       </notes>
       <segment>
-        <source>%n% Stunden</source>
-        <target>%n% horas</target>
+        <source>{n} Stunden</source>
+        <target>{n} horas</target>
       </segment>
     </unit>
     <unit id="2iHBadX" name="1 Stunde">
@@ -2011,13 +2011,13 @@
         <target>1 hora</target>
       </segment>
     </unit>
-    <unit id="p._haUN" name="%n% Minuten">
+    <unit id="p._haUN" name="{n} Minuten">
       <notes>
-        <note category="german">%n% Minuten</note>
+        <note category="german">{n} Minuten</note>
       </notes>
       <segment>
-        <source>%n% Minuten</source>
-        <target>%n% minutos</target>
+        <source>{n} Minuten</source>
+        <target>{n} minutos</target>
       </segment>
     </unit>
     <unit id="ST5ILqV" name="1 Minute">
@@ -2029,13 +2029,13 @@
         <target>1 minuto</target>
       </segment>
     </unit>
-    <unit id="kk4m10D" name="%n% Sekunden">
+    <unit id="kk4m10D" name="{n} Sekunden">
       <notes>
-        <note category="german">%n% Sekunden</note>
+        <note category="german">{n} Sekunden</note>
       </notes>
       <segment>
-        <source>%n% Sekunden</source>
-        <target>%n% segundos</target>
+        <source>{n} Sekunden</source>
+        <target>{n} segundos</target>
       </segment>
     </unit>
     <unit id="1rEgLVY" name="1 Sekunde">
@@ -2272,13 +2272,13 @@
         <target>Anuncio</target>
       </segment>
     </unit>
-    <unit id="2vjDBX2" name="%n% Teilnehmer">
+    <unit id="2vjDBX2" name="{n} Teilnehmer">
       <notes>
-        <note category="german">%n% Teilnehmer</note>
+        <note category="german">{n} Teilnehmer</note>
       </notes>
       <segment>
-        <source>%n% Teilnehmer</source>
-        <target>%n% Participantes</target>
+        <source>{n} Teilnehmer</source>
+        <target>{n} Participantes</target>
       </segment>
     </unit>
     <unit id="Kb6Avwp" name="Weitere Einträge laden">
@@ -2335,13 +2335,13 @@
         <target><![CDATA[Als <strong>Ausgestoßener</strong> stehen dir die Gemeinschaftsaktionen der Stadt nicht länger zur Verfügung: Bank, Baustelle, Tor, etc...]]></target>
       </segment>
     </unit>
-    <unit id="_KsSa.z" name="Neuer Beitrag in %topic%">
+    <unit id="_KsSa.z" name="Neuer Beitrag in {topic}">
       <notes>
-        <note category="german">Neuer Beitrag in %topic%</note>
+        <note category="german">Neuer Beitrag in {topic}</note>
       </notes>
       <segment>
-        <source>Neuer Beitrag in %topic%</source>
-        <target>Neuer Beitrag in %topic%</target>
+        <source>Neuer Beitrag in {topic}</source>
+        <target>Neuer Beitrag in {topic}</target>
       </segment>
     </unit>
     <unit id="0lz2qGs" name="Abonniert">
@@ -2681,13 +2681,13 @@
         <target>Avatar</target>
       </segment>
     </unit>
-    <unit id="hDhyhlE" name="Gruppe aus %num% Spielern">
+    <unit id="hDhyhlE" name="Gruppe aus {num} Spielern">
       <notes>
-        <note category="german">Gruppe aus %num% Spielern</note>
+        <note category="german">Gruppe aus {num} Spielern</note>
       </notes>
       <segment>
-        <source>Gruppe aus %num% Spielern</source>
-        <target>Grupo de %num% jugadores</target>
+        <source>Gruppe aus {num} Spielern</source>
+        <target>Grupo de {num} jugadores</target>
       </segment>
     </unit>
     <unit id="o8cBnVX">
@@ -2726,13 +2726,13 @@
         <target>Eine offizielle Gruppe kontaktieren</target>
       </segment>
     </unit>
-    <unit id="kjByjoe" name="via %group_inbox%">
+    <unit id="kjByjoe" name="via {group_inbox}">
       <notes>
-        <note category="german">via %group_inbox%</note>
+        <note category="german">via {group_inbox}</note>
       </notes>
       <segment>
-        <source>via %group_inbox%</source>
-        <target>via %group_inbox%</target>
+        <source>via {group_inbox}</source>
+        <target>via {group_inbox}</target>
       </segment>
     </unit>
     <unit id="GiaI_3b" name="Überlebte Tage">
@@ -2798,40 +2798,40 @@
         <target>Einblenden</target>
       </segment>
     </unit>
-    <unit id="fufp5fd" name="Ausgeblendete Nachricht von %user%. Klicken, um anzuzeigen.">
+    <unit id="fufp5fd" name="Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.">
       <notes>
-        <note category="german">Ausgeblendete Nachricht von %user%. Klicken, um anzuzeigen.</note>
+        <note category="german">Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.</note>
       </notes>
       <segment>
-        <source>Ausgeblendete Nachricht von %user%. Klicken, um anzuzeigen.</source>
-        <target>Ausgeblendete Nachricht von %user%. Klicken, um anzuzeigen.</target>
+        <source>Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.</source>
+        <target>Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.</target>
       </segment>
     </unit>
     <unit id="iZZF_a6">
       <notes>
-        <note category="german">%user% hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</note>
+        <note category="german">{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</note>
       </notes>
       <segment>
-        <source>%user% hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</source>
-        <target>%user% hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</target>
+        <source>{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</source>
+        <target>{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</target>
       </segment>
     </unit>
-    <unit id="eEWrS7n" name="%users% und %last_user%">
+    <unit id="eEWrS7n" name="{users} und {last_user}">
       <notes>
-        <note category="german">%users% und %last_user%</note>
+        <note category="german">{users} und {last_user}</note>
       </notes>
       <segment>
-        <source>%users% und %last_user%</source>
-        <target>%users% und %last_user%</target>
+        <source>{users} und {last_user}</source>
+        <target>{users} und {last_user}</target>
       </segment>
     </unit>
     <unit id="9JfHrKu">
       <notes>
-        <note category="german">%users% haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</note>
+        <note category="german">{users} haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</note>
       </notes>
       <segment>
-        <source>%users% haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</source>
-        <target>%users% haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</target>
+        <source>{users} haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</source>
+        <target>{users} haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</target>
       </segment>
     </unit>
     <unit id="tgTK6TI" name="Du hast diesen Spieler auf deine Blacklist gesetzt.">
@@ -2852,13 +2852,13 @@
         <target>Este usuario ya no está en tu Lista Negra.</target>
       </segment>
     </unit>
-    <unit id="lYFv71g" name="Du hast %user% blockiert.">
+    <unit id="lYFv71g" name="Du hast {user} blockiert.">
       <notes>
-        <note category="german">Du hast %user% blockiert.</note>
+        <note category="german">Du hast {user} blockiert.</note>
       </notes>
       <segment>
-        <source>Du hast %user% blockiert.</source>
-        <target>Du hast %user% blockiert.</target>
+        <source>Du hast {user} blockiert.</source>
+        <target>Du hast {user} blockiert.</target>
       </segment>
     </unit>
     <unit id="gURDnkT" name="Blockade aufheben">
@@ -2879,13 +2879,13 @@
         <target>Spieler blockieren</target>
       </segment>
     </unit>
-    <unit id="Ki.EhtV" name="%user% blockieren">
+    <unit id="Ki.EhtV" name="{user} blockieren">
       <notes>
-        <note category="german">%user% blockieren</note>
+        <note category="german">{user} blockieren</note>
       </notes>
       <segment>
-        <source>%user% blockieren</source>
-        <target>%user% blockieren</target>
+        <source>{user} blockieren</source>
+        <target>{user} blockieren</target>
       </segment>
     </unit>
     <unit id="cIrelgU">

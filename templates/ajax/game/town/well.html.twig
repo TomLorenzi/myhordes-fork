@@ -30,7 +30,7 @@
                 <div class="mask"></div>
                 <div class="overlay">
                     {% if rations_left > 0 %}
-                        {{ '%rations% Rationen Wasser übrig'|trans({'%rations%': rations_left},'game') }}
+                        {{ '{rations} Rationen Wasser übrig'|trans({'{rations}': rations_left},'game') }}
                     {% else %}
                         <span class="small"><b>{{ 'Kein Wasser mehr!'|trans({},'game') }}</b></span>
                     {% endif %}
@@ -53,8 +53,8 @@
                     </div>
                 {% else %}
                     <div class="note">
-                        {% trans with {'%pumpname%':'<b>' ~ pump.prototype.label|trans({}, 'buildings') ~ '</b>' } from 'game' %}
-                            Die Stadt verfügt über eine %pumpname%.
+                        {% trans with {'{pumpname}':'<b>' ~ pump.prototype.label|trans({}, 'buildings') ~ '</b>' } from 'game' %}
+                            Die Stadt verfügt über eine {pumpname}.
                         {% endtrans %}
                     </div>
                 {% endif %}

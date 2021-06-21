@@ -331,8 +331,8 @@ class ExplorationController extends InventoryAwareController implements HookedIn
             // $this->entity_manager->persist($ruinZone->getRoomFloor());
             $this->entity_manager->persist($ruinZone->getFloor());
 
-            $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
-                    '%item%' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>"
+            $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: {item}!', [
+                    '{item}' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>"
                 ], 'game' ) . "$noPlaceLeftMsg");
         } else $this->addFlash( 'notice', $this->translator->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));
 
@@ -367,8 +367,8 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         $item = $this->item_factory->createItem($ruinZone->getPrototype()->getKeyImprint());
         $this->inventory_handler->placeItem($citizen, $item, [$citizen->getInventory(), $ruinZone->getFloor()]);
 
-        $this->addFlash( 'notice', $this->translator->trans( 'Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst %item%!', [
-                '%item%' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $item->getPrototype()->getIcon() . '.gif' )}'> {$this->translator->trans($item->getPrototype()->getLabel(), [], 'items')}</span>"
+        $this->addFlash( 'notice', $this->translator->trans( 'Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst {item}!', [
+                '{item}' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $item->getPrototype()->getIcon() . '.gif' )}'> {$this->translator->trans($item->getPrototype()->getLabel(), [], 'items')}</span>"
             ], 'game' ));
 
         $ex->getScavengedRooms()->add( $ruinZone );
@@ -402,7 +402,7 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         $key = $this->inventory_handler->fetchSpecificItems( $citizen->getInventory(), [new ItemRequest( $ruinZone->getPrototype()->getKeyItem()->getName())] );
 
         if (empty($key))
-            return AjaxResponse::errorMessage( $this->translator->trans( 'Du benötigst %item%, um diese Tür zu öffnen.', ['%item%' => $k_str], 'game' ) );
+            return AjaxResponse::errorMessage( $this->translator->trans( 'Du benötigst {item}, um diese Tür zu öffnen.', ['{item}' => $k_str], 'game' ) );
         else $this->inventory_handler->forceRemoveItem( $key[0] );
 
         $ruinZone->setLocked(false);
@@ -413,8 +413,8 @@ class ExplorationController extends InventoryAwareController implements HookedIn
         $this->entity_manager->persist($citizen);
         $this->entity_manager->persist($ex);
 
-        $this->addFlash( 'notice', $this->translator->trans( 'Mithilfe des %item% hast du die Tür aufgeschlossen!', [
-            '%item%' => $k_str
+        $this->addFlash( 'notice', $this->translator->trans( 'Mithilfe des {item} hast du die Tür aufgeschlossen!', [
+            '{item}' => $k_str
         ], 'game' ));
 
         try {

@@ -3655,13 +3655,13 @@
         <target>¡Dando pruebas de tu valentía, has enfrentado los peligros del Ultramundo, salvado a {citizen} y has vuelto ileso!</target>
       </segment>
     </unit>
-    <unit id="vgypnNf" name="%action%: %item%">
+    <unit id="vgypnNf" name="{action}: {item}">
       <notes>
-        <note category="german">%action%: %item%</note>
+        <note category="german">{action}: {item}</note>
       </notes>
       <segment>
-        <source>%action%: %item%</source>
-        <target>%action%: %item%</target>
+        <source>{action}: {item}</source>
+        <target>{action}: {item}</target>
       </segment>
     </unit>
     <unit id="cbZMBy4" name="Heldentaten">
@@ -7784,13 +7784,13 @@
         <target>Nada mejor que perforarte los tímpanos para empezar la mañana y recibir 1 Punto de Acción adicional después del ataque.</target>
       </segment>
     </unit>
-    <unit id="ApkAd1P" name="Möchtest du %target% heimbringen?">
+    <unit id="ApkAd1P" name="Möchtest du {target} heimbringen?">
       <notes>
-        <note category="german">Möchtest du %target% heimbringen?</note>
+        <note category="german">Möchtest du {target} heimbringen?</note>
       </notes>
       <segment>
-        <source>Möchtest du %target% heimbringen?</source>
-        <target>¿Quieres rescatar a %target% ?</target>
+        <source>Möchtest du {target} heimbringen?</source>
+        <target>¿Quieres rescatar a {target} ?</target>
       </segment>
     </unit>
     <unit id="Y5MBnJg" name="Du hast {item_from} in {item_to} verwandelt.">
@@ -7982,22 +7982,22 @@
         <target><![CDATA[<t-fail><t-no-room>No hay suficiente espacio en tu baúl para enviar estos objetos.</t-no-room><t-door-closed>{tamer_dog} se pone a chillar. Si su instinto no falla, eso quiere decir que <strong>el Portal del pueblo está cerrado...</strong></t-door-closed></t-fail><nt-fail>Envías a {tamer_dog} con dirección al pueblo llevando todo el contenido de tu mochila.{hr}Como se lo pediste, <strong>dejará todo en tu casa, en tu baúl</strong>.{hr}¡Ese es mi compañero!</nt-fail>]]></target>
       </segment>
     </unit>
-    <unit id="Cp5Hvee" name="%citizen% befehlen etwas zu trinken.">
+    <unit id="Cp5Hvee" name="{citizen} befehlen etwas zu trinken.">
       <notes>
-        <note category="german">%citizen% befehlen etwas zu trinken.</note>
+        <note category="german">{citizen} befehlen etwas zu trinken.</note>
       </notes>
       <segment>
-        <source>%citizen% befehlen etwas zu trinken.</source>
-        <target>Pedirle a %citizen% que beba.</target>
+        <source>{citizen} befehlen etwas zu trinken.</source>
+        <target>Pedirle a {citizen} que beba.</target>
       </segment>
     </unit>
-    <unit id="M83i5Y." name="%citizen% befehlen etwas zu essen.">
+    <unit id="M83i5Y." name="{citizen} befehlen etwas zu essen.">
       <notes>
-        <note category="german">%citizen% befehlen etwas zu essen.</note>
+        <note category="german">{citizen} befehlen etwas zu essen.</note>
       </notes>
       <segment>
-        <source>%citizen% befehlen etwas zu essen.</source>
-        <target>Pedirle a %citizen% que coma.</target>
+        <source>{citizen} befehlen etwas zu essen.</source>
+        <target>Pedirle a {citizen} que coma.</target>
       </segment>
     </unit>
     <unit id="P9ubaaO" name="Schwarzer Zervixschleim">

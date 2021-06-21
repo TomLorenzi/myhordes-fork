@@ -102,11 +102,11 @@
     </unit>
     <unit id="1Wm5ylA">
       <notes>
-        <note category="german">Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</note>
+        <note category="german">Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.</note>
       </notes>
       <segment>
-        <source>Die Sprache der gewählten Stadt ist %lang_town%. Deine aktuelle Spracheinstellung ist %lang_user%.</source>
-        <target>El idioma del pueblo seleccionado es %lang_town%. Tu idioma seleccionado es %lang_user%.</target>
+        <source>Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.</source>
+        <target>El idioma del pueblo seleccionado es {lang_town}. Tu idioma seleccionado es {lang_user}.</target>
       </segment>
     </unit>
     <unit id="0C3XaFv">
@@ -129,11 +129,11 @@
     </unit>
     <unit id="Ap6glg5">
       <notes>
-        <note category="german">Möchtest du die schreckliche Welt der Verdammten als Bürger der Stadt %town_name% betreten?</note>
+        <note category="german">Möchtest du die schreckliche Welt der Verdammten als Bürger der Stadt {town_name} betreten?</note>
       </notes>
       <segment>
-        <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt %town_name% betreten</source>
-        <target>¿Listo para ingresar a %town_name%? ¡Buena suerte!</target>
+        <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten</source>
+        <target>¿Listo para ingresar a {town_name}? ¡Buena suerte!</target>
       </segment>
     </unit>
     <unit id="uwIFRKe" name="Deine Seele genügt den Anforderungen für diesen Stadttypen.">

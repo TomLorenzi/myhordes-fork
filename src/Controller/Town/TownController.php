@@ -306,12 +306,12 @@ class TownController extends InventoryAwareController
 
         if ($time > 10800 || $date->format('d') !== (new DateTime())->format('d')) {
             // If it was more than 3 hours, or if the day changed, let's get the full date/time format
-            $lastActionText = $this->translator->trans('am %d%.%m%.%Y%, um %H%:%i%', [
-                '%d%' => date('d', $lastActionTimestamp),
-                '%m%' => date('m', $lastActionTimestamp),
-                '%Y%' => date('Y', $lastActionTimestamp),
-                '%H%' => date('H', $lastActionTimestamp),
-                '%i%' => date('i', $lastActionTimestamp),
+            $lastActionText = $this->translator->trans('am {d}.{m}.{Y}, um {H}:{i}', [
+                '{d}' => date('d', $lastActionTimestamp),
+                '{m}' => date('m', $lastActionTimestamp),
+                '{Y}' => date('Y', $lastActionTimestamp),
+                '{H}' => date('H', $lastActionTimestamp),
+                '{i}' => date('i', $lastActionTimestamp),
             ], 'game');
         } else {
             // Tableau des unités et de leurs valeurs en secondes
@@ -324,7 +324,7 @@ class TownController extends InventoryAwareController
 
                 if ($delta >= 1) {
                     $unit = $this->translator->trans($unit, [], 'game');
-                    $lastActionText = $this->translator->trans('vor %time%', ['%time%' => "$delta $unit"], 'game');
+                    $lastActionText = $this->translator->trans('vor {time}', ['{time}' => "$delta $unit"], 'game');
                     break;
                 }
             }
@@ -481,7 +481,7 @@ class TownController extends InventoryAwareController
                     return AjaxResponse::error( ErrorHelper::ErrorNoAP );
                 $this->citizen_handler->setAP($ac, true, -2);
                 $pictoName = "r_cgarb_#00";
-                $message = $this->translator->trans('Du hast die Leiche von %disposed% außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!', ['%disposed%' => '<span>' . $c->getName() . '</span>'], 'game');
+                $message = $this->translator->trans('Du hast die Leiche von {disposed} außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!', ['{disposed}' => '<span>' . $c->getName() . '</span>'], 'game');
                 $c->setDisposed(Citizen::Thrown);
                 $c->addDisposedBy($ac);
                 break;
@@ -502,7 +502,7 @@ class TownController extends InventoryAwareController
                     return AjaxResponse::error( ErrorHelper::ErrorActionNotAvailable );
                 $spawn_items[] = [ 'item' => $em->getRepository( ItemPrototype::class )->findOneBy( ['name' => 'hmeat_#00'] ), 'count' => 4 ];
                 $pictoName = "r_cooked_#00";
-                $message = $this->translator->trans('Sie brachten die Leiche von %disposed% zum Kremato-Cue. Man bekommt %ration% Rationen davon...  Aber zu welchem Preis?', ['%disposed%' => '<span>' . $c->getName() . '</span>','%ration%' => '<span>4</span>'], 'game');
+                $message = $this->translator->trans('Sie brachten die Leiche von {disposed} zum Kremato-Cue. Man bekommt {ration} Rationen davon...  Aber zu welchem Preis?', ['{disposed}' => '<span>' . $c->getName() . '</span>','{ration}' => '<span>4</span>'], 'game');
                 $c->setDisposed(Citizen::Cooked);
                 $c->addDisposedBy($ac);
                 break;
@@ -658,10 +658,10 @@ class TownController extends InventoryAwareController
                 if($town->getChaos()) {
                     $this->addFlash('notice', $this->translator->trans('Ihre Reklamation wurde gut aufgenommen, wird aber in der aktuellen Situation <strong>nicht sehr hilfreich</strong> sein.<hr>Die Stadt ist im totalen <strong>Chaos</strong> versunken... Bei so wenigen Überlebenden sind <strong>die Gesetze des Landes gebrochen worden</strong>.', [], 'game'));
                 } else {
-                    $this->addFlash('notice', $this->translator->trans('Sie haben eine Beschwerde gegen <strong>%citizen%</strong> eingereicht. Wenn sich genug Beschwerden ansammeln, <strong>wird %citizen% aus der Gemeinschaft verbannt oder gehängt</strong>, falls ein Galgen vorhanden ist.', ['%citizen%' => $culprit->getName()], 'game'));
+                    $this->addFlash('notice', $this->translator->trans('Sie haben eine Beschwerde gegen <strong>{citizen}</strong> eingereicht. Wenn sich genug Beschwerden ansammeln, <strong>wird {citizen} aus der Gemeinschaft verbannt oder gehängt</strong>, falls ein Galgen vorhanden ist.', ['{citizen}' => $culprit->getName()], 'game'));
                 }
             } else {
-                $this->addFlash('notice', $this->translator->trans('Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...', ['%citizen%' => $culprit->getName()], 'game'));
+                $this->addFlash('notice', $this->translator->trans('Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...', ['{citizen}' => $culprit->getName()], 'game'));
             }
 
         } catch (Exception $e) {
@@ -811,10 +811,10 @@ class TownController extends InventoryAwareController
                     $item,$inv_source, $inv_target
                 )) === InventoryHandler::ErrorNone) {
                     if ($counter->getCount() > 0) {
-                        $flash = $this->translator->trans("Du hast eine weitere %item% genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...", ['%item%' => $this->log->wrap($this->log->iconize($item), 'tool')], 'game');
+                        $flash = $this->translator->trans("Du hast eine weitere {item} genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...", ['{item}' => $this->log->wrap($this->log->iconize($item), 'tool')], 'game');
                         $ba->increaseBankCount( $citizen );
                     } else {
-                        $flash = $this->translator->trans("Du hast deine tägliche Ration erhalten: %item%", ['%item%' => $this->log->wrap($this->log->iconize($item), 'tool')], 'game');
+                        $flash = $this->translator->trans("Du hast deine tägliche Ration erhalten: {item}", ['{item}' => $this->log->wrap($this->log->iconize($item), 'tool')], 'game');
                     }
 
                     $this->entity_manager->persist( $this->log->wellLog( $citizen, $counter->getCount() >= 1 ) );
@@ -1244,9 +1244,9 @@ class TownController extends InventoryAwareController
         // Notice
         if(!$was_completed) {
             if($building->getAp() < $building->getPrototype()->getAp()){
-                $messages[] = $this->translator->trans("Du hast am Bauprojekt %plan% mitgeholfen.", ["%plan%" => "<strong>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</strong>"], 'game');
+                $messages[] = $this->translator->trans("Du hast am Bauprojekt {plan} mitgeholfen.", ["{plan}" => "<strong>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</strong>"], 'game');
             } else {
-                $messages[] = $this->translator->trans("Hurra! Folgendes Gebäude wurde fertiggestellt: %plan%!", ['%plan%' => "<strong>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</strong>"], 'game');
+                $messages[] = $this->translator->trans("Hurra! Folgendes Gebäude wurde fertiggestellt: {plan}!", ['{plan}' => "<strong>" . $this->translator->trans($building->getPrototype()->getLabel(), [], 'buildings') . "</strong>"], 'game');
             }
         }
 
@@ -1278,7 +1278,7 @@ class TownController extends InventoryAwareController
             }
         }
 
-        $messages[] = $this->translator->trans("Du hast dafür %count% Aktionspunkt(e) verbraucht.", ['%count%' => "<strong>$ap</strong>"], "game");
+        $messages[] = $this->translator->trans("Du hast dafür {count} Aktionspunkt(e) verbraucht.", ['{count}' => "<strong>$ap</strong>"], "game");
 
         // Set the activity status
         $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
@@ -1770,24 +1770,24 @@ class TownController extends InventoryAwareController
 
         $healableStatus = [
             'terror' => array(
-                'success' => T::__('Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als %citizen% wieder erwacht, scheint er von seiner Angststarre befreit zu sein.', 'game'),
+                'success' => T::__('Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als {citizen} wieder erwacht, scheint er von seiner Angststarre befreit zu sein.', 'game'),
                 'transfer' => T::__('Allerdings hat dich der Anblick dieses bis aufs Mark verängstigen Bürgers selbst in eine Angststarre versetzt.', 'game'),
-                'fail' => T::__('Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...', 'game'),
+                'fail' => T::__('Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, {citizen} umzubringen ist zu hoch...', 'game'),
             ),
             'infection' => array(
                 'success' => T::__('Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt an der Basis des infizierten Körperteils. Der Entgiftungsprozess ist im Gange, wenn auch langsam.', 'game'),
                 'transfer' => T::__('Plötzlich platzt eine infizierte Eiterblase auf. Deine bereits verbrannte Haut bricht schnell in offene Wunden aus, und die infektiösen Keime beschließen, diese zu ihrem Zuhause zu machen.', 'game'),
-                'fail' => T::__('Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...', 'game'),
+                'fail' => T::__('Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, {citizen} umzubringen ist zu hoch...', 'game'),
             ),
             'drunk' => array(
-                'success' => T::__('Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der Leber. %citizen% ist aus den Krallen des Alkohols befreit.', 'game'),
+                'success' => T::__('Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der Leber. {citizen} ist aus den Krallen des Alkohols befreit.', 'game'),
                 'transfer' => 'You end up with this status yourself !', //TODO: translate this text with the original one (from D2N maybe)
-                'fail' => T::__('Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...', 'game'),
+                'fail' => T::__('Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, {citizen} umzubringen ist zu hoch...', 'game'),
             ),
             'drugged' => array(
-                'success' => T::__('Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der rechten Lunge. So sehr du auch versuchst, den Kräften zu widerstehen, die dich führen, kannst du nicht verhindern, dass deine Klinge tief in %citizen% eindringt und eine klare Flüssigkeit aus seinem frisch verstümmelten Körper austritt.', 'game'),
+                'success' => T::__('Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der rechten Lunge. So sehr du auch versuchst, den Kräften zu widerstehen, die dich führen, kannst du nicht verhindern, dass deine Klinge tief in {citizen} eindringt und eine klare Flüssigkeit aus seinem frisch verstümmelten Körper austritt.', 'game'),
                 'transfer' => 'You end up with this status yourself !', //TODO: translate this text with the original one (from D2N maybe)
-                'fail' => T::__('Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, %citizen% umzubringen ist zu hoch...', 'game'),
+                'fail' => T::__('Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, {citizen} umzubringen ist zu hoch...', 'game'),
             ),
         ];
 
@@ -1813,7 +1813,7 @@ class TownController extends InventoryAwareController
                 $this->citizen_handler->removeStatus($c, "tg_meta_ginfect");
             }
 
-            $message[] = $this->translator->trans($healableStatus[$healedStatus]['success'], ['%citizen%' => "<span>" . $c->getName() . "</span>"], 'game');
+            $message[] = $this->translator->trans($healableStatus[$healedStatus]['success'], ['{citizen}' => "<span>" . $c->getName() . "</span>"], 'game');
 
             $transfer = $this->random_generator->chance(0.1);
             if($transfer){
@@ -1826,7 +1826,7 @@ class TownController extends InventoryAwareController
                 }
                 if($do_transfer) {
                     $this->citizen_handler->inflictStatus($citizen, $healedStatus === 'infection' ? 'tg_meta_ginfect' : $healedStatus);
-                    $message[] = $this->translator->trans($healableStatus[$healedStatus]['transfer'], ['%citizen%' => "<span>" . $c->getName() . "</span>"], 'game');
+                    $message[] = $this->translator->trans($healableStatus[$healedStatus]['transfer'], ['{citizen}' => "<span>" . $c->getName() . "</span>"], 'game');
                     if ($healedStatus == 'infection' && $witness)
                         $message[] = $this->translator->trans('Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...', [], 'items');
                 } else if ($witness) {
@@ -1834,7 +1834,7 @@ class TownController extends InventoryAwareController
                 }
             }
         } else {
-            $message[] = $this->translator->trans($healableStatus[$healedStatus]['fail'], ['%citizen%' => "<span>" . $c->getName() . "</span>"], 'game');
+            $message[] = $this->translator->trans($healableStatus[$healedStatus]['fail'], ['{citizen}' => "<span>" . $c->getName() . "</span>"], 'game');
         }
         if ($citizen->hasRole('shaman')) {
             $citizen->setPM($citizen->getPM() - 2);
@@ -1951,10 +1951,10 @@ class TownController extends InventoryAwareController
             foreach ($home->getChest()->getItems() as $item)
                 $this->inventory_handler->forceMoveItem($citizen->getTown()->getBank(), $item);
 
-            $msg = [ $this->translator->trans('Du hast das Haus von <strong>✝ %citizen%</strong> vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert.', ['%citizen%' => $home->getCitizen()->getUser()->getName()], 'game') ];
+            $msg = [ $this->translator->trans('Du hast das Haus von <strong>✝ {citizen}</strong> vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert.', ['{citizen}' => $home->getCitizen()->getUser()->getName()], 'game') ];
             if ($has_recycled)
-                $msg[] = $this->translator->trans('Die Stadt hat zudem folgende Resourcen zurückgewinnen können: %item_list%', [
-                    '%item_list%' => implode(' ', $item_list)
+                $msg[] = $this->translator->trans('Die Stadt hat zudem folgende Resourcen zurückgewinnen können: {item_list}', [
+                    '{item_list}' => implode(' ', $item_list)
                 ], 'game');
             else
                 $msg[] = $this->translator->trans('Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...', [], 'game');
@@ -1962,7 +1962,7 @@ class TownController extends InventoryAwareController
             $this->addFlash('notice', implode('<hr/>',$msg));
             $this->entity_manager->persist($this->log->houseRecycled($home->getCitizen(), $item_list_p));
         } else
-            $this->addFlash('notice', $this->translator->trans('Du hast <strong>1AP</strong> aufgewendet, um das Haus von <strong>✝ %citizen%</strong> zu recyclen. Die Arbeiten sind noch nicht abgeschlossen...', ['%citizen%' => $home->getCitizen()->getUser()->getName()], 'game'));
+            $this->addFlash('notice', $this->translator->trans('Du hast <strong>1AP</strong> aufgewendet, um das Haus von <strong>✝ {citizen}</strong> zu recyclen. Die Arbeiten sind noch nicht abgeschlossen...', ['{citizen}' => $home->getCitizen()->getUser()->getName()], 'game'));
 
         $this->entity_manager->persist($c);
         $this->entity_manager->persist($citizen);

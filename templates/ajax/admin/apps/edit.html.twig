@@ -1,5 +1,5 @@
 {% extends "ajax/ajax.html.twig" %}
-{% block title %}{% if current_app is null %}{{ 'Neue Anwendung'|trans({}, 'admin') }}{% else %}{{ 'Anwendung "%external_app%"'|trans({'%external_app%': current_app.name}, "admin")|raw }}{% endif %}{% endblock %}
+{% block title %}{% if current_app is null %}{{ 'Neue Anwendung'|trans({}, 'admin') }}{% else %}{{ 'Anwendung "{external_app}"'|trans({'{external_app}': current_app.name}, "admin")|raw }}{% endif %}{% endblock %}
 {% block ajax %}
     {# @var current_app \App\Entity\ExternalApp #}
     <div class="row">
@@ -86,7 +86,7 @@
 
                 <div class="row">
                     <div class="padded cell rw-4 ro-4">
-                        <button id="save_button">{{ (current_app is null ? 'Neue Anwendung registrieren' : "Änderungen an '%appname%' speichern")|trans({'%appname%': current_app is null ? '' : current_app.name},'admin') }}</button>
+                        <button id="save_button">{{ (current_app is null ? 'Neue Anwendung registrieren' : "Änderungen an '{appname}' speichern")|trans({'{appname}': current_app is null ? '' : current_app.name},'admin') }}</button>
                     </div>
                 </div>
             </div>

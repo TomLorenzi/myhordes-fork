@@ -127,7 +127,7 @@
                                             {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthEast') %}
                                                 {% set dir = 'Nordwesten'|trans({},'game') %}
                                             {% endif %}
-                                            {{ 'Stadt im %direction% in %km% Entfernung'|trans({'%km%': '<b>' ~ km ~ 'km</b>', '%direction%': dir|lower},'game')|raw }}&nbsp;&nbsp;(<div class="ap">{{ town_ap }}</div>)
+                                            {{ 'Stadt im {direction} in {km} Entfernung'|trans({'{km}': '<b>' ~ km ~ 'km</b>', '{direction}': dir|lower},'game')|raw }}&nbsp;&nbsp;(<div class="ap">{{ town_ap }}</div>)
                                         </div>
                                     </div>
                                 {% endif %}
@@ -172,7 +172,7 @@
             {% if app.user.expert %}
                 <div class="row">
                     <div class="cell rw-12 background">
-                        <div class="beginner-link">{{ 'Brauchst du Hilfe? Benutze den %modelink%!'|trans({'%modelink%': ('<a href="#" x-toggle-expert-mode>' ~ ('Anfängermodus'|trans({},'game')) ~ '</a>')},'game')|raw }}</div>
+                        <div class="beginner-link">{{ 'Brauchst du Hilfe? Benutze den {modelink}!'|trans({'{modelink}': ('<a href="#" x-toggle-expert-mode>' ~ ('Anfängermodus'|trans({},'game')) ~ '</a>')},'game')|raw }}</div>
                         {{ help_lnk('Handbuch zur Aussenwelt'|trans({},'game'), 'help', {'name': 'world_beyond'}) }}
                     </div>
                 </div>

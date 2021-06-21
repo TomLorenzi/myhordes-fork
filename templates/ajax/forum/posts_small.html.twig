@@ -36,9 +36,9 @@
                         {% if not post.translate and paranoid and post.owner.name != 'Der Rabe' %}
                             {% set mode = (app.user.id + post.id + post.owner.id) % 12 %}
                             {% if mode == 0 %}
-                                <br/>{{ 'Hängt %user%!'|trans({'%user%': app.user.name},'game') }}
+                                <br/>{{ 'Hängt {user}!'|trans({'{user}': app.user.name},'game') }}
                             {% elseif mode == 1 %}
-                                <br/>{{ '%user% wir kriegen dich!'|trans({'%user%': app.user.name},'game') }}
+                                <br/>{{ '{user} wir kriegen dich!'|trans({'{user}': app.user.name},'game') }}
                             {% endif %}
                         {% endif %}
                     </div>

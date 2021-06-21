@@ -955,13 +955,13 @@
         <target>Geplante Angriffe</target>
       </segment>
     </unit>
-    <unit id="5HWWJl3" name="Überfällig seit %s% Sekunden!">
+    <unit id="5HWWJl3" name="Überfällig seit {s} Sekunden!">
       <notes>
-        <note category="german">Überfällig seit %s% Sekunden!</note>
+        <note category="german">Überfällig seit {s} Sekunden!</note>
       </notes>
       <segment>
-        <source>Überfällig seit %s% Sekunden!</source>
-        <target>Überfällig seit %s% Sekunden!</target>
+        <source>Überfällig seit {s} Sekunden!</source>
+        <target>Überfällig seit {s} Sekunden!</target>
       </segment>
     </unit>
     <unit id=".vvAKHY" name="Soldatenberuf freischalten">
@@ -1225,13 +1225,13 @@
         <target>Berechtigungen</target>
       </segment>
     </unit>
-    <unit id="E4Jlo35" name="Gewähren: %role%">
+    <unit id="E4Jlo35" name="Gewähren: {role}">
       <notes>
-        <note category="german">Gewähren: %role%</note>
+        <note category="german">Gewähren: {role}</note>
       </notes>
       <segment>
-        <source>Gewähren: %role%</source>
-        <target>Gewähren: %role%</target>
+        <source>Gewähren: {role}</source>
+        <target>Gewähren: {role}</target>
       </segment>
     </unit>
     <unit id="BiuEB.T" name="Berechtigungsstufe zurücksetzen">
@@ -1288,13 +1288,13 @@
         <target>Bann</target>
       </segment>
     </unit>
-    <unit id="mXRxJwB" name="Durch %admin% vom Spiel ausgeschlossen!">
+    <unit id="mXRxJwB" name="Durch {admin} vom Spiel ausgeschlossen!">
       <notes>
-        <note category="german">Durch %admin% vom Spiel ausgeschlossen!</note>
+        <note category="german">Durch {admin} vom Spiel ausgeschlossen!</note>
       </notes>
       <segment>
-        <source>Durch %admin% vom Spiel ausgeschlossen!</source>
-        <target>Durch %admin% vom Spiel ausgeschlossen!</target>
+        <source>Durch {admin} vom Spiel ausgeschlossen!</source>
+        <target>Durch {admin} vom Spiel ausgeschlossen!</target>
       </segment>
     </unit>
     <unit id="jyuOkNg" name="Grund angeben">
@@ -1486,13 +1486,13 @@
         <target>Anzeigename</target>
       </segment>
     </unit>
-    <unit id="14HKU3b" name="Lokal: %account%">
+    <unit id="14HKU3b" name="Lokal: {account}">
       <notes>
-        <note category="german">Lokal: %account%</note>
+        <note category="german">Lokal: {account}</note>
       </notes>
       <segment>
-        <source>Lokal: %account%</source>
-        <target>Lokal: %account%</target>
+        <source>Lokal: {account}</source>
+        <target>Lokal: {account}</target>
       </segment>
     </unit>
     <unit id="OaKjJho" name="Von EternalTwin verwaltet">
@@ -1558,13 +1558,13 @@
         <target>Account zur Löschung vorgemerkt!</target>
       </segment>
     </unit>
-    <unit id="_Ywx.pH" name="Anzahl der gelisteten Domains: %number%">
+    <unit id="_Ywx.pH" name="Anzahl der gelisteten Domains: {number}">
       <notes>
-        <note category="german">Anzahl der gelisteten Domains: %number%</note>
+        <note category="german">Anzahl der gelisteten Domains: {number}</note>
       </notes>
       <segment>
-        <source>Anzahl der gelisteten Domains: %number%</source>
-        <target>Anzahl der gelisteten Domains: %number%</target>
+        <source>Anzahl der gelisteten Domains: {number}</source>
+        <target>Anzahl der gelisteten Domains: {number}</target>
       </segment>
     </unit>
     <unit id="u.IOicZ" name="Domain-Suche">
@@ -1648,13 +1648,13 @@
         <target>Dashboard</target>
       </segment>
     </unit>
-    <unit id="KVK60jg" name="Stadt %townname%">
+    <unit id="KVK60jg" name="Stadt {townname}">
       <notes>
-        <note category="german">Stadt %townname%</note>
+        <note category="german">Stadt {townname}</note>
       </notes>
       <segment>
-        <source>Stadt %townname%</source>
-        <target>Stadt %townname%</target>
+        <source>Stadt {townname}</source>
+        <target>Stadt {townname}</target>
       </segment>
     </unit>
     <unit id="Z2xHG8j" name="Bank">
@@ -1999,13 +1999,13 @@
         <target>Importiert</target>
       </segment>
     </unit>
-    <unit id="GsetYdP" name="Seite %page%/%total%">
+    <unit id="GsetYdP" name="Seite {page}/{total}">
       <notes>
-        <note category="german">Seite %page%/%total%</note>
+        <note category="german">Seite {page}/{total}</note>
       </notes>
       <segment>
-        <source>Seite %page%/%total%</source>
-        <target>Seite %page%/%total%</target>
+        <source>Seite {page}/{total}</source>
+        <target>Seite {page}/{total}</target>
       </segment>
     </unit>
     <unit id="HAvttwf" name="Gib den Namen der Stadt ein.">
@@ -2026,13 +2026,13 @@
         <target>Neue Anwendung registrieren</target>
       </segment>
     </unit>
-    <unit id="SisP.gu" name="Änderungen an '%appname%' speichern">
+    <unit id="SisP.gu" name="Änderungen an '{appname}' speichern">
       <notes>
-        <note category="german">Änderungen an '%appname%' speichern</note>
+        <note category="german">Änderungen an '{appname}' speichern</note>
       </notes>
       <segment>
-        <source>Änderungen an '%appname%' speichern</source>
-        <target>Änderungen an '%appname%' speichern</target>
+        <source>Änderungen an '{appname}' speichern</source>
+        <target>Änderungen an '{appname}' speichern</target>
       </segment>
     </unit>
     <unit id="zLJ.A.A" name="Anzeigen">
@@ -2044,13 +2044,13 @@
         <target>Anzeigen</target>
       </segment>
     </unit>
-    <unit id=".iE.xsh" name="Gegen %culprit%">
+    <unit id=".iE.xsh" name="Gegen {culprit}">
       <notes>
-        <note category="german">Gegen %culprit%</note>
+        <note category="german">Gegen {culprit}</note>
       </notes>
       <segment>
-        <source>Gegen %culprit%</source>
-        <target>Gegen %culprit%</target>
+        <source>Gegen {culprit}</source>
+        <target>Gegen {culprit}</target>
       </segment>
     </unit>
     <unit id="OeZ5Hgz" name="Anwendungen">
@@ -2071,13 +2071,13 @@
         <target>Neue Anwendung</target>
       </segment>
     </unit>
-    <unit id="GOi00pr" name="Anwendung &quot;%external_app%&quot;">
+    <unit id="GOi00pr" name="Anwendung &quot;{external_app}&quot;">
       <notes>
-        <note category="german">Anwendung "%external_app%"</note>
+        <note category="german">Anwendung "{external_app}"</note>
       </notes>
       <segment>
-        <source>Anwendung "%external_app%"</source>
-        <target>Anwendung "%external_app%"</target>
+        <source>Anwendung "{external_app}"</source>
+        <target>Anwendung "{external_app}"</target>
       </segment>
     </unit>
     <unit id="IeSesrK" name="Log">
@@ -2260,13 +2260,13 @@
         <target>Name</target>
       </segment>
     </unit>
-    <unit id="W_0lUFE" name="Saison &quot;%season%&quot;">
+    <unit id="W_0lUFE" name="Saison &quot;{season}&quot;">
       <notes>
-        <note category="german">Saison "%season%"</note>
+        <note category="german">Saison "{season}"</note>
       </notes>
       <segment>
-        <source>Saison "%season%"</source>
-        <target>Saison "%season%"</target>
+        <source>Saison "{season}"</source>
+        <target>Saison "{season}"</target>
       </segment>
     </unit>
     <unit id="3RyPmTj" name="Saison Nummer">
@@ -2377,13 +2377,13 @@
         <target>Stimmen</target>
       </segment>
     </unit>
-    <unit id="cLQ9dCO" name="Für %target%">
+    <unit id="cLQ9dCO" name="Für {target}">
       <notes>
-        <note category="german">Für %target%</note>
+        <note category="german">Für {target}</note>
       </notes>
       <segment>
-        <source>Für %target%</source>
-        <target>Für %target%</target>
+        <source>Für {target}</source>
+        <target>Für {target}</target>
       </segment>
     </unit>
     <unit id="jBGmXFb" name="Ersteller">
@@ -2467,13 +2467,13 @@
         <target>24 Stunden</target>
       </segment>
     </unit>
-    <unit id="ymT9mze" name="%d% Tage">
+    <unit id="ymT9mze" name="{d} Tage">
       <notes>
-        <note category="german">%d% Tage</note>
+        <note category="german">{d} Tage</note>
       </notes>
       <segment>
-        <source>%d% Tage</source>
-        <target>%d% Tage</target>
+        <source>{d} Tage</source>
+        <target>{d} Tage</target>
       </segment>
     </unit>
     <unit id="YvnlIm5" name="Bestätigung erforderlich">
@@ -3304,13 +3304,13 @@
         <target>Neue Gruppe</target>
       </segment>
     </unit>
-    <unit id="BbvwyR3" name="Gruppe &quot;%group%&quot;">
+    <unit id="BbvwyR3" name="Gruppe &quot;{group}&quot;">
       <notes>
-        <note category="german">Gruppe "%group%"</note>
+        <note category="german">Gruppe "{group}"</note>
       </notes>
       <segment>
-        <source>Gruppe "%group%"</source>
-        <target>Gruppe "%group%"</target>
+        <source>Gruppe "{group}"</source>
+        <target>Gruppe "{group}"</target>
       </segment>
     </unit>
     <unit id="tMAiZYW" name="Gruppe">
