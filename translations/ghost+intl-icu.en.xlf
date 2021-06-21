@@ -100,7 +100,7 @@
         <target>Join</target>
       </segment>
     </unit>
-    <unit id="1Wm5ylA">
+    <unit id="CwvX2yq">
       <notes>
         <note category="german">Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.</note>
       </notes>
@@ -127,7 +127,7 @@
         <target>Confirm</target>
       </segment>
     </unit>
-    <unit id="HPqIAMR">
+    <unit id="SKEG8Ho">
       <notes>
         <note category="german">Do you wish to enter the terrible world of MyHordes as an inhabitant of the town {town_name}?</note>
       </notes>
@@ -145,7 +145,7 @@
         <target>Your soul meets the requirements for this Town type.</target>
       </segment>
     </unit>
-    <unit id="Ap6glg5">
+    <unit id="x8NF3LC">
       <notes>
         <note category="german">Möchtest du die schreckliche Welt der Verdammten als Bürger der Stadt {town_name} betreten?</note>
       </notes>

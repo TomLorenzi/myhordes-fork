@@ -955,7 +955,7 @@
         <target>Geplante Angriffe</target>
       </segment>
     </unit>
-    <unit id="5HWWJl3" name="Überfällig seit {s} Sekunden!">
+    <unit id="UzWLhrt" name="Überfällig seit {s} Sekunden!">
       <notes>
         <note category="german">Überfällig seit {s} Sekunden!</note>
       </notes>
@@ -1225,7 +1225,7 @@
         <target>Berechtigungen</target>
       </segment>
     </unit>
-    <unit id="E4Jlo35" name="Gewähren: {role}">
+    <unit id="ZFErHHS" name="Gewähren: {role}">
       <notes>
         <note category="german">Gewähren: {role}</note>
       </notes>
@@ -1288,7 +1288,7 @@
         <target>Bann</target>
       </segment>
     </unit>
-    <unit id="mXRxJwB" name="Durch {admin} vom Spiel ausgeschlossen!">
+    <unit id="oTFpWe9" name="Durch {admin} vom Spiel ausgeschlossen!">
       <notes>
         <note category="german">Durch {admin} vom Spiel ausgeschlossen!</note>
       </notes>
@@ -1486,7 +1486,7 @@
         <target>Anzeigename</target>
       </segment>
     </unit>
-    <unit id="14HKU3b" name="Lokal: {account}">
+    <unit id="kaV8fJ." name="Lokal: {account}">
       <notes>
         <note category="german">Lokal: {account}</note>
       </notes>
@@ -1558,7 +1558,7 @@
         <target>Account zur Löschung vorgemerkt!</target>
       </segment>
     </unit>
-    <unit id="_Ywx.pH" name="Anzahl der gelisteten Domains: {number}">
+    <unit id="Z3wFfH_" name="Anzahl der gelisteten Domains: {number}">
       <notes>
         <note category="german">Anzahl der gelisteten Domains: {number}</note>
       </notes>
@@ -1648,7 +1648,7 @@
         <target>Dashboard</target>
       </segment>
     </unit>
-    <unit id="KVK60jg" name="Stadt {townname}">
+    <unit id="CgPo05m" name="Stadt {townname}">
       <notes>
         <note category="german">Stadt {townname}</note>
       </notes>
@@ -1999,7 +1999,7 @@
         <target>Importiert</target>
       </segment>
     </unit>
-    <unit id="GsetYdP" name="Seite {page}/{total}">
+    <unit id="Z5HXK7D" name="Seite {page}/{total}">
       <notes>
         <note category="german">Seite {page}/{total}</note>
       </notes>
@@ -2026,9 +2026,9 @@
         <target>Neue Anwendung registrieren</target>
       </segment>
     </unit>
-    <unit id="SisP.gu" name="Änderungen an '{appname}' speichern">
+    <unit id="MxCYTlN" name="Änderungen an '{appname}' speichern">
       <notes>
-        <note category="german">Änderungen an '{appname}' speichern</note>
+        <note category="german">Änderungen an {appname} speichern</note>
       </notes>
       <segment>
         <source>Änderungen an '{appname}' speichern</source>
@@ -2044,7 +2044,7 @@
         <target>Anzeigen</target>
       </segment>
     </unit>
-    <unit id=".iE.xsh" name="Gegen {culprit}">
+    <unit id="t.MMG.6" name="Gegen {culprit}">
       <notes>
         <note category="german">Gegen {culprit}</note>
       </notes>
@@ -2071,7 +2071,7 @@
         <target>Neue Anwendung</target>
       </segment>
     </unit>
-    <unit id="GOi00pr" name="Anwendung &quot;{external_app}&quot;">
+    <unit id="MBDZMn9" name="Anwendung &quot;{external_app}&quot;">
       <notes>
         <note category="german">Anwendung "{external_app}"</note>
       </notes>
@@ -2260,7 +2260,7 @@
         <target>Name</target>
       </segment>
     </unit>
-    <unit id="W_0lUFE" name="Saison &quot;{season}&quot;">
+    <unit id="GCGUxtQ" name="Saison &quot;{season}&quot;">
       <notes>
         <note category="german">Saison "{season}"</note>
       </notes>
@@ -2377,7 +2377,7 @@
         <target>Stimmen</target>
       </segment>
     </unit>
-    <unit id="cLQ9dCO" name="Für {target}">
+    <unit id="JCkhvqs" name="Für {target}">
       <notes>
         <note category="german">Für {target}</note>
       </notes>
@@ -2467,7 +2467,7 @@
         <target>24 Stunden</target>
       </segment>
     </unit>
-    <unit id="ymT9mze" name="{d} Tage">
+    <unit id="JUr1eVI" name="{d} Tage">
       <notes>
         <note category="german">{d} Tage</note>
       </notes>
@@ -3304,7 +3304,7 @@
         <target>Neue Gruppe</target>
       </segment>
     </unit>
-    <unit id="BbvwyR3" name="Gruppe &quot;{group}&quot;">
+    <unit id="P5wAMly" name="Gruppe &quot;{group}&quot;">
       <notes>
         <note category="german">Gruppe "{group}"</note>
       </notes>

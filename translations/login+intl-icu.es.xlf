@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="es">
   <file id="login.es">
-    <unit id="KHtB91o" name="Dein Name muss mindestens {{ limit }} Zeichen umfassen.">
+    <unit id="crJFns0" name="Dein Name muss mindestens { limit } Zeichen umfassen.">
       <notes>
-        <note category="german">Dein Name muss mindestens {{ limit }} Zeichen umfassen.</note>
+        <note category="german">Dein Name muss mindestens {limit} Zeichen umfassen.</note>
       </notes>
       <segment>
-        <source>Dein Name muss mindestens {{ limit }} Zeichen umfassen.</source>
+        <source>Dein Name muss mindestens { limit } Zeichen umfassen.</source>
         <target>Tu nombre debe tener al menos { limit } caracteres.</target>
       </segment>
     </unit>
-    <unit id="ouF_pon" name="Dein Name kann höchstens {{ limit }} Zeichen umfassen.">
+    <unit id="VAaM7eo" name="Dein Name kann höchstens { limit } Zeichen umfassen.">
       <notes>
-        <note category="german">Dein Name kann höchstens {{ limit }} Zeichen umfassen.</note>
+        <note category="german">Dein Name kann höchstens {limit} Zeichen umfassen.</note>
       </notes>
       <segment>
-        <source>Dein Name kann höchstens {{ limit }} Zeichen umfassen.</source>
+        <source>Dein Name kann höchstens { limit } Zeichen umfassen.</source>
         <target>Tu nombre solo puede tener hasta { limit } caracteres.</target>
       </segment>
     </unit>
@@ -37,12 +37,12 @@
         <target>Los e-mails ingresados no coinciden.</target>
       </segment>
     </unit>
-    <unit id="AHjj6mV" name="Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.">
+    <unit id="jz03..f" name="Dein Passwort muss mindestens { limit } Zeichen umfassen.">
       <notes>
-        <note category="german">Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.</note>
+        <note category="german">Dein Passwort muss mindestens {limit} Zeichen umfassen.</note>
       </notes>
       <segment>
-        <source>Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.</source>
+        <source>Dein Passwort muss mindestens { limit } Zeichen umfassen.</source>
         <target>Tu contraseña debe tener al menos { limit } caracteres.</target>
       </segment>
     </unit>
@@ -55,12 +55,12 @@
         <target>Las contraseñas ingresadas no coinciden.</target>
       </segment>
     </unit>
-    <unit id="a9.cyds" name="Der Validierungscode muss {{ limit }} Zeichen umfassen.">
+    <unit id="o5ZFZh6" name="Der Validierungscode muss { limit } Zeichen umfassen.">
       <notes>
-        <note category="german">Der Validierungscode muss {{ limit }} Zeichen umfassen.</note>
+        <note category="german">Der Validierungscode muss {limit} Zeichen umfassen.</note>
       </notes>
       <segment>
-        <source>Der Validierungscode muss {{ limit }} Zeichen umfassen.</source>
+        <source>Der Validierungscode muss { limit } Zeichen umfassen.</source>
         <target>El código de verificación debe tener { limit } caracteres.</target>
       </segment>
     </unit>
@@ -100,7 +100,7 @@
         <target>Validar dirección de e-mail</target>
       </segment>
     </unit>
-    <unit id="TM0i7i7" name="Hallo {name}!">
+    <unit id="mGW7q29" name="Hallo {name}!">
       <notes>
         <note category="german">Hallo {name}!</note>
       </notes>
@@ -319,7 +319,7 @@
         <target>Tu contraseña ha sido cambiada con éxito. Inicia sesión con tu nueva contraseña.</target>
       </segment>
     </unit>
-    <unit id="U4wx4AP">
+    <unit id="MO7x7sr">
       <notes>
         <note category="german">Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</note>
       </notes>
@@ -541,7 +541,7 @@
         <target>¡Aquí vamos!</target>
       </segment>
     </unit>
-    <unit id="e0idyWf" name="Hallo {username}!">
+    <unit id="wMeOIH." name="Hallo {username}!">
       <notes>
         <note category="german">Hallo {username}!</note>
       </notes>
@@ -568,7 +568,7 @@
         <target>Serás ingresado. Por favor, espera un segundo...</target>
       </segment>
     </unit>
-    <unit id="pEAthLZ">
+    <unit id="p_2G6pv">
       <notes>
         <note category="german">Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem EternalTwin-Account {namecheck_et} verknüpfst!</note>
       </notes>

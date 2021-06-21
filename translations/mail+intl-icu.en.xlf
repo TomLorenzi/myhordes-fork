@@ -19,7 +19,7 @@
         <target>Password reset</target>
       </segment>
     </unit>
-    <unit id="Yf9Z7KC" name="Hallo {user}! Willkommen bei MyHordes!">
+    <unit id="Tg55FPj" name="Hallo {user}! Willkommen bei MyHordes!">
       <notes>
         <note category="german">Hallo {user}! Willkommen bei MyHordes!</note>
       </notes>
@@ -49,7 +49,7 @@
           If you haven't registered on MyHordes, ignore this message.</target>
       </segment>
     </unit>
-    <unit id="DKEI.Ty" name="Hallo {user}!">
+    <unit id="Y9f6YEq" name="Hallo {user}!">
       <notes>
         <note category="german">Hallo {user}!</note>
       </notes>

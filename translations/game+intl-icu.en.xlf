@@ -18779,11 +18779,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="dqDx75c">
       <notes>
-        <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list-i} {list-t}</note>
+        <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: %list-i% %list-t%</note>
       </notes>
       <segment>
-        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list-i} {list-t}</source>
-        <target><![CDATA[<strong>Congratulations</strong>, you have unlocked the following titles: {list-i} {list-t}]]></target>
+        <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: %list-i% %list-t%</source>
+        <target><![CDATA[<strong>Congratulations</strong>, you have unlocked the following titles: %list-i% %list-t%]]></target>
       </segment>
     </unit>
     <unit id="CN1z1xe">

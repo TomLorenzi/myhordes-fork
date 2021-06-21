@@ -112,11 +112,11 @@
             {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_CITIZEN_ALIAS'),false) %}
                 form.citizenalias = document.getElementById('citizenalias').value;
                 if (form.citizenalias && form.citizenalias.length < 4) {
-                    $.html.error('{{ 'Dein Name muss mindestens {{ limit }} Zeichen umfassen.'|trans({'{{ limit }}': '4'},'login')|e('js') }}');
+                    $.html.error('{{ 'Dein Name muss mindestens { limit } Zeichen umfassen.'|trans({'{{ limit }}': '4'},'login')|e('js') }}');
                     return;
                 }
                 if (form.citizenalias && form.citizenalias.length > 22) {
-                    $.html.error('{{ 'Dein Name kann höchstens {{ limit }} Zeichen umfassen.'|trans({'{{ limit }}': '22'},'login')|e('js') }}');
+                    $.html.error('{{ 'Dein Name kann höchstens { limit } Zeichen umfassen.'|trans({'{{ limit }}': '22'},'login')|e('js') }}');
                     return;
                 }
                 if (form.citizenalias && form.citizenalias.match(/[^\w]/)) {

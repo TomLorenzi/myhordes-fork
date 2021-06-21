@@ -3655,7 +3655,7 @@
         <target>¡Dando pruebas de tu valentía, has enfrentado los peligros del Ultramundo, salvado a {citizen} y has vuelto ileso!</target>
       </segment>
     </unit>
-    <unit id="vgypnNf" name="{action}: {item}">
+    <unit id="RL1s_tI" name="{action}: {item}">
       <notes>
         <note category="german">{action}: {item}</note>
       </notes>
@@ -7784,7 +7784,7 @@
         <target>Nada mejor que perforarte los tímpanos para empezar la mañana y recibir 1 Punto de Acción adicional después del ataque.</target>
       </segment>
     </unit>
-    <unit id="ApkAd1P" name="Möchtest du {target} heimbringen?">
+    <unit id="h82o7w4" name="Möchtest du {target} heimbringen?">
       <notes>
         <note category="german">Möchtest du {target} heimbringen?</note>
       </notes>
@@ -7982,7 +7982,7 @@
         <target><![CDATA[<t-fail><t-no-room>No hay suficiente espacio en tu baúl para enviar estos objetos.</t-no-room><t-door-closed>{tamer_dog} se pone a chillar. Si su instinto no falla, eso quiere decir que <strong>el Portal del pueblo está cerrado...</strong></t-door-closed></t-fail><nt-fail>Envías a {tamer_dog} con dirección al pueblo llevando todo el contenido de tu mochila.{hr}Como se lo pediste, <strong>dejará todo en tu casa, en tu baúl</strong>.{hr}¡Ese es mi compañero!</nt-fail>]]></target>
       </segment>
     </unit>
-    <unit id="Cp5Hvee" name="{citizen} befehlen etwas zu trinken.">
+    <unit id="Zq3WqWc" name="{citizen} befehlen etwas zu trinken.">
       <notes>
         <note category="german">{citizen} befehlen etwas zu trinken.</note>
       </notes>
@@ -7991,7 +7991,7 @@
         <target>Pedirle a {citizen} que beba.</target>
       </segment>
     </unit>
-    <unit id="M83i5Y." name="{citizen} befehlen etwas zu essen.">
+    <unit id="OmO2v53" name="{citizen} befehlen etwas zu essen.">
       <notes>
         <note category="german">{citizen} befehlen etwas zu essen.</note>
       </notes>

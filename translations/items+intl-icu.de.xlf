@@ -3655,7 +3655,7 @@
         <target>Du hast {citizen} auf heldenhafte Weise in die Stadt gebracht!</target>
       </segment>
     </unit>
-    <unit id="vgypnNf" name="{action}: {item}">
+    <unit id="RL1s_tI" name="{action}: {item}">
       <notes>
         <note category="german">{action}: {item}</note>
       </notes>
@@ -7795,7 +7795,7 @@
         <target>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert. Funktioniert einwandfrei.</target>
       </segment>
     </unit>
-    <unit id="ApkAd1P" name="Möchtest du {target} heimbringen?">
+    <unit id="h82o7w4" name="Möchtest du {target} heimbringen?">
       <notes>
         <note category="german">Möchtest du {target} heimbringen?</note>
       </notes>
@@ -7948,7 +7948,7 @@
         <target><![CDATA[Dir ist schwindelig und du würdest dich am liebsten übergeben... Egal was, Hauptsache <strong>du bekommst wieder einen klaren Kopf</strong>.]]></target>
       </segment>
     </unit>
-    <unit id="Cp5Hvee" name="{citizen} befehlen etwas zu trinken.">
+    <unit id="Zq3WqWc" name="{citizen} befehlen etwas zu trinken.">
       <notes>
         <note category="german">{citizen} befehlen etwas zu trinken.</note>
       </notes>
@@ -7957,7 +7957,7 @@
         <target>{citizen} befehlen etwas zu trinken.</target>
       </segment>
     </unit>
-    <unit id="M83i5Y." name="{citizen} befehlen etwas zu essen.">
+    <unit id="OmO2v53" name="{citizen} befehlen etwas zu essen.">
       <notes>
         <note category="german">{citizen} befehlen etwas zu essen.</note>
       </notes>

@@ -1144,7 +1144,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
         <target>Estos puntos representan el nivel de control de los humanos en una zona, determinando así si esta es peligrosa o no. Aparecen en la parte inferior del mapa y se cuentan así:</target>
       </segment>
     </unit>
-    <unit id=".OrP_HR">
+    <unit id="tS.n7rx">
       <notes>
         <note category="german">Jeder in einer Zone anwesende {img_human} &lt;strong&gt;Mensch&lt;/strong&gt; zählt
         &lt;strong&gt;2 Punkte&lt;/strong&gt;.</note>
@@ -1155,7 +1155,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
         <target><![CDATA[Cada {img_human} <strong>Humano</strong> en una zona vale <strong>2 puntos</strong>.]]></target>
       </segment>
     </unit>
-    <unit id="__T7p8r">
+    <unit id="yfTiXqS">
       <notes>
         <note category="german">Jeder in einer Zone anwesende {img_zombie} &lt;strong&gt;Zombie&lt;/strong&gt; zählt
         &lt;strong&gt;1 Punkt&lt;/strong&gt;.</note>
@@ -1226,7 +1226,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
         <target>Cuando estés acorralado, tienes varias opciones:</target>
       </segment>
     </unit>
-    <unit id="G_5XfFC">
+    <unit id="HzKFQCT">
       <notes>
         <note category="german">Du kannst versuchen, die Zombies einen nach dem anderen mit bloßen Händen umzubringen... Jeder Versuch kostet
         dich 1 {img_ap}. Die Erfolgsaussichten sind eher gering.</note>
@@ -1310,7 +1310,7 @@ Du kannst deinen Browser in dieser Zeit auch schließen und das Spiel verlassen.
         <target>Retomar el control</target>
       </segment>
     </unit>
-    <unit id="KvyR.t.">
+    <unit id="iz24aFh">
       <notes>
         <note category="german">Solange du genügend {img_ap} &lt;strong&gt;Aktionspunkte&lt;/strong&gt; besitzt, kannst du dich in der Außenwelt bewegen:
 Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du {img_tired} &lt;strong&gt;Erschöpft&lt;/strong&gt; und kannst dich nicht mehr bewegen.</note>
@@ -1357,7 +1357,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du {img_tired} &lt
         <target>organizarse para sobrevivir.</target>
       </segment>
     </unit>
-    <unit id="ZI9ipy1">
+    <unit id="BjM3I9p">
       <notes>
         <note category="german">Du kannst versuchen, gewaltsam auszubrechen. Dabei riskierst du aber eine {img_wound} &lt;span x-ajax-href={url_health}&gt;schwere Verletzung&lt;/span&gt;.</note>
       </notes>
@@ -1483,7 +1483,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du {img_tired} &lt
         <target>¿Cómo matar a un zombie?</target>
       </segment>
     </unit>
-    <unit id="6P6JS.Y">
+    <unit id="39pdZfT">
       <notes>
         <note category="german">Klassischerweise, indem man seinen Kopf vom Körper trennt. Neuerdings schwören manche auch auf Bowlingkugeln... Die Wahrheit allerdings ist: Erlaubt ist, was gefällt. Alle stimmen darin überein, dass &lt;strong&gt;reines Wasser&lt;/strong&gt; die Waffe der ersten Wahl ist. Dieses Wasser muss aber irgendwie transportiert werden. Plastiktüten eignen sich dazu hervorragend, denn sie geben zugleich tolle {img_grenade} Wasserbomben ab.</note>
       </notes>
@@ -1546,7 +1546,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du {img_tired} &lt
         <target>Otros juguetes interesantes...</target>
       </segment>
     </unit>
-    <unit id="0nfxF12">
+    <unit id="rBQkDuO">
       <notes>
         <note category="german">Wenn's mal Probleme geben sollte, ist eine &lt;span x-ajax-href={url_cp}&gt;Flucht&lt;/span&gt; nicht verkehrt...</note>
       </notes>
@@ -1771,7 +1771,7 @@ bekommst du zusätzlich eine seltene Auszeichnung (lies dazu auch den folgenden 
         <target><![CDATA[<strong>Cavar una tumba</strong>: Te entierras como puedas, cubriéndote con todo lo que encuentres en el lugar, quedando totalmente escondido. Esta acción otorga un mejor bonus que la mejora del campamento, pero lo pierdes si sales a la superficie.]]></target>
       </segment>
     </unit>
-    <unit id="kWTiIOz">
+    <unit id="XloxWd5">
       <notes>
         <note category="german">&lt;strong&gt;Verteidigungsgegenstände gebrauchen&lt;/strong&gt;: Mit manchen Gegenständen kannst du deinen Campingplatz erheblich verbessern. Der Gebrauch dieser Gegenstände verbraucht allerdings 1 {img_ap}.</note>
       </notes>
@@ -1969,7 +1969,7 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
         <target>A la hora del ataque, ¡debes permanecer escondido! en función de tus suerte y tus acciones, sobrevivirás o morirás devorado.</target>
       </segment>
     </unit>
-    <unit id="dK2DHZj">
+    <unit id="JGI3QvF">
       <notes>
         <note category="german">Wenn du überlebst, &lt;strong&gt;erhältst du neue {img_ap} sowie verschiedene Auszeichnungen.&lt;/strong&gt;</note>
       </notes>
@@ -1996,7 +1996,7 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
         <target><![CDATA[<strong>Atención: </strong> ¡Si sobrevives a tu noche en el desierto, ya no serás considerado como escondido! Tendrás que utilizar <strong>de nuevo</strong> la acción "esconderse" si deseas pasar otra noche fuera.]]></target>
       </segment>
     </unit>
-    <unit id="iBuxE_N">
+    <unit id="URK3Uq0">
       <notes>
         <note category="german">Sollte der Fall eintreten, dass sich beim Angriff der Zombiehorde niemand mehr in der Stadt befindet (da zum Beispiel alle Überlebenden draußen campen), wird die Stadt von den Untoten &lt;span x-ajax-href={url_devast}&gt;zerstört&lt;/span&gt;.</note>
       </notes>
@@ -2014,7 +2014,7 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
         <target>Distinción: "Campista del Más Alla"</target>
       </segment>
     </unit>
-    <unit id="eK5ymSE">
+    <unit id="xVInxpz">
       <notes>
         <note category="german">Für jede Nacht, die du draußen überlebt hast, als die Stadt schon &lt;span x-ajax-href={url_devast}&gt;zerstört&lt;/span&gt; war, bekommst du zusätzlich zu der normalen Auszeichnung, eine &lt;strong&gt;besonders seltene Auszeichnung&lt;/strong&gt;.</note>
       </notes>
@@ -2059,7 +2059,7 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
         <target>Cansancio</target>
       </segment>
     </unit>
-    <unit id="LosQOVV">
+    <unit id="1dN8TM6">
       <notes>
         <note category="german">Wenn du keine {img_ap} Aktionspunkte mehr hast, bist du erschöpft und kannst dich nicht mehr bewegen (siehe: &lt;span x-ajax-href={url_move}&gt;Sich bewegen&lt;/span&gt;).</note>
       </notes>
@@ -2077,7 +2077,7 @@ sind &lt;strong&gt;nicht auf 90%&lt;/strong&gt; beschränkt.</source>
         <target>Sed</target>
       </segment>
     </unit>
-    <unit id="g0AGvrO">
+    <unit id="vvS5gin">
       <notes>
         <note category="german">Du musst etwas trinken... Warte nicht zu lang, sonst bist du
 &lt;strong&gt;{img_dehy} Dehydriert&lt;/strong&gt;!</note>
@@ -2265,7 +2265,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</source>
         <target>Mutante</target>
       </segment>
     </unit>
-    <unit id="FAn5Q8v">
+    <unit id="FPShr4.">
       <notes>
         <note category="german">Du wurdest von einer unheilbaren Krankheit infiziert und hast dich jetzt in einen &lt;span x-ajax-href={url_ghoul}&gt;Ghul&lt;/span&gt; verwandelt.</note>
       </notes>
@@ -2283,7 +2283,7 @@ Der Schutz endet nach dem Angriff um Mitternacht.</source>
         <target>La dependencia a los estimulantes</target>
       </segment>
     </unit>
-    <unit id="A79xfl2">
+    <unit id="cWD3GGW">
       <notes>
         <note category="german">Wenn du zu viele Drogen nimmst (mehr als eine Dosis am Tag), wirst du
 &lt;strong&gt;{img_addict} Abhängig&lt;/strong&gt;! Darüber hinaus wirst du diese &lt;strong&gt;Sucht auch nicht mehr los&lt;/strong&gt;.</note>
@@ -2495,7 +2495,7 @@ Außerdem führst du &lt;strong&gt;zusätzlich&lt;/strong&gt; zu deiner normalen
         <target>Puede contener básicamente 4 objetos (5 para los Héroes). Ciertos objetos y mejoras de casa pueden aumentar este límite.</target>
       </segment>
     </unit>
-    <unit id="P6K6ed5">
+    <unit id="j_d_83I">
       <notes>
         <note category="german">&lt;strong&gt;Die Seelen {img_blue_soul} verschiedener Mitbürger wandern rastlos in den öden Weiten der Außenwelt umher.&lt;/strong&gt;
 Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine blaue Seele in der Außenwelt. Jeder Bürger kann eine Seele einsammeln und sie in die Stadt bringen.</note>
@@ -2506,7 +2506,7 @@ Jedesmal, wenn ein Bürger stirbt (gleichgültig woran und wo), erscheint eine b
         <target><![CDATA[<strong>Las almas {img_blue_soul} de nuestros compañeros deambulan intranquilas en el vasto Ultramundo</strong>. Cada vez que un habitante muere(Sin importar por qué o en dónde), aparece un alma débil en el Ultramundo. Cualquiera puede recoger un alma débil y llevarla al pueblo. Sin embargo, los habitantes normales solo pueden llevar un alma a la vez. El chamán es el único que tiene el control espiritual para llevar consigo varias almas a la vez.]]></target>
       </segment>
     </unit>
-    <unit id="8TquK3o">
+    <unit id="AIQpt54">
       <notes>
         <note category="german">Es liegt dann an der Stadt, sich zu organisieren, um diese verlorenen Seelen zu bergen. In der Tat haben diese Seelen eine große Chance, sich in gequälte Seelen {img_red_soul} zu verwandeln, wenn sie verlassen werden! Und dort wird es Zeit in Panik zu geraten, diese gequälten Seelen entwickeln die Zombie-Proliferation!</note>
       </notes>
@@ -2804,7 +2804,7 @@ Wenn du in einer "Kleinen Karte" spielst und &lt;strong&gt;100 Seelenpunkte oder
 (de esta manera, los mejores juegan entre sí).]]></target>
       </segment>
     </unit>
-    <unit id="GVvf.A.">
+    <unit id="rH.uqmO">
       <notes>
         <note category="german">Du wurdest schwer verletzt... Verarzte dich so schnell wie möglich mit einem Verband oder etwas ähnlichem, sonst riskierst du eine &lt;strong&gt;{img_infect} Infektion&lt;/strong&gt; (geht in der Regel tödlich aus...)!</note>
       </notes>
@@ -2813,7 +2813,7 @@ Wenn du in einer "Kleinen Karte" spielst und &lt;strong&gt;100 Seelenpunkte oder
         <target><![CDATA[Has sido gravemente herido... Cúrate rápidamente con vendas o alguna otra cosa, o correrás el riesgo de contraer una <strong>{img_infect} Infección</strong> ...¡casi siempre mortal!]]></target>
       </segment>
     </unit>
-    <unit id="DwNHYeS">
+    <unit id="c.Dzda_">
       <notes>
         <note category="german">Manche Gegenstände, wie zum Beispiel der &lt;strong&gt;{img_carpet} Teppich&lt;/strong&gt;,
 werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtung&lt;/strong&gt; hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)</note>
@@ -2824,7 +2824,7 @@ werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtun
         <target><![CDATA[Algunos objetos como el <strong>{img_carpet} Tapís</strong> son <strong>automáticamente</strong> utilizados en el <strong>Equipamiento</strong> de tu casa si los colocas en tu baúl. Los equipamientos te dan diversos bonus (decoración, protección contra robos, defensas contra zombies, etc.)]]></target>
       </segment>
     </unit>
-    <unit id="_PQd7sk">
+    <unit id="2ZpISAD">
       <notes>
         <note category="german">Es gibt in 'MyHordes' mächtige Drogen, die alle unterschiedliche Effekte haben: Sie lindern Erschöpfungszustände, bekämpfen Infektionen, bringen dich bei Panikattacken wieder runter oder rehydrieren dich... Allerdings ist Vorsicht geboten: Wenn du zu viele nimmst, kannst du &lt;strong&gt;{img_addict} Abhängig&lt;/strong&gt; werden.</note>
       </notes>
@@ -2833,7 +2833,7 @@ werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtun
         <target><![CDATA[Los estimulantes son poderosos en MyHordes y tienen diversas utilidades: quitar el cansancio, curar una infección, calmar los nervios, hidratarse... Pero ten cuidado al consumirlos. La <strong>{img_addict} Dependencia</strong> es un riesgo real y particularmente peligroso.]]></target>
       </segment>
     </unit>
-    <unit id="ywk869u">
+    <unit id="YNHwbwd">
       <notes>
         <note category="german">Durch das Trinken von Alkohol kommst du wieder zu Kräften (hebt die Erschöpfung auf), allerdings bist du danach nicht mehr ganz Herr deiner Sinne... Deine {img_drunk} &lt;strong&gt;Trunkenheit&lt;/strong&gt; weicht am nächsten Tag einem üblen {img_hung} &lt;strong&gt;Kater&lt;/strong&gt;... Allgemein gilt: Wenn du betrunken oder verkatert bist, kannst du keine weiteren alkoholischen Getränke zu dir nehmen.</note>
       </notes>
@@ -2851,7 +2851,7 @@ werden &lt;strong&gt;automatisch&lt;/strong&gt; der &lt;strong&gt;Hauseinrichtun
         <target><![CDATA[Nadie podrá ayudarte mientras exploras esas ruinas espeluznantes. <strong>Los puntos de control no se aplican aquí</strong>. Deberás organizarte con tu pueblo para sacarle el máximo provecho a estos lugares.]]></target>
       </segment>
     </unit>
-    <unit id="pCjfjXL">
+    <unit id="D74IPbE">
       <notes>
         <note category="german">Achte auf die Zeit. Falls du dich noch um Mitternacht in einem Gebäude befindest, werden deine Überlebenschancen genauso groß sein, wie die eines {img_meat} saftigen Steaks auf einer angerichteten Tafel!</note>
       </notes>
@@ -3027,7 +3027,7 @@ Dein überlebter Tag wird gezählt! &lt;em&gt;Wenn du zum Beispiel in der Nacht 
         <target><![CDATA[El habitante debe haber sido el último en morir dentro del pueblo <strong>devorado en un ataque de zombies</strong>.]]></target>
       </segment>
     </unit>
-    <unit id="8I4_Kv5">
+    <unit id="UZXTOK_">
       <notes>
         <note category="german">Die Stadt darf in den vorangegangenen Tagen nicht &lt;span x-ajax-href={url_devast}&gt;zerstört&lt;/span&gt; worden sein. &lt;i&gt;Eine Stadt gilt dann als zerstört, wenn sich in einer Nacht keine Bürger in ihr ("intra muros") aufgehalten haben.&lt;/i&gt;</note>
       </notes>
@@ -3629,7 +3629,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
         <target>Desventajas</target>
       </segment>
     </unit>
-    <unit id="I5rvSru">
+    <unit id="MJMgtik">
       <notes>
         <note category="german">Der Verzehr von kalten oder warmen Menschenfleisch gibt dir {img_ap} zurück und senkt deinen Heißhunger.</note>
       </notes>
@@ -3755,7 +3755,7 @@ ACHTUNG: Wir raten dir wärmstens davon ab uns anzuschreiben, wenn du ganz siche
         <target>Un mutante no un es totalmente un zombie y puede morir por ciertas causas "normales": ahorcamiento y adicción a los estimulantes. Sin embargo, es inmune a la sed y a la infección.</target>
       </segment>
     </unit>
-    <unit id="w0OQSf1">
+    <unit id="eIb_zgt">
       <notes>
         <note category="german">&lt;strong&gt;Die effektivste Methode einen Ghul zu töten, ist es ihn anzugreifen. Er stirbt dann sofort.&lt;/strong&gt;
 Doch aufgepasst: Ein körperlicher Angriff kostet einiges an {img_ap} und
@@ -4204,7 +4204,7 @@ Du kannst dieses "Manko" allerdings durch Steroide beseitigen... Hör auf zu gri
         <target>Indispensable para romper todos los récords de construcción, incluye una llave inglesa profesional.</target>
       </segment>
     </unit>
-    <unit id="EPAYkGB">
+    <unit id="AdkTy4V">
       <notes>
         <note category="german">Dank seines unglaublichen Potentials, ist der Techniker eine große Hilfe beim Bauen &amp;amp; Reparieren von Gebäuden.
 Jeden Tag besitzt er &lt;strong&gt;6{img_bp} Baupunkte&lt;/strong&gt;, mit denen er auch dann noch auf den Baustellen arbeiten kann, wenn andere Bürger schon längst müde sind.
@@ -4708,7 +4708,7 @@ in einem Gebäude nur &lt;strong&gt;einmal pro Partie&lt;/strong&gt; einen Baupl
         <target><![CDATA[Ubica los edificios disponibles: Estos tienen un botón <strong>Participar</strong>.]]></target>
       </segment>
     </unit>
-    <unit id="sV3TVhz">
+    <unit id="jj_4Muu">
       <notes>
         <note category="german">Klicke auf den Knopf &lt;strong&gt;Teilnehmen&lt;/strong&gt;. Es wird dir &lt;strong&gt;1 {img_ap}&lt;/strong&gt; abgezogen.</note>
       </notes>
@@ -5024,7 +5024,7 @@ müssen durchdacht geplant werden.</source>
         <target>Caso del último ataque:</target>
       </segment>
     </unit>
-    <unit id="LqUytij">
+    <unit id="bNaXawd">
       <notes>
         <note category="german">Wenn bei einem Angriff alle Einwohner umkommen, bekommt einer von ihnen den Titel des &lt;strong&gt;Letzten Todes!&lt;/strong&gt;
 Lies dir den entsprechenden Abschnitt bitte &lt;span x-ajax-href={url_lms}&gt;hier&lt;/span&gt; durch.</note>
@@ -5340,7 +5340,7 @@ Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</sour
         <target>Hacer denuncias.</target>
       </segment>
     </unit>
-    <unit id="mIfaDz.">
+    <unit id="5sqfLGM">
       <notes>
         <note category="german">Allerdings verfügt er über &lt;span x-ajax-href={url_shun}&gt;neue Fähigkeiten&lt;/span&gt;, die ihm zu überleben helfen.</note>
       </notes>
@@ -5659,7 +5659,7 @@ Darüber hinaus besteht die Gefahr, dass manche, &lt;i&gt;seltene&lt;/i&gt; Gege
         <target><![CDATA[No olvides que <i>a veces</i> la catapulta puede no dar en el blanco y enviar el objeto a la zona vecina... Además, aún si el habitante protege bien el paquete a enviar, algunos objetos <i>raros</i> pueden dañarse en el vuelo.]]></target>
       </segment>
     </unit>
-    <unit id="6IQLOf8">
+    <unit id="kK9E9pq">
       <notes>
         <note category="german">Die Aktivierung des Katapults kostet {img_ap}. Diese Kosten können gesenkt werden, wenn das Katapult verbessert wird,</note>
       </notes>
@@ -6470,7 +6470,7 @@ in die Rangliste aufgenommen. Kleine Städte oder Privatstädte werden nicht ins
         <target>Encontrarás ayuda en el sitio oficial de Soporte Técnico:</target>
       </segment>
     </unit>
-    <unit id="4JTe4YC">
+    <unit id="qjGA5u0">
       <notes>
         <note category="german">&lt;strong&gt;HÄUFIG GESTELLTE FRAGEN:&lt;/strong&gt;
 Lies dir bitte die offizielle &lt;span x-ajax-href={url_support}&gt;Technische Supportseite von MyHordes&lt;/span&gt; durch!</note>
@@ -6481,7 +6481,7 @@ Lies dir bitte die offizielle &lt;span x-ajax-href={url_support}&gt;Technische S
         <target><![CDATA[<strong>PREGUNTAS FRECUENTES:</strong> Consulta la FAQ oficial del <span x-ajax-href={url_support}>Soporte Técnico de MyHordes</span> !]]></target>
       </segment>
     </unit>
-    <unit id="MjcwNAj">
+    <unit id="u6CHRLa">
       <notes>
         <note category="german">&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href={url_forums}&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</note>
       </notes>
@@ -6490,7 +6490,7 @@ Lies dir bitte die offizielle &lt;span x-ajax-href={url_support}&gt;Technische S
         <target><![CDATA[<strong>CHARLA CON LOS JUGADORES:</strong> Encontrarás muchas respuestas y soluciones en los <span x-ajax-href={url_forums}>foros del sitio</span>, disponibles al interior del juego.]]></target>
       </segment>
     </unit>
-    <unit id="aa47hQY">
+    <unit id="4oAKxr3">
       <notes>
         <note category="german">&lt;strong&gt;EINEN REGELVERSTOSS MELDEN:&lt;/strong&gt;
 Wenn sich ein anderer Spieler daneben benommen hat oder ausfällig geworden ist, bitten wir dich den Abschnitt &lt;span x-ajax-href={url_report}&gt;Fehlverhalten melden&lt;/span&gt; zu lesen.</note>
@@ -6501,7 +6501,7 @@ Wenn sich ein anderer Spieler daneben benommen hat oder ausfällig geworden ist,
         <target><![CDATA[<strong>SEÑALAR UN MAL COMPORTAMIENTO:</strong> En caso de problemas con el comportamiento de un jugador, lee la sección <span x-ajax-href={url_report}>¡Alguien me molesta!</span> más abajo.]]></target>
       </segment>
     </unit>
-    <unit id="7NLAbue">
+    <unit id="vZjrBcg">
       <notes>
         <note category="german">&lt;strong&gt;EINEN BUG MELDEN:&lt;/strong&gt;
 Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: &lt;a href={url_git}&gt;Buglisten auf Gitlab&lt;/a&gt;.</note>
@@ -6512,7 +6512,7 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
         <target><![CDATA[<strong>EÑALAR UN PROBLEMA TÉCNICO:</strong> Para reportar un bug, ingresa a: <a href={url_git}>Listas de errores en Gitlab</a>.]]></target>
       </segment>
     </unit>
-    <unit id="AgElrGm">
+    <unit id="XkmnbTG">
       <notes>
         <note category="german">Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die &lt;strong&gt;MyHordes-Community&lt;/strong&gt; betreffen, kannst dem &lt;span x-ajax-href={url_oracle}&gt;Orakels&lt;/span&gt; anschreiben.</note>
       </notes>
@@ -6548,7 +6548,7 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
         <target>Use una combinación de letras, números, mayúsculas y minúsculas</target>
       </segment>
     </unit>
-    <unit id="yfB5oOq">
+    <unit id="J5ZFzWd">
       <notes>
         <note category="german">Wenn du noch Fragen hast, empfehlen wir dir folgende Seite: &lt;a href={url_pass}&gt;Password Tester&lt;/a&gt;</note>
       </notes>
@@ -6584,7 +6584,7 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
         <target>El ataque zombie no se realizó.</target>
       </segment>
     </unit>
-    <unit id="mm9VzW_">
+    <unit id="HQSnw_c">
       <notes>
         <note category="german">Du hast keine neuen {img_ap} bekommen und dein Gesundheitszustand hat sich nicht geändert.</note>
       </notes>
@@ -6846,7 +6846,7 @@ Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden m�
         <target>Sobre la exclusión de la clasificación</target>
       </segment>
     </unit>
-    <unit id="w3nwN24">
+    <unit id="GpP4w2n">
       <notes>
         <note category="german">Das Städteranking bei "MyHordes" soll zeigen, wie lange eine Gemeinschaft durch Kooperation überleben kann. Der menschliche Faktor und das reale Leben haben selbstverständlich einen Einfluss auf das Abschneiden einer Stadt.
 Profimäßiges Sitting verändert den Grundgedanken unseres Spiels und lässt Bürger zu reinen &lt;i&gt;{img_ap}-Reserven&lt;/i&gt; verkommen. Wir werden dies nicht dulden.
@@ -7023,7 +7023,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
         <target>si usas imágenes u otro contenido de MyHordes, debes indicar su fuente e indicar los derechos aplicables del autor / artista.</target>
       </segment>
     </unit>
-    <unit id="7RdBVY5">
+    <unit id="FZbnve.">
       <notes>
         <note category="german">&lt;strong&gt;MIT ANDEREN SPIELERN REDEN:&lt;/strong&gt; Die meisten Spielfragen werden oder wurden meistens schon in den &lt;span x-ajax-href="{url_forums}"&gt;Foren&lt;/span&gt; beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.</note>
       </notes>

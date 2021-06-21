@@ -199,7 +199,7 @@
         <target>Der Rabe</target>
       </segment>
     </unit>
-    <unit id="81dFh4o" name="Seite {page}/{pages}">
+    <unit id="EmHHbla" name="Seite {page}/{pages}">
       <notes>
         <note category="german">Seite {page}/{pages}</note>
       </notes>
@@ -469,7 +469,7 @@
         <target>Statistiken</target>
       </segment>
     </unit>
-    <unit id="9jh.PAO" name="{points} Punkte">
+    <unit id="HPrVKwR" name="{points} Punkte">
       <notes>
         <note category="german">{points} Punkte</note>
       </notes>
@@ -568,7 +568,7 @@
         <target>Auch dann nicht, wenn du dazu aufgefordert wirst!</target>
       </segment>
     </unit>
-    <unit id="gjZ3uMC" name="Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte {contact}.">
+    <unit id="LZ2pK11" name="Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte {contact}.">
       <notes>
         <note category="german">Wenn du Fragen oder Probleme mit der Seite hast, kontaktiere bitte {contact}.</note>
       </notes>
@@ -1126,7 +1126,7 @@
         <target>Dieses Thema enthält Ansagen von Community-Vertretern.</target>
       </segment>
     </unit>
-    <unit id="8_r8k2t" name="Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:">
+    <unit id="_7Y8RSv" name="Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:">
       <notes>
         <note category="german">Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:</note>
       </notes>
@@ -1135,7 +1135,7 @@
         <target>Dieses Thema enthält {count} offizielle Ansage(n) der MyHordes-Administratoren:</target>
       </segment>
     </unit>
-    <unit id="GfGOj1g" name="Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:">
+    <unit id="H4Fm1Ul" name="Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:">
       <notes>
         <note category="german">Dieses Thema enthält {count} Ansage(n) von Community-Vertretern:</note>
       </notes>
@@ -1585,7 +1585,7 @@
         <target>Mindestens ein Post in diesem Thema wurde den Moderatoren gemeldet.</target>
       </segment>
     </unit>
-    <unit id="KV1uMW3" name="Dieses Thema enthält {count} gemeldete Posts:">
+    <unit id="gmSIxjG" name="Dieses Thema enthält {count} gemeldete Posts:">
       <notes>
         <note category="german">Dieses Thema enthält {count} gemeldete Posts:</note>
       </notes>
@@ -1594,7 +1594,7 @@
         <target>Dieses Thema enthält {count} gemeldete Posts:</target>
       </segment>
     </unit>
-    <unit id="XvJRBeq" name="{num} Meldungen. Klicken, um Benutzer anzuzeigen.">
+    <unit id="dzF2eHb" name="{num} Meldungen. Klicken, um Benutzer anzuzeigen.">
       <notes>
         <note category="german">{num} Meldungen. Klicken, um Benutzer anzuzeigen.</note>
       </notes>
@@ -1603,7 +1603,7 @@
         <target>{num} Meldungen. Klicken, um Benutzer anzuzeigen.</target>
       </segment>
     </unit>
-    <unit id="uVEhYFM" name="Gelöscht von {user} ({time}). Klicken, um den Grund einzublenden.">
+    <unit id="m3AbtBp" name="Gelöscht von {user} ({time}). Klicken, um den Grund einzublenden.">
       <notes>
         <note category="german">Gelöscht von {user} ({time}). Klicken, um den Grund einzublenden.</note>
       </notes>
@@ -1966,7 +1966,7 @@
         <target>Dauerhaft</target>
       </segment>
     </unit>
-    <unit id="6Ql8d6C" name="{n} Tage">
+    <unit id="Hwdoi.l" name="{n} Tage">
       <notes>
         <note category="german">{n} Tage</note>
       </notes>
@@ -1984,7 +1984,7 @@
         <target>1 Tag</target>
       </segment>
     </unit>
-    <unit id="j5aKYuL" name="{n} Stunden">
+    <unit id="jLGnWab" name="{n} Stunden">
       <notes>
         <note category="german">{n} Stunden</note>
       </notes>
@@ -2002,7 +2002,7 @@
         <target>1 Stunde</target>
       </segment>
     </unit>
-    <unit id="p._haUN" name="{n} Minuten">
+    <unit id="EJ4TXc1" name="{n} Minuten">
       <notes>
         <note category="german">{n} Minuten</note>
       </notes>
@@ -2020,7 +2020,7 @@
         <target>1 Minute</target>
       </segment>
     </unit>
-    <unit id="kk4m10D" name="{n} Sekunden">
+    <unit id="OTEy7hr" name="{n} Sekunden">
       <notes>
         <note category="german">{n} Sekunden</note>
       </notes>
@@ -2263,7 +2263,7 @@
         <target>Ankündigung</target>
       </segment>
     </unit>
-    <unit id="2vjDBX2" name="{n} Teilnehmer">
+    <unit id="UnTLN.t" name="{n} Teilnehmer">
       <notes>
         <note category="german">{n} Teilnehmer</note>
       </notes>
@@ -2317,7 +2317,7 @@
         <target>Gestern</target>
       </segment>
     </unit>
-    <unit id="_KsSa.z" name="Neuer Beitrag in {topic}">
+    <unit id="BXmgyWZ" name="Neuer Beitrag in {topic}">
       <notes>
         <note category="german">Neuer Beitrag in {topic}</note>
       </notes>
@@ -2662,7 +2662,7 @@
         <target>Avatar</target>
       </segment>
     </unit>
-    <unit id="hDhyhlE" name="Gruppe aus {num} Spielern">
+    <unit id="zpoaxbk" name="Gruppe aus {num} Spielern">
       <notes>
         <note category="german">Gruppe aus {num} Spielern</note>
       </notes>
@@ -2707,7 +2707,7 @@
         <target>Eine offizielle Gruppe kontaktieren</target>
       </segment>
     </unit>
-    <unit id="kjByjoe" name="via {group_inbox}">
+    <unit id="jQrj982" name="via {group_inbox}">
       <notes>
         <note category="german">via {group_inbox}</note>
       </notes>
@@ -2779,7 +2779,7 @@
         <target>Einblenden</target>
       </segment>
     </unit>
-    <unit id="fufp5fd" name="Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.">
+    <unit id="v8YzpLG" name="Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.">
       <notes>
         <note category="german">Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.</note>
       </notes>
@@ -2788,7 +2788,7 @@
         <target>Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.</target>
       </segment>
     </unit>
-    <unit id="iZZF_a6">
+    <unit id="YNxQwvO">
       <notes>
         <note category="german">{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</note>
       </notes>
@@ -2797,7 +2797,7 @@
         <target>{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</target>
       </segment>
     </unit>
-    <unit id="eEWrS7n" name="{users} und {last_user}">
+    <unit id="QZZefQX" name="{users} und {last_user}">
       <notes>
         <note category="german">{users} und {last_user}</note>
       </notes>
@@ -2806,7 +2806,7 @@
         <target>{users} und {last_user}</target>
       </segment>
     </unit>
-    <unit id="9JfHrKu">
+    <unit id="yJCPgfF">
       <notes>
         <note category="german">{users} haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</note>
       </notes>
@@ -2833,7 +2833,7 @@
         <target>Du hast diesen Spieler von deiner Blacklist genommen.</target>
       </segment>
     </unit>
-    <unit id="lYFv71g" name="Du hast {user} blockiert.">
+    <unit id="d1jQbJk" name="Du hast {user} blockiert.">
       <notes>
         <note category="german">Du hast {user} blockiert.</note>
       </notes>
@@ -2860,7 +2860,7 @@
         <target>Spieler blockieren</target>
       </segment>
     </unit>
-    <unit id="Ki.EhtV" name="{user} blockieren">
+    <unit id="iu5_LY8" name="{user} blockieren">
       <notes>
         <note category="german">{user} blockieren</note>
       </notes>

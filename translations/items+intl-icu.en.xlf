@@ -3655,7 +3655,7 @@
         <target>Summoning up all your strength and will, you faced the World Beyond, saved {citizen} and returned unscathed!</target>
       </segment>
     </unit>
-    <unit id="vgypnNf" name="{action}: {item}">
+    <unit id="RL1s_tI" name="{action}: {item}">
       <notes>
         <note category="german">{action}: {item}</note>
       </notes>
@@ -7778,7 +7778,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>There's nothing quite like it to stimulate the old eardrums of a morning (It's ready to use). It lets you start the day on the right foot with a bonus of 1 extra AP given after the attack. It must be kept in you rucksack to work.</target>
       </segment>
     </unit>
-    <unit id="ApkAd1P" name="Möchtest du {target} heimbringen?">
+    <unit id="h82o7w4" name="Möchtest du {target} heimbringen?">
       <notes>
         <note category="german">Möchtest du {target} heimbringen?</note>
       </notes>
@@ -7976,7 +7976,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target><![CDATA[<t-fail><t-no-room>You don't have enough space for these items ...</t-no-room><t-door-closed>The Town gates are closed ...</t-door-closed></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}As you asked, <strong>everything was left at your house.</strong>.{hr}Brave animal!</nt-fail>]]></target>
       </segment>
     </unit>
-    <unit id="Cp5Hvee" name="{citizen} befehlen etwas zu trinken.">
+    <unit id="Zq3WqWc" name="{citizen} befehlen etwas zu trinken.">
       <notes>
         <note category="german">{citizen} befehlen etwas zu trinken.</note>
       </notes>
@@ -7985,7 +7985,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target>Tell {citizen} to drink.</target>
       </segment>
     </unit>
-    <unit id="M83i5Y." name="{citizen} befehlen etwas zu essen.">
+    <unit id="OmO2v53" name="{citizen} befehlen etwas zu essen.">
       <notes>
         <note category="german">{citizen} befehlen etwas zu essen.</note>
       </notes>

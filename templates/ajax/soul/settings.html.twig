@@ -391,7 +391,7 @@
             }
 
             if (pw_new1.length < 6) {
-                $.html.error('{{ 'Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.'|trans({'{{ limit }}': 6},'login')|e('js') }}');
+                $.html.error('{{ 'Dein Passwort muss mindestens { limit } Zeichen umfassen.'|trans({'{{ limit }}': 6},'login')|e('js') }}');
                 return;
             }
 
