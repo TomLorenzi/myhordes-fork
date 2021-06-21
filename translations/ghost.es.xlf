@@ -1457,7 +1457,7 @@
       </notes>
       <segment>
         <source>Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.</source>
-        <target>Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.</target>
+        <target>Te unirás a otros 39 condenados en un pueblo con un solo objetivo: Sobrvivir todo el tiempo posible.</target>
       </segment>
     </unit>
     <unit id="29U26Sd" name="Spiel betreten">
@@ -1466,7 +1466,7 @@
       </notes>
       <segment>
         <source>Spiel betreten</source>
-        <target>Entrar en el juego</target>
+        <target>¡Ingresar al juego!</target>
       </segment>
     </unit>
     <unit id="Lj_OYdi" name="Einwohnerzahl">
