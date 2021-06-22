@@ -19755,7 +19755,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</source>
-        <target>Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</target>
+        <target>This will use 1x Water Ration. Confirm?</target>
       </segment>
     </unit>
     <unit id="dk0TbNl" name="Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?">
@@ -19764,7 +19764,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</source>
-        <target>Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</target>
+        <target>This requires 2 action points. Confirm?</target>
       </segment>
     </unit>
     <unit id="if9Rvma">
