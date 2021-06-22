@@ -150,6 +150,8 @@ class LogTemplateHandler
             try {
                 $wrap_fun = ( $typeEntry['raw'] ?? false ) ? fn($a,$b=null) => $a : fn($a,$b=null) => $this->wrap($a,$b);
 
+                if (!isset($typeEntry['type']) || !isset($typeEntry['name'])) continue;
+
                 if ($typeEntry['type'] === 'itemGroup') {                
                     $itemGroupEntries  = $this->fetchVariableObject($typeEntry['type'], $variables[$typeEntry['name']])->getEntries()->getValues();
                     $transParams['%'.$typeEntry['name'].'%'] = implode( ', ', array_map( function(ItemGroupEntry $e) use ($wrap_fun) { return $wrap_fun( $this->iconize( $e ), 'tool' ); }, $itemGroupEntries ));
