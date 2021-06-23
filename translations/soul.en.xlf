@@ -3256,7 +3256,7 @@
       </notes>
       <segment>
         <source>Du kannst deinen Spielernamen aktuell nicht ändern.</source>
-        <target>Du kannst deinen Spielernamen aktuell nicht ändern.</target>
+        <target>You cannot use this username.</target>
       </segment>
     </unit>
     <unit id="6d9Ha3Q" name="Ändern des Spielernamens">
@@ -3283,7 +3283,7 @@
       </notes>
       <segment>
         <source>%user% war in der Vergangenheit unter folgenden Namen bekannt:</source>
-        <target>%user% war in der Vergangenheit unter folgenden Namen bekannt:</target>
+        <target>%user% has previously used the following nicknames:</target>
       </segment>
     </unit>
     <unit id="tT1wWcP" name="Du hattest in der Vergangenheit folgende Spielernamen:">
@@ -3292,7 +3292,16 @@
       </notes>
       <segment>
         <source>Du hattest in der Vergangenheit folgende Spielernamen:</source>
-        <target>Du hattest in der Vergangenheit folgende Spielernamen:</target>
+        <target>You have previously used the following nicknames:</target>
+      </segment>
+    </unit>
+    <unit id="nA9SyfS" name="Dafür ist es zu früh!">
+      <notes>
+        <note category="german">Dafür ist es zu früh!</note>
+      </notes>
+      <segment>
+        <source>Dafür ist es zu früh!</source>
+        <target>It is too soon to do this!</target>
       </segment>
     </unit>
   </file>

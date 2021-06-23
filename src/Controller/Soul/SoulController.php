@@ -79,6 +79,7 @@ class SoulController extends CustomAbstractController
     const ErrorETwinImportProfileInUse       = ErrorHelper::BaseSoulErrors + 6;
     const ErrorETwinImportServerCrash        = ErrorHelper::BaseSoulErrors + 7;
     const ErrorUserEditUserName              = ErrorHelper::BaseSoulErrors + 8;
+    const ErrorUserEditTooSoon              = ErrorHelper::BaseSoulErrors + 9;
 
     const ErrorCoalitionAlreadyMember        = ErrorHelper::BaseSoulErrors + 10;
     const ErrorCoalitionNotSet               = ErrorHelper::BaseSoulErrors + 11;
@@ -417,7 +418,7 @@ class SoulController extends CustomAbstractController
             return AjaxResponse::error(self::ErrorUserEditUserName);
 
         if ($displayName !== $user->getDisplayName() && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->m < 6) {
-            return  AjaxResponse::error(self::ErrorUserEditUserName);
+            return  AjaxResponse::error(self::ErrorUserEditTooSoon);
         }
 
         if ($this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileDisplayName) && $displayName !== $user->getDisplayName())
@@ -458,7 +459,7 @@ class SoulController extends CustomAbstractController
             }
         } elseif ($desc_obj) $this->entity_manager->remove($desc_obj);
 
-        if(!empty($displayName)) {
+        if(!empty($displayName) && $displayName !== $user->getDisplayName() && $user->getEternalID() !== null) {
             $user->setDisplayName($displayName);
             $user->setLastNameChange(new DateTime());
             $history = $user->getNameHistory() ?? [];

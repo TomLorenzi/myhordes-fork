@@ -3260,5 +3260,14 @@
         <target>Vous avez également porté les pseudos suivants :</target>
       </segment>
     </unit>
+    <unit id="nA9SyfS" name="Dafür ist es zu früh!">
+      <notes>
+        <note category="german">Dafür ist es zu früh!</note>
+      </notes>
+      <segment>
+        <source>Dafür ist es zu früh!</source>
+        <target>Il est trop tôt pour faire ça !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

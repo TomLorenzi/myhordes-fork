@@ -3286,5 +3286,14 @@
         <target>Du hattest in der Vergangenheit folgende Spielernamen:</target>
       </segment>
     </unit>
+    <unit id="nA9SyfS" name="Dafür ist es zu früh!">
+      <notes>
+        <note category="german">It is too soon to do this!</note>
+      </notes>
+      <segment>
+        <source>Dafür ist es zu früh!</source>
+        <target>Dafür ist es zu früh!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
