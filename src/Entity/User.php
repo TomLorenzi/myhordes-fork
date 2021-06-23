@@ -244,6 +244,16 @@ class User implements UserInterface, EquatableInterface
      */
     private $activeIcon;
 
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $nameHistory = [];
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $lastNameChange;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -1027,6 +1037,30 @@ class User implements UserInterface, EquatableInterface
     public function setActiveIcon(?Award $activeIcon): self
     {
         $this->activeIcon = $activeIcon;
+
+        return $this;
+    }
+
+    public function getNameHistory(): ?array
+    {
+        return $this->nameHistory;
+    }
+
+    public function setNameHistory(?array $nameHistory): self
+    {
+        $this->nameHistory = $nameHistory;
+
+        return $this;
+    }
+
+    public function getLastNameChange(): ?\DateTimeInterface
+    {
+        return $this->lastNameChange;
+    }
+
+    public function setLastNameChange(?\DateTimeInterface $lastNameChange): self
+    {
+        $this->lastNameChange = $lastNameChange;
 
         return $this;
     }

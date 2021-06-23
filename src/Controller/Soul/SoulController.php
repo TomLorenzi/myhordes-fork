@@ -6,6 +6,7 @@ use App\Annotations\GateKeeperProfile;
 use App\Controller\CustomAbstractController;
 use App\Entity\AccountRestriction;
 use App\Entity\Announcement;
+use App\Entity\AntiSpamDomains;
 use App\Entity\Award;
 use App\Entity\CauseOfDeath;
 use App\Entity\Changelog;
@@ -59,6 +60,7 @@ use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Validator\ConstraintViolationInterface;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\Validation;
@@ -76,6 +78,7 @@ class SoulController extends CustomAbstractController
     const ErrorTwinImportProfileInUse        = ErrorHelper::BaseSoulErrors + 5;
     const ErrorETwinImportProfileInUse       = ErrorHelper::BaseSoulErrors + 6;
     const ErrorETwinImportServerCrash        = ErrorHelper::BaseSoulErrors + 7;
+    const ErrorUserEditUserName              = ErrorHelper::BaseSoulErrors + 8;
 
     const ErrorCoalitionAlreadyMember        = ErrorHelper::BaseSoulErrors + 10;
     const ErrorCoalitionNotSet               = ErrorHelper::BaseSoulErrors + 11;
@@ -405,9 +408,17 @@ class SoulController extends CustomAbstractController
         $title = $parser->get_int('title', -1);
         $icon  = $parser->get_int('icon', -1);
         $desc  = mb_substr(trim($parser->get('desc')) ?? '', 0, 256);
+        $displayName = mb_substr(trim($parser->get('displayName')) ?? '', 0, 30);
 
         if ($title < 0 && $icon >= 0)
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
+
+        if (!$this->user_handler->isNameValid($displayName))
+            return AjaxResponse::error(self::ErrorUserEditUserName);
+
+        if ($displayName !== $user->getDisplayName() && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->m < 6) {
+            return  AjaxResponse::error(self::ErrorUserEditUserName);
+        }
 
         if ($title < 0)
             $user->setActiveTitle(null);
@@ -443,6 +454,14 @@ class SoulController extends CustomAbstractController
                 $this->entity_manager->persist($desc_obj);
             }
         } elseif ($desc_obj) $this->entity_manager->remove($desc_obj);
+
+        if(!empty($displayName)) {
+            $user->setDisplayName($displayName);
+            $user->setLastNameChange(new DateTime());
+            $history = $user->getNameHistory() ?? [];
+            array_push($history, $displayName);
+            $user->setNameHistory($history);
+        }
 
         $this->entity_manager->persist($user);
         $this->entity_manager->flush();

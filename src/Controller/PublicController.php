@@ -21,6 +21,7 @@ use App\Service\EternalTwinHandler;
 use App\Service\JSONRequestParser;
 use App\Service\UserFactory;
 use App\Response\AjaxResponse;
+use App\Service\UserHandler;
 use App\Structures\MyHordesConf;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
@@ -238,7 +239,8 @@ class PublicController extends CustomAbstractController
         TranslatorInterface $translator,
         UserFactory $factory,
         EntityManagerInterface $entityManager,
-        EternalTwinHandler $etwin
+        EternalTwinHandler $etwin,
+        UserHandler $userHandler
     ): Response
     {
         if ($this->isGranted( 'ROLE_REGISTERED' ) || $etwin->isReady())
@@ -248,7 +250,7 @@ class PublicController extends CustomAbstractController
         if (!$parser->has_all( ['user','mail1','mail2','pass1','pass2'], true ))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
-        if (in_array($parser->trimmed('user', ''), ['Der Rabe','DerRabe','Der_Rabe','DerRaabe','TheCrow']))
+        if (!$userHandler->isNameValid($parser->trimmed('user', '')))
             return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
 
         $violations = Validation::createValidator()->validate( $parser->all( true ), new Constraints\Collection([
