@@ -9691,7 +9691,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Rucksack verstecken</source>
-        <target>Hide rucksack</target>
+        <target>Hide all my objects</target>
       </segment>
     </unit>
     <unit id="yBmpXGO" name="Behausung wiederverwerten">
@@ -19692,7 +19692,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. &lt;strong&gt;Sie werden nur für andere verbannte Bürger sichtbar sein.&lt;/strong&gt; Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.</source>
-        <target><![CDATA[Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. <strong>Sie werden nur für andere verbannte Bürger sichtbar sein.</strong> Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.]]></target>
+        <target><![CDATA[<p>This action lets you hide all your objects somewhere in the zone. <strong>Only other shunned citizens will be able to see them.</strong></p> Nonetheless, a regular citizen will have a slight chance of finding them while searching the zone.]]></target>
       </segment>
     </unit>
     <unit id="_.uzAIq">
@@ -19701,7 +19701,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</source>
-        <target>Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</target>
+        <target>Citizens shunned by the townspeople still have the right to scavenge among the town's waste to find potentially useful items...</target>
       </segment>
     </unit>
     <unit id="V5pq7bw">
@@ -20007,7 +20007,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!</source>
-        <target>Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!</target>
+        <target>Our upgraded watchtower allows us to teleport any citizen back to the town for free, as long as they are nearby!</target>
       </segment>
     </unit>
     <unit id="Tf8a568">
