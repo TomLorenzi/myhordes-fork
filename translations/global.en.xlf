@@ -1838,7 +1838,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Die Stadt versinkt im Chaos!&lt;/strong&gt;&lt;/p&gt;Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!&lt;p&gt;&lt;em&gt;... Oder euch gegenseitig abschlachten, je nachdem.&lt;/em&gt;</source>
-        <target><![CDATA[<strong>Die Stadt versinkt im Chaos!</strong></p>Es gilt kein Gesetz mehr... Ihr müsst jetzt alle zusammenhalten und mit den Übriggebliebenen auskommen!<p><em>... Oder euch gegenseitig abschlachten, je nachdem.</em>]]></target>
+        <target><![CDATA[<strong>The town is in total chaos!</strong></p>Laws are no longer enforced... You will have to close ranks and work together with the other remaining survivors!<p><em>... Or kill each other. As you like...</em>]]></target>
       </segment>
     </unit>
     <unit id="aGhiyb5" name="Entwickler-Einstellungen">
