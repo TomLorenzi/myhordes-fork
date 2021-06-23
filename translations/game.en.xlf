@@ -18405,7 +18405,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese Leiche wurde bereits mit Wasser übergossen, siehst du denn nicht die Pfütze bei den Füßen?!!</source>
-        <target>Diese Leiche wurde bereits mit Wasser übergossen, siehst du denn nicht die Pfütze bei den Füßen?!!</target>
+        <target>This corpse has already been watered, did you not see the puddle at your feet?!!</target>
       </segment>
     </unit>
     <unit id="5sc0Prt" name="Diese Leiche wurde bereits außerhalb der Stadt entsorgt!">
@@ -18414,7 +18414,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese Leiche wurde bereits außerhalb der Stadt entsorgt!</source>
-        <target>Diese Leiche wurde bereits außerhalb der Stadt entsorgt!</target>
+        <target>This corpse has already been taken outside the town!</target>
       </segment>
     </unit>
     <unit id="sUeYpBF">
