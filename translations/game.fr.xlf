@@ -20264,5 +20264,23 @@
         <target>Arrêtés par les défenses de la ville, vos anciens concitoyens sont repartis bredouilles en grignotant les restes de leurs propres membres en putréfaction.</target>
       </segment>
     </unit>
+    <unit id="mw_CjlK" name="Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!">
+      <notes>
+        <note category="german">Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!</note>
+      </notes>
+      <segment>
+        <source>Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!</source>
+        <target>Si la ville construit une Pompe, vous pourrez obtenir plus d'eau !</target>
+      </segment>
+    </unit>
+    <unit id="AyyQPWF">
+      <notes>
+        <note category="german">Du kannst den Bau einer Pumpe im Bereich &lt;strong&gt;Konstruktionen&lt;/strong&gt; beginnen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst den Bau einer Pumpe im Bereich &lt;strong&gt;Konstruktionen&lt;/strong&gt; beginnen.</source>
+        <target><![CDATA[Vous pouvez commencer la construction d'une Pompe depuis la section <strong>Chantiers</strong> du menu.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
