@@ -19379,7 +19379,7 @@
       </notes>
       <segment>
         <source>Du hast &lt;strong&gt;1AP&lt;/strong&gt; aufgewendet, um das Haus von &lt;strong&gt;✝ %citizen%&lt;/strong&gt; zu recyclen. Die Arbeiten sind noch nicht abgeschlossen...</source>
-        <target><![CDATA[Du hast <strong>1AP</strong> aufgewendet, um das Haus von <strong>✝ %citizen%</strong> zu recyclen. Die Arbeiten sind noch nicht abgeschlossen...]]></target>
+        <target><![CDATA[Vous utilisez <strong>1 PA</strong> pour démanteler la maison de <strong>✝ %citizen%</strong>. Il reste encore du travail...]]></target>
       </segment>
     </unit>
     <unit id="zWIGzsD">
