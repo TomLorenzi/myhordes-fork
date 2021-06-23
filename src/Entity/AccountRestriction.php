@@ -33,9 +33,11 @@ class AccountRestriction
     const RestrictionProfileAvatar       = 1 << 20;
     const RestrictionProfileDescription  = 1 << 21;
     const RestrictionProfileTitle        = 1 << 22;
+    const RestrictionProfileDisplayName  = 1 << 23;
     const RestrictionProfile             = AccountRestriction::RestrictionProfileAvatar |
                                            AccountRestriction::RestrictionProfileDescription |
-                                           AccountRestriction::RestrictionProfileTitle;
+                                           AccountRestriction::RestrictionProfileTitle |
+                                           AccountRestriction::RestrictionProfileDisplayName;
 
     /**
      * @ORM\Id

@@ -58,6 +58,7 @@
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionProfileAvatar'), 'Ändern des Avatars'|trans({},'soul'), 'Du kannst deinen Avatar nicht mehr bearbeiten. Falls du aktuell einen Avatar hast, kannst du diesen jedoch löschen.'|trans({},'soul')) }}
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle'), 'Ändern des Profiltitels'|trans({},'soul'), 'Du kannst deinen deinen Profil-Titel sowie Icon nicht länger ändern. Wenn du aktuell einen Titel oder ein Icon gesetzt hast, kannst du diese jedoch entfernen.'|trans({},'soul')) }}
                         {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionProfileDescription'), 'Ändern der Profilbeschreibung'|trans({},'soul'), 'Du kannst deine Profilbeschreibung nicht länger ändern. Eine bestehende Profilbeschreibung kann jedoch gelöscht werden.'|trans({},'soul')) }}
+                        {{ _self.restriction_info(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName'), 'Ändern des Spielernamens'|trans({},'soul'), 'Du kannst deinen Spielernamen nicht mehr ändern.'|trans({},'soul')) }}
 
                     </ul>
                     <i>{{ 'Dieser Hinweis ist nur für dich, nicht aber für Besucher auf deiner Seelenseite sichtbar.'|trans({},'soul') }}</i>
@@ -101,6 +102,17 @@
             {% endif %}
             {% if user_desc %}
                 <div class="personal_desc"><div>{{ 'Persönliche Beschreibung'|trans({},'game') }}</div><div>« {{ user_desc|raw }} »</div></div>
+            {% endif %}
+
+            {% if app.user.nameHistory|length > 0 %}
+                <div class="personal_desc mt-1">
+                    <div>{{'Du hattest in der Vergangenheit folgende Spielernamen:'|trans({}, 'soul')}}</div>
+                    <div>
+                        {% for name in app.user.nameHistory %}
+                        {{ name }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
             {% endif %}
 
             <div class="town-history">

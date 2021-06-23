@@ -420,6 +420,9 @@ class SoulController extends CustomAbstractController
             return  AjaxResponse::error(self::ErrorUserEditUserName);
         }
 
+        if ($this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileDisplayName) && $displayName !== $user->getDisplayName())
+            return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
+
         if ($title < 0)
             $user->setActiveTitle(null);
         else {

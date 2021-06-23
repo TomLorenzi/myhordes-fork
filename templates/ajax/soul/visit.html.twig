@@ -43,6 +43,17 @@
                         <div class="personal_desc"><div>{{ 'Persönliche Beschreibung'|trans({},'game') }}</div><div>"{{ user_desc|raw }}"</div></div>
                     {% endif %}
 
+                    {% if user.nameHistory|length > 0 %}
+                        <div class="personal_desc mt-1">
+                            <div>{{'%user% war in der Vergangenheit unter folgenden Namen bekannt:'|trans({'%user%': user.name}, 'soul')}}</div>
+                            <div>
+                                {% for name in user.nameHistory %}
+                                    {{ name }}{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+
                     <div class="town-history">
                         <div id="town-list"></div>
                         <div class="row">

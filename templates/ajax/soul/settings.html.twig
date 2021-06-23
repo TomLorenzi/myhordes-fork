@@ -33,9 +33,9 @@
                     </div>
                 </div>
                 <div class="padded cell rw-9 rw-md-8 rw-sm-12">
-                    <input id="user_displayname" type="text" value="{% if app.user.displayName is not null %}{{ app.user.displayName }}{% else %}{{ app.user.name }}{% endif %}" />
+                    <input {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName')) %}disabled{% endif %} id="user_displayname" type="text" value="{% if app.user.displayName is not null %}{{ app.user.displayName }}{% else %}{{ app.user.name }}{% endif %}" />
                 </div>
-                <div class="padded cell ro-3 rw-9 rw-md-8 rw-sm-12">
+                <div class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12">
                     <div class="note warning-box">{{ 'WARNUNG: Du kannst deinen Spielernamen nicht jederzeit ändern, wähle ihn also weiße, denn du wirst ihn für mehrere Monate behalten. Um anderen Spielern zu helfen dich zu finden wird der Verlauf deiner Spielernamen in deinem Profil angezeigt.'|trans({}, 'soul') }}</div>
                 </div>
             </div>

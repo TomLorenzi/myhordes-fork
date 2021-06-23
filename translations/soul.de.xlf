@@ -3223,5 +3223,68 @@
         <target>Du kannst das Schwarze Brett nicht verwenden.</target>
       </segment>
     </unit>
+    <unit id="N0JgSpD" name="Dein Spielername">
+      <notes>
+        <note category="german">Dein Spielername</note>
+      </notes>
+      <segment>
+        <source>Dein Spielername</source>
+        <target>Dein Spielername</target>
+      </segment>
+    </unit>
+    <unit id="eUo8GNZ">
+      <notes>
+        <note category="german">WARNUNG: Du kannst deinen Spielernamen nicht jederzeit ändern, wähle ihn also weiße, denn du wirst ihn für mehrere Monate behalten. Um anderen Spielern zu helfen dich zu finden wird der Verlauf deiner Spielernamen in deinem Profil angezeigt.</note>
+      </notes>
+      <segment>
+        <source>WARNUNG: Du kannst deinen Spielernamen nicht jederzeit ändern, wähle ihn also weiße, denn du wirst ihn für mehrere Monate behalten. Um anderen Spielern zu helfen dich zu finden wird der Verlauf deiner Spielernamen in deinem Profil angezeigt.</source>
+        <target>WARNUNG: Du kannst deinen Spielernamen nicht jederzeit ändern, wähle ihn also weiße, denn du wirst ihn für mehrere Monate behalten. Um anderen Spielern zu helfen dich zu finden wird der Verlauf deiner Spielernamen in deinem Profil angezeigt.</target>
+      </segment>
+    </unit>
+    <unit id="CnsnaNX" name="Du kannst deinen Spielernamen aktuell nicht ändern.">
+      <notes>
+        <note category="german">Du kannst deinen Spielernamen aktuell nicht ändern.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Spielernamen aktuell nicht ändern.</source>
+        <target>Du kannst deinen Spielernamen aktuell nicht ändern.</target>
+      </segment>
+    </unit>
+    <unit id="6d9Ha3Q" name="Ändern des Spielernamens">
+      <notes>
+        <note category="german">Ändern des Spielernamens</note>
+      </notes>
+      <segment>
+        <source>Ändern des Spielernamens</source>
+        <target>Ändern des Spielernamens</target>
+      </segment>
+    </unit>
+    <unit id="LIMbDjH" name="Du kannst deinen Spielernamen nicht mehr ändern.">
+      <notes>
+        <note category="german">Du kannst deinen Spielernamen nicht mehr ändern.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Spielernamen nicht mehr ändern.</source>
+        <target>Du kannst deinen Spielernamen nicht mehr ändern.</target>
+      </segment>
+    </unit>
+    <unit id="yF2vVL5" name="%user% war in der Vergangenheit unter folgenden Namen bekannt:">
+      <notes>
+        <note category="german">%user% war in der Vergangenheit unter folgenden Namen bekannt:</note>
+      </notes>
+      <segment>
+        <source>%user% war in der Vergangenheit unter folgenden Namen bekannt:</source>
+        <target>%user% war in der Vergangenheit unter folgenden Namen bekannt:</target>
+      </segment>
+    </unit>
+    <unit id="tT1wWcP" name="Du hattest in der Vergangenheit folgende Spielernamen:">
+      <notes>
+        <note category="german">Du hattest in der Vergangenheit folgende Spielernamen:</note>
+      </notes>
+      <segment>
+        <source>Du hattest in der Vergangenheit folgende Spielernamen:</source>
+        <target>Du hattest in der Vergangenheit folgende Spielernamen:</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
