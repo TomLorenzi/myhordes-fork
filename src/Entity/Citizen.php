@@ -279,7 +279,7 @@ class Citizen
     private $usedHeroicActions;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Zone::class, orphanRemoval=true, cascade={"persist", "remove"})
+     * @ORM\ManyToMany(targetEntity=Zone::class, orphanRemoval=true, cascade={"persist"})
      * @ORM\JoinTable(name="citizen_visited_zones")
      */
     private $visitedZones;
