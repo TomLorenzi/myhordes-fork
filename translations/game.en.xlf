@@ -4676,7 +4676,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hast du folgendes gefunden: %item%!</source>
-        <target>After a few efforts, you found the following: %item%!</target>
+        <target>Scavengin in the rubbish lying around near the town, you manage to find: %item%!</target>
       </segment>
     </unit>
     <unit id="1GkRZwk" name="Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.">
