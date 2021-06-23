@@ -220,6 +220,7 @@ for (let i = 0; i < scroll_areas.length; i++) {
 
         let map_button  = map_controls.querySelector('[x-control="map"]');
         let tags_button  = map_controls.querySelector('[x-control="tags"]');
+        let global_button  = map_controls.querySelector('[x-control="global"]');
         let zone_button = map_controls.querySelector('[x-control="zone"]');
         let route_button = map_controls.querySelector('[x-control="routes"]');
 
@@ -281,6 +282,20 @@ for (let i = 0; i < scroll_areas.length; i++) {
                     $.client.set('map', 'tags', 'show', true);
                 }
             });
+        if (global_button) 
+            global_button.addEventListener('click', function() {
+                if(map_area.classList.contains('show-global')) {
+                    map_area.classList.remove('show-global');
+                    this.classList.remove('hide-tags');
+                    this.classList.add('show-tags');
+                    $.client.set('map', 'global', 'hide', true);
+                } else {
+                    map_area.classList.add('show-global');
+                    this.classList.remove('show-tags');
+                    this.classList.add('hide-tags');
+                    $.client.set('map', 'global', 'show', true);
+                }
+            });
 
         let show_tags = $.client.get('map', 'tags', 'hide');
         if (show_tags === 'show') {
@@ -288,6 +303,15 @@ for (let i = 0; i < scroll_areas.length; i++) {
             if (tags_button) {
                 tags_button.classList.remove('hide-tags');
                 tags_button.classList.add('show-tags');
+            }
+        }
+
+        let show_global = $.client.get('map', 'global', 'hide');
+        if (show_global === 'show') {
+            map_area.classList.add('show-global');
+            if (global_button) {
+                global_button.classList.remove('hide-global');
+                global_button.classList.add('show-global');
             }
         }
     }
