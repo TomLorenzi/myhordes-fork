@@ -372,7 +372,7 @@
                         <button {% if lock_trash %}disabled{% endif%} id="trash_button">
                             <img alt="" src="{{ asset('build/images/icons/small_ban.gif') }}" />
                             {{ 'Müll durchwühlen'|trans({},'game') }} (<div class="ap">1</div>)
-                            <div class="tooltip">{{ 'Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...'|trans({},'game')|raw }}</div>
+                            <div class="tooltip help">{{ 'Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...'|trans({},'game')|raw }}</div>
                         </button>
                     {% endif %}
                 {% endif %}
