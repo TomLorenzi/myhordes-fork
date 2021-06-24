@@ -10,7 +10,7 @@ use Symfony\Component\Lock\Store\SemaphoreStore;
 
 class Locksmith {
 
-    private $lock_factory = null;
+    private ?LockFactory $lock_factory = null;
 
     public function __construct() {
         $this->lock_factory = new LockFactory(

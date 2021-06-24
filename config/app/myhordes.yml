@@ -1,6 +1,9 @@
 parameters:
   local: []
   myhordes:
+    nightly:
+      retries: 3
+      date_modifier: "tomorrow"
     coalitions:
       size: 5
     anti-grief:

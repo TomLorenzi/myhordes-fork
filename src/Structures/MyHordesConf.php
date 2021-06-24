@@ -7,6 +7,9 @@ class MyHordesConf extends Conf
 {
     const CONF_DOMAINS = 'domains';
 
+    const CONF_NIGHTLY_RETRIES = 'nightly.retries';
+    const CONF_NIGHTLY_DATEMOD = 'nightly.date_modifier';
+
     const CONF_FATAL_MAIL_TARGET = 'fatalmail.target';
     const CONF_FATAL_MAIL_SOURCE = 'fatalmail.source';
 
