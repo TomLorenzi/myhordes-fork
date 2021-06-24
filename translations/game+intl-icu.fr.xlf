@@ -20264,6 +20264,33 @@
         <target>Arrêtés par les défenses de la ville, vos anciens concitoyens sont repartis bredouilles en grignotant les restes de leurs propres membres en putréfaction.</target>
       </segment>
     </unit>
+    <unit id="mJl9hp7" name="{points} Punkt(e)">
+      <notes>
+        <note category="german">{points} Punkt(e)</note>
+      </notes>
+      <segment>
+        <source>{points} Punkt(e)</source>
+        <target>{points, plural, =0 {# point} one {1 point} other {# points}}</target>
+      </segment>
+    </unit>
+    <unit id="uAj26XB" name="Schließen">
+      <notes>
+        <note category="german">Schließen</note>
+      </notes>
+      <segment>
+        <source>Schließen</source>
+        <target>Fermer</target>
+      </segment>
+    </unit>
+    <unit id="olizD4j" name="Global">
+      <notes>
+        <note category="german">Global</note>
+      </notes>
+      <segment>
+        <source>Global</source>
+        <target>Global</target>
+      </segment>
+    </unit>
     <unit id=".vM_crK">
       <notes>
         <note category="german">Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden {citizen1} und {citizen2} dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.</note>
@@ -20694,33 +20721,6 @@
       <segment>
         <source>Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. {town} existiert nicht mehr...</source>
         <target><![CDATA[Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: <strong>das Stadttor wurde aufgebrochen</strong> und <strong>liegt nun in Trümmern</strong>. {town} existiert nicht mehr...]]></target>
-      </segment>
-    </unit>
-    <unit id="mJl9hp7" name="{points} Punkt(e)">
-      <notes>
-        <note category="german">{points} Punkt(e)</note>
-      </notes>
-      <segment>
-        <source>{points} Punkt(e)</source>
-        <target>{points, plural, =0 {# point} one {1 point} other {# points}}</target>
-      </segment>
-    </unit>
-    <unit id="uAj26XB" name="Schließen">
-      <notes>
-        <note category="german">Schließen</note>
-      </notes>
-      <segment>
-        <source>Schließen</source>
-        <target>Fermer</target>
-      </segment>
-    </unit>
-    <unit id="olizD4j" name="Global">
-      <notes>
-        <note category="german">Global</note>
-      </notes>
-      <segment>
-        <source>Global</source>
-        <target>Global</target>
       </segment>
     </unit>
   </file>
