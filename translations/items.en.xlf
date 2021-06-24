@@ -7046,7 +7046,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du befestigst den {item} und bedeckst ihn zur Tarnung mit herumliegendem Müll und vertrockneten Zweigen. Na bitte, das sollte hoffentlich deine Überlebenschancen heute Nacht verbessern. Du hast dafür 1 Aktionspunkt verbraucht.</source>
-        <target>You attach the {item} and cover it with camouflage garbage and dried branches for camouflage. Well please, that should hopefully improve your chances of survival tonight. You have used 1 Action point for this.</target>
+        <target><![CDATA[You install the {item}  then place some rubbish and dried branches over it for camouflage. There you go, that should hopefully improve your chances of making it through the night.{hr}You have used <strong>1 action point</strong>.]]></target>
       </segment>
     </unit>
     <unit id="68c4rQB">
