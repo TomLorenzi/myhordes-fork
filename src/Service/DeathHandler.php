@@ -112,7 +112,8 @@ class DeathHandler
         }
         else {
             $zone = $citizen->getZone(); $ok = $this->zone_handler->check_cp( $zone );
-            if ($cod->getRef() === CauseOfDeath::NightlyAttack){
+            if ($cod->getRef() === CauseOfDeath::Vanished
+             || $cod->getRef() === CauseOfDeath::GhulEaten) {
                 if ($zone->isTownZone())
                     $this->inventory_handler->forceMoveItem(
                         $citizen->getTown()->getBank(),

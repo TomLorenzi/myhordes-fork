@@ -154,22 +154,22 @@
         <target>Lien de connexion invalide ou expiré.</target>
       </segment>
     </unit>
-    <unit id="9qGC3hG" name="Too many failed login attempts, please try again in %minutes% minute.">
+    <unit id="9qGC3hG" name="Too many failed login attempts, please try again in {minutes} minute.">
       <notes>
         <note category="german">Zu viele fehlgeschlagene Anmeldeversuche, bitte versuchen Sie es in einer Minute noch einmal.</note>
       </notes>
       <segment>
-        <source>Too many failed login attempts, please try again in %minutes% minute.</source>
-        <target>Plusieurs tentatives de connexion ont échoué, veuillez réessayer dans %minutes% minute.</target>
+        <source>Too many failed login attempts, please try again in {minutes} minute.</source>
+        <target>Plusieurs tentatives de connexion ont échoué, veuillez réessayer dans {minutes} minute.</target>
       </segment>
     </unit>
-    <unit id="AJR3lMs" name="Too many failed login attempts, please try again in %minutes% minutes.">
+    <unit id="AJR3lMs" name="Too many failed login attempts, please try again in {minutes} minutes.">
       <notes>
-        <note category="german">Zu viele fehlgeschlagene Anmeldeversuche, bitte versuchen Sie es in %minutes% Minuten noch einmal.</note>
+        <note category="german">Zu viele fehlgeschlagene Anmeldeversuche, bitte versuchen Sie es in {minutes} Minuten noch einmal.</note>
       </notes>
       <segment>
-        <source>Too many failed login attempts, please try again in %minutes% minutes.</source>
-        <target>Plusieurs tentatives de connexion ont échoué, veuillez réessayer dans %minutes% minutes.</target>
+        <source>Too many failed login attempts, please try again in {minutes} minutes.</source>
+        <target>Plusieurs tentatives de connexion ont échoué, veuillez réessayer dans {minutes} minutes.</target>
       </segment>
     </unit>
   </file>
