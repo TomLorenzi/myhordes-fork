@@ -7415,7 +7415,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!</source>
-        <target>Schlechte Nachrichten, das hättest du nicht in den Mund nehmen sollen... Du bist infiziert!</target>
+        <target>Bad news, you maybe shouldn't have swallowed that... you have been infected!</target>
       </segment>
     </unit>
     <unit id="UhcYCoM">
