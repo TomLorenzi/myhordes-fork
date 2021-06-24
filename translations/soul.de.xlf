@@ -3295,5 +3295,14 @@
         <target>Dafür ist es zu früh!</target>
       </segment>
     </unit>
+    <unit id="7aH8vQI" name="Bitte ändere deinen Anzeigenamen auf EternalTwin.">
+      <notes>
+        <note category="german">Bitte ändere deinen Anzeigenamen auf EternalTwin.</note>
+      </notes>
+      <segment>
+        <source>Bitte ändere deinen Anzeigenamen auf EternalTwin.</source>
+        <target>Bitte ändere deinen Anzeigenamen auf EternalTwin.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

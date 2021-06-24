@@ -3269,5 +3269,14 @@
         <target>Il est trop tôt pour faire ça !</target>
       </segment>
     </unit>
+    <unit id="7aH8vQI" name="Bitte ändere deinen Anzeigenamen auf EternalTwin.">
+      <notes>
+        <note category="german">Bitte ändere deinen Anzeigenamen auf EternalTwin.</note>
+      </notes>
+      <segment>
+        <source>Bitte ändere deinen Anzeigenamen auf EternalTwin.</source>
+        <target>Vous devez utiliser votre compte EternalTwin pour changer votre nom d'affichage.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

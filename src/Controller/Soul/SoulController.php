@@ -79,12 +79,13 @@ class SoulController extends CustomAbstractController
     const ErrorETwinImportProfileInUse       = ErrorHelper::BaseSoulErrors + 6;
     const ErrorETwinImportServerCrash        = ErrorHelper::BaseSoulErrors + 7;
     const ErrorUserEditUserName              = ErrorHelper::BaseSoulErrors + 8;
-    const ErrorUserEditTooSoon              = ErrorHelper::BaseSoulErrors + 9;
+    const ErrorUserEditTooSoon               = ErrorHelper::BaseSoulErrors + 9;
+    const ErrorUserUseEternalTwin            = ErrorHelper::BaseSoulErrors + 10;
 
-    const ErrorCoalitionAlreadyMember        = ErrorHelper::BaseSoulErrors + 10;
-    const ErrorCoalitionNotSet               = ErrorHelper::BaseSoulErrors + 11;
-    const ErrorCoalitionUserAlreadyMember    = ErrorHelper::BaseSoulErrors + 12;
-    const ErrorCoalitionFull                 = ErrorHelper::BaseSoulErrors + 13;
+    const ErrorCoalitionAlreadyMember        = ErrorHelper::BaseSoulErrors + 20;
+    const ErrorCoalitionNotSet               = ErrorHelper::BaseSoulErrors + 21;
+    const ErrorCoalitionUserAlreadyMember    = ErrorHelper::BaseSoulErrors + 22;
+    const ErrorCoalitionFull                 = ErrorHelper::BaseSoulErrors + 23;
 
 
     protected UserFactory $user_factory;
@@ -420,6 +421,8 @@ class SoulController extends CustomAbstractController
         if ($displayName !== $user->getDisplayName() && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->m < 6) {
             return  AjaxResponse::error(self::ErrorUserEditTooSoon);
         }
+        if($displayName !== $user->getDisplayName() && $user->getEternalID() !== null)
+            return AjaxResponse::error(self::ErrorUserUseEternalTwin);
 
         if ($this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileDisplayName) && $displayName !== $user->getDisplayName())
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
@@ -459,7 +462,7 @@ class SoulController extends CustomAbstractController
             }
         } elseif ($desc_obj) $this->entity_manager->remove($desc_obj);
 
-        if(!empty($displayName) && $displayName !== $user->getDisplayName() && $user->getEternalID() !== null) {
+        if(!empty($displayName) && $displayName !== $user->getDisplayName() && $user->getEternalID() === null) {
             $user->setDisplayName($displayName);
             $user->setLastNameChange(new DateTime());
             $history = $user->getNameHistory() ?? [];
