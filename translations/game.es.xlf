@@ -20229,5 +20229,23 @@
         <target>Von den Verteidigungsanlagen der Stadt aufgehalten, gingen eure ehemaligen Mitbürger mit leeren Händen und mampften stattdessen die Überreste ihrer eigenen verrottenden Gliedmaßen.</target>
       </segment>
     </unit>
+    <unit id="uAj26XB" name="Schließen">
+      <notes>
+        <note category="german">Schließen</note>
+      </notes>
+      <segment>
+        <source>Schließen</source>
+        <target>Schließen</target>
+      </segment>
+    </unit>
+    <unit id="olizD4j" name="Global">
+      <notes>
+        <note category="german">Global</note>
+      </notes>
+      <segment>
+        <source>Global</source>
+        <target>Global</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

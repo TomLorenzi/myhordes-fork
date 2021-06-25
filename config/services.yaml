@@ -111,14 +111,11 @@ services:
             - { name: translation.extractor, alias: 'twig' }
             - { name: translation.extractor.myhordes, alias: 'twig' }
 
-    App\Translation\ExpandedDumper:
-        tags:
-            - { name: translation.dumper, alias: xlf2 }
-
-    translation.loader.xliff:
-        class: App\Translation\ProperXliffFileLoader
-        tags:
-            - { name: translation.loader, alias: xlf }
+    app.decoration.trans_dumper:
+      class: App\Translation\ExpandedDumper
+      decorates: translation.dumper.xliff
+      arguments: [ '@app.decoration.trans_dumper.inner' ]
+      public: false
 
     App\Translation\FixtureExtractor:
         tags:

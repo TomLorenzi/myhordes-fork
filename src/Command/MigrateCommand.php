@@ -449,7 +449,7 @@ class MigrateCommand extends Command
                     'locale' => $lang,
                     '--force' => true,
                     '--sort' => 'asc',
-                    '--output-format' => 'xlf2',
+                    '--output-format' => 'xlf',
                     '--prefix' => '',
                 ]);
                 $input->setInteractive(false);
