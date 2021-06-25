@@ -165,7 +165,7 @@ class TwinoidCommand extends Command
                 $icon = str_replace('.gif','',$elems[array_key_last($elems)]);
                 if (!in_array($elems[array_key_last($elems)], $have)) {
                     $have[] = $elems[array_key_last($elems)];
-                    $flat[sprintf("%06u_%06u_%s", $picto_id, $count, $icon)] =
+                    $flat[sprintf("{06u_}06u_%s", $picto_id, $count, $icon)] =
                         "['icon'=>'$icon', 'unlockquantity'=>$count, 'associatedpicto'=>'{$picto->getName()}'],";
                 }
             }

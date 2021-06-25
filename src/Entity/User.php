@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -243,6 +244,11 @@ class User implements UserInterface, EquatableInterface
      * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $activeIcon;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $UseICU = false;
 
     public function __construct()
     {
@@ -917,24 +923,24 @@ class User implements UserInterface, EquatableInterface
         return $this;
     }
 
-    public function getLastActionTimestamp(): ?\DateTimeInterface
+    public function getLastActionTimestamp(): ?DateTimeInterface
     {
         return $this->lastActionTimestamp;
     }
 
-    public function setLastActionTimestamp(?\DateTimeInterface $lastActionTimestamp): self
+    public function setLastActionTimestamp(?DateTimeInterface $lastActionTimestamp): self
     {
         $this->lastActionTimestamp = $lastActionTimestamp;
 
         return $this;
     }
 
-    public function getDeleteAfter(): ?\DateTimeInterface
+    public function getDeleteAfter(): ?DateTimeInterface
     {
         return $this->deleteAfter;
     }
 
-    public function setDeleteAfter(?\DateTimeInterface $deleteAfter): self
+    public function setDeleteAfter(?DateTimeInterface $deleteAfter): self
     {
         $this->deleteAfter = $deleteAfter;
 
@@ -1027,6 +1033,18 @@ class User implements UserInterface, EquatableInterface
     public function setActiveIcon(?Award $activeIcon): self
     {
         $this->activeIcon = $activeIcon;
+
+        return $this;
+    }
+
+    public function getUseICU(): ?bool
+    {
+        return $this->UseICU;
+    }
+
+    public function setUseICU(bool $UseICU): self
+    {
+        $this->UseICU = $UseICU;
 
         return $this;
     }

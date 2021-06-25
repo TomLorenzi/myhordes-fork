@@ -3232,5 +3232,23 @@
         <target>You can no longer write to the Black Board.</target>
       </segment>
     </unit>
+    <unit id="TTWCiLb" name="Neue Übersetzungen verwenden">
+      <notes>
+        <note category="german">Neue Übersetzungen verwenden</note>
+      </notes>
+      <segment>
+        <source>Neue Übersetzungen verwenden</source>
+        <target>Use new translations</target>
+      </segment>
+    </unit>
+    <unit id="oHq1QSk">
+      <notes>
+        <note category="german">Mit dem neuen Übersetzungssystem werden Texte akkurater in deiner Sprache dargestellt (zum Beispiel die passende Verwendung von Singular und Plural-Formen). Deaktiviere diese Option, um die originalen Texte aus Die Verdammten zu sehen.</note>
+      </notes>
+      <segment>
+        <source>Mit dem neuen Übersetzungssystem werden Texte akkurater in deiner Sprache dargestellt (zum Beispiel die passende Verwendung von Singular und Plural-Formen). Deaktiviere diese Option, um die originalen Texte aus Die Verdammten zu sehen.</source>
+        <target>With the new translation system, you'll be able to see a more accurate translation (such as singular/plural forms when needed). Uncheck this to get the old DieVerdammten behavior.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -231,6 +231,12 @@
                                 <input x-setting {% if app.user.disableFx %}checked{% endif%} type="checkbox" id="setting_disable_fx">&nbsp;<label for="setting_disable_fx">{{ 'Animationen verringern'|trans({}, 'soul') }}</label> <a class="help-button"><div class="tooltip help">{{ 'Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.<br /><em>Mit dieser Option senkst du die Qualität der Spielkartenanimationen.</em>.'|trans({},'soul')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
                             </div>
                         </div>
+                        <div class="padded cell rw-12">
+                            <div class="note note-lightest">
+                                <input x-setting {% if app.user.useICU %}checked{% endif%} type="checkbox" id="setting_use_icu">&nbsp;<label for="setting_use_icu">{{'Neue Übersetzungen verwenden'|trans({}, 'soul')}}</label>
+                                {{help_btn("Mit dem neuen Übersetzungssystem werden Texte akkurater in deiner Sprache dargestellt (zum Beispiel die passende Verwendung von Singular und Plural-Formen). Deaktiviere diese Option, um die originalen Texte aus Die Verdammten zu sehen."|trans({}, 'soul'))}}
+                            </div>
+                        </div>
                     </div>
 
                     <h5>{{ 'Browser-Einstellungen'|trans({},'soul') }}</h5>
@@ -435,6 +441,7 @@
             $.ajax.easySend( '{{ path('api_soul_common') }}', {
                     sma: document.getElementById('setting_prefer_classic_avatars').checked,
                     disablefx: document.getElementById('setting_disable_fx').checked,
+                    useicu: document.getElementById('setting_use_icu').checked,
                 },
                 function () {
                     $.ajax.load(null, '{{ path('soul_settings') }}', true);

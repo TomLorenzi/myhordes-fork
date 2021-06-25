@@ -53,6 +53,9 @@ services:
     App\Command\SchedulerCommand:
         arguments:
             $translator: '@translator.default'
+    App\Command\CronCommand:
+      arguments:
+        $translator: '@translator.default'
 
     # The NightlyHandler should have it's own log channel
     App\Service\NightlyHandler:
