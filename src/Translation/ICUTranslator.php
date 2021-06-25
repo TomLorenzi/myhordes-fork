@@ -23,7 +23,9 @@ class ICUTranslator implements TranslatorInterface, TranslatorBagInterface, Loca
 
     public function trans(?string $id, array $parameters = [], string $domain = null, string $locale = null): string
     {
-        $pass_trough = ['__icu' => $this->_security->getUser() ? true : false]; // TODO: Get "Use ICU" config here
+        /** @var User $u */
+        $u = $this->_security->getUser();
+        $pass_trough = ['__icu' => $u ? $u->getUseICU() : false];
         foreach ($parameters as $key => $value) {
             if (is_a( $value, User::class )) {
                 /** @var User $value */
