@@ -2113,7 +2113,7 @@
       </notes>
       <segment>
         <source>Saisons</source>
-        <target>Saisons</target>
+        <target>Seasons</target>
       </segment>
     </unit>
     <unit id="wWE.yC2" name="Neue Saison">
@@ -2221,7 +2221,7 @@
       </notes>
       <segment>
         <source>Nummer</source>
-        <target>Nummer</target>
+        <target>Number</target>
       </segment>
     </unit>
     <unit id="ZOp9mWZ" name="Sub-Nummer">
@@ -2230,7 +2230,7 @@
       </notes>
       <segment>
         <source>Sub-Nummer</source>
-        <target>Sub-Nummer</target>
+        <target>Sub-Number</target>
       </segment>
     </unit>
     <unit id="3NHVIj9" name="Name">
@@ -2248,7 +2248,7 @@
       </notes>
       <segment>
         <source>Saison "%season%"</source>
-        <target>Saison "%season%"</target>
+        <target>Season "%season%"</target>
       </segment>
     </unit>
     <unit id="3RyPmTj" name="Saison Nummer">
@@ -2257,7 +2257,7 @@
       </notes>
       <segment>
         <source>Saison Nummer</source>
-        <target>Saison Nummer</target>
+        <target>Saison Number</target>
       </segment>
     </unit>
     <unit id="1uPFCaE" name="Saison Sub-Nummer">
@@ -2266,7 +2266,7 @@
       </notes>
       <segment>
         <source>Saison Sub-Nummer</source>
-        <target>Saison Sub-Nummer</target>
+        <target>Season Sub-Number</target>
       </segment>
     </unit>
     <unit id="V8mA5zz" name="Aktuelle Saison">
@@ -2275,7 +2275,7 @@
       </notes>
       <segment>
         <source>Aktuelle Saison</source>
-        <target>Aktuelle Saison</target>
+        <target>Current Season</target>
       </segment>
     </unit>
     <unit id="hIEL.qI" name="AP">
@@ -2347,7 +2347,7 @@
       </notes>
       <segment>
         <source>Gib den Namen oder die ID der Stadt ein.</source>
-        <target>Gib den Namen oder die ID der Stadt ein.</target>
+        <target>Type here the name of the ID of the town</target>
       </segment>
     </unit>
     <unit id="U4p3p8Q" name="Stimmen">
@@ -2356,7 +2356,7 @@
       </notes>
       <segment>
         <source>Stimmen</source>
-        <target>Stimmen</target>
+        <target>Votes</target>
       </segment>
     </unit>
     <unit id="cLQ9dCO" name="Für %target%">
@@ -2374,7 +2374,7 @@
       </notes>
       <segment>
         <source>Ersteller</source>
-        <target>Ersteller</target>
+        <target>Creator</target>
       </segment>
     </unit>
     <unit id="Fz9FcFZ" name="Stadt ansehen">

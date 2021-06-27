@@ -8267,7 +8267,7 @@
       </notes>
       <segment>
         <source>Resigniert und untröstlich sahen die Bürger, wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Dépités, les citoyens ont vu une horde de %num% zombies se diriger vers la ville... Sortie de nulle part, la meute est soudainement apparue à la porte de la ville...</target>
+        <target>Dépités, les citoyens ont vu une horde de %num% zombies se diriger vers la ville... Et d'un coup, l'horreur s'est amassée devant les Portes de la Ville...</target>
       </segment>
     </unit>
     <unit id="OVTYzwK" name="%sender%: %message%">
@@ -19379,7 +19379,7 @@
       </notes>
       <segment>
         <source>Du hast &lt;strong&gt;1AP&lt;/strong&gt; aufgewendet, um das Haus von &lt;strong&gt;✝ %citizen%&lt;/strong&gt; zu recyclen. Die Arbeiten sind noch nicht abgeschlossen...</source>
-        <target><![CDATA[Du hast <strong>1AP</strong> aufgewendet, um das Haus von <strong>✝ %citizen%</strong> zu recyclen. Die Arbeiten sind noch nicht abgeschlossen...]]></target>
+        <target><![CDATA[Vous utilisez <strong>1 PA</strong> pour démanteler la maison de <strong>✝ %citizen%</strong>. Il reste encore du travail...]]></target>
       </segment>
     </unit>
     <unit id="zWIGzsD">

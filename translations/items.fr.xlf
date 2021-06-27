@@ -8144,7 +8144,7 @@
       </notes>
       <segment>
         <source>Hierfür brauchst du mindestens 1 CP.</source>
-        <target>Hierfür brauchst du mindestens 1 CP.</target>
+        <target>Vous avez besoin d'au moins 1 CP pour effectuer cette action.</target>
       </segment>
     </unit>
     <unit id="dydc.v9">

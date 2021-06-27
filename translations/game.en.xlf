@@ -232,7 +232,7 @@
       </notes>
       <segment>
         <source>Resigniert und untröstlich sahen die Bürger wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Résignés et inconsolables, les citoyens ont vu une horde de %num% de zombies se diriger vers la ville... Sortie de nulle part, la meute est soudainement apparue à la porte de la ville...</target>
+        <target>The now visibly agitated citizens watched a horde of %num% zombies heading for the town... All of a sudden, the source of our nightmares began to gather in front of the town gates...</target>
       </segment>
     </unit>
     <unit id="XX6_Va3" name="%num% Zombies attackieren die Stadtbewohner!">
@@ -4676,7 +4676,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hast du folgendes gefunden: %item%!</source>
-        <target>After a few efforts, you found the following: %item%!</target>
+        <target>Scavengin in the rubbish lying around near the town, you manage to find: %item%!</target>
       </segment>
     </unit>
     <unit id="1GkRZwk" name="Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden.">
@@ -9691,7 +9691,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Rucksack verstecken</source>
-        <target>Hide rucksack</target>
+        <target>Hide all my objects</target>
       </segment>
     </unit>
     <unit id="yBmpXGO" name="Behausung wiederverwerten">
@@ -18405,7 +18405,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese Leiche wurde bereits mit Wasser übergossen, siehst du denn nicht die Pfütze bei den Füßen?!!</source>
-        <target>Diese Leiche wurde bereits mit Wasser übergossen, siehst du denn nicht die Pfütze bei den Füßen?!!</target>
+        <target>This corpse has already been watered, did you not see the puddle at your feet?!!</target>
       </segment>
     </unit>
     <unit id="5sc0Prt" name="Diese Leiche wurde bereits außerhalb der Stadt entsorgt!">
@@ -18414,7 +18414,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese Leiche wurde bereits außerhalb der Stadt entsorgt!</source>
-        <target>Diese Leiche wurde bereits außerhalb der Stadt entsorgt!</target>
+        <target>This corpse has already been taken outside the town!</target>
       </segment>
     </unit>
     <unit id="sUeYpBF">
@@ -19692,7 +19692,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. &lt;strong&gt;Sie werden nur für andere verbannte Bürger sichtbar sein.&lt;/strong&gt; Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.</source>
-        <target><![CDATA[Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. <strong>Sie werden nur für andere verbannte Bürger sichtbar sein.</strong> Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.]]></target>
+        <target><![CDATA[<p>This action lets you hide all your objects somewhere in the zone. <strong>Only other shunned citizens will be able to see them.</strong></p> Nonetheless, a regular citizen will have a slight chance of finding them while searching the zone.]]></target>
       </segment>
     </unit>
     <unit id="_.uzAIq">
@@ -19701,7 +19701,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</source>
-        <target>Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...</target>
+        <target>Citizens shunned by the townspeople still have the right to scavenge among the town's waste to find potentially useful items...</target>
       </segment>
     </unit>
     <unit id="V5pq7bw">
@@ -19755,7 +19755,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</source>
-        <target>Diese Aktion verbraucht 1x Ration Wasser. Bestätigen?</target>
+        <target>This will use 1x Water Ration. Confirm?</target>
       </segment>
     </unit>
     <unit id="dk0TbNl" name="Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?">
@@ -19764,7 +19764,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</source>
-        <target>Diese Aktion verbraucht 2 Aktionspunkte. Bestatigen ?</target>
+        <target>This requires 2 action points. Confirm?</target>
       </segment>
     </unit>
     <unit id="if9Rvma">
@@ -20007,7 +20007,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!</source>
-        <target>Unser verbesserter Wachturm ermöglicht die ungehinderte Rückkehr eines jeden Bürgers, der sich in der Nähe der Stadt befindet!</target>
+        <target>Our upgraded watchtower allows us to teleport any citizen back to the town for free, as long as they are nearby!</target>
       </segment>
     </unit>
     <unit id="Tf8a568">

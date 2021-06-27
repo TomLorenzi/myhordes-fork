@@ -8447,7 +8447,7 @@
       </notes>
       <segment>
         <source>Sie greifen einen Zombie mit Ihrem {item} an, aber &lt;strong&gt;er reagiert nicht einmal&lt;/strong&gt; und macht weiter!</source>
-        <target><![CDATA[Sie greifen einen Zombie mit Ihrem {item} an, aber <strong>er reagiert nicht einmal</strong> und macht weiter!]]></target>
+        <target><![CDATA[Atacas a un zombie con tu {item}, ¡pero <strong>él ni pestañea</strong>... y sigue avanzando!]]></target>
       </segment>
     </unit>
     <unit id="nnxBJDq" name="Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.">
@@ -8456,7 +8456,7 @@
       </notes>
       <segment>
         <source>Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.</source>
-        <target><![CDATA[Die Waffe hat <strong>keine Batterie mehr</strong>.]]></target>
+        <target><![CDATA[El arma <strong>ya no tiene pilas</strong>.]]></target>
       </segment>
     </unit>
     <unit id="3YKCcgW">
