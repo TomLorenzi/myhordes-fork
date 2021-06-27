@@ -3232,5 +3232,86 @@
         <target>You can no longer write to the Black Board.</target>
       </segment>
     </unit>
+    <unit id="N0JgSpD" name="Dein Spielername">
+      <notes>
+        <note category="german">Dein Spielername</note>
+      </notes>
+      <segment>
+        <source>Dein Spielername</source>
+        <target>Your username</target>
+      </segment>
+    </unit>
+    <unit id="eUo8GNZ">
+      <notes>
+        <note category="german">WARNUNG: Du kannst deinen Spielernamen nicht jederzeit ändern, wähle ihn also weiße, denn du wirst ihn für mehrere Monate behalten. Um anderen Spielern zu helfen dich zu finden wird der Verlauf deiner Spielernamen in deinem Profil angezeigt.</note>
+      </notes>
+      <segment>
+        <source>WARNUNG: Du kannst deinen Spielernamen nicht jederzeit ändern, wähle ihn also weiße, denn du wirst ihn für mehrere Monate behalten. Um anderen Spielern zu helfen dich zu finden wird der Verlauf deiner Spielernamen in deinem Profil angezeigt.</source>
+        <target>WARNING! You cannot change you nickkname whenever you pease, so choose it with care as you won't be able to change it again for several months! However, to help other players to find you, your nickname history is displayed on your profile.</target>
+      </segment>
+    </unit>
+    <unit id="CnsnaNX" name="Du kannst deinen Spielernamen aktuell nicht ändern.">
+      <notes>
+        <note category="german">Du kannst deinen Spielernamen aktuell nicht ändern.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Spielernamen aktuell nicht ändern.</source>
+        <target>You cannot use this username.</target>
+      </segment>
+    </unit>
+    <unit id="6d9Ha3Q" name="Ändern des Spielernamens">
+      <notes>
+        <note category="german">Ändern des Spielernamens</note>
+      </notes>
+      <segment>
+        <source>Ändern des Spielernamens</source>
+        <target>Change username</target>
+      </segment>
+    </unit>
+    <unit id="LIMbDjH" name="Du kannst deinen Spielernamen nicht mehr ändern.">
+      <notes>
+        <note category="german">Du kannst deinen Spielernamen nicht mehr ändern.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Spielernamen nicht mehr ändern.</source>
+        <target>You can no longer change your username.</target>
+      </segment>
+    </unit>
+    <unit id="yF2vVL5" name="%user% war in der Vergangenheit unter folgenden Namen bekannt:">
+      <notes>
+        <note category="german">%user% war in der Vergangenheit unter folgenden Namen bekannt:</note>
+      </notes>
+      <segment>
+        <source>%user% war in der Vergangenheit unter folgenden Namen bekannt:</source>
+        <target>%user% has previously used the following nicknames:</target>
+      </segment>
+    </unit>
+    <unit id="tT1wWcP" name="Du hattest in der Vergangenheit folgende Spielernamen:">
+      <notes>
+        <note category="german">Du hattest in der Vergangenheit folgende Spielernamen:</note>
+      </notes>
+      <segment>
+        <source>Du hattest in der Vergangenheit folgende Spielernamen:</source>
+        <target>You have previously used the following nicknames:</target>
+      </segment>
+    </unit>
+    <unit id="nA9SyfS" name="Dafür ist es zu früh!">
+      <notes>
+        <note category="german">Dafür ist es zu früh!</note>
+      </notes>
+      <segment>
+        <source>Dafür ist es zu früh!</source>
+        <target>It is too soon to do this!</target>
+      </segment>
+    </unit>
+    <unit id="7aH8vQI" name="Bitte ändere deinen Anzeigenamen auf EternalTwin.">
+      <notes>
+        <note category="german">Bitte ändere deinen Anzeigenamen auf EternalTwin.</note>
+      </notes>
+      <segment>
+        <source>Bitte ändere deinen Anzeigenamen auf EternalTwin.</source>
+        <target>You must use your Eternal Twin account to change your username.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -3197,5 +3197,86 @@
         <target>Du kannst das Schwarze Brett nicht verwenden.</target>
       </segment>
     </unit>
+    <unit id="N0JgSpD" name="Dein Spielername">
+      <notes>
+        <note category="german">Dein Spielername</note>
+      </notes>
+      <segment>
+        <source>Dein Spielername</source>
+        <target>Mon nom d'affichage</target>
+      </segment>
+    </unit>
+    <unit id="eUo8GNZ">
+      <notes>
+        <note category="german">WARNUNG: Du kannst deinen Spielernamen nicht jederzeit ändern, wähle ihn also weiße, denn du wirst ihn für mehrere Monate behalten. Um anderen Spielern zu helfen dich zu finden wird der Verlauf deiner Spielernamen in deinem Profil angezeigt.</note>
+      </notes>
+      <segment>
+        <source>WARNUNG: Du kannst deinen Spielernamen nicht jederzeit ändern, wähle ihn also weiße, denn du wirst ihn für mehrere Monate behalten. Um anderen Spielern zu helfen dich zu finden wird der Verlauf deiner Spielernamen in deinem Profil angezeigt.</source>
+        <target>ATTENTION ! Le changement de pseudo n'est pas illimité, choisissez avec soin car vous ne pourrez pas en changer avant plusieurs mois ! Par ailleurs, pour permettre aux autres joueurs de s'y retrouver, l'historique de vos pseudos est affiché sur votre profil.</target>
+      </segment>
+    </unit>
+    <unit id="CnsnaNX" name="Du kannst deinen Spielernamen aktuell nicht ändern.">
+      <notes>
+        <note category="german">Du kannst deinen Spielernamen aktuell nicht ändern.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Spielernamen aktuell nicht ändern.</source>
+        <target>Vous ne pouvez pas utiliser ce nom d'affichage.</target>
+      </segment>
+    </unit>
+    <unit id="6d9Ha3Q" name="Ändern des Spielernamens">
+      <notes>
+        <note category="german">Ändern des Spielernamens</note>
+      </notes>
+      <segment>
+        <source>Ändern des Spielernamens</source>
+        <target>Changer de nom d'affichage</target>
+      </segment>
+    </unit>
+    <unit id="LIMbDjH" name="Du kannst deinen Spielernamen nicht mehr ändern.">
+      <notes>
+        <note category="german">Du kannst deinen Spielernamen nicht mehr ändern.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Spielernamen nicht mehr ändern.</source>
+        <target>Vous ne pouvez plus changer de nom d'affichage.</target>
+      </segment>
+    </unit>
+    <unit id="yF2vVL5" name="%user% war in der Vergangenheit unter folgenden Namen bekannt:">
+      <notes>
+        <note category="german">%user% war in der Vergangenheit unter folgenden Namen bekannt:</note>
+      </notes>
+      <segment>
+        <source>%user% war in der Vergangenheit unter folgenden Namen bekannt:</source>
+        <target>%user% a également porté les pseudos suivants :</target>
+      </segment>
+    </unit>
+    <unit id="tT1wWcP" name="Du hattest in der Vergangenheit folgende Spielernamen:">
+      <notes>
+        <note category="german">Du hattest in der Vergangenheit folgende Spielernamen:</note>
+      </notes>
+      <segment>
+        <source>Du hattest in der Vergangenheit folgende Spielernamen:</source>
+        <target>Vous avez également porté les pseudos suivants :</target>
+      </segment>
+    </unit>
+    <unit id="nA9SyfS" name="Dafür ist es zu früh!">
+      <notes>
+        <note category="german">Dafür ist es zu früh!</note>
+      </notes>
+      <segment>
+        <source>Dafür ist es zu früh!</source>
+        <target>Il est trop tôt pour faire ça !</target>
+      </segment>
+    </unit>
+    <unit id="7aH8vQI" name="Bitte ändere deinen Anzeigenamen auf EternalTwin.">
+      <notes>
+        <note category="german">Bitte ändere deinen Anzeigenamen auf EternalTwin.</note>
+      </notes>
+      <segment>
+        <source>Bitte ändere deinen Anzeigenamen auf EternalTwin.</source>
+        <target>Vous devez utiliser votre compte EternalTwin pour changer votre nom d'affichage.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

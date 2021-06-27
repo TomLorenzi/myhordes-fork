@@ -42,6 +42,10 @@
                 {% trans from 'game' %}
                     Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.
                 {% endtrans %}
+                {% if pump is null %}
+                    <br />
+                    <strong>{{'Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!'|trans({}, 'game')}} {{ help_btn('Du kannst den Bau einer Pumpe im Bereich <strong>Konstruktionen</strong> beginnen.'|trans({}, 'game')) }}</strong>
+                {% endif %}
             </div>
             {% if pump is not null %}
                 {# @var pump \App\Entity\Building #}

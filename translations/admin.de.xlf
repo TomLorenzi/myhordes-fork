@@ -3547,5 +3547,23 @@
         <target>Stadt zerstören</target>
       </segment>
     </unit>
+    <unit id="k_02uKb" name="Ändern des Spielernamens verbieten">
+      <notes>
+        <note category="german">Ändern des Spielernamens verbieten</note>
+      </notes>
+      <segment>
+        <source>Ändern des Spielernamens verbieten</source>
+        <target>Ändern des Spielernamens verbieten</target>
+      </segment>
+    </unit>
+    <unit id="VR0KmfL" name="Spielername">
+      <notes>
+        <note category="german">Spielername</note>
+      </notes>
+      <segment>
+        <source>Spielername</source>
+        <target>Spielername</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -1,4 +1,5 @@
 {% extends "ajax/game/game.html.twig" %}
+{% block title %}{{ user.name }}{% endblock %}
 {% block ajax %}
     <div class="row soul">
         <div class="cell padded header rw-10 ro-1 rw-md-12 ro-md-0 edge-top-left">
@@ -41,6 +42,17 @@
                     {% endif %}
                     {% if user_desc %}
                         <div class="personal_desc"><div>{{ 'Persönliche Beschreibung'|trans({},'game') }}</div><div>"{{ user_desc|raw }}"</div></div>
+                    {% endif %}
+
+                    {% if user.nameHistory|length > 0 %}
+                        <div class="personal_desc mt-1">
+                            <div>{{'%user% war in der Vergangenheit unter folgenden Namen bekannt:'|trans({'%user%': user.name}, 'soul')}}</div>
+                            <div>
+                                {% for name in user.nameHistory %}
+                                    {{ name }}{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
                     {% endif %}
 
                     <div class="town-history">

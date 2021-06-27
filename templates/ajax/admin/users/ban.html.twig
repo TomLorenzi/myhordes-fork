@@ -26,7 +26,6 @@
                                 <div class="row">
                                     <div class="cell rw-2 padded">
                                         {% if restriction.active %}
-
                                             {% if not restriction.confirmed %}
                                                 <div class="inline-block">
                                                     <img alt="!" src="{{ asset('build/images/assets/img/icons/small_warning.gif') }}" />
@@ -77,6 +76,7 @@
                                                     {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionProfileAvatar')) %}<div>{{ 'Avatar'|trans({},'admin') }}</div>{% endif %}
                                                     {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionProfileDescription')) %}<div>{{ 'Profilbeschreibung'|trans({},'admin') }}</div>{% endif %}
                                                     {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle')) %}<div>{{ 'Titel'|trans({},'admin') }}</div>{% endif %}
+                                                    {% if restriction.restriction|bin_contains(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName')) %}<div>{{ 'Spielername'|trans({},'admin') }}</div>{% endif %}
                                                 {% endif %}
                                             </div>
                                         </div>
@@ -143,6 +143,7 @@
                                 <div class="cell ro-1 rw-11"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionProfileAvatar') }}"> {{ 'Ändern des Avatars verbieten'|trans({},'admin') }}</label></div>
                                 <div class="cell ro-1 rw-11"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionProfileDescription') }}"> {{ 'Ändern der Profilbeschreibung verbieten'|trans({},'admin') }}</label></div>
                                 <div class="cell ro-1 rw-11"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionProfileTitle') }}"> {{ 'Ändern des Titels verbieten'|trans({},'admin') }}</label></div>
+                                <div class="cell ro-1 rw-11"><label><input type="checkbox" x-restriction="{{ constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName') }}"> {{ 'Ändern des Spielernamens verbieten'|trans({},'admin') }}</label></div>
                             </div>
                             <div class="row">
                                 <div class="cell rw-12">

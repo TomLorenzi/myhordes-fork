@@ -20266,6 +20266,24 @@
         <target>Von den Verteidigungsanlagen der Stadt aufgehalten, gingen eure ehemaligen Mitbürger mit leeren Händen und mampften stattdessen die Überreste ihrer eigenen verrottenden Gliedmaßen.</target>
       </segment>
     </unit>
+    <unit id="mw_CjlK" name="Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!">
+      <notes>
+        <note category="german">Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!</note>
+      </notes>
+      <segment>
+        <source>Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!</source>
+        <target>Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!</target>
+      </segment>
+    </unit>
+    <unit id="AyyQPWF">
+      <notes>
+        <note category="german">Du kannst den Bau einer Pumpe im Bereich &lt;strong&gt;Konstruktionen&lt;/strong&gt; beginnen.</note>
+      </notes>
+      <segment>
+        <source>Du kannst den Bau einer Pumpe im Bereich &lt;strong&gt;Konstruktionen&lt;/strong&gt; beginnen.</source>
+        <target><![CDATA[Du kannst den Bau einer Pumpe im Bereich <strong>Konstruktionen</strong> beginnen.]]></target>
+      </segment>
+    </unit>
     <unit id="uAj26XB" name="Schließen">
       <notes>
         <note category="german">Schließen</note>
