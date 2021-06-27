@@ -20,7 +20,7 @@ class ICUTranslator implements TranslatorInterface, TranslatorBagInterface, Loca
         $this->_security = $security;
     }
 
-    static $gender_map = [ 0 => 'none', 1 => 'male', 2 => 'female' ];
+    static array $gender_map = [ 0 => 'none', 1 => 'male', 2 => 'female' ];
 
     public function trans(?string $id, array $parameters = [], string $domain = null, string $locale = null): string
     {
