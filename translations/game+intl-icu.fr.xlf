@@ -19361,7 +19361,7 @@
       </notes>
       <segment>
         <source>Die Stadt hat zudem folgende Resourcen zurückgewinnen können: {item_list}</source>
-        <target>Die Stadt hat zudem folgende Resourcen zurückgewinnen können: {item_list}</target>
+        <target>La ville a également récupéré les ressources suivantes : {item_list}</target>
       </segment>
     </unit>
     <unit id="QDOrNez">
