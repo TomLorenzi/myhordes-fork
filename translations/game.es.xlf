@@ -20217,7 +20217,7 @@
       </notes>
       <segment>
         <source>In der Horde der Zombies wurden %num% ehemalige Bürger gesichtet, die in der Aussenwelt gestorben sind und sich der Stadt nun zähnefletschend und mit düsterem Blick nähern...</source>
-        <target>In der Horde der Zombies wurden %num% ehemalige Bürger gesichtet, die in der Aussenwelt gestorben sind und sich der Stadt nun zähnefletschend und mit düsterem Blick nähern...</target>
+        <target>En esta turba, %num% antiguos habitantes muertos en el Ultramundo han vuelto, con la mandíbula colgante y la mirada oscura.</target>
       </segment>
     </unit>
     <unit id="DLc6Njb">
@@ -20226,7 +20226,7 @@
       </notes>
       <segment>
         <source>Von den Verteidigungsanlagen der Stadt aufgehalten, gingen eure ehemaligen Mitbürger mit leeren Händen und mampften stattdessen die Überreste ihrer eigenen verrottenden Gliedmaßen.</source>
-        <target>Von den Verteidigungsanlagen der Stadt aufgehalten, gingen eure ehemaligen Mitbürger mit leeren Händen und mampften stattdessen die Überreste ihrer eigenen verrottenden Gliedmaßen.</target>
+        <target>Contenidos por las defensas del pueblo, tus antiguos compañeros se marcharon con las manos vacías y masticando los restos de sus propios miembros putrefactos.</target>
       </segment>
     </unit>
   </file>
