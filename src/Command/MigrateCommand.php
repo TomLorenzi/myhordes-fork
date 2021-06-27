@@ -454,7 +454,7 @@ class MigrateCommand extends Command
                 ]);
                 $input->setInteractive(false);
                 try {
-                    $command->run($input, new NullOutput());
+                    $command->run($input, $output);
                 } catch (Exception $e) {
                     $output->writeln("Error: <error>{$e->getMessage()}</error>");
                     return 1;

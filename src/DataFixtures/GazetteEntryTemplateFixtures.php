@@ -538,6 +538,7 @@ class GazetteEntryTemplateFixtures extends Fixture
             // Get existing entry, or create new one
             $entity = $this->entityManager->getRepository(GazetteEntryTemplate::class)->findOneBy( ['name' => $entry['name']] );
             if ($entity === null) $entity = new GazetteEntryTemplate();
+            elseif ($entity->getText() !== $entry['text']) $out->writeln("{$entity->getName()}\n\t{$entity->getText()}\n\t{$entry['text']}\n\n");
 
             // Set property
             $entity

@@ -54,7 +54,7 @@ class TownLogEntry
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\LogEntryTemplate")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
     private $logEntryTemplate;
 

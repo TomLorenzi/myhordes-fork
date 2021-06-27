@@ -224,7 +224,7 @@ class DatabaseExtractor implements ExtractorInterface
         foreach ($this->em->getRepository(GazetteEntryTemplate::class)->findAll() as $gazetteTemplate)
             /** @var GazetteEntryTemplate $gazetteTemplate */
             if ($gazetteTemplate->getText())
-                $this->insert( $c, $logtemplate->getText(), 'game' );
+                $this->insert( $c, $gazetteTemplate->getText(), 'game' );
 
         foreach ($this->em->getRepository(HeroSkillPrototype::class)->findAll() as $heroSkill) {
             /** @var HeroSkillPrototype $heroSkill */

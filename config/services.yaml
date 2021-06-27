@@ -118,6 +118,7 @@ services:
             - { name: translation.extractor.myhordes, alias: 'twig' }
 
     App\Translation\ExpandedDumper:
+        arguments: ['@translator.default']
         tags:
             - { name: translation.dumper, alias: xlf2 }
 

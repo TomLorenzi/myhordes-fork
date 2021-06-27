@@ -210,8 +210,13 @@ class LogEntryTemplateFixtures extends Fixture
         $progress = new ProgressBar( $out->section() );
         $progress->start( count(static::$log_entry_template_data) );
 
+        $names = [];
+
         // Iterate over all entries
         foreach (static::$log_entry_template_data as $entry) {
+
+            $names[] = $entry['name'];
+
             // Get existing entry, or create new one
             $entity = $this->entityManager->getRepository(LogEntryTemplate::class)->findOneBy( ['name' => $entry['name']] );
             if ($entity === null) $entity = new LogEntryTemplate();
@@ -230,6 +235,10 @@ class LogEntryTemplateFixtures extends Fixture
             $manager->persist( $entity );
             $progress->advance();
         }
+
+        foreach ($this->entityManager->getRepository(LogEntryTemplate::class)->findAll() as $candidate)
+            if (!in_array($candidate->getName(),$names) )
+                $this->entityManager->remove($candidate);
 
         $manager->flush();
         $progress->finish();

@@ -29,7 +29,7 @@ class GazetteLogEntry
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\LogEntryTemplate")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
     private $logEntryTemplate;
 
@@ -40,6 +40,7 @@ class GazetteLogEntry
 
     /**
      * @ORM\ManyToOne(targetEntity=GazetteEntryTemplate::class)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $template;
 
