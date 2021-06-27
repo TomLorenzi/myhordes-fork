@@ -232,7 +232,7 @@
       </notes>
       <segment>
         <source>Resigniert und untröstlich sahen die Bürger wie eine Horde von %num% Zombies sich in Richtung Stadt bewegte... Wie aus dem Nichts stand die Meute auf einmal vor dem Stadttor...</source>
-        <target>Résignés et inconsolables, les citoyens ont vu une horde de %num% de zombies se diriger vers la ville... Sortie de nulle part, la meute est soudainement apparue à la porte de la ville...</target>
+        <target>The now visibly agitated citizens watched a horde of %num% zombies heading for the town... All of a sudden, the source of our nightmares began to gather in front of the town gates...</target>
       </segment>
     </unit>
     <unit id="XX6_Va3" name="%num% Zombies attackieren die Stadtbewohner!">
