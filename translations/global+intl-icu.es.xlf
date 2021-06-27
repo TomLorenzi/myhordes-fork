@@ -2933,5 +2933,50 @@
         <target>Este usuario no desea recibir mensajes tuyos, por lo tanto no puedes escribirle.</target>
       </segment>
     </unit>
+    <unit id="CHfX5El" name="Bevorzugte Pronomen">
+      <notes>
+        <note category="german">Bevorzugte Pronomen</note>
+      </notes>
+      <segment>
+        <source>Bevorzugte Pronomen</source>
+        <target>Bevorzugte Pronomen</target>
+      </segment>
+    </unit>
+    <unit id="z8t41lP">
+      <notes>
+        <note category="german">Hier kannst du festlegen, welche Personalpronomen das Spiel verwenden soll, wenn es sich auf dich bezieht (z.B. "männlich" für "er", "ihn", etc und "weiblich" für "sie", "ihr", etc).&lt;br /&gt;&lt;em&gt;Diese Einstellung beeinflusst, wie dir und anderen Spielern bestimmte Texte angezeigt werden, wenn die Option "Neue Übersetzungen verwenden" aktiv ist.&lt;/em&gt;.</note>
+      </notes>
+      <segment>
+        <source>Hier kannst du festlegen, welche Personalpronomen das Spiel verwenden soll, wenn es sich auf dich bezieht (z.B. "männlich" für "er", "ihn", etc und "weiblich" für "sie", "ihr", etc).&lt;br /&gt;&lt;em&gt;Diese Einstellung beeinflusst, wie dir und anderen Spielern bestimmte Texte angezeigt werden, wenn die Option "Neue Übersetzungen verwenden" aktiv ist.&lt;/em&gt;.</source>
+        <target><![CDATA[Hier kannst du festlegen, welche Personalpronomen das Spiel verwenden soll, wenn es sich auf dich bezieht (z.B. "männlich" für "er", "ihn", etc und "weiblich" für "sie", "ihr", etc).<br /><em>Diese Einstellung beeinflusst, wie dir und anderen Spielern bestimmte Texte angezeigt werden, wenn die Option "Neue Übersetzungen verwenden" aktiv ist.</em>.]]></target>
+      </segment>
+    </unit>
+    <unit id="n6hJSL5" name="Männlich">
+      <notes>
+        <note category="german">Männlich</note>
+      </notes>
+      <segment>
+        <source>Männlich</source>
+        <target>Männlich</target>
+      </segment>
+    </unit>
+    <unit id="GoQ1yLW" name="Weiblich">
+      <notes>
+        <note category="german">Weiblich</note>
+      </notes>
+      <segment>
+        <source>Weiblich</source>
+        <target>Weiblich</target>
+      </segment>
+    </unit>
+    <unit id="ttkKiaP" name="Keine Präferenz">
+      <notes>
+        <note category="german">Keine Präferenz</note>
+      </notes>
+      <segment>
+        <source>Keine Präferenz</source>
+        <target>Keine Präferenz</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

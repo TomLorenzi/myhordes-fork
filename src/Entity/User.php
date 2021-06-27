@@ -35,6 +35,10 @@ class User implements UserInterface, EquatableInterface
     const ROLE_ADMIN     =  4;
     const ROLE_SUPER     =  5;
 
+    const PRONOUN_NONE = 0;
+    const PRONOUN_MALE = 1;
+    const PRONOUN_FEMALE = 2;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -249,6 +253,11 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="boolean")
      */
     private $UseICU = false;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $preferredPronoun;
 
     public function __construct()
     {
@@ -1045,6 +1054,18 @@ class User implements UserInterface, EquatableInterface
     public function setUseICU(bool $UseICU): self
     {
         $this->UseICU = $UseICU;
+
+        return $this;
+    }
+
+    public function getPreferredPronoun(): ?int
+    {
+        return $this->preferredPronoun;
+    }
+
+    public function setPreferredPronoun(?int $preferredPronoun): self
+    {
+        $this->preferredPronoun = $preferredPronoun;
 
         return $this;
     }

@@ -405,6 +405,13 @@ class SoulController extends CustomAbstractController
         $title = $parser->get_int('title', -1);
         $icon  = $parser->get_int('icon', -1);
         $desc  = mb_substr(trim($parser->get('desc')) ?? '', 0, 256);
+        $pronoun = $parser->get('pronoun','none', ['male','female','none']);
+
+        switch ($pronoun) {
+            case 'male': $user->setPreferredPronoun( User::PRONOUN_MALE ); break;
+            case 'female': $user->setPreferredPronoun( User::PRONOUN_FEMALE ); break;
+            default: $user->setPreferredPronoun( User::PRONOUN_NONE ); break;
+        }
 
         if ($title < 0 && $icon >= 0)
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );

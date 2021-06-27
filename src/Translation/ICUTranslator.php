@@ -25,17 +25,17 @@ class ICUTranslator implements TranslatorInterface, TranslatorBagInterface, Loca
     {
         /** @var User $u */
         $u = $this->_security->getUser();
-        $pass_trough = ['__icu' => $u ? $u->getUseICU() : false];
+        $pass_trough = ['{__icu}' => $u ? $u->getUseICU() : false];
         foreach ($parameters as $key => $value) {
             if (is_a( $value, User::class )) {
                 /** @var User $value */
-                $pass_trough["{$key}__gender"] = 0; // TODO: Get "users gender" config here
-                $pass_trough["{$key}"] = $value->getName();
+                $pass_trough[substr($key,0,-1) . '__gender}'] = 'none'; // TODO: Get "users gender" config here
+                $pass_trough[$key] = $value->getName();
             } elseif (is_a( $value, Citizen::class )) {
                 /** @var Citizen $value */
-                $pass_trough["{$key}__gender"] = 0; // TODO: Get "users gender" config here
-                $pass_trough["{$key}"] = $value->getName();
-            }
+                $pass_trough[substr($key,0,-1) . '__gender}'] = 'none'; // TODO: Get "users gender" config here
+                $pass_trough[$key] = $value->getName();
+            } else $pass_trough[$key] = $value;
         }
         return $this->_decorated->trans($id,$pass_trough,$domain,$locale);
     }
