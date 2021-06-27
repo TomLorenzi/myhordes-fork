@@ -97,13 +97,13 @@
                     <em>{{ 'Verteidigung'|trans({}, 'game') }}</em><br />
                     <span class="counter">{{ def.sum }} <img src="{{ asset('build/images/icons/small_def.gif') }}" alt="" /></span>
                     {{ help_btn(
-                        'Behausung'|trans({},'game') ~ ': <strong>' ~ '+%def% Punkt(e)'|trans({'%def%': def.house_defense},'game') ~ '</strong><br />' ~
-                        'Bauarbeiten'|trans({},'game') ~ ': <strong>' ~ '+%def% Punkt(e)'|trans({'%def%': def.upgrades_defense},'game') ~ '</strong><br />' ~
-                        'Verteidigungsgegenstände'|trans({},'game') ~ ': <strong>' ~ '+%def% Punkt(e)'|trans({'%def%': def.item_defense},'game') ~ '</strong><br />' ~
-                        'Heldenbonus'|trans({},'game') ~ ': <strong>' ~ '+%def% Punkt(e)'|trans({'%def%': def.job_defense},'game') ~ '</strong><br />' ~
-                        (def.job_guard_defense > 0 ? ('Wächterbonus'|trans({},'game') ~ ': <strong>' ~ '+%def% Punkt(e)'|trans({'%def%': def.job_guard_defense},'game') ~ '</strong><br />') : '') ~
+                        'Behausung'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.house_defense},'game') ~ '</strong><br />' ~
+                        'Bauarbeiten'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.upgrades_defense},'game') ~ '</strong><br />' ~
+                        'Verteidigungsgegenstände'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.item_defense},'game') ~ '</strong><br />' ~
+                        'Heldenbonus'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.job_defense},'game') ~ '</strong><br />' ~
+                        (def.job_guard_defense > 0 ? ('Wächterbonus'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.job_guard_defense},'game') ~ '</strong><br />') : '') ~
                         '<hr />' ~
-                        'Total'|trans({},'game') ~ ': <strong>' ~ '+%def% Punkt(e)'|trans({'%def%': def.sum},'game') ~ '</strong>' ~
+                        'Total'|trans({},'game') ~ ': <strong>' ~ '+{def} Punkt(e)'|trans({'{def}': def.sum},'game') ~ '</strong>' ~
                         '<p class="small">' ~ 'Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.'|trans({},'game') ~ '</p>'
                     ) }}
                 </div>
@@ -119,7 +119,7 @@
 
         {% if complaints|length > 0 %}
             <div class="note note-warning">
-                {{ 'Du hast %num% anonyme Anzeige(n).'|trans({'%num%': '<b>' ~ complaints|length ~ '</b>'}, 'game')|raw }}<br />
+                {{ 'Du hast {num} anonyme Anzeige(n).'|trans({'{num}': '<b>' ~ complaints|length ~ '</b>'}, 'game')|raw }}<br />
                 {% trans from 'game' %}
                     Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...
                 {% endtrans %}
@@ -207,7 +207,7 @@
             <div id="nonArchivedContent">
             {% if nonArchivedMessages|length == 0 %}
                 <div class="help">
-                {{ 'Du hast <strong>keine neue Privatnachricht</strong> erhalten. Eine Liste aller Bürger findest du im <span class="link" x-ajax-href="%path%">Verzeichnis der Stadt</span>.'|trans({"%path%": path('town_citizens')},'game')|raw }}
+                {{ 'Du hast <strong>keine neue Privatnachricht</strong> erhalten. Eine Liste aller Bürger findest du im <span class="link" x-ajax-href="{path}">Verzeichnis der Stadt</span>.'|trans({"{path}": path('town_citizens')},'game')|raw }}
                 </div>
             {% else %}
                 <div class="row-table messages-list">
@@ -332,7 +332,7 @@
 
     <div x-tab-group="home-main" x-tab-id="complaints" x-tab-target>
         <div class="row">
-            {{ 'Du hast %num% anonyme Anzeige(n) erhalten.'|trans({'%num%': '<b>' ~ complaints|length ~ '</b>'}, 'game')|raw }}
+            {{ 'Du hast {num} anonyme Anzeige(n) erhalten.'|trans({'{num}': '<b>' ~ complaints|length ~ '</b>'}, 'game')|raw }}
             {% if not citizen.banished %}
             {{'Sollte diese Zahl auf 8 ansteigen, wirst du verbannt!'|trans({}, 'game')}}
             {% endif %}
@@ -359,7 +359,7 @@
         <div class="row-flex wrap town-summary">
             <div class="padded cell rw-4 ellipsis row-header"><img src="{{ asset('build/images/icons/small_home.gif') }}" /> {{'Zuhause'|trans({}, 'game')}}</div>
             <div class="padded cell rw-8 ellipsis row-detail">
-                <img alt="{{ home.prototype.level }}" src="{{ asset('build/images/home/' ~ home.prototype.icon ~ '.gif') }}" /> <strong>{{ home.prototype.label|trans({}, 'buildings') }}<div class="tooltip normal">{{ 'Stufe %lvl%'|trans({'%lvl%': home.prototype.level}, 'game') }}</div></strong>
+                <img alt="{{ home.prototype.level }}" src="{{ asset('build/images/home/' ~ home.prototype.icon ~ '.gif') }}" /> <strong>{{ home.prototype.label|trans({}, 'buildings') }}<div class="tooltip normal">{{ 'Stufe {lvl}'|trans({'{lvl}': home.prototype.level}, 'game') }}</div></strong>
                 [
                 {% if home.prototype.defense == 0 %}
                     {{ 'kein Verteidigungsbonus'|trans({}, 'game') }}
@@ -398,7 +398,7 @@
                 {% for item in decoItems %}
                     <li><img src="{{ asset('build/images/item/item_' ~ item.prototype.icon ~ ".gif") }}" alt="[]"/> {{ item.prototype.label|trans({}, 'items') }} <em>(+{{ item.prototype.deco }} {{ 'Deko-Punkte'|trans({}, 'game') }})</em> </li>
                 {% endfor %}
-                <li class="separator">{{ 'Komiteenote:'|trans({}, 'game') }} <strong>{{ deco }}  {{ 'Punkt(e)'|trans({}, 'game') }}</strong> {{ help_btn(('Diese Note wird vom <strong>Komitee des guten Geschmacks der Stadt %townname%</strong> vergeben.'|trans({"%townname%": home.citizen.town.name}, 'game'))) }}</li>
+                <li class="separator">{{ 'Komiteenote:'|trans({}, 'game') }} <strong>{{ deco }}  {{ 'Punkt(e)'|trans({}, 'game') }}</strong> {{ help_btn(('Diese Note wird vom <strong>Komitee des guten Geschmacks der Stadt {townname}</strong> vergeben.'|trans({"{townname}": home.citizen.town.name}, 'game'))) }}</li>
             </ul>
         {% endif %}
         </div>
@@ -482,7 +482,7 @@
                                 <img alt="" src="{{ asset('build/images/home/' ~ upgrade.icon ~ '.gif') }}" /> {{ upgrade.label|trans({},'buildings') }}
                             </div>
                             <div class="padded cell rw-4 right">
-                                <span class="small">{{ 'Stufe %level%'|trans({'%level%': upgrade_levels[id]},'game') }}</span>
+                                <span class="small">{{ 'Stufe {level}'|trans({'{level}': upgrade_levels[id]},'game') }}</span>
                             </div>
                         </div>
                     {% endif %}
@@ -608,7 +608,7 @@
                                             {% if upgrade_levels[id] == 0 %}
                                                 {% trans from 'game' %}Einbauen{% endtrans %}
                                             {% else %}
-                                                {% trans with {'%level%': upgrade_levels[id]+1} from 'game' %}Upgrade auf St. %level%{% endtrans %}
+                                                {% trans with {'{level}': upgrade_levels[id]+1} from 'game' %}Upgrade auf St. {level}{% endtrans %}
                                             {% endif %}
                                         </button></p>
                                     </div>

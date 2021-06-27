@@ -33,7 +33,7 @@
 </p>
 <h2>{{ 'Der letzte Angriff:'|trans({},'help')|raw }}</h2>
 <p>{{ 'Wenn bei einem Angriff alle Einwohner umkommen, bekommt einer von ihnen den Titel des <strong>Letzten Todes!</strong>
-Lies dir den entsprechenden Abschnitt bitte <span x-ajax-href=%url_lms%>hier</span> durch.'|trans({'%url_lms%': url('help', {'name': 'last_man_standing'})},'help')|raw }}</p>
+Lies dir den entsprechenden Abschnitt bitte <span x-ajax-href={url_lms}>hier</span> durch.'|trans({'{url_lms}': url('help', {'name': 'last_man_standing'})},'help')|raw }}</p>
 <h2>{{ 'Phase 4: Gebäudeschäden (Pandämonium)'|trans({},'help')|raw }}</h2>
 <p>
 {{ 'Alle fertiggestellen Gebäude der Stadt können beim Angriff der Zombiehorde beschädigt werden.

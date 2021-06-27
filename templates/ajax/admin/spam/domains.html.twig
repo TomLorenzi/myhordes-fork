@@ -2,7 +2,7 @@
 {% block ajax %}
     <div class="row">
         <div class="cell rw-12">
-            <b>{{ 'Anzahl der gelisteten Domains: %number%'|trans({'%number%': n},'admin') }}</b>
+            <b>{{ 'Anzahl der gelisteten Domains: {number}'|trans({'{number}': n},'admin') }}</b>
             <hr />
             <div style="height: 250px; overflow-y: scroll;" id="domain_list"></div>
             <div class="row-flex">

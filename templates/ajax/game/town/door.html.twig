@@ -1,5 +1,5 @@
 {% extends "ajax/game/town/town.html.twig" %}
-{% block title %}{{'Das Stadttor von "%townname%"'|trans({"%townname%": town.name}, 'game')|raw}}{% endblock %}
+{% block title %}{{'Das Stadttor von "{townname}"'|trans({"{townname}": town.name}, 'game')|raw}}{% endblock %}
 {% block tutorial %}
     <div x-tutorial-content="4.text3" class="toplevel text arrow-down">
         <div class="help">

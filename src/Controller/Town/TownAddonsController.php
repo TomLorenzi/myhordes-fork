@@ -724,9 +724,9 @@ class TownAddonsController extends TownController
             $this->inventory_handler->forceMoveItem( $target_inv, $item );
         }
 
-        $this->addFlash('notice', $trans->trans('Sorgfältig verpackt hast du %item% in das Katapult gelegt. Der Gegenstand wurde auf %zone% geschleudert.', [
-            '%item%' => "<span><img alt='' src='" . $asset->getUrl("build/images/item/item_{$item->getPrototype()->getIcon()}.gif") . "' />" . $trans->trans($item->getPrototype()->getLabel(), [], 'items') . "</span>",
-            '%zone%' => "<strong>[{$target_zone->getX()}/{$target_zone->getY()}]</strong>"
+        $this->addFlash('notice', $trans->trans('Sorgfältig verpackt hast du {item} in das Katapult gelegt. Der Gegenstand wurde auf {zone} geschleudert.', [
+            '{item}' => "<span><img alt='' src='" . $asset->getUrl("build/images/item/item_{$item->getPrototype()->getIcon()}.gif") . "' />" . $trans->trans($item->getPrototype()->getLabel(), [], 'items') . "</span>",
+            '{zone}' => "<strong>[{$target_zone->getX()}/{$target_zone->getY()}]</strong>"
         ], 'game'));
 
         // Persist

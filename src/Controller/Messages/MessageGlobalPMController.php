@@ -1048,10 +1048,10 @@ class MessageGlobalPMController extends MessageController
 
         if (!empty($blocked_users)) {
             if (count($blocked_users) === 1)
-                $this->addFlash('error', $this->translator->trans('%user% hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.',['%user%' => $blocked_users[0]->getName()],'global'));
+                $this->addFlash('error', $this->translator->trans('{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.',['{user}' => $blocked_users[0]->getName()],'global'));
             else {
-                $users_text = $this->translator->trans('%users% und %last_user%', ['%users%' => implode( ', ', array_map(fn(User $u) => $u->getName(), array_slice($blocked_users, 0, -1) )), '%last_user%' => $blocked_users[array_key_last($blocked_users)]->getName()], 'global');
-                $this->addFlash('error', $this->translator->trans('%users% haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.',['%users%' => $users_text],'global'));
+                $users_text = $this->translator->trans('{users} und {last_user}', ['{users}' => implode( ', ', array_map(fn(User $u) => $u->getName(), array_slice($blocked_users, 0, -1) )), '{last_user}' => $blocked_users[array_key_last($blocked_users)]->getName()], 'global');
+                $this->addFlash('error', $this->translator->trans('{users} haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.',['{users}' => $users_text],'global'));
             }
         }
 
@@ -1229,7 +1229,7 @@ class MessageGlobalPMController extends MessageController
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
 
-        return AjaxResponse::success( true, ['msg' => $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $message->getSender()->getName() . '</span>'], 'game')]);
+        return AjaxResponse::success( true, ['msg' => $ti->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $message->getSender()->getName() . '</span>'], 'game')]);
     }
 
     /**

@@ -17,8 +17,8 @@
         {% endtrans %}
     </p>
     <p>
-        {% trans with {'%guide_help%': ('<a target="_blank" href="' ~ path('help', {'name': 'guide_to_the_world_beyond'}) ~ '">' ~ 'Reiseleiter-Ratgeber'|trans({},'game') ~ '</a>')} from 'game' %}
-            Schau dir am besten gleich den %guide_help% an.
+        {% trans with {'{guide_help}': ('<a target="_blank" href="' ~ path('help', {'name': 'guide_to_the_world_beyond'}) ~ '">' ~ 'Reiseleiter-Ratgeber'|trans({},'game') ~ '</a>')} from 'game' %}
+            Schau dir am besten gleich den {guide_help} an.
         {% endtrans %}<br />
         {% trans from 'game' %}
             Es enthält alle wesentlichen Informationen, um endlich deinen überlegenen Status in den Augen aller anerkennen zu lassen...

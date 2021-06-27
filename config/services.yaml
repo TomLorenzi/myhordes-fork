@@ -90,6 +90,12 @@ services:
     #   tags:
     #     - { name: translation.extractort, alias: 'none', priority: 0 }
 
+    app.decoration.translator:
+      class: App\Translation\ICUTranslator
+      decorates: translator.default
+      arguments: ['@app.decoration.translator.inner']
+      public: false
+
     translation.extractor.myhordes:
       public: false
       abstract: true

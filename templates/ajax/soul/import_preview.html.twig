@@ -30,7 +30,7 @@
                     <div class="padded cell rw-6 rw-sm-12 center">
 
                         {% if payload.pastTowns|length > 0 %}
-                            <div class="counter">{{ '%c% Städte'|trans({'%c%': payload.pastTowns|length}, 'soul') }}</div>
+                            <div class="counter">{{ '{c} Städte'|trans({'{c}': payload.pastTowns|length}, 'soul') }}</div>
 
                             {% set rg  = [-1,-1] %}
                             {% set new = 0 %}
@@ -46,16 +46,16 @@
                             {% endfor %}
                             {% if new > 0 %}
                                 {% if new == payload.pastTowns|length %}
-                                    <div><em>{{ 'zwischen Saison %smin% und %smax%'|trans({'%smin%': rg[0],'%smax%': rg[1]},'soul') }}</em></div>
+                                    <div><em>{{ 'zwischen Saison {smin} und {smax}'|trans({'{smin}': rg[0],'{smax}': rg[1]},'soul') }}</em></div>
                                 {% else %}
-                                    <div><em>{{ '%num% Städte zw. Saison %smin% und %smax%'|trans({'%num%': new,'%smin%': rg[0],'%smax%': rg[1]},'soul') }}</em></div>
+                                    <div><em>{{ '{num} Städte zw. Saison {smin} und {smax}'|trans({'{num}': new,'{smin}': rg[0],'{smax}': rg[1]},'soul') }}</em></div>
                                 {% endif %}
                             {% endif %}
                             {% if old > 0 %}
                                 {% if old == payload.pastTowns|length %}
                                     <div><em>{{ 'aus vergangener Zeit'|trans({},'soul') }}</em></div>
                                 {% else %}
-                                    <div><em>{{ '%num% Städte aus vergangener Zeit'|trans({'%num%': old},'soul') }}</em></div>
+                                    <div><em>{{ '{num} Städte aus vergangener Zeit'|trans({'{num}': old},'soul') }}</em></div>
                                 {% endif %}
                             {% endif %}
                         {% else %}
@@ -77,11 +77,11 @@
                                 {% endif %}
                             {% endfor %}
 
-                            <div class="counter">{{ '%c% Titel & Icons'|trans({'%c%': payload.unlockables|length}, 'soul') }}</div>
-                            <div><em>{{ '%c% Titel, %cc% Icons'|trans({'%c%': title, '%cc%': icon},'soul') }}</em></div>
+                            <div class="counter">{{ '{c} Titel & Icons'|trans({'{c}': payload.unlockables|length}, 'soul') }}</div>
+                            <div><em>{{ '{c} Titel, {cc} Icons'|trans({'{c}': title, '{cc}': icon},'soul') }}</em></div>
 
                             {% if unknown > 0 %}
-                                <div><em><img alt="" src="{{ asset('build/images/icons/small_warning.gif') }}" /> {{ '%num% unbekannte Objekte!'|trans({'%num%': unknown},'soul') }}</em></div>
+                                <div><em><img alt="" src="{{ asset('build/images/icons/small_warning.gif') }}" /> {{ '{num} unbekannte Objekte!'|trans({'{num}': unknown},'soul') }}</em></div>
                             {% endif %}
                         {% else %}
                             <div class="counter">{{ 'Keine Freischaltungen'|trans({}, 'soul') }}</div>
@@ -116,7 +116,7 @@
             <div class="dashboard" x-only-main="1" {% if not main_soul %}disabled="disabled"{% endif %}>
                 <div class="row">
                     <div class="padded cell rw-4 rw-lg-12 center">
-                        <div class="counter">{{ '%c% Seelenpunkte'|trans({'%c%': payload.summarySoulPoints}, 'soul') }}</div>
+                        <div class="counter">{{ '{c} Seelenpunkte'|trans({'{c}': payload.summarySoulPoints}, 'soul') }}</div>
                     </div>
                     <div class="padded cell rw-4 rw-lg-12 center">
                         {% if payload.pictos|length > 0 %}
@@ -135,21 +135,21 @@
                                 {% endif %}
                             {% endfor %}
 
-                            <div class="counter">{{ '%c% Auszeichnungen'|trans({'%c%': num}, 'soul') }}</div>
+                            <div class="counter">{{ '{c} Auszeichnungen'|trans({'{c}': num}, 'soul') }}</div>
                             {% if rare > 0 %}
-                                <div><em>{{ '%c% Auszeichnungs-Typen, %cc% davon selten'|trans({'%c%': payload.pictos|length, '%cc%': rare},'soul') }}</em></div>
+                                <div><em>{{ '{c} Auszeichnungs-Typen, {cc} davon selten'|trans({'{c}': payload.pictos|length, '{cc}': rare},'soul') }}</em></div>
                             {% else %}
-                                <div><em>{{ '%c% Auszeichnungs-Typen'|trans({'%c%': payload.pictos|length},'soul') }}</em></div>
+                                <div><em>{{ '{c} Auszeichnungs-Typen'|trans({'{c}': payload.pictos|length},'soul') }}</em></div>
                             {% endif %}
                             {% if unknown > 0 %}
-                                <div><em><img alt="" src="{{ asset('build/images/icons/small_warning.gif') }}" /> {{ '%num% unbekannte Auszeichnungen!'|trans({'%num%': unknown},'soul') }}</em></div>
+                                <div><em><img alt="" src="{{ asset('build/images/icons/small_warning.gif') }}" /> {{ '{num} unbekannte Auszeichnungen!'|trans({'{num}': unknown},'soul') }}</em></div>
                             {% endif %}
                         {% else %}
                             <div class="counter">{{ 'Keine Auszeichnungen'|trans({}, 'soul') }}</div>
                         {% endif %}
                     </div>
                     <div class="padded cell rw-4 rw-lg-12 center">
-                        <div class="counter">{{ '%c% Tage als Held'|trans({'%c%': payload.summaryHeroDays}, 'soul') }}</div>
+                        <div class="counter">{{ '{c} Tage als Held'|trans({'{c}': payload.summaryHeroDays}, 'soul') }}</div>
                         {% if payload.summaryHeroDays > 0 or payload.pastTowns|length > 0 %}
                             <div><em>{{ 'Dieser Wert ist geschätzt und kann vom tatsächlichen Wert abweichen. Dies lässt sich leider nicht vermeiden.'|trans({},'soul') }}</em></div>
                         {% endif %}
@@ -194,7 +194,7 @@
                                         </div>
                                     {% endif %}
                                     {% if town.day != town.survivedDays %}
-                                        <div>{{ 'Überlebt'|trans({},'soul') }}: <i class="small">{{ '%d% Tage'|trans({'%d%': town.survivedDays},'soul') }}</i></div>
+                                        <div>{{ 'Überlebt'|trans({},'soul') }}: <i class="small">{{ '{d} Tage'|trans({'{d}': town.survivedDays},'soul') }}</i></div>
                                     {% endif %}
                                     {% if town.message is not empty %}
                                         <div>{{ 'Letzte Worte'|trans({},'soul') }}: <i class="small">"{{ town.message }}"</i></div>

@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source>You must select at least {{ limit }} choice.|You must select at least {{ limit }} choices.</source>
-        <target>Debes seleccionar al menos {{ limit }} opción.|Debes seleccionar al menos {{ limit }} opciones.</target>
+        <target>Debe seleccionar al menos {{ limit }} opción.|Debe seleccionar al menos {{ limit }} opciones.</target>
       </segment>
     </unit>
     <unit id="nIvOQ_o">
@@ -61,7 +61,7 @@
       </notes>
       <segment>
         <source>You must select at most {{ limit }} choice.|You must select at most {{ limit }} choices.</source>
-        <target>Debes seleccionar como máximo {{ limit }} opciones.|Debes seleccionar como máximo {{ limit }} opciones.</target>
+        <target>Debe seleccionar como máximo {{ limit }} opción.|Debe seleccionar como máximo {{ limit }} opciones.</target>
       </segment>
     </unit>
     <unit id="87zjiHi" name="One or more of the given values is invalid.">
@@ -1160,6 +1160,330 @@
       <segment>
         <source>Please enter a valid week.</source>
         <target>Por favor, ingrese una semana válida.</target>
+      </segment>
+    </unit>
+    <unit id="QGP5tYq" name="This value should be of type {type}.">
+      <notes>
+        <note category="german">This value should be of type {type}.</note>
+      </notes>
+      <segment>
+        <source>This value should be of type {type}.</source>
+        <target>Este valor debería ser de tipo {type}.</target>
+      </segment>
+    </unit>
+    <unit id="jD0wLq.">
+      <notes>
+        <note category="german">You must select at least { limit } choice.|You must select at least { limit } choices.</note>
+      </notes>
+      <segment>
+        <source>You must select at least { limit } choice.|You must select at least { limit } choices.</source>
+        <target>Debes seleccionar al menos { limit } opción.|Debes seleccionar al menos { limit } opciones.</target>
+      </segment>
+    </unit>
+    <unit id="tVlSiQe">
+      <notes>
+        <note category="german">You must select at most { limit } choice.|You must select at most { limit } choices.</note>
+      </notes>
+      <segment>
+        <source>You must select at most { limit } choice.|You must select at most { limit } choices.</source>
+        <target>Debes seleccionar como máximo { limit } opciones.|Debes seleccionar como máximo { limit } opciones.</target>
+      </segment>
+    </unit>
+    <unit id="oTsyl5Z">
+      <notes>
+        <note category="german">The file is too large ({size} {suffix}). Allowed maximum size is {limit} {suffix}.</note>
+      </notes>
+      <segment>
+        <source>The file is too large ({size} {suffix}). Allowed maximum size is {limit} {suffix}.</source>
+        <target>El archivo es demasiado grande ({size} {suffix}). El tamaño máximo permitido es {limit} {suffix}.</target>
+      </segment>
+    </unit>
+    <unit id="A.lJ02S" name="The mime type of the file is invalid ({type}). Allowed mime types are {types}.">
+      <notes>
+        <note category="german">The mime type of the file is invalid ({type}). Allowed mime types are {types}.</note>
+      </notes>
+      <segment>
+        <source>The mime type of the file is invalid ({type}). Allowed mime types are {types}.</source>
+        <target>El tipo mime del archivo no es válido ({type}). Los tipos mime válidos son {types}.</target>
+      </segment>
+    </unit>
+    <unit id="dcAOkgN" name="This value should be { limit } or less.">
+      <notes>
+        <note category="german">This value should be { limit } or less.</note>
+      </notes>
+      <segment>
+        <source>This value should be { limit } or less.</source>
+        <target>Este valor debería ser { limit } o menos.</target>
+      </segment>
+    </unit>
+    <unit id="8HXEmpr">
+      <notes>
+        <note category="german">This value is too long. It should have { limit } character or less.|This value is too long. It should have { limit } characters or less.</note>
+      </notes>
+      <segment>
+        <source>This value is too long. It should have { limit } character or less.|This value is too long. It should have { limit } characters or less.</source>
+        <target>Este valor es demasiado largo. Debería tener { limit } carácter o menos.|Este valor es demasiado largo. Debería tener { limit } caracteres o menos.</target>
+      </segment>
+    </unit>
+    <unit id="_fNxbCw" name="This value should be { limit } or more.">
+      <notes>
+        <note category="german">This value should be { limit } or more.</note>
+      </notes>
+      <segment>
+        <source>This value should be { limit } or more.</source>
+        <target>Este valor debería ser { limit } o más.</target>
+      </segment>
+    </unit>
+    <unit id="XQhrpSl">
+      <notes>
+        <note category="german">This value is too short. It should have { limit } character or more.|This value is too short. It should have { limit } characters or more.</note>
+      </notes>
+      <segment>
+        <source>This value is too short. It should have { limit } character or more.|This value is too short. It should have { limit } characters or more.</source>
+        <target>Este valor es demasiado corto. Debería tener { limit } carácter o más.|Este valor es demasiado corto. Debería tener { limit } caracteres o más.</target>
+      </segment>
+    </unit>
+    <unit id="DdYr_wj" name="The file is too large. Allowed maximum size is {limit} {suffix}.">
+      <notes>
+        <note category="german">The file is too large. Allowed maximum size is {limit} {suffix}.</note>
+      </notes>
+      <segment>
+        <source>The file is too large. Allowed maximum size is {limit} {suffix}.</source>
+        <target>El archivo es demasiado grande. El tamaño máximo permitido es {limit} {suffix}.</target>
+      </segment>
+    </unit>
+    <unit id="u1MXGzi" name="The image width is too big ({width}px). Allowed maximum width is {max_width}px.">
+      <notes>
+        <note category="german">The image width is too big ({width}px). Allowed maximum width is {max_width}px.</note>
+      </notes>
+      <segment>
+        <source>The image width is too big ({width}px). Allowed maximum width is {max_width}px.</source>
+        <target>El ancho de la imagen es demasiado grande ({width}px). El ancho máximo permitido es de {max_width}px.</target>
+      </segment>
+    </unit>
+    <unit id="eQw6v1U">
+      <notes>
+        <note category="german">The image width is too small ({width}px). Minimum width expected is {min_width}px.</note>
+      </notes>
+      <segment>
+        <source>The image width is too small ({width}px). Minimum width expected is {min_width}px.</source>
+        <target>El ancho de la imagen es demasiado pequeño ({width}px). El ancho mínimo requerido es {min_width}px.</target>
+      </segment>
+    </unit>
+    <unit id="65KIZHH">
+      <notes>
+        <note category="german">The image height is too big ({height}px). Allowed maximum height is {max_height}px.</note>
+      </notes>
+      <segment>
+        <source>The image height is too big ({height}px). Allowed maximum height is {max_height}px.</source>
+        <target>La altura de la imagen es demasiado grande ({height}px). La altura máxima permitida es de {max_height}px.</target>
+      </segment>
+    </unit>
+    <unit id="IDxtbZO">
+      <notes>
+        <note category="german">The image height is too small ({height}px). Minimum height expected is {min_height}px.</note>
+      </notes>
+      <segment>
+        <source>The image height is too small ({height}px). Minimum height expected is {min_height}px.</source>
+        <target>La altura de la imagen es demasiado pequeña ({height}px). La altura mínima requerida es de {min_height}px.</target>
+      </segment>
+    </unit>
+    <unit id="6n3eFYM">
+      <notes>
+        <note category="german">This value should have exactly { limit } character.|This value should have exactly { limit } characters.</note>
+      </notes>
+      <segment>
+        <source>This value should have exactly { limit } character.|This value should have exactly { limit } characters.</source>
+        <target>Este valor debería tener exactamente { limit } carácter.|Este valor debería tener exactamente { limit } caracteres.</target>
+      </segment>
+    </unit>
+    <unit id="ckEQUAo">
+      <notes>
+        <note category="german">This collection should contain { limit } element or more.|This collection should contain { limit } elements or more.</note>
+      </notes>
+      <segment>
+        <source>This collection should contain { limit } element or more.|This collection should contain { limit } elements or more.</source>
+        <target>Esta colección debe contener { limit } elemento o más.|Esta colección debe contener { limit } elementos o más.</target>
+      </segment>
+    </unit>
+    <unit id="OwSfZtO">
+      <notes>
+        <note category="german">This collection should contain { limit } element or less.|This collection should contain { limit } elements or less.</note>
+      </notes>
+      <segment>
+        <source>This collection should contain { limit } element or less.|This collection should contain { limit } elements or less.</source>
+        <target>Esta colección debe contener { limit } elemento o menos.|Esta colección debe contener { limit } elementos o menos.</target>
+      </segment>
+    </unit>
+    <unit id="Q0GN_IY">
+      <notes>
+        <note category="german">This collection should contain exactly { limit } element.|This collection should contain exactly { limit } elements.</note>
+      </notes>
+      <segment>
+        <source>This collection should contain exactly { limit } element.|This collection should contain exactly { limit } elements.</source>
+        <target>Esta colección debe contener exactamente { limit } elemento.|Esta colección debe contener exactamente { limit } elementos.</target>
+      </segment>
+    </unit>
+    <unit id="5s3JcUd" name="This value should be equal to {compared_value}.">
+      <notes>
+        <note category="german">This value should be equal to {compared_value}.</note>
+      </notes>
+      <segment>
+        <source>This value should be equal to {compared_value}.</source>
+        <target>Este valor debería ser igual que {compared_value}.</target>
+      </segment>
+    </unit>
+    <unit id="isU._9m" name="This value should be greater than {compared_value}.">
+      <notes>
+        <note category="german">This value should be greater than {compared_value}.</note>
+      </notes>
+      <segment>
+        <source>This value should be greater than {compared_value}.</source>
+        <target>Este valor debería ser mayor que {compared_value}.</target>
+      </segment>
+    </unit>
+    <unit id="KgCmQd8" name="This value should be greater than or equal to {compared_value}.">
+      <notes>
+        <note category="german">This value should be greater than or equal to {compared_value}.</note>
+      </notes>
+      <segment>
+        <source>This value should be greater than or equal to {compared_value}.</source>
+        <target>Este valor debería ser mayor o igual que {compared_value}.</target>
+      </segment>
+    </unit>
+    <unit id="Vs.1a8z" name="This value should be identical to {compared_value_type} {compared_value}.">
+      <notes>
+        <note category="german">This value should be identical to {compared_value_type} {compared_value}.</note>
+      </notes>
+      <segment>
+        <source>This value should be identical to {compared_value_type} {compared_value}.</source>
+        <target>Este valor debería ser idéntico a {compared_value_type} {compared_value}.</target>
+      </segment>
+    </unit>
+    <unit id="_ivEIfu" name="This value should be less than {compared_value}.">
+      <notes>
+        <note category="german">This value should be less than {compared_value}.</note>
+      </notes>
+      <segment>
+        <source>This value should be less than {compared_value}.</source>
+        <target>Este valor debería ser menor que {compared_value}.</target>
+      </segment>
+    </unit>
+    <unit id="0J89mV3" name="This value should be less than or equal to {compared_value}.">
+      <notes>
+        <note category="german">This value should be less than or equal to {compared_value}.</note>
+      </notes>
+      <segment>
+        <source>This value should be less than or equal to {compared_value}.</source>
+        <target>Este valor debería ser menor o igual que {compared_value}.</target>
+      </segment>
+    </unit>
+    <unit id="nidtHXh" name="This value should not be equal to {compared_value}.">
+      <notes>
+        <note category="german">This value should not be equal to {compared_value}.</note>
+      </notes>
+      <segment>
+        <source>This value should not be equal to {compared_value}.</source>
+        <target>Este valor debería ser distinto de {compared_value}.</target>
+      </segment>
+    </unit>
+    <unit id="oCgcI7z" name="This value should not be identical to {compared_value_type} {compared_value}.">
+      <notes>
+        <note category="german">This value should not be identical to {compared_value_type} {compared_value}.</note>
+      </notes>
+      <segment>
+        <source>This value should not be identical to {compared_value_type} {compared_value}.</source>
+        <target>Este valor no debería ser idéntico a {compared_value_type} {compared_value}.</target>
+      </segment>
+    </unit>
+    <unit id="jBctL2J" name="The image ratio is too big ({ratio}). Allowed maximum ratio is {max_ratio}.">
+      <notes>
+        <note category="german">The image ratio is too big ({ratio}). Allowed maximum ratio is {max_ratio}.</note>
+      </notes>
+      <segment>
+        <source>The image ratio is too big ({ratio}). Allowed maximum ratio is {max_ratio}.</source>
+        <target>La proporción de la imagen es demasiado grande ({ratio}). La máxima proporción permitida es {max_ratio}.</target>
+      </segment>
+    </unit>
+    <unit id="fEu3k3X" name="The image ratio is too small ({ratio}). Minimum ratio expected is {min_ratio}.">
+      <notes>
+        <note category="german">The image ratio is too small ({ratio}). Minimum ratio expected is {min_ratio}.</note>
+      </notes>
+      <segment>
+        <source>The image ratio is too small ({ratio}). Minimum ratio expected is {min_ratio}.</source>
+        <target>La proporción de la imagen es demasiado pequeña ({ratio}). La mínima proporción permitida es {min_ratio}.</target>
+      </segment>
+    </unit>
+    <unit id="Suuc2v8" name="The image is square ({width}x{height}px). Square images are not allowed.">
+      <notes>
+        <note category="german">The image is square ({width}x{height}px). Square images are not allowed.</note>
+      </notes>
+      <segment>
+        <source>The image is square ({width}x{height}px). Square images are not allowed.</source>
+        <target>La imagen es cuadrada ({width}x{height}px). Las imágenes cuadradas no están permitidas.</target>
+      </segment>
+    </unit>
+    <unit id="ZzFIfuI">
+      <notes>
+        <note category="german">The image is landscape oriented ({width}x{height}px). Landscape oriented images are not allowed.</note>
+      </notes>
+      <segment>
+        <source>The image is landscape oriented ({width}x{height}px). Landscape oriented images are not allowed.</source>
+        <target>La imagen está orientada horizontalmente ({width}x{height}px). Las imágenes orientadas horizontalmente no están permitidas.</target>
+      </segment>
+    </unit>
+    <unit id="YFpSO.9">
+      <notes>
+        <note category="german">The image is portrait oriented ({width}x{height}px). Portrait oriented images are not allowed.</note>
+      </notes>
+      <segment>
+        <source>The image is portrait oriented ({width}x{height}px). Portrait oriented images are not allowed.</source>
+        <target>La imagen está orientada verticalmente ({width}x{height}px). Las imágenes orientadas verticalmente no están permitidas.</target>
+      </segment>
+    </unit>
+    <unit id="WmKU1Lz" name="This value does not match the expected { charset } charset.">
+      <notes>
+        <note category="german">This value does not match the expected { charset } charset.</note>
+      </notes>
+      <segment>
+        <source>This value does not match the expected { charset } charset.</source>
+        <target>La codificación de caracteres para este valor debería ser {charset}.</target>
+      </segment>
+    </unit>
+    <unit id="foC21.F" name="This value should be a multiple of {compared_value}.">
+      <notes>
+        <note category="german">This value should be a multiple of {compared_value}.</note>
+      </notes>
+      <segment>
+        <source>This value should be a multiple of {compared_value}.</source>
+        <target>Este valor debería ser múltiplo de {compared_value}.</target>
+      </segment>
+    </unit>
+    <unit id="6zXwnjs" name="This Business Identifier Code (BIC) is not associated with IBAN {iban}.">
+      <notes>
+        <note category="german">This Business Identifier Code (BIC) is not associated with IBAN {iban}.</note>
+      </notes>
+      <segment>
+        <source>This Business Identifier Code (BIC) is not associated with IBAN {iban}.</source>
+        <target>Este Código de Identificación Bancaria (BIC) no está asociado con el IBAN {iban}.</target>
+      </segment>
+    </unit>
+    <unit id="YWKW90p" name="This value should be between { min } and {max}.">
+      <notes>
+        <note category="german">This value should be between { min } and {max}.</note>
+      </notes>
+      <segment>
+        <source>This value should be between { min } and {max}.</source>
+        <target>Este valor debería estar entre { min } y {max}.</target>
+      </segment>
+    </unit>
+    <unit id="t8QshRU">
+      <notes>
+        <note category="german">The number of elements in this collection should be a multiple of {compared_value}.</note>
+      </notes>
+      <segment>
+        <source>The number of elements in this collection should be a multiple of {compared_value}.</source>
+        <target>El número de elementos en esta colección debería ser múltiplo de {compared_value}.</target>
       </segment>
     </unit>
   </file>

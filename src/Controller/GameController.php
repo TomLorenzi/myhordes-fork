@@ -259,7 +259,7 @@ class GameController extends CustomAbstractController
                 // TODO: Turn into LogEntryTemplate
                 $text = "<p>" . $this->translator->trans('Heute Morgen ist kein Artikel erschienen...', [], 'game') . "</p>";
                 if ($town->isOpen()){
-                    $text .= "<p>" . $this->translator->trans('Die Stadt wird erst starten, wenn sie <strong>%population% Bürger hat</strong>.', ['%population%' => $town->getPopulation()], 'game') . "</p>" . "<a class='help-button'>" . "<div class='tooltip help'>" . $this->translator->trans("Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.", [], 'global') . "</div>" . $this->translator->trans("Hilfe", [], 'global') . "</a>";
+                    $text .= "<p>" . $this->translator->trans('Die Stadt wird erst starten, wenn sie <strong>{population} Bürger hat</strong>.', ['{population}' => $town->getPopulation()], 'game') . "</p>" . "<a class='help-button'>" . "<div class='tooltip help'>" . $this->translator->trans("Falls sich dieser Zustand auch um Mitternacht noch nicht geändert hat, findet kein Zombieangriff statt. Der Tag wird dann künstlich verlängert.", [], 'global') . "</div>" . $this->translator->trans("Hilfe", [], 'global') . "</a>";
                 } else {
                     $text .= $this->translator->trans('Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!', [], 'game');
                 }
@@ -733,7 +733,7 @@ class GameController extends CustomAbstractController
 
         $log->setHidden(true);
         $log->setHiddenBy($citizen);
-        $this->addFlash( 'notice', $this->translator->trans('Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch %times% mal tun.', ['%times%' => $limit - $counter->getCount()], 'game') );
+        $this->addFlash( 'notice', $this->translator->trans('Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch {times} mal tun.', ['{times}' => $limit - $counter->getCount()], 'game') );
 
         try {
             $this->entity_manager->persist( $log );

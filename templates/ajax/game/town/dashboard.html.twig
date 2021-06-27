@@ -5,7 +5,7 @@
 
     <div class="town-header{% if town.type.name == 'panda' %} hardcore{% endif %}">
         <b>{{ town.name }}</b><br />
-        <span>{{ 'Tag %day%'|trans({'%day%':town.day},'game') }}</span>
+        <span>{{ 'Tag {day}'|trans({'{day}':town.day},'game') }}</span>
     </div>
 
     <div class="dashboard">
@@ -68,8 +68,8 @@
                 die sich auf der Webseite links befindet. Interaktive Schritt-für-Schritt-Anleitungen erklären dir in 5 Minuten die Grundlagen des Spiels.
             {% endtrans %}
             <p>
-                {% trans with { '%helplink%': '<a href="' ~ url('help') ~ '">' ~ ('komplette Spielhilfe'|trans({},'game')) ~ '</a>' } from 'game' %}
-                    Du kannst jederzeit die %helplink% im oberen Abschnitt der Seite aufsuchen.
+                {% trans with { '{helplink}': '<a href="' ~ url('help') ~ '">' ~ ('komplette Spielhilfe'|trans({},'game')) ~ '</a>' } from 'game' %}
+                    Du kannst jederzeit die {helplink} im oberen Abschnitt der Seite aufsuchen.
                 {% endtrans %}
             </p>
         </div>
@@ -98,7 +98,7 @@
                 {% for name,role in votes_needed %}
                     {% if role %}
                     <li x-ajax-href="{{ path('town_citizen_vote', {roleId: role.id}) }}" {% if has_voted[role.name] %}class="checked"{% endif %}>
-                        {{ 'Den %rolename% wählen'|trans({'%rolename%': role.label|trans({}, 'game')}, 'game') }}
+                        {{ 'Den {rolename} wählen'|trans({'{rolename}': role.label|trans({}, 'game')}, 'game') }}
                     </li>
                     {% endif %}
                 {% endfor %}

@@ -23,8 +23,8 @@ Außerdem führst du <strong>zusätzlich</strong> zu deiner normalen Bürgerklei
 {{ 'In deine Truhe passen bis zu 4 Gegenstände (5 wenn du ein Held bist). Einige Gegenstände, sowie manche Hausverbesserungen ermöglich dir noch mehr aufzubewahren.'|trans({},'help')|raw }}
 </p>
 <p>
-{{ 'Manche Gegenstände, wie zum Beispiel der <strong>%img_carpet% Teppich</strong>,
-werden <strong>automatisch</strong> der <strong>Hauseinrichtung</strong> hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)'|trans({'%img_carpet%': '<img alt="" src="' ~ asset("build/images/item/item_carpet.gif") ~ '">'},'help')|raw }}
+{{ 'Manche Gegenstände, wie zum Beispiel der <strong>{img_carpet} Teppich</strong>,
+werden <strong>automatisch</strong> der <strong>Hauseinrichtung</strong> hinzugefügt, wenn du sie in der Truhe ablegst. Einrichtungsgegenstände verschaffen dir verschiedene Vorteile (Deko, Diebstahlschutz, Schutz gegen Zombies...)'|trans({'{img_carpet}': '<img alt="" src="' ~ asset("build/images/item/item_carpet.gif") ~ '">'},'help')|raw }}
 </p>
 <div class="clear"></div>
 <a class="button" x-ajax-href="{{ url('help', {'name': 'your_soul'}) }}"><img src="{{ asset('build/images/icons/small_move.gif') }}" alt="move"> {{'Weiter'|trans({}, 'help')}}:<strong> {{ 'Deine Seele'|trans({},'help') }}</strong></a>

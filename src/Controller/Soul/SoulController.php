@@ -411,6 +411,13 @@ class SoulController extends CustomAbstractController
         $icon  = $parser->get_int('icon', -1);
         $desc  = mb_substr(trim($parser->get('desc')) ?? '', 0, 256);
         $displayName = mb_substr(trim($parser->get('displayName')) ?? '', 0, 30);
+        $pronoun = $parser->get('pronoun','none', ['male','female','none']);
+
+        switch ($pronoun) {
+            case 'male': $user->setPreferredPronoun( User::PRONOUN_MALE ); break;
+            case 'female': $user->setPreferredPronoun( User::PRONOUN_FEMALE ); break;
+            default: $user->setPreferredPronoun( User::PRONOUN_NONE ); break;
+        }
 
         if ($title < 0 && $icon >= 0)
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
@@ -641,7 +648,7 @@ class SoulController extends CustomAbstractController
 
         $pageContent = $this->entity_manager->getRepository(RolePlayTextPage::class)->findOneByRpAndPageNumber($rp->getText(), $page);
 
-        preg_match('/%asset%([a-zA-Z0-9.\/]+)%endasset%/', $pageContent->getContent(), $matches);
+        preg_match('/{asset}([a-zA-Z0-9.\/]+){endasset}/', $pageContent->getContent(), $matches);
 
         if(count($matches) > 0) {
             $pageContent->setContent(preg_replace("={$matches[0]}=", "<img src='" . $this->asset->getUrl($matches[1]) . "' alt='' />", $pageContent->getContent()));
@@ -784,6 +791,7 @@ class SoulController extends CustomAbstractController
 
         $user->setPreferSmallAvatars( (bool)$parser->get('sma', false) );
         $user->setDisableFx( (bool)$parser->get('disablefx', false) );
+        $user->setUseICU( (bool)$parser->get('useicu', false) );
         $this->entity_manager->persist( $user );
         $this->entity_manager->flush();
 
@@ -997,7 +1005,7 @@ class SoulController extends CustomAbstractController
         $user->setDeleteAfter( new DateTime('+24hour') );
         $this->entity_manager->flush();
 
-        $this->addFlash( 'notice', $this->translator->trans('Auf wiedersehen, %name%. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.', ['%name%' => $name], 'login') );
+        $this->addFlash( 'notice', $this->translator->trans('Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.', ['{name}' => $name], 'login') );
         $token->setToken(null);
         return AjaxResponse::success();
     }

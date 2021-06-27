@@ -30,7 +30,7 @@
                     {% else %}
                         {% set curNumber = 0 %}
                     {% endif %}
-                        {{ 'Saison %number%'|trans({"%number%": '<span class="number">' ~ curNumber ~ '</span>'}, "soul")|raw}}
+                        {{ 'Saison {number}'|trans({"{number}": '<span class="number">' ~ curNumber ~ '</span>'}, "soul")|raw}}
                 {% endif %}
             </span>
         </div>
@@ -186,7 +186,7 @@
                 {% for season in seasons %}
                     <option value="{{season.id}}" {% if currentSeason is not null and currentSeason.id == season.id %}selected{% endif %}>
                         {% if season.number == 0 %}{{ 'Gute Alte Zeit'|trans({},'soul') }} -{% endif %}
-                        {{ 'Saison %n%'|trans({'%n%': season.number > 0 ? season.number : season.subNumber},'soul') }}{% if season.number > 0 %} - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}{% endif %}
+                        {{ 'Saison {n}'|trans({'{n}': season.number > 0 ? season.number : season.subNumber},'soul') }}{% if season.number > 0 %} - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}{% endif %}
                     </option>
                 {% endfor %}
             </select>

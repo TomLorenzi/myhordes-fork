@@ -8,20 +8,20 @@
 </p>
 <ul>
 {# <li>{{ '<strong>HÄUFIG GESTELLTE FRAGEN:</strong>
-Lies dir bitte die offizielle <span x-ajax-href="%url_support%">Technische Supportseite von MyHordes</span> durch!'|trans({},'help')|raw }}
+Lies dir bitte die offizielle <span x-ajax-href="{url_support}">Technische Supportseite von MyHordes</span> durch!'|trans({},'help')|raw }}
 </li> #}
-<li>{{ '<strong>MIT ANDEREN SPIELERN REDEN:</strong> Die meisten Spielfragen werden oder wurden meistens schon in den <span x-ajax-href="%url_forums%">Foren</span> beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.'|trans({'%url_forums%': url('forum_list')},'help')|raw }}
+<li>{{ '<strong>MIT ANDEREN SPIELERN REDEN:</strong> Die meisten Spielfragen werden oder wurden meistens schon in den <span x-ajax-href="{url_forums}">Foren</span> beantwortet. Du kannst darauf zugreifen, wenn du im Spiel eingeloggt bist.'|trans({'{url_forums}': url('forum_list')},'help')|raw }}
 </li>
 <li>{{ '<strong>EINEN REGELVERSTOSS MELDEN:</strong><strong></strong>
-Wenn sich ein anderer Spieler daneben benommen hat oder ausfällig geworden ist, bitten wir dich den Abschnitt <span x-ajax-href=%url_report%>Fehlverhalten melden</span> zu lesen.'|trans({'%url_report%': url('help', {'name': 'i_m_annoyed'})},'help')|raw }}
+Wenn sich ein anderer Spieler daneben benommen hat oder ausfällig geworden ist, bitten wir dich den Abschnitt <span x-ajax-href={url_report}>Fehlverhalten melden</span> zu lesen.'|trans({'{url_report}': url('help', {'name': 'i_m_annoyed'})},'help')|raw }}
 </li>
 {# <li>{{ '<strong>PROBLEME BEI DER BEZAHLUNG:</strong>
 Wenn du beim <strong>Bezahlen</strong> Probleme hast, kannst du dich an uns wenden, indem du uns über folgende Seite anschreibst&nbsp;: <a href="/support?go=rentabiliweb">Zahlungssupport</a>.'|trans({},'help')|raw }}
 </li> #}
 <li>{{ '<strong>EINEN BUG MELDEN:</strong>
-Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: <a href=%url_git%>Buglisten</a>.'|trans({'%url_git%': 'https://gitlab.com/eternal-twin/myhordes/myhordes/-/issues'},'help')|raw }}
+Nutze bitte folgenden Link, wenn du uns einen Bug (technischen Fehler) melden möchtest: <a href={url_git}>Buglisten</a>.'|trans({'{url_git}': 'https://gitlab.com/eternal-twin/myhordes/myhordes/-/issues'},'help')|raw }}
 </li>
-{# <li>{{ 'Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die <strong>MyHordes-Community</strong> betreffen, kannst dem <span x-ajax-href="%url_oracle%">Orakels</span> anschreiben.'|trans({},'help')|raw }}
+{# <li>{{ 'Zu guter Letzt: Für sämtliche Anregungen und Fragen, die die <strong>MyHordes-Community</strong> betreffen, kannst dem <span x-ajax-href="{url_oracle}">Orakels</span> anschreiben.'|trans({},'help')|raw }}
 </li> #}
 </ul>
 <div class="clear"></div>

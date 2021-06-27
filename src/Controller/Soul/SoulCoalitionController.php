@@ -129,7 +129,7 @@ class SoulCoalitionController extends SoulController
 
         $this->entity_manager->persist(
             $g = (new UserGroup())
-                ->setName($trans->trans("%name%'s Koalition", ['%name%' => $user->getUsername()], 'soul'))
+                ->setName($trans->trans("{name}'s Koalition", ['{name}' => $user->getUsername()], 'soul'))
                 ->setType(UserGroup::GroupSmallCoalition)
                 ->setRef1($user->getId())
         );

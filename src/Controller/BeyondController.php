@@ -445,8 +445,8 @@ class BeyondController extends InventoryAwareController
 
             $trashlock->increment();
             $this->citizen_handler->setAP($citizen, true, -1);
-            $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
-                '%item%' => "<span class='tool'> <img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($item->getPrototype()->getLabel(), [], 'items')}</span>"
+            $this->addFlash( 'notice', $this->translator->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: {item}!', [
+                '{item}' => "<span class='tool'> <img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$item->getPrototype()->getIcon()}.gif" )}'> {$this->translator->trans($item->getPrototype()->getLabel(), [], 'items')}</span>"
             ], 'game' ));
 
             try {
@@ -754,7 +754,7 @@ class BeyondController extends InventoryAwareController
 
             // Check if escortee wants to go home
             if (count($movers) > 1 && $mover->getEscortSettings() && $mover->getEscortSettings()->getForceDirectReturn() && $away_from_town)
-                return AjaxResponse::errorMessage( $this->translator->trans('%citizen% möchte nicht in diese Richtung gehen! <strong>Er bittet dich darum, ihn in die Stadt zu bringen...</strong>', ['%citizen%' => "<span>{$mover->getName()}</span>"], 'game') );
+                return AjaxResponse::errorMessage( $this->translator->trans('{citizen} möchte nicht in diese Richtung gehen! <strong>Er bittet dich darum, ihn in die Stadt zu bringen...</strong>', ['{citizen}' => "<span>{$mover->getName()}</span>"], 'game') );
         }
 
         foreach ($movers as $mover) {
@@ -801,7 +801,7 @@ class BeyondController extends InventoryAwareController
                         if ($mover->getId() === $citizen->getId())
                             $this->addFlash( 'notice', $this->translator->trans('Du wurdest von einem <strong>Zombie in der Zone entdeckt</strong>! Er hat sich in deine Richtung gedreht!<hr/>Deine Tarnung ist aufgeflogen!', [], 'game' ));
                         else 
-                            $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $mover->getName()], 'game' ));
+                            $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von {name} ist aufgeflogen!', ['{name}' => $mover->getName()], 'game' ));
                     }
                 }
             }
@@ -937,7 +937,7 @@ class BeyondController extends InventoryAwareController
 
         $uncover_fun = function(ItemAction &$a) use ($citizen) {
             if (!$a->getKeepsCover() && !$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($citizen))
-                $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von %name% ist aufgeflogen!', ['%name%' => $citizen->getName()], 'game') );
+                $this->addFlash( 'notice', $this->translator->trans('Die Tarnung von {name} ist aufgeflogen!', ['{name}' => $citizen->getName()], 'game') );
         };
 
         return $this->generic_action_api($parser, $uncover_fun, $citizen);
@@ -1284,9 +1284,9 @@ class BeyondController extends InventoryAwareController
                     $picto = $this->entity_manager->getRepository(PictoPrototype::class)->findOneBy(['name' => $pictoName]);
                     $this->picto_handler->give_picto($citizen, $picto);
                 }
-                $this->addFlash( 'notice', $this->translator->trans( 'Als du folgendes Gebäude: %building% erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: %item%.', [
-                    '%item%' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>",
-                    "%building%" => "<strong>" . $this->translator->trans($zone->getPrototype()->getLabel(), [], "game") . "</strong>"
+                $this->addFlash( 'notice', $this->translator->trans( 'Als du folgendes Gebäude: {building} erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: {item}.', [
+                    '{item}' => "<span class='tool'><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $prototype->getIcon() . '.gif' )}'> {$this->translator->trans($prototype->getLabel(), [], 'items')}</span>",
+                    "{building}" => "<strong>" . $this->translator->trans($zone->getPrototype()->getLabel(), [], "game") . "</strong>"
                 ], 'game' ) . "$noPlaceLeftMsg");
             } else {
                 $this->addFlash( 'notice', $this->translator->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));
@@ -1330,9 +1330,9 @@ class BeyondController extends InventoryAwareController
         if($zone->getBuryCount() > 0)
             $str[] = $this->translator->trans('Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...',[], 'game');
         else
-            $str[] = $this->translator->trans('Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: %ruin% beginnen!',["%ruin%" => "<span>" . $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game') . "</span>"], 'game');
+            $str[] = $this->translator->trans('Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: {ruin} beginnen!',["{ruin}" => "<span>" . $this->translator->trans($zone->getPrototype()->getLabel(), [], 'game') . "</span>"], 'game');
 
-        $str[] = $this->translator->trans("Du hast %count% Aktionspunkt(e) benutzt.", ['%count%' => 1], 'game');
+        $str[] = $this->translator->trans("Du hast {count} Aktionspunkt(e) benutzt.", ['{count}' => "<strong>1</strong>", '{raw_count}' => 1], 'game');
 
         if (!$this->zone_handler->check_cp( $this->getActiveCitizen()->getZone() ) && $this->uncoverHunter($this->getActiveCitizen()))
             $str[] = $this->translator->trans('Deine <strong>Tarnung ist aufgeflogen</strong>!',[], 'game');

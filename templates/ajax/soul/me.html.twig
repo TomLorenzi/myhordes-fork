@@ -37,7 +37,7 @@
                         {% if end_date is null %}
                             <li>{{ name }} {{ help_btn(desc ~ '<p><br/><i class="small">' ~ 'Dauerhafte Beschränkung'|trans({},'soul') ~ '</i></p>') }}</li>
                         {% else %}
-                            <li>{{ name }} {{ help_btn(desc ~ '<p><br/><i class="small">' ~ 'Ende der Beschränkung: %date%'|trans({'%date%': '<br/>' ~ end_date|format_datetime('medium', 'short') },'soul') ~ '</i></p>') }}</li>
+                            <li>{{ name }} {{ help_btn(desc ~ '<p><br/><i class="small">' ~ 'Ende der Beschränkung: {date}'|trans({'{date}': '<br/>' ~ end_date|format_datetime('medium', 'short') },'soul') ~ '</i></p>') }}</li>
                         {% endif %}
                     {% endif %}
                 {% endmacro %}
@@ -67,7 +67,7 @@
 
             {% endif %}
 
-            <div class="score"><img src="{{ asset('build/images/soul/small_score.gif') }}" alt="" /> {{ 'Seelenpunktzahl'|trans({}, 'global') }} : <strong>{{ '%points% Punkte'|trans({'%points%': app.user.allSoulPoints}, 'global') }}</strong> <a class="help-button"><div class="tooltip help">{{ 'Diese Punkte werden für die Seelenrangliste verwendet.'|trans({},'global') }}<p style="color: #f0d79e;"><i>{{ 'Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.'|trans({},'global') }}</i></p></div>{{ 'Hilfe'|trans({},'global') }}</a></div>
+            <div class="score"><img src="{{ asset('build/images/soul/small_score.gif') }}" alt="" /> {{ 'Seelenpunktzahl'|trans({}, 'global') }} : <strong>{{ '{points} Punkte'|trans({'{points}': app.user.allSoulPoints}, 'global') }}</strong> <a class="help-button"><div class="tooltip help">{{ 'Diese Punkte werden für die Seelenrangliste verwendet.'|trans({},'global') }}<p style="color: #f0d79e;"><i>{{ 'Abhängig von der Anzahl der Tage, die du überlebt hast, erhältst du nach jeder Partie eine bestimmte Anzahl an Punkten.'|trans({},'global') }}</i></p></div>{{ 'Hilfe'|trans({},'global') }}</a></div>
 
             {% if features is not empty %}
                 <ul class="inventory soul">
@@ -84,8 +84,8 @@
                                     <b>
                                         {% if (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationNone')) %}{{ 'Dauerhaft!'|trans({},'game') }}
                                         {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationSeason')) %}{{ 'Für diese Saison'|trans({},'game') }}
-                                        {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTimestamp')) %}{{ 'Bis %date%'|trans({'%date%': feature.timestamp|format_datetime('short', 'none')},'game') }}
-                                        {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTownCount')) %}{{ 'Für %num% weitere Städte'|trans({'%num%': feature.townCount},'game') }}
+                                        {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTimestamp')) %}{{ 'Bis {date}'|trans({'{date}': feature.timestamp|format_datetime('short', 'none')},'game') }}
+                                        {% elseif (feature.expirationMode == constant('App\\Entity\\FeatureUnlock::FeatureExpirationTownCount')) %}{{ 'Für {num} weitere Städte'|trans({'{num}': feature.townCount},'game') }}
                                         {% else  %}???{% endif %}
                                     </b>
                                 </span>
@@ -97,7 +97,7 @@
 
             {% if app.user.activeCitizen is not null and app.user.activeCitizen.alive %}
                 <div class="current">
-                    <em>{{'Aktuelles Leben'|trans({}, 'global')}} : </em><br /><strong><img src="{{ asset('build/images/soul/r_explor.gif') }}" alt="" /> {{ app.user.activeCitizen.town.name }}</strong> ({{ 'Tag %day%'|trans({ '%day%':app.user.activeCitizen.town.day }, 'game') }})
+                    <em>{{'Aktuelles Leben'|trans({}, 'global')}} : </em><br /><strong><img src="{{ asset('build/images/soul/r_explor.gif') }}" alt="" /> {{ app.user.activeCitizen.town.name }}</strong> ({{ 'Tag {day}'|trans({ '{day}':app.user.activeCitizen.town.day }, 'game') }})
                 </div>
             {% endif %}
             {% if user_desc %}
@@ -112,7 +112,7 @@
                             {% for season in seasons %}
                                 {% if season.number > 0 %}
                                     <option value="{{season.id}}">
-                                        {{ 'Saison %n%'|trans({'%n%': season.number},'soul') }} - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}
+                                        {{ 'Saison {n}'|trans({'{n}': season.number},'soul') }} - {{ ('Saison ' ~ season.number ~ '.' ~ season.subNumber)|trans({}, "season")}}
                                     </option>
                                 {% endif %}
                             {% endfor %}
@@ -121,7 +121,7 @@
                                 {% if season.number == 0 %}
                                     <option value="{{season.id}}">
                                         {{ 'Gute Alte Zeit'|trans({},'soul') }} -
-                                        {{ 'Saison %n%'|trans({'%n%': season.subNumber},'soul') }}
+                                        {{ 'Saison {n}'|trans({'{n}': season.subNumber},'soul') }}
                                     </option>
                                 {% endif %}
                             {% endfor %}

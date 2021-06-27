@@ -60,7 +60,7 @@
                 {% endif %}
 
                 {% if post.originalRecipient is not null and post.originalRecipient != post.recipient %}
-                    [ <i>{{ 'Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für %citizen%! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...'|trans({'%citizen%': '<strong>' ~ post.originalRecipient.name ~ '</strong>'},'game')|raw }}</i> ]<br /><br />
+                    [ <i>{{ 'Wenn der Name auf der Rückseite dieses kleinen Briefs korrekt ist, war diese Nachricht in Wirklichkeit für {citizen}! Durch einen seltsamen Zufall ist sie irgendwie bei dir gelanded ...'|trans({'{citizen}': '<strong>' ~ post.originalRecipient.name ~ '</strong>'},'game')|raw }}</i> ]<br /><br />
                 {% endif %}
 
                 {% if post.hidden %}

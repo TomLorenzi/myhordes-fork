@@ -47,9 +47,9 @@
                             {% if paranoid and thread.owner and thread.owner != app.user %}
                                 {% set mode = (app.user.id + thread.id + thread.owner.id) % 12 %}
                                 {% if mode == 0 %}
-                                    {{ 'Hängt %user%!'|trans({'%user%': app.user.name},'game') }}
+                                    {{ 'Hängt {user}!'|trans({'{user}': app.user.name},'game') }}
                                 {% elseif mode == 1 %}
-                                    {{ '%user% wir kriegen dich!'|trans({'%user%': app.user.name},'game') }}
+                                    {{ '{user} wir kriegen dich!'|trans({'{user}': app.user.name},'game') }}
                                 {% else %}
                                     {{ thread.title }}
                                 {% endif %}
@@ -169,7 +169,7 @@
                             <div class="cell rw-12 padded center">
                                 <div class="forum-button" x-forum-action="thread-pager" x-to-page="1"><i class="fa fa-fast-backward"></i></div>
                                 <div class="forum-button" x-forum-action="thread-pager" x-to-page="{{ current_page - 1 }}"><i class="fa fa-backward"></i></div>
-                                <div class="forum-button">{{ 'Seite %page%/%pages%'|trans({'%page%': current_page, '%pages%': pages},'global') }}</div>
+                                <div class="forum-button">{{ 'Seite {page}/{pages}'|trans({'{page}': current_page, '{pages}': pages},'global') }}</div>
                                 <div class="forum-button" x-forum-action="thread-pager" x-to-page="{{ current_page + 1 }}"><i class="fa fa-forward"></i></div>
                                 <div class="forum-button" x-forum-action="thread-pager" x-to-page="{{ pages }}"><i class="fa fa-fast-forward"></i></div>
                             </div>

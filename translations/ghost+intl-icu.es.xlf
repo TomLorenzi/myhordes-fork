@@ -1,0 +1,1572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="de" trgLang="es">
+  <file id="ghost.es">
+    <unit id="Ytua8lq" name="Die gewählte Stadt ist bereits voll.">
+      <notes>
+        <note category="german">Die gewählte Stadt ist bereits voll.</note>
+      </notes>
+      <segment>
+        <source>Die gewählte Stadt ist bereits voll.</source>
+        <target>El pueblo elegido ya está lleno.</target>
+      </segment>
+    </unit>
+    <unit id="9O4x._6" name="Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.">
+      <notes>
+        <note category="german">Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.</note>
+      </notes>
+      <segment>
+        <source>Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.</source>
+        <target>No puedes unirte a más de un pueblo al mismo tiempo.</target>
+      </segment>
+    </unit>
+    <unit id="KGUlxGY" name="Du bist dieser Stadt bereits beigetreten.">
+      <notes>
+        <note category="german">Du bist dieser Stadt bereits beigetreten.</note>
+      </notes>
+      <segment>
+        <source>Du bist dieser Stadt bereits beigetreten.</source>
+        <target>Ya te has unido a este pueblo.</target>
+      </segment>
+    </unit>
+    <unit id="xkZqSVc" name="Wähle eine Stadt">
+      <notes>
+        <note category="german">Wähle eine Stadt</note>
+      </notes>
+      <segment>
+        <source>Wähle eine Stadt</source>
+        <target>Elige un pueblo</target>
+      </segment>
+    </unit>
+    <unit id="Bfb7kn4" name="Stadtname">
+      <notes>
+        <note category="german">Stadtname</note>
+      </notes>
+      <segment>
+        <source>Stadtname</source>
+        <target>Nombre del pueblo</target>
+      </segment>
+    </unit>
+    <unit id="Vlb5Lbe" name="Aktionen">
+      <notes>
+        <note category="german">Aktionen</note>
+      </notes>
+      <segment>
+        <source>Aktionen</source>
+        <target>Acciones</target>
+      </segment>
+    </unit>
+    <unit id="rgtSNg9" name="Aktuell gibt es keine Stadt diesen Typs.">
+      <notes>
+        <note category="german">Aktuell gibt es keine Stadt diesen Typs.</note>
+      </notes>
+      <segment>
+        <source>Aktuell gibt es keine Stadt diesen Typs.</source>
+        <target>No hay pueblos de este tipo por el momento.</target>
+      </segment>
+    </unit>
+    <unit id="Enh.KhP" name="Nächtlicher Angriff">
+      <notes>
+        <note category="german">Nächtlicher Angriff</note>
+      </notes>
+      <segment>
+        <source>Nächtlicher Angriff</source>
+        <target>Ataque nocturno</target>
+      </segment>
+    </unit>
+    <unit id="xOWTZkZ">
+      <notes>
+        <note category="german">Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</note>
+      </notes>
+      <segment>
+        <source>Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</source>
+        <target>El servidor está siendo invadido por los zombies, como todas las noches.</target>
+      </segment>
+    </unit>
+    <unit id="e6r4m6r">
+      <notes>
+        <note category="german">Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</note>
+      </notes>
+      <segment>
+        <source>Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</source>
+        <target>Por lo tanto, no es posible conectarse o inscribirse. El ataque suele durar unos 20 minutos.</target>
+      </segment>
+    </unit>
+    <unit id="gqk_gdE" name="Beitreten">
+      <notes>
+        <note category="german">Beitreten</note>
+      </notes>
+      <segment>
+        <source>Beitreten</source>
+        <target>Unirse</target>
+      </segment>
+    </unit>
+    <unit id="CwvX2yq">
+      <notes>
+        <note category="german">Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.</note>
+      </notes>
+      <segment>
+        <source>Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.</source>
+        <target>El idioma del pueblo seleccionado es {lang_town}. Tu idioma seleccionado es {lang_user}.</target>
+      </segment>
+    </unit>
+    <unit id="0C3XaFv">
+      <notes>
+        <note category="german">Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</note>
+      </notes>
+      <segment>
+        <source>Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</source>
+        <target>La comunicación es importante en MyHordes. Por favor, no entres a un pueblo cuyo idioma no hablas. ¿Deseas continuar?</target>
+      </segment>
+    </unit>
+    <unit id="FbY7TeM" name="Bestätigen">
+      <notes>
+        <note category="german">Bestätigen</note>
+      </notes>
+      <segment>
+        <source>Bestätigen</source>
+        <target>Confirmar</target>
+      </segment>
+    </unit>
+    <unit id="x8NF3LC">
+      <notes>
+        <note category="german">Möchtest du die schreckliche Welt der Verdammten als Bürger der Stadt {town_name} betreten?</note>
+      </notes>
+      <segment>
+        <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten</source>
+        <target>¿Listo para ingresar a {town_name}? ¡Buena suerte!</target>
+      </segment>
+    </unit>
+    <unit id="uwIFRKe" name="Deine Seele genügt den Anforderungen für diesen Stadttypen.">
+      <notes>
+        <note category="german">Deine Seele genügt den Anforderungen für diesen Stadttypen.</note>
+      </notes>
+      <segment>
+        <source>Deine Seele genügt den Anforderungen für diesen Stadttypen.</source>
+        <target>Tu alma cumple los requisitos para este tipo pueblo.</target>
+      </segment>
+    </unit>
+    <unit id="AwZY28C">
+      <notes>
+        <note category="german">&lt;p&gt;
+                    Deine Stadt wird gerade von den Zombies &lt;strong&gt;angegriffen&lt;/strong&gt;! Du hörst wie sie &lt;strong&gt;grunzend&lt;/strong&gt; gegen eure Hütten schlagen. Dazwischen immer wieder &lt;strong&gt;Hilferufe&lt;/strong&gt; und Schreie... Sie scheinen überall zu sein...
+                    &lt;/p&gt;
+                    &lt;p&gt;
+                    Was tust du, solange der Angriff tobt?               
+                    &lt;/p&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;p&gt;
+                    Deine Stadt wird gerade von den Zombies &lt;strong&gt;angegriffen&lt;/strong&gt;! Du hörst wie sie &lt;strong&gt;grunzend&lt;/strong&gt; gegen eure Hütten schlagen. Dazwischen immer wieder &lt;strong&gt;Hilferufe&lt;/strong&gt; und Schreie... Sie scheinen überall zu sein...
+                    &lt;/p&gt;
+                    &lt;p&gt;
+                    Was tust du, solange der Angriff tobt?               
+                    &lt;/p&gt;</source>
+        <target><![CDATA[<p>
+                    ¡Tu pueblo está siendo <strong>atacado</strong> por una turba de zombies! <strong>Llegan de todas partes y se meten en las casas</strong>. Entre los gritos de pánico de tus compañeros y los <strong>gruñidos hambrientos</strong> de esos monstruos... ¡la <strong>zombinoia</strong> se apodera de ti!
+                    </p>
+                    <p>
+                    ¿<strong>Morirás devorado</strong> esta noche?               
+                    </p>]]></target>
+      </segment>
+    </unit>
+    <unit id="EVKC8.Z" name="Was hat das zu bedeuten?">
+      <notes>
+        <note category="german">Was hat das zu bedeuten?</note>
+      </notes>
+      <segment>
+        <source>Was hat das zu bedeuten?</source>
+        <target>¿Qué está pasando?</target>
+      </segment>
+    </unit>
+    <unit id="ePJ.g5_">
+      <notes>
+        <note category="german">MyHordes wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</note>
+      </notes>
+      <segment>
+        <source>Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</source>
+        <target>¡El pueblo está siendo invadido por los zombies!</target>
+      </segment>
+    </unit>
+    <unit id="6YlCau0">
+      <notes>
+        <note category="german">Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.</note>
+      </notes>
+      <segment>
+        <source>Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.</source>
+        <target>El ataque puede durar alrededor de 30 minutos. Los zombies están hambrientos y buscan habitantes desprotegidos en todos los rincones. Durante este tiempo no es posible conectarse o inscribirse.</target>
+      </segment>
+    </unit>
+    <unit id="QfY5rKB" name="Und ja, es wird Tote geben...">
+      <notes>
+        <note category="german">Und ja, es wird Tote geben...</note>
+      </notes>
+      <segment>
+        <source>Und ja, es wird Tote geben...</source>
+        <target>Lo más seguro es que una buena parte de los habitantes haya muerto...</target>
+      </segment>
+    </unit>
+    <unit id="T206xUy" name="Worauf warten Sie noch?">
+      <notes>
+        <note category="german">Worauf wartest du noch?</note>
+      </notes>
+      <segment>
+        <source>Worauf warten Sie noch?</source>
+        <target>¿Qué estás esperando?</target>
+      </segment>
+    </unit>
+    <unit id="L4_Jvrm" name="Privatstadt gründen">
+      <notes>
+        <note category="german">Privatstadt gründen</note>
+      </notes>
+      <segment>
+        <source>Privatstadt gründen</source>
+        <target>Crear un pueblo privado</target>
+      </segment>
+    </unit>
+    <unit id="iita2xJ">
+      <notes>
+        <note category="german">In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Themen" zu spielen.</note>
+      </notes>
+      <segment>
+        <source>In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</source>
+        <target>En un pueblo privado puedes jugar entre amigos o crear un pueblo entorno a un "tema". </target>
+      </segment>
+    </unit>
+    <unit id="KAAmbDC" name="Name der Stadt">
+      <notes>
+        <note category="german">Name der Stadt</note>
+      </notes>
+      <segment>
+        <source>Name der Stadt</source>
+        <target>Nombre del pueblo</target>
+      </segment>
+    </unit>
+    <unit id="pUImk8L" name="Zugangscode">
+      <notes>
+        <note category="german">Zugangscode</note>
+      </notes>
+      <segment>
+        <source>Zugangscode</source>
+        <target>Código de acceso</target>
+      </segment>
+    </unit>
+    <unit id=".x7RJF5" name="Stadttyp">
+      <notes>
+        <note category="german">Stadttyp</note>
+      </notes>
+      <segment>
+        <source>Stadttyp</source>
+        <target>Tipo de pueblo</target>
+      </segment>
+    </unit>
+    <unit id="KOB6h9k" name="Ghule">
+      <notes>
+        <note category="german">Ghule</note>
+      </notes>
+      <segment>
+        <source>Ghule</source>
+        <target>Mutante</target>
+      </segment>
+    </unit>
+    <unit id="CVyYW8Q" name="Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.">
+      <notes>
+        <note category="german">Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</note>
+      </notes>
+      <segment>
+        <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</source>
+        <target>El mutante aparecerá según las reglas propias del tipo de pueblo elegido.</target>
+      </segment>
+    </unit>
+    <unit id="pySO60X" name="Normal">
+      <notes>
+        <note category="german">Normal</note>
+      </notes>
+      <segment>
+        <source>Normal</source>
+        <target>Normal</target>
+      </segment>
+    </unit>
+    <unit id="jNQMs2P">
+      <notes>
+        <note category="german">Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</note>
+      </notes>
+      <segment>
+        <source>Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</source>
+        <target>El ritmo de aparición no cambia pero un mutante solo podrá reducir su voracidad devorando un habitante.</target>
+      </segment>
+    </unit>
+    <unit id="aQ_K79K" name="Blutdurst">
+      <notes>
+        <note category="german">Blutdurst</note>
+      </notes>
+      <segment>
+        <source>Blutdurst</source>
+        <target>Voraces</target>
+      </segment>
+    </unit>
+    <unit id="Zj_q.r8">
+      <notes>
+        <note category="german">Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.</note>
+      </notes>
+      <segment>
+        <source>Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.</source>
+        <target>No hay mutantes en la noche. Pero cuidado, los mutantes podrían aparecer por otros medios.</target>
+      </segment>
+    </unit>
+    <unit id="iE_uBzc" name="Stadt der Kuscheltiere">
+      <notes>
+        <note category="german">Stadt der Kuscheltiere</note>
+      </notes>
+      <segment>
+        <source>Stadt der Kuscheltiere</source>
+        <target>Pueblo de los juguetes de peluche</target>
+      </segment>
+    </unit>
+    <unit id="1zFAtcT" name="Wasservorrat">
+      <notes>
+        <note category="german">Wasservorrat</note>
+      </notes>
+      <segment>
+        <source>Wasservorrat</source>
+        <target>Reserva de agua</target>
+      </segment>
+    </unit>
+    <unit id="oix8aY3">
+      <notes>
+        <note category="german">Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300</note>
+      </notes>
+      <segment>
+        <source>Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300</source>
+        <target>(Valor normal entre 100 y 180). Valor reducida en un tercio si es Pandemonio. </target>
+      </segment>
+    </unit>
+    <unit id="9XUKXXI" name="Einstellungen">
+      <notes>
+        <note category="german">Einstellungen</note>
+      </notes>
+      <segment>
+        <source>Einstellungen</source>
+        <target>Configuración</target>
+      </segment>
+    </unit>
+    <unit id="0beSyHH" name="XML Feed für diese Stadt deaktivieren">
+      <notes>
+        <note category="german">XML Feed für diese Stadt deaktivieren</note>
+      </notes>
+      <segment>
+        <source>XML Feed für diese Stadt deaktivieren</source>
+        <target>Desactivar el flujo XML para este pueblo (desactiva complementos).</target>
+      </segment>
+    </unit>
+    <unit id="QI93AMS" name="Event-Stadt">
+      <notes>
+        <note category="german">Event-Stadt</note>
+      </notes>
+      <segment>
+        <source>Event-Stadt</source>
+        <target>Pueblos especiales</target>
+      </segment>
+    </unit>
+    <unit id="_GOkdZm" name="Spezialregeln">
+      <notes>
+        <note category="german">Spezialregeln</note>
+      </notes>
+      <segment>
+        <source>Spezialregeln</source>
+        <target>Reglas especiales</target>
+      </segment>
+    </unit>
+    <unit id="9qD2u0I" name="Keine Spezialregeln">
+      <notes>
+        <note category="german">Keine Spezialregeln</note>
+      </notes>
+      <segment>
+        <source>Keine Spezialregeln</source>
+        <target>Ninguna</target>
+      </segment>
+    </unit>
+    <unit id="ilcgFcS" name="Keine">
+      <notes>
+        <note category="german">Keine</note>
+      </notes>
+      <segment>
+        <source>Keine</source>
+        <target>Ninguno</target>
+      </segment>
+    </unit>
+    <unit id="LDmQN2V">
+      <notes>
+        <note category="german">Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!</note>
+      </notes>
+      <segment>
+        <source>Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!</source>
+        <target>Ningún edificio está desbloqueado desde el comienzo, ¡todos deben encontrarse en el Ultramundo!</target>
+      </segment>
+    </unit>
+    <unit id="KzRE1mD" name="Keine Startgebäude">
+      <notes>
+        <note category="german">Keine Startgebäude</note>
+      </notes>
+      <segment>
+        <source>Keine Startgebäude</source>
+        <target>Sin construcciones al inicio</target>
+      </segment>
+    </unit>
+    <unit id="lU_pn2u">
+      <notes>
+        <note category="german">Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.</note>
+      </notes>
+      <segment>
+        <source>Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.</source>
+        <target>Toda la comida y drogas que consumas tendrá una pequeña probabilidad de infectarte.</target>
+      </segment>
+    </unit>
+    <unit id="gQkxXIB" name="Kontaminierte Zone">
+      <notes>
+        <note category="german">Kontaminierte Zone</note>
+      </notes>
+      <segment>
+        <source>Kontaminierte Zone</source>
+        <target>Zona contaminada</target>
+      </segment>
+    </unit>
+    <unit id="w9rtgEq" name="Stadtmodifikationen">
+      <notes>
+        <note category="german">Stadtmodifikationen</note>
+      </notes>
+      <segment>
+        <source>Stadtmodifikationen</source>
+        <target>Personalización del pueblo</target>
+      </segment>
+    </unit>
+    <unit id="dhtPmmZ" name="Exploration:">
+      <notes>
+        <note category="german">Exploration:</note>
+      </notes>
+      <segment>
+        <source>Exploration:</source>
+        <target>Exploración:</target>
+      </segment>
+    </unit>
+    <unit id="i9uL7bg" name="Begehbare Ruinen aktivieren">
+      <notes>
+        <note category="german">Begehbare Ruinen aktivieren</note>
+      </notes>
+      <segment>
+        <source>Begehbare Ruinen aktivieren</source>
+        <target>Activa las exploraciones de las ruinas avanzadas</target>
+      </segment>
+    </unit>
+    <unit id="DxyIzHy" name="Seelen &amp; Schamane:">
+      <notes>
+        <note category="german">Seelen &amp; Schamane:</note>
+      </notes>
+      <segment>
+        <source>Seelen &amp; Schamane:</source>
+        <target><![CDATA[Almas & Chamán:]]></target>
+      </segment>
+    </unit>
+    <unit id="k2SkMiM" name="Verlorene Seelen und Schamanen aktivieren">
+      <notes>
+        <note category="german">Verlorene Seelen und Schamanen aktivieren</note>
+      </notes>
+      <segment>
+        <source>Verlorene Seelen und Schamanen aktivieren</source>
+        <target>Activar almas perdidas y chamán</target>
+      </segment>
+    </unit>
+    <unit id="KwchNgg" name="Eskorte:">
+      <notes>
+        <note category="german">Eskorte:</note>
+      </notes>
+      <segment>
+        <source>Eskorte:</source>
+        <target>Escolta:</target>
+      </segment>
+    </unit>
+    <unit id="siVFR7b" name="Eskorten aktivieren">
+      <notes>
+        <note category="german">Eskorten aktivieren</note>
+      </notes>
+      <segment>
+        <source>Eskorten aktivieren</source>
+        <target>Activa las escoltas ciudadanas</target>
+      </segment>
+    </unit>
+    <unit id="M7KjFnf" name="Verbannung:">
+      <notes>
+        <note category="german">Verbannung:</note>
+      </notes>
+      <segment>
+        <source>Verbannung:</source>
+        <target>Destierro:</target>
+      </segment>
+    </unit>
+    <unit id="QosET96" name="Verbannung aktivieren">
+      <notes>
+        <note category="german">Verbannung aktivieren</note>
+      </notes>
+      <segment>
+        <source>Verbannung aktivieren</source>
+        <target>Activa los habitantes desterrados</target>
+      </segment>
+    </unit>
+    <unit id="hR9OXtO" name="Nachtmodus:">
+      <notes>
+        <note category="german">Nachtmodus:</note>
+      </notes>
+      <segment>
+        <source>Nachtmodus:</source>
+        <target>Modo noche:</target>
+      </segment>
+    </unit>
+    <unit id="3lbcc06" name="Nachtmodus aktivieren (schwerer)">
+      <notes>
+        <note category="german">Nachtmodus aktivieren (schwerer)</note>
+      </notes>
+      <segment>
+        <source>Nachtmodus aktivieren (schwerer)</source>
+        <target>Activa el modo noche (más difícil)</target>
+      </segment>
+    </unit>
+    <unit id="Ip2o27i" name="Camping:">
+      <notes>
+        <note category="german">Camping:</note>
+      </notes>
+      <segment>
+        <source>Camping:</source>
+        <target>Acampada:</target>
+      </segment>
+    </unit>
+    <unit id="PWZojkF" name="Camping in der Wildnis aktivieren">
+      <notes>
+        <note category="german">Camping in der Wildnis aktivieren</note>
+      </notes>
+      <segment>
+        <source>Camping in der Wildnis aktivieren</source>
+        <target>Activa el acampe en lo salvaje</target>
+      </segment>
+    </unit>
+    <unit id="8h7b0Dd" name="Ghule:">
+      <notes>
+        <note category="german">Ghule:</note>
+      </notes>
+      <segment>
+        <source>Ghule:</source>
+        <target>Mutantes:</target>
+      </segment>
+    </unit>
+    <unit id="Rsw_o_o" name="Ghule aktivieren">
+      <notes>
+        <note category="german">Ghule aktivieren</note>
+      </notes>
+      <segment>
+        <source>Ghule aktivieren</source>
+        <target>Activa los mutantes</target>
+      </segment>
+    </unit>
+    <unit id="rBxUVmT" name="Gebäudeschaden:">
+      <notes>
+        <note category="german">Gebäudeschaden:</note>
+      </notes>
+      <segment>
+        <source>Gebäudeschaden:</source>
+        <target>Daño en las construcciones:</target>
+      </segment>
+    </unit>
+    <unit id="k.ofzD6" name="Gebäudeschaden aktivieren">
+      <notes>
+        <note category="german">Gebäudeschaden aktivieren</note>
+      </notes>
+      <segment>
+        <source>Gebäudeschaden aktivieren</source>
+        <target>Activa el daño en las construcciones</target>
+      </segment>
+    </unit>
+    <unit id="BZ2yast" name="Nachtwache:">
+      <notes>
+        <note category="german">Nachtwache:</note>
+      </notes>
+      <segment>
+        <source>Nachtwache:</source>
+        <target>Centinelas:</target>
+      </segment>
+    </unit>
+    <unit id="85ixbKa" name="Nachtwache aktivieren">
+      <notes>
+        <note category="german">Nachtwache aktivieren</note>
+      </notes>
+      <segment>
+        <source>Nachtwache aktivieren</source>
+        <target>Activa los centinelas</target>
+      </segment>
+    </unit>
+    <unit id="aOW2H78" name="Verbesserte Müllhalde:">
+      <notes>
+        <note category="german">Verbesserte Müllhalde:</note>
+      </notes>
+      <segment>
+        <source>Verbesserte Müllhalde:</source>
+        <target>Vertedero Mejorado:</target>
+      </segment>
+    </unit>
+    <unit id="ZqzbCRl" name="Verbesserte Müllhalde aktivieren">
+      <notes>
+        <note category="german">Verbesserte Müllhalde aktivieren</note>
+      </notes>
+      <segment>
+        <source>Verbesserte Müllhalde aktivieren</source>
+        <target>Activa el vertedero mejorado</target>
+      </segment>
+    </unit>
+    <unit id="0B82Z13" name="Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt">
+      <notes>
+        <note category="german">Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt</note>
+      </notes>
+      <segment>
+        <source>Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt</source>
+        <target>Activar/desactivar las modificaciones específicamente para este pueblo</target>
+      </segment>
+    </unit>
+    <unit id="BpFg4zU" name="Angriffe">
+      <notes>
+        <note category="german">Angriffe</note>
+      </notes>
+      <segment>
+        <source>Angriffe</source>
+        <target>Ataques</target>
+      </segment>
+    </unit>
+    <unit id="0AcV_6s" name="Stärke der Angriffe">
+      <notes>
+        <note category="german">Stärke der Angriffe</note>
+      </notes>
+      <segment>
+        <source>Stärke der Angriffe</source>
+        <target>Gestión de los ataques</target>
+      </segment>
+    </unit>
+    <unit id="mkXpu2_" name="Leiche Angriffe">
+      <notes>
+        <note category="german">Leiche Angriffe</note>
+      </notes>
+      <segment>
+        <source>Leiche Angriffe</source>
+        <target>Ataques débiles</target>
+      </segment>
+    </unit>
+    <unit id="MKxsVor" name="Schwere Angriffe">
+      <notes>
+        <note category="german">Schwere Angriffe</note>
+      </notes>
+      <segment>
+        <source>Schwere Angriffe</source>
+        <target>Ataques severos</target>
+      </segment>
+    </unit>
+    <unit id="WLIeM8b" name="Spiel-Optionen">
+      <notes>
+        <note category="german">Spiel-Optionen</note>
+      </notes>
+      <segment>
+        <source>Spiel-Optionen</source>
+        <target>Opciones del juego</target>
+      </segment>
+    </unit>
+    <unit id="7L3ndtf" name="Abstimmung aller Piktogramme:">
+      <notes>
+        <note category="german">Abstimmung aller Piktogramme:</note>
+      </notes>
+      <segment>
+        <source>Abstimmung aller Piktogramme:</source>
+        <target>Recompensar todas las distinciones:</target>
+      </segment>
+    </unit>
+    <unit id="WjDyWyC">
+      <notes>
+        <note category="german">Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.</note>
+      </notes>
+      <segment>
+        <source>Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.</source>
+        <target>Da el total de distinciones obtenidas en el pueblo en lugar de sólamente una tercera parte.</target>
+      </segment>
+    </unit>
+    <unit id="vLYm3DY" name="Seelenpunkte vergeben:">
+      <notes>
+        <note category="german">Seelenpunkte vergeben:</note>
+      </notes>
+      <segment>
+        <source>Seelenpunkte vergeben:</source>
+        <target>Recompensar puntos de alma:</target>
+      </segment>
+    </unit>
+    <unit id="Uadj6Vo" name="Gibt Ihnen Seelenpunkte.">
+      <notes>
+        <note category="german">Gibt dir Seelenpunkte.</note>
+      </notes>
+      <segment>
+        <source>Gibt Ihnen Seelenpunkte.</source>
+        <target>Te da puntos de alma.</target>
+      </segment>
+    </unit>
+    <unit id="ROOTy.N" name="Achtung!">
+      <notes>
+        <note category="german">Achtung!</note>
+      </notes>
+      <segment>
+        <source>Achtung!</source>
+        <target>¡Atención!</target>
+      </segment>
+    </unit>
+    <unit id="VItPxqY" name="Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.">
+      <notes>
+        <note category="german">Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.</note>
+      </notes>
+      <segment>
+        <source>Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.</source>
+        <target>Si el pueblo no se llena en 2 días, será anulado.</target>
+      </segment>
+    </unit>
+    <unit id="qakF4ad" name="Diese Stadt gründen">
+      <notes>
+        <note category="german">Diese Stadt gründen</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt gründen</source>
+        <target>Crear este pueblo</target>
+      </segment>
+    </unit>
+    <unit id="ijucPI." name="Platzreservierung">
+      <notes>
+        <note category="german">Platzreservierung</note>
+      </notes>
+      <segment>
+        <source>Platzreservierung</source>
+        <target>Reservar plazas</target>
+      </segment>
+    </unit>
+    <unit id="JmzKQyu">
+      <notes>
+        <note category="german">Beginne ein neues Leben in der Welt der Verdammten und versuche, so lang wie möglich zu überleben. Wer weiß, was dich in dieser neuen Stadt erwarten wird?</note>
+      </notes>
+      <segment>
+        <source>Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?</source>
+        <target>Reencárnate en otro pueblo de Zombinoia y mejora tu estrategia de supervivencia. Quién sabe lo que te espera en esta nueva vida...
+</target>
+      </segment>
+    </unit>
+    <unit id="Knuuneb" name="Karten-Seed">
+      <notes>
+        <note category="german">Karten-Seed</note>
+      </notes>
+      <segment>
+        <source>Karten-Seed</source>
+        <target>Semilla del mapa</target>
+      </segment>
+    </unit>
+    <unit id="_SibAUY">
+      <notes>
+        <note category="german">Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</note>
+      </notes>
+      <segment>
+        <source>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</source>
+        <target>Semilla que permite la generación de mapas personalizados. Permite la creación de mapas similares para eventos.
+                                Coloca un número entero positivo para activarlo.
+                                ¡RECUERDA CAMBIAR EL NÚMERO DE UN EVENTO A OTRO!</target>
+      </segment>
+    </unit>
+    <unit id="EYBH.W." name="Der Schamane wird gewählt und die Seelen werden gequält.">
+      <notes>
+        <note category="german">Der Schamane wird gewählt und die Seelen werden gequält.</note>
+      </notes>
+      <segment>
+        <source>Der Schamane wird gewählt und die Seelen werden gequält.</source>
+        <target>El chamán es un rol y las almas son atormentadas.</target>
+      </segment>
+    </unit>
+    <unit id="YnsFoKy" name="Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.">
+      <notes>
+        <note category="german">Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.</note>
+      </notes>
+      <segment>
+        <source>Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.</source>
+        <target>El chamán es una profesión, las almas son transformadas en el taller.</target>
+      </segment>
+    </unit>
+    <unit id="rWF6D91" name="Job">
+      <notes>
+        <note category="german">Job</note>
+      </notes>
+      <segment>
+        <source>Job</source>
+        <target>Oficio</target>
+      </segment>
+    </unit>
+    <unit id="_kZYbUN" name="Der Schamane und die Seelen werden deaktiviert.">
+      <notes>
+        <note category="german">Der Schamane und die Seelen werden deaktiviert.</note>
+      </notes>
+      <segment>
+        <source>Der Schamane und die Seelen werden deaktiviert.</source>
+        <target>El chamán y las almas están desactivadas.</target>
+      </segment>
+    </unit>
+    <unit id="ifwhezW" name="Deaktiviert">
+      <notes>
+        <note category="german">Deaktiviert</note>
+      </notes>
+      <segment>
+        <source>Deaktiviert</source>
+        <target>Desactivado</target>
+      </segment>
+    </unit>
+    <unit id="TxDkI9W" name="Die Nachtwache ist verfügbar, wenn das Gebäude &quot;Brustwehr&quot; errichtet wurde.">
+      <notes>
+        <note category="german">Die Nachtwache ist verfügbar, wenn das Gebäude "Brustwehr" errichtet wurde.</note>
+      </notes>
+      <segment>
+        <source>Die Nachtwache ist verfügbar, wenn das Gebäude "Brustwehr" errichtet wurde.</source>
+        <target>La guardia de centinelas está disponible cuando se hayan construido las ''Almenas''.</target>
+      </segment>
+    </unit>
+    <unit id="I6A5smr" name="Die Nachtwache ist von Anfang an verfügbar.">
+      <notes>
+        <note category="german">Die Nachtwache ist von Anfang an verfügbar.</note>
+      </notes>
+      <segment>
+        <source>Die Nachtwache ist von Anfang an verfügbar.</source>
+        <target>La guardia de centinelas está disponible desde el comienzo.</target>
+      </segment>
+    </unit>
+    <unit id="AvGVwK2" name="Sofort">
+      <notes>
+        <note category="german">Sofort</note>
+      </notes>
+      <segment>
+        <source>Sofort</source>
+        <target>Inmediatamente</target>
+      </segment>
+    </unit>
+    <unit id="s4VKN2Z" name="Die Nachtwache ist deaktiviert.">
+      <notes>
+        <note category="german">Die Nachtwache ist deaktiviert.</note>
+      </notes>
+      <segment>
+        <source>Die Nachtwache ist deaktiviert.</source>
+        <target>La guardia de centinelas está desactivada.</target>
+      </segment>
+    </unit>
+    <unit id="YY0WZyp" name="Verkörperung in der Stadt:">
+      <notes>
+        <note category="german">Verkörperung in der Stadt:</note>
+      </notes>
+      <segment>
+        <source>Verkörperung in der Stadt:</source>
+        <target>Reencarnar en el pueblo:</target>
+      </segment>
+    </unit>
+    <unit id="4iMXGoK" name="Verkörpert dich in der Stadt bei ihrer Entstehung">
+      <notes>
+        <note category="german">Verkörpert dich in der Stadt bei ihrer Entstehung</note>
+      </notes>
+      <segment>
+        <source>Verkörpert dich in der Stadt bei ihrer Entstehung</source>
+        <target>Reencárnate en el pueblo cuando este dé comienzo</target>
+      </segment>
+    </unit>
+    <unit id="Vwi2p0a" name="Verfügbare Berufe">
+      <notes>
+        <note category="german">Verfügbare Berufe</note>
+      </notes>
+      <segment>
+        <source>Verfügbare Berufe</source>
+        <target>Profesiones disponibles</target>
+      </segment>
+    </unit>
+    <unit id="UgJmKP7" name="Bitte gib das Stadtpasswort ein :">
+      <notes>
+        <note category="german">Bitte gib das Stadtpasswort ein :</note>
+      </notes>
+      <segment>
+        <source>Bitte gib das Stadtpasswort ein :</source>
+        <target>Por favor, ingresa la contraseña del pueblo:</target>
+      </segment>
+    </unit>
+    <unit id="VHJI.J4" name="Nicht als Privatstadt erstellen:">
+      <notes>
+        <note category="german">Nicht als Privatstadt erstellen:</note>
+      </notes>
+      <segment>
+        <source>Nicht als Privatstadt erstellen:</source>
+        <target>No crear pueblo privado:</target>
+      </segment>
+    </unit>
+    <unit id="QFPVvM5">
+      <notes>
+        <note category="german">Die Stadt wird nicht in der Liste der Privatstädte, sondern in der oben gewählten Gruppe erscheinen. Diese Option hat keine Auswirkungen auf die Spielregeln oder die Vergabe von Auszeichnungen und Seelenpunkten!</note>
+      </notes>
+      <segment>
+        <source>Die Stadt wird nicht in der Liste der Privatstädte, sondern in der oben gewählten Gruppe erscheinen. Diese Option hat keine Auswirkungen auf die Spielregeln oder die Vergabe von Auszeichnungen und Seelenpunkten!</source>
+        <target>El pueblo no aparecerá en la lista de pueblos privados sino en el grupo elegido arriba. ¡Esta opción no tiene efecto en las reglas del juego o en las recompensas de Distinciones y Puntos de Alma!</target>
+      </segment>
+    </unit>
+    <unit id="Y1vuSS7" name="Kein XML Feed:">
+      <notes>
+        <note category="german">Kein XML Feed:</note>
+      </notes>
+      <segment>
+        <source>Kein XML Feed:</source>
+        <target>Sin feed XML:</target>
+      </segment>
+    </unit>
+    <unit id="dSkZ2BY">
+      <notes>
+        <note category="german">Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                    Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                    DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</note>
+      </notes>
+      <segment>
+        <source>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
+                                    Gib eine positive ganze Zahl ein, um es zu aktivieren.
+                                    DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</source>
+        <target>Semilla que habilita la creación de mapa controlada. Permite crear mapas similares en caso de eventos.
+                                     Ingresa un entero positivo para activarlo.
+                                     DEBERÍAS PENSARTE CAMBIAR ESTE NÚMERO ENTRE UN EVENTO Y OTRO!</target>
+      </segment>
+    </unit>
+    <unit id="9SrqJ_A" name="Strikte Vergabe von Auszeichnungen:">
+      <notes>
+        <note category="german">Strikte Vergabe von Auszeichnungen:</note>
+      </notes>
+      <segment>
+        <source>Strikte Vergabe von Auszeichnungen:</source>
+        <target>Recompensa de Distinciones estricta:</target>
+      </segment>
+    </unit>
+    <unit id="FtgTDco" name="Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.">
+      <notes>
+        <note category="german">Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.</note>
+      </notes>
+      <segment>
+        <source>Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.</source>
+        <target>Las recompensas de las Distinciones siguen las reglas de los pequeños pueblos.</target>
+      </segment>
+    </unit>
+    <unit id="wuiQkOi" name="Nach 2 Tagen negieren:">
+      <notes>
+        <note category="german">Nach 2 Tagen negieren:</note>
+      </notes>
+      <segment>
+        <source>Nach 2 Tagen negieren:</source>
+        <target>Cancelar después de 2 días:</target>
+      </segment>
+    </unit>
+    <unit id="q64vyDh" name="Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.">
+      <notes>
+        <note category="german">Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.</note>
+      </notes>
+      <segment>
+        <source>Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.</source>
+        <target>Cancela el pueblo si no se llena en 2 días.</target>
+      </segment>
+    </unit>
+    <unit id="MOZLgFu" name="Tor versperren:">
+      <notes>
+        <note category="german">Tor versperren:</note>
+      </notes>
+      <segment>
+        <source>Tor versperren:</source>
+        <target>Bloquear el Portal:</target>
+      </segment>
+    </unit>
+    <unit id="lC8mS57" name="Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.">
+      <notes>
+        <note category="german">Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.</source>
+        <target>El Portal del pueblo no se puede abrir hasta que este último se haya llenado.</target>
+      </segment>
+    </unit>
+    <unit id="8UBVWFJ" name="Betapropin steht nicht zur Verfügung.">
+      <notes>
+        <note category="german">Betapropin steht nicht zur Verfügung.</note>
+      </notes>
+      <segment>
+        <source>Betapropin steht nicht zur Verfügung.</source>
+        <target>Betapropin no disponible.</target>
+      </segment>
+    </unit>
+    <unit id="QjQvnlj" name="Beta-Funktionen deaktivieren">
+      <notes>
+        <note category="german">Beta-Funktionen deaktivieren</note>
+      </notes>
+      <segment>
+        <source>Beta-Funktionen deaktivieren</source>
+        <target>Deshabilitar funciones de la Beta</target>
+      </segment>
+    </unit>
+    <unit id="VoOkBZ0" name="Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.">
+      <notes>
+        <note category="german">Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.</note>
+      </notes>
+      <segment>
+        <source>Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.</source>
+        <target>Un miembro de tu alianza no puede unirse al pueblo.</target>
+      </segment>
+    </unit>
+    <unit id="jLPuWWW" name="In dieser Stadt ist kein Platz mehr für dich und deine Koalition.">
+      <notes>
+        <note category="german">In dieser Stadt ist kein Platz mehr für dich und deine Koalition.</note>
+      </notes>
+      <segment>
+        <source>In dieser Stadt ist kein Platz mehr für dich und deine Koalition.</source>
+        <target>No hay lugar para ti y tu alianza en este pueblo.</target>
+      </segment>
+    </unit>
+    <unit id="hMJko2L">
+      <notes>
+        <note category="german">Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</note>
+      </notes>
+      <segment>
+        <source>Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</source>
+        <target>Advertencia: ¡Tú NO ESTÁS DISPONIBLE para tu alianza! Eso significa que entrarás a este pueblo solo.</target>
+      </segment>
+    </unit>
+    <unit id="cglpSDE">
+      <notes>
+        <note category="german">Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</note>
+      </notes>
+      <segment>
+        <source>Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
+        <target>Advertencia: Tu alianza no aparece como "disponible"; ¡si entras a un pueblo, lo harás solo!</target>
+      </segment>
+    </unit>
+    <unit id="UtrdfFQ">
+      <notes>
+        <note category="german">Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</note>
+      </notes>
+      <segment>
+        <source>Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
+        <target>Advertencia: No todos los miembros de tu alianza están disponibles para seguirte a un pueblo.</target>
+      </segment>
+    </unit>
+    <unit id="EwLUGr9">
+      <notes>
+        <note category="german">Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</note>
+      </notes>
+      <segment>
+        <source>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</source>
+        <target>Cuando entras a un pueblo, los siguientes miembros de tu alianza reencarnarán contigo:</target>
+      </segment>
+    </unit>
+    <unit id="U6CJxvc">
+      <notes>
+        <note category="german">Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.</note>
+      </notes>
+      <segment>
+        <source>Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.</source>
+        <target>Dado que has muerto de forma prematura en tus últimas vidas, has sido baneado del juego por unos días. Actualmente no puedes entrar a un nuevo pueblo.</target>
+      </segment>
+    </unit>
+    <unit id="pOtfy6G">
+      <notes>
+        <note category="german">Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</note>
+      </notes>
+      <segment>
+        <source>Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</source>
+        <target>No has estado activo en este pueblo y por lo tanto has perjudicado al resto de jugadores en él. Si esto sucede de nuevo serás penalizado y no podrás entrar a ningún pueblo por varios días.</target>
+      </segment>
+    </unit>
+    <unit id="TIikksZ" name="Wiedergeburt: Privatstadt gründen">
+      <notes>
+        <note category="german">Wiedergeburt: Privatstadt gründen</note>
+      </notes>
+      <segment>
+        <source>Wiedergeburt: Privatstadt gründen</source>
+        <target>Reencarnar: Crear pueblo privado</target>
+      </segment>
+    </unit>
+    <unit id="LCh7GiT" name="Wiedergeburt: Wahl der Partie">
+      <notes>
+        <note category="german">Wiedergeburt: Wahl der Partie</note>
+      </notes>
+      <segment>
+        <source>Wiedergeburt: Wahl der Partie</source>
+        <target>Reencarnar: Elegir un pueblo</target>
+      </segment>
+    </unit>
+    <unit id="QkcknlN" name="Kartengröße">
+      <notes>
+        <note category="german">Kartengröße</note>
+      </notes>
+      <segment>
+        <source>Kartengröße</source>
+        <target>Kartengröße</target>
+      </segment>
+    </unit>
+    <unit id="TCo5k8F" name="Automatisch">
+      <notes>
+        <note category="german">Automatisch</note>
+      </notes>
+      <segment>
+        <source>Automatisch</source>
+        <target>Automatisch</target>
+      </segment>
+    </unit>
+    <unit id="a0HGkUJ" name="Kleine Karte">
+      <notes>
+        <note category="german">Kleine Karte</note>
+      </notes>
+      <segment>
+        <source>Kleine Karte</source>
+        <target>Kleine Karte</target>
+      </segment>
+    </unit>
+    <unit id="Pv2k4jm" name="Normale Karte">
+      <notes>
+        <note category="german">Normale Karte</note>
+      </notes>
+      <segment>
+        <source>Normale Karte</source>
+        <target>Normale Karte</target>
+      </segment>
+    </unit>
+    <unit id="5pSNNaZ" name="Riesige Karte">
+      <notes>
+        <note category="german">Riesige Karte</note>
+      </notes>
+      <segment>
+        <source>Riesige Karte</source>
+        <target>Riesige Karte</target>
+      </segment>
+    </unit>
+    <unit id="Fi9y5O9" name="Eigene Einstellung">
+      <notes>
+        <note category="german">Eigene Einstellung</note>
+      </notes>
+      <segment>
+        <source>Eigene Einstellung</source>
+        <target>Eigene Einstellung</target>
+      </segment>
+    </unit>
+    <unit id="6m4Eofp" name="Exakte Kartengröße">
+      <notes>
+        <note category="german">Exakte Kartengröße</note>
+      </notes>
+      <segment>
+        <source>Exakte Kartengröße</source>
+        <target>Exakte Kartengröße</target>
+      </segment>
+    </unit>
+    <unit id="OpX8hPZ" name="Anzahl Ruinen">
+      <notes>
+        <note category="german">Anzahl Ruinen</note>
+      </notes>
+      <segment>
+        <source>Anzahl Ruinen</source>
+        <target>Anzahl Ruinen</target>
+      </segment>
+    </unit>
+    <unit id="iXjB0RG" name="Anzahl Begehbare Ruinen">
+      <notes>
+        <note category="german">Anzahl Begehbare Ruinen</note>
+      </notes>
+      <segment>
+        <source>Anzahl Begehbare Ruinen</source>
+        <target>Anzahl Begehbare Ruinen</target>
+      </segment>
+    </unit>
+    <unit id="tOEjYLQ" name="Position der Stadt">
+      <notes>
+        <note category="german">Position der Stadt</note>
+      </notes>
+      <segment>
+        <source>Position der Stadt</source>
+        <target>Position der Stadt</target>
+      </segment>
+    </unit>
+    <unit id="hXA9n9R" name="Eher Zentral">
+      <notes>
+        <note category="german">Eher Zentral</note>
+      </notes>
+      <segment>
+        <source>Eher Zentral</source>
+        <target>Eher Zentral</target>
+      </segment>
+    </unit>
+    <unit id="uzMPtR4" name="Zentral">
+      <notes>
+        <note category="german">Zentral</note>
+      </notes>
+      <segment>
+        <source>Zentral</source>
+        <target>Zentral</target>
+      </segment>
+    </unit>
+    <unit id="Am_FKUL" name="Spielmodifikationen:">
+      <notes>
+        <note category="german">Spielmodifikationen:</note>
+      </notes>
+      <segment>
+        <source>Spielmodifikationen:</source>
+        <target>Spielmodifikationen:</target>
+      </segment>
+    </unit>
+    <unit id="fz803_w" name="Raben-Optionen">
+      <notes>
+        <note category="german">Raben-Optionen</note>
+      </notes>
+      <segment>
+        <source>Raben-Optionen</source>
+        <target>Raben-Optionen</target>
+      </segment>
+    </unit>
+    <unit id="jRT25y3" name="Events">
+      <notes>
+        <note category="german">Events</note>
+      </notes>
+      <segment>
+        <source>Events</source>
+        <target>Eventos</target>
+      </segment>
+    </unit>
+    <unit id="dctQQtZ" name="Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.">
+      <notes>
+        <note category="german">Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.</note>
+      </notes>
+      <segment>
+        <source>Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.</source>
+        <target>El modo nocturno está activado y Luces públicas están disponibles.</target>
+      </segment>
+    </unit>
+    <unit id="JeVu4ox" name="Erweitert">
+      <notes>
+        <note category="german">Erweitert</note>
+      </notes>
+      <segment>
+        <source>Erweitert</source>
+        <target>Extendido</target>
+      </segment>
+    </unit>
+    <unit id="kKT9.CK">
+      <notes>
+        <note category="german">Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.</note>
+      </notes>
+      <segment>
+        <source>Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.</source>
+        <target>El modo nocturno está activado. Luces públicas no está disponible.</target>
+      </segment>
+    </unit>
+    <unit id="1dCs8Np" name="Der Nachtmodus ist deaktiviert.">
+      <notes>
+        <note category="german">Der Nachtmodus ist deaktiviert.</note>
+      </notes>
+      <segment>
+        <source>Der Nachtmodus ist deaktiviert.</source>
+        <target>El modo nocturno está desactivado.</target>
+      </segment>
+    </unit>
+    <unit id="YgGsjbm" name="Eine Reservierung hinzufügen">
+      <notes>
+        <note category="german">Eine Reservierung hinzufügen</note>
+      </notes>
+      <segment>
+        <source>Eine Reservierung hinzufügen</source>
+        <target>Agregar una reserva</target>
+      </segment>
+    </unit>
+    <unit id="HU4iMjQ">
+      <notes>
+        <note category="german">Du kannst hier festlegen, welche Spieler in deiner Privatstadt spielen dürfen. Andere Spieler können die Stadt nicht betreten! Als Stadtgründer kannst du in deiner Privatstadt immer auch selber mitspielen. Gibst du nur 39 Spieler an, wärst du der also der 40. Bürger.</note>
+      </notes>
+      <segment>
+        <source>Du kannst hier festlegen, welche Spieler in deiner Privatstadt spielen dürfen. Andere Spieler können die Stadt nicht betreten! Als Stadtgründer kannst du in deiner Privatstadt immer auch selber mitspielen. Gibst du nur 39 Spieler an, wärst du der also der 40. Bürger.</source>
+        <target>Aquí puede determinar qué jugadores pueden jugar en su ciudad privada. ¡Otros jugadores no pueden entrar a la ciudad! Como fundador de una ciudad, siempre puedes jugar contigo mismo en tu ciudad privada. Si solo ingresa 39 jugadores, sería el ciudadano número 40.</target>
+      </segment>
+    </unit>
+    <unit id="KgvbGLh">
+      <notes>
+        <note category="german">So geht's: Tippe einen Spielernamen in das Feld ein. Wähle ihn dann aus den angezeigten Namen aus. Klicke dann auf "Hinzufügen". Wiederhole das für alle Spieler, die du auf die Liste setzen möchtest. Alternativ kannst du auch eine mit Komma getrennte Liste von Spielernamen eingeben, um mehrere Spieler auf einmal hiinzuzufügen. Falls du ein Passwort vergeben hast, vergiss nicht, es den Spielern zu schicken (z.B. in einer privaten Nachricht).</note>
+      </notes>
+      <segment>
+        <source>So geht's: Tippe einen Spielernamen in das Feld ein. Wähle ihn dann aus den angezeigten Namen aus. Klicke dann auf "Hinzufügen". Wiederhole das für alle Spieler, die du auf die Liste setzen möchtest. Alternativ kannst du auch eine mit Komma getrennte Liste von Spielernamen eingeben, um mehrere Spieler auf einmal hiinzuzufügen. Falls du ein Passwort vergeben hast, vergiss nicht, es den Spielern zu schicken (z.B. in einer privaten Nachricht).</source>
+        <target>Así es como funciona: escribe el nombre de un jugador en el campo. Luego selecciónelo entre los nombres que aparecen. Luego haga clic en "Agregar". Repita para todos los jugadores que desee agregar a la lista. Alternativamente, puede ingresar una lista separada por comas de nombres de jugadores para agregar varios jugadores a la vez. Si ha asignado una contraseña, no olvide enviarla a los jugadores (por ejemplo, en un mensaje privado).</target>
+      </segment>
+    </unit>
+    <unit id="VsZ8wM4">
+      <notes>
+        <note category="german">&lt;strong&gt;Hinweis:&lt;/strong&gt; Beachte, dass sich diese Liste nicht nachträglich ändern lässt. Es ist darum empfehlenwert, &lt;strong&gt;mehr als nur 39 Spieler&lt;/strong&gt; anzugeben. Dann hast du eine Reserve, falls ein oder mehrere Spieler nicht teilnehmen können.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Hinweis:&lt;/strong&gt; Beachte, dass sich diese Liste nicht nachträglich ändern lässt. Es ist darum empfehlenwert, &lt;strong&gt;mehr als nur 39 Spieler&lt;/strong&gt; anzugeben. Dann hast du eine Reserve, falls ein oder mehrere Spieler nicht teilnehmen können.</source>
+        <target><![CDATA[<strong>Nota:</strong> tenga en cuenta que esta lista no se puede cambiar más adelante. Por lo tanto, es recomendable ingresar <strong>más de 39 jugadores</strong>. Entonces tienes una reserva en caso de que uno o más jugadores no puedan participar.]]></target>
+      </segment>
+    </unit>
+    <unit id="t6F_Rrm">
+      <notes>
+        <note category="german">&lt;strong&gt;Hinweis:&lt;/strong&gt; Wenn du &lt;strong&gt;weniger als 39 Spieler&lt;/strong&gt; angibst, wird die Stadt automatisch für alle Spieler geöffnet, sobald alle Spieler auf der Liste die Stadt betreten haben.</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Hinweis:&lt;/strong&gt; Wenn du &lt;strong&gt;weniger als 39 Spieler&lt;/strong&gt; angibst, wird die Stadt automatisch für alle Spieler geöffnet, sobald alle Spieler auf der Liste die Stadt betreten haben.</source>
+        <target><![CDATA[<strong>Nota:</strong> Si ingresa <strong>menos de 39 jugadores</strong>, la ciudad se abrirá automáticamente para todos los jugadores tan pronto como todos los jugadores de la lista hayan ingresado a la ciudad.]]></target>
+      </segment>
+    </unit>
+    <unit id="PrhBm6y">
+      <notes>
+        <note category="german">&lt;strong&gt;Falls bis Mitternacht des übernächsten Tags nicht 40 Spieler die Stadt betreten haben, wird sie automatisch negiert. Alle Spieler, die sich dann bereits in der Stadt eingefunden haben, sind dann wieder frei für andere Städte.&lt;/strong&gt;</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Falls bis Mitternacht des übernächsten Tags nicht 40 Spieler die Stadt betreten haben, wird sie automatisch negiert. Alle Spieler, die sich dann bereits in der Stadt eingefunden haben, sind dann wieder frei für andere Städte.&lt;/strong&gt;</source>
+        <target><![CDATA[<strong>Si 40 jugadores no han entrado en la ciudad antes de la medianoche del día siguiente, se negará automáticamente. Todos los jugadores que ya han llegado a la ciudad son libres para otras ciudades nuevamente.</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="YHB3zxO" name="Ghule sind deaktiviert.">
+      <notes>
+        <note category="german">Ghule sind deaktiviert.</note>
+      </notes>
+      <segment>
+        <source>Ghule sind deaktiviert.</source>
+        <target>Los mutantes están desactivados.</target>
+      </segment>
+    </unit>
+    <unit id="Az4lDWu" name="Aerogen">
+      <notes>
+        <note category="german">Aerogen</note>
+      </notes>
+      <segment>
+        <source>Aerogen</source>
+        <target>Aerogénico</target>
+      </segment>
+    </unit>
+    <unit id="AostWDd">
+      <notes>
+        <note category="german">Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</note>
+      </notes>
+      <segment>
+        <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</source>
+        <target>Dependiendo del tipo de ciudad seleccionada, los mutantes aparecen de acuerdo con las reglas habituales. Además, un mutante solo puede satisfacer su hambre comiéndose a un conciudadano.</target>
+      </segment>
+    </unit>
+    <unit id="F4.K1yp" name="Blutdurst und Aerogen">
+      <notes>
+        <note category="german">Blutdurst und Aerogen</note>
+      </notes>
+      <segment>
+        <source>Blutdurst und Aerogen</source>
+        <target>Voraces y Aerogénico</target>
+      </segment>
+    </unit>
+    <unit id="6rgCZ72" name="Diese Stadt ist durch ein Passwort geschützt.">
+      <notes>
+        <note category="german">Diese Stadt ist durch ein Passwort geschützt.</note>
+      </notes>
+      <segment>
+        <source>Diese Stadt ist durch ein Passwort geschützt.</source>
+        <target>Esta ciudad está protegida con contraseña.</target>
+      </segment>
+    </unit>
+    <unit id="n5Q6CYy" name="Für diese Stadt gilt eine Platzreservierung.">
+      <notes>
+        <note category="german">Für diese Stadt gilt eine Platzreservierung.</note>
+      </notes>
+      <segment>
+        <source>Für diese Stadt gilt eine Platzreservierung.</source>
+        <target>Una reserva de asiento es válida para esta ciudad.</target>
+      </segment>
+    </unit>
+    <unit id="WhL1uY." name="Einer Stadt beitreten">
+      <notes>
+        <note category="german">Einer Stadt beitreten</note>
+      </notes>
+      <segment>
+        <source>Einer Stadt beitreten</source>
+        <target>Unirse a un pueblo</target>
+      </segment>
+    </unit>
+    <unit id="tnT0nBQ" name="Wähle dein nächstes Leben:">
+      <notes>
+        <note category="german">Wähle dein nächstes Leben:</note>
+      </notes>
+      <segment>
+        <source>Wähle dein nächstes Leben:</source>
+        <target>Elige el escenario de tu nueva aventura:</target>
+      </segment>
+    </unit>
+    <unit id="mm_OH8u" name="Ein neues Leben beginnen">
+      <notes>
+        <note category="german">Ein neues Leben beginnen</note>
+      </notes>
+      <segment>
+        <source>Ein neues Leben beginnen</source>
+        <target>Empieza una nueva existencia</target>
+      </segment>
+    </unit>
+    <unit id="NH1qMKw" name="...und mit 39 Mitbürgern in der Hölle schmoren">
+      <notes>
+        <note category="german">...und mit 39 Mitbürgern in der Hölle schmoren</note>
+      </notes>
+      <segment>
+        <source>...und mit 39 Mitbürgern in der Hölle schmoren</source>
+        <target>...junto a otros 39 condenados</target>
+      </segment>
+    </unit>
+    <unit id="ilHQ7qt" name="Das Leben nach dem Tod">
+      <notes>
+        <note category="german">Das Leben nach dem Tod</note>
+      </notes>
+      <segment>
+        <source>Das Leben nach dem Tod</source>
+        <target>La vida después de la muerte</target>
+      </segment>
+    </unit>
+    <unit id="s0KqeMJ" name="Meine Seele ansehen">
+      <notes>
+        <note category="german">Meine Seele ansehen</note>
+      </notes>
+      <segment>
+        <source>Meine Seele ansehen</source>
+        <target>Ver mi alma</target>
+      </segment>
+    </unit>
+    <unit id="_pEJUyq" name="Spendenseite aufrufen">
+      <notes>
+        <note category="german">Spendenseite aufrufen</note>
+      </notes>
+      <segment>
+        <source>Spendenseite aufrufen</source>
+        <target>Ir a la página de donaciones</target>
+      </segment>
+    </unit>
+    <unit id="lrar0xr" name="Willkommen in der Hölle!">
+      <notes>
+        <note category="german">Willkommen in der Hölle!</note>
+      </notes>
+      <segment>
+        <source>Willkommen in der Hölle!</source>
+        <target>¡Bienvenido al infierno!</target>
+      </segment>
+    </unit>
+    <unit id="7zJqkQY">
+      <notes>
+        <note category="german">Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.</note>
+      </notes>
+      <segment>
+        <source>Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.</source>
+        <target>Te unirás a otros 39 condenados en un pueblo con un solo objetivo: Sobrvivir todo el tiempo posible.</target>
+      </segment>
+    </unit>
+    <unit id="29U26Sd" name="Spiel betreten">
+      <notes>
+        <note category="german">Spiel betreten</note>
+      </notes>
+      <segment>
+        <source>Spiel betreten</source>
+        <target>¡Ingresar al juego!</target>
+      </segment>
+    </unit>
+    <unit id="Lj_OYdi" name="Einwohnerzahl">
+      <notes>
+        <note category="german">Einwohnerzahl</note>
+      </notes>
+      <segment>
+        <source>Einwohnerzahl</source>
+        <target>Población</target>
+      </segment>
+    </unit>
+    <unit id="kjZ829E" name="Muss zwischen 10 und 80 liegen.">
+      <notes>
+        <note category="german">Muss zwischen 10 und 80 liegen.</note>
+      </notes>
+      <segment>
+        <source>Muss zwischen 10 und 80 liegen.</source>
+        <target>Valor entre 10 y 80 liegen.</target>
+      </segment>
+    </unit>
+    <unit id="aASpCwA" name="Bürger-Aliase:">
+      <notes>
+        <note category="german">Bürger-Aliase:</note>
+      </notes>
+      <segment>
+        <source>Bürger-Aliase:</source>
+        <target>Apodo de habitante:</target>
+      </segment>
+    </unit>
+    <unit id="VcRaioj">
+      <notes>
+        <note category="german">Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen</note>
+      </notes>
+      <segment>
+        <source>Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen</source>
+        <target>Permite a un habitante elegir un apodo en lugar de su nombre habitual para este pueblo</target>
+      </segment>
+    </unit>
+    <unit id="CQsXVvw" name="Dein Name">
+      <notes>
+        <note category="german">Dein Name</note>
+      </notes>
+      <segment>
+        <source>Dein Name</source>
+        <target>Tu nombre</target>
+      </segment>
+    </unit>
+    <unit id="U59mj2e" name="Zeitzone:">
+      <notes>
+        <note category="german">Zeitzone:</note>
+      </notes>
+      <segment>
+        <source>Zeitzone:</source>
+        <target>Huso horario:</target>
+      </segment>
+    </unit>
+    <unit id="e3MFczK" name="Die eingestellte Zeit gibt die Dauer des Tages an.">
+      <notes>
+        <note category="german">Die eingestellte Zeit gibt die Dauer des Tages an.</note>
+      </notes>
+      <segment>
+        <source>Die eingestellte Zeit gibt die Dauer des Tages an.</source>
+        <target>La hora establecida controla la duración del día.</target>
+      </segment>
+    </unit>
+    <unit id="GhcEWUz">
+      <notes>
+        <note category="german">Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.</note>
+      </notes>
+      <segment>
+        <source>Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.</source>
+        <target>Si el modo nocturno está desactivado, este ajuste es solo cosmético.</target>
+      </segment>
+    </unit>
+    <unit id="lLT6O3P" name="Tagesphase">
+      <notes>
+        <note category="german">Tagesphase</note>
+      </notes>
+      <segment>
+        <source>Tagesphase</source>
+        <target>Hora del día</target>
+      </segment>
+    </unit>
+    <unit id="Xhpz327" name="Die eingestellte Zeit gibt die Dauer der Nacht an.">
+      <notes>
+        <note category="german">Die eingestellte Zeit gibt die Dauer der Nacht an.</note>
+      </notes>
+      <segment>
+        <source>Die eingestellte Zeit gibt die Dauer der Nacht an.</source>
+        <target>La hora establecida controla la duración de la noche.</target>
+      </segment>
+    </unit>
+    <unit id="dkUvCKc" name="Nachtphase">
+      <notes>
+        <note category="german">Nachtphase</note>
+      </notes>
+      <segment>
+        <source>Nachtphase</source>
+        <target>Fase nocturna</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

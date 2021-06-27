@@ -14,8 +14,8 @@
             {% trans from 'game' %}
                 Alle zu bearbeitenden Gegenstände müssen direkt in der Bank deponiert werden.
             {% endtrans %}
-            {% trans with {'%ap%': '<div class="ap">' ~ need_ap ~ '</div>'} from 'game' %}
-                Jede Verarbeitung kostet %ap% (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).
+            {% trans with {'{ap}': '<div class="ap">' ~ need_ap ~ '</div>'} from 'game' %}
+                Jede Verarbeitung kostet {ap} (manche Gegenstände und Konstruktionen können diese Verarbeitungskosten senken).
             {% endtrans %}
             {% if saw or manu %}
                 <p><b>

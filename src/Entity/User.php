@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -33,6 +34,10 @@ class User implements UserInterface, EquatableInterface
     const ROLE_CROW      =  3;
     const ROLE_ADMIN     =  4;
     const ROLE_SUPER     =  5;
+
+    const PRONOUN_NONE = 0;
+    const PRONOUN_MALE = 1;
+    const PRONOUN_FEMALE = 2;
 
     /**
      * @ORM\Id()
@@ -253,6 +258,16 @@ class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="date", nullable=true)
      */
     private $lastNameChange;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $UseICU = false;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $preferredPronoun;
 
     public function __construct()
     {
@@ -927,24 +942,24 @@ class User implements UserInterface, EquatableInterface
         return $this;
     }
 
-    public function getLastActionTimestamp(): ?\DateTimeInterface
+    public function getLastActionTimestamp(): ?DateTimeInterface
     {
         return $this->lastActionTimestamp;
     }
 
-    public function setLastActionTimestamp(?\DateTimeInterface $lastActionTimestamp): self
+    public function setLastActionTimestamp(?DateTimeInterface $lastActionTimestamp): self
     {
         $this->lastActionTimestamp = $lastActionTimestamp;
 
         return $this;
     }
 
-    public function getDeleteAfter(): ?\DateTimeInterface
+    public function getDeleteAfter(): ?DateTimeInterface
     {
         return $this->deleteAfter;
     }
 
-    public function setDeleteAfter(?\DateTimeInterface $deleteAfter): self
+    public function setDeleteAfter(?DateTimeInterface $deleteAfter): self
     {
         $this->deleteAfter = $deleteAfter;
 
@@ -1061,6 +1076,30 @@ class User implements UserInterface, EquatableInterface
     public function setLastNameChange(?\DateTimeInterface $lastNameChange): self
     {
         $this->lastNameChange = $lastNameChange;
+
+        return $this;
+    }
+
+    public function getUseICU(): ?bool
+    {
+        return $this->UseICU;
+    }
+
+    public function setUseICU(bool $UseICU): self
+    {
+        $this->UseICU = $UseICU;
+
+        return $this;
+    }
+
+    public function getPreferredPronoun(): ?int
+    {
+        return $this->preferredPronoun;
+    }
+
+    public function setPreferredPronoun(?int $preferredPronoun): self
+    {
+        $this->preferredPronoun = $preferredPronoun;
 
         return $this;
     }
