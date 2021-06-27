@@ -30,15 +30,26 @@ class ICUTranslator implements TranslatorInterface, TranslatorBagInterface, Loca
             'ref__icu' => $u ? ($u->getUseICU() ? 'on' : 'off') : 'off',
             'ref__gender' => 'none'
         ];
+
+        $got_citizen = false;
+
         foreach ($parameters as $key => $value) {
             $key = str_replace(['{','}'],'', $key);
             if (is_a( $value, User::class )) {
                 /** @var User $value */
                 $pass_trough["{$key}__gender"] = static::$gender_map[(int)$value->getPreferredPronoun()];
+                if (!$got_citizen) {
+                    $pass_trough["ref__gender"] = $pass_trough["{$key}__gender"];
+                    $got_citizen = true;
+                }
                 $pass_trough[$key] = $value->getName();
             } elseif (is_a( $value, Citizen::class )) {
                 /** @var Citizen $value */
                 $pass_trough["{$key}__gender"] = static::$gender_map[(int)$value->getUser()->getPreferredPronoun()];
+                if (!$got_citizen) {
+                    $pass_trough["ref__gender"] = $pass_trough["{$key}__gender"];
+                    $got_citizen = true;
+                }
                 $pass_trough[$key] = $value->getName();
             } else $pass_trough[$key] = $value;
 
