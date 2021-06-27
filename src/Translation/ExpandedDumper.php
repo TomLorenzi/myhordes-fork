@@ -20,7 +20,7 @@ class ExpandedDumper extends XliffFileDumper
 
     protected function preprocess(MessageCatalogue &$messages, $domain) {
         foreach ($messages->all($domain) as $source => $target) {
-            $german = $this->trans->trans($source, [], $domain, 'de');
+            $german = trim($this->trans->trans($source, [], $domain, 'de'));
 
             $existing_notes = $messages->getMetadata( $source, $domain );
             if (isset($existing_notes['notes'])) {

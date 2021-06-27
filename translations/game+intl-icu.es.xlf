@@ -14810,7 +14810,7 @@
     </unit>
     <unit id="yd0LZz9" name="Diese Bürger is der {role} der Stadt">
       <notes>
-        <note category="german">Diese Bürger is der {role} der Stadt</note>
+        <note category="german">Dieser Bürger ist der {role} der Stadt</note>
       </notes>
       <segment>
         <source>Diese Bürger is der {role} der Stadt</source>
@@ -15656,7 +15656,7 @@
     </unit>
     <unit id="rEGk1G9" name="Meisterbastler ">
       <notes>
-        <note category="german">Meisterbastler </note>
+        <note category="german">Meisterbastler</note>
       </notes>
       <segment>
         <source>Meisterbastler </source>
@@ -17999,7 +17999,7 @@
     </unit>
     <unit id="bhwk0Sz">
       <notes>
-        <note category="german">Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät </note>
+        <note category="german">Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät</note>
       </notes>
       <segment>
         <source>Dieser riesige gelbe Metallcontainer macht einen verlorenen Eindruck. Weit und breit keine Baustelle. Der Gemeinschaftsraum im Inneren ist mit leeren Bierflaschen übersät </source>
@@ -18008,7 +18008,7 @@
     </unit>
     <unit id="UezITiX">
       <notes>
-        <note category="german">Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. </note>
+        <note category="german">Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus.</note>
       </notes>
       <segment>
         <source>Von wegen Döner macht schöner. Scheint so als hätte der Besitzer dieser Bude das mit den Dönern und den Spießen missverstanden. Wer hier reingeht kommt garantiert nicht mehr raus. </source>

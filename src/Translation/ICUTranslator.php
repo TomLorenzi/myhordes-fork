@@ -26,17 +26,23 @@ class ICUTranslator implements TranslatorInterface, TranslatorBagInterface, Loca
     {
         /** @var User $u */
         $u = $this->_security->getUser();
-        $pass_trough = ['{__icu}' => $u ? $u->getUseICU() : false];
+        $pass_trough = [
+            'ref__icu' => $u ? ($u->getUseICU() ? 'on' : 'off') : 'off',
+            'ref__gender' => 'none'
+        ];
         foreach ($parameters as $key => $value) {
+            $key = str_replace(['{','}'],'', $key);
             if (is_a( $value, User::class )) {
                 /** @var User $value */
-                $pass_trough[substr($key,0,-1) . '__gender}'] = static::$gender_map[(int)$value->getPreferredPronoun()];
+                $pass_trough["{$key}__gender"] = static::$gender_map[(int)$value->getPreferredPronoun()];
                 $pass_trough[$key] = $value->getName();
             } elseif (is_a( $value, Citizen::class )) {
                 /** @var Citizen $value */
-                $pass_trough[substr($key,0,-1) . '__gender}'] = static::$gender_map[(int)$value->getUser()->getPreferredPronoun()];
+                $pass_trough["{$key}__gender"] = static::$gender_map[(int)$value->getUser()->getPreferredPronoun()];
                 $pass_trough[$key] = $value->getName();
             } else $pass_trough[$key] = $value;
+
+            if (isset($parameters["{$key}__tag"])) $pass_trough[$key] = "<{$parameters["{$key}__tag"]}>{$pass_trough[$key]}</{$parameters["{$key}__tag"]}>";
         }
         return $this->_decorated->trans($id,$pass_trough,$domain,$locale);
     }

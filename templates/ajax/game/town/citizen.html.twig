@@ -84,7 +84,7 @@
                                     {% if not role.secret and not role.hidden %}
                                     <span>
                                         <img alt="" src="{{ asset('build/images/roles/' ~ role.icon ~ '.gif') }}" />
-                                        <div class="tooltip">{{'Diese Bürger is der {role} der Stadt'|trans({'{role}': role.label|trans({}, 'game')}, 'game')}}</div>
+                                        <div class="tooltip">{{'Diese Bürger is der {role} der Stadt'|trans({'role': role.label|trans({'ref': citizen}, 'game'), 'ref': citizen}, 'game')}}</div>
                                     </span>
                                     {% endif %}
                                 {% endfor %}
