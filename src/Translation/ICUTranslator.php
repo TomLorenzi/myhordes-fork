@@ -20,6 +20,7 @@ class ICUTranslator implements TranslatorInterface, TranslatorBagInterface, Loca
         $this->_security = $security;
     }
 
+    static $gender_map = [ 0 => 'none', 1 => 'male', 2 => 'female' ];
 
     public function trans(?string $id, array $parameters = [], string $domain = null, string $locale = null): string
     {
@@ -29,11 +30,11 @@ class ICUTranslator implements TranslatorInterface, TranslatorBagInterface, Loca
         foreach ($parameters as $key => $value) {
             if (is_a( $value, User::class )) {
                 /** @var User $value */
-                $pass_trough[substr($key,0,-1) . '__gender}'] = 'none'; // TODO: Get "users gender" config here
+                $pass_trough[substr($key,0,-1) . '__gender}'] = static::$gender_map[(int)$value->getPreferredPronoun()];
                 $pass_trough[$key] = $value->getName();
             } elseif (is_a( $value, Citizen::class )) {
                 /** @var Citizen $value */
-                $pass_trough[substr($key,0,-1) . '__gender}'] = 'none'; // TODO: Get "users gender" config here
+                $pass_trough[substr($key,0,-1) . '__gender}'] = static::$gender_map[(int)$value->getUser()->getPreferredPronoun()];
                 $pass_trough[$key] = $value->getName();
             } else $pass_trough[$key] = $value;
         }
