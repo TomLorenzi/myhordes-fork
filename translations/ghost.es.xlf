@@ -1421,7 +1421,7 @@
       </notes>
       <segment>
         <source>Das Leben nach dem Tod</source>
-        <target>Das Leben nach dem Tod</target>
+        <target>La vida después de la muerte</target>
       </segment>
     </unit>
     <unit id="s0KqeMJ" name="Meine Seele ansehen">
@@ -1430,7 +1430,7 @@
       </notes>
       <segment>
         <source>Meine Seele ansehen</source>
-        <target>Meine Seele ansehen</target>
+        <target>Ver mi alma</target>
       </segment>
     </unit>
     <unit id="_pEJUyq" name="Spendenseite aufrufen">
@@ -1439,7 +1439,7 @@
       </notes>
       <segment>
         <source>Spendenseite aufrufen</source>
-        <target>Spendenseite aufrufen</target>
+        <target>Ir a la página de donaciones</target>
       </segment>
     </unit>
     <unit id="lrar0xr" name="Willkommen in der Hölle!">
@@ -1448,7 +1448,7 @@
       </notes>
       <segment>
         <source>Willkommen in der Hölle!</source>
-        <target>Willkommen in der Hölle!</target>
+        <target>¡Bienvenido al infierno!</target>
       </segment>
     </unit>
     <unit id="7zJqkQY">
@@ -1457,7 +1457,7 @@
       </notes>
       <segment>
         <source>Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.</source>
-        <target>Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.</target>
+        <target>Te unirás a otros 39 condenados en un pueblo con un solo objetivo: Sobrvivir todo el tiempo posible.</target>
       </segment>
     </unit>
     <unit id="29U26Sd" name="Spiel betreten">
@@ -1466,7 +1466,7 @@
       </notes>
       <segment>
         <source>Spiel betreten</source>
-        <target>Spiel betreten</target>
+        <target>¡Ingresar al juego!</target>
       </segment>
     </unit>
     <unit id="Lj_OYdi" name="Einwohnerzahl">
@@ -1475,7 +1475,7 @@
       </notes>
       <segment>
         <source>Einwohnerzahl</source>
-        <target>Einwohnerzahl</target>
+        <target>Población</target>
       </segment>
     </unit>
     <unit id="kjZ829E" name="Muss zwischen 10 und 80 liegen.">
@@ -1484,7 +1484,7 @@
       </notes>
       <segment>
         <source>Muss zwischen 10 und 80 liegen.</source>
-        <target>Muss zwischen 10 und 80 liegen.</target>
+        <target>Valor entre 10 y 80 liegen.</target>
       </segment>
     </unit>
     <unit id="aASpCwA" name="Bürger-Aliase:">
@@ -1493,7 +1493,7 @@
       </notes>
       <segment>
         <source>Bürger-Aliase:</source>
-        <target>Bürger-Aliase:</target>
+        <target>Apodo de habitante:</target>
       </segment>
     </unit>
     <unit id="VcRaioj">
@@ -1502,7 +1502,7 @@
       </notes>
       <segment>
         <source>Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen</source>
-        <target>Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen</target>
+        <target>Permite a un habitante elegir un apodo en lugar de su nombre habitual para este pueblo</target>
       </segment>
     </unit>
     <unit id="CQsXVvw" name="Dein Name">
@@ -1511,7 +1511,7 @@
       </notes>
       <segment>
         <source>Dein Name</source>
-        <target>Dein Name</target>
+        <target>Tu nombre</target>
       </segment>
     </unit>
     <unit id="U59mj2e" name="Zeitzone:">
@@ -1520,7 +1520,7 @@
       </notes>
       <segment>
         <source>Zeitzone:</source>
-        <target>Zeitzone:</target>
+        <target>Huso horario:</target>
       </segment>
     </unit>
     <unit id="e3MFczK" name="Die eingestellte Zeit gibt die Dauer des Tages an.">
@@ -1529,7 +1529,7 @@
       </notes>
       <segment>
         <source>Die eingestellte Zeit gibt die Dauer des Tages an.</source>
-        <target>Die eingestellte Zeit gibt die Dauer des Tages an.</target>
+        <target>La hora establecida controla la duración del día.</target>
       </segment>
     </unit>
     <unit id="GhcEWUz">
@@ -1538,7 +1538,7 @@
       </notes>
       <segment>
         <source>Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.</source>
-        <target>Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.</target>
+        <target>Si el modo nocturno está desactivado, este ajuste es solo cosmético.</target>
       </segment>
     </unit>
     <unit id="lLT6O3P" name="Tagesphase">
@@ -1547,7 +1547,7 @@
       </notes>
       <segment>
         <source>Tagesphase</source>
-        <target>Tagesphase</target>
+        <target>Hora del día</target>
       </segment>
     </unit>
     <unit id="Xhpz327" name="Die eingestellte Zeit gibt die Dauer der Nacht an.">
@@ -1556,7 +1556,7 @@
       </notes>
       <segment>
         <source>Die eingestellte Zeit gibt die Dauer der Nacht an.</source>
-        <target>Die eingestellte Zeit gibt die Dauer der Nacht an.</target>
+        <target>La hora establecida controla la duración de la noche.</target>
       </segment>
     </unit>
     <unit id="dkUvCKc" name="Nachtphase">
@@ -1565,7 +1565,7 @@
       </notes>
       <segment>
         <source>Nachtphase</source>
-        <target>Nachtphase</target>
+        <target>Fase nocturna</target>
       </segment>
     </unit>
   </file>
