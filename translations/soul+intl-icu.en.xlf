@@ -2842,7 +2842,7 @@
       </notes>
       <segment>
         <source>Geworbener Spieler</source>
-        <target>Geworbener Spieler</target>
+        <target>Sponsored Player</target>
       </segment>
     </unit>
     <unit id="4n2PgVx" name="Heldenerfahrung">
@@ -2851,7 +2851,7 @@
       </notes>
       <segment>
         <source>Heldenerfahrung</source>
-        <target>Heldenerfahrung</target>
+        <target>Heroic Experience</target>
       </segment>
     </unit>
     <unit id="QGRs.s1" name="Du hast keine Koalition.">
@@ -2860,7 +2860,7 @@
       </notes>
       <segment>
         <source>Du hast keine Koalition.</source>
-        <target>Du hast keine Koalition.</target>
+        <target>You don't have a coalition.</target>
       </segment>
     </unit>
     <unit id="ljPPYyM" name="Du bist nicht Anführer deiner Koalition.">
@@ -2869,7 +2869,7 @@
       </notes>
       <segment>
         <source>Du bist nicht Anführer deiner Koalition.</source>
-        <target>Du bist nicht Anführer deiner Koalition.</target>
+        <target>You're not the leader of your coalition.</target>
       </segment>
     </unit>
     <unit id="nnaWQyL" name="Kein freier Platz">
@@ -2878,7 +2878,7 @@
       </notes>
       <segment>
         <source>Kein freier Platz</source>
-        <target>Kein freier Platz</target>
+        <target>No available spot</target>
       </segment>
     </unit>
     <unit id="vOzFwXw" name="Koalitionsmitglied">
@@ -2887,7 +2887,7 @@
       </notes>
       <segment>
         <source>Koalitionsmitglied</source>
-        <target>Koalitionsmitglied</target>
+        <target>Member of your coalition</target>
       </segment>
     </unit>
     <unit id="2.dDOzw" name="Noch nicht bestätigt...">
@@ -2896,7 +2896,7 @@
       </notes>
       <segment>
         <source>Noch nicht bestätigt...</source>
-        <target>Noch nicht bestätigt...</target>
+        <target>No response yet...</target>
       </segment>
     </unit>
     <unit id="yf4a0g_" name="Koalitionseinladung">
@@ -2905,7 +2905,7 @@
       </notes>
       <segment>
         <source>Koalitionseinladung</source>
-        <target>Koalitionseinladung</target>
+        <target>Invitation to the coalition</target>
       </segment>
     </unit>
     <unit id="IDuEdUg" name="Die Freundschaftswerbung">
