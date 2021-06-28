@@ -425,13 +425,15 @@ class SoulController extends CustomAbstractController
         if (!$this->user_handler->isNameValid($displayName))
             return AjaxResponse::error(self::ErrorUserEditUserName);
 
-        if ($displayName !== $user->getDisplayName() && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->m < 6) {
+        $name_change = ($displayName !== $user->getDisplayName() && $user->getDisplayName() !== null) || ($displayName !== $user->getUsername() && $user->getDisplayName() === null);
+
+        if ($name_change && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->m < 6) {
             return  AjaxResponse::error(self::ErrorUserEditTooSoon);
         }
-        if($displayName !== $user->getDisplayName() && $user->getEternalID() !== null)
+        if ($name_change && $user->getEternalID() !== null)
             return AjaxResponse::error(self::ErrorUserUseEternalTwin);
 
-        if ($this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileDisplayName) && $displayName !== $user->getDisplayName())
+        if ($this->user_handler->isRestricted($user, AccountRestriction::RestrictionProfileDisplayName) && $name_change)
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
         if ($title < 0)
