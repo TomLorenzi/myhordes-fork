@@ -52,10 +52,10 @@ services:
     # just the interface, in order to set a locale
     App\Command\SchedulerCommand:
         arguments:
-            $translator: '@translator.default'
+            $translator: '@app.decoration.translator.inner'
     App\Command\CronCommand:
       arguments:
-        $translator: '@translator.default'
+        $translator: '@app.decoration.translator.inner'
 
     # The NightlyHandler should have it's own log channel
     App\Service\NightlyHandler:
@@ -64,15 +64,15 @@ services:
 
     App\Command\DebugCommand:
         arguments:
-            $translator: '@translator.default'
+            $translator: '@app.decoration.translator.inner'
 
     App\Command\Town\TownInspectorCommand:
         arguments:
-            $translator: '@translator.default'
+            $translator: '@app.decoration.translator.inner'
 
     App\Command\Town\TownCreateCommand:
         arguments:
-            $translator: '@translator.default'
+            $translator: '@app.decoration.translator.inner'
 
     App\EventSubscriber\DebugSubscriber:
         tags: []
