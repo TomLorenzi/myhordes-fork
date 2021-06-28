@@ -2201,7 +2201,7 @@
       </notes>
       <segment>
         <source>Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.</source>
-        <target>Ce bouton vous permet de vous déconnecter de tous les appareils et navigateurs sur lesquels vous êtes actuellement connectés. La fonction "Rester connecté" sera également désactivée sur ces appareils.</target>
+        <target>Ce bouton vous permet de vous déconnecter de tous les appareils et navigateurs sur lesquels vous êtes actuellement connecté. La fonction "Rester connecté" sera également désactivée sur ces appareils.</target>
       </segment>
     </unit>
     <unit id="2CmSXI_" name="Animationen verringern">
@@ -3212,7 +3212,7 @@
       </notes>
       <segment>
         <source>Mit dem neuen Übersetzungssystem werden Texte akkurater in deiner Sprache dargestellt (zum Beispiel die passende Verwendung von Singular und Plural-Formen). Deaktiviere diese Option, um die originalen Texte aus Die Verdammten zu sehen.</source>
-        <target>Avec le nouveau système de traductions, vous pourrez voir des traductions beaucoup plus précises (comme les formes singulier/pluriel quand nécessaire). Décochez cette option pour avoir les traductions original de Hordes.</target>
+        <target>Avec le nouveau système de traduction, vous pourrez voir des traductions beaucoup plus précises (comme les formes singulier/pluriel quand nécessaire). Décochez cette option pour avoir les traductions originales de Hordes.</target>
       </segment>
     </unit>
     <unit id="N0JgSpD" name="Dein Spielername">

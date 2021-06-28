@@ -2964,7 +2964,7 @@
       </notes>
       <segment>
         <source>Bevorzugte Pronomen</source>
-        <target>Genre préféré</target>
+        <target>Pronoms préférés</target>
       </segment>
     </unit>
     <unit id="z8t41lP">
@@ -2973,7 +2973,7 @@
       </notes>
       <segment>
         <source>Hier kannst du festlegen, welche Personalpronomen das Spiel verwenden soll, wenn es sich auf dich bezieht (z.B. "männlich" für "er", "ihn", etc und "weiblich" für "sie", "ihr", etc).&lt;br /&gt;&lt;em&gt;Diese Einstellung beeinflusst, wie dir und anderen Spielern bestimmte Texte angezeigt werden, wenn die Option "Neue Übersetzungen verwenden" aktiv ist.&lt;/em&gt;.</source>
-        <target><![CDATA[Vous pouvez spécifier ici les pronoms personnels que le jeu doit utiliser pour se référer à vous (par exemple, "masculin" pour "il", "lui", etc. et "féminin" pour "elle", etc.)<br /><em>Ce paramètre affecte la façon dont certains textes s'affichent pour vous et les autres joueurs lorsque l'option "Utiliser les nouvelles traductions" est active.</em>]]></target>
+        <target><![CDATA[Vous pouvez spécifier ici quels pronoms personnels le jeu doit utiliser s’il se réfère à vous (ex : « masculin » pour « il », « lui », etc. et « féminin » pour « elle », « la », etc.<br /><em>Cette option influence la façon dont vous et les autres joueurs affichent certains textes lorsque l’option « Utiliser les nouvelles traductions » est active.</em>.]]></target>
       </segment>
     </unit>
     <unit id="n6hJSL5" name="Männlich">
