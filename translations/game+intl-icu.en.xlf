@@ -20277,7 +20277,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!</source>
-        <target>Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!</target>
+        <target>If the town builds a pump, you will be able to get more water!</target>
       </segment>
     </unit>
     <unit id="AyyQPWF">
@@ -20286,7 +20286,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du kannst den Bau einer Pumpe im Bereich &lt;strong&gt;Konstruktionen&lt;/strong&gt; beginnen.</source>
-        <target><![CDATA[Du kannst den Bau einer Pumpe im Bereich <strong>Konstruktionen</strong> beginnen.]]></target>
+        <target><![CDATA[You can start building the pump by going to the <strong>Construction Sites</strong> area.]]></target>
       </segment>
     </unit>
   </file>
