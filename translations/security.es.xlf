@@ -172,5 +172,23 @@
         <target>Demasiados intentos fallidos de inicio de sesión, inténtelo de nuevo en %minutes% minutos.</target>
       </segment>
     </unit>
+    <unit id="rzOAb51" name="Too many failed login attempts, please try again in {minutes} minute.">
+      <notes>
+        <note category="german">Zu viele fehlgeschlagene Anmeldeversuche, bitte versuchen Sie es in einer Minute noch einmal.</note>
+      </notes>
+      <segment>
+        <source>Too many failed login attempts, please try again in {minutes} minute.</source>
+        <target>Demasiados intentos fallidos de inicio de sesión, inténtelo de nuevo en {minutes} minuto.</target>
+      </segment>
+    </unit>
+    <unit id="H7z6JkT" name="Too many failed login attempts, please try again in {minutes} minutes.">
+      <notes>
+        <note category="german">Zu viele fehlgeschlagene Anmeldeversuche, bitte versuchen Sie es in {minutes} Minuten noch einmal.</note>
+      </notes>
+      <segment>
+        <source>Too many failed login attempts, please try again in {minutes} minutes.</source>
+        <target>Demasiados intentos fallidos de inicio de sesión, inténtelo de nuevo en {minutes} minutos.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

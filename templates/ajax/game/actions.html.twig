@@ -13,7 +13,7 @@
                 <ul>
                     {% for target in targets %}
                         {# @var item \App\Entity\Item #}
-                        <li x-action-id="{{ action_id }}" {% if confirm %}x-action-confirm="1"{% endif%} {% if not confirmMsg is null %}x-confirm-msg="{{ confirmMsg|trans({'%target%':target[1] }, 'items') }}"{% endif%} {% if provoking_id is not null %}x-provoking-id="{{ provoking_id }}"{% endif %} x-target-id="{{ target[0] }}" >
+                        <li x-action-id="{{ action_id }}" {% if confirm %}x-action-confirm="1"{% endif%} {% if not confirmMsg is null %}x-confirm-msg="{{ confirmMsg|trans({'{target}':target[1] }, 'items') }}"{% endif%} {% if provoking_id is not null %}x-provoking-id="{{ provoking_id }}"{% endif %} x-target-id="{{ target[0] }}" >
                             {% if big %}
                                 <div><img src="{{ asset(target[2]) }}" alt="{{ target[1] }}"> {{ target[1] }}</div>
                             {% else %}
@@ -40,13 +40,13 @@
                         {% if scout and entry.action.keepsCover %}
                             <img class="float-right" src="{{ asset('build/images/icons/small_stealthy.gif') }}" alt="">
                         {% endif %}
-                        <span>{{ '%action%: %item%'|trans({'%action%': entry.action.label|trans({},'items')|e('html'), '%item%': '<b>' ~ entry.item.prototype.label|trans({},'items')|e('html') ~ '</b>'},'items')|raw }}</span>
+                        <span>{{ '{action}: {item}'|trans({'{action}': entry.action.label|trans({},'items')|e('html'), '{item}': '<b>' ~ entry.item.prototype.label|trans({},'items')|e('html') ~ '</b>'},'items')|raw }}</span>
                         {% if entry.targets is not null and not entry.crossed %}
                             {% if entry.target_mode in [2,3,4,5] %}
                                 {{ _self.target_popup( entry.id, entry.item.id, entry.targets|sort((a,b) => a[1]|lower <=> b[1]|lower), entry.id ~ '--' ~ entry.item.id, 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true, entry.action.confirm, entry.action.confirmMsg ) }}
                             {% elseif entry.target_mode == 6 %}
                                 {% set target_poison = 'can_poison'|items|map(i => '<span class="highlight"><img src="' ~ asset('build/images/item/item_' ~ i.icon ~ '.gif')  ~ '" alt="">' ~ i.label|trans({},'items') ~ '</span>') %}
-                                {{ _self.target_popup( entry.id, entry.item.id, entry.targets, entry.id ~ '--' ~ entry.item.id, 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du hast nichts, womit du %poison% kombinieren kannst. Du benötigst einen der folgenden Gegenstände:<br />%list_head% oder %list_tail%.'|trans({'%poison%': '<span class="highlight"><img src="' ~ asset('build/images/item/item_' ~ entry.item.prototype.icon ~ '.gif')  ~ '" alt="">' ~ entry.item.prototype.label|trans({},'items') ~ '</span>', '%list_head%': target_poison|slice(0,-1)|join(', '), '%list_tail%': target_poison|slice(-1,1)|join(', ')},'game')|raw, true, false, entry.action.confirm, entry.action.confirmMsg ) }}
+                                {{ _self.target_popup( entry.id, entry.item.id, entry.targets, entry.id ~ '--' ~ entry.item.id, 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du hast nichts, womit du {poison} kombinieren kannst. Du benötigst einen der folgenden Gegenstände:<br />{list_head} oder {list_tail}.'|trans({'{poison}': '<span class="highlight"><img src="' ~ asset('build/images/item/item_' ~ entry.item.prototype.icon ~ '.gif')  ~ '" alt="">' ~ entry.item.prototype.label|trans({},'items') ~ '</span>', '{list_head}': target_poison|slice(0,-1)|join(', '), '{list_tail}': target_poison|slice(-1,1)|join(', ')},'game')|raw, true, false, entry.action.confirm, entry.action.confirmMsg ) }}
                             {% else %}
                                 {{ _self.target_popup( entry.id, entry.item.id, entry.targets, entry.id ~ '--' ~ entry.item.id, 'Bitte wähle einen Gegenstand:'|trans({},'game'), 'Du verfügst über keine geeigneten Gegenstände'|trans({},'game'), true, false, entry.action.confirm, entry.action.confirmMsg ) }}
                             {% endif %}

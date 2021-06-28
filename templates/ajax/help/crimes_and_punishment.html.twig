@@ -27,7 +27,7 @@
 </ul>
 <p></p>
 <p>
-{{ 'Allerdings verfügt er über <span x-ajax-href=%url_shun%>neue Fähigkeiten</span>, die ihm zu überleben helfen.'|trans({'%url_shun%': url('help', {'name': 'shunned_citizens'})},'help')|raw }}
+{{ 'Allerdings verfügt er über <span x-ajax-href={url_shun}>neue Fähigkeiten</span>, die ihm zu überleben helfen.'|trans({'{url_shun}': url('help', {'name': 'shunned_citizens'})},'help')|raw }}
 </p>
 {# <h2>Pendaisons</h2>
 <p>

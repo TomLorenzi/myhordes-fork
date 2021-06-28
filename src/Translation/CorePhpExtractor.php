@@ -27,6 +27,13 @@ class CorePhpExtractor extends PhpExtractor
     protected function canBeExtracted(string $file)
     {
         if (!$this->config->usePHP() || !parent::canBeExtracted($file)) return false;
+
+        $content = file_get_contents($file);
+        if (
+            !str_contains($content, '->trans') &&
+            !str_contains($content, 'TranslatableMessage')
+        ) return false;
+
         return !$this->config->useFileNameMatching() || in_array(basename($file),$this->config->matchingFileNames());
     }
 

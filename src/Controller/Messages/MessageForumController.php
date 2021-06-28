@@ -1175,7 +1175,7 @@ class MessageForumController extends MessageController
         } catch (Exception $e) {
             return AjaxResponse::error(ErrorHelper::ErrorDatabaseException);
         }
-        $message = $ti->trans('Du hast die Nachricht von %username% dem Raben gemeldet. Wer weiß, vielleicht wird %username% heute Nacht stääärben...', ['%username%' => '<span>' . $post->getOwner()->getName() . '</span>'], 'game');
+        $message = $ti->trans('Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...', ['{username}' => '<span>' . $post->getOwner()->getName() . '</span>'], 'game');
         $this->addFlash('notice', $message);
         return AjaxResponse::success( );
     }

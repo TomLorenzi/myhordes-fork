@@ -11,7 +11,7 @@
             {% endif %}
 
             {% if current_user is null and target_user is not null %}
-                <h4>{{ 'Hallo %username%!'|trans({'%username%': target_user.name},'login') }}</h4>
+                <h4>{{ 'Hallo {username}!'|trans({'{username}': target_user.name},'login') }}</h4>
                 <br /><br />
                 <i>{{ 'Du wirst eingeloggt. Bitte warte eine Sekunde ...'|trans({},'login') }}</i>
             {% endif %}
@@ -24,7 +24,7 @@
                     <div class="padded cell rw-8 grow-2 rw-md-12 justify">
                         {% if current_user is null and target_user is null %}
                             <div class="note">
-                                <strong>{{ 'Hallo %username%!'|trans({'%username%': etwin_user.getDisplayName},'login') }}</strong>
+                                <strong>{{ 'Hallo {username}!'|trans({'{username}': etwin_user.getDisplayName},'login') }}</strong>
                                 {{ 'Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.'|trans({},'login') }}
                                 <br><br />
                                 <form id="register-form">
@@ -68,9 +68,9 @@
                         {% else %}
                             <br />
                             <div class="note">
-                                <strong>{{ 'Vielen Dank, dass du deinen MyHordes-Account %namecheck_mh% mit deinem EternalTwin-Account %namecheck_et% verknüpfst!'|trans({
-                                        '%namecheck_mh%': current_user.username == etwin_user.getDisplayName ? '' : ( '(' ~ current_user.username ~ ')' ),
-                                        '%namecheck_et%': current_user.username == etwin_user.getDisplayName ? '' : ( '(' ~ etwin_user.getDisplayName ~ ')' )
+                                <strong>{{ 'Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem EternalTwin-Account {namecheck_et} verknüpfst!'|trans({
+                                        '{namecheck_mh}': current_user.username == etwin_user.getDisplayName ? '' : ( '(' ~ current_user.username ~ ')' ),
+                                        '{namecheck_et}': current_user.username == etwin_user.getDisplayName ? '' : ( '(' ~ etwin_user.getDisplayName ~ ')' )
                                     },'login') }}
                                 </strong><br>
 

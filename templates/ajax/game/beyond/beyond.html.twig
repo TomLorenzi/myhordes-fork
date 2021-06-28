@@ -73,7 +73,7 @@
                             } %}{% endembed %}
                             <div class="zone-info">
                                 <div class="row zone-cp note note-light">
-                                    <div class="cell rw-5 left"><img src="{{ asset('build/images/icons/small_human.gif') }}" alt="CP" /> <span>{% if zone.x != 0 or zone.y != 0 %}{{ zone_cp }} {% trans from 'game' %}Punkt(e){% endtrans %}{% else %}--{% endif %}</span></div>
+                                    <div class="cell rw-5 left"><img src="{{ asset('build/images/icons/small_human.gif') }}" alt="CP" /> <span>{% if zone.x != 0 or zone.y != 0 %}{% trans with {'{points}': zone_cp} from 'game' %}{points} Punkt(e){% endtrans %}{% else %}--{% endif %}</span></div>
                                     <div class="cell rw-2 center">
                                         {% if zone.x != 0 or zone.y != 0 %}
                                             {% if zone_cp < zone_zombies %}
@@ -88,7 +88,7 @@
                                         {% endif %}
                                     
                                     </div>
-                                    <div class="cell rw-5 right"><span>{% if zone.x != 0 or zone.y != 0 %}{{ zone_zombies }} {% trans from 'game' %}Punkt(e){% endtrans %}{% else %}--{% endif %}</span> <img src="{{ asset('build/images/icons/small_zombie.gif') }}" alt="ZP" /></div>
+                                    <div class="cell rw-5 right"><span>{% if zone.x != 0 or zone.y != 0 %}{% trans with {'{points}': zone_zombies} from 'game' %}{points} Punkt(e){% endtrans %}{% else %}--{% endif %}</span> <img src="{{ asset('build/images/icons/small_zombie.gif') }}" alt="ZP" /></div>
                                 </div>
                                 {% if zone.x != 0 or zone.y != 0 %}
                                     <div class="row zone-dist note note-light">
@@ -127,7 +127,7 @@
                                             {% elseif zone.getDirection == constant('App\\Entity\\Zone::DirectionSouthEast') %}
                                                 {% set dir = 'Nordwesten'|trans({},'game') %}
                                             {% endif %}
-                                            {{ 'Stadt im %direction% in %km% Entfernung'|trans({'%km%': '<b>' ~ km ~ 'km</b>', '%direction%': dir|lower},'game')|raw }}&nbsp;&nbsp;(<div class="ap">{{ town_ap }}</div>)
+                                            {{ 'Stadt im {direction} in {km} Entfernung'|trans({'{km}': '<b>' ~ km ~ 'km</b>', '{direction}': dir|lower},'game')|raw }}&nbsp;&nbsp;(<div class="ap">{{ town_ap }}</div>)
                                         </div>
                                     </div>
                                 {% endif %}
@@ -172,7 +172,7 @@
             {% if app.user.expert %}
                 <div class="row">
                     <div class="cell rw-12 background">
-                        <div class="beginner-link">{{ 'Brauchst du Hilfe? Benutze den %modelink%!'|trans({'%modelink%': ('<a href="#" x-toggle-expert-mode>' ~ ('Anfängermodus'|trans({},'game')) ~ '</a>')},'game')|raw }}</div>
+                        <div class="beginner-link">{{ 'Brauchst du Hilfe? Benutze den {modelink}!'|trans({'{modelink}': ('<a href="#" x-toggle-expert-mode>' ~ ('Anfängermodus'|trans({},'game')) ~ '</a>')},'game')|raw }}</div>
                         {{ help_lnk('Handbuch zur Aussenwelt'|trans({},'game'), 'help', {'name': 'world_beyond'}) }}
                     </div>
                 </div>

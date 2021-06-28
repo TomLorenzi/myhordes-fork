@@ -1689,18 +1689,18 @@ class ActionHandler
             case Recipe::WorkshopTypeShamanSpecific:
               switch($recipe->getAction()) {
                 case "Öffnen":
-                  $base = T::__('Du hast %item_list% in der Werkstatt geöffnet und erhälst %item%.', 'game');
+                  $base = T::__('Du hast {item_list} in der Werkstatt geöffnet und erhälst {item}.', 'game');
                   break;
                 case "Zerlegen":
-                  $base = T::__('Du hast %item_list% in der Werkstatt zu %item% zerlegt.', 'game');
+                  $base = T::__('Du hast {item_list} in der Werkstatt zu {item} zerlegt.', 'game');
                   break;
                 default:
-                  $base = T::__('Du hast %item_list% in der Werkstatt zu %item% umgewandelt.', 'game');
+                  $base = T::__('Du hast {item_list} in der Werkstatt zu {item} umgewandelt.', 'game');
               }
               $this->picto_handler->give_picto($citizen, "r_refine_#00");
               break;
             case Recipe::ManualOutside:case Recipe::ManualInside:case Recipe::ManualAnywhere:default:
-                $base = T::__('Du hast %item_list% zu %item% umgewandelt.', 'game');
+                $base = T::__('Du hast {item_list} zu {item} umgewandelt.', 'game');
                 break;
         }
 
@@ -1709,9 +1709,9 @@ class ActionHandler
         }
 
         $message = $this->translator->trans( $base, [
-            '%item_list%' => $this->wrap_concat( $list ),
-            '%item%' => $this->wrap( $new_item ),
-            '%ap%' => $ap,
+            '{item_list}' => $this->wrap_concat( $list ),
+            '{item}' => $this->wrap( $new_item ),
+            '{ap}' => $ap,
         ], 'game' );
 
         return self::ErrorNone;

@@ -6,12 +6,12 @@
                 Je nachdem, welchen Beruf du auswählst, stehen dir unterschiedliche Aktionen und Spielweisen in
                 dieser Stadt zur Verfügung.
             {% endtrans %}</p>
-        {# <p>{% trans with { '%hero%': '<b><img alt="" src="' ~ asset('build/images/professions/hero.gif') ~ '"> ' ~ 'Held'|trans({},'game') ~ '</b>' } from 'game'  %}
-                Spielst du als %hero%, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
+        {# <p>{% trans with { '{hero}': '<b><img alt="" src="' ~ asset('build/images/professions/hero.gif') ~ '"> ' ~ 'Held'|trans({},'game') ~ '</b>' } from 'game'  %}
+                Spielst du als {hero}, wird dir täglich ein Heldentag abgezogen. Gehen dir die Heldentage in der
                 Stadt aus, musst du als einfacher Einwohner weiterspielen.
             {% endtrans %}</p> #}
-        {# <p>{% trans with { '%citizen%': '<b>' ~ 'Einwohner'|trans({},'game') ~ '</b>' } from 'game'  %}
-                Spielst du als %citizen%, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
+        {# <p>{% trans with { '{citizen}': '<b>' ~ 'Einwohner'|trans({},'game') ~ '</b>' } from 'game'  %}
+                Spielst du als {citizen}, verbrauchst du keine Heldentage. Wenn du jedoch über Heldentage
                 verfügst, kannst du einmal pro Stadt auf einen Heldenberuf wechseln.
             {% endtrans %}</p> #}
     </div>
@@ -112,11 +112,11 @@
             {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_CITIZEN_ALIAS'),false) %}
                 form.citizenalias = document.getElementById('citizenalias').value;
                 if (form.citizenalias && form.citizenalias.length < 4) {
-                    $.html.error('{{ 'Dein Name muss mindestens {{ limit }} Zeichen umfassen.'|trans({'{{ limit }}': '4'},'login')|e('js') }}');
+                    $.html.error('{{ 'Dein Name muss mindestens { limit } Zeichen umfassen.'|trans({'{{ limit }}': '4'},'login')|e('js') }}');
                     return;
                 }
                 if (form.citizenalias && form.citizenalias.length > 22) {
-                    $.html.error('{{ 'Dein Name kann höchstens {{ limit }} Zeichen umfassen.'|trans({'{{ limit }}': '22'},'login')|e('js') }}');
+                    $.html.error('{{ 'Dein Name kann höchstens { limit } Zeichen umfassen.'|trans({'{{ limit }}': '22'},'login')|e('js') }}');
                     return;
                 }
                 if (form.citizenalias && form.citizenalias.match(/[^\w]/)) {

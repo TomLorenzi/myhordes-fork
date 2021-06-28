@@ -4,7 +4,7 @@
     </div>
     {% if points is defined %}
             <div class="distinctions-points">
-                {{ '%points% Punkte'|trans({'%points%':points}, 'global') }}
+                {{ '{points} Punkte'|trans({'{points}':points}, 'global') }}
             </div>
         {% endif %}
     <div class="distinctions-list center">

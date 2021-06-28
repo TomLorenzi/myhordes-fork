@@ -234,7 +234,16 @@ class ExpandedPhpExtractor extends PhpExtractor
     protected function canBeExtracted(string $file)
     {
         if (!$this->config->usePHP() || !parent::canBeExtracted($file)) return false;
-        return !$this->config->useFileNameMatching() || in_array(basename($file),$this->config->matchingFileNames());
+        if ($this->config->useFileNameMatching() && in_array(basename($file),$this->config->matchingFileNames()))
+            return true;
+
+        $content = file_get_contents($file);
+        if (
+            !str_contains($content, '->trans') &&
+            !str_contains($content, 'T::__')
+        ) return false;
+
+        return !$this->config->useFileNameMatching();
     }
 
 }

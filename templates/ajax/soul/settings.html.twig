@@ -29,6 +29,36 @@
             <div class="row">
                 <div class="padded cell rw-3 rw-md-4 rw-sm-12">
                     <div class="note note-lightest">
+                        <label for="user_displayname">{{ 'Dein Spielername'|trans({}, 'soul') }}</label>
+                    </div>
+                </div>
+                <div class="padded cell rw-9 rw-md-8 rw-sm-12">
+                    <input {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName')) or app.user.eternalID is not null %}disabled{% endif %} id="user_displayname" type="text" value="{% if app.user.displayName is not null %}{{ app.user.displayName }}{% else %}{{ app.user.name }}{% endif %}" />
+                </div>
+                <div class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12">
+                    <div class="note warning-box">{{ 'WARNUNG: Du kannst deinen Spielernamen nicht jederzeit ändern, wähle ihn also weiße, denn du wirst ihn für mehrere Monate behalten. Um anderen Spielern zu helfen dich zu finden wird der Verlauf deiner Spielernamen in deinem Profil angezeigt.'|trans({}, 'soul') }}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                    <div class="note note-lightest">
+                        <label>
+                            {{ 'Bevorzugte Pronomen'|trans({}, 'global') }}
+                            <a class="help-button"><div class="tooltip help">{{ 'Hier kannst du festlegen, welche Personalpronomen das Spiel verwenden soll, wenn es sich auf dich bezieht (z.B. "männlich" für "er", "ihn", etc und "weiblich" für "sie", "ihr", etc).<br /><em>Diese Einstellung beeinflusst, wie dir und anderen Spielern bestimmte Texte angezeigt werden, wenn die Option "Neue Übersetzungen verwenden" aktiv ist.</em>.'|trans({},'global')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
+                        </label>
+                    </div>
+                </div>
+                <div class="cell rw-9 rw-md-8 rw-sm-12">
+                    <div class="row-flex wrap">
+                        <div class="padded cell"><label class="small"><input {{ app.user.preferredPronoun == constant('App\\Entity\\User::PRONOUN_MALE') ? 'checked' : '' }} type="radio" name="user_pronoun" value="male" /> {{ 'Männlich'|trans({},'global') }}</label></div>
+                        <div class="padded cell"><label class="small"><input {{ app.user.preferredPronoun == constant('App\\Entity\\User::PRONOUN_FEMALE') ? 'checked' : '' }} type="radio" name="user_pronoun" value="female" /> {{ 'Weiblich'|trans({},'global') }}</label></div>
+                        <div class="padded cell"><label class="small"><input {{ app.user.preferredPronoun is null or app.user.preferredPronoun == constant('App\\Entity\\User::PRONOUN_NONE') ? 'checked' : '' }} type="radio" name="user_pronoun" value="none" /> {{ 'Keine Präferenz'|trans({},'global') }}</label></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="padded cell rw-3 rw-md-4 rw-sm-12">
+                    <div class="note note-lightest">
                         <label>{{ 'Dein Icon'|trans({}, 'global') }}</label>
                     </div>
                 </div>
@@ -231,6 +261,12 @@
                                 <input x-setting {% if app.user.disableFx %}checked{% endif%} type="checkbox" id="setting_disable_fx">&nbsp;<label for="setting_disable_fx">{{ 'Animationen verringern'|trans({}, 'soul') }}</label> <a class="help-button"><div class="tooltip help">{{ 'Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.<br /><em>Mit dieser Option senkst du die Qualität der Spielkartenanimationen.</em>.'|trans({},'soul')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a>
                             </div>
                         </div>
+                        <div class="padded cell rw-12">
+                            <div class="note note-lightest">
+                                <input x-setting {% if app.user.useICU %}checked{% endif%} type="checkbox" id="setting_use_icu">&nbsp;<label for="setting_use_icu">{{'Neue Übersetzungen verwenden'|trans({}, 'soul')}}</label>
+                                {{help_btn("Mit dem neuen Übersetzungssystem werden Texte akkurater in deiner Sprache dargestellt (zum Beispiel die passende Verwendung von Singular und Plural-Formen). Deaktiviere diese Option, um die originalen Texte aus Die Verdammten zu sehen."|trans({}, 'soul'))}}
+                            </div>
+                        </div>
                     </div>
 
                     <h5>{{ 'Browser-Einstellungen'|trans({},'soul') }}</h5>
@@ -255,8 +291,8 @@
                     <div class="importSoulBanner">
                         <h4>{{ 'Willkommen bei MyHordes!'|trans({},'welcome') }}</h4>
                         <p>
-                            {{ 'Hast du ein Seele bei %hordes%, %dv%, %d2n% oder %zn%?'|trans({
-                                '%hordes%': '<i>Hordes</i>', '%dv%': '<i>Die Verdammten</i>', '%d2n%': '<i>Die2Nite</i>', '%zn%': '<i>Zombinoia</i>'
+                            {{ 'Hast du ein Seele bei {hordes}, {dv}, {d2n} oder {zn}?'|trans({
+                                '{hordes}': '<i>Hordes</i>', '{dv}': '<i>Die Verdammten</i>', '{d2n}': '<i>Die2Nite</i>', '{zn}': '<i>Zombinoia</i>'
                             },'soul')|raw }}
                             <b>{{ 'Dann musst du nicht von Vorne beginnen!'|trans({},'soul') }}</b> {{ 'Importiere deine Seele und mache dort weiter, wo du aufgehört hast.'|trans({},'soul') }}
                         </p>
@@ -391,7 +427,7 @@
             }
 
             if (pw_new1.length < 6) {
-                $.html.error('{{ 'Dein Passwort muss mindestens {{ limit }} Zeichen umfassen.'|trans({'{{ limit }}': 6},'login')|e('js') }}');
+                $.html.error('{{ 'Dein Passwort muss mindestens { limit } Zeichen umfassen.'|trans({'{{ limit }}': 6},'login')|e('js') }}');
                 return;
             }
 
@@ -435,6 +471,7 @@
             $.ajax.easySend( '{{ path('api_soul_common') }}', {
                     sma: document.getElementById('setting_prefer_classic_avatars').checked,
                     disablefx: document.getElementById('setting_disable_fx').checked,
+                    useicu: document.getElementById('setting_use_icu').checked,
                 },
                 function () {
                     $.ajax.load(null, '{{ path('soul_settings') }}', true);
@@ -572,6 +609,8 @@
         $.html.addEventListenerAll('#save_profile_header', 'click', () => {
             const title = parseInt(document.getElementById('user_title').value);
             const icon = parseInt(document.getElementById('user_icon').value);
+            const pronounSel = document.querySelector('input[name="user_pronoun"]:checked');
+            const pronoun = pronounSel ? pronounSel.value : 'none';
 
             if (icon >= 0 && title < 0) {
                 $.html.error('{{ 'Du kannst kein Icon ohne einen Titel wählen.'|trans({},'soul')|e('js') }}');
@@ -581,7 +620,9 @@
             $.ajax.easySend('{{ path('api_soul_header')|e('js') }}', {
                 title: title,
                 icon: icon,
-                desc: $.html.twinoParser.parseToString(document.getElementById('user_desc').value, s => [null,s])
+                desc: $.html.twinoParser.parseToString(document.getElementById('user_desc').value, s => [null,s]),
+                displayName: $.html.twinoParser.parseToString(document.getElementById('user_displayname').value, s => [null,s]),
+                pronoun: pronoun
             }, () => {
                 $.html.notice('{{ 'Deine Einstellung wurde gespeichert.'|trans({},'soul')|e('js') }}');
                 $.ajax.load(null, '{{ path('soul_settings')|e('js') }}');

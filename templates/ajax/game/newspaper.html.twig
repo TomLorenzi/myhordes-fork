@@ -1,5 +1,5 @@
 {% extends "ajax/game/game.html.twig" %}
-{% block title %}{{'Das Leichsblatt, Ausgabe vom %day%. Tag'|trans({'%day%': gazette.day}, 'game')}}{% endblock %}
+{% block title %}{{'Das Leichsblatt, Ausgabe vom {day}. Tag'|trans({'{day}': gazette.day}, 'game')}}{% endblock %}
 {% block menu_text %}
     {{parent()}}
     <li class="back-dash" x-ajax-href="{{ url('game_landing') }}">{{ 'Zum Spiel'|trans({},'global') }}</li>
@@ -75,7 +75,7 @@
                                 <div class="tally tally-{{ gazette.days.final }}"></div>
                             {% endif %}
                             <div class="tooltip normal">
-                                	{{'Das macht dann... %day% Tage'|trans({'%day%': clock.day }, 'game')}}
+                                	{{'Das macht dann... {day} Tage'|trans({'{day}': clock.day }, 'game')}}
                             	</div>
                         </div>
                     {% endif %}
@@ -128,12 +128,12 @@
                                         {% set dir = "im Südosten"|trans({},'game') %}
                                     {% endif %}
                                     <div id="wind">
-                                        <a class="help-button"><div class="tooltip help">{{ 'Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen <strong>%sector% der Stadt</strong> regeneriert haben.<p><em>Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!</em></p>'|trans({'%sector%': dir|trans({}, 'game')},'game')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a> {{ gazette.wind|raw }}
+                                        <a class="help-button"><div class="tooltip help">{{ 'Mysteriöse metereologische Phänomene haben gestern Nacht dafür gesorgt, dass sich bestimmte Zonen <strong>{sector} der Stadt</strong> regeneriert haben.<p><em>Es können dort durch Graben wieder Gegenstände gefunden werden, auch wenn die Zone zuvor leergesucht wurde!</em></p>'|trans({'{sector}': dir|trans({}, 'game')},'game')|raw }}</div>{{ 'Hilfe'|trans({},'global') }}</a> {{ gazette.wind|raw }}
                                     </div>
                                 {% endif %}
                                 {% if gazette.waterlost > 0 %}
                                 <div id="waterlost">
-                                    {{'Verlorenes Brunnenwasser: %count% Einhet(en)'|trans({'%count%': gazette.waterlost}, 'game')}}
+                                    {{'Verlorenes Brunnenwasser: {count} Einhet(en)'|trans({'{count}': gazette.waterlost}, 'game')}}
                                 </div>
                             {% endif %}
                                 
@@ -152,7 +152,7 @@
             {% for citizenWithRole in citizensWithRole %}
                 {% for role in citizenWithRole.roles %}
                     {% if not role.secret and not role.hidden %}
-                        <p><img alt="•" src="{{ asset('build/images/icons/small_middot.gif') }}" />{{ "Der %rolename% der Stadt ist %username%"|trans({'%rolename%': "<strong>" ~ role.label|trans({}, 'game') ~ "</strong>", '%username%': "<strong>" ~ citizenWithRole.name ~ "</strong>"} , 'game')|raw }}</p>
+                        <p><img alt="•" src="{{ asset('build/images/icons/small_middot.gif') }}" />{{ "Der {rolename} der Stadt ist {username}"|trans({'rolename': role.label|trans({'ref': citizenWithRole}, 'game'), 'username': citizenWithRole, 'username__tag': 'strong', 'rolename__tag': 'strong'} , 'game')|raw }}</p>
                     {% endif %}
                 {% endfor %}
             {% endfor %}

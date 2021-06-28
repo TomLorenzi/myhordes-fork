@@ -18,7 +18,7 @@
     {% elseif other_citizens|length == 2 %}
         {% set othername = other_citizens[0].name %}
         {% if other_citizens[0].user == app.user %}{% set othername = other_citizens[1].name %}{% endif %}
-        {{'an der Seite von %citizen%'|trans({"%citizen%": othername}, 'game')|raw}}
+        {{'an der Seite von {citizen}'|trans({"{citizen}": othername}, 'game')|raw}}
     {% else %}
         {{ 'als Gruppe'|trans({}, 'game') }}
     {% endif %}
@@ -43,11 +43,11 @@
     {% endif %}
     {% if dir != "" %}
         {% if not zone.prototype %}
-            , {{'irgendwo %location% der Stadt...'|trans({'%location%': dir}, 'game')|raw}}
+            , {{'irgendwo {location} der Stadt...'|trans({'{location}': dir}, 'game')|raw}}
         {% elseif zone.buryCount > 0 %}
-            {{"inmitten eines unentwirrbaren Trümmerhaufens"|trans({'%location%': dir}, 'game')|raw}}
+            {{"inmitten eines unentwirrbaren Trümmerhaufens"|trans({'{location}': dir}, 'game')|raw}}
         {% else %}
-            {{"in einer unheimlichen Ruine %location%"|trans({'%location%': dir}, 'game')|raw}}
+            {{"in einer unheimlichen Ruine {location}"|trans({'{location}': dir}, 'game')|raw}}
         {% endif %}
     {% else %}
         {{'an den Toren der Stadt'|trans({}, 'game')|raw}}
@@ -153,7 +153,7 @@
 
     {% if citizen.escortSettings is not null and citizen.escortSettings.leader is not null %}
         <div class="help">
-            <b>{{ 'Du folgst aktuell %citizen%.'|trans({'%citizen%': citizen.escortSettings.leader.name}, 'game') }}</b>
+            <b>{{ 'Du folgst aktuell {citizen}.'|trans({'{citizen}': citizen.escortSettings.leader.name}, 'game') }}</b>
             <p>
                 {% trans from 'game' %}
                     Solange du einem anderen Bürger folgst, sind deine Handlungsmöglichkeiten eingeschränkt.
@@ -202,7 +202,7 @@
                             {% if zone_escape > 0 %}
                                 {% trans from 'game' %}Temporäre Zonenkontrolle{% endtrans %}
                             {% else %}
-                                {% trans with { '%z%': zone_zombies } from 'game' %}%z% Zombies kontrollieren diese Zone!{% endtrans %}
+                                {% trans with { '{z}': zone_zombies } from 'game' %}{z} Zombies kontrollieren diese Zone!{% endtrans %}
                             {% endif %}
                         </b><br />
                         <span>
@@ -212,13 +212,13 @@
                                 {% endtrans %}
                                 <span x-countdown="{{ zone_escape }}" x-on-expire="reload">...</span>
                                 {% if active_scout_mode %}
-                                    {{ 'Glücklicherweise kannst du dich dank deines %img_scout% <strong>Tarnanzug</strong> unerkannt weiterbewegen.'|trans({'%img_scout%': '<img alt="" src="' ~ asset('build/images/item/item_vest_on.gif') ~ '" />'},'game')|raw }}
-                                    {{ 'Achtung: Jede Aktion in der Zone sorgt dafür, dass deine <strong>Tarnung auffliegt</strong>. (Es können nur Aktionen ausgeführt werden, die mit einem Icon %img_scout_ok% gekennzeichnet sind)!'|trans({'%img_scout_ok%': '<img alt="" src="' ~ asset('build/images/icons/small_stealthy.gif') ~ '" />'},'game')|raw }}
+                                    {{ 'Glücklicherweise kannst du dich dank deines {img_scout} <strong>Tarnanzug</strong> unerkannt weiterbewegen.'|trans({'{img_scout}': '<img alt="" src="' ~ asset('build/images/item/item_vest_on.gif') ~ '" />'},'game')|raw }}
+                                    {{ 'Achtung: Jede Aktion in der Zone sorgt dafür, dass deine <strong>Tarnung auffliegt</strong>. (Es können nur Aktionen ausgeführt werden, die mit einem Icon {img_scout_ok} gekennzeichnet sind)!'|trans({'{img_scout_ok}': '<img alt="" src="' ~ asset('build/images/icons/small_stealthy.gif') ~ '" />'},'game')|raw }}
                                 {% endif %}
                             {% elseif active_scout_mode %}
                                 <br />
-                                {{ 'Mit deinem %img_scout% <strong>Tarnanzug</strong> kannst du dich bewegen ohne dabei entdeckt zu werden.'|trans({'%img_scout%': '<img alt="" src="' ~ asset('build/images/item/item_vest_on.gif') ~ '" />'},'game')|raw }}
-                                {{ 'Achtung: Jede Aktion in der Zone sorgt dafür, dass deine <strong>Tarnung auffliegt</strong>. (Es können nur Aktionen ausgeführt werden, die mit einem Icon %img_scout_ok% gekennzeichnet sind)!'|trans({'%img_scout_ok%': '<img alt="" src="' ~ asset('build/images/icons/small_stealthy.gif') ~ '" />'},'game')|raw }}
+                                {{ 'Mit deinem {img_scout} <strong>Tarnanzug</strong> kannst du dich bewegen ohne dabei entdeckt zu werden.'|trans({'{img_scout}': '<img alt="" src="' ~ asset('build/images/item/item_vest_on.gif') ~ '" />'},'game')|raw }}
+                                {{ 'Achtung: Jede Aktion in der Zone sorgt dafür, dass deine <strong>Tarnung auffliegt</strong>. (Es können nur Aktionen ausgeführt werden, die mit einem Icon {img_scout_ok} gekennzeichnet sind)!'|trans({'{img_scout_ok}': '<img alt="" src="' ~ asset('build/images/icons/small_stealthy.gif') ~ '" />'},'game')|raw }}
                             {% else %}
                                 {% trans from 'game' %}
                                     Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Wenn du nichts unternimmst und dir niemand zu Hilfe eilt, wirst du ohne Zweifel heute Abend hier verrecken ...
@@ -327,7 +327,7 @@
                             {% if zone.prototype.explorable %}
                                 <button {% if not can_explore%}disabled{% endif%} id="enter_ruin_button"  >
                                     <img class="icon left" alt="" src="{{ asset('build/images/icons/planner.gif') }}" />
-                                    {% trans with {'%ruin%': zone.prototype.label|trans({},'game')} from 'game'  %}%ruin% betreten{% endtrans %}
+                                    {% trans with {'{ruin}': zone.prototype.label|trans({},'game')} from 'game'  %}{ruin} betreten{% endtrans %}
                                     <div class="tooltip help">{{ 'Diese Aktion ermöglicht es dir, die Tiefen dieses Gebäude zu erkunden und wertvolle Ressourcen zu bergen. Sei aber nicht zu gierig, denn deine Zeit ist begrenzt!'|trans({},'game') }}</div>
                                 </button>
                             {% elseif zone.buryCount == 0%}
@@ -338,7 +338,7 @@
                                     <img class="icon left" alt="" src="{{ asset('build/images/icons/small_view.gif') }}" />
                                     {% set ruin_label = zone.prototype.label|trans({},'game') %}
                                     {% if zone.buryCount > 0 %}{% set ruin_label = 'Verschüttete Ruine'|trans({},'game') %}{% endif %}
-                                    {% trans with {'%ruin%': ruin_label} from 'game'  %}%ruin% durchsuchen{% endtrans %}
+                                    {% trans with {'{ruin}': ruin_label} from 'game'  %}{ruin} durchsuchen{% endtrans %}
                                 </button>
                             {% else %}
                                 <button id="uncover_ruin_button">
@@ -356,14 +356,14 @@
                     {% endif %}
 
 
-                    {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'special_action_list': specials, 'item_action_list': actions, 'recipe_list': recipes, 'scout': (zone_blocked and active_scout_mode), 'hidden': citizen_hidden} %}
+                    {% embed "ajax/game/actions.html.twig" with {'heroic_action_list': heroics, 'special_action_list': specials, 'item_action_list': actions, 'recipe_list': recipes, 'scout': active_scout_mode, 'hidden': citizen_hidden} %}
                     {% endembed %}
 
                     {% if (banished or town_chaos) and not citizen_hidden %}
                         <button id="bury_rucksack_button">
                             <img alt="" src="{{ asset('build/images/icons/small_ban.gif') }}" />
                             {{ 'Rucksack verstecken'|trans({},'game') }} (<div class="ap">2</div>)
-                            <div class="tooltip">{{ 'Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. <strong>Sie werden nur für andere verbannte Bürger sichtbar sein.</strong> Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.'|trans({},'game')|raw }}</div>
+                            <div class="tooltip help">{{ 'Mit dieser Aktion kannst du alle Gegenstände in deinem Rucksack in der Zone verstecken. <strong>Sie werden nur für andere verbannte Bürger sichtbar sein.</strong> Eine nicht verbannte Person hat jedoch eine kleine Chance, sie beim Graben zu finden.'|trans({},'game')|raw }}</div>
                         </button>
                     {% endif %}
 
@@ -372,7 +372,7 @@
                         <button {% if lock_trash %}disabled{% endif%} id="trash_button">
                             <img alt="" src="{{ asset('build/images/icons/small_ban.gif') }}" />
                             {{ 'Müll durchwühlen'|trans({},'game') }} (<div class="ap">1</div>)
-                            <div class="tooltip">{{ 'Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...'|trans({},'game')|raw }}</div>
+                            <div class="tooltip help">{{ 'Bürger, die aus einer Stadt verbannt wurden, haben das Recht, den weggeworfenen Müll der Stadt nach Gegenständen zu durchsuchen, die für sie nützlich sein könnten...'|trans({},'game')|raw }}</div>
                         </button>
                     {% endif %}
                 {% endif %}
@@ -550,13 +550,13 @@
                                         {% for escort_action in escort_actions[other_citizen.id] %}
                                             {# @var \App\Structures\EscortItemActionSet escort_action #}
                                             <button {% if not escort_action.hasAvailableActions %}disabled{% endif%} class="small inline" x-escort-meta-group x-escort-meta-action="{{ escort_action.group.id }}" x-citizen="{{ other_citizen.id }}" ><img alt="" src="{{ asset('build/images/actions/' ~ escort_action.group.icon ~ '.gif') }}" style="margin-right: 0;" />
-                                                {% if escort_action.group.tooltip is not null %}<div class="tooltip">{{ escort_action.group.tooltip|trans({'%citizen%': other_citizen.name},'items') }}</div>{% endif %}
+                                                {% if escort_action.group.tooltip is not null %}<div class="tooltip">{{ escort_action.group.tooltip|trans({'{citizen}': other_citizen.name},'items') }}</div>{% endif %}
                                             </button>
                                         {% endfor %}
                                     {% endif %}
                                     {% if zone.x != 0 or zone.y != 0 %}
                                         <button {% if other_citizen.digging or zone_blocked or other_citizen.digTimeout > 0 %}disabled{% else %}x-remote-action x-escort-control-endpoint="{{ path('beyond_desert_dig_controller', {ext: other_citizen.id}) }}"{% endif %} class="small inline" ><img alt="" src="{{ asset('build/images/icons/small_gather.gif') }}" style="margin-right: 0;" />
-                                            <div class="tooltip">{{ '%citizen% befehlen die Umgebung abzusuchen.'|trans({'%citizen%': other_citizen.name},'game') }}</div>
+                                            <div class="tooltip">{{ '{citizen} befehlen die Umgebung abzusuchen.'|trans({'{citizen}': other_citizen.name},'game') }}</div>
                                         </button>
                                         {% if not (other_citizen.digging or zone_blocked or other_citizen.digTimeout > 0) %}
                                             {% set can_escort_dig = can_escort_dig+1 %}
@@ -564,13 +564,13 @@
                                     {% endif %}
 
                                     <button {% if not can_attack_citizen %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" style="margin-right: 0;"/>
-                                        <div class="tooltip">{{ '%citizen% angreifen. Diese Aktion kostet dich %ap%.'|trans({'%citizen%': other_citizen.name,'%ap%': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),5) ~ '</div>'},'game')|raw }}</div>
+                                        <div class="tooltip">{{ '{citizen} angreifen. Diese Aktion kostet dich {ap}.'|trans({'{citizen}': other_citizen.name,'{ap}': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),5) ~ '</div>'},'game')|raw }}</div>
                                     </button>
                                     {% if can_devour_citizen %}
                                         <button {% if not allow_devour_citizen %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" style="margin-right: 0;" /></button>
                                     {% endif %}
                                     <button x-toggle-escort="0" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}" class="small inline" ><img alt="" src="{{ asset('build/images/icons/escort_off.gif') }}" style="margin-right: 0;" />
-                                        <div class="tooltip">{{ '%citizen% sagen mir nicht mehr zu folgen.'|trans({'%citizen%': other_citizen.name},'game') }}</div>
+                                        <div class="tooltip">{{ '{citizen} sagen mir nicht mehr zu folgen.'|trans({'{citizen}': other_citizen.name},'game') }}</div>
                                     </button>
 
                                     {% if escort_actions[other_citizen.id] is defined %}
@@ -676,7 +676,7 @@
                                             <li class="status">
                                                 <img src="{{ asset('build/images/icons/escort_other.gif') }}" alt="{{ 'Eskorte'|trans({},'game') }}">
                                                 <div class="tooltip">
-                                                    {{ 'Dieser Bürger wird aktuell von %leader% eskortiert.'|trans({'%leader%': other_citizen.escortSettings.leader.name},'game') }}
+                                                    {{ 'Dieser Bürger wird aktuell von {leader} eskortiert.'|trans({'{leader}': other_citizen.escortSettings.leader.name},'game') }}
                                                 </div>
                                             </li>
                                         {% endif %}
@@ -685,14 +685,14 @@
                                 <div class="padded cell rw-4 right">
                                     {% if not other_citizen.activeExplorerStats and other_citizen != citizen %}
                                         <button {% if not can_attack_citizen or citizen_hidden %}disabled{% endif %} x-attack-citizen="{{ path('beyond_desert_attack_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" style="margin-right: 0;" />
-                                            <div class="tooltip">{{ '%citizen% angreifen. Diese Aktion kostet dich %ap%.'|trans({'%citizen%': other_citizen.name,'%ap%': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),5) ~ '</div>'},'game')|raw }}</div>
+                                            <div class="tooltip">{{ '{citizen} angreifen. Diese Aktion kostet dich {ap}.'|trans({'{citizen}': other_citizen.name,'{ap}': '<div class="ap">' ~ conf.get(constant('App\\Structures\\TownConf::CONF_MODIFIER_ATTACK_AP'),5) ~ '</div>'},'game')|raw }}</div>
                                         </button>
                                         {% if can_devour_citizen %}
                                             <button {% if not allow_devour_citizen or citizen_hidden %}disabled{% endif %} x-devour-citizen="{{ path('beyond_desert_devour_citizen_controller', {cid: other_citizen.id}) }}" class="small inline"><img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" style="margin-right: 0;" /></button>
                                         {% endif %}
                                         {% if other_citizen.escortSettings is not null and other_citizen.escortSettings.leader is null %}
                                             <button {% if not citizen.profession.heroic or citizen_hidden %}disabled{% else %}x-toggle-escort="1" x-escort-control-endpoint="{{ path('beyond_desert_escort_controller', {cid: other_citizen.id}) }}"{% endif%} class="small inline" ><img alt="" src="{{ asset('build/images/icons/escort_in.gif') }}" style="margin-right: 0;" />
-                                                <div class="tooltip">{{ '%citizen% wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.'|trans({'%citizen%': other_citizen.name},'game') }}</div>
+                                                <div class="tooltip">{{ '{citizen} wartet auf eine Eskorte. Klick ihn an, damit er dir folgt.'|trans({'{citizen}': other_citizen.name},'game') }}</div>
                                             </button>
                                         {% endif %}
                                     {% endif %}
@@ -1044,7 +1044,7 @@
 
         {% if scout and zone.prototype and zone.buryCount > 0 %}
             $.html.addEventListenerAll('#scout_ruin_discover', 'click', function() {
-                $.html.notice('{{ 'Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: <strong>%building%</strong>!'|trans({'%building%': zone.prototype.label|trans({}, 'game')},'game')|e('js') }}');
+                $.html.notice('{{ 'Du gräbst dir einen Weg durch die Trümmer, nimmst einige Untersuchungen vor und entfernst den Schmutz von deinen Händen. Nach einigen langen Minuten kannst du ohne jeden Zweifel sagen, was sich unter den Trümmern verbirgt: <strong>{building}</strong>!'|trans({'{building}': zone.prototype.label|trans({}, 'game')},'game')|e('js') }}');
             });
         {% endif %}
     </script>

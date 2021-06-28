@@ -84,7 +84,7 @@
                         {% endif %}
                         {% if building.complete and building.defense != building.prototype.defense and building.prototype.description is empty %}
                             <div class="tooltip">
-                                {{"Beschädigte Verteidigung: %defense% / %max%"|trans({"%defense%": building.defense, "%max%": building.prototype.defense}, 'game')}}
+                                {{"Beschädigte Verteidigung: {defense} / {max}"|trans({"{defense}": building.defense, "{max}": building.prototype.defense}, 'game')}}
                             </div>
                         {% endif %}
                     </div>
@@ -92,7 +92,7 @@
                 {% if building.prototype.description is not empty %}
                     <div class="tooltip help">
                         {% if building.complete and building.defense != building.prototype.defense %}
-                            <b>{{"Beschädigte Verteidigung: %defense% / %max%"|trans({"%defense%": building.defense, "%max%": building.prototype.defense}, 'game')}}</b>
+                            <b>{{"Beschädigte Verteidigung: {defense} / {max}"|trans({"{defense}": building.defense, "{max}": building.prototype.defense}, 'game')}}</b>
                             <hr />
                         {% endif %}
                         {{ building.prototype.description|trans({}, 'buildings') }}
@@ -110,7 +110,7 @@
                     <div class="ap-bar">
                         <div class="bar" style="width: {{ 100*(building.hp/((building.prototype.hp)|round)) }}%"></div>
                         <div class="tooltip"><em>{{"Zustand:"|trans({}, 'game')}}</em> {{building.hp}}/{{building.prototype.hp}}<br />
-                            {{"Jeder %divap%, der in die Reparatur investiert wird, beseitigt %hprepair% Schadenspunkte an einem Bauwerk."|trans({"%divap%": "<div class='ap'></div>", "%hprepair%": "<b>" ~ hpToAp ~ "</b>"}, "game")|raw}}<br /><br />
+                            {{"Jeder {divap}, der in die Reparatur investiert wird, beseitigt {hprepair} Schadenspunkte an einem Bauwerk."|trans({"{divap}": "<div class='ap'></div>", "{hprepair}": "<b>" ~ hpToAp ~ "</b>"}, "game")|raw}}<br /><br />
                             {{"Die Reparatur verbraucht keine Ressourcen."|trans({}, 'game')}}
                         </div>
                     </div>
@@ -180,7 +180,7 @@
     {% endfor %}
 
     <div class="help">
-    {{ 'Bauprojekte, die mit dem Symbol "<img alt="(!)" src="%path%" />" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.'|trans({"%path%": asset('build/images/icons/small_warning.gif')},'game')|raw }}  
+    {{ 'Bauprojekte, die mit dem Symbol "<img alt="(!)" src="{path}" />" gekennzeichnet sind, können nur einmal verwendet werden. Sie werden nach dem Angriff der Zombiehorde wieder abgerissen. Wenn ihr wollt, könnt ihr sie morgen nochmal bauen.'|trans({"{path}": asset('build/images/icons/small_warning.gif')},'game')|raw }}  
     </div>
 
     <div class="row">

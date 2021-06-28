@@ -533,7 +533,7 @@
                 if (!selected_thread) return;
 
                 const preamble = selected_thread.getAttribute('x-block-name')
-                    ? ( '{{ '%user% blockieren'|trans({},'global')|e('js') }}\n\n'.replace('%user%', selected_thread.getAttribute('x-block-name')) )
+                    ? ( '{{ '{user} blockieren'|trans({},'global')|e('js') }}\n\n'.replace('{user}', selected_thread.getAttribute('x-block-name')) )
                     : '';
                 if (confirm(preamble +
                     '{{ 'Wenn du den Absender dieser Nachricht blockierst, kann dieser dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.'|trans({},'global')|e('js') }}' +

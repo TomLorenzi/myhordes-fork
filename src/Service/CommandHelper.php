@@ -18,6 +18,7 @@ use App\Interfaces\NamedEntity;
 use App\Structures\IdentifierSemantic;
 use DirectoryIterator;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -26,13 +27,76 @@ use Symfony\Component\HttpKernel\KernelInterface;
 
 class CommandHelper
 {
-    private $entity_manager;
-    private $app;
+    private EntityManagerInterface $entity_manager;
+    private KernelInterface $app;
     private $_db = null;
 
     public function __construct(EntityManagerInterface $em, KernelInterface $kernel) {
         $this->entity_manager = $em;
         $this->app = $kernel;
+    }
+
+    public function leChunk( OutputInterface $output, string $repository, int $chunkSize, array $filter, bool $manualChain, bool $alwaysPersist, callable $handler) {
+        $tc = $this->entity_manager->getRepository($repository)->count($filter);
+        $tc_chunk = 0;
+
+        $output->writeln("Processing <info>$tc</info> <comment>$repository</comment> entities...");
+        $progress = new ProgressBar( $output->section() );
+        $progress->start($tc);
+
+        while ($tc_chunk < $tc) {
+            $entities = $this->entity_manager->getRepository($repository)->findBy($filter,['id' => 'ASC'], $chunkSize, $manualChain ? $tc_chunk : 0);
+            foreach ($entities as $entity) {
+                if ($alwaysPersist) {
+                    $handler($entity);
+                    $this->entity_manager->persist($entity);
+                } else if ($handler($entity)) $this->entity_manager->persist($entity);
+                $tc_chunk++;
+            }
+            $this->entity_manager->flush();
+            $progress->setProgress($tc_chunk);
+        }
+
+        $output->writeln('OK!');
+    }
+
+    /**
+     * @param string $command
+     * @param int|null $ret
+     * @param bool|false $detach
+     * @param OutputInterface|null $output
+     * @return string[]
+     */
+    public function bin( string $command, ?int &$ret = null, bool $detach = false, ?OutputInterface $output = null ): array {
+        $process_handle = popen( $command, 'r' );
+
+        $lines = [];
+        if (!$detach) while (($line = fgets( $process_handle )) !== false) {
+            if ($output) $output->write( "> {$line}" );
+            $lines[] = $line;
+        }
+
+        $ret = pclose($process_handle);
+        return $lines;
+    }
+
+    public function capsule( string $command, OutputInterface $output, ?string $note = null, bool $bin_console = true, ?string &$ret_str = null ): bool {
+        $run_command = $bin_console ? "php bin/console $command 2>&1" : "$command 2>&1";
+
+        $verbose = $output->getVerbosity() >= OutputInterface::VERBOSITY_VERY_VERBOSE;
+
+        $output->write($note !== null ? $note : ("<info>Executing " . ($bin_console ? 'encapsulated' : '') . " command \"<comment>$command</comment>\"... </info>"));
+        $lines = $this->bin( $run_command, $ret, false, $verbose ? $output : null );
+
+        if ($ret !== 0) {
+            $output->writeln('');
+            if ($note !== null) $output->writeln("<info>Command was \"<comment>{$run_command}</comment>\"</info>");
+            if (!$verbose) foreach ($lines as $line) $output->write( "> {$line}" );
+            $ret_str = implode("\r\n", $lines);
+            $output->writeln("<error>Command exited with error code {$ret}</error>");
+        } else $output->writeln("<info>Ok.</info>");
+
+        return $ret === 0;
     }
 
     public function printObject(object $e): string {

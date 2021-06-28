@@ -21,7 +21,7 @@
         <div class="row">
             <div class="cell rw-12">
                 <div class="zone-blocked-warning">
-                    <b>{% trans with { '%z%': zone_zombies } from 'game' %}%z% Zombies blockieren den Weg!{% endtrans %}</b><br />
+                    <b>{% trans with { '{z}': zone_zombies } from 'game' %}{z} Zombies blockieren den Weg!{% endtrans %}</b><br />
                     <span>
                         {% trans from 'game' %}
                             Du wurdest überrascht und bist jetzt von den Zombies umzingelt! Du kannst flüchten, allerdings wirst du dadurch zusätzlichen Sauerstoff verbrauchen ...

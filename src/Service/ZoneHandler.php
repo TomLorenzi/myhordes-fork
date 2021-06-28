@@ -278,7 +278,7 @@ class ZoneHandler
                     if(!$timer->getCitizen()->getBanished() && $this->hasHiddenItem($timer->getZone()) && $this->random_generator->chance(0.05)){
                         $items = $timer->getZone()->getFloor()->getItems();
                         $itemsproto = array_map( function($e) {return $e->getPrototype(); }, $items->toArray() );
-                        $ret_str[] = $this->trans->trans('Beim Graben bist du auf eine Art... geheimes Versteck mit %items% gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...', ['%items%' => $wrap($itemsproto) ], 'game');
+                        $ret_str[] = $this->trans->trans('Beim Graben bist du auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...', ['{items}' => $wrap($itemsproto) ], 'game');
                         foreach ($items as $item) {
                             if($item->getHidden()){
                                 $item->setHidden(false);
@@ -302,17 +302,17 @@ class ZoneHandler
                 array_unshift($ret_str, $this->trans->trans( 'Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...', [], 'game' ));
             }
             elseif (count($found_by_player) === 1)
-                array_unshift($ret_str, $this->trans->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: %item%!', [
-                    '%item%' => $wrap($found_by_player)
+                array_unshift($ret_str, $this->trans->trans( 'Nach einigen Anstrengungen hast du folgendes gefunden: {item}!', [
+                    '{item}' => $wrap($found_by_player)
                 ], 'game' ));
-            else array_unshift($ret_str, $this->trans->trans( 'Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: %items%', ['%items%' => $wrap($found_by_player)], 'game' ));
+            else array_unshift($ret_str, $this->trans->trans( 'Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: {items}', ['{items}' => $wrap($found_by_player)], 'game' ));
         }
 
         if ($chances_by_escorts > 0) {
             if (empty($found_by_escorts) && $chances_by_escorts === 1) array_unshift($ret_str, $this->trans->trans( 'Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...', [], 'game' ));
             elseif (empty($found_by_escorts) && $chances_by_escorts > 1) array_unshift($ret_str, $this->trans->trans( 'Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...', [], 'game' ));
-            elseif ($chances_by_escorts === 1) array_unshift($ret_str, $this->trans->trans( 'Nach einigen Anstrengungen hat dein Freund folgendes gefunden: %item%!', ['%item%' => $wrap($found_by_escorts)], 'game' ));
-            else array_unshift($ret_str, $this->trans->trans( 'Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: %item%!', ['%item%' => $wrap($found_by_escorts)], 'game' ));
+            elseif ($chances_by_escorts === 1) array_unshift($ret_str, $this->trans->trans( 'Nach einigen Anstrengungen hat dein Freund folgendes gefunden: {item}!', ['{item}' => $wrap($found_by_escorts)], 'game' ));
+            else array_unshift($ret_str, $this->trans->trans( 'Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: {item}!', ['{item}' => $wrap($found_by_escorts)], 'game' ));
         }
 
         if(($chances_by_player > 0 || $chances_by_escorts > 0) && $zone->getDigs() <= 0) {
@@ -600,6 +600,9 @@ class ZoneHandler
         } else {
             if (!$admin && $zone->getDiscoveryStatus() === Zone::DiscoveryStatePast) {
                 $attributes[] = 'past';
+            } 
+            if(!$admin && $citizen && !($zone->getX() == 0 && $zone->getY() == 0) && !$citizen->getVisitedZones()->contains($zone)) {
+                $attributes[] = 'global';
             }
             if ($zone->getPrototype()) {
                 $attributes[] = 'ruin';

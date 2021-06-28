@@ -13,13 +13,13 @@
                 <strong>{{'Du wurdest als Verantwortlicher für das Katapult bestimmt!'|trans({},'game')}}</strong>
                 {{'Wähle einen Gegenstand aus deinem Inventar und gib die Zielkoordinaten ein.'|trans({},'game')}}
             {% elseif catapult_master is not null %}
-                {{'Unser Katapult wird von dem vom Schicksal auserwählten Bürger %citizen% gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.'|trans({'%citizen%': ('<span class="link" x-ajax-href="' ~ path('town_visit', {id: catapult_master.id}) ~ '"><b>' ~ catapult_master.name ~ '</b></span>')},'game')|raw}}
+                {{'Unser Katapult wird von dem vom Schicksal auserwählten Bürger {citizen} gesteuert. Sollte ihm etwas Schreckliches zustoßen, könnte dann ein neuer Bürger gewählt werden.'|trans({'{citizen}': ('<span class="link" x-ajax-href="' ~ path('town_visit', {id: catapult_master.id}) ~ '"><b>' ~ catapult_master.name ~ '</b></span>')},'game')|raw}}
             {% endif %}
         </p>
         {% if catapult_improved %}
-            {{ 'Die Aktivierung des Katapults kostet %ap%.'|trans({'%ap%': '<div class="ap">2</div>'},'game')|raw }}
+            {{ 'Die Aktivierung des Katapults kostet {ap}.'|trans({'{ap}': '<div class="ap">2</div>'},'game')|raw }}
         {% else %}
-            {{ 'Die Aktivierung des Katapults kostet %ap% (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).'|trans({'%ap%': '<div class="ap">4</div>'},'game')|raw }}
+            {{ 'Die Aktivierung des Katapults kostet {ap} (diese Kosten können durch den Bau eines besseren Katapults gesenkt werden).'|trans({'{ap}': '<div class="ap">4</div>'},'game')|raw }}
         {% endif %}
     </div>
 

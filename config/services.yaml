@@ -52,7 +52,10 @@ services:
     # just the interface, in order to set a locale
     App\Command\SchedulerCommand:
         arguments:
-            $translator: '@translator.default'
+            $translator: '@app.decoration.translator.inner'
+    App\Command\CronCommand:
+      arguments:
+        $translator: '@app.decoration.translator.inner'
 
     # The NightlyHandler should have it's own log channel
     App\Service\NightlyHandler:
@@ -61,15 +64,15 @@ services:
 
     App\Command\DebugCommand:
         arguments:
-            $translator: '@translator.default'
+            $translator: '@app.decoration.translator.inner'
 
     App\Command\Town\TownInspectorCommand:
         arguments:
-            $translator: '@translator.default'
+            $translator: '@app.decoration.translator.inner'
 
     App\Command\Town\TownCreateCommand:
         arguments:
-            $translator: '@translator.default'
+            $translator: '@app.decoration.translator.inner'
 
     App\EventSubscriber\DebugSubscriber:
         tags: []
@@ -86,6 +89,12 @@ services:
     # Symfony\Component\Translation\Extractor\PhpExtractor:
     #   tags:
     #     - { name: translation.extractort, alias: 'none', priority: 0 }
+
+    app.decoration.translator:
+      class: App\Translation\ICUTranslator
+      decorates: translator.default
+      arguments: ['@app.decoration.translator.inner']
+      public: false
 
     translation.extractor.myhordes:
       public: false
@@ -108,14 +117,11 @@ services:
             - { name: translation.extractor, alias: 'twig' }
             - { name: translation.extractor.myhordes, alias: 'twig' }
 
-    App\Translation\ExpandedDumper:
-        tags:
-            - { name: translation.dumper, alias: xlf2 }
-
-    translation.loader.xliff:
-        class: App\Translation\ProperXliffFileLoader
-        tags:
-            - { name: translation.loader, alias: xlf }
+    app.decoration.trans_dumper:
+      class: App\Translation\ExpandedDumper
+      decorates: translation.dumper.xliff
+      arguments: [ '@app.decoration.trans_dumper.inner' ]
+      public: false
 
     App\Translation\FixtureExtractor:
         tags:

@@ -30,7 +30,7 @@
                 <div class="mask"></div>
                 <div class="overlay">
                     {% if rations_left > 0 %}
-                        {{ '%rations% Rationen Wasser übrig'|trans({'%rations%': rations_left},'game') }}
+                        {{ '{rations} Rationen Wasser übrig'|trans({'{rations}': rations_left},'game') }}
                     {% else %}
                         <span class="small"><b>{{ 'Kein Wasser mehr!'|trans({},'game') }}</b></span>
                     {% endif %}
@@ -42,6 +42,10 @@
                 {% trans from 'game' %}
                     Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.
                 {% endtrans %}
+                {% if pump is null %}
+                    <br />
+                    <strong>{{'Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!'|trans({}, 'game')}} {{ help_btn('Du kannst den Bau einer Pumpe im Bereich <strong>Konstruktionen</strong> beginnen.'|trans({}, 'game')) }}</strong>
+                {% endif %}
             </div>
             {% if pump is not null %}
                 {# @var pump \App\Entity\Building #}
@@ -53,8 +57,8 @@
                     </div>
                 {% else %}
                     <div class="note">
-                        {% trans with {'%pumpname%':'<b>' ~ pump.prototype.label|trans({}, 'buildings') ~ '</b>' } from 'game' %}
-                            Die Stadt verfügt über eine %pumpname%.
+                        {% trans with {'{pumpname}':'<b>' ~ pump.prototype.label|trans({}, 'buildings') ~ '</b>' } from 'game' %}
+                            Die Stadt verfügt über eine {pumpname}.
                         {% endtrans %}
                     </div>
                 {% endif %}
@@ -111,8 +115,10 @@
             wellButtons[i].addEventListener('click', function() {
                 if (this.getAttribute('x-well-confirm') === '1') {
                     {% if not allow_take %}
-                        $.html.error('{{ 'Du kannst nicht <strong>mehr als 2 Rationen Wasser pro Tag</strong> entnehmen.'|trans({},'game')|e('js') }}');
-                        return;
+                        if (this.getAttribute('x-well-direction') === 'up') {
+                            $.html.error('{{ 'Du kannst nicht <strong>mehr als 2 Rationen Wasser pro Tag</strong> entnehmen.'|trans({},'game')|e('js') }}');
+                            return;
+                        }
                     {% else %}
                         if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                             return;

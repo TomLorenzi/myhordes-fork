@@ -71,7 +71,7 @@ class AdminActionHandler
             $this->death_handler->kill( $citizen, CauseOfDeath::Headshot, $rem );
             $this->entity_manager->persist( $this->log->citizenDeath( $citizen ) );
             $this->entity_manager->flush();
-            $message = $this->translator->trans('%username% wurde standrechtlich erschossen.', ['%username%' => '<span>' . $citizen->getName() . '</span>'], 'game');
+            $message = $this->translator->trans('{username} wurde standrechtlich erschossen.', ['{username}' => '<span>' . $citizen->getName() . '</span>'], 'game');
         }
         else {
             $message = $this->translator->trans('Dieser Bürger gehört keiner Stadt an.', [], 'game');
