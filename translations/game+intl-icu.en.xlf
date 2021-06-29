@@ -880,8 +880,7 @@
       </notes>
       <segment>
         <source>Du hast {num} anonyme Anzeige(n).</source>
-        <target>{ref__icu, select, on {{num, plural, 
-        =0 {You have received no complaints.} 
+        <target>{ref__icu, select, on {{num, plural,
         one {You have recieved # anonymous complaint.} 
         other {You have received # anonymous complaints.}}
         } other {You have received {num} anonymous complaint(s).}}</target>
