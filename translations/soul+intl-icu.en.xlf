@@ -3331,5 +3331,14 @@
         <target>You must use your Eternal Twin account to change your username.</target>
       </segment>
     </unit>
+    <unit id="4DFz5Xa">
+      <notes>
+        <note category="german">Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</source>
+        <target>You cannot change your username because you have linked an Eternal Twin account. You must go into your Eternal Twin account to change your username.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

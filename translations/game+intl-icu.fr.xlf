@@ -5231,7 +5231,7 @@
         <target>Au terme de la bataille, le bâtiment {buildingName} est tombé en poussière.</target>
       </segment>
     </unit>
-    <unit id="S103XG1" name="{citizens} Bürger">
+    <unit id="x7SDYp9" name="{citizens} Bürger">
       <notes>
         <note category="german">{citizens} Bürger</note>
       </notes>
@@ -19877,7 +19877,7 @@
         <target><![CDATA[Votre action a été remarquée ! <strong>Les citoyens ont été avertis !</strong>]]></target>
       </segment>
     </unit>
-    <unit id="U4ZJpTo" name="{deads} Tot">
+    <unit id="xMKSdFE" name="{deads} Tot">
       <notes>
         <note category="german">{deads} Tot</note>
       </notes>

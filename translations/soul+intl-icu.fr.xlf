@@ -3296,5 +3296,14 @@
         <target>Vous devez utiliser votre compte EternalTwin pour changer votre nom d'affichage.</target>
       </segment>
     </unit>
+    <unit id="4DFz5Xa">
+      <notes>
+        <note category="german">Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</source>
+        <target>Vous ne pouvez pas changer de pseudo car vous avez associé un compte Eternal Twin. Vous devez vous rendre sur votre compte Eternal Twin pour changer de pseudo.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

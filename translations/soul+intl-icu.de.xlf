@@ -3322,5 +3322,14 @@
         <target>Bitte ändere deinen Anzeigenamen auf EternalTwin.</target>
       </segment>
     </unit>
+    <unit id="4DFz5Xa">
+      <notes>
+        <note category="german">Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</source>
+        <target>Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
