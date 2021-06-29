@@ -862,10 +862,7 @@
       </notes>
       <segment>
         <source>Du hast {num} anonyme Anzeige(n).</source>
-        <target>{ref__icu, select, on {{num, plural,
-        one {Vous avez reçu # plainte anonyme.} 
-        other {Vous avez reçu # plaintes anonymes.}}
-        } other {Vous avez reçu {num} plainte(s) anonyme(s).}}</target>
+        <target>Vous avez reçu {num} plaintes anonymes.</target>
       </segment>
     </unit>
     <unit id="0drragL">
