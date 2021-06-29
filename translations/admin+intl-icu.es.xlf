@@ -4,6 +4,7 @@
     <unit id="S8vqbzA" name="Verbannung">
       <notes>
         <note category="german">Verbannung</note>
+        <note category="from">twig:///templates/ajax/admin/users/tabs.html.twig;twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Verbannung</source>
@@ -13,6 +14,7 @@
     <unit id="FlZntyi" name="Bürger">
       <notes>
         <note category="german">Bürger</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/users/tabs.html.twig;twig:///templates/ajax/admin/users/citizen.html.twig</note>
       </notes>
       <segment>
         <source>Bürger</source>
@@ -22,6 +24,7 @@
     <unit id="eRsa9rX" name="Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:">
       <notes>
         <note category="german">Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Beginne, einen Namen zu tippen, um alle passenden Nutzer anzuzeigen:</source>
@@ -31,6 +34,7 @@
     <unit id="kg5BPH1" name="Status">
       <notes>
         <note category="german">Status</note>
+        <note category="from">twig:///templates/ajax/admin/widget/displays.twig</note>
       </notes>
       <segment>
         <source>Status</source>
@@ -40,6 +44,7 @@
     <unit id="1BvDdjk" name="Verbannt bis">
       <notes>
         <note category="german">Verbannt bis</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Verbannt bis</source>
@@ -49,6 +54,7 @@
     <unit id="bZx3MQe" name="Aufheben">
       <notes>
         <note category="german">Aufheben</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Aufheben</source>
@@ -58,6 +64,7 @@
     <unit id="gswoKQz" name="Letzte Verbannung">
       <notes>
         <note category="german">Letzte Verbannung</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Letzte Verbannung</source>
@@ -67,6 +74,7 @@
     <unit id="KqvNLEL" name="Verbannungen">
       <notes>
         <note category="german">Verbannungen</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Verbannungen</source>
@@ -76,6 +84,7 @@
     <unit id="0.QpL14" name="Verbannen">
       <notes>
         <note category="german">Verbannen</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Verbannen</source>
@@ -85,6 +94,7 @@
     <unit id="Zoy_MWF" name="Dauer">
       <notes>
         <note category="german">Dauer</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Dauer</source>
@@ -94,6 +104,7 @@
     <unit id="1E2BbPr" name="1 Tag">
       <notes>
         <note category="german">1 Tag</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>1 Tag</source>
@@ -103,6 +114,7 @@
     <unit id="JU_xNFX" name="3 Tage">
       <notes>
         <note category="german">3 Tage</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>3 Tage</source>
@@ -112,6 +124,7 @@
     <unit id="84RJxpK" name="5 Tage">
       <notes>
         <note category="german">5 Tage</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>5 Tage</source>
@@ -121,6 +134,7 @@
     <unit id="zEDFlzj" name="7 Tage">
       <notes>
         <note category="german">7 Tage</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>7 Tage</source>
@@ -130,6 +144,7 @@
     <unit id="GtUIerm" name="15 Tage">
       <notes>
         <note category="german">15 Tage</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>15 Tage</source>
@@ -139,6 +154,7 @@
     <unit id="WB_sVVK" name="30 Tage">
       <notes>
         <note category="german">30 Tage</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>30 Tage</source>
@@ -148,6 +164,7 @@
     <unit id="tF9Axzf" name="Grund">
       <notes>
         <note category="german">Grund</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/forum/posts.html.twig</note>
       </notes>
       <segment>
         <source>Grund</source>
@@ -157,6 +174,7 @@
     <unit id="r8Abf9v" name="Derzeitiges Leben">
       <notes>
         <note category="german">Derzeitiges Leben</note>
+        <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig</note>
       </notes>
       <segment>
         <source>Derzeitiges Leben</source>
@@ -166,6 +184,7 @@
     <unit id="XspCSk2" name="TOD NICHT BESTÄTIGT">
       <notes>
         <note category="german">TOD NICHT BESTÄTIGT</note>
+        <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig</note>
       </notes>
       <segment>
         <source>TOD NICHT BESTÄTIGT</source>
@@ -175,6 +194,7 @@
     <unit id="Cp7etpd" name="Kopfschuss">
       <notes>
         <note category="german">Kopfschuss</note>
+        <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig</note>
       </notes>
       <segment>
         <source>Kopfschuss</source>
@@ -184,6 +204,7 @@
     <unit id="Kt_pe8F" name="Tod bestätigen">
       <notes>
         <note category="german">Tod bestätigen</note>
+        <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig</note>
       </notes>
       <segment>
         <source>Tod bestätigen</source>
@@ -193,6 +214,7 @@
     <unit id="lS.zZKk" name="Das Leben dieses Bürgers sofort beenden?">
       <notes>
         <note category="german">Das Leben dieses Bürgers sofort beenden?</note>
+        <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig</note>
       </notes>
       <segment>
         <source>Das Leben dieses Bürgers sofort beenden?</source>
@@ -202,6 +224,7 @@
     <unit id=".fEIHVH" name="Tod dieses Bürgers zwangsweise bestätigen?">
       <notes>
         <note category="german">Tod dieses Bürgers zwangsweise bestätigen?</note>
+        <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig</note>
       </notes>
       <segment>
         <source>Tod dieses Bürgers zwangsweise bestätigen?</source>
@@ -211,6 +234,7 @@
     <unit id="Tae9Qqu" name="Forum">
       <notes>
         <note category="german">Foren</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>Forum</source>
@@ -220,6 +244,8 @@
     <unit id="BygLauq" name="Autor">
       <notes>
         <note category="german">Autor</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>Autor</source>
@@ -229,6 +255,7 @@
     <unit id="5qZlTRd" name="Meldungen">
       <notes>
         <note category="german">Meldungen</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Meldungen</source>
@@ -238,6 +265,7 @@
     <unit id="YlkNCJx" name="gemeldet von">
       <notes>
         <note category="german">gemeldet von</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>gemeldet von</source>
@@ -247,6 +275,7 @@
     <unit id="wbOHhHO" name="Gesehen">
       <notes>
         <note category="german">Gesehen</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>Gesehen</source>
@@ -256,6 +285,7 @@
     <unit id="KANZ2Py" name="Diesen Bürger töten?">
       <notes>
         <note category="german">Diesen Bürger töten?</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Diesen Bürger töten?</source>
@@ -265,6 +295,7 @@
     <unit id="UNGMFAu" name="Suche:">
       <notes>
         <note category="german">Suche:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/header.html.twig;twig:///templates/ajax/admin/users/footer.html.twig</note>
       </notes>
       <segment>
         <source>Suche:</source>
@@ -274,6 +305,7 @@
     <unit id="fhsNVkH" name="Account">
       <notes>
         <note category="german">Account</note>
+        <note category="from">twig:///templates/ajax/admin/users/tabs.html.twig;twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Account</source>
@@ -283,6 +315,7 @@
     <unit id=".DCeMNu" name="Benutzername">
       <notes>
         <note category="german">Benutzername</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/index.html.twig;twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Benutzername</source>
@@ -292,6 +325,8 @@
     <unit id="L65vsws" name="E-Mail">
       <notes>
         <note category="german">E-Mail</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>E-Mail</source>
@@ -301,6 +336,7 @@
     <unit id=".Dfg1PE" name="Validiert">
       <notes>
         <note category="german">Validiert</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Validiert</source>
@@ -310,6 +346,7 @@
     <unit id="zenlipp" name="Ja">
       <notes>
         <note category="german">Ja</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Ja</source>
@@ -319,6 +356,7 @@
     <unit id="kOvBveb" name="Nein">
       <notes>
         <note category="german">Nein</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Nein</source>
@@ -328,6 +366,7 @@
     <unit id="yhpV6j2" name="Berechtigungsstufe">
       <notes>
         <note category="german">Berechtigungsstufe</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Berechtigungsstufe</source>
@@ -337,6 +376,7 @@
     <unit id="9DAxndj" name="Spieler">
       <notes>
         <note category="german">Spieler</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Spieler</source>
@@ -346,6 +386,7 @@
     <unit id="mP_cZCA" name="Krähe">
       <notes>
         <note category="german">Krähe</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Krähe</source>
@@ -355,6 +396,8 @@
     <unit id="wcIksDz" name="Admin">
       <notes>
         <note category="german">Admin</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Admin</source>
@@ -364,6 +407,7 @@
     <unit id=".ZDDrus" name="Validierungstokens">
       <notes>
         <note category="german">Validierungstokens</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Validierungstokens</source>
@@ -373,6 +417,7 @@
     <unit id="ilcgFcS" name="Keine">
       <notes>
         <note category="german">Keine</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Keine</source>
@@ -382,6 +427,7 @@
     <unit id="89Qjza1" name="User administrieren">
       <notes>
         <note category="german">User administrieren</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>User administrieren</source>
@@ -391,6 +437,7 @@
     <unit id="1L8hv8q" name="Validierung">
       <notes>
         <note category="german">Validierung</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Validierung</source>
@@ -400,6 +447,7 @@
     <unit id="fMUMZY4" name="Erneute Validierung erzwingen">
       <notes>
         <note category="german">Erneute Validierung erzwingen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Erneute Validierung erzwingen</source>
@@ -409,6 +457,7 @@
     <unit id="1oFUORm" name="Manuell validieren">
       <notes>
         <note category="german">Manuell validieren</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Manuell validieren</source>
@@ -418,6 +467,7 @@
     <unit id="TkGKlfl" name="Offene Token erneut ankündigen">
       <notes>
         <note category="german">Offene Token erneut ankündigen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Offene Token erneut ankündigen</source>
@@ -427,6 +477,7 @@
     <unit id="2EfsA22" name="Offene Token regenerieren">
       <notes>
         <note category="german">Offene Token regenerieren</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Offene Token regenerieren</source>
@@ -436,6 +487,7 @@
     <unit id="RHTHUmC" name="Sicherheit">
       <notes>
         <note category="german">Sicherheit</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Sicherheit</source>
@@ -445,6 +497,7 @@
     <unit id="gJTkU2W" name="Passwort-Reset auslösen">
       <notes>
         <note category="german">Passwort-Reset auslösen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Passwort-Reset auslösen</source>
@@ -454,6 +507,7 @@
     <unit id="GdwECmm" name="Passwort-Reset erzwingen">
       <notes>
         <note category="german">Passwort-Reset erzwingen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Passwort-Reset erzwingen</source>
@@ -463,6 +517,7 @@
     <unit id="6KnH3XO" name="Ausführen">
       <notes>
         <note category="german">Ausführen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Ausführen</source>
@@ -472,6 +527,7 @@
     <unit id="TSuzaPk" name="Übersicht">
       <notes>
         <note category="german">Übersicht</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>Übersicht</source>
@@ -481,6 +537,7 @@
     <unit id="gw9T6N6" name="Gewähltes Forum">
       <notes>
         <note category="german">Gewähltes Forum</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Gewähltes Forum</source>
@@ -490,6 +547,7 @@
     <unit id="zTivRKG" name="Posts mit nur einer Meldung werden ausgeblendet.">
       <notes>
         <note category="german">Posts mit nur einer Meldung werden ausgeblendet.</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>Posts mit nur einer Meldung werden ausgeblendet.</source>
@@ -499,6 +557,7 @@
     <unit id="2GEnVsN" name="Alle anzeigen">
       <notes>
         <note category="german">Alle anzeigen</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>Alle anzeigen</source>
@@ -508,6 +567,7 @@
     <unit id="lb_oeKi" name="Du hast kein Forum ausgewählt.">
       <notes>
         <note category="german">Du hast kein Forum ausgewählt.</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Du hast kein Forum ausgewählt.</source>
@@ -517,6 +577,7 @@
     <unit id="awzJBNC" name="Users">
       <notes>
         <note category="german">Users</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
       </notes>
       <segment>
         <source>Users</source>
@@ -526,6 +587,7 @@
     <unit id="h7YL9VW" name="Städte">
       <notes>
         <note category="german">Städte</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Städte</source>
@@ -535,6 +597,7 @@
     <unit id="jA6UdTz" name="Zukunft">
       <notes>
         <note category="german">Zukunft</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
       </notes>
       <segment>
         <source>Zukunft</source>
@@ -544,6 +607,7 @@
     <unit id="fcC4_EM" name="Auszeichnungen">
       <notes>
         <note category="german">Auszeichnungen</note>
+        <note category="from">twig:///templates/ajax/admin/users/tabs.html.twig;twig:///templates/ajax/admin/users/pictos.html.twig</note>
       </notes>
       <segment>
         <source>Auszeichnungen</source>
@@ -553,6 +617,7 @@
     <unit id="8KPM2IV" name="Admin-Wachturm">
       <notes>
         <note category="german">Admin-Wachturm</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Admin-Wachturm</source>
@@ -562,6 +627,7 @@
     <unit id="Sq.PLVK" name="Ruinenscanner">
       <notes>
         <note category="german">Ruinenscanner</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Ruinenscanner</source>
@@ -571,6 +637,8 @@
     <unit id="OEOXHc." name="ID">
       <notes>
         <note category="german">ID</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>ID</source>
@@ -580,6 +648,7 @@
     <unit id="Bfb7kn4" name="Stadtname">
       <notes>
         <note category="german">Stadtname</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig</note>
       </notes>
       <segment>
         <source>Stadtname</source>
@@ -589,6 +658,7 @@
     <unit id="8qHMcfp" name="Sprache">
       <notes>
         <note category="german">Sprache</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/groups/list.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
       </notes>
       <segment>
         <source>Sprache</source>
@@ -598,6 +668,7 @@
     <unit id="GwJBg8s" name="Typ">
       <notes>
         <note category="german">Typ</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig</note>
       </notes>
       <segment>
         <source>Typ</source>
@@ -607,6 +678,7 @@
     <unit id="W4KIYa7" name="Population">
       <notes>
         <note category="german">Population</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig</note>
       </notes>
       <segment>
         <source>Population</source>
@@ -616,6 +688,7 @@
     <unit id="fmZlI_I" name="Saison">
       <notes>
         <note category="german">Saison</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/seasons/edit.html.twig</note>
       </notes>
       <segment>
         <source>Saison</source>
@@ -625,6 +698,7 @@
     <unit id="FQORaiq" name="Tag">
       <notes>
         <note category="german">Tag</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig</note>
       </notes>
       <segment>
         <source>Tag</source>
@@ -634,6 +708,7 @@
     <unit id="ZFCeGvS" name="Offen">
       <notes>
         <note category="german">Offen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Offen</source>
@@ -643,6 +718,7 @@
     <unit id="eoUwOj7" name="Chaos">
       <notes>
         <note category="german">Chaos</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Chaos</source>
@@ -652,6 +728,7 @@
     <unit id="QO.RSCl" name="Zerstört">
       <notes>
         <note category="german">Zerstört</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Zerstört</source>
@@ -661,6 +738,7 @@
     <unit id="vZWh3VH" name="Tor offen">
       <notes>
         <note category="german">Tor offen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Tor offen</source>
@@ -670,6 +748,7 @@
     <unit id="lQNhv.P" name="Brunnen">
       <notes>
         <note category="german">Brunnen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Brunnen</source>
@@ -679,6 +758,7 @@
     <unit id="DNyzXO8" name="Angriff">
       <notes>
         <note category="german">Angriff</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Angriff</source>
@@ -688,6 +768,7 @@
     <unit id="ROsRjPo" name="Bereich Min">
       <notes>
         <note category="german">Bereich Min</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Bereich Min</source>
@@ -697,6 +778,7 @@
     <unit id="nwAUKAU" name="Bereich Max">
       <notes>
         <note category="german">Bereich Max</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Bereich Max</source>
@@ -706,6 +788,7 @@
     <unit id="bQMa8Q2" name="Position">
       <notes>
         <note category="german">Position</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Position</source>
@@ -715,6 +798,7 @@
     <unit id="_ZJhoqB" name="Distanz">
       <notes>
         <note category="german">Distanz</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Distanz</source>
@@ -724,6 +808,8 @@
     <unit id="8N0dl_g" name="Zombies">
       <notes>
         <note category="german">Zombies</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Zombies</source>
@@ -733,6 +819,7 @@
     <unit id="QIZzCEw" name="Abdruck">
       <notes>
         <note category="german">Abdruck</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Abdruck</source>
@@ -742,6 +829,7 @@
     <unit id="H716AMr" name="Schlüssel">
       <notes>
         <note category="german">Schlüssel</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/public/disclaimer.html.twig</note>
       </notes>
       <segment>
         <source>Schlüssel</source>
@@ -751,6 +839,7 @@
     <unit id="Q2ZDp94" name="Durchsucht">
       <notes>
         <note category="german">Durchsucht</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Durchsucht</source>
@@ -760,6 +849,7 @@
     <unit id="VxMRN_s" name="Aktuelle Sitzung">
       <notes>
         <note category="german">Aktuelle Sitzung</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Aktuelle Sitzung</source>
@@ -769,6 +859,7 @@
     <unit id="ajNZZUO" name="Flucht">
       <notes>
         <note category="german">Flucht</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Flucht</source>
@@ -778,6 +869,7 @@
     <unit id="0vxeWOf" name="Raum">
       <notes>
         <note category="german">Raum</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Raum</source>
@@ -787,6 +879,7 @@
     <unit id="dPJJMfT" name="Zeit">
       <notes>
         <note category="german">Zeit</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Zeit</source>
@@ -796,6 +889,7 @@
     <unit id="ILol6i6" name="Alle Sitzungen">
       <notes>
         <note category="german">Alle Sitzungen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Alle Sitzungen</source>
@@ -805,6 +899,7 @@
     <unit id="kc92YAV" name="Stadtübersicht">
       <notes>
         <note category="german">Stadtübersicht</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig</note>
       </notes>
       <segment>
         <source>Stadtübersicht</source>
@@ -814,6 +909,7 @@
     <unit id="4Gs3q79" name="Liste aller Städte">
       <notes>
         <note category="german">Liste aller Städte</note>
+        <note category="from">twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig</note>
       </notes>
       <segment>
         <source>Liste aller Städte</source>
@@ -823,6 +919,7 @@
     <unit id="47Pj4uU" name="Pop.">
       <notes>
         <note category="german">Pop.</note>
+        <note category="from">twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig</note>
       </notes>
       <segment>
         <source>Pop.</source>
@@ -832,6 +929,7 @@
     <unit id="Vlb5Lbe" name="Aktionen">
       <notes>
         <note category="german">Aktionen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/dash.html.twig</note>
       </notes>
       <segment>
         <source>Aktionen</source>
@@ -841,6 +939,7 @@
     <unit id="ygfGVvY" name="Tot">
       <notes>
         <note category="german">Tot</note>
+        <note category="from">twig:///templates/ajax/admin/towns/list.html.twig</note>
       </notes>
       <segment>
         <source>Tot</source>
@@ -850,6 +949,7 @@
     <unit id="sMr3P0Z" name="Getrennt">
       <notes>
         <note category="german">Getrennt</note>
+        <note category="from">twig:///templates/ajax/admin/towns/list.html.twig</note>
       </notes>
       <segment>
         <source>Getrennt</source>
@@ -859,6 +959,7 @@
     <unit id="RZid5J_" name="Details">
       <notes>
         <note category="german">Details</note>
+        <note category="from">twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig</note>
       </notes>
       <segment>
         <source>Details</source>
@@ -868,6 +969,7 @@
     <unit id="q8r8gtq" name="Titel">
       <notes>
         <note category="german">Titel</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
       </notes>
       <segment>
         <source>Titel</source>
@@ -877,6 +979,7 @@
     <unit id="3RZ5Bd4" name="Version">
       <notes>
         <note category="german">Version</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
       </notes>
       <segment>
         <source>Version</source>
@@ -886,6 +989,7 @@
     <unit id="gvEcbOu" name="Neue Update">
       <notes>
         <note category="german">Neues Update</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
       </notes>
       <segment>
         <source>Neue Update</source>
@@ -895,6 +999,7 @@
     <unit id="eFGF2zF" name="Dieser Login ist ausschließlich für Administratoren gedacht.">
       <notes>
         <note category="german">Dieser Login ist ausschließlich für Administratoren gedacht.</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Login ist ausschließlich für Administratoren gedacht.</source>
@@ -904,6 +1009,7 @@
     <unit id="ZtFgVEb" name="Admin Dashboard">
       <notes>
         <note category="german">Admin Dashboard</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/public/maintenance_attack.html.twig</note>
       </notes>
       <segment>
         <source>Admin Dashboard</source>
@@ -913,6 +1019,7 @@
     <unit id="aZibx3x" name="Server-Log herunterladen">
       <notes>
         <note category="german">Server-Log herunterladen</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
       </notes>
       <segment>
         <source>Server-Log herunterladen</source>
@@ -922,6 +1029,7 @@
     <unit id="yvg6S11" name="Server-Log ansehen">
       <notes>
         <note category="german">Server-Log ansehen</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
       </notes>
       <segment>
         <source>Server-Log ansehen</source>
@@ -931,6 +1039,7 @@
     <unit id="UYFKH.u" name="Server-Log löschen">
       <notes>
         <note category="german">Server-Log löschen</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
       </notes>
       <segment>
         <source>Server-Log löschen</source>
@@ -940,6 +1049,7 @@
     <unit id="LzfXrql" name="Geplante Angriffe">
       <notes>
         <note category="german">Geplante Angriffe</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
       </notes>
       <segment>
         <source>Geplante Angriffe</source>
@@ -949,6 +1059,7 @@
     <unit id="UzWLhrt" name="Überfällig seit {s} Sekunden!">
       <notes>
         <note category="german">Überfällig seit {s} Sekunden!</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
       </notes>
       <segment>
         <source>Überfällig seit {s} Sekunden!</source>
@@ -958,6 +1069,7 @@
     <unit id=".vvAKHY" name="Soldatenberuf freischalten">
       <notes>
         <note category="german">Soldatenberuf freischalten</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
       </notes>
       <segment>
         <source>Soldatenberuf freischalten</source>
@@ -967,6 +1079,7 @@
     <unit id="rhc00FL" name="999 AP zuweisen">
       <notes>
         <note category="german">999 AP zuweisen</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
       </notes>
       <segment>
         <source>999 AP zuweisen</source>
@@ -976,6 +1089,7 @@
     <unit id="hkxRxBa" name="Munition erzeugen">
       <notes>
         <note category="german">Munition erzeugen</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
       </notes>
       <segment>
         <source>Munition erzeugen</source>
@@ -985,6 +1099,7 @@
     <unit id="Hizwkp7" name="Admin-Berechtigung setzen">
       <notes>
         <note category="german">Admin-Berechtigung setzen</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
       </notes>
       <segment>
         <source>Admin-Berechtigung setzen</source>
@@ -994,6 +1109,7 @@
     <unit id="zbkR0H6" name="+ 9999 Seelenpunkte">
       <notes>
         <note category="german">+ 9999 Seelenpunkte</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
       </notes>
       <segment>
         <source>+ 9999 Seelenpunkte</source>
@@ -1003,6 +1119,7 @@
     <unit id="WgSXz1." name="Geheime Saison freischalten">
       <notes>
         <note category="german">Geheime Saison freischalten</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
       </notes>
       <segment>
         <source>Geheime Saison freischalten</source>
@@ -1012,6 +1129,7 @@
     <unit id="B6BJJfF" name="Computer sagt nein.">
       <notes>
         <note category="german">Computer sagt nein.</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
       </notes>
       <segment>
         <source>Computer sagt nein.</source>
@@ -1021,6 +1139,7 @@
     <unit id="yu8TLDr" name="Du hast dich umgebracht.">
       <notes>
         <note category="german">Du hast dich umgebracht.</note>
+        <note category="from">php:///src/Service/AdminActionHandler.php</note>
       </notes>
       <segment>
         <source>Du hast dich umgebracht.</source>
@@ -1030,6 +1149,7 @@
     <unit id="xkgfKms" name="Du gehörst keiner Stadt an.">
       <notes>
         <note category="german">Du gehörst keiner Stadt an.</note>
+        <note category="from">php:///src/Service/AdminActionHandler.php</note>
       </notes>
       <segment>
         <source>Du gehörst keiner Stadt an.</source>
@@ -1039,6 +1159,7 @@
     <unit id="jnQ5tRO" name="Selbstmord begehen">
       <notes>
         <note category="german">Selbstmord begehen</note>
+        <note category="from">twig:///templates/ajax/game/town/home.html.twig</note>
       </notes>
       <segment>
         <source>Selbstmord begehen</source>
@@ -1048,6 +1169,7 @@
     <unit id="K_rzvjv" name="PM vom Raben">
       <notes>
         <note category="german">PM vom Raben</note>
+        <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig</note>
       </notes>
       <segment>
         <source>PM vom Raben</source>
@@ -1057,6 +1179,7 @@
     <unit id="nq1XXly" name="Stadtregister">
       <notes>
         <note category="german">Stadtregister</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Stadtregister</source>
@@ -1066,6 +1189,7 @@
     <unit id="l2_e9hX" name="Stadt administrieren">
       <notes>
         <note category="german">Stadt administrieren</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Stadt administrieren</source>
@@ -1075,6 +1199,7 @@
     <unit id="Enh.KhP" name="Nächtlicher Angriff">
       <notes>
         <note category="german">Nächtlicher Angriff</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Nächtlicher Angriff</source>
@@ -1084,6 +1209,7 @@
     <unit id="YBKE35r" name="Quarantäne aufheben">
       <notes>
         <note category="german">Quarantäne aufheben</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Quarantäne aufheben</source>
@@ -1093,6 +1219,7 @@
     <unit id="ZG32Cjn" name="Unter Quarantäne stellen">
       <notes>
         <note category="german">Unter Quarantäne stellen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Unter Quarantäne stellen</source>
@@ -1102,6 +1229,7 @@
     <unit id="akWsVTF" name="Manueller Tageswechsel">
       <notes>
         <note category="german">Manueller Tageswechsel</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Manueller Tageswechsel</source>
@@ -1111,6 +1239,7 @@
     <unit id="sqS3JFR" name="Rundmail als Rabe">
       <notes>
         <note category="german">Rundmail als Rabe</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Rundmail als Rabe</source>
@@ -1120,6 +1249,7 @@
     <unit id="w84b5LJ" name="Twinoid-Konto">
       <notes>
         <note category="german">Twinoid-Konto</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Twinoid-Konto</source>
@@ -1129,6 +1259,7 @@
     <unit id="BCS.RQ1" name="Orakel">
       <notes>
         <note category="german">Orakel</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Orakel</source>
@@ -1138,6 +1269,7 @@
     <unit id="HkzsKIz" name="Twinoid-Integration">
       <notes>
         <note category="german">Twinoid-Integration</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Twinoid-Integration</source>
@@ -1147,6 +1279,7 @@
     <unit id="p2lp75S" name="Integrationen löschen">
       <notes>
         <note category="german">Integrationen löschen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Integrationen löschen</source>
@@ -1156,6 +1289,7 @@
     <unit id="oL3B9wW" name="Hauptseele zurücksetzen">
       <notes>
         <note category="german">Hauptseele zurücksetzen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Hauptseele zurücksetzen</source>
@@ -1165,6 +1299,7 @@
     <unit id="Le1sVIR" name="Du hast keine Berechtigung, diesen Benutzer zu administrieren!">
       <notes>
         <note category="german">Du hast keine Berechtigung, diesen Benutzer zu administrieren!</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Du hast keine Berechtigung, diesen Benutzer zu administrieren!</source>
@@ -1174,6 +1309,7 @@
     <unit id="4mfTQ4I" name="Profil">
       <notes>
         <note category="german">Profil</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Profil</source>
@@ -1183,6 +1319,7 @@
     <unit id="dbuAR1O" name="Neuen Namen eingeben.">
       <notes>
         <note category="german">Neuen Namen eingeben.</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Neuen Namen eingeben.</source>
@@ -1192,6 +1329,7 @@
     <unit id="g_B_0fN" name="Umbenennen">
       <notes>
         <note category="german">Umbenennen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Umbenennen</source>
@@ -1201,6 +1339,7 @@
     <unit id="bC01IWH" name="Löschen">
       <notes>
         <note category="german">Löschen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Löschen</source>
@@ -1210,6 +1349,7 @@
     <unit id="A2t0n2E" name="Berechtigungen">
       <notes>
         <note category="german">Berechtigungen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Berechtigungen</source>
@@ -1219,6 +1359,7 @@
     <unit id="ZFErHHS" name="Gewähren: {role}">
       <notes>
         <note category="german">Gewähren: {role}</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Gewähren: {role}</source>
@@ -1228,6 +1369,7 @@
     <unit id="BiuEB.T" name="Berechtigungsstufe zurücksetzen">
       <notes>
         <note category="german">Berechtigungsstufe zurücksetzen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Berechtigungsstufe zurücksetzen</source>
@@ -1237,6 +1379,7 @@
     <unit id="EHG8mpy" name="Bitte bestätige folgende Aktion:">
       <notes>
         <note category="german">Bitte bestätige folgende Aktion:</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Bitte bestätige folgende Aktion:</source>
@@ -1246,6 +1389,7 @@
     <unit id="XCp8Tn4" name="Multi-Account Report">
       <notes>
         <note category="german">Multi-Account Report</note>
+        <note category="from">twig:///templates/ajax/admin/users/index.html.twig</note>
       </notes>
       <segment>
         <source>Multi-Account Report</source>
@@ -1255,6 +1399,7 @@
     <unit id="NBT1t.l" name="Verdacht">
       <notes>
         <note category="german">Verdacht</note>
+        <note category="from">twig:///templates/ajax/admin/users/index.html.twig</note>
       </notes>
       <segment>
         <source>Verdacht</source>
@@ -1264,6 +1409,7 @@
     <unit id="5D_B4LJ" name="Andere Accounts">
       <notes>
         <note category="german">Andere Accounts</note>
+        <note category="from">twig:///templates/ajax/admin/users/index.html.twig</note>
       </notes>
       <segment>
         <source>Andere Accounts</source>
@@ -1273,6 +1419,7 @@
     <unit id="E6OsQAN" name="Bann">
       <notes>
         <note category="german">Bann</note>
+        <note category="from">twig:///templates/ajax/admin/users/index.html.twig</note>
       </notes>
       <segment>
         <source>Bann</source>
@@ -1282,6 +1429,7 @@
     <unit id="oTFpWe9" name="Durch {admin} vom Spiel ausgeschlossen!">
       <notes>
         <note category="german">Durch {admin} vom Spiel ausgeschlossen!</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Durch {admin} vom Spiel ausgeschlossen!</source>
@@ -1291,6 +1439,7 @@
     <unit id="jyuOkNg" name="Grund angeben">
       <notes>
         <note category="german">Grund angeben</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Grund angeben</source>
@@ -1300,6 +1449,7 @@
     <unit id="Gn20uPe" name="Spielbann">
       <notes>
         <note category="german">Spielbann</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Spielbann</source>
@@ -1309,6 +1459,7 @@
     <unit id="BfojyKe" name="Spielbann aufheben">
       <notes>
         <note category="german">Spielbann aufheben</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Spielbann aufheben</source>
@@ -1318,6 +1469,7 @@
     <unit id="JFa7jtc" name="Verwaltung">
       <notes>
         <note category="german">Verwaltung</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Verwaltung</source>
@@ -1327,6 +1479,7 @@
     <unit id="OEN26ap" name="Annulieren">
       <notes>
         <note category="german">Annulieren</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Annulieren</source>
@@ -1336,6 +1489,7 @@
     <unit id="OasWqCK" name="Verschüttet">
       <notes>
         <note category="german">Verschüttet</note>
+        <note category="from">twig:///templates/ajax/admin/towns/map.html.twig</note>
       </notes>
       <segment>
         <source>Verschüttet</source>
@@ -1345,6 +1499,7 @@
     <unit id="XGKeQ9m" name="Multi-Account Whitelist">
       <notes>
         <note category="german">Multi-Account Whitelist</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Multi-Account Whitelist</source>
@@ -1354,6 +1509,7 @@
     <unit id="8slYyDF" name="Spieler-ID">
       <notes>
         <note category="german">Spieler-ID</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Spieler-ID</source>
@@ -1363,6 +1519,7 @@
     <unit id="101JnrD" name="Multi-Account Whitelist-Eintrag hinzufügen">
       <notes>
         <note category="german">Multi-Account Whitelist-Eintrag hinzufügen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Multi-Account Whitelist-Eintrag hinzufügen</source>
@@ -1372,6 +1529,7 @@
     <unit id=".rV_1n2" name="Verwende folgende Syntax, um deine Suche zu spezifizieren:">
       <notes>
         <note category="german">Verwende folgende Syntax, um deine Suche zu spezifizieren:</note>
+        <note category="from">twig:///templates/ajax/admin/snippets/user_search.html.twig</note>
       </notes>
       <segment>
         <source>Verwende folgende Syntax, um deine Suche zu spezifizieren:</source>
@@ -1381,6 +1539,7 @@
     <unit id="E26lZPz" name="Klick, um Profil in neuem Tab zu öffnen">
       <notes>
         <note category="german">Klick, um Profil in neuem Tab zu öffnen</note>
+        <note category="from">twig:///templates/ajax/admin/users/index.html.twig</note>
       </notes>
       <segment>
         <source>Klick, um Profil in neuem Tab zu öffnen</source>
@@ -1390,6 +1549,7 @@
     <unit id="KQDagiG" name="STRG+Klick, um zur Whitelist hinzuzufügen">
       <notes>
         <note category="german">STRG+Klick, um zur Whitelist hinzuzufügen</note>
+        <note category="from">twig:///templates/ajax/admin/users/index.html.twig</note>
       </notes>
       <segment>
         <source>STRG+Klick, um zur Whitelist hinzuzufügen</source>
@@ -1399,6 +1559,7 @@
     <unit id="hVmvpi1" name="Whitelist">
       <notes>
         <note category="german">Whitelist</note>
+        <note category="from">twig:///templates/ajax/admin/users/index.html.twig</note>
       </notes>
       <segment>
         <source>Whitelist</source>
@@ -1408,6 +1569,7 @@
     <unit id="GEzMtJe" name="E-Mail eingeben.">
       <notes>
         <note category="german">E-Mail eingeben.</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>E-Mail eingeben.</source>
@@ -1417,6 +1579,7 @@
     <unit id="lJqqLMl" name="E-Mail ändern">
       <notes>
         <note category="german">E-Mail ändern</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>E-Mail ändern</source>
@@ -1426,6 +1589,7 @@
     <unit id="5sAjGFp" name="Neues Passwort eingeben.">
       <notes>
         <note category="german">Neues Passwort eingeben.</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Neues Passwort eingeben.</source>
@@ -1435,6 +1599,7 @@
     <unit id="n2HwFFe" name="Neues Passwort setzen">
       <notes>
         <note category="german">Neues Passwort setzen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Neues Passwort setzen</source>
@@ -1444,6 +1609,7 @@
     <unit id="V1ukt7Z" name="EternalTwin-Integration">
       <notes>
         <note category="german">EternalTwin-Integration</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>EternalTwin-Integration</source>
@@ -1453,6 +1619,7 @@
     <unit id="OkyzTP2" name="In lokalen Account umwandeln">
       <notes>
         <note category="german">In lokalen Account umwandeln</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>In lokalen Account umwandeln</source>
@@ -1462,6 +1629,7 @@
     <unit id="B9D7Dk5" name="Kartei">
       <notes>
         <note category="german">Kartei</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Kartei</source>
@@ -1471,6 +1639,7 @@
     <unit id="OrLqzbq" name="Anzeigename">
       <notes>
         <note category="german">Anzeigename</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Anzeigename</source>
@@ -1480,6 +1649,7 @@
     <unit id="kaV8fJ." name="Lokal: {account}">
       <notes>
         <note category="german">Lokal: {account}</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Lokal: {account}</source>
@@ -1489,6 +1659,7 @@
     <unit id="OaKjJho" name="Von EternalTwin verwaltet">
       <notes>
         <note category="german">Von EternalTwin verwaltet</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Von EternalTwin verwaltet</source>
@@ -1498,6 +1669,7 @@
     <unit id="uCT9EnO" name="Nur für Administratoren sichtbar">
       <notes>
         <note category="german">Nur für Administratoren sichtbar</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Nur für Administratoren sichtbar</source>
@@ -1507,6 +1679,7 @@
     <unit id="pitbSje" name="Verknüpfte Konten">
       <notes>
         <note category="german">Verknüpfte Konten</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Verknüpfte Konten</source>
@@ -1516,6 +1689,7 @@
     <unit id="L0eG_iZ" name="EternalTwin-Konto">
       <notes>
         <note category="german">EternalTwin-Konto</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>EternalTwin-Konto</source>
@@ -1525,6 +1699,7 @@
     <unit id="nz1fjZT" name="Sonstiges">
       <notes>
         <note category="german">Sonstiges</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Sonstiges</source>
@@ -1534,6 +1709,7 @@
     <unit id="TklQ7Ze" name="AntiSpam">
       <notes>
         <note category="german">AntiSpam</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
       </notes>
       <segment>
         <source>AntiSpam</source>
@@ -1543,6 +1719,7 @@
     <unit id="j137AeF" name="Account zur Löschung vorgemerkt!">
       <notes>
         <note category="german">Account zur Löschung vorgemerkt!</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Account zur Löschung vorgemerkt!</source>
@@ -1552,6 +1729,7 @@
     <unit id="Z3wFfH_" name="Anzahl der gelisteten Domains: {number}">
       <notes>
         <note category="german">Anzahl der gelisteten Domains: {number}</note>
+        <note category="from">twig:///templates/ajax/admin/spam/domains.html.twig</note>
       </notes>
       <segment>
         <source>Anzahl der gelisteten Domains: {number}</source>
@@ -1561,6 +1739,7 @@
     <unit id="u.IOicZ" name="Domain-Suche">
       <notes>
         <note category="german">Domain-Suche</note>
+        <note category="from">twig:///templates/ajax/admin/spam/domains.html.twig</note>
       </notes>
       <segment>
         <source>Domain-Suche</source>
@@ -1570,6 +1749,7 @@
     <unit id="zptHdme" name="Gewählte entfernen">
       <notes>
         <note category="german">Gewählte entfernen</note>
+        <note category="from">twig:///templates/ajax/admin/spam/domains.html.twig</note>
       </notes>
       <segment>
         <source>Gewählte entfernen</source>
@@ -1579,6 +1759,7 @@
     <unit id="l.ziWyi" name="Domains hinzufügen">
       <notes>
         <note category="german">Domains hinzufügen</note>
+        <note category="from">twig:///templates/ajax/admin/spam/domains.html.twig</note>
       </notes>
       <segment>
         <source>Domains hinzufügen</source>
@@ -1588,6 +1769,7 @@
     <unit id="y7lc8Ct" name="Hinzufügen">
       <notes>
         <note category="german">Hinzufügen</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/admin/spam/domains.html.twig</note>
       </notes>
       <segment>
         <source>Hinzufügen</source>
@@ -1597,6 +1779,7 @@
     <unit id="_b4bK2O" name="Nachricht?">
       <notes>
         <note category="german">Nachricht?</note>
+        <note category="from">twig:///templates/ajax/admin/reports/pn-viewer.html.twig;twig:///templates/ajax/admin/reports/gpn-viewer.html.twig</note>
       </notes>
       <segment>
         <source>Nachricht?</source>
@@ -1606,6 +1789,7 @@
     <unit id="XCTslOz" name="Foren-Meldungen">
       <notes>
         <note category="german">Foren-Meldungen</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>Foren-Meldungen</source>
@@ -1615,6 +1799,7 @@
     <unit id="EdJ7diC" name="PN-Meldungen">
       <notes>
         <note category="german">PN-Meldungen</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>PN-Meldungen</source>
@@ -1624,6 +1809,8 @@
     <unit id="vDhaMLU" name="Öffnen">
       <notes>
         <note category="german">Öffnen</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>Öffnen</source>
@@ -1633,6 +1820,7 @@
     <unit id="Z7aWRoY" name="Dashboard">
       <notes>
         <note category="german">Dashboard</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
       </notes>
       <segment>
         <source>Dashboard</source>
@@ -1642,6 +1830,7 @@
     <unit id="CgPo05m" name="Stadt {townname}">
       <notes>
         <note category="german">Stadt {townname}</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig</note>
       </notes>
       <segment>
         <source>Stadt {townname}</source>
@@ -1651,6 +1840,7 @@
     <unit id="Z2xHG8j" name="Bank">
       <notes>
         <note category="german">Bank</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Bank</source>
@@ -1660,6 +1850,8 @@
     <unit id="id10hEL" name="Apps">
       <notes>
         <note category="german">Apps</note>
+        <note category="state">new</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
       </notes>
       <segment>
         <source>Apps</source>
@@ -1669,6 +1861,7 @@
     <unit id="r.FNJtH" name="Einen Gegenstand erzeugen:">
       <notes>
         <note category="german">Einen Gegenstand erzeugen:</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Einen Gegenstand erzeugen:</source>
@@ -1678,6 +1871,7 @@
     <unit id="pkg069a" name="Nummer des Gegenstandes:">
       <notes>
         <note category="german">Anzahl des Gegenstandes:</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Nummer des Gegenstandes:</source>
@@ -1687,6 +1881,7 @@
     <unit id="9B3v_rN" name="Vergiftet:">
       <notes>
         <note category="german">Vergiftet:</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Vergiftet:</source>
@@ -1696,6 +1891,7 @@
     <unit id="ba2jGNX" name="Zerstört:">
       <notes>
         <note category="german">Zerstört:</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Zerstört:</source>
@@ -1705,6 +1901,7 @@
     <unit id="_vIjrdl" name="Essentiell:">
       <notes>
         <note category="german">Essentiell:</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Essentiell:</source>
@@ -1714,6 +1911,7 @@
     <unit id="pAhkch3" name="Erzeugen!">
       <notes>
         <note category="german">Erzeugen!</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Erzeugen!</source>
@@ -1723,6 +1921,7 @@
     <unit id="HMtmyP_" name="Rucksack">
       <notes>
         <note category="german">Rucksack</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Rucksack</source>
@@ -1732,6 +1931,7 @@
     <unit id="n__v7g9" name="Truhe">
       <notes>
         <note category="german">Truhe</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Truhe</source>
@@ -1741,6 +1941,7 @@
     <unit id="fUbvGiO" name="Leere Truhe">
       <notes>
         <note category="german">Leere Truhe</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Leere Truhe</source>
@@ -1750,6 +1951,7 @@
     <unit id="fV5wxwj" name="In der Stadt">
       <notes>
         <note category="german">In der Stadt</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>In der Stadt</source>
@@ -1759,6 +1961,7 @@
     <unit id="I5qOX6_" name="Anwendung">
       <notes>
         <note category="german">Anwendung</note>
+        <note category="from">twig:///templates/ajax/admin/apps/list.html.twig;twig:///templates/ajax/admin/apps/edit.html.twig</note>
       </notes>
       <segment>
         <source>Anwendung</source>
@@ -1768,6 +1971,7 @@
     <unit id="zO1HXOo" name="Besitzer">
       <notes>
         <note category="german">Besitzer</note>
+        <note category="from">twig:///templates/ajax/admin/apps/list.html.twig;twig:///templates/ajax/admin/apps/edit.html.twig</note>
       </notes>
       <segment>
         <source>Besitzer</source>
@@ -1777,6 +1981,7 @@
     <unit id="Ml7s_dM" name="Kontakt">
       <notes>
         <note category="german">Kontakt</note>
+        <note category="from">twig:///templates/ajax/admin/apps/list.html.twig;twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/public/disclaimer.html.twig</note>
       </notes>
       <segment>
         <source>Kontakt</source>
@@ -1786,6 +1991,7 @@
     <unit id="zYXso4d" name="Name der Anwendung">
       <notes>
         <note category="german">Name der Anwendung</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig</note>
       </notes>
       <segment>
         <source>Name der Anwendung</source>
@@ -1795,6 +2001,7 @@
     <unit id="gwaSbiX" name="Niemand">
       <notes>
         <note category="german">Niemand</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig</note>
       </notes>
       <segment>
         <source>Niemand</source>
@@ -1804,6 +2011,8 @@
     <unit id="56JB3rr" name="URL">
       <notes>
         <note category="german">URL</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/public/disclaimer.html.twig</note>
       </notes>
       <segment>
         <source>URL</source>
@@ -1813,6 +2022,7 @@
     <unit id="Li9tZI." name="Anzeige">
       <notes>
         <note category="german">Anzeige</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig</note>
       </notes>
       <segment>
         <source>Anzeige</source>
@@ -1822,6 +2032,7 @@
     <unit id="YIZ57UG" name="Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.">
       <notes>
         <note category="german">Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig</note>
       </notes>
       <segment>
         <source>Anwendungen im Testbetrieb können nur von ihrem Besitzer verwendet werden.</source>
@@ -1831,6 +2042,7 @@
     <unit id="pmqhEIB" name="Testbetrieb">
       <notes>
         <note category="german">Testbetrieb</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig</note>
       </notes>
       <segment>
         <source>Testbetrieb</source>
@@ -1840,6 +2052,7 @@
     <unit id="o1q81tr" name="Icon">
       <notes>
         <note category="german">Icon</note>
+        <note category="from">twig:///templates/ajax/admin/groups/list.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/apps/edit.html.twig</note>
       </notes>
       <segment>
         <source>Icon</source>
@@ -1849,6 +2062,7 @@
     <unit id="CgS2hD0" name="Datenzugriff">
       <notes>
         <note category="german">Datenzugriff</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig</note>
       </notes>
       <segment>
         <source>Datenzugriff</source>
@@ -1858,6 +2072,7 @@
     <unit id="PgM27MC" name="Anwendungen ohne API-Zugang werden nur als Links eingebunden.">
       <notes>
         <note category="german">Anwendungen ohne API-Zugang werden nur als Links eingebunden.</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig</note>
       </notes>
       <segment>
         <source>Anwendungen ohne API-Zugang werden nur als Links eingebunden.</source>
@@ -1867,6 +2082,7 @@
     <unit id="ftE4M1T" name="Zugang zur API">
       <notes>
         <note category="german">Zugang zur API</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig</note>
       </notes>
       <segment>
         <source>Zugang zur API</source>
@@ -1876,6 +2092,7 @@
     <unit id="oFJRNSD" name="Wird automatisch generiert">
       <notes>
         <note category="german">Wird automatisch generiert</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig</note>
       </notes>
       <segment>
         <source>Wird automatisch generiert</source>
@@ -1885,6 +2102,7 @@
     <unit id="NoNAzwa" name="Schlüssel regenerieren">
       <notes>
         <note category="german">Schlüssel regenerieren</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/public/disclaimer.html.twig</note>
       </notes>
       <segment>
         <source>Schlüssel regenerieren</source>
@@ -1894,6 +2112,7 @@
     <unit id="i2H25l5" name="Foren-Mod.">
       <notes>
         <note category="german">Foren-Mod.</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
       </notes>
       <segment>
         <source>Foren-Mod.</source>
@@ -1903,6 +2122,7 @@
     <unit id="EK4cGZo" name="Kurztexte">
       <notes>
         <note category="german">Kurztexte</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>Kurztexte</source>
@@ -1912,6 +2132,7 @@
     <unit id="PMRlWSR" name="Inhalt">
       <notes>
         <note category="german">Inhalt</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>Inhalt</source>
@@ -1921,6 +2142,7 @@
     <unit id="yqFNLUk" name="Neuen Kurztext anlegen">
       <notes>
         <note category="german">Neuen Kurztext anlegen</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>Neuen Kurztext anlegen</source>
@@ -1930,6 +2152,7 @@
     <unit id="EA6TVUx" name="ID eingeben">
       <notes>
         <note category="german">ID eingeben</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig</note>
       </notes>
       <segment>
         <source>ID eingeben</source>
@@ -1939,6 +2162,7 @@
     <unit id="GYf8Lr5" name="Eine Auszeichnungen auswählen:">
       <notes>
         <note category="german">Eine Auszeichnung auswählen:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Eine Auszeichnungen auswählen:</source>
@@ -1948,6 +2172,7 @@
     <unit id="jm_rhmk" name="Anzahl der Auszeichnungen:">
       <notes>
         <note category="german">Anzahl der Auszeichnungen:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/old_town_explorer.html.twig</note>
       </notes>
       <segment>
         <source>Anzahl der Auszeichnungen:</source>
@@ -1957,6 +2182,7 @@
     <unit id="XtyN3Vk" name="Vergeben!">
       <notes>
         <note category="german">Vergeben!</note>
+        <note category="from">twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Vergeben!</source>
@@ -1966,6 +2192,7 @@
     <unit id="BYzHaeg" name="Aktuelle Städte">
       <notes>
         <note category="german">Aktuelle Städte</note>
+        <note category="from">twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig</note>
       </notes>
       <segment>
         <source>Aktuelle Städte</source>
@@ -1975,6 +2202,7 @@
     <unit id="7BBdmva" name="Fertige Städte">
       <notes>
         <note category="german">Fertige Städte</note>
+        <note category="from">twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig</note>
       </notes>
       <segment>
         <source>Fertige Städte</source>
@@ -1984,6 +2212,7 @@
     <unit id="zFOkrfz" name="Importiert">
       <notes>
         <note category="german">Importiert</note>
+        <note category="from">twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig</note>
       </notes>
       <segment>
         <source>Importiert</source>
@@ -1993,6 +2222,7 @@
     <unit id="Z5HXK7D" name="Seite {page}/{total}">
       <notes>
         <note category="german">Seite {page}/{total}</note>
+        <note category="from">twig:///templates/ajax/admin/towns/old_towns_list.html.twig</note>
       </notes>
       <segment>
         <source>Seite {page}/{total}</source>
@@ -2002,6 +2232,7 @@
     <unit id="HAvttwf" name="Gib den Namen der Stadt ein.">
       <notes>
         <note category="german">Gib den Namen der Stadt ein.</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Gib den Namen der Stadt ein.</source>
@@ -2011,6 +2242,7 @@
     <unit id="F_ijNEI" name="Neue Anwendung registrieren">
       <notes>
         <note category="german">Neue Anwendung registrieren</note>
+        <note category="from">php:///src/Controller/Admin/AdminAppController.php</note>
       </notes>
       <segment>
         <source>Neue Anwendung registrieren</source>
@@ -2020,6 +2252,7 @@
     <unit id="MxCYTlN" name="Änderungen an '{appname}' speichern">
       <notes>
         <note category="german">Änderungen an {appname} speichern</note>
+        <note category="from">php:///src/Controller/Admin/AdminAppController.php</note>
       </notes>
       <segment>
         <source>Änderungen an '{appname}' speichern</source>
@@ -2029,6 +2262,7 @@
     <unit id="zLJ.A.A" name="Anzeigen">
       <notes>
         <note category="german">Anzeigen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Anzeigen</source>
@@ -2038,6 +2272,7 @@
     <unit id="t.MMG.6" name="Gegen {culprit}">
       <notes>
         <note category="german">Gegen {culprit}</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Gegen {culprit}</source>
@@ -2047,6 +2282,7 @@
     <unit id="OeZ5Hgz" name="Anwendungen">
       <notes>
         <note category="german">Anwendungen</note>
+        <note category="from">twig:///templates/ajax/admin/apps/list.html.twig</note>
       </notes>
       <segment>
         <source>Anwendungen</source>
@@ -2056,6 +2292,7 @@
     <unit id="I2gx52t" name="Neue Anwendung">
       <notes>
         <note category="german">Neue Anwendung</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig</note>
       </notes>
       <segment>
         <source>Neue Anwendung</source>
@@ -2065,6 +2302,7 @@
     <unit id="MBDZMn9" name="Anwendung &quot;{external_app}&quot;">
       <notes>
         <note category="german">Anwendung "{external_app}"</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig</note>
       </notes>
       <segment>
         <source>Anwendung "{external_app}"</source>
@@ -2074,6 +2312,8 @@
     <unit id="IeSesrK" name="Log">
       <notes>
         <note category="german">Log</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig</note>
       </notes>
       <segment>
         <source>Log</source>
@@ -2083,6 +2323,7 @@
     <unit id="tAQPtd4" name="Einen Status auswählen:">
       <notes>
         <note category="german">Einen Status auswählen:</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Einen Status auswählen:</source>
@@ -2092,6 +2333,7 @@
     <unit id="R7yBd_O" name="Vergeben">
       <notes>
         <note category="german">Vergeben</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Vergeben</source>
@@ -2101,6 +2343,7 @@
     <unit id="OCg3Wi1" name="Entfernen">
       <notes>
         <note category="german">Entfernen</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Entfernen</source>
@@ -2110,6 +2353,7 @@
     <unit id="S1OmuJB" name="Saisons">
       <notes>
         <note category="german">Saisons</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
       </notes>
       <segment>
         <source>Saisons</source>
@@ -2119,6 +2363,7 @@
     <unit id="wWE.yC2" name="Neue Saison">
       <notes>
         <note category="german">Neue Saison</note>
+        <note category="from">php:///src/Controller/Admin/AdminSeasonController.php;twig:///templates/ajax/admin/seasons/edit.html.twig</note>
       </notes>
       <segment>
         <source>Neue Saison</source>
@@ -2128,6 +2373,7 @@
     <unit id="pcCL6tz" name="Status vergeben">
       <notes>
         <note category="german">Status vergeben</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Status vergeben</source>
@@ -2137,6 +2383,7 @@
     <unit id="PLdhbVW" name="Status entfernen">
       <notes>
         <note category="german">Status entfernen</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Status entfernen</source>
@@ -2146,6 +2393,7 @@
     <unit id="YkT2Odb" name="Eine Rolle auswählen:">
       <notes>
         <note category="german">Eine Rolle auswählen:</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Eine Rolle auswählen:</source>
@@ -2155,6 +2403,7 @@
     <unit id="v6OJxnk" name="Rolle vergeben">
       <notes>
         <note category="german">Rolle vergeben</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Rolle vergeben</source>
@@ -2164,6 +2413,7 @@
     <unit id="sOLeN_J" name="Rolle entfernen">
       <notes>
         <note category="german">Rolle entfernen</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Rolle entfernen</source>
@@ -2173,6 +2423,7 @@
     <unit id="x8Xk.ym" name="Bürger nach Sprache">
       <notes>
         <note category="german">Bürger nach Sprache</note>
+        <note category="from">twig:///templates/ajax/admin/towns/list.html.twig</note>
       </notes>
       <segment>
         <source>Bürger nach Sprache</source>
@@ -2182,6 +2433,7 @@
     <unit id="gvDyCm1" name="Geöffnet">
       <notes>
         <note category="german">Geöffnet</note>
+        <note category="from">twig:///templates/ajax/admin/towns/list.html.twig</note>
       </notes>
       <segment>
         <source>Geöffnet</source>
@@ -2191,6 +2443,7 @@
     <unit id="gTA4SQS" name="Leben">
       <notes>
         <note category="german">Leben</note>
+        <note category="from">twig:///templates/ajax/admin/towns/list.html.twig</note>
       </notes>
       <segment>
         <source>Leben</source>
@@ -2200,6 +2453,7 @@
     <unit id="wVUnsZu" name="Seasons">
       <notes>
         <note category="german">Seasons</note>
+        <note category="from">twig:///templates/ajax/admin/seasons/list.html.twig</note>
       </notes>
       <segment>
         <source>Seasons</source>
@@ -2209,6 +2463,7 @@
     <unit id="5vc95gS" name="Akt.">
       <notes>
         <note category="german">Akt.</note>
+        <note category="from">twig:///templates/ajax/admin/seasons/list.html.twig;twig:///templates/ajax/admin/groups/list.html.twig</note>
       </notes>
       <segment>
         <source>Akt.</source>
@@ -2218,6 +2473,7 @@
     <unit id="lzLlEpR" name="Nummer">
       <notes>
         <note category="german">Nummer</note>
+        <note category="from">twig:///templates/ajax/admin/seasons/list.html.twig</note>
       </notes>
       <segment>
         <source>Nummer</source>
@@ -2227,6 +2483,7 @@
     <unit id="ZOp9mWZ" name="Sub-Nummer">
       <notes>
         <note category="german">Sub-Nummer</note>
+        <note category="from">twig:///templates/ajax/admin/seasons/list.html.twig</note>
       </notes>
       <segment>
         <source>Sub-Nummer</source>
@@ -2236,6 +2493,7 @@
     <unit id="3NHVIj9" name="Name">
       <notes>
         <note category="german">Name</note>
+        <note category="from">twig:///templates/ajax/admin/seasons/list.html.twig;twig:///templates/ajax/admin/groups/list.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig</note>
       </notes>
       <segment>
         <source>Name</source>
@@ -2245,6 +2503,7 @@
     <unit id="GCGUxtQ" name="Saison &quot;{season}&quot;">
       <notes>
         <note category="german">Saison "{season}"</note>
+        <note category="from">twig:///templates/ajax/admin/seasons/edit.html.twig</note>
       </notes>
       <segment>
         <source>Saison "{season}"</source>
@@ -2254,6 +2513,7 @@
     <unit id="3RyPmTj" name="Saison Nummer">
       <notes>
         <note category="german">Saison Nummer</note>
+        <note category="from">twig:///templates/ajax/admin/seasons/edit.html.twig</note>
       </notes>
       <segment>
         <source>Saison Nummer</source>
@@ -2263,6 +2523,7 @@
     <unit id="1uPFCaE" name="Saison Sub-Nummer">
       <notes>
         <note category="german">Saison Sub-Nummer</note>
+        <note category="from">twig:///templates/ajax/admin/seasons/edit.html.twig</note>
       </notes>
       <segment>
         <source>Saison Sub-Nummer</source>
@@ -2272,6 +2533,7 @@
     <unit id="V8mA5zz" name="Aktuelle Saison">
       <notes>
         <note category="german">Aktuelle Saison</note>
+        <note category="from">twig:///templates/ajax/admin/seasons/edit.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Aktuelle Saison</source>
@@ -2281,6 +2543,7 @@
     <unit id="hIEL.qI" name="AP">
       <notes>
         <note category="german">AP</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>AP</source>
@@ -2290,6 +2553,7 @@
     <unit id="Q_CT7Yc" name="Setzen">
       <notes>
         <note category="german">Setzen</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Setzen</source>
@@ -2299,6 +2563,7 @@
     <unit id="wM4Qh3r" name="Abziehen">
       <notes>
         <note category="german">Abziehen</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Abziehen</source>
@@ -2308,6 +2573,7 @@
     <unit id="lEIUlKS" name="Changelogs">
       <notes>
         <note category="german">Changelogs</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
       </notes>
       <segment>
         <source>Changelogs</source>
@@ -2317,6 +2583,7 @@
     <unit id="vdD8Evg" name="Ankündigungen">
       <notes>
         <note category="german">Ankündigungen</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
       </notes>
       <segment>
         <source>Ankündigungen</source>
@@ -2326,6 +2593,7 @@
     <unit id="lkqERse" name="Neue Ankündigung">
       <notes>
         <note category="german">Neue Ankündigung</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
       </notes>
       <segment>
         <source>Neue Ankündigung</source>
@@ -2335,6 +2603,7 @@
     <unit id="OlFB1V6" name="Konstruktionen">
       <notes>
         <note category="german">Konstruktionen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Konstruktionen</source>
@@ -2344,6 +2613,7 @@
     <unit id="JgVl7oE" name="Gib den Namen oder die ID der Stadt ein.">
       <notes>
         <note category="german">Gib den Namen oder die ID der Stadt ein.</note>
+        <note category="from">twig:///templates/ajax/admin/snippets/town_search.html.twig</note>
       </notes>
       <segment>
         <source>Gib den Namen oder die ID der Stadt ein.</source>
@@ -2353,6 +2623,7 @@
     <unit id="U4p3p8Q" name="Stimmen">
       <notes>
         <note category="german">Stimmen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Stimmen</source>
@@ -2362,6 +2633,7 @@
     <unit id="JCkhvqs" name="Für {target}">
       <notes>
         <note category="german">Für {target}</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Für {target}</source>
@@ -2371,6 +2643,7 @@
     <unit id="jBGmXFb" name="Ersteller">
       <notes>
         <note category="german">Ersteller</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Ersteller</source>
@@ -2380,6 +2653,7 @@
     <unit id="Fz9FcFZ" name="Stadt ansehen">
       <notes>
         <note category="german">Stadt ansehen</note>
+        <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig</note>
       </notes>
       <segment>
         <source>Stadt ansehen</source>
@@ -2389,6 +2663,7 @@
     <unit id="HQAYQ7y" name="Existierende Beschränkungen">
       <notes>
         <note category="german">Existierende Beschränkungen</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Existierende Beschränkungen</source>
@@ -2398,6 +2673,7 @@
     <unit id="d.ixmWC" name="Dieser Spieler hat eine weiße Weste.">
       <notes>
         <note category="german">Dieser Spieler hat eine weiße Weste.</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Spieler hat eine weiße Weste.</source>
@@ -2407,6 +2683,8 @@
     <unit id="FwMioy8" name="Info">
       <notes>
         <note category="german">Info</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Info</source>
@@ -2416,6 +2694,7 @@
     <unit id="qvAoyVN" name="Bestätigt von">
       <notes>
         <note category="german">Bestätigt von</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Bestätigt von</source>
@@ -2425,6 +2704,7 @@
     <unit id="kTWILTI" name="Datum">
       <notes>
         <note category="german">Datum</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Datum</source>
@@ -2434,6 +2714,7 @@
     <unit id="hrvEXJr" name="Endet">
       <notes>
         <note category="german">Endet</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Endet</source>
@@ -2443,6 +2724,7 @@
     <unit id="DJfkxFo" name="Nicht bestätigt!">
       <notes>
         <note category="german">Nicht bestätigt!</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Nicht bestätigt!</source>
@@ -2452,6 +2734,7 @@
     <unit id="jpPy6FB" name="Abgelaufen">
       <notes>
         <note category="german">Abgelaufen</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Abgelaufen</source>
@@ -2461,6 +2744,7 @@
     <unit id="ifwhezW" name="Deaktiviert">
       <notes>
         <note category="german">Deaktiviert</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Deaktiviert</source>
@@ -2470,6 +2754,7 @@
     <unit id="IvHcoEk" name="Interner Vermerk">
       <notes>
         <note category="german">Interner Vermerk</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Interner Vermerk</source>
@@ -2479,6 +2764,7 @@
     <unit id="dd81ecc" name="Art">
       <notes>
         <note category="german">Art</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Art</source>
@@ -2488,6 +2774,7 @@
     <unit id="Dm3TgUa" name="Sozial">
       <notes>
         <note category="german">Sozial</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Sozial</source>
@@ -2497,6 +2784,7 @@
     <unit id="3a9NlWd" name="Stadt-Kom.">
       <notes>
         <note category="german">Stadt-Kom.</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Stadt-Kom.</source>
@@ -2506,6 +2794,7 @@
     <unit id="gIfLcdm" name="Globale Kom.">
       <notes>
         <note category="german">Globale Kom.</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Globale Kom.</source>
@@ -2515,6 +2804,7 @@
     <unit id="4L8kPem" name="Kommentare">
       <notes>
         <note category="german">Kommentare</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Kommentare</source>
@@ -2524,6 +2814,8 @@
     <unit id="mQVpay." name="Org.">
       <notes>
         <note category="german">Org.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Org.</source>
@@ -2533,6 +2825,7 @@
     <unit id="aE.gAX6" name="Spiel">
       <notes>
         <note category="german">Spiel</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Spiel</source>
@@ -2542,6 +2835,7 @@
     <unit id="FbY7TeM" name="Bestätigen">
       <notes>
         <note category="german">Bestätigen</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Bestätigen</source>
@@ -2551,6 +2845,7 @@
     <unit id="JUr1eVI" name="{d} Tage">
       <notes>
         <note category="german">{d} Tage</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>{d} Tage</source>
@@ -2560,6 +2855,7 @@
     <unit id="R9HFTdn" name="Neue Beschränkung hinzufügen">
       <notes>
         <note category="german">Neue Beschränkung hinzufügen</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Neue Beschränkung hinzufügen</source>
@@ -2569,6 +2865,7 @@
     <unit id="o.gLHi8" name="24 Stunden">
       <notes>
         <note category="german">24 Stunden</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>24 Stunden</source>
@@ -2578,6 +2875,7 @@
     <unit id="YvnlIm5" name="Bestätigung erforderlich">
       <notes>
         <note category="german">Bestätigung erforderlich</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Bestätigung erforderlich</source>
@@ -2587,6 +2885,7 @@
     <unit id="j.lIpae" name="1 Jahr">
       <notes>
         <note category="german">1 Jahr</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>1 Jahr</source>
@@ -2596,6 +2895,7 @@
     <unit id="vFTx03L" name="Admin-Bestätigung erforderlich">
       <notes>
         <note category="german">Admin-Bestätigung erforderlich</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Admin-Bestätigung erforderlich</source>
@@ -2605,6 +2905,7 @@
     <unit id="rX0oy40" name="2 Jahre">
       <notes>
         <note category="german">2 Jahre</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>2 Jahre</source>
@@ -2614,6 +2915,7 @@
     <unit id="NhpWriw" name="Dauerhaft">
       <notes>
         <note category="german">Dauerhaft</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Dauerhaft</source>
@@ -2623,6 +2925,7 @@
     <unit id="VBYHRyg" name="Art der Beschränkung">
       <notes>
         <note category="german">Art der Beschränkung</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Art der Beschränkung</source>
@@ -2632,6 +2935,7 @@
     <unit id="t5PuA4i" name="Soziale Interaktion verbieten">
       <notes>
         <note category="german">Soziale Interaktion verbieten</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Soziale Interaktion verbieten</source>
@@ -2641,6 +2945,7 @@
     <unit id="N35nJiR" name="Posten in Foren verbieten">
       <notes>
         <note category="german">Posten in Foren verbieten</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Posten in Foren verbieten</source>
@@ -2650,6 +2955,7 @@
     <unit id="S.Z0svV" name="Stadt-interne Kommunikation verbieten">
       <notes>
         <note category="german">Stadt-interne Kommunikation verbieten</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Stadt-interne Kommunikation verbieten</source>
@@ -2659,6 +2965,7 @@
     <unit id="TofCy.V" name="Stadtübergreifende Kommunikation verbieten">
       <notes>
         <note category="german">Stadtübergreifende Kommunikation verbieten</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Stadtübergreifende Kommunikation verbieten</source>
@@ -2668,6 +2975,7 @@
     <unit id="4Ih2_KV" name="Kommentare verbieten">
       <notes>
         <note category="german">Kommentare verbieten</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Kommentare verbieten</source>
@@ -2677,6 +2985,7 @@
     <unit id="Hk8oxc5" name="Organisation in Gruppen verbieten">
       <notes>
         <note category="german">Organisation in Gruppen verbieten</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Organisation in Gruppen verbieten</source>
@@ -2686,6 +2995,7 @@
     <unit id="IdwEk1H" name="Spielen verbieten">
       <notes>
         <note category="german">Spielen verbieten</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Spielen verbieten</source>
@@ -2695,6 +3005,7 @@
     <unit id="67OtxCl">
       <notes>
         <note category="german">Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Diese Account-Beschränkung muss von einem anderen Moderator bestätigt werden, bevor sie aktiv wird.</source>
@@ -2704,6 +3015,7 @@
     <unit id="6q.DKYz" name="Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.">
       <notes>
         <note category="german">Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Die Dauer der Beschränkung zählt erst ab dem Moment, wo sie aktiviert wird.</source>
@@ -2713,6 +3025,7 @@
     <unit id="3Bzuyaj">
       <notes>
         <note category="german">Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Diese Account-Beschränkung muss von einem Administrator bestätigt werden, bevor sie aktiv wird.</source>
@@ -2722,6 +3035,7 @@
     <unit id="vsOyofZ" name="Schwarzes Brett">
       <notes>
         <note category="german">Schwarzes Brett</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Schwarzes Brett</source>
@@ -2731,6 +3045,7 @@
     <unit id="rDIuKb4" name="Stadt füllen">
       <notes>
         <note category="german">Stadt füllen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Stadt füllen</source>
@@ -2740,6 +3055,7 @@
     <unit id="I6NYwV3" name="Bank füllen">
       <notes>
         <note category="german">Bank füllen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Bank füllen</source>
@@ -2749,6 +3065,7 @@
     <unit id="NECchbh" name="Banksperre aufheben">
       <notes>
         <note category="german">Banksperre aufheben</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Banksperre aufheben</source>
@@ -2758,6 +3075,7 @@
     <unit id="HBKEVAD" name="Durst aufheben">
       <notes>
         <note category="german">Durst aufheben</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Durst aufheben</source>
@@ -2767,6 +3085,7 @@
     <unit id="9hzLkBp" name="Alle Spieler entkoppeln">
       <notes>
         <note category="german">Alle Spieler entkoppeln</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Alle Spieler entkoppeln</source>
@@ -2776,6 +3095,7 @@
     <unit id="t5vj7sC" name="Alle Spieler koppeln">
       <notes>
         <note category="german">Alle Spieler koppeln</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Alle Spieler koppeln</source>
@@ -2785,6 +3105,7 @@
     <unit id="qKBuSla" name="Zone">
       <notes>
         <note category="german">Zone</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Zone</source>
@@ -2794,6 +3115,7 @@
     <unit id="QzMRMH1" name="Leere Zone">
       <notes>
         <note category="german">Leere Zone</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Leere Zone</source>
@@ -2803,6 +3125,7 @@
     <unit id="dgw_NYB" name="Entkoppelte Leben">
       <notes>
         <note category="german">Entkoppelte Leben</note>
+        <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig</note>
       </notes>
       <segment>
         <source>Entkoppelte Leben</source>
@@ -2812,6 +3135,7 @@
     <unit id="TLxPMB8" name="Entkoppeln">
       <notes>
         <note category="german">Entkoppeln</note>
+        <note category="from">twig:///templates/ajax/admin/users/citizen.html.twig</note>
       </notes>
       <segment>
         <source>Entkoppeln</source>
@@ -2821,6 +3145,7 @@
     <unit id="hn7LsRJ" name="Punkte">
       <notes>
         <note category="german">Punkte</note>
+        <note category="from">twig:///templates/ajax/admin/widget/displays.twig</note>
       </notes>
       <segment>
         <source>Punkte</source>
@@ -2830,6 +3155,7 @@
     <unit id="dPobLXQ" name="Rollen">
       <notes>
         <note category="german">Rollen</note>
+        <note category="from">twig:///templates/ajax/admin/widget/displays.twig</note>
       </notes>
       <segment>
         <source>Rollen</source>
@@ -2839,6 +3165,7 @@
     <unit id="LsFE_gX" name="Versteckter Status">
       <notes>
         <note category="german">Versteckter Status</note>
+        <note category="from">twig:///templates/ajax/admin/widget/displays.twig</note>
       </notes>
       <segment>
         <source>Versteckter Status</source>
@@ -2848,6 +3175,7 @@
     <unit id="bauA9lx" name="Versteckt:">
       <notes>
         <note category="german">Versteckt:</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Versteckt:</source>
@@ -2857,6 +3185,7 @@
     <unit id="Fe136ia" name="Kein Bürger ausgewählt!">
       <notes>
         <note category="german">Kein Bürger ausgewählt!</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Kein Bürger ausgewählt!</source>
@@ -2866,6 +3195,7 @@
     <unit id="NrcXgR7" name="BP">
       <notes>
         <note category="german">BP</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>BP</source>
@@ -2875,6 +3205,7 @@
     <unit id="IErGaoh" name="MP">
       <notes>
         <note category="german">MP</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>MP</source>
@@ -2884,6 +3215,7 @@
     <unit id="tVQnz.X" name="Einen Beruf auswählen:">
       <notes>
         <note category="german">Einen Beruf auswählen:</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Einen Beruf auswählen:</source>
@@ -2893,6 +3225,7 @@
     <unit id="_Kc4j.e" name="Stadt anlegen">
       <notes>
         <note category="german">Stadt anlegen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/list.html.twig</note>
       </notes>
       <segment>
         <source>Stadt anlegen</source>
@@ -2902,6 +3235,8 @@
     <unit id="yo6CbZw" name="Avatar">
       <notes>
         <note category="german">Avatar</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Avatar</source>
@@ -2911,6 +3246,7 @@
     <unit id="A2Ihk63" name="Profilbeschreibung">
       <notes>
         <note category="german">Profilbeschreibung</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Profilbeschreibung</source>
@@ -2920,6 +3256,7 @@
     <unit id="5AoQtM8" name="Änderungen am Profil verbieten">
       <notes>
         <note category="german">Änderungen am Profil verbieten</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Änderungen am Profil verbieten</source>
@@ -2929,6 +3266,7 @@
     <unit id="o2BjdF6" name="Ändern des Avatars verbieten">
       <notes>
         <note category="german">Ändern des Avatars verbieten</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Ändern des Avatars verbieten</source>
@@ -2938,6 +3276,7 @@
     <unit id="es9o32g" name="Ändern der Profilbeschreibung verbieten">
       <notes>
         <note category="german">Ändern der Profilbeschreibung verbieten</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Ändern der Profilbeschreibung verbieten</source>
@@ -2947,6 +3286,7 @@
     <unit id="tJ4N6CO" name="Ändern des Titels verbieten">
       <notes>
         <note category="german">Ändern des Titels verbieten</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Ändern des Titels verbieten</source>
@@ -2956,6 +3296,7 @@
     <unit id="nXkHd12" name="Anzeigenamen ändern">
       <notes>
         <note category="german">Anzeigenamen ändern</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Anzeigenamen ändern</source>
@@ -2965,6 +3306,7 @@
     <unit id="zX2Ikki" name="Anzeigenamen entfernen">
       <notes>
         <note category="german">Anzeigenamen entfernen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Anzeigenamen entfernen</source>
@@ -2974,6 +3316,7 @@
     <unit id="ZBGzbqz" name="Avatar entfernen">
       <notes>
         <note category="german">Avatar entfernen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Avatar entfernen</source>
@@ -2983,6 +3326,7 @@
     <unit id="5yzpFRy" name="Profilbeschreibung entfernen">
       <notes>
         <note category="german">Profilbeschreibung entfernen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Profilbeschreibung entfernen</source>
@@ -2992,6 +3336,7 @@
     <unit id="R1lleS7" name="Titel &amp; Icon entfernen">
       <notes>
         <note category="german">Titel &amp; Icon entfernen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Titel &amp; Icon entfernen</source>
@@ -3001,6 +3346,7 @@
     <unit id="BaVbT2z" name="Neuer Füllstand:">
       <notes>
         <note category="german">Neuer Füllstand:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Neuer Füllstand:</source>
@@ -3010,6 +3356,7 @@
     <unit id="dIVIxL." name="Brunnen-Füllstand setzen">
       <notes>
         <note category="german">Brunnen-Füllstand setzen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Brunnen-Füllstand setzen</source>
@@ -3019,6 +3366,7 @@
     <unit id="2xHk8Wn" name="Alle Gebäude freischalten">
       <notes>
         <note category="german">Alle Gebäude freischalten</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Alle Gebäude freischalten</source>
@@ -3028,6 +3376,7 @@
     <unit id="IurwAt2" name="Baufortschritt setzen:">
       <notes>
         <note category="german">Baufortschritt setzen:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Baufortschritt setzen:</source>
@@ -3037,6 +3386,7 @@
     <unit id="C0IagjD" name="Integrität setzen:">
       <notes>
         <note category="german">Integrität setzen:</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Integrität setzen:</source>
@@ -3046,6 +3396,7 @@
     <unit id="PmdlsrB" name="Neue Anzahl:">
       <notes>
         <note category="german">Neue Anzahl:</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Neue Anzahl:</source>
@@ -3055,6 +3406,7 @@
     <unit id="VxMIE8o" name="Heldentage setzen">
       <notes>
         <note category="german">Heldentage setzen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Heldentage setzen</source>
@@ -3064,6 +3416,7 @@
     <unit id="RkHxHq_" name="Hausverbesserungen:">
       <notes>
         <note category="german">Hausverbesserungen:</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Hausverbesserungen:</source>
@@ -3073,6 +3426,7 @@
     <unit id="hiqEnyg" name="Teleportieren:">
       <notes>
         <note category="german">Teleportieren:</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Teleportieren:</source>
@@ -3082,6 +3436,7 @@
     <unit id="rwkqvEL" name="In die Stadt">
       <notes>
         <note category="german">In die Stadt</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>In die Stadt</source>
@@ -3091,6 +3446,7 @@
     <unit id="9L29399" name="Zu einer Zone">
       <notes>
         <note category="german">Zu einer Zone</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Zu einer Zone</source>
@@ -3100,6 +3456,7 @@
     <unit id="qD9loXa" name="Neue Saison registrieren">
       <notes>
         <note category="german">Neue Saison registrieren</note>
+        <note category="from">twig:///templates/ajax/admin/seasons/edit.html.twig</note>
       </notes>
       <segment>
         <source>Neue Saison registrieren</source>
@@ -3109,6 +3466,7 @@
     <unit id="bIa5kIj" name="Änderungen speichern">
       <notes>
         <note category="german">Änderungen speichern</note>
+        <note category="from">twig:///templates/ajax/admin/seasons/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig</note>
       </notes>
       <segment>
         <source>Änderungen speichern</source>
@@ -3118,6 +3476,7 @@
     <unit id="ohcn8tz" name="Freundschaftswerbung">
       <notes>
         <note category="german">Freundschaftswerbung</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Freundschaftswerbung</source>
@@ -3127,6 +3486,7 @@
     <unit id="uIkrK0q" name="Ref-Namen ändern">
       <notes>
         <note category="german">Ref-Namen ändern</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Ref-Namen ändern</source>
@@ -3136,6 +3496,7 @@
     <unit id="o81xxnX" name="Ref-Namen sperren">
       <notes>
         <note category="german">Ref-Namen sperren</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Ref-Namen sperren</source>
@@ -3145,6 +3506,7 @@
     <unit id="hYqcqsf" name="Ref-Namen entsprerren">
       <notes>
         <note category="german">Ref-Namen entsprerren</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Ref-Namen entsprerren</source>
@@ -3154,6 +3516,7 @@
     <unit id="TcAZPZH" name="Sponsor setzen">
       <notes>
         <note category="german">Sponsor setzen</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Sponsor setzen</source>
@@ -3163,6 +3526,7 @@
     <unit id="eeN3gHp" name="Ref-Name">
       <notes>
         <note category="german">Ref-Name</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Ref-Name</source>
@@ -3172,6 +3536,7 @@
     <unit id="ZzLzTI." name="Gesponsort von">
       <notes>
         <note category="german">Gesponsort von</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Gesponsort von</source>
@@ -3181,6 +3546,7 @@
     <unit id="MJJ_lOb" name="Gesponsorte Spieler">
       <notes>
         <note category="german">Gesponsorte Spieler</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Gesponsorte Spieler</source>
@@ -3190,6 +3556,7 @@
     <unit id="QWjy74v" name="Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):">
       <notes>
         <note category="german">Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden):</source>
@@ -3199,6 +3566,7 @@
     <unit id="m56Z2c0" name="Zombie-Spread ausführen">
       <notes>
         <note category="german">Zombie-Spread ausführen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Zombie-Spread ausführen</source>
@@ -3208,6 +3576,7 @@
     <unit id="EPOEUwe">
       <notes>
         <note category="german">Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Format: "{x0}/{y0}:{x1}/{y1},{zombies}" (Bereich) oder "{x}/{y},{zombies}" (einzelne Zone), zum Beispiel "-1/3:-4/2,5". Statt der Positionsangabe kann "all" verwendet werden. Statt einem numerischen Wert für die Zahl der Zombies ist folgendes ebenfalls gültig: "today" (Anzahl der Zombies beim letzten Tageswechsel), "initial" (Anzahl der Zombies an Tag 1).</source>
@@ -3217,6 +3586,7 @@
     <unit id="_kkbddG" name="Zombies setzen">
       <notes>
         <note category="german">Zombies setzen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Zombies setzen</source>
@@ -3226,6 +3596,7 @@
     <unit id="TCnrA_Z" name="Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)">
       <notes>
         <note category="german">Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Basierend auf Tag (frei lassen, um aktuellen Tag zu verwenden)</source>
@@ -3235,6 +3606,7 @@
     <unit id="j9J2yMz" name="Gruppen">
       <notes>
         <note category="german">Gruppen</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/groups/list.html.twig</note>
       </notes>
       <segment>
         <source>Gruppen</source>
@@ -3244,6 +3616,8 @@
     <unit id="OFylvr8" name="Anon.">
       <notes>
         <note category="german">Anon.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/admin/groups/list.html.twig</note>
       </notes>
       <segment>
         <source>Anon.</source>
@@ -3253,6 +3627,7 @@
     <unit id="vBZ55s_" name="Mitglieder">
       <notes>
         <note category="german">Mitglieder</note>
+        <note category="from">twig:///templates/ajax/admin/groups/list.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig</note>
       </notes>
       <segment>
         <source>Mitglieder</source>
@@ -3262,6 +3637,7 @@
     <unit id="TTOMzoJ" name="Mitglied">
       <notes>
         <note category="german">Mitglied</note>
+        <note category="from">twig:///templates/ajax/admin/groups/list.html.twig</note>
       </notes>
       <segment>
         <source>Mitglied</source>
@@ -3271,6 +3647,7 @@
     <unit id="Kz_5uSy" name="Die Mitgliederliste ist versteckt.">
       <notes>
         <note category="german">Die Mitgliederliste ist versteckt.</note>
+        <note category="from">twig:///templates/ajax/admin/groups/list.html.twig</note>
       </notes>
       <segment>
         <source>Die Mitgliederliste ist versteckt.</source>
@@ -3280,6 +3657,7 @@
     <unit id="zAjLutF" name="Neue Gruppe">
       <notes>
         <note category="german">Neue Gruppe</note>
+        <note category="from">twig:///templates/ajax/admin/groups/edit.html.twig</note>
       </notes>
       <segment>
         <source>Neue Gruppe</source>
@@ -3289,6 +3667,7 @@
     <unit id="P5wAMly" name="Gruppe &quot;{group}&quot;">
       <notes>
         <note category="german">Gruppe "{group}"</note>
+        <note category="from">twig:///templates/ajax/admin/groups/edit.html.twig</note>
       </notes>
       <segment>
         <source>Gruppe "{group}"</source>
@@ -3298,6 +3677,7 @@
     <unit id="tMAiZYW" name="Gruppe">
       <notes>
         <note category="german">Gruppe</note>
+        <note category="from">twig:///templates/ajax/admin/groups/edit.html.twig</note>
       </notes>
       <segment>
         <source>Gruppe</source>
@@ -3307,6 +3687,7 @@
     <unit id="6SYvAH3" name="Beschreibung">
       <notes>
         <note category="german">Beschreibung</note>
+        <note category="from">twig:///templates/ajax/admin/groups/edit.html.twig</note>
       </notes>
       <segment>
         <source>Beschreibung</source>
@@ -3316,6 +3697,7 @@
     <unit id="7Cc8BkZ" name="Anonyme Gruppe">
       <notes>
         <note category="german">Anonyme Gruppe</note>
+        <note category="from">twig:///templates/ajax/admin/groups/edit.html.twig</note>
       </notes>
       <segment>
         <source>Anonyme Gruppe</source>
@@ -3325,6 +3707,7 @@
     <unit id="1uiWprE" name="Neue Gruppe anlegen">
       <notes>
         <note category="german">Neue Gruppe anlegen</note>
+        <note category="from">twig:///templates/ajax/admin/groups/edit.html.twig</note>
       </notes>
       <segment>
         <source>Neue Gruppe anlegen</source>
@@ -3334,6 +3717,7 @@
     <unit id="gJH3HgQ" name="Anzahl der Tage">
       <notes>
         <note category="german">Anzahl der Tage</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Anzahl der Tage</source>
@@ -3343,6 +3727,7 @@
     <unit id="VkIwwfC" name="Vorspulen">
       <notes>
         <note category="german">Vorspulen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Vorspulen</source>
@@ -3352,6 +3737,7 @@
     <unit id="omuvjZI" name="Herauswerfen (ohne Verletzung)">
       <notes>
         <note category="german">Herauswerfen (ohne Verletzung)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Herauswerfen (ohne Verletzung)</source>
@@ -3361,6 +3747,7 @@
     <unit id="uo.zViv" name="Herauswerfen (mit Verletzung)">
       <notes>
         <note category="german">Herauswerfen (mit Verletzung)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Herauswerfen (mit Verletzung)</source>
@@ -3370,6 +3757,7 @@
     <unit id="g2hjSxs" name="Timer erhöhen (1min)">
       <notes>
         <note category="german">Timer erhöhen (1min)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Timer erhöhen (1min)</source>
@@ -3379,6 +3767,7 @@
     <unit id="Aybos0Z" name="Timer erhöhen (24h)">
       <notes>
         <note category="german">Timer erhöhen (24h)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Timer erhöhen (24h)</source>
@@ -3388,6 +3777,7 @@
     <unit id=".5H3ako" name="Löschen (ermöglicht erneutes Betreten der Ruine)">
       <notes>
         <note category="german">Löschen (ermöglicht erneutes Betreten der Ruine)</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Löschen (ermöglicht erneutes Betreten der Ruine)</source>
@@ -3397,6 +3787,7 @@
     <unit id="b7SFlpH" name="Feature freigeben:">
       <notes>
         <note category="german">Feature freigeben:</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Feature freigeben:</source>
@@ -3406,6 +3797,7 @@
     <unit id="hORe5zQ" name="Bearbeiten">
       <notes>
         <note category="german">Bearbeiten</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Bearbeiten</source>
@@ -3415,6 +3807,7 @@
     <unit id="b6xEh89" name="Werte">
       <notes>
         <note category="german">Werte</note>
+        <note category="from">twig:///templates/ajax/admin/widget/displays.twig</note>
       </notes>
       <segment>
         <source>Werte</source>
@@ -3424,6 +3817,7 @@
     <unit id="N89SWeP" name="Hunger">
       <notes>
         <note category="german">Hunger</note>
+        <note category="from">twig:///templates/ajax/admin/widget/displays.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Hunger</source>
@@ -3433,6 +3827,7 @@
     <unit id="7JnkyKJ" name="Camp Chance">
       <notes>
         <note category="german">Camp Chance</note>
+        <note category="from">twig:///templates/ajax/admin/widget/displays.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Camp Chance</source>
@@ -3442,6 +3837,7 @@
     <unit id="b5V7Hy2" name="Camp Zähler">
       <notes>
         <note category="german">Camp Zähler</note>
+        <note category="from">twig:///templates/ajax/admin/widget/displays.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Camp Zähler</source>
@@ -3451,6 +3847,7 @@
     <unit id="L4jLopa" name="Verwendung des Schwarzen Bretts verbieten">
       <notes>
         <note category="german">Verwendung des Schwarzen Bretts verbieten</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Verwendung des Schwarzen Bretts verbieten</source>
@@ -3460,6 +3857,7 @@
     <unit id="Oxn3AlI" name="Passwort-geschützt">
       <notes>
         <note category="german">Passwort-geschützt</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Passwort-geschützt</source>
@@ -3469,6 +3867,7 @@
     <unit id="TabP5k8" name="Passwort ändern">
       <notes>
         <note category="german">Passwort ändern</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Passwort ändern</source>
@@ -3478,6 +3877,7 @@
     <unit id="SvdvL6C" name="Passwort entfernen">
       <notes>
         <note category="german">Passwort entfernen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Passwort entfernen</source>
@@ -3487,6 +3887,7 @@
     <unit id="WgvpXRX" name="Passwort setzen">
       <notes>
         <note category="german">Passwort setzen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Passwort setzen</source>
@@ -3496,6 +3897,7 @@
     <unit id="fDbnikT">
       <notes>
         <note category="german">Format: {zombies} (heutiger Angriff) oder {tag}:{zombies} (Angriff an einem bestimmten Tag). Es können keine Tage in der Vergangenheit gewählt werden.</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Format: {zombies} (heutiger Angriff) oder {tag}:{zombies} (Angriff an einem bestimmten Tag). Es können keine Tage in der Vergangenheit gewählt werden.</source>
@@ -3505,6 +3907,7 @@
     <unit id="mKJLGIS" name="Stärke des Angriffs setzen">
       <notes>
         <note category="german">Stärke des Angriffs setzen</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Stärke des Angriffs setzen</source>
@@ -3514,6 +3917,7 @@
     <unit id="oVZvTco" name="Chaos-Modus">
       <notes>
         <note category="german">Chaos-Modus</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Chaos-Modus</source>
@@ -3523,6 +3927,7 @@
     <unit id="cCl3Gqe" name="Stadt zerstören">
       <notes>
         <note category="german">Stadt zerstören</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
       </notes>
       <segment>
         <source>Stadt zerstören</source>
@@ -3532,6 +3937,8 @@
     <unit id="k_02uKb" name="Ändern des Spielernamens verbieten">
       <notes>
         <note category="german">Ändern des Spielernamens verbieten</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Ändern des Spielernamens verbieten</source>
@@ -3541,6 +3948,8 @@
     <unit id="VR0KmfL" name="Spielername">
       <notes>
         <note category="german">Spielername</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Spielername</source>

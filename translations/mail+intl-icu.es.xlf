@@ -4,6 +4,7 @@
     <unit id="M_25pDW" name="Account validieren">
       <notes>
         <note category="german">Account validieren</note>
+        <note category="from">php:///src/Service/UserFactory.php</note>
       </notes>
       <segment>
         <source>Account validieren</source>
@@ -13,6 +14,7 @@
     <unit id="bGFqxj8" name="Passwort zurücksetzen">
       <notes>
         <note category="german">Passwort zurücksetzen</note>
+        <note category="from">php:///src/Service/UserFactory.php</note>
       </notes>
       <segment>
         <source>Passwort zurücksetzen</source>
@@ -22,6 +24,7 @@
     <unit id="Tg55FPj" name="Hallo {user}! Willkommen bei MyHordes!">
       <notes>
         <note category="german">Hallo {user}! Willkommen bei MyHordes!</note>
+        <note category="from">twig:///templates/mail/validation.html.twig</note>
       </notes>
       <segment>
         <source>Hallo {user}! Willkommen bei MyHordes!</source>
@@ -31,6 +34,7 @@
     <unit id="_WvOCkO" name="Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:">
       <notes>
         <note category="german">Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:</note>
+        <note category="from">twig:///templates/mail/validation.html.twig</note>
       </notes>
       <segment>
         <source>Um deine Registrierung abzuschließen, benötigst du folgenden Validierungscode:</source>
@@ -41,6 +45,7 @@
       <notes>
         <note category="german">Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.
         Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.</note>
+        <note category="from">twig:///templates/mail/validation.html.twig</note>
       </notes>
       <segment>
         <source>Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.
@@ -51,6 +56,7 @@
     <unit id="Y9f6YEq" name="Hallo {user}!">
       <notes>
         <note category="german">Hallo {user}!</note>
+        <note category="from">twig:///templates/mail/passreset.html.twig</note>
       </notes>
       <segment>
         <source>Hallo {user}!</source>
@@ -60,6 +66,7 @@
     <unit id="SWaK66s" name="Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :">
       <notes>
         <note category="german">Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :</note>
+        <note category="from">twig:///templates/mail/passreset.html.twig</note>
       </notes>
       <segment>
         <source>Um dein Passwort zurückzusetzen, besuche bitte folgenden Link :</source>
@@ -71,6 +78,7 @@
         <note category="german">Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.
         Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht
         durch das Anklicken des oben genannten Links änderst.</note>
+        <note category="from">twig:///templates/mail/passreset.html.twig</note>
       </notes>
       <segment>
         <source>Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse in die Passwort-Zurücksetzen-Funktion eingegeben hat.

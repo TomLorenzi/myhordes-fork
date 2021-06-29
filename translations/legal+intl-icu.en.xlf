@@ -4,6 +4,7 @@
     <unit id="oSNe_8G" name="Datenschutzerklärung">
       <notes>
         <note category="german">Datenschutzerklärung</note>
+        <note category="from">twig:///templates/ajax/public/privacy.html.twig</note>
       </notes>
       <segment>
         <source>Datenschutzerklärung</source>
