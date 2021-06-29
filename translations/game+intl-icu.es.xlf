@@ -5210,13 +5210,13 @@
         <target>Peligro</target>
       </segment>
     </unit>
-    <unit id="S103XG1" name="@citizens Bürger">
+    <unit id="S103XG1" name="{citizens} Bürger">
       <notes>
-        <note category="german">@citizens Bürger</note>
+        <note category="german">{citizens} Bürger</note>
       </notes>
       <segment>
-        <source>@citizens Bürger</source>
-        <target>@citizens habitantes</target>
+        <source>{citizens} Bürger</source>
+        <target>{citizens} habitantes</target>
       </segment>
     </unit>
     <unit id="qDUSf43">
@@ -19842,13 +19842,13 @@
         <target><![CDATA[¡Tu acción ha sido descubierta! <strong>¡Los habitantes han sido informados!</strong>]]></target>
       </segment>
     </unit>
-    <unit id="U4ZJpTo" name="@deads Tot">
+    <unit id="U4ZJpTo" name="{deads} Tot">
       <notes>
-        <note category="german">@deads Tot</note>
+        <note category="german">{deads} Tot</note>
       </notes>
       <segment>
-        <source>@deads Tot</source>
-        <target>@deads muertos</target>
+        <source>{deads} Tot</source>
+        <target>{deads} muertos</target>
       </segment>
     </unit>
     <unit id="r4KXho0">

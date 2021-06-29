@@ -5219,13 +5219,13 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Danger</target>
       </segment>
     </unit>
-    <unit id="S103XG1" name="@citizens Bürger">
+    <unit id="S103XG1" name="{citizens} Bürger">
       <notes>
-        <note category="german">@citizens Bürger</note>
+        <note category="german">{citizens} Bürger</note>
       </notes>
       <segment>
-        <source>@citizens Bürger</source>
-        <target>@citizens Citizens</target>
+        <source>{citizens} Bürger</source>
+        <target>{citizens} Citizens</target>
       </segment>
     </unit>
     <unit id="qDUSf43">
@@ -19848,13 +19848,13 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target><![CDATA[Your were spotted! <strong>The citizens have been warned!</strong>]]></target>
       </segment>
     </unit>
-    <unit id="U4ZJpTo" name="@deads Tot">
+    <unit id="U4ZJpTo" name="{deads} Tot">
       <notes>
-        <note category="german">@deads Tot</note>
+        <note category="german">{deads} Tot</note>
       </notes>
       <segment>
-        <source>@deads Tot</source>
-        <target>@deads dead</target>
+        <source>{deads} Tot</source>
+        <target>{deads, plural, =0 {# dead} one {1 dead} other {# deads}}</target>
       </segment>
     </unit>
     <unit id="r4KXho0">

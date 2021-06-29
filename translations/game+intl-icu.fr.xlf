@@ -5231,13 +5231,13 @@
         <target>Au terme de la bataille, le bâtiment {buildingName} est tombé en poussière.</target>
       </segment>
     </unit>
-    <unit id="S103XG1" name="@citizens Bürger">
+    <unit id="S103XG1" name="{citizens} Bürger">
       <notes>
-        <note category="german">@citizens Bürger</note>
+        <note category="german">{citizens} Bürger</note>
       </notes>
       <segment>
-        <source>@citizens Bürger</source>
-        <target>@citizens citoyens</target>
+        <source>{citizens} Bürger</source>
+        <target>{citizens} citoyens</target>
       </segment>
     </unit>
     <unit id="NyGp8KR" name="Anzahl der Tage, die du als Aufklärer gespielt hast.">
@@ -10933,9 +10933,9 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                             zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                             werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Les Points de Chantiers peuvent être utilisés à l'Atelier et pour la construction des Chantiers, 
-                            où ils comptent comme des points d'action. Si possible, les points de chantiers sont toujours 
-                            utilisés à la place des points d'action. Gardez à l'esprit que les points de 
+        <target>Les Points de Chantiers peuvent être utilisés à l'Atelier et pour la construction des Chantiers,
+                            où ils comptent comme des points d'action. Si possible, les points de chantiers sont toujours
+                            utilisés à la place des points d'action. Gardez à l'esprit que les points de
                             chantiers ne peuvent pas être utilisés lorsque vous êtes épuisé !</target>
       </segment>
     </unit>
@@ -19877,13 +19877,13 @@
         <target><![CDATA[Votre action a été remarquée ! <strong>Les citoyens ont été avertis !</strong>]]></target>
       </segment>
     </unit>
-    <unit id="U4ZJpTo" name="@deads Tot">
+    <unit id="U4ZJpTo" name="{deads} Tot">
       <notes>
-        <note category="german">@deads Tot</note>
+        <note category="german">{deads} Tot</note>
       </notes>
       <segment>
-        <source>@deads Tot</source>
-        <target>@deads morts</target>
+        <source>{deads} Tot</source>
+        <target>{deads, plural, =0 {# mort} one {1 mort} other {# morts}}</target>
       </segment>
     </unit>
     <unit id="6ntsFNr">
