@@ -20360,5 +20360,32 @@
         <target><![CDATA[Du kannst den Bau einer Pumpe im Bereich <strong>Konstruktionen</strong> beginnen.]]></target>
       </segment>
     </unit>
+    <unit id="W8upWpv">
+      <notes>
+        <note category="german">The chalkboard allows veteran Heroes to give instructions to the rest of the community.</note>
+      </notes>
+      <segment>
+        <source>Die Wandtafel ermöglicht altgedienten Helden, der ganzen Stadt Anweisungen zu geben.</source>
+        <target>Die Wandtafel ermöglicht altgedienten Helden, der ganzen Stadt Anweisungen zu geben.</target>
+      </segment>
+    </unit>
+    <unit id="UQ10LbN">
+      <notes>
+        <note category="german">Diese Option steht dir ab sofort zur Verfügung, da du auf deiner Seelenseite den Diktatorbonus freigeschaltet hast.</note>
+      </notes>
+      <segment>
+        <source>Diese Option steht dir ab sofort zur Verfügung, da du auf deiner Seelenseite den Diktatorbonus freigeschaltet hast.</source>
+        <target>Diese Option steht dir ab sofort zur Verfügung, da du auf deiner Seelenseite den Diktatorbonus freigeschaltet hast.</target>
+      </segment>
+    </unit>
+    <unit id="4Uzw2JG" name="Mehr darüber erfahren...">
+      <notes>
+        <note category="german">Mehr darüber erfahren...</note>
+      </notes>
+      <segment>
+        <source>Mehr darüber erfahren...</source>
+        <target>Mehr darüber erfahren...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

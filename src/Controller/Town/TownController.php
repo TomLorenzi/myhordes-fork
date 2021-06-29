@@ -199,6 +199,7 @@ class TownController extends InventoryAwareController
                 $has_voted[$role->getName()] = ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($this->getActiveCitizen(), $role) !== null);
 
         $can_edit_blackboard = $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'dictator') && !$this->getActiveCitizen()->getBanished();
+        $has_dictator = $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'dictator');
         
         $sb = $this->user_handler->getShoutbox($this->getUser());
         $messages = false;
@@ -251,6 +252,7 @@ class TownController extends InventoryAwareController
             'display_home_upgrade' => $display_home_upgrade,
             'has_upgraded_house' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_home_upgrade'),
             'can_edit_blackboard' => $can_edit_blackboard,
+            'has_dictator' => $has_dictator,
             'new_coa_message' => $messages
         ]) );
     }
