@@ -4361,14 +4361,10 @@
         <target>Tagelang wurde an den Seelen der Toten herumgepfuscht.</target>
       </segment>
     </unit>
-<<<<<<< HEAD
     <unit id="x7SDYp9" name="{citizens} Bürger">
       <notes>
         <note category="german">{citizens} Bürger</note>
       </notes>
-=======
-    <unit id="S103XG1" name="@citizens Bürger">
->>>>>>> c2e43427c2c0ff9ef5e16ee5220889ed323c2656
       <segment>
         <source>{citizens} Bürger</source>
         <target>{citizens} Bürger am Leben</target>

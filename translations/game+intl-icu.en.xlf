@@ -5794,12 +5794,8 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="x7SDYp9" name="{citizens} Bürger">
       <notes>
-<<<<<<< HEAD
         <note category="german">{citizens} Bürger</note>
-=======
-        <note category="german">@citizens Bürger</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
->>>>>>> c2e43427c2c0ff9ef5e16ee5220889ed323c2656
       </notes>
       <segment>
         <source>{citizens} Bürger</source>
