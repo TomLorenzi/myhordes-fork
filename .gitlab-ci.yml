@@ -13,7 +13,7 @@ cache:
 
 before_script:
   - apt-get update -yqq
-  # - apt-get install -yqq libc-client-dev libkrb5-dev sudo git libonig-dev libzip-dev libmcrypt-dev libpq-dev libcurl4-gnutls-dev libicu-dev libvpx-dev libjpeg-dev libpng-dev libxpm-dev zlib1g-dev libfreetype6-dev libxml2-dev libexpat1-dev libbz2-dev libgmp3-dev libldap2-dev unixodbc-dev libsqlite3-dev libaspell-dev libsnmp-dev libpcre3-dev libtidy-dev imagemagick
+  - apt-get install -yqq sudo git imagemagick
   # Install Node & Yarn
   - curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
   - sudo apt-get install -y nodejs
