@@ -13,7 +13,7 @@ cache:
 
 before_script:
   - apt-get update -yqq
-  - apt-get install -yqq sudo git imagemagick curl
+  - apt-get install -yqq sudo git imagemagick curl unzip
   # Install Node & Yarn
   - curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
   - sudo apt-get install -y nodejs
@@ -27,7 +27,7 @@ before_script:
   - docker-php-ext-enable xdebug
   # Install and run Composer
   - curl -sS https://getcomposer.org/installer | php
-  - php composer.phar install
+  - php -d memory_limit=-1 composer.phar install
   - yarn install
   - yarn encore dev
   - php bin/console app:migrate -i
