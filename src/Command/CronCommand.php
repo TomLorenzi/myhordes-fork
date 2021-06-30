@@ -97,7 +97,7 @@ class CronCommand extends Command
             $town_ids = array_column($this->entityManager->createQueryBuilder()
                 ->select('t.id')
                 ->from(Town::class, 't')
-                ->andWhere('t.lastAttack != :last')->setParameter('last', $s->getId())
+                ->andWhere('(t.lastAttack != :last OR t.lastAttack IS NULL)')->setParameter('last', $s->getId())
                 ->andWhere('t.attackFails < :trylimit')->setParameter('trylimit', $try_limit)
                 ->getQuery()
                 ->getScalarResult(), 'id');
