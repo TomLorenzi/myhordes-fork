@@ -283,6 +283,7 @@ class MigrateCommand extends Command
             $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
                 "Would you like to create a town? (Y/n) ", true
             ) );
+
             if ($result) {
                 if (!$this->helper->capsule('app:town:create remote 40 en', $output)) {
                     $output->writeln("<error>Unable to create english town.</error>");

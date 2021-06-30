@@ -13,7 +13,9 @@ cache:
 
 before_script:
   - apt-get update -yqq
+  # Installing some dependancies
   - apt-get install -yqq sudo git imagemagick curl unzip
+  # Changing php's maximum memory to 256M
   - mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
   - sed -Ei 's/memory_limit = (.*)/memory_limit = 256M/' "$PHP_INI_DIR/php.ini"
   # Install Node & Yarn
@@ -27,12 +29,13 @@ before_script:
   # Install & enable Xdebug for code coverage reports
   - pecl install xdebug
   - docker-php-ext-enable xdebug
-  - php -m
   # Install and run Composer
   - curl -sS https://getcomposer.org/installer | php
   - php composer.phar install
+  # Install assets
   - yarn install
   - yarn encore dev
+  # Install default DB
   - php bin/console app:migrate -i
 
 # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
