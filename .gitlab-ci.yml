@@ -16,6 +16,7 @@ before_script:
   - apt-get install -yqq sudo git imagemagick curl unzip
   - mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
   - sed -Ei 's/memory_limit = (.*)/memory_limit = 256M/' "$PHP_INI_DIR/php.ini"
+  - egrep 'memory_limit = ' "$PHP_INI_DIR/php.ini"
   # Install Node & Yarn
   - curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
   - sudo apt-get install -y nodejs
