@@ -25,7 +25,7 @@ before_script:
   # Install PHP extensions
   - curl -L https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions -o /usr/local/bin/install-php-extensions
   - chmod +x /usr/local/bin/install-php-extensions
-  - install-php-extensions mysqli intl gd zip bz2 imap opcache
+  - install-php-extensions mysqli intl gd zip bz2 imap opcache pdo-mysql
   # Install & enable Xdebug for code coverage reports
   #- pecl install xdebug
   #- docker-php-ext-enable xdebug

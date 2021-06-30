@@ -233,7 +233,7 @@ class MigrateCommand extends Command
 
             $output->writeln("\n\n=== <info>Creating database and loading static content</info> ===\n");
 
-            if (!$this->helper->capsule( 'doctrine:database:create', $output )) {
+            if (!$this->helper->capsule( 'doctrine:database:create --if-not-exists', $output )) {
                 $output->writeln("<error>Unable to create database.</error>");
                 return 1;
             }
