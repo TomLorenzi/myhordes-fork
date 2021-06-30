@@ -19,7 +19,7 @@ before_script:
   - sudo apt-get install -y nodejs
   - npm install --global yarn
   # Install PHP extensions
-  - docker-php-ext-install mbstring mysqli curl json intl gd xml zip bz2 opcache imap opcache readline
+  - docker-php-ext-enable mbstring mysqli curl json intl gd xml zip bz2 opcache imap opcache readline
   # Install & enable Xdebug for code coverage reports
   - pecl install xdebug
   - docker-php-ext-enable xdebug
