@@ -14,6 +14,8 @@ cache:
 before_script:
   - apt-get update -yqq
   - apt-get install -yqq sudo git imagemagick curl unzip
+  - mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+  - sed -i 's/memory_limit = [0-9]+M/memory_limit = 256M/' "$PHP_INI_DIR/php.ini"
   # Install Node & Yarn
   - curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
   - sudo apt-get install -y nodejs
@@ -43,6 +45,7 @@ variables:
   # MYSQL_DATABASE: myhordes
   MARIADB_ROOT_PASSWORD : MyH0rd3sD@tAbaze!
   DATABASE_URL: mysql://root:MyH0rd3sD@tAbaze!@mariadb:3306/myhordes
+  PHP_MEMORY_LIMIT: 256M
 
 # Run our tests
 # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
