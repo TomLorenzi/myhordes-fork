@@ -12,6 +12,7 @@ use App\Entity\CitizenWatch;
 use App\Entity\DigRuinMarker;
 use App\Entity\EscapeTimer;
 use App\Entity\Gazette;
+use App\Entity\GazetteEntryTemplate;
 use App\Entity\GazetteLogEntry;
 use App\Entity\HeroicActionPrototype;
 use App\Entity\Inventory;
@@ -1127,9 +1128,9 @@ class NightlyHandler
                 $gazette = $town->findGazette($town->getDay(), true);
 
                 if (!$gazette->getReactorExplosion()) {
-                    $townTemplate = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'gazetteTownLastAttack']);
+                    $townTemplate = $this->entity_manager->getRepository(GazetteEntryTemplate::class)->findOneBy(['name' => 'gazetteTownLastAttack']);
                     $news = new GazetteLogEntry();
-                    $news->setDay($town->getDay())->setGazette($gazette)->setLogEntryTemplate($townTemplate)->setVariables(['town' => $town->getName()]);
+                    $news->setDay($town->getDay())->setGazette($gazette)->setTemplate($townTemplate)->setVariables(['town' => $town->getName()]);
                     $this->entity_manager->persist($news);
                 }
 
