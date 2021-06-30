@@ -23,11 +23,11 @@ before_script:
   - chmod +x /usr/local/bin/install-php-extensions
   - install-php-extensions mbstring mysqli curl json intl gd xml zip bz2 opcache imap opcache readline
   # Install & enable Xdebug for code coverage reports
-  - pecl install xdebug
-  - docker-php-ext-enable xdebug
+  #- pecl install xdebug
+  #- docker-php-ext-enable xdebug
   # Install and run Composer
   - curl -sS https://getcomposer.org/installer | php
-  - php -d memory_limit=4G composer.phar install
+  - php composer.phar install
   - yarn install
   - yarn encore dev
   - php bin/console app:migrate -i
