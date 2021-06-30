@@ -17,6 +17,7 @@ before_script:
   - mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
   - sed -Ei 's/memory_limit = (.*)/memory_limit = 256M/' "$PHP_INI_DIR/php.ini"
   - egrep 'memory_limit = ' "$PHP_INI_DIR/php.ini"
+  - php -i | grep memory_limit
   # Install Node & Yarn
   - curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
   - sudo apt-get install -y nodejs
