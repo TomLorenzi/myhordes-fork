@@ -4,8 +4,6 @@
     <unit id="5av5KpC" name="Saison 0.14">
       <notes>
         <note category="german">Saison 0.14</note>
-        <note category="state">new</note>
-        <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.14</source>
@@ -15,7 +13,6 @@
     <unit id="MKuQjMi" name="Saison 0.13">
       <notes>
         <note category="german">Saison 0.13</note>
-        <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.13</source>
@@ -25,7 +22,6 @@
     <unit id="ZahwwoN" name="Saison 0.12">
       <notes>
         <note category="german">Saison 0.12</note>
-        <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.12</source>
@@ -35,7 +31,6 @@
     <unit id="Qb8gU6v" name="Saison 0.11">
       <notes>
         <note category="german">Mysteriöse Saison</note>
-        <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.11</source>
@@ -45,7 +40,6 @@
     <unit id="1_E.ytA" name="Saison 0.10">
       <notes>
         <note category="german">Mysteriöse Saison</note>
-        <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.10</source>
@@ -55,7 +49,6 @@
     <unit id="oLxl2RQ" name="Saison 0.9">
       <notes>
         <note category="german">Mysteriöse Saison</note>
-        <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.9</source>
@@ -65,7 +58,6 @@
     <unit id="ocnWude" name="Saison 0.8">
       <notes>
         <note category="german">Mysteriöse Saison</note>
-        <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.8</source>
@@ -75,7 +67,6 @@
     <unit id="BbqgTUU" name="Saison 0.7">
       <notes>
         <note category="german">Nachtschicht</note>
-        <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.7</source>
@@ -85,7 +76,6 @@
     <unit id="2py6hDF" name="Saison 0.6">
       <notes>
         <note category="german">????</note>
-        <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.6</source>
@@ -95,7 +85,6 @@
     <unit id="UmYesiE" name="Saison 0.5">
       <notes>
         <note category="german">Seelenfrieden</note>
-        <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.5</source>
@@ -105,7 +94,6 @@
     <unit id="R6v2_H_" name="Saison 0.4">
       <notes>
         <note category="german">Modernde Zeiten</note>
-        <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.4</source>
@@ -115,7 +103,6 @@
     <unit id="YL.wVHS" name="Saison 0.3">
       <notes>
         <note category="german">Geburt der Ghule</note>
-        <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.3</source>
@@ -125,7 +112,6 @@
     <unit id="OKCTySu" name="Saison 0.2">
       <notes>
         <note category="german">Rache der Verbannten</note>
-        <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.2</source>
@@ -135,7 +121,6 @@
     <unit id="VwuJDaU" name="Saison 0.1">
       <notes>
         <note category="german">Galgenvögel</note>
-        <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.1</source>
@@ -145,8 +130,6 @@
     <unit id="ffgTaDr" name="Saison 0.0">
       <notes>
         <note category="german">Saison 0.0</note>
-        <note category="state">new</note>
-        <note category="from">db://Season</note>
       </notes>
       <segment>
         <source>Saison 0.0</source>

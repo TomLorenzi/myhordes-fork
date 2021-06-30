@@ -4,7 +4,6 @@
     <unit id="zh5oKD9" name="This value should be false.">
       <notes>
         <note category="german">Dieser Wert sollte false sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be false.</source>
@@ -14,7 +13,6 @@
     <unit id="NN2_iru" name="This value should be true.">
       <notes>
         <note category="german">Dieser Wert sollte true sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be true.</source>
@@ -24,7 +22,6 @@
     <unit id="OjM_kpf" name="This value should be of type {{ type }}.">
       <notes>
         <note category="german">Dieser Wert sollte vom Typ {{ type }} sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be of type {{ type }}.</source>
@@ -34,7 +31,6 @@
     <unit id="f0P5pBD" name="This value should be blank.">
       <notes>
         <note category="german">Dieser Wert sollte leer sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be blank.</source>
@@ -44,7 +40,6 @@
     <unit id="ih.4TRN" name="The value you selected is not a valid choice.">
       <notes>
         <note category="german">Sie haben einen ungültigen Wert ausgewählt.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The value you selected is not a valid choice.</source>
@@ -54,7 +49,6 @@
     <unit id="u81CkP8">
       <notes>
         <note category="german">Sie müssen mindestens {{ limit }} Möglichkeit wählen.|Sie müssen mindestens {{ limit }} Möglichkeiten wählen.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>You must select at least {{ limit }} choice.|You must select at least {{ limit }} choices.</source>
@@ -64,7 +58,6 @@
     <unit id="nIvOQ_o">
       <notes>
         <note category="german">Sie dürfen höchstens {{ limit }} Möglichkeit wählen.|Sie dürfen höchstens {{ limit }} Möglichkeiten wählen.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>You must select at most {{ limit }} choice.|You must select at most {{ limit }} choices.</source>
@@ -74,7 +67,6 @@
     <unit id="87zjiHi" name="One or more of the given values is invalid.">
       <notes>
         <note category="german">Einer oder mehrere der angegebenen Werte sind ungültig.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>One or more of the given values is invalid.</source>
@@ -84,7 +76,6 @@
     <unit id="3NeQftv" name="This field was not expected.">
       <notes>
         <note category="german">Dieses Feld wurde nicht erwartet.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This field was not expected.</source>
@@ -94,7 +85,6 @@
     <unit id="SwMV4zp" name="This field is missing.">
       <notes>
         <note category="german">Dieses Feld fehlt.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This field is missing.</source>
@@ -104,7 +94,6 @@
     <unit id="LO2vFKN" name="This value is not a valid date.">
       <notes>
         <note category="german">Dieser Wert entspricht keiner gültigen Datumsangabe.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is not a valid date.</source>
@@ -114,7 +103,6 @@
     <unit id="86dU_nv" name="This value is not a valid datetime.">
       <notes>
         <note category="german">Dieser Wert entspricht keiner gültigen Datums- und Zeitangabe.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is not a valid datetime.</source>
@@ -124,7 +112,6 @@
     <unit id="PSvNXdi" name="This value is not a valid email address.">
       <notes>
         <note category="german">Dieser Wert ist keine gültige E-Mail-Adresse.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is not a valid email address.</source>
@@ -134,7 +121,6 @@
     <unit id="3KeHbZy" name="The file could not be found.">
       <notes>
         <note category="german">Die Datei wurde nicht gefunden.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The file could not be found.</source>
@@ -144,7 +130,6 @@
     <unit id="KtJhQZo" name="The file is not readable.">
       <notes>
         <note category="german">Die Datei ist nicht lesbar.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The file is not readable.</source>
@@ -154,7 +139,6 @@
     <unit id="JocOVM2">
       <notes>
         <note category="german">Die Datei ist zu groß ({{ size }} {{ suffix }}). Die maximal zulässige Größe beträgt {{ limit }} {{ suffix }}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The file is too large ({{ size }} {{ suffix }}). Allowed maximum size is {{ limit }} {{ suffix }}.</source>
@@ -164,7 +148,6 @@
     <unit id="YW21SPH">
       <notes>
         <note category="german">Der Dateityp ist ungültig ({{ type }}). Erlaubte Dateitypen sind {{ types }}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The mime type of the file is invalid ({{ type }}). Allowed mime types are {{ types }}.</source>
@@ -174,7 +157,6 @@
     <unit id="NubOmrs" name="This value should be {{ limit }} or less.">
       <notes>
         <note category="german">Dieser Wert sollte kleiner oder gleich {{ limit }} sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be {{ limit }} or less.</source>
@@ -184,7 +166,6 @@
     <unit id="HX7TOFm">
       <notes>
         <note category="german">Diese Zeichenkette ist zu lang. Sie sollte höchstens {{ limit }} Zeichen haben.|Diese Zeichenkette ist zu lang. Sie sollte höchstens {{ limit }} Zeichen haben.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is too long. It should have {{ limit }} character or less.|This value is too long. It should have {{ limit }} characters or less.</source>
@@ -194,7 +175,6 @@
     <unit id="qgR8M_U" name="This value should be {{ limit }} or more.">
       <notes>
         <note category="german">Dieser Wert sollte größer oder gleich {{ limit }} sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be {{ limit }} or more.</source>
@@ -204,7 +184,6 @@
     <unit id="ekfrU.c">
       <notes>
         <note category="german">Diese Zeichenkette ist zu kurz. Sie sollte mindestens {{ limit }} Zeichen haben.|Diese Zeichenkette ist zu kurz. Sie sollte mindestens {{ limit }} Zeichen haben.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is too short. It should have {{ limit }} character or more.|This value is too short. It should have {{ limit }} characters or more.</source>
@@ -214,7 +193,6 @@
     <unit id="1KV4L.t" name="This value should not be blank.">
       <notes>
         <note category="german">Dieser Wert sollte nicht leer sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should not be blank.</source>
@@ -224,7 +202,6 @@
     <unit id="2G4Vepm" name="This value should not be null.">
       <notes>
         <note category="german">Dieser Wert sollte nicht null sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should not be null.</source>
@@ -234,7 +211,6 @@
     <unit id="yDc3m6E" name="This value should be null.">
       <notes>
         <note category="german">Dieser Wert sollte null sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be null.</source>
@@ -244,7 +220,6 @@
     <unit id="zKzWejA" name="This value is not valid.">
       <notes>
         <note category="german">Dieser Wert ist nicht gültig.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is not valid.</source>
@@ -254,7 +229,6 @@
     <unit id="HSuBZpQ" name="This value is not a valid time.">
       <notes>
         <note category="german">Dieser Wert entspricht keiner gültigen Zeitangabe.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is not a valid time.</source>
@@ -264,7 +238,6 @@
     <unit id="snWc_QT" name="This value is not a valid URL.">
       <notes>
         <note category="german">Dieser Wert ist keine gültige URL.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is not a valid URL.</source>
@@ -274,7 +247,6 @@
     <unit id="jpaLsb2" name="The two values should be equal.">
       <notes>
         <note category="german">Die beiden Werte sollten identisch sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The two values should be equal.</source>
@@ -284,7 +256,6 @@
     <unit id="fIlB1B_" name="The file is too large. Allowed maximum size is {{ limit }} {{ suffix }}.">
       <notes>
         <note category="german">Die Datei ist zu groß. Die maximal zulässige Größe beträgt {{ limit }} {{ suffix }}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The file is too large. Allowed maximum size is {{ limit }} {{ suffix }}.</source>
@@ -294,7 +265,6 @@
     <unit id="tW7o0t9" name="The file is too large.">
       <notes>
         <note category="german">Die Datei ist zu groß.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The file is too large.</source>
@@ -304,7 +274,6 @@
     <unit id=".exF5Ww" name="The file could not be uploaded.">
       <notes>
         <note category="german">Die Datei konnte nicht hochgeladen werden.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The file could not be uploaded.</source>
@@ -314,7 +283,6 @@
     <unit id="d7sS5yw" name="This value should be a valid number.">
       <notes>
         <note category="german">Dieser Wert sollte eine gültige Zahl sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be a valid number.</source>
@@ -324,7 +292,6 @@
     <unit id="BS2Ez6i" name="This file is not a valid image.">
       <notes>
         <note category="german">Diese Datei ist kein gültiges Bild.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This file is not a valid image.</source>
@@ -334,7 +301,6 @@
     <unit id="ydcT9kU" name="This is not a valid IP address.">
       <notes>
         <note category="german">Dies ist keine gültige IP-Adresse.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This is not a valid IP address.</source>
@@ -344,7 +310,6 @@
     <unit id="lDOGNFX" name="This value is not a valid language.">
       <notes>
         <note category="german">Dieser Wert entspricht keiner gültigen Sprache.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is not a valid language.</source>
@@ -354,7 +319,6 @@
     <unit id="y9IdYkA" name="This value is not a valid locale.">
       <notes>
         <note category="german">Dieser Wert entspricht keinem gültigen Gebietsschema.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is not a valid locale.</source>
@@ -364,7 +328,6 @@
     <unit id="1YC0pOd" name="This value is not a valid country.">
       <notes>
         <note category="german">Dieser Wert entspricht keinem gültigen Land.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is not a valid country.</source>
@@ -374,7 +337,6 @@
     <unit id="B5ebaMp" name="This value is already used.">
       <notes>
         <note category="german">Dieser Wert wird bereits verwendet.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is already used.</source>
@@ -384,7 +346,6 @@
     <unit id="L6097a6" name="The size of the image could not be detected.">
       <notes>
         <note category="german">Die Größe des Bildes konnte nicht ermittelt werden.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The size of the image could not be detected.</source>
@@ -394,7 +355,6 @@
     <unit id="zVtJJEa">
       <notes>
         <note category="german">Die Bildbreite ist zu groß ({{ width }}px). Die maximal zulässige Breite beträgt {{ max_width }}px.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The image width is too big ({{ width }}px). Allowed maximum width is {{ max_width }}px.</source>
@@ -404,7 +364,6 @@
     <unit id="s8LFQGC">
       <notes>
         <note category="german">Die Bildbreite ist zu gering ({{ width }}px). Die erwartete Mindestbreite beträgt {{ min_width }}px.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The image width is too small ({{ width }}px). Minimum width expected is {{ min_width }}px.</source>
@@ -414,7 +373,6 @@
     <unit id="Z.NgqFj">
       <notes>
         <note category="german">Die Bildhöhe ist zu groß ({{ height }}px). Die maximal zulässige Höhe beträgt {{ max_height }}px.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The image height is too big ({{ height }}px). Allowed maximum height is {{ max_height }}px.</source>
@@ -424,7 +382,6 @@
     <unit id="AW1lWVM">
       <notes>
         <note category="german">Die Bildhöhe ist zu gering ({{ height }}px). Die erwartete Mindesthöhe beträgt {{ min_height }}px.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The image height is too small ({{ height }}px). Minimum height expected is {{ min_height }}px.</source>
@@ -434,7 +391,6 @@
     <unit id="PSdMNab" name="This value should be the user's current password.">
       <notes>
         <note category="german">Dieser Wert sollte dem aktuellen Benutzerpasswort entsprechen.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be the user's current password.</source>
@@ -444,7 +400,6 @@
     <unit id="gYImVyV">
       <notes>
         <note category="german">Dieser Wert sollte genau {{ limit }} Zeichen lang sein.|Dieser Wert sollte genau {{ limit }} Zeichen lang sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should have exactly {{ limit }} character.|This value should have exactly {{ limit }} characters.</source>
@@ -454,7 +409,6 @@
     <unit id="xJ2Bcr_" name="The file was only partially uploaded.">
       <notes>
         <note category="german">Die Datei wurde nur teilweise hochgeladen.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The file was only partially uploaded.</source>
@@ -464,7 +418,6 @@
     <unit id="HzkJDtF" name="No file was uploaded.">
       <notes>
         <note category="german">Es wurde keine Datei hochgeladen.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>No file was uploaded.</source>
@@ -474,7 +427,6 @@
     <unit id="mHfEaB3" name="No temporary folder was configured in php.ini.">
       <notes>
         <note category="german">Es wurde kein temporärer Ordner in der php.ini konfiguriert oder der temporäre Ordner existiert nicht.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>No temporary folder was configured in php.ini.</source>
@@ -484,7 +436,6 @@
     <unit id="y9K3BGb" name="Cannot write temporary file to disk.">
       <notes>
         <note category="german">Kann die temporäre Datei nicht speichern.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Cannot write temporary file to disk.</source>
@@ -494,7 +445,6 @@
     <unit id="kx3yHIM" name="A PHP extension caused the upload to fail.">
       <notes>
         <note category="german">Eine PHP-Erweiterung verhinderte den Upload.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>A PHP extension caused the upload to fail.</source>
@@ -504,7 +454,6 @@
     <unit id="gTJYRl6">
       <notes>
         <note category="german">Diese Sammlung sollte {{ limit }} oder mehr Elemente beinhalten.|Diese Sammlung sollte {{ limit }} oder mehr Elemente beinhalten.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This collection should contain {{ limit }} element or more.|This collection should contain {{ limit }} elements or more.</source>
@@ -514,7 +463,6 @@
     <unit id="FFn3lVn">
       <notes>
         <note category="german">Diese Sammlung sollte {{ limit }} oder weniger Elemente beinhalten.|Diese Sammlung sollte {{ limit }} oder weniger Elemente beinhalten.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This collection should contain {{ limit }} element or less.|This collection should contain {{ limit }} elements or less.</source>
@@ -524,7 +472,6 @@
     <unit id="bSdilZv">
       <notes>
         <note category="german">Diese Sammlung sollte genau {{ limit }} Element beinhalten.|Diese Sammlung sollte genau {{ limit }} Elemente beinhalten.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This collection should contain exactly {{ limit }} element.|This collection should contain exactly {{ limit }} elements.</source>
@@ -534,7 +481,6 @@
     <unit id="MAzmID7" name="Invalid card number.">
       <notes>
         <note category="german">Ungültige Kartennummer.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Invalid card number.</source>
@@ -544,7 +490,6 @@
     <unit id="c3REGK3" name="Unsupported card type or invalid card number.">
       <notes>
         <note category="german">Nicht unterstützer Kartentyp oder ungültige Kartennummer.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Unsupported card type or invalid card number.</source>
@@ -554,7 +499,6 @@
     <unit id="XSVzcbV" name="This is not a valid International Bank Account Number (IBAN).">
       <notes>
         <note category="german">Dieser Wert ist keine gültige internationale Bankkontonummer (IBAN).</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This is not a valid International Bank Account Number (IBAN).</source>
@@ -564,7 +508,6 @@
     <unit id="yHirwNr" name="This value is not a valid ISBN-10.">
       <notes>
         <note category="german">Dieser Wert entspricht keiner gültigen ISBN-10.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is not a valid ISBN-10.</source>
@@ -574,7 +517,6 @@
     <unit id="c_q0_ua" name="This value is not a valid ISBN-13.">
       <notes>
         <note category="german">Dieser Wert entspricht keiner gültigen ISBN-13.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is not a valid ISBN-13.</source>
@@ -584,7 +526,6 @@
     <unit id="M4FlD6n" name="This value is neither a valid ISBN-10 nor a valid ISBN-13.">
       <notes>
         <note category="german">Dieser Wert ist weder eine gültige ISBN-10 noch eine gültige ISBN-13.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is neither a valid ISBN-10 nor a valid ISBN-13.</source>
@@ -594,7 +535,6 @@
     <unit id="cuct0Ow" name="This value is not a valid ISSN.">
       <notes>
         <note category="german">Dieser Wert ist keine gültige ISSN.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is not a valid ISSN.</source>
@@ -604,7 +544,6 @@
     <unit id="JBLs1a1" name="This value is not a valid currency.">
       <notes>
         <note category="german">Dieser Wert ist keine gültige Währung.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is not a valid currency.</source>
@@ -614,7 +553,6 @@
     <unit id="c.WxzFW" name="This value should be equal to {{ compared_value }}.">
       <notes>
         <note category="german">Dieser Wert sollte gleich {{ compared_value }} sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be equal to {{ compared_value }}.</source>
@@ -624,7 +562,6 @@
     <unit id="_jdjkwq" name="This value should be greater than {{ compared_value }}.">
       <notes>
         <note category="german">Dieser Wert sollte größer als {{ compared_value }} sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be greater than {{ compared_value }}.</source>
@@ -634,7 +571,6 @@
     <unit id="o8A8a0H" name="This value should be greater than or equal to {{ compared_value }}.">
       <notes>
         <note category="german">Dieser Wert sollte größer oder gleich {{ compared_value }} sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be greater than or equal to {{ compared_value }}.</source>
@@ -644,7 +580,6 @@
     <unit id="bOF1fpm">
       <notes>
         <note category="german">Dieser Wert sollte identisch sein mit {{ compared_value_type }} {{ compared_value }}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be identical to {{ compared_value_type }} {{ compared_value }}.</source>
@@ -654,7 +589,6 @@
     <unit id="jG0QFKw" name="This value should be less than {{ compared_value }}.">
       <notes>
         <note category="german">Dieser Wert sollte kleiner als {{ compared_value }} sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be less than {{ compared_value }}.</source>
@@ -664,7 +598,6 @@
     <unit id="9lWrKmm" name="This value should be less than or equal to {{ compared_value }}.">
       <notes>
         <note category="german">Dieser Wert sollte kleiner oder gleich {{ compared_value }} sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be less than or equal to {{ compared_value }}.</source>
@@ -674,7 +607,6 @@
     <unit id="ftTwGs." name="This value should not be equal to {{ compared_value }}.">
       <notes>
         <note category="german">Dieser Wert sollte nicht {{ compared_value }} sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should not be equal to {{ compared_value }}.</source>
@@ -684,7 +616,6 @@
     <unit id="Bi22JLt">
       <notes>
         <note category="german">Dieser Wert sollte nicht identisch sein mit {{ compared_value_type }} {{ compared_value }}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should not be identical to {{ compared_value_type }} {{ compared_value }}.</source>
@@ -694,7 +625,6 @@
     <unit id="VczCWzQ">
       <notes>
         <note category="german">Das Seitenverhältnis des Bildes ist zu groß ({{ ratio }}). Der erlaubte Maximalwert ist {{ max_ratio }}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The image ratio is too big ({{ ratio }}). Allowed maximum ratio is {{ max_ratio }}.</source>
@@ -704,7 +634,6 @@
     <unit id="v57PXhq">
       <notes>
         <note category="german">Das Seitenverhältnis des Bildes ist zu klein ({{ ratio }}). Der erwartete Minimalwert ist {{ min_ratio }}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The image ratio is too small ({{ ratio }}). Minimum ratio expected is {{ min_ratio }}.</source>
@@ -714,7 +643,6 @@
     <unit id="rpajj.a" name="The image is square ({{ width }}x{{ height }}px). Square images are not allowed.">
       <notes>
         <note category="german">Das Bild ist quadratisch ({{ width }}x{{ height }}px). Quadratische Bilder sind nicht erlaubt.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The image is square ({{ width }}x{{ height }}px). Square images are not allowed.</source>
@@ -724,7 +652,6 @@
     <unit id="G_lu2qW">
       <notes>
         <note category="german">Das Bild ist im Querformat ({{ width }}x{{ height }}px). Bilder im Querformat sind nicht erlaubt.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The image is landscape oriented ({{ width }}x{{ height }}px). Landscape oriented images are not allowed.</source>
@@ -734,7 +661,6 @@
     <unit id="sFyGx4B">
       <notes>
         <note category="german">Das Bild ist im Hochformat ({{ width }}x{{ height }}px). Bilder im Hochformat sind nicht erlaubt.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The image is portrait oriented ({{ width }}x{{ height }}px). Portrait oriented images are not allowed.</source>
@@ -744,7 +670,6 @@
     <unit id="jZgqcpL" name="An empty file is not allowed.">
       <notes>
         <note category="german">Eine leere Datei ist nicht erlaubt.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>An empty file is not allowed.</source>
@@ -754,7 +679,6 @@
     <unit id="bcfVezI" name="The host could not be resolved.">
       <notes>
         <note category="german">Der Hostname konnte nicht aufgelöst werden.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The host could not be resolved.</source>
@@ -764,7 +688,6 @@
     <unit id="NtzKvgt" name="This value does not match the expected {{ charset }} charset.">
       <notes>
         <note category="german">Dieser Wert entspricht nicht dem erwarteten Zeichensatz {{ charset }}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value does not match the expected {{ charset }} charset.</source>
@@ -774,7 +697,6 @@
     <unit id="Wi2y9.N" name="This is not a valid Business Identifier Code (BIC).">
       <notes>
         <note category="german">Dieser Wert ist kein gültiger BIC.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This is not a valid Business Identifier Code (BIC).</source>
@@ -784,8 +706,6 @@
     <unit id="VKDowX6" name="Error">
       <notes>
         <note category="german">Fehler</note>
-        <note category="state">new</note>
-        <note category="from">twig:///vendor/symfony/twig-bridge/Resources/views/Form/bootstrap_4_layout.html.twig</note>
       </notes>
       <segment>
         <source>Error</source>
@@ -795,7 +715,6 @@
     <unit id="8zqt0Ik" name="This is not a valid UUID.">
       <notes>
         <note category="german">Dies ist keine gültige UUID.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This is not a valid UUID.</source>
@@ -805,7 +724,6 @@
     <unit id="ru.4wkH" name="This value should be a multiple of {{ compared_value }}.">
       <notes>
         <note category="german">Dieser Wert sollte ein Vielfaches von {{ compared_value }} sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be a multiple of {{ compared_value }}.</source>
@@ -815,7 +733,6 @@
     <unit id="M3vyK6s" name="This Business Identifier Code (BIC) is not associated with IBAN {{ iban }}.">
       <notes>
         <note category="german">Diese internationale Bankleitzahl (BIC) ist nicht mit der IBAN {{ iban }} assoziiert.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This Business Identifier Code (BIC) is not associated with IBAN {{ iban }}.</source>
@@ -825,7 +742,6 @@
     <unit id="2v2xpAh" name="This value should be valid JSON.">
       <notes>
         <note category="german">Dieser Wert sollte gültiges JSON sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be valid JSON.</source>
@@ -835,7 +751,6 @@
     <unit id="9CWVEGq" name="This collection should contain only unique elements.">
       <notes>
         <note category="german">Diese Sammlung darf keine doppelten Elemente enthalten.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This collection should contain only unique elements.</source>
@@ -845,7 +760,6 @@
     <unit id="WdvZfq." name="This value should be positive.">
       <notes>
         <note category="german">Diese Zahl sollte positiv sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be positive.</source>
@@ -855,7 +769,6 @@
     <unit id="ubHMK2q" name="This value should be either positive or zero.">
       <notes>
         <note category="german">Diese Zahl sollte entweder positiv oder 0 sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be either positive or zero.</source>
@@ -865,7 +778,6 @@
     <unit id="IwNTzo_" name="This value should be negative.">
       <notes>
         <note category="german">Diese Zahl sollte negativ sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be negative.</source>
@@ -875,7 +787,6 @@
     <unit id="0GfwMfP" name="This value should be either negative or zero.">
       <notes>
         <note category="german">Diese Zahl sollte entweder negativ oder 0 sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be either negative or zero.</source>
@@ -885,7 +796,6 @@
     <unit id="fs3qQZR" name="This value is not a valid timezone.">
       <notes>
         <note category="german">Dieser Wert ist keine gültige Zeitzone.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is not a valid timezone.</source>
@@ -895,7 +805,6 @@
     <unit id="40dnsod">
       <notes>
         <note category="german">Dieses Passwort ist Teil eines Datenlecks, es darf nicht verwendet werden.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This password has been leaked in a data breach, it must not be used. Please use another password.</source>
@@ -905,7 +814,6 @@
     <unit id="VvxxWas" name="This value should be between {{ min }} and {{ max }}.">
       <notes>
         <note category="german">Dieser Wert sollte zwischen {{ min }} und {{ max }} sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be between {{ min }} and {{ max }}.</source>
@@ -915,7 +823,6 @@
     <unit id="7g313cV" name="This value is not a valid hostname.">
       <notes>
         <note category="german">Dieser Wert ist kein gültiger Hostname.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is not a valid hostname.</source>
@@ -925,7 +832,6 @@
     <unit id="xwtBimR">
       <notes>
         <note category="german">Die Anzahl an Elementen in dieser Sammlung sollte ein Vielfaches von {{ compared_value }} sein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The number of elements in this collection should be a multiple of {{ compared_value }}.</source>
@@ -935,7 +841,6 @@
     <unit id="FDRZr.s" name="This value should satisfy at least one of the following constraints:">
       <notes>
         <note category="german">Dieser Wert sollte eine der folgenden Bedingungen erfüllen:</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should satisfy at least one of the following constraints:</source>
@@ -945,7 +850,6 @@
     <unit id="WwY0IGI" name="Each element of this collection should satisfy its own set of constraints.">
       <notes>
         <note category="german">Jedes Element dieser Sammlung sollte seine eigene Menge an Bedingungen erfüllen.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Each element of this collection should satisfy its own set of constraints.</source>
@@ -955,7 +859,6 @@
     <unit id="lrbaa8g" name="This value is not a valid International Securities Identification Number (ISIN).">
       <notes>
         <note category="german">Dieser Wert ist keine gültige Internationale Wertpapierkennnummer (ISIN).</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is not a valid International Securities Identification Number (ISIN).</source>
@@ -965,7 +868,6 @@
     <unit id=".SEaaBa" name="This form should not contain extra fields.">
       <notes>
         <note category="german">Dieses Formular sollte keine zusätzlichen Felder enthalten.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This form should not contain extra fields.</source>
@@ -975,7 +877,6 @@
     <unit id="WPnLAh9" name="The uploaded file was too large. Please try to upload a smaller file.">
       <notes>
         <note category="german">Die hochgeladene Datei ist zu groß. Versuchen Sie bitte eine kleinere Datei hochzuladen.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The uploaded file was too large. Please try to upload a smaller file.</source>
@@ -985,7 +886,6 @@
     <unit id="fvxWW3V" name="The CSRF token is invalid. Please try to resubmit the form.">
       <notes>
         <note category="german">Der CSRF-Token ist ungültig. Versuchen Sie bitte das Formular erneut zu senden.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The CSRF token is invalid. Please try to resubmit the form.</source>
@@ -995,7 +895,6 @@
     <unit id="eo1zeih" name="This value is not a valid HTML5 color.">
       <notes>
         <note category="german">Dieser Wert ist keine gültige HTML5 Farbe.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is not a valid HTML5 color.</source>
@@ -1005,7 +904,6 @@
     <unit id="dN.ZVc0" name="Please enter a valid birthdate.">
       <notes>
         <note category="german">Bitte geben Sie ein gültiges Geburtsdatum ein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please enter a valid birthdate.</source>
@@ -1015,7 +913,6 @@
     <unit id="OPymPfZ" name="The selected choice is invalid.">
       <notes>
         <note category="german">Die Auswahl ist ungültig.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The selected choice is invalid.</source>
@@ -1025,7 +922,6 @@
     <unit id="GUH6TYE" name="The collection is invalid.">
       <notes>
         <note category="german">Diese Gruppe von Feldern ist ungültig.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The collection is invalid.</source>
@@ -1035,7 +931,6 @@
     <unit id="14il0ha" name="Please select a valid color.">
       <notes>
         <note category="german">Bitte geben Sie eine gültige Farbe ein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please select a valid color.</source>
@@ -1045,7 +940,6 @@
     <unit id="4AJRUCC" name="Please select a valid country.">
       <notes>
         <note category="german">Bitte wählen Sie ein gültiges Land aus.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please select a valid country.</source>
@@ -1055,7 +949,6 @@
     <unit id="xAI5mrh" name="Please select a valid currency.">
       <notes>
         <note category="german">Bitte wählen Sie eine gültige Währung aus.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please select a valid currency.</source>
@@ -1065,7 +958,6 @@
     <unit id="c6v9ASZ" name="Please choose a valid date interval.">
       <notes>
         <note category="german">Bitte wählen Sie ein gültiges Datumsintervall.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please choose a valid date interval.</source>
@@ -1075,7 +967,6 @@
     <unit id="2BR60Jg" name="Please enter a valid date and time.">
       <notes>
         <note category="german">Bitte geben Sie ein gültiges Datum samt Uhrzeit ein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please enter a valid date and time.</source>
@@ -1085,7 +976,6 @@
     <unit id="ofLBhv0" name="Please enter a valid date.">
       <notes>
         <note category="german">Bitte geben Sie ein gültiges Datum ein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please enter a valid date.</source>
@@ -1095,7 +985,6 @@
     <unit id="Xsmm6Mc" name="Please select a valid file.">
       <notes>
         <note category="german">Bitte wählen Sie eine gültige Datei.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please select a valid file.</source>
@@ -1105,7 +994,6 @@
     <unit id="Fka0cZD" name="The hidden field is invalid.">
       <notes>
         <note category="german">Das versteckte Feld ist ungültig.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The hidden field is invalid.</source>
@@ -1115,7 +1003,6 @@
     <unit id="69ux5Ml" name="Please enter an integer.">
       <notes>
         <note category="german">Bitte geben Sie eine ganze Zahl ein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please enter an integer.</source>
@@ -1125,7 +1012,6 @@
     <unit id="TQbat_9" name="Please select a valid language.">
       <notes>
         <note category="german">Bitte wählen Sie eine gültige Sprache.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please select a valid language.</source>
@@ -1135,7 +1021,6 @@
     <unit id="vpa7l8w" name="Please select a valid locale.">
       <notes>
         <note category="german">Bitte wählen Sie eine gültige Locale-Einstellung aus.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please select a valid locale.</source>
@@ -1145,7 +1030,6 @@
     <unit id="Gz8pWER" name="Please enter a valid money amount.">
       <notes>
         <note category="german">Bitte geben Sie einen gültigen Geldbetrag ein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please enter a valid money amount.</source>
@@ -1155,7 +1039,6 @@
     <unit id="PRxiOhB" name="Please enter a number.">
       <notes>
         <note category="german">Bitte geben Sie eine gültige Zahl ein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please enter a number.</source>
@@ -1165,7 +1048,6 @@
     <unit id="seAdKJo" name="The password is invalid.">
       <notes>
         <note category="german">Das Kennwort ist ungültig.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The password is invalid.</source>
@@ -1175,7 +1057,6 @@
     <unit id="A5k0Q20" name="Please enter a percentage value.">
       <notes>
         <note category="german">Bitte geben Sie einen gültigen Prozentwert ein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please enter a percentage value.</source>
@@ -1185,7 +1066,6 @@
     <unit id="rH6V.WA" name="The values do not match.">
       <notes>
         <note category="german">Die Werte stimmen nicht überein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The values do not match.</source>
@@ -1195,7 +1075,6 @@
     <unit id="Eopl1Sm" name="Please enter a valid time.">
       <notes>
         <note category="german">Bitte geben Sie eine gültige Uhrzeit ein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please enter a valid time.</source>
@@ -1205,7 +1084,6 @@
     <unit id="ll14Sm9" name="Please select a valid timezone.">
       <notes>
         <note category="german">Bitte wählen Sie eine gültige Zeitzone.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please select a valid timezone.</source>
@@ -1215,7 +1093,6 @@
     <unit id="1xP1kmd" name="Please enter a valid URL.">
       <notes>
         <note category="german">Bitte geben Sie eine gültige URL ein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please enter a valid URL.</source>
@@ -1225,7 +1102,6 @@
     <unit id="iMmAsrC" name="Please enter a valid search term.">
       <notes>
         <note category="german">Bitte geben Sie einen gültigen Suchbegriff ein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please enter a valid search term.</source>
@@ -1235,7 +1111,6 @@
     <unit id="GRMTXRX" name="Please provide a valid phone number.">
       <notes>
         <note category="german">Bitte geben Sie eine gültige Telefonnummer ein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please provide a valid phone number.</source>
@@ -1245,7 +1120,6 @@
     <unit id="WkYuMDd" name="The checkbox has an invalid value.">
       <notes>
         <note category="german">Das Kontrollkästchen hat einen ungültigen Wert.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The checkbox has an invalid value.</source>
@@ -1255,7 +1129,6 @@
     <unit id="lY5Mzyl" name="Please enter a valid email address.">
       <notes>
         <note category="german">Bitte geben Sie eine gültige E-Mail-Adresse ein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please enter a valid email address.</source>
@@ -1265,7 +1138,6 @@
     <unit id="TzSC4.o" name="Please select a valid option.">
       <notes>
         <note category="german">Bitte wählen Sie eine gültige Option.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please select a valid option.</source>
@@ -1275,7 +1147,6 @@
     <unit id="qGRcTk7" name="Please select a valid range.">
       <notes>
         <note category="german">Bitte wählen Sie einen gültigen Bereich.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please select a valid range.</source>
@@ -1285,7 +1156,6 @@
     <unit id="PU.w6nC" name="Please enter a valid week.">
       <notes>
         <note category="german">Bitte geben Sie eine gültige Woche ein.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Please enter a valid week.</source>
@@ -1295,7 +1165,6 @@
     <unit id="QGP5tYq" name="This value should be of type {type}.">
       <notes>
         <note category="german">This value should be of type {type}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be of type {type}.</source>
@@ -1305,7 +1174,6 @@
     <unit id="jD0wLq.">
       <notes>
         <note category="german">You must select at least { limit } choice.|You must select at least { limit } choices.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>You must select at least { limit } choice.|You must select at least { limit } choices.</source>
@@ -1315,7 +1183,6 @@
     <unit id="tVlSiQe">
       <notes>
         <note category="german">You must select at most { limit } choice.|You must select at most { limit } choices.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>You must select at most { limit } choice.|You must select at most { limit } choices.</source>
@@ -1325,7 +1192,6 @@
     <unit id="oTsyl5Z">
       <notes>
         <note category="german">The file is too large ({size} {suffix}). Allowed maximum size is {limit} {suffix}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The file is too large ({size} {suffix}). Allowed maximum size is {limit} {suffix}.</source>
@@ -1335,7 +1201,6 @@
     <unit id="A.lJ02S" name="The mime type of the file is invalid ({type}). Allowed mime types are {types}.">
       <notes>
         <note category="german">The mime type of the file is invalid ({type}). Allowed mime types are {types}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The mime type of the file is invalid ({type}). Allowed mime types are {types}.</source>
@@ -1345,7 +1210,6 @@
     <unit id="dcAOkgN" name="This value should be { limit } or less.">
       <notes>
         <note category="german">This value should be { limit } or less.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be { limit } or less.</source>
@@ -1355,7 +1219,6 @@
     <unit id="8HXEmpr">
       <notes>
         <note category="german">This value is too long. It should have { limit } character or less.|This value is too long. It should have { limit } characters or less.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is too long. It should have { limit } character or less.|This value is too long. It should have { limit } characters or less.</source>
@@ -1365,7 +1228,6 @@
     <unit id="_fNxbCw" name="This value should be { limit } or more.">
       <notes>
         <note category="german">This value should be { limit } or more.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be { limit } or more.</source>
@@ -1375,7 +1237,6 @@
     <unit id="XQhrpSl">
       <notes>
         <note category="german">This value is too short. It should have { limit } character or more.|This value is too short. It should have { limit } characters or more.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value is too short. It should have { limit } character or more.|This value is too short. It should have { limit } characters or more.</source>
@@ -1385,7 +1246,6 @@
     <unit id="DdYr_wj" name="The file is too large. Allowed maximum size is {limit} {suffix}.">
       <notes>
         <note category="german">The file is too large. Allowed maximum size is {limit} {suffix}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The file is too large. Allowed maximum size is {limit} {suffix}.</source>
@@ -1395,7 +1255,6 @@
     <unit id="u1MXGzi" name="The image width is too big ({width}px). Allowed maximum width is {max_width}px.">
       <notes>
         <note category="german">The image width is too big ({width}px). Allowed maximum width is {max_width}px.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The image width is too big ({width}px). Allowed maximum width is {max_width}px.</source>
@@ -1405,7 +1264,6 @@
     <unit id="eQw6v1U">
       <notes>
         <note category="german">The image width is too small ({width}px). Minimum width expected is {min_width}px.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The image width is too small ({width}px). Minimum width expected is {min_width}px.</source>
@@ -1415,7 +1273,6 @@
     <unit id="65KIZHH">
       <notes>
         <note category="german">The image height is too big ({height}px). Allowed maximum height is {max_height}px.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The image height is too big ({height}px). Allowed maximum height is {max_height}px.</source>
@@ -1425,7 +1282,6 @@
     <unit id="IDxtbZO">
       <notes>
         <note category="german">The image height is too small ({height}px). Minimum height expected is {min_height}px.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The image height is too small ({height}px). Minimum height expected is {min_height}px.</source>
@@ -1435,7 +1291,6 @@
     <unit id="6n3eFYM">
       <notes>
         <note category="german">This value should have exactly { limit } character.|This value should have exactly { limit } characters.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should have exactly { limit } character.|This value should have exactly { limit } characters.</source>
@@ -1445,7 +1300,6 @@
     <unit id="ckEQUAo">
       <notes>
         <note category="german">This collection should contain { limit } element or more.|This collection should contain { limit } elements or more.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This collection should contain { limit } element or more.|This collection should contain { limit } elements or more.</source>
@@ -1455,7 +1309,6 @@
     <unit id="OwSfZtO">
       <notes>
         <note category="german">This collection should contain { limit } element or less.|This collection should contain { limit } elements or less.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This collection should contain { limit } element or less.|This collection should contain { limit } elements or less.</source>
@@ -1465,7 +1318,6 @@
     <unit id="Q0GN_IY">
       <notes>
         <note category="german">This collection should contain exactly { limit } element.|This collection should contain exactly { limit } elements.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This collection should contain exactly { limit } element.|This collection should contain exactly { limit } elements.</source>
@@ -1475,7 +1327,6 @@
     <unit id="5s3JcUd" name="This value should be equal to {compared_value}.">
       <notes>
         <note category="german">This value should be equal to {compared_value}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be equal to {compared_value}.</source>
@@ -1485,7 +1336,6 @@
     <unit id="isU._9m" name="This value should be greater than {compared_value}.">
       <notes>
         <note category="german">This value should be greater than {compared_value}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be greater than {compared_value}.</source>
@@ -1495,7 +1345,6 @@
     <unit id="KgCmQd8" name="This value should be greater than or equal to {compared_value}.">
       <notes>
         <note category="german">This value should be greater than or equal to {compared_value}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be greater than or equal to {compared_value}.</source>
@@ -1505,7 +1354,6 @@
     <unit id="Vs.1a8z" name="This value should be identical to {compared_value_type} {compared_value}.">
       <notes>
         <note category="german">This value should be identical to {compared_value_type} {compared_value}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be identical to {compared_value_type} {compared_value}.</source>
@@ -1515,7 +1363,6 @@
     <unit id="_ivEIfu" name="This value should be less than {compared_value}.">
       <notes>
         <note category="german">This value should be less than {compared_value}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be less than {compared_value}.</source>
@@ -1525,7 +1372,6 @@
     <unit id="0J89mV3" name="This value should be less than or equal to {compared_value}.">
       <notes>
         <note category="german">This value should be less than or equal to {compared_value}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be less than or equal to {compared_value}.</source>
@@ -1535,7 +1381,6 @@
     <unit id="nidtHXh" name="This value should not be equal to {compared_value}.">
       <notes>
         <note category="german">This value should not be equal to {compared_value}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should not be equal to {compared_value}.</source>
@@ -1545,7 +1390,6 @@
     <unit id="oCgcI7z" name="This value should not be identical to {compared_value_type} {compared_value}.">
       <notes>
         <note category="german">This value should not be identical to {compared_value_type} {compared_value}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should not be identical to {compared_value_type} {compared_value}.</source>
@@ -1555,7 +1399,6 @@
     <unit id="jBctL2J" name="The image ratio is too big ({ratio}). Allowed maximum ratio is {max_ratio}.">
       <notes>
         <note category="german">The image ratio is too big ({ratio}). Allowed maximum ratio is {max_ratio}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The image ratio is too big ({ratio}). Allowed maximum ratio is {max_ratio}.</source>
@@ -1565,7 +1408,6 @@
     <unit id="fEu3k3X" name="The image ratio is too small ({ratio}). Minimum ratio expected is {min_ratio}.">
       <notes>
         <note category="german">The image ratio is too small ({ratio}). Minimum ratio expected is {min_ratio}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The image ratio is too small ({ratio}). Minimum ratio expected is {min_ratio}.</source>
@@ -1575,7 +1417,6 @@
     <unit id="Suuc2v8" name="The image is square ({width}x{height}px). Square images are not allowed.">
       <notes>
         <note category="german">The image is square ({width}x{height}px). Square images are not allowed.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The image is square ({width}x{height}px). Square images are not allowed.</source>
@@ -1585,7 +1426,6 @@
     <unit id="ZzFIfuI">
       <notes>
         <note category="german">The image is landscape oriented ({width}x{height}px). Landscape oriented images are not allowed.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The image is landscape oriented ({width}x{height}px). Landscape oriented images are not allowed.</source>
@@ -1595,7 +1435,6 @@
     <unit id="YFpSO.9">
       <notes>
         <note category="german">The image is portrait oriented ({width}x{height}px). Portrait oriented images are not allowed.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The image is portrait oriented ({width}x{height}px). Portrait oriented images are not allowed.</source>
@@ -1605,7 +1444,6 @@
     <unit id="WmKU1Lz" name="This value does not match the expected { charset } charset.">
       <notes>
         <note category="german">This value does not match the expected { charset } charset.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value does not match the expected { charset } charset.</source>
@@ -1615,7 +1453,6 @@
     <unit id="foC21.F" name="This value should be a multiple of {compared_value}.">
       <notes>
         <note category="german">This value should be a multiple of {compared_value}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be a multiple of {compared_value}.</source>
@@ -1625,7 +1462,6 @@
     <unit id="6zXwnjs" name="This Business Identifier Code (BIC) is not associated with IBAN {iban}.">
       <notes>
         <note category="german">This Business Identifier Code (BIC) is not associated with IBAN {iban}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This Business Identifier Code (BIC) is not associated with IBAN {iban}.</source>
@@ -1635,7 +1471,6 @@
     <unit id="YWKW90p" name="This value should be between { min } and {max}.">
       <notes>
         <note category="german">This value should be between { min } and {max}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>This value should be between { min } and {max}.</source>
@@ -1645,7 +1480,6 @@
     <unit id="t8QshRU">
       <notes>
         <note category="german">The number of elements in this collection should be a multiple of {compared_value}.</note>
-        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>The number of elements in this collection should be a multiple of {compared_value}.</source>

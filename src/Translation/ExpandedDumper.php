@@ -3,7 +3,6 @@
 
 namespace App\Translation;
 
-use App\Service\Globals\TranslationConfigGlobal;
 use Symfony\Component\Translation\Dumper\XliffFileDumper;
 use Symfony\Component\Translation\MessageCatalogue;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -12,13 +11,11 @@ class ExpandedDumper extends XliffFileDumper
 {
     private TranslatorInterface $trans;
     private XliffFileDumper $dumper;
-    private TranslationConfigGlobal $conf;
 
-    public function __construct(XliffFileDumper $dumper, TranslatorInterface $trans, TranslationConfigGlobal $conf)
+    public function __construct(XliffFileDumper $dumper, TranslatorInterface $trans)
     {
         $this->dumper = $dumper;
         $this->trans = $trans;
-        $this->conf = $conf;
     }
 
     protected function preprocess(MessageCatalogue &$messages, $domain) {
@@ -26,38 +23,20 @@ class ExpandedDumper extends XliffFileDumper
             $german = trim($this->trans->trans($source, [], $domain, 'de'));
 
             $existing_notes = $messages->getMetadata( $source, $domain );
-            $m = $this->conf->get_sources_for($source,$domain);
-            $filtered_notes = [];
             if (isset($existing_notes['notes'])) {
 
-                foreach ( $existing_notes['notes'] as &$note) {
+                $found = false;
+                foreach ( $existing_notes['notes'] as &$note)
                     if (isset($note['category']) && $note['category'] === 'german') {
+                        $found = true;
                         $note['content'] = $german;
-                        $filtered_notes['german'] = $note;
-                    }
-                    if (isset($note['category']) && $note['category'] === 'state') {
-                        if ( $source === $target || $note['content'] !== 'new' )
-                            $filtered_notes['state'] = $note;
-                    }
-                    if (isset($note['category']) && $note['category'] === 'from') {
-                        $filtered_notes['from'] = $note;
-                        $m = $this->conf->isExhaustive() ? $m : array_unique( array_merge($m, explode(';', $note['content']) ) );
+                        break;
                     }
 
-                }
+                if (!$found) $existing_notes['notes'][] = ['category' => 'german', 'content' => $german];
 
-                if (!isset($filtered_notes['german'])) $filtered_notes['german'] = ['category' => 'german', 'content' => $german];
-                if (!isset($filtered_notes['state']) && $source === $target) $filtered_notes['state'] = ['category' => 'state', 'content' => 'new'];
-                if (!isset($filtered_notes['from']) && ($this->conf->isExhaustive() || !empty($m)))
-                    $filtered_notes['from'] = ['category' => 'from', 'content' => empty($m) ? '[unused]' : implode(';', $m)];
-
-            } else {
-                $filtered_notes = ['german' => ['category' => 'german', 'content' => $german], 'from' => ['category' => 'from', 'content' => empty($m) ? '[unused]' : implode(';', $m)]];
-                if ($this->conf->isExhaustive() || !empty($m)) $filtered_notes['from'] = ['category' => 'from', 'content' => empty($m) ? '[unused]' : implode(';', $m)];
-                if ($source === $target) $filtered_notes['state'] = ['category' => 'state', 'content' => 'new'];
-            }
-
-            $messages->setMetadata($source,  $messages->getLocale() === 'de' ? [] : ['notes' => $filtered_notes], $domain );
+            } else $existing_notes['notes'] = [['category' => 'german', 'content' => $german]];
+            $messages->setMetadata($source, $existing_notes, $domain );
         }
 
     }
