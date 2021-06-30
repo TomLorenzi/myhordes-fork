@@ -27,7 +27,7 @@ before_script:
   - docker-php-ext-enable xdebug
   # Install and run Composer
   - curl -sS https://getcomposer.org/installer | php
-  - php -d memory_limit=-1 composer.phar install
+  - php -d memory_limit=2G composer.phar install
   - yarn install
   - yarn encore dev
   - php bin/console app:migrate -i
