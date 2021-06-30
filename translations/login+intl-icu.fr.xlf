@@ -4,6 +4,7 @@
     <unit id="crJFns0" name="Dein Name muss mindestens { limit } Zeichen umfassen.">
       <notes>
         <note category="german">Dein Name muss mindestens {limit} Zeichen umfassen.</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Dein Name muss mindestens { limit } Zeichen umfassen.</source>
@@ -13,6 +14,7 @@
     <unit id="VAaM7eo" name="Dein Name kann höchstens { limit } Zeichen umfassen.">
       <notes>
         <note category="german">Dein Name kann höchstens {limit} Zeichen umfassen.</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Dein Name kann höchstens { limit } Zeichen umfassen.</source>
@@ -22,6 +24,7 @@
     <unit id="WvW8_JI" name="Die eingegebene E-Mail Adresse ist nicht gültig.">
       <notes>
         <note category="german">Die eingegebene E-Mail Adresse ist nicht gültig.</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Die eingegebene E-Mail Adresse ist nicht gültig.</source>
@@ -31,6 +34,7 @@
     <unit id="6UV8ek7" name="Die eingegebenen E-Mail Adressen stimmen nicht überein.">
       <notes>
         <note category="german">Die eingegebenen E-Mail Adressen stimmen nicht überein.</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Die eingegebenen E-Mail Adressen stimmen nicht überein.</source>
@@ -40,6 +44,7 @@
     <unit id="jz03..f" name="Dein Passwort muss mindestens { limit } Zeichen umfassen.">
       <notes>
         <note category="german">Dein Passwort muss mindestens {limit} Zeichen umfassen.</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Dein Passwort muss mindestens { limit } Zeichen umfassen.</source>
@@ -49,6 +54,7 @@
     <unit id="OK9eVbg" name="Die eingegebenen Passwörter stimmen nicht überein.">
       <notes>
         <note category="german">Die eingegebenen Passwörter stimmen nicht überein.</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Die eingegebenen Passwörter stimmen nicht überein.</source>
@@ -58,6 +64,7 @@
     <unit id="o5ZFZh6" name="Der Validierungscode muss { limit } Zeichen umfassen.">
       <notes>
         <note category="german">Der Validierungscode muss {limit} Zeichen umfassen.</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Der Validierungscode muss { limit } Zeichen umfassen.</source>
@@ -67,6 +74,7 @@
     <unit id="0f1ZNLd" name="Der angegebene Validierungscode ist nicht gültig.">
       <notes>
         <note category="german">Der angegebene Validierungscode ist nicht gültig.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Der angegebene Validierungscode ist nicht gültig.</source>
@@ -76,6 +84,7 @@
     <unit id="ePGiZSF" name="Der angegebene Name existiert bereits im Spiel.">
       <notes>
         <note category="german">Der angegebene Name existiert bereits im Spiel.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Der angegebene Name existiert bereits im Spiel.</source>
@@ -85,6 +94,7 @@
     <unit id="kVhhGdk" name="Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.">
       <notes>
         <note category="german">Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Die angegebene E-Mail Adresse wird bereits von einem anderen Profil verwendet.</source>
@@ -94,6 +104,7 @@
     <unit id="Qu4FAIf" name="E-Mail Adresse validieren">
       <notes>
         <note category="german">E-Mail Adresse validieren</note>
+        <note category="from">twig:///templates/ajax/public/validate.html.twig</note>
       </notes>
       <segment>
         <source>E-Mail Adresse validieren</source>
@@ -103,6 +114,7 @@
     <unit id="mGW7q29" name="Hallo {name}!">
       <notes>
         <note category="german">Hallo {name}!</note>
+        <note category="from">twig:///templates/ajax/public/validate.html.twig</note>
       </notes>
       <segment>
         <source>Hallo {name}!</source>
@@ -112,6 +124,7 @@
     <unit id="UA_FeeT" name="Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.">
       <notes>
         <note category="german">Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.</note>
+        <note category="from">twig:///templates/ajax/public/validate.html.twig</note>
       </notes>
       <segment>
         <source>Bevor du loslegen kannst, musst du noch deine E-Mail Adresse validieren.</source>
@@ -121,6 +134,7 @@
     <unit id="JeRbwqT" name="Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.">
       <notes>
         <note category="german">Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</note>
+        <note category="from">twig:///templates/ajax/public/validate.html.twig</note>
       </notes>
       <segment>
         <source>Bitte gib den Validierungscode ein, den du via E-Mail erhalten hast.</source>
@@ -130,6 +144,7 @@
     <unit id="ANnpnHZ" name="Validierungscode">
       <notes>
         <note category="german">Validierungscode</note>
+        <note category="from">twig:///templates/ajax/public/validate.html.twig</note>
       </notes>
       <segment>
         <source>Validierungscode</source>
@@ -139,6 +154,7 @@
     <unit id="ocoTV1m" name="Prüfen">
       <notes>
         <note category="german">Prüfen</note>
+        <note category="from">twig:///templates/ajax/public/validate.html.twig</note>
       </notes>
       <segment>
         <source>Prüfen</source>
@@ -148,6 +164,7 @@
     <unit id="tkZocIU" name="Ausloggen">
       <notes>
         <note category="german">Ausloggen</note>
+        <note category="from">twig:///templates/ajax/public/validate.html.twig</note>
       </notes>
       <segment>
         <source>Ausloggen</source>
@@ -157,6 +174,7 @@
     <unit id="VBEBU.F" name="Du hast noch keinen Account?">
       <notes>
         <note category="german">Du hast noch keinen Account?</note>
+        <note category="from">twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig;twig:///templates/ajax/public/validate.html.twig</note>
       </notes>
       <segment>
         <source>Du hast noch keinen Account?</source>
@@ -166,6 +184,7 @@
     <unit id="pMJydfA" name="Registrieren!">
       <notes>
         <note category="german">Registrieren!</note>
+        <note category="from">twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig;twig:///templates/ajax/public/validate.html.twig</note>
       </notes>
       <segment>
         <source>Registrieren!</source>
@@ -175,6 +194,7 @@
     <unit id="0wO.38C" name="Du hast deine E-Mail Adresse schon validiert?">
       <notes>
         <note category="german">Du hast deine E-Mail Adresse schon validiert?</note>
+        <note category="from">twig:///templates/ajax/public/validate.html.twig</note>
       </notes>
       <segment>
         <source>Du hast deine E-Mail Adresse schon validiert?</source>
@@ -184,6 +204,7 @@
     <unit id="cLGN4MZ" name="Einloggen!">
       <notes>
         <note category="german">Einloggen!</note>
+        <note category="from">twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/validate.html.twig</note>
       </notes>
       <segment>
         <source>Einloggen!</source>
@@ -193,6 +214,7 @@
     <unit id="m8bXbyH" name="Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.">
       <notes>
         <note category="german">Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.</note>
+        <note category="from">twig:///templates/ajax/public/validate.html.twig</note>
       </notes>
       <segment>
         <source>Validierung fehlgeschlagen. Bitte prüfe deine Eingaben.</source>
@@ -202,6 +224,7 @@
     <unit id="Bw.Ze07" name="Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.">
       <notes>
         <note category="german">Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</note>
+        <note category="from">twig:///templates/ajax/public/passreset.html.twig;twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/public/validate.html.twig</note>
       </notes>
       <segment>
         <source>Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</source>
@@ -211,6 +234,7 @@
     <unit id="O63JhDQ" name="Registrieren">
       <notes>
         <note category="german">Registrieren</note>
+        <note category="from">twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/register.html.twig</note>
       </notes>
       <segment>
         <source>Registrieren</source>
@@ -220,6 +244,7 @@
     <unit id="VR0KmfL" name="Spielername">
       <notes>
         <note category="german">Spielername</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/login_legacy.html.twig</note>
       </notes>
       <segment>
         <source>Spielername</source>
@@ -229,6 +254,7 @@
     <unit id="Up_TjZv" name="E-Mail Adresse">
       <notes>
         <note category="german">E-Mail Adresse</note>
+        <note category="from">twig:///templates/ajax/public/passreset.html.twig;twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>E-Mail Adresse</source>
@@ -238,6 +264,7 @@
     <unit id="QNpwRBL" name="wiederholen">
       <notes>
         <note category="german">wiederholen</note>
+        <note category="from">twig:///templates/ajax/public/passreset.html.twig;twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>wiederholen</source>
@@ -247,6 +274,7 @@
     <unit id="o2wQFXD" name="Passwort">
       <notes>
         <note category="german">Passwort</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/passreset.html.twig;twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/public/login_legacy.html.twig</note>
       </notes>
       <segment>
         <source>Passwort</source>
@@ -257,6 +285,7 @@
       <notes>
         <note category="german">Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
                         Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</note>
+        <note category="from">twig:///templates/ajax/public/register.html.twig</note>
       </notes>
       <segment>
         <source>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
@@ -267,6 +296,7 @@
     <unit id="._jFtS_" name="Du hast schon einen Account?">
       <notes>
         <note category="german">Du hast schon einen Account?</note>
+        <note category="from">twig:///templates/ajax/public/register.html.twig</note>
       </notes>
       <segment>
         <source>Du hast schon einen Account?</source>
@@ -276,6 +306,7 @@
     <unit id="kTHLCAW" name="Einloggen">
       <notes>
         <note category="german">Einloggen</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig</note>
       </notes>
       <segment>
         <source>Einloggen</source>
@@ -285,6 +316,7 @@
     <unit id="k.cRHPZ" name="Bitte gib deinen Spielernamen und dein Passwort ein.">
       <notes>
         <note category="german">Bitte gib deinen Spielernamen und dein Passwort ein.</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig</note>
       </notes>
       <segment>
         <source>Bitte gib deinen Spielernamen und dein Passwort ein.</source>
@@ -294,6 +326,7 @@
     <unit id="ku3di7g" name="Login fehlgeschlagen. Bitte prüfe deine Eingaben.">
       <notes>
         <note category="german">Login fehlgeschlagen. Bitte prüfe deine Eingaben.</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig</note>
       </notes>
       <segment>
         <source>Login fehlgeschlagen. Bitte prüfe deine Eingaben.</source>
@@ -303,6 +336,7 @@
     <unit id="DMKAJPg" name="Dein Name kann keine Leerzeichen sowie &quot;$&quot;, &quot;&lt;&quot; und &quot;&gt;&quot; enthalten.">
       <notes>
         <note category="german">Dein Name kann keine Leerzeichen sowie "$", "&lt;" und "&gt;" enthalten.</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Dein Name kann keine Leerzeichen sowie "$", "&lt;" und "&gt;" enthalten.</source>
@@ -312,6 +346,7 @@
     <unit id="MO7x7sr">
       <notes>
         <note category="german">Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
       </notes>
       <segment>
         <source>Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</source>
@@ -321,6 +356,7 @@
     <unit id="e99uiXA" name="Aktuelles Passwort">
       <notes>
         <note category="german">Aktuelles Passwort</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Aktuelles Passwort</source>
@@ -330,6 +366,7 @@
     <unit id="1kcI_60" name="Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.">
       <notes>
         <note category="german">Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</note>
+        <note category="from">twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</source>
@@ -339,6 +376,7 @@
     <unit id="ZJtAei3">
       <notes>
         <note category="german">Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
       </notes>
       <segment>
         <source>Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</source>
@@ -348,6 +386,7 @@
     <unit id="bGFqxj8" name="Passwort zurücksetzen">
       <notes>
         <note category="german">Passwort zurücksetzen</note>
+        <note category="from">twig:///templates/ajax/public/passreset.html.twig</note>
       </notes>
       <segment>
         <source>Passwort zurücksetzen</source>
@@ -357,6 +396,7 @@
     <unit id=".Mffux1" name="Bitte gib ein neues Passwort ein.">
       <notes>
         <note category="german">Bitte gib ein neues Passwort ein.</note>
+        <note category="from">twig:///templates/ajax/public/passreset.html.twig</note>
       </notes>
       <segment>
         <source>Bitte gib ein neues Passwort ein.</source>
@@ -366,6 +406,7 @@
     <unit id="lTbuIE7" name="Bitte gib deine E-Mail Adresse ein.">
       <notes>
         <note category="german">Bitte gib deine E-Mail Adresse ein.</note>
+        <note category="from">twig:///templates/ajax/public/passreset.html.twig</note>
       </notes>
       <segment>
         <source>Bitte gib deine E-Mail Adresse ein.</source>
@@ -375,6 +416,7 @@
     <unit id="9.8ReK8" name="Abbrechen">
       <notes>
         <note category="german">Abbrechen</note>
+        <note category="from">twig:///templates/ajax/public/passreset.html.twig;twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Abbrechen</source>
@@ -384,6 +426,7 @@
     <unit id="eO_T4uw" name="Passwort vergessen?">
       <notes>
         <note category="german">Passwort vergessen?</note>
+        <note category="from">twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig</note>
       </notes>
       <segment>
         <source>Passwort vergessen?</source>
@@ -393,6 +436,7 @@
     <unit id="axBQZ1o">
       <notes>
         <note category="german">Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.</note>
+        <note category="from">twig:///templates/ajax/public/passreset.html.twig</note>
       </notes>
       <segment>
         <source>Wenn deine eingegebene E-Mail Adresse korrekt war, wurde dir soeben ein Link zum Zurücksetzen deines Passwortes geschickt.</source>
@@ -402,6 +446,7 @@
     <unit id="w6NXTHc">
       <notes>
         <note category="german">Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.</note>
+        <note category="from">twig:///templates/ajax/public/passreset.html.twig</note>
       </notes>
       <segment>
         <source>Dein Passwort wurde geändert. Du kannst dich nun mit deinem neuen Passwort einloggen.</source>
@@ -411,6 +456,7 @@
     <unit id="yr3nj09" name="Dieses Konto wartet bereits auf eine Passwortzurücksetzung.">
       <notes>
         <note category="german">Dieses Konto wartet bereits auf eine Passwortzurücksetzung.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Dieses Konto wartet bereits auf eine Passwortzurücksetzung.</source>
@@ -420,6 +466,7 @@
     <unit id="LRrjhiE" name="Angemeldet bleiben">
       <notes>
         <note category="german">Angemeldet bleiben</note>
+        <note category="from">twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig</note>
       </notes>
       <segment>
         <source>Angemeldet bleiben</source>
@@ -429,6 +476,7 @@
     <unit id="B0ZNAR." name="Fehler bei der Datenübertragung.">
       <notes>
         <note category="german">Fehler bei der Datenübertragung.</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Fehler bei der Datenübertragung.</source>
@@ -438,6 +486,7 @@
     <unit id="wPXsZnE">
       <notes>
         <note category="german">MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</note>
+        <note category="from">twig:///templates/ajax/public/login.html.twig</note>
       </notes>
       <segment>
         <source>MyHordes ist ein Teil des EternalTwin-Netzwerks. Wenn du einen EternalTwin-Account hast, kannst du MyHordes ohne zusätzliche Registrierung spielen!</source>
@@ -447,6 +496,7 @@
     <unit id="qo4M11k" name="Über EternalTwin einloggen">
       <notes>
         <note category="german">Über EternalTwin einloggen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig</note>
       </notes>
       <segment>
         <source>Über EternalTwin einloggen</source>
@@ -456,6 +506,7 @@
     <unit id="LiGRhEI">
       <notes>
         <note category="german">Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.</note>
+        <note category="from">twig:///templates/ajax/public/login.html.twig</note>
       </notes>
       <segment>
         <source>Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.</source>
@@ -465,6 +516,7 @@
     <unit id="ho.WxzI">
       <notes>
         <note category="german">Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</note>
+        <note category="from">twig:///templates/ajax/public/login.html.twig</note>
       </notes>
       <segment>
         <source>Dies wird nicht für immer möglich sein. Wir raten dir, deinen alten MyHordes-Account so bald wie möglich mit EternalTwin zu verknüpfen.</source>
@@ -474,6 +526,7 @@
     <unit id="uT6i9yH">
       <notes>
         <note category="german">Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</source>
@@ -483,6 +536,7 @@
     <unit id="RG1kp2m" name="Über MyHordes einloggen">
       <notes>
         <note category="german">Über MyHordes einloggen</note>
+        <note category="from">twig:///templates/ajax/public/login.html.twig</note>
       </notes>
       <segment>
         <source>Über MyHordes einloggen</source>
@@ -492,6 +546,7 @@
     <unit id="CvfPvDp" name="Verknüpfung mit EternalTwin">
       <notes>
         <note category="german">Verknüpfung mit EternalTwin</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Verknüpfung mit EternalTwin</source>
@@ -501,6 +556,7 @@
     <unit id="sndALWW" name="Gleich kanns losgehen!">
       <notes>
         <note category="german">Gleich kanns losgehen!</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Gleich kanns losgehen!</source>
@@ -510,6 +566,7 @@
     <unit id="NYi.sD7">
       <notes>
         <note category="german">Dank deines EternalTwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Dank deines EternalTwin-Account kannst du ohne vorherige Registrierung MyHordes spielen!</source>
@@ -521,6 +578,7 @@
         <note category="german">&lt;strong&gt;Achtung:&lt;/strong&gt; Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
                                     &lt;i&gt;abbrechen&lt;/i&gt; und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
                                     EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
@@ -532,6 +590,7 @@
     <unit id="zHOj.3O" name="Los geht's!">
       <notes>
         <note category="german">Los geht's!</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Los geht's!</source>
@@ -541,6 +600,7 @@
     <unit id="wMeOIH." name="Hallo {username}!">
       <notes>
         <note category="german">Hallo {username}!</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Hallo {username}!</source>
@@ -550,6 +610,7 @@
     <unit id="2WaNcqR" name="Dein Account wurde erfolgreich verknüpft!">
       <notes>
         <note category="german">Dein Account wurde erfolgreich verknüpft!</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Dein Account wurde erfolgreich verknüpft!</source>
@@ -559,6 +620,7 @@
     <unit id="Oi3QrV3" name="Du wirst eingeloggt. Bitte warte eine Sekunde ...">
       <notes>
         <note category="german">Du wirst eingeloggt. Bitte warte eine Sekunde ...</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Du wirst eingeloggt. Bitte warte eine Sekunde ...</source>
@@ -568,6 +630,7 @@
     <unit id="p_2G6pv">
       <notes>
         <note category="german">Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem EternalTwin-Account {namecheck_et} verknüpfst!</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Vielen Dank, dass du deinen MyHordes-Account {namecheck_mh} mit deinem EternalTwin-Account {namecheck_et} verknüpfst!</source>
@@ -577,6 +640,7 @@
     <unit id="7JD3pLt">
       <notes>
         <note category="german">Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Nach der Verknüpfung kannst du dich nur noch über EternalTwin in MyHordes anmelden. Deine alten Zugangsdaten werden ungültig.</source>
@@ -586,6 +650,7 @@
     <unit id="r.jGoXw">
       <notes>
         <note category="german">Wenn du fortfahren möchtest, gib bitte ein letztes Mal dein MyHordes-Passwort ein und klicke auf "Verknüpfen".</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Wenn du fortfahren möchtest, gib bitte ein letztes Mal dein MyHordes-Passwort ein und klicke auf "Verknüpfen".</source>
@@ -595,6 +660,7 @@
     <unit id="jKP5PMR" name="Verknüpfen">
       <notes>
         <note category="german">Verknüpfen</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Verknüpfen</source>
@@ -604,6 +670,7 @@
     <unit id="7Nk4Nxa" name="Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.">
       <notes>
         <note category="german">Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.</source>
@@ -613,6 +680,7 @@
     <unit id="n69_UZl">
       <notes>
         <note category="german">Es haben sich zu viele Nutzer aus deinem Netzwerk heraus bei MyHordes registriert. Weitere Registrierungen aus deinem Netzwerk sind für eine Weile nicht mehr möglich.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Es haben sich zu viele Nutzer aus deinem Netzwerk heraus bei MyHordes registriert. Weitere Registrierungen aus deinem Netzwerk sind für eine Weile nicht mehr möglich.</source>
@@ -622,6 +690,7 @@
     <unit id="jUZA576" name="Du wurdest erfolgreich von allen Geräten abgemeldet.">
       <notes>
         <note category="german">Du wurdest erfolgreich von allen Geräten abgemeldet.</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
       </notes>
       <segment>
         <source>Du wurdest erfolgreich von allen Geräten abgemeldet.</source>
@@ -631,6 +700,7 @@
     <unit id="iGunNf8" name="Dein Name kann nur alphanumerische Zeichen enthalten.">
       <notes>
         <note category="german">Dein Name kann nur alphanumerische Zeichen enthalten.</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Dein Name kann nur alphanumerische Zeichen enthalten.</source>
@@ -640,6 +710,7 @@
     <unit id="6zAO87a">
       <notes>
         <note category="german">Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</source>
@@ -649,6 +720,7 @@
     <unit id="e_EqP86" name="Pate">
       <notes>
         <note category="german">Pate</note>
+        <note category="from">twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Pate</source>
@@ -658,6 +730,7 @@
     <unit id="X.GbWI5">
       <notes>
         <note category="german">Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...</note>
+        <note category="from">twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...</source>
@@ -667,6 +740,7 @@
     <unit id="zPzPmd5">
       <notes>
         <note category="german">Dein E-Mail Anbieter stellt Nachrichten von MyHordes nicht oder nur sehr unzuverlässig zu. Wir empfehlen, wenn möglich eine andere E-Mail Adresse für die Registrierung zu verwenden. Bitte entschuldige die Unannehmlichkeiten.</note>
+        <note category="from">twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Dein E-Mail Anbieter stellt Nachrichten von MyHordes nicht oder nur sehr unzuverlässig zu. Wir empfehlen, wenn möglich eine andere E-Mail Adresse für die Registrierung zu verwenden. Bitte entschuldige die Unannehmlichkeiten.</source>
@@ -676,6 +750,8 @@
     <unit id="uQUHCC6">
       <notes>
         <note category="german">Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</source>
@@ -686,6 +762,8 @@
       <notes>
         <note category="german">Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
                                             Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig</note>
       </notes>
       <segment>
         <source>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
