@@ -6557,7 +6557,7 @@
       </notes>
       <segment>
         <source>{citizens} Bürger</source>
-        <target>{citizens} Bürger</target>
+        <target>{citizens} Bürger am Leben</target>
       </segment>
     </unit>
     <unit id="wjS3J8H">
