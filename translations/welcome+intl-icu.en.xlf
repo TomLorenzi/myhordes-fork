@@ -4,6 +4,7 @@
     <unit id="7VfCrWl" name="Foren">
       <notes>
         <note category="german">Foren</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Foren</source>
@@ -13,6 +14,7 @@
     <unit id="a66OWC." name="Willkommen bei MyHordes">
       <notes>
         <note category="german">Willkommen bei MyHordes</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig</note>
       </notes>
       <segment>
         <source>Willkommen bei MyHordes</source>
@@ -22,6 +24,7 @@
     <unit id="mbIzlHW" name="Zum Spiel">
       <notes>
         <note category="german">Zum Spiel</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig</note>
       </notes>
       <segment>
         <source>Zum Spiel</source>
@@ -31,6 +34,7 @@
     <unit id="M_25pDW" name="Account validieren">
       <notes>
         <note category="german">Account validieren</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig</note>
       </notes>
       <segment>
         <source>Account validieren</source>
@@ -40,6 +44,7 @@
     <unit id="vMG7P9w" name="Zum Login">
       <notes>
         <note category="german">Zum Login</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig</note>
       </notes>
       <segment>
         <source>Zum Login</source>
@@ -49,6 +54,7 @@
     <unit id="lHIUXzm" name="Bürger gestorben">
       <notes>
         <note category="german">Bürger gestorben</note>
+        <note category="from">twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/privacy.html.twig;twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/login_legacy.html.twig</note>
       </notes>
       <segment>
         <source>Bürger gestorben</source>
@@ -58,6 +64,7 @@
     <unit id="5bHzvXH" name="Zombies gekillt">
       <notes>
         <note category="german">Zombies gekillt</note>
+        <note category="from">twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/privacy.html.twig;twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/login_legacy.html.twig</note>
       </notes>
       <segment>
         <source>Zombies gekillt</source>
@@ -67,6 +74,7 @@
     <unit id="YlMROjW" name="Akte von Kannibalismus">
       <notes>
         <note category="german">Akte von Kannibalismus</note>
+        <note category="from">twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/privacy.html.twig;twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/login_legacy.html.twig</note>
       </notes>
       <segment>
         <source>Akte von Kannibalismus</source>
@@ -76,6 +84,7 @@
     <unit id="ad6M6Yb" name="Und das wird kaum besser werden...">
       <notes>
         <note category="german">Und das wird kaum besser werden...</note>
+        <note category="from">twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/privacy.html.twig;twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/login_legacy.html.twig</note>
       </notes>
       <segment>
         <source>Und das wird kaum besser werden...</source>
@@ -85,6 +94,7 @@
     <unit id="ksm96Ek" name="Willkommen bei MyHordes!">
       <notes>
         <note category="german">Willkommen bei MyHordes!</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Willkommen bei MyHordes!</source>
@@ -94,6 +104,7 @@
     <unit id="Ybpua.N" name="Abonnierte Themen">
       <notes>
         <note category="german">Abonnierte Themen</note>
+        <note category="from">twig:///templates/ajax/forum/list.html.twig</note>
       </notes>
       <segment>
         <source>Abonnierte Themen</source>
@@ -103,6 +114,7 @@
     <unit id="P9PTDGu">
       <notes>
         <note category="german">MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von {motiontwin}.</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig</note>
       </notes>
       <segment>
         <source>MyHordes ist eine von der Community entwickelte offene Implementierung des Browser-Spiels "Die Verdammten" und seine anderen Versionen von {motiontwin}.</source>
@@ -112,6 +124,7 @@
     <unit id="JyLklnq">
       <notes>
         <note category="german">Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen Inhalten versorgt werden kann.</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig</note>
       </notes>
       <segment>
         <source>Ziel des Projektes ist es, eine Version von "Die Verdammten" und seinen anderen Versionen zu erschaffen, die nicht nur nach der Flash-Abschaltung im Jahr 2020 funktionsfähig ist, sondern auch weiterentwickelt und mit neuen Inhalten versorgt werden kann.</source>
@@ -121,6 +134,7 @@
     <unit id="psTpKgc">
       <notes>
         <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von {motiontwin}.</note>
+        <note category="from">twig:///templates/ajax/public/privacy.html.twig;twig:///templates/ajax/public/intro.html.twig</note>
       </notes>
       <segment>
         <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von {motiontwin}.</source>

@@ -5,6 +5,7 @@ namespace App\Translation;
 
 use App\Service\Globals\TranslationConfigGlobal;
 use Iterator;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Translation\Extractor\PhpExtractor;
 use Symfony\Component\Translation\Extractor\PhpStringTokenParser;
 use Symfony\Component\Translation\MessageCatalogue;
@@ -13,6 +14,7 @@ class ExpandedPhpExtractor extends PhpExtractor
 {
 
     private TranslationConfigGlobal $config;
+    private KernelInterface $kernel;
 
     /**
      * Prefix for new found message.
@@ -65,9 +67,10 @@ class ExpandedPhpExtractor extends PhpExtractor
         ],
     ];
 
-    public function __construct(TranslationConfigGlobal $config)
+    public function __construct(TranslationConfigGlobal $config, KernelInterface $kernel)
     {
         $this->config = $config;
+        $this->kernel = $kernel;
     }
 
     /**
@@ -219,6 +222,7 @@ class ExpandedPhpExtractor extends PhpExtractor
                         $metadata = $catalog->getMetadata($message, $domain) ?? [];
                         $metadata['sources'][] = $normalizedFilename.':'.$tokens[$key][2];
                         $catalog->setMetadata($message, $metadata, $domain);
+                        $this->config->add_source_for($message, $domain, 'php', str_replace($this->kernel->getProjectDir(),'',$normalizedFilename));
                     }
                     break;
                 }

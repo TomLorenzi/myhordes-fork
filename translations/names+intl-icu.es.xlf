@@ -4,6 +4,7 @@
     <unit id="Kor6bKF" name="TDG_PRE_00_">
       <notes>
         <note category="german">TDG_PRE_00_</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_00_</source>
@@ -13,6 +14,7 @@
     <unit id="zOGKq_2" name="TDG_PRE_10_">
       <notes>
         <note category="german">Asta</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_10_</source>
@@ -22,6 +24,7 @@
     <unit id="HMDlY4O" name="TDG_PRE_20_">
       <notes>
         <note category="german">Baby</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_20_</source>
@@ -31,6 +34,7 @@
     <unit id="GHjEnoN" name="TDG_PRE_30_">
       <notes>
         <note category="german">Barney</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_30_</source>
@@ -40,6 +44,7 @@
     <unit id="jcOVVEq" name="TDG_PRE_40_">
       <notes>
         <note category="german">Baxter</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_40_</source>
@@ -49,6 +54,7 @@
     <unit id="_CBKiCi" name="TDG_PRE_50_">
       <notes>
         <note category="german">Beau</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_50_</source>
@@ -58,6 +64,7 @@
     <unit id="2JyIOZy" name="TDG_PRE_01_">
       <notes>
         <note category="german">Beatrice</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_01_</source>
@@ -67,6 +74,7 @@
     <unit id="ZNmZO0a" name="TDG_PRE_11_">
       <notes>
         <note category="german">Beethoven</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_11_</source>
@@ -76,6 +84,7 @@
     <unit id="ORZuZNv" name="TDG_PRE_21_">
       <notes>
         <note category="german">Benji</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_21_</source>
@@ -85,6 +94,7 @@
     <unit id="t4OuSv5" name="TDG_PRE_31_">
       <notes>
         <note category="german">Bingo</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_31_</source>
@@ -94,6 +104,7 @@
     <unit id="z3cy5Fo" name="TDG_PRE_41_">
       <notes>
         <note category="german">Bolt</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_41_</source>
@@ -103,6 +114,7 @@
     <unit id="jpIi2BH" name="TDG_PRE_51_">
       <notes>
         <note category="german">Boomer</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_51_</source>
@@ -112,6 +124,7 @@
     <unit id="T6HCO9Y" name="TDG_PRE_02_">
       <notes>
         <note category="german">Brinkley</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_02_</source>
@@ -121,6 +134,7 @@
     <unit id="sAnRDq_" name="TDG_PRE_12_">
       <notes>
         <note category="german">Bruiser</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_12_</source>
@@ -130,6 +144,7 @@
     <unit id="Xum2rGo" name="TDG_PRE_22_">
       <notes>
         <note category="german">Buckley</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_22_</source>
@@ -139,6 +154,7 @@
     <unit id="I_5r0dW" name="TDG_PRE_32_">
       <notes>
         <note category="german">Buddy</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_32_</source>
@@ -148,6 +164,7 @@
     <unit id="a4XrZva" name="TDG_PRE_42_">
       <notes>
         <note category="german">Chopper</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_42_</source>
@@ -157,6 +174,7 @@
     <unit id="ktBJ4Jo" name="TDG_PRE_52_">
       <notes>
         <note category="german">Cosmo</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_52_</source>
@@ -166,6 +184,7 @@
     <unit id="mwzJb7N" name="TDG_PRE_03_">
       <notes>
         <note category="german">Cujo</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_03_</source>
@@ -175,6 +194,7 @@
     <unit id="evPlYrJ" name="TDG_PRE_13_">
       <notes>
         <note category="german">Copper</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_13_</source>
@@ -184,6 +204,7 @@
     <unit id="HEMrDtY" name="TDG_PRE_23_">
       <notes>
         <note category="german">Daisy</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_23_</source>
@@ -193,6 +214,7 @@
     <unit id="W.nSwh9" name="TDG_PRE_33_">
       <notes>
         <note category="german">Dug</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_33_</source>
@@ -202,6 +224,7 @@
     <unit id="hkFN2yJ" name="TDG_PRE_43_">
       <notes>
         <note category="german">Einstein</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_43_</source>
@@ -211,6 +234,7 @@
     <unit id="EV7B1sM" name="TDG_PRE_53_">
       <notes>
         <note category="german">Fang</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_53_</source>
@@ -220,6 +244,7 @@
     <unit id="OeaSh.8" name="TDG_PRE_04_">
       <notes>
         <note category="german">Frank</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_04_</source>
@@ -229,6 +254,7 @@
     <unit id="OuNujK5" name="TDG_PRE_14_">
       <notes>
         <note category="german">Hachi</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_14_</source>
@@ -238,6 +264,7 @@
     <unit id="0GxMni4" name="TDG_PRE_24_">
       <notes>
         <note category="german">Hooch</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_24_</source>
@@ -247,6 +274,7 @@
     <unit id="uKRVZ9Z" name="TDG_PRE_34_">
       <notes>
         <note category="german">Lady</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_34_</source>
@@ -256,6 +284,7 @@
     <unit id="T5SsuPv" name="TDG_PRE_44_">
       <notes>
         <note category="german">Jack</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_44_</source>
@@ -265,6 +294,7 @@
     <unit id="kbpZ3wV" name="TDG_PRE_54_">
       <notes>
         <note category="german">Killer</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_54_</source>
@@ -274,6 +304,7 @@
     <unit id="B1ImxqT" name="TDG_PRE_05_">
       <notes>
         <note category="german">Marley</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_05_</source>
@@ -283,6 +314,7 @@
     <unit id="9hozjGF" name="TDG_PRE_15_">
       <notes>
         <note category="german">Max</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_15_</source>
@@ -292,6 +324,7 @@
     <unit id="lSV.Ma1" name="TDG_PRE_25_">
       <notes>
         <note category="german">Otis</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_25_</source>
@@ -301,6 +334,7 @@
     <unit id="5qRTdpy" name="TDG_PRE_35_">
       <notes>
         <note category="german">Rocco</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_35_</source>
@@ -310,6 +344,7 @@
     <unit id="1aqoClA" name="TDG_PRE_45_">
       <notes>
         <note category="german">Pixie</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_45_</source>
@@ -319,6 +354,7 @@
     <unit id="4tqnamR" name="TDG_PRE_55_">
       <notes>
         <note category="german">Rinty</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_55_</source>
@@ -328,6 +364,7 @@
     <unit id="MG26Dx9" name="TDG_PRE_06_">
       <notes>
         <note category="german">Princess</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_06_</source>
@@ -337,6 +374,7 @@
     <unit id="6kJqoBe" name="TDG_PRE_16_">
       <notes>
         <note category="german">Skipper</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_16_</source>
@@ -346,6 +384,7 @@
     <unit id="pXUzDEV" name="TDG_PRE_26_">
       <notes>
         <note category="german">Reno</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_26_</source>
@@ -355,6 +394,7 @@
     <unit id="vC7qATe" name="TDG_PRE_36_">
       <notes>
         <note category="german">Snuffles</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_36_</source>
@@ -364,6 +404,7 @@
     <unit id="M0RY5x_" name="TDG_PRE_46_">
       <notes>
         <note category="german">Stitch</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_46_</source>
@@ -373,6 +414,7 @@
     <unit id="U12HYrS" name="TDG_PRE_56_">
       <notes>
         <note category="german">Toto</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_56_</source>
@@ -382,6 +424,7 @@
     <unit id="zUOfW9f" name="TDG_PRE_07_">
       <notes>
         <note category="german">Verdell</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_07_</source>
@@ -391,6 +434,7 @@
     <unit id="9OBzMjG" name="TDG_PRE_17_">
       <notes>
         <note category="german">Uggie</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_17_</source>
@@ -400,6 +444,7 @@
     <unit id="Dvz4aKQ" name="TDG_PRE_27_">
       <notes>
         <note category="german">William</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_27_</source>
@@ -409,6 +454,7 @@
     <unit id="0._.Yw2" name="TDG_PRE_37_">
       <notes>
         <note category="german">Zero</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_37_</source>
@@ -418,6 +464,7 @@
     <unit id="ET17Miq" name="TDG_PRE_47_">
       <notes>
         <note category="german">Winky</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_47_</source>
@@ -427,6 +474,7 @@
     <unit id="ZdJeBTf" name="TDG_PRE_57_">
       <notes>
         <note category="german">Whiskey</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_57_</source>
@@ -436,6 +484,7 @@
     <unit id="SJpLpyq" name="TDG_PRE_08_">
       <notes>
         <note category="german">Bandit</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_08_</source>
@@ -445,6 +494,7 @@
     <unit id="i_t.Yp7" name="TDG_PRE_18_">
       <notes>
         <note category="german">Arlo</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_18_</source>
@@ -454,6 +504,7 @@
     <unit id="n48PM80" name="TDG_PRE_28_">
       <notes>
         <note category="german">Bismarck</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_28_</source>
@@ -463,6 +514,7 @@
     <unit id="KW5Jimz" name="TDG_PRE_38_">
       <notes>
         <note category="german">Blue</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_38_</source>
@@ -472,6 +524,7 @@
     <unit id="zNDIpLe" name="TDG_PRE_48_">
       <notes>
         <note category="german">Brian</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_48_</source>
@@ -481,6 +534,7 @@
     <unit id="uhtgnuw" name="TDG_PRE_58_">
       <notes>
         <note category="german">Spike</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_58_</source>
@@ -490,6 +544,7 @@
     <unit id="e735vyD" name="TDG_PRE_09_">
       <notes>
         <note category="german">Scooby</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_09_</source>
@@ -499,6 +554,7 @@
     <unit id="FNiLMCL" name="TDG_PRE_19_">
       <notes>
         <note category="german">Lassie</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_19_</source>
@@ -508,6 +564,7 @@
     <unit id=".y.T78W" name="TDG_PRE_29_">
       <notes>
         <note category="german">Comet</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_29_</source>
@@ -517,6 +574,7 @@
     <unit id="v2JWeCV" name="TDG_PRE_39_">
       <notes>
         <note category="german">Claude</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_39_</source>
@@ -526,6 +584,7 @@
     <unit id=".a6QmsN" name="TDG_PRE_49_">
       <notes>
         <note category="german">Dino</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_49_</source>
@@ -535,6 +594,7 @@
     <unit id="4gQQ6WT" name="TDG_PRE_59_">
       <notes>
         <note category="german">Slinky</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_PRE_59_</source>
@@ -544,6 +604,7 @@
     <unit id="F1eQTaZ" name="TDG_SUF_00">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_00</source>
@@ -553,6 +614,7 @@
     <unit id="W8Pw5fM" name="TDG_SUF_10">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_10</source>
@@ -562,6 +624,7 @@
     <unit id="dDsF_bs" name="TDG_SUF_20">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_20</source>
@@ -571,6 +634,7 @@
     <unit id="GhpZOpY" name="TDG_SUF_30">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_30</source>
@@ -580,6 +644,7 @@
     <unit id="0o5JtjM" name="TDG_SUF_40">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_40</source>
@@ -589,6 +654,7 @@
     <unit id="ahfoKKB" name="TDG_SUF_50">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_50</source>
@@ -598,6 +664,7 @@
     <unit id="i_jdecg" name="TDG_SUF_01">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_01</source>
@@ -607,6 +674,7 @@
     <unit id="DSPQFbn" name="TDG_SUF_11">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_11</source>
@@ -616,6 +684,7 @@
     <unit id="iVrqb08" name="TDG_SUF_21">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_21</source>
@@ -625,6 +694,7 @@
     <unit id="hnyAuYM" name="TDG_SUF_31">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_31</source>
@@ -634,6 +704,7 @@
     <unit id="LQjojRU" name="TDG_SUF_41">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_41</source>
@@ -643,6 +714,7 @@
     <unit id="LPuAIE7" name="TDG_SUF_51">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_51</source>
@@ -652,6 +724,7 @@
     <unit id="MuyHMQw" name="TDG_SUF_02">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_02</source>
@@ -661,6 +734,7 @@
     <unit id="f0UsFjd" name="TDG_SUF_12">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_12</source>
@@ -670,6 +744,7 @@
     <unit id="wrqju0K" name="TDG_SUF_22">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_22</source>
@@ -679,6 +754,7 @@
     <unit id="dq_Up_0" name="TDG_SUF_32">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_32</source>
@@ -688,6 +764,7 @@
     <unit id="0skQYlK" name="TDG_SUF_42">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_42</source>
@@ -697,6 +774,7 @@
     <unit id="Vocs9mg" name="TDG_SUF_52">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_52</source>
@@ -706,6 +784,7 @@
     <unit id="WVpRtxd" name="TDG_SUF_03">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_03</source>
@@ -715,6 +794,7 @@
     <unit id="VLnabWd" name="TDG_SUF_13">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_13</source>
@@ -724,6 +804,7 @@
     <unit id="6vFMvSY" name="TDG_SUF_23">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_23</source>
@@ -733,6 +814,7 @@
     <unit id="z83cqFI" name="TDG_SUF_33">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_33</source>
@@ -742,6 +824,7 @@
     <unit id="Kl8a0T4" name="TDG_SUF_43">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_43</source>
@@ -751,6 +834,7 @@
     <unit id="zYERnAM" name="TDG_SUF_53">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_53</source>
@@ -760,6 +844,7 @@
     <unit id="3bqNk.9" name="TDG_SUF_04">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_04</source>
@@ -769,6 +854,7 @@
     <unit id="IYJdTPk" name="TDG_SUF_14">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_14</source>
@@ -778,6 +864,7 @@
     <unit id="pxkq9NE" name="TDG_SUF_24">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_24</source>
@@ -787,6 +874,7 @@
     <unit id="aNOyve6" name="TDG_SUF_34">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_34</source>
@@ -796,6 +884,7 @@
     <unit id="yG66zo5" name="TDG_SUF_44">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_44</source>
@@ -805,6 +894,7 @@
     <unit id="Ii4fxc0" name="TDG_SUF_54">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_54</source>
@@ -814,6 +904,7 @@
     <unit id="TuI4WCS" name="TDG_SUF_05">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_05</source>
@@ -823,6 +914,7 @@
     <unit id=".v8Ct7X" name="TDG_SUF_15">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_15</source>
@@ -832,6 +924,7 @@
     <unit id="UMaGPSr" name="TDG_SUF_25">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_25</source>
@@ -841,6 +934,7 @@
     <unit id="sG2FI6c" name="TDG_SUF_35">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_35</source>
@@ -850,6 +944,7 @@
     <unit id="JfVZ4lj" name="TDG_SUF_45">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_45</source>
@@ -859,6 +954,7 @@
     <unit id="GjFWIQk" name="TDG_SUF_55">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_55</source>
@@ -868,6 +964,7 @@
     <unit id="DV.bNOF" name="TDG_SUF_06">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_06</source>
@@ -877,6 +974,7 @@
     <unit id="PEAucBk" name="TDG_SUF_16">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_16</source>
@@ -886,6 +984,7 @@
     <unit id="PZmAQOg" name="TDG_SUF_26">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_26</source>
@@ -895,6 +994,7 @@
     <unit id="k2IRFpU" name="TDG_SUF_36">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_36</source>
@@ -904,6 +1004,7 @@
     <unit id="LRCrVlW" name="TDG_SUF_46">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_46</source>
@@ -913,6 +1014,7 @@
     <unit id="Bdph4cc" name="TDG_SUF_56">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_56</source>
@@ -922,6 +1024,7 @@
     <unit id="1t17Kz3" name="TDG_SUF_07">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_07</source>
@@ -931,6 +1034,7 @@
     <unit id="AV6PtfF" name="TDG_SUF_17">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_17</source>
@@ -940,6 +1044,7 @@
     <unit id="i1g19Ly" name="TDG_SUF_27">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_27</source>
@@ -949,6 +1054,7 @@
     <unit id="b1Ii.gd" name="TDG_SUF_37">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_37</source>
@@ -958,6 +1064,7 @@
     <unit id="zqMSQA3" name="TDG_SUF_47">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_47</source>
@@ -967,6 +1074,7 @@
     <unit id="pZGO9KE" name="TDG_SUF_57">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_57</source>
@@ -976,6 +1084,7 @@
     <unit id="5dCuvYy" name="TDG_SUF_08">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_08</source>
@@ -985,6 +1094,7 @@
     <unit id="9rCBeqH" name="TDG_SUF_18">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_18</source>
@@ -994,6 +1104,7 @@
     <unit id="iTt2A9w" name="TDG_SUF_28">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_28</source>
@@ -1003,6 +1114,7 @@
     <unit id="7sn7yBa" name="TDG_SUF_38">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_38</source>
@@ -1012,6 +1124,7 @@
     <unit id="p0jFyVn" name="TDG_SUF_48">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_48</source>
@@ -1021,6 +1134,7 @@
     <unit id="VtjS5JY" name="TDG_SUF_58">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_58</source>
@@ -1030,6 +1144,7 @@
     <unit id="LKVS6Sf" name="TDG_SUF_09">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_09</source>
@@ -1039,6 +1154,7 @@
     <unit id="afwbimK" name="TDG_SUF_19">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_19</source>
@@ -1048,6 +1164,7 @@
     <unit id="ZJ6BD3k" name="TDG_SUF_29">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_29</source>
@@ -1057,6 +1174,7 @@
     <unit id="3n6Cp3Y" name="TDG_SUF_39">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_39</source>
@@ -1066,6 +1184,7 @@
     <unit id="vZEdEPU" name="TDG_SUF_49">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_49</source>
@@ -1075,6 +1194,7 @@
     <unit id="ZdLqWcm" name="TDG_SUF_59">
       <notes>
         <note category="german"></note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php</note>
       </notes>
       <segment>
         <source>TDG_SUF_59</source>
@@ -1084,6 +1204,7 @@
     <unit id="OGB7Pen" name="Krankenhaus Beinapp">
       <notes>
         <note category="german">Krankenhaus Beinapp</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Krankenhaus Beinapp</source>
@@ -1093,6 +1214,7 @@
     <unit id="2gwJ5rX" name="Aesthetyxiations-Abteilung">
       <notes>
         <note category="german">Aesthetyxiations-Abteilung</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Aesthetyxiations-Abteilung</source>
@@ -1102,6 +1224,7 @@
     <unit id="gRKS19j" name="Krankenhaus Krankenstedt">
       <notes>
         <note category="german">Krankenhaus Krankenstedt</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Krankenhaus Krankenstedt</source>
@@ -1111,6 +1234,7 @@
     <unit id="nE0ohJ." name="Waldorf Klinik">
       <notes>
         <note category="german">Waldorf Klinik</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Waldorf Klinik</source>
@@ -1120,6 +1244,7 @@
     <unit id="MpHqmpl" name="STD Behandlungszentrum Bohlen">
       <notes>
         <note category="german">STD Behandlungszentrum Bohlen</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>STD Behandlungszentrum Bohlen</source>
@@ -1129,6 +1254,7 @@
     <unit id="3IZqzXd" name="Bill S. Preston Memorial Hospital">
       <notes>
         <note category="german">Bill S. Preston Memorial Hospital</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Bill S. Preston Memorial Hospital</source>
@@ -1138,6 +1264,7 @@
     <unit id="4YF2o8." name="Klinik von Dr. Quack Salber">
       <notes>
         <note category="german">Klinik von Dr. Quack Salber</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Klinik von Dr. Quack Salber</source>
@@ -1147,6 +1274,7 @@
     <unit id=".wacYXQ" name="Wasserallergie-Behandlungszentrum">
       <notes>
         <note category="german">Wasserallergie-Behandlungszentrum</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Wasserallergie-Behandlungszentrum</source>
@@ -1156,6 +1284,7 @@
     <unit id="OpAA8wW" name="Klinikum Altenburg">
       <notes>
         <note category="german">Klinikum Altenburg</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Klinikum Altenburg</source>
@@ -1165,6 +1294,7 @@
     <unit id="b9dLorE" name="Stadtkrankenhaus am Dorfplatz">
       <notes>
         <note category="german">Stadtkrankenhaus am Dorfplatz</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Stadtkrankenhaus am Dorfplatz</source>
@@ -1174,6 +1304,7 @@
     <unit id="Myeh7YJ" name="Blanko-Penisverkleinerungsklinik">
       <notes>
         <note category="german">Blanko-Penisverkleinerungsklinik</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Blanko-Penisverkleinerungsklinik</source>
@@ -1183,6 +1314,7 @@
     <unit id="KYvE.Q7" name="Chronische Erschöpfungsheilanstalt Dr. Sloth">
       <notes>
         <note category="german">Chronische Erschöpfungsheilanstalt Dr. Sloth</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Chronische Erschöpfungsheilanstalt Dr. Sloth</source>
@@ -1192,6 +1324,7 @@
     <unit id="6w7BxUc" name="Bordeaux Grace">
       <notes>
         <note category="german">Bordeaux Grace</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Bordeaux Grace</source>
@@ -1201,6 +1334,7 @@
     <unit id="6es1Zyz" name="George und Ralph Kinderkrankenhaus">
       <notes>
         <note category="german">George und Ralph Kinderkrankenhaus</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>George und Ralph Kinderkrankenhaus</source>
@@ -1210,6 +1344,7 @@
     <unit id="bLVHCVX" name="Charlton Eston Hotel">
       <notes>
         <note category="german">Charlton Eston Hotel</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Charlton Eston Hotel</source>
@@ -1219,6 +1354,7 @@
     <unit id="YW9tNOa" name="Motel Zauberstübchen">
       <notes>
         <note category="german">Motel Zauberstübchen</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Motel Zauberstübchen</source>
@@ -1228,6 +1364,7 @@
     <unit id="RXTU0Jt" name="Rabble Lodge">
       <notes>
         <note category="german">Rabble Lodge</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Rabble Lodge</source>
@@ -1237,6 +1374,7 @@
     <unit id="nDrFULB" name="Gasthof 'Zum Spanner'">
       <notes>
         <note category="german">Gasthof 'Zum Spanner'</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Gasthof 'Zum Spanner'</source>
@@ -1246,6 +1384,7 @@
     <unit id="11soaXO" name="Zur Erbrochenen Krone">
       <notes>
         <note category="german">Zur Erbrochenen Krone</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Zur Erbrochenen Krone</source>
@@ -1255,6 +1394,7 @@
     <unit id=".tqLOvU" name="Terminal Hotel">
       <notes>
         <note category="german">Terminal Hotel</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Terminal Hotel</source>
@@ -1264,6 +1404,7 @@
     <unit id="UJ.NcUe" name="Hotel Von Otto">
       <notes>
         <note category="german">Hotel Von Otto</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Hotel Von Otto</source>
@@ -1273,6 +1414,7 @@
     <unit id="4iY4V5c" name="S+M B+B">
       <notes>
         <note category="german">S+M B+B</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>S+M B+B</source>
@@ -1282,6 +1424,7 @@
     <unit id="38Pnm9V" name="Zm Schlafen Reichts Motel">
       <notes>
         <note category="german">Zm Schlafen Reichts Motel</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Zm Schlafen Reichts Motel</source>
@@ -1291,6 +1434,7 @@
     <unit id="ugpUYNk" name="Hotel Peculiar">
       <notes>
         <note category="german">Hotel Peculiar</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Hotel Peculiar</source>
@@ -1300,6 +1444,7 @@
     <unit id="FfhGQBk" name="Liza Defloration Hotel">
       <notes>
         <note category="german">Liza Defloration Hotel</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Liza Defloration Hotel</source>
@@ -1309,6 +1454,7 @@
     <unit id="LEp.7HR" name="Santas Absteige">
       <notes>
         <note category="german">Santas Absteige</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Santas Absteige</source>
@@ -1318,6 +1464,7 @@
     <unit id="QAgPWD4" name="Chez Clem Hotel">
       <notes>
         <note category="german">Chez Clem Hotel</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Chez Clem Hotel</source>
@@ -1327,6 +1474,7 @@
     <unit id="CVqoAHv" name="Drei Eingänge Hotel + Spa">
       <notes>
         <note category="german">Drei Eingänge Hotel + Spa</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Drei Eingänge Hotel + Spa</source>
@@ -1336,6 +1484,7 @@
     <unit id="3ElP164" name="Hostel Partout">
       <notes>
         <note category="german">Hostel Partout</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Hostel Partout</source>
@@ -1345,6 +1494,7 @@
     <unit id="NwLPq6d" name="Bumbling Inn">
       <notes>
         <note category="german">Bumbling Inn</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Bumbling Inn</source>
@@ -1354,6 +1504,7 @@
     <unit id="RhHPR6w" name="Vajazzl Inn">
       <notes>
         <note category="german">Vajazzl Inn</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Vajazzl Inn</source>
@@ -1363,6 +1514,7 @@
     <unit id="iPCSevb" name="Hotel Venga">
       <notes>
         <note category="german">Hotel Venga</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Hotel Venga</source>
@@ -1372,6 +1524,7 @@
     <unit id="4gAjVQX" name="Verlassener Bunker">
       <notes>
         <note category="german">Verlassener Bunker</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Verlassener Bunker</source>
@@ -1381,6 +1534,7 @@
     <unit id="IX8g.CS" name="Thermonuklear-Bunker">
       <notes>
         <note category="german">Thermonuklear-Bunker</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Thermonuklear-Bunker</source>
@@ -1390,6 +1544,7 @@
     <unit id="nk_3SAa" name="Garrison-Haus">
       <notes>
         <note category="german">Garrison-Haus</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Garrison-Haus</source>
@@ -1399,6 +1554,7 @@
     <unit id="SpbWkEI" name="Bastion der Angst">
       <notes>
         <note category="german">Bastion der Angst</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Bastion der Angst</source>
@@ -1408,6 +1564,7 @@
     <unit id="St7WqwF" name="Bunker der Wut">
       <notes>
         <note category="german">Bunker der Wut</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Bunker der Wut</source>
@@ -1417,6 +1574,7 @@
     <unit id="6TfqhRy" name="Fallout Shelter">
       <notes>
         <note category="german">Fallout Shelter</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Fallout Shelter</source>
@@ -1426,6 +1584,7 @@
     <unit id="LjLekr." name="Keine Hoffnung ohne Öffnung!">
       <notes>
         <note category="german">Keine Hoffnung ohne Öffnung!</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Keine Hoffnung ohne Öffnung!</source>
@@ -1435,6 +1594,7 @@
     <unit id="OjXicDh" name="Schattenfort">
       <notes>
         <note category="german">Schattenfort</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Schattenfort</source>
@@ -1444,6 +1604,7 @@
     <unit id="NLf.v3s" name="Verlassene Trooper-Station">
       <notes>
         <note category="german">Verlassene Trooper-Station</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Verlassene Trooper-Station</source>
@@ -1453,6 +1614,7 @@
     <unit id="T0elHRk" name="Verwesungsversteck">
       <notes>
         <note category="german">Verwesungsversteck</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Verwesungsversteck</source>
@@ -1462,6 +1624,7 @@
     <unit id="kdHZpFX" name="Knochenkeller">
       <notes>
         <note category="german">Knochenkeller</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Knochenkeller</source>
@@ -1471,6 +1634,7 @@
     <unit id="kYVhknJ" name="Geheimes Testlabor">
       <notes>
         <note category="german">Geheimes Testlabor</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Geheimes Testlabor</source>
@@ -1480,6 +1644,7 @@
     <unit id="xVdbliM" name="Area 52.1 Bunker">
       <notes>
         <note category="german">Area 52.1 Bunker</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Area 52.1 Bunker</source>
@@ -1489,6 +1654,7 @@
     <unit id="hhCsY5M" name="Area 33 Bunker">
       <notes>
         <note category="german">Area 33 Bunker</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Area 33 Bunker</source>
@@ -1498,6 +1664,7 @@
     <unit id="Veg.kOO" name="Quarantäne-Zone">
       <notes>
         <note category="german">Quarantäne-Zone</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Quarantäne-Zone</source>
@@ -1507,6 +1674,8 @@
     <unit id="9tYl8RU" name="Zum Schlafen Reichts Motel">
       <notes>
         <note category="german">Zum Schlafen Reichts Motel</note>
+        <note category="state">new</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Zum Schlafen Reichts Motel</source>
@@ -1516,6 +1685,7 @@
     <unit id="2t2ppQ_" name="Psychose">
       <notes>
         <note category="german">Psychose</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Psychose</source>
@@ -1525,6 +1695,7 @@
     <unit id="K2Wbd.A" name="Demenz">
       <notes>
         <note category="german">Demenz</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Demenz</source>
@@ -1534,6 +1705,7 @@
     <unit id="EYYevn6" name="Leid">
       <notes>
         <note category="german">Leid</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Leid</source>
@@ -1543,6 +1715,7 @@
     <unit id="NDIpR9F" name="Trinke">
       <notes>
         <note category="german">Trinke</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Trinke</source>
@@ -1552,6 +1725,7 @@
     <unit id="Na4chUa" name="Schlaf">
       <notes>
         <note category="german">Schlaf</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Schlaf</source>
@@ -1561,6 +1735,7 @@
     <unit id="ts.41ge" name="Blut">
       <notes>
         <note category="german">Blut</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Blut</source>
@@ -1570,6 +1745,7 @@
     <unit id="WEwnSQW" name="Wut">
       <notes>
         <note category="german">Wut</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Wut</source>
@@ -1579,6 +1755,7 @@
     <unit id="G.Cu2aP" name="Hass">
       <notes>
         <note category="german">Hass</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Hass</source>
@@ -1588,6 +1765,7 @@
     <unit id="nbLDtAU" name="Töte">
       <notes>
         <note category="german">Töte</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Töte</source>
@@ -1597,6 +1775,7 @@
     <unit id="25tJTf3" name="Töte sie">
       <notes>
         <note category="german">Töte sie</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Töte sie</source>
@@ -1606,6 +1785,7 @@
     <unit id="b15cXr8" name="Mord">
       <notes>
         <note category="german">Mord</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Mord</source>
@@ -1615,6 +1795,7 @@
     <unit id=".flbaw." name="Drogen">
       <notes>
         <note category="german">Drogen</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Drogen</source>
@@ -1624,6 +1805,7 @@
     <unit id="nVEhLBk" name="Der Tod wartet">
       <notes>
         <note category="german">Der Tod wartet</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Der Tod wartet</source>
@@ -1633,6 +1815,7 @@
     <unit id="AQoCjlG" name="Du wirst sterben">
       <notes>
         <note category="german">Du wirst sterben</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Du wirst sterben</source>
@@ -1642,6 +1825,7 @@
     <unit id="YbqI5Bm" name="Du wirst heute sterben">
       <notes>
         <note category="german">Du wirst heute sterben</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Du wirst heute sterben</source>
@@ -1651,6 +1835,7 @@
     <unit id="RdgKJ.d" name="Folge den Schatten">
       <notes>
         <note category="german">Folge den Schatten</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Folge den Schatten</source>
@@ -1660,6 +1845,7 @@
     <unit id="kuk0yC." name="Alpträume">
       <notes>
         <note category="german">Alpträume</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Alpträume</source>
@@ -1669,6 +1855,7 @@
     <unit id="tRWS2l6" name="Verstümmelung">
       <notes>
         <note category="german">Verstümmelung</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Verstümmelung</source>
@@ -1678,6 +1865,7 @@
     <unit id="bL1VSbZ" name="Keine Hoffnung">
       <notes>
         <note category="german">Keine Hoffnung</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Keine Hoffnung</source>
@@ -1687,6 +1875,7 @@
     <unit id="WFp8AyZ" name="Sie beobachten dich">
       <notes>
         <note category="german">Sie beobachten dich</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Sie beobachten dich</source>
@@ -1696,6 +1885,7 @@
     <unit id="v70UGnq" name="Sie wollen dich töten">
       <notes>
         <note category="german">Sie wollen dich töten</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Sie wollen dich töten</source>
@@ -1705,6 +1895,7 @@
     <unit id="pyauuvK" name="Traue niemandem">
       <notes>
         <note category="german">Traue niemandem</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Traue niemandem</source>
@@ -1714,6 +1905,7 @@
     <unit id="ca2GnpZ" name="Lauf lauf weg">
       <notes>
         <note category="german">Lauf lauf weg</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Lauf lauf weg</source>
@@ -1723,6 +1915,7 @@
     <unit id="ZS_oYub" name="Hör nicht auf sie">
       <notes>
         <note category="german">Hör nicht auf sie</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Hör nicht auf sie</source>
@@ -1732,6 +1925,7 @@
     <unit id="legDNfw" name="Sie werden dich töten">
       <notes>
         <note category="german">Sie werden dich töten</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Sie werden dich töten</source>
@@ -1741,6 +1935,7 @@
     <unit id="PHrbHvI" name="Dein Nachbar will deinen Tod">
       <notes>
         <note category="german">Dein Nachbar will deinen Tod</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Dein Nachbar will deinen Tod</source>
@@ -1750,6 +1945,7 @@
     <unit id="zyCSipi" name="Sie wollen dich hängen">
       <notes>
         <note category="german">Sie wollen dich hängen</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Sie wollen dich hängen</source>
@@ -1759,6 +1955,7 @@
     <unit id="Iikq2RH" name="Sie werden dich umbringen">
       <notes>
         <note category="german">Sie werden dich umbringen</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Sie werden dich umbringen</source>
@@ -1768,6 +1965,7 @@
     <unit id="1SlXsSD" name="Bleib hier">
       <notes>
         <note category="german">Bleib hier</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Bleib hier</source>
@@ -1777,6 +1975,7 @@
     <unit id="z1q5NeJ" name="Koste ihr Blut">
       <notes>
         <note category="german">Koste ihr Blut</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Koste ihr Blut</source>
@@ -1786,6 +1985,7 @@
     <unit id="gK89Qa1" name="Wir beobachten dich">
       <notes>
         <note category="german">Wir beobachten dich</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Wir beobachten dich</source>
@@ -1795,6 +1995,7 @@
     <unit id="_U2RPMV" name="Sie sind VERRÜCKT">
       <notes>
         <note category="german">Sie sind VERRÜCKT</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Sie sind VERRÜCKT</source>
@@ -1804,6 +2005,7 @@
     <unit id="4UhQdcm" name="Wir wollen deine Haut">
       <notes>
         <note category="german">Wir wollen deine Haut</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Wir wollen deine Haut</source>
@@ -1813,6 +2015,7 @@
     <unit id="IY2Ysbc" name="Koste ihr Fleisch">
       <notes>
         <note category="german">Koste ihr Fleisch</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Koste ihr Fleisch</source>
@@ -1822,6 +2025,7 @@
     <unit id="fVDjqAf" name="Iss ihn">
       <notes>
         <note category="german">Iss ihn</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Iss ihn</source>
@@ -1831,6 +2035,7 @@
     <unit id="RFODCm." name="Töte ihn">
       <notes>
         <note category="german">Töte ihn</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Töte ihn</source>
@@ -1840,6 +2045,7 @@
     <unit id="Fy78.sn" name="Lass ihn zahlen">
       <notes>
         <note category="german">Lass ihn zahlen</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Lass ihn zahlen</source>
@@ -1849,6 +2055,7 @@
     <unit id="CleaC28" name="Räche dich">
       <notes>
         <note category="german">Räche dich</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Räche dich</source>
@@ -1858,6 +2065,7 @@
     <unit id="DtRCEDn" name="Verrate sie">
       <notes>
         <note category="german">Verrate sie</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Verrate sie</source>
@@ -1867,6 +2075,7 @@
     <unit id="Fzgol4h" name="Ohne Gnade">
       <notes>
         <note category="german">Ohne Gnade</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Ohne Gnade</source>
@@ -1876,6 +2085,7 @@
     <unit id="nhW0K2J" name="Ich bin nicht verrückt">
       <notes>
         <note category="german">Ich bin nicht verrückt</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Ich bin nicht verrückt</source>
@@ -1885,6 +2095,7 @@
     <unit id="b3DbmRg" name="Ich sehe nichts">
       <notes>
         <note category="german">Ich sehe nichts</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Ich sehe nichts</source>
@@ -1894,6 +2105,7 @@
     <unit id="ScQz1FJ" name="Sie sind wahnsinnig">
       <notes>
         <note category="german">Sie sind wahnsinnig</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Sie sind wahnsinnig</source>
@@ -1903,6 +2115,7 @@
     <unit id="RJM4_Pj" name="Bis zum Tod">
       <notes>
         <note category="german">Bis zum Tod</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Bis zum Tod</source>
@@ -1912,6 +2125,7 @@
     <unit id="FsIaYVJ" name="Töte sie alle">
       <notes>
         <note category="german">Töte sie alle</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Töte sie alle</source>
@@ -1921,6 +2135,7 @@
     <unit id="JaBlp76" name="Sie werden sterben">
       <notes>
         <note category="german">Sie werden sterben</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Sie werden sterben</source>
@@ -1930,6 +2145,7 @@
     <unit id="P.WLZrc" name="Lass sie sterben">
       <notes>
         <note category="german">Lass sie sterben</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Lass sie sterben</source>
@@ -1939,6 +2155,7 @@
     <unit id="1hHqy07" name="Verschlinge sie">
       <notes>
         <note category="german">Verschlinge sie</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Verschlinge sie</source>
@@ -1948,6 +2165,7 @@
     <unit id="NLjEZ7p" name="Gib auf">
       <notes>
         <note category="german">Gib auf</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Gib auf</source>
@@ -1957,6 +2175,7 @@
     <unit id="8KUUEzj" name="Alles... ist ... OK …">
       <notes>
         <note category="german">Alles... ist... gut...</note>
+        <note category="from">twig:///templates/ajax/game/map.html.twig</note>
       </notes>
       <segment>
         <source>Alles... ist ... OK …</source>
