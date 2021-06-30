@@ -13,13 +13,13 @@ cache:
 
 before_script:
   - apt-get update -yqq
-  - apt-get install -yqq sudo git imagemagick
+  - apt-get install -yqq sudo git imagemagick curl
   # Install Node & Yarn
   - curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
   - sudo apt-get install -y nodejs
   - npm install --global yarn
   # Install PHP extensions
-  - wget https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions -O /usr/local/bin/install-php-extensions
+  - curl https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions -o /usr/local/bin/install-php-extensions
   - chmod +x /usr/local/bin/install-php-extensions
   - install-php-extensions mbstring mysqli curl json intl gd xml zip bz2 opcache imap opcache readline
   # Install & enable Xdebug for code coverage reports
