@@ -19299,7 +19299,7 @@
       </notes>
       <segment>
         <source>Die Bürger haben das Haus von &lt;strong&gt;✝ {citizen}&lt;/strong&gt; vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert. Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...</source>
-        <target><![CDATA[Die Bürger haben das Haus von <strong>✝ {citizen}</strong> vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert. Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...]]></target>
+        <target><![CDATA[¡Los habitantes han logrado desmantelar la casa de <strong>✝ {citizen}</strong>! Todos los objetos de su baúl han sido depositados en el Almacén del pueblo. Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...]]></target>
       </segment>
     </unit>
     <unit id="f5uvOSp">
@@ -19308,7 +19308,7 @@
       </notes>
       <segment>
         <source>Die Bürger haben das Haus von &lt;strong&gt;✝ {citizen}&lt;/strong&gt; vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert. Die Stadt hat zudem folgende Resourcen zurückgewinnen können: {list}.</source>
-        <target><![CDATA[Die Bürger haben das Haus von <strong>✝ {citizen}</strong> vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert. Die Stadt hat zudem folgende Resourcen zurückgewinnen können: {list}.]]></target>
+        <target><![CDATA[¡Los habitantes han logrado desmantelar la casa de <strong>✝ {citizen}</strong>! Todos los objetos de su baúl han sido depositados en el Almacén del pueblo. El pueblo ha recogido también los siguientes objetos: {list}.]]></target>
       </segment>
     </unit>
     <unit id="kkxXgbR">
