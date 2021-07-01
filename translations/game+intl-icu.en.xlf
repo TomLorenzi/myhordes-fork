@@ -20994,7 +20994,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</source>
-        <target><![CDATA[<strong>Herzlichen Glückwunsch</strong>, du hast folgende Titel freigeschaltet: {list_i} {list_t}]]></target>
+        <target><![CDATA[<strong>Congratulations</strong>, you have unlocked the following titles: {list_i} {list_t}]]></target>
       </segment>
     </unit>
     <unit id="jIKh96s">
