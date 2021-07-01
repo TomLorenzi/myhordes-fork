@@ -54,6 +54,7 @@ stages:
   - deploy
 
 build:
+  stage: build
   script:
     - yarn encore dev
     # Install default DB
@@ -62,9 +63,13 @@ build:
 # Run our tests
 # If Xdebug was installed you can generate a coverage report and see code coverage metrics.
 test:
+  stage: test
   script:
     - vendor/bin/phpunit # --coverage-text --colors=never
 
 deploy:
+  stage: deploy
   script:
     - echo "Nothing to do yet :("
+  only:
+    - Dev-Ludofloria
