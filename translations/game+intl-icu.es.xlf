@@ -5198,7 +5198,7 @@
       </notes>
       <segment>
         <source>Am Ende der Schlacht zerfiel das Gebäude {buildingName} zu Staub.</source>
-        <target>Al final de la noche, se escuchó como la construcción {buildingName} se derrumbaba hasta ser una nube de polvo.</target>
+        <target>Al terminar la batalla, el edificio {buildingName} se derrumbó hecho polvo.</target>
       </segment>
     </unit>
     <unit id="xyPBCmM" name="Gefahr">
