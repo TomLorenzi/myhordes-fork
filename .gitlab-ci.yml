@@ -67,9 +67,12 @@ test:
   script:
     - vendor/bin/phpunit # --coverage-text --colors=never
 
-deploy:
+deploy_staging:
   stage: deploy
   script:
     - echo "Nothing to do yet :("
   only:
     - Dev-Ludofloria
+  environment:
+    name: ludo-staging
+    url: https://myhordes.chehtan.dev
