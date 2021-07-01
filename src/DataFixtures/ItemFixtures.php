@@ -64,7 +64,7 @@ class ItemFixtures extends Fixture
 		['label' => 'Krebserregender Ofen', 'icon' => 'machine_2', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>true, 'watchpoint' => 15],                                    // -- Out
 		['label' => 'Alte Waschmaschine', 'icon' => 'machine_1', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>true, 'watchpoint' => 19],                                      // -- Out
 		['label' => 'Wütende Mieze (halb verdaut)', 'icon' => 'angryc', 'category' => 'Furniture', 'deco' =>1, 'heavy' =>false, 'watchpoint' => 0, 'fragile' => true],                           // --
-		['label' => 'Kassettenradio', 'icon' => 'radio_on', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>false, 'watchpoint' => -10],                                    // -- ---
+		['label' => 'Kassettenradio', 'icon' => 'radio_on', 'category' => 'Furniture', 'deco' =>2, 'heavy' =>false, 'watchpoint' => -8],                                    // -- ---
         ['label' => 'Schaukelstuhl', 'icon' => 'chair', 'category' => 'Furniture', 'deco' =>5, 'heavy' =>true, 'watchpoint' => 15],                                         // -- ---
         ['label' => 'Ausgeschaltete Nachttischlampe', 'icon' => 'lamp', 'category' => 'Furniture', 'deco' =>1, 'heavy' =>false, 'watchpoint' => 4],                        // In Out
         ['label' => 'Perser', 'icon' => 'carpet', 'category' => 'Furniture', 'deco' =>10, 'heavy' =>true, 'watchpoint' => 8],                                             // -- ---
