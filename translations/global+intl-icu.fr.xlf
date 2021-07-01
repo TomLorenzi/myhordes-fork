@@ -3053,7 +3053,7 @@
       </notes>
       <segment>
         <source>Mit offiziellen Gruppen in Kontakt treten</source>
-        <target>Mit offiziellen Gruppen in Kontakt treten</target>
+        <target>Contacter les groupes officiels</target>
       </segment>
     </unit>
     <unit id="UsfYbvX" name="Eine offizielle Gruppe kontaktieren">
@@ -3064,7 +3064,7 @@
       </notes>
       <segment>
         <source>Eine offizielle Gruppe kontaktieren</source>
-        <target>Eine offizielle Gruppe kontaktieren</target>
+        <target>Contacter un groupe officiel</target>
       </segment>
     </unit>
     <unit id="jQrj982" name="via {group_inbox}">
