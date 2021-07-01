@@ -427,7 +427,7 @@ class SoulController extends CustomAbstractController
 
         $name_change = ($displayName !== $user->getDisplayName() && $user->getDisplayName() !== null) || ($displayName !== $user->getUsername() && $user->getDisplayName() === null);
 
-        if ($name_change && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->m < 6) {
+        if ($name_change && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->days < (30 * 6)) { // 6 months
             return  AjaxResponse::error(self::ErrorUserEditTooSoon);
         }
         if ($name_change && $user->getEternalID() !== null)
