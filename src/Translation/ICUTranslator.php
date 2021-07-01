@@ -55,6 +55,7 @@ class ICUTranslator implements TranslatorInterface, TranslatorBagInterface, Loca
 
             if (isset($parameters["{$key}__tag"])) $pass_trough[$key] = "<{$parameters["{$key}__tag"]}>{$pass_trough[$key]}</{$parameters["{$key}__tag"]}>";
         }
+        file_put_contents("/tmp/dump.txt", print_r($pass_trough, true));
         return $this->_decorated->trans($id,$pass_trough,$domain,$locale);
     }
 

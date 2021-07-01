@@ -5794,7 +5794,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     </unit>
     <unit id="x7SDYp9" name="{citizens} Bürger">
       <notes>
-        <note category="german">{citizens} Bürger</note>
+        <note category="german">{citizens} Bürger am Leben</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
       </notes>
       <segment>
@@ -20989,7 +20989,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="T14z5t.">
       <notes>
         <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -22725,6 +22724,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="W8upWpv">
       <notes>
         <note category="german">Die Wandtafel ermöglicht altgedienten Helden, der ganzen Stadt Anweisungen zu geben.</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Die Wandtafel ermöglicht altgedienten Helden, der ganzen Stadt Anweisungen zu geben.</source>
@@ -22734,6 +22734,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="UQ10LbN">
       <notes>
         <note category="german">Diese Option steht dir ab sofort zur Verfügung, da du auf deiner Seelenseite den Diktatorbonus freigeschaltet hast.</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Diese Option steht dir ab sofort zur Verfügung, da du auf deiner Seelenseite den Diktatorbonus freigeschaltet hast.</source>
@@ -22743,6 +22744,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="4Uzw2JG" name="Mehr darüber erfahren...">
       <notes>
         <note category="german">Mehr darüber erfahren...</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
       </notes>
       <segment>
         <source>Mehr darüber erfahren...</source>

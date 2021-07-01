@@ -7688,7 +7688,7 @@
     </unit>
     <unit id="hEgldti" name="Nachtwache-Waffen">
       <notes>
-        <note category="german">Nachtwache-Waffen</note>
+        <note category="german">Wächterswaffe</note>
         <note category="from">twig:///templates/ajax/game/item_proto_tooltip.html.twig;twig:///templates/ajax/game/item_tooltip.html.twig</note>
       </notes>
       <segment>
@@ -9324,6 +9324,29 @@
       <segment>
         <source>Dieses Gefühl des Wohlbefindens, das dieser kleine Kaffee hervorruft, bringt dich sofort wieder auf die Beine. Aah!</source>
         <target>La sensation de bien-être procurée par ce bon petit café vous remet d'aplomb instantanément. Ah !</target>
+      </segment>
+    </unit>
+    <unit id="O4qYqLB" name="{watchpoint} pkt attacke">
+      <notes>
+        <note category="german">{watchpoint} pkt attacke</note>
+        <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>{watchpoint} pkt attacke</source>
+        <target>
+          {ref__icu, select,
+            on {
+              {watchpoint, plural,
+                =-1 {# pt attaque}
+                =0 {# pt attaque}
+                =1 {# pt attaque}
+                other {# pts attaque}
+              }
+            }
+            other {# pts attaque}
+          }
+        </target>
       </segment>
     </unit>
   </file>
