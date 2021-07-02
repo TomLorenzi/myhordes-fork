@@ -132,6 +132,7 @@ class MigrateCommand extends Command
             ->addOption('environment', null,InputOption::VALUE_REQUIRED, 'Sets the symfony environment to build assets for')
             ->addOption('phar', null,InputOption::VALUE_NONE, 'If set, composer will be invoked using a composer.phar file')
             ->addOption('fast', null,InputOption::VALUE_NONE, 'If set, composer and yarn updates will be skipped')
+            ->addOption('skip-backup', null,InputOption::VALUE_NONE, 'If set, no database backup will be created')
             ->addOption('stay-offline', null,InputOption::VALUE_NONE, 'If set, maintenance mode will be kept active after the update')
 
             ->addOption('install-db', 'i', InputOption::VALUE_NONE, 'Creates and performs the creation of the database and fixtures.')
@@ -195,6 +196,11 @@ class MigrateCommand extends Command
                 $output->writeln("Beginning update in <info>{$i}</info> seconds....");
                 sleep(1);
             }
+
+            if (!$input->getOption('skip-backup')) {
+                if (!$this->helper->capsule('app:cron backup update', $output, 'Creating database backup before upgrading... ', true))
+                    return 100;
+            } else $output->writeln("Skipping <info>database backup</info>.");
 
             if (!$this->helper->capsule( "git fetch --tags {$remote} {$branch}", $output, 'Retrieving updates from repository... ', false )) return 1;
             if (!$this->helper->capsule( "git reset --hard {$remote}/{$branch}", $output, 'Applying changes to filesystem... ', false )) return 2;
