@@ -4,7 +4,7 @@
     <unit id="crJFns0" name="Dein Name muss mindestens { limit } Zeichen umfassen.">
       <notes>
         <note category="german">Dein Name muss mindestens {limit} Zeichen umfassen.</note>
-        <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Dein Name muss mindestens { limit } Zeichen umfassen.</source>
@@ -14,7 +14,7 @@
     <unit id="VAaM7eo" name="Dein Name kann höchstens { limit } Zeichen umfassen.">
       <notes>
         <note category="german">Dein Name kann höchstens {limit} Zeichen umfassen.</note>
-        <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Dein Name kann höchstens { limit } Zeichen umfassen.</source>
@@ -24,7 +24,7 @@
     <unit id="WvW8_JI" name="Die eingegebene E-Mail Adresse ist nicht gültig.">
       <notes>
         <note category="german">Die eingegebene E-Mail Adresse ist nicht gültig.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Die eingegebene E-Mail Adresse ist nicht gültig.</source>
@@ -34,7 +34,7 @@
     <unit id="6UV8ek7" name="Die eingegebenen E-Mail Adressen stimmen nicht überein.">
       <notes>
         <note category="german">Die eingegebenen E-Mail Adressen stimmen nicht überein.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Die eingegebenen E-Mail Adressen stimmen nicht überein.</source>
@@ -44,7 +44,7 @@
     <unit id="jz03..f" name="Dein Passwort muss mindestens { limit } Zeichen umfassen.">
       <notes>
         <note category="german">Dein Passwort muss mindestens {limit} Zeichen umfassen.</note>
-        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Dein Passwort muss mindestens { limit } Zeichen umfassen.</source>
@@ -54,7 +54,7 @@
     <unit id="OK9eVbg" name="Die eingegebenen Passwörter stimmen nicht überein.">
       <notes>
         <note category="german">Die eingegebenen Passwörter stimmen nicht überein.</note>
-        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Die eingegebenen Passwörter stimmen nicht überein.</source>
@@ -64,7 +64,7 @@
     <unit id="o5ZFZh6" name="Der Validierungscode muss { limit } Zeichen umfassen.">
       <notes>
         <note category="german">Der Validierungscode muss {limit} Zeichen umfassen.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Der Validierungscode muss { limit } Zeichen umfassen.</source>
@@ -347,7 +347,7 @@
     <unit id="ZJtAei3">
       <notes>
         <note category="german">Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
       </notes>
       <segment>
         <source>Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.</source>
@@ -357,7 +357,7 @@
     <unit id="MO7x7sr">
       <notes>
         <note category="german">Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
       </notes>
       <segment>
         <source>Auf wiedersehen, {name}. Wir werden dich vermissen und hoffen, dass du vielleicht doch noch einmal zurück kommst.</source>
@@ -477,7 +477,7 @@
     <unit id="B0ZNAR." name="Fehler bei der Datenübertragung.">
       <notes>
         <note category="german">Fehler bei der Datenübertragung.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Fehler bei der Datenübertragung.</source>
@@ -612,7 +612,7 @@
     <unit id="2WaNcqR" name="Dein Account wurde erfolgreich verknüpft!">
       <notes>
         <note category="german">Dein Account wurde erfolgreich verknüpft!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Dein Account wurde erfolgreich verknüpft!</source>
@@ -672,7 +672,7 @@
     <unit id="7Nk4Nxa" name="Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.">
       <notes>
         <note category="german">Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Willkommen zurück! Dein Account ist nicht länger zur Löschung vorgemerkt.</source>
@@ -692,7 +692,7 @@
     <unit id="jUZA576" name="Du wurdest erfolgreich von allen Geräten abgemeldet.">
       <notes>
         <note category="german">Du wurdest erfolgreich von allen Geräten abgemeldet.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
       </notes>
       <segment>
         <source>Du wurdest erfolgreich von allen Geräten abgemeldet.</source>
@@ -702,7 +702,7 @@
     <unit id="iGunNf8" name="Dein Name kann nur alphanumerische Zeichen enthalten.">
       <notes>
         <note category="german">Dein Name kann nur alphanumerische Zeichen enthalten.</note>
-        <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Dein Name kann nur alphanumerische Zeichen enthalten.</source>
@@ -713,7 +713,7 @@
       <notes>
         <note category="german">Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/PublicController.php</note>
       </notes>
       <segment>
         <source>Der eingegebene Pate ist ungültig. Um dich ohne einen Paten anzumelden, lasse das Feld frei.</source>

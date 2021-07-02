@@ -10,6 +10,10 @@ class MyHordesConf extends Conf
     const CONF_NIGHTLY_RETRIES = 'nightly.retries';
     const CONF_NIGHTLY_DATEMOD = 'nightly.date_modifier';
 
+    const CONF_BACKUP_PATH        = 'backup.path';
+    const CONF_BACKUP_COMPRESSION = 'backup.compression';
+    const CONF_BACKUP_LIMITS_INC      = 'backup.limits.';
+
     const CONF_FATAL_MAIL_TARGET = 'fatalmail.target';
     const CONF_FATAL_MAIL_SOURCE = 'fatalmail.source';
 

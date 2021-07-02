@@ -24,8 +24,10 @@ use App\Structures\EventConf;
 use App\Structures\MyHordesConf;
 use App\Structures\TownConf;
 use DateTime;
+use DirectoryIterator;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
+use SplFileInfo;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -33,6 +35,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\ProgressBar;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class CronCommand extends Command
 {
@@ -50,10 +53,14 @@ class CronCommand extends Command
     private TownHandler $townHandler;
     private CrowService $crowService;
     private CommandHelper $helper;
+    private ParameterBagInterface $params;
 
-    public function __construct(EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator,
+    private array $db;
+
+    public function __construct(array $db,
+                                EntityManagerInterface $em, NightlyHandler $nh, Locksmith $ls, Translator $translator,
                                 ConfMaster $conf, AntiCheatService $acs, GameFactory $gf, UserHandler $uh,
-                                TownHandler $th, CrowService $cs, CommandHelper $helper)
+                                TownHandler $th, CrowService $cs, CommandHelper $helper, ParameterBagInterface $params)
     {
         $this->entityManager = $em;
         $this->night = $nh;
@@ -67,6 +74,9 @@ class CronCommand extends Command
         $this->townHandler = $th;
         $this->crowService = $cs;
         $this->helper = $helper;
+        $this->params = $params;
+
+        $this->db = $db;
         parent::__construct();
     }
 
@@ -82,12 +92,50 @@ class CronCommand extends Command
             ;
     }
 
+    protected function module_run_backups(OutputInterface $output): ?string {
+
+        $last_backups = ['any' => (new DateTime())->setTimestamp(0), 'daily' => (new DateTime())->setTimestamp(0), 'weekly' => (new DateTime())->setTimestamp(0), 'monthly' => (new DateTime())->setTimestamp(0)];
+
+        $path = $this->conf->get(MyHordesConf::CONF_BACKUP_PATH, null);
+        if ($path === null) $path = "{$this->params->get('kernel.project_dir')}/var/backup";
+        if (file_exists($path))
+            foreach (new DirectoryIterator($path) as $fileInfo) {
+                /** @var SplFileInfo $fileInfo */
+                if ($fileInfo->isDot() || $fileInfo->isLink()) continue;
+                elseif ($fileInfo->isFile() && in_array(strtolower($fileInfo->getExtension()), ['sql','xz','gzip','bz2'])) {
+                    $segments = explode('_', explode('.',$fileInfo->getFilename())[0]);
+                    if (count($segments) !== 3 || !in_array($segments[2], ['daily','weekly','monthly']))
+                        continue;
+
+                    $date = date_create_from_format( 'Y-m-d', $segments[0] );
+                    if ($date === false) continue;
+
+                    if ($last_backups[$segments[2]] < $date) $last_backups[$segments[2]] = $date;
+                    if ($last_backups['any'] < $date) $last_backups['any'] = $date;
+                }
+            }
+
+        if ($last_backups['any'] >= new DateTime('today')) return null;
+
+        if ($last_backups['monthly'] <= new DateTime('today-1month')) {
+            $this->helper->capsule('app:cron backup monthly', $output, 'Creating monthly backup... ', true);
+            return 'monthly';
+        } elseif ($last_backups['weekly'] <=  new DateTime('today-1week')) {
+            $this->helper->capsule('app:cron backup weekly', $output, 'Creating weekly backup... ', true);
+            return 'weekly';
+        } else {
+            $this->helper->capsule('app:cron backup daily', $output, 'Creating daily backup... ', true);
+            return 'daily';
+        }
+
+    }
+
     protected function module_run_attacks(OutputInterface $output): bool {
 
         $s = $this->entityManager->getRepository(AttackSchedule::class)->findNextUncompleted();
         if ($s && $s->getTimestamp() < new DateTime('now')) {
 
-            // ToDo: Backup
+            $this->helper->capsule('app:cron backup nightly', $output, 'Creating database backup before the attack... ', true);
 
             $try_limit = $this->conf->get(MyHordesConf::CONF_NIGHTLY_RETRIES, 3);
             $schedule_id = $s->getId();
@@ -182,6 +230,9 @@ class CronCommand extends Command
     protected function task_host(InputInterface $input, OutputInterface $output): int {
         // Host task
         $output->writeln( "MyHordes CronJob Interface", OutputInterface::VERBOSITY_VERBOSE );
+
+        $backup_ran = $this->module_run_backups($output);
+        $output->writeln( "Backup scheduler: <info>" . ($backup_ran ?? 'Not scheduled') . "</info>", OutputInterface::VERBOSITY_VERBOSE );
 
         $attacks_ran = $this->module_run_attacks($output);
         $output->writeln( "Attack scheduler: <info>" . ($attacks_ran ? 'Complete' : 'Not scheduled') . "</info>", OutputInterface::VERBOSITY_VERBOSE );
@@ -292,7 +343,77 @@ class CronCommand extends Command
         return 0;
     }
 
+    /**
+     * @throws Exception
+     */
+    protected function task_backup(InputInterface $input, OutputInterface $output): int {
+        // Backup task
+        $output->writeln( "MyHordes CronJob - Backup Processor", OutputInterface::VERBOSITY_VERBOSE );
 
+        list(
+            'scheme' => $db_scheme, 'host' => $db_host, 'port' => $db_port,
+            'user' => $db_user, 'pass' => $db_pass,
+            'path' => $db_name ) = $this->db;
+
+        if ($db_scheme !== 'mysql') throw new Exception('Sorry, only MySQL is supported for backup!');
+
+        $domain = $input->getArgument('p1');
+
+        if ($domain === -1) $domain = 'manual';
+        if (!in_array($domain,['nightly','daily','weekly','monthly','update','manual']))
+            throw new Exception('Invalid backup domain!');
+
+        $path = $this->conf->get(MyHordesConf::CONF_BACKUP_PATH, null);
+        if ($path === null) $path = "{$this->params->get('kernel.project_dir')}/var/backup";
+        if (!file_exists($path)) mkdir($path, 0700, true);
+        $filename = $path . '/' . (new DateTime())->format('Y-m-d_H-i-s-v_') . $domain . '.sql';
+
+        $compression = $this->conf->get(MyHordesConf::CONF_BACKUP_COMPRESSION, null);
+        if ($compression === null) $str = "> $filename";
+        elseif ($compression === 'xz') $str = "| xz > {$filename}.xz";
+        elseif ($compression === 'gzip') $str = "| gzip > {$filename}.gz";
+        elseif ($compression === 'bzip2') $str = "| bzip2 > {$filename}.bz2";
+        elseif ($compression === 'lbzip2') $str = "| lbzip2 > {$filename}.bz2";
+        elseif ($compression === 'pbzip2') $str = "| pbzip2 > {$filename}.bz2";
+        else throw new Exception('Invalid compression!');
+
+        $relevant_domain_limit = $this->conf->get(MyHordesConf::CONF_BACKUP_LIMITS_INC . $domain, -1);
+
+        if ($relevant_domain_limit !== 0) {
+            $output->writeln("Executing <info>mysqldump</info> on <info>$db_host:$db_port</info>, exporting <info>$db_name</info> <comment>$str</comment>", OutputInterface::VERBOSITY_VERBOSE );
+            $this->helper->capsule("mysqldump -h $db_host -P $db_port --user='$db_user' --password='$db_pass' --databases $db_name --single-transaction --skip-lock-tables $str", $output, 'Running database backup... ', false );
+        } else
+            $output->writeln("Skipping <info>mysqldump</info> in domain <info>$domain</info> since backups for this domain are turned off.", OutputInterface::VERBOSITY_VERBOSE );
+
+        $backup_files = [];
+
+        foreach (new DirectoryIterator($path) as $fileInfo) {
+            /** @var SplFileInfo $fileInfo */
+            if ($fileInfo->isDot() || $fileInfo->isLink()) continue;
+            elseif ($fileInfo->isFile() && in_array(strtolower($fileInfo->getExtension()), ['sql','xz','gzip','bz2'])) {
+                $segments = explode('_', explode('.',$fileInfo->getFilename())[0]);
+                if (count($segments) !== 3 || !in_array($segments[2], ['nightly','daily','weekly','monthly','update','manual']))
+                    continue;
+                if (!isset($backup_files[$segments[2]])) $backup_files[$segments[2]] = [];
+                $backup_files[$segments[2]][] = $fileInfo->getRealPath();
+            }
+        }
+
+        foreach (['nightly','daily','weekly','monthly','update','manual'] as $sel_domain) {
+            $domain_limit = $this->conf->get(MyHordesConf::CONF_BACKUP_LIMITS_INC . $sel_domain, -1);
+            if (!empty($backup_files[$sel_domain]) && $domain_limit >= 0 && count($backup_files[$sel_domain]) > $domain_limit) {
+                rsort($backup_files[$sel_domain]);
+                while (count($backup_files[$sel_domain]) > $domain_limit) {
+                    $f = array_pop($backup_files[$sel_domain]);
+                    if ($f === null) break;
+                    $output->writeln("Deleting old backup: <info>$f</info>", OutputInterface::VERBOSITY_VERBOSE );
+                    unlink( $f );
+                }
+            }
+        }
+
+        return 0;
+    }
 
     /**
      * @param InputInterface $input
@@ -304,7 +425,7 @@ class CronCommand extends Command
     {
         $task = $input->getArgument('task');
 
-        if (!in_array($task, ['host','attack'])) {
+        if (!in_array($task, ['host','attack','backup'])) {
             $output->writeln('<error>Invalid task.</error>');
             return -1;
         }
@@ -312,6 +433,7 @@ class CronCommand extends Command
         switch ($task) {
             case 'host': return $this->task_host($input,$output);
             case 'attack': return $this->task_attack($input,$output);
+            case 'backup': return $this->task_backup($input,$output);
             default: return -1;
         }
     }
