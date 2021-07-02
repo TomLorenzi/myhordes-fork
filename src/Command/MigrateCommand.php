@@ -952,6 +952,6 @@ class MigrateCommand extends Command
 
         }
 
-        return 1;
+        return 99;
     }
 }
