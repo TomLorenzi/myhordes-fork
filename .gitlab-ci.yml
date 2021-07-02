@@ -31,12 +31,6 @@ before_script:
   - docker-php-ext-enable xdebug
   # Install and run Composer
   - curl -sS https://getcomposer.org/installer | php
-  - php composer.phar install
-  # Install assets
-  - yarn install
-  - yarn encore dev
-  # Install default DB
-  - php bin/console app:migrate -i
 
 # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
 # See http://docs.gitlab.com/ee/ci/services/README.html for examples.
@@ -60,6 +54,12 @@ stages:
 test:
   stage: test
   script:
+    - php composer.phar install
+    # Install assets
+    - yarn install
+    - yarn encore dev
+    # Install default DB
+    - php bin/console app:migrate -i
     - vendor/bin/phpunit # --coverage-text --colors=never
 
 deploy_staging:
@@ -68,7 +68,7 @@ deploy_staging:
     - apt-get update -yqq
     - apt-get install -yqq sshpass
     - export SSHPASS=$SSH_PASSWORD
-    - sshpass -e ssh -p 2244 -o scricthostkeychecking=no -r our deployer@newhope.aifesdespets.fr 'cd /var/www/chehtan;dev/myhordes/www && bin/console app:migrate -g --remote origin --branch Dev-Ludofloria --environment dev --phar --fast'
+    - sshpass -e ssh -p 2244 -o stricthostkeychecking=no -r our deployer@newhope.aifesdespets.fr 'cd /var/www/chehtan;dev/myhordes/www && bin/console app:migrate -g --remote origin --branch Dev-Ludofloria --environment dev --phar --fast'
     - unset SSHPASS
   only:
     - Dev-Ludofloria
