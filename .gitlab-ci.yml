@@ -77,11 +77,11 @@ test:
     - vendor/bin/phpunit # --coverage-text --colors=never
   cache:
     key: "$CI_COMMIT_REF_NAME"
-      policy: pull
-      paths:
-        - vendor
-        - node_modules
-        - public/build
+    policy: pull
+    paths:
+      - vendor
+      - node_modules
+      - public/build
 
 deploy_staging:
   stage: deploy
