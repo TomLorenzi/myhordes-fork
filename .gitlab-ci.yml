@@ -15,6 +15,22 @@ before_script:
   - apt-get update -yqq
   # Installing some dependancies
   - apt-get install -yqq sudo git imagemagick curl unzip
+  # Changing php's maximum memory to 256M
+  - mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+  - sed -Ei 's/memory_limit = (.*)/memory_limit = 256M/' "$PHP_INI_DIR/php.ini"
+  # Install Node & Yarn
+  - curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+  - sudo apt-get install -y nodejs
+  - npm install --global yarn
+  # Install PHP extensions
+  - curl -L https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions -o /usr/local/bin/install-php-extensions
+  - chmod +x /usr/local/bin/install-php-extensions
+  - install-php-extensions mysqli intl gd zip bz2 imap opcache pdo_mysql
+  # Install & enable Xdebug for code coverage reports
+  - pecl install xdebug
+  - docker-php-ext-enable xdebug
+  # Install and run Composer
+  - curl -sS https://getcomposer.org/installer | php
 
 # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
 # See http://docs.gitlab.com/ee/ci/services/README.html for examples.
@@ -30,49 +46,24 @@ variables:
   XDEBUG_MODE: coverage
 
 stages:
-  - build
   - test
   - deploy
 
-build:
-  stage: build
+# Run our tests
+# If Xdebug was installed you can generate a coverage report and see code coverage metrics.
+test:
+  stage: test
   script:
-    # Changing php's maximum memory to 256M
-    - mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
-    - sed -Ei 's/memory_limit = (.*)/memory_limit = 256M/' "$PHP_INI_DIR/php.ini"
-    # Install Node & Yarn
-    - curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-    - sudo apt-get install -y nodejs
-    - npm install --global yarn
-    # Install PHP extensions
-    - curl -L https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions -o /usr/local/bin/install-php-extensions
-    - chmod +x /usr/local/bin/install-php-extensions
-    - install-php-extensions mysqli intl gd zip bz2 imap opcache pdo_mysql
-    # Install & enable Xdebug for code coverage reports
-    - pecl install xdebug
-    - docker-php-ext-enable xdebug
-    # Install and run Composer
-    - curl -sS https://getcomposer.org/installer | php
     - php composer.phar install
     # Install assets
     - yarn install
     - yarn encore dev
     # Install default DB
     - php bin/console app:migrate -i
-
-# Run our tests
-# If Xdebug was installed you can generate a coverage report and see code coverage metrics.
-test:
-  stage: test
-  dependencies:
-    - build
-  script:
     - vendor/bin/phpunit # --coverage-text --colors=never
 
 deploy_staging:
   stage: deploy
-  dependencies:
-    - test
   script:
     - apt-get update -yqq
     - apt-get install -yqq sshpass
