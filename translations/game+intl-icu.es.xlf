@@ -6962,7 +6962,7 @@
       </notes>
       <segment>
         <source>Du musst jeden Tag Drogen einnehmen! Wenn du eines morgens aufwachst, ohne am Tag zuvor Drogen genommen zu haben, wirst du sterben!</source>
-        <target><![CDATA[<strong>Necesitas</strong> tu dosis de estimulantes cada día. ¡Si te despiertas por la mañana <strong>sin haber consumido tu dosis del día anterior, morirás!</strong>!]]></target>
+        <target><![CDATA[<strong>Necesitas</strong> tus dosis de estimulantes cada día. ¡Si te despiertas por la mañana <strong>sin haber consumido tu dosis el día anterior</strong>, <strong>morirás</strong>!]]></target>
       </segment>
     </unit>
     <unit id="ztykDm4">
