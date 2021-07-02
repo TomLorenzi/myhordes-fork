@@ -65,7 +65,11 @@ test:
 deploy_staging:
   stage: deploy
   script:
-    - echo "Nothing to do yet :("
+    - apt-get update -yqq
+    - apt-get install -yqq sshpass
+    - export SSHPASS=$SSH_PASSWORD
+    - sshpass -e ssh -p 2244 -o scricthostkeychecking=no -r our deployer@newhope.aifesdespets.fr 'cd /var/www/chehtan;dev/myhordes/www && bin/console app:migrate -g --remote origin --branch Dev-Ludofloria --environment dev --phar --fast'
+    - unset SSHPASS
   only:
     - Dev-Ludofloria
   environment:
