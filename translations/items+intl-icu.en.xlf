@@ -2257,7 +2257,7 @@
       </notes>
       <segment>
         <source>Normaler Bauplan (gewöhnlich)</source>
-        <target>Normal Blueprint (common)</target>
+        <target>Construction Blueprint (common)</target>
       </segment>
     </unit>
     <unit id="fJiq7t3" name="Normaler Bauplan (ungewöhnlich)">
@@ -2266,7 +2266,7 @@
       </notes>
       <segment>
         <source>Normaler Bauplan (ungewöhnlich)</source>
-        <target>Normal Blueprint (uncommon)</target>
+        <target>Construction Blueprint (uncommon)</target>
       </segment>
     </unit>
     <unit id="GYPyEK." name="Normaler Bauplan (selten)">
@@ -2275,7 +2275,7 @@
       </notes>
       <segment>
         <source>Normaler Bauplan (selten)</source>
-        <target>Normal Blueprint (rare)</target>
+        <target>Construction Blueprint (rare)</target>
       </segment>
     </unit>
     <unit id="VZP1E4c" name="Normaler Bauplan (sehr selten!)">
@@ -2284,7 +2284,7 @@
       </notes>
       <segment>
         <source>Normaler Bauplan (sehr selten!)</source>
-        <target>Normal Blueprint (very rare!)</target>
+        <target>Construction Blueprint (very rare!)</target>
       </segment>
     </unit>
     <unit id="jQi8Ua2" name="Architektenkoffer">
