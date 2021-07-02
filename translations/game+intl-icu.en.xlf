@@ -4,7 +4,7 @@
     <unit id="hzf0c1L">
       <notes>
         <note category="german">{victim}s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>{victim}s Alarmanlage hat die halbe Stadt aufgeweckt und dich zu Tode erschreckt!</source>
@@ -14,7 +14,7 @@
     <unit id="fXVvoov" name="Mist, dein Einbruch bei {victim} ist aufgeflogen...">
       <notes>
         <note category="german">Mist, dein Einbruch bei {victim} ist aufgeflogen...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Mist, dein Einbruch bei {victim} ist aufgeflogen...</source>
@@ -24,7 +24,7 @@
     <unit id="ITvthhv" name="Sehr gut, niemand hat dich bei deinem Einbruch bei {victim} beobachtet.">
       <notes>
         <note category="german">Sehr gut, niemand hat dich bei deinem Einbruch bei {victim} beobachtet.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Sehr gut, niemand hat dich bei deinem Einbruch bei {victim} beobachtet.</source>
@@ -34,7 +34,7 @@
     <unit id="kwtIuD9" name="Deine Route wurde gespeichert.">
       <notes>
         <note category="german">Deine Route wurde gespeichert.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Deine Route wurde gespeichert.</source>
@@ -44,7 +44,7 @@
     <unit id="YY4H.QM" name="Du hast deine Beschreibung geändert.">
       <notes>
         <note category="german">Du hast deine Beschreibung geändert.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
         <source>Du hast deine Beschreibung geändert.</source>
@@ -625,7 +625,7 @@
     <unit id="QI_O4UJ" name="Verschüttete Ruine">
       <notes>
         <note category="german">Verschüttete Ruine</note>
-        <note category="from">twig:///templates/ajax/game/map.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="from">php:///src/Controller/ExternalXML2Controller.php;twig:///templates/ajax/game/map.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>Verschüttete Ruine</source>
@@ -2115,7 +2115,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="UKXXzW6">
       <notes>
         <note category="german">Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="from">php:///src/Service/ZoneHandler.php;twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>Diese Zone ist leergesucht. Du wirst hier keine wertvollen Gegenstände mehr finden können.</source>
@@ -2702,7 +2702,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="72h0.SN" name="Ghul">
       <notes>
         <note category="german">Ghul</note>
-        <note category="from">db://CitizenStatus;db://CitizenRole;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">db://CitizenRole;twig:///templates/ajax/game/town/town.html.twig</note>
       </notes>
       <segment>
         <source>Ghul</source>
@@ -3818,7 +3818,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="LQgPbVT" name="Nordosten">
       <notes>
         <note category="german">Nordosten</note>
-        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
       </notes>
       <segment>
         <source>Nordosten</source>
@@ -3828,7 +3828,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="R9OI7Nm" name="Nordwesten">
       <notes>
         <note category="german">Nordwesten</note>
-        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
       </notes>
       <segment>
         <source>Nordwesten</source>
@@ -3838,7 +3838,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="dOCvO1b" name="Norden">
       <notes>
         <note category="german">Norden</note>
-        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
       </notes>
       <segment>
         <source>Norden</source>
@@ -3848,7 +3848,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="ac.6Rc5" name="Südosten">
       <notes>
         <note category="german">Südosten</note>
-        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
       </notes>
       <segment>
         <source>Südosten</source>
@@ -3858,7 +3858,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="YE0v6eT" name="Südwesten">
       <notes>
         <note category="german">Südwesten</note>
-        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
       </notes>
       <segment>
         <source>Südwesten</source>
@@ -3868,7 +3868,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="qxvJIc." name="Süden">
       <notes>
         <note category="german">Süden</note>
-        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
       </notes>
       <segment>
         <source>Süden</source>
@@ -3878,7 +3878,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="xMKWHhf" name="Osten">
       <notes>
         <note category="german">Osten</note>
-        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
       </notes>
       <segment>
         <source>Osten</source>
@@ -3888,7 +3888,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="jdRT5Z5" name="Westen">
       <notes>
         <note category="german">Westen</note>
-        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/beyond.html.twig</note>
       </notes>
       <segment>
         <source>Westen</source>
@@ -4018,7 +4018,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="IbZvvYE" name="Wachturm">
       <notes>
         <note category="german">Wachturm</note>
-        <note category="from">twig:///templates/ajax/game/town/watchtower.html.twig</note>
+        <note category="from">php:///src/Controller/Town/TownController.php;twig:///templates/ajax/game/town/watchtower.html.twig</note>
       </notes>
       <segment>
         <source>Wachturm</source>
@@ -4179,7 +4179,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="BsmmJg2">
       <notes>
         <note category="german">Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Wenn du hier schläfst, kannst du dich gleich selbst umbringen. Das geht schneller und du kannst deinen Tod selbst bestimmen.</source>
@@ -4189,7 +4189,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="u.HzZ0w">
       <notes>
         <note category="german">Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier quasi Null sind... Besser gleich 'ne Zyanidkapsel schlucken.</source>
@@ -5115,7 +5115,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="nLW7mkF" name="Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...">
       <notes>
         <note category="german">Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Die Anwesenheit von ein paar Zombies in dieser Umgebung beunruhigt dich etwas...</source>
@@ -5125,7 +5125,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="GtXqaDO">
       <notes>
         <note category="german">Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Die große Anzahl der herumstreunenden Zombies ist bestimmt kein Vorteil... Verstecken könnte etwas schwierig werden.</source>
@@ -5145,7 +5145,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="RPns7ug" name="Wächt">
       <notes>
         <note category="german">Wächt</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Wächt</source>
@@ -5155,7 +5155,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="K6Bt5zV" name="Müllhalde">
       <notes>
         <note category="german">Müllhalde</note>
-        <note category="from">twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Controller/Town/TownController.php;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>Müllhalde</source>
@@ -5165,7 +5165,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="GWsFaiN" name="Katapult">
       <notes>
         <note category="german">Katapult</note>
-        <note category="from">twig:///templates/ajax/game/town/catapult.html.twig</note>
+        <note category="from">php:///src/Controller/Town/TownController.php;twig:///templates/ajax/game/town/catapult.html.twig</note>
       </notes>
       <segment>
         <source>Katapult</source>
@@ -5175,7 +5175,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="T04hD_3" name="Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...">
       <notes>
         <note category="german">Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php;php:///src/Controller/ExplorationController.php;php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Trotz all deiner Anstrengungen hast du hier leider nichts gefunden ...</source>
@@ -5185,7 +5185,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="Q9LWBP_" name="Nach einigen Anstrengungen hast du folgendes gefunden: {item}!">
       <notes>
         <note category="german">Nach einigen Anstrengungen hast du folgendes gefunden: {item}!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php;php:///src/Controller/ExplorationController.php;php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hast du folgendes gefunden: {item}!</source>
@@ -5615,7 +5615,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="e19N5sC">
       <notes>
         <note category="german">Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Hier ist so gut wie nichts, mit dem du dich verstecken könntest. Du fühlst dich leicht schutzlos...</source>
@@ -5625,7 +5625,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="fftPup_">
       <notes>
         <note category="german">Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Außer ein paar 'natürlichen' Schutzgelegenheiten bietet diese Zone nicht viel. Du musst dich irgendwie durchwursteln.</source>
@@ -5635,7 +5635,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="YFhoAPq">
       <notes>
         <note category="german">Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Wenn man hier bisschen sucht, lässt sich bestimmt ein adäquates Versteck finden.</source>
@@ -5645,7 +5645,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="i9FQpcu">
       <notes>
         <note category="german">An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>An diesem Ort gibt es ein paar gute Versteckmöglichkeiten. Wenn du hier heute Nacht schlafen möchtest...</source>
@@ -5655,7 +5655,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="YrPIELu" name="In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.">
       <notes>
         <note category="german">In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>In diesem Sektor gibt es ein paar wirklich gute Unterschlupfmöglichkeiten.</source>
@@ -5665,7 +5665,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="Be5ZaAS">
       <notes>
         <note category="german">Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Das ist der ideale Ort, um hier zu schlafen. An Versteckmöglichkeiten mangelt es wahrlich nicht.</source>
@@ -5675,7 +5675,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="UFJR0VM">
       <notes>
         <note category="german">Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier sehr gering sind. Vielleicht hast du ja Bock 'ne Runde Kopf oder Zahl zu spielen?</source>
@@ -5685,7 +5685,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="7OnKd2K">
       <notes>
         <note category="german">Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier gering sind. Hmmm... schwer zu sagen, wie das hier ausgeht.</source>
@@ -5695,7 +5695,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="rlIeIKM">
       <notes>
         <note category="german">Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier mittelmäßig sind. Ist allerdings einen Versuch wert.. obwohl, Unfälle passieren schnell...</source>
@@ -5705,7 +5705,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="o1L6EkI">
       <notes>
         <note category="german">Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier zufriedenstellend sind - vorausgesetzt du erlebst keine böse Überraschung.</source>
@@ -5715,7 +5715,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="v2oSIjv">
       <notes>
         <note category="german">Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier korrekt sind. Jetzt heißt's nur noch Daumen drücken!</source>
@@ -5725,7 +5725,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="kqluhpf">
       <notes>
         <note category="german">Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier gut sind. Du müsstest hier problemlos die Nacht verbringen können.</source>
@@ -5735,7 +5735,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="1JwyDRE">
       <notes>
         <note category="german">Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Du schätzt, dass deine Überlebenschancen hier optimal sind. Niemand wird dich sehen - selbst wenn man mit dem Finger auf dich zeigt.</source>
@@ -5815,7 +5815,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="lc.POOW">
       <notes>
         <note category="german">Du hast die Leiche von {disposed} außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Du hast die Leiche von {disposed} außerhalb der Stadt entsorgt. Eine gute Sache, die Sie getan haben!</source>
@@ -5825,7 +5825,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="eZQzCp7">
       <notes>
         <note category="german">Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Der Körper verflüssigte sich zu einer ekelerregenden, übel riechenden Pfütze. Deine Schuhe haben ganz schön was abgekriegt, das steht fest...</source>
@@ -5836,7 +5836,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Ein nicht freigeschaufeltes Gebäude.</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Ein nicht freigeschaufeltes Gebäude.</source>
@@ -7317,7 +7317,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Tagelang wurde an den Seelen der Toten herumgepfuscht.</note>
         <note category="state">new</note>
-        <note category="from">db://PictoPrototype</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Tagelang wurde an den Seelen der Toten herumgepfuscht.</source>
@@ -7327,7 +7327,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="H3ZzhL.">
       <notes>
         <note category="german">Beim Durchsuchen der Ruine merkst du, dass es nichts mehr zu finden gibt. Leider...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Beim Durchsuchen der Ruine merkst du, dass es nichts mehr zu finden gibt. Leider...</source>
@@ -7337,7 +7337,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="3bnerbg">
       <notes>
         <note category="german">Dank deines Kostüms konntest du {item} von {victim} stehlen, ohne erkannt zu werden</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Dank deines Kostüms konntest du {item} von {victim} stehlen, ohne erkannt zu werden</source>
@@ -7347,7 +7347,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="xHllIMc" name="Stunde(n)">
       <notes>
         <note category="german">Stunde(n)</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Stunde(n)</source>
@@ -7357,7 +7357,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="zV6ExPR" name="Minute(n)">
       <notes>
         <note category="german">Minute(n)</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Minute(n)</source>
@@ -7367,7 +7367,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="pJqC6wz" name="Sekunde(n)">
       <notes>
         <note category="german">Sekunde(n)</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Sekunde(n)</source>
@@ -7387,7 +7387,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="KsxoZXu" name="vor {time}">
       <notes>
         <note category="german">vor {time}</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>vor {time}</source>
@@ -7537,7 +7537,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="Ec1zwiD">
       <notes>
         <note category="german">"Einen Schritt weiter..." stand auf {victim}s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>"Einen Schritt weiter..." stand auf {victim}s Fußmatte. Ihre Explosion hat einen bleibenden Eindruck bei dir hinterlassen. Wenn du noch laufen kannst, such dir besser einen Arzt.</source>
@@ -7567,7 +7567,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="FzxTyIl" name="{username} wurde standrechtlich erschossen.">
       <notes>
         <note category="german">{username} wurde standrechtlich erschossen.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/AdminActionHandler.php</note>
       </notes>
       <segment>
         <source>{username} wurde standrechtlich erschossen.</source>
@@ -7577,7 +7577,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="3mZhglJ" name="Dieser Bürger gehört keiner Stadt an.">
       <notes>
         <note category="german">Dieser Bürger gehört keiner Stadt an.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/AdminActionHandler.php</note>
       </notes>
       <segment>
         <source>Dieser Bürger gehört keiner Stadt an.</source>
@@ -7778,7 +7778,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="E6vRFnM" name="Endlich kannst du deine Schwiegermutter loswerden!">
       <notes>
         <note category="german">Endlich kannst du deine Schwiegermutter loswerden!</note>
-        <note category="from">db://CitizenStatus</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Endlich kannst du deine Schwiegermutter loswerden!</source>
@@ -7828,7 +7828,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="o_HaY0_" name="Dazu hast Du kein Recht.">
       <notes>
         <note category="german">Dazu hast Du kein Recht.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/AdminActionHandler.php</note>
       </notes>
       <segment>
         <source>Dazu hast Du kein Recht.</source>
@@ -7868,7 +7868,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="MaPiRBm">
       <notes>
         <note category="german">Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageForumController.php;php:///src/Controller/Messages/MessageGlobalPMController.php;php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
         <source>Du hast die Nachricht von {username} dem Raben gemeldet. Wer weiß, vielleicht wird {username} heute Nacht stääärben...</source>
@@ -8058,7 +8058,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="FoS7MOU">
       <notes>
         <note category="german">Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Nicht weit entfernt von deinem aktuellen Versteck erblickst du ein noch besseres Versteck... Hmmm...vielleicht solltest du umziehen?</source>
@@ -8068,7 +8068,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="ERjA3HO" name="Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.">
       <notes>
         <note category="german">Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Du erhälst einen Bauplan, wenn Du in diesem Gebäude campst.</source>
@@ -8078,7 +8078,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="XZI.RVp" name="Hier wurde bereits ein Bauplan gefunden.">
       <notes>
         <note category="german">Hier wurde bereits ein Bauplan gefunden.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Hier wurde bereits ein Bauplan gefunden.</source>
@@ -8088,7 +8088,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="WPZOeLX">
       <notes>
         <note category="german">{citizen} möchte nicht in diese Richtung gehen! &lt;strong&gt;Er bittet dich darum, ihn in die Stadt zu bringen...&lt;/strong&gt;</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>{citizen} möchte nicht in diese Richtung gehen! &lt;strong&gt;Er bittet dich darum, ihn in die Stadt zu bringen...&lt;/strong&gt;</source>
@@ -8098,7 +8098,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="pe69AgN" name="Die Tarnung von {name} ist aufgeflogen!">
       <notes>
         <note category="german">Die Tarnung von {name} ist aufgeflogen!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Die Tarnung von {name} ist aufgeflogen!</source>
@@ -8108,7 +8108,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="jIaT.gH">
       <notes>
         <note category="german">Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php;php:///src/Service/ActionHandler.php;php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...</source>
@@ -8118,7 +8118,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="2MBbf8L">
       <notes>
         <note category="german">Du hast einen Teil der Zone &lt;strong&gt;freigeräumt&lt;/strong&gt;, allerdings versperren noch &lt;strong&gt;allerlei Trümmer&lt;/strong&gt; den Zugang...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Du hast einen Teil des Sektors freigelegt, aber es gibt immer noch eine beträchtliche Menge an Trümmern, die den Weg versperren...</source>
@@ -8128,7 +8128,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="3FCXH.5">
       <notes>
         <note category="german">Herzlichen Glückwunsch, du hast die Zone freigeräumt und kannst nun damit anfangen folgendes Gebäude zu durchsuchen : {ruin}.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, die Zone ist vollständig freigelegt worden! Du kannst nun mit der Suche nach Gegenständen im: {ruin} beginnen!</source>
@@ -8138,7 +8138,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="dpgWUqk" name="Du hast {count} Aktionspunkt(e) benutzt.">
       <notes>
         <note category="german">Du hast dafür &lt;strong&gt;{count} Aktionspunkt(e)&lt;/strong&gt; verbraucht.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php;php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
         <source>Du hast {count} Aktionspunkt(e) benutzt.</source>
@@ -8148,7 +8148,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="7Tv2eKD">
       <notes>
         <note category="german">Du vollführst einen Schamanentanz und betest zum Himmel, dass er Regen bringen und diese unselige Zone reinigen möge.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Du vollführst einen Schamanentanz und betest zum Himmel, dass er Regen bringen und diese unselige Zone reinigen möge.</source>
@@ -8158,7 +8158,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="jveYh8O">
       <notes>
         <note category="german">Doch nichts passiert... Soviel steht fest, du stehst nun wie ein lausiger Amateur da. Außer Blasen an den Füßen hat das alles nichts eingebracht...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Doch nichts passiert... Soviel steht fest, du stehst nun wie ein lausiger Amateur da. Außer Blasen an den Füßen hat das alles nichts eingebracht...</source>
@@ -8168,7 +8168,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="ROlGH4i">
       <notes>
         <note category="german">Schließlich zahlen sich deine Bemühungen aus. Die ersten Tropfen regnen auf die Zombies herab. Du genießt diesen Moment, als ihr Fleisch wie Schnee in der Sonne schmilzt und wartest geduldig ab, bis sich ihre Körper komplett aufgelöst haben.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Und die Energie, die in diesen Tanz gesteckt wurde, zahlt sich schließlich aus, die ersten Tropfen fallen auf die Zombies und du genießt diesen delikaten Moment, in dem ihr Fleisch wie Schnee in der Sonne schmilzt und du geduldig wartest, bis sich ihre Körper verflüssigen.</source>
@@ -8178,7 +8178,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="rLM.vNL">
       <notes>
         <note category="german">Ob durch deine Kräfte oder unverschämtes Wetterglück, dicke Regentropfen fallen auf die Stadt herab und füllen ein wenig den Brunnen auf.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Ob durch deine Kräfte oder unverschämtes Wetterglück, dicke Regentropfen fallen auf die Stadt herab und füllen ein wenig den Brunnen auf.</source>
@@ -8188,7 +8188,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="bWnfo2a" name="Das ist keine gute Idee, das ist dir doch wohl klar!">
       <notes>
         <note category="german">Das ist keine gute Idee, das ist dir doch wohl klar!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageForumController.php;php:///src/Controller/Messages/MessageGlobalPMController.php</note>
       </notes>
       <segment>
         <source>Das ist keine gute Idee, das ist dir doch wohl klar!</source>
@@ -8198,7 +8198,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="396xkzr" name="...der Mörder .. ist.. IST.. AAARGHhh..">
       <notes>
         <note category="german">...der Mörder .. ist.. IST.. AAARGHhh..</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
       </notes>
       <segment>
         <source>...der Mörder .. ist.. IST.. AAARGHhh..</source>
@@ -8208,7 +8208,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="GYs9Lmd">
       <notes>
         <note category="german">Sie brachten die Leiche von {disposed} zum Kremato-Cue. Man bekommt {ration} Rationen davon...  Aber zu welchem Preis?</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Sie brachten die Leiche von {disposed} zum Kremato-Cue. Man bekommt {ration} Rationen davon...  Aber zu welchem Preis?</source>
@@ -8368,7 +8368,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="KYKuCCa">
       <notes>
         <note category="german">Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Er kann den Gegenstand momentan nicht aufnehmen und hat ihn auf dem Boden abgelegt.</source>
@@ -8378,7 +8378,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="i5CLt14">
       <notes>
         <note category="german">Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: {items}</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Du gräbst schon seit einiger Zeit und hast mehrere Gegenstände gefunden: {items}</source>
@@ -8388,7 +8388,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="NrFJRq0" name="Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...">
       <notes>
         <note category="german">Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Trotz all seiner Anstrengungen hat dein Freund hier leider nichts gefunden...</source>
@@ -8398,7 +8398,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="ldDJ4DB">
       <notes>
         <note category="german">Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Trotz all ihrer Anstrengungen hat deine Expedition hier leider nichts gefunden...</source>
@@ -8408,7 +8408,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="d4RUv2h" name="Nach einigen Anstrengungen hat dein Freund folgendes gefunden: {item}!">
       <notes>
         <note category="german">Nach einigen Anstrengungen hat dein Freund folgendes gefunden: {item}!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hat dein Freund folgendes gefunden: {item}!</source>
@@ -8418,7 +8418,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="BLXAmwW" name="Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: {item}!">
       <notes>
         <note category="german">Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: {item}!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Nach einigen Anstrengungen hat deine Expedition folgendes gefunden: {item}!</source>
@@ -9446,7 +9446,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="fbPbjvi">
       <notes>
         <note category="german">Du kannst diesen Bürger nicht angreifen... er riecht nicht wie die anderen. Moment... Dieser Bürger ist ein Ghul, genau wie du!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Du kannst diesen Bürger nicht angreifen... er riecht nicht wie die anderen. Moment... Dieser Bürger ist ein Ghul, genau wie du!</source>
@@ -9456,7 +9456,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="yp9bvQd">
       <notes>
         <note category="german">Mit weit aufgerissenem Maul stürzt du dich auf {citizen}. Unter der Wucht deiner brutalen Schläge und Tritte sackt er ziemlich schnell zusammen.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Mit weit aufgerissenem Maul stürzt du dich auf {citizen}. Unter der Wucht deiner brutalen Schläge und Tritte sackt er ziemlich schnell zusammen.</source>
@@ -9466,7 +9466,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="bGpi8xS">
       <notes>
         <note category="german">Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Mit ein paar unschönen Tritten gegen seinen Kopf vergewisserst du dich, dass er garantiert nicht mehr aufstehen wird. Na los! Bring deinen Job zuende und verspeise ihn!</source>
@@ -9476,7 +9476,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="wzmYlE_" name="Gut gemacht!">
       <notes>
         <note category="german">Gut gemacht!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Gut gemacht!</source>
@@ -9486,7 +9486,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="RwOIyEr" name="Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!">
       <notes>
         <note category="german">Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Du wurdest beobachtet! Die anderen Bürger wurden gewarnt!</source>
@@ -9496,7 +9496,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="YYOxts0">
       <notes>
         <note category="german">Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Nicht so appetitlich wie frisches Menschenfleisch, aber es stillt nichtsdestotrotz deinen Hunger... zumindest ein bisschen. Wenigstens war das Fleisch noch halbwegs zart.</source>
@@ -9506,7 +9506,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="7RZI36r">
       <notes>
         <note category="german">Mit aller Gewalt greifst du {citizen} an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt {citizen} eine schwere Verletzung davon.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du {citizen} an! Du hast den Überraschungsmoment auf deiner Seite und am Ende trägt {citizen} eine schwere Verletzung davon.</source>
@@ -9516,7 +9516,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="1HduKoA">
       <notes>
         <note category="german">Plötzlich sackt {citizen} in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: {citizen} war ein Ghul!!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Plötzlich sackt {citizen} in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: {citizen} war ein Ghul!!</source>
@@ -9526,7 +9526,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="9goEXWW">
       <notes>
         <note category="german">Es gibt keinen Grund, in Panik zu geraten. Alles deutet im Moment darauf hin, dass es in unserer Stadt &lt;strong&gt;noch keinen Ghul&lt;/strong&gt; gibt.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Bleib mal ganz geschmeidig! In dieser Stadt gibt es keine Ghule, also solltest du auch nicht herumlaufen und grundlos Leute verprügeln. M'Kay?</source>
@@ -9537,7 +9537,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">{citizen} ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>{citizen} ist bereits verletzt; ihn erneut anzugreifen wird dir nichts bringen.</source>
@@ -9547,7 +9547,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="1BFjb1b">
       <notes>
         <note category="german">Mit aller Gewalt greifst du {citizen} an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Mit aller Gewalt greifst du {citizen} an! Ihr tauscht für eine Weile Schläge aus, bis ihr euch schließlich größtenteils unverletzt voneinander trennt.</source>
@@ -9557,7 +9557,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="0rbqUhr">
       <notes>
         <note category="german">Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als {citizen} wieder erwacht, scheint er von seiner Angststarre befreit zu sein.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Es gibt nichts Besseres als die Furcht, um eine Angststarre zu heilen. Man nimmt die Schamanenmaske ab und bläst dem Patienten ein selbst hergestelltes halluzinogenes Pulver auf das Gesicht, um einen schlafwandelnden Zustand herbeizuführen. Das provoziert schnell "pavor nocturnus". Als {citizen} wieder erwacht, scheint er von seiner Angststarre befreit zu sein.</source>
@@ -9567,7 +9567,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="RTU8pgm">
       <notes>
         <note category="german">Allerdings hat dich der Anblick dieses bis aufs Mark verängstigen Bürgers selbst in eine Angststarre versetzt.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Allerdings hat dich der Anblick dieses bis aufs Mark verängstigen Bürgers selbst in eine Angststarre versetzt.</source>
@@ -9577,7 +9577,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="GaBrjTB">
       <notes>
         <note category="german">Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, {citizen} umzubringen ist zu hoch...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Nichts... du fühlst nichts, keine Energie, kein Fluss auf den du dich verlassen könntest. Das Risiko, {citizen} umzubringen ist zu hoch...</source>
@@ -9587,7 +9587,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="8c5KAcV">
       <notes>
         <note category="german">Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt an der Basis des infizierten Körperteils. Der Entgiftungsprozess ist im Gange, wenn auch langsam.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt an der Basis des infizierten Körperteils. Der Entgiftungsprozess ist im Gange, wenn auch langsam.</source>
@@ -9597,7 +9597,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="vU0kRt8">
       <notes>
         <note category="german">Plötzlich platzt eine infizierte Eiterblase auf. Deine bereits verbrannte Haut bricht schnell in offene Wunden aus, und die infektiösen Keime beschließen, diese zu ihrem Zuhause zu machen.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Plötzlich platzt eine infizierte Eiterblase auf. Deine bereits verbrannte Haut bricht schnell in offene Wunden aus, und die infektiösen Keime beschließen, diese zu ihrem Zuhause zu machen.</source>
@@ -9607,7 +9607,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="TgA.L3j">
       <notes>
         <note category="german">Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der Leber. {citizen} ist aus den Krallen des Alkohols befreit.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der Leber. {citizen} ist aus den Krallen des Alkohols befreit.</source>
@@ -9617,7 +9617,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="aR4yhzT">
       <notes>
         <note category="german">Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der rechten Lunge. So sehr du auch versuchst, den Kräften zu widerstehen, die dich führen, kannst du nicht verhindern, dass deine Klinge tief in {citizen} eindringt und eine klare Flüssigkeit aus seinem frisch verstümmelten Körper austritt.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Du hebst dein heiliges Messer aus der Scheide und beginnst, dich nach einer gut eingeübten Abfolge ritueller Bewegungen "vorzubereiten". Der Energiefluss leitet dich, und ohne zu zögern machst du einen Einschnitt nahe der rechten Lunge. So sehr du auch versuchst, den Kräften zu widerstehen, die dich führen, kannst du nicht verhindern, dass deine Klinge tief in {citizen} eindringt und eine klare Flüssigkeit aus seinem frisch verstümmelten Körper austritt.</source>
@@ -9627,7 +9627,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="7K7nTLN" name="In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.">
       <notes>
         <note category="german">In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>In deinem aktuellen Zustand kannst du diese Aktion nicht ausführen.</source>
@@ -9637,7 +9637,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="owwwxrQ">
       <notes>
         <note category="german">Du kannst diesen Bürger nicht heilen. Entweder bedarf er keiner Heilung, ist nicht in der Stadt oder hat heute bereits eine mystische Heilung erfahren.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Du kannst diesen Bürger nicht heilen. Entweder bedarf er keiner Heilung, ist nicht in der Stadt oder hat heute bereits eine mystische Heilung erfahren.</source>
@@ -9647,7 +9647,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="L0KmARN" name="Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.">
       <notes>
         <note category="german">Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.</source>
@@ -10174,7 +10174,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="o2TNGvz" name="Deine Nachricht wurde korrekt übermittelt!">
       <notes>
         <note category="german">Deine Nachricht wurde korrekt übermittelt!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
         <source>Deine Nachricht wurde korrekt übermittelt!</source>
@@ -10374,7 +10374,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="BSzCHEk" name="Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...">
       <notes>
         <note category="german">Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Einige gesundheitliche Askekte deines Opfers sind auf dich übergegangen ...</source>
@@ -10384,7 +10384,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="SKbA9D2">
       <notes>
         <note category="german">Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...</source>
@@ -10524,7 +10524,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="bYjLN7a" name="Draußen">
       <notes>
         <note category="german">Draußen</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageController.php</note>
       </notes>
       <segment>
         <source>Draußen</source>
@@ -10764,7 +10764,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="UWWvoug">
       <notes>
         <note category="german">Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Du brauchst eine Weile, bis du alle Gegenstände versteckt hast, die du bei dir trägst... Ha Ha... Du hast 2 Aktionspunkte verbraucht.</source>
@@ -10774,7 +10774,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="ZgukXzf" name="Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.">
       <notes>
         <note category="german">Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
         <source>Deine Nachricht und deine ausgewählten Gegenstände wurden überbracht.</source>
@@ -10784,7 +10784,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="3pHPASJ">
       <notes>
         <note category="german">Beim Graben bist du auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Beim Graben bist du auf eine Art... geheimes Versteck mit {items} gestoßen! Es wurde vermutlich von einem verbannten Mitbürger angelegt...</source>
@@ -11414,7 +11414,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="Bjzw2iI" name="Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst {item}!">
       <notes>
         <note category="german">Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst {item}!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Du nimmst einen Abdruck vom Schloss dieser Tür und erhälst {item}!</source>
@@ -11424,7 +11424,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="RRBkbsZ" name="Du benötigst {item}, um diese Tür zu öffnen.">
       <notes>
         <note category="german">Du benötigst {item}, um diese Tür zu öffnen.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Du benötigst {item}, um diese Tür zu öffnen.</source>
@@ -11434,7 +11434,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="pniaLp." name="Mithilfe des {item} hast du die Tür aufgeschlossen!">
       <notes>
         <note category="german">Mithilfe des {item} hast du die Tür aufgeschlossen!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/ExplorationController.php</note>
       </notes>
       <segment>
         <source>Mithilfe des {item} hast du die Tür aufgeschlossen!</source>
@@ -11544,7 +11544,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="Zc9wwO7" name="Verbesserung des Tages (building)">
       <notes>
         <note category="german">Verbesserung des Tages (building)</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Verbesserung des Tages (building)</source>
@@ -11554,7 +11554,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="AKS0zA3" name="Werkstatt (building)">
       <notes>
         <note category="german">Werkstatt (building)</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Werkstatt (building)</source>
@@ -11704,7 +11704,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="z3Y3jVt" name="Anonyme Beschwerde">
       <notes>
         <note category="german">Anonyme Beschwerde</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
         <source>Anonyme Beschwerde</source>
@@ -11714,7 +11714,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="FpBbhAk" name="Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: &quot;{reason}&quot;">
       <notes>
         <note category="german">Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "{reason}"</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
         <source>Es wurde eine neue anonyme Beschwerde gegen dich eingelegt: "{reason}"</source>
@@ -11724,7 +11724,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="1VFuVbv" name="Beschwerde zurückgezogen">
       <notes>
         <note category="german">Beschwerde zurückgezogen</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
         <source>Beschwerde zurückgezogen</source>
@@ -11734,7 +11734,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="4JD3nCw" name="Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: &quot;{reason}&quot;">
       <notes>
         <note category="german">Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "{reason}"</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
         <source>Es gibt gute Nachrichten! Folgende Beschwerde wurde zurückgezogen: "{reason}"</source>
@@ -11744,7 +11744,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="d7mV6VK" name="Du bist vor Angst erstarrt!!">
       <notes>
         <note category="german">Du bist vor Angst erstarrt!!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
         <source>Du bist vor Angst erstarrt!!</source>
@@ -11754,7 +11754,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="tFQ2b3A">
       <notes>
         <note category="german">Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den {num} Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
         <source>Wir haben zwei Neuigkeiten für dich. Eine gute und eine schlechte. Zuerst die gute: Trotz ihrer hartnäckigen Versuche, ist es den {num} Zombie(s) nicht gelungen, dich aufzufressen. Du hast dich wacker geschlagen. Bravo! Die schlechte: Das Erlebnis war so schlimm, dass du in eine Angststarre verfallen bist. So etwas möchtest du nicht wieder erleben...</source>
@@ -11764,7 +11764,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="Efbc_qn" name="Haltet den Dieb!">
       <notes>
         <note category="german">Haltet den Dieb!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
         <source>Haltet den Dieb!</source>
@@ -11905,7 +11905,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="mjwvinZ" name="Heute Morgen ist kein Artikel erschienen...">
       <notes>
         <note category="german">Heute Morgen ist kein Artikel erschienen...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/GameController.php</note>
       </notes>
       <segment>
         <source>Heute Morgen ist kein Artikel erschienen...</source>
@@ -11915,7 +11915,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="eaj_mZA">
       <notes>
         <note category="german">Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: {icon} {item}</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
         <source>Es scheint so, als ob ein anderer Bürger Gefallen an deinem Inventar gefunden hätte... Dir wurde folgendes gestohlen: {icon} {item}</source>
@@ -12092,7 +12092,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="Xo4xhxR" name="Die Stadt wird erst starten, wenn sie &lt;strong&gt;{population} Bürger hat&lt;/strong&gt;.">
       <notes>
         <note category="german">Die Stadt wird erst starten, wenn sie &lt;strong&gt;{population} Bürger hat&lt;/strong&gt;.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/GameController.php</note>
       </notes>
       <segment>
         <source>Die Stadt wird erst starten, wenn sie &lt;strong&gt;{population} Bürger hat&lt;/strong&gt;.</source>
@@ -12578,7 +12578,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="b5pBvHw">
       <notes>
         <note category="german">Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch {times} mal tun.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/GameController.php</note>
       </notes>
       <segment>
         <source>Du hast heimlich einen Eintrag im Register unkenntlich gemacht... Du kannst das noch {times} mal tun.</source>
@@ -12588,7 +12588,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="lOxMaLb" name="Du hast {item_list} in der Werkstatt geöffnet und erhälst {item}.">
       <notes>
         <note category="german">Du hast {item_list} in der Werkstatt geöffnet und erhälst {item}.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Du hast {item_list} in der Werkstatt geöffnet und erhälst {item}.</source>
@@ -12598,7 +12598,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="w_Bee.G" name="Du hast {item_list} in der Werkstatt zu {item} zerlegt.">
       <notes>
         <note category="german">Du hast {item_list} in der Werkstatt zu {item} zerlegt.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Du hast {item_list} in der Werkstatt zu {item} zerlegt.</source>
@@ -12608,7 +12608,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="QzehOlL" name="Du hast {item_list} in der Werkstatt zu {item} umgewandelt.">
       <notes>
         <note category="german">Du hast ein(e,n) {item} hergestellt. Der Gegenstand wurde in der Bank abgelegt.&lt;hr /&gt;Du hast dafür &lt;strong&gt;{ap} Aktionspunkt(e)&lt;/strong&gt; verbraucht.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Du hast {item_list} in der Werkstatt zu {item} umgewandelt.</source>
@@ -12618,7 +12618,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="WT1tjCk" name="Du hast {item_list} zu {item} umgewandelt.">
       <notes>
         <note category="german">Du hast {item_list} zu {item} umgewandelt.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Du hast {item_list} zu {item} umgewandelt.</source>
@@ -12638,7 +12638,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="G92tvVe">
       <notes>
         <note category="german">Nach einem zähen Kampf gelingt es dir endlich &lt;strong&gt;einen Zombie&lt;/strong&gt; gegen einen Felsen zu werfen... Sein Kopf ist &lt;strong&gt;explodiert&lt;/strong&gt; und die ganze Soße klebt jetzt an deinen Füßen! Du torkelst ein paar Meter vom Ort des Geschehens weg und keuchst leise vor dich hin: Einer weniger.. Ha... ha...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Nach einem zähen Kampf gelingt es dir endlich &lt;strong&gt;einen Zombie&lt;/strong&gt; gegen einen Felsen zu werfen... Sein Kopf ist &lt;strong&gt;explodiert&lt;/strong&gt; und die ganze Soße klebt jetzt an deinen Füßen! Du torkelst ein paar Meter vom Ort des Geschehens weg und keuchst leise vor dich hin: Einer weniger.. Ha... ha...</source>
@@ -12648,7 +12648,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id=".gJvXXq">
       <notes>
         <note category="german">Du stürzt dich auf eine dieser Kreaturen und &lt;strong&gt;umklammerst sie mit beiden Armen&lt;/strong&gt;, um sie zu Fall zu bringen. Der Kontakt mit seiner &lt;strong&gt;verrotteten Haut&lt;/strong&gt; bringt dich fast zum Kotzen... Du kämpfst und versuchst ihn irgendwie umzustoßen, doch ohne Erfolg. &lt;strong&gt;Das Biest hat dich mehrere Male um ein Haar gebissen!&lt;/strong&gt; Erschöpft und demoralisiert lässt du von ihm ab, um dich zurückzuziehen...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Du stürzt dich auf eine dieser Kreaturen und &lt;strong&gt;umklammerst sie mit beiden Armen&lt;/strong&gt;, um sie zu Fall zu bringen. Der Kontakt mit seiner &lt;strong&gt;verrotteten Haut&lt;/strong&gt; bringt dich fast zum Kotzen... Du kämpfst und versuchst ihn irgendwie umzustoßen, doch ohne Erfolg. &lt;strong&gt;Das Biest hat dich mehrere Male um ein Haar gebissen!&lt;/strong&gt; Erschöpft und demoralisiert lässt du von ihm ab, um dich zurückzuziehen...</source>
@@ -12778,7 +12778,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="JZddhDT">
       <notes>
         <note category="german">Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/GameController.php</note>
       </notes>
       <segment>
         <source>Fangt schon mal an zu beten, Bürger - die Zombies werden um Mitternacht angreifen!</source>
@@ -12901,7 +12901,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="jVhaVYF" name="Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.">
       <notes>
         <note category="german">Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Du hast soeben den Zugang zu deiner privaten Stadt für jedermann geöffnet.</source>
@@ -15880,7 +15880,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="tz9Jwn2">
       <notes>
         <note category="german">Die Zone ist vollständig mit &lt;strong&gt;verrottender Vegetation&lt;/strong&gt;, &lt;strong&gt;Sand&lt;/strong&gt; und allem möglichen &lt;strong&gt;Schrott&lt;/strong&gt; bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="from">php:///src/Controller/ExternalXML2Controller.php;twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>
         <source>Die Zone ist vollständig mit verrottender Vegetation, Sand und allem möglichen Schrott bedeckt. Du bist dir sicher, dass es hier etwas zu finden gibt, aber zunächst musst du diesen gesamten Sektor aufräumen um ihn vernünftig durchsuchen zu können.</source>
@@ -16318,7 +16318,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="OhpvQec" name="im Nordwesten">
       <notes>
         <note category="german">im Nordwesten</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>im Nordwesten</source>
@@ -16328,7 +16328,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="dHF9hg3" name="im Norden">
       <notes>
         <note category="german">im Norden</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>im Norden</source>
@@ -16338,7 +16338,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="8VW_Ac6" name="im Nordosten">
       <notes>
         <note category="german">im Nordosten</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>im Nordosten</source>
@@ -16348,7 +16348,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="CGH7WpP" name="im Westen">
       <notes>
         <note category="german">im Westen</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>im Westen</source>
@@ -16358,7 +16358,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="GrDc37F" name="im Osten">
       <notes>
         <note category="german">im Osten</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>im Osten</source>
@@ -16368,7 +16368,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="luEGXBn" name="im Südwesten">
       <notes>
         <note category="german">im Südwesten</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>im Südwesten</source>
@@ -16378,7 +16378,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="UpG6M6C" name="im Süden">
       <notes>
         <note category="german">im Süden</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>im Süden</source>
@@ -16388,7 +16388,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="G2GbQ43" name="im Südosten">
       <notes>
         <note category="german">im Südosten</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
+        <note category="from">php:///src/Controller/GameController.php;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/newspaper.html.twig</note>
       </notes>
       <segment>
         <source>im Südosten</source>
@@ -16398,7 +16398,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="AISIM8E" name="Du bist für das Katapult verantwortlich">
       <notes>
         <note category="german">Du bist für das Katapult verantwortlich</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
         <source>Du bist für das Katapult verantwortlich</source>
@@ -16408,7 +16408,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="hCYUVMS">
       <notes>
         <note category="german">Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
         <source>Du bist zum offiziellen Katapult-Bediener der Stadt ernannt worden. Diese Ernennung erfolgte durch Auslosung; Herzlichen Glückwunsch! Finde dich so bald wie Möglich beim städtischen Katapult ein.</source>
@@ -16418,7 +16418,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="j3kJ.du">
       <notes>
         <note category="german">Sorgfältig verpackt hast du {item} in das Katapult gelegt. Der Gegenstand wurde auf {zone} geschleudert.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownAddonsController.php</note>
       </notes>
       <segment>
         <source>Sorgfältig verpackt hast du {item} in das Katapult gelegt. Der Gegenstand wurde auf {zone} geschleudert.</source>
@@ -17297,7 +17297,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="_40Ez0e">
       <notes>
         <note category="german">Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... &lt;br /&gt;Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das &lt;strong&gt;Wachturmregister&lt;/strong&gt;.&lt;hr /&gt;Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownAddonsController.php</note>
       </notes>
       <segment>
         <source>Vom Turm aus hast du eine guten Überblick über die Wüste. Du musterst die Umgebung, versuchst die Zombies zu zählen und ihre Bewegungsrichtung vorauszuberechnen... &lt;br /&gt;Nachdem du einige Minuten die Lage gecheckt hast, schreibst du deine Ergebnisse in das &lt;strong&gt;Wachturmregister&lt;/strong&gt;.&lt;hr /&gt;Zusammen mit den Informationen der anderen Bürger sollten wir eine korrekte Angriffsschätzung bekommen.</source>
@@ -17307,7 +17307,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="bzdrSFm" name="Du hast am Bauprojekt {plan} mitgeholfen.">
       <notes>
         <note category="german">Du hast am Bauprojekt {plan} mitgeholfen.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Du hast am Bauprojekt {plan} mitgeholfen.</source>
@@ -17317,7 +17317,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="Whw_2bO" name="Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) {home} verwandelt.">
       <notes>
         <note category="german">Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) {home} verwandelt.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch! Du hast deine Behausung in ein(e) {home} verwandelt.</source>
@@ -17327,7 +17327,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="CZg55p2" name="Folgenden Dinge wurden dazu gebraucht:">
       <notes>
         <note category="german">Folgenden Dinge wurden dazu gebraucht:</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
         <source>Folgenden Dinge wurden dazu gebraucht:</source>
@@ -17337,7 +17337,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="CZbH_lG" name="Mit dem Bau der(s) {upgrade} hat dein Haus Stufe {level} erreicht!">
       <notes>
         <note category="german">Mit dem Bau der(s) {upgrade} hat dein Haus Stufe {level} erreicht!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
         <source>Mit dem Bau der(s) {upgrade} hat dein Haus Stufe {level} erreicht!</source>
@@ -17522,7 +17522,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="PixTJAs" name="Hurra! Folgendes Gebäude wurde fertiggestellt: {plan}!">
       <notes>
         <note category="german">Hurra! Folgendes Gebäude wurde fertiggestellt: {plan}!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Hurra! Folgendes Gebäude wurde fertiggestellt: {plan}!</source>
@@ -17532,7 +17532,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="RcQH2Pr" name="Du hast dafür {count} Aktionspunkt(e) verbraucht.">
       <notes>
         <note category="german">Du hast dafür {count} Aktionspunkt(e) verbraucht.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Du hast dafür {count} Aktionspunkt(e) verbraucht.</source>
@@ -17556,7 +17556,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="lo3tdoY" name="Was für eine schreckliche Nacht!">
       <notes>
         <note category="german">Was für eine schreckliche Nacht!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
         <source>Was für eine schreckliche Nacht!</source>
@@ -17566,7 +17566,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="pPZiySm">
       <notes>
         <note category="german">Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
         <source>Heute Nacht ist dir der Arsch so richtig auf Grundeis gegangen! Als du ihr Grunzen und Stöhnen gehört hattest, war dir klar: Sie würden bei dir daheim eindringen. So kam es dann auch: Deine Haustür splitterte unter der Last ihrer Angriffe. Panisch bist du ins Schlafzimmer gerannt, um dich unter deinem Bett zu verstecken. Sie blieben ein paar Minuten, die dir wie eine Ewigkeit vorkamen, und schnüffelten sich durch alle Zimmer. Innerlich zitternd, hast du zu Gott gebetet, dass sie dich verschonen mögen. Dann war plötzlich wieder alles still. Hechelnd und schnaufend bist du aus deinem Versteck hervorgekrochen und heulend auf deinem Bett zusammengesunken.</source>
@@ -19389,7 +19389,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">{username} hat dich angegriffen!</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
         <source>{username} hat dich angegriffen!</source>
@@ -19400,7 +19400,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
         <source>Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</source>
@@ -19411,7 +19411,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">{username} hat dich angegriffen und verletzt!</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
         <source>{username} hat dich angegriffen und verletzt!</source>
@@ -19422,7 +19422,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
         <source>Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</source>
@@ -19433,7 +19433,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Verletzt</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php;php:///src/Controller/Town/TownHomeController.php</note>
       </notes>
       <segment>
         <source>Verletzt</source>
@@ -19443,7 +19443,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="rt69Tb7">
       <notes>
         <note category="german">Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die {count} Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
         <source>Wir haben zwei Neuigkeiten für dich. Die Gute: du konntest die {count} Zombie(s) abwehren! Die Schlechte: du wurdest dabei verletzt...</source>
@@ -19453,7 +19453,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="zKN7f_C" name="Du verlässt deinen Posten?...">
       <notes>
         <note category="german">Du verlässt deinen Posten?...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownAddonsController.php</note>
       </notes>
       <segment>
         <source>Du verlässt deinen Posten?...</source>
@@ -19463,7 +19463,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="81G6y92">
       <notes>
         <note category="german">Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownAddonsController.php</note>
       </notes>
       <segment>
         <source>Bravo, du hast die verantwortungsvolle Aufgabe übernommen, deine Mitbürger vor den Untoten zu beschützen...</source>
@@ -19601,7 +19601,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="7nokZTi">
       <notes>
         <note category="german">Du hast soeben folgenden Gegenstand aus der Bank genommen: {item}. &lt;strong&gt;Sei nicht zu gierig&lt;/strong&gt; oder deine Mitbürger könnten dich für einen &lt;strong&gt;Egoisten&lt;/strong&gt; halten...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Du hast soeben folgenden Gegenstand aus der Bank genommen: {item}. &lt;strong&gt;Sei nicht zu gierig&lt;/strong&gt; oder deine Mitbürger könnten dich für einen &lt;strong&gt;Egoisten&lt;/strong&gt; halten...</source>
@@ -19611,7 +19611,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="2m.P4A9">
       <notes>
         <note category="german">Du hast eine weitere {item} genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Du hast eine weitere {item} genommen. Die anderen Bürger der Stadt wurden informiert. Sei nicht zu gierig...</source>
@@ -19621,7 +19621,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="Sfu_8IX" name="Du hast deine tägliche Ration erhalten: {item}">
       <notes>
         <note category="german">Du hast deine tägliche Ration erhalten: {item}</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Du hast deine tägliche Ration erhalten: {item}</source>
@@ -19631,7 +19631,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="T4D33fJ" name="Die Route wurde gelöscht.">
       <notes>
         <note category="german">Die Route wurde gelöscht.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Die Route wurde gelöscht.</source>
@@ -20248,7 +20248,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="J190d.V" name="Du brauchst noch folgende Gegenstände: {list}.">
       <notes>
         <note category="german">Du brauchst noch folgende Gegenstände: {list}.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Du brauchst noch folgende Gegenstände: {list}.</source>
@@ -20330,7 +20330,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="kahwXKV">
       <notes>
         <note category="german">Du hast dir folgenden Gegenstand unter den Nagel gerissen: {item}. Dein kleiner Hausbesuch bei † {victim} ist allerdings aufgeflogen...&lt;hr /&gt;Dieser Gegenstand wurde &lt;strong&gt;in deiner Truhe&lt;/strong&gt; abgelegt.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Du hast dir folgenden Gegenstand unter den Nagel gerissen: {item}. Dein kleiner Hausbesuch bei † {victim} ist allerdings aufgeflogen...&lt;hr /&gt;&lt;strong&gt;Dieser Gegenstand wurde in deiner Truhe abgelegt.&lt;/strong&gt;</source>
@@ -20604,7 +20604,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="3YClH4I">
       <notes>
         <note category="german">Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php;php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Dein &lt;strong&gt;Trunkenheitszustand&lt;/strong&gt; hilft dir wirklich nicht weiter. Das ist nicht gerade einfach, wenn sich alles dreht und du nicht mehr klar siehst.</source>
@@ -20614,7 +20614,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="5PKcGGG">
       <notes>
         <note category="german">Du hast soeben {item} aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Du hast soeben {item} aus der Bank gestohlen. Dein Name wird nicht im Register erscheinen...</source>
@@ -20625,7 +20625,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Dafür solltest du dein Labor verwenden...</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Dafür solltest du dein Labor verwenden...</source>
@@ -20765,7 +20765,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="fY8p2vV" name="Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!">
       <notes>
         <note category="german">Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!</note>
-        <note category="from">twig:///templates/scripts/errors/inventory.txt.twig</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php;twig:///templates/scripts/errors/inventory.txt.twig</note>
       </notes>
       <segment>
         <source>Dein Diebstahlversuch ist gescheitert! Du bist entdeckt worden!</source>
@@ -20805,7 +20805,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="jjVCRmk" name="am {d}.{m}.{Y}, um {H}:{i}">
       <notes>
         <note category="german">am {d}.{m}.{Y}, um {H}:{i}</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>am {d}.{m}.{Y}, um {H}:{i}</source>
@@ -20816,7 +20816,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Du wurdest von einem &lt;strong&gt;Zombie in der Zone entdeckt&lt;/strong&gt;! Er hat sich in deine Richtung gedreht!&lt;hr/&gt;Deine Tarnung ist aufgeflogen!</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Du wurdest von einem &lt;strong&gt;Zombie in der Zone entdeckt&lt;/strong&gt;! Er hat sich in deine Richtung gedreht!&lt;hr/&gt;Deine Tarnung ist aufgeflogen!</source>
@@ -20826,7 +20826,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="fBI9kz3" name="Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!">
       <notes>
         <note category="german">Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Deine &lt;strong&gt;Tarnung ist aufgeflogen&lt;/strong&gt;!</source>
@@ -21043,7 +21043,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Du kannst keine Gegenstände verstecken, solange jemand zuschaut ...</source>
@@ -21054,7 +21054,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Du hast keine Gegenstände, die du verstecken könntest.</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Du hast keine Gegenstände, die du verstecken könntest.</source>
@@ -21600,7 +21600,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="kkxXgbR">
       <notes>
         <note category="german">Du hast das Haus von &lt;strong&gt;✝ {citizen}&lt;/strong&gt; vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Du hast das Haus von &lt;strong&gt;✝ {citizen}&lt;/strong&gt; vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert.</source>
@@ -21610,7 +21610,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="rB2kHf5" name="Die Stadt hat zudem folgende Resourcen zurückgewinnen können: {item_list}">
       <notes>
         <note category="german">Die Stadt hat zudem folgende Resourcen zurückgewinnen können: {item_list}</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Die Stadt hat zudem folgende Resourcen zurückgewinnen können: {item_list}</source>
@@ -21620,7 +21620,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="QDOrNez">
       <notes>
         <note category="german">Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...</source>
@@ -21630,7 +21630,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="cmDQRlA">
       <notes>
         <note category="german">Du hast &lt;strong&gt;1AP&lt;/strong&gt; aufgewendet, um das Haus von &lt;strong&gt;✝ {citizen}&lt;/strong&gt; zu recyclen. Die Arbeiten sind noch nicht abgeschlossen...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Du hast &lt;strong&gt;1AP&lt;/strong&gt; aufgewendet, um das Haus von &lt;strong&gt;✝ {citizen}&lt;/strong&gt; zu recyclen. Die Arbeiten sind noch nicht abgeschlossen...</source>
@@ -21650,7 +21650,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="jB1RN29" name="Deine Nachricht wurde gespeichert.">
       <notes>
         <note category="german">Deine Nachricht wurde gespeichert.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
       </notes>
       <segment>
         <source>Deine Nachricht wurde gespeichert.</source>
@@ -21785,7 +21785,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Die Atmosphäre wird unerträglich... Du kannst so nicht weitermachen; ohne zu wissen wie, du findest den Ausgang, aber du verletzt dich bei der Flucht.</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ZoneHandler.php</note>
       </notes>
       <segment>
         <source>Die Atmosphäre wird unerträglich... Du kannst so nicht weitermachen; ohne zu wissen wie, du findest den Ausgang, aber du verletzt dich bei der Flucht.</source>
@@ -22059,7 +22059,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.&lt;hr/&gt;Du hast 2 Aktionspunkte verbraucht.</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Ein oder mehrere nicht-verbannte Bürger in der Umgebung haben dich dabei beobachtet.&lt;hr/&gt;Du hast 2 Aktionspunkte verbraucht.</source>
@@ -22070,7 +22070,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Als du folgendes Gebäude: {building} erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: {item}.</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/BeyondController.php</note>
       </notes>
       <segment>
         <source>Als du folgendes Gebäude: {building} erkundest hast, lief es eiskalt den Rücken runter... Aber es war nicht umsonst! Du hast folgenden Gegenstand gefunden: {item}.</source>
@@ -22196,7 +22196,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="3Dm5jOH" name="Du hast den(die,das) {item} bei {victim} abgelegt...">
       <notes>
         <note category="german">Du hast den(die,das) {item} bei {victim} abgelegt...</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Du hast den(die,das) {item} bei {victim} abgelegt...</source>
@@ -22206,7 +22206,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="rcIyf3M">
       <notes>
         <note category="german">Du bist bei deiner Aktion aufgeflogen! &lt;strong&gt;Deine Mitbürger wissen jetz Bescheid!&lt;/strong&gt;</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/InventoryAwareController.php</note>
       </notes>
       <segment>
         <source>Du bist bei deiner Aktion aufgeflogen! &lt;strong&gt;Deine Mitbürger wissen jetz Bescheid!&lt;/strong&gt;</source>
@@ -22538,7 +22538,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Deine Beschwerde wurde aufgenommen, wird aber in der aktuellen Situation &lt;strong&gt;nicht sehr hilfreich&lt;/strong&gt; sein.&lt;hr&gt;Die Stadt ist im totalen &lt;strong&gt;Chaos&lt;/strong&gt; versunken... Bei so wenigen Überlebenden sind &lt;strong&gt;die Gesetze des Landes außer Kraft&lt;/strong&gt;.</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Ihre Reklamation wurde gut aufgenommen, wird aber in der aktuellen Situation &lt;strong&gt;nicht sehr hilfreich&lt;/strong&gt; sein.&lt;hr&gt;Die Stadt ist im totalen &lt;strong&gt;Chaos&lt;/strong&gt; versunken... Bei so wenigen Überlebenden sind &lt;strong&gt;die Gesetze des Landes gebrochen worden&lt;/strong&gt;.</source>
@@ -22549,7 +22549,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Du hast eine Beschwerde gegen &lt;strong&gt;{citizen}&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird {citizen} aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Sie haben eine Beschwerde gegen &lt;strong&gt;{citizen}&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird {citizen} aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</source>
@@ -22560,7 +22560,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Deine Beschwerde wurde zurückgezogen... Denke das nächste Mal besser nach...</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
         <source>Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...</source>

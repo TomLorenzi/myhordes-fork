@@ -814,7 +814,7 @@
       <notes>
         <note category="german">Users</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
       </notes>
       <segment>
         <source>Users</source>
@@ -824,7 +824,7 @@
     <unit id="h7YL9VW" name="Städte">
       <notes>
         <note category="german">Städte</note>
-        <note category="from">twig:///templates/ajax/admin/widget/controls.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Städte</source>
@@ -834,7 +834,7 @@
     <unit id="jA6UdTz" name="Zukunft">
       <notes>
         <note category="german">Zukunft</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
       </notes>
       <segment>
         <source>Zukunft</source>
@@ -1156,7 +1156,7 @@
     <unit id="yu8TLDr" name="Du hast dich umgebracht.">
       <notes>
         <note category="german">Du hast dich umgebracht.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/AdminActionHandler.php</note>
       </notes>
       <segment>
         <source>Du hast dich umgebracht.</source>
@@ -1166,7 +1166,7 @@
     <unit id="xkgfKms" name="Du gehörst keiner Stadt an.">
       <notes>
         <note category="german">Du gehörst keiner Stadt an.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/AdminActionHandler.php</note>
       </notes>
       <segment>
         <source>Du gehörst keiner Stadt an.</source>
@@ -1719,7 +1719,7 @@
       <notes>
         <note category="german">AntiSpam</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
       </notes>
       <segment>
         <source>AntiSpam</source>
@@ -1830,7 +1830,7 @@
       <notes>
         <note category="german">Dashboard</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
       </notes>
       <segment>
         <source>Dashboard</source>
@@ -1862,7 +1862,7 @@
       <notes>
         <note category="german">Apps</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
       </notes>
       <segment>
         <source>Apps</source>
@@ -2124,7 +2124,7 @@
     <unit id="i2H25l5" name="Foren-Mod.">
       <notes>
         <note category="german">Foren-Mod.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
       </notes>
       <segment>
         <source>Foren-Mod.</source>
@@ -2254,7 +2254,7 @@
     <unit id="F_ijNEI" name="Neue Anwendung registrieren">
       <notes>
         <note category="german">Neue Anwendung registrieren</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminAppController.php</note>
       </notes>
       <segment>
         <source>Neue Anwendung registrieren</source>
@@ -2264,7 +2264,7 @@
     <unit id="MxCYTlN" name="Änderungen an '{appname}' speichern">
       <notes>
         <note category="german">Änderungen an {appname} speichern</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminAppController.php</note>
       </notes>
       <segment>
         <source>Änderungen an '{appname}' speichern</source>
@@ -2365,7 +2365,7 @@
     <unit id="S1OmuJB" name="Saisons">
       <notes>
         <note category="german">Saisons</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php</note>
       </notes>
       <segment>
         <source>Saisons</source>
@@ -2376,7 +2376,7 @@
       <notes>
         <note category="german">Neue Saison</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/admin/seasons/edit.html.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminSeasonController.php;twig:///templates/ajax/admin/seasons/edit.html.twig</note>
       </notes>
       <segment>
         <source>Neue Saison</source>
@@ -3649,7 +3649,7 @@
     <unit id="j9J2yMz" name="Gruppen">
       <notes>
         <note category="german">Gruppen</note>
-        <note category="from">twig:///templates/ajax/admin/groups/list.html.twig</note>
+        <note category="from">php:///src/Controller/Admin/AdminActionController.php;twig:///templates/ajax/admin/groups/list.html.twig</note>
       </notes>
       <segment>
         <source>Gruppen</source>

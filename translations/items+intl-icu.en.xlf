@@ -4,7 +4,7 @@
     <unit id="lKc.7ub" name="Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.">
       <notes>
         <note category="german">Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.</source>
@@ -14,7 +14,7 @@
     <unit id="yeqnW9g">
       <notes>
         <note category="german">Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
@@ -24,7 +24,7 @@
     <unit id="rmGP8Al">
       <notes>
         <note category="german">Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
@@ -34,7 +34,7 @@
     <unit id="Gk9gFU8">
       <notes>
         <note category="german">Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
@@ -44,7 +44,7 @@
     <unit id="087WiZd" name="Nicht schlecht, du hast einen Pasch geworfen.">
       <notes>
         <note category="german">Nicht schlecht, du hast einen Pasch geworfen.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Nicht schlecht, du hast einen Pasch geworfen.</source>
@@ -54,7 +54,7 @@
     <unit id="oGFgAoX" name="Was für ein Spaß!">
       <notes>
         <note category="german">Was für ein Spaß!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Was für ein Spaß!</source>
@@ -64,7 +64,7 @@
     <unit id="zcpU78C">
       <notes>
         <note category="german">Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</source>
@@ -74,7 +74,7 @@
     <unit id="NcJ93EV">
       <notes>
         <note category="german">Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</source>
@@ -84,7 +84,7 @@
     <unit id="kPlE9C6">
       <notes>
         <note category="german">Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</source>
@@ -94,7 +94,7 @@
     <unit id="i6dx5ZQ" name="Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.">
       <notes>
         <note category="german">Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.</source>
@@ -104,7 +104,7 @@
     <unit id="9tVy8rd">
       <notes>
         <note category="german">Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</source>
@@ -115,7 +115,7 @@
       <notes>
         <note category="german">Trotz intensiver Suche hast du nichts verwertbares gefunden...</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Trotz intensiver Suche hast du nichts verwertbares gefunden...</source>
@@ -3973,7 +3973,7 @@
     <unit id="1Qhkwmq" name="Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.">
       <notes>
         <note category="german">Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.</source>
@@ -3983,7 +3983,7 @@
     <unit id=".jOYrxS" name="Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....">
       <notes>
         <note category="german">Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....</source>
@@ -3993,7 +3993,7 @@
     <unit id="Kl2AzsC" name="Du ziehst eine Karte... es ist: {color} {value}.">
       <notes>
         <note category="german">Du ziehst eine Karte... es ist: {color} {value}.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Du ziehst eine Karte... es ist: {color} {value}.</source>
@@ -7255,7 +7255,7 @@
       <notes>
         <note category="german">Expedition</note>
         <note category="state">new</note>
-        <note category="from">db://ItemCategory</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Expedition</source>
@@ -7315,7 +7315,7 @@
     <unit id="XfbyTTX" name="Kaputt">
       <notes>
         <note category="german">Kaputt</note>
-        <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/game/item_tooltip.html.twig</note>
       </notes>
       <segment>
         <source>Kaputt</source>
@@ -7657,7 +7657,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="TWuwK4M" name="Angriff und Verteidigung">
       <notes>
         <note category="german">Angriff und Verteidigung</note>
-        <note category="from">db://ItemCategory</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Angriff und Verteidigung</source>
@@ -7667,7 +7667,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="s1_qYeB" name="Kreuz">
       <notes>
         <note category="german">Kreuz</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
         <source>Kreuz</source>
@@ -7677,7 +7677,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="XnWnfMP" name="Pik">
       <notes>
         <note category="german">Pik</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
         <source>Pik</source>
@@ -7687,7 +7687,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="Rduezfz" name="Herz">
       <notes>
         <note category="german">Herz</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
         <source>Herz</source>
@@ -7697,7 +7697,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="2P.dMD0" name="Karo">
       <notes>
         <note category="german">Karo</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
         <source>Karo</source>
@@ -7707,7 +7707,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="cIg8Tyq" name="Bube">
       <notes>
         <note category="german">Bube</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
         <source>Bube</source>
@@ -7717,7 +7717,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="82FCAix" name="Dame">
       <notes>
         <note category="german">Dame</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
         <source>Dame</source>
@@ -7727,7 +7727,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="5IgH0Ms" name="König">
       <notes>
         <note category="german">König</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
         <source>König</source>
@@ -7737,7 +7737,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="Dq2RYL6" name="Ass">
       <notes>
         <note category="german">Ass</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
         <source>Ass</source>
@@ -8271,7 +8271,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <notes>
         <note category="german">Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...</note>
         <note category="state">new</note>
-        <note category="from">db://AffectMessage</note>
+        <note category="from">db://AffectMessage;php:///src/Controller/Town/TownController.php;php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...</source>
@@ -8282,7 +8282,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <notes>
         <note category="german">Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.</note>
         <note category="state">new</note>
-        <note category="from">db://AffectMessage</note>
+        <note category="from">db://AffectMessage;php:///src/Controller/Town/TownController.php;php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.</source>
@@ -9098,7 +9098,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <notes>
         <note category="german">Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</source>
