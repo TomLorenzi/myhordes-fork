@@ -227,6 +227,7 @@ class MigrateCommand extends Command
                 if (!$this->helper->capsule( "app:migrate --maintenance off", $output, 'Disable maintenance mode... ', true )) return -1;
             } else $output->writeln("Maintenance is kept active. Disable with '<info>app:migrate --maintenance off</info>'");
 
+            return 0;
         }
 
         if ($input->getOption('install-db')) {
@@ -624,7 +625,6 @@ class MigrateCommand extends Command
             return 0;
         }
 
-
         if ($input->getOption('assign-features')) {
 
             $season = $this->entity_manager->getRepository(Season::class)->findLatest();
@@ -857,7 +857,6 @@ class MigrateCommand extends Command
             }
 
         }
-
 
         if ($input->getOption('repair-permissions')) {
 
