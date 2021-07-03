@@ -287,7 +287,7 @@ class InventoryAwareController extends CustomAbstractController
                 }
             }
         } else {
-            $this->getActiveCitizen()->getHome()->getChest();
+            $av_inv[] = $this->getActiveCitizen()->getHome()->getChest();
         }
 
         $items = [];
