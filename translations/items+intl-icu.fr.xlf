@@ -108,7 +108,7 @@
       </notes>
       <segment>
         <source>Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</source>
-        <target>Un peu de musique peut séduire les dames et restaure l'esprit ... mais il faudra se contenter du 2ème effet. Votre jeu a généré {ap} points d'action qui seront partagés entre les citoyens.</target>
+        <target>Une petite chansonnette permet de séduire les femmes et donner de l'énergie... mais il va falloir vous contenter de ce 2ème effet. Vous apportez {ap} points d'actions partagés entre vos concitoyens.</target>
       </segment>
     </unit>
     <unit id="6MESOb8" name="Trotz intensiver Suche hast du nichts verwertbares gefunden...">
@@ -188,7 +188,7 @@
       </notes>
       <segment>
         <source>Aqua-Splash (leer)</source>
-        <target>Aqua-splash (vide)</target>
+        <target>Aqua-Splash (vide)</target>
       </segment>
     </unit>
     <unit id="itMAdqK" name="Handmixer (geladen)">
@@ -738,7 +738,7 @@
       </notes>
       <segment>
         <source>Plastiktüte mit Sprengstoff</source>
-        <target>Bombe à eau explosive vide</target>
+        <target>Sac plastique + explosif</target>
       </segment>
     </unit>
     <unit id="c8B12bU" name="Unvollständige Kettensäge">
@@ -1038,7 +1038,7 @@
       </notes>
       <segment>
         <source>Wasserpistole (leer)</source>
-        <target>Pistolet à eau (Vide)</target>
+        <target>Pistolet à eau (vide)</target>
       </segment>
     </unit>
     <unit id="6p7Eyez" name="Aqua-Splash (3 Ladungen)">
@@ -1048,7 +1048,7 @@
       </notes>
       <segment>
         <source>Aqua-Splash (3 Ladungen)</source>
-        <target>Aqua-Splash (3 Charges)</target>
+        <target>Aqua-Splash (3 charges)</target>
       </segment>
     </unit>
     <unit id="SslDPfH" name="Aqua-Splash (2 Ladungen)">
@@ -1058,7 +1058,7 @@
       </notes>
       <segment>
         <source>Aqua-Splash (2 Ladungen)</source>
-        <target>Aqua-Splash (2 Charges)</target>
+        <target>Aqua-Splash (2 charges)</target>
       </segment>
     </unit>
     <unit id="UESHvBl" name="Aqua-Splash (1 Ladung)">
@@ -1068,7 +1068,7 @@
       </notes>
       <segment>
         <source>Aqua-Splash (1 Ladung)</source>
-        <target>Aqua-Splash (1 Charge)</target>
+        <target>Aqua-Splash (1 charge)</target>
       </segment>
     </unit>
     <unit id="jJPD2VA" name="Handmixer (ohne Strom)">
@@ -1098,7 +1098,7 @@
       </notes>
       <segment>
         <source>Batteriewerfer 1-PDTG (entladen)</source>
-        <target>Lance-Pile 1-PDTG (Vide)</target>
+        <target>Lance-Pile 1-PDTG (vide)</target>
       </segment>
     </unit>
     <unit id="VjisjD7" name="Taser (ohne Strom)">
@@ -3029,7 +3029,7 @@
       </notes>
       <segment>
         <source>Starker Laserpointer (Leer)</source>
-        <target>Pointeur laser brûlant (Vide)</target>
+        <target>Pointeur laser brûlant (vide)</target>
       </segment>
     </unit>
     <unit id="EJTnMeh" name="Teleskop">
@@ -6020,7 +6020,7 @@
       </notes>
       <segment>
         <source>Das tolle an dieser unförmigen Fleischkugel ist, dass sie auf 10 Meter nach Aas stinkt. Damit kannst du die Zombies 'ne Zeit lang beschäftigen.</source>
-        <target>L'avantage de cette boule de chair difforme, c'est qu'elle sent la charogne à 10 mètres à la ronde. Pratique pour occuper les zombies quelques instant</target>
+        <target>L'avantage de cette boule de chair difforme, c'est qu'elle sent la charogne à 10 mètres à la ronde. Pratique pour occuper les zombies quelques instants.</target>
       </segment>
     </unit>
     <unit id="lJIeyAh">
@@ -8114,7 +8114,7 @@
       </notes>
       <segment>
         <source>Munitionsgriff</source>
-        <target>Poignée de munitions</target>
+        <target>Poignée de cartouches</target>
       </segment>
     </unit>
     <unit id="oFVqj4C" name="Eine Handvoll Munition. Aber was hat das für einen Sinn?">
@@ -9110,7 +9110,7 @@
       </notes>
       <segment>
         <source>Deine Wunde wurde geheilt, zumindest oberflächlich...</source>
-        <target>Voilà une blessure de guerrie, en tout cas surperficiellement...</target>
+        <target>Voilà une blessure de guérie, en tout cas superficiellement...</target>
       </segment>
     </unit>
     <unit id="S3AHAPf" name="Hierfür brauchst du mindestens 5 AP.">
