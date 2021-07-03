@@ -600,7 +600,7 @@ class InventoryAwareController extends CustomAbstractController
             if ($inv_target->getTown()) $bank_up = false;
             $bank_theft = $parser->get_int('theft', 0) > 0;
 
-            if ($bank_theft && ($citizen->getTown()->getChaos() || !$this->conf->getTownConfiguration($citizen->getTown())->isNightMode() ))
+            if ($bank_theft && (!$this->conf->getTownConfiguration($citizen->getTown())->isNightMode() ))
                 return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
             $floor_up = null;
