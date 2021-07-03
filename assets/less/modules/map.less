@@ -68,9 +68,9 @@ div.map_area {
             height: 0;
             transform: scale(2.5);
 
-            &:before { position: absolute; content: " "; width: 24px; height: 24px; left: -12px; top: -12px; }
-            &.citizen:before { background: url("../../img/icons/map/map_icon_citizen.png") center/contain no-repeat; }
-            &.zombie:before { background:  url("../../img/icons/map/map_icon_zombie.png") center/contain no-repeat; }
+            &:before { position: absolute; content: " "; width: 24px; height: 24px; left: -12px; top: -12px; transform: scale(1.5) }
+            &.citizen:before { background: url("../../img/icons/map/map_icon_citizen.png") center/contain no-repeat; filter: drop-shadow(0 0 1px #7cfc00) drop-shadow(0 0 1px #7cfc00) }
+            &.zombie:before { background:  url("../../img/icons/map/map_icon_zombie.png") center/contain no-repeat; filter: drop-shadow(0 0 1px #5e0000) drop-shadow(0 0 1px #5e0000) }
           }
         }
       }
