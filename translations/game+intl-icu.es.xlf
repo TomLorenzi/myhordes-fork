@@ -22911,5 +22911,15 @@
         <target>Du kannst das Gebäude nicht betreten, während du eskortiert wirst oder eine Eskorte leitest.</target>
       </segment>
     </unit>
+    <unit id="j1SX1DD">
+      <notes>
+        <note category="german">Du hast das Wasser aus {item} in den Brunnen geschüttet (&lt;strong&gt;+1 Einheit&lt;/strong&gt;).</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Du hast das Wasser aus {item} in den Brunnen geschüttet (&lt;strong&gt;+1 Einheit&lt;/strong&gt;)</source>
+        <target><![CDATA[Has añadido agua de {item} al Pozo (<strong>+1 unidad</strong>).]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

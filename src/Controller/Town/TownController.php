@@ -864,6 +864,11 @@ class TownController extends InventoryAwareController
                     $town->setWell( $town->getWell()+1 );
                     try {
                         $this->entity_manager->persist( $this->log->wellAdd( $citizen, $items[0]->getPrototype(), 1) );
+
+                        $this->addFlash('info', $this->translator->trans('Du hast das Wasser aus {item} in den Brunnen geschüttet (<strong>+1 Einheit</strong>)', [
+                            'item' => "<span><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $items[0]->getPrototype()->getIcon() . '.gif' )}' /> {$this->translator->trans($items[0]->getPrototype()->getLabel(),[],'items')}</span>"
+                        ], 'game'));
+
                         if ($morph === null) $this->entity_manager->remove($items[0]);
                         else {
                             $items[0]->setPrototype($morph);

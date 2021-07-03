@@ -22652,5 +22652,15 @@
         <target>Vous ne pouvez pas rentrer dans ce bâtiment, vous êtes sous escorte ou attente d'escorte, vous ne pouvez pas rentrer !</target>
       </segment>
     </unit>
+    <unit id="j1SX1DD">
+      <notes>
+        <note category="german">Du hast das Wasser aus {item} in den Brunnen geschüttet (&lt;strong&gt;+1 Einheit&lt;/strong&gt;).</note>
+        <note category="from">php:///src/Controller/Town/TownController.php</note>
+      </notes>
+      <segment>
+        <source>Du hast das Wasser aus {item} in den Brunnen geschüttet (&lt;strong&gt;+1 Einheit&lt;/strong&gt;)</source>
+        <target><![CDATA[Vous avez ajouté l'eau de {item} au puits (<strong>+1 unité</strong>).]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

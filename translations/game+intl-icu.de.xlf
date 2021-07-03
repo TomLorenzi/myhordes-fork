@@ -13891,5 +13891,11 @@
         <target>Du kannst das Gebäude nicht betreten, während du eskortiert wirst oder eine Eskorte leitest.</target>
       </segment>
     </unit>
+    <unit id="j1SX1DD">
+      <segment>
+        <source>Du hast das Wasser aus {item} in den Brunnen geschüttet (&lt;strong&gt;+1 Einheit&lt;/strong&gt;)</source>
+        <target><![CDATA[Du hast das Wasser aus {item} in den Brunnen geschüttet (<strong>+1 Einheit</strong>).]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
