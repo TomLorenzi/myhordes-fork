@@ -22921,5 +22921,16 @@
         <target><![CDATA[Has añadido agua de {item} al Pozo (<strong>+1 unidad</strong>).]]></target>
       </segment>
     </unit>
+    <unit id="IvzsLJB">
+      <notes>
+        <note category="german">Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</note>
+        <note category="from">twig:///templates/ajax/game/town/watchtower.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</source>
+        <target>Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

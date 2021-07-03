@@ -22662,5 +22662,15 @@
         <target><![CDATA[Vous avez ajouté l'eau de {item} au puits (<strong>+1 unité</strong>).]]></target>
       </segment>
     </unit>
+    <unit id="IvzsLJB">
+      <notes>
+        <note category="german">Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</note>
+        <note category="from">twig:///templates/ajax/game/town/watchtower.html.twig</note>
+      </notes>
+      <segment>
+        <source>Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</source>
+        <target>Notre estimation actuelle est trop mauvaise pour être exploitable : il faut que plus de citoyens passent à la tour !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

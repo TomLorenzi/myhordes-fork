@@ -13897,5 +13897,11 @@
         <target><![CDATA[Du hast das Wasser aus {item} in den Brunnen geschüttet (<strong>+1 Einheit</strong>).]]></target>
       </segment>
     </unit>
+    <unit id="IvzsLJB">
+      <segment>
+        <source>Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</source>
+        <target>Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
