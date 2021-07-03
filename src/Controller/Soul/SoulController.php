@@ -413,6 +413,9 @@ class SoulController extends CustomAbstractController
         $displayName = mb_substr(trim($parser->get('displayName')) ?? '', 0, 30);
         $pronoun = $parser->get('pronoun','none', ['male','female','none']);
 
+        if ($pronoun !== 'none' && $user->getUseICU() !== true)
+            $user->setUseICU(true);
+
         switch ($pronoun) {
             case 'male': $user->setPreferredPronoun( User::PRONOUN_MALE ); break;
             case 'female': $user->setPreferredPronoun( User::PRONOUN_FEMALE ); break;
