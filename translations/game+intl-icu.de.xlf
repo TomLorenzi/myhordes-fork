@@ -10680,18 +10680,18 @@
     <unit id="7_nM3Uc">
       <segment>
         <source>Du kannst nichts von {citizen} stehlen, solange &lt;strong&gt;er (sie) in der Stadt ist&lt;/strong&gt;...</source>
-        <target>
+        <target><![CDATA[
             {ref__icu, select,
                 on {
                     {ref__gender, select,
-                        male {Du kannst nichts von {citizen} stehlen, solange &lt;strong&gt;er in der Stadt ist&lt;/strong&gt;...}
-                        female {Du kannst nichts von {citizen} stehlen, solange &lt;strong&gt;sie in der Stadt ist&lt;/strong&gt;...}
-                        other {Du kannst nichts von {citizen} stehlen, solange &lt;strong&gt;er (sie) in der Stadt ist&lt;/strong&gt;...}
+                        male {Du kannst nichts von {citizen} stehlen, solange <strong>er in der Stadt ist</strong>...}
+                        female {Du kannst nichts von {citizen} stehlen, solange <strong>sie in der Stadt ist</strong>...}
+                        other {Du kannst nichts von {citizen} stehlen, solange <strong>er (sie) in der Stadt ist</strong>...}
                     }
                 }
-            other {Du kannst nichts von {citizen} stehlen, solange &lt;strong&gt;er (sie) in der Stadt ist&lt;/strong&gt;...}
+            other {Du kannst nichts von {citizen} stehlen, solange <strong>er (sie) in der Stadt ist</strong>...}
             }
-        </target>
+        ]]></target>
       </segment>
     </unit>
     <unit id="GLBbBCU">
@@ -12495,17 +12495,17 @@
     <unit id="BfQb8sh">
       <segment>
         <source>Jetzt, da {citizen} tot ist, kannst du ihm einen &lt;strong&gt;Gegenstand klauen&lt;/strong&gt;, wenn du möchtest...</source>
-        <target>
+        <target><![CDATA[
             {ref__icu, select,
                 on {
                     {ref__gender, select,
-                        female {Jetzt, da {citizen} tot ist, kannst du ihr einen &lt;strong&gt;Gegenstand klauen&lt;/strong&gt;, wenn du möchtest...}
-                        other {Jetzt, da {citizen} tot ist, kannst du ihm einen &lt;strong&gt;Gegenstand klauen&lt;/strong&gt;, wenn du möchtest...}
+                        female {Jetzt, da {citizen} tot ist, kannst du ihr einen <strong>Gegenstand klauen</strong>, wenn du möchtest...}
+                        other {Jetzt, da {citizen} tot ist, kannst du ihm einen <strong>Gegenstand klauen</strong>, wenn du möchtest...}
                     }
                 }
-            other {Jetzt, da {citizen} tot ist, kannst du ihm einen &lt;strong&gt;Gegenstand klauen&lt;/strong&gt;, wenn du möchtest...}
+            other {Jetzt, da {citizen} tot ist, kannst du ihm einen <strong>Gegenstand klauen</strong>, wenn du möchtest...}
             }
-        </target>
+        ]]></target>
       </segment>
     </unit>
     <unit id="ymlTLkS" name="Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:">

@@ -1591,7 +1591,7 @@
     <unit id="sGKanc7" name="Abstimmen">
       <notes>
         <note category="german">Abstimmen</note>
-        <note category="from">twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/upgrades.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/upgrades.html.twig</note>
       </notes>
       <segment>
         <source>Abstimmen</source>
@@ -7557,7 +7557,7 @@
     </unit>
     <unit id="0LaQbDJ">
       <notes>
-        <note category="german">Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</note>
+        <note category="german">Dieser Bürger soll eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -7567,7 +7567,7 @@
     </unit>
     <unit id="IhkIaY6">
       <notes>
-        <note category="german">Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</note>
+        <note category="german">Dieser Bürger ist eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
