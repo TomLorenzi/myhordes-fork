@@ -1663,7 +1663,7 @@
       </notes>
       <segment>
         <source>Alleine laut singen</source>
-        <target>Ségosiller tout seul chez soi</target>
+        <target>S'égosiller tout seul chez soi</target>
       </segment>
     </unit>
     <unit id="V3ZrObm" name="Um dein Leben beten">
@@ -1833,7 +1833,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Wichtig:&lt;/strong&gt; Verteidigungsgegenstände können maximal &lt;strong&gt;500&lt;/strong&gt; Verteidigungspunkte vergeben!</source>
-        <target><![CDATA[<strong>Important :</strong> les objets de défense peuvent rapporter au maximum <strong>500</strong> points de défense!]]></target>
+        <target><![CDATA[<strong>Important :</strong> les objets de défense peuvent rapporter au maximum <strong>500</strong> points de défense !]]></target>
       </segment>
     </unit>
     <unit id="Wwiv0r7" name="Diese Abwehrkräfte werden von gereinigten Seelen gebracht.">
@@ -1996,7 +1996,7 @@
       </notes>
       <segment>
         <source>Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude &lt;strong&gt;Kleiner Friedhof&lt;/strong&gt;.</source>
-        <target><![CDATA[Ce bonus est obtenu grace à vos anciens amis et au bâtiment <strong>Cimetière cadenassé</strong>.]]></target>
+        <target><![CDATA[Ce bonus est obtenu grâce à vos anciens amis et au bâtiment <strong>Cimetière cadenassé</strong>.]]></target>
       </segment>
     </unit>
     <unit id="zTo.6Bl">

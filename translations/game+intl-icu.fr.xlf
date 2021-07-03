@@ -1152,7 +1152,7 @@
       </notes>
       <segment>
         <source>Bauen</source>
-        <target>Construire</target>
+        <target>Construire </target>
       </segment>
     </unit>
     <unit id="0uS2PQd">
@@ -1212,7 +1212,7 @@
       </notes>
       <segment>
         <source>Erfordert</source>
-        <target>Nécessite</target>
+        <target>Nécessite </target>
       </segment>
     </unit>
     <unit id="MzBikVy" name="Einbauen">
@@ -3401,7 +3401,7 @@
       </notes>
       <segment>
         <source>Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...</source>
-        <target>Quelqu'un a-t-il entendu parler de {citizen} récemment? Il semble avoir disparu ...</target>
+        <target>Quelqu'un a-t-il entendu parler de {citizen} récemment ? Il semble avoir disparu ...</target>
       </segment>
     </unit>
     <unit id="Z05vQEU">
@@ -20352,7 +20352,7 @@
       </notes>
       <segment>
         <source>Du kannst in den Foren um Hilfe bitten!</source>
-        <target>Vous pouvez lancer un appel à l'aide sur le forum!</target>
+        <target>Vous pouvez lancer un appel à l'aide sur le forum !</target>
       </segment>
     </unit>
     <unit id="Eb0twff">
@@ -20492,7 +20492,7 @@
       </notes>
       <segment>
         <source>Diese Information gibt dir einen Hinweis darauf, ob Aufklärer gewöhnlicherweise hier vorbeikommen.&lt;br /&gt;&lt;em&gt;Je mehr eine Zone erforscht wurde, desto geringer ist die Chance bei &lt;strong&gt;Betreten&lt;/strong&gt; entdeckt zu werden (du kennst dann ein paar Schleichwege etc...).&lt;/em&gt;</source>
-        <target><![CDATA[Cette information vous indique si des éclaireurs ont l\'habitude de passer par ici.<br /><em>Plus le secteur est connu, moins vous avez de chances de vous y faire repérer <strong>lorsque vous y entrez</strong> (vous connaissez quelques petits chemins cachés..etc.)</em>]]></target>
+        <target><![CDATA[Cette information vous indique si des éclaireurs ont l'habitude de passer par ici.<br /><em>Plus le secteur est connu, moins vous avez de chances de vous y faire repérer <strong>lorsque vous y entrez</strong> (vous connaissez quelques petits chemins cachés..etc.)</em>]]></target>
       </segment>
     </unit>
     <unit id="7N1Upza">
@@ -20949,7 +20949,7 @@
       </notes>
       <segment>
         <source>Du hast keine Gegenstände, die du verstecken könntest.</source>
-        <target>Du hast keine Gegenstände, die du verstecken könntest.</target>
+        <target>Vous n'avez pas besoin de cela pour le moment...</target>
       </segment>
     </unit>
     <unit id="wKNx07Y" name="Wähle einen Gegenstand aus der Bank aus...">
