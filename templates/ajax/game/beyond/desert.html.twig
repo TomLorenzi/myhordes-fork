@@ -933,7 +933,7 @@
             handleItems(
                 document.querySelectorAll('#bury_rucksack_button'),
                 '{{ path('beyond_bury_rucksack_controller') }}',
-                'down-all', '{{ path('beyond_dashboard') }}'
+                'down-all', '{{ path('beyond_dashboard') }}', '{{ 'Bestätigen?'|trans({},'global')|e('js') }}'
             );
         }
         {% endif %}
