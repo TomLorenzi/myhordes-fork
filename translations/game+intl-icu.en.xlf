@@ -5792,14 +5792,14 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Danger</target>
       </segment>
     </unit>
-    <unit id="S103XG1" name="@citizens Bürger">
+    <unit id="x7SDYp9" name="{citizens} Bürger">
       <notes>
-        <note category="german">@citizens Bürger</note>
+        <note category="german">{citizens} Bürger am Leben</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
       </notes>
       <segment>
-        <source>@citizens Bürger</source>
-        <target>@citizens Citizens</target>
+        <source>{citizens} Bürger</source>
+        <target>{citizens} Citizens</target>
       </segment>
     </unit>
     <unit id="qDUSf43">
@@ -20989,12 +20989,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="T14z5t.">
       <notes>
         <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</source>
-        <target><![CDATA[<strong>Herzlichen Glückwunsch</strong>, du hast folgende Titel freigeschaltet: {list_i} {list_t}]]></target>
+        <target><![CDATA[<strong>Congratulations</strong>, you have unlocked the following titles: {list_i} {list_t}]]></target>
       </segment>
     </unit>
     <unit id="jIKh96s">
@@ -22213,14 +22212,14 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target><![CDATA[Your were spotted! <strong>The citizens have been warned!</strong>]]></target>
       </segment>
     </unit>
-    <unit id="U4ZJpTo" name="@deads Tot">
+    <unit id="xMKSdFE" name="{deads} Tot">
       <notes>
-        <note category="german">@deads Tot</note>
+        <note category="german">{deads} Tot</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
       </notes>
       <segment>
-        <source>@deads Tot</source>
-        <target>@deads dead</target>
+        <source>{deads} Tot</source>
+        <target>{deads, plural, =0 {# dead} one {1 dead} other {# deads}}</target>
       </segment>
     </unit>
     <unit id="r4KXho0">
@@ -22720,6 +22719,36 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Du kannst den Bau einer Pumpe im Bereich &lt;strong&gt;Konstruktionen&lt;/strong&gt; beginnen.</source>
         <target><![CDATA[You can start building the pump by going to the <strong>Construction Sites</strong> area.]]></target>
+      </segment>
+    </unit>
+    <unit id="W8upWpv">
+      <notes>
+        <note category="german">Die Wandtafel ermöglicht altgedienten Helden, der ganzen Stadt Anweisungen zu geben.</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Wandtafel ermöglicht altgedienten Helden, der ganzen Stadt Anweisungen zu geben.</source>
+        <target>The chalkboard allows veteran Heroes to give instructions to the rest of the community.</target>
+      </segment>
+    </unit>
+    <unit id="UQ10LbN">
+      <notes>
+        <note category="german">Diese Option steht dir ab sofort zur Verfügung, da du auf deiner Seelenseite den Diktatorbonus freigeschaltet hast.</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Option steht dir ab sofort zur Verfügung, da du auf deiner Seelenseite den Diktatorbonus freigeschaltet hast.</source>
+        <target>You can do this once you have unlocked the 'Dictator' advantage on your Soul page.</target>
+      </segment>
+    </unit>
+    <unit id="4Uzw2JG" name="Mehr darüber erfahren...">
+      <notes>
+        <note category="german">Mehr darüber erfahren...</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+      </notes>
+      <segment>
+        <source>Mehr darüber erfahren...</source>
+        <target>Read more...</target>
       </segment>
     </unit>
   </file>

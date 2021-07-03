@@ -3531,12 +3531,11 @@
     <unit id="LzzllLx" name="Empfänger">
       <notes>
         <note category="german">Empfänger</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Empfänger</source>
-        <target>Empfänger</target>
+        <target>Destinataire</target>
       </segment>
     </unit>
     <unit id="P5HPUHF" name="Verlauf meiner Städte">
@@ -3689,6 +3688,16 @@
       <segment>
         <source>Bitte ändere deinen Anzeigenamen auf EternalTwin.</source>
         <target>Vous devez utiliser votre compte EternalTwin pour changer votre nom d'affichage.</target>
+      </segment>
+    </unit>
+    <unit id="4DFz5Xa">
+      <notes>
+        <note category="german">Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</source>
+        <target>Vous ne pouvez pas changer de pseudo car vous avez associé un compte Eternal Twin. Vous devez vous rendre sur votre compte Eternal Twin pour changer de pseudo.</target>
       </segment>
     </unit>
   </file>

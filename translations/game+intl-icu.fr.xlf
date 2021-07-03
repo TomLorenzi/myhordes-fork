@@ -5765,14 +5765,14 @@
         <target>Au terme de la bataille, le bâtiment {buildingName} est tombé en poussière.</target>
       </segment>
     </unit>
-    <unit id="S103XG1" name="@citizens Bürger">
+    <unit id="x7SDYp9" name="{citizens} Bürger">
       <notes>
-        <note category="german">@citizens Bürger</note>
+        <note category="german">{citizens} Bürger am Leben</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
       </notes>
       <segment>
-        <source>@citizens Bürger</source>
-        <target>@citizens citoyens</target>
+        <source>{citizens} Bürger</source>
+        <target>{citizens} citoyens</target>
       </segment>
     </unit>
     <unit id="NyGp8KR" name="Anzahl der Tage, die du als Aufklärer gespielt hast.">
@@ -12101,9 +12101,9 @@
         <source>Baupunkte können in der Werkstatt und auf Baustellen verwendet werden, wo sie wie Aktionspunkte
                             zählen. Wenn möglich werden immer zuerst Baupunkte verbraucht, bevor Aktionspunkte eingesetzt
                             werden. Bedenke, dass Baupunkte nicht eingesetzt werden können wenn du erschöpft bist!</source>
-        <target>Les Points de Chantiers peuvent être utilisés à l'Atelier et pour la construction des Chantiers, 
-                            où ils comptent comme des points d'action. Si possible, les points de chantiers sont toujours 
-                            utilisés à la place des points d'action. Gardez à l'esprit que les points de 
+        <target>Les Points de Chantiers peuvent être utilisés à l'Atelier et pour la construction des Chantiers,
+                            où ils comptent comme des points d'action. Si possible, les points de chantiers sont toujours
+                            utilisés à la place des points d'action. Gardez à l'esprit que les points de
                             chantiers ne peuvent pas être utilisés lorsque vous êtes épuisé !</target>
       </segment>
     </unit>
@@ -20882,12 +20882,11 @@
     <unit id="T14z5t.">
       <notes>
         <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</source>
-        <target><![CDATA[<strong>Herzlichen Glückwunsch</strong>, du hast folgende Titel freigeschaltet: {list_i} {list_t}]]></target>
+        <target><![CDATA[<strong>Félicitations</strong>, vous avez déverrouillé les titres suivants: {list_i} {list_t}]]></target>
       </segment>
     </unit>
     <unit id="jIKh96s">
@@ -22081,14 +22080,14 @@
         <target><![CDATA[Votre action a été remarquée ! <strong>Les citoyens ont été avertis !</strong>]]></target>
       </segment>
     </unit>
-    <unit id="U4ZJpTo" name="@deads Tot">
+    <unit id="xMKSdFE" name="{deads} Tot">
       <notes>
-        <note category="german">@deads Tot</note>
+        <note category="german">{deads} Tot</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
       </notes>
       <segment>
-        <source>@deads Tot</source>
-        <target>@deads morts</target>
+        <source>{deads} Tot</source>
+        <target>{deads, plural, =0 {# mort} one {1 mort} other {# morts}}</target>
       </segment>
     </unit>
     <unit id="6ntsFNr">
@@ -22572,6 +22571,36 @@
       <segment>
         <source>Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!</source>
         <target>Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!</target>
+      </segment>
+    </unit>
+    <unit id="W8upWpv">
+      <notes>
+        <note category="german">Die Wandtafel ermöglicht altgedienten Helden, der ganzen Stadt Anweisungen zu geben.</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Wandtafel ermöglicht altgedienten Helden, der ganzen Stadt Anweisungen zu geben.</source>
+        <target>Le tableau noir permet aux héros vétérans de donner des instructions à toute la communauté.</target>
+      </segment>
+    </unit>
+    <unit id="UQ10LbN">
+      <notes>
+        <note category="german">Diese Option steht dir ab sofort zur Verfügung, da du auf deiner Seelenseite den Diktatorbonus freigeschaltet hast.</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Option steht dir ab sofort zur Verfügung, da du auf deiner Seelenseite den Diktatorbonus freigeschaltet hast.</source>
+        <target>Il vous est accessible car vous avez débloqué l'avantage Dictateur sur votre page d'âme.</target>
+      </segment>
+    </unit>
+    <unit id="4Uzw2JG" name="Mehr darüber erfahren...">
+      <notes>
+        <note category="german">Mehr darüber erfahren...</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+      </notes>
+      <segment>
+        <source>Mehr darüber erfahren...</source>
+        <target>En savoir plus...</target>
       </segment>
     </unit>
   </file>

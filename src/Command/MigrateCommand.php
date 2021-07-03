@@ -233,13 +233,14 @@ class MigrateCommand extends Command
                 if (!$this->helper->capsule( "app:migrate --maintenance off", $output, 'Disable maintenance mode... ', true )) return -1;
             } else $output->writeln("Maintenance is kept active. Disable with '<info>app:migrate --maintenance off</info>'");
 
+            return 0;
         }
 
         if ($input->getOption('install-db')) {
 
             $output->writeln("\n\n=== <info>Creating database and loading static content</info> ===\n");
 
-            if (!$this->helper->capsule( 'doctrine:database:create', $output )) {
+            if (!$this->helper->capsule( 'doctrine:database:create --if-not-exists', $output )) {
                 $output->writeln("<error>Unable to create database.</error>");
                 return 1;
             }
@@ -269,7 +270,7 @@ class MigrateCommand extends Command
             $output->writeln("\n\n=== <info>Optional setup steps</info> ===\n");
 
             $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
-                "Would you like to create world forums? (y/n) ", true
+                "Would you like to create world forums? (Y/n) ", true
             ) );
             if ($result) {
                 if (!$this->helper->capsule('app:forum:create "Weltforum" 0 --icon bannerForumDiscuss', $output)) {
@@ -287,8 +288,9 @@ class MigrateCommand extends Command
             }
 
             $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
-                "Would you like to create a town? (y/n) ", true
+                "Would you like to create a town? (Y/n) ", true
             ) );
+
             if ($result) {
                 if (!$this->helper->capsule('app:town:create remote 40 en', $output)) {
                     $output->writeln("<error>Unable to create english town.</error>");
@@ -297,23 +299,23 @@ class MigrateCommand extends Command
             }
 
             $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
-                "Would you like to create an administrator account? (y/n) ", true
+                "Would you like to create an administrator account? (Y/n) ", true
             ) );
             if ($result) {
                 $name = $this->getHelper('question')->ask($input, $output, new Question(
-                    "Please enter the username: ", 'admin'
+                    "Please enter the username (default: admin): ", 'admin'
                 ) );
                 $mail = $this->getHelper('question')->ask($input, $output, new Question(
-                    "Please enter the e-mail address: ", 'admin@localhost'
+                    "Please enter the e-mail address (default: admin@localhost): ", 'admin@localhost'
                 ) );
 
                 $proceed = false;
                 while (!$proceed) {
-                    $q = new Question( "Please enter the account password: ", '' );
+                    $q = new Question( "Please enter the account password (default: admin): ", 'admin' );
                     $q->setHidden(true);
                     $password1 = $this->getHelper('question')->ask($input, $output, $q );
 
-                    $q = new Question( "Please repeat the account password: ", '' );
+                    $q = new Question( "Please repeat the account password(default: admin): ", 'admin' );
                     $q->setHidden(true);
                     $password2 = $this->getHelper('question')->ask($input, $output, $q );
 
@@ -629,7 +631,6 @@ class MigrateCommand extends Command
             return 0;
         }
 
-
         if ($input->getOption('assign-features')) {
 
             $season = $this->entity_manager->getRepository(Season::class)->findLatest();
@@ -863,7 +864,6 @@ class MigrateCommand extends Command
 
         }
 
-
         if ($input->getOption('repair-permissions')) {
 
             $fun_assoc = function (User $user, UserGroup $group) use ($output) {
@@ -958,6 +958,6 @@ class MigrateCommand extends Command
 
         }
 
-        return 1;
+        return 99;
     }
 }

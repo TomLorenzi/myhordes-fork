@@ -185,24 +185,24 @@
         
     </div>
 
-    <div class="row prof-list">
+    <div class="cell padded center prof-list">
         {% for elem in prof_count %}
-            <div class="padded cell small center rw-4">
+            <span class="prof">
                 <img alt="{{ elem[1].label|trans({},'game') }}" src="{{ asset('build/images/professions/' ~ elem[1].icon ~ '.gif') }}" />
-                {{ elem[1].label|trans({},'game') }} x {{ elem[0] }}
-            </div>
+                <em>{{ elem[1].label|trans({},'game') }}</em> x {{ elem[0] }}
+            </span>
         {% endfor %}
+        {#
         {% if death_count > 0 %}
-            <div class="padded cell small center rw-4">
+            <span class="prof">
                 <img alt="{{ 'Tot'|trans({},'game') }}" src="{{ asset('build/images/professions/death.gif') }}" />
-                {{ 'Tot'|trans({},'game') }} x {{ death_count }}
-            </div>
+                <em>{{ 'Tot'|trans({},'game') }}</em> x {{ death_count }}
+            </span>
         {% endif %}
-    </div>
-    <div class="row prof-list">
-        <div class="padded cell small center ro-4 rw-4 rw-md-4">
-            <img alt="" src="{{ asset('build/images/icons/small_human.gif') }}" /> <span class="citizen_count">{{ "@citizens Bürger"|trans({ '@citizens': citizens|length - death_count }, 'game') }} {% if death_count > 0 %}<em>(+ {{ '@deads Tot'|trans({'@deads': death_count},'game') }})</em>{% endif %}</span>
-        </div>
+        #}
+        <span class="prof">
+            <img alt="" src="{{ asset('build/images/icons/small_human.gif') }}" /> <span class="citizen_count">{{ "{citizens} Bürger"|trans({ '{citizens}': citizens|length - death_count }, 'game') }} {% if death_count > 0 %}<em>(+ {{ '{deads} Tot'|trans({'{deads}': death_count},'game') }})</em>{% endif %}</span>
+        </span>
     </div>
 
 {% endblock %}

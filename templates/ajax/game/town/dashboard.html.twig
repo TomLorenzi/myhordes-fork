@@ -138,7 +138,23 @@
             <div class="padded cell rw-6 rw-lg-12">
                     <h5>{{ 'Heldentafel'|trans({}, 'game')}}</h5>
                     <div class="words-of-heroes {{ town.language }}">
-                        <div class="content" id="words-of-heroes-content">{{ town.wordsOfHeroes|nl2br }}</div>
+                        <div class="content" id="words-of-heroes-content">
+                            {% if town.wordsOfHeroes != '' %}
+                            {{ town.wordsOfHeroes|nl2br }}
+                            {% else %}
+                                <em>
+                                    {{'Die Wandtafel ermöglicht altgedienten Helden, der ganzen Stadt Anweisungen zu geben.'|trans({}, 'game')}}
+                                </em>
+                                {% if has_dictator %}
+                                <em>
+                                    {{'Diese Option steht dir ab sofort zur Verfügung, da du auf deiner Seelenseite den Diktatorbonus freigeschaltet hast.'|trans({}, 'game')}}
+                                </em>
+                                {% else %}
+                                    {# Check if someone doesn't have this skill to get the message #}
+                                {% endif %}
+                                <em x-ajax-href="{{ path('soul_heroskill') }}" class="link">{{'Mehr darüber erfahren...'|trans({}, 'game')}}</em>
+                            {% endif %}
+                        </div>
                         {% if can_edit_blackboard %}
                             <div class="content hidden" id="words-of-heroes-editor">
                                 <textarea>{{ town.wordsOfHeroes }}</textarea>

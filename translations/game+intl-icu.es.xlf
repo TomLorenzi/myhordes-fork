@@ -5826,14 +5826,14 @@
         <target>Peligro</target>
       </segment>
     </unit>
-    <unit id="S103XG1" name="@citizens Bürger">
+    <unit id="x7SDYp9" name="{citizens} Bürger">
       <notes>
-        <note category="german">@citizens Bürger</note>
+        <note category="german">{citizens} Bürger am Leben</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
       </notes>
       <segment>
-        <source>@citizens Bürger</source>
-        <target>@citizens habitantes</target>
+        <source>{citizens} Bürger</source>
+        <target>{citizens} habitantes</target>
       </segment>
     </unit>
     <unit id="qDUSf43">
@@ -21088,12 +21088,11 @@
     <unit id="T14z5t.">
       <notes>
         <note category="german">&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;Herzlichen Glückwunsch&lt;/strong&gt;, du hast folgende Titel freigeschaltet: {list_i} {list_t}</source>
-        <target><![CDATA[<strong>Herzlichen Glückwunsch</strong>, du hast folgende Titel freigeschaltet: {list_i} {list_t}]]></target>
+        <target><![CDATA[<strong>Enhorabuena</strong>, ha desbloqueado los siguientes títulos: {list_i} {list_t}]]></target>
       </segment>
     </unit>
     <unit id="jIKh96s">
@@ -22325,14 +22324,14 @@
         <target><![CDATA[¡Tu acción ha sido descubierta! <strong>¡Los habitantes han sido informados!</strong>]]></target>
       </segment>
     </unit>
-    <unit id="U4ZJpTo" name="@deads Tot">
+    <unit id="xMKSdFE" name="{deads} Tot">
       <notes>
-        <note category="german">@deads Tot</note>
+        <note category="german">{deads} Tot</note>
         <note category="from">twig:///templates/ajax/game/town/citizen.html.twig</note>
       </notes>
       <segment>
-        <source>@deads Tot</source>
-        <target>@deads muertos</target>
+        <source>{deads} Tot</source>
+        <target>{deads} muertos</target>
       </segment>
     </unit>
     <unit id="r4KXho0">
@@ -22770,23 +22769,21 @@
     <unit id="mw_CjlK" name="Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!">
       <notes>
         <note category="german">Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/well.html.twig</note>
       </notes>
       <segment>
         <source>Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!</source>
-        <target>Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!</target>
+        <target>Construid una Bomba de Agua ¡y tendréis mucha más para beber!</target>
       </segment>
     </unit>
     <unit id="AyyQPWF">
       <notes>
         <note category="german">Du kannst den Bau einer Pumpe im Bereich &lt;strong&gt;Konstruktionen&lt;/strong&gt; beginnen.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/well.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst den Bau einer Pumpe im Bereich &lt;strong&gt;Konstruktionen&lt;/strong&gt; beginnen.</source>
-        <target><![CDATA[Du kannst den Bau einer Pumpe im Bereich <strong>Konstruktionen</strong> beginnen.]]></target>
+        <target><![CDATA[Puedes iniciar la construcción de una bomba en la sección <strong>Construcción</strong> en el Menú.]]></target>
       </segment>
     </unit>
     <unit id="mJl9hp7" name="{points} Punkt(e)">
@@ -22830,6 +22827,36 @@
       <segment>
         <source>Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!</source>
         <target>Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!</target>
+      </segment>
+    </unit>
+    <unit id="W8upWpv">
+      <notes>
+        <note category="german">Die Wandtafel ermöglicht altgedienten Helden, der ganzen Stadt Anweisungen zu geben.</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Wandtafel ermöglicht altgedienten Helden, der ganzen Stadt Anweisungen zu geben.</source>
+        <target>La pizarra permite a los héroes veteranos dar instrucciones a toda la comunidad.</target>
+      </segment>
+    </unit>
+    <unit id="UQ10LbN">
+      <notes>
+        <note category="german">Diese Option steht dir ab sofort zur Verfügung, da du auf deiner Seelenseite den Diktatorbonus freigeschaltet hast.</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Option steht dir ab sofort zur Verfügung, da du auf deiner Seelenseite den Diktatorbonus freigeschaltet hast.</source>
+        <target>La ves porque has desbloqueado la ventaja llamda Dictador en tu sección de Alma.</target>
+      </segment>
+    </unit>
+    <unit id="4Uzw2JG" name="Mehr darüber erfahren...">
+      <notes>
+        <note category="german">Mehr darüber erfahren...</note>
+        <note category="from">twig:///templates/ajax/game/town/dashboard.html.twig</note>
+      </notes>
+      <segment>
+        <source>Mehr darüber erfahren...</source>
+        <target>Saber más...</target>
       </segment>
     </unit>
   </file>

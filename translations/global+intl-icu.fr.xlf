@@ -3048,23 +3048,21 @@
     <unit id="Dh.6Cm7" name="Mit offiziellen Gruppen in Kontakt treten">
       <notes>
         <note category="german">Mit offiziellen Gruppen in Kontakt treten</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/forum/list.html.twig</note>
       </notes>
       <segment>
         <source>Mit offiziellen Gruppen in Kontakt treten</source>
-        <target>Mit offiziellen Gruppen in Kontakt treten</target>
+        <target>Contacter les groupes officiels</target>
       </segment>
     </unit>
     <unit id="UsfYbvX" name="Eine offizielle Gruppe kontaktieren">
       <notes>
         <note category="german">Eine offizielle Gruppe kontaktieren</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Eine offizielle Gruppe kontaktieren</source>
-        <target>Eine offizielle Gruppe kontaktieren</target>
+        <target>Contacter un groupe officiel</target>
       </segment>
     </unit>
     <unit id="jQrj982" name="via {group_inbox}">

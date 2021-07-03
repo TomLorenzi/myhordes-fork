@@ -4648,7 +4648,7 @@
     <unit id="hEgldti" name="Nachtwache-Waffen">
       <segment>
         <source>Nachtwache-Waffen</source>
-        <target>Nachtwache-Waffen</target>
+        <target>Wächterswaffe</target>
       </segment>
     </unit>
     <unit id="47LA9aV" name="Pkte">
@@ -5627,6 +5627,24 @@
       <segment>
         <source>Dieses Gefühl des Wohlbefindens, das dieser kleine Kaffee hervorruft, bringt dich sofort wieder auf die Beine. Aah!</source>
         <target>Dieses Gefühl des Wohlbefindens, das dieser kleine Kaffee hervorruft, bringt dich sofort wieder auf die Beine. Aah!</target>
+      </segment>
+    </unit>
+    <unit id="O4qYqLB" name="{watchpoint} pkt attacke">
+      <segment>
+        <source>{watchpoint} pkt attacke</source>
+        <target>
+          {ref__icu, select,
+            on {
+              {watchpoint, plural,
+                =-1 {# Pkt. Angriff}
+                =0 {# Pkt. Angriff}
+                =1 {# Pkt. Angriff}
+                other {# Pkte. Angriff}
+              }
+            }
+            other {# pkt attacke}
+          }
+        </target>
       </segment>
     </unit>
   </file>
