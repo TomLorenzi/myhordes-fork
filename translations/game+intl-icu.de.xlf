@@ -2354,37 +2354,97 @@
     <unit id="f1TzhOn" name="Gammler">
       <segment>
         <source>Gammler</source>
-        <target>Gammler</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Gammlerin}
+                        other {Gammler}
+                    }
+                }
+            other {Gammler}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="sBbkqrg" name="Buddler">
       <segment>
         <source>Buddler</source>
-        <target>Buddler</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Buddlerin}
+                        other {Buddler}
+                    }
+                }
+            other {Buddler}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="aMWLa_K" name="Wächter">
       <segment>
         <source>Wächter</source>
-        <target>Wächter</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Wächterin}
+                        other {Wächter}
+                    }
+                }
+            other {Wächter}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="N55mPtD" name="Aufklärer">
       <segment>
         <source>Aufklärer</source>
-        <target>Aufklärer</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Aufklärerin}
+                        other {Aufklärer}
+                    }
+                }
+            other {Aufklärer}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="l9gYoq8" name="Dompteur">
       <segment>
         <source>Dompteur</source>
-        <target>Dompteur</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Dompteuse}
+                        other {Dompteur}
+                    }
+                }
+            other {Dompteur}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="CcGFUIM" name="Techniker">
       <segment>
         <source>Techniker</source>
-        <target>Techniker</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Technikerin}
+                        other {Techniker}
+                    }
+                }
+            other {Techniker}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="gMJ9FD2" name="Schamane">
@@ -2406,7 +2466,17 @@
     <unit id="jYiPQYC" name="Einsiedler">
       <segment>
         <source>Einsiedler</source>
-        <target>Einsiedler</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Einsiedlerin}
+                        other {Einsiedler}
+                    }
+                }
+            other {Einsiedler}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="266wx0d" name="Verbesserung des Tages">
@@ -4482,61 +4552,161 @@
     <unit id="9YXdyqO" name="Dieser Bürger wurde noch nie gesehen...">
       <segment>
         <source>Dieser Bürger wurde noch nie gesehen...</source>
-        <target>Dieser Bürger wurde noch nie gesehen...</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin wurde noch nie gesehen...}
+                        other {Dieser Bürger wurde noch nie gesehen...}
+                    }
+                }
+            other {Dieser Bürger wurde noch nie gesehen...}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="4OynnJl" name="Der Bürger wurde zuletzt {time} gesehen.">
       <segment>
         <source>Der Bürger wurde zuletzt {time} gesehen.</source>
-        <target>Der Bürger wurde zuletzt {time} gesehen.</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Die Bürgerin wurde zuletzt {time} gesehen.}
+                        other {Der Bürger wurde zuletzt {time} gesehen.}
+                    }
+                }
+            other {Der Bürger wurde zuletzt {time} gesehen.}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="SNTneh6" name="Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.">
       <segment>
         <source>Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.</source>
-        <target>Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin hat {ration, select, 1 {eine Wasserration} other {{ration} Wasserrationen}} aus dem Brunnen genommen.}
+                        other {Dieser Bürger hat {ration, select, 1 {eine Wasserration} other {{ration} Wasserrationen}} aus dem Brunnen genommen.}
+                    }
+                }
+            other {Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="VNIM3Mp" name="Dieser Bürger ist ernsthaft verletzt.">
       <segment>
         <source>Dieser Bürger ist ernsthaft verletzt.</source>
-        <target>Dieser Bürger ist ernsthaft verletzt.</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin ist ernsthaft verletzt.}
+                        other {Dieser Bürger ist ernsthaft verletzt.}
+                    }
+                }
+            other {Dieser Bürger ist ernsthaft verletzt.}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="w5JoDMX">
       <segment>
         <source>Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</source>
-        <target>Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.}
+                        other {Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.}
+                    }
+                }
+            other {Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="0LaQbDJ">
       <segment>
         <source>Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</source>
-        <target>Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin soll eventuell heute Morgen überall nach Wasser gebettelt haben... Ob sie durstig ist?}
+                        other {Dieser Bürger soll eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?}
+                    }
+                }
+            other {Dieser Bürger soll eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="IhkIaY6">
       <segment>
         <source>Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</source>
-        <target>Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin ist eventuell süchtig... Wir nennen ihr Verhalten aggressiv, manchmal sogar assozial...}
+                        other {Dieser Bürger ist eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...}
+                    }
+                }
+            other {Dieser Bürger ist eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="QHYoGw6">
       <segment>
         <source>Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</source>
-        <target>Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in ihrem Kopf...}
+                        other {Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...}
+                    }
+                }
+            other {Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="Kx1swjd">
       <segment>
         <source>Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</source>
-        <target>Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!}
+                        other {Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!}
+                    }
+                }
+            other {Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="dvSfZK0">
       <segment>
         <source>Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</source>
-        <target>Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin könnte jemand sehr Wichtiges sein. Vielleicht eine der Erschafferinnen?}
+                        other {Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?}
+                    }
+                }
+            other {Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="q2ChVJX" name="Gereinigte Seelen">
@@ -5844,7 +6014,17 @@
     <unit id="22n2wdo" name="Diesen Bürger angreifen!">
       <segment>
         <source>Diesen Bürger angreifen!</source>
-        <target>Diesen Bürger angreifen!</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin angreifen!}
+                        other {Diesen Bürger angreifen!}
+                    }
+                }
+            other {Diesen Bürger angreifen!}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="sVhAGjc" name="Diesen Bürger verspeisen!">
@@ -6790,7 +6970,17 @@
     <unit id="fICCxje" name="Seine Seele ansehen">
       <segment>
         <source>Seine Seele ansehen</source>
-        <target>Seine Seele ansehen</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Ihre Seele ansehen}
+                        other {Seine Seele ansehen}
+                    }
+                }
+            other {Seine Seele ansehen}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="ha9MEDo" name="Eine Nachricht hinterlassen">
@@ -10490,7 +10680,18 @@
     <unit id="7_nM3Uc">
       <segment>
         <source>Du kannst nichts von {citizen} stehlen, solange &lt;strong&gt;er (sie) in der Stadt ist&lt;/strong&gt;...</source>
-        <target><![CDATA[Du kannst nichts von {citizen} stehlen, solange <strong>er (sie) in der Stadt ist</strong>...]]></target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        male {Du kannst nichts von {citizen} stehlen, solange &lt;strong&gt;er in der Stadt ist&lt;/strong&gt;...}
+                        female {Du kannst nichts von {citizen} stehlen, solange &lt;strong&gt;sie in der Stadt ist&lt;/strong&gt;...}
+                        other {Du kannst nichts von {citizen} stehlen, solange &lt;strong&gt;er (sie) in der Stadt ist&lt;/strong&gt;...}
+                    }
+                }
+            other {Du kannst nichts von {citizen} stehlen, solange &lt;strong&gt;er (sie) in der Stadt ist&lt;/strong&gt;...}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="GLBbBCU">
@@ -12294,13 +12495,33 @@
     <unit id="BfQb8sh">
       <segment>
         <source>Jetzt, da {citizen} tot ist, kannst du ihm einen &lt;strong&gt;Gegenstand klauen&lt;/strong&gt;, wenn du möchtest...</source>
-        <target><![CDATA[Jetzt, da {citizen} tot ist, kannst du ihm einen <strong>Gegenstand klauen</strong>, wenn du möchtest...]]></target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Jetzt, da {citizen} tot ist, kannst du ihr einen &lt;strong&gt;Gegenstand klauen&lt;/strong&gt;, wenn du möchtest...}
+                        other {Jetzt, da {citizen} tot ist, kannst du ihm einen &lt;strong&gt;Gegenstand klauen&lt;/strong&gt;, wenn du möchtest...}
+                    }
+                }
+            other {Jetzt, da {citizen} tot ist, kannst du ihm einen &lt;strong&gt;Gegenstand klauen&lt;/strong&gt;, wenn du möchtest...}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="ymlTLkS" name="Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:">
       <segment>
         <source>Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:</source>
-        <target>Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Beim Durchwühlen ihres Hauses entdeckst du folgende Dinge:}
+                        other {Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:}
+                    }
+                }
+            other {Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="ETllwNr">
@@ -12594,7 +12815,17 @@
     <unit id="vScXMoh">
       <segment>
         <source>Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</source>
-        <target>Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Du kannst versuchen, diese Bürgerin zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!}
+                        other {Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!}
+                    }
+                }
+            other {Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="u4QY2vJ">
@@ -13512,7 +13743,17 @@
     <unit id="gDPIj.n" name="Ein neuer Bürger ist in der Stadt angekommen: {citizen} ({profession}).">
       <segment>
         <source>Ein neuer Bürger ist in der Stadt angekommen: {citizen} ({profession}).</source>
-        <target>Ein neuer Bürger ist in der Stadt angekommen: {citizen} ({profession}).</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Eine neue Bürgerin ist in der Stadt angekommen: {citizen} ({profession}).}
+                        other {Ein neuer Bürger ist in der Stadt angekommen: {citizen} ({profession}).}
+                    }
+                }
+            other {Ein neuer Bürger ist in der Stadt angekommen: {citizen} ({profession}).}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="pX9FfWW">

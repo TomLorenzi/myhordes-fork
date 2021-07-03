@@ -52,9 +52,10 @@ class LogTemplateHandler
      * @param Item|ItemPrototype|ItemGroupEntry|Citizen|CitizenProfession|Building|BuildingPrototype|CauseOfDeath|CitizenHome|CitizenHomePrototype|array $obj
      * @param bool $small
      * @param bool $broken
+     * @param Citizen|null $ref
      * @return string
      */
-    public function iconize($obj, bool $small = false, bool $broken = false): string {
+    public function iconize($obj, bool $small = false, bool $broken = false, ?Citizen $ref = null): string {
         if (is_array($obj) && count($obj) === 2) return $this->iconize( $obj['item'], $small) . ' x ' . $obj['count'];
 
         if ($obj instanceof Item) {
@@ -77,7 +78,7 @@ class LogTemplateHandler
         if ($obj instanceof ItemGroupEntry)       return "<img alt='' src='{$this->asset->getUrl( "build/images/item/item_{$obj->getPrototype()->getIcon()}.gif" )}' /> {$this->trans->trans($obj->getPrototype()->getLabel(), [], 'items')} <i>x {$obj->getChance()}</i>";
         if ($obj instanceof BuildingPrototype)    return "<img alt='' src='{$this->asset->getUrl( "build/images/building/{$obj->getIcon()}.gif" )}' /> {$this->trans->trans($obj->getLabel(), [], 'buildings')}";
         if ($obj instanceof Citizen)              return $obj->getName();
-        if ($obj instanceof CitizenProfession)    return "<img alt='' src='{$this->asset->getUrl( "build/images/professions/{$obj->getIcon()}.gif" )}' /> {$this->trans->trans($obj->getLabel(), [], 'game')}";
+        if ($obj instanceof CitizenProfession)    return "<img alt='' src='{$this->asset->getUrl( "build/images/professions/{$obj->getIcon()}.gif" )}' /> {$this->trans->trans($obj->getLabel(), ['ref' => $ref], 'game')}";
         if ($obj instanceof CitizenHomePrototype) return "<img alt='' src='{$this->asset->getUrl( "build/images/home/{$obj->getIcon()}.gif" )}' /> {$this->trans->trans($obj->getLabel(), [], 'buildings')}";
         if ($obj instanceof CauseOfDeath)         return $this->trans->trans($obj->getLabel(), [], 'game');
         return "";
@@ -146,6 +147,12 @@ class LogTemplateHandler
     
     public function parseTransParams (array $variableTypes, array $variables): ?array {
         $transParams = [];
+
+        $reference_citizen = null;
+        foreach ($variableTypes as $typeEntry)
+            if ($typeEntry['type'] === 'citizen' && $reference_citizen === null)
+                $reference_citizen = $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] );
+
         foreach ($variableTypes as $typeEntry) {
             try {
                 $wrap_fun = ( $typeEntry['raw'] ?? false ) ? fn($a,$b=null) => $a : fn($a,$b=null) => $this->wrap($a,$b);
@@ -156,6 +163,10 @@ class LogTemplateHandler
                 if ($typeEntry['type'] === 'citizen') {
                     $transParams[$typeEntry['name']] = $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] );
                     $transParams["{$typeEntry['name']}__tag"] = 'span';
+                } elseif ($typeEntry['type'] === 'profession' || $typeEntry['type'] === 'professionFull') {
+                    $transParams[$typeEntry['name']] = $this->iconize( $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] ), $typeEntry['type'] === 'profession', $variables['broken'] ?? false, $reference_citizen );
+                    $transParams["{$typeEntry['name']}__tag"] = 'span';
+                    if ($typeEntry['type'] === 'professionFull') $transParams["{$typeEntry['name']}__class"] = 'jobName';
                 }
                 // Non ICU-aware
                 elseif ($typeEntry['type'] === 'itemGroup') {
