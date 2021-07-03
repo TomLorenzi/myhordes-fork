@@ -3953,7 +3953,7 @@
       </notes>
       <segment>
         <source>Spielername</source>
-        <target>Spielername</target>
+        <target>Nombre del Jugador</target>
       </segment>
     </unit>
   </file>
