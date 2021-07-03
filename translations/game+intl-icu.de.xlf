@@ -13795,7 +13795,12 @@
     <unit id="mJl9hp7" name="{points} Punkt(e)">
       <segment>
         <source>{points} Punkt(e)</source>
-        <target>{points} Punkt(e)</target>
+        <target>
+            {ref__icu, select,
+                on { {points, select, 1 {1 Punkt} other {{points} Punkte}} }
+                other {{points} Punkt(e)}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="uAj26XB" name="Schließen">
