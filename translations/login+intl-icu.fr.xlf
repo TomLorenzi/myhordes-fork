@@ -772,5 +772,16 @@
                                             Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</target>
       </segment>
     </unit>
+    <unit id="Nm0UxBL">
+      <notes>
+        <note category="german">Um dich einzuloggen, musst du nach wie vor deinen &lt;b&gt;ursprünglichen Namen&lt;/b&gt; verwenden: &lt;i&gt;{name}&lt;/i&gt;.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Um dich einzuloggen, musst du nach wie vor deinen &lt;b&gt;ursprünglichen Namen&lt;/b&gt; verwenden: &lt;i&gt;{name}&lt;/i&gt;.</source>
+        <target><![CDATA[Um dich einzuloggen, musst du nach wie vor deinen <b>ursprünglichen Namen</b> verwenden: <i>{name}</i>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

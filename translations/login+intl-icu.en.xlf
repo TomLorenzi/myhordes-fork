@@ -773,5 +773,15 @@
             you must click on the activation link that will be sent to your specified email address.</target>
       </segment>
     </unit>
+    <unit id="Nm0UxBL">
+      <notes>
+        <note category="german">Um dich einzuloggen, musst du nach wie vor deinen &lt;b&gt;ursprünglichen Namen&lt;/b&gt; verwenden: &lt;i&gt;{name}&lt;/i&gt;.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Um dich einzuloggen, musst du nach wie vor deinen &lt;b&gt;ursprünglichen Namen&lt;/b&gt; verwenden: &lt;i&gt;{name}&lt;/i&gt;.</source>
+        <target><![CDATA[To log in, you still need to use your <b>original name</b>: <i>{name}</i>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
