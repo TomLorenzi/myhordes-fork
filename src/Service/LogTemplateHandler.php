@@ -152,7 +152,13 @@ class LogTemplateHandler
 
                 if (!isset($typeEntry['type']) || !isset($typeEntry['name'])) continue;
 
-                if ($typeEntry['type'] === 'itemGroup') {                
+                // ICU-aware
+                if ($typeEntry['type'] === 'citizen') {
+                    $transParams[$typeEntry['name']] = $this->fetchVariableObject( $typeEntry['type'], $variables[$typeEntry['name']] );
+                    $transParams["{$typeEntry['name']}__tag"] = 'span';
+                }
+                // Non ICU-aware
+                elseif ($typeEntry['type'] === 'itemGroup') {
                     $itemGroupEntries  = $this->fetchVariableObject($typeEntry['type'], $variables[$typeEntry['name']])->getEntries()->getValues();
                     $transParams['{'.$typeEntry['name'].'}'] = implode( ', ', array_map( function(ItemGroupEntry $e) use ($wrap_fun) { return $wrap_fun( $this->iconize( $e ), 'tool' ); }, $itemGroupEntries ));
                 }
@@ -761,6 +767,19 @@ class LogTemplateHandler
             ->setVariables($variables)
             ->setTown( $citizen->getTown() )
             ->setZone( $is_zero_zone ? null : $zone1 )
+            ->setDay( $citizen->getTown()->getDay() )
+            ->setTimestamp( new DateTime('now') )
+            ->setCitizen( $citizen );
+    }
+
+    public function outsideMoveoutsideMoveFailInjury( Citizen $citizen ): TownLogEntry {
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'outsideMoveFailInjury']);
+
+        return (new TownLogEntry())
+            ->setLogEntryTemplate($template)
+            ->setVariables(['citizen' => $citizen->getId()])
+            ->setTown( $citizen->getTown() )
+            ->setZone( $citizen->getZone() )
             ->setDay( $citizen->getTown()->getDay() )
             ->setTimestamp( new DateTime('now') )
             ->setCitizen( $citizen );

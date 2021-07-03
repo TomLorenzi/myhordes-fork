@@ -64,7 +64,7 @@
     <unit id="2.gcbi0" name="Seele">
       <notes>
         <note category="german">Seele</note>
-        <note category="from">twig:///templates/ajax/soul/shell.html.twig;twig:///templates/ajax/game/town/citizen_omniscience.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/soul/shell.html.twig</note>
       </notes>
       <segment>
         <source>Seele</source>
@@ -205,7 +205,7 @@
     <unit id="3UXNMEe" name="Dieses Dateiformat wird nicht unterstützt.">
       <notes>
         <note category="german">Dieses Dateiformat wird nicht unterstützt.</note>
-        <note category="from">twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Dieses Dateiformat wird nicht unterstützt.</source>
@@ -245,7 +245,7 @@
     <unit id="TzbDcP2" name="Die Datei ist zu groß.">
       <notes>
         <note category="german">Die Datei ist zu groß.</note>
-        <note category="from">twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Die Datei ist zu groß.</source>
@@ -388,7 +388,7 @@
     <unit id="rJfU7R2" name="Bitte wähle nur eine einzige Datei aus.">
       <notes>
         <note category="german">Bitte wähle nur eine einzige Datei aus.</note>
-        <note category="from">twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/apps/edit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Bitte wähle nur eine einzige Datei aus.</source>
@@ -702,7 +702,7 @@
     <unit id="x3_4s4O" name="Alte Städte">
       <notes>
         <note category="german">Alte Städte</note>
-        <note category="from">twig:///templates/ajax/soul/visit.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Alte Städte</source>
@@ -712,7 +712,7 @@
     <unit id="hU1AUQF" name="Nur 10 Städte anzeigen">
       <notes>
         <note category="german">Nur 10 Städte anzeigen</note>
-        <note category="from">twig:///templates/ajax/soul/visit.html.twig;twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Nur 10 Städte anzeigen</source>
@@ -762,7 +762,7 @@
     <unit id="cSCIhqi" name="Deine Einstellung wurde gespeichert.">
       <notes>
         <note category="german">Deine Einstellung wurde gespeichert.</note>
-        <note category="from">twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/public/disclaimer.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/disclaimer.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Deine Einstellung wurde gespeichert.</source>
@@ -1436,7 +1436,7 @@
     <unit id="fz.4cY3" name="Deine Seele wurde erfolgreich importiert!">
       <notes>
         <note category="german">Deine Seele wurde erfolgreich importiert!</note>
-        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig;twig:///templates/ajax/soul/import.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig;twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Deine Seele wurde erfolgreich importiert!</source>
@@ -1446,7 +1446,7 @@
     <unit id="004l4O7" name="Saison {n}">
       <notes>
         <note category="german">Saison {n}</note>
-        <note category="from">twig:///templates/ajax/soul/visit.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Saison {n}</source>
@@ -1456,7 +1456,7 @@
     <unit id="yoZbT75" name="Gute Alte Zeit">
       <notes>
         <note category="german">Gute Alte Zeit</note>
-        <note category="from">twig:///templates/ajax/soul/visit.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/me.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Gute Alte Zeit</source>
@@ -1606,7 +1606,7 @@
     <unit id="NBJR5jI">
       <notes>
         <note category="german">Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!</note>
-        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig;twig:///templates/ajax/soul/import.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig;twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!</source>
@@ -1857,7 +1857,7 @@
     <unit id="XRr8eU." name="Gib den Pseudo des Bürgers ein.">
       <notes>
         <note category="german">Gib den Namen des Bürgers ein.</note>
-        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/soul/coalitions.html.twig;twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/admin/snippets/user_search.html.twig;twig:///templates/ajax/forum/search.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/snippets/user_search.html.twig;twig:///templates/ajax/forum/search.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/coalitions.html.twig;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Gib den Pseudo des Bürgers ein.</source>
@@ -2714,7 +2714,7 @@
     <unit id="9cNHWGl" name="Seelenpunkte">
       <notes>
         <note category="german">Seelenpunkte</note>
-        <note category="from">twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/refer.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Seelenpunkte</source>
@@ -3184,7 +3184,6 @@
     <unit id="uK4jynd" name="Geworbener Spieler">
       <notes>
         <note category="german">Geworbener Spieler</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3195,7 +3194,6 @@
     <unit id="4n2PgVx" name="Heldenerfahrung">
       <notes>
         <note category="german">Heldenerfahrung</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3206,7 +3204,6 @@
     <unit id="QGRs.s1" name="Du hast keine Koalition.">
       <notes>
         <note category="german">Du hast keine Koalition.</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3217,7 +3214,6 @@
     <unit id="ljPPYyM" name="Du bist nicht Anführer deiner Koalition.">
       <notes>
         <note category="german">Du bist nicht Anführer deiner Koalition.</note>
-        <note category="state">new</note>
         <note category="from">[unused]</note>
       </notes>
       <segment>
@@ -3228,7 +3224,6 @@
     <unit id="nnaWQyL" name="Kein freier Platz">
       <notes>
         <note category="german">Kein freier Platz</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3239,7 +3234,6 @@
     <unit id="vOzFwXw" name="Koalitionsmitglied">
       <notes>
         <note category="german">Koalitionsmitglied</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3250,7 +3244,6 @@
     <unit id="2.dDOzw" name="Noch nicht bestätigt...">
       <notes>
         <note category="german">Noch nicht bestätigt...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3261,7 +3254,6 @@
     <unit id="yf4a0g_" name="Koalitionseinladung">
       <notes>
         <note category="german">Koalitionseinladung</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
@@ -3719,7 +3711,7 @@
     <unit id="yF2vVL5" name="%user% war in der Vergangenheit unter folgenden Namen bekannt:">
       <notes>
         <note category="german">%user% war in der Vergangenheit unter folgenden Namen bekannt:</note>
-        <note category="from">twig:///templates/ajax/soul/visit.html.twig;twig:///templates/ajax/soul/badges.html.twig</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>%user% war in der Vergangenheit unter folgenden Namen bekannt:</source>

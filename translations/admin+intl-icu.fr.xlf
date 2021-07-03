@@ -134,7 +134,7 @@
     <unit id="FlZntyi" name="Bürger">
       <notes>
         <note category="german">Bürger</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/users/tabs.html.twig;twig:///templates/ajax/admin/users/citizen.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/users/citizen.html.twig;twig:///templates/ajax/admin/users/tabs.html.twig</note>
       </notes>
       <segment>
         <source>Bürger</source>
@@ -154,7 +154,7 @@
     <unit id="S8vqbzA" name="Verbannung">
       <notes>
         <note category="german">Verbannung</note>
-        <note category="from">twig:///templates/ajax/admin/users/tabs.html.twig;twig:///templates/ajax/admin/users/ban.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/users/tabs.html.twig</note>
       </notes>
       <segment>
         <source>Verbannung</source>
@@ -245,7 +245,7 @@
       <notes>
         <note category="german">Foren</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Forum</source>
@@ -255,7 +255,7 @@
     <unit id="BygLauq" name="Autor">
       <notes>
         <note category="german">Autor</note>
-        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Autor</source>
@@ -325,7 +325,7 @@
     <unit id="TSuzaPk" name="Übersicht">
       <notes>
         <note category="german">Übersicht</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig</note>
       </notes>
       <segment>
         <source>Übersicht</source>
@@ -375,7 +375,7 @@
     <unit id="fhsNVkH" name="Account">
       <notes>
         <note category="german">Account</note>
-        <note category="from">twig:///templates/ajax/admin/users/tabs.html.twig;twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/tabs.html.twig</note>
       </notes>
       <segment>
         <source>Account</source>
@@ -385,7 +385,7 @@
     <unit id=".DCeMNu" name="Benutzername">
       <notes>
         <note category="german">Benutzername</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/index.html.twig;twig:///templates/ajax/admin/users/account.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/index.html.twig</note>
       </notes>
       <segment>
         <source>Benutzername</source>
@@ -608,7 +608,7 @@
       <notes>
         <note category="german">ID</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig</note>
       </notes>
       <segment>
         <source>ID</source>
@@ -628,7 +628,7 @@
     <unit id="8qHMcfp" name="Sprache">
       <notes>
         <note category="german">Sprache</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/groups/list.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/groups/list.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig</note>
       </notes>
       <segment>
         <source>Sprache</source>
@@ -660,7 +660,7 @@
       <notes>
         <note category="german">Saison</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig;twig:///templates/ajax/admin/seasons/edit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/seasons/edit.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/old_town_explorer.html.twig</note>
       </notes>
       <segment>
         <source>Saison</source>
@@ -792,7 +792,7 @@
     <unit id="Vlb5Lbe" name="Aktionen">
       <notes>
         <note category="german">Aktionen</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/dash.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/towns/list.html.twig;twig:///templates/ajax/admin/towns/old_towns_list.html.twig;twig:///templates/ajax/admin/users/account.html.twig</note>
       </notes>
       <segment>
         <source>Aktionen</source>
@@ -862,7 +862,7 @@
     <unit id="q8r8gtq" name="Titel">
       <notes>
         <note category="german">Titel</note>
-        <note category="from">twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/changelogs/changelogs.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/changelogs/changelogs.html.twig;twig:///templates/ajax/admin/reports/reports.html.twig;twig:///templates/ajax/admin/users/account.html.twig;twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
         <source>Titel</source>
@@ -893,7 +893,7 @@
     <unit id="fcC4_EM" name="Auszeichnungen">
       <notes>
         <note category="german">Auszeichnungen</note>
-        <note category="from">twig:///templates/ajax/admin/users/tabs.html.twig;twig:///templates/ajax/admin/users/pictos.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/users/pictos.html.twig;twig:///templates/ajax/admin/users/tabs.html.twig</note>
       </notes>
       <segment>
         <source>Auszeichnungen</source>
@@ -955,7 +955,7 @@
     <unit id="H716AMr" name="Schlüssel">
       <notes>
         <note category="german">Schlüssel</note>
-        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/public/disclaimer.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/towns/explorer.html.twig;twig:///templates/ajax/public/disclaimer.html.twig</note>
       </notes>
       <segment>
         <source>Schlüssel</source>
@@ -1797,7 +1797,7 @@
     <unit id="y7lc8Ct" name="Hinzufügen">
       <notes>
         <note category="german">Hinzufügen</note>
-        <note category="from">twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/admin/spam/domains.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/spam/domains.html.twig;twig:///templates/ajax/admin/users/ban.html.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
       </notes>
       <segment>
         <source>Hinzufügen</source>
@@ -1807,7 +1807,7 @@
     <unit id="_b4bK2O" name="Nachricht?">
       <notes>
         <note category="german">Nachricht?</note>
-        <note category="from">twig:///templates/ajax/admin/reports/pn-viewer.html.twig;twig:///templates/ajax/admin/reports/gpn-viewer.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/reports/gpn-viewer.html.twig;twig:///templates/ajax/admin/reports/pn-viewer.html.twig</note>
       </notes>
       <segment>
         <source>Nachricht?</source>
@@ -1988,7 +1988,7 @@
     <unit id="I5qOX6_" name="Anwendung">
       <notes>
         <note category="german">Anwendung</note>
-        <note category="from">twig:///templates/ajax/admin/apps/list.html.twig;twig:///templates/ajax/admin/apps/edit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/apps/list.html.twig</note>
       </notes>
       <segment>
         <source>Anwendung</source>
@@ -1998,7 +1998,7 @@
     <unit id="zO1HXOo" name="Besitzer">
       <notes>
         <note category="german">Besitzer</note>
-        <note category="from">twig:///templates/ajax/admin/apps/list.html.twig;twig:///templates/ajax/admin/apps/edit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/apps/list.html.twig</note>
       </notes>
       <segment>
         <source>Besitzer</source>
@@ -2008,7 +2008,7 @@
     <unit id="Ml7s_dM" name="Kontakt">
       <notes>
         <note category="german">Kontakt</note>
-        <note category="from">twig:///templates/ajax/admin/apps/list.html.twig;twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/public/disclaimer.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/apps/list.html.twig;twig:///templates/ajax/public/disclaimer.html.twig</note>
       </notes>
       <segment>
         <source>Kontakt</source>
@@ -2079,7 +2079,7 @@
     <unit id="o1q81tr" name="Icon">
       <notes>
         <note category="german">Icon</note>
-        <note category="from">twig:///templates/ajax/admin/groups/list.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/apps/edit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/groups/list.html.twig</note>
       </notes>
       <segment>
         <source>Icon</source>
@@ -2491,7 +2491,7 @@
     <unit id="5vc95gS" name="Akt.">
       <notes>
         <note category="german">Akt.</note>
-        <note category="from">twig:///templates/ajax/admin/seasons/list.html.twig;twig:///templates/ajax/admin/groups/list.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/groups/list.html.twig;twig:///templates/ajax/admin/seasons/list.html.twig</note>
       </notes>
       <segment>
         <source>Akt.</source>
@@ -2521,7 +2521,7 @@
     <unit id="3NHVIj9" name="Name">
       <notes>
         <note category="german">Name</note>
-        <note category="from">twig:///templates/ajax/admin/seasons/list.html.twig;twig:///templates/ajax/admin/groups/list.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/groups/list.html.twig;twig:///templates/ajax/admin/seasons/list.html.twig</note>
       </notes>
       <segment>
         <source>Name</source>
@@ -3507,7 +3507,7 @@
     <unit id="bIa5kIj" name="Änderungen speichern">
       <notes>
         <note category="german">Änderungen speichern</note>
-        <note category="from">twig:///templates/ajax/admin/seasons/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/seasons/edit.html.twig</note>
       </notes>
       <segment>
         <source>Änderungen speichern</source>
@@ -3658,7 +3658,7 @@
     <unit id="vBZ55s_" name="Mitglieder">
       <notes>
         <note category="german">Mitglieder</note>
-        <note category="from">twig:///templates/ajax/admin/groups/list.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/admin/groups/list.html.twig</note>
       </notes>
       <segment>
         <source>Mitglieder</source>
@@ -3848,7 +3848,7 @@
     <unit id="N89SWeP" name="Hunger">
       <notes>
         <note category="german">Hunger</note>
-        <note category="from">twig:///templates/ajax/admin/widget/displays.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/admin/widget/displays.twig</note>
       </notes>
       <segment>
         <source>Hunger</source>
@@ -3858,7 +3858,7 @@
     <unit id="7JnkyKJ" name="Camp Chance">
       <notes>
         <note category="german">Camp Chance</note>
-        <note category="from">twig:///templates/ajax/admin/widget/displays.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/admin/widget/displays.twig</note>
       </notes>
       <segment>
         <source>Camp Chance</source>
@@ -3868,7 +3868,7 @@
     <unit id="b5V7Hy2" name="Camp Zähler">
       <notes>
         <note category="german">Camp Zähler</note>
-        <note category="from">twig:///templates/ajax/admin/widget/displays.twig;twig:///templates/ajax/admin/widget/controls.twig</note>
+        <note category="from">twig:///templates/ajax/admin/widget/controls.twig;twig:///templates/ajax/admin/widget/displays.twig</note>
       </notes>
       <segment>
         <source>Camp Zähler</source>

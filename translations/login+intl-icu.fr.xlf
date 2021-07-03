@@ -224,7 +224,7 @@
     <unit id="Bw.Ze07" name="Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.">
       <notes>
         <note category="german">Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</note>
-        <note category="from">twig:///templates/ajax/public/passreset.html.twig;twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/public/validate.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/public/passreset.html.twig;twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/validate.html.twig</note>
       </notes>
       <segment>
         <source>Einige Felder sind nicht korrekt ausgefüllt. Bitte prüfe eine Eingaben.</source>
@@ -244,7 +244,7 @@
     <unit id="VR0KmfL" name="Spielername">
       <notes>
         <note category="german">Spielername</note>
-        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/login_legacy.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig;twig:///templates/ajax/public/register.html.twig</note>
       </notes>
       <segment>
         <source>Spielername</source>
@@ -254,7 +254,7 @@
     <unit id="Up_TjZv" name="E-Mail Adresse">
       <notes>
         <note category="german">E-Mail Adresse</note>
-        <note category="from">twig:///templates/ajax/public/passreset.html.twig;twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/et_welcome.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/public/passreset.html.twig;twig:///templates/ajax/public/register.html.twig</note>
       </notes>
       <segment>
         <source>E-Mail Adresse</source>
@@ -264,7 +264,7 @@
     <unit id="QNpwRBL" name="wiederholen">
       <notes>
         <note category="german">wiederholen</note>
-        <note category="from">twig:///templates/ajax/public/passreset.html.twig;twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/et_welcome.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/public/passreset.html.twig;twig:///templates/ajax/public/register.html.twig</note>
       </notes>
       <segment>
         <source>wiederholen</source>
@@ -274,7 +274,7 @@
     <unit id="o2wQFXD" name="Passwort">
       <notes>
         <note category="german">Passwort</note>
-        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/passreset.html.twig;twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/public/login_legacy.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig;twig:///templates/ajax/public/passreset.html.twig;twig:///templates/ajax/public/register.html.twig</note>
       </notes>
       <segment>
         <source>Passwort</source>
@@ -366,7 +366,7 @@
     <unit id="1kcI_60" name="Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.">
       <notes>
         <note category="german">Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</note>
-        <note category="from">twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/et_welcome.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/public/register.html.twig</note>
       </notes>
       <segment>
         <source>Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</source>
@@ -416,7 +416,7 @@
     <unit id="9.8ReK8" name="Abbrechen">
       <notes>
         <note category="german">Abbrechen</note>
-        <note category="from">twig:///templates/ajax/public/passreset.html.twig;twig:///templates/ajax/public/et_welcome.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/public/passreset.html.twig</note>
       </notes>
       <segment>
         <source>Abbrechen</source>
@@ -496,7 +496,7 @@
     <unit id="qo4M11k" name="Über EternalTwin einloggen">
       <notes>
         <note category="german">Über EternalTwin einloggen</note>
-        <note category="from">twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Über EternalTwin einloggen</source>
@@ -526,7 +526,7 @@
     <unit id="uT6i9yH">
       <notes>
         <note category="german">Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</note>
-        <note category="from">twig:///templates/ajax/soul/settings.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/et_welcome.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Deine Seele bleibt bei der Verknüpfung mit EternalTwin selbstverständlich vollständig erhalten.</source>
@@ -720,7 +720,7 @@
     <unit id="e_EqP86" name="Pate">
       <notes>
         <note category="german">Pate</note>
-        <note category="from">twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/et_welcome.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/public/register.html.twig</note>
       </notes>
       <segment>
         <source>Pate</source>
@@ -730,7 +730,7 @@
     <unit id="X.GbWI5">
       <notes>
         <note category="german">Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...</note>
-        <note category="from">twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/et_welcome.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/public/register.html.twig</note>
       </notes>
       <segment>
         <source>Wenn du von einem anderen Spieler für MyHordes geworben wurdest, gib hier seinen Namen ein. Er oder sie wird dir sehr dankbar sein...</source>
@@ -740,7 +740,7 @@
     <unit id="zPzPmd5">
       <notes>
         <note category="german">Dein E-Mail Anbieter stellt Nachrichten von MyHordes nicht oder nur sehr unzuverlässig zu. Wir empfehlen, wenn möglich eine andere E-Mail Adresse für die Registrierung zu verwenden. Bitte entschuldige die Unannehmlichkeiten.</note>
-        <note category="from">twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/et_welcome.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/et_welcome.html.twig;twig:///templates/ajax/public/register.html.twig</note>
       </notes>
       <segment>
         <source>Dein E-Mail Anbieter stellt Nachrichten von MyHordes nicht oder nur sehr unzuverlässig zu. Wir empfehlen, wenn möglich eine andere E-Mail Adresse für die Registrierung zu verwenden. Bitte entschuldige die Unannehmlichkeiten.</source>

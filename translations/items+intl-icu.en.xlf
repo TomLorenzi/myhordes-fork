@@ -3399,7 +3399,7 @@
     <unit id="u_g_Kg2" name="Trinken">
       <notes>
         <note category="german">Trinken</note>
-        <note category="from">db://ItemAction;db://EscortActionGroup</note>
+        <note category="from">db://EscortActionGroup;db://ItemAction</note>
       </notes>
       <segment>
         <source>Trinken</source>
@@ -3459,7 +3459,7 @@
     <unit id="ohJAffK" name="Essen">
       <notes>
         <note category="german">Essen</note>
-        <note category="from">db://ItemAction;db://EscortActionGroup</note>
+        <note category="from">db://EscortActionGroup;db://ItemAction</note>
       </notes>
       <segment>
         <source>Essen</source>
@@ -3650,7 +3650,7 @@
     <unit id="4BPa55x">
       <notes>
         <note category="german">Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</note>
-        <note category="from">db://ItemPrototype;db://ItemAction</note>
+        <note category="from">db://ItemAction;db://ItemPrototype</note>
       </notes>
       <segment>
         <source>Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</source>
@@ -7907,7 +7907,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="m0F5VOz" name="Kamera aus Vorkriegs-Tagen">
       <notes>
         <note category="german">Kamera aus Vorkriegs-Tagen</note>
-        <note category="from">db://ItemPrototype;db://FeatureUnlockPrototype</note>
+        <note category="from">db://FeatureUnlockPrototype;db://ItemPrototype</note>
       </notes>
       <segment>
         <source>Kamera aus Vorkriegs-Tagen</source>
@@ -7917,7 +7917,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="rUsoPlx">
       <notes>
         <note category="german">Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</note>
-        <note category="from">db://ItemPrototype;db://FeatureUnlockPrototype</note>
+        <note category="from">db://FeatureUnlockPrototype;db://ItemPrototype</note>
       </notes>
       <segment>
         <source>Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</source>
@@ -8650,7 +8650,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="rigrkZL">
       <notes>
         <note category="german">Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert.</note>
-        <note category="from">db://ItemPrototype;db://FeatureUnlockPrototype</note>
+        <note category="from">db://FeatureUnlockPrototype;db://ItemPrototype</note>
       </notes>
       <segment>
         <source>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert.</source>
@@ -9128,7 +9128,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="BnW7_fH">
       <notes>
         <note category="german">Die Nebenwirkungen der Droge lassen nicht lange auf sich warten: Übelkeit, Zittern, Schweißausbrüche, das ganze Programm... Gleichzeitig spürst du jedoch einen &lt;strong&gt;unglaublichen Kraftschub&lt;/strong&gt;. Übertreibe es aber nicht!</note>
-        <note category="from">db://ItemAction;db://AffectMessage</note>
+        <note category="from">db://AffectMessage;db://ItemAction</note>
       </notes>
       <segment>
         <source>Die Nebenwirkungen der Droge lassen nicht lange auf sich warten: Übelkeit, Zittern, Schweißausbrüche, das ganze Programm... Gleichzeitig spürst du jedoch einen &lt;strong&gt;unglaublichen Kraftschub&lt;/strong&gt;. Übertreibe es aber nicht!</source>
@@ -9453,9 +9453,8 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     </unit>
     <unit id="O4qYqLB" name="{watchpoint} pkt attacke">
       <notes>
-        <note category="german">{watchpoint} pkt attacke</note>
+        <note category="german"># pkt attacke</note>
         <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>{watchpoint} pkt attacke</source>

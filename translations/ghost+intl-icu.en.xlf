@@ -54,7 +54,7 @@
     <unit id="Vlb5Lbe" name="Aktionen">
       <notes>
         <note category="german">Aktionen</note>
-        <note category="from">twig:///templates/ajax/ghost/intro.html.twig;twig:///templates/ajax/game/town/citizen_vote.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Aktionen</source>
@@ -1567,7 +1567,7 @@
     <unit id="mm_OH8u" name="Ein neues Leben beginnen">
       <notes>
         <note category="german">Ein neues Leben beginnen</note>
-        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/ghost/intro.html.twig;twig:///templates/ajax/ghost/donate.html.twig</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/ghost/donate.html.twig;twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Ein neues Leben beginnen</source>

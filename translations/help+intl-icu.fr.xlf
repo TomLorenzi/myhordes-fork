@@ -24,7 +24,7 @@
     <unit id="FvwX8Vo" name="Die Außenwelt">
       <notes>
         <note category="german">Die Außenwelt</note>
-        <note category="from">twig:///templates/ajax/help/world_beyond.html.twig;twig:///templates/ajax/help/welcome.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/welcome.html.twig;twig:///templates/ajax/help/world_beyond.html.twig</note>
       </notes>
       <segment>
         <source>Die Außenwelt</source>
@@ -34,7 +34,7 @@
     <unit id="kaeVl5r" name="Sich bewegen">
       <notes>
         <note category="german">Sich bewegen</note>
-        <note category="from">twig:///templates/ajax/help/world_beyond.html.twig;twig:///templates/ajax/help/getting_around.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/getting_around.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/world_beyond.html.twig</note>
       </notes>
       <segment>
         <source>Sich bewegen</source>
@@ -44,7 +44,7 @@
     <unit id="L4DksI7" name="Die Karte">
       <notes>
         <note category="german">Die Karte</note>
-        <note category="from">twig:///templates/ajax/help/map.html.twig;twig:///templates/ajax/help/getting_around.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/getting_around.html.twig;twig:///templates/ajax/help/map.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Die Karte</source>
@@ -54,7 +54,7 @@
     <unit id="fJO12Rm" name="Erkunden und Graben">
       <notes>
         <note category="german">Erkunden und Graben</note>
-        <note category="from">twig:///templates/ajax/help/map.html.twig;twig:///templates/ajax/help/exploring_and_scavenging.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/exploring_and_scavenging.html.twig;twig:///templates/ajax/help/map.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Erkunden und Graben</source>
@@ -74,7 +74,7 @@
     <unit id="6PsnUvf" name="Die Kontrollpunkte">
       <notes>
         <note category="german">Die Kontrollpunkte</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/help/depleted_zones.html.twig;twig:///templates/ajax/help/control_points.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/help/control_points.html.twig;twig:///templates/ajax/help/depleted_zones.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Die Kontrollpunkte</source>
@@ -84,7 +84,7 @@
     <unit id="q9hh0dv" name="Der Eskortenmodus">
       <notes>
         <note category="german">Der Eskortenmodus</note>
-        <note category="from">twig:///templates/ajax/help/escort_mode.html.twig;twig:///templates/ajax/help/control_points.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/control_points.html.twig;twig:///templates/ajax/help/escort_mode.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Der Eskortenmodus</source>
@@ -104,7 +104,7 @@
     <unit id="ztIX9Q7" name="Nachts">
       <notes>
         <note category="german">Nachts</note>
-        <note category="from">twig:///templates/ajax/help/the_night.html.twig;twig:///templates/ajax/help/fighting_the_hordes_in_the_world_beyond.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/fighting_the_hordes_in_the_world_beyond.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/the_night.html.twig</note>
       </notes>
       <segment>
         <source>Nachts</source>
@@ -114,7 +114,7 @@
     <unit id="8Ld23ql" name="Wildes Campen">
       <notes>
         <note category="german">Wildes Campen</note>
-        <note category="from">twig:///templates/ajax/help/extreme_camping.html.twig;twig:///templates/ajax/help/the_night.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/extreme_camping.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/the_night.html.twig</note>
       </notes>
       <segment>
         <source>Wildes Campen</source>
@@ -134,7 +134,7 @@
     <unit id="zEQcWoH" name="Verlorene Seelen">
       <notes>
         <note category="german">Verlorene Seelen</note>
-        <note category="from">twig:///templates/ajax/help/ruin_exploration.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/lost_souls.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/lost_souls.html.twig;twig:///templates/ajax/help/ruin_exploration.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Verlorene Seelen</source>
@@ -144,7 +144,7 @@
     <unit id="C2ciqK3" name="Du">
       <notes>
         <note category="german">Du</note>
-        <note category="from">twig:///templates/ajax/help/about_you.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/lost_souls.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/about_you.html.twig;twig:///templates/ajax/help/lost_souls.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Du</source>
@@ -154,7 +154,7 @@
     <unit id="EF2Sgns" name="Dein Gesundheitszustand">
       <notes>
         <note category="german">Dein Gesundheitszustand</note>
-        <note category="from">twig:///templates/ajax/help/about_you.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/health.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/about_you.html.twig;twig:///templates/ajax/help/health.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Dein Gesundheitszustand</source>
@@ -164,7 +164,7 @@
     <unit id="1gKQD7J" name="Inventar">
       <notes>
         <note category="german">Inventar</note>
-        <note category="from">twig:///templates/ajax/help/inventory.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/health.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/health.html.twig;twig:///templates/ajax/help/inventory.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Inventar</source>
@@ -174,7 +174,7 @@
     <unit id="BNcLxkK" name="Deine Seele">
       <notes>
         <note category="german">Deine Seele</note>
-        <note category="from">twig:///templates/ajax/help/your_soul.html.twig;twig:///templates/ajax/help/inventory.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/inventory.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/your_soul.html.twig</note>
       </notes>
       <segment>
         <source>Deine Seele</source>
@@ -184,7 +184,7 @@
     <unit id="9gv_cn." name="Der Tod und deine Seelenpunkte">
       <notes>
         <note category="german">Der Tod und deine Seelenpunkte</note>
-        <note category="from">twig:///templates/ajax/help/your_soul.html.twig;twig:///templates/ajax/help/death_and_soul_points.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/death_and_soul_points.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/your_soul.html.twig</note>
       </notes>
       <segment>
         <source>Der Tod und deine Seelenpunkte</source>
@@ -214,7 +214,7 @@
     <unit id="JAkgM4Z" name="Kleine Koalitionen">
       <notes>
         <note category="german">Kleine Koalitionen</note>
-        <note category="from">twig:///templates/ajax/help/hero_mode.html.twig;twig:///templates/ajax/help/coalitions.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/coalitions.html.twig;twig:///templates/ajax/help/hero_mode.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Kleine Koalitionen</source>
@@ -244,7 +244,7 @@
     <unit id="t5LJ9KA" name="Die Berufe">
       <notes>
         <note category="german">Die Berufe</note>
-        <note category="from">twig:///templates/ajax/help/jobs.html.twig;twig:///templates/ajax/help/ghouls.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/ghouls.html.twig;twig:///templates/ajax/help/jobs.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Die Berufe</source>
@@ -254,7 +254,7 @@
     <unit id="hlH9eeR" name="Einwohner">
       <notes>
         <note category="german">Einwohner</note>
-        <note category="from">twig:///templates/ajax/help/jobs.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/basic.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/basic.html.twig;twig:///templates/ajax/help/jobs.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Einwohner</source>
@@ -264,7 +264,7 @@
     <unit id="sBbkqrg" name="Buddler">
       <notes>
         <note category="german">Buddler</note>
-        <note category="from">twig:///templates/ajax/help/collec.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/basic.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/basic.html.twig;twig:///templates/ajax/help/collec.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Buddler</source>
@@ -284,7 +284,7 @@
     <unit id="aMWLa_K" name="Wächter">
       <notes>
         <note category="german">Wächter</note>
-        <note category="from">twig:///templates/ajax/help/hunter.html.twig;twig:///templates/ajax/help/guardian.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/guardian.html.twig;twig:///templates/ajax/help/hunter.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Wächter</source>
@@ -304,7 +304,7 @@
     <unit id="l9gYoq8" name="Dompteur">
       <notes>
         <note category="german">Dompteur</note>
-        <note category="from">twig:///templates/ajax/help/tamer.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/survivalist.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/survivalist.html.twig;twig:///templates/ajax/help/tamer.html.twig</note>
       </notes>
       <segment>
         <source>Dompteur</source>
@@ -314,7 +314,7 @@
     <unit id="CcGFUIM" name="Techniker">
       <notes>
         <note category="german">Techniker</note>
-        <note category="from">twig:///templates/ajax/help/tamer.html.twig;twig:///templates/ajax/help/tech.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/tamer.html.twig;twig:///templates/ajax/help/tech.html.twig</note>
       </notes>
       <segment>
         <source>Techniker</source>
@@ -324,7 +324,7 @@
     <unit id="6I1t0iJ" name="Die Rollen">
       <notes>
         <note category="german">Die Rollen</note>
-        <note category="from">twig:///templates/ajax/help/tech.html.twig;twig:///templates/ajax/help/town_roles.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/tech.html.twig;twig:///templates/ajax/help/town_roles.html.twig</note>
       </notes>
       <segment>
         <source>Die Rollen</source>
@@ -334,7 +334,7 @@
     <unit id="dymWtZP" name="Shamane">
       <notes>
         <note category="german">Shamane</note>
-        <note category="from">twig:///templates/ajax/help/town_roles.html.twig;twig:///templates/ajax/help/shaman.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/shaman.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/town_roles.html.twig</note>
       </notes>
       <segment>
         <source>Shamane</source>
@@ -364,7 +364,7 @@
     <unit id="pq8uFuf" name="Die Gemeinschaft">
       <notes>
         <note category="german">Die Gemeinschaft</note>
-        <note category="from">twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/welcome_to_the_town.html.twig;twig:///templates/ajax/help/the_community.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/the_community.html.twig;twig:///templates/ajax/help/welcome_to_the_town.html.twig</note>
       </notes>
       <segment>
         <source>Die Gemeinschaft</source>
@@ -384,7 +384,7 @@
     <unit id="iOrKXGN" name="Baupläne">
       <notes>
         <note category="german">Baupläne</note>
-        <note category="from">twig:///templates/ajax/help/constructing_new_buildings.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/blueprints.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/blueprints.html.twig;twig:///templates/ajax/help/constructing_new_buildings.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Baupläne</source>
@@ -394,7 +394,7 @@
     <unit id="a67wON3" name="Weiterentwicklung des Tages">
       <notes>
         <note category="german">Weiterentwicklung des Tages</note>
-        <note category="from">twig:///templates/ajax/help/daily_upgrades.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/blueprints.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/blueprints.html.twig;twig:///templates/ajax/help/daily_upgrades.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Weiterentwicklung des Tages</source>
@@ -404,7 +404,7 @@
     <unit id="mVINzuJ" name="Der Angriff der Zombiehorde">
       <notes>
         <note category="german">Der Angriff der Zombiehorde</note>
-        <note category="from">twig:///templates/ajax/help/daily_upgrades.html.twig;twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/daily_upgrades.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig</note>
       </notes>
       <segment>
         <source>Der Angriff der Zombiehorde</source>
@@ -414,7 +414,7 @@
     <unit id="CLGNvQz" name="Die Nachtwächter">
       <notes>
         <note category="german">Die Nachtwächter</note>
-        <note category="from">twig:///templates/ajax/game/town/nightwatch.html.twig;twig:///templates/ajax/help/the_watchmen.html.twig;twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/town/nightwatch.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig;twig:///templates/ajax/help/the_watchmen.html.twig</note>
       </notes>
       <segment>
         <source>Die Nachtwächter</source>
@@ -424,7 +424,7 @@
     <unit id="kvBwFZL" name="Recht und Gesetz">
       <notes>
         <note category="german">Recht und Gesetz</note>
-        <note category="from">twig:///templates/ajax/help/the_watchmen.html.twig;twig:///templates/ajax/help/crimes_and_punishment.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/crimes_and_punishment.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/the_watchmen.html.twig</note>
       </notes>
       <segment>
         <source>Recht und Gesetz</source>
@@ -464,7 +464,7 @@
     <unit id="9ee2OqZ" name="Kleine Karten">
       <notes>
         <note category="german">Kleine Karten</note>
-        <note category="from">twig:///templates/ajax/help/catapult.html.twig;twig:///templates/ajax/help/towns_in_nondistantregions.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/catapult.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/towns_in_nondistantregions.html.twig</note>
       </notes>
       <segment>
         <source>Kleine Karten</source>
@@ -474,7 +474,7 @@
     <unit id="IdXP_LT" name="Zerstörte Stadt">
       <notes>
         <note category="german">Zerstörte Stadt</note>
-        <note category="from">twig:///templates/ajax/help/devastated_town.html.twig;twig:///templates/ajax/help/towns_in_nondistantregions.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/devastated_town.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/towns_in_nondistantregions.html.twig</note>
       </notes>
       <segment>
         <source>Zerstörte Stadt</source>
@@ -494,7 +494,7 @@
     <unit id="tnYIPoS" name="Privatstädte">
       <notes>
         <note category="german">Privatstädte</note>
-        <note category="from">twig:///templates/ajax/help/private_towns.html.twig;twig:///templates/ajax/help/hardcore_towns.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/hardcore_towns.html.twig;twig:///templates/ajax/help/private_towns.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Privatstädte</source>
@@ -514,7 +514,7 @@
     <unit id="dyJ1Inc" name="Saisons und Ranglisten">
       <notes>
         <note category="german">Saisons und Ranglisten</note>
-        <note category="from">twig:///templates/ajax/help/roleplay_options.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/seasons_and_rankings.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/roleplay_options.html.twig;twig:///templates/ajax/help/seasons_and_rankings.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Saisons und Ranglisten</source>
@@ -525,7 +525,7 @@
       <notes>
         <note category="german">Support</note>
         <note category="state">new</note>
-        <note category="from">twig:///templates/ajax/help/support.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/seasons_and_rankings.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/seasons_and_rankings.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/support.html.twig</note>
       </notes>
       <segment>
         <source>Support</source>
@@ -555,7 +555,7 @@
     <unit id="vm9r3tz" name="Hier erhältst du Hilfe">
       <notes>
         <note category="german">Hier erhältst du Hilfe</note>
-        <note category="from">twig:///templates/ajax/help/support.html.twig;twig:///templates/ajax/help/getting_help.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/getting_help.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/support.html.twig</note>
       </notes>
       <segment>
         <source>Hier erhältst du Hilfe</source>
@@ -565,7 +565,7 @@
     <unit id="AuzemM7" name="Wie wähle ich ein sicheres Passwort?">
       <notes>
         <note category="german">Wie wähle ich ein sicheres Passwort?</note>
-        <note category="from">twig:///templates/ajax/help/getting_help.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/choosing_a_good_password.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/choosing_a_good_password.html.twig;twig:///templates/ajax/help/getting_help.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Wie wähle ich ein sicheres Passwort?</source>
@@ -575,7 +575,7 @@
     <unit id="Uz4L9yI" name="Stadt unter Quarantäne">
       <notes>
         <note category="german">Stadt unter Quarantäne</note>
-        <note category="from">twig:///templates/ajax/help/quarantined_towns.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/choosing_a_good_password.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/choosing_a_good_password.html.twig;twig:///templates/ajax/help/quarantined_towns.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Stadt unter Quarantäne</source>
@@ -595,7 +595,7 @@
     <unit id="rgL81Rn" name="Zum Thema 'Sitting'...">
       <notes>
         <note category="german">Zum Thema 'Sitting'...</note>
-        <note category="from">twig:///templates/ajax/help/i_m_annoyed.html.twig;twig:///templates/ajax/help/about_accountsitting.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/about_accountsitting.html.twig;twig:///templates/ajax/help/i_m_annoyed.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
       </notes>
       <segment>
         <source>Zum Thema 'Sitting'...</source>
@@ -605,7 +605,7 @@
     <unit id="T8fo4q1" name="Externe Webseiten und Anwendungen">
       <notes>
         <note category="german">Externe Webseiten und Anwendungen</note>
-        <note category="from">twig:///templates/ajax/help/use_of_external_sites.html.twig;twig:///templates/ajax/help/about_accountsitting.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/about_accountsitting.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/use_of_external_sites.html.twig</note>
       </notes>
       <segment>
         <source>Externe Webseiten und Anwendungen</source>
@@ -615,7 +615,7 @@
     <unit id="QZSZXLb" name="Spielanleitung">
       <notes>
         <note category="german">Spielanleitung</note>
-        <note category="from">twig:///templates/ajax/help/tamer.html.twig;twig:///templates/ajax/help/tech.html.twig;twig:///templates/ajax/help/depleted_zones.html.twig;twig:///templates/ajax/help/map.html.twig;twig:///templates/ajax/help/the_watchmen.html.twig;twig:///templates/ajax/help/constructing_new_buildings.html.twig;twig:///templates/ajax/help/collec.html.twig;twig:///templates/ajax/help/jobs.html.twig;twig:///templates/ajax/help/catapult.html.twig;twig:///templates/ajax/help/world_beyond.html.twig;twig:///templates/ajax/help/guide_to_the_world_beyond.html.twig;twig:///templates/ajax/help/extreme_camping.html.twig;twig:///templates/ajax/help/town_roles.html.twig;twig:///templates/ajax/help/your_soul.html.twig;twig:///templates/ajax/help/hero_mode.html.twig;twig:///templates/ajax/help/support.html.twig;twig:///templates/ajax/help/hunter.html.twig;twig:///templates/ajax/help/crimes_and_punishment.html.twig;twig:///templates/ajax/help/i_m_annoyed.html.twig;twig:///templates/ajax/help/inventory.html.twig;twig:///templates/ajax/help/exploring_and_scavenging.html.twig;twig:///templates/ajax/help/quarantined_towns.html.twig;twig:///templates/ajax/help/ghouls.html.twig;twig:///templates/ajax/help/private_towns.html.twig;twig:///templates/ajax/help/getting_help.html.twig;twig:///templates/ajax/help/chaos.html.twig;twig:///templates/ajax/help/escort_mode.html.twig;twig:///templates/ajax/help/use_of_external_sites.html.twig;twig:///templates/ajax/help/devastated_town.html.twig;twig:///templates/ajax/help/getting_around.html.twig;twig:///templates/ajax/help/daily_upgrades.html.twig;twig:///templates/ajax/help/ruin_exploration.html.twig;twig:///templates/ajax/help/control_points.html.twig;twig:///templates/ajax/help/coalitions.html.twig;twig:///templates/ajax/help/guardian.html.twig;twig:///templates/ajax/help/about_accountsitting.html.twig;twig:///templates/ajax/help/the_night.html.twig;twig:///templates/ajax/help/death_and_soul_points.html.twig;twig:///templates/ajax/help/towns_in_nondistantregions.html.twig;twig:///templates/ajax/help/about_you.html.twig;twig:///templates/ajax/help/shaman.html.twig;twig:///templates/ajax/help/roleplay_options.html.twig;twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig;twig:///templates/ajax/help/house_and_work.html.twig;twig:///templates/ajax/help/last_man_standing.html.twig;twig:///templates/ajax/help/fighting_the_hordes_in_the_world_beyond.html.twig;twig:///templates/ajax/help/hardcore_towns.html.twig;twig:///templates/ajax/help/welcome.html.twig;twig:///templates/ajax/help/seasons_and_rankings.html.twig;twig:///templates/ajax/help/use_of_external_scripts.html.twig;twig:///templates/ajax/help/blueprints.html.twig;twig:///templates/ajax/help/welcome_to_the_town.html.twig;twig:///templates/ajax/help/lost_souls.html.twig;twig:///templates/ajax/help/health.html.twig;twig:///templates/ajax/help/survivalist.html.twig;twig:///templates/ajax/help/the_community.html.twig;twig:///templates/ajax/help/choosing_a_good_password.html.twig;twig:///templates/ajax/help/basic.html.twig;twig:///templates/ajax/help/shunned_citizens.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/about_accountsitting.html.twig;twig:///templates/ajax/help/about_you.html.twig;twig:///templates/ajax/help/basic.html.twig;twig:///templates/ajax/help/blueprints.html.twig;twig:///templates/ajax/help/catapult.html.twig;twig:///templates/ajax/help/chaos.html.twig;twig:///templates/ajax/help/choosing_a_good_password.html.twig;twig:///templates/ajax/help/coalitions.html.twig;twig:///templates/ajax/help/collec.html.twig;twig:///templates/ajax/help/constructing_new_buildings.html.twig;twig:///templates/ajax/help/control_points.html.twig;twig:///templates/ajax/help/crimes_and_punishment.html.twig;twig:///templates/ajax/help/daily_upgrades.html.twig;twig:///templates/ajax/help/death_and_soul_points.html.twig;twig:///templates/ajax/help/depleted_zones.html.twig;twig:///templates/ajax/help/devastated_town.html.twig;twig:///templates/ajax/help/escort_mode.html.twig;twig:///templates/ajax/help/exploring_and_scavenging.html.twig;twig:///templates/ajax/help/extreme_camping.html.twig;twig:///templates/ajax/help/fighting_the_hordes_in_the_world_beyond.html.twig;twig:///templates/ajax/help/getting_around.html.twig;twig:///templates/ajax/help/getting_help.html.twig;twig:///templates/ajax/help/ghouls.html.twig;twig:///templates/ajax/help/guardian.html.twig;twig:///templates/ajax/help/guide_to_the_world_beyond.html.twig;twig:///templates/ajax/help/hardcore_towns.html.twig;twig:///templates/ajax/help/health.html.twig;twig:///templates/ajax/help/hero_mode.html.twig;twig:///templates/ajax/help/house_and_work.html.twig;twig:///templates/ajax/help/hunter.html.twig;twig:///templates/ajax/help/i_m_annoyed.html.twig;twig:///templates/ajax/help/inventory.html.twig;twig:///templates/ajax/help/jobs.html.twig;twig:///templates/ajax/help/last_man_standing.html.twig;twig:///templates/ajax/help/lost_souls.html.twig;twig:///templates/ajax/help/map.html.twig;twig:///templates/ajax/help/private_towns.html.twig;twig:///templates/ajax/help/quarantined_towns.html.twig;twig:///templates/ajax/help/roleplay_options.html.twig;twig:///templates/ajax/help/ruin_exploration.html.twig;twig:///templates/ajax/help/seasons_and_rankings.html.twig;twig:///templates/ajax/help/shaman.html.twig;twig:///templates/ajax/help/shunned_citizens.html.twig;twig:///templates/ajax/help/support.html.twig;twig:///templates/ajax/help/survivalist.html.twig;twig:///templates/ajax/help/tamer.html.twig;twig:///templates/ajax/help/tech.html.twig;twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig;twig:///templates/ajax/help/the_community.html.twig;twig:///templates/ajax/help/the_night.html.twig;twig:///templates/ajax/help/the_watchmen.html.twig;twig:///templates/ajax/help/town_roles.html.twig;twig:///templates/ajax/help/towns_in_nondistantregions.html.twig;twig:///templates/ajax/help/use_of_external_scripts.html.twig;twig:///templates/ajax/help/use_of_external_sites.html.twig;twig:///templates/ajax/help/welcome.html.twig;twig:///templates/ajax/help/welcome_to_the_town.html.twig;twig:///templates/ajax/help/world_beyond.html.twig;twig:///templates/ajax/help/your_soul.html.twig</note>
       </notes>
       <segment>
         <source>Spielanleitung</source>
@@ -795,7 +795,7 @@
     <unit id="HhS980w" name="Weiter">
       <notes>
         <note category="german">Weiter</note>
-        <note category="from">twig:///templates/ajax/help/tamer.html.twig;twig:///templates/ajax/help/tech.html.twig;twig:///templates/ajax/help/depleted_zones.html.twig;twig:///templates/ajax/help/map.html.twig;twig:///templates/ajax/help/the_watchmen.html.twig;twig:///templates/ajax/help/constructing_new_buildings.html.twig;twig:///templates/ajax/help/collec.html.twig;twig:///templates/ajax/help/jobs.html.twig;twig:///templates/ajax/help/catapult.html.twig;twig:///templates/ajax/help/world_beyond.html.twig;twig:///templates/ajax/help/guide_to_the_world_beyond.html.twig;twig:///templates/ajax/help/extreme_camping.html.twig;twig:///templates/ajax/help/town_roles.html.twig;twig:///templates/ajax/help/your_soul.html.twig;twig:///templates/ajax/help/hero_mode.html.twig;twig:///templates/ajax/help/support.html.twig;twig:///templates/ajax/help/hunter.html.twig;twig:///templates/ajax/help/crimes_and_punishment.html.twig;twig:///templates/ajax/help/i_m_annoyed.html.twig;twig:///templates/ajax/help/inventory.html.twig;twig:///templates/ajax/help/exploring_and_scavenging.html.twig;twig:///templates/ajax/help/quarantined_towns.html.twig;twig:///templates/ajax/help/ghouls.html.twig;twig:///templates/ajax/help/private_towns.html.twig;twig:///templates/ajax/help/getting_help.html.twig;twig:///templates/ajax/help/chaos.html.twig;twig:///templates/ajax/help/escort_mode.html.twig;twig:///templates/ajax/help/use_of_external_sites.html.twig;twig:///templates/ajax/help/devastated_town.html.twig;twig:///templates/ajax/help/getting_around.html.twig;twig:///templates/ajax/help/daily_upgrades.html.twig;twig:///templates/ajax/help/ruin_exploration.html.twig;twig:///templates/ajax/help/control_points.html.twig;twig:///templates/ajax/help/coalitions.html.twig;twig:///templates/ajax/help/guardian.html.twig;twig:///templates/ajax/help/about_accountsitting.html.twig;twig:///templates/ajax/help/the_night.html.twig;twig:///templates/ajax/help/death_and_soul_points.html.twig;twig:///templates/ajax/help/towns_in_nondistantregions.html.twig;twig:///templates/ajax/help/about_you.html.twig;twig:///templates/ajax/help/shaman.html.twig;twig:///templates/ajax/help/roleplay_options.html.twig;twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig;twig:///templates/ajax/help/house_and_work.html.twig;twig:///templates/ajax/help/last_man_standing.html.twig;twig:///templates/ajax/help/fighting_the_hordes_in_the_world_beyond.html.twig;twig:///templates/ajax/help/hardcore_towns.html.twig;twig:///templates/ajax/help/welcome.html.twig;twig:///templates/ajax/help/seasons_and_rankings.html.twig;twig:///templates/ajax/help/blueprints.html.twig;twig:///templates/ajax/help/welcome_to_the_town.html.twig;twig:///templates/ajax/help/lost_souls.html.twig;twig:///templates/ajax/help/health.html.twig;twig:///templates/ajax/help/survivalist.html.twig;twig:///templates/ajax/help/the_community.html.twig;twig:///templates/ajax/help/choosing_a_good_password.html.twig;twig:///templates/ajax/help/basic.html.twig;twig:///templates/ajax/help/shunned_citizens.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/about_accountsitting.html.twig;twig:///templates/ajax/help/about_you.html.twig;twig:///templates/ajax/help/basic.html.twig;twig:///templates/ajax/help/blueprints.html.twig;twig:///templates/ajax/help/catapult.html.twig;twig:///templates/ajax/help/chaos.html.twig;twig:///templates/ajax/help/choosing_a_good_password.html.twig;twig:///templates/ajax/help/coalitions.html.twig;twig:///templates/ajax/help/collec.html.twig;twig:///templates/ajax/help/constructing_new_buildings.html.twig;twig:///templates/ajax/help/control_points.html.twig;twig:///templates/ajax/help/crimes_and_punishment.html.twig;twig:///templates/ajax/help/daily_upgrades.html.twig;twig:///templates/ajax/help/death_and_soul_points.html.twig;twig:///templates/ajax/help/depleted_zones.html.twig;twig:///templates/ajax/help/devastated_town.html.twig;twig:///templates/ajax/help/escort_mode.html.twig;twig:///templates/ajax/help/exploring_and_scavenging.html.twig;twig:///templates/ajax/help/extreme_camping.html.twig;twig:///templates/ajax/help/fighting_the_hordes_in_the_world_beyond.html.twig;twig:///templates/ajax/help/getting_around.html.twig;twig:///templates/ajax/help/getting_help.html.twig;twig:///templates/ajax/help/ghouls.html.twig;twig:///templates/ajax/help/guardian.html.twig;twig:///templates/ajax/help/guide_to_the_world_beyond.html.twig;twig:///templates/ajax/help/hardcore_towns.html.twig;twig:///templates/ajax/help/health.html.twig;twig:///templates/ajax/help/hero_mode.html.twig;twig:///templates/ajax/help/house_and_work.html.twig;twig:///templates/ajax/help/hunter.html.twig;twig:///templates/ajax/help/i_m_annoyed.html.twig;twig:///templates/ajax/help/inventory.html.twig;twig:///templates/ajax/help/jobs.html.twig;twig:///templates/ajax/help/last_man_standing.html.twig;twig:///templates/ajax/help/lost_souls.html.twig;twig:///templates/ajax/help/map.html.twig;twig:///templates/ajax/help/private_towns.html.twig;twig:///templates/ajax/help/quarantined_towns.html.twig;twig:///templates/ajax/help/roleplay_options.html.twig;twig:///templates/ajax/help/ruin_exploration.html.twig;twig:///templates/ajax/help/seasons_and_rankings.html.twig;twig:///templates/ajax/help/shaman.html.twig;twig:///templates/ajax/help/shunned_citizens.html.twig;twig:///templates/ajax/help/support.html.twig;twig:///templates/ajax/help/survivalist.html.twig;twig:///templates/ajax/help/tamer.html.twig;twig:///templates/ajax/help/tech.html.twig;twig:///templates/ajax/help/the_attack_of_the_hordes.html.twig;twig:///templates/ajax/help/the_community.html.twig;twig:///templates/ajax/help/the_night.html.twig;twig:///templates/ajax/help/the_watchmen.html.twig;twig:///templates/ajax/help/town_roles.html.twig;twig:///templates/ajax/help/towns_in_nondistantregions.html.twig;twig:///templates/ajax/help/use_of_external_sites.html.twig;twig:///templates/ajax/help/welcome.html.twig;twig:///templates/ajax/help/welcome_to_the_town.html.twig;twig:///templates/ajax/help/world_beyond.html.twig;twig:///templates/ajax/help/your_soul.html.twig</note>
       </notes>
       <segment>
         <source>Weiter</source>
@@ -1482,7 +1482,7 @@ Pro Zug wird dir 1 Aktionspunkt abgezogen. Bei 0 Punkten bist du {img_tired} &lt
     <unit id="rTyffgm" name="MyHordes?">
       <notes>
         <note category="german">MyHordes?</note>
-        <note category="from">twig:///templates/ajax/help/welcome.html.twig;twig:///templates/ajax/help/shell.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/welcome.html.twig</note>
       </notes>
       <segment>
         <source>MyHordes?</source>
@@ -2741,7 +2741,7 @@ Außerdem führst du &lt;strong&gt;zusätzlich&lt;/strong&gt; zu deiner normalen
     <unit id="kx13MUV" name="Dein Zuhause">
       <notes>
         <note category="german">Dein Zuhause</note>
-        <note category="from">twig:///templates/ajax/help/inventory.html.twig;twig:///templates/ajax/help/house_and_work.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/house_and_work.html.twig;twig:///templates/ajax/help/inventory.html.twig</note>
       </notes>
       <segment>
         <source>Dein Zuhause</source>
@@ -3081,7 +3081,7 @@ Wenn du in einer "Kleinen Karte" spielst und &lt;strong&gt;100 Seelenpunkte oder
     <unit id="5bXhBKp" name="Seelenrangliste">
       <notes>
         <note category="german">Seelenrangliste</note>
-        <note category="from">twig:///templates/ajax/help/your_soul.html.twig;twig:///templates/ajax/help/seasons_and_rankings.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/seasons_and_rankings.html.twig;twig:///templates/ajax/help/your_soul.html.twig</note>
       </notes>
       <segment>
         <source>Seelenrangliste</source>
@@ -4263,7 +4263,7 @@ Der Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...</sour
     <unit id="6t2A8hx" name="Startausrüstung">
       <notes>
         <note category="german">Startausrüstung</note>
-        <note category="from">twig:///templates/ajax/help/tamer.html.twig;twig:///templates/ajax/help/tech.html.twig;twig:///templates/ajax/help/collec.html.twig;twig:///templates/ajax/help/hunter.html.twig;twig:///templates/ajax/help/guardian.html.twig;twig:///templates/ajax/help/survivalist.html.twig;twig:///templates/ajax/help/basic.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/basic.html.twig;twig:///templates/ajax/help/collec.html.twig;twig:///templates/ajax/help/guardian.html.twig;twig:///templates/ajax/help/hunter.html.twig;twig:///templates/ajax/help/survivalist.html.twig;twig:///templates/ajax/help/tamer.html.twig;twig:///templates/ajax/help/tech.html.twig</note>
       </notes>
       <segment>
         <source>Startausrüstung</source>
@@ -4293,7 +4293,7 @@ Der Aufklärer besitzt eine Tarnkleidung, der Buddler eine Schaufel usw...</sour
     <unit id=".km5yno" name="Wie wird diese Figur gespielt?">
       <notes>
         <note category="german">Wie wird diese Figur gespielt?</note>
-        <note category="from">twig:///templates/ajax/help/tamer.html.twig;twig:///templates/ajax/help/tech.html.twig;twig:///templates/ajax/help/collec.html.twig;twig:///templates/ajax/help/hunter.html.twig;twig:///templates/ajax/help/guardian.html.twig;twig:///templates/ajax/help/survivalist.html.twig;twig:///templates/ajax/help/basic.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/basic.html.twig;twig:///templates/ajax/help/collec.html.twig;twig:///templates/ajax/help/guardian.html.twig;twig:///templates/ajax/help/hunter.html.twig;twig:///templates/ajax/help/survivalist.html.twig;twig:///templates/ajax/help/tamer.html.twig;twig:///templates/ajax/help/tech.html.twig</note>
       </notes>
       <segment>
         <source>Wie wird diese Figur gespielt?</source>
@@ -7851,7 +7851,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
     <unit id="BGGAiM." name="Weiter...">
       <notes>
         <note category="german">Weiter...</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/game/town/town.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/beyond/beyond.html.twig;twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/town.html.twig;twig:///templates/ajax/game/town/well.html.twig</note>
       </notes>
       <segment>
         <source>Weiter...</source>
@@ -8441,7 +8441,7 @@ Alle Seelenpunkte, die mit einer gelöschten Stadt erspielt wurden, gehen ebenso
     <unit id="YWDgwY8" name="Externe Scripte">
       <notes>
         <note category="german">Externe Scripte</note>
-        <note category="from">twig:///templates/ajax/help/use_of_external_sites.html.twig;twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/use_of_external_scripts.html.twig</note>
+        <note category="from">twig:///templates/ajax/help/shell.html.twig;twig:///templates/ajax/help/use_of_external_scripts.html.twig;twig:///templates/ajax/help/use_of_external_sites.html.twig</note>
       </notes>
       <segment>
         <source>Externe Scripte</source>

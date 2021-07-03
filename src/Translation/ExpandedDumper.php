@@ -46,12 +46,15 @@ class ExpandedDumper extends XliffFileDumper
 
                 }
 
+                sort($m);
+
                 if (!isset($filtered_notes['german'])) $filtered_notes['german'] = ['category' => 'german', 'content' => $german];
                 if (!isset($filtered_notes['state']) && $source === $target) $filtered_notes['state'] = ['category' => 'state', 'content' => 'new'];
                 if ($this->conf->isExhaustive() || !empty($m))
                     $filtered_notes['from'] = ['category' => 'from', 'content' => empty($m) ? '[unused]' : implode(';', $m)];
 
             } else {
+                sort($m);
                 $filtered_notes = ['german' => ['category' => 'german', 'content' => $german], 'from' => ['category' => 'from', 'content' => empty($m) ? '[unused]' : implode(';', $m)]];
                 if ($this->conf->isExhaustive() || !empty($m)) $filtered_notes['from'] = ['category' => 'from', 'content' => empty($m) ? '[unused]' : implode(';', $m)];
                 if ($source === $target) $filtered_notes['state'] = ['category' => 'state', 'content' => 'new'];

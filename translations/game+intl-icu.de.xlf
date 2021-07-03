@@ -2056,7 +2056,17 @@
     <unit id="954uB9J">
       <segment>
         <source>Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...</source>
-        <target>Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Hat jemand in letzter Zeit von {citizen} gehört? Sie scheint verschwunden zu sein ...}
+                        other {Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...}
+                    }
+                }
+                other {Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="Z05vQEU">
@@ -13593,6 +13603,22 @@
       <segment>
         <source>Mehr darüber erfahren...</source>
         <target>Mehr darüber erfahren...</target>
+      </segment>
+    </unit>
+    <unit id="z0sYe70">
+      <segment>
+        <source>Nach nur wenigen Metern bricht {citizen} schreiend auf dem Boden zusammen! Seine Beinverletzung hindert ihn schlussendlich daran, die Zone zu verlassen!</source>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Nach nur wenigen Metern bricht {citizen} schreiend auf dem Boden zusammen! Ihre Beinverletzung hindert sie schlussendlich daran, die Zone zu verlassen!}
+                        other {Nach nur wenigen Metern bricht {citizen} schreiend auf dem Boden zusammen! Seine Beinverletzung hindert ihn schlussendlich daran, die Zone zu verlassen!}
+                    }
+                }
+            other {Nach nur wenigen Metern bricht {citizen} schreiend auf dem Boden zusammen! Seine Beinverletzung hindert ihn schlussendlich daran, die Zone zu verlassen!}
+            }
+        </target>
       </segment>
     </unit>
   </file>

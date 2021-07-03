@@ -724,8 +724,9 @@ class BeyondController extends InventoryAwareController
         $cp_ok_new_zone = $this->zone_handler->check_cp($new_zone, $cp_before_new_zone);
         if($cp_before_new_zone <= 0) $cp_ok_new_zone = null;
 
-        if($this->citizen_handler->hasStatusEffect($citizen, 'wound4') && $this->random_generator->chance(0.20)) {
+        if ($this->citizen_handler->hasStatusEffect($citizen, 'wound4') && $this->random_generator->chance(0.20)) {
             $this->addFlash('notice', $this->translator->trans('Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...', [], 'game'));
+            $this->entity_manager->persist($this->log->outsideMoveoutsideMoveFailInjury( $citizen ));
             $this->citizen_handler->setAP( $citizen, true, -1 );
             $this->entity_manager->persist($citizen);
             $this->entity_manager->flush();
@@ -755,6 +756,14 @@ class BeyondController extends InventoryAwareController
             // Check if escortee wants to go home
             if (count($movers) > 1 && $mover->getEscortSettings() && $mover->getEscortSettings()->getForceDirectReturn() && $away_from_town)
                 return AjaxResponse::errorMessage( $this->translator->trans('{citizen} möchte nicht in diese Richtung gehen! <strong>Er bittet dich darum, ihn in die Stadt zu bringen...</strong>', ['{citizen}' => "<span>{$mover->getName()}</span>"], 'game') );
+
+            if ($mover !== $citizen && $this->citizen_handler->hasStatusEffect($mover, 'wound4') && $this->random_generator->chance(0.20)) {
+                $this->entity_manager->persist($this->log->outsideMoveoutsideMoveFailInjury( $mover ));
+                $this->citizen_handler->setAP( $mover, true, -1 );
+                $this->entity_manager->persist($mover);
+                $this->entity_manager->flush();
+                return AjaxResponse::error( BeyondController::ErrorEscortFailure );
+            }
         }
 
         foreach ($movers as $mover) {
