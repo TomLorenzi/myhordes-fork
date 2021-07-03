@@ -982,7 +982,7 @@
       </notes>
       <segment>
         <source>Du hast {num} anonyme Anzeige(n).</source>
-        <target>You have received {num} anonymous complaints.</target>
+        <target>You have received {num} anonymous complaint(s).</target>
       </segment>
     </unit>
     <unit id="0drragL">
@@ -12824,7 +12824,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wenn diese Option aktiviert ist, kann dich ein anderer Bürger nicht weiter von der Stadt entfernen. Er darf dich in diesem Fall nur näher bringen.</source>
-        <target>Wenn diese Option aktiviert ist, kann dich ein anderer Bürger nicht weiter von der Stadt entfernen. Er darf dich in diesem Fall nur näher bringen.</target>
+        <target>If this option is checked, a citizen who accepts to control you will not be able to take you further away from the town under any circumstances. They will only be able to let you closer.</target>
       </segment>
     </unit>
     <unit id="zLtHCGI">
@@ -12835,7 +12835,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)</source>
-        <target>Wenn diese Option aktiviert ist, kann dir ein anderer Spieler befehlen, Gegenstände einzusammeln oder abzulegen. BEACHTE: Einige "persönliche" Gegenstände können unter keinen Umständen abgelegt werden (Texte, Waffen u.a.)</target>
+        <target>If this option is checked, a citizen who accepts to control you can instruct you to pick up or drop an object. NOTE: certain "personal" objects cannot be taken from you, regardless of what happens(RP texts, weapons, ...)</target>
       </segment>
     </unit>
     <unit id="K65v2LS">
@@ -21319,7 +21319,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>+{def} Punkt(e)</source>
-        <target>+{def} point(s)</target>
+        <target>+{def} Point(s)</target>
       </segment>
     </unit>
     <unit id="3whc17K" name="Heldenbonus">
@@ -21832,7 +21832,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>&lt;strong&gt;Achtung!&lt;/strong&gt; Das Betreten der Stadt erfordert &lt;div class="ap"&gt;1&lt;/div&gt; (die Kosten sind auf den Bau des &lt;strong&gt;Labyrinths&lt;/strong&gt; zurückzuführen)!</source>
-        <target><![CDATA[<strong>Achtung!</strong> Das Betreten der Stadt erfordert <div class="ap">1</div> (die Kosten sind auf den Bau des <strong>Labyrinths</strong> zurückzuführen)!]]></target>
+        <target><![CDATA[<strong>Warning!</strong> Entering the town requires <div class="ap">1</div> (this cost is used in the construction site Labyrinth)!]]></target>
       </segment>
     </unit>
     <unit id="Pxk1tLE" name="Unser {building} hat reichhaltigen Ertrag gebracht: {items}">
@@ -22667,7 +22667,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{points} Punkt(e)</source>
-        <target>{points} Punkt(e)</target>
+        <target>{points} Point(s)</target>
       </segment>
     </unit>
     <unit id="uAj26XB" name="Schließen">

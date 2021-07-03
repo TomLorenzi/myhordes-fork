@@ -919,7 +919,7 @@
       </notes>
       <segment>
         <source>Truhe und Aktionen</source>
-        <target>Inventario y Acciones</target>
+        <target>Baúl y Acciones</target>
       </segment>
     </unit>
     <unit id="wMh6wqD" name="Mein(e) {type}">
@@ -5813,7 +5813,7 @@
       </notes>
       <segment>
         <source>Am Ende der Schlacht zerfiel das Gebäude {buildingName} zu Staub.</source>
-        <target>Al final de la noche, se escuchó como la construcción {buildingName} se derrumbaba hasta ser una nube de polvo.</target>
+        <target>Al terminar la batalla, el edificio {buildingName} se derrumbó hecho polvo.</target>
       </segment>
     </unit>
     <unit id="xyPBCmM" name="Gefahr">
@@ -7776,7 +7776,7 @@
       </notes>
       <segment>
         <source>Du musst jeden Tag Drogen einnehmen! Wenn du eines morgens aufwachst, ohne am Tag zuvor Drogen genommen zu haben, wirst du sterben!</source>
-        <target><![CDATA[<strong>Necesitas</strong> tu dosis de estimulantes cada día. ¡Si te despiertas por la mañana <strong>sin haber consumido tu dosis del día anterior, morirás!</strong>!]]></target>
+        <target><![CDATA[<strong>Necesitas</strong> tus dosis de estimulantes cada día. ¡Si te despiertas por la mañana <strong>sin haber consumido tu dosis el día anterior</strong>, <strong>morirás</strong>!]]></target>
       </segment>
     </unit>
     <unit id="ztykDm4">
@@ -20634,7 +20634,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Achtung&lt;/strong&gt;: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</source>
-        <target><![CDATA[<strong>Achtung</strong>: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!]]></target>
+        <target><![CDATA[<strong>Atención</strong>: ¡Sin agua, algunas mejoras (como el sistema de riego) no funcionarán durante el ataque!]]></target>
       </segment>
     </unit>
     <unit id="485Czj9" name="Du kannst heute keinen weiteren Gegenstand stehlen.">
@@ -21685,7 +21685,7 @@
       </notes>
       <segment>
         <source>Die Bürger haben das Haus von &lt;strong&gt;✝ {citizen}&lt;/strong&gt; vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert. Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...</source>
-        <target><![CDATA[Die Bürger haben das Haus von <strong>✝ {citizen}</strong> vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert. Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...]]></target>
+        <target><![CDATA[¡Los habitantes han logrado desmantelar la casa de <strong>✝ {citizen}</strong>! Todos los objetos de su baúl han sido depositados en el Almacén del pueblo. Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...]]></target>
       </segment>
     </unit>
     <unit id="f5uvOSp">
@@ -21696,7 +21696,7 @@
       </notes>
       <segment>
         <source>Die Bürger haben das Haus von &lt;strong&gt;✝ {citizen}&lt;/strong&gt; vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert. Die Stadt hat zudem folgende Resourcen zurückgewinnen können: {list}.</source>
-        <target><![CDATA[Die Bürger haben das Haus von <strong>✝ {citizen}</strong> vollständig zerlegt. Alle Gegenstände aus dessen Truhe wurden in der Bank deponiert. Die Stadt hat zudem folgende Resourcen zurückgewinnen können: {list}.]]></target>
+        <target><![CDATA[¡Los habitantes han logrado desmantelar la casa de <strong>✝ {citizen}</strong>! Todos los objetos de su baúl han sido depositados en el Almacén del pueblo. El pueblo ha recogido también los siguientes objetos: {list}.]]></target>
       </segment>
     </unit>
     <unit id="kkxXgbR">
