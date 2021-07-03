@@ -194,7 +194,7 @@ class InventoryAwareController extends CustomAbstractController
                         $targets[] = [ $citizen->getId(), $citizen->getName(), "build/images/professions/{$citizen->getProfession()->getIcon()}.gif" ];
 
                 break;
-            case ItemTargetDefinition::ItemCitizenType:
+            case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenVoteType:
 
                 foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
                     if ($citizen->getAlive() && $citizen != $this->getActiveCitizen())
@@ -936,7 +936,7 @@ class InventoryAwareController extends CustomAbstractController
                     return false;
                 }
                 return true;
-            case ItemTargetDefinition::ItemCitizenType:
+            case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenVoteType:
                 $return = $this->entity_manager->getRepository(Citizen::class)->find( $id );
                 if (!$return->getAlive() || $return->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId()) {
                     $return = null;

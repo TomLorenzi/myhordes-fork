@@ -920,7 +920,7 @@
         );
 
         handleCampingActions(
-            document.querySelectorAll('ul.camping_actions li[x-action-id]:not([disabled])'),
+            document.querySelectorAll('ul.camping_actions [x-action-id]:not([disabled])'),
             '{{ path('beyond_desert_camping_controller') }}', '{{ path('beyond_dashboard', {sect: 'ca'}) }}'
         );
 
@@ -937,22 +937,22 @@
         {% endif %}
 
         handleHeroicActions(
-            document.querySelectorAll('ul.heroic_actions li[x-action-id]:not([disabled])'),
+            document.querySelectorAll('ul.heroic_actions [x-action-id]:not([disabled])'),
             '{{ path('beyond_desert_heroic_controller') }}', '{{ path('beyond_dashboard') }}'
         );
 
         handleSpecialActions(
-            document.querySelectorAll('ul.special_actions li[x-action-id]:not([disabled])'),
+            document.querySelectorAll('ul.special_actions [x-action-id]:not([disabled])'),
             '{{ path('beyond_desert_special_action_controller') }}', '{{ path('beyond_dashboard') }}'
         );
 
         handleActions(
-            document.querySelectorAll('ul.actions li[x-action-id][x-provoking-id]:not([disabled])'),
+            document.querySelectorAll('ul.actions [x-action-id][x-provoking-id]:not([disabled])'),
             '{{ path('beyond_desert_action_controller') }}', '{{ path('beyond_dashboard') }}'
         );
 
         handleActions(
-            document.querySelectorAll('._ec li[x-action-id][x-provoking-id][x-citizen][x-escort-meta-action]:not([disabled])'),
+            document.querySelectorAll('._ec [x-action-id][x-provoking-id][x-citizen][x-escort-meta-action]:not([disabled])'),
             '{{ path('beyond_desert_escort_action_controller') }}', '{{ path('beyond_dashboard') }}'
         );
 

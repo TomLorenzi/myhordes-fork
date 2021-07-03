@@ -650,17 +650,17 @@
         );
 
         handleHeroicActions(
-            document.querySelectorAll('ul.heroic_actions li[x-action-id]:not([disabled])'),
+            document.querySelectorAll('ul.heroic_actions [x-action-id]:not([disabled])'),
             '{{ path('town_house_heroic_controller') }}', '{{ path('town_house') }}'
         );
 
         handleSpecialActions(
-            document.querySelectorAll('ul.special_actions li[x-action-id]:not([disabled])'),
+            document.querySelectorAll('ul.special_actions [x-action-id]:not([disabled])'),
             '{{ path('town_house_special_action_controller') }}', '{{ path('town_house') }}'
         );
 
         handleActions(
-            document.querySelectorAll('ul.actions li[x-action-id][x-provoking-id]:not([disabled])'),
+            document.querySelectorAll('ul.actions [x-action-id][x-provoking-id]:not([disabled])'),
             '{{ path('town_house_action_controller') }}', '{{ path('town_house') }}'
         );
 

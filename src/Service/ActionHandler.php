@@ -530,7 +530,7 @@ class ActionHandler
                 if (!$target->getZone() || !$target->getAlive()) return false;
                 if ( round( sqrt(pow($target->getZone()->getX(),2 ) + pow($target->getZone()->getY(),2 )) ) > 2 ) return false;
                 break;
-            case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenOnZoneType: case ItemTargetDefinition::ItemCitizenOnZoneSBType:
+            case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenVoteType: case ItemTargetDefinition::ItemCitizenOnZoneType: case ItemTargetDefinition::ItemCitizenOnZoneSBType:
                 if (!is_a( $target, Citizen::class )) return false;
                 if (!$target->getAlive()) return false;
                 break;
