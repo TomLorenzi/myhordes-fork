@@ -814,8 +814,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'zonemarker_2' => [ 'label' => 'Einsetzen', 'cover' => true, 'meta' => [ 'must_be_outside' ], 'result' => [ ['group' => [ ['do_nothing', 2], [ [['item' => ['consume' => false, 'morph' => 'radius_mk2_part_#00'] ]], 1 ] ]], 'zonemarker' ], 'message' => 'Mithilfe des {item} hast du die Umgebung gescannt.' ],
             'nessquick'    => [ 'label' => 'Einsetzen', 'meta' => [ 'must_be_outside', 'must_be_at_buried_ruin' ], 'result' => [ 'consume_item', 'nessquick' ], 'message' => 'Du hast das Gebiet mit deinem {item} teilweise geräumt ({bury_count} Punkte geräumt).' ],
 
-            'bomb_1'    => [ 'label' => 'Werfen', 'meta' => [ 'must_be_outside', 'must_be_blocked' ], 'result' => [ 'consume_item', [ 'zone' => ['escape' =>  40] ] ], 'message_key' => 'escape_item' ],
-            'bomb_2'    => [ 'label' => 'Werfen', 'meta' => [ 'must_be_outside', 'must_be_blocked' ], 'result' => [ 'consume_item', [ 'zone' => ['escape' => 300] ] ], 'message_key' => 'escape_item' ],
+            'bomb_1'    => [ 'label' => 'Werfen', 'cover' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked' ], 'result' => [ 'consume_item', [ 'zone' => ['escape' =>  40] ] ], 'message_key' => 'escape_item' ],
+            'bomb_2'    => [ 'label' => 'Werfen', 'cover' => true, 'meta' => [ 'must_be_outside', 'must_be_blocked' ], 'result' => [ 'consume_item', [ 'zone' => ['escape' => 300] ] ], 'message_key' => 'escape_item' ],
             
             'smokebomb' => [ 'label' => 'Werfen', 'meta' => [ 'must_be_outside_not_at_doors' ], 'result' => [ 'consume_item', [ 'zone' => ['chatSilence' => 60] ] ], 'message' => 'Du wirfst eine Rauchbombe in diese Zone und ein Großes Durcheinander bricht aus!{hr}Deine <strong>nächste Bewegungsaktion</strong> wird night in das Register eingetragen, wenn sie <strong>innerhalb von 1 Minute</strong> erfolgt.' ],
 
