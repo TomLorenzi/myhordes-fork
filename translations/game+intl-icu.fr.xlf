@@ -22636,7 +22636,6 @@
       <notes>
         <note category="german">Du kannst das Gebäude heute nicht erneut betreten, dein Körper würde das nicht aushalten!</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du kannst das Gebäude heute nicht erneut betreten, dein Körper würde das nicht aushalten!</source>
@@ -22647,7 +22646,6 @@
       <notes>
         <note category="german">Du kannst das Gebäude nicht betreten, während du eskortiert wirst oder eine Eskorte leitest.</note>
         <note category="from">twig:///templates/scripts/errors/beyond.txt.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Du kannst das Gebäude nicht betreten, während du eskortiert wirst oder eine Eskorte leitest.</source>
