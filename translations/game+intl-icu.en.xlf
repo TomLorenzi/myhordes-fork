@@ -22758,5 +22758,49 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Nach nur wenigen Metern bricht {citizen} schreiend auf dem Boden zusammen! Seine Beinverletzung hindert ihn schlussendlich daran, die Zone zu verlassen!</target>
       </segment>
     </unit>
+    <unit id="i2JPF97">
+      <notes>
+        <note category="german">Du kannst das Gebäude nicht betreten, deine offene Wunde würde sich sofort entzünden!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du kannst das Gebäude nicht betreten, deine offene Wunde würde sich sofort entzünden!</source>
+        <target>Du kannst das Gebäude nicht betreten, deine offene Wunde würde sich sofort entzünden!</target>
+      </segment>
+    </unit>
+    <unit id=".neDsCO">
+      <notes>
+        <note category="german">Du kannst das Gebäude nicht betreten, es gibt dort nicht genug Sauerstoff für mehr als eine Person!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du kannst das Gebäude nicht betreten, es gibt dort nicht genug Sauerstoff für mehr als eine Person!</source>
+        <target>Du kannst das Gebäude nicht betreten, es gibt dort nicht genug Sauerstoff für mehr als eine Person!</target>
+      </segment>
+    </unit>
+    <unit id="D1PSeAI">
+      <notes>
+        <note category="german">Du kannst das Gebäude heute nicht erneut betreten, dein Körper würde das nicht aushalten!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du kannst das Gebäude heute nicht erneut betreten, dein Körper würde das nicht aushalten!</source>
+        <target>Du kannst das Gebäude heute nicht erneut betreten, dein Körper würde das nicht aushalten!</target>
+      </segment>
+    </unit>
+    <unit id="KE4Lpi3">
+      <notes>
+        <note category="german">Du kannst das Gebäude nicht betreten, während du eskortiert wirst oder eine Eskorte leitest.</note>
+        <note category="from">twig:///templates/scripts/errors/beyond.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du kannst das Gebäude nicht betreten, während du eskortiert wirst oder eine Eskorte leitest.</source>
+        <target>Du kannst das Gebäude nicht betreten, während du eskortiert wirst oder eine Eskorte leitest.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

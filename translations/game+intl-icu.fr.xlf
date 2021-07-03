@@ -22612,5 +22612,47 @@
         <target>Après quelques mètres seulement, {citizen} s'est effondré(e) par terre en hurlant ! Sa blessure à la jambe l'empêche finalement de quitter le secteur !</target>
       </segment>
     </unit>
+    <unit id="i2JPF97">
+      <notes>
+        <note category="german">Du kannst das Gebäude nicht betreten, deine offene Wunde würde sich sofort entzünden!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst das Gebäude nicht betreten, deine offene Wunde würde sich sofort entzünden!</source>
+        <target>Vous ne pouvez pas rentrer dans ce bâtiment, vos blessures s'y infecteraient bien trop vite !</target>
+      </segment>
+    </unit>
+    <unit id=".neDsCO">
+      <notes>
+        <note category="german">Du kannst das Gebäude nicht betreten, es gibt dort nicht genug Sauerstoff für mehr als eine Person!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst das Gebäude nicht betreten, es gibt dort nicht genug Sauerstoff für mehr als eine Person!</source>
+        <target>Vous ne pouvez pas rentrer dans ce bâtiment, il n'y a pas assez d'oxygène pour plus d'une personne !</target>
+      </segment>
+    </unit>
+    <unit id="D1PSeAI">
+      <notes>
+        <note category="german">Du kannst das Gebäude heute nicht erneut betreten, dein Körper würde das nicht aushalten!</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du kannst das Gebäude heute nicht erneut betreten, dein Körper würde das nicht aushalten!</source>
+        <target>Vous ne pouvez pas y retourner aujourd'hui, votre organisme ne pourrait le supporter.</target>
+      </segment>
+    </unit>
+    <unit id="KE4Lpi3">
+      <notes>
+        <note category="german">Du kannst das Gebäude nicht betreten, während du eskortiert wirst oder eine Eskorte leitest.</note>
+        <note category="from">twig:///templates/scripts/errors/beyond.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du kannst das Gebäude nicht betreten, während du eskortiert wirst oder eine Eskorte leitest.</source>
+        <target>Vous ne pouvez pas rentrer dans ce bâtiment, vous êtes sous escorte ou attente d'escorte, vous ne pouvez pas rentrer !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

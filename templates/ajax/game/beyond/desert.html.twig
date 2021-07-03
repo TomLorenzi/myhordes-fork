@@ -325,7 +325,7 @@
                         {% endif %}
                         {% if zone.prototype %}
                             {% if zone.prototype.explorable %}
-                                <button {% if not can_explore%}disabled{% endif%} id="enter_ruin_button"  >
+                                <button {% if exploration_blocked_blocked %}disabled{% endif%} id="enter_ruin_button"  >
                                     <img class="icon left" alt="" src="{{ asset('build/images/icons/planner.gif') }}" />
                                     {% trans with {'{ruin}': zone.prototype.label|trans({},'game')} from 'game'  %}{ruin} betreten{% endtrans %}
                                     <div class="tooltip help">{{ 'Diese Aktion ermöglicht es dir, die Tiefen dieses Gebäude zu erkunden und wertvolle Ressourcen zu bergen. Sei aber nicht zu gierig, denn deine Zeit ist begrenzt!'|trans({},'game') }}</div>
@@ -809,15 +809,19 @@
                         $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
                     } );
             });
-        {% if can_explore %}
-            $.html.addEventListenerAll( '#enter_ruin_button', 'click', function() {
+        $.html.addEventListenerAll( '#enter_ruin_button', 'click', function() {
+            {% if can_explore %}
                 if (confirm('{{ 'Das Gebäude betreten? (Diese Aktion kostet 1AP)'|trans({},'game')|e('js') }}'))
                     $.ajax.easySend( '{{ path('beyond_desert_enter_ruin_controller') }}', {},
                         function () {
                             $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
                         } );
-            } );
-        {% endif %}
+            {% elseif exploration_blocked_wound %}$.html.error('{{ 'Du kannst das Gebäude nicht betreten, deine offene Wunde würde sich sofort entzünden!'|trans({},'game')|e('js') }}');
+            {% elseif exploration_blocked_in_use %}$.html.error('{{ 'Du kannst das Gebäude nicht betreten, es gibt dort nicht genug Sauerstoff für mehr als eine Person!'|trans({},'game')|e('js') }}');
+            {% elseif exploration_blocked_already %}$.html.error('{{ 'Du kannst das Gebäude heute nicht erneut betreten, dein Körper würde das nicht aushalten!'|trans({},'game')|e('js') }}');
+            {% else %}$.html.error('{{'Diese Aktion steht dir aktuell nicht zur Verfügung.'|trans({},'global')|e('js')}}');
+            {% endif %}
+        } );
         let dig_r_button = document.getElementById('dig_ruin_button');
         if (dig_r_button)
             dig_r_button.addEventListener('click', function() {

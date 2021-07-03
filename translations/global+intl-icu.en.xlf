@@ -94,7 +94,7 @@
     <unit id="doUPd7A" name="Diese Aktion steht dir aktuell nicht zur Verfügung.">
       <notes>
         <note category="german">Diese Aktion steht dir aktuell nicht zur Verfügung.</note>
-        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/scripts/errors/generic.txt.twig</note>
       </notes>
       <segment>
         <source>Diese Aktion steht dir aktuell nicht zur Verfügung.</source>

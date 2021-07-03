@@ -13867,5 +13867,29 @@
         </target>
       </segment>
     </unit>
+    <unit id="i2JPF97">
+      <segment>
+        <source>Du kannst das Gebäude nicht betreten, deine offene Wunde würde sich sofort entzünden!</source>
+        <target>Du kannst das Gebäude nicht betreten, deine offene Wunde würde sich sofort entzünden!</target>
+      </segment>
+    </unit>
+    <unit id=".neDsCO">
+      <segment>
+        <source>Du kannst das Gebäude nicht betreten, es gibt dort nicht genug Sauerstoff für mehr als eine Person!</source>
+        <target>Du kannst das Gebäude nicht betreten, es gibt dort nicht genug Sauerstoff für mehr als eine Person!</target>
+      </segment>
+    </unit>
+    <unit id="D1PSeAI">
+      <segment>
+        <source>Du kannst das Gebäude heute nicht erneut betreten, dein Körper würde das nicht aushalten!</source>
+        <target>Du kannst das Gebäude heute nicht erneut betreten, dein Körper würde das nicht aushalten!</target>
+      </segment>
+    </unit>
+    <unit id="KE4Lpi3">
+      <segment>
+        <source>Du kannst das Gebäude nicht betreten, während du eskortiert wirst oder eine Eskorte leitest.</source>
+        <target>Du kannst das Gebäude nicht betreten, während du eskortiert wirst oder eine Eskorte leitest.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
