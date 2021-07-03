@@ -89,7 +89,8 @@ class MigrateCommand extends Command
         'e8fcdebaee7f62d2a74dfdaa1f352d7cbbdeb848' => [ ['app:migrate', ['--assign-awards' => true] ] ],
         'd2e74544059a70b72cb89784544555663e4f0f9e' => [ ['app:migrate', ['--assign-features' => true] ] ],
         '982adb8ebb6f71be8acd2550fc42a8594264ece3' => [ ['app:migrate', ['--count-admin-reports' => true] ] ],
-        '1a5f0dbc64f5c185e023d3c655014f59f8c8059d' => [ ['app:migrate', ['--repair-restrictions' => true] ] ]
+        '1a5f0dbc64f5c185e023d3c655014f59f8c8059d' => [ ['app:migrate', ['--repair-restrictions' => true] ] ],
+        'af5ba720e3656e5d6603a43074c3e131ee3debb7' => [ ['app:migrate', ['--set-icu-pref' => true] ] ]
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -164,6 +165,7 @@ class MigrateCommand extends Command
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
             ->addOption('repair-restrictions', null, InputOption::VALUE_NONE, '')
             ->addOption('count-admin-reports', null, InputOption::VALUE_NONE, '')
+            ->addOption('set-icu-pref', null, InputOption::VALUE_NONE, '')
         ;
     }
 
@@ -610,6 +612,15 @@ class MigrateCommand extends Command
         if ($input->getOption('assign-awards')) {
             $this->helper->leChunk($output, User::class, 100, [], true, true, function(User $user) {
                 $this->user_handler->computePictoUnlocks($user);
+            });
+
+            return 0;
+        }
+
+        if ($input->getOption('set-icu-pref')) {
+            $this->helper->leChunk($output, User::class, 100, [], true, true, function(User $user) {
+                if ($user->getPreferredPronoun() !== null && $user->getPreferredPronoun() !== User::PRONOUN_NONE)
+                    $user->setUseICU(true);
             });
 
             return 0;
