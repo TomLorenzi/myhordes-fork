@@ -35,8 +35,15 @@
                 <div class="padded cell rw-9 rw-md-8 rw-sm-12">
                     <input {% if app.user|restricted(constant('App\\Entity\\AccountRestriction::RestrictionProfileDisplayName')) or app.user.eternalID is not null %}disabled{% endif %} id="user_displayname" type="text" value="{% if app.user.displayName is not null %}{{ app.user.displayName }}{% else %}{{ app.user.name }}{% endif %}" />
                 </div>
-                <div class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12">
-                    <div class="note warning-box">
+                {% if app.user.eternalID is null and app.user.displayName is not null and app.user.displayName != app.user.username %}
+                    <div class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12">
+                        <div  class="note warning-box">
+                            {{ 'Um dich einzuloggen, musst du nach wie vor deinen <b>ursprünglichen Namen</b> verwenden: <i>{name}</i>.'|trans({name: app.user.username},'login')|raw }}
+                        </div>
+                    </div>
+                {% endif %}
+                <div id="name-warning-box" class="padded cell ro-3 rw-9 ro-md-4 rw-md-8 ro-sm-0 rw-sm-12 {% if app.user.eternalID is null %}hidden{% endif %}">
+                    <div  class="note warning-box">
                         {% if app.user.eternalID is null %}
                         {{ 'WARNUNG: Du kannst deinen Spielernamen nicht jederzeit ändern, wähle ihn also weiße, denn du wirst ihn für mehrere Monate behalten. Um anderen Spielern zu helfen dich zu finden wird der Verlauf deiner Spielernamen in deinem Profil angezeigt.'|trans({}, 'soul') }}
                         {% else %}
@@ -611,6 +618,8 @@
                 }
             } )
         {% endif %}
+
+        $.html.addEventListenerAll('#user_displayname', 'input', () => $.html.forEach('#name-warning-box', e => e.classList.remove('hidden')))
 
         $.html.addEventListenerAll('#save_profile_header', 'click', () => {
             const title = parseInt(document.getElementById('user_title').value);
