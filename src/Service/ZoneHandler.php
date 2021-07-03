@@ -98,9 +98,11 @@ class ZoneHandler
         $found_by_escorts = [];
         $ret_str = [];
 
+        $valid_timers = [];
         $timers_to_remove = [];
         foreach ($zone->getEscapeTimers() as $timer)
             if ($timer->getTime() < $up_to) $timers_to_remove[] = $timer;
+            else $valid_timers[] = $timer;
 
         $longest_timer = null;
         foreach ($timers_to_remove as $timer) {
@@ -109,7 +111,7 @@ class ZoneHandler
             $this->entity_manager->remove( $timer );
         }
 
-        if ($longest_timer !== null && !$this->check_cp($zone))
+        if ($longest_timer !== null && empty($valid_timers) && !$this->check_cp($zone) && !empty($zone->getCitizens()))
             $this->entity_manager->persist( $this->log->zoneEscapeTimerExpired($zone, $longest_timer) );
 
         /** @var DigTimer[] $dig_timers */
@@ -492,8 +494,10 @@ class ZoneHandler
         if (!count($zone->getCitizens())) {
             foreach ($zone->getEscapeTimers() as $et)
                 $this->entity_manager->remove( $et );
+            $zone->getEscapeTimers()->clear();
             foreach ($zone->getChatSilenceTimers() as $cst)
                 $this->entity_manager->remove( $cst );
+            $zone->getChatSilenceTimers()->clear();
             foreach ($this->entity_manager->getRepository(TownLogEntry::class)->findByFilter( $zone->getTown(), null, null, $zone, null, null ) as $entry)
                 /** @var TownLogEntry $entry */
                 if ($entry->getLogEntryTemplate() === null || !$entry->getLogEntryTemplate()->getNonVolatile() )
