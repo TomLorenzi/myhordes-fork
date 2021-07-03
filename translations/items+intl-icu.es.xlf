@@ -3583,7 +3583,7 @@
       </notes>
       <segment>
         <source>Der Text ist überschrieben mit {rp_text}. Du beginnst, ihn zu lesen&lt;t-rp_ok&gt;! Der Text wurde deinem Archiv hinzugefügt.&lt;/t-rp_ok&gt;&lt;t-rp_fail&gt;... Leider stellst du fest, dass du diesen Text bereits kennst.&lt;/t-rp_fail&gt;</source>
-        <target><![CDATA[Examinas minuciosamente {item} ...Descubres dentro un texto titulado {rp_text}. Lo lees con mucha atención...{hr}<t-rp_ok><strong>¡Un nuevo documento ha sido agregado a tus Escritos!</strong></t-rp_ok><t-rp_fail>Ya habías descubierto esos escritos. Por lo tanto <strong>no recibirás una distinción adicional</strong>.</t-rp_fail>]]></target>
+        <target><![CDATA[Examinas minuciosamente {item} ... Descubres dentro un texto titulado "{rp_text}". Lo lees con mucha atención...{hr}<t-rp_ok><strong>¡Un nuevo documento ha sido agregado a tus Escritos!</strong></t-rp_ok><t-rp_fail>Ya habías descubierto esos escritos. Por lo tanto <strong>no recibirás una distinción adicional</strong>.</t-rp_fail>]]></target>
       </segment>
     </unit>
     <unit id="glkUAZ8" name="Werfen">
@@ -7943,7 +7943,7 @@
       </notes>
       <segment>
         <source>Die Medizin gibt dir Kraft: Du bist jetzt immun gegen Infektionen und kannst nicht in einen Ghul verwandelt werden. Diese Wirkung lässt nach dem Angriff nach.</source>
-        <target>Este medicamento ha reforzado tu organismo: no sufrirás de infección ni te transformarás en Mutante. Su efecto desaparecerá después del ataque nocturno. Nota: No te protege de las infecciones por heridas no tratadas antes del ataque.</target>
+        <target><![CDATA[Este medicamento ha reforzado tu organismo: no sufrirás de infección ni te transformarás en Mutante. <strong>Su efecto desaparecerá después del ataque nocturno</strong> Nota: No te protege de las infecciones por heridas no tratadas antes del ataque.]]></target>
       </segment>
     </unit>
     <unit id="hkUU8xN">
@@ -7953,7 +7953,7 @@
       </notes>
       <segment>
         <source>&lt;t-stat-up-addict&gt;Schlechte Neuigkeiten! Du bist jetzt abhängig! Von nun an musst du jeden Tag eine Droge nehmen... oder STERBEN!&lt;/t-stat-up-addict&gt;</source>
-        <target><![CDATA[<t-stat-up-addict>Una mala noticia. ¡Te vuelves dependiente! ¡Desde ahora deberás consumir al menos una dosis al día o morirás!</t-stat-up-addict>]]></target>
+        <target><![CDATA[<t-stat-up-addict>Una mala noticia. ¡Te vuelves <strong>dependiente</strong>! ¡Desde ahora deberás consumir <strong>al menos una dosis al día o morirás</strong>!</t-stat-up-addict>]]></target>
       </segment>
     </unit>
     <unit id="sTuI8fr">
@@ -8013,7 +8013,7 @@
       </notes>
       <segment>
         <source>Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.</source>
-        <target>Tu {item} hace efecto rápidamente. La fiebre desaparece, tu corazón late a un ritmo normal... Estuviste cerca de una muerte atroz.</target>
+        <target><![CDATA[Tu {item} hace efecto rápidamente. <strong>La fiebre desaparece</strong>, tu corazón late a un ritmo normal... Estuviste cerca de una muerte atroz.]]></target>
       </segment>
     </unit>
     <unit id="SJ.JIzZ">
@@ -9123,7 +9123,7 @@
       </notes>
       <segment>
         <source>So 'ne Quali bekommt man nicht jeden Tag in die Finger! Sicher, Übelkeit, Zittern und Schweißausbrüche hast du auch damit bekommen, aber die Wirkung ist weitaus stärker als bei 'ner normalen Droge (Du hast einen &lt;strong&gt;AP Bonus&lt;/strong&gt; erhalten)... Übertreibe es aber nicht!</source>
-        <target><![CDATA[¡No todos los días se puede consumir una sutancia de esas! También te da náuseas, temblores, sudores fríos... Pero el efecto es mucho más fuerte que el de una droga normal (Recibes una <strong>bonificación de PA</strong>)... ¡No abuses de esta!]]></target>
+        <target><![CDATA[No todos los días se traga una buena pastilla de esas. Los efectos: náuseas, temblores, sudores fríos... Y la sensación es mucho más intensa (<strong>bonus de PA</strong> recibido). ¡Pero no abuses!]]></target>
       </segment>
     </unit>
     <unit id="35qZHee" name="Deine Wunde wurde geheilt, zumindest oberflächlich...">

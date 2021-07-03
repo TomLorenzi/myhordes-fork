@@ -298,7 +298,7 @@
       </notes>
       <segment>
         <source>Heute Nacht wurden von {building} folgende Gegenstände produziert: {items}</source>
-        <target>Le {building} a produit "{items}". Ces objets ont été placés dans la banque.</target>
+        <target>{building} a produit "{items}". Ces objets ont été placés dans la banque.</target>
       </segment>
     </unit>
     <unit id="vB3wgZU">
@@ -960,7 +960,7 @@
       </notes>
       <segment>
         <source>Du hast {num} anonyme Anzeige(n).</source>
-        <target>Vous avez reçu {num} plaintes anonymes.</target>
+        <target>Vous avez reçu {num} plainte(s) anonyme(s).</target>
       </segment>
     </unit>
     <unit id="0drragL">
