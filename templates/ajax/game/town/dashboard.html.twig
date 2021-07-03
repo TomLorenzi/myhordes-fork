@@ -134,7 +134,7 @@
                 </ul>
             {% endif %}
         </div>
-        {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) %}
+        {% if conf.get(constant('App\\Structures\\TownConf::CONF_FEATURE_WORDS_OF_HEROS'),false) and (town.wordsOfHeroes is not empty or can_edit_blackboard) %}
             <div class="padded cell rw-6 rw-lg-12">
                     <h5>{{ 'Heldentafel'|trans({}, 'game')}}</h5>
                     <div class="words-of-heroes {{ town.language }}">
