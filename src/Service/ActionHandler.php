@@ -800,8 +800,11 @@ class ActionHandler
                     $execute_info_cache['items_consume'][] = $item->getPrototype();
                     $tags[] = 'consumed';
                 } else {
-                    if ($item_result->getMorph())
+                    if ($item_result->getMorph()) {
                         $item->setPrototype( $execute_info_cache['item_morph'][1] = $item_result->getMorph() );
+                        $tags[] = 'morphed';
+                    }
+
                     if ($item_result->getBreak()  !== null) $item->setBroken( $item_result->getBreak() );
                     if ($item_result->getPoison() !== null) $item->setPoison( $item_result->getPoison() );
                 }
