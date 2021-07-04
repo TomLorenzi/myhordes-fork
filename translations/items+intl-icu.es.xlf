@@ -7623,7 +7623,7 @@
       </notes>
       <segment>
         <source>Du versuchst dich ein paar Minuten auszuruhen.&lt;t-ap-up&gt;Nach einer kurzen Pause fühlst du dich nun viel besser. Du hast 2 AP erhalten !&lt;/t-ap-up&gt;&lt;nt-ap-up&gt;Leider bekommst du kein Auge zu: Der Gedanke an heute Abend, deinen Tod, sowie deine geringen Überlebenschancen lassen dir keine Ruhe...&lt;/nt-ap-up&gt;</source>
-        <target><![CDATA[Descansas unos minutos... <t-ap-up><strong>¡Una pequeña pausa te hará mucho bien! </strong>¡Recuperas <strong>2 PA</strong>!</t-ap-up><nt-ap-up>Desgraciadamente, no llegas a cerrar los ojos. Piensas en esta noche, tienes mucho miedo de morir y ves el fin cada vez más cerca...</nt-ap-up>]]></target>
+        <target><![CDATA[Descansas unos minutos... <t-ap-up><strong>¡Una pequeña pausa te hará mucho bien!{hr}</strong>¡Recuperas <strong>2 PA</strong>!</t-ap-up><nt-ap-up>Desgraciadamente, no llegas a cerrar los ojos. Piensas en esta noche, tienes mucho miedo de morir y ves el fin cada vez más cerca...</nt-ap-up>]]></target>
       </segment>
     </unit>
     <unit id="p0SlVNr">
