@@ -80,8 +80,8 @@ class CommandHelper
         return $lines;
     }
 
-    public function capsule( string $command, OutputInterface $output, ?string $note = null, bool $bin_console = true, ?string &$ret_str = null ): bool {
-        $run_command = $bin_console ? "php bin/console $command 2>&1" : "$command 2>&1";
+    public function capsule( string $command, OutputInterface $output, ?string $note = null, bool $bin_console = true, ?string &$ret_str = null, $php_bin = "php" ): bool {
+        $run_command = $bin_console ? "$php_bin bin/console $command 2>&1" : "$command 2>&1";
 
         $verbose = $output->getVerbosity() >= OutputInterface::VERBOSITY_VERY_VERBOSE;
 
