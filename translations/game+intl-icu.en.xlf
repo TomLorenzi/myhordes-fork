@@ -21838,7 +21838,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Unser {building} hat reichhaltigen Ertrag gebracht: {items}</source>
-        <target>Several vegetables have sprouted in the  {building}: {items}</target>
+        <target>Several vegetables have sprouted in the {building}: {items}</target>
       </segment>
     </unit>
     <unit id="3NHVIj9" name="Name">
