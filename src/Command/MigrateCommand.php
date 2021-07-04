@@ -135,6 +135,7 @@ class MigrateCommand extends Command
             ->addOption('fast', null,InputOption::VALUE_NONE, 'If set, composer and yarn updates will be skipped')
             ->addOption('skip-backup', null,InputOption::VALUE_NONE, 'If set, no database backup will be created')
             ->addOption('stay-offline', null,InputOption::VALUE_NONE, 'If set, maintenance mode will be kept active after the update')
+            ->addOption('release', null,InputOption::VALUE_NONE, 'If set, suppresses commit info from the version string')
 
             ->addOption('install-db', 'i', InputOption::VALUE_NONE, 'Creates and performs the creation of the database and fixtures.')
             ->addOption('update-db', 'u', InputOption::VALUE_NONE, 'Creates and performs a doctrine migration, updates fixtures.')
@@ -218,7 +219,7 @@ class MigrateCommand extends Command
                 if (!$this->helper->capsule( "yarn encore {$env}", $output, 'Building web assets... ', false )) return 6;
             } else $output->writeln("Skipping <info>web asset updates</info>.");
 
-            $version_lines = $this->helper->bin( 'git describe --tags', $ret );
+            $version_lines = $this->helper->bin( 'git describe --tags' . ($input->getOption('release') ? ' --abbrev=0' : ''), $ret );
             if (count($version_lines) >= 1) file_put_contents( 'VERSION', $version_lines[0] );
 
             if (!$this->helper->capsule( "cache:clear", $output, 'Clearing cache... ', true )) return 7;
