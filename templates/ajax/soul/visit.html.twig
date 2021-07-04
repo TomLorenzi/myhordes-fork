@@ -93,6 +93,14 @@
                 </div>
             {% endif %}
 
+            {% if is_granted('ROLE_CROW') %}
+            <div class="row">
+                <div class="padded cell rw-4 rw-md-6 rw-sm-12">
+                    <button x-ajax-href="{{ path('admin_users_account_view', {id: user.id}) }}"><img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</button>
+                </div>
+            </div>
+            {% endif %}
+
             {% if not user|is_granted('ROLE_CROW') and not app.user|related(user,constant('App\\Entity\\SocialRelation::SocialRelationTypeBlock')) %}
                 <div class="row">
                     <div class="padded cell rw-12 right">
