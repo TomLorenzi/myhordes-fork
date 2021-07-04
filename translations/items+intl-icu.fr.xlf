@@ -9368,5 +9368,15 @@
         <target><![CDATA[<t-fail>Vous n'avez <strong>aucune arme à eau à remplir</strong> dans votre sac ou dans votre coffre.</t-fail><nt-fail>Vous avez rempli gratuitement {items_spawn} grâce à la <strong>Robinetterie</strong> de votre ville !</nt-fail>]]></target>
       </segment>
     </unit>
+    <unit id="smFT0Hh" name="Diese Aktion wurde in dieser Partie schon ausgeführt.">
+      <notes>
+        <note category="german">Diese Aktion wurde in dieser Partie schon ausgeführt.</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion wurde in dieser Partie schon ausgeführt.</source>
+        <target>Action déjà utilisée au cours de cette partie.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

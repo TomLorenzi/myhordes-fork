@@ -9495,5 +9495,15 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target><![CDATA[<t-fail>Du hast <strong>keine Wasserwaffen zum Befüllen</strong> in deinem Rucksack oder deiner Truhe.</t-fail><nt-fail>Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.</nt-fail>]]></target>
       </segment>
     </unit>
+    <unit id="smFT0Hh" name="Diese Aktion wurde in dieser Partie schon ausgeführt.">
+      <notes>
+        <note category="german">Diese Aktion wurde in dieser Partie schon ausgeführt.</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion wurde in dieser Partie schon ausgeführt.</source>
+        <target>This action has already been used in this game.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

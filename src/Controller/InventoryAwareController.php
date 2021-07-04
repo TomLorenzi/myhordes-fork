@@ -222,11 +222,12 @@ class InventoryAwareController extends CustomAbstractController
 
         $av_inv = [$this->getActiveCitizen()->getInventory(), $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getFloor() : $this->getActiveCitizen()->getHome()->getChest()];
 
-        $this->action_handler->getAvailableIHeroicActions( $this->getActiveCitizen(),  $available, $crossed );
+        $this->action_handler->getAvailableIHeroicActions( $this->getActiveCitizen(),  $available, $crossed, $used );
         if (empty($available) && empty($crossed)) return [];
 
         foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'action' => $a->getAction(), 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget() ) : null, 'target_mode' => $a->getAction()->getTarget() ? $a->getAction()->getTarget()->getSpawner() : 0, 'crossed' => false ];
         foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'action' => $c->getAction(), 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
+        foreach ($used as $c)      $ret[] = [ 'id' => $c->getId(), 'action' => $c->getAction(), 'targets' => null, 'target_mode' => 0, 'crossed' => true, 'used' => true ];
 
         return $ret;
     }

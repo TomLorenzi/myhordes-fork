@@ -467,8 +467,9 @@ class ActionHandler
      * @param Citizen $citizen
      * @param ItemAction[] $available
      * @param ItemAction[] $crossed
+     * @param ItemAction[] $used
      */
-    public function getAvailableIHeroicActions(Citizen $citizen, ?array &$available, ?array &$crossed ) {
+    public function getAvailableIHeroicActions(Citizen $citizen, ?array &$available, ?array &$crossed, ?array &$used ) {
         $available = $crossed = [];
 
         if (!$citizen->getProfession()->getHeroic()) return;
@@ -484,7 +485,7 @@ class ActionHandler
         foreach ($citizen->getUsedHeroicActions() as $used_heroic) {
             if ($citizen->getHeroicActions()->contains($used_heroic) || ($is_at_00 && !$used_heroic->getAction()->getAllowedAtGate())) continue;
             $mode = $this->evaluate( $citizen, null, null, $used_heroic->getAction(), $tx );
-            if ($mode >= self::ActionValidityCrossed) $crossed[] = $used_heroic;
+            if ($mode >= self::ActionValidityCrossed) $used[] = $used_heroic;
         }
 
     }

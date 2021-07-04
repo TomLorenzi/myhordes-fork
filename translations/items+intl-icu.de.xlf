@@ -5659,5 +5659,11 @@
         <target><![CDATA[<t-fail>Du hast <strong>keine Wasserwaffen zum Befüllen</strong> in deinem Rucksack oder deiner Truhe.</t-fail><nt-fail>Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.</nt-fail>]]></target>
       </segment>
     </unit>
+    <unit id="smFT0Hh" name="Diese Aktion wurde in dieser Partie schon ausgeführt.">
+      <segment>
+        <source>Diese Aktion wurde in dieser Partie schon ausgeführt.</source>
+        <target>Diese Aktion wurde in dieser Partie schon ausgeführt.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
