@@ -22255,7 +22255,7 @@
       </notes>
       <segment>
         <source>Die offensichtlichen Spuren zeigen, dass {user} die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: &lt;strong&gt;{user} war ein Ghoul&lt;/strong&gt;!</source>
-        <target><![CDATA[Die offensichtlichen Spuren zeigen, dass {user} die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: <strong>{user} war ein Ghoul</strong>!]]></target>
+        <target><![CDATA[Las huellas que dejó llevan a creer que {user} habría cruzado los límites de la demencia: huesos roídos, tripas colgadas en las paredes, restos de animales a medio devorar... Su antigua vivienda era un matadero maloliente, no cabe duda: <strong>¡{user} era un mutante!</strong>!]]></target>
       </segment>
     </unit>
     <unit id="rUnZoOv">
