@@ -13937,5 +13937,11 @@
         <target>Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.</target>
       </segment>
     </unit>
+    <unit id="LrUZw5u">
+      <segment>
+        <source>Nur ein einzelner Verrückter bewacht heute Nacht selbstmörderisch das Tor. Wünschen wir {citizens} einen schnellen Tod.</source>
+        <target>Nur ein einzelner Verrückter bewacht heute Nacht selbstmörderisch das Tor. Wünschen wir {citizens} einen schnellen Tod.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -1048,7 +1048,7 @@ class LogTemplateHandler
             $citizenList[] = array('id' => $watcher->getCitizen()->getId());
         }
         $variables = array('citizens' => $citizenList);
-        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => 'nightlyAttackWatchers']);
+        $template = $this->entity_manager->getRepository(LogEntryTemplate::class)->findOneBy(['name' => count($watchers) === 1 ? 'nightlyAttackOneWatcher' : 'nightlyAttackWatchers']);
         
         return (new TownLogEntry())
             ->setLogEntryTemplate($template)

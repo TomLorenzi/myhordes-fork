@@ -22866,5 +22866,15 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.</target>
       </segment>
     </unit>
+    <unit id="LrUZw5u">
+      <notes>
+        <note category="german">Nur ein einzelner Verrückter bewacht heute Nacht selbstmörderisch das Tor. Wünschen wir {citizens} einen schnellen Tod.</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Nur ein einzelner Verrückter bewacht heute Nacht selbstmörderisch das Tor. Wünschen wir {citizens} einen schnellen Tod.</source>
+        <target>Only one suicidal maniac is watching the gates tonight! Wish {citizens} a quick death.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

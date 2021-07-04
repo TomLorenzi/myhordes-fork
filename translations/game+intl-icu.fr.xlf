@@ -22721,5 +22721,15 @@
         <target>Il ne reste rien du coffre de {citizen}, la maison a été entièrement recyclée !</target>
       </segment>
     </unit>
+    <unit id="LrUZw5u">
+      <notes>
+        <note category="german">Nur ein einzelner Verrückter bewacht heute Nacht selbstmörderisch das Tor. Wünschen wir {citizens} einen schnellen Tod.</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Nur ein einzelner Verrückter bewacht heute Nacht selbstmörderisch das Tor. Wünschen wir {citizens} einen schnellen Tod.</source>
+        <target>Un seul suicidaire s'est posté ce soir sur les remparts de la ville ! Souhaitons à {citizens} une mort brève.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
