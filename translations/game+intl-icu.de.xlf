@@ -12468,12 +12468,6 @@
         <target>Das Grab von {citizen}</target>
       </segment>
     </unit>
-    <unit id="v38LxXL">
-      <segment>
-        <source>Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;Verfluchte Seelenfänger&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</source>
-        <target><![CDATA[Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>Verfluchte Seelenfänger</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.]]></target>
-      </segment>
-    </unit>
     <unit id="X28KXsi" name="Das Haus">
       <segment>
         <source>Das Haus</source>
@@ -12659,7 +12653,17 @@
     <unit id="M1zQceL">
       <segment>
         <source>Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;{townname}&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</source>
-        <target><![CDATA[Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.]]></target>
+        <target><![CDATA[
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Da {citizen} tot ist, besteht ein hohes Risiko, dass ihr Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass sie wieder aufersteht und uns angreift, muss sie entweder mit Wasser übergossen oder weggeworfen werden.}
+                        other {Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.}
+                    }
+                }
+            other {Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.}
+            }
+        ]]></target>
       </segment>
     </unit>
     <unit id="o66h7gA" name="Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!">
@@ -13901,6 +13905,36 @@
       <segment>
         <source>Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</source>
         <target>Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</target>
+      </segment>
+    </unit>
+    <unit id="gZG1unt">
+      <segment>
+        <source>Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.</source>
+        <target>Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.</target>
+      </segment>
+    </unit>
+    <unit id=".CFiQni">
+      <segment>
+        <source>Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.</source>
+        <target>Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.</target>
+      </segment>
+    </unit>
+    <unit id="SlAwtjZ" name="Wiederverwertung:">
+      <segment>
+        <source>Wiederverwertung:</source>
+        <target>Wiederverwertung:</target>
+      </segment>
+    </unit>
+    <unit id="sQTLfdC" name="Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP">
+      <segment>
+        <source>Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP</source>
+        <target>Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP</target>
+      </segment>
+    </unit>
+    <unit id="1XGWhmm">
+      <segment>
+        <source>Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.</source>
+        <target>Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.</target>
       </segment>
     </unit>
   </file>

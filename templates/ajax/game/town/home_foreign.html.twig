@@ -194,7 +194,7 @@
             {% else %}
                 <h5>{% trans from 'game' %}Was geschieht mit dieser Leiche?{% endtrans %}</h5>
                 {% if owner.home.holdsBody %}
-                    <span class="disposal">{{'Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.'|trans({'{citizen}': owner.name, '{townname}': owner.town.name}, 'game')|raw}}</span>
+                    <span class="disposal">{{'Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.'|trans({'{citizen}': owner, '{townname}': owner.town.name}, 'game')|raw}}</span>
                     {% if has_cremato %}
                         <button x-disposal-id="{{ constant('App\\Entity\\Citizen::Cooked') }}">
                             <img alt="" src="{{ asset('build/images/item/item_meat.gif') }}" />{{ 'Leiche grillen'|trans({},'game') }}
@@ -239,13 +239,27 @@
                 {% endif %}
                 <h5>{% trans from 'game' %}Das Haus{% endtrans %}</h5>
                 {% if owner.home.prototype.level > 1 %}
-                    {% if owner.home.recycling > 0 and owner.home.recycling < 15 %}
+                    {% if can_recycle  %}
+                        <span class="disposal">
+                            {{ 'Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.'|trans({citizen: owner},'game') }}
+                        </span><br />
+                    {% endif %}
+                    {% if owner.home.recycling >= 15 %}
+                        <span class="disposal">
+                            {{ 'Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.'|trans({},'game') }}
+                        </span><br />
+                    {% elseif owner.home.recycling > 0 and owner.home.recycling < 15 %}
+                        <br /><div class="small"><b>{{ 'Wiederverwertung:'|trans({},'game') }}</b></div>
                         <div class="vote-bar">
                             <div class="vote-progress" style="width: {{owner.home.recycling / 15 * 100}}%;"></div>
+                            <div class="tooltip help">
+                                {{ 'Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP'|trans({progress: owner.home.recycling, total: 15},'game') }}
+                            </div>
                         </div>
                     {% endif %}
                     {% if can_recycle  %}
-                    <button x-recycle-home="1">{{ 'Behausung wiederverwerten'|trans({},'game') }} (<div class="ap">1</div>)</button>
+                        <br />
+                        <button x-recycle-home="1">{{ 'Behausung wiederverwerten'|trans({},'game') }} (<div class="ap">1</div>)</button>
                     {% endif %}
                 {% else %}
                     <span class="disposal">{{'Der Ort (kann man überhaupt von Zuhause reden?), an dem {citizen} lebte, ist keinen Blick wert. Da gibt es nichts zu holen, selbst wenn man alles auseinandernimmt.'|trans({'{citizen}': owner.name}, 'game')}}</span>
@@ -309,6 +323,8 @@
                         {% block class %}chest {% if already_stolen %}locked{% endif %}{% endblock %}
                         {% block title %}{% endblock %}
                     {% endembed %}
+                {% elseif owner.home.recycling >= 15 %}
+                    <div class="disposal">{{ 'Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.'|trans({citizen: owner}, 'game') }}</div>
                 {% else %}
                     <div class="help">{{'Als du ins Fenster schaust, bemerkst du, dass {citizen}s Haus keine wertvollen Gegenständen mehr enthält. Wahrscheinlich haben andere Bürger schon alles, was nicht niet- und nagelfest war, mitgenommen...'|trans({citizen: owner}, 'game')}}</div>
                 {% endif %}
@@ -455,7 +471,7 @@
             const recycleBtn = document.querySelectorAll('[x-recycle-home]');
             for (let i = 0; i < recycleBtn.length; i++) {
                 recycleBtn[i].addEventListener('click', function() {
-                    if (!confirm('{{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
+                    if (!confirm('{{ 'Diese Aktion kostet dich 1 AP!'|trans({},'global')|e('js') }} {{ 'Bestätigen?'|trans({},'global')|e('js') }}'))
                         return;
                     $.ajax.easySend( '{{ path('visit_recycle_home', {id: owner.id}) }}', {},
                         function () {

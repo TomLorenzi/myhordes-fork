@@ -20551,17 +20551,6 @@
         <target>Das Grab von {citizen}</target>
       </segment>
     </unit>
-    <unit id="v38LxXL">
-      <notes>
-        <note category="german">Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;Verfluchte Seelenfänger&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</note>
-        <note category="state">new</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;Verfluchte Seelenfänger&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</source>
-        <target><![CDATA[Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>Verfluchte Seelenfänger</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.]]></target>
-      </segment>
-    </unit>
     <unit id="X28KXsi" name="Das Haus">
       <notes>
         <note category="german">Das Haus</note>
@@ -22930,6 +22919,60 @@
       <segment>
         <source>Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</source>
         <target>Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</target>
+      </segment>
+    </unit>
+    <unit id="gZG1unt">
+      <notes>
+        <note category="german">Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.</source>
+        <target>Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.</target>
+      </segment>
+    </unit>
+    <unit id=".CFiQni">
+      <notes>
+        <note category="german">Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.</source>
+        <target>Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.</target>
+      </segment>
+    </unit>
+    <unit id="SlAwtjZ" name="Wiederverwertung:">
+      <notes>
+        <note category="german">Wiederverwertung:</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Wiederverwertung:</source>
+        <target>Wiederverwertung:</target>
+      </segment>
+    </unit>
+    <unit id="sQTLfdC" name="Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP">
+      <notes>
+        <note category="german">Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP</source>
+        <target>Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP</target>
+      </segment>
+    </unit>
+    <unit id="1XGWhmm">
+      <notes>
+        <note category="german">Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.</source>
+        <target>No queda nada del baúl de {citizen}, ¡la casa ha sido totalmente saqueada!</target>
       </segment>
     </unit>
   </file>
