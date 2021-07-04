@@ -9358,5 +9358,15 @@
         <target>Attention, trop de chanson tue la chanson, et un de vos concitoyen a déjà utilisé cet instrument aujourd'hui. Vos oreilles ne survivraient pas.</target>
       </segment>
     </unit>
+    <unit id="VXFJxzy">
+      <notes>
+        <note category="german">&lt;t-fail&gt;Du hast &lt;strong&gt;keine Wasserwaffen zum Befüllen&lt;/strong&gt; in deinem Rucksack oder deiner Truhe.&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.&lt;/nt-fail&gt;</note>
+        <note category="from">db://ItemAction</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;Du hast &lt;strong&gt;keine Wasserwaffen zum Befüllen&lt;/strong&gt; in deinem Rucksack oder deiner Truhe.&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail>Vous n'avez <strong>aucune arme à eau à remplir</strong> dans votre sac ou dans votre coffre.</t-fail><nt-fail>Vous avez rempli gratuitement {items_spawn} grâce à la <strong>Robinetterie</strong> de votre ville !</nt-fail>]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

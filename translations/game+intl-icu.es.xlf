@@ -3562,7 +3562,7 @@
       </notes>
       <segment>
         <source>... das OFFEN stand! {num} Zombies sind in die Stadt eingedrungen!</source>
-        <target>...estaba ABIERTO! ¡{num} Zombies han entrado al pueblo!</target>
+        <target>...¡¡que estaba abierto!! {num} zombies arremetieron contra los habitantes sin encontrar resistencia. ¡Las defensas del pueblo no sirvieron de nada!</target>
       </segment>
     </unit>
     <unit id="EOdUfnx" name="{num} Zombies sind durch unsere Verteidigung gebrochen!">
@@ -8221,7 +8221,7 @@
       </notes>
       <segment>
         <source>Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : {citizens}</source>
-        <target>Los valientes Centinelas que darán sus vidas por el pueblo esta noche : {citizens}</target>
+        <target>Un terible final tuvieron los valientes habitantes que cuidaron anoche el portal del pueblo : {citizens}</target>
       </segment>
     </unit>
     <unit id="PzrQbvb" name="Schreiend und fuchtelnd hat {citizen} {kills} Zombies getötet.">

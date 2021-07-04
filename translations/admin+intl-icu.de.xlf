@@ -2377,5 +2377,17 @@
         <target>Spielername</target>
       </segment>
     </unit>
+    <unit id="EG1rjyV" name="Chaos-Modus deaktivieren">
+      <segment>
+        <source>Chaos-Modus deaktivieren</source>
+        <target>Chaos-Modus deaktivieren</target>
+      </segment>
+    </unit>
+    <unit id="LqAEYTA" name="Stadt reparieren">
+      <segment>
+        <source>Stadt reparieren</source>
+        <target>Stadt reparieren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

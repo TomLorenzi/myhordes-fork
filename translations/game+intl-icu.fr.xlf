@@ -8859,7 +8859,7 @@
       </notes>
       <segment>
         <source>Tapfere Bürger haben auf den Stadtmauern Stellung bezogen : {citizens}</source>
-        <target>De valeureux citoyens se sont postés sur les remparts de la ville : {citizens}</target>
+        <target>De valeureux citoyens se sont postés ce soir sur les remparts de la ville : {citizens} ! Souhaitons leur une mort paisible... à moins qu'ils ne survivent ?</target>
       </segment>
     </unit>
     <unit id="vuWaICz">
@@ -19352,18 +19352,17 @@
       </notes>
       <segment>
         <source>{zombies} Zombies wurden von unseren Nachtwächtern gemetzelt!</source>
-        <target>{zombies} zombies ont été tués par nos veilleurs !</target>
+        <target>{zombies} zombies ont été pulvérisés grâce à nos valereux veilleurs !</target>
       </segment>
     </unit>
     <unit id="VWlZ7Eh">
       <notes>
         <note category="german">... Auf jeden Fall kamen {zombies} Zombies durch unsere Verteidigungen und griffen Bürger an!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
         <source>... Auf jeden Fall kamen {zombies} Zombies durch unsere Verteidigungen und griffen Bürger an!</source>
-        <target>... Auf jeden Fall kamen {zombies} Zombies durch unsere Verteidigungen und griffen Bürger an!</target>
+        <target>... mais {zombies} zombies passent à travers et se jettent sur les citoyens !</target>
       </segment>
     </unit>
     <unit id="0FSEa0F">
