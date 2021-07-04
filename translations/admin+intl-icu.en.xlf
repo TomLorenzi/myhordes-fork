@@ -1006,7 +1006,7 @@
     <unit id="ZtFgVEb" name="Admin Dashboard">
       <notes>
         <note category="german">Admin Dashboard</note>
-        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/public/maintenance_attack.html.twig</note>
+        <note category="from">twig:///templates/ajax/admin/dash.html.twig;twig:///templates/ajax/game/town/dashboard.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/public/maintenance_attack.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Admin Dashboard</source>
@@ -3997,6 +3997,28 @@
       <segment>
         <source>Spielername</source>
         <target>Username</target>
+      </segment>
+    </unit>
+    <unit id="EG1rjyV" name="Chaos-Modus deaktivieren">
+      <notes>
+        <note category="german">Chaos-Modus deaktivieren</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Chaos-Modus deaktivieren</source>
+        <target>Disable Chaos Mode</target>
+      </segment>
+    </unit>
+    <unit id="LqAEYTA" name="Stadt reparieren">
+      <notes>
+        <note category="german">Stadt reparieren</note>
+        <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Stadt reparieren</source>
+        <target>Repair town</target>
       </segment>
     </unit>
   </file>

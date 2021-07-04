@@ -591,15 +591,20 @@ class AdminTownController extends AdminActionController
                 break;
 
             case 'dbg_toggle_chaos':
-                if ($town->getChaos()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-                $town->setChaos(true);
-                foreach ($town->getCitizens() as $target_citizen)
+                $on = $param === '1';
+                if (($town->getChaos() === $on) || ($town->getDevastated() && !$on))
+                    return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                $town->setChaos($on);
+                if ($on) foreach ($town->getCitizens() as $target_citizen)
                     $target_citizen->setBanished(false);
                 break;
 
             case 'dbg_toggle_devas':
-                if ($town->getDevastated()) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
-                $townHandler->devastateTown($town);
+                $on = $param === '1';
+                if ($town->getDevastated() === $on) return AjaxResponse::error(ErrorHelper::ErrorInvalidRequest);
+                if ($on)
+                    $townHandler->devastateTown($town);
+                else $town->setDevastated(false);
                 break;
 
             case 'ex_del': case 'ex_co+': case 'ex_co-':case 'ex_ref':case 'ex_inf':

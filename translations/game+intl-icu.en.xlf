@@ -19501,7 +19501,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="VWlZ7Eh">
       <notes>
         <note category="german">... Auf jeden Fall kamen {zombies} Zombies durch unsere Verteidigungen und griffen Bürger an!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
@@ -22647,7 +22646,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="DLc6Njb">
       <notes>
         <note category="german">Von den Verteidigungsanlagen der Stadt aufgehalten, gingen eure ehemaligen Mitbürger mit leeren Händen und mampften stattdessen die Überreste ihrer eigenen verrottenden Gliedmaßen.</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>

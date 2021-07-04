@@ -19358,7 +19358,6 @@
     <unit id="VWlZ7Eh">
       <notes>
         <note category="german">... Auf jeden Fall kamen {zombies} Zombies durch unsere Verteidigungen und griffen Bürger an!</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
