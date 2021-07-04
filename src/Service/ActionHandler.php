@@ -1373,9 +1373,22 @@ class ActionHandler
                             'kalach_#01' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'kalach_#00']),
                         ];
 
-                        foreach ($citizen->getInventory()->getItems() as $i) if (isset($trans[$i->getPrototype()->getName()])) $i->setPrototype( $trans[$i->getPrototype()->getName()] );
-                        foreach ($citizen->getHome()->getChest()->getItems() as $i) if (isset($trans[$i->getPrototype()->getName()])) $i->setPrototype( $trans[$i->getPrototype()->getName()] );
+                        $fill_targets = [];
+                        $filled = [];
 
+                        foreach ($citizen->getInventory()->getItems() as $i) if (isset($trans[$i->getPrototype()->getName()]))
+                            $fill_targets[] = $i;
+                        foreach ($citizen->getHome()->getChest()->getItems() as $i) if (isset($trans[$i->getPrototype()->getName()]))
+                            $fill_targets[] = $i;
+
+                        foreach ($fill_targets as $i) {
+                            $i->setPrototype($trans[$i->getPrototype()->getName()]);
+                            if (!isset($filled[$i->getPrototype()->getId()])) $filled[$i->getPrototype()->getId()] = [$i];
+                            else $filled[$i->getPrototype()->getId()][] = $i;
+                            $execute_info_cache['items_spawn'][] = $i->getPrototype();
+                        }
+
+                        if (empty($filled)) $tags[] = 'fail';
                         break;
                     }
 

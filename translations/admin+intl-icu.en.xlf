@@ -4003,7 +4003,6 @@
       <notes>
         <note category="german">Chaos-Modus deaktivieren</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Chaos-Modus deaktivieren</source>
@@ -4014,7 +4013,6 @@
       <notes>
         <note category="german">Stadt reparieren</note>
         <note category="from">twig:///templates/ajax/admin/towns/explorer.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Stadt reparieren</source>
