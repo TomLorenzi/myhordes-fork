@@ -588,10 +588,10 @@ class SoulController extends CustomAbstractController
         if ($type === "soul") {
             $ranking = $this->entity_manager->getRepository(User::class)->getGlobalSoulRankingPage($offset, $resultsPerPage);
         } else {
-            return $this->redirect($this->generateUrl( 'soul_ranking' ));
+            return $this->redirect($this->generateUrl( 'soul_season' ));
         }
         if(!$ranking) {
-            return $this->redirect($this->generateUrl( 'soul_ranking' ));
+            return $this->redirect($this->generateUrl( 'soul_season' ));
         }
 
         return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season", [
