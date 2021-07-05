@@ -425,6 +425,8 @@ class GameController extends CustomAbstractController
             while (count($gazette_logs) > 0) {
                 /** @var GazetteLogEntry $log */
                 $log = array_shift($gazette_logs);
+                if ($log->getTemplate() === null && $log->getLogEntryTemplate() === null)
+                    continue;
                 $type = $log->getTemplate() !== null ? $log->getTemplate()->getType() : $log->getLogEntryTemplate()->getType();
                 if($type !== GazetteEntryTemplate::TypeGazetteWind)
                     $text .= '<p>' . $this->parseGazetteLog($log) . '</p>';
