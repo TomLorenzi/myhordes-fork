@@ -3098,7 +3098,7 @@
       </notes>
       <segment>
         <source>Es ist nicht erlaubt, im Chaos-Modus einen Gegenstand an einen Bürger zu senden, der sich außerhalb der Stadt befindet.</source>
-        <target>Es ist nicht erlaubt, im Chaos-Modus einen Gegenstand an einen Bürger zu senden, der sich außerhalb der Stadt befindet.</target>
+        <target>No está permitido enviar un artículo a un ciudadano que está fuera de la ciudad en el modo Caos.</target>
       </segment>
     </unit>
     <unit id="Ot4PwfY" name="Pin entfernen">
@@ -3109,7 +3109,7 @@
       </notes>
       <segment>
         <source>Pin entfernen</source>
-        <target>Pin entfernen</target>
+        <target>Quitar destacado</target>
       </segment>
     </unit>
     <unit id="oQRkk47" name="Angepinnte Nachricht">
@@ -3120,7 +3120,7 @@
       </notes>
       <segment>
         <source>Angepinnte Nachricht</source>
-        <target>Angepinnte Nachricht</target>
+        <target>Mensaje fijado</target>
       </segment>
     </unit>
     <unit id="qsFANcA" name="Einblenden">
@@ -3131,7 +3131,7 @@
       </notes>
       <segment>
         <source>Einblenden</source>
-        <target>Einblenden</target>
+        <target>Mostrar</target>
       </segment>
     </unit>
     <unit id="v8YzpLG" name="Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.">
@@ -3142,7 +3142,7 @@
       </notes>
       <segment>
         <source>Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.</source>
-        <target>Ausgeblendete Nachricht von {user}. Klicken, um anzuzeigen.</target>
+        <target>Mensaje oculto de {user}. Haz clic para mostrar.</target>
       </segment>
     </unit>
     <unit id="YNxQwvO">
@@ -3164,7 +3164,7 @@
       </notes>
       <segment>
         <source>{users} und {last_user}</source>
-        <target>{users} und {last_user}</target>
+        <target>{users} y {last_user}</target>
       </segment>
     </unit>
     <unit id="yJCPgfF">
@@ -3206,7 +3206,7 @@
       </notes>
       <segment>
         <source>Du hast {user} blockiert.</source>
-        <target>Du hast {user} blockiert.</target>
+        <target>Bloqueaste a {user}.</target>
       </segment>
     </unit>
     <unit id="gURDnkT" name="Blockade aufheben">
@@ -3227,7 +3227,7 @@
       </notes>
       <segment>
         <source>Spieler blockieren</source>
-        <target>Spieler blockieren</target>
+        <target>Bloquear jugador</target>
       </segment>
     </unit>
     <unit id="iu5_LY8" name="{user} blockieren">
@@ -3238,7 +3238,7 @@
       </notes>
       <segment>
         <source>{user} blockieren</source>
-        <target>{user} blockieren</target>
+        <target>Bloquear a {user}</target>
       </segment>
     </unit>
     <unit id="cIrelgU">
@@ -3249,7 +3249,7 @@
       </notes>
       <segment>
         <source>Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</source>
-        <target>Wenn du diesen Spieler blockierst, kann er dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</target>
+        <target>Si bloquea a este jugador, no podrás enviarle ningún mensaje nuevo. Si una tercera persona los agrega a un chat grupal, los mensajes del jugador bloqueado se ocultarán de forma predeterminada.</target>
       </segment>
     </unit>
     <unit id="XZjzgfL" name="Möchtest du fortfahren?">
@@ -3260,7 +3260,7 @@
       </notes>
       <segment>
         <source>Möchtest du fortfahren?</source>
-        <target>Möchtest du fortfahren?</target>
+        <target>¿Quieres continuar?</target>
       </segment>
     </unit>
     <unit id="hQmss_b" name="Absender blockieren">
@@ -3271,7 +3271,7 @@
       </notes>
       <segment>
         <source>Absender blockieren</source>
-        <target>Absender blockieren</target>
+        <target>Bloquear remitentes</target>
       </segment>
     </unit>
     <unit id="aN1frHt">
@@ -3282,7 +3282,7 @@
       </notes>
       <segment>
         <source>Wenn du den Absender dieser Nachricht blockierst, kann dieser dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</source>
-        <target>Wenn du den Absender dieser Nachricht blockierst, kann dieser dir keine neuen Nachrichten schicken. Werdet ihr beide von einer dritten Person in eine Gruppennachricht hinzugefügt, so werden Beiträge des blockierten Spielers standartmäßig für dich versteckt.</target>
+        <target>Si bloquea al remitente de este mensaje, no podras enviarle mensajes nuevos. Si una tercera persona los agrega a un mensaje grupal, las contribuciones del jugador bloqueado se ocultarán de forma predeterminada.</target>
       </segment>
     </unit>
     <unit id="q8KTox4" name="Dieser Spieler hat dich geblockt. Du kannst ihm keine Nachricht mehr schicken.">
@@ -3303,7 +3303,7 @@
       </notes>
       <segment>
         <source>Bevorzugte Pronomen</source>
-        <target>Bevorzugte Pronomen</target>
+        <target>preferencia de pronombre</target>
       </segment>
     </unit>
     <unit id="z8t41lP">
@@ -3314,7 +3314,7 @@
       </notes>
       <segment>
         <source>Hier kannst du festlegen, welche Personalpronomen das Spiel verwenden soll, wenn es sich auf dich bezieht (z.B. "männlich" für "er", "ihn", etc und "weiblich" für "sie", "ihr", etc).&lt;br /&gt;&lt;em&gt;Diese Einstellung beeinflusst, wie dir und anderen Spielern bestimmte Texte angezeigt werden, wenn die Option "Neue Übersetzungen verwenden" aktiv ist.&lt;/em&gt;.</source>
-        <target><![CDATA[Hier kannst du festlegen, welche Personalpronomen das Spiel verwenden soll, wenn es sich auf dich bezieht (z.B. "männlich" für "er", "ihn", etc und "weiblich" für "sie", "ihr", etc).<br /><em>Diese Einstellung beeinflusst, wie dir und anderen Spielern bestimmte Texte angezeigt werden, wenn die Option "Neue Übersetzungen verwenden" aktiv ist.</em>.]]></target>
+        <target><![CDATA[Aquí puedes especificar qué pronombres personales debe usar el juego cuando se refiere a ti (por ejemplo, "masculino" para "él", "los", etc. y "femenino" para "la", "las", etc.). <Br/><em> Esta configuración afecta la forma en que ciertos textos se muestran a ti y a otros jugadores cuando la opción "Usar nuevas traducciones" está activa.</em>.]]></target>
       </segment>
     </unit>
     <unit id="n6hJSL5" name="Männlich">
@@ -3325,7 +3325,7 @@
       </notes>
       <segment>
         <source>Männlich</source>
-        <target>Männlich</target>
+        <target>Masculino</target>
       </segment>
     </unit>
     <unit id="GoQ1yLW" name="Weiblich">
@@ -3336,7 +3336,7 @@
       </notes>
       <segment>
         <source>Weiblich</source>
-        <target>Weiblich</target>
+        <target>Femenino</target>
       </segment>
     </unit>
     <unit id="ttkKiaP" name="Keine Präferenz">
@@ -3347,7 +3347,7 @@
       </notes>
       <segment>
         <source>Keine Präferenz</source>
-        <target>Keine Präferenz</target>
+        <target>Sin preferencia</target>
       </segment>
     </unit>
   </file>
