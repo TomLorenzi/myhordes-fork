@@ -124,7 +124,10 @@
                     <button x-ajax-href="{{ path('town_house', {tab: 'messages', subtab: 'write', dest: owner.id}) }}"><img src="{{ asset('build/images/icons/small_mail.gif') }}" alt="" />{{'Eine Nachricht hinterlassen'|trans({}, 'game')}}</button>
                 {% endif %}
                 {% if not owner.zone %}
-                    <button x-attack-citizen {% if not can_attack %}disabled{% endif %}><img alt="" src="{{ asset('build/images/icons/fist.gif') }}" /> {{ 'Diesen Bürger angreifen!'|trans({ref: owner},'game') }} (<div class="ap">{{ attackAP }}</div>)</button>
+                    <button x-attack-citizen {% if not can_attack %}disabled{% endif %}>
+                        <img alt="" src="{{ asset('build/images/icons/fist.gif') }}" /> {{ 'Diesen Bürger angreifen!'|trans({ref: owner},'game') }} (<div class="ap">{{ attackAP }}</div>)
+                        <div class="tooltip help">{{ 'Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...'|trans({}, 'game') }}</div>
+                    </button>
                     {% if can_devour %}
                         <button x-devour-citizen {% if not allow_devour %}disabled{% endif %}>
                             <img alt="" src="{{ asset('build/images/roles/ghoul.gif') }}" /> {{ 'Diesen Bürger verspeisen!'|trans({},'game') }}

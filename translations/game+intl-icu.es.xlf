@@ -23001,5 +23001,16 @@
         ]]></target>
       </segment>
     </unit>
+    <unit id="l7mGQuQ">
+      <notes>
+        <note category="german">Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</source>
+        <target>Atacar a un habitante representa un acto de violencia física... Podrías herirle y todo el pueblo lo sabrá...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -3762,12 +3762,11 @@
       <notes>
         <note category="german">Gib hier den Nickname des Spielers ein, den du einladen möchtest.&lt;br /&gt;Du kannst so viele Personen einladen wie du möchtest. Dabei spielt es keine Rolle, ob du ein Held bist oder nicht. Es bleiben noch &lt;strong&gt;{size} Plätze&lt;/strong&gt; übrig.</note>
         <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Gib hier den Nickname des Spielers ein, den du einladen möchtest.&lt;br /&gt;Du kannst so viele Personen einladen wie du möchtest. Dabei spielt es keine Rolle, ob du ein Held bist oder nicht. Es bleiben noch &lt;strong&gt;{size} Plätze&lt;/strong&gt; übrig.</source>
-        <target>
-          <![CDATA[
+        <target><![CDATA[
+          
             {ref__icu, select,
                 on {
                     {size, select,
@@ -3778,8 +3777,8 @@
                 }
                 other {Enter the nickname of the player you wish to invite here. You can invite as many players as you like, whether they are Heroes or not.<br />However, there are only <strong>{size} place(s)</strong> left.}
             }
-        ]]>
-        </target>
+        
+        ]]></target>
       </segment>
     </unit>
   </file>

@@ -13959,5 +13959,11 @@
         ]]></target>
       </segment>
     </unit>
+    <unit id="l7mGQuQ">
+      <segment>
+        <source>Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</source>
+        <target>Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
