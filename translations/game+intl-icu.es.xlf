@@ -3412,7 +3412,7 @@
       </notes>
       <segment>
         <source>Verrat! {citizen} ist gestorben: {cod}.</source>
-        <target>¡Traición! {citizen} está muerto: {cod}.</target>
+        <target>{citizen} ha muerto aquí ({cod}).</target>
       </segment>
     </unit>
     <unit id="2UDexHy">
@@ -4389,7 +4389,7 @@
       </notes>
       <segment>
         <source>Aggression</source>
-        <target>Agresión</target>
+        <target>¡Mutante aniquilado en el ataque!</target>
       </segment>
     </unit>
     <unit id="MC.0S7d">
@@ -9047,7 +9047,7 @@
       </notes>
       <segment>
         <source>Du erblickst mehrere großflächige getrocknete Blutpfützen. Das ist soviel Blut... Es scheint, als ob hier jemand von irgend etwas oder irgend jemandem zerstückelt wurde... Vielleicht war es ja ein Ghul?</source>
-        <target>Ves charcos de sangre seca y tripas colgado por todos lados, es demasiada sangre... Parece como si alguien o algo fuera desmembrado y devorado aquí... Crees que son los restos de la víctima de un Mutante...</target>
+        <target>Hay manchas de sangre varios metros a la redonda, alguien fue desmebrado aquí por alguien... o algo. ¿Un mutante?</target>
       </segment>
     </unit>
     <unit id="2xvpkUu">
@@ -9057,7 +9057,7 @@
       </notes>
       <segment>
         <source>{attacker} ist {defender} an die Gurgel gesprungen und hat ihn ohne mit der Wimper zu zucken verspeist!</source>
-        <target>¡{attacker} ha atacado y devorado a {defender} sin darle tiempo a reaccionar, sólo un Mutante pudo haber hecho algo tan horrible!</target>
+        <target>¡{attacker} se lanzó al cuello de {defender} y lo devoró!</target>
       </segment>
     </unit>
     <unit id="Qlh.l61">
@@ -22255,7 +22255,7 @@
       </notes>
       <segment>
         <source>Die offensichtlichen Spuren zeigen, dass {user} die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: &lt;strong&gt;{user} war ein Ghoul&lt;/strong&gt;!</source>
-        <target><![CDATA[Las huellas que dejó llevan a creer que {user} habría cruzado los límites de la demencia: huesos roídos, tripas colgadas en las paredes, restos de animales a medio devorar... Su antigua vivienda era un matadero maloliente, no cabe duda: <strong>¡{user} era un mutante!</strong>!]]></target>
+        <target><![CDATA[Las huellas que dejó llevan a creer que {user} habría cruzado los límites de la demencia: huesos roídos, tripas colgadas en las paredes, restos de animales a medio devorar... Su antigua vivienda era un matadero maloliente, no cabe duda: <strong>¡{user} era un mutante!</strong>]]></target>
       </segment>
     </unit>
     <unit id="rUnZoOv">
