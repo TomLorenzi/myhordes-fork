@@ -7255,7 +7255,7 @@
       <notes>
         <note category="german">Expedition</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">db://ItemCategory</note>
       </notes>
       <segment>
         <source>Expedition</source>
@@ -7657,7 +7657,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="TWuwK4M" name="Angriff und Verteidigung">
       <notes>
         <note category="german">Angriff und Verteidigung</note>
-        <note category="from">[unused]</note>
+        <note category="from">db://ItemCategory</note>
       </notes>
       <segment>
         <source>Angriff und Verteidigung</source>
@@ -8980,7 +8980,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target><![CDATA[<t-fail><t-door-closed>The Town gates are closed ...</t-door-closed><t-no-items>{tamer_dog} has nothing to take back to town, your rucksack is <strong>empty</strong>.</t-no-items></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}<strong>Your neighbours will be really happy when they see all that in the bank.</strong></nt-fail>]]></target>
       </segment>
     </unit>
-    <unit id="JN1w0ES">
+    <unit id="KJwuNW3">
       <notes>
         <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Deine Truhe kann nicht &lt;strong&gt;{items_count} Gegenstände&lt;/strong&gt; aufnehmen: er hat &lt;strong&gt;{size} Platz(e)&lt;/strong&gt; übrig.&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</note>
         <note category="from">db://ItemAction</note>
@@ -8990,7 +8990,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target><![CDATA[<t-fail><t-no-room>Your chest cannot holds <strong>{items_count} items</strong> : it only has <strong>{size} places left</strong>.</t-no-room><t-door-closed>The Town gates are closed ...</t-door-closed><t-no-items>{tamer_dog} has nothing to take back to town, your rucksack is <strong>empty</strong>.</t-no-items><t-too-heavy>{tamer_dog} cannot return the contents of your rucksack: you are carrying a <strong>heavy object</strong> which is just too much for your pet to take!</t-too-heavy></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}As you asked, <strong>everything was left at your house</strong>.{hr}Brave animal!</nt-fail>]]></target>
       </segment>
     </unit>
-    <unit id="QkZTWLf">
+    <unit id="p1t.HhO">
       <notes>
         <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Deine Truhe kann nicht &lt;strong&gt;{items_count} Gegenstände&lt;/strong&gt; aufnehmen: er hat &lt;strong&gt;{size} Platz(e)&lt;/strong&gt; übrig.&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</note>
         <note category="from">db://ItemAction</note>

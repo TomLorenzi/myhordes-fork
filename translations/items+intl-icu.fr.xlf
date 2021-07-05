@@ -8871,7 +8871,7 @@
         <target><![CDATA[<t-fail><t-door-closed>La porte de la ville est fermée ...</t-door-closed><t-no-items>{tamer_dog} n'a rien à ramener, votre sac à dos est <strong>vide</strong>.</t-no-items></t-fail><nt-fail>Vous renvoyez {tamer_dog} en direction de la ville avec tout le contenu de votre sac à dos..{hr}<strong>Ce sont vos voisins qui vont être contents quand il vont trouver tout ça dans la banque.</strong></nt-fail>]]></target>
       </segment>
     </unit>
-    <unit id="JN1w0ES">
+    <unit id="KJwuNW3">
       <notes>
         <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Deine Truhe kann nicht &lt;strong&gt;{items_count} Gegenstände&lt;/strong&gt; aufnehmen: er hat &lt;strong&gt;{size} Platz(e)&lt;/strong&gt; übrig.&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</note>
         <note category="from">db://ItemAction</note>
@@ -8881,7 +8881,7 @@
         <target><![CDATA[<t-fail><t-no-room>Votre coffre ne peut pas accueillir <strong>{items_count} objet(s)</strong> : il y reste <strong>{size} place(s)</strong>.</t-no-room><t-door-closed>La porte de la ville est fermée ...</t-door-closed><t-no-items>{tamer_dog} n'a rien à ramener, votre sac à dos est <strong>vide</strong>.</t-no-items><t-too-heavy>{tamer_dog} ne peut pas ramener le contenu de votre sac : vous transportez un <strong>objet encombrant</strong> qu'il n'est pas en mesure de déplacer !</t-too-heavy></t-fail><nt-fail>Vous renvoyez {tamer_dog} en direction de la ville avec tout le contenu de votre sac à dos..{hr}Comme vous le lui avez demandé, <strong>il lâchera tout chez vous, dans votre coffre.</strong>{hr}Brave bête !</nt-fail>]]></target>
       </segment>
     </unit>
-    <unit id="QkZTWLf">
+    <unit id="p1t.HhO">
       <notes>
         <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Deine Truhe kann nicht &lt;strong&gt;{items_count} Gegenstände&lt;/strong&gt; aufnehmen: er hat &lt;strong&gt;{size} Platz(e)&lt;/strong&gt; übrig.&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</note>
         <note category="from">db://ItemAction</note>
