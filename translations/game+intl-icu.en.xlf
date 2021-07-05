@@ -22136,12 +22136,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="lN02s2b">
       <notes>
         <note category="german">Die offensichtlichen Spuren zeigen, dass {user} die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: &lt;strong&gt;{user} war ein Ghoul&lt;/strong&gt;!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Die offensichtlichen Spuren zeigen, dass {user} die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: &lt;strong&gt;{user} war ein Ghoul&lt;/strong&gt;!</source>
-        <target><![CDATA[More obvious clues could not be left. {user} had definitely crossed the boundaries of crazy: gnawed bones, shredded human entrails, half-eaten animal remains... Their old house is a rancid mass grave that leaves us in no doubt: {user} was a ghoul!]]></target>
+        <target>More obvious clues could not be left. {user} had definitely crossed the boundaries of crazy: gnawed bones, shredded human entrails, half-eaten animal remains... Their old house is a rancid mass grave that leaves us in no doubt: {user} was a ghoul!</target>
       </segment>
     </unit>
     <unit id="rUnZoOv">
@@ -22874,6 +22873,27 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <segment>
         <source>Nur ein einzelner Verrückter bewacht heute Nacht selbstmörderisch das Tor. Wünschen wir {citizens} einen schnellen Tod.</source>
         <target>Only one suicidal maniac is watching the gates tonight! Wish {citizens} a quick death.</target>
+      </segment>
+    </unit>
+    <unit id="X6hFtuv">
+      <notes>
+        <note category="german">Wenn du der Ansicht bist, dass sich {citizen} &lt;strong&gt;falsch verhalten&lt;/strong&gt;, erstatte eine Anzeige&lt;br /&gt;Wenn mehrere Mitspieler dies auch so sehen, kann er (sie) von der Gemeinschaft &lt;strong&gt;schwer bestraft&lt;/strong&gt; werden!</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Wenn du der Ansicht bist, dass sich {citizen} &lt;strong&gt;falsch verhalten&lt;/strong&gt;, erstatte eine Anzeige&lt;br /&gt;Wenn mehrere Mitspieler dies auch so sehen, kann er (sie) von der Gemeinschaft &lt;strong&gt;schwer bestraft&lt;/strong&gt; werden!</source>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {<![CDATA[If you believe that {citizen} <strong>was in the wrong</strong>, make a complaint.<p></p>If multiple citizens do the same thing, she could be severely <strong>punished</strong> by the community!]]>}
+                        other {<![CDATA[If you believe that {citizen} <strong>was in the wrong</strong>, make a complaint.<p></p>If multiple citizens do the same thing, he could be severely <strong>punished</strong> by the community!]]>}
+                    }
+                }
+                other {<![CDATA[If you believe that {citizen} <strong>was in the wrong</strong>, make a complaint.<p></p>If multiple citizens do the same thing, they could be severely <strong>punished</strong> by the community!]]>}
+            }
+        </target>
       </segment>
     </unit>
   </file>

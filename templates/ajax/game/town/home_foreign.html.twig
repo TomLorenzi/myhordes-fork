@@ -140,7 +140,12 @@
                 {% endif %}
                 {% if can_complain %}
                     {% if complaint is null or complaint.severity == 0 %}
-                    <button x-show-reason>{{ 'Anzeige erstatten'|trans({},'game') }}</button>
+                    <button x-show-reason>
+                        {{ 'Anzeige erstatten'|trans({},'game') }}
+                        <div class="tooltip">
+                            {{ 'Wenn du der Ansicht bist, dass sich {citizen} <strong>falsch verhalten</strong>, erstatte eine Anzeige<br />Wenn mehrere Mitspieler dies auch so sehen, kann er (sie) von der Gemeinschaft <strong>schwer bestraft</strong> werden!'|trans({"{citizen}": owner.name}, 'game')|raw }}
+                        </div>
+                    </button>
                     <div class="lightbox" id="complain_reason" style="display: none";>
                         <label for="reason">{{'Grund:'|trans({}, 'game')}}</label>
                         <select id="reason">

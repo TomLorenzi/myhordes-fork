@@ -22239,7 +22239,6 @@
     <unit id="Fu0IcEb">
       <notes>
         <note category="german">WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -22250,7 +22249,6 @@
     <unit id="lN02s2b">
       <notes>
         <note category="german">Die offensichtlichen Spuren zeigen, dass {user} die Grenzen zum Wahnsinn überschritten haben muss: abgenagte Knochen, zerfetzte menschliche Gliedmaßen, halb aufgegessene Tierreste... Sein ehemaliges Zuhause ist ein veritables stinkendes Massengrab, das keinen Zweifel zulässt: &lt;strong&gt;{user} war ein Ghoul&lt;/strong&gt;!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -22261,7 +22259,6 @@
     <unit id="rUnZoOv">
       <notes>
         <note category="german">Diese Aktion ermöglicht es dir, diesen Bürger zu verschlingen, um deinen unersättlichen Heißhunger zu stillen!</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
@@ -22639,7 +22636,6 @@
     <unit id="nbgyiEG">
       <notes>
         <note category="german">Du hast eine Beschwerde gegen &lt;strong&gt;{citizen}&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird {citizen} aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
@@ -22650,7 +22646,6 @@
     <unit id="CgXv4BN">
       <notes>
         <note category="german">Deine Beschwerde wurde zurückgezogen... Denke das nächste Mal besser nach...</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
@@ -22984,6 +22979,27 @@
       <segment>
         <source>Nur ein einzelner Verrückter bewacht heute Nacht selbstmörderisch das Tor. Wünschen wir {citizens} einen schnellen Tod.</source>
         <target>Nur ein einzelner Verrückter bewacht heute Nacht selbstmörderisch das Tor. Wünschen wir {citizens} einen schnellen Tod.</target>
+      </segment>
+    </unit>
+    <unit id="X6hFtuv">
+      <notes>
+        <note category="german">Wenn du der Ansicht bist, dass sich {citizen} &lt;strong&gt;falsch verhalten&lt;/strong&gt;, erstatte eine Anzeige&lt;br /&gt;Wenn mehrere Mitspieler dies auch so sehen, kann er (sie) von der Gemeinschaft &lt;strong&gt;schwer bestraft&lt;/strong&gt; werden!</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Wenn du der Ansicht bist, dass sich {citizen} &lt;strong&gt;falsch verhalten&lt;/strong&gt;, erstatte eine Anzeige&lt;br /&gt;Wenn mehrere Mitspieler dies auch so sehen, kann er (sie) von der Gemeinschaft &lt;strong&gt;schwer bestraft&lt;/strong&gt; werden!</source>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {<![CDATA[Si crees que citizen ha <strong>actuado mal</strong>&amp;#44; denúnciale.<p></p>¡Si varios habitantes hacen lo mismo, él ella recibirá un <strong>castigo</strong> de la comunidad!]]>}
+                        other {<![CDATA[Si crees que citizen ha <strong>actuado mal</strong>&amp;#44; denúnciale.<p></p>¡Si varios habitantes hacen lo mismo, él o recibirá un <strong>castigo</strong> de la comunidad!]]>}
+                    }
+                }
+                other {<![CDATA[Si crees que {citizen} ha <strong>actuado mal</strong> denúnciale.<br />¡Si varios habitantes hacen lo mismo, él o (ella) recibirá un <strong>castigo</strong> de la comunidad!]]>}
+            }
+        </target>
       </segment>
     </unit>
   </file>

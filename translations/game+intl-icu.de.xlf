@@ -13943,5 +13943,11 @@
         <target>Nur ein einzelner Verrückter bewacht heute Nacht selbstmörderisch das Tor. Wünschen wir {citizens} einen schnellen Tod.</target>
       </segment>
     </unit>
+    <unit id="X6hFtuv">
+      <segment>
+        <source>Wenn du der Ansicht bist, dass sich {citizen} &lt;strong&gt;falsch verhalten&lt;/strong&gt;, erstatte eine Anzeige&lt;br /&gt;Wenn mehrere Mitspieler dies auch so sehen, kann er (sie) von der Gemeinschaft &lt;strong&gt;schwer bestraft&lt;/strong&gt; werden!</source>
+        <target><![CDATA[Wenn du der Ansicht bist, dass sich {citizen} <strong>falsch verhalten</strong>, erstatte eine Anzeige<br />Wenn mehrere Mitspieler dies auch so sehen, kann er (sie) von der Gemeinschaft <strong>schwer bestraft</strong> werden!]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
