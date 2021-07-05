@@ -4,6 +4,7 @@
     <unit id="Ytua8lq" name="Die gewählte Stadt ist bereits voll.">
       <notes>
         <note category="german">Die gewählte Stadt ist bereits voll.</note>
+        <note category="from">twig:///templates/scripts/errors/town.txt.twig</note>
       </notes>
       <segment>
         <source>Die gewählte Stadt ist bereits voll.</source>
@@ -13,6 +14,7 @@
     <unit id="9O4x._6" name="Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.">
       <notes>
         <note category="german">Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.</note>
+        <note category="from">twig:///templates/scripts/errors/town.txt.twig</note>
       </notes>
       <segment>
         <source>Du kannst nicht mehr als einer Stadt gleichzeitig beitreten.</source>
@@ -22,6 +24,7 @@
     <unit id="KGUlxGY" name="Du bist dieser Stadt bereits beigetreten.">
       <notes>
         <note category="german">Du bist dieser Stadt bereits beigetreten.</note>
+        <note category="from">twig:///templates/scripts/errors/town.txt.twig</note>
       </notes>
       <segment>
         <source>Du bist dieser Stadt bereits beigetreten.</source>
@@ -31,6 +34,7 @@
     <unit id="xkZqSVc" name="Wähle eine Stadt">
       <notes>
         <note category="german">Wähle eine Stadt</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Wähle eine Stadt</source>
@@ -40,6 +44,7 @@
     <unit id="Bfb7kn4" name="Stadtname">
       <notes>
         <note category="german">Stadtname</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Stadtname</source>
@@ -49,6 +54,7 @@
     <unit id="Vlb5Lbe" name="Aktionen">
       <notes>
         <note category="german">Aktionen</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen_vote.html.twig;twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Aktionen</source>
@@ -58,6 +64,7 @@
     <unit id="rgtSNg9" name="Aktuell gibt es keine Stadt diesen Typs.">
       <notes>
         <note category="german">Aktuell gibt es keine Stadt diesen Typs.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Aktuell gibt es keine Stadt diesen Typs.</source>
@@ -67,6 +74,7 @@
     <unit id="Enh.KhP" name="Nächtlicher Angriff">
       <notes>
         <note category="german">Nächtlicher Angriff</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Nächtlicher Angriff</source>
@@ -76,6 +84,7 @@
     <unit id="xOWTZkZ">
       <notes>
         <note category="german">Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Der Server wird aktuell von Zombies überrannt. Bitte hab einen Moment Geduld, während wir die angreifenden Horden abwehren.</source>
@@ -85,6 +94,7 @@
     <unit id="e6r4m6r">
       <notes>
         <note category="german">Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Der nächtliche Angriff findet jeden Tag um Mitternacht statt und dauert ungefähr 20 Minuten. Während dieser Zeit ist MyHordes nicht erreichbar.</source>
@@ -94,6 +104,7 @@
     <unit id="gqk_gdE" name="Beitreten">
       <notes>
         <note category="german">Beitreten</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Beitreten</source>
@@ -103,6 +114,7 @@
     <unit id="CwvX2yq">
       <notes>
         <note category="german">Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Die Sprache der gewählten Stadt ist {lang_town}. Deine aktuelle Spracheinstellung ist {lang_user}.</source>
@@ -112,6 +124,7 @@
     <unit id="0C3XaFv">
       <notes>
         <note category="german">Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Kommunikation ist wichtig in MyHordes. Bitte betritt keine Stadt, deren Sprache du nicht beherrscht. Möchtest du fortfahren?</source>
@@ -121,6 +134,7 @@
     <unit id="FbY7TeM" name="Bestätigen">
       <notes>
         <note category="german">Bestätigen</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Bestätigen</source>
@@ -130,6 +144,7 @@
     <unit id="x8NF3LC">
       <notes>
         <note category="german">Möchtest du die schreckliche Welt der Verdammten als Bürger der Stadt {town_name} betreten?</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Möchtest du die schreckliche Welt der Verdammten als Bürge der Stadt {town_name} betreten</source>
@@ -139,6 +154,7 @@
     <unit id="uwIFRKe" name="Deine Seele genügt den Anforderungen für diesen Stadttypen.">
       <notes>
         <note category="german">Deine Seele genügt den Anforderungen für diesen Stadttypen.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Deine Seele genügt den Anforderungen für diesen Stadttypen.</source>
@@ -153,6 +169,7 @@
                     &lt;p&gt;
                     Was tust du, solange der Angriff tobt?               
                     &lt;/p&gt;</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
       </notes>
       <segment>
         <source>&lt;p&gt;
@@ -169,6 +186,7 @@
     <unit id="EVKC8.Z" name="Was hat das zu bedeuten?">
       <notes>
         <note category="german">Was hat das zu bedeuten?</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
       </notes>
       <segment>
         <source>Was hat das zu bedeuten?</source>
@@ -178,6 +196,7 @@
     <unit id="ePJ.g5_">
       <notes>
         <note category="german">MyHordes wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
       </notes>
       <segment>
         <source>Die Verdammten wird gerade von den Zombies überfallen! Es ist der tägliche Angriff!</source>
@@ -187,6 +206,7 @@
     <unit id="6YlCau0">
       <notes>
         <note category="german">Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
       </notes>
       <segment>
         <source>Registrierung sowie Log-in sind zur Zeit nicht möglich... Die Seite müsste gegen 00.30 wieder erreichbar sein.</source>
@@ -196,6 +216,7 @@
     <unit id="QfY5rKB" name="Und ja, es wird Tote geben...">
       <notes>
         <note category="german">Und ja, es wird Tote geben...</note>
+        <note category="from">twig:///templates/ajax/public/maintenance_attack.html.twig</note>
       </notes>
       <segment>
         <source>Und ja, es wird Tote geben...</source>
@@ -205,6 +226,7 @@
     <unit id="L4_Jvrm" name="Privatstadt gründen">
       <notes>
         <note category="german">Privatstadt gründen</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Privatstadt gründen</source>
@@ -214,6 +236,7 @@
     <unit id="pUImk8L" name="Zugangscode">
       <notes>
         <note category="german">Zugangscode</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Zugangscode</source>
@@ -223,6 +246,7 @@
     <unit id=".x7RJF5" name="Stadttyp">
       <notes>
         <note category="german">Stadttyp</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Stadttyp</source>
@@ -232,6 +256,7 @@
     <unit id="KOB6h9k" name="Ghule">
       <notes>
         <note category="german">Ghule</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Ghule</source>
@@ -241,6 +266,7 @@
     <unit id="CVyYW8Q" name="Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.">
       <notes>
         <note category="german">Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln.</source>
@@ -250,6 +276,8 @@
     <unit id="pySO60X" name="Normal">
       <notes>
         <note category="german">Normal</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Normal</source>
@@ -259,6 +287,7 @@
     <unit id="jNQMs2P">
       <notes>
         <note category="german">Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Das Auftreten von Ghulen wird nicht geändert. Allerdings kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</source>
@@ -268,6 +297,7 @@
     <unit id="aQ_K79K" name="Blutdurst">
       <notes>
         <note category="german">Blutdurst</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Blutdurst</source>
@@ -277,6 +307,7 @@
     <unit id="Zj_q.r8">
       <notes>
         <note category="german">Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Es erscheint zwar kein Ghul um Mitternacht. Dafür können andere Ereignisse das Auftreten von Ghulen auslösen.</source>
@@ -286,6 +317,7 @@
     <unit id="iE_uBzc" name="Stadt der Kuscheltiere">
       <notes>
         <note category="german">Stadt der Kuscheltiere</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Stadt der Kuscheltiere</source>
@@ -295,6 +327,7 @@
     <unit id="oix8aY3">
       <notes>
         <note category="german">Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Normale Werte liegen zwischen 100 und 180. Wert ist in Pandämonium-Städten reduziert. Maximum ist 300</source>
@@ -304,6 +337,7 @@
     <unit id="9XUKXXI" name="Einstellungen">
       <notes>
         <note category="german">Einstellungen</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Einstellungen</source>
@@ -313,6 +347,7 @@
     <unit id="0beSyHH" name="XML Feed für diese Stadt deaktivieren">
       <notes>
         <note category="german">XML Feed für diese Stadt deaktivieren</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>XML Feed für diese Stadt deaktivieren</source>
@@ -322,6 +357,7 @@
     <unit id="QI93AMS" name="Event-Stadt">
       <notes>
         <note category="german">Event-Stadt</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Event-Stadt</source>
@@ -331,6 +367,7 @@
     <unit id="_GOkdZm" name="Spezialregeln">
       <notes>
         <note category="german">Spezialregeln</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Spezialregeln</source>
@@ -340,6 +377,7 @@
     <unit id="9qD2u0I" name="Keine Spezialregeln">
       <notes>
         <note category="german">Keine Spezialregeln</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Keine Spezialregeln</source>
@@ -349,6 +387,7 @@
     <unit id="ilcgFcS" name="Keine">
       <notes>
         <note category="german">Keine</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Keine</source>
@@ -358,6 +397,7 @@
     <unit id="LDmQN2V">
       <notes>
         <note category="german">Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Kein Gebäude ist zu Beginn freigeschaltet. Alle müssen in der Aussenwelt gefunden werden!</source>
@@ -367,6 +407,7 @@
     <unit id="KzRE1mD" name="Keine Startgebäude">
       <notes>
         <note category="german">Keine Startgebäude</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Keine Startgebäude</source>
@@ -376,6 +417,7 @@
     <unit id="lU_pn2u">
       <notes>
         <note category="german">Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Jedes Essen und jede Droge, die du zu dir nimmst, birgt ein geringes Infektionsrisiko.</source>
@@ -385,6 +427,7 @@
     <unit id="gQkxXIB" name="Kontaminierte Zone">
       <notes>
         <note category="german">Kontaminierte Zone</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Kontaminierte Zone</source>
@@ -394,6 +437,7 @@
     <unit id="w9rtgEq" name="Stadtmodifikationen">
       <notes>
         <note category="german">Stadtmodifikationen</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Stadtmodifikationen</source>
@@ -403,6 +447,7 @@
     <unit id="dhtPmmZ" name="Exploration:">
       <notes>
         <note category="german">Exploration:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Exploration:</source>
@@ -412,6 +457,7 @@
     <unit id="i9uL7bg" name="Begehbare Ruinen aktivieren">
       <notes>
         <note category="german">Begehbare Ruinen aktivieren</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Begehbare Ruinen aktivieren</source>
@@ -421,6 +467,7 @@
     <unit id="DxyIzHy" name="Seelen &amp; Schamane:">
       <notes>
         <note category="german">Seelen &amp; Schamane:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Seelen &amp; Schamane:</source>
@@ -430,6 +477,7 @@
     <unit id="KwchNgg" name="Eskorte:">
       <notes>
         <note category="german">Eskorte:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Eskorte:</source>
@@ -439,6 +487,7 @@
     <unit id="siVFR7b" name="Eskorten aktivieren">
       <notes>
         <note category="german">Eskorten aktivieren</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Eskorten aktivieren</source>
@@ -448,6 +497,7 @@
     <unit id="M7KjFnf" name="Verbannung:">
       <notes>
         <note category="german">Verbannung:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Verbannung:</source>
@@ -457,6 +507,7 @@
     <unit id="QosET96" name="Verbannung aktivieren">
       <notes>
         <note category="german">Verbannung aktivieren</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Verbannung aktivieren</source>
@@ -466,6 +517,7 @@
     <unit id="hR9OXtO" name="Nachtmodus:">
       <notes>
         <note category="german">Nachtmodus:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Nachtmodus:</source>
@@ -475,6 +527,7 @@
     <unit id="3lbcc06" name="Nachtmodus aktivieren (schwerer)">
       <notes>
         <note category="german">Nachtmodus aktivieren (schwerer)</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Nachtmodus aktivieren (schwerer)</source>
@@ -484,6 +537,7 @@
     <unit id="Ip2o27i" name="Camping:">
       <notes>
         <note category="german">Camping:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Camping:</source>
@@ -493,6 +547,7 @@
     <unit id="PWZojkF" name="Camping in der Wildnis aktivieren">
       <notes>
         <note category="german">Camping in der Wildnis aktivieren</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Camping in der Wildnis aktivieren</source>
@@ -502,6 +557,7 @@
     <unit id="8h7b0Dd" name="Ghule:">
       <notes>
         <note category="german">Ghule:</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Ghule:</source>
@@ -511,6 +567,7 @@
     <unit id="Rsw_o_o" name="Ghule aktivieren">
       <notes>
         <note category="german">Ghule aktivieren</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Ghule aktivieren</source>
@@ -520,6 +577,7 @@
     <unit id="rBxUVmT" name="Gebäudeschaden:">
       <notes>
         <note category="german">Gebäudeschaden:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Gebäudeschaden:</source>
@@ -529,6 +587,7 @@
     <unit id="k.ofzD6" name="Gebäudeschaden aktivieren">
       <notes>
         <note category="german">Gebäudeschaden aktivieren</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Gebäudeschaden aktivieren</source>
@@ -538,6 +597,7 @@
     <unit id="BZ2yast" name="Nachtwache:">
       <notes>
         <note category="german">Nachtwache:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Nachtwache:</source>
@@ -547,6 +607,7 @@
     <unit id="85ixbKa" name="Nachtwache aktivieren">
       <notes>
         <note category="german">Nachtwache aktivieren</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Nachtwache aktivieren</source>
@@ -556,6 +617,7 @@
     <unit id="aOW2H78" name="Verbesserte Müllhalde:">
       <notes>
         <note category="german">Verbesserte Müllhalde:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Verbesserte Müllhalde:</source>
@@ -565,6 +627,7 @@
     <unit id="ZqzbCRl" name="Verbesserte Müllhalde aktivieren">
       <notes>
         <note category="german">Verbesserte Müllhalde aktivieren</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Verbesserte Müllhalde aktivieren</source>
@@ -574,6 +637,7 @@
     <unit id="0B82Z13" name="Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt">
       <notes>
         <note category="german">Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Aktiviere/deaktiviere Spielmodifikationen spezifisch für diese Stadt</source>
@@ -583,6 +647,7 @@
     <unit id="BpFg4zU" name="Angriffe">
       <notes>
         <note category="german">Angriffe</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Angriffe</source>
@@ -592,6 +657,7 @@
     <unit id="0AcV_6s" name="Stärke der Angriffe">
       <notes>
         <note category="german">Stärke der Angriffe</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Stärke der Angriffe</source>
@@ -601,6 +667,7 @@
     <unit id="mkXpu2_" name="Leiche Angriffe">
       <notes>
         <note category="german">Leiche Angriffe</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Leiche Angriffe</source>
@@ -610,6 +677,7 @@
     <unit id="MKxsVor" name="Schwere Angriffe">
       <notes>
         <note category="german">Schwere Angriffe</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Schwere Angriffe</source>
@@ -619,6 +687,7 @@
     <unit id="ROOTy.N" name="Achtung!">
       <notes>
         <note category="german">Achtung!</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Achtung!</source>
@@ -628,6 +697,7 @@
     <unit id="VItPxqY" name="Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.">
       <notes>
         <note category="german">Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Falls die Stadt night in 2 Tagen gefüllt ist, wird sie wieder negiert.</source>
@@ -637,6 +707,7 @@
     <unit id="JmzKQyu">
       <notes>
         <note category="german">Beginne ein neues Leben in der Welt der Verdammten und versuche, so lang wie möglich zu überleben. Wer weiß, was dich in dieser neuen Stadt erwarten wird?</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Beginne ein neues Leben in der Welt der Verdammten une versuche, so lang wie möglich zu überleben. Wer weiß, ws dich in dieser neuen Stadt erwarten wird?</source>
@@ -646,6 +717,7 @@
     <unit id="iita2xJ">
       <notes>
         <note category="german">In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Themen" zu spielen.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>In Privatstädten kannst du gemeinsam mit Freunden oder in Städten zu bestimmten "Theen" zu spielen.</source>
@@ -655,6 +727,7 @@
     <unit id="1zFAtcT" name="Wasservorrat">
       <notes>
         <note category="german">Wasservorrat</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Wasservorrat</source>
@@ -664,6 +737,7 @@
     <unit id="qakF4ad" name="Diese Stadt gründen">
       <notes>
         <note category="german">Diese Stadt gründen</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Diese Stadt gründen</source>
@@ -673,6 +747,7 @@
     <unit id="ijucPI." name="Platzreservierung">
       <notes>
         <note category="german">Platzreservierung</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Platzreservierung</source>
@@ -682,6 +757,7 @@
     <unit id="T206xUy" name="Worauf warten Sie noch?">
       <notes>
         <note category="german">Worauf wartest du noch?</note>
+        <note category="from">php:///src/Controller/CustomAbstractController.php</note>
       </notes>
       <segment>
         <source>Worauf warten Sie noch?</source>
@@ -691,6 +767,7 @@
     <unit id="KAAmbDC" name="Name der Stadt">
       <notes>
         <note category="german">Name der Stadt</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Name der Stadt</source>
@@ -700,6 +777,7 @@
     <unit id="WLIeM8b" name="Spiel-Optionen">
       <notes>
         <note category="german">Spiel-Optionen</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Spiel-Optionen</source>
@@ -709,6 +787,7 @@
     <unit id="7L3ndtf" name="Abstimmung aller Piktogramme:">
       <notes>
         <note category="german">Abstimmung aller Piktogramme:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Abstimmung aller Piktogramme:</source>
@@ -718,6 +797,7 @@
     <unit id="WjDyWyC">
       <notes>
         <note category="german">Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Gibt die Gesamtheit der während der Stadt erhaltenen Piktogramme an, anstatt ein Drittel davon.</source>
@@ -727,6 +807,7 @@
     <unit id="vLYm3DY" name="Seelenpunkte vergeben:">
       <notes>
         <note category="german">Seelenpunkte vergeben:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Seelenpunkte vergeben:</source>
@@ -736,6 +817,7 @@
     <unit id="Uadj6Vo" name="Gibt Ihnen Seelenpunkte.">
       <notes>
         <note category="german">Gibt dir Seelenpunkte.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Gibt Ihnen Seelenpunkte.</source>
@@ -745,6 +827,7 @@
     <unit id="UgJmKP7" name="Bitte gib das Stadtpasswort ein :">
       <notes>
         <note category="german">Bitte gib das Stadtpasswort ein :</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig;twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Bitte gib das Stadtpasswort ein :</source>
@@ -754,6 +837,7 @@
     <unit id="Knuuneb" name="Karten-Seed">
       <notes>
         <note category="german">Karten-Seed</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Karten-Seed</source>
@@ -765,6 +849,7 @@
         <note category="german">Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
                                 Gib eine positive ganze Zahl ein, um es zu aktivieren.
                                 DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
@@ -776,6 +861,7 @@
     <unit id="YY0WZyp" name="Verkörperung in der Stadt:">
       <notes>
         <note category="german">Verkörperung in der Stadt:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Verkörperung in der Stadt:</source>
@@ -785,6 +871,7 @@
     <unit id="4iMXGoK" name="Verkörpert dich in der Stadt bei ihrer Entstehung">
       <notes>
         <note category="german">Verkörpert dich in der Stadt bei ihrer Entstehung</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Verkörpert dich in der Stadt bei ihrer Entstehung</source>
@@ -794,6 +881,7 @@
     <unit id="EYBH.W." name="Der Schamane wird gewählt und die Seelen werden gequält.">
       <notes>
         <note category="german">Der Schamane wird gewählt und die Seelen werden gequält.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Der Schamane wird gewählt und die Seelen werden gequält.</source>
@@ -803,6 +891,7 @@
     <unit id="YnsFoKy" name="Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.">
       <notes>
         <note category="german">Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Der Schamane ist ein Beruf, die Seelen werden in der Werkstatt verwandelt.</source>
@@ -812,6 +901,7 @@
     <unit id="rWF6D91" name="Job">
       <notes>
         <note category="german">Job</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Job</source>
@@ -821,6 +911,7 @@
     <unit id="_kZYbUN" name="Der Schamane und die Seelen werden deaktiviert.">
       <notes>
         <note category="german">Der Schamane und die Seelen werden deaktiviert.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Der Schamane und die Seelen werden deaktiviert.</source>
@@ -830,6 +921,7 @@
     <unit id="ifwhezW" name="Deaktiviert">
       <notes>
         <note category="german">Deaktiviert</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Deaktiviert</source>
@@ -839,6 +931,7 @@
     <unit id="TxDkI9W" name="Die Nachtwache ist verfügbar, wenn das Gebäude &quot;Brustwehr&quot; errichtet wurde.">
       <notes>
         <note category="german">Die Nachtwache ist verfügbar, wenn das Gebäude "Brustwehr" errichtet wurde.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Die Nachtwache ist verfügbar, wenn das Gebäude "Brustwehr" errichtet wurde.</source>
@@ -848,6 +941,7 @@
     <unit id="I6A5smr" name="Die Nachtwache ist von Anfang an verfügbar.">
       <notes>
         <note category="german">Die Nachtwache ist von Anfang an verfügbar.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Die Nachtwache ist von Anfang an verfügbar.</source>
@@ -857,6 +951,7 @@
     <unit id="AvGVwK2" name="Sofort">
       <notes>
         <note category="german">Sofort</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Sofort</source>
@@ -866,6 +961,7 @@
     <unit id="s4VKN2Z" name="Die Nachtwache ist deaktiviert.">
       <notes>
         <note category="german">Die Nachtwache ist deaktiviert.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Die Nachtwache ist deaktiviert.</source>
@@ -875,6 +971,7 @@
     <unit id="Vwi2p0a" name="Verfügbare Berufe">
       <notes>
         <note category="german">Verfügbare Berufe</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Verfügbare Berufe</source>
@@ -884,6 +981,7 @@
     <unit id="VHJI.J4" name="Nicht als Privatstadt erstellen:">
       <notes>
         <note category="german">Nicht als Privatstadt erstellen:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Nicht als Privatstadt erstellen:</source>
@@ -893,6 +991,7 @@
     <unit id="QFPVvM5">
       <notes>
         <note category="german">Die Stadt wird nicht in der Liste der Privatstädte, sondern in der oben gewählten Gruppe erscheinen. Diese Option hat keine Auswirkungen auf die Spielregeln oder die Vergabe von Auszeichnungen und Seelenpunkten!</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Die Stadt wird nicht in der Liste der Privatstädte, sondern in der oben gewählten Gruppe erscheinen. Diese Option hat keine Auswirkungen auf die Spielregeln oder die Vergabe von Auszeichnungen und Seelenpunkten!</source>
@@ -902,6 +1001,7 @@
     <unit id="Y1vuSS7" name="Kein XML Feed:">
       <notes>
         <note category="german">Kein XML Feed:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Kein XML Feed:</source>
@@ -913,6 +1013,7 @@
         <note category="german">Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
                                     Gib eine positive ganze Zahl ein, um es zu aktivieren.
                                     DENKT DARÜBER NACH, DIESE GANZE ZAHL VON EINEM EREIGNIS ZUM ANDEREN ZU ÄNDERN !</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Seed, das eine kontrollierte Kartenerstellung ermöglicht. Erlaubt im Falle von Ereignissen, ähnliche Karten zu generieren.
@@ -924,6 +1025,7 @@
     <unit id="9SrqJ_A" name="Strikte Vergabe von Auszeichnungen:">
       <notes>
         <note category="german">Strikte Vergabe von Auszeichnungen:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Strikte Vergabe von Auszeichnungen:</source>
@@ -933,6 +1035,7 @@
     <unit id="FtgTDco" name="Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.">
       <notes>
         <note category="german">Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Vergabe von Auszeichnungen folgt den Regeln kleiner Städte.</source>
@@ -942,6 +1045,7 @@
     <unit id="wuiQkOi" name="Nach 2 Tagen negieren:">
       <notes>
         <note category="german">Nach 2 Tagen negieren:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Nach 2 Tagen negieren:</source>
@@ -951,6 +1055,7 @@
     <unit id="q64vyDh" name="Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.">
       <notes>
         <note category="german">Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Negiert die Stadt, wenn sie nach 2 Tagen nicht gefüllt ist.</source>
@@ -960,6 +1065,7 @@
     <unit id="MOZLgFu" name="Tor versperren:">
       <notes>
         <note category="german">Tor versperren:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Tor versperren:</source>
@@ -969,6 +1075,7 @@
     <unit id="lC8mS57" name="Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.">
       <notes>
         <note category="german">Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Das Stadttor kann erst geöffnet werden, wenn die Stadt voll ist.</source>
@@ -978,6 +1085,7 @@
     <unit id="8UBVWFJ" name="Betapropin steht nicht zur Verfügung.">
       <notes>
         <note category="german">Betapropin steht nicht zur Verfügung.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Betapropin steht nicht zur Verfügung.</source>
@@ -987,6 +1095,7 @@
     <unit id="QjQvnlj" name="Beta-Funktionen deaktivieren">
       <notes>
         <note category="german">Beta-Funktionen deaktivieren</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Beta-Funktionen deaktivieren</source>
@@ -996,6 +1105,7 @@
     <unit id="VoOkBZ0" name="Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.">
       <notes>
         <note category="german">Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.</note>
+        <note category="from">twig:///templates/scripts/errors/town.txt.twig</note>
       </notes>
       <segment>
         <source>Ein Mitglied deiner Koalition kann dieser Stadt nicht beitreten.</source>
@@ -1005,6 +1115,7 @@
     <unit id="jLPuWWW" name="In dieser Stadt ist kein Platz mehr für dich und deine Koalition.">
       <notes>
         <note category="german">In dieser Stadt ist kein Platz mehr für dich und deine Koalition.</note>
+        <note category="from">twig:///templates/scripts/errors/town.txt.twig</note>
       </notes>
       <segment>
         <source>In dieser Stadt ist kein Platz mehr für dich und deine Koalition.</source>
@@ -1014,6 +1125,7 @@
     <unit id="hMJko2L">
       <notes>
         <note category="german">Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Achtung: Du stehst deiner Koalition NICHT ZUR VERFÜGUNG! Das bedeutet, dass du diese Partie allein spielen wirst.</source>
@@ -1023,6 +1135,7 @@
     <unit id="cglpSDE">
       <notes>
         <note category="german">Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Achtung: Im Moment steht kein Mitglied deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
@@ -1032,6 +1145,7 @@
     <unit id="UtrdfFQ">
       <notes>
         <note category="german">Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Achtung: Im Moment stehen nicht alle Mitglieder deiner Koalition zur Verfügung, um dir in eine Stadt zu folgen.</source>
@@ -1041,6 +1155,7 @@
     <unit id="EwLUGr9">
       <notes>
         <note category="german">Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Wenn du eine Stadt betrittst, werden folgende Mitglieder deiner Koalition dir folgen:</source>
@@ -1050,6 +1165,7 @@
     <unit id="U6CJxvc">
       <notes>
         <note category="german">Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Da du in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben bist, bist du für einige Zeit vom Spiel ausgeschlossen. Du kannst aktuell keine neue Stadt betreten.</source>
@@ -1059,6 +1175,7 @@
     <unit id="pOtfy6G">
       <notes>
         <note category="german">Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Du bist in mehreren deiner letzten Städte frühzeitig durch Verdursten gestorben. Sollte dies in deiner nächsten Stadt erneut geschehen, wirst du für einige Wochen vom Spiel ausgeschlossen.</source>
@@ -1068,6 +1185,7 @@
     <unit id="TIikksZ" name="Wiedergeburt: Privatstadt gründen">
       <notes>
         <note category="german">Wiedergeburt: Privatstadt gründen</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Wiedergeburt: Privatstadt gründen</source>
@@ -1077,6 +1195,7 @@
     <unit id="LCh7GiT" name="Wiedergeburt: Wahl der Partie">
       <notes>
         <note category="german">Wiedergeburt: Wahl der Partie</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Wiedergeburt: Wahl der Partie</source>
@@ -1086,6 +1205,7 @@
     <unit id="QkcknlN" name="Kartengröße">
       <notes>
         <note category="german">Kartengröße</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Kartengröße</source>
@@ -1095,6 +1215,7 @@
     <unit id="TCo5k8F" name="Automatisch">
       <notes>
         <note category="german">Automatisch</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Automatisch</source>
@@ -1104,6 +1225,7 @@
     <unit id="a0HGkUJ" name="Kleine Karte">
       <notes>
         <note category="german">Kleine Karte</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Kleine Karte</source>
@@ -1113,6 +1235,7 @@
     <unit id="Pv2k4jm" name="Normale Karte">
       <notes>
         <note category="german">Normale Karte</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Normale Karte</source>
@@ -1122,6 +1245,7 @@
     <unit id="5pSNNaZ" name="Riesige Karte">
       <notes>
         <note category="german">Riesige Karte</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Riesige Karte</source>
@@ -1131,6 +1255,7 @@
     <unit id="Fi9y5O9" name="Eigene Einstellung">
       <notes>
         <note category="german">Eigene Einstellung</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Eigene Einstellung</source>
@@ -1140,6 +1265,7 @@
     <unit id="6m4Eofp" name="Exakte Kartengröße">
       <notes>
         <note category="german">Exakte Kartengröße</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Exakte Kartengröße</source>
@@ -1149,6 +1275,7 @@
     <unit id="OpX8hPZ" name="Anzahl Ruinen">
       <notes>
         <note category="german">Anzahl Ruinen</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Anzahl Ruinen</source>
@@ -1158,6 +1285,7 @@
     <unit id="iXjB0RG" name="Anzahl Begehbare Ruinen">
       <notes>
         <note category="german">Anzahl Begehbare Ruinen</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Anzahl Begehbare Ruinen</source>
@@ -1167,6 +1295,7 @@
     <unit id="tOEjYLQ" name="Position der Stadt">
       <notes>
         <note category="german">Position der Stadt</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Position der Stadt</source>
@@ -1176,6 +1305,7 @@
     <unit id="hXA9n9R" name="Eher Zentral">
       <notes>
         <note category="german">Eher Zentral</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Eher Zentral</source>
@@ -1185,6 +1315,7 @@
     <unit id="uzMPtR4" name="Zentral">
       <notes>
         <note category="german">Zentral</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Zentral</source>
@@ -1194,6 +1325,7 @@
     <unit id="Am_FKUL" name="Spielmodifikationen:">
       <notes>
         <note category="german">Spielmodifikationen:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Spielmodifikationen:</source>
@@ -1203,6 +1335,7 @@
     <unit id="fz803_w" name="Raben-Optionen">
       <notes>
         <note category="german">Raben-Optionen</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Raben-Optionen</source>
@@ -1212,6 +1345,8 @@
     <unit id="jRT25y3" name="Events">
       <notes>
         <note category="german">Events</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Events</source>
@@ -1221,6 +1356,7 @@
     <unit id="dctQQtZ" name="Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.">
       <notes>
         <note category="german">Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Der Nachtmodus ist aktiviert und die Straßenbeleuchtung ist verfügbar.</source>
@@ -1230,6 +1366,7 @@
     <unit id="JeVu4ox" name="Erweitert">
       <notes>
         <note category="german">Erweitert</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Erweitert</source>
@@ -1239,6 +1376,7 @@
     <unit id="kKT9.CK">
       <notes>
         <note category="german">Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Der Nachtmodus ist aktiviert. Die Straßenbeleuchtung steht nicht zur Verfügung.</source>
@@ -1248,6 +1386,7 @@
     <unit id="1dCs8Np" name="Der Nachtmodus ist deaktiviert.">
       <notes>
         <note category="german">Der Nachtmodus ist deaktiviert.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Der Nachtmodus ist deaktiviert.</source>
@@ -1257,6 +1396,7 @@
     <unit id="YgGsjbm" name="Eine Reservierung hinzufügen">
       <notes>
         <note category="german">Eine Reservierung hinzufügen</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Eine Reservierung hinzufügen</source>
@@ -1266,6 +1406,7 @@
     <unit id="HU4iMjQ">
       <notes>
         <note category="german">Du kannst hier festlegen, welche Spieler in deiner Privatstadt spielen dürfen. Andere Spieler können die Stadt nicht betreten! Als Stadtgründer kannst du in deiner Privatstadt immer auch selber mitspielen. Gibst du nur 39 Spieler an, wärst du der also der 40. Bürger.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst hier festlegen, welche Spieler in deiner Privatstadt spielen dürfen. Andere Spieler können die Stadt nicht betreten! Als Stadtgründer kannst du in deiner Privatstadt immer auch selber mitspielen. Gibst du nur 39 Spieler an, wärst du der also der 40. Bürger.</source>
@@ -1275,6 +1416,7 @@
     <unit id="KgvbGLh">
       <notes>
         <note category="german">So geht's: Tippe einen Spielernamen in das Feld ein. Wähle ihn dann aus den angezeigten Namen aus. Klicke dann auf "Hinzufügen". Wiederhole das für alle Spieler, die du auf die Liste setzen möchtest. Alternativ kannst du auch eine mit Komma getrennte Liste von Spielernamen eingeben, um mehrere Spieler auf einmal hiinzuzufügen. Falls du ein Passwort vergeben hast, vergiss nicht, es den Spielern zu schicken (z.B. in einer privaten Nachricht).</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>So geht's: Tippe einen Spielernamen in das Feld ein. Wähle ihn dann aus den angezeigten Namen aus. Klicke dann auf "Hinzufügen". Wiederhole das für alle Spieler, die du auf die Liste setzen möchtest. Alternativ kannst du auch eine mit Komma getrennte Liste von Spielernamen eingeben, um mehrere Spieler auf einmal hiinzuzufügen. Falls du ein Passwort vergeben hast, vergiss nicht, es den Spielern zu schicken (z.B. in einer privaten Nachricht).</source>
@@ -1284,6 +1426,7 @@
     <unit id="VsZ8wM4">
       <notes>
         <note category="german">&lt;strong&gt;Hinweis:&lt;/strong&gt; Beachte, dass sich diese Liste nicht nachträglich ändern lässt. Es ist darum empfehlenwert, &lt;strong&gt;mehr als nur 39 Spieler&lt;/strong&gt; anzugeben. Dann hast du eine Reserve, falls ein oder mehrere Spieler nicht teilnehmen können.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;Hinweis:&lt;/strong&gt; Beachte, dass sich diese Liste nicht nachträglich ändern lässt. Es ist darum empfehlenwert, &lt;strong&gt;mehr als nur 39 Spieler&lt;/strong&gt; anzugeben. Dann hast du eine Reserve, falls ein oder mehrere Spieler nicht teilnehmen können.</source>
@@ -1293,6 +1436,7 @@
     <unit id="t6F_Rrm">
       <notes>
         <note category="german">&lt;strong&gt;Hinweis:&lt;/strong&gt; Wenn du &lt;strong&gt;weniger als 39 Spieler&lt;/strong&gt; angibst, wird die Stadt automatisch für alle Spieler geöffnet, sobald alle Spieler auf der Liste die Stadt betreten haben.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;Hinweis:&lt;/strong&gt; Wenn du &lt;strong&gt;weniger als 39 Spieler&lt;/strong&gt; angibst, wird die Stadt automatisch für alle Spieler geöffnet, sobald alle Spieler auf der Liste die Stadt betreten haben.</source>
@@ -1302,6 +1446,7 @@
     <unit id="PrhBm6y">
       <notes>
         <note category="german">&lt;strong&gt;Falls bis Mitternacht des übernächsten Tags nicht 40 Spieler die Stadt betreten haben, wird sie automatisch negiert. Alle Spieler, die sich dann bereits in der Stadt eingefunden haben, sind dann wieder frei für andere Städte.&lt;/strong&gt;</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>&lt;strong&gt;Falls bis Mitternacht des übernächsten Tags nicht 40 Spieler die Stadt betreten haben, wird sie automatisch negiert. Alle Spieler, die sich dann bereits in der Stadt eingefunden haben, sind dann wieder frei für andere Städte.&lt;/strong&gt;</source>
@@ -1311,6 +1456,7 @@
     <unit id="YHB3zxO" name="Ghule sind deaktiviert.">
       <notes>
         <note category="german">Ghule sind deaktiviert.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Ghule sind deaktiviert.</source>
@@ -1320,6 +1466,7 @@
     <unit id="Az4lDWu" name="Aerogen">
       <notes>
         <note category="german">Aerogen</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Aerogen</source>
@@ -1329,6 +1476,7 @@
     <unit id="AostWDd">
       <notes>
         <note category="german">Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Je nach gewähltem Stadttyp erscheinen Ghule nach den üblichen Regeln. Außerdem kann ein Ghul seinen Hunger nur stillen, indem er einen Mitbürger verspeist.</source>
@@ -1338,6 +1486,7 @@
     <unit id="F4.K1yp" name="Blutdurst und Aerogen">
       <notes>
         <note category="german">Blutdurst und Aerogen</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Blutdurst und Aerogen</source>
@@ -1347,6 +1496,7 @@
     <unit id="6rgCZ72" name="Diese Stadt ist durch ein Passwort geschützt.">
       <notes>
         <note category="german">Diese Stadt ist durch ein Passwort geschützt.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Diese Stadt ist durch ein Passwort geschützt.</source>
@@ -1356,6 +1506,7 @@
     <unit id="n5Q6CYy" name="Für diese Stadt gilt eine Platzreservierung.">
       <notes>
         <note category="german">Für diese Stadt gilt eine Platzreservierung.</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Für diese Stadt gilt eine Platzreservierung.</source>
@@ -1365,6 +1516,7 @@
     <unit id="WhL1uY." name="Einer Stadt beitreten">
       <notes>
         <note category="german">Einer Stadt beitreten</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Einer Stadt beitreten</source>
@@ -1374,6 +1526,7 @@
     <unit id="tnT0nBQ" name="Wähle dein nächstes Leben:">
       <notes>
         <note category="german">Wähle dein nächstes Leben:</note>
+        <note category="from">twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Wähle dein nächstes Leben:</source>
@@ -1383,6 +1536,7 @@
     <unit id="mm_OH8u" name="Ein neues Leben beginnen">
       <notes>
         <note category="german">Ein neues Leben beginnen</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/ghost/donate.html.twig;twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>Ein neues Leben beginnen</source>
@@ -1392,6 +1546,7 @@
     <unit id="NH1qMKw" name="...und mit 39 Mitbürgern in der Hölle schmoren">
       <notes>
         <note category="german">...und mit 39 Mitbürgern in der Hölle schmoren</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/ghost/intro.html.twig</note>
       </notes>
       <segment>
         <source>...und mit 39 Mitbürgern in der Hölle schmoren</source>
@@ -1401,6 +1556,7 @@
     <unit id="ilHQ7qt" name="Das Leben nach dem Tod">
       <notes>
         <note category="german">Das Leben nach dem Tod</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
       </notes>
       <segment>
         <source>Das Leben nach dem Tod</source>
@@ -1410,6 +1566,7 @@
     <unit id="s0KqeMJ" name="Meine Seele ansehen">
       <notes>
         <note category="german">Meine Seele ansehen</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig;twig:///templates/ajax/ghost/welcome.html.twig</note>
       </notes>
       <segment>
         <source>Meine Seele ansehen</source>
@@ -1419,6 +1576,7 @@
     <unit id="_pEJUyq" name="Spendenseite aufrufen">
       <notes>
         <note category="german">Spendenseite aufrufen</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
       </notes>
       <segment>
         <source>Spendenseite aufrufen</source>
@@ -1428,6 +1586,7 @@
     <unit id="lrar0xr" name="Willkommen in der Hölle!">
       <notes>
         <note category="german">Willkommen in der Hölle!</note>
+        <note category="from">twig:///templates/ajax/ghost/welcome.html.twig</note>
       </notes>
       <segment>
         <source>Willkommen in der Hölle!</source>
@@ -1437,6 +1596,7 @@
     <unit id="7zJqkQY">
       <notes>
         <note category="german">Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.</note>
+        <note category="from">twig:///templates/ajax/ghost/welcome.html.twig</note>
       </notes>
       <segment>
         <source>Du bist dabei, dich mit 39 anderen armen Seelen einer Stadt anzuschließen, mit dem Ziel, so lange wie möglich zu überleben.</source>
@@ -1446,6 +1606,7 @@
     <unit id="29U26Sd" name="Spiel betreten">
       <notes>
         <note category="german">Spiel betreten</note>
+        <note category="from">twig:///templates/ajax/ghost/welcome.html.twig</note>
       </notes>
       <segment>
         <source>Spiel betreten</source>
@@ -1455,6 +1616,7 @@
     <unit id="Lj_OYdi" name="Einwohnerzahl">
       <notes>
         <note category="german">Einwohnerzahl</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Einwohnerzahl</source>
@@ -1464,6 +1626,7 @@
     <unit id="kjZ829E" name="Muss zwischen 10 und 80 liegen.">
       <notes>
         <note category="german">Muss zwischen 10 und 80 liegen.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Muss zwischen 10 und 80 liegen.</source>
@@ -1473,6 +1636,7 @@
     <unit id="aASpCwA" name="Bürger-Aliase:">
       <notes>
         <note category="german">Bürger-Aliase:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Bürger-Aliase:</source>
@@ -1482,6 +1646,7 @@
     <unit id="VcRaioj">
       <notes>
         <note category="german">Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Ermöglicht dem Bürger, einen Alias anstelle seines üblichen Benutzernamens zu wählen</source>
@@ -1491,6 +1656,7 @@
     <unit id="CQsXVvw" name="Dein Name">
       <notes>
         <note category="german">Dein Name</note>
+        <note category="from">twig:///templates/ajax/game/jobs.html.twig</note>
       </notes>
       <segment>
         <source>Dein Name</source>
@@ -1500,6 +1666,7 @@
     <unit id="U59mj2e" name="Zeitzone:">
       <notes>
         <note category="german">Zeitzone:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Zeitzone:</source>
@@ -1509,6 +1676,7 @@
     <unit id="e3MFczK" name="Die eingestellte Zeit gibt die Dauer des Tages an.">
       <notes>
         <note category="german">Die eingestellte Zeit gibt die Dauer des Tages an.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Die eingestellte Zeit gibt die Dauer des Tages an.</source>
@@ -1518,6 +1686,7 @@
     <unit id="GhcEWUz">
       <notes>
         <note category="german">Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Ist der Nachtmodus deaktiviert, hat diese Einstellung ausschließlich kosmetischen Einfluss.</source>
@@ -1527,6 +1696,7 @@
     <unit id="lLT6O3P" name="Tagesphase">
       <notes>
         <note category="german">Tagesphase</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Tagesphase</source>
@@ -1536,6 +1706,7 @@
     <unit id="Xhpz327" name="Die eingestellte Zeit gibt die Dauer der Nacht an.">
       <notes>
         <note category="german">Die eingestellte Zeit gibt die Dauer der Nacht an.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Die eingestellte Zeit gibt die Dauer der Nacht an.</source>
@@ -1545,6 +1716,7 @@
     <unit id="dkUvCKc" name="Nachtphase">
       <notes>
         <note category="german">Nachtphase</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Nachtphase</source>

@@ -42,10 +42,14 @@
                 {% trans from 'game' %}
                     Der Brunnen ist der Ort, an dem sich die Bürger jeden Tag ihre Ration Wasser holen.
                 {% endtrans %}
+                <br />
+                <strong>
                 {% if pump is null %}
-                    <br />
-                    <strong>{{'Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!'|trans({}, 'game')}} {{ help_btn('Du kannst den Bau einer Pumpe im Bereich <strong>Konstruktionen</strong> beginnen.'|trans({}, 'game')) }}</strong>
+                    {{'Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!'|trans({}, 'game')}} {{ help_btn('Du kannst den Bau einer Pumpe im Bereich <strong>Konstruktionen</strong> beginnen.'|trans({}, 'game')) }}
+                {% else %}
+                        ({{'Die Stadt verfügt über eine {pumpname}.'|trans({'{pumpname}': pump.prototype.label|trans({}, 'buildings')}, 'game')}})
                 {% endif %}
+                </strong>
             </div>
             {% if pump is not null %}
                 {# @var pump \App\Entity\Building #}
@@ -55,15 +59,7 @@
                             Aufgrund deiner Verbannung kannst du maximal eine Ration Wasser pro Tag entnehmen.
                         {% endtrans %}
                     </div>
-                {% else %}
-                    <div class="note">
-                        {% trans with {'{pumpname}':'<b>' ~ pump.prototype.label|trans({}, 'buildings') ~ '</b>' } from 'game' %}
-                            Die Stadt verfügt über eine {pumpname}.
-                        {% endtrans %}
-                    </div>
                 {% endif %}
-
-
             {% endif %}
             <p>
                 {% if first_take or pump is null %}

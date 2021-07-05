@@ -89,7 +89,8 @@ class MigrateCommand extends Command
         'e8fcdebaee7f62d2a74dfdaa1f352d7cbbdeb848' => [ ['app:migrate', ['--assign-awards' => true] ] ],
         'd2e74544059a70b72cb89784544555663e4f0f9e' => [ ['app:migrate', ['--assign-features' => true] ] ],
         '982adb8ebb6f71be8acd2550fc42a8594264ece3' => [ ['app:migrate', ['--count-admin-reports' => true] ] ],
-        '1a5f0dbc64f5c185e023d3c655014f59f8c8059d' => [ ['app:migrate', ['--repair-restrictions' => true] ] ]
+        '1a5f0dbc64f5c185e023d3c655014f59f8c8059d' => [ ['app:migrate', ['--repair-restrictions' => true] ] ],
+        'af5ba720e3656e5d6603a43074c3e131ee3debb7' => [ ['app:migrate', ['--set-icu-pref' => true] ] ]
     ];
 
     public function __construct(KernelInterface $kernel, GameFactory $gf, EntityManagerInterface $em,
@@ -132,7 +133,10 @@ class MigrateCommand extends Command
             ->addOption('environment', null,InputOption::VALUE_REQUIRED, 'Sets the symfony environment to build assets for')
             ->addOption('phar', null,InputOption::VALUE_NONE, 'If set, composer will be invoked using a composer.phar file')
             ->addOption('fast', null,InputOption::VALUE_NONE, 'If set, composer and yarn updates will be skipped')
+            ->addOption("php-bin", null, InputOption::VALUE_OPTIONAL, 'Sets the PHP binary to use')
+            ->addOption('skip-backup', null,InputOption::VALUE_NONE, 'If set, no database backup will be created')
             ->addOption('stay-offline', null,InputOption::VALUE_NONE, 'If set, maintenance mode will be kept active after the update')
+            ->addOption('release', null,InputOption::VALUE_NONE, 'If set, suppresses commit info from the version string')
 
             ->addOption('install-db', 'i', InputOption::VALUE_NONE, 'Creates and performs the creation of the database and fixtures.')
             ->addOption('update-db', 'u', InputOption::VALUE_NONE, 'Creates and performs a doctrine migration, updates fixtures.')
@@ -163,11 +167,13 @@ class MigrateCommand extends Command
             ->addOption('repair-permissions', null, InputOption::VALUE_NONE, 'Makes sure forum permissions and user groups are set up properly')
             ->addOption('repair-restrictions', null, InputOption::VALUE_NONE, '')
             ->addOption('count-admin-reports', null, InputOption::VALUE_NONE, '')
+            ->addOption('set-icu-pref', null, InputOption::VALUE_NONE, '')
         ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $null = null;
         if ($m = $input->getOption('maintenance')) {
 
             $file = "{$this->param->get('kernel.project_dir')}/public/maintenance/.active";
@@ -188,21 +194,28 @@ class MigrateCommand extends Command
             $remote = $input->getOption('remote');
             $branch = $input->getOption('branch');
             $env    = $input->getOption('environment');
+            $php    = $input->getOption("php-bin");
+            if(empty($php)) $php = "php";
 
-            if (!$this->helper->capsule( "app:migrate --maintenance on", $output, 'Enable maintenance mode... ', true )) return -1;
+            if (!$this->helper->capsule( "app:migrate --maintenance on", $output, 'Enable maintenance mode... ', true, $null, $php )) return -1;
 
             for ($i = 3; $i > 0; --$i) {
                 $output->writeln("Beginning update in <info>{$i}</info> seconds....");
                 sleep(1);
             }
 
+            if (!$input->getOption('skip-backup')) {
+                if (!$this->helper->capsule('app:cron backup update', $output, 'Creating database backup before upgrading... ', true))
+                    return 100;
+            } else $output->writeln("Skipping <info>database backup</info>.");
+
             if (!$this->helper->capsule( "git fetch --tags {$remote} {$branch}", $output, 'Retrieving updates from repository... ', false )) return 1;
             if (!$this->helper->capsule( "git reset --hard {$remote}/{$branch}", $output, 'Applying changes to filesystem... ', false )) return 2;
 
             if (!$input->getOption('fast')) {
                 if ($env === 'dev') {
-                    if (!$this->helper->capsule( ($input->getOption('phar') ? 'php composer.phar' : 'composer') . " install", $output, 'Updating composer dependencies...', false )) return 3;
-                } else if (!$this->helper->capsule( ($input->getOption('phar') ? 'php composer.phar' : 'composer') . " install --no-dev --optimize-autoloader", $output, 'Updating composer production dependencies... ', false )) return 4;
+                    if (!$this->helper->capsule( ($input->getOption('phar') ? "$php composer.phar" : 'composer') . " install", $output, 'Updating composer dependencies...', false )) return 3;
+                } else if (!$this->helper->capsule( ($input->getOption('phar') ? "$php composer.phar" : 'composer') . " install --no-dev --optimize-autoloader", $output, 'Updating composer production dependencies... ', false )) return 4;
                 if (!$this->helper->capsule( "yarn install", $output, 'Updating yarn dependencies... ', false )) return 5;
             } else $output->writeln("Skipping <info>dependency updates</info>.");
 
@@ -210,12 +223,12 @@ class MigrateCommand extends Command
                 if (!$this->helper->capsule( "yarn encore {$env}", $output, 'Building web assets... ', false )) return 6;
             } else $output->writeln("Skipping <info>web asset updates</info>.");
 
-            $version_lines = $this->helper->bin( 'git describe --tags', $ret );
+            $version_lines = $this->helper->bin( 'git describe --tags' . ($input->getOption('release') ? ' --abbrev=0' : ''), $ret );
             if (count($version_lines) >= 1) file_put_contents( 'VERSION', $version_lines[0] );
 
-            if (!$this->helper->capsule( "cache:clear", $output, 'Clearing cache... ', true )) return 7;
-            if (!$this->helper->capsule( "app:migrate -u -r", $output, 'Updating database... ', true )) return 8;
-            if (!$this->helper->capsule( "app:migrate -p", $output, 'Running post-installation scripts... ', true )) return 9;
+            if (!$this->helper->capsule( "cache:clear", $output, 'Clearing cache... ', true, $null, $php )) return 7;
+            if (!$this->helper->capsule( "app:migrate -u -r", $output, 'Updating database... ', true, $null, $php )) return 8;
+            if (!$this->helper->capsule( "app:migrate -p", $output, 'Running post-installation scripts... ', true, $null, $php )) return 9;
 
             if (count($version_lines) >= 1) $output->writeln("Updated MyHordes to version <info>{$version_lines[0]}</info>");
 
@@ -224,16 +237,17 @@ class MigrateCommand extends Command
                     $output->writeln("Disabling maintenance mode in <info>{$i}</info> seconds....");
                     sleep(1);
                 }
-                if (!$this->helper->capsule( "app:migrate --maintenance off", $output, 'Disable maintenance mode... ', true )) return -1;
+                if (!$this->helper->capsule( "app:migrate --maintenance off", $output, 'Disable maintenance mode... ', true, $null, $php )) return -1;
             } else $output->writeln("Maintenance is kept active. Disable with '<info>app:migrate --maintenance off</info>'");
 
+            return 0;
         }
 
         if ($input->getOption('install-db')) {
 
             $output->writeln("\n\n=== <info>Creating database and loading static content</info> ===\n");
 
-            if (!$this->helper->capsule( 'doctrine:database:create', $output )) {
+            if (!$this->helper->capsule( 'doctrine:database:create --if-not-exists', $output )) {
                 $output->writeln("<error>Unable to create database.</error>");
                 return 1;
             }
@@ -263,7 +277,7 @@ class MigrateCommand extends Command
             $output->writeln("\n\n=== <info>Optional setup steps</info> ===\n");
 
             $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
-                "Would you like to create world forums? (y/n) ", true
+                "Would you like to create world forums? (Y/n) ", true
             ) );
             if ($result) {
                 if (!$this->helper->capsule('app:forum:create "Weltforum" 0 --icon bannerForumDiscuss', $output)) {
@@ -281,8 +295,9 @@ class MigrateCommand extends Command
             }
 
             $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
-                "Would you like to create a town? (y/n) ", true
+                "Would you like to create a town? (Y/n) ", true
             ) );
+
             if ($result) {
                 if (!$this->helper->capsule('app:town:create remote 40 en', $output)) {
                     $output->writeln("<error>Unable to create english town.</error>");
@@ -291,23 +306,23 @@ class MigrateCommand extends Command
             }
 
             $result = $this->getHelper('question')->ask($input, $output, new ConfirmationQuestion(
-                "Would you like to create an administrator account? (y/n) ", true
+                "Would you like to create an administrator account? (Y/n) ", true
             ) );
             if ($result) {
                 $name = $this->getHelper('question')->ask($input, $output, new Question(
-                    "Please enter the username: ", 'admin'
+                    "Please enter the username (default: admin): ", 'admin'
                 ) );
                 $mail = $this->getHelper('question')->ask($input, $output, new Question(
-                    "Please enter the e-mail address: ", 'admin@localhost'
+                    "Please enter the e-mail address (default: admin@localhost): ", 'admin@localhost'
                 ) );
 
                 $proceed = false;
                 while (!$proceed) {
-                    $q = new Question( "Please enter the account password: ", '' );
+                    $q = new Question( "Please enter the account password (default: admin): ", 'admin' );
                     $q->setHidden(true);
                     $password1 = $this->getHelper('question')->ask($input, $output, $q );
 
-                    $q = new Question( "Please repeat the account password: ", '' );
+                    $q = new Question( "Please repeat the account password(default: admin): ", 'admin' );
                     $q->setHidden(true);
                     $password2 = $this->getHelper('question')->ask($input, $output, $q );
 
@@ -607,6 +622,15 @@ class MigrateCommand extends Command
             return 0;
         }
 
+        if ($input->getOption('set-icu-pref')) {
+            $this->helper->leChunk($output, User::class, 100, [], true, true, function(User $user) {
+                if ($user->getPreferredPronoun() !== null && $user->getPreferredPronoun() !== User::PRONOUN_NONE)
+                    $user->setUseICU(true);
+            });
+
+            return 0;
+        }
+
         if ($input->getOption('count-admin-reports')) {
             $this->helper->leChunk($output, Post::class, 1000, [], true, true, function(Post $post) {
                 $post->setReported( $post->getAdminReports(false)->count() );
@@ -622,7 +646,6 @@ class MigrateCommand extends Command
 
             return 0;
         }
-
 
         if ($input->getOption('assign-features')) {
 
@@ -857,7 +880,6 @@ class MigrateCommand extends Command
 
         }
 
-
         if ($input->getOption('repair-permissions')) {
 
             $fun_assoc = function (User $user, UserGroup $group) use ($output) {
@@ -952,6 +974,6 @@ class MigrateCommand extends Command
 
         }
 
-        return 1;
+        return 99;
     }
 }

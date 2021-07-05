@@ -4,6 +4,7 @@
     <unit id="BNcLxkK" name="Deine Seele">
       <notes>
         <note category="german">Deine Seele</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Deine Seele</source>
@@ -13,6 +14,7 @@
     <unit id="wvl2WtX" name="E-Mail-Adresse">
       <notes>
         <note category="german">E-Mail-Adresse</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>E-Mail-Adresse</source>
@@ -22,6 +24,7 @@
     <unit id="1fRghxK" name="Externe ID für Apps">
       <notes>
         <note category="german">Externe ID für Apps</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Externe ID für Apps</source>
@@ -31,6 +34,7 @@
     <unit id="44idCpa" name="Neue ID generieren">
       <notes>
         <note category="german">Neue ID generieren</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Neue ID generieren</source>
@@ -40,6 +44,7 @@
     <unit id="E1Sq9FV" name="ID löschen">
       <notes>
         <note category="german">ID löschen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>ID löschen</source>
@@ -49,6 +54,7 @@
     <unit id="Jh3UFwC">
       <notes>
         <note category="german">Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Mit dem Löschen der ID verhinderst Du den Zugriff externer Apps auf Deine Daten.</source>
@@ -58,6 +64,7 @@
     <unit id="2.gcbi0" name="Seele">
       <notes>
         <note category="german">Seele</note>
+        <note category="from">twig:///templates/ajax/game/town/citizen_omniscience.html.twig;twig:///templates/ajax/soul/shell.html.twig</note>
       </notes>
       <segment>
         <source>Seele</source>
@@ -67,6 +74,7 @@
     <unit id="aXUvIxO" name="News">
       <notes>
         <note category="german">News</note>
+        <note category="from">twig:///templates/ajax/soul/news.html.twig;twig:///templates/ajax/soul/shell.html.twig</note>
       </notes>
       <segment>
         <source>News</source>
@@ -76,6 +84,7 @@
     <unit id="9XUKXXI" name="Einstellungen">
       <notes>
         <note category="german">Einstellungen</note>
+        <note category="from">twig:///templates/ajax/soul/shell.html.twig</note>
       </notes>
       <segment>
         <source>Einstellungen</source>
@@ -85,6 +94,8 @@
     <unit id="0FJ_Sz1" name="Logout">
       <notes>
         <note category="german">Logout</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/game/game.html.twig</note>
       </notes>
       <segment>
         <source>Logout</source>
@@ -94,6 +105,7 @@
     <unit id="EpWptWk" name="Schriften">
       <notes>
         <note category="german">Schriften</note>
+        <note category="from">twig:///templates/ajax/soul/shell.html.twig</note>
       </notes>
       <segment>
         <source>Schriften</source>
@@ -103,6 +115,7 @@
     <unit id="q.Y8zXe">
       <notes>
         <note category="german">Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</note>
+        <note category="from">twig:///templates/ajax/soul/rps.html.twig</note>
       </notes>
       <segment>
         <source>Die Geschichte der Welt ist nichts anderes als die Summe mannigfaltiger Heldenerzählungen...</source>
@@ -112,6 +125,7 @@
     <unit id="N8PtlhW" name="Gefundene Texte: {count}">
       <notes>
         <note category="german">Gefundene Texte: {count}</note>
+        <note category="from">twig:///templates/ajax/soul/rps.html.twig</note>
       </notes>
       <segment>
         <source>Gefundene Texte: {count}</source>
@@ -121,6 +135,7 @@
     <unit id="q8r8gtq" name="Titel">
       <notes>
         <note category="german">Titel</note>
+        <note category="from">twig:///templates/ajax/soul/rps.html.twig</note>
       </notes>
       <segment>
         <source>Titel</source>
@@ -130,6 +145,7 @@
     <unit id="PHUagJt" name="Entdeckt">
       <notes>
         <note category="german">Entdeckt</note>
+        <note category="from">twig:///templates/ajax/soul/rps.html.twig</note>
       </notes>
       <segment>
         <source>Entdeckt</source>
@@ -139,6 +155,7 @@
     <unit id="MCPpLdD" name="Redakteur:">
       <notes>
         <note category="german">Autor:</note>
+        <note category="from">twig:///templates/ajax/soul/view_rp.html.twig</note>
       </notes>
       <segment>
         <source>Redakteur:</source>
@@ -148,6 +165,7 @@
     <unit id="KJJicse">
       <notes>
         <note category="german">Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...</note>
+        <note category="from">twig:///templates/ajax/soul/view_rp.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Text hat mehrere Seiten. Klicke auf den Link, um zur nächsten Seite zu gelangen...</source>
@@ -157,6 +175,7 @@
     <unit id="boYEw93" name="Vorherige Seite">
       <notes>
         <note category="german">Vorherige Seite</note>
+        <note category="from">twig:///templates/ajax/soul/view_rp.html.twig</note>
       </notes>
       <segment>
         <source>Vorherige Seite</source>
@@ -166,6 +185,7 @@
     <unit id="hc2Xbgb" name="Nächste Seite">
       <notes>
         <note category="german">Nächste Seite</note>
+        <note category="from">twig:///templates/ajax/soul/view_rp.html.twig</note>
       </notes>
       <segment>
         <source>Nächste Seite</source>
@@ -175,6 +195,7 @@
     <unit id="JW9VP2K" name="Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.">
       <notes>
         <note category="german">Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Dieser Server ist nicht für die Verarbeitung von Profilbildern konfiguriert.</source>
@@ -184,6 +205,7 @@
     <unit id="3UXNMEe" name="Dieses Dateiformat wird nicht unterstützt.">
       <notes>
         <note category="german">Dieses Dateiformat wird nicht unterstützt.</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Dieses Dateiformat wird nicht unterstützt.</source>
@@ -193,6 +215,7 @@
     <unit id="W6NI6B_" name="Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.">
       <notes>
         <note category="german">Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Die gewählte Datei ist beschädigt und kann nicht verarbeitet werden.</source>
@@ -202,6 +225,7 @@
     <unit id="WocA7cM">
       <notes>
         <note category="german">Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Der Server kann das gewählte Bild nicht auf die erforderliche Dateigröße komprimieren.</source>
@@ -211,6 +235,7 @@
     <unit id="EL4cDyq" name="Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.">
       <notes>
         <note category="german">Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Bei der Verarbeitung des Bildes ist ein interner Fehler aufgetreten.</source>
@@ -220,6 +245,7 @@
     <unit id="TzbDcP2" name="Die Datei ist zu groß.">
       <notes>
         <note category="german">Die Datei ist zu groß.</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/soul/settings.html.twig;twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Die Datei ist zu groß.</source>
@@ -229,6 +255,7 @@
     <unit id="WrQqCAs" name="Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.">
       <notes>
         <note category="german">Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Die Auflösung des Bildes ist nicht geeignet, um es als Profilbild zu verwenden.</source>
@@ -238,6 +265,7 @@
     <unit id="jhO4n0e" name="Dein Profil">
       <notes>
         <note category="german">Dein Profil</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Dein Profil</source>
@@ -247,6 +275,7 @@
     <unit id="Mi9Pj.n" name="Normale Anzeige">
       <notes>
         <note category="german">Normale Anzeige</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Normale Anzeige</source>
@@ -256,6 +285,7 @@
     <unit id="iiZH1u9" name="Komprimierte Anzeige">
       <notes>
         <note category="german">Komprimierte Anzeige</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Komprimierte Anzeige</source>
@@ -265,6 +295,7 @@
     <unit id="d_VqAwc">
       <notes>
         <note category="german">Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Damit andere Spieler dich besser erkennen, kannst du hier ein Profilbild hochladen</source>
@@ -274,6 +305,7 @@
     <unit id="C.B17ya" name="Neues Profilbild hochladen">
       <notes>
         <note category="german">Neues Profilbild hochladen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Neues Profilbild hochladen</source>
@@ -283,6 +315,7 @@
     <unit id="uBrCxGO" name="Profilbild löschen">
       <notes>
         <note category="german">Profilbild löschen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Profilbild löschen</source>
@@ -292,6 +325,7 @@
     <unit id="ZtpVK6q" name="Komprimierte Anzeige bearbeiten">
       <notes>
         <note category="german">Komprimierte Anzeige bearbeiten</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Komprimierte Anzeige bearbeiten</source>
@@ -302,6 +336,7 @@
       <notes>
         <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
                                     Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
@@ -313,6 +348,7 @@
     <unit id="37GuQ5_" name="Profilbild hochladen">
       <notes>
         <note category="german">Profilbild hochladen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Profilbild hochladen</source>
@@ -322,6 +358,7 @@
     <unit id="HaejtO6" name="Darstellung">
       <notes>
         <note category="german">Darstellung</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Darstellung</source>
@@ -331,6 +368,7 @@
     <unit id="mjphdzq" name="Login und Sicherheit">
       <notes>
         <note category="german">Login und Sicherheit</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Login und Sicherheit</source>
@@ -340,6 +378,7 @@
     <unit id="fuUze6t" name="Externe Anwendungen">
       <notes>
         <note category="german">Externe Anwendungen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Externe Anwendungen</source>
@@ -349,6 +388,7 @@
     <unit id="rJfU7R2" name="Bitte wähle nur eine einzige Datei aus.">
       <notes>
         <note category="german">Bitte wähle nur eine einzige Datei aus.</note>
+        <note category="from">twig:///templates/ajax/admin/apps/edit.html.twig;twig:///templates/ajax/admin/groups/edit.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Bitte wähle nur eine einzige Datei aus.</source>
@@ -358,6 +398,7 @@
     <unit id="Irxt2Nj" name="Bevorzugt komprimierte Profilbilder anzeigen">
       <notes>
         <note category="german">Bevorzugt komprimierte Profilbilder anzeigen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Bevorzugt komprimierte Profilbilder anzeigen</source>
@@ -367,6 +408,7 @@
     <unit id="elfn6js" name="Einen Kommentar hinzufügen">
       <notes>
         <note category="german">Einen Kommentar hinzufügen</note>
+        <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
       </notes>
       <segment>
         <source>Einen Kommentar hinzufügen</source>
@@ -376,6 +418,7 @@
     <unit id="GiaI_3b" name="Überlebte Tage">
       <notes>
         <note category="german">Überlebte Tage</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Überlebte Tage</source>
@@ -385,6 +428,7 @@
     <unit id="zY4iz3Q" name="Ergebnis">
       <notes>
         <note category="german">Ergebnis</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Ergebnis</source>
@@ -394,6 +438,7 @@
     <unit id="FlZntyi" name="Bürger">
       <notes>
         <note category="german">Bürger</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Bürger</source>
@@ -403,6 +448,7 @@
     <unit id="7F000hR" name="Todesursache">
       <notes>
         <note category="german">Todesursache</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Todesursache</source>
@@ -412,6 +458,7 @@
     <unit id="coQifWg" name="Kommentar">
       <notes>
         <note category="german">Kommentar</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig;twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Kommentar</source>
@@ -421,6 +468,7 @@
     <unit id="mUtATjH">
       <notes>
         <note category="german">This password is incorrect. To delete your account, please enter your current password.</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu löschen.</source>
@@ -430,6 +478,7 @@
     <unit id="HbhZq4U" name="Account löschen">
       <notes>
         <note category="german">Account löschen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Account löschen</source>
@@ -439,6 +488,7 @@
     <unit id="q58CKHC" name="Meinen Account löschen">
       <notes>
         <note category="german">Meinen Account löschen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Meinen Account löschen</source>
@@ -448,6 +498,7 @@
     <unit id="LS.JtiE">
       <notes>
         <note category="german">Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Bist du sicher, dass du deinen Account jetzt löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden!</source>
@@ -457,6 +508,7 @@
     <unit id="TabP5k8" name="Passwort ändern">
       <notes>
         <note category="german">Passwort ändern</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Passwort ändern</source>
@@ -466,6 +518,7 @@
     <unit id="iLulTXC" name="Neues Passwort">
       <notes>
         <note category="german">Neues Passwort</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Neues Passwort</source>
@@ -475,6 +528,7 @@
     <unit id="Icwc1Fo" name="Neues Passwort wiederholen">
       <notes>
         <note category="german">Neues Passwort wiederholen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Neues Passwort wiederholen</source>
@@ -484,6 +538,7 @@
     <unit id="e99uiXA" name="Aktuelles Passwort">
       <notes>
         <note category="german">Aktuelles Passwort</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Aktuelles Passwort</source>
@@ -493,6 +548,7 @@
     <unit id="wIQ05bj" name="Passwort aktualisieren">
       <notes>
         <note category="german">Passwort aktualisieren</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Passwort aktualisieren</source>
@@ -502,6 +558,7 @@
     <unit id="EZLjPxc">
       <notes>
         <note category="german">Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Dein eingegebenes Passwort ist nicht korrekt. Du benötigst dein aktuelles Passwort, um deinen Account zu bearbeiten.</source>
@@ -511,6 +568,7 @@
     <unit id="isnXPfR" name="Standardrolle im Forum">
       <notes>
         <note category="german">Standardrolle im Forum</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Standardrolle im Forum</source>
@@ -520,6 +578,7 @@
     <unit id="uqXS6rA" name="Standardmäßig als dev posten">
       <notes>
         <note category="german">Standardmäßig als dev posten</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Standardmäßig als dev posten</source>
@@ -529,6 +588,7 @@
     <unit id="oJtfnId" name="Es sind in dieser Stadt noch ein paar Bürger übrig...">
       <notes>
         <note category="german">Es sind in dieser Stadt noch ein paar Bürger übrig...</note>
+        <note category="from">twig:///templates/ajax/soul/game_history.html.twig;twig:///templates/ajax/soul/town_list.html.twig</note>
       </notes>
       <segment>
         <source>Es sind in dieser Stadt noch ein paar Bürger übrig...</source>
@@ -538,6 +598,7 @@
     <unit id="YDybxz8" name="Standardsprache">
       <notes>
         <note category="german">Standardsprache</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Standardsprache</source>
@@ -547,6 +608,7 @@
     <unit id="gBz_D6E" name="Deutsch">
       <notes>
         <note category="german">Deutsch</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Deutsch</source>
@@ -556,6 +618,7 @@
     <unit id="vp_4VdN" name="Französisch">
       <notes>
         <note category="german">Französisch</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Französisch</source>
@@ -565,6 +628,7 @@
     <unit id="mD6lfyI" name="Englisch">
       <notes>
         <note category="german">Englisch</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Englisch</source>
@@ -574,6 +638,7 @@
     <unit id="bjgV6Xr" name="Spanisch">
       <notes>
         <note category="german">Spanisch</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Spanisch</source>
@@ -583,6 +648,8 @@
     <unit id="3RZ5Bd4" name="Version">
       <notes>
         <note category="german">Version</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
       </notes>
       <segment>
         <source>Version</source>
@@ -592,6 +659,7 @@
     <unit id="737Zdf." name="Hier findet ihr alle vorangegangenen Updates:">
       <notes>
         <note category="german">Hier findet ihr alle vorangegangenen Updates:</note>
+        <note category="from">twig:///templates/ajax/soul/future.html.twig</note>
       </notes>
       <segment>
         <source>Hier findet ihr alle vorangegangenen Updates:</source>
@@ -601,6 +669,7 @@
     <unit id="lJGEo3w" name="Koalition">
       <notes>
         <note category="german">Koalition</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/shell.html.twig</note>
       </notes>
       <segment>
         <source>Koalition</source>
@@ -610,6 +679,7 @@
     <unit id="ecnmnEm" name="Saison {season}">
       <notes>
         <note category="german">Saison {season}</note>
+        <note category="from">twig:///templates/ajax/soul/shell.html.twig</note>
       </notes>
       <segment>
         <source>Saison {season}</source>
@@ -620,6 +690,7 @@
       <notes>
         <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
                                             Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
@@ -631,6 +702,7 @@
     <unit id="x3_4s4O" name="Alte Städte">
       <notes>
         <note category="german">Alte Städte</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Alte Städte</source>
@@ -640,6 +712,7 @@
     <unit id="hU1AUQF" name="Nur 10 Städte anzeigen">
       <notes>
         <note category="german">Nur 10 Städte anzeigen</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Nur 10 Städte anzeigen</source>
@@ -649,6 +722,7 @@
     <unit id="1vjIGbE" name="Kartei schließen">
       <notes>
         <note category="german">Kartei schließen</note>
+        <note category="from">twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Kartei schließen</source>
@@ -658,6 +732,7 @@
     <unit id="XqSrbwp" name="Browser-Einstellungen">
       <notes>
         <note category="german">Browser-Einstellungen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Browser-Einstellungen</source>
@@ -667,6 +742,7 @@
     <unit id="ZSg.7.l">
       <notes>
         <note category="german">Die folgenden Einstellungen werden in deinem Browser gespeichert und sind damit nur für dein aktuelles Gerät und deinen aktuellen Browser gültig.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Die folgenden Einstellungen werden in deinem Browser gespeichert und sind damit nur für dein aktuelles Gerät und deinen aktuellen Browser gültig.</source>
@@ -676,6 +752,7 @@
     <unit id="_rP15cP" name="Benachrichtigungen als Popups anzeigen">
       <notes>
         <note category="german">Benachrichtigungen als Popups anzeigen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Benachrichtigungen als Popups anzeigen</source>
@@ -685,6 +762,7 @@
     <unit id="cSCIhqi" name="Deine Einstellung wurde gespeichert.">
       <notes>
         <note category="german">Deine Einstellung wurde gespeichert.</note>
+        <note category="from">twig:///templates/ajax/public/disclaimer.html.twig;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Deine Einstellung wurde gespeichert.</source>
@@ -694,6 +772,7 @@
     <unit id="TP_RyxL" name="Haus besuchen">
       <notes>
         <note category="german">Haus besuchen</note>
+        <note category="from">twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Haus besuchen</source>
@@ -703,6 +782,7 @@
     <unit id="q4I8gVL" name="Eine neue Seele importieren">
       <notes>
         <note category="german">Eine neue Seele importieren</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Eine neue Seele importieren</source>
@@ -712,6 +792,8 @@
     <unit id="Oh71xYO" name="Twinoid Application ID">
       <notes>
         <note category="german">Twinoid Application ID</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Twinoid Application ID</source>
@@ -721,6 +803,8 @@
     <unit id="GT7Cwam" name="Twinoid Secret Key">
       <notes>
         <note category="german">Twinoid Secret Key</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Twinoid Secret Key</source>
@@ -730,6 +814,7 @@
     <unit id="SWMx7X8" name="Seele auswählen">
       <notes>
         <note category="german">Seele auswählen</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Seele auswählen</source>
@@ -739,6 +824,7 @@
     <unit id="KVqdEan" name="Import starten">
       <notes>
         <note category="german">Import starten</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Import starten</source>
@@ -748,6 +834,7 @@
     <unit id="WeNNcNG" name="Deine importierten Seelen">
       <notes>
         <note category="german">Deine importierten Seelen</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Deine importierten Seelen</source>
@@ -757,6 +844,7 @@
     <unit id="aTN.bek" name="Vorschau">
       <notes>
         <note category="german">Vorschau</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Vorschau</source>
@@ -766,6 +854,7 @@
     <unit id="pGqYh1Z" name="Hurra, wir haben dein Profil heruntergeladen!">
       <notes>
         <note category="german">Hurra, wir haben dein Profil heruntergeladen!</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Hurra, wir haben dein Profil heruntergeladen!</source>
@@ -775,6 +864,7 @@
     <unit id="j_qDUZ2">
       <notes>
         <note category="german">Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Bitte prüfe die unten angegebenen Daten und bestätige den Import, wenn alles OK ist.</source>
@@ -784,6 +874,7 @@
     <unit id="HwA4Kx3" name="Twinoid-Profil">
       <notes>
         <note category="german">Twinoid-Profil</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Twinoid-Profil</source>
@@ -793,6 +884,7 @@
     <unit id="22.0Wcj" name="Profil ansehen">
       <notes>
         <note category="german">Profil ansehen</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Profil ansehen</source>
@@ -802,6 +894,7 @@
     <unit id="heTnD9H" name="Seelen-ID">
       <notes>
         <note category="german">Seelen-ID</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Seelen-ID</source>
@@ -811,6 +904,7 @@
     <unit id="fmZlI_I" name="Saison">
       <notes>
         <note category="german">Saison</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Saison</source>
@@ -820,6 +914,7 @@
     <unit id="FQORaiq" name="Tag">
       <notes>
         <note category="german">Tag</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Tag</source>
@@ -829,6 +924,7 @@
     <unit id="Bfb7kn4" name="Stadtname">
       <notes>
         <note category="german">Stadtname</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Stadtname</source>
@@ -838,6 +934,7 @@
     <unit id="H9ZffoW" name="Nachrichten">
       <notes>
         <note category="german">Nachrichten</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Nachrichten</source>
@@ -847,6 +944,7 @@
     <unit id="hn7LsRJ" name="Punkte">
       <notes>
         <note category="german">Punkte</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Punkte</source>
@@ -856,6 +954,7 @@
     <unit id="HcPQCBJ" name="{d} überlebt">
       <notes>
         <note category="german">{d} überlebt</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>{d} überlebt</source>
@@ -865,6 +964,7 @@
     <unit id="rD2ZHAN" name="Letzte Worte">
       <notes>
         <note category="german">Letzte Worte</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Letzte Worte</source>
@@ -874,6 +974,7 @@
     <unit id="N5nG16_" name="Import bestätigen">
       <notes>
         <note category="german">Import bestätigen</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Import bestätigen</source>
@@ -883,6 +984,7 @@
     <unit id="RgqWHTF" name="Hast du ein Seele bei {hordes}, {dv}, {d2n} oder {zn}?">
       <notes>
         <note category="german">Hast du ein Seele bei {hordes}, {dv}, {d2n} oder {zn}?</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Hast du ein Seele bei {hordes}, {dv}, {d2n} oder {zn}?</source>
@@ -892,6 +994,7 @@
     <unit id="VVu6KAH" name="Seele importieren">
       <notes>
         <note category="german">Seele importieren</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Seele importieren</source>
@@ -901,6 +1004,7 @@
     <unit id="CezJVcA" name="Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.">
       <notes>
         <note category="german">Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Dein Profil konnte nicht geladen werden, da Twinoid die Anfrage abgelehnt hat.</source>
@@ -910,6 +1014,7 @@
     <unit id="q3h_whw">
       <notes>
         <note category="german">Dein Profil konnte nicht geladen werden, da die Datenverarbeitung fehlgeschlagen ist.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Dein Profil konnte nicht geladen werden, da die Datenverarbeitung fehlgeschlagen ist.</source>
@@ -919,6 +1024,7 @@
     <unit id="oF2e3r3">
       <notes>
         <note category="german">Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Spieler zugeordnet ist.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Spieler zugeordnet ist.</source>
@@ -928,6 +1034,7 @@
     <unit id="VYR1ULC">
       <notes>
         <note category="german">Das angegebene Profil kann nicht importiert werden, da es einem fremden Twinoid-Konto zugeordnet ist.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Das angegebene Profil kann nicht importiert werden, da es einem fremden Twinoid-Konto zugeordnet ist.</source>
@@ -937,6 +1044,7 @@
     <unit id="D24hLqy" name="Informationen über dein Twinoid-Konto">
       <notes>
         <note category="german">Informationen über dein Twinoid-Konto</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Informationen über dein Twinoid-Konto</source>
@@ -946,6 +1054,7 @@
     <unit id="1tzbb8.">
       <notes>
         <note category="german">Bitte stelle sicher, dass du das korrekte Twinoid-Konto mit deinem MyHordes-Account verbindest.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Bitte stelle sicher, dass du das korrekte Twinoid-Konto mit deinem MyHordes-Account verbindest.</source>
@@ -955,6 +1064,7 @@
     <unit id="nVicoPO" name="Zusammenfassung">
       <notes>
         <note category="german">Zusammenfassung</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Zusammenfassung</source>
@@ -964,6 +1074,7 @@
     <unit id="Fil4vVz" name="{c} Städte">
       <notes>
         <note category="german">{c} Städte</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>{c} Städte</source>
@@ -973,6 +1084,7 @@
     <unit id="LdM1ivD" name="zwischen Saison {smin} und {smax}">
       <notes>
         <note category="german">zwischen Saison {smin} und {smax}</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>zwischen Saison {smin} und {smax}</source>
@@ -982,6 +1094,7 @@
     <unit id="HQIrRA2" name="{num} Städte zw. Saison {smin} und {smax}">
       <notes>
         <note category="german">{num} Städte zw. Saison {smin} und {smax}</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>{num} Städte zw. Saison {smin} und {smax}</source>
@@ -991,6 +1104,7 @@
     <unit id=".j1I3aE" name="aus vergangener Zeit">
       <notes>
         <note category="german">aus vergangener Zeit</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>aus vergangener Zeit</source>
@@ -1000,6 +1114,7 @@
     <unit id="s9OjzVB" name="{num} Städte aus vergangener Zeit">
       <notes>
         <note category="german">{num} Städte aus vergangener Zeit</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>{num} Städte aus vergangener Zeit</source>
@@ -1009,6 +1124,7 @@
     <unit id="vGn3Jql" name="Keine Städte">
       <notes>
         <note category="german">Keine Städte</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Keine Städte</source>
@@ -1018,6 +1134,7 @@
     <unit id="BcmdAoj" name="{c} Titel &amp; Icons">
       <notes>
         <note category="german">{c} Titel &amp; Icons</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>{c} Titel &amp; Icons</source>
@@ -1027,6 +1144,7 @@
     <unit id="0pFDY.q" name="{c} Titel, {cc} Icons">
       <notes>
         <note category="german">{c} Titel, {cc} Icons</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>{c} Titel, {cc} Icons</source>
@@ -1036,6 +1154,7 @@
     <unit id="9KGosc_" name="{num} unbekannte Objekte!">
       <notes>
         <note category="german">{num} unbekannte Objekte!</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>{num} unbekannte Objekte!</source>
@@ -1045,6 +1164,7 @@
     <unit id="tJ5C7kL" name="Keine Freischaltungen">
       <notes>
         <note category="german">Keine Freischaltungen</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Keine Freischaltungen</source>
@@ -1054,6 +1174,7 @@
     <unit id="MSs5BIt" name="{c} Seelenpunkte">
       <notes>
         <note category="german">{c} Seelenpunkte</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>{c} Seelenpunkte</source>
@@ -1063,6 +1184,7 @@
     <unit id="E_.5Pkw" name="{c} Auszeichnungen">
       <notes>
         <note category="german">{c} Auszeichnungen</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>{c} Auszeichnungen</source>
@@ -1072,6 +1194,7 @@
     <unit id="Vq0_2Ri" name="{c} Auszeichnungs-Typen, {cc} davon selten">
       <notes>
         <note category="german">{c} Auszeichnungs-Typen, {cc} davon selten</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>{c} Auszeichnungs-Typen, {cc} davon selten</source>
@@ -1081,6 +1204,7 @@
     <unit id="7A2DFcs" name="{c} Auszeichnungs-Typen">
       <notes>
         <note category="german">{c} Auszeichnungs-Typen</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>{c} Auszeichnungs-Typen</source>
@@ -1090,6 +1214,7 @@
     <unit id="OGd6rRz" name="{num} unbekannte Auszeichnungen!">
       <notes>
         <note category="german">{num} unbekannte Auszeichnungen!</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>{num} unbekannte Auszeichnungen!</source>
@@ -1099,6 +1224,7 @@
     <unit id="304pJcq" name="Keine Auszeichnungen">
       <notes>
         <note category="german">Keine Auszeichnungen</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Keine Auszeichnungen</source>
@@ -1108,6 +1234,7 @@
     <unit id="QfF3ttL" name="{c} Tage als Held">
       <notes>
         <note category="german">{c} Tage als Held</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>{c} Tage als Held</source>
@@ -1117,6 +1244,7 @@
     <unit id="WE..GeJ">
       <notes>
         <note category="german">Dieser Wert ist geschätzt und kann vom tatsächlichen Wert abweichen. Dies lässt sich leider nicht vermeiden.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Wert ist geschätzt und kann vom tatsächlichen Wert abweichen. Dies lässt sich leider nicht vermeiden.</source>
@@ -1126,6 +1254,7 @@
     <unit id="Bg3kbdW" name="Vergangene Städte">
       <notes>
         <note category="german">Vergangene Städte</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Vergangene Städte</source>
@@ -1135,6 +1264,7 @@
     <unit id="gNXU40u">
       <notes>
         <note category="german">Hier werden die Städte angezeigt, die du in der vergangenheit gespielt hast. Wenn du dich aktuell in einer Stadt befindest, wird diese hier nicht angezeigt und auch nicht importiert.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Hier werden die Städte angezeigt, die du in der vergangenheit gespielt hast. Wenn du dich aktuell in einer Stadt befindest, wird diese hier nicht angezeigt und auch nicht importiert.</source>
@@ -1144,6 +1274,8 @@
     <unit id="qrK4heb" name="Infos">
       <notes>
         <note category="german">Infos</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Infos</source>
@@ -1153,6 +1285,7 @@
     <unit id="y.oO3aD" name="Todesart">
       <notes>
         <note category="german">Todesart</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Todesart</source>
@@ -1162,6 +1295,7 @@
     <unit id="hYONYc." name="Überlebt">
       <notes>
         <note category="german">Überlebt</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Überlebt</source>
@@ -1171,6 +1305,7 @@
     <unit id="JUr1eVI" name="{d} Tage">
       <notes>
         <note category="german">{d} Tage</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>{d} Tage</source>
@@ -1180,6 +1315,7 @@
     <unit id="fcC4_EM" name="Auszeichnungen">
       <notes>
         <note category="german">Auszeichnungen</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Auszeichnungen</source>
@@ -1189,6 +1325,7 @@
     <unit id="D8ATKTz">
       <notes>
         <note category="german">Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Hier werden dir die Auszeichnungen angezeigt, welche du im Laufe der Zeit verdient hast.</source>
@@ -1198,6 +1335,7 @@
     <unit id="mxKbILU" name="Auszeichnung">
       <notes>
         <note category="german">Auszeichnung</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Auszeichnung</source>
@@ -1207,6 +1345,7 @@
     <unit id="cXTeIrr" name="Anzahl">
       <notes>
         <note category="german">Anzahl</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Anzahl</source>
@@ -1216,6 +1355,7 @@
     <unit id="42T5e3_" name="Freischaltbares">
       <notes>
         <note category="german">Freischaltbares</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Freischaltbares</source>
@@ -1225,6 +1365,7 @@
     <unit id="8xUTLg1" name="Hier siehst du deine Titel und Icons.">
       <notes>
         <note category="german">Hier siehst du deine Titel und Icons.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Hier siehst du deine Titel und Icons.</source>
@@ -1234,6 +1375,7 @@
     <unit id="GwJBg8s" name="Typ">
       <notes>
         <note category="german">Typ</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Typ</source>
@@ -1243,6 +1385,8 @@
     <unit id="cTrAfF8" name="Name &amp; Infos">
       <notes>
         <note category="german">Name &amp; Infos</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Name &amp; Infos</source>
@@ -1252,6 +1396,7 @@
     <unit id="fjR9ql7" name="Wert">
       <notes>
         <note category="german">Wert</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Wert</source>
@@ -1261,6 +1406,7 @@
     <unit id="kTWILTI" name="Datum">
       <notes>
         <note category="german">Datum</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Datum</source>
@@ -1270,6 +1416,7 @@
     <unit id="4wcEbqc">
       <notes>
         <note category="german">Einmal bestätigt, kann die Verknüpfung nicht mehr aufgehoben werden und du kannst kein anderes Twinoid-Konto mehr verknüpfen.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Einmal bestätigt, kann die Verknüpfung nicht mehr aufgehoben werden und du kannst kein anderes Twinoid-Konto mehr verknüpfen.</source>
@@ -1279,6 +1426,7 @@
     <unit id="tyVSys4">
       <notes>
         <note category="german">Du kannst natürlich weiterhin Konten von Hordes, DieVerdammten, Die2Nite und Zombinoia importieren, welche mit dem selben Twinoid-Konto verbunden sind.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst natürlich weiterhin Konten von Hordes, DieVerdammten, Die2Nite und Zombinoia importieren, welche mit dem selben Twinoid-Konto verbunden sind.</source>
@@ -1288,6 +1436,7 @@
     <unit id="fz.4cY3" name="Deine Seele wurde erfolgreich importiert!">
       <notes>
         <note category="german">Deine Seele wurde erfolgreich importiert!</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig;twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Deine Seele wurde erfolgreich importiert!</source>
@@ -1297,6 +1446,7 @@
     <unit id="004l4O7" name="Saison {n}">
       <notes>
         <note category="german">Saison {n}</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Saison {n}</source>
@@ -1306,6 +1456,7 @@
     <unit id="yoZbT75" name="Gute Alte Zeit">
       <notes>
         <note category="german">Gute Alte Zeit</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig;twig:///templates/ajax/soul/season.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>Gute Alte Zeit</source>
@@ -1315,6 +1466,7 @@
     <unit id="c9falYV" name="Dann musst du nicht von Vorne beginnen!">
       <notes>
         <note category="german">Dann musst du nicht von Vorne beginnen!</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Dann musst du nicht von Vorne beginnen!</source>
@@ -1324,6 +1476,7 @@
     <unit id="Av6Ro2b" name="Importiere deine Seele und mache dort weiter, wo du aufgehört hast.">
       <notes>
         <note category="german">Importiere deine Seele und mache dort weiter, wo du aufgehört hast.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Importiere deine Seele und mache dort weiter, wo du aufgehört hast.</source>
@@ -1333,6 +1486,7 @@
     <unit id="kRUPFo6" name="Unbekannte Auszeichnung">
       <notes>
         <note category="german">Unbekannte Auszeichnung</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Unbekannte Auszeichnung</source>
@@ -1342,6 +1496,7 @@
     <unit id="Pu6LW8D" name="Du hast bisher keine Seelen importiert.">
       <notes>
         <note category="german">Du hast bisher keine Seelen importiert.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Du hast bisher keine Seelen importiert.</source>
@@ -1351,6 +1506,7 @@
     <unit id="Lg2uqwQ" name="Angelegt: {d}">
       <notes>
         <note category="german">Angelegt: {d}</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Angelegt: {d}</source>
@@ -1360,6 +1516,7 @@
     <unit id="fMOqBAh" name="Letztes Update: {d}">
       <notes>
         <note category="german">Letztes Update: {d}</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Letztes Update: {d}</source>
@@ -1369,6 +1526,7 @@
     <unit id="eJBYptN" name="Daten aktualisieren">
       <notes>
         <note category="german">Daten aktualisieren</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Daten aktualisieren</source>
@@ -1378,6 +1536,7 @@
     <unit id="DlYgqsn">
       <notes>
         <note category="german">Ruft deine Seele erneut von Twinoid ab und aktualisiert die gespeicherten Informationen. Bevor die neuen Daten gespeichert werden, wird dir eine Vorschau angezeigt.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Ruft deine Seele erneut von Twinoid ab und aktualisiert die gespeicherten Informationen. Bevor die neuen Daten gespeichert werden, wird dir eine Vorschau angezeigt.</source>
@@ -1387,6 +1546,7 @@
     <unit id="lNxrHuq" name="Daten ansehen">
       <notes>
         <note category="german">Daten ansehen</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Daten ansehen</source>
@@ -1396,6 +1556,7 @@
     <unit id="XlXtL3B" name="Zeigt die zuletzt importierten Informationen an.">
       <notes>
         <note category="german">Zeigt die zuletzt importierten Informationen an.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Zeigt die zuletzt importierten Informationen an.</source>
@@ -1405,6 +1566,7 @@
     <unit id="ExfqGAW" name="Erneut importieren">
       <notes>
         <note category="german">Erneut importieren</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Erneut importieren</source>
@@ -1414,6 +1576,7 @@
     <unit id="YhqHcco">
       <notes>
         <note category="german">Führt den Import-Vorgang erneut durch, ohne frische Daten von Twinoid abzurufen. Dies ist nützlich, wenn die importierten Daten durch ein MyHordes-Update nun besser verarbeitet werden können als dies beim letzten Import der Fall war. Diese Funktion wird auch nach der Abschaltung von Twinoid weiter zur Verfügung stehen.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Führt den Import-Vorgang erneut durch, ohne frische Daten von Twinoid abzurufen. Dies ist nützlich, wenn die importierten Daten durch ein MyHordes-Update nun besser verarbeitet werden können als dies beim letzten Import der Fall war. Diese Funktion wird auch nach der Abschaltung von Twinoid weiter zur Verfügung stehen.</source>
@@ -1423,6 +1586,7 @@
     <unit id="DBQkWUr" name="Als Hauptseele wählen">
       <notes>
         <note category="german">Als Hauptseele wählen</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Als Hauptseele wählen</source>
@@ -1432,6 +1596,7 @@
     <unit id="ltYAKjD">
       <notes>
         <note category="german">Legt diese Seele als Hauptseele fest und importiert Seelenpunkte und Heldenerfahrung.</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Legt diese Seele als Hauptseele fest und importiert Seelenpunkte und Heldenerfahrung.</source>
@@ -1441,6 +1606,7 @@
     <unit id="NBJR5jI">
       <notes>
         <note category="german">Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig;twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Bist du sicher, dass du diese Seele als deine Hauptseele festlegen willst. Dieser Vorgang kann nicht rückgängig gemacht werden!</source>
@@ -1450,6 +1616,7 @@
     <unit id="fA1pnvC" name="Diese Seele wurde erfolgreich als deine Hauptseele registriert!">
       <notes>
         <note category="german">Diese Seele wurde erfolgreich als deine Hauptseele registriert!</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Diese Seele wurde erfolgreich als deine Hauptseele registriert!</source>
@@ -1459,6 +1626,7 @@
     <unit id="a7xlwVJ" name="Dies ist deine Hauptseele.">
       <notes>
         <note category="german">Dies ist deine Hauptseele.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Dies ist deine Hauptseele.</source>
@@ -1468,6 +1636,7 @@
     <unit id="uFlUkcE">
       <notes>
         <note category="german">Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele können in dein MyHordes-Profil importiert werden.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung von dieser Seele können in dein MyHordes-Profil importiert werden.</source>
@@ -1477,6 +1646,7 @@
     <unit id=".NldYpW" name="Dies ist nicht deine Hauptseele.">
       <notes>
         <note category="german">Dies ist nicht deine Hauptseele.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Dies ist nicht deine Hauptseele.</source>
@@ -1486,6 +1656,7 @@
     <unit id="mtD8S3s">
       <notes>
         <note category="german">Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von deiner Hauptseele in dein MyHordes-Profil importiert werden.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von deiner Hauptseele in dein MyHordes-Profil importiert werden.</source>
@@ -1495,6 +1666,7 @@
     <unit id="ujVgB2r" name="Möchtest du diese Seele zu deiner Hauptseele erklären?">
       <notes>
         <note category="german">Möchtest du diese Seele zu deiner Hauptseele erklären?</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Möchtest du diese Seele zu deiner Hauptseele erklären?</source>
@@ -1504,6 +1676,7 @@
     <unit id="NC78n6U">
       <notes>
         <note category="german">Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von einer Seele importiert werden - deiner Hauptseele. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Seelenpunkte, Auszeichnungen und Heldenerfahrung können nur von einer Seele importiert werden - deiner Hauptseele. Überlege dir deine Entscheidung gut, denn du kannst die Wahl deiner Hauptseele später nicht mehr ändern!</source>
@@ -1513,6 +1686,7 @@
     <unit id="DJ.7w.9">
       <notes>
         <note category="german">Du musst diese Entscheidung nicht jetzt treffen, sondern kannst diese Seele auch nachträglich noch zu deiner Hauptseele erklären - solange du inzwischen nicht bereits eine andere Seele als Hauptseele gewählt hast.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Du musst diese Entscheidung nicht jetzt treffen, sondern kannst diese Seele auch nachträglich noch zu deiner Hauptseele erklären - solange du inzwischen nicht bereits eine andere Seele als Hauptseele gewählt hast.</source>
@@ -1522,6 +1696,7 @@
     <unit id="1MRAxNt">
       <notes>
         <note category="german">Unabhängig davon, ob du diese Seele zu deiner Hauptseele machst oder nicht, kannst du ihre Daten bei Bedarf selbstverständlich erneut mit Twinoid abgleichen und ihre Daten aktualisieren.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Unabhängig davon, ob du diese Seele zu deiner Hauptseele machst oder nicht, kannst du ihre Daten bei Bedarf selbstverständlich erneut mit Twinoid abgleichen und ihre Daten aktualisieren.</source>
@@ -1531,6 +1706,7 @@
     <unit id="eoeG3zx" name="Diese Seele zu meiner Hauptseele machen!">
       <notes>
         <note category="german">Diese Seele zu meiner Hauptseele machen!</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Diese Seele zu meiner Hauptseele machen!</source>
@@ -1540,6 +1716,7 @@
     <unit id="s9icea7">
       <notes>
         <note category="german">Um diese Seele zu deiner Hauptseele zu machen, verwende die Schaltfläche auf der vorherigen Seite.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Um diese Seele zu deiner Hauptseele zu machen, verwende die Schaltfläche auf der vorherigen Seite.</source>
@@ -1549,6 +1726,7 @@
     <unit id="nrZhqLF" name="Diese Daten können nur von deiner Hauptseele importiert werden.">
       <notes>
         <note category="german">Diese Daten können nur von deiner Hauptseele importiert werden.</note>
+        <note category="from">twig:///templates/ajax/soul/import_preview.html.twig</note>
       </notes>
       <segment>
         <source>Diese Daten können nur von deiner Hauptseele importiert werden.</source>
@@ -1558,6 +1736,7 @@
     <unit id="p2vFHLe" name="Es ist deine Hauptseele">
       <notes>
         <note category="german">Es ist deine Hauptseele</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Es ist deine Hauptseele</source>
@@ -1567,6 +1746,7 @@
     <unit id="WPvMZd7">
       <notes>
         <note category="german">Du kannst nur eine deiner Seelen als Hauptseele festlegen und diese Auswahl auch nicht mehr ändern! Wähle also weise...</note>
+        <note category="from">twig:///templates/ajax/soul/import.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst nur eine deiner Seelen als Hauptseele festlegen und diese Auswahl auch nicht mehr ändern! Wähle also weise...</source>
@@ -1576,6 +1756,8 @@
     <unit id="59PnafP" name="Administrator">
       <notes>
         <note category="german">Administrator</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
         <source>Administrator</source>
@@ -1585,6 +1767,7 @@
     <unit id="Ij9qHqJ">
       <notes>
         <note category="german">Diese Karteikarte gehört einem Administrator. Wenn ihr darauf komische, abnormale oder gar furchteinflößende Dinge entdeckt: Das ist völlig normal. Macht euch keine Sorgen, er weiß wahrscheinlich schon Bescheid :).</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Administrator. Wenn ihr darauf komische, abnormale oder gar furchteinflößende Dinge entdeckt: Das ist völlig normal. Macht euch keine Sorgen, er weiß wahrscheinlich schon Bescheid :).</source>
@@ -1594,6 +1777,7 @@
     <unit id="Oxu558J" name="Der Rabe">
       <notes>
         <note category="german">Der Rabe</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
         <source>Der Rabe</source>
@@ -1603,6 +1787,7 @@
     <unit id="YKiLytV">
       <notes>
         <note category="german">Diese Karteikarte gehört einem Raben. Du solltest sie lieber wieder zurücklegen... langsam und ohne plötzliche Bewegungen.</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Raben. Du solltest sie lieber wieder zurücklegen... langsam und ohne plötzliche Bewegungen.</source>
@@ -1612,6 +1797,7 @@
     <unit id="BCS.RQ1" name="Orakel">
       <notes>
         <note category="german">Orakel</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
         <source>Orakel</source>
@@ -1621,6 +1807,7 @@
     <unit id="GMmC34.">
       <notes>
         <note category="german">Diese Karteikarte gehört einem Orakel. Orakel sind Bindeglieder zwischen der Community und den Entwicklern. Du kannst dich bei Fragen und Problemen vertrauensvoll an sie wenden.</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
         <source>Diese Karteikarte gehört einem Orakel. Orakel sind Bindeglieder zwischen der Community und den Entwicklern. Du kannst dich bei Fragen und Problemen vertrauensvoll an sie wenden.</source>
@@ -1630,6 +1817,7 @@
     <unit id="qPDF80G" name="Irgend etwas erscheint an dieser Karteikarte merkwürdig...">
       <notes>
         <note category="german">Irgend etwas erscheint an dieser Karteikarte merkwürdig...</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
         <source>Irgend etwas erscheint an dieser Karteikarte merkwürdig...</source>
@@ -1639,6 +1827,7 @@
     <unit id="KmttAsi">
       <notes>
         <note category="german">Dieser Spieler hat mindestens eine Seele von Twinoid importiert. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Spieler hat mindestens eine Seele von Twinoid importiert. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
@@ -1648,6 +1837,7 @@
     <unit id="BvaERjQ" name="Twinoid-Nutzer">
       <notes>
         <note category="german">Twinoid-Nutzer</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
         <source>Twinoid-Nutzer</source>
@@ -1657,6 +1847,7 @@
     <unit id="1xiOB2G" name="Seele suchen">
       <notes>
         <note category="german">Seele suchen</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Seele suchen</source>
@@ -1666,6 +1857,7 @@
     <unit id="XRr8eU." name="Gib den Pseudo des Bürgers ein.">
       <notes>
         <note category="german">Gib den Namen des Bürgers ein.</note>
+        <note category="from">twig:///templates/ajax/admin/snippets/user_search.html.twig;twig:///templates/ajax/forum/search.html.twig;twig:///templates/ajax/ghost/create_town.html.twig;twig:///templates/ajax/pm/user_list.html.twig;twig:///templates/ajax/pm/view.html.twig;twig:///templates/ajax/soul/coalitions.html.twig;twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Gib den Pseudo des Bürgers ein.</source>
@@ -1675,6 +1867,7 @@
     <unit id="CMpbuf0">
       <notes>
         <note category="german">Diese Stadt wurde von {host} importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Diese Stadt wurde von {host} importiert. Die angezeigten Informationen sind möglicherweise unvollständig.</source>
@@ -1684,6 +1877,7 @@
     <unit id="Z3DDGf9" name="Tage">
       <notes>
         <note category="german">Tage</note>
+        <note category="from">twig:///templates/ajax/soul/view_town_content.html.twig</note>
       </notes>
       <segment>
         <source>Tage</source>
@@ -1693,6 +1887,7 @@
     <unit id="3CKPuqs" name="Dein Account wurde gesperrt.">
       <notes>
         <note category="german">Dein Account wurde gesperrt.</note>
+        <note category="from">twig:///templates/ajax/soul/acc_disabled.html.twig</note>
       </notes>
       <segment>
         <source>Dein Account wurde gesperrt.</source>
@@ -1702,6 +1897,7 @@
     <unit id="smLPd3k" name="Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.">
       <notes>
         <note category="german">Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.</note>
+        <note category="from">twig:///templates/ajax/soul/acc_disabled.html.twig</note>
       </notes>
       <segment>
         <source>Dein Account wurde von einem Administrator vom Spiel ausgeschlossen.</source>
@@ -1711,6 +1907,7 @@
     <unit id="w55zJhZ" name="Diese Sperre ist permanent.">
       <notes>
         <note category="german">Diese Sperre ist permanent.</note>
+        <note category="from">twig:///templates/ajax/soul/acc_disabled.html.twig</note>
       </notes>
       <segment>
         <source>Diese Sperre ist permanent.</source>
@@ -1720,6 +1917,7 @@
     <unit id="zh9.khn">
       <notes>
         <note category="german">Wenn du dich aktuell in einer Stadt befindest, kannst du dort keine Aktionen mehr durchführen und nicht länger auf das Stadtforum zugreifen.</note>
+        <note category="from">twig:///templates/ajax/soul/acc_disabled.html.twig</note>
       </notes>
       <segment>
         <source>Wenn du dich aktuell in einer Stadt befindest, kannst du dort keine Aktionen mehr durchführen und nicht länger auf das Stadtforum zugreifen.</source>
@@ -1729,6 +1927,7 @@
     <unit id="Abv4VOi" name="Du kannst auch keiner neuen Stadt mehr beitreten.">
       <notes>
         <note category="german">Du kannst auch keiner neuen Stadt mehr beitreten.</note>
+        <note category="from">twig:///templates/ajax/soul/acc_disabled.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst auch keiner neuen Stadt mehr beitreten.</source>
@@ -1738,6 +1937,7 @@
     <unit id="vTDbvR_" name="Folgende Begründung wurde für deine Sperre hinterlegt:">
       <notes>
         <note category="german">Folgende Begründung wurde für deine Sperre hinterlegt:</note>
+        <note category="from">twig:///templates/ajax/soul/acc_disabled.html.twig</note>
       </notes>
       <segment>
         <source>Folgende Begründung wurde für deine Sperre hinterlegt:</source>
@@ -1747,6 +1947,7 @@
     <unit id="4pm3p5L" name="Es wurde keine Begründung für diese Sperre hinterlegt.">
       <notes>
         <note category="german">Es wurde keine Begründung für diese Sperre hinterlegt.</note>
+        <note category="from">twig:///templates/ajax/soul/acc_disabled.html.twig</note>
       </notes>
       <segment>
         <source>Es wurde keine Begründung für diese Sperre hinterlegt.</source>
@@ -1756,6 +1957,7 @@
     <unit id="clP2Rxk" name="EternalTwin-Nutzer">
       <notes>
         <note category="german">EternalTwin-Nutzer</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
         <source>EternalTwin-Nutzer</source>
@@ -1765,6 +1967,7 @@
     <unit id="0T9At.g">
       <notes>
         <note category="german">Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Spieler verwendet einen EternalTwin-Account. Wir feuen uns, ihn bei MyHordes begrüßen zu dürfen!</source>
@@ -1774,6 +1977,7 @@
     <unit id="XRvl7w0">
       <notes>
         <note category="german">Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Das angegebene Profil kann nicht importiert werden, da es bereits einem anderen MyHordes-Konto zugeordnet ist.</source>
@@ -1783,6 +1987,7 @@
     <unit id="wstj04z" name="MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!">
       <notes>
         <note category="german">MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>MyHordes ist ein stolzer Bestandteil des EternalTwin-Netzwerkes!</source>
@@ -1792,6 +1997,7 @@
     <unit id="WVIMH8t">
       <notes>
         <note category="german">Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Um MyHordes auch in Zukunft weiter spielen zu können, musst du deinen alten MyHordes-Account mit einem EternalTwin-Account verknüpfen.</source>
@@ -1801,6 +2007,7 @@
     <unit id="CACKQCH" name="EternalTwin-Account verknüpfen">
       <notes>
         <note category="german">EternalTwin-Account verknüpfen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>EternalTwin-Account verknüpfen</source>
@@ -1810,6 +2017,7 @@
     <unit id="zlGVYh_" name="{name}'s Koalition">
       <notes>
         <note category="german">{name}'s Koalition</note>
+        <note category="from">php:///src/Controller/Soul/SoulCoalitionController.php</note>
       </notes>
       <segment>
         <source>{name}'s Koalition</source>
@@ -1819,6 +2027,7 @@
     <unit id="j8VraNU" name="Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!">
       <notes>
         <note category="german">Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!</note>
+        <note category="from">php:///src/Controller/Soul/SoulCoalitionController.php</note>
       </notes>
       <segment>
         <source>Herzlichen Glückwunsch, du bist der Koalition soeben beigetreten!</source>
@@ -1828,6 +2037,7 @@
     <unit id="MNqhTYg" name="Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.">
       <notes>
         <note category="german">Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Es tut uns Leid, aber dieser Spieler gehört bereits einer Koalition an.</source>
@@ -1837,6 +2047,7 @@
     <unit id="3gqWAoL" name="Hierfür musst du einer Koalition angehören.">
       <notes>
         <note category="german">Hierfür musst du einer Koalition angehören.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Hierfür musst du einer Koalition angehören.</source>
@@ -1846,6 +2057,7 @@
     <unit id="57GeJrY" name="Du bist bereits Mitglied einer Koalition.">
       <notes>
         <note category="german">Du bist bereits Mitglied einer Koalition.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Du bist bereits Mitglied einer Koalition.</source>
@@ -1855,6 +2067,7 @@
     <unit id="yQfn1EC" name="Deine Koalition ist bereits voll.">
       <notes>
         <note category="german">Deine Koalition ist bereits voll.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Deine Koalition ist bereits voll.</source>
@@ -1864,6 +2077,7 @@
     <unit id="GO1ZJcp">
       <notes>
         <note category="german">Du möchtest schon seit langem &lt;strong&gt;mit deinen Freunden zusammen sterben&lt;/strong&gt;? Du möchtest die gleichen schönen und &lt;strong&gt;entsetzlichen&lt;/strong&gt; Momente mit ihnen erleben? Dann sind die &lt;strong&gt;Kleinen Koalitionen&lt;/strong&gt; genau das richtige für dich! Es handelt sich um kleine Mannschaften von &lt;strong&gt;5&lt;/strong&gt; Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Du möchtest schon seit langem &lt;strong&gt;mit deinen Freunden zusammen sterben&lt;/strong&gt;? Du möchtest die gleichen schönen und &lt;strong&gt;entsetzlichen&lt;/strong&gt; Momente mit ihnen erleben? Dann sind die &lt;strong&gt;Kleinen Koalitionen&lt;/strong&gt; genau das richtige für dich! Es handelt sich um kleine Mannschaften von &lt;strong&gt;5&lt;/strong&gt; Bürgern, die gemeinsam die Welt der Verdammten entdecken möchten.</source>
@@ -1873,6 +2087,7 @@
     <unit id="_SpidlG">
       <notes>
         <note category="german">Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, &lt;strong&gt;zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.&lt;/strong&gt;</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Das Prinzip ist ganz einfach: Wenn ihr in einer Koalition spielt, &lt;strong&gt;zieht der Erste, der eine Partie anfängt, alle verfügbaren Koalitionsmitglieder mit sich ins Spiel.&lt;/strong&gt;</source>
@@ -1882,6 +2097,7 @@
     <unit id="vxIJV3j" name="Du möchtest deine eigene Koalition erstellen?">
       <notes>
         <note category="german">Du möchtest deine eigene Koalition erstellen?</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Du möchtest deine eigene Koalition erstellen?</source>
@@ -1891,6 +2107,7 @@
     <unit id="h_4dLhS" name="Meine Koalition erstellen">
       <notes>
         <note category="german">Meine Koalition erstellen</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Meine Koalition erstellen</source>
@@ -1900,6 +2117,7 @@
     <unit id="okBUp.C" name="Einer existierenden Koalition beitreten">
       <notes>
         <note category="german">Einer existierenden Koalition beitreten</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Einer existierenden Koalition beitreten</source>
@@ -1909,6 +2127,7 @@
     <unit id="S6ckGt2" name="Es hat dich bisher noch niemand eingeladen.">
       <notes>
         <note category="german">Es hat dich bisher noch niemand eingeladen.</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Es hat dich bisher noch niemand eingeladen.</source>
@@ -1918,6 +2137,8 @@
     <unit id="3NHVIj9" name="Name">
       <notes>
         <note category="german">Name</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Name</source>
@@ -1927,6 +2148,7 @@
     <unit id="Vlb5Lbe" name="Aktionen">
       <notes>
         <note category="german">Aktionen</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Aktionen</source>
@@ -1936,6 +2158,7 @@
     <unit id="ze.SRGE" name="Mitmachen!">
       <notes>
         <note category="german">Mitmachen!</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Mitmachen!</source>
@@ -1945,6 +2168,7 @@
     <unit id="RRAKPkm" name="Die Einladung ablehnen.">
       <notes>
         <note category="german">Die Einladung ablehnen.</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Die Einladung ablehnen.</source>
@@ -1954,6 +2178,7 @@
     <unit id="3hmiaVs" name="Shoutbox der Koalition">
       <notes>
         <note category="german">Shoutbox der Koalition</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Shoutbox der Koalition</source>
@@ -1963,6 +2188,7 @@
     <unit id="EdbufZv" name="Verfügbare Mitglieder">
       <notes>
         <note category="german">Verfügbare Mitglieder</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Verfügbare Mitglieder</source>
@@ -1972,6 +2198,7 @@
     <unit id="XblqKpM" name="Nicht verfügbar">
       <notes>
         <note category="german">Nicht verfügbar</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Nicht verfügbar</source>
@@ -1981,6 +2208,7 @@
     <unit id="3E9hxaU" name="Ausstehende Einladungen">
       <notes>
         <note category="german">Ausstehende Einladungen</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Ausstehende Einladungen</source>
@@ -1990,6 +2218,7 @@
     <unit id="RG9ZXHi" name="Einen Freund einladen">
       <notes>
         <note category="german">Einen Freund einladen</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Einen Freund einladen</source>
@@ -1999,6 +2228,7 @@
     <unit id="8dquNSH" name="Optionen">
       <notes>
         <note category="german">Optionen</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Optionen</source>
@@ -2008,6 +2238,7 @@
     <unit id="Rh5HYn_" name="Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.">
       <notes>
         <note category="german">Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Du stehst &lt;strong&gt;zur Verfügung&lt;/strong&gt;.</source>
@@ -2017,6 +2248,7 @@
     <unit id="o.K5fG9" name="Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.">
       <notes>
         <note category="german">Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Du stehst &lt;strong&gt;nicht zur Verfügung&lt;/strong&gt;.</source>
@@ -2026,6 +2258,7 @@
     <unit id="jFqiwRT" name="Meinen Status ändern">
       <notes>
         <note category="german">Meinen Status ändern</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Meinen Status ändern</source>
@@ -2035,6 +2268,7 @@
     <unit id="rq4q8kx" name="Verlassen UND auflösen">
       <notes>
         <note category="german">Verlassen UND auflösen</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Verlassen UND auflösen</source>
@@ -2044,6 +2278,7 @@
     <unit id="oiwx9uP" name="Verlassen">
       <notes>
         <note category="german">Verlassen</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Verlassen</source>
@@ -2053,6 +2288,7 @@
     <unit id="sLJWy9T" name="Nicht in einer Stadt">
       <notes>
         <note category="german">Nicht in einer Stadt</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Nicht in einer Stadt</source>
@@ -2062,6 +2298,7 @@
     <unit id="AT.EHRB" name="Diesen Spieler ausschließen?">
       <notes>
         <note category="german">Diesen Spieler ausschließen?</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Diesen Spieler ausschließen?</source>
@@ -2071,6 +2308,7 @@
     <unit id="xpAtz8l" name="Diesen Spieler ausschließen.">
       <notes>
         <note category="german">Diesen Spieler ausschließen.</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Diesen Spieler ausschließen.</source>
@@ -2080,6 +2318,7 @@
     <unit id="PmiiQcl" name="Die Shoutbox ist leer...">
       <notes>
         <note category="german">Die Shoutbox ist leer...</note>
+        <note category="from">twig:///templates/ajax/soul/shout_content.html.twig</note>
       </notes>
       <segment>
         <source>Die Shoutbox ist leer...</source>
@@ -2089,6 +2328,7 @@
     <unit id="IuHFUTo" name="Absenden">
       <notes>
         <note category="german">Absenden</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Absenden</source>
@@ -2098,6 +2338,7 @@
     <unit id="zeYLnSy" name="Klick auf diesen Link, um die Seite neu zu laden.">
       <notes>
         <note category="german">Klick auf diesen Link, um die Seite neu zu laden.</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Klick auf diesen Link, um die Seite neu zu laden.</source>
@@ -2107,6 +2348,7 @@
     <unit id="flUhUW0">
       <notes>
         <note category="german">Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Wenn du nicht automatisch an einer Partie teilnehmen möchtest, sobald ein anderer Spieler der Koalition einer Stadt beitritt, stelle bitte ein: nicht zur Verfügung.</source>
@@ -2116,6 +2358,7 @@
     <unit id="FNkhsV2" name="Vor 1 Tag">
       <notes>
         <note category="german">Vor 1 Tag</note>
+        <note category="from">twig:///templates/ajax/soul/shout_content.html.twig</note>
       </notes>
       <segment>
         <source>Vor 1 Tag</source>
@@ -2125,6 +2368,7 @@
     <unit id="UIDpv16" name="Vor {d} Tagen">
       <notes>
         <note category="german">Vor {d} Tagen</note>
+        <note category="from">twig:///templates/ajax/soul/shout_content.html.twig</note>
       </notes>
       <segment>
         <source>Vor {d} Tagen</source>
@@ -2134,6 +2378,7 @@
     <unit id="uakGjzn" name="&lt;b&gt;{u1}&lt;/b&gt; hat &lt;b&gt;{u2}&lt;/b&gt; in die Koalition eingeladen.">
       <notes>
         <note category="german">&lt;b&gt;{u1}&lt;/b&gt; hat &lt;b&gt;{u2}&lt;/b&gt; in die Koalition eingeladen.</note>
+        <note category="from">twig:///templates/ajax/soul/shout_content.html.twig</note>
       </notes>
       <segment>
         <source>&lt;b&gt;{u1}&lt;/b&gt; hat &lt;b&gt;{u2}&lt;/b&gt; in die Koalition eingeladen.</source>
@@ -2143,6 +2388,7 @@
     <unit id="fXyHRJi" name="&lt;b&gt;{u1}&lt;/b&gt; ist der Koalition soeben beigetreten!">
       <notes>
         <note category="german">&lt;b&gt;{u1}&lt;/b&gt; ist der Koalition soeben beigetreten!</note>
+        <note category="from">twig:///templates/ajax/soul/shout_content.html.twig</note>
       </notes>
       <segment>
         <source>&lt;b&gt;{u1}&lt;/b&gt; ist der Koalition soeben beigetreten!</source>
@@ -2152,6 +2398,7 @@
     <unit id="ZMdZwoy" name="&lt;b&gt;{u1}&lt;/b&gt; hat die Koalition verlassen.">
       <notes>
         <note category="german">&lt;b&gt;{u1}&lt;/b&gt; hat die Koalition verlassen.</note>
+        <note category="from">twig:///templates/ajax/soul/shout_content.html.twig</note>
       </notes>
       <segment>
         <source>&lt;b&gt;{u1}&lt;/b&gt; hat die Koalition verlassen.</source>
@@ -2161,6 +2408,7 @@
     <unit id="TnUWor5" name="&lt;b&gt;{u1}&lt;/b&gt; hat &lt;b&gt;{u2}&lt;/b&gt; aus der Koalition entfernt.">
       <notes>
         <note category="german">&lt;b&gt;{u1}&lt;/b&gt; hat &lt;b&gt;{u2}&lt;/b&gt; aus der Koalition entfernt.</note>
+        <note category="from">twig:///templates/ajax/soul/shout_content.html.twig</note>
       </notes>
       <segment>
         <source>&lt;b&gt;{u1}&lt;/b&gt; hat &lt;b&gt;{u2}&lt;/b&gt; aus der Koalition entfernt.</source>
@@ -2170,6 +2418,7 @@
     <unit id="RJiWjid" name="&lt;b&gt;{u1}&lt;/b&gt; hat sich soeben in die Stadt &quot;&lt;b&gt;{town}&lt;/b&gt;&quot; eingeschrieben!">
       <notes>
         <note category="german">&lt;b&gt;{u1}&lt;/b&gt; hat sich soeben in die Stadt "&lt;b&gt;{town}&lt;/b&gt;" eingeschrieben!</note>
+        <note category="from">twig:///templates/ajax/soul/shout_content.html.twig</note>
       </notes>
       <segment>
         <source>&lt;b&gt;{u1}&lt;/b&gt; hat sich soeben in die Stadt "&lt;b&gt;{town}&lt;/b&gt;" eingeschrieben!</source>
@@ -2179,6 +2428,7 @@
     <unit id="Hb1dhIr">
       <notes>
         <note category="german">Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Du wirst nun ausgeloggt. Dein Account wird in 24-48 Stunden gelöscht. Bis dahin kannst du dich jederzeit erneut einloggen und dadurch die Löschung deines Accounts abbrechen.</source>
@@ -2188,6 +2438,7 @@
     <unit id="WbndBY4" name="Möchtest du diesem Spieler folgen?">
       <notes>
         <note category="german">Möchtest du diesem Spieler folgen?</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Möchtest du diesem Spieler folgen?</source>
@@ -2197,6 +2448,7 @@
     <unit id="BNXmJ_6">
       <notes>
         <note category="german">Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Der Twinoid-Server meldet, dass er dein Profil aufgrund eines internen Fehlers nicht an MyHordes übertragen kann. Dieses Problem tritt häufig auf, wenn du in deinen Letzten Worten oder Stadtkommentaren Sonderzeichen verwendet hast. Bitte prüfe deine Stadtkommentare und entferne Sonderzeichen. Wenn sich Sonderzeichen in deinen Letzten Worten befinden, wende dich auf Twinoid an einen Raben.</source>
@@ -2206,6 +2458,7 @@
     <unit id="lXmZ79T" name="Tod nicht validiert">
       <notes>
         <note category="german">Tod nicht validiert</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Tod nicht validiert</source>
@@ -2215,6 +2468,7 @@
     <unit id="WLE.7QA" name="Überall ausloggen">
       <notes>
         <note category="german">Überall ausloggen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Überall ausloggen</source>
@@ -2224,6 +2478,7 @@
     <unit id="nvlk12L" name="Auf allen Browsern &amp; Geräten abmelden">
       <notes>
         <note category="german">Auf allen Browsern &amp; Geräten abmelden</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Auf allen Browsern &amp; Geräten abmelden</source>
@@ -2233,6 +2488,7 @@
     <unit id="AbYRB3R">
       <notes>
         <note category="german">Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Hiermit kannst du dich von allen Geräten und Browsern abmelden, auf denen du aktuell eingeloggt bist. Die "Login merken" Funktion wird hierdurch ebenfalls auf den betroffenen Geräten deaktiviert.</source>
@@ -2242,6 +2498,7 @@
     <unit id="2CmSXI_" name="Animationen verringern">
       <notes>
         <note category="german">Animationen verringern</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Animationen verringern</source>
@@ -2251,6 +2508,7 @@
     <unit id="3mtyKrM">
       <notes>
         <note category="german">Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.&lt;br /&gt;&lt;em&gt;Mit dieser Option senkst du die Qualität der Spielkartenanimationen.&lt;/em&gt;.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Mache hier einen Haken, wenn die Landkarte nur sehr langsam geladen wird.&lt;br /&gt;&lt;em&gt;Mit dieser Option senkst du die Qualität der Spielkartenanimationen.&lt;/em&gt;.</source>
@@ -2260,6 +2518,7 @@
     <unit id="JAkgM4Z" name="Kleine Koalitionen">
       <notes>
         <note category="german">Kleine Koalitionen</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Kleine Koalitionen</source>
@@ -2269,6 +2528,7 @@
     <unit id="ERZwBql" name="Saison {number}">
       <notes>
         <note category="german">Saison {number}</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Saison {number}</source>
@@ -2278,6 +2538,8 @@
     <unit id="J6NchKS" name="Pos.">
       <notes>
         <note category="german">Pos.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Pos.</source>
@@ -2287,6 +2549,8 @@
     <unit id="OOWkbLx" name="Score">
       <notes>
         <note category="german">Score</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Score</source>
@@ -2296,6 +2560,7 @@
     <unit id="epp2oSj" name="Vorangegangene Saisons:">
       <notes>
         <note category="german">Vorangegangene Saisons:</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Vorangegangene Saisons:</source>
@@ -2305,6 +2570,8 @@
     <unit id="5VYoVVK" name="Lang.">
       <notes>
         <note category="german">Lang.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Lang.</source>
@@ -2314,6 +2581,7 @@
     <unit id="3XwCnkh" name="Pandämoniumsstadt">
       <notes>
         <note category="german">Pandämoniumsstadt</note>
+        <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
       </notes>
       <segment>
         <source>Pandämoniumsstadt</source>
@@ -2323,6 +2591,7 @@
     <unit id="1BicMk1" name="Privatstadt">
       <notes>
         <note category="german">Privatstadt</note>
+        <note category="from">twig:///templates/ajax/soul/town_list.html.twig</note>
       </notes>
       <segment>
         <source>Privatstadt</source>
@@ -2332,6 +2601,7 @@
     <unit id="jA6UdTz" name="Zukunft">
       <notes>
         <note category="german">Zukunft</note>
+        <note category="from">twig:///templates/ajax/soul/shell.html.twig</note>
       </notes>
       <segment>
         <source>Zukunft</source>
@@ -2341,6 +2611,7 @@
     <unit id="viM4Z2P" name="Einen Empfänger hinzufügen">
       <notes>
         <note category="german">Einen Empfänger hinzufügen</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Einen Empfänger hinzufügen</source>
@@ -2350,6 +2621,7 @@
     <unit id="3PLhyqa" name="Draußen gestorben">
       <notes>
         <note category="german">Draußen gestorben</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Draußen gestorben</source>
@@ -2359,6 +2631,7 @@
     <unit id="sR9mfkt" name="In der Stadt gestorben">
       <notes>
         <note category="german">In der Stadt gestorben</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>In der Stadt gestorben</source>
@@ -2368,6 +2641,8 @@
     <unit id="MJMhV5L" name="Kleine Stadt">
       <notes>
         <note category="german">Kleine Stadt</note>
+        <note category="state">new</note>
+        <note category="from">db://TownClass</note>
       </notes>
       <segment>
         <source>Kleine Stadt</source>
@@ -2377,6 +2652,7 @@
     <unit id="bElrYkF" name="Entfernte Regionen">
       <notes>
         <note category="german">Entfernte Regionen</note>
+        <note category="from">db://TownClass</note>
       </notes>
       <segment>
         <source>Entfernte Regionen</source>
@@ -2386,6 +2662,7 @@
     <unit id="7H7gGH1" name="Pandämonium">
       <notes>
         <note category="german">Pandämonium</note>
+        <note category="from">db://TownClass</note>
       </notes>
       <segment>
         <source>Pandämonium</source>
@@ -2395,6 +2672,7 @@
     <unit id="2ZxNAfn" name="Private Stadt">
       <notes>
         <note category="german">Private Stadt</note>
+        <note category="from">db://TownClass</note>
       </notes>
       <segment>
         <source>Private Stadt</source>
@@ -2404,6 +2682,8 @@
     <unit id="G9tS6ug" name="Diese Sperre ist bis zu folgendem Zeitpunkt gültig:">
       <notes>
         <note category="german">Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/acc_disabled.html.twig</note>
       </notes>
       <segment>
         <source>Diese Sperre ist bis zu folgendem Zeitpunkt gültig:</source>
@@ -2413,6 +2693,8 @@
     <unit id="gLe5bOG">
       <notes>
         <note category="german">Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/acc_disabled.html.twig</note>
       </notes>
       <segment>
         <source>Wenn du der Meinung bist, fälschlicherweise gesperrt worden zu sein, kannst du dich im Weltforum melden.</source>
@@ -2422,6 +2704,7 @@
     <unit id="4KXz4lN" name="ALLE SAISONS">
       <notes>
         <note category="german">ALLE SAISONS</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>ALLE SAISONS</source>
@@ -2431,6 +2714,7 @@
     <unit id="9cNHWGl" name="Seelenpunkte">
       <notes>
         <note category="german">Seelenpunkte</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig;twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Seelenpunkte</source>
@@ -2440,6 +2724,7 @@
     <unit id="vXPHpS0" name="Zugriff auf die Rangliste einer bestimmten Saison:">
       <notes>
         <note category="german">Zugriff auf die Rangliste einer bestimmten Saison:</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Zugriff auf die Rangliste einer bestimmten Saison:</source>
@@ -2449,6 +2734,7 @@
     <unit id="haNfUqH" name="Alle Saisons">
       <notes>
         <note category="german">Alle Saisons</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Alle Saisons</source>
@@ -2458,6 +2744,7 @@
     <unit id="9DAxndj" name="Spieler">
       <notes>
         <note category="german">Spieler</note>
+        <note category="from">twig:///templates/ajax/soul/season.html.twig</note>
       </notes>
       <segment>
         <source>Spieler</source>
@@ -2467,6 +2754,7 @@
     <unit id="PBVB79s" name="Dein Account ist eingeschränkt!">
       <notes>
         <note category="german">Dein Account ist eingeschränkt!</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Dein Account ist eingeschränkt!</source>
@@ -2476,6 +2764,7 @@
     <unit id="6K1dKKS">
       <notes>
         <note category="german">Einschränkungen werden von Moderatoren aufgrund von Fehlverhalten auferlegt. Im Folgenden siehst du eine Liste mit Funktionen, die dir aktuell nicht zur Verfügung stehen.</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Einschränkungen werden von Moderatoren aufgrund von Fehlverhalten auferlegt. Im Folgenden siehst du eine Liste mit Funktionen, die dir aktuell nicht zur Verfügung stehen.</source>
@@ -2485,6 +2774,8 @@
     <unit id="IHRCYe1" name="In Foren posten">
       <notes>
         <note category="german">In Foren posten</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>In Foren posten</source>
@@ -2494,6 +2785,8 @@
     <unit id="uNF4FkZ" name="Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.">
       <notes>
         <note category="german">Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du verlierst die Schreibrechte im Stadtforum sowie allen Weltforen.</source>
@@ -2503,6 +2796,8 @@
     <unit id="AHcu..1" name="Kommunikation in der Stadt">
       <notes>
         <note category="german">Kommunikation in der Stadt</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Kommunikation in der Stadt</source>
@@ -2512,6 +2807,8 @@
     <unit id="6yvyO_B">
       <notes>
         <note category="german">Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst keine Stadtnachrichten schreiben sowie das Schwarze Brett oder den Zonenchat verwenden.</source>
@@ -2521,6 +2818,8 @@
     <unit id="74vPalP" name="Stadtübergreifende Kommunikation">
       <notes>
         <note category="german">Stadtübergreifende Kommunikation</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Stadtübergreifende Kommunikation</source>
@@ -2530,6 +2829,8 @@
     <unit id="EKVv6mi" name="Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.">
       <notes>
         <note category="german">Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst keine Nachrichten über das Nachrichtenzentrum versenden.</source>
@@ -2539,6 +2840,8 @@
     <unit id="4L8kPem" name="Kommentare">
       <notes>
         <note category="german">Kommentare</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Kommentare</source>
@@ -2548,6 +2851,8 @@
     <unit id="wY7rEv4" name="Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.">
       <notes>
         <note category="german">Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst keine Letzten Worte übermitteln und keine Stadtkommentare verfassen.</source>
@@ -2557,6 +2862,8 @@
     <unit id="cnYKFrt" name="Gruppenorganisation">
       <notes>
         <note category="german">Gruppenorganisation</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Gruppenorganisation</source>
@@ -2566,6 +2873,8 @@
     <unit id="hzqTzKz" name="Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.">
       <notes>
         <note category="german">Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst keine Kleinen Koalitionen gründen oder ihnen beitreten.</source>
@@ -2575,6 +2884,8 @@
     <unit id="WPixbld" name="Spielen">
       <notes>
         <note category="german">Spielen</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Spielen</source>
@@ -2584,6 +2895,8 @@
     <unit id="VNOZ2rq">
       <notes>
         <note category="german">Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst keinen Städten beitreten. Befindest du dich bereits in einer Stadt, kannst du dort keinerlei Aktionen mehr durchführen und keinen Stadtbildschirm aufrufen. Zudem verlierst du den Zugang zum Stadtforum.</source>
@@ -2593,6 +2906,7 @@
     <unit id="wEtk74c">
       <notes>
         <note category="german">Dieser Hinweis ist nur für dich, nicht aber für Besucher auf deiner Seelenseite sichtbar.</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Hinweis ist nur für dich, nicht aber für Besucher auf deiner Seelenseite sichtbar.</source>
@@ -2602,6 +2916,8 @@
     <unit id="cKxZipz" name="Dauerhafte Beschränkung">
       <notes>
         <note category="german">Dauerhafte Beschränkung</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Dauerhafte Beschränkung</source>
@@ -2611,6 +2927,7 @@
     <unit id="hP.wuNt" name="Ende der Beschränkung: {date}">
       <notes>
         <note category="german">Ende der Beschränkung: {date}</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Ende der Beschränkung: {date}</source>
@@ -2620,6 +2937,8 @@
     <unit id="_33rQU1" name="Durch deinen Weggang hast du deine Koalition soeben aufgelöst.">
       <notes>
         <note category="german">Durch deinen Weggang hast du deine Koalition soeben aufgelöst.</note>
+        <note category="state">new</note>
+        <note category="from">php:///src/Controller/Soul/SoulCoalitionController.php</note>
       </notes>
       <segment>
         <source>Durch deinen Weggang hast du deine Koalition soeben aufgelöst.</source>
@@ -2629,6 +2948,8 @@
     <unit id="pxDv8GV" name="Möchtest du diese Koalition verlassen und somit auflösen?">
       <notes>
         <note category="german">Möchtest du diese Koalition verlassen und somit auflösen?</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Möchtest du diese Koalition verlassen und somit auflösen?</source>
@@ -2638,6 +2959,8 @@
     <unit id="TDZXLoY" name="Möchtest du diese Koalition verlassen?">
       <notes>
         <note category="german">Möchtest du diese Koalition verlassen?</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
       </notes>
       <segment>
         <source>Möchtest du diese Koalition verlassen?</source>
@@ -2647,6 +2970,7 @@
     <unit id="e5CjO7g" name="Ändern des Avatars">
       <notes>
         <note category="german">Ändern des Avatars</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Ändern des Avatars</source>
@@ -2656,6 +2980,7 @@
     <unit id="Ag772xl">
       <notes>
         <note category="german">Du kannst deinen Avatar nicht mehr bearbeiten. Falls du aktuell einen Avatar hast, kannst du diesen jedoch löschen.</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst deinen Avatar nicht mehr bearbeiten. Falls du aktuell einen Avatar hast, kannst du diesen jedoch löschen.</source>
@@ -2665,6 +2990,7 @@
     <unit id="sXIofxl" name="Ändern des Profiltitels">
       <notes>
         <note category="german">Ändern des Profiltitels</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Ändern des Profiltitels</source>
@@ -2674,6 +3000,7 @@
     <unit id="Gw1mlg1">
       <notes>
         <note category="german">Du kannst deinen deinen Profil-Titel sowie Icon nicht länger ändern. Wenn du aktuell einen Titel oder ein Icon gesetzt hast, kannst du diese jedoch entfernen.</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst deinen deinen Profil-Titel sowie Icon nicht länger ändern. Wenn du aktuell einen Titel oder ein Icon gesetzt hast, kannst du diese jedoch entfernen.</source>
@@ -2683,6 +3010,7 @@
     <unit id="U8rWfCJ" name="Ändern der Profilbeschreibung">
       <notes>
         <note category="german">Ändern der Profilbeschreibung</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Ändern der Profilbeschreibung</source>
@@ -2692,6 +3020,7 @@
     <unit id="Z7.2LZ_">
       <notes>
         <note category="german">Du kannst deine Profilbeschreibung nicht länger ändern. Eine bestehende Profilbeschreibung kann jedoch gelöscht werden.</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst deine Profilbeschreibung nicht länger ändern. Eine bestehende Profilbeschreibung kann jedoch gelöscht werden.</source>
@@ -2701,6 +3030,7 @@
     <unit id="j5yXkX6" name="Kein Icon">
       <notes>
         <note category="german">Kein Icon</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Kein Icon</source>
@@ -2710,6 +3040,7 @@
     <unit id="FjAvXSr" name="Du hast noch kein Icon freigeschaltet!">
       <notes>
         <note category="german">Du hast noch kein Icon freigeschaltet!</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Du hast noch kein Icon freigeschaltet!</source>
@@ -2719,6 +3050,7 @@
     <unit id="s98CmDi" name="Kein Titel">
       <notes>
         <note category="german">Kein Titel</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Kein Titel</source>
@@ -2728,6 +3060,7 @@
     <unit id="UWvnfeW" name="Dein Avatar">
       <notes>
         <note category="german">Dein Avatar</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Dein Avatar</source>
@@ -2738,6 +3071,7 @@
       <notes>
         <note category="german">Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
                                                     Bewege den Ausschnitt mit der Maus und vergrößere oder verkleinere ihn mit dem Mausrad.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Wähle aus, welcher Teil deines Profilbilds für die komprimierte Darstellung verwendet werden soll.
@@ -2749,6 +3083,7 @@
     <unit id="ff37B3l" name="Du hast aktuell noch keine Plätze reserviert.">
       <notes>
         <note category="german">Du hast aktuell noch keine Plätze reserviert.</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Du hast aktuell noch keine Plätze reserviert.</source>
@@ -2758,6 +3093,7 @@
     <unit id="Zk.3Qol" name="Reservierte Plätze:">
       <notes>
         <note category="german">Reservierte Plätze:</note>
+        <note category="from">twig:///templates/ajax/ghost/create_town.html.twig</note>
       </notes>
       <segment>
         <source>Reservierte Plätze:</source>
@@ -2767,6 +3103,8 @@
     <unit id="DFJoP7h" name="Du kannst kein Icon ohne einen Titel wählen.">
       <notes>
         <note category="german">Du kannst kein Icon ohne einen Titel wählen.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst kein Icon ohne einen Titel wählen.</source>
@@ -2776,6 +3114,7 @@
     <unit id="wMIPplV" name="Statistiken">
       <notes>
         <note category="german">Statistiken</note>
+        <note category="from">twig:///templates/ajax/soul/distinctions.html.twig</note>
       </notes>
       <segment>
         <source>Statistiken</source>
@@ -2785,6 +3124,7 @@
     <unit id="XvXLLaX" name="Errungenschaften">
       <notes>
         <note category="german">Errungenschaften</note>
+        <note category="from">twig:///templates/ajax/soul/distinctions.html.twig</note>
       </notes>
       <segment>
         <source>Errungenschaften</source>
@@ -2794,6 +3134,7 @@
     <unit id="hI27y3h" name="Hat dir dein letztes Leben gefallen?">
       <notes>
         <note category="german">Hat dir dein letztes Leben gefallen?</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
       </notes>
       <segment>
         <source>Hat dir dein letztes Leben gefallen?</source>
@@ -2803,6 +3144,7 @@
     <unit id=".XNMg8S">
       <notes>
         <note category="german">MyHordes wird von einem unabhängigen Team von Programmierern in deren Freizeit entwickelt.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
       </notes>
       <segment>
         <source>MyHordes wird von einem unabhängigen Team von Programmierern in deren Freizeit entwickelt.</source>
@@ -2812,6 +3154,7 @@
     <unit id="JbPwhWn">
       <notes>
         <note category="german">Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
       </notes>
       <segment>
         <source>Wir sind ein Teil des EternalTwin-Projektes, welches es sich zur Aufgabe gemacht hat die Browserspiele von MotionTwin am Leben zu erhalten.</source>
@@ -2821,6 +3164,7 @@
     <unit id="GLZ2E_L">
       <notes>
         <note category="german">Das Spiel ist komplett kostenlos - es gibt keine Bezahlinhalte, wir zeigen keine Werbung an und führen auch kein Nutzer-Tracking durch.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
       </notes>
       <segment>
         <source>Das Spiel ist komplett kostenlos - es gibt keine Bezahlinhalte, wir zeigen keine Werbung an und führen auch kein Nutzer-Tracking durch.</source>
@@ -2830,6 +3174,7 @@
     <unit id="E6_xVpY">
       <notes>
         <note category="german">Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</note>
+        <note category="from">twig:///templates/ajax/ghost/donate.html.twig</note>
       </notes>
       <segment>
         <source>Wenn dir MyHordes gefällt und du uns unterstützen möchtest, kannst du dies mit einer Spende an das EternalTwin Projekt tun.</source>
@@ -2839,78 +3184,87 @@
     <unit id="uK4jynd" name="Geworbener Spieler">
       <notes>
         <note category="german">Geworbener Spieler</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Geworbener Spieler</source>
-        <target>Geworbener Spieler</target>
+        <target>Sponsored Player</target>
       </segment>
     </unit>
     <unit id="4n2PgVx" name="Heldenerfahrung">
       <notes>
         <note category="german">Heldenerfahrung</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Heldenerfahrung</source>
-        <target>Heldenerfahrung</target>
+        <target>Heroic Experience</target>
       </segment>
     </unit>
     <unit id="QGRs.s1" name="Du hast keine Koalition.">
       <notes>
         <note category="german">Du hast keine Koalition.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du hast keine Koalition.</source>
-        <target>Du hast keine Koalition.</target>
+        <target>You don't have a coalition.</target>
       </segment>
     </unit>
     <unit id="ljPPYyM" name="Du bist nicht Anführer deiner Koalition.">
       <notes>
         <note category="german">Du bist nicht Anführer deiner Koalition.</note>
+        <note category="from">[unused]</note>
       </notes>
       <segment>
         <source>Du bist nicht Anführer deiner Koalition.</source>
-        <target>Du bist nicht Anführer deiner Koalition.</target>
+        <target>You're not the leader of your coalition.</target>
       </segment>
     </unit>
     <unit id="nnaWQyL" name="Kein freier Platz">
       <notes>
         <note category="german">Kein freier Platz</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Kein freier Platz</source>
-        <target>Kein freier Platz</target>
+        <target>No available spot</target>
       </segment>
     </unit>
     <unit id="vOzFwXw" name="Koalitionsmitglied">
       <notes>
         <note category="german">Koalitionsmitglied</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Koalitionsmitglied</source>
-        <target>Koalitionsmitglied</target>
+        <target>Member of your coalition</target>
       </segment>
     </unit>
     <unit id="2.dDOzw" name="Noch nicht bestätigt...">
       <notes>
         <note category="german">Noch nicht bestätigt...</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Noch nicht bestätigt...</source>
-        <target>Noch nicht bestätigt...</target>
+        <target>No response yet...</target>
       </segment>
     </unit>
     <unit id="yf4a0g_" name="Koalitionseinladung">
       <notes>
         <note category="german">Koalitionseinladung</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Koalitionseinladung</source>
-        <target>Koalitionseinladung</target>
+        <target>Invitation to the coalition</target>
       </segment>
     </unit>
     <unit id="IDuEdUg" name="Die Freundschaftswerbung">
       <notes>
         <note category="german">Die Freundschaftswerbung</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Die Freundschaftswerbung</source>
@@ -2920,6 +3274,7 @@
     <unit id="m5DCahY" name="Wenn ihr neue Spieler zu &quot;MyHordes&quot; einladet, erhaltet ihr zahlreiche Vorteile!">
       <notes>
         <note category="german">Wenn ihr neue Spieler zu "MyHordes" einladet, erhaltet ihr zahlreiche Vorteile!</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Wenn ihr neue Spieler zu "MyHordes" einladet, erhaltet ihr zahlreiche Vorteile!</source>
@@ -2929,6 +3284,7 @@
     <unit id="hWsy49U" name="Lass dich überraschen!">
       <notes>
         <note category="german">Lass dich überraschen!</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Lass dich überraschen!</source>
@@ -2938,6 +3294,7 @@
     <unit id="xfA2CXp">
       <notes>
         <note category="german">Du kannst nach Anmeldung des geworbenen Spielers sofort mit ihm in einer Koalition spielen.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst nach Anmeldung des geworbenen Spielers sofort mit ihm in einer Koalition spielen.</source>
@@ -2947,6 +3304,8 @@
     <unit id="phHRy7R" name="Du bekommst einen frischen jugendlichen Teint und einen Babypopo.">
       <notes>
         <note category="german">Du bekommst einen frischen jugendlichen Teint und einen Babypopo.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du bekommst einen frischen jugendlichen Teint und einen Babypopo.</source>
@@ -2956,6 +3315,8 @@
     <unit id="yR7_2mq" name="Du bekommst straffere Brüste.">
       <notes>
         <note category="german">Du bekommst straffere Brüste.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du bekommst straffere Brüste.</source>
@@ -2965,6 +3326,8 @@
     <unit id="DmEId2H" name="Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!">
       <notes>
         <note category="german">Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Bekämpft wirksam deinen Körpergeruch. Deine Mitbürger werden es dir danken!</source>
@@ -2974,6 +3337,8 @@
     <unit id="0vm9fA_" name="Du wirst angenehm nach Orangenblüten duften.">
       <notes>
         <note category="german">Du wirst angenehm nach Orangenblüten duften.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du wirst angenehm nach Orangenblüten duften.</source>
@@ -2983,6 +3348,8 @@
     <unit id="9dCZIYd" name="Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.">
       <notes>
         <note category="german">Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du wirst ein respektierter und angesehener Bürger deiner Gemeinschaft.</source>
@@ -2992,6 +3359,8 @@
     <unit id="lmPRBJ0" name="Deine natürlichen Abwehrkräfte werden gestärkt.">
       <notes>
         <note category="german">Deine natürlichen Abwehrkräfte werden gestärkt.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Deine natürlichen Abwehrkräfte werden gestärkt.</source>
@@ -3001,6 +3370,8 @@
     <unit id="sPSRoTg" name="Du bekommst stahlharte Waschbrettbauchmuskeln.">
       <notes>
         <note category="german">Du bekommst stahlharte Waschbrettbauchmuskeln.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du bekommst stahlharte Waschbrettbauchmuskeln.</source>
@@ -3010,6 +3381,8 @@
     <unit id="23cz.bn" name="Du hast eine gute Tat vollbracht.">
       <notes>
         <note category="german">Du hast eine gute Tat vollbracht.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du hast eine gute Tat vollbracht.</source>
@@ -3019,6 +3392,8 @@
     <unit id="nlq39Ht" name="Die Leute auf der Straße werden sich nach dir umdrehen.">
       <notes>
         <note category="german">Die Leute auf der Straße werden sich nach dir umdrehen.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Die Leute auf der Straße werden sich nach dir umdrehen.</source>
@@ -3028,6 +3403,8 @@
     <unit id="bRBEaOX" name="Stärkt dein Zahnfleisch und deine Zähne.">
       <notes>
         <note category="german">Stärkt dein Zahnfleisch und deine Zähne.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Stärkt dein Zahnfleisch und deine Zähne.</source>
@@ -3037,6 +3414,8 @@
     <unit id="ekcviFN" name="Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.">
       <notes>
         <note category="german">Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Gib dir das beruhigende Gefühl etwas Gutes getan zu haben.</source>
@@ -3046,6 +3425,8 @@
     <unit id="rrVNfDl" name="Du bekommst einen frischen Atem - schnell und effektiv.">
       <notes>
         <note category="german">Du bekommst einen frischen Atem - schnell und effektiv.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du bekommst einen frischen Atem - schnell und effektiv.</source>
@@ -3055,6 +3436,8 @@
     <unit id="2rVePUl" name="Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)">
       <notes>
         <note category="german">Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Die Zombies werden dich lieben, dass du für Nachschub sorgst. ;)</source>
@@ -3064,6 +3447,8 @@
     <unit id="mkKr7.Y" name="Das andere Geschlecht wird dir nicht widerstehen können.">
       <notes>
         <note category="german">Das andere Geschlecht wird dir nicht widerstehen können.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Das andere Geschlecht wird dir nicht widerstehen können.</source>
@@ -3073,6 +3458,8 @@
     <unit id="Sz2KR6B" name="Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.">
       <notes>
         <note category="german">Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Verleiht deinem Haar einen seidigen Glanz und stärkt deine Kopfhaut.</source>
@@ -3082,6 +3469,7 @@
     <unit id=".BIUTzQ" name="Dieser Vorteil ist von Mal zu Mal verschieden.">
       <notes>
         <note category="german">Dieser Vorteil ist von Mal zu Mal verschieden.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Dieser Vorteil ist von Mal zu Mal verschieden.</source>
@@ -3091,6 +3479,7 @@
     <unit id="BkMtMYQ">
       <notes>
         <note category="german">Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Die Freundschaftswerbung kann für deinen Account nicht aktiviert werden. Bitte kontaktiere einen Administrator für weitere Informationen.</source>
@@ -3100,6 +3489,7 @@
     <unit id="t7p0F21" name="Die Freundschaftswerbung ist für deinen Account gesperrt.">
       <notes>
         <note category="german">Die Freundschaftswerbung ist für deinen Account gesperrt.</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Die Freundschaftswerbung ist für deinen Account gesperrt.</source>
@@ -3109,6 +3499,7 @@
     <unit id="d3BbIrK" name="Wie funktioniert das genau?">
       <notes>
         <note category="german">Wie funktioniert das genau?</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Wie funktioniert das genau?</source>
@@ -3118,6 +3509,7 @@
     <unit id="fXK1bMa" name="Du kannst aus mehreren Methoden wählen:">
       <notes>
         <note category="german">Du kannst aus mehreren Methoden wählen:</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst aus mehreren Methoden wählen:</source>
@@ -3127,6 +3519,7 @@
     <unit id="e60hBsn" name="Versende einen Einladungs-Link:">
       <notes>
         <note category="german">Versende einen Einladungs-Link:</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Versende einen Einladungs-Link:</source>
@@ -3136,6 +3529,7 @@
     <unit id="uB2Vk6P" name="oder">
       <notes>
         <note category="german">oder</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>oder</source>
@@ -3145,6 +3539,7 @@
     <unit id="oIxZIjf">
       <notes>
         <note category="german">Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Sag dem geworbenen Spieler, dass er bei der Anmeldung im Feld "Pate" deinen Namen eintragen soll:</source>
@@ -3154,6 +3549,7 @@
     <unit id="meMyGfH">
       <notes>
         <note category="german">Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>Verwende einen der hier unten angezeigten Banner für deine E-Mail Signatur, auf Facebook oder in deinem Lieblingsforum (Wenn sich jemand über deinen Banner anmeldet, wirst du automatisch als Pate eingetragen!).</source>
@@ -3163,6 +3559,8 @@
     <unit id="fUGf6MZ" name="HTML Code">
       <notes>
         <note category="german">HTML Code</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>HTML Code</source>
@@ -3172,6 +3570,8 @@
     <unit id="GOqvgvj" name="BBCode">
       <notes>
         <note category="german">BBCode</note>
+        <note category="state">new</note>
+        <note category="from">twig:///templates/ajax/soul/refer.html.twig</note>
       </notes>
       <segment>
         <source>BBCode</source>
@@ -3181,6 +3581,7 @@
     <unit id="9y1x0zd" name="Freunde">
       <notes>
         <note category="german">Freunde</note>
+        <note category="from">twig:///templates/ajax/soul/shell.html.twig</note>
       </notes>
       <segment>
         <source>Freunde</source>
@@ -3190,6 +3591,7 @@
     <unit id="LzzllLx" name="Empfänger">
       <notes>
         <note category="german">Empfänger</note>
+        <note category="from">twig:///templates/ajax/pm/view.html.twig</note>
       </notes>
       <segment>
         <source>Empfänger</source>
@@ -3199,6 +3601,7 @@
     <unit id="YC8wBlS" name="In diesem Abschnitt findest du alle bisher von dir gespielten Partien.">
       <notes>
         <note category="german">In diesem Abschnitt findest du alle bisher von dir gespielten Partien.</note>
+        <note category="from">twig:///templates/ajax/soul/game_history.html.twig</note>
       </notes>
       <segment>
         <source>In diesem Abschnitt findest du alle bisher von dir gespielten Partien.</source>
@@ -3208,6 +3611,7 @@
     <unit id="P5HPUHF" name="Verlauf meiner Städte">
       <notes>
         <note category="german">Verlauf meiner Städte</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Verlauf meiner Städte</source>
@@ -3217,6 +3621,7 @@
     <unit id="vsOyofZ" name="Schwarzes Brett">
       <notes>
         <note category="german">Schwarzes Brett</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Schwarzes Brett</source>
@@ -3226,6 +3631,7 @@
     <unit id="Q2jvlBg" name="Du kannst das Schwarze Brett nicht verwenden.">
       <notes>
         <note category="german">Du kannst das Schwarze Brett nicht verwenden.</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst das Schwarze Brett nicht verwenden.</source>
@@ -3235,6 +3641,7 @@
     <unit id="TTWCiLb" name="Neue Übersetzungen verwenden">
       <notes>
         <note category="german">Neue Übersetzungen verwenden</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Neue Übersetzungen verwenden</source>
@@ -3244,6 +3651,7 @@
     <unit id="oHq1QSk">
       <notes>
         <note category="german">Mit dem neuen Übersetzungssystem werden Texte akkurater in deiner Sprache dargestellt (zum Beispiel die passende Verwendung von Singular und Plural-Formen). Deaktiviere diese Option, um die originalen Texte aus Die Verdammten zu sehen.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Mit dem neuen Übersetzungssystem werden Texte akkurater in deiner Sprache dargestellt (zum Beispiel die passende Verwendung von Singular und Plural-Formen). Deaktiviere diese Option, um die originalen Texte aus Die Verdammten zu sehen.</source>
@@ -3253,6 +3661,7 @@
     <unit id="N0JgSpD" name="Dein Spielername">
       <notes>
         <note category="german">Dein Spielername</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Dein Spielername</source>
@@ -3262,6 +3671,7 @@
     <unit id="eUo8GNZ">
       <notes>
         <note category="german">WARNUNG: Du kannst deinen Spielernamen nicht jederzeit ändern, wähle ihn also weise, denn du wirst ihn für mehrere Monate behalten. Um anderen Spielern zu helfen dich zu finden wird der Verlauf deiner Spielernamen in deinem Profil angezeigt.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>WARNUNG: Du kannst deinen Spielernamen nicht jederzeit ändern, wähle ihn also weiße, denn du wirst ihn für mehrere Monate behalten. Um anderen Spielern zu helfen dich zu finden wird der Verlauf deiner Spielernamen in deinem Profil angezeigt.</source>
@@ -3271,6 +3681,7 @@
     <unit id="CnsnaNX" name="Du kannst deinen Spielernamen aktuell nicht ändern.">
       <notes>
         <note category="german">Du kannst deinen Spielernamen aktuell nicht ändern.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Du kannst deinen Spielernamen aktuell nicht ändern.</source>
@@ -3280,6 +3691,7 @@
     <unit id="6d9Ha3Q" name="Ändern des Spielernamens">
       <notes>
         <note category="german">Ändern des Spielernamens</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Ändern des Spielernamens</source>
@@ -3289,6 +3701,7 @@
     <unit id="LIMbDjH" name="Du kannst deinen Spielernamen nicht mehr ändern.">
       <notes>
         <note category="german">Du kannst deinen Spielernamen nicht mehr ändern.</note>
+        <note category="from">twig:///templates/ajax/soul/me.html.twig</note>
       </notes>
       <segment>
         <source>Du kannst deinen Spielernamen nicht mehr ändern.</source>
@@ -3298,6 +3711,7 @@
     <unit id="yF2vVL5" name="%user% war in der Vergangenheit unter folgenden Namen bekannt:">
       <notes>
         <note category="german">%user% war in der Vergangenheit unter folgenden Namen bekannt:</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig;twig:///templates/ajax/soul/visit.html.twig</note>
       </notes>
       <segment>
         <source>%user% war in der Vergangenheit unter folgenden Namen bekannt:</source>
@@ -3307,6 +3721,7 @@
     <unit id="tT1wWcP" name="Du hattest in der Vergangenheit folgende Spielernamen:">
       <notes>
         <note category="german">Du hattest in der Vergangenheit folgende Spielernamen:</note>
+        <note category="from">twig:///templates/ajax/soul/badges.html.twig</note>
       </notes>
       <segment>
         <source>Du hattest in der Vergangenheit folgende Spielernamen:</source>
@@ -3316,6 +3731,7 @@
     <unit id="nA9SyfS" name="Dafür ist es zu früh!">
       <notes>
         <note category="german">Dafür ist es zu früh!</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Dafür ist es zu früh!</source>
@@ -3325,10 +3741,44 @@
     <unit id="7aH8vQI" name="Bitte ändere deinen Anzeigenamen auf EternalTwin.">
       <notes>
         <note category="german">Bitte ändere deinen Anzeigenamen auf EternalTwin.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
       </notes>
       <segment>
         <source>Bitte ändere deinen Anzeigenamen auf EternalTwin.</source>
         <target>You must use your Eternal Twin account to change your username.</target>
+      </segment>
+    </unit>
+    <unit id="4DFz5Xa">
+      <notes>
+        <note category="german">Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</source>
+        <target>You cannot change your username because you have linked an Eternal Twin account. You must go into your Eternal Twin account to change your username.</target>
+      </segment>
+    </unit>
+    <unit id=".NQ7ahe">
+      <notes>
+        <note category="german">Gib hier den Nickname des Spielers ein, den du einladen möchtest.&lt;br /&gt;Du kannst so viele Personen einladen wie du möchtest. Dabei spielt es keine Rolle, ob du ein Held bist oder nicht. Es bleiben noch &lt;strong&gt;{size} Plätze&lt;/strong&gt; übrig.</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gib hier den Nickname des Spielers ein, den du einladen möchtest.&lt;br /&gt;Du kannst so viele Personen einladen wie du möchtest. Dabei spielt es keine Rolle, ob du ein Held bist oder nicht. Es bleiben noch &lt;strong&gt;{size} Plätze&lt;/strong&gt; übrig.</source>
+        <target><![CDATA[
+          
+            {ref__icu, select,
+                on {
+                    {size, select,
+                        0 {Enter the nickname of the player you wish to invite here. You can invite as many players as you like, whether they are Heroes or not.<br />However, there is <strong>no places</strong> left.}
+                        1 {Enter the nickname of the player you wish to invite here. You can invite as many players as you like, whether they are Heroes or not.<br />However, there is only <strong>{size} place</strong> left.}
+                        other {Enter the nickname of the player you wish to invite here. You can invite as many players as you like, whether they are Heroes or not.<br />However, there are only <strong>{size} places</strong> left.}
+                    }
+                }
+                other {Enter the nickname of the player you wish to invite here. You can invite as many players as you like, whether they are Heroes or not.<br />However, there are only <strong>{size} place(s)</strong> left.}
+            }
+        
+        ]]></target>
       </segment>
     </unit>
   </file>

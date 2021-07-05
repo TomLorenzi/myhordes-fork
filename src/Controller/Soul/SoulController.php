@@ -413,6 +413,9 @@ class SoulController extends CustomAbstractController
         $displayName = mb_substr(trim($parser->get('displayName')) ?? '', 0, 30);
         $pronoun = $parser->get('pronoun','none', ['male','female','none']);
 
+        if ($pronoun !== 'none' && $user->getUseICU() !== true)
+            $user->setUseICU(true);
+
         switch ($pronoun) {
             case 'male': $user->setPreferredPronoun( User::PRONOUN_MALE ); break;
             case 'female': $user->setPreferredPronoun( User::PRONOUN_FEMALE ); break;
@@ -427,7 +430,7 @@ class SoulController extends CustomAbstractController
 
         $name_change = ($displayName !== $user->getDisplayName() && $user->getDisplayName() !== null) || ($displayName !== $user->getUsername() && $user->getDisplayName() === null);
 
-        if ($name_change && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->m < 6) {
+        if ($name_change && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->days < (30 * 6)) { // 6 months
             return  AjaxResponse::error(self::ErrorUserEditTooSoon);
         }
         if ($name_change && $user->getEternalID() !== null)
@@ -585,10 +588,10 @@ class SoulController extends CustomAbstractController
         if ($type === "soul") {
             $ranking = $this->entity_manager->getRepository(User::class)->getGlobalSoulRankingPage($offset, $resultsPerPage);
         } else {
-            return $this->redirect($this->generateUrl( 'soul_ranking' ));
+            return $this->redirect($this->generateUrl( 'soul_season' ));
         }
         if(!$ranking) {
-            return $this->redirect($this->generateUrl( 'soul_ranking' ));
+            return $this->redirect($this->generateUrl( 'soul_season' ));
         }
 
         return $this->render( 'ajax/soul/season.html.twig', $this->addDefaultTwigArgs("soul_season", [

@@ -199,6 +199,7 @@ class TownController extends InventoryAwareController
                 $has_voted[$role->getName()] = ($this->entity_manager->getRepository(CitizenVote::class)->findOneByCitizenAndRole($this->getActiveCitizen(), $role) !== null);
 
         $can_edit_blackboard = $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'dictator') && !$this->getActiveCitizen()->getBanished();
+        $has_dictator = $this->getActiveCitizen()->getProfession()->getHeroic() && $this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'dictator');
         
         $sb = $this->user_handler->getShoutbox($this->getUser());
         $messages = false;
@@ -251,6 +252,7 @@ class TownController extends InventoryAwareController
             'display_home_upgrade' => $display_home_upgrade,
             'has_upgraded_house' => $this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'tg_home_upgrade'),
             'can_edit_blackboard' => $can_edit_blackboard,
+            'has_dictator' => $has_dictator,
             'new_coa_message' => $messages
         ]) );
     }
@@ -862,6 +864,11 @@ class TownController extends InventoryAwareController
                     $town->setWell( $town->getWell()+1 );
                     try {
                         $this->entity_manager->persist( $this->log->wellAdd( $citizen, $items[0]->getPrototype(), 1) );
+
+                        $this->addFlash('info', $this->translator->trans('Du hast das Wasser aus {item} in den Brunnen geschüttet (<strong>+1 Einheit</strong>)', [
+                            'item' => "<span><img alt='' src='{$this->asset->getUrl( 'build/images/item/item_' . $items[0]->getPrototype()->getIcon() . '.gif' )}' /> {$this->translator->trans($items[0]->getPrototype()->getLabel(),[],'items')}</span>"
+                        ], 'game'));
+
                         if ($morph === null) $this->entity_manager->remove($items[0]);
                         else {
                             $items[0]->setPrototype($morph);

@@ -467,9 +467,10 @@ class ActionHandler
      * @param Citizen $citizen
      * @param ItemAction[] $available
      * @param ItemAction[] $crossed
+     * @param ItemAction[] $used
      */
-    public function getAvailableIHeroicActions(Citizen $citizen, ?array &$available, ?array &$crossed ) {
-        $available = $crossed = [];
+    public function getAvailableIHeroicActions(Citizen $citizen, ?array &$available, ?array &$crossed, ?array &$used ) {
+        $available = $crossed = $used = [];
 
         if (!$citizen->getProfession()->getHeroic()) return;
         $is_at_00 = $citizen->getZone() && $citizen->getZone()->isTownZone();
@@ -484,7 +485,7 @@ class ActionHandler
         foreach ($citizen->getUsedHeroicActions() as $used_heroic) {
             if ($citizen->getHeroicActions()->contains($used_heroic) || ($is_at_00 && !$used_heroic->getAction()->getAllowedAtGate())) continue;
             $mode = $this->evaluate( $citizen, null, null, $used_heroic->getAction(), $tx );
-            if ($mode >= self::ActionValidityCrossed) $crossed[] = $used_heroic;
+            if ($mode >= self::ActionValidityCrossed) $used[] = $used_heroic;
         }
 
     }
@@ -530,7 +531,7 @@ class ActionHandler
                 if (!$target->getZone() || !$target->getAlive()) return false;
                 if ( round( sqrt(pow($target->getZone()->getX(),2 ) + pow($target->getZone()->getY(),2 )) ) > 2 ) return false;
                 break;
-            case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenOnZoneType: case ItemTargetDefinition::ItemCitizenOnZoneSBType:
+            case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenVoteType: case ItemTargetDefinition::ItemCitizenOnZoneType: case ItemTargetDefinition::ItemCitizenOnZoneSBType:
                 if (!is_a( $target, Citizen::class )) return false;
                 if (!$target->getAlive()) return false;
                 break;
@@ -643,7 +644,9 @@ class ActionHandler
                 $escort_mode ? $action->getEscortMessage() : $action->getMessage(),
             ],
             'kills' => 0,
-            'bury_count' => 0
+            'bury_count' => 0,
+            'items_count' => 0,
+            'size' => 0
         ];
 
         if ($citizen->activeExplorerStats())
@@ -799,8 +802,11 @@ class ActionHandler
                     $execute_info_cache['items_consume'][] = $item->getPrototype();
                     $tags[] = 'consumed';
                 } else {
-                    if ($item_result->getMorph())
+                    if ($item_result->getMorph()) {
                         $item->setPrototype( $execute_info_cache['item_morph'][1] = $item_result->getMorph() );
+                        $tags[] = 'morphed';
+                    }
+
                     if ($item_result->getBreak()  !== null) $item->setBroken( $item_result->getBreak() );
                     if ($item_result->getPoison() !== null) $item->setPoison( $item_result->getPoison() );
                 }
@@ -1177,12 +1183,13 @@ class ActionHandler
 
                         $heavy_break = false;
                         $item_count = 0; $success_count = 0;
-                        if (!$heavy)
-                            foreach ( $citizen->getInventory()->getItems() as $target_item ) {
-                                if ($target_item !== $item) $item_count++;
-                                if ($target_item->getPrototype()->getHeavy())
-                                    $heavy_break = true;
-                            }
+
+                        foreach ( $citizen->getInventory()->getItems() as $target_item ) {
+                            if ($target_item->getEssential()) continue;
+                            if ($target_item !== $item) $item_count++;
+                            if ($target_item->getPrototype()->getHeavy())
+                                if (!$heavy) $heavy_break = true;
+                        }
 
                         if ($heavy_break) {
                             $tags[] = 'fail';
@@ -1190,14 +1197,14 @@ class ActionHandler
                         } elseif ($this->inventory_handler->getFreeSize( $bank ) < $item_count) {
                             $tags[] = 'fail';
                             $tags[] = 'no-room';
+                            $execute_info_cache["items_count"] = $item_count;
+                            $execute_info_cache["size"] = ($freeSize = $this->inventory_handler->getFreeSize($bank)) > 0 ? $freeSize : 0;
                         } else {
                             foreach ( $citizen->getInventory()->getItems() as $target_item ) if ($target_item !== $item) {
-
                                 if ($this->inventory_handler->transferItem($citizen, $target_item, $source, $bank, InventoryHandler::ModalityTamer) === InventoryHandler::ErrorNone) {
                                     $success_count++;
                                     if ($create_log) $this->entity_manager->persist($this->log->bankItemTamerLog($citizen, $target_item->getPrototype(), $target_item->getBroken()));
                                 }
-
                             }
 
                             if ($success_count > 0) {
@@ -1373,9 +1380,22 @@ class ActionHandler
                             'kalach_#01' => $this->entity_manager->getRepository(ItemPrototype::class)->findOneBy(['name' => 'kalach_#00']),
                         ];
 
-                        foreach ($citizen->getInventory()->getItems() as $i) if (isset($trans[$i->getPrototype()->getName()])) $i->setPrototype( $trans[$i->getPrototype()->getName()] );
-                        foreach ($citizen->getHome()->getChest()->getItems() as $i) if (isset($trans[$i->getPrototype()->getName()])) $i->setPrototype( $trans[$i->getPrototype()->getName()] );
+                        $fill_targets = [];
+                        $filled = [];
 
+                        foreach ($citizen->getInventory()->getItems() as $i) if (isset($trans[$i->getPrototype()->getName()]))
+                            $fill_targets[] = $i;
+                        foreach ($citizen->getHome()->getChest()->getItems() as $i) if (isset($trans[$i->getPrototype()->getName()]))
+                            $fill_targets[] = $i;
+
+                        foreach ($fill_targets as $i) {
+                            $i->setPrototype($trans[$i->getPrototype()->getName()]);
+                            if (!isset($filled[$i->getPrototype()->getId()])) $filled[$i->getPrototype()->getId()] = [$i];
+                            else $filled[$i->getPrototype()->getId()][] = $i;
+                            $execute_info_cache['items_spawn'][] = $i->getPrototype();
+                        }
+
+                        if (empty($filled)) $tags[] = 'fail';
                         break;
                     }
 
@@ -1573,7 +1593,6 @@ class ActionHandler
         	// We translate & replace placeholders in each messages
         	$addedContent = [];
         	foreach ($execute_info_cache['message'] as $contentMessage) {
-
                 $placeholders = [
 	                '{ap}'            => $execute_info_cache['ap'],
 	                '{minus_ap}'      => -$execute_info_cache['ap'],
@@ -1599,6 +1618,8 @@ class ActionHandler
 	                '{kills}'         => $execute_info_cache['kills'],
 	                '{bury_count}'    => $execute_info_cache['bury_count'],
 	                '{hr}'            => "<hr />",
+                    '{items_count}'   => $execute_info_cache['items_count'],
+                    '{size}'          => $execute_info_cache['size'],
 	            ];
 
                 // How many indexes we need for array placeholders seeks

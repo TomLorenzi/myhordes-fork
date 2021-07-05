@@ -325,7 +325,7 @@
                         {% endif %}
                         {% if zone.prototype %}
                             {% if zone.prototype.explorable %}
-                                <button {% if not can_explore%}disabled{% endif%} id="enter_ruin_button"  >
+                                <button {% if exploration_blocked_blocked %}disabled{% endif%} id="enter_ruin_button"  >
                                     <img class="icon left" alt="" src="{{ asset('build/images/icons/planner.gif') }}" />
                                     {% trans with {'{ruin}': zone.prototype.label|trans({},'game')} from 'game'  %}{ruin} betreten{% endtrans %}
                                     <div class="tooltip help">{{ 'Diese Aktion ermöglicht es dir, die Tiefen dieses Gebäude zu erkunden und wertvolle Ressourcen zu bergen. Sei aber nicht zu gierig, denn deine Zeit ist begrenzt!'|trans({},'game') }}</div>
@@ -534,7 +534,7 @@
                                                     {% if stat.description %}
                                                         <div class="tooltip normal">
                                                             <h1>{{ stat.label|trans({}, 'game') }}</h1>
-                                                            {{ stat.description|trans({}, 'game')}}
+                                                            {{ stat.description|trans({}, 'game')|raw }}
                                                         </div>
                                                     {% endif %}
                                                 </li>
@@ -809,15 +809,19 @@
                         $.ajax.load(null, '{{ path('beyond_dashboard') }}', true);
                     } );
             });
-        {% if can_explore %}
-            $.html.addEventListenerAll( '#enter_ruin_button', 'click', function() {
+        $.html.addEventListenerAll( '#enter_ruin_button', 'click', function() {
+            {% if can_explore %}
                 if (confirm('{{ 'Das Gebäude betreten? (Diese Aktion kostet 1AP)'|trans({},'game')|e('js') }}'))
                     $.ajax.easySend( '{{ path('beyond_desert_enter_ruin_controller') }}', {},
                         function () {
                             $.ajax.load(null, '{{ path('exploration_dashboard') }}', true);
                         } );
-            } );
-        {% endif %}
+            {% elseif exploration_blocked_wound %}$.html.error('{{ 'Du kannst das Gebäude nicht betreten, deine offene Wunde würde sich sofort entzünden!'|trans({},'game')|e('js') }}');
+            {% elseif exploration_blocked_in_use %}$.html.error('{{ 'Du kannst das Gebäude nicht betreten, es gibt dort nicht genug Sauerstoff für mehr als eine Person!'|trans({},'game')|e('js') }}');
+            {% elseif exploration_blocked_already %}$.html.error('{{ 'Du kannst das Gebäude heute nicht erneut betreten, dein Körper würde das nicht aushalten!'|trans({},'game')|e('js') }}');
+            {% else %}$.html.error('{{'Diese Aktion steht dir aktuell nicht zur Verfügung.'|trans({},'global')|e('js')}}');
+            {% endif %}
+        } );
         let dig_r_button = document.getElementById('dig_ruin_button');
         if (dig_r_button)
             dig_r_button.addEventListener('click', function() {
@@ -920,7 +924,7 @@
         );
 
         handleCampingActions(
-            document.querySelectorAll('ul.camping_actions li[x-action-id]:not([disabled])'),
+            document.querySelectorAll('ul.camping_actions [x-action-id]:not([disabled])'),
             '{{ path('beyond_desert_camping_controller') }}', '{{ path('beyond_dashboard', {sect: 'ca'}) }}'
         );
 
@@ -929,7 +933,7 @@
             handleItems(
                 document.querySelectorAll('#bury_rucksack_button'),
                 '{{ path('beyond_bury_rucksack_controller') }}',
-                'down-all', '{{ path('beyond_dashboard') }}'
+                'down-all', '{{ path('beyond_dashboard') }}', '{{ 'Bestätigen?'|trans({},'global')|e('js') }}'
             );
         }
         {% endif %}
@@ -937,22 +941,22 @@
         {% endif %}
 
         handleHeroicActions(
-            document.querySelectorAll('ul.heroic_actions li[x-action-id]:not([disabled])'),
+            document.querySelectorAll('ul.heroic_actions [x-action-id]:not([disabled])'),
             '{{ path('beyond_desert_heroic_controller') }}', '{{ path('beyond_dashboard') }}'
         );
 
         handleSpecialActions(
-            document.querySelectorAll('ul.special_actions li[x-action-id]:not([disabled])'),
+            document.querySelectorAll('ul.special_actions [x-action-id]:not([disabled])'),
             '{{ path('beyond_desert_special_action_controller') }}', '{{ path('beyond_dashboard') }}'
         );
 
         handleActions(
-            document.querySelectorAll('ul.actions li[x-action-id][x-provoking-id]:not([disabled])'),
+            document.querySelectorAll('ul.actions [x-action-id][x-provoking-id]:not([disabled])'),
             '{{ path('beyond_desert_action_controller') }}', '{{ path('beyond_dashboard') }}'
         );
 
         handleActions(
-            document.querySelectorAll('._ec li[x-action-id][x-provoking-id][x-citizen][x-escort-meta-action]:not([disabled])'),
+            document.querySelectorAll('._ec [x-action-id][x-provoking-id][x-citizen][x-escort-meta-action]:not([disabled])'),
             '{{ path('beyond_desert_escort_action_controller') }}', '{{ path('beyond_dashboard') }}'
         );
 

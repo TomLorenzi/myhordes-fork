@@ -194,7 +194,7 @@ class InventoryAwareController extends CustomAbstractController
                         $targets[] = [ $citizen->getId(), $citizen->getName(), "build/images/professions/{$citizen->getProfession()->getIcon()}.gif" ];
 
                 break;
-            case ItemTargetDefinition::ItemCitizenType:
+            case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenVoteType:
 
                 foreach ($this->getActiveCitizen()->getTown()->getCitizens() as $citizen)
                     if ($citizen->getAlive() && $citizen != $this->getActiveCitizen())
@@ -222,11 +222,12 @@ class InventoryAwareController extends CustomAbstractController
 
         $av_inv = [$this->getActiveCitizen()->getInventory(), $this->getActiveCitizen()->getZone() ? $this->getActiveCitizen()->getZone()->getFloor() : $this->getActiveCitizen()->getHome()->getChest()];
 
-        $this->action_handler->getAvailableIHeroicActions( $this->getActiveCitizen(),  $available, $crossed );
+        $this->action_handler->getAvailableIHeroicActions( $this->getActiveCitizen(),  $available, $crossed, $used );
         if (empty($available) && empty($crossed)) return [];
 
         foreach ($available as $a) $ret[] = [ 'id' => $a->getId(), 'action' => $a->getAction(), 'targets' => $a->getAction()->getTarget() ? $this->decodeActionItemTargets( $av_inv, $a->getAction()->getTarget() ) : null, 'target_mode' => $a->getAction()->getTarget() ? $a->getAction()->getTarget()->getSpawner() : 0, 'crossed' => false ];
         foreach ($crossed as $c)   $ret[] = [ 'id' => $c->getId(), 'action' => $c->getAction(), 'targets' => null, 'target_mode' => 0, 'crossed' => true ];
+        foreach ($used as $c)      $ret[] = [ 'id' => $c->getId(), 'action' => $c->getAction(), 'targets' => null, 'target_mode' => 0, 'crossed' => true, 'used' => true ];
 
         return $ret;
     }
@@ -287,7 +288,7 @@ class InventoryAwareController extends CustomAbstractController
                 }
             }
         } else {
-            $this->getActiveCitizen()->getHome()->getChest();
+            $av_inv[] = $this->getActiveCitizen()->getHome()->getChest();
         }
 
         $items = [];
@@ -600,7 +601,7 @@ class InventoryAwareController extends CustomAbstractController
             if ($inv_target->getTown()) $bank_up = false;
             $bank_theft = $parser->get_int('theft', 0) > 0;
 
-            if ($bank_theft && ($citizen->getTown()->getChaos() || !$this->conf->getTownConfiguration($citizen->getTown())->isNightMode() ))
+            if ($bank_theft && (!$this->conf->getTownConfiguration($citizen->getTown())->isNightMode() ))
                 return AjaxResponse::error(ErrorHelper::ErrorActionNotAvailable);
 
             $floor_up = null;
@@ -936,7 +937,7 @@ class InventoryAwareController extends CustomAbstractController
                     return false;
                 }
                 return true;
-            case ItemTargetDefinition::ItemCitizenType:
+            case ItemTargetDefinition::ItemCitizenType: case ItemTargetDefinition::ItemCitizenVoteType:
                 $return = $this->entity_manager->getRepository(Citizen::class)->find( $id );
                 if (!$return->getAlive() || $return->getTown()->getId() !== $this->getActiveCitizen()->getTown()->getId()) {
                     $return = null;
