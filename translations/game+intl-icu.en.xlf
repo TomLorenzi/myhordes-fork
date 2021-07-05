@@ -22887,11 +22887,11 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
             {ref__icu, select,
                 on {
                     {ref__gender, select,
-                        female {<![CDATA[If you believe that {citizen} <strong>was in the wrong</strong>, make a complaint.<p></p>If multiple citizens do the same thing, she could be severely <strong>punished</strong> by the community!]]>}
-                        other {<![CDATA[If you believe that {citizen} <strong>was in the wrong</strong>, make a complaint.<p></p>If multiple citizens do the same thing, he could be severely <strong>punished</strong> by the community!]]>}
+                        female {<![CDATA[If you believe that {citizen} <strong>was in the wrong</strong>, make a complaint.<br />If multiple citizens do the same thing, she could be severely <strong>punished</strong> by the community!]]>}
+                        other {<![CDATA[If you believe that {citizen} <strong>was in the wrong</strong>, make a complaint.<br />If multiple citizens do the same thing, he could be severely <strong>punished</strong> by the community!]]>}
                     }
                 }
-                other {<![CDATA[If you believe that {citizen} <strong>was in the wrong</strong>, make a complaint.<p></p>If multiple citizens do the same thing, they could be severely <strong>punished</strong> by the community!]]>}
+                other {<![CDATA[If you believe that {citizen} <strong>was in the wrong</strong>, make a complaint.<br />If multiple citizens do the same thing, they could be severely <strong>punished</strong> by the community!]]>}
             }
         </target>
       </segment>
