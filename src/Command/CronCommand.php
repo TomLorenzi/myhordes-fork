@@ -430,11 +430,15 @@ class CronCommand extends Command
             return -1;
         }
 
+        $lock = $this->locksmith->waitForLock("cron-$task");
+
         switch ($task) {
             case 'host': return $this->task_host($input,$output);
             case 'attack': return $this->task_attack($input,$output);
             case 'backup': return $this->task_backup($input,$output);
             default: return -1;
         }
+
+
     }
 }
