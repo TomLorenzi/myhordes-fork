@@ -470,7 +470,7 @@ class ActionHandler
      * @param ItemAction[] $used
      */
     public function getAvailableIHeroicActions(Citizen $citizen, ?array &$available, ?array &$crossed, ?array &$used ) {
-        $available = $crossed = [];
+        $available = $crossed = $used = [];
 
         if (!$citizen->getProfession()->getHeroic()) return;
         $is_at_00 = $citizen->getZone() && $citizen->getZone()->isTownZone();
