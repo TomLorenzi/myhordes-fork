@@ -14,8 +14,9 @@
             <div class="rp-context">
                 {{'Letzter freigeschalteter Heldenvorteil:'|trans({}, 'game')}}
                 <strong>{% if latestSkill is not null %}
+                        {# @var latestSkill \App\Entity\HeroSkillPrototype #}
                     <img src="{{asset('build/images/heroskill/' ~ latestSkill.icon ~ '.gif')}}" alt="">
-                    {{latestSkill.title|trans({}, 'game')}}
+                    {{latestSkill.title|trans({}, 'game')}} {{ help_btn(latestSkill.description|trans({}, 'game')) }}
                 {% else %}
                     {{'Niemand'|trans({}, 'game')}}
                 {% endif %}</strong>

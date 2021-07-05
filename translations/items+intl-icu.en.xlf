@@ -4,7 +4,7 @@
     <unit id="lKc.7ub" name="Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.">
       <notes>
         <note category="german">Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Du hast folgendes gewürfelt: {dc1}, {dc2} und {dc3}.</source>
@@ -14,7 +14,7 @@
     <unit id="yeqnW9g">
       <notes>
         <note category="german">Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Wow, du hast einen Trippel geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
@@ -24,7 +24,7 @@
     <unit id="rmGP8Al">
       <notes>
         <note category="german">Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Wow, du hast eine Straße geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
@@ -34,7 +34,7 @@
     <unit id="Gk9gFU8">
       <notes>
         <note category="german">Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Wow, du hast beim ersten Versuch eine 4-2-1 geworfen. Das hat so viel Spaß gemacht, dass du 1AP gewinnst!</source>
@@ -44,7 +44,7 @@
     <unit id="087WiZd" name="Nicht schlecht, du hast einen Pasch geworfen.">
       <notes>
         <note category="german">Nicht schlecht, du hast einen Pasch geworfen.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Nicht schlecht, du hast einen Pasch geworfen.</source>
@@ -54,7 +54,7 @@
     <unit id="oGFgAoX" name="Was für ein Spaß!">
       <notes>
         <note category="german">Was für ein Spaß!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Was für ein Spaß!</source>
@@ -64,7 +64,7 @@
     <unit id="zcpU78C">
       <notes>
         <note category="german">Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass dein Name darauf mit Blut geschrieben steht! Du erstarrst vor Schreck!</source>
@@ -74,7 +74,7 @@
     <unit id="NcJ93EV">
       <notes>
         <note category="german">Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Du ziehst eine Karte... und stellst fest, dass du die Karte mit den Spielregeln gezogen hast! Das erheitert dich so sehr, dass du 1AP gewinnst.</source>
@@ -84,7 +84,7 @@
     <unit id="kPlE9C6">
       <notes>
         <note category="german">Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Das muss ein Zeichen sein! In dieser Welt ist kein Platz für Moral... du erhälst 1AP.</source>
@@ -94,7 +94,7 @@
     <unit id="i6dx5ZQ" name="Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.">
       <notes>
         <note category="german">Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Das Symbol der Liebe... dein Herz schmilzt dahin und du erhälst 1AP.</source>
@@ -104,7 +104,7 @@
     <unit id="9tVy8rd">
       <notes>
         <note category="german">Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Mit deiner Gitarre hast du die Stadt gerockt! Die Bürger haben {ap} AP erhalten.</source>
@@ -115,7 +115,7 @@
       <notes>
         <note category="german">Trotz intensiver Suche hast du nichts verwertbares gefunden...</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Trotz intensiver Suche hast du nichts verwertbares gefunden...</source>
@@ -2517,7 +2517,7 @@
       </notes>
       <segment>
         <source>Normaler Bauplan (gewöhnlich)</source>
-        <target>Normal Blueprint (common)</target>
+        <target>Construction Blueprint (common)</target>
       </segment>
     </unit>
     <unit id="fJiq7t3" name="Normaler Bauplan (ungewöhnlich)">
@@ -2527,7 +2527,7 @@
       </notes>
       <segment>
         <source>Normaler Bauplan (ungewöhnlich)</source>
-        <target>Normal Blueprint (uncommon)</target>
+        <target>Construction Blueprint (uncommon)</target>
       </segment>
     </unit>
     <unit id="GYPyEK." name="Normaler Bauplan (selten)">
@@ -2537,7 +2537,7 @@
       </notes>
       <segment>
         <source>Normaler Bauplan (selten)</source>
-        <target>Normal Blueprint (rare)</target>
+        <target>Construction Blueprint (rare)</target>
       </segment>
     </unit>
     <unit id="VZP1E4c" name="Normaler Bauplan (sehr selten!)">
@@ -2547,7 +2547,7 @@
       </notes>
       <segment>
         <source>Normaler Bauplan (sehr selten!)</source>
-        <target>Normal Blueprint (very rare!)</target>
+        <target>Construction Blueprint (very rare!)</target>
       </segment>
     </unit>
     <unit id="jQi8Ua2" name="Architektenkoffer">
@@ -3399,7 +3399,7 @@
     <unit id="u_g_Kg2" name="Trinken">
       <notes>
         <note category="german">Trinken</note>
-        <note category="from">db://ItemAction;db://EscortActionGroup</note>
+        <note category="from">db://EscortActionGroup;db://ItemAction</note>
       </notes>
       <segment>
         <source>Trinken</source>
@@ -3459,7 +3459,7 @@
     <unit id="ohJAffK" name="Essen">
       <notes>
         <note category="german">Essen</note>
-        <note category="from">db://ItemAction;db://EscortActionGroup</note>
+        <note category="from">db://EscortActionGroup;db://ItemAction</note>
       </notes>
       <segment>
         <source>Essen</source>
@@ -3650,7 +3650,7 @@
     <unit id="4BPa55x">
       <notes>
         <note category="german">Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</note>
-        <note category="from">db://ItemPrototype;db://ItemAction</note>
+        <note category="from">db://ItemAction;db://ItemPrototype</note>
       </notes>
       <segment>
         <source>Du machst es dir daheim gemütlich und entspannst dich... doch dann erlebst du ein böse Überraschung: Dieses Ding ist unglaublich schmerzhaft! Du versuchst es weiter bis du Stück für Stück Gefallen daran findest. Die nach wenige Minuten einsetzende Wirkung ist berauschend! Du schwitzt und zitterst und ein wohlig-warmes Gefühl breitet sich in dir aus...Die Batterie ist komplett leer.</source>
@@ -3973,7 +3973,7 @@
     <unit id="1Qhkwmq" name="Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.">
       <notes>
         <note category="german">Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Äußerst erfrischend, und sogar mit einer leichten Note von Cholera.</source>
@@ -3983,7 +3983,7 @@
     <unit id=".jOYrxS" name="Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....">
       <notes>
         <note category="german">Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Immer noch besser als das Zeug, was die Köche in der Stadt zubereiten....</source>
@@ -3993,7 +3993,7 @@
     <unit id="Kl2AzsC" name="Du ziehst eine Karte... es ist: {color} {value}.">
       <notes>
         <note category="german">Du ziehst eine Karte... es ist: {color} {value}.</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Du ziehst eine Karte... es ist: {color} {value}.</source>
@@ -7315,7 +7315,7 @@
     <unit id="XfbyTTX" name="Kaputt">
       <notes>
         <note category="german">Kaputt</note>
-        <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
+        <note category="from">php:///src/Service/LogTemplateHandler.php;twig:///templates/ajax/game/item_tooltip.html.twig</note>
       </notes>
       <segment>
         <source>Kaputt</source>
@@ -7667,7 +7667,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="s1_qYeB" name="Kreuz">
       <notes>
         <note category="german">Kreuz</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
         <source>Kreuz</source>
@@ -7677,7 +7677,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="XnWnfMP" name="Pik">
       <notes>
         <note category="german">Pik</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
         <source>Pik</source>
@@ -7687,7 +7687,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="Rduezfz" name="Herz">
       <notes>
         <note category="german">Herz</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
         <source>Herz</source>
@@ -7697,7 +7697,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="2P.dMD0" name="Karo">
       <notes>
         <note category="german">Karo</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
         <source>Karo</source>
@@ -7707,7 +7707,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="cIg8Tyq" name="Bube">
       <notes>
         <note category="german">Bube</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
         <source>Bube</source>
@@ -7717,7 +7717,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="82FCAix" name="Dame">
       <notes>
         <note category="german">Dame</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
         <source>Dame</source>
@@ -7727,7 +7727,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="5IgH0Ms" name="König">
       <notes>
         <note category="german">König</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
         <source>König</source>
@@ -7737,7 +7737,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="Dq2RYL6" name="Ass">
       <notes>
         <note category="german">Ass</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/HTMLService.php</note>
       </notes>
       <segment>
         <source>Ass</source>
@@ -7746,7 +7746,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     </unit>
     <unit id="hEgldti" name="Nachtwache-Waffen">
       <notes>
-        <note category="german">Nachtwache-Waffen</note>
+        <note category="german">Wächterswaffe</note>
         <note category="from">twig:///templates/ajax/game/item_proto_tooltip.html.twig;twig:///templates/ajax/game/item_tooltip.html.twig</note>
       </notes>
       <segment>
@@ -7907,7 +7907,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="m0F5VOz" name="Kamera aus Vorkriegs-Tagen">
       <notes>
         <note category="german">Kamera aus Vorkriegs-Tagen</note>
-        <note category="from">db://ItemPrototype;db://FeatureUnlockPrototype</note>
+        <note category="from">db://FeatureUnlockPrototype;db://ItemPrototype</note>
       </notes>
       <segment>
         <source>Kamera aus Vorkriegs-Tagen</source>
@@ -7917,7 +7917,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="rUsoPlx">
       <notes>
         <note category="german">Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</note>
-        <note category="from">db://ItemPrototype;db://FeatureUnlockPrototype</note>
+        <note category="from">db://FeatureUnlockPrototype;db://ItemPrototype</note>
       </notes>
       <segment>
         <source>Diese nostalgische Knipse aus dem letzten Jahrhundert wirkt, als hätte sie schon Aberhunderten Leuten die Netzhaut verbrannt. Ihr schwacher Blitz könnte dich aus brenzligen Situationen retten, wenn du Zombies damit blendest!</source>
@@ -8271,7 +8271,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <notes>
         <note category="german">Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...</note>
         <note category="state">new</note>
-        <note category="from">db://AffectMessage</note>
+        <note category="from">db://AffectMessage;php:///src/Controller/Town/TownController.php;php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Ein Opfer der Großen Seuche zu sein hat dir diesmal nicht viel gebracht... und es sieht nicht gut aus...</source>
@@ -8282,7 +8282,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <notes>
         <note category="german">Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.</note>
         <note category="state">new</note>
-        <note category="from">db://AffectMessage</note>
+        <note category="from">db://AffectMessage;php:///src/Controller/Town/TownController.php;php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Da hast du wohl Glück gehabt... Als Opfer der Großen Seuche bist du diesmal um eine unangenehme Infektion herumgekommen.</source>
@@ -8650,7 +8650,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="rigrkZL">
       <notes>
         <note category="german">Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert.</note>
-        <note category="from">db://ItemPrototype;db://FeatureUnlockPrototype</note>
+        <note category="from">db://FeatureUnlockPrototype;db://ItemPrototype</note>
       </notes>
       <segment>
         <source>Es gibt morges doch nichts schöner, als einen lauten Wecker, der dein Trommelfell schön stimuliert.</source>
@@ -8879,26 +8879,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target><![CDATA[You greedily gulp down your ration of water, without tasting it in the least... Your throat still burns as much, but at least you aren't dehydrated anymore...{hr}<strong>Your APs have not been restored because you were dehydrated.</strong>]]></target>
       </segment>
     </unit>
-    <unit id="bmHixif">
-      <notes>
-        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;You don't have enough space for these items ...&lt;/t-no-room&gt;&lt;t-door-closed&gt;The Town gates are closed ...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} cannot return the contents of your rucksack: you are carrying a &lt;strong&gt;heavy object&lt;/strong&gt; which is just too much for your pet to take!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}As you asked, &lt;strong&gt;everything was left at your house&lt;/strong&gt;.{hr}Brave animal!&lt;/nt-fail&gt;</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-no-room>You don't have enough space for these items ...</t-no-room><t-door-closed>The Town gates are closed ...</t-door-closed><t-too-heavy>{item} cannot return the contents of your rucksack: you are carrying a <strong>heavy object</strong> which is just too much for your pet to take!</t-too-heavy></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}As you asked, <strong>everything was left at your house</strong>.{hr}Brave animal!</nt-fail>]]></target>
-      </segment>
-    </unit>
-    <unit id="qedyN68">
-      <notes>
-        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;You don't have enough space for these items ...&lt;/t-no-room&gt;&lt;t-door-closed&gt;The Town gates are closed ...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}As you asked, &lt;strong&gt;everything was left at your house.&lt;/strong&gt;.{hr}Brave animal!&lt;/nt-fail&gt;</note>
-        <note category="from">[unused]</note>
-      </notes>
-      <segment>
-        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-no-room>You don't have enough space for these items ...</t-no-room><t-door-closed>The Town gates are closed ...</t-door-closed></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}As you asked, <strong>everything was left at your house.</strong>.{hr}Brave animal!</nt-fail>]]></target>
-      </segment>
-    </unit>
     <unit id="Zq3WqWc" name="{citizen} befehlen etwas zu trinken.">
       <notes>
         <note category="german">{citizen} befehlen etwas zu trinken.</note>
@@ -9000,24 +8980,24 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target><![CDATA[<t-fail><t-door-closed>The Town gates are closed ...</t-door-closed><t-no-items>{tamer_dog} has nothing to take back to town, your rucksack is <strong>empty</strong>.</t-no-items></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}<strong>Your neighbours will be really happy when they see all that in the bank.</strong></nt-fail>]]></target>
       </segment>
     </unit>
-    <unit id="JN1w0ES">
+    <unit id="KJwuNW3">
       <notes>
-        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</note>
+        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Deine Truhe kann nicht &lt;strong&gt;{items_count} Gegenstände&lt;/strong&gt; aufnehmen: er hat &lt;strong&gt;{size} Platz(e)&lt;/strong&gt; übrig.&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
-        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-no-room>You don't have enough space for these items ...</t-no-room><t-door-closed>The Town gates are closed ...</t-door-closed><t-no-items>{tamer_dog} has nothing to take back to town, your rucksack is <strong>empty</strong>.</t-no-items><t-too-heavy>{tamer_dog} cannot return the contents of your rucksack: you are carrying a <strong>heavy object</strong> which is just too much for your pet to take!</t-too-heavy></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}As you asked, <strong>everything was left at your house</strong>.{hr}Brave animal!</nt-fail>]]></target>
+        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Deine Truhe kann nicht &lt;strong&gt;{items_count} Gegenstände&lt;/strong&gt; aufnehmen: er hat &lt;strong&gt;{size} Platz(e)&lt;/strong&gt; übrig.&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail><t-no-room>Your chest cannot holds <strong>{items_count} items</strong> : it only has <strong>{size} places left</strong>.</t-no-room><t-door-closed>The Town gates are closed ...</t-door-closed><t-no-items>{tamer_dog} has nothing to take back to town, your rucksack is <strong>empty</strong>.</t-no-items><t-too-heavy>{tamer_dog} cannot return the contents of your rucksack: you are carrying a <strong>heavy object</strong> which is just too much for your pet to take!</t-too-heavy></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}As you asked, <strong>everything was left at your house</strong>.{hr}Brave animal!</nt-fail>]]></target>
       </segment>
     </unit>
-    <unit id="QkZTWLf">
+    <unit id="p1t.HhO">
       <notes>
-        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</note>
+        <note category="german">&lt;t-fail&gt;&lt;t-no-room&gt;Deine Truhe kann nicht &lt;strong&gt;{items_count} Gegenstände&lt;/strong&gt; aufnehmen: er hat &lt;strong&gt;{size} Platz(e)&lt;/strong&gt; übrig.&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</note>
         <note category="from">db://ItemAction</note>
       </notes>
       <segment>
-        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-no-room>You don't have enough space for these items ...</t-no-room><t-door-closed>The Town gates are closed ...</t-door-closed><t-no-items>{tamer_dog} has nothing to take back to town, your rucksack is <strong>empty</strong>.</t-no-items></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}As you asked, <strong>everything was left at your house</strong>.{hr}Brave animal!</nt-fail>]]></target>
+        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Deine Truhe kann nicht &lt;strong&gt;{items_count} Gegenstände&lt;/strong&gt; aufnehmen: er hat &lt;strong&gt;{size} Platz(e)&lt;/strong&gt; übrig.&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail><t-no-room>Your chest cannot holds <strong>{items_count} items</strong> : it only has <strong>{size} places left</strong>.</t-no-room><t-door-closed>The Town gates are closed ...</t-door-closed><t-no-items>{tamer_dog} has nothing to take back to town, your rucksack is <strong>empty</strong>.</t-no-items></t-fail><nt-fail>You send {tamer_dog} in the direction of the town with the contents of your rucksack.{hr}As you asked, <strong>everything was left at your house</strong>.{hr}Brave animal!</nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="Zvxrii3">
@@ -9098,7 +9078,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <notes>
         <note category="german">Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">php:///src/Service/ActionHandler.php</note>
       </notes>
       <segment>
         <source>Schlechte Nachrichten, du hättest das nicht herunterschlucken sollen... du hast dir eine Infektion eingefangen!</source>
@@ -9128,7 +9108,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="BnW7_fH">
       <notes>
         <note category="german">Die Nebenwirkungen der Droge lassen nicht lange auf sich warten: Übelkeit, Zittern, Schweißausbrüche, das ganze Programm... Gleichzeitig spürst du jedoch einen &lt;strong&gt;unglaublichen Kraftschub&lt;/strong&gt;. Übertreibe es aber nicht!</note>
-        <note category="from">db://ItemAction;db://AffectMessage</note>
+        <note category="from">db://AffectMessage;db://ItemAction</note>
       </notes>
       <segment>
         <source>Die Nebenwirkungen der Droge lassen nicht lange auf sich warten: Übelkeit, Zittern, Schweißausbrüche, das ganze Programm... Gleichzeitig spürst du jedoch einen &lt;strong&gt;unglaublichen Kraftschub&lt;/strong&gt;. Übertreibe es aber nicht!</source>
@@ -9449,6 +9429,71 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       <segment>
         <source>Dieses Gefühl des Wohlbefindens, das dieser kleine Kaffee hervorruft, bringt dich sofort wieder auf die Beine. Aah!</source>
         <target>The sensation of well-being brought about by this small coffee puts you back on your feet instantly. Aah !</target>
+      </segment>
+    </unit>
+    <unit id="O4qYqLB" name="{watchpoint} pkt attacke">
+      <notes>
+        <note category="german"># pkt attacke</note>
+        <note category="from">twig:///templates/ajax/game/item_tooltip.html.twig</note>
+      </notes>
+      <segment>
+        <source>{watchpoint} pkt attacke</source>
+        <target>
+          {ref__icu, select,
+            on {
+              {watchpoint, plural,
+                =-1 {# attack pt}
+                =0 {# attack pt}
+                =1 {# attack pt}
+                other {# attack pts}
+              }
+            }
+            other {# attack pts}
+          }
+        </target>
+      </segment>
+    </unit>
+    <unit id="nVu0Gxq">
+      <notes>
+        <note category="german">Vorsicht, zu viel Musik ist schädlich, und einer deiner Mitbürger hat dieses Instrument heute bereits benutzt. Deine Ohren würden das nicht überleben.</note>
+        <note category="from">db://Requirement</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Vorsicht, zu viel Musik ist schädlich, und einer deiner Mitbürger hat dieses Instrument heute bereits benutzt. Deine Ohren würden das nicht überleben.</source>
+        <target>Vorsicht, zu viel Musik ist schädlich, und einer deiner Mitbürger hat dieses Instrument heute bereits benutzt. Deine Ohren würden das nicht überleben.</target>
+      </segment>
+    </unit>
+    <unit id="VXFJxzy">
+      <notes>
+        <note category="german">&lt;t-fail&gt;Du hast &lt;strong&gt;keine Wasserwaffen zum Befüllen&lt;/strong&gt; in deinem Rucksack oder deiner Truhe.&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.&lt;/nt-fail&gt;</note>
+        <note category="from">db://ItemAction</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;t-fail&gt;Du hast &lt;strong&gt;keine Wasserwaffen zum Befüllen&lt;/strong&gt; in deinem Rucksack oder deiner Truhe.&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail>Du hast <strong>keine Wasserwaffen zum Befüllen</strong> in deinem Rucksack oder deiner Truhe.</t-fail><nt-fail>Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.</nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="smFT0Hh" name="Diese Aktion wurde in dieser Partie schon ausgeführt.">
+      <notes>
+        <note category="german">Diese Aktion wurde in dieser Partie schon ausgeführt.</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion wurde in dieser Partie schon ausgeführt.</source>
+        <target>This action has already been used in this game.</target>
+      </segment>
+    </unit>
+    <unit id="S0O43SY">
+      <notes>
+        <note category="german">&lt;nt-morphed&gt;Gute Nachrichten: Es ist noch Wasser im Kanister!&lt;/nt-morphed&gt;&lt;t-morphed&gt;&lt;strong&gt;Der Kanister ist LEER&lt;/strong&gt;!&lt;/t-morphed&gt;</note>
+        <note category="from">db://AffectMessage</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;nt-morphed&gt;Gute Nachrichten: Es ist noch Wasser im Kanister!&lt;/nt-morphed&gt;&lt;t-morphed&gt;&lt;strong&gt;Der Kanister ist LEER&lt;/strong&gt;!&lt;/t-morphed&gt;</source>
+        <target><![CDATA[<nt-morphed>Gute Nachrichten: Es ist noch Wasser im Kanister!</nt-morphed><t-morphed><strong>Der Kanister ist LEER</strong>!</t-morphed>]]></target>
       </segment>
     </unit>
   </file>

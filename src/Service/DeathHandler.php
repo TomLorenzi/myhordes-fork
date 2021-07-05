@@ -243,7 +243,8 @@ class DeathHandler
         // according to the day 5 / 8 rule
         $this->picto_handler->validate_picto($citizen);
 
-        if ($died_outside) $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, $zone ) );
+        if ($cod->getRef() === CauseOfDeath::Vanished && $died_outside) $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, $zone, $citizen->getTown()->getDay() + 1 ) );
+        elseif ($died_outside) $this->entity_manager->persist( $this->log->citizenDeath( $citizen, 0, $zone ) );
 
         CitizenRankingProxy::fromCitizen( $citizen, true );
         TownRankingProxy::fromTown( $citizen->getTown(), true );

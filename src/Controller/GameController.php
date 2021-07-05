@@ -425,6 +425,8 @@ class GameController extends CustomAbstractController
             while (count($gazette_logs) > 0) {
                 /** @var GazetteLogEntry $log */
                 $log = array_shift($gazette_logs);
+                if ($log->getTemplate() === null && $log->getLogEntryTemplate() === null)
+                    continue;
                 $type = $log->getTemplate() !== null ? $log->getTemplate()->getType() : $log->getLogEntryTemplate()->getType();
                 if($type !== GazetteEntryTemplate::TypeGazetteWind)
                     $text .= '<p>' . $this->parseGazetteLog($log) . '</p>';
@@ -475,6 +477,7 @@ class GameController extends CustomAbstractController
         $show_register = $in_town || !$this->getActiveCitizen()->getAlive();
 
         $this->getActiveCitizen()->setHasSeenGazette(true);
+        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
         $this->entity_manager->persist($this->getActiveCitizen());
         $this->entity_manager->flush();
 

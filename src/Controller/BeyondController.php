@@ -75,6 +75,7 @@ class BeyondController extends InventoryAwareController
     const ErrorEscortFailure        = ErrorHelper::BaseBeyondErrors + 12;
     const ErrorTerrorized           = ErrorHelper::BaseBeyondErrors + 13;
     const ErrorEscortActionRefused  = ErrorHelper::BaseBeyondErrors + 14;
+    const ErrorEscortFailureRuin    = ErrorHelper::BaseBeyondErrors + 15;
 
     protected $game_factory;
     protected ZoneHandler $zone_handler;
@@ -188,6 +189,12 @@ class BeyondController extends InventoryAwareController
                 !$this->citizen_handler->hasStatusEffect( $this->getActiveCitizen(), ['infection','terror'] ) &&
                 !$this->citizen_handler->isWounded( $this->getActiveCitizen() ) &&
                 !$blocked && !$zone->activeExplorerStats() && !$this->getActiveCitizen()->currentExplorerStats(),
+            'exploration_blocked_wound'     => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && $this->citizen_handler->isWounded( $this->getActiveCitizen() ),
+            'exploration_blocked_blocked'   => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && $blocked,
+            'exploration_blocked_infection' => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && $this->citizen_handler->hasStatusEffect( $this->getActiveCitizen(), 'infection' ),
+            'exploration_blocked_terror'    => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && $this->citizen_handler->hasStatusEffect( $this->getActiveCitizen(), 'terror' ),
+            'exploration_blocked_in_use'    => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && $zone->activeExplorerStats(),
+            'exploration_blocked_already'   => $zone->getPrototype() && $zone->getPrototype()->getExplorable() && $this->getActiveCitizen()->currentExplorerStats(),
             'tired' => $this->citizen_handler->isTired($this->getActiveCitizen()),
             'status_info' => [
                 'can_drink' => !$this->citizen_handler->hasStatusEffect($this->getActiveCitizen(), 'hasdrunk'),
@@ -652,7 +659,7 @@ class BeyondController extends InventoryAwareController
 
         // Block exploring if currently escorting citizens
         if (!empty($citizen->getValidLeadingEscorts()))
-            return AjaxResponse::error( self::ErrorEscortFailure );
+            return AjaxResponse::error( self::ErrorEscortFailureRuin );
 
         // Block exploring if the zone is controlled by zombies
         if (!$this->zone_handler->check_cp( $citizen->getZone() ))
@@ -724,8 +731,9 @@ class BeyondController extends InventoryAwareController
         $cp_ok_new_zone = $this->zone_handler->check_cp($new_zone, $cp_before_new_zone);
         if($cp_before_new_zone <= 0) $cp_ok_new_zone = null;
 
-        if($this->citizen_handler->hasStatusEffect($citizen, 'wound4') && $this->random_generator->chance(0.20)) {
+        if ($this->citizen_handler->hasStatusEffect($citizen, 'wound4') && $this->random_generator->chance(0.20)) {
             $this->addFlash('notice', $this->translator->trans('Wenn du anfängst zu gehen, greift ein sehr starker Schmerz in dein Bein. Du fällst stöhnend zu Boden. Man verliert eine Aktion...', [], 'game'));
+            $this->entity_manager->persist($this->log->outsideMoveoutsideMoveFailInjury( $citizen ));
             $this->citizen_handler->setAP( $citizen, true, -1 );
             $this->entity_manager->persist($citizen);
             $this->entity_manager->flush();
@@ -755,6 +763,14 @@ class BeyondController extends InventoryAwareController
             // Check if escortee wants to go home
             if (count($movers) > 1 && $mover->getEscortSettings() && $mover->getEscortSettings()->getForceDirectReturn() && $away_from_town)
                 return AjaxResponse::errorMessage( $this->translator->trans('{citizen} möchte nicht in diese Richtung gehen! <strong>Er bittet dich darum, ihn in die Stadt zu bringen...</strong>', ['{citizen}' => "<span>{$mover->getName()}</span>"], 'game') );
+
+            if ($mover !== $citizen && $this->citizen_handler->hasStatusEffect($mover, 'wound4') && $this->random_generator->chance(0.20)) {
+                $this->entity_manager->persist($this->log->outsideMoveoutsideMoveFailInjury( $mover ));
+                $this->citizen_handler->setAP( $mover, true, -1 );
+                $this->entity_manager->persist($mover);
+                $this->entity_manager->flush();
+                return AjaxResponse::error( BeyondController::ErrorEscortFailure );
+            }
         }
 
         foreach ($movers as $mover) {

@@ -2056,7 +2056,17 @@
     <unit id="954uB9J">
       <segment>
         <source>Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...</source>
-        <target>Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Hat jemand in letzter Zeit von {citizen} gehört? Sie scheint verschwunden zu sein ...}
+                        other {Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...}
+                    }
+                }
+                other {Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="Z05vQEU">
@@ -2344,37 +2354,97 @@
     <unit id="f1TzhOn" name="Gammler">
       <segment>
         <source>Gammler</source>
-        <target>Gammler</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Gammlerin}
+                        other {Gammler}
+                    }
+                }
+            other {Gammler}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="sBbkqrg" name="Buddler">
       <segment>
         <source>Buddler</source>
-        <target>Buddler</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Buddlerin}
+                        other {Buddler}
+                    }
+                }
+            other {Buddler}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="aMWLa_K" name="Wächter">
       <segment>
         <source>Wächter</source>
-        <target>Wächter</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Wächterin}
+                        other {Wächter}
+                    }
+                }
+            other {Wächter}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="N55mPtD" name="Aufklärer">
       <segment>
         <source>Aufklärer</source>
-        <target>Aufklärer</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Aufklärerin}
+                        other {Aufklärer}
+                    }
+                }
+            other {Aufklärer}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="l9gYoq8" name="Dompteur">
       <segment>
         <source>Dompteur</source>
-        <target>Dompteur</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Dompteuse}
+                        other {Dompteur}
+                    }
+                }
+            other {Dompteur}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="CcGFUIM" name="Techniker">
       <segment>
         <source>Techniker</source>
-        <target>Techniker</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Technikerin}
+                        other {Techniker}
+                    }
+                }
+            other {Techniker}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="gMJ9FD2" name="Schamane">
@@ -2396,7 +2466,17 @@
     <unit id="jYiPQYC" name="Einsiedler">
       <segment>
         <source>Einsiedler</source>
-        <target>Einsiedler</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Einsiedlerin}
+                        other {Einsiedler}
+                    }
+                }
+            other {Einsiedler}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="266wx0d" name="Verbesserung des Tages">
@@ -4361,10 +4441,10 @@
         <target>Tagelang wurde an den Seelen der Toten herumgepfuscht.</target>
       </segment>
     </unit>
-    <unit id="S103XG1" name="@citizens Bürger">
+    <unit id="x7SDYp9" name="{citizens} Bürger">
       <segment>
-        <source>@citizens Bürger</source>
-        <target>@citizens Bürger</target>
+        <source>{citizens} Bürger</source>
+        <target>{citizens} Bürger am Leben</target>
       </segment>
     </unit>
     <unit id="wjS3J8H">
@@ -4472,61 +4552,161 @@
     <unit id="9YXdyqO" name="Dieser Bürger wurde noch nie gesehen...">
       <segment>
         <source>Dieser Bürger wurde noch nie gesehen...</source>
-        <target>Dieser Bürger wurde noch nie gesehen...</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin wurde noch nie gesehen...}
+                        other {Dieser Bürger wurde noch nie gesehen...}
+                    }
+                }
+            other {Dieser Bürger wurde noch nie gesehen...}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="4OynnJl" name="Der Bürger wurde zuletzt {time} gesehen.">
       <segment>
         <source>Der Bürger wurde zuletzt {time} gesehen.</source>
-        <target>Der Bürger wurde zuletzt {time} gesehen.</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Die Bürgerin wurde zuletzt {time} gesehen.}
+                        other {Der Bürger wurde zuletzt {time} gesehen.}
+                    }
+                }
+            other {Der Bürger wurde zuletzt {time} gesehen.}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="SNTneh6" name="Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.">
       <segment>
         <source>Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.</source>
-        <target>Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin hat {ration, select, 1 {eine Wasserration} other {{ration} Wasserrationen}} aus dem Brunnen genommen.}
+                        other {Dieser Bürger hat {ration, select, 1 {eine Wasserration} other {{ration} Wasserrationen}} aus dem Brunnen genommen.}
+                    }
+                }
+            other {Dieser Bürger hat {ration} Wasserration(en) aus dem Brunnen genommen.}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="VNIM3Mp" name="Dieser Bürger ist ernsthaft verletzt.">
       <segment>
         <source>Dieser Bürger ist ernsthaft verletzt.</source>
-        <target>Dieser Bürger ist ernsthaft verletzt.</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin ist ernsthaft verletzt.}
+                        other {Dieser Bürger ist ernsthaft verletzt.}
+                    }
+                }
+            other {Dieser Bürger ist ernsthaft verletzt.}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="w5JoDMX">
       <segment>
         <source>Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</source>
-        <target>Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.}
+                        other {Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.}
+                    }
+                }
+            other {Dieser Bürger hat eventuell schon seit einer Weile Blut gehustet... Einige reden von einer Infektion.}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="0LaQbDJ">
       <segment>
         <source>Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</source>
-        <target>Dieser Bürger hat eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin soll eventuell heute Morgen überall nach Wasser gebettelt haben... Ob sie durstig ist?}
+                        other {Dieser Bürger soll eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?}
+                    }
+                }
+            other {Dieser Bürger soll eventuell heute Morgen überall nach Wasser gebettelt haben... Ob er durstig ist?}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="IhkIaY6">
       <segment>
         <source>Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</source>
-        <target>Dieser Bürger is eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin ist eventuell süchtig... Wir nennen ihr Verhalten aggressiv, manchmal sogar assozial...}
+                        other {Dieser Bürger ist eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...}
+                    }
+                }
+            other {Dieser Bürger ist eventuell süchtig... Wir nennen sein Verhalten aggressiv, manchmal sogar assozial...}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="QHYoGw6">
       <segment>
         <source>Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</source>
-        <target>Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in ihrem Kopf...}
+                        other {Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...}
+                    }
+                }
+            other {Dieser Bürger konnte nicht schlafen und redete wirres Zeug, von Tod, sprechenden Schatten und Stimmen in seinem Kopf...}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="Kx1swjd">
       <segment>
         <source>Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</source>
-        <target>Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!}
+                        other {Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!}
+                    }
+                }
+            other {Dieser Bürger ist nicht in der Lage, einen Beruf zu wählen. Wir sind noch lange nicht über den Berg, das kann ich euch sagen!}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="dvSfZK0">
       <segment>
         <source>Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</source>
-        <target>Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin könnte jemand sehr Wichtiges sein. Vielleicht eine der Erschafferinnen?}
+                        other {Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?}
+                    }
+                }
+            other {Dieser Bürger könnte jemand sehr Wichtiges sein. Vielleicht einer der Erschaffer?}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="q2ChVJX" name="Gereinigte Seelen">
@@ -5834,7 +6014,17 @@
     <unit id="22n2wdo" name="Diesen Bürger angreifen!">
       <segment>
         <source>Diesen Bürger angreifen!</source>
-        <target>Diesen Bürger angreifen!</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Diese Bürgerin angreifen!}
+                        other {Diesen Bürger angreifen!}
+                    }
+                }
+            other {Diesen Bürger angreifen!}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="sVhAGjc" name="Diesen Bürger verspeisen!">
@@ -6780,7 +6970,17 @@
     <unit id="fICCxje" name="Seine Seele ansehen">
       <segment>
         <source>Seine Seele ansehen</source>
-        <target>Seine Seele ansehen</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Ihre Seele ansehen}
+                        other {Seine Seele ansehen}
+                    }
+                }
+            other {Seine Seele ansehen}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="ha9MEDo" name="Eine Nachricht hinterlassen">
@@ -10480,7 +10680,18 @@
     <unit id="7_nM3Uc">
       <segment>
         <source>Du kannst nichts von {citizen} stehlen, solange &lt;strong&gt;er (sie) in der Stadt ist&lt;/strong&gt;...</source>
-        <target><![CDATA[Du kannst nichts von {citizen} stehlen, solange <strong>er (sie) in der Stadt ist</strong>...]]></target>
+        <target><![CDATA[
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        male {Du kannst nichts von {citizen} stehlen, solange <strong>er in der Stadt ist</strong>...}
+                        female {Du kannst nichts von {citizen} stehlen, solange <strong>sie in der Stadt ist</strong>...}
+                        other {Du kannst nichts von {citizen} stehlen, solange <strong>er (sie) in der Stadt ist</strong>...}
+                    }
+                }
+            other {Du kannst nichts von {citizen} stehlen, solange <strong>er (sie) in der Stadt ist</strong>...}
+            }
+        ]]></target>
       </segment>
     </unit>
     <unit id="GLBbBCU">
@@ -12257,12 +12468,6 @@
         <target>Das Grab von {citizen}</target>
       </segment>
     </unit>
-    <unit id="v38LxXL">
-      <segment>
-        <source>Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;Verfluchte Seelenfänger&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</source>
-        <target><![CDATA[Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>Verfluchte Seelenfänger</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.]]></target>
-      </segment>
-    </unit>
     <unit id="X28KXsi" name="Das Haus">
       <segment>
         <source>Das Haus</source>
@@ -12284,13 +12489,33 @@
     <unit id="BfQb8sh">
       <segment>
         <source>Jetzt, da {citizen} tot ist, kannst du ihm einen &lt;strong&gt;Gegenstand klauen&lt;/strong&gt;, wenn du möchtest...</source>
-        <target><![CDATA[Jetzt, da {citizen} tot ist, kannst du ihm einen <strong>Gegenstand klauen</strong>, wenn du möchtest...]]></target>
+        <target><![CDATA[
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Jetzt, da {citizen} tot ist, kannst du ihr einen <strong>Gegenstand klauen</strong>, wenn du möchtest...}
+                        other {Jetzt, da {citizen} tot ist, kannst du ihm einen <strong>Gegenstand klauen</strong>, wenn du möchtest...}
+                    }
+                }
+            other {Jetzt, da {citizen} tot ist, kannst du ihm einen <strong>Gegenstand klauen</strong>, wenn du möchtest...}
+            }
+        ]]></target>
       </segment>
     </unit>
     <unit id="ymlTLkS" name="Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:">
       <segment>
         <source>Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:</source>
-        <target>Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Beim Durchwühlen ihres Hauses entdeckst du folgende Dinge:}
+                        other {Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:}
+                    }
+                }
+            other {Beim Durchwühlen seines Hauses entdeckst du folgende Dinge:}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="ETllwNr">
@@ -12428,7 +12653,17 @@
     <unit id="M1zQceL">
       <segment>
         <source>Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von &lt;em&gt;{townname}&lt;/em&gt; kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.</source>
-        <target><![CDATA[Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.]]></target>
+        <target><![CDATA[
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Da {citizen} tot ist, besteht ein hohes Risiko, dass ihr Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass sie wieder aufersteht und uns angreift, muss sie entweder mit Wasser übergossen oder weggeworfen werden.}
+                        other {Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.}
+                    }
+                }
+            other {Da {citizen} tot ist, besteht ein hohes Risiko, dass sein Körper mit ansteckenden Keimen von <em>{townname}</em> kontaminiert ist. Wenn wir nicht wollen, dass er wieder aufersteht und uns angreift, muss er entweder mit Wasser übergossen oder weggeworfen werden.}
+            }
+        ]]></target>
       </segment>
     </unit>
     <unit id="o66h7gA" name="Diese Aktion ist während der &lt;strong&gt;Chaosperiode&lt;/strong&gt; night erlaubt!">
@@ -12584,7 +12819,17 @@
     <unit id="vScXMoh">
       <segment>
         <source>Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</source>
-        <target>Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Du kannst versuchen, diese Bürgerin zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!}
+                        other {Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!}
+                    }
+                }
+            other {Du kannst versuchen, diesen Bürger zu heilen, aber nichts ist garantiert... und hüte dich vor Nebenwirkungen!}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="u4QY2vJ">
@@ -13283,10 +13528,10 @@
         <target><![CDATA[Du bist bei deiner Aktion aufgeflogen! <strong>Deine Mitbürger wissen jetz Bescheid!</strong>]]></target>
       </segment>
     </unit>
-    <unit id="U4ZJpTo" name="@deads Tot">
+    <unit id="xMKSdFE" name="{deads} Tot">
       <segment>
-        <source>@deads Tot</source>
-        <target>@deads Tot</target>
+        <source>{deads} Tot</source>
+        <target>{deads} Tot</target>
       </segment>
     </unit>
     <unit id="r4KXho0">
@@ -13502,7 +13747,17 @@
     <unit id="gDPIj.n" name="Ein neuer Bürger ist in der Stadt angekommen: {citizen} ({profession}).">
       <segment>
         <source>Ein neuer Bürger ist in der Stadt angekommen: {citizen} ({profession}).</source>
-        <target>Ein neuer Bürger ist in der Stadt angekommen: {citizen} ({profession}).</target>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Eine neue Bürgerin ist in der Stadt angekommen: {citizen} ({profession}).}
+                        other {Ein neuer Bürger ist in der Stadt angekommen: {citizen} ({profession}).}
+                    }
+                }
+            other {Ein neuer Bürger ist in der Stadt angekommen: {citizen} ({profession}).}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="pX9FfWW">
@@ -13544,7 +13799,12 @@
     <unit id="mJl9hp7" name="{points} Punkt(e)">
       <segment>
         <source>{points} Punkt(e)</source>
-        <target>{points} Punkt(e)</target>
+        <target>
+            {ref__icu, select,
+                on { {points, select, 1 {1 Punkt} other {{points} Punkte}} }
+                other {{points} Punkt(e)}
+            }
+        </target>
       </segment>
     </unit>
     <unit id="uAj26XB" name="Schließen">
@@ -13575,6 +13835,134 @@
       <segment>
         <source>Du kannst den Bau einer Pumpe im Bereich &lt;strong&gt;Konstruktionen&lt;/strong&gt; beginnen.</source>
         <target><![CDATA[Du kannst den Bau einer Pumpe im Bereich <strong>Konstruktionen</strong> beginnen.]]></target>
+      </segment>
+    </unit>
+    <unit id="W8upWpv">
+      <segment>
+        <source>Die Wandtafel ermöglicht altgedienten Helden, der ganzen Stadt Anweisungen zu geben.</source>
+        <target>Die Wandtafel ermöglicht altgedienten Helden, der ganzen Stadt Anweisungen zu geben.</target>
+      </segment>
+    </unit>
+    <unit id="UQ10LbN">
+      <segment>
+        <source>Diese Option steht dir ab sofort zur Verfügung, da du auf deiner Seelenseite den Diktatorbonus freigeschaltet hast.</source>
+        <target>Diese Option steht dir ab sofort zur Verfügung, da du auf deiner Seelenseite den Diktatorbonus freigeschaltet hast.</target>
+      </segment>
+    </unit>
+    <unit id="4Uzw2JG" name="Mehr darüber erfahren...">
+      <segment>
+        <source>Mehr darüber erfahren...</source>
+        <target>Mehr darüber erfahren...</target>
+      </segment>
+    </unit>
+    <unit id="z0sYe70">
+      <segment>
+        <source>Nach nur wenigen Metern bricht {citizen} schreiend auf dem Boden zusammen! Seine Beinverletzung hindert ihn schlussendlich daran, die Zone zu verlassen!</source>
+        <target>
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Nach nur wenigen Metern bricht {citizen} schreiend auf dem Boden zusammen! Ihre Beinverletzung hindert sie schlussendlich daran, die Zone zu verlassen!}
+                        other {Nach nur wenigen Metern bricht {citizen} schreiend auf dem Boden zusammen! Seine Beinverletzung hindert ihn schlussendlich daran, die Zone zu verlassen!}
+                    }
+                }
+            other {Nach nur wenigen Metern bricht {citizen} schreiend auf dem Boden zusammen! Seine Beinverletzung hindert ihn schlussendlich daran, die Zone zu verlassen!}
+            }
+        </target>
+      </segment>
+    </unit>
+    <unit id="i2JPF97">
+      <segment>
+        <source>Du kannst das Gebäude nicht betreten, deine offene Wunde würde sich sofort entzünden!</source>
+        <target>Du kannst das Gebäude nicht betreten, deine offene Wunde würde sich sofort entzünden!</target>
+      </segment>
+    </unit>
+    <unit id=".neDsCO">
+      <segment>
+        <source>Du kannst das Gebäude nicht betreten, es gibt dort nicht genug Sauerstoff für mehr als eine Person!</source>
+        <target>Du kannst das Gebäude nicht betreten, es gibt dort nicht genug Sauerstoff für mehr als eine Person!</target>
+      </segment>
+    </unit>
+    <unit id="D1PSeAI">
+      <segment>
+        <source>Du kannst das Gebäude heute nicht erneut betreten, dein Körper würde das nicht aushalten!</source>
+        <target>Du kannst das Gebäude heute nicht erneut betreten, dein Körper würde das nicht aushalten!</target>
+      </segment>
+    </unit>
+    <unit id="KE4Lpi3">
+      <segment>
+        <source>Du kannst das Gebäude nicht betreten, während du eskortiert wirst oder eine Eskorte leitest.</source>
+        <target>Du kannst das Gebäude nicht betreten, während du eskortiert wirst oder eine Eskorte leitest.</target>
+      </segment>
+    </unit>
+    <unit id="j1SX1DD">
+      <segment>
+        <source>Du hast das Wasser aus {item} in den Brunnen geschüttet (&lt;strong&gt;+1 Einheit&lt;/strong&gt;)</source>
+        <target><![CDATA[Du hast das Wasser aus {item} in den Brunnen geschüttet (<strong>+1 Einheit</strong>).]]></target>
+      </segment>
+    </unit>
+    <unit id="IvzsLJB">
+      <segment>
+        <source>Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</source>
+        <target>Unsere aktuelle Schätzung ist zu ungenau, um brauchbar zu sein: Wir brauchen mehr Bürger, die auf den Turm gehen!</target>
+      </segment>
+    </unit>
+    <unit id="gZG1unt">
+      <segment>
+        <source>Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.</source>
+        <target>Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.</target>
+      </segment>
+    </unit>
+    <unit id=".CFiQni">
+      <segment>
+        <source>Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.</source>
+        <target>Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.</target>
+      </segment>
+    </unit>
+    <unit id="SlAwtjZ" name="Wiederverwertung:">
+      <segment>
+        <source>Wiederverwertung:</source>
+        <target>Wiederverwertung:</target>
+      </segment>
+    </unit>
+    <unit id="sQTLfdC" name="Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP">
+      <segment>
+        <source>Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP</source>
+        <target>Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP</target>
+      </segment>
+    </unit>
+    <unit id="1XGWhmm">
+      <segment>
+        <source>Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.</source>
+        <target>Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.</target>
+      </segment>
+    </unit>
+    <unit id="LrUZw5u">
+      <segment>
+        <source>Nur ein einzelner Verrückter bewacht heute Nacht selbstmörderisch das Tor. Wünschen wir {citizens} einen schnellen Tod.</source>
+        <target>Nur ein einzelner Verrückter bewacht heute Nacht selbstmörderisch das Tor. Wünschen wir {citizens} einen schnellen Tod.</target>
+      </segment>
+    </unit>
+    <unit id="X6hFtuv">
+      <segment>
+        <source>Wenn du der Ansicht bist, dass sich {citizen} &lt;strong&gt;falsch verhalten&lt;/strong&gt;, erstatte eine Anzeige&lt;br /&gt;Wenn mehrere Mitspieler dies auch so sehen, kann er (sie) von der Gemeinschaft &lt;strong&gt;schwer bestraft&lt;/strong&gt; werden!</source>
+        <target><![CDATA[
+          {ref__icu, select,
+            on {
+              {ref__gender, select,
+                female {Wenn du der Ansicht bist, dass sich {citizen} <strong>falsch verhalten</strong>, erstatte eine Anzeige<br />Wenn mehrere Mitspieler dies auch so sehen, kann sie von der Gemeinschaft <strong>schwer bestraft</strong> werden!}
+                other {Wenn du der Ansicht bist, dass sich {citizen} <strong>falsch verhalten</strong>, erstatte eine Anzeige<br />Wenn mehrere Mitspieler dies auch so sehen, kann er von der Gemeinschaft <strong>schwer bestraft</strong> werden!}
+              }
+            }
+            other {Wenn du der Ansicht bist, dass sich {citizen} <strong>falsch verhalten</strong>, erstatte eine Anzeige<br />Wenn mehrere Mitspieler dies auch so sehen, kann er (sie) von der Gemeinschaft <strong>schwer bestraft</strong> werden!}
+          }
+        ]]></target>
+      </segment>
+    </unit>
+    <unit id="l7mGQuQ">
+      <segment>
+        <source>Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</source>
+        <target>Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</target>
       </segment>
     </unit>
   </file>

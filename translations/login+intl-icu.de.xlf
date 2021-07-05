@@ -465,5 +465,11 @@
                                             Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</target>
       </segment>
     </unit>
+    <unit id="Nm0UxBL">
+      <segment>
+        <source>Um dich einzuloggen, musst du nach wie vor deinen &lt;b&gt;ursprünglichen Namen&lt;/b&gt; verwenden: &lt;i&gt;{name}&lt;/i&gt;.</source>
+        <target><![CDATA[Um dich einzuloggen, musst du nach wie vor deinen <b>ursprünglichen Namen</b> verwenden: <i>{name}</i>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -54,7 +54,7 @@
     <unit id="lHIUXzm" name="Bürger gestorben">
       <notes>
         <note category="german">Bürger gestorben</note>
-        <note category="from">twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/privacy.html.twig;twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/login_legacy.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig;twig:///templates/ajax/public/privacy.html.twig;twig:///templates/ajax/public/register.html.twig</note>
       </notes>
       <segment>
         <source>Bürger gestorben</source>
@@ -64,7 +64,7 @@
     <unit id="5bHzvXH" name="Zombies gekillt">
       <notes>
         <note category="german">Zombies gekillt</note>
-        <note category="from">twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/privacy.html.twig;twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/login_legacy.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig;twig:///templates/ajax/public/privacy.html.twig;twig:///templates/ajax/public/register.html.twig</note>
       </notes>
       <segment>
         <source>Zombies gekillt</source>
@@ -74,7 +74,7 @@
     <unit id="YlMROjW" name="Akte von Kannibalismus">
       <notes>
         <note category="german">Akte von Kannibalismus</note>
-        <note category="from">twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/privacy.html.twig;twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/login_legacy.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig;twig:///templates/ajax/public/privacy.html.twig;twig:///templates/ajax/public/register.html.twig</note>
       </notes>
       <segment>
         <source>Akte von Kannibalismus</source>
@@ -84,7 +84,7 @@
     <unit id="ad6M6Yb" name="Und das wird kaum besser werden...">
       <notes>
         <note category="german">Und das wird kaum besser werden...</note>
-        <note category="from">twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/privacy.html.twig;twig:///templates/ajax/public/register.html.twig;twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/login_legacy.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/login.html.twig;twig:///templates/ajax/public/login_legacy.html.twig;twig:///templates/ajax/public/privacy.html.twig;twig:///templates/ajax/public/register.html.twig</note>
       </notes>
       <segment>
         <source>Und das wird kaum besser werden...</source>
@@ -134,7 +134,7 @@
     <unit id="psTpKgc">
       <notes>
         <note category="german">Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von {motiontwin}.</note>
-        <note category="from">twig:///templates/ajax/public/privacy.html.twig;twig:///templates/ajax/public/intro.html.twig</note>
+        <note category="from">twig:///templates/ajax/public/intro.html.twig;twig:///templates/ajax/public/privacy.html.twig</note>
       </notes>
       <segment>
         <source>Alle Grafiken stammen, wenn nicht ausdrücklich anders angegeben, ebenfalls aus "Die Verdammten" und seine anderen Versionen und sind damit Eigentum von {motiontwin}.</source>

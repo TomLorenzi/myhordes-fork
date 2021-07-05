@@ -2215,5 +2215,28 @@
         <target>Bitte ändere deinen Anzeigenamen auf EternalTwin.</target>
       </segment>
     </unit>
+    <unit id="4DFz5Xa">
+      <segment>
+        <source>Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</source>
+        <target>Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</target>
+      </segment>
+    </unit>
+    <unit id=".NQ7ahe">
+      <segment>
+        <source>Gib hier den Nickname des Spielers ein, den du einladen möchtest.&lt;br /&gt;Du kannst so viele Personen einladen wie du möchtest. Dabei spielt es keine Rolle, ob du ein Held bist oder nicht. Es bleiben noch &lt;strong&gt;{size} Plätze&lt;/strong&gt; übrig.</source>
+        <target><![CDATA[
+            {ref__icu, select,
+                on {
+                    {size, select,
+                        0 {Gib hier den Nickname des Spielers ein, den du einladen möchtest.<br />Du kannst so viele Personen einladen wie du möchtest. Dabei spielt es keine Rolle, ob du ein Held bist oder nicht. Allerdings ist <strong>kein Platz</strong> mehr übrig.}
+                        1 {Gib hier den Nickname des Spielers ein, den du einladen möchtest.<br />Du kannst so viele Personen einladen wie du möchtest. Dabei spielt es keine Rolle, ob du ein Held bist oder nicht. Es bleiben noch <strong>{size} Plätz</strong> übrig.}
+                        other {Gib hier den Nickname des Spielers ein, den du einladen möchtest.<br />Du kannst so viele Personen einladen wie du möchtest. Dabei spielt es keine Rolle, ob du ein Held bist oder nicht. Es bleiben noch <strong>{size} Plätze</strong> übrig.}
+                    }
+                }
+                other {Gib hier den Nickname des Spielers ein, den du einladen möchtest.<br />Du kannst so viele Personen einladen wie du möchtest. Dabei spielt es keine Rolle, ob du ein Held bist oder nicht. Es bleiben noch <strong>{size} Plätze</strong> übrig.}
+            }
+        ]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -4648,7 +4648,7 @@
     <unit id="hEgldti" name="Nachtwache-Waffen">
       <segment>
         <source>Nachtwache-Waffen</source>
-        <target>Nachtwache-Waffen</target>
+        <target>Wächterswaffe</target>
       </segment>
     </unit>
     <unit id="47LA9aV" name="Pkte">
@@ -4813,10 +4813,10 @@
         <target>Das {item} beginnt rasch zu wirken. Das Fieber klingt ab, dein Herz beginnt wieder in einem halbwegs normalen Takt zu schlagen... Du warst nicht weit von einem schrecklichen Tod entfernt.</target>
       </segment>
     </unit>
-    <unit id="SJ.JIzZ">
+    <unit id="txcEenB">
       <segment>
-        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-no-room>Du hast nicht genug Platz für diese Gegenstände...</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-too-heavy>{item} kann keine schweren Gegenstände tragen...</t-too-heavy></t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
+        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Deine Truhe kann nicht &lt;strong&gt;{items_count} Gegenstände&lt;/strong&gt; aufnehmen: er hat &lt;strong&gt;{size} Platz(e)&lt;/strong&gt; übrig.&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-too-heavy&gt;{item} kann keine schweren Gegenstände tragen...&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail><t-no-room>Deine Truhe kann nicht <strong>{items_count} Gegenstände</strong> aufnehmen: er hat <strong>{size} Platz(e)</strong> übrig.</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-too-heavy>{item} kann keine schweren Gegenstände tragen...</t-too-heavy></t-fail><nt-fail>Du hast den {item} mit deinen Gegenständen in die Stadt geschickt.</nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="xWENNfP" name="Gequälte Seele">
@@ -5359,16 +5359,16 @@
         <target><![CDATA[<t-fail><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-no-items>{tamer_dog} kann nichts mitnehmen, da du <strong>nichts im Rucksack hast</strong>.</t-no-items></t-fail><nt-fail>Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}<strong>Deine Mitbürger werden sich über all diese Gegenstände in der Bank mächtig freuen.</strong></nt-fail>]]></target>
       </segment>
     </unit>
-    <unit id="JN1w0ES">
+    <unit id="KJwuNW3">
       <segment>
-        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-no-room>Du hast nicht genug Platz für diese Gegenstände...</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-no-items>{tamer_dog} kann nichts mitnehmen, da du <strong>nichts im Rucksack hast</strong>.</t-no-items><t-too-heavy>{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen <strong>sperrigen Gegenstand</strong> mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!</t-too-heavy></t-fail><nt-fail>Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, <strong>hat er alles zur Truhe in deinem Haus gebracht</strong>.{hr}Braver Junge!</nt-fail>]]></target>
+        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Deine Truhe kann nicht &lt;strong&gt;{items_count} Gegenstände&lt;/strong&gt; aufnehmen: er hat &lt;strong&gt;{size} Platz(e)&lt;/strong&gt; übrig.&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;t-too-heavy&gt;{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen &lt;strong&gt;sperrigen Gegenstand&lt;/strong&gt; mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!&lt;/t-too-heavy&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail><t-no-room>Deine Truhe kann nicht <strong>{items_count} Gegenstände</strong> aufnehmen: er hat <strong>{size} Platz(e)</strong> übrig.</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-no-items>{tamer_dog} kann nichts mitnehmen, da du <strong>nichts im Rucksack hast</strong>.</t-no-items><t-too-heavy>{tamer_dog} kann deinen Rucksackinhalt nicht mitnehmen, da du einen <strong>sperrigen Gegenstand</strong> mit dir rumschleppt. Das ist dann wohl etwas zu viel des Guten für den Kleinen!</t-too-heavy></t-fail><nt-fail>Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, <strong>hat er alles zur Truhe in deinem Haus gebracht</strong>.{hr}Braver Junge!</nt-fail>]]></target>
       </segment>
     </unit>
-    <unit id="QkZTWLf">
+    <unit id="p1t.HhO">
       <segment>
-        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Du hast nicht genug Platz für diese Gegenstände...&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
-        <target><![CDATA[<t-fail><t-no-room>Du hast nicht genug Platz für diese Gegenstände...</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-no-items>{tamer_dog} kann nichts mitnehmen, da du <strong>nichts im Rucksack hast</strong>.</t-no-items></t-fail><nt-fail>Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, <strong>hat er alles zur Truhe in deinem Haus gebracht</strong>.{hr}Braver Junge!</nt-fail>]]></target>
+        <source>&lt;t-fail&gt;&lt;t-no-room&gt;Deine Truhe kann nicht &lt;strong&gt;{items_count} Gegenstände&lt;/strong&gt; aufnehmen: er hat &lt;strong&gt;{size} Platz(e)&lt;/strong&gt; übrig.&lt;/t-no-room&gt;&lt;t-door-closed&gt;Das Stadttor ist geschlossen...&lt;/t-door-closed&gt;&lt;t-no-items&gt;{tamer_dog} kann nichts mitnehmen, da du &lt;strong&gt;nichts im Rucksack hast&lt;/strong&gt;.&lt;/t-no-items&gt;&lt;/t-fail&gt;&lt;nt-fail&gt;Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, &lt;strong&gt;hat er alles zur Truhe in deinem Haus gebracht&lt;/strong&gt;.{hr}Braver Junge!&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail><t-no-room>Deine Truhe kann nicht <strong>{items_count} Gegenstände</strong> aufnehmen: er hat <strong>{size} Platz(e)</strong> übrig.</t-no-room><t-door-closed>Das Stadttor ist geschlossen...</t-door-closed><t-no-items>{tamer_dog} kann nichts mitnehmen, da du <strong>nichts im Rucksack hast</strong>.</t-no-items></t-fail><nt-fail>Du befiehlst {tamer_dog} deinen Rucksackinhalt in die Stadt zu bringen.{hr}Genau wie du es gewünscht hast, <strong>hat er alles zur Truhe in deinem Haus gebracht</strong>.{hr}Braver Junge!</nt-fail>]]></target>
       </segment>
     </unit>
     <unit id="Zvxrii3">
@@ -5627,6 +5627,48 @@
       <segment>
         <source>Dieses Gefühl des Wohlbefindens, das dieser kleine Kaffee hervorruft, bringt dich sofort wieder auf die Beine. Aah!</source>
         <target>Dieses Gefühl des Wohlbefindens, das dieser kleine Kaffee hervorruft, bringt dich sofort wieder auf die Beine. Aah!</target>
+      </segment>
+    </unit>
+    <unit id="O4qYqLB" name="{watchpoint} pkt attacke">
+      <segment>
+        <source>{watchpoint} pkt attacke</source>
+        <target>
+          {ref__icu, select,
+            on {
+              {watchpoint, plural,
+                =-1 {# Pkt. Angriff}
+                =0 {# Pkt. Angriff}
+                =1 {# Pkt. Angriff}
+                other {# Pkte. Angriff}
+              }
+            }
+            other {# pkt attacke}
+          }
+        </target>
+      </segment>
+    </unit>
+    <unit id="nVu0Gxq">
+      <segment>
+        <source>Vorsicht, zu viel Musik ist schädlich, und einer deiner Mitbürger hat dieses Instrument heute bereits benutzt. Deine Ohren würden das nicht überleben.</source>
+        <target>Vorsicht, zu viel Musik ist schädlich, und einer deiner Mitbürger hat dieses Instrument heute bereits benutzt. Deine Ohren würden das nicht überleben.</target>
+      </segment>
+    </unit>
+    <unit id="VXFJxzy">
+      <segment>
+        <source>&lt;t-fail&gt;Du hast &lt;strong&gt;keine Wasserwaffen zum Befüllen&lt;/strong&gt; in deinem Rucksack oder deiner Truhe.&lt;/t-fail&gt;&lt;nt-fail&gt;Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.&lt;/nt-fail&gt;</source>
+        <target><![CDATA[<t-fail>Du hast <strong>keine Wasserwaffen zum Befüllen</strong> in deinem Rucksack oder deiner Truhe.</t-fail><nt-fail>Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.</nt-fail>]]></target>
+      </segment>
+    </unit>
+    <unit id="smFT0Hh" name="Diese Aktion wurde in dieser Partie schon ausgeführt.">
+      <segment>
+        <source>Diese Aktion wurde in dieser Partie schon ausgeführt.</source>
+        <target>Diese Aktion wurde in dieser Partie schon ausgeführt.</target>
+      </segment>
+    </unit>
+    <unit id="S0O43SY">
+      <segment>
+        <source>&lt;nt-morphed&gt;Gute Nachrichten: Es ist noch Wasser im Kanister!&lt;/nt-morphed&gt;&lt;t-morphed&gt;&lt;strong&gt;Der Kanister ist LEER&lt;/strong&gt;!&lt;/t-morphed&gt;</source>
+        <target><![CDATA[<nt-morphed>Gute Nachrichten: Es ist noch Wasser im Kanister!</nt-morphed><t-morphed><strong>Der Kanister ist LEER</strong>!</t-morphed>]]></target>
       </segment>
     </unit>
   </file>

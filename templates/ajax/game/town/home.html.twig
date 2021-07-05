@@ -145,6 +145,9 @@
 
                 {% if is_granted('ROLE_CROW') %}
                     <button id="suicid" class="mt-1"><img alt="" src="{{ asset('build/images/building/r_dhang.gif') }}" /> {{'Selbstmord begehen'|trans({}, 'admin')}}</button>
+                    {% if app.environment == 'dev' %}
+                        <button x-ajax-href="{{ path('admin_users_account_view', {id: home.citizen.user.id}) }}"><img alt="" src="{{ asset('build/images/icons/small_admin.gif') }}">{{ 'Admin Dashboard'|trans({},'admin') }}</button>
+                    {% endif %}
                 {% endif %}
             </div>
 
@@ -650,17 +653,17 @@
         );
 
         handleHeroicActions(
-            document.querySelectorAll('ul.heroic_actions li[x-action-id]:not([disabled])'),
+            document.querySelectorAll('ul.heroic_actions [x-action-id]:not([disabled])'),
             '{{ path('town_house_heroic_controller') }}', '{{ path('town_house') }}'
         );
 
         handleSpecialActions(
-            document.querySelectorAll('ul.special_actions li[x-action-id]:not([disabled])'),
+            document.querySelectorAll('ul.special_actions [x-action-id]:not([disabled])'),
             '{{ path('town_house_special_action_controller') }}', '{{ path('town_house') }}'
         );
 
         handleActions(
-            document.querySelectorAll('ul.actions li[x-action-id][x-provoking-id]:not([disabled])'),
+            document.querySelectorAll('ul.actions [x-action-id][x-provoking-id]:not([disabled])'),
             '{{ path('town_house_action_controller') }}', '{{ path('town_house') }}'
         );
 
