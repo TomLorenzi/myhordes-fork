@@ -190,6 +190,9 @@
                             {{ _self.target_popup( entry.id, null, entry.targets|sort((a,b) => a[1]|lower <=> b[1]|lower), entry.id ~ '--hero', 'Bitte wähle einen Bürger:'|trans({},'game'), 'Es ist kein Bürger in der Nähe...'|trans({},'game'), true, true, entry.action.confirm, entry.action.confirmMsg ) }}
                         {% endif %}
                     {% endif %}
+                    {% if entry.used is defined and entry.used %}
+                        <div class="tooltip normal">{{ 'Diese Aktion wurde in dieser Partie schon ausgeführt.'|trans({}, 'items') }}</div>
+                    {% endif %}
                     {% if not entry.action.tooltip is null %}
                         <em class="em" style="font-variant: none;">{{ entry.action.tooltip|trans({}, 'items')|raw }}</em>
                     {% endif %}

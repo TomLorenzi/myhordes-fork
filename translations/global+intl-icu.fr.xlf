@@ -2714,7 +2714,7 @@
     <unit id="TvN2VX9" name="Diese Aktion kostet dich 1 AP!">
       <notes>
         <note category="german">Diese Aktion kostet dich 1 AP!</note>
-        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
+        <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig</note>
       </notes>
       <segment>
         <source>Diese Aktion kostet dich 1 AP!</source>

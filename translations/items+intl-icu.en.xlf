@@ -9475,5 +9475,26 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target><![CDATA[<t-fail>Du hast <strong>keine Wasserwaffen zum Befüllen</strong> in deinem Rucksack oder deiner Truhe.</t-fail><nt-fail>Du hast {items_spawn} dank des Wasserhahns kostenlos auffüllen können.</nt-fail>]]></target>
       </segment>
     </unit>
+    <unit id="smFT0Hh" name="Diese Aktion wurde in dieser Partie schon ausgeführt.">
+      <notes>
+        <note category="german">Diese Aktion wurde in dieser Partie schon ausgeführt.</note>
+        <note category="from">twig:///templates/ajax/game/actions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Diese Aktion wurde in dieser Partie schon ausgeführt.</source>
+        <target>This action has already been used in this game.</target>
+      </segment>
+    </unit>
+    <unit id="S0O43SY">
+      <notes>
+        <note category="german">&lt;nt-morphed&gt;Gute Nachrichten: Es ist noch Wasser im Kanister!&lt;/nt-morphed&gt;&lt;t-morphed&gt;&lt;strong&gt;Der Kanister ist LEER&lt;/strong&gt;!&lt;/t-morphed&gt;</note>
+        <note category="from">db://AffectMessage</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>&lt;nt-morphed&gt;Gute Nachrichten: Es ist noch Wasser im Kanister!&lt;/nt-morphed&gt;&lt;t-morphed&gt;&lt;strong&gt;Der Kanister ist LEER&lt;/strong&gt;!&lt;/t-morphed&gt;</source>
+        <target><![CDATA[<nt-morphed>Gute Nachrichten: Es ist noch Wasser im Kanister!</nt-morphed><t-morphed><strong>Der Kanister ist LEER</strong>!</t-morphed>]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

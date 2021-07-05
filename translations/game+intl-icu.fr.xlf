@@ -22671,5 +22671,65 @@
         <target>Notre estimation actuelle est trop mauvaise pour être exploitable : il faut que plus de citoyens passent à la tour !</target>
       </segment>
     </unit>
+    <unit id="gZG1unt">
+      <notes>
+        <note category="german">Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.</source>
+        <target>Vous pouvez recycler la maison où vivait {citizen}. Tous les objets rangés à l'intérieur (dans son inventaire) seront placés dans la banque de la ville. De plus, vous aurez une chance de récupérer certaines ressources ayant servi dans sa construction.</target>
+      </segment>
+    </unit>
+    <unit id=".CFiQni">
+      <notes>
+        <note category="german">Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.</source>
+        <target>Plus rien ! Les citoyens ont décidé de le détruire... C'est beau la reconnaissance.</target>
+      </segment>
+    </unit>
+    <unit id="SlAwtjZ" name="Wiederverwertung:">
+      <notes>
+        <note category="german">Wiederverwertung:</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Wiederverwertung:</source>
+        <target>Recyclage :</target>
+      </segment>
+    </unit>
+    <unit id="sQTLfdC" name="Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP">
+      <notes>
+        <note category="german">Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP</source>
+        <target>Progression du recyclage de cette maison : {progress} / {total} PA</target>
+      </segment>
+    </unit>
+    <unit id="1XGWhmm">
+      <notes>
+        <note category="german">Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.</source>
+        <target>Il ne reste rien du coffre de {citizen}, la maison a été entièrement recyclée !</target>
+      </segment>
+    </unit>
+    <unit id="LrUZw5u">
+      <notes>
+        <note category="german">Nur ein einzelner Verrückter bewacht heute Nacht selbstmörderisch das Tor. Wünschen wir {citizens} einen schnellen Tod.</note>
+        <note category="from">db://LogEntryTemplate</note>
+      </notes>
+      <segment>
+        <source>Nur ein einzelner Verrückter bewacht heute Nacht selbstmörderisch das Tor. Wünschen wir {citizens} einen schnellen Tod.</source>
+        <target>Un seul suicidaire s'est posté ce soir sur les remparts de la ville ! Souhaitons à {citizens} une mort brève.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

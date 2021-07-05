@@ -4170,7 +4170,7 @@ es besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht au
         <source>&lt;strong&gt;Die effektivste Methode einen Ghul zu töten, ist es ihn anzugreifen. Er stirbt dann sofort.&lt;/strong&gt;
 Doch aufgepasst: Ein körperlicher Angriff kostet einiges an {img_ap} und
 es besteht eine erhöhte Wahrscheinlichkeit sein Opfer zu verletzen. Versucht auch nicht den/die falschen anzugreifen, es könnte auf euch zurückfallen. ;)</source>
-        <target><![CDATA[<strong>As in life, violence is the best solution, and will kill a ghoul instantly.</strong> Attention though: aggression costs a lot of  and has an increased chance of wounding the victim. Beware of unwarranted violence.]]></target>
+        <target><![CDATA[<strong>As in life, violence is the best solution, and will kill a ghoul instantly.</strong> Attention though: aggression costs a lot of {img_ap} and has an increased chance of wounding the victim. Beware of unwarranted violence.]]></target>
       </segment>
     </unit>
     <unit id="DeovMmE" name="Wie erkenne ich einen Ghul?">
