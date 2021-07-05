@@ -3153,7 +3153,7 @@
       </notes>
       <segment>
         <source>{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</source>
-        <target>{user} hat dich geblockt und wurde daher aus der Liste der Empfänger für diese Nachricht gestrichen.</target>
+        <target>{user} te ha bloqueado y, por lo tanto, se te ha eliminado de la lista de destinatarios de este mensaje.</target>
       </segment>
     </unit>
     <unit id="QZZefQX" name="{users} und {last_user}">
@@ -3175,7 +3175,7 @@
       </notes>
       <segment>
         <source>{users} haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</source>
-        <target>{users} haben dich geblockt und wurden daher aus der Liste der Empfänger für diese Nachricht gestrichen.</target>
+        <target>{users} te han bloqueado y, por lo tanto, se te ha eliminado de la lista de destinatarios de este mensaje.</target>
       </segment>
     </unit>
     <unit id="tgTK6TI" name="Du hast diesen Spieler auf deine Blacklist gesetzt.">
