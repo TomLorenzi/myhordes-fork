@@ -3942,7 +3942,7 @@
       </notes>
       <segment>
         <source>Ändern des Spielernamens verbieten</source>
-        <target>Ändern des Spielernamens verbieten</target>
+        <target>Prohibir cambiar el nombre del jugador</target>
       </segment>
     </unit>
     <unit id="VR0KmfL" name="Spielername">
