@@ -22975,5 +22975,16 @@
         <target>No queda nada del baúl de {citizen}, ¡la casa ha sido totalmente saqueada!</target>
       </segment>
     </unit>
+    <unit id="LrUZw5u">
+      <notes>
+        <note category="german">Nur ein einzelner Verrückter bewacht heute Nacht selbstmörderisch das Tor. Wünschen wir {citizens} einen schnellen Tod.</note>
+        <note category="from">db://LogEntryTemplate</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Nur ein einzelner Verrückter bewacht heute Nacht selbstmörderisch das Tor. Wünschen wir {citizens} einen schnellen Tod.</source>
+        <target>Nur ein einzelner Verrückter bewacht heute Nacht selbstmörderisch das Tor. Wünschen wir {citizens} einen schnellen Tod.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
