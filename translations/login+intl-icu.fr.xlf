@@ -780,7 +780,7 @@
       </notes>
       <segment>
         <source>Um dich einzuloggen, musst du nach wie vor deinen &lt;b&gt;ursprünglichen Namen&lt;/b&gt; verwenden: &lt;i&gt;{name}&lt;/i&gt;.</source>
-        <target><![CDATA[Um dich einzuloggen, musst du nach wie vor deinen <b>ursprünglichen Namen</b> verwenden: <i>{name}</i>.]]></target>
+        <target><![CDATA[Pour vous connecter, vous devrez toujours utiliser votre <b>nom d'utilisateur original</b> : <i>{name}</i>.]]></target>
       </segment>
     </unit>
   </file>

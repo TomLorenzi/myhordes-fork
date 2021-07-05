@@ -13946,17 +13946,17 @@
     <unit id="X6hFtuv">
       <segment>
         <source>Wenn du der Ansicht bist, dass sich {citizen} &lt;strong&gt;falsch verhalten&lt;/strong&gt;, erstatte eine Anzeige&lt;br /&gt;Wenn mehrere Mitspieler dies auch so sehen, kann er (sie) von der Gemeinschaft &lt;strong&gt;schwer bestraft&lt;/strong&gt; werden!</source>
-        <target>
+        <target><![CDATA[
           {ref__icu, select,
             on {
               {ref__gender, select,
-                female {<![CDATA[Wenn du der Ansicht bist, dass sich {citizen} <strong>falsch verhalten</strong>, erstatte eine Anzeige<br />Wenn mehrere Mitspieler dies auch so sehen, kann sie von der Gemeinschaft <strong>schwer bestraft</strong> werden!]]>}
-                other {<![CDATA[Wenn du der Ansicht bist, dass sich {citizen} <strong>falsch verhalten</strong>, erstatte eine Anzeige<br />Wenn mehrere Mitspieler dies auch so sehen, kann er von der Gemeinschaft <strong>schwer bestraft</strong> werden!]]>}
+                female {Wenn du der Ansicht bist, dass sich {citizen} <strong>falsch verhalten</strong>, erstatte eine Anzeige<br />Wenn mehrere Mitspieler dies auch so sehen, kann sie von der Gemeinschaft <strong>schwer bestraft</strong> werden!}
+                other {Wenn du der Ansicht bist, dass sich {citizen} <strong>falsch verhalten</strong>, erstatte eine Anzeige<br />Wenn mehrere Mitspieler dies auch so sehen, kann er von der Gemeinschaft <strong>schwer bestraft</strong> werden!}
               }
             }
-            other {<![CDATA[Wenn du der Ansicht bist, dass sich {citizen} <strong>falsch verhalten</strong>, erstatte eine Anzeige<br />Wenn mehrere Mitspieler dies auch so sehen, kann er (sie) von der Gemeinschaft <strong>schwer bestraft</strong> werden!]]>}
+            other {Wenn du der Ansicht bist, dass sich {citizen} <strong>falsch verhalten</strong>, erstatte eine Anzeige<br />Wenn mehrere Mitspieler dies auch so sehen, kann er (sie) von der Gemeinschaft <strong>schwer bestraft</strong> werden!}
           }
-        </target>
+        ]]></target>
       </segment>
     </unit>
   </file>

@@ -22985,21 +22985,20 @@
       <notes>
         <note category="german">Wenn du der Ansicht bist, dass sich {citizen} &lt;strong&gt;falsch verhalten&lt;/strong&gt;, erstatte eine Anzeige&lt;br /&gt;Wenn mehrere Mitspieler dies auch so sehen, kann er (sie) von der Gemeinschaft &lt;strong&gt;schwer bestraft&lt;/strong&gt; werden!</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wenn du der Ansicht bist, dass sich {citizen} &lt;strong&gt;falsch verhalten&lt;/strong&gt;, erstatte eine Anzeige&lt;br /&gt;Wenn mehrere Mitspieler dies auch so sehen, kann er (sie) von der Gemeinschaft &lt;strong&gt;schwer bestraft&lt;/strong&gt; werden!</source>
-        <target>
+        <target><![CDATA[
             {ref__icu, select,
                 on {
                     {ref__gender, select,
-                        female {<![CDATA[Si crees que {citizen} ha <strong>actuado mal</strong>, denúnciala.<p></p>¡Si varios habitantes hacen lo mismo, ella recibirá un <strong>castigo</strong> de la comunidad!]]>}
-                        other {<![CDATA[Si crees que {citizen} ha <strong>actuado mal</strong>, denúnciale.<p></p>¡Si varios habitantes hacen lo mismo, él recibirá un <strong>castigo</strong> de la comunidad!]]>}
+                        female {Si crees que {citizen} ha <strong>actuado mal</strong>, denúnciala.<p></p>¡Si varios habitantes hacen lo mismo, ella recibirá un <strong>castigo</strong> de la comunidad!}
+                        other {Si crees que {citizen} ha <strong>actuado mal</strong>, denúnciale.<p></p>¡Si varios habitantes hacen lo mismo, él recibirá un <strong>castigo</strong> de la comunidad!}
                     }
                 }
-                other {<![CDATA[Si crees que {citizen} ha <strong>actuado mal</strong> denúnciale.<br />¡Si varios habitantes hacen lo mismo, él o (ella) recibirá un <strong>castigo</strong> de la comunidad!]]>}
+                other {Si crees que {citizen} ha <strong>actuado mal</strong> denúnciale.<br />¡Si varios habitantes hacen lo mismo, él o (ella) recibirá un <strong>castigo</strong> de la comunidad!}
             }
-        </target>
+        ]]></target>
       </segment>
     </unit>
   </file>

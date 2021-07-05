@@ -3770,5 +3770,29 @@
         <target>Du kannst deinen Spielernamen nicht ändern, weil du einen zugehörigen Eternal Twin Account hast. Du musst zu deinem Eternal Twin-Konto gehen, um deinen Spielernamen zu ändern.</target>
       </segment>
     </unit>
+    <unit id=".NQ7ahe">
+      <notes>
+        <note category="german">Gib hier den Nickname des Spielers ein, den du einladen möchtest.&lt;br /&gt;Du kannst so viele Personen einladen wie du möchtest. Dabei spielt es keine Rolle, ob du ein Held bist oder nicht. Es bleiben noch &lt;strong&gt;{size} Plätze&lt;/strong&gt; übrig.</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Gib hier den Nickname des Spielers ein, den du einladen möchtest.&lt;br /&gt;Du kannst so viele Personen einladen wie du möchtest. Dabei spielt es keine Rolle, ob du ein Held bist oder nicht. Es bleiben noch &lt;strong&gt;{size} Plätze&lt;/strong&gt; übrig.</source>
+        <target>
+          <![CDATA[
+            {ref__icu, select,
+                on {
+                    {size, select,
+                        0 {Escribe el nick del habitante que deseas invitar.<br />Puedes invitar a tantas personas como desees, héroes o no. Recuerda, solo te quedan <strong>{size} plaza</strong>.}
+                        1 {Escribe el nick del habitante que deseas invitar.<br />Puedes invitar a tantas personas como desees, héroes o no. Recuerda, solo te quedan <strong>{size} plaza</strong>.}
+                        other {Escribe el nick del habitante que deseas invitar.<br />Puedes invitar a tantas personas como desees, héroes o no. Recuerda, solo te quedan <strong>{size} plazas</strong>.}
+                    }
+                }
+                other {Escribe el nick del habitante que deseas invitar.<br />Puedes invitar a tantas personas como desees, héroes o no. Recuerda, solo te quedan <strong>{size} plazas</strong>.}
+            }
+        ]]>
+        </target>
+      </segment>
+    </unit>
   </file>
 </xliff>

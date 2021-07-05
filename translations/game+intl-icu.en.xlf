@@ -22879,21 +22879,20 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Wenn du der Ansicht bist, dass sich {citizen} &lt;strong&gt;falsch verhalten&lt;/strong&gt;, erstatte eine Anzeige&lt;br /&gt;Wenn mehrere Mitspieler dies auch so sehen, kann er (sie) von der Gemeinschaft &lt;strong&gt;schwer bestraft&lt;/strong&gt; werden!</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Wenn du der Ansicht bist, dass sich {citizen} &lt;strong&gt;falsch verhalten&lt;/strong&gt;, erstatte eine Anzeige&lt;br /&gt;Wenn mehrere Mitspieler dies auch so sehen, kann er (sie) von der Gemeinschaft &lt;strong&gt;schwer bestraft&lt;/strong&gt; werden!</source>
-        <target>
+        <target><![CDATA[
             {ref__icu, select,
                 on {
                     {ref__gender, select,
-                        female {<![CDATA[If you believe that {citizen} <strong>was in the wrong</strong>, make a complaint.<br />If multiple citizens do the same thing, she could be severely <strong>punished</strong> by the community!]]>}
-                        other {<![CDATA[If you believe that {citizen} <strong>was in the wrong</strong>, make a complaint.<br />If multiple citizens do the same thing, he could be severely <strong>punished</strong> by the community!]]>}
+                        female {If you believe that {citizen} <strong>was in the wrong</strong>, make a complaint.<br />If multiple citizens do the same thing, she could be severely <strong>punished</strong> by the community!}
+                        other {If you believe that {citizen} <strong>was in the wrong</strong>, make a complaint.<br />If multiple citizens do the same thing, he could be severely <strong>punished</strong> by the community!}
                     }
                 }
-                other {<![CDATA[If you believe that {citizen} <strong>was in the wrong</strong>, make a complaint.<br />If multiple citizens do the same thing, they could be severely <strong>punished</strong> by the community!]]>}
+                other {If you believe that {citizen} <strong>was in the wrong</strong>, make a complaint.<br />If multiple citizens do the same thing, they could be severely <strong>punished</strong> by the community!}
             }
-        </target>
+        ]]></target>
       </segment>
     </unit>
   </file>
