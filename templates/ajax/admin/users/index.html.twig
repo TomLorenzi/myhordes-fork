@@ -6,8 +6,7 @@
             <h5>{{'Multi-Account Report'|trans({}, "admin")}}</h5>
             <div class="row-table">
                 <div class="row header">
-                    <div class="cell padded rw-1">&nbsp;</div>
-                    <div class="cell padded rw-3">{{ 'Benutzername'|trans({},'admin') }}</div>
+                    <div class="cell padded rw-4 center">{{ 'Benutzername'|trans({},'admin') }}</div>
                     <div class="cell padded rw-2">{{ 'Verdacht'|trans({},'admin') }}</div>
                     <div class="cell padded rw-6">{{ 'Andere Accounts'|trans({},'admin') }}</div>
                 </div>
@@ -44,8 +43,8 @@
                             </div>
                             {% if is_granted('ROLE_ADMIN') %}
                                 <div class="cell rw-1 padded">
-                                    <button x-shadow x-api-endpoint="{{ url('admin_users_account_manage', {action: 'shadow',    id: table.principal.id}) }}">{{ 'Bann'|trans({},'admin') }}</button>
-                                    <button x-whitelist="{{ group|join('|') }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'whitelist', id: table.principal.id}) }}">{{ 'Whitelist'|trans({},'admin') }}</button>
+                                    <button x-shadow x-api-endpoint="{{ url('admin_users_account_manage', {action: 'shadow',    id: table.principal.id}) }}"><div class="tooltip">{{ 'Bann'|trans({},'admin') }}</div><i class="fa fa-hammer hide-desktop"></i> <span class="hide-mobile">{{ 'Bann'|trans({},'admin') }}</span></button>
+                                    <button x-whitelist="{{ group|join('|') }}" x-api-endpoint="{{ url('admin_users_account_manage', {action: 'whitelist', id: table.principal.id}) }}"><div class="tooltip">{{ 'Whitelist'|trans({},'admin') }}</div><i class="fa fa-clipboard-check hide-desktop"></i> <span class="hide-mobile">{{ 'Whitelist'|trans({},'admin') }}</span></button>
                                 </div>
                             {% endif %}
                         </div>
