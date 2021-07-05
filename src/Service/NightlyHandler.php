@@ -589,6 +589,9 @@ class NightlyHandler
         if ($count_zombified_citizens > 0)
             $this->entity_manager->persist( $this->logTemplates->nightlyAttackBegin($town, $count_zombified_citizens, true) );
 
+        if ($overflow > 0 && count($watchers) > 0 && $has_nightwatch)
+            $this->entity_manager->persist( $this->logTemplates->nightlyAttackWatchersCount($town, count($watchers)) );
+
         if(count($watchers) > 0)
             $this->entity_manager->persist($this->logTemplates->nightlyAttackWatchers($town, $watchers));
         else if ($overflow > 0 && $has_nightwatch) {
@@ -597,9 +600,6 @@ class NightlyHandler
 
         if ($overflow <= 0 && $count_zombified_citizens > 0)
             $this->entity_manager->persist( $this->logTemplates->nightlyAttackDisappointed($town) );
-
-        if ($overflow > 0 && count($watchers) > 0 && $has_nightwatch)
-            $this->entity_manager->persist( $this->logTemplates->nightlyAttackWatchersCount($town, count($watchers)) );
 
         $def_scale = $def_summary ? $def_summary->overall_scale : 1.0;
         $total_watch_def = floor($this->town_handler->calculate_watch_def($town, $town->getDay() - 1) * $def_scale);

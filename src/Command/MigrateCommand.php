@@ -133,6 +133,7 @@ class MigrateCommand extends Command
             ->addOption('environment', null,InputOption::VALUE_REQUIRED, 'Sets the symfony environment to build assets for')
             ->addOption('phar', null,InputOption::VALUE_NONE, 'If set, composer will be invoked using a composer.phar file')
             ->addOption('fast', null,InputOption::VALUE_NONE, 'If set, composer and yarn updates will be skipped')
+            ->addOption("php-bin", null, InputOption::VALUE_OPTIONAL, 'Sets the PHP binary to use')
             ->addOption('skip-backup', null,InputOption::VALUE_NONE, 'If set, no database backup will be created')
             ->addOption('stay-offline', null,InputOption::VALUE_NONE, 'If set, maintenance mode will be kept active after the update')
             ->addOption('release', null,InputOption::VALUE_NONE, 'If set, suppresses commit info from the version string')
@@ -172,6 +173,7 @@ class MigrateCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $null = null;
         if ($m = $input->getOption('maintenance')) {
 
             $file = "{$this->param->get('kernel.project_dir')}/public/maintenance/.active";
@@ -192,8 +194,10 @@ class MigrateCommand extends Command
             $remote = $input->getOption('remote');
             $branch = $input->getOption('branch');
             $env    = $input->getOption('environment');
+            $php    = $input->getOption("php-bin");
+            if(empty($php)) $php = "php";
 
-            if (!$this->helper->capsule( "app:migrate --maintenance on", $output, 'Enable maintenance mode... ', true )) return -1;
+            if (!$this->helper->capsule( "app:migrate --maintenance on", $output, 'Enable maintenance mode... ', true, $null, $php )) return -1;
 
             for ($i = 3; $i > 0; --$i) {
                 $output->writeln("Beginning update in <info>{$i}</info> seconds....");
@@ -210,8 +214,8 @@ class MigrateCommand extends Command
 
             if (!$input->getOption('fast')) {
                 if ($env === 'dev') {
-                    if (!$this->helper->capsule( ($input->getOption('phar') ? 'php composer.phar' : 'composer') . " install", $output, 'Updating composer dependencies...', false )) return 3;
-                } else if (!$this->helper->capsule( ($input->getOption('phar') ? 'php composer.phar' : 'composer') . " install --no-dev --optimize-autoloader", $output, 'Updating composer production dependencies... ', false )) return 4;
+                    if (!$this->helper->capsule( ($input->getOption('phar') ? "$php composer.phar" : 'composer') . " install", $output, 'Updating composer dependencies...', false )) return 3;
+                } else if (!$this->helper->capsule( ($input->getOption('phar') ? "$php composer.phar" : 'composer') . " install --no-dev --optimize-autoloader", $output, 'Updating composer production dependencies... ', false )) return 4;
                 if (!$this->helper->capsule( "yarn install", $output, 'Updating yarn dependencies... ', false )) return 5;
             } else $output->writeln("Skipping <info>dependency updates</info>.");
 
@@ -222,9 +226,9 @@ class MigrateCommand extends Command
             $version_lines = $this->helper->bin( 'git describe --tags' . ($input->getOption('release') ? ' --abbrev=0' : ''), $ret );
             if (count($version_lines) >= 1) file_put_contents( 'VERSION', $version_lines[0] );
 
-            if (!$this->helper->capsule( "cache:clear", $output, 'Clearing cache... ', true )) return 7;
-            if (!$this->helper->capsule( "app:migrate -u -r", $output, 'Updating database... ', true )) return 8;
-            if (!$this->helper->capsule( "app:migrate -p", $output, 'Running post-installation scripts... ', true )) return 9;
+            if (!$this->helper->capsule( "cache:clear", $output, 'Clearing cache... ', true, $null, $php )) return 7;
+            if (!$this->helper->capsule( "app:migrate -u -r", $output, 'Updating database... ', true, $null, $php )) return 8;
+            if (!$this->helper->capsule( "app:migrate -p", $output, 'Running post-installation scripts... ', true, $null, $php )) return 9;
 
             if (count($version_lines) >= 1) $output->writeln("Updated MyHordes to version <info>{$version_lines[0]}</info>");
 
@@ -233,7 +237,7 @@ class MigrateCommand extends Command
                     $output->writeln("Disabling maintenance mode in <info>{$i}</info> seconds....");
                     sleep(1);
                 }
-                if (!$this->helper->capsule( "app:migrate --maintenance off", $output, 'Disable maintenance mode... ', true )) return -1;
+                if (!$this->helper->capsule( "app:migrate --maintenance off", $output, 'Disable maintenance mode... ', true, $null, $php )) return -1;
             } else $output->writeln("Maintenance is kept active. Disable with '<info>app:migrate --maintenance off</info>'");
 
             return 0;

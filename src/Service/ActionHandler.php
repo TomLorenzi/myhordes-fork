@@ -470,7 +470,7 @@ class ActionHandler
      * @param ItemAction[] $used
      */
     public function getAvailableIHeroicActions(Citizen $citizen, ?array &$available, ?array &$crossed, ?array &$used ) {
-        $available = $crossed = [];
+        $available = $crossed = $used = [];
 
         if (!$citizen->getProfession()->getHeroic()) return;
         $is_at_00 = $citizen->getZone() && $citizen->getZone()->isTownZone();
@@ -644,7 +644,9 @@ class ActionHandler
                 $escort_mode ? $action->getEscortMessage() : $action->getMessage(),
             ],
             'kills' => 0,
-            'bury_count' => 0
+            'bury_count' => 0,
+            'items_count' => 0,
+            'size' => 0
         ];
 
         if ($citizen->activeExplorerStats())
@@ -1181,12 +1183,13 @@ class ActionHandler
 
                         $heavy_break = false;
                         $item_count = 0; $success_count = 0;
-                        if (!$heavy)
-                            foreach ( $citizen->getInventory()->getItems() as $target_item ) {
-                                if ($target_item !== $item) $item_count++;
-                                if ($target_item->getPrototype()->getHeavy())
-                                    $heavy_break = true;
-                            }
+
+                        foreach ( $citizen->getInventory()->getItems() as $target_item ) {
+                            if ($target_item->getEssential()) continue;
+                            if ($target_item !== $item) $item_count++;
+                            if ($target_item->getPrototype()->getHeavy())
+                                if (!$heavy) $heavy_break = true;
+                        }
 
                         if ($heavy_break) {
                             $tags[] = 'fail';
@@ -1194,14 +1197,14 @@ class ActionHandler
                         } elseif ($this->inventory_handler->getFreeSize( $bank ) < $item_count) {
                             $tags[] = 'fail';
                             $tags[] = 'no-room';
+                            $execute_info_cache["items_count"] = $item_count;
+                            $execute_info_cache["size"] = ($freeSize = $this->inventory_handler->getFreeSize($bank)) > 0 ? $freeSize : 0;
                         } else {
                             foreach ( $citizen->getInventory()->getItems() as $target_item ) if ($target_item !== $item) {
-
                                 if ($this->inventory_handler->transferItem($citizen, $target_item, $source, $bank, InventoryHandler::ModalityTamer) === InventoryHandler::ErrorNone) {
                                     $success_count++;
                                     if ($create_log) $this->entity_manager->persist($this->log->bankItemTamerLog($citizen, $target_item->getPrototype(), $target_item->getBroken()));
                                 }
-
                             }
 
                             if ($success_count > 0) {
@@ -1590,7 +1593,6 @@ class ActionHandler
         	// We translate & replace placeholders in each messages
         	$addedContent = [];
         	foreach ($execute_info_cache['message'] as $contentMessage) {
-
                 $placeholders = [
 	                '{ap}'            => $execute_info_cache['ap'],
 	                '{minus_ap}'      => -$execute_info_cache['ap'],
@@ -1616,6 +1618,8 @@ class ActionHandler
 	                '{kills}'         => $execute_info_cache['kills'],
 	                '{bury_count}'    => $execute_info_cache['bury_count'],
 	                '{hr}'            => "<hr />",
+                    '{items_count}'   => $execute_info_cache['items_count'],
+                    '{size}'          => $execute_info_cache['size'],
 	            ];
 
                 // How many indexes we need for array placeholders seeks

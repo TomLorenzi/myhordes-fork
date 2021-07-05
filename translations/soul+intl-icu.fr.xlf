@@ -3700,5 +3700,30 @@
         <target>Vous ne pouvez pas changer de pseudo car vous avez associé un compte Eternal Twin. Vous devez vous rendre sur votre compte Eternal Twin pour changer de pseudo.</target>
       </segment>
     </unit>
+    <unit id=".NQ7ahe">
+      <notes>
+        <note category="german">Gib hier den Nickname des Spielers ein, den du einladen möchtest.&lt;br /&gt;Du kannst so viele Personen einladen wie du möchtest. Dabei spielt es keine Rolle, ob du ein Held bist oder nicht. Es bleiben noch &lt;strong&gt;{size} Plätze&lt;/strong&gt; übrig.</note>
+        <note category="from">twig:///templates/ajax/soul/coalitions.html.twig</note>
+      </notes>
+      <segment>
+        <source>Gib hier den Nickname des Spielers ein, den du einladen möchtest.&lt;br /&gt;Du kannst so viele Personen einladen wie du möchtest. Dabei spielt es keine Rolle, ob du ein Held bist oder nicht. Es bleiben noch &lt;strong&gt;{size} Plätze&lt;/strong&gt; übrig.</source>
+        <target><![CDATA[
+          
+            {ref__icu, select,
+                on {
+                    {size, select,
+                        0 {Entrez ici le pseudo du citoyen à inviter.<br />Vous pouvez inviter autant de personnes que vous voulez, héros ou non.<br />Cependant, il ne reste <strong>plus de place</strong>.}
+                        1 {Entrez ici le pseudo du citoyen à inviter.<br />Vous pouvez inviter autant de personnes que vous voulez, héros ou non.<br />Cependant, il ne reste que <strong>{size} place</strong>.}
+                        other {Entrez ici le pseudo du citoyen à inviter.<br />Vous pouvez inviter autant de personnes que vous voulez, héros ou non.<br />Cependant, il ne reste que <strong>{size} places</strong>.}
+                    }
+                }
+                other {
+                  Entrez ici le pseudo du citoyen à inviter.<br />Vous pouvez inviter autant de personnes que vous voulez, héros ou non.<br />Cependant, il ne reste que <strong>{size} place(s)</strong>.
+                }
+            }
+        
+        ]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

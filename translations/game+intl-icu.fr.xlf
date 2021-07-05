@@ -22731,5 +22731,36 @@
         <target>Un seul suicidaire s'est posté ce soir sur les remparts de la ville ! Souhaitons à {citizens} une mort brève.</target>
       </segment>
     </unit>
+    <unit id="X6hFtuv">
+      <notes>
+        <note category="german">Wenn du der Ansicht bist, dass sich {citizen} &lt;strong&gt;falsch verhalten&lt;/strong&gt;, erstatte eine Anzeige&lt;br /&gt;Wenn mehrere Mitspieler dies auch so sehen, kann er (sie) von der Gemeinschaft &lt;strong&gt;schwer bestraft&lt;/strong&gt; werden!</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+      </notes>
+      <segment>
+        <source>Wenn du der Ansicht bist, dass sich {citizen} &lt;strong&gt;falsch verhalten&lt;/strong&gt;, erstatte eine Anzeige&lt;br /&gt;Wenn mehrere Mitspieler dies auch so sehen, kann er (sie) von der Gemeinschaft &lt;strong&gt;schwer bestraft&lt;/strong&gt; werden!</source>
+        <target><![CDATA[
+            {ref__icu, select,
+                on {
+                    {ref__gender, select,
+                        female {Si vous estimez que {citizen} a <strong>mal agi</strong>, utilisez la dénonciation.<br />Si plusieurs citoyens font de même, elle pourra être lourdement <strong>sanctionnée</strong> par la communauté !}
+                        other {Si vous estimez que {citizen} a <strong>mal agi</strong>, utilisez la dénonciation.<br />Si plusieurs citoyens font de même, il pourra être lourdement <strong>sanctionné</strong> par la communauté !}
+                    }
+                }
+                other {Si vous estimez que citizen a <strong>mal agi</strong>, utilisez la dénonciation.<br />Si plusieurs citoyens font de même, il(elle) pourra être lourdement <strong>sanctionné(e)</strong> par la communauté !}
+            }
+        ]]></target>
+      </segment>
+    </unit>
+    <unit id="l7mGQuQ">
+      <notes>
+        <note category="german">Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</note>
+        <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</source>
+        <target>Agresser un citoyen revient à s'en prendre physiquement à lui... Vous avez une chance de lui infliger une blessure et toute la ville sera mise au courant...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -475,6 +475,7 @@ class GameController extends CustomAbstractController
         $show_register = $in_town || !$this->getActiveCitizen()->getAlive();
 
         $this->getActiveCitizen()->setHasSeenGazette(true);
+        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
         $this->entity_manager->persist($this->getActiveCitizen());
         $this->entity_manager->flush();
 

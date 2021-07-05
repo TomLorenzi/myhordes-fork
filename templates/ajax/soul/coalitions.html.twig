@@ -144,11 +144,13 @@
                     {{ _self.display_assoc(all_invited,membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelFounder') or membership.associationLevel == constant('App\\Entity\\UserGroupAssociation::GroupAssociationLevelDefault'),false) }}
                 {% endif %}
 
+                {% if not coa_full %}
                 <div id="users-list-soul">
                     <h5>{{'Einen Freund einladen'|trans({}, "soul")}}</h5>
-                    <div><label><input type="text" id="users-search" style="margin-top: 5px" /></label><div class="tooltip help">{{ 'Gib den Pseudo des Bürgers ein.'|trans({},'soul') }}</div></div>
+                    <div><label><input type="text" id="users-search" style="margin-top: 5px" /></label><div class="tooltip help">{{ 'Gib hier den Nickname des Spielers ein, den du einladen möchtest.<br />Du kannst so viele Personen einladen wie du möchtest. Dabei spielt es keine Rolle, ob du ein Held bist oder nicht. Es bleiben noch <strong>{size} Plätze</strong> übrig.'|trans({'{size}': (max_coa_size - all_users|length)},'soul')|raw }}</div></div>
                     <div id="users-list"></div>
                 </div>
+                {% endif %}
 
                 <h5>{{ 'Optionen'|trans({},'soul') }}</h5>
                 {% if membership.associationType == constant('App\\Entity\\UserGroupAssociation::GroupAssociationTypeCoalitionMember') %}
