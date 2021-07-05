@@ -3260,7 +3260,7 @@
       </notes>
       <segment>
         <source>Einen Beruf auswählen:</source>
-        <target>Choisir un métier:</target>
+        <target>Choisir un métier :</target>
       </segment>
     </unit>
     <unit id="_Kc4j.e" name="Stadt anlegen">
@@ -3471,7 +3471,7 @@
       </notes>
       <segment>
         <source>Teleportieren:</source>
-        <target>Téléportation:</target>
+        <target>Téléportation :</target>
       </segment>
     </unit>
     <unit id="rwkqvEL" name="In die Stadt">
@@ -3993,7 +3993,7 @@
       </notes>
       <segment>
         <source>Chaos-Modus deaktivieren</source>
-        <target>Chaos-Modus deaktivieren</target>
+        <target>Désactiver le mode Chaos</target>
       </segment>
     </unit>
     <unit id="LqAEYTA" name="Stadt reparieren">
@@ -4004,7 +4004,7 @@
       </notes>
       <segment>
         <source>Stadt reparieren</source>
-        <target>Stadt reparieren</target>
+        <target>Réparer la ville</target>
       </segment>
     </unit>
   </file>
