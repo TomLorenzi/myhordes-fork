@@ -51,7 +51,10 @@ class ICUTranslator implements TranslatorInterface, TranslatorBagInterface, Loca
                     $got_citizen = true;
                 }
                 $pass_trough[$key] = $value->getName();
-            } else $pass_trough[$key] = $value;
+            } else {
+                $pass_trough[$key] = $value;
+                $pass_trough["{$key}__copy"] = $value;
+            }
 
             if (isset($parameters["{$key}__tag"])) $pass_trough[$key] = "<{$parameters["{$key}__tag"]} class=\"" . ($parameters["{$key}__class"] ?? '') . "\">{$pass_trough[$key]}</{$parameters["{$key}__tag"]}>";
         }
