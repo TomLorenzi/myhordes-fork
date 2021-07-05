@@ -22644,7 +22644,7 @@
       </notes>
       <segment>
         <source>Sie haben eine Beschwerde gegen &lt;strong&gt;{citizen}&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird {citizen} aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</source>
-        <target><![CDATA[Sie haben eine Beschwerde gegen <strong>{citizen}</strong> eingereicht. Wenn sich genug Beschwerden ansammeln, <strong>wird {citizen} aus der Gemeinschaft verbannt oder gehängt</strong>, falls ein Galgen vorhanden ist.]]></target>
+        <target><![CDATA[Has denunciado a <strong>{citizen}</strong>. Si acumula demasiadas, <strong>{citizen} será desterrado de la comunidad</strong>, o colgado si una horca existe.]]></target>
       </segment>
     </unit>
     <unit id="CgXv4BN">
@@ -22655,7 +22655,7 @@
       </notes>
       <segment>
         <source>Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...</source>
-        <target>Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...</target>
+        <target>Tu denuncia ha sido retirada. Piénsalo mejor la próxima vez.</target>
       </segment>
     </unit>
     <unit id="XG1ubVr">
