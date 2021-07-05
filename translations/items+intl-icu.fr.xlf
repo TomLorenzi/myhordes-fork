@@ -9333,7 +9333,7 @@
                 other {# pts attaque}
               }
             }
-            other {# pts attaque}
+            other { {watchpoint__copy} pts attaque}
           }
         </target>
       </segment>
