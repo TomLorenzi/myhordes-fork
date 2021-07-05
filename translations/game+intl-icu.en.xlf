@@ -22537,7 +22537,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Sie haben eine Beschwerde gegen &lt;strong&gt;{citizen}&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird {citizen} aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</source>
-        <target><![CDATA[Sie haben eine Beschwerde gegen <strong>{citizen}</strong> eingereicht. Wenn sich genug Beschwerden ansammeln, <strong>wird {citizen} aus der Gemeinschaft verbannt oder gehängt</strong>, falls ein Galgen vorhanden ist.]]></target>
+        <target><![CDATA[You have registered a complaint against <strong>{citizen}</strong>. If sufficient complaints are received, <strong>{citizen} will be shunned by the community</strong>, or hanged if there is a gallows.]]></target>
       </segment>
     </unit>
     <unit id="CgXv4BN">
@@ -22548,7 +22548,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...</source>
-        <target>Ihre Beschwerde wurde zurückgezogen... Denken Sie das nächste Mal besser nach...</target>
+        <target>Your complaint has been withdrawn... Exercise better judgement next time...</target>
       </segment>
     </unit>
     <unit id="XG1ubVr">
