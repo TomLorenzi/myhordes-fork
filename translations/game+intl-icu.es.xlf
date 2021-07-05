@@ -9568,7 +9568,7 @@
       </notes>
       <segment>
         <source>Plötzlich sackt {citizen} in sich zusammen, seine Augen drehen sich nach hinten, und mit einem schauerhaften Gurgeln löst sich sein ganzer Körper vor deinen Augen auf und hinterlässt nur den üblen Geruch von Tod und Verwesung! Es gibt keinen Zweifel mehr: {citizen} war ein Ghul!!</source>
-        <target>De repente, {citizen} se derrumba, sus ojos se ponen en blanco y, con un horrible gorgoteo, todo su cuerpo se disuelve ante tus ojos, ¡dejando atrás solo el pestilente olor a muerte y descomposición! Ya no hay ninguna duda: ¡% ciudadano% era un ghoul!!</target>
+        <target>De repente, {citizen} se derrumba, sus ojos se ponen en blanco y, con un horrible gorgoteo, todo su cuerpo se disuelve ante tus ojos, ¡dejando atrás solo el pestilente olor a muerte y descomposición! Ya no hay ninguna duda: ¡{citizen} era un ghoul!!</target>
       </segment>
     </unit>
     <unit id="9goEXWW">
@@ -22244,7 +22244,7 @@
       </notes>
       <segment>
         <source>WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</source>
-        <target>WARNUNG: Es besteht eine große Chance, dass du von anderen Bürgern entdeckt wirst, wenn du jemanden in der Stadt verschlingst! Mach das besser in der Aussenwelt...</target>
+        <target>ATENCIÓN: ¡En el pueblo, corres el riesgo de ser visto por los demás! ¿No sería mejor hacerlo en el Ultramundo?</target>
       </segment>
     </unit>
     <unit id="lN02s2b">
