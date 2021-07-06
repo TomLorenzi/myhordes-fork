@@ -9421,5 +9421,15 @@
         ]]></target>
       </segment>
     </unit>
+    <unit id="H.4hGj8" name="Du hast bereits volle AP.">
+      <notes>
+        <note category="german">Du hast bereits volle AP.</note>
+        <note category="from">db://Requirement</note>
+      </notes>
+      <segment>
+        <source>Du hast bereits volle AP.</source>
+        <target>Vous avez déjà tous vos PA.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
