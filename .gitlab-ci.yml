@@ -6,11 +6,6 @@
 # Select image from https://hub.docker.com/_/php/
 image: php:7.4-cli
 
-before_script:
-  - apt-get update -yqq
-  # Installing some dependancies
-  - apt-get install -yqq sudo git imagemagick curl unzip
-
 # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
 # See http://docs.gitlab.com/ee/ci/services/README.html for examples.
 services:
@@ -32,6 +27,9 @@ stages:
 build:
   stage: build
   script:
+    - apt-get update -yqq
+    # Installing some dependancies
+    - apt-get install -yqq sudo git imagemagick curl unzip
     # Changing php's maximum memory to 256M
     - mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
     - sed -Ei 's/memory_limit = (.*)/memory_limit = 256M/' "$PHP_INI_DIR/php.ini"
