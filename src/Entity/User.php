@@ -269,6 +269,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $preferredPronoun;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $open_mod_tools_same_window = false;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -1100,6 +1105,18 @@ class User implements UserInterface, EquatableInterface
     public function setPreferredPronoun(?int $preferredPronoun): self
     {
         $this->preferredPronoun = $preferredPronoun;
+
+        return $this;
+    }
+
+    public function getOpenModToolsSameWindow(): ?bool
+    {
+        return $this->open_mod_tools_same_window;
+    }
+
+    public function setOpenModToolsSameWindow(bool $open_mod_tools_same_window): self
+    {
+        $this->open_mod_tools_same_window = $open_mod_tools_same_window;
 
         return $this;
     }

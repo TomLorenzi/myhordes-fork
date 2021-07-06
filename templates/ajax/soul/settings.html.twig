@@ -328,6 +328,16 @@
                     </div>
                 </div>
             {% endif %}
+            {% if is_granted("ROLE_CROW") %}
+                <h5>{{ 'Moderationseinstellungen'|trans({}, 'soul') }}</h5>
+                <div class="row">
+                    <div class="padded cell rw-12">
+                        <div class="note note-lightest">
+                            <input x-open-mod-tools-window {% if app.user.openModToolsSameWindow %}checked{% endif%} type="checkbox" id="setting_open_same_window">&nbsp;<label for="setting_open_same_window">{{ 'Moderationslinks in neuem Fenster öffnen'|trans({}, 'soul') }}</label>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
 
             {% if not is_granted('ROLE_ETERNAL') %}
                 <h5>{{ 'Login und Sicherheit'|trans({},'soul') }}</h5>
@@ -500,14 +510,25 @@
         });
 
         {% if is_granted("ROLE_ADMIN") %}
-            $.html.addEventListenerAll('[x-default-role-setting]', 'change', function(e,elem) {
-                $.ajax.easySend( '{{ path('api_soul_defaultrole') }}', {
+        $.html.addEventListenerAll('[x-default-role-setting]', 'change', function(e,elem) {
+            $.ajax.easySend( '{{ path('api_soul_defaultrole') }}', {
                     dev: document.getElementById('setting_default_forum_role').checked
-                    },
-                    function () {
-                        $.ajax.load(null, '{{ path('soul_settings') }}', true);
-                    } )
-            });
+                },
+                function () {
+                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                } )
+        });
+        {% endif %}
+
+        {% if is_granted("ROLE_CROW") %}
+        $.html.addEventListenerAll('[x-open-mod-tools-window]', 'change', function(e,elem) {
+            $.ajax.easySend( '{{ path('api_soul_mod_tools_window') }}', {
+                    same_window: document.getElementById('setting_open_same_window').checked
+                },
+                function () {
+                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                } )
+        });
         {% endif %}
 
         document.getElementById('avatar_file_select').addEventListener('change', function(e) {
