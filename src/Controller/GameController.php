@@ -478,7 +478,6 @@ class GameController extends CustomAbstractController
 
         $citizen = $this->getActiveCitizen();
         $citizen->setHasSeenGazette(true);
-        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
         $this->entity_manager->persist($citizen);
         $this->entity_manager->flush();
 
