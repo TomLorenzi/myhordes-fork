@@ -9443,12 +9443,11 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
             on {
               {watchpoint, plural,
                 =-1 {# attack pt}
-                =0 {# attack pt}
                 =1 {# attack pt}
                 other {# attack pts}
               }
             }
-            other {# attack pts}
+            other {{watchpoint__copy} attack pts}
           }
         </target>
       </segment>
