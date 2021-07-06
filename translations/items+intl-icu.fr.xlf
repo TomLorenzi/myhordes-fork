@@ -9387,7 +9387,7 @@
       <segment>
         <source>Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: &lt;strong&gt;{home_storage}&lt;/strong&gt;.</source>
         <target><![CDATA[
-          Vous installez {item} chez vous. Ça n'est pas très esthétique. Mais franchement... qui s'en occupe ?{hr}
+          Vous installez {item} chez vous. Ça n'est pas très esthétique. Mais franchement... qui s'en préoccupe ?{hr}
           {ref__icu, select,
             on {
               {home_storage, plural,
@@ -9408,7 +9408,7 @@
       <segment>
         <source>Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament &lt;strong&gt;{home_defense} zusätzliche Verteidigungspunkt(e).&lt;/strong&gt;</source>
         <target><![CDATA[
-          Vous fixez solidement {item} chez vous. Ça n'est pas très esthétique. Mais franchement... qui s'en occupe ?{hr}
+          Vous fixez solidement {item} chez vous. Ça ne bougera plus d'ici dorénavant, mais c'est aussi le but...{hr}
           {ref__icu, select,
             on {
               {home_defense, plural,
