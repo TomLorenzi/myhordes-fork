@@ -110,7 +110,7 @@ class GateKeeperSubscriber implements EventSubscriberInterface
                 // This is a game action controller; it is not available to players who are dead
                 throw new DynamicAjaxResetException($event->getRequest());
 
-            if (($gk_profile->onlyWhenIncarnated() || $gk_profile->onlyWhenAlive()) && $citizen->getAlive()){
+            if ($citizen->getAlive()){
                 $this->citizenHandler->inflictStatus($citizen, 'tg_chk_active');
             }
 
