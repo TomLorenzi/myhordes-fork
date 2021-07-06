@@ -161,8 +161,13 @@ class BeyondController extends InventoryAwareController
                 $escort_actions[ $escort->getCitizen()->getId() ] = $this->action_handler->getAvailableItemEscortActions( $escort->getCitizen() );
             }
 
+        $zone_players = count($zone->getCitizens());
+
+        if ($zone->getX() === 0 and $zone->getY() === 0) {
+            $zone_players += $this->entity_manager->getRepository(Citizen::class)->count(['town' => $this->getActiveCitizen()->getTown(), 'zone' => null]);
+        }
         return parent::addDefaultTwigArgs( $section, array_merge( [
-            'zone_players' => count($zone->getCitizens()),
+            'zone_players' => $zone_players,
             'zone_zombies' => max(0,$zone->getZombies()),
             'can_attack_citizen' => !$this->citizen_handler->isTired($this->getActiveCitizen()) && $this->getActiveCitizen()->getAp() >= $this->getTownConf()->get(TownConf::CONF_MODIFIER_ATTACK_AP, 5) && !$this->citizen_handler->isWounded($this->getActiveCitizen()) && !$zone->isTownZone(),
             'can_devour_citizen' => $this->getActiveCitizen()->hasRole('ghoul') && !$zone->isTownZone(),
