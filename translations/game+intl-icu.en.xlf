@@ -22531,7 +22531,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="nbgyiEG">
       <notes>
         <note category="german">Du hast eine Beschwerde gegen &lt;strong&gt;{citizen}&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird {citizen} aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
@@ -22542,7 +22541,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="CgXv4BN">
       <notes>
         <note category="german">Deine Beschwerde wurde zurückgezogen... Denke das nächste Mal besser nach...</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
@@ -22899,7 +22897,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</source>

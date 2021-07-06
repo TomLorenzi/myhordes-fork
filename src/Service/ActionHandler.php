@@ -646,7 +646,9 @@ class ActionHandler
             'kills' => 0,
             'bury_count' => 0,
             'items_count' => 0,
-            'size' => 0
+            'size' => 0,
+            'home_storage' => 0,
+            'home_defense' => 0
         ];
 
         if ($citizen->activeExplorerStats())
@@ -945,6 +947,8 @@ class ActionHandler
             if ($home_set = $result->getHome()) {
                 $citizen->getHome()->setAdditionalStorage( $citizen->getHome()->getAdditionalStorage() + $home_set->getAdditionalStorage() );
                 $citizen->getHome()->setAdditionalDefense( $citizen->getHome()->getAdditionalDefense() + $home_set->getAdditionalDefense() );
+                $execute_info_cache["home_storage"] = $home_set->getAdditionalStorage();
+                $execute_info_cache["home_defense"] = $home_set->getAdditionalDefense();
             }
 
             if($town_set = $result->getTown()){
@@ -1620,6 +1624,8 @@ class ActionHandler
 	                '{hr}'            => "<hr />",
                     '{items_count}'   => $execute_info_cache['items_count'],
                     '{size}'          => $execute_info_cache['size'],
+                    '{home_storage}'  => $execute_info_cache['home_storage'],
+                    '{home_defense}'  => $execute_info_cache['home_defense'],
 	            ];
 
                 // How many indexes we need for array placeholders seeks

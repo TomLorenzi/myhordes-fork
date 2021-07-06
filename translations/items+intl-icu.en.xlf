@@ -9496,5 +9496,16 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
         <target><![CDATA[<nt-morphed>Gute Nachrichten: Es ist noch Wasser im Kanister!</nt-morphed><t-morphed><strong>Der Kanister ist LEER</strong>!</t-morphed>]]></target>
       </segment>
     </unit>
+    <unit id="x2hIMFw">
+      <notes>
+        <note category="german">Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: &lt;strong&gt;{home_storage}&lt;/strong&gt;.</note>
+        <note category="from">db://AffectMessage</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: &lt;strong&gt;{home_storage}&lt;/strong&gt;.</source>
+        <target><![CDATA[Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>
