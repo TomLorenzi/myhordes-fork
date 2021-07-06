@@ -5614,7 +5614,7 @@
     <unit id="nnxBJDq" name="Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.">
       <segment>
         <source>Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.</source>
-        <target><![CDATA[Die Waffe hat <strong>keine Batterie mehr</strong>.]]></target>
+        <target><![CDATA[Die Waffe <strong>hat keine Batterie</strong> mehr.]]></target>
       </segment>
     </unit>
     <unit id="3YKCcgW">
