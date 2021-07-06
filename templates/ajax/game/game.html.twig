@@ -54,7 +54,7 @@
                     {% for stat in status %}
                         {# @var stat \App\Entity\CitizenStatus #}
                         {% if stat.hidden %}
-                            {{ stat.name|trans({}, 'game') }}<br />
+                            {{ stat.name }}<br />
                         {% endif %}
                     {% endfor %}
                     </div>
