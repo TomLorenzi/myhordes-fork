@@ -151,12 +151,12 @@
                                     {% if plane_x == 0 and plane_y == 0 %}
                                         {% if zone_players > 0 %}
                                             {% for n in 1..zone_players %}
-                                                <div class="actor citizen" style="left: {{ random(45,55) }}%; top: {{ random(45,55) }}%"></div>
+                                                <div class="actor citizen" style="left: {{ random(35,75) }}%; top: {{ random(35,75) }}%"></div>
                                             {% endfor %}
                                         {% endif %}
                                         {% if zone_zombies > 0 %}
                                             {% for n in 1..zone_zombies %}
-                                                <div class="actor zombie" style="left: {{ random([random(25,45),random(55,75)]) }}%; top: {{ random([random(25,45),random(55,75)]) }}%"></div>
+                                                <div class="actor zombie" style="left: {{ random([random(15,35),random(75,95)]) }}%; top: {{ random([random(15,35),random(75,95)]) }}%"></div>
                                             {% endfor %}
                                         {% endif %}
                                     {% endif %}
