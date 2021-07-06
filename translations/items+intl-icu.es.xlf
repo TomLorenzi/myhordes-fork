@@ -9385,7 +9385,7 @@
     </unit>
     <unit id="nnxBJDq" name="Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.">
       <notes>
-        <note category="german">Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.</note>
+        <note category="german">Die Waffe &lt;strong&gt;hat keine Batterie&lt;/strong&gt; mehr.</note>
         <note category="from">db://AffectMessage</note>
       </notes>
       <segment>

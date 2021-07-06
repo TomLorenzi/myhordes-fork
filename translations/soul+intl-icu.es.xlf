@@ -3795,7 +3795,7 @@
     </unit>
     <unit id="rDqFWB2" name="Moderationseinstellungen">
       <notes>
-        <note category="german">Moderation settings</note>
+        <note category="german">Moderationseinstellungen</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
         <note category="state">new</note>
       </notes>
@@ -3806,7 +3806,7 @@
     </unit>
     <unit id="J979vsp" name="Moderationslinks in neuem Fenster öffnen">
       <notes>
-        <note category="german">Open moderation links in the same window</note>
+        <note category="german">Moderationslinks in neuem Fenster öffnen</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
         <note category="state">new</note>
       </notes>

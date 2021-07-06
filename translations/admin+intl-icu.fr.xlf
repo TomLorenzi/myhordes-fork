@@ -4005,5 +4005,15 @@
         <target>Réparer la ville</target>
       </segment>
     </unit>
+    <unit id="qiwbmCe" name="Versteckte Statuseffekte">
+      <notes>
+        <note category="german">Versteckte Statuseffekte</note>
+        <note category="from">twig:///templates/ajax/game/game.html.twig</note>
+      </notes>
+      <segment>
+        <source>Versteckte Statuseffekte</source>
+        <target>Status cachés</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

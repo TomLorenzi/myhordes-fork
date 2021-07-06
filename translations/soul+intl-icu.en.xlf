@@ -3785,7 +3785,6 @@
       <notes>
         <note category="german">Moderationslinks in neuem Fenster öffnen</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Moderationslinks in neuem Fenster öffnen</source>
@@ -3796,7 +3795,6 @@
       <notes>
         <note category="german">Moderationseinstellungen</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Moderationseinstellungen</source>
