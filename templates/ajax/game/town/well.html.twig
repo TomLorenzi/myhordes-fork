@@ -26,7 +26,9 @@
         <div class="cell padded rw-3 rw-lg-4 rw-md-6 ro-md-3 rw-sm-8 ro-sm-2">
             <div class="well">
                 <div class="back"></div>
-                <div class="water" style="height: {{ 6 + 59 * min(1.0, (rations_left / 100.0)) }}%"></div>
+                {% if rations_left > 0 %}
+                    <div class="water" style="height: {{ 6 + 59 * min(1.0, (rations_left / 100.0)) }}%"></div>
+                {% endif %}
                 <div class="mask"></div>
                 <div class="overlay">
                     {% if rations_left > 0 %}
