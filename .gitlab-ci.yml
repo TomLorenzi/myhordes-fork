@@ -4,7 +4,7 @@
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/PHP.gitlab-ci.yml
 
 # Select image from https://hub.docker.com/_/php/
-image: php:7.4-zts
+image: php:7.4-cli
 
 before_script:
   - apt-get update -yqq
@@ -42,6 +42,7 @@ build:
     # Install PHP extensions
     - curl -L https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions -o /usr/local/bin/install-php-extensions
     - chmod +x /usr/local/bin/install-php-extensions
+    - pecl install mysqli intl gd zip bz2 imap opcache pdo_mysql
     - docker-php-ext-enable mysqli intl gd zip bz2 imap opcache pdo_mysql
     # - install-php-extensions mysqli intl gd zip bz2 imap opcache pdo_mysql
     # Install & enable Xdebug for code coverage reports
