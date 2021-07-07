@@ -23011,5 +23011,25 @@
         <target>Atacar a un habitante representa un acto de violencia física... Podrías herirle y todo el pueblo lo sabrá...</target>
       </segment>
     </unit>
+    <unit id="ownttVn" name="Das Gesamtregister ansehen">
+      <notes>
+        <note category="german">Das Gesamtregister ansehen</note>
+        <note category="from">twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/catapult.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Das Gesamtregister ansehen</source>
+        <target>Ver el Registro completo del pueblo</target>
+      </segment>
+    </unit>
+    <unit id="JJjZLmq">
+      <notes>
+        <note category="german">Dieser Link bringt dich zum &lt;strong&gt;Großen Register&lt;/strong&gt;. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...</note>
+        <note category="from">twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/catapult.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Link bringt dich zum &lt;strong&gt;Großen Register&lt;/strong&gt;. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...</source>
+        <target><![CDATA[Échale un vistazo al <strong>Gran Registro</strong>, que contiene todas las acciones realizadas por  los habitantes del pueblo...]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

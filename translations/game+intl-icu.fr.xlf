@@ -1524,7 +1524,7 @@
       </notes>
       <segment>
         <source>Einmal pro Tag können bestimmte Konstruktionen umsonst verbessert werden (ohne Einsatz von AP oder Ressourcen). Das nennt sich die Verbesserung des Tages. Jede Verbesserung bringt verschiedene Vorteile mit sich (Verteidigung, Wasser, spezielle Fähigkeiten...). Es ist eure Aufgabe die Verbesserung des Tages zu wählen, die euch am geeignetsten scheint.</source>
-	<target><![CDATA[Une fois par jour, certains chantiers peuvent être améliorés gratuitement (sans PA, ni ressource) : c'est ce qu'on appelle l'<strong>évolution du jour</strong>.<br />Chaque amélioration apporte des avantages divers (défense, eau, capacités spéciales...). <strong>À vous de choisir l'évolution du jour en votant pour celle qui vous semble la plus adaptée.</strong>]]></target>
+        <target><![CDATA[Une fois par jour, certains chantiers peuvent être améliorés gratuitement (sans PA, ni ressource) : c'est ce qu'on appelle l'<strong>évolution du jour</strong>.<br />Chaque amélioration apporte des avantages divers (défense, eau, capacités spéciales...). <strong>À vous de choisir l'évolution du jour en votant pour celle qui vous semble la plus adaptée.</strong>]]></target>
       </segment>
     </unit>
     <unit id="PhutSSq">
@@ -22758,6 +22758,26 @@
       <segment>
         <source>Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</source>
         <target>Agresser un citoyen revient à s'en prendre physiquement à lui... Vous avez une chance de lui infliger une blessure et toute la ville sera mise au courant...</target>
+      </segment>
+    </unit>
+    <unit id="ownttVn" name="Das Gesamtregister ansehen">
+      <notes>
+        <note category="german">Das Gesamtregister ansehen</note>
+        <note category="from">twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/catapult.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Das Gesamtregister ansehen</source>
+        <target>Voir le registre complet de la ville</target>
+      </segment>
+    </unit>
+    <unit id="JJjZLmq">
+      <notes>
+        <note category="german">Dieser Link bringt dich zum &lt;strong&gt;Großen Register&lt;/strong&gt;. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...</note>
+        <note category="from">twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/catapult.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Link bringt dich zum &lt;strong&gt;Großen Register&lt;/strong&gt;. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...</source>
+        <target><![CDATA[Ce lien permet d'accéder au <strong>Grand Registre</strong> qui consigne toutes les actions importantes effectuées par les Citoyens...]]></target>
       </segment>
     </unit>
   </file>

@@ -13965,5 +13965,17 @@
         <target>Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</target>
       </segment>
     </unit>
+    <unit id="ownttVn" name="Das Gesamtregister ansehen">
+      <segment>
+        <source>Das Gesamtregister ansehen</source>
+        <target>Das Gesamtregister ansehen</target>
+      </segment>
+    </unit>
+    <unit id="JJjZLmq">
+      <segment>
+        <source>Dieser Link bringt dich zum &lt;strong&gt;Großen Register&lt;/strong&gt;. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...</source>
+        <target><![CDATA[Dieser Link bringt dich zum <strong>Großen Register</strong>. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...]]></target>
+      </segment>
+    </unit>
   </file>
 </xliff>

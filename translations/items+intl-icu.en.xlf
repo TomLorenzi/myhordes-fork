@@ -9519,7 +9519,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     </unit>
     <unit id="H.4hGj8" name="Du hast bereits volle AP.">
       <notes>
-        <note category="german">Your AP are already full.</note>
+        <note category="german">Du hast bereits volle AP.</note>
         <note category="from">db://Requirement</note>
       </notes>
       <segment>
