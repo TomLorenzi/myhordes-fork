@@ -64,7 +64,7 @@
                             {% for item in citizen.infos.home.chest.items %}
                                 {# @var \App\Entity\Item item #}
                                 {% if (citizen == me or not item.prototype.hideInForeignChest) %}
-                                    {% embed "ajax/game/item.html.twig" with {'item': item, 'no_tooltip': true} %}{% endembed %}
+                                    {% embed "ajax/game/item.html.twig" with {'item': item} %}{% endembed %}
                                 {% endif %}
                             {% endfor %}
                         </ul>
