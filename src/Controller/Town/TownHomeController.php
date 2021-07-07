@@ -96,11 +96,7 @@ class TownHomeController extends TownController
         // Calculate decoration
         $deco = 0;
         $decoItems = [];
-        foreach ($home->getChest()->getItems() as $item) {
-            $deco += $item->getPrototype()->getDeco();
-            if($item->getPrototype()->getDeco() > 0)
-                $decoItems[] = $item;
-        }
+        $deco = $this->citizen_handler->getDecoPoints($citizen, $decoItems);
 
         $can_send_global_pm = !$citizen->getBanished() && $citizen->getProfession()->getHeroic() && $this->user_handler->hasSkill($citizen->getUser(), 'writer');
 

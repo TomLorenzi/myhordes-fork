@@ -294,9 +294,7 @@ class TownController extends InventoryAwareController
         $home = $c->getHome();
 
         $this->town_handler->calculate_home_def($home, $summary);
-        $deco = 0;
-        foreach ($home->getChest()->getItems() as $item)
-            $deco += $item->getPrototype()->getDeco();
+        $deco = $this->citizen_handler->getDecoPoints($c);
 
         $town = $this->getActiveCitizen()->getTown();
         $lastActionTimestamp = $c->getLastActionTimestamp();

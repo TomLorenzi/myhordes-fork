@@ -851,9 +851,7 @@ class NightlyHandler
             else {
                 $this->entity_manager->persist($this->logTemplates->citizenZombieAttackRepelled( $targets[$i], $def, $force));
                 // Calculate decoration
-                $deco = 0;
-                foreach ($targets[$i]->getHome()->getChest()->getItems() as $item)
-                    $deco += $item->getPrototype()->getDeco();
+                $deco = $this->citizen_handler->getDecoPoints($targets[$i]);
 
                 if (!$has_kino && !$this->citizen_handler->hasStatusEffect($targets[$i], $status_terror)) {
                     if ($this->random->chance(1 - ($deco / 100))) {

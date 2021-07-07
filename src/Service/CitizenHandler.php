@@ -848,4 +848,17 @@ class CitizenHandler
         if($this->hasStatusEffect($citizen, 'tg_chk_movewb')) $level++;
         return $level;
     }
+
+    public function getDecoPoints(Citizen $citizen, &$decoItems = []): int {
+        $deco = 0;
+        foreach ($citizen->getHome()->getChest()->getItems() as $item) {
+            /** @var Item $item */
+            if ($item->getBroken()) continue;
+            $deco += $item->getPrototype()->getDeco();
+            if ($item->getPrototype()->getDeco())
+                $decoItems[] = $item;
+        }
+
+        return $deco;
+    }
 }
