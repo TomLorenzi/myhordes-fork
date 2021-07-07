@@ -584,7 +584,7 @@
         <source>&lt;strong&gt;Achtung:&lt;/strong&gt; Du hast bereits einen MyHordes-Account? Dann solltest du jetzt
                                     &lt;i&gt;abbrechen&lt;/i&gt; und dich zuerst mit deinem alten MyHordes-Account einloggen. Du kannst deinen
                                     EternalTwin-Account in den Einstellungen mit deinem MyHordes-Account verknüpfen.</source>
-        <target><![CDATA[<strong>Avertissement :</strong> avez-vous déjà un compte MyHordes? Alors tu devrais maintenant <i>annuler</i> et vous connecter d'abord avec votre ancien compte MyHordes. Vous pouvez lier votre compte EternalTwin à votre compte MyHordes dans les paramètres.]]></target>
+        <target><![CDATA[<strong>Attention :</strong> avez-vous déjà un compte MyHordes? Alors vous devriez maintenant <i>annuler la connexion</i> et vous connecter d'abord avec votre ancien compte MyHordes. Vous pouvez lier votre compte EternalTwin à votre compte MyHordes dans les paramètres.]]></target>
       </segment>
     </unit>
     <unit id="zHOj.3O" name="Los geht's!">
@@ -755,7 +755,7 @@
       </notes>
       <segment>
         <source>Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</source>
-        <target>Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</target>
+        <target>Avant de pouvoir jouer avec votre compte EternalTwin, nous avons besoin de quelques informations supplémentaires de votre part.</target>
       </segment>
     </unit>
     <unit id="wmjJuDK">
@@ -768,8 +768,7 @@
       <segment>
         <source>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
                                             Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</source>
-        <target>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
-                                            Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</target>
+        <target>Pour terminer la procédure d'inscription et activer votre compte, vous devrez cliquer sur un lien d'activation qui sera envoyé à l'adresse email que vous avez fournie..</target>
       </segment>
     </unit>
     <unit id="Nm0UxBL">
