@@ -5679,7 +5679,7 @@ Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</sour
       </notes>
       <segment>
         <source>Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehr als einem Schuss werden eine Ladung verlie</source>
-        <target>All weapons or defensive objects used on the watch will be destroyed once it is over, weapons with multiple charges will use one during the watch.</target>
+        <target>All weapons or defensive objects used on the watch will be destroyed once it is over, weapons with multiple charges will become empty during the watch.</target>
       </segment>
     </unit>
     <unit id="4yvcfEV" name="Wie funktioniert das?">

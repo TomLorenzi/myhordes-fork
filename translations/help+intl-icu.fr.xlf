@@ -5695,7 +5695,7 @@ Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</sour
       </notes>
       <segment>
         <source>Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehr als einem Schuss werden eine Ladung verlie</source>
-        <target>Toutes les armes ou protections portées seront détruites ou cassées à la fin d'une veille, les armes ayant plusieurs charges se videront d'une charge durant cette nuit.</target>
+        <target>Toutes les armes ou protections portées seront détruites ou cassées à la fin d'une veille, les armes ayant plusieurs charges se videront entièrement durant cette nuit.</target>
       </segment>
     </unit>
     <unit id="4yvcfEV" name="Wie funktioniert das?">
