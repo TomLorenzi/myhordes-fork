@@ -20394,7 +20394,7 @@
       </notes>
       <segment>
         <source>{citizen} hat versucht einen Zombie niederzustrecken und ist dabei fast draufgegangen...</source>
-        <target>{citizen} hat versucht einen Zombie niederzustrecken und ist dabei fast draufgegangen...</target>
+        <target>{citizen} casi se hace devorar al atacar a puño limpio a un zombie...</target>
       </segment>
     </unit>
     <unit id="L4sBLhc" name="&lt;span&gt;Wir kontrollieren die Zone ab sofort.&lt;/span&gt;">
