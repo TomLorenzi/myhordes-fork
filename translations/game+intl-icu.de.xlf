@@ -13977,5 +13977,11 @@
         <target><![CDATA[Dieser Link bringt dich zum <strong>Großen Register</strong>. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...]]></target>
       </segment>
     </unit>
+    <unit id="eOisfiB" name="Nichts Interessantes...">
+      <segment>
+        <source>Nichts Interessantes...</source>
+        <target>Nichts Interessantes...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

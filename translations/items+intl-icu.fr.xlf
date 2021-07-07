@@ -8069,7 +8069,7 @@
     <unit id="sGKanc7" name="Abstimmen">
       <notes>
         <note category="german">Abstimmen</note>
-        <note category="from">[unused]</note>
+        <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>Abstimmen</source>
@@ -8080,7 +8080,7 @@
       <notes>
         <note category="german">Vous avez voté pour {citizen} en tant que {role} !</note>
         <note category="state">new</note>
-        <note category="from">[unused]</note>
+        <note category="from">db://ItemAction</note>
       </notes>
       <segment>
         <source>Vous avez voté pour {citizen} en tant que {role} !</source>

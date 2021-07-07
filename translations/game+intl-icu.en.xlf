@@ -22923,5 +22923,16 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target><![CDATA[This link lets you read the <strong>Great Register</strong> which records all actions carried out by citizens...]]></target>
       </segment>
     </unit>
+    <unit id="eOisfiB" name="Nichts Interessantes...">
+      <notes>
+        <note category="german">Nichts Interessantes...</note>
+        <note category="from">twig:///templates/ajax/game/inventory.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Nichts Interessantes...</source>
+        <target>Nothing of interest...</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

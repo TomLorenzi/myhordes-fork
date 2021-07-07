@@ -23031,5 +23031,16 @@
         <target><![CDATA[Échale un vistazo al <strong>Gran Registro</strong>, que contiene todas las acciones realizadas por  los habitantes del pueblo...]]></target>
       </segment>
     </unit>
+    <unit id="eOisfiB" name="Nichts Interessantes...">
+      <notes>
+        <note category="german">Nichts Interessantes...</note>
+        <note category="from">twig:///templates/ajax/game/inventory.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Nichts Interessantes...</source>
+        <target>Nada interesante</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
