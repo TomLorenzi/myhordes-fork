@@ -9698,7 +9698,7 @@
       </notes>
       <segment>
         <source>Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.</source>
-        <target>Tu herida en los ojos no facilita las cosas...</target>
+        <target><![CDATA[Tu <strong>herida en el ojo</strong> te molesta muchísimo durante tus búsquedas.]]></target>
       </segment>
     </unit>
     <unit id="UhCUwjo" name="Du kannst heute keine weiteren Beschwerden vorbringen.">
