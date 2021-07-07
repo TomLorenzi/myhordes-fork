@@ -22495,7 +22495,17 @@
       </notes>
       <segment>
         <source>In der Horde der Zombies wurden {num} ehemalige Bürger gesichtet, die in der Aussenwelt gestorben sind und sich der Stadt nun zähnefletschend und mit düsterem Blick nähern...</source>
-        <target>En plus de cette horde, {num} anciens citoyens morts dans l'Outre-Monde sont revenus, les dents en avant et le regard morne...</target>
+        <target><![CDATA[
+            {ref__icu, select,
+                on {
+                    {num, plural,
+                    one {En plus de cette horde, <span>#</span> ancien citoyen mort dans l'Outre-Monde est revenu, les dents en avant et le regard morne...}
+                    other {En plus de cette horde, <span>#</span> anciens citoyens morts dans l'Outre-Monde sont revenus, les dents en avant et le regard morne...}
+                    }
+                }
+                other {En plus de cette horde, <span>{num__copy}</span> anciens citoyens morts dans l'Outre-Monde sont revenus, les dents en avant et le regard morne...}
+            }]]>
+        </target>
       </segment>
     </unit>
     <unit id="DLc6Njb">
