@@ -12679,7 +12679,7 @@
       </notes>
       <segment>
         <source>Du stürzt dich auf eine dieser Kreaturen und &lt;strong&gt;umklammerst sie mit beiden Armen&lt;/strong&gt;, um sie zu Fall zu bringen. Der Kontakt mit seiner &lt;strong&gt;verrotteten Haut&lt;/strong&gt; bringt dich fast zum Kotzen... Du kämpfst und versuchst ihn irgendwie umzustoßen, doch ohne Erfolg. &lt;strong&gt;Das Biest hat dich mehrere Male um ein Haar gebissen!&lt;/strong&gt; Erschöpft und demoralisiert lässt du von ihm ab, um dich zurückzuziehen...</source>
-        <target>Coges con ambas manos uno de esos horribles muertos vivientes, el contacto con la textura fibrosa y pegajosa de su carne putrefacta es insoportable... Luchas, intentas empujarlo, pero nada... ¡Casi te muerde más de una vez! Decides abandonar tu intento, agotado y desmoralizado...</target>
+        <target><![CDATA[Coges con <strong>ambas manos</strong> uno de esos horribles muertos vivientes, el contacto con la textura fibrosa y pegajosa de su <strong>carne putrefacta</strong> es insoportable... Luchas, intentas empujarlo, pero nada... <strong>¡Casi te muerde más de una vez!</strong> Decides abandonar tu intento, agotado y desmoralizado...]]></target>
       </segment>
     </unit>
     <unit id="rJtk9d5" name="Die Abschätzung wird durch den Scanner verbessert.">
