@@ -148,7 +148,7 @@ class NightlyHandler
 
                     if (!$this->random->chance($survival_chance)) {
                         $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> was at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> and died while camping (survival chance was " . ($survival_chance * 100) . "%)!");
-                        $this->kill_wrap($citizen, $cod, false, 0, false, $town->getDay()+1);
+                        $this->kill_wrap($citizen, $cod, false, 0, true, $town->getDay()+1);
                     }
                     else {
                         $citizen->setCampingCounter($citizen->getCampingCounter() + 1);
@@ -172,7 +172,7 @@ class NightlyHandler
                 }
                 else {
                   $this->log->debug("Citizen <info>{$citizen->getUser()->getUsername()}</info> is at <info>{$citizen->getZone()->getX()}/{$citizen->getZone()->getY()}</info> without protection!");
-                  $this->kill_wrap($citizen, $cod, false, 0, false, $town->getDay()+1);
+                  $this->kill_wrap($citizen, $cod, false, 0, true, $town->getDay()+1);
                 }
 
                 $this->zone_handler->handleCitizenCountUpdate($zone, $cp_ok);
