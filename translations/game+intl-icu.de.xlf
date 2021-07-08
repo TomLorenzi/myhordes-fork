@@ -13983,5 +13983,11 @@
         <target>Nichts Interessantes...</target>
       </segment>
     </unit>
+    <unit id="7ln_hQb" name="Zum Bau dieses Bauprojekts fehlen noch {ap} AP">
+      <segment>
+        <source>Zum Bau dieses Bauprojekts fehlen noch {ap} AP</source>
+        <target>Zum Bau dieses Bauprojekts fehlen noch {ap} AP</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

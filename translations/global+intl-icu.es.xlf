@@ -2922,7 +2922,6 @@
       <notes>
         <note category="german">Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
                                     &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/game/beyond/desert.html.twig</note>
       </notes>
       <segment>

@@ -22927,11 +22927,20 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Nichts Interessantes...</note>
         <note category="from">twig:///templates/ajax/game/inventory.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Nichts Interessantes...</source>
         <target>Nothing of interest...</target>
+      </segment>
+    </unit>
+    <unit id="7ln_hQb" name="Zum Bau dieses Bauprojekts fehlen noch {ap} AP">
+      <notes>
+        <note category="german">Zum Bau dieses Bauprojekts fehlen noch {ap} AP</note>
+        <note category="from">twig:///templates/ajax/game/town/construction.html.twig</note>
+      </notes>
+      <segment>
+        <source>Zum Bau dieses Bauprojekts fehlen noch {ap} AP</source>
+        <target>The construction of this project requires an additional {ap} AP.</target>
       </segment>
     </unit>
   </file>
