@@ -1153,14 +1153,6 @@
         <target>Diese Nachricht wurde dir vom Raben persönlich überbracht. Er schwebt über der Stadt und wirft immer ein wachsames Auge auf dich...</target>
       </segment>
     </unit>
-    <unit id="rtJUaLn">
-      <segment>
-        <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
-        <target><![CDATA[Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
-                                <p><em>Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..</em></p>]]></target>
-      </segment>
-    </unit>
     <unit id="i4kWNY_">
       <segment>
         <source>Diesen Bonus gibt es dank eurer alten Freunde und dem Gebäude &lt;strong&gt;Kleiner Friedhof&lt;/strong&gt;.</source>
