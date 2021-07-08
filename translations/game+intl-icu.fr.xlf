@@ -3740,7 +3740,7 @@
       </notes>
       <segment>
         <source>Meine objekte</source>
-        <target>Mes objets</target>
+        <target>Objets</target>
       </segment>
     </unit>
     <unit id="LQgPbVT" name="Nordosten">
@@ -4080,7 +4080,7 @@
       </notes>
       <segment>
         <source>Leere Truhe</source>
-        <target>Coffre vide</target>
+        <target>Coffre vide...</target>
       </segment>
     </unit>
     <unit id="a8zlw81">
@@ -8272,7 +8272,7 @@
       </notes>
       <segment>
         <source>{citizen} hat sein Versteck verlassen.</source>
-        <target>{citizen} a quitté sa planque.</target>
+        <target>{citizen} a quitté sa planque...</target>
       </segment>
     </unit>
     <unit id="63sz5vi" name="Akteneinsicht wird beantragt...">
@@ -19195,7 +19195,7 @@
       </notes>
       <segment>
         <source>{username} hat dich angegriffen!</source>
-        <target>{username} vous a aggressé !</target>
+        <target>{username} vous a agressé !</target>
       </segment>
     </unit>
     <unit id="kPJRUv1">
@@ -19216,7 +19216,7 @@
       </notes>
       <segment>
         <source>{username} hat dich angegriffen und verletzt!</source>
-        <target>{username} vous a aggressé et blessé !</target>
+        <target>{username} vous a agressé et blessé !!</target>
       </segment>
     </unit>
     <unit id="WGi7LUy">
