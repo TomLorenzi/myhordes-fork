@@ -8404,7 +8404,7 @@
       </notes>
       <segment>
         <source>Du versuchst dich einem Zombie zu nähern, aber &lt;strong&gt;der Zombie reißt dir fast das Gesicht mit seinen Zähnen ab&lt;/strong&gt;! Unmöglich zu bestehen...</source>
-        <target><![CDATA[Vous tentez d'approcher un zombie, mais <strong>celui-ci manque de peu de vous arracher le visage à coups de dent</strong> ! Impossible de passer...]]></target>
+        <target><![CDATA[Vous tentez d'approcher un zombie, mais <strong>celui-ci manque de peu de vous arracher le visage avec ses dents</strong> ! Impossible de passer...]]></target>
       </segment>
     </unit>
     <unit id="eKYdtdt">
