@@ -5682,7 +5682,7 @@ Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</sour
       </notes>
       <segment>
         <source>Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehr als einem Schuss werden eine Ladung verlie</source>
-        <target>Todas las armas y protecciones que lleves serán destruidas después de la vigilia. Las armas que tengan varias cargas consumirán una esa noche.</target>
+        <target>Todas las armas y protecciones que lleves serán destruidas después de la vigilia. Las armas con múltiples cargas se vacían durante la Vigilancia.</target>
       </segment>
     </unit>
     <unit id="4yvcfEV" name="Wie funktioniert das?">
