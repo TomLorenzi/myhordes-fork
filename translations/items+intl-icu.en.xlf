@@ -8613,7 +8613,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du versuchst dich einem Zombie zu nähern, aber &lt;strong&gt;der Zombie reißt dir fast das Gesicht mit seinen Zähnen ab&lt;/strong&gt;! Unmöglich zu bestehen...</source>
-        <target><![CDATA[Du versuchst dich einem Zombie zu nähern, aber <strong>der Zombie reißt dir fast das Gesicht mit seinen Zähnen ab</strong>! Unmöglich zu bestehen...]]></target>
+        <target><![CDATA[You try to approach a zombie, but <strong>it almost rips your face off with its teeth</strong>! Impossible to escape...]]></target>
       </segment>
     </unit>
     <unit id="eKYdtdt">
@@ -8624,7 +8624,7 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
       </notes>
       <segment>
         <source>Du rennst schreiend in den ersten Zombie in Reichweite! Mit einem kraftvollen, gut angepassten Schulterschlag &lt;strong&gt;schickst du ihn ein paar Meter weiter in den Staub&lt;/strong&gt;...{hr}Du kannst diese Gelegenheit zur Flucht nutzen!</source>
-        <target><![CDATA[Du rennst schreiend in den ersten Zombie in Reichweite! Mit einem kraftvollen, gut angepassten Schulterschlag <strong>schickst du ihn ein paar Meter weiter in den Staub</strong>...{hr}Du kannst diese Gelegenheit zur Flucht nutzen!]]></target>
+        <target><![CDATA[You scream and run into the first zombie in range! With a well adjusted powerful shoulder tackle, <strong>you send it to bite the dust a few meters further</strong>...{hr}You can take advantage of this opportunity to run away!]]></target>
       </segment>
     </unit>
     <unit id="8vj_Qd7" name="Du trägst keine Tarnkleidung und hast deswegen auch keinerlei Tarnungsvorteile!">
