@@ -22810,5 +22810,35 @@
         <target>La construction de ce chantier nécessite encore {ap} PA.</target>
       </segment>
     </unit>
+    <unit id="e1Ym_Ag">
+      <notes>
+        <note category="german">Das Stadttor ist &lt;span class="critical"&gt;geöffnet&lt;/span&gt;! Achtung: Wenn das Tor geschlossen wird, können alle Spieler, die sich außerhalb der Stadt befinden, nicht mehr rein.</note>
+        <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor ist &lt;span class="critical"&gt;geöffnet&lt;/span&gt;! Achtung: Wenn das Tor geschlossen wird, können alle Spieler, die sich außerhalb der Stadt befinden, nicht mehr rein.</source>
+        <target><![CDATA[La Grande Porte est <span class="critical">ouverte</span> ! Attention, si vous la fermez et que des citoyens sont encore dehors, ils ne pourront plus rentrer...]]></target>
+      </segment>
+    </unit>
+    <unit id="Xa1yd0S">
+      <notes>
+        <note category="german">&lt;strong&gt;Du bist erschöpft&lt;/strong&gt;, du kannst deshalb weder &lt;strong&gt;in die Außenwelt gehen&lt;/strong&gt;, noch &lt;strong&gt;das Stadttor öffnen&lt;/strong&gt;, noch &lt;strong&gt;es schließen&lt;/strong&gt;.</note>
+        <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Du bist erschöpft&lt;/strong&gt;, du kannst deshalb weder &lt;strong&gt;in die Außenwelt gehen&lt;/strong&gt;, noch &lt;strong&gt;das Stadttor öffnen&lt;/strong&gt;, noch &lt;strong&gt;es schließen&lt;/strong&gt;.</source>
+        <target><![CDATA[<strong>Vous êtes fatigué(e)</strong>, vous ne pouvez donc ni <strong>sortir dans l'Outre-Monde</strong>, ni <strong>ouvrir la Grande Porte</strong>, ni <strong>la fermer</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="S5F9Bue">
+      <notes>
+        <note category="german">Trinke oder nimm einen Happen zu dir, aber unternimm etwas, um wieder in Schuss zu kommen!</note>
+        <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
+      </notes>
+      <segment>
+        <source>Trinke oder nimm einen Happen zu dir, aber unternimm etwas, um wieder in Schuss zu kommen!</source>
+        <target>Buvez, mangez, faites quelque chose si vous voulez de nouveau vous sentir en forme !</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

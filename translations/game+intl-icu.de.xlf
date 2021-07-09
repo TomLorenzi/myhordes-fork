@@ -13989,5 +13989,23 @@
         <target>Zum Bau dieses Bauprojekts fehlen noch {ap} AP</target>
       </segment>
     </unit>
+    <unit id="e1Ym_Ag">
+      <segment>
+        <source>Das Stadttor ist &lt;span class="critical"&gt;geöffnet&lt;/span&gt;! Achtung: Wenn das Tor geschlossen wird, können alle Spieler, die sich außerhalb der Stadt befinden, nicht mehr rein.</source>
+        <target><![CDATA[Das Stadttor ist <span class="critical">geöffnet</span>! Achtung: Wenn das Tor geschlossen wird, können alle Spieler, die sich außerhalb der Stadt befinden, nicht mehr rein.]]></target>
+      </segment>
+    </unit>
+    <unit id="Xa1yd0S">
+      <segment>
+        <source>&lt;strong&gt;Du bist erschöpft&lt;/strong&gt;, du kannst deshalb weder &lt;strong&gt;in die Außenwelt gehen&lt;/strong&gt;, noch &lt;strong&gt;das Stadttor öffnen&lt;/strong&gt;, noch &lt;strong&gt;es schließen&lt;/strong&gt;.</source>
+        <target><![CDATA[<strong>Du bist erschöpft</strong>, du kannst deshalb weder <strong>in die Außenwelt gehen</strong>, noch <strong>das Stadttor öffnen</strong>, noch <strong>es schließen</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="S5F9Bue">
+      <segment>
+        <source>Trinke oder nimm einen Happen zu dir, aber unternimm etwas, um wieder in Schuss zu kommen!</source>
+        <target>Trinke oder nimm einen Happen zu dir, aber unternimm etwas, um wieder in Schuss zu kommen!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

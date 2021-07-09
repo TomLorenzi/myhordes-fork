@@ -22943,5 +22943,35 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
         <target>The construction of this project requires an additional {ap} AP.</target>
       </segment>
     </unit>
+    <unit id="e1Ym_Ag">
+      <notes>
+        <note category="german">Das Stadttor ist &lt;span class="critical"&gt;geöffnet&lt;/span&gt;! Achtung: Wenn das Tor geschlossen wird, können alle Spieler, die sich außerhalb der Stadt befinden, nicht mehr rein.</note>
+        <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
+      </notes>
+      <segment>
+        <source>Das Stadttor ist &lt;span class="critical"&gt;geöffnet&lt;/span&gt;! Achtung: Wenn das Tor geschlossen wird, können alle Spieler, die sich außerhalb der Stadt befinden, nicht mehr rein.</source>
+        <target><![CDATA[The Town gates are <span class="critical">open</span>! Warning, if you close them while citizens are outside, they will not be able to get back in...]]></target>
+      </segment>
+    </unit>
+    <unit id="Xa1yd0S">
+      <notes>
+        <note category="german">&lt;strong&gt;Du bist erschöpft&lt;/strong&gt;, du kannst deshalb weder &lt;strong&gt;in die Außenwelt gehen&lt;/strong&gt;, noch &lt;strong&gt;das Stadttor öffnen&lt;/strong&gt;, noch &lt;strong&gt;es schließen&lt;/strong&gt;.</note>
+        <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
+      </notes>
+      <segment>
+        <source>&lt;strong&gt;Du bist erschöpft&lt;/strong&gt;, du kannst deshalb weder &lt;strong&gt;in die Außenwelt gehen&lt;/strong&gt;, noch &lt;strong&gt;das Stadttor öffnen&lt;/strong&gt;, noch &lt;strong&gt;es schließen&lt;/strong&gt;.</source>
+        <target><![CDATA[<strong>You are exhausted</strong>, so you cannot <strong>go into the World Beyond</strong>, <strong>open the town gates</strong>, or <strong>close them</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="S5F9Bue">
+      <notes>
+        <note category="german">Trinke oder nimm einen Happen zu dir, aber unternimm etwas, um wieder in Schuss zu kommen!</note>
+        <note category="from">twig:///templates/ajax/game/town/door.html.twig</note>
+      </notes>
+      <segment>
+        <source>Trinke oder nimm einen Happen zu dir, aber unternimm etwas, um wieder in Schuss zu kommen!</source>
+        <target>Drink, eat or do something if you want to feel better again!</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
