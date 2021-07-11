@@ -658,8 +658,10 @@ class ActionHandler
         $floor_inventory = null;
         if (!$citizen->getZone())
             $floor_inventory = $citizen->getHome()->getChest();
+        elseif ($citizen->getZone()->getX() === 0 && $citizen->getZone()->getY() === 0)
+            $floor_inventory = $citizen->getTown()->getBank();
         elseif (!$ruinZone)
-            $floor_inventory = ($citizen->getZone()->getX() !== 0 || $citizen->getZone()->getY() !== 0) ? $citizen->getZone()->getFloor() : null;
+            $floor_inventory = $citizen->getZone()->getFloor();
         /*elseif ($citizen->activeExplorerStats()->getInRoom())
             $floor_inventory = $ruinZone->getRoomFloor();*/
         else
@@ -847,7 +849,7 @@ class ActionHandler
                 } elseif (is_a($target, ItemPrototype::class)) {
                     if ($target->getHeavy() && $this->inventory_handler->countHeavyItems( $citizen->getInventory() ) > 0)
                         $execute_info_cache['message'][] = $this->translator->trans('Der Gegenstand, den du soeben gefunden hast, passt nicht in deinen Rucksack, darum bleibt er erstmal am Boden...', [], 'game');
-                    if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ], true)) {
+                    if ($this->inventory_handler->placeItem( $citizen, $this->item_factory->createItem( $target ), [ $citizen->getInventory(), $floor_inventory, $citizen->getZone() ? null : $citizen->getTown()->getBank() ])) {
                         $execute_info_cache['items_spawn'][] = $target;
                         if(!$citizen->getZone())
                             $tags[] = "inside";
