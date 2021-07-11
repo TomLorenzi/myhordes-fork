@@ -5677,12 +5677,12 @@ Eine davon ist es der &lt;strong&gt;Nachtwache&lt;/strong&gt; beizutreten.</sour
     </unit>
     <unit id="26offDf">
       <notes>
-        <note category="german">Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehr als einem Schuss werden eine Ladung verlie</note>
+        <note category="german">Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehreren Ladungen werden durch die Wacht geleert</note>
         <note category="from">twig:///templates/ajax/help/the_watchmen.html.twig</note>
       </notes>
       <segment>
         <source>Alle Waffen oder Verteidigungsgegenstände, die du während der Nachtwache benutzt, werden danach zerstört. Waffen mit mehr als einem Schuss werden eine Ladung verlie</source>
-        <target>Todas las armas y protecciones que lleves serán destruidas después de la vigilia. Las armas que tengan varias cargas consumirán una esa noche.</target>
+        <target>Todas las armas y protecciones que lleves serán destruidas después de la vigilia. Las armas con múltiples cargas se vacían durante la Vigilancia.</target>
       </segment>
     </unit>
     <unit id="4yvcfEV" name="Wie funktioniert das?">
