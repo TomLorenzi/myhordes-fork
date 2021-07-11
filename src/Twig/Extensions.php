@@ -12,6 +12,7 @@ use App\Entity\ItemProperty;
 use App\Entity\ItemPrototype;
 use App\Entity\User;
 use App\Service\CitizenHandler;
+use App\Service\GameFactory;
 use App\Service\TownHandler;
 use App\Service\UserHandler;
 use DateTime;
@@ -32,14 +33,16 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
     private EntityManagerInterface $entityManager;
     private CitizenHandler $citizenHandler;
     private TownHandler $townHandler;
+    private GameFactory $gameFactory;
 
-    public function __construct(TranslatorInterface $ti, UrlGeneratorInterface $r, UserHandler $uh, EntityManagerInterface $em, CitizenHandler $ch, TownHandler $th) {
+    public function __construct(TranslatorInterface $ti, UrlGeneratorInterface $r, UserHandler $uh, EntityManagerInterface $em, CitizenHandler $ch, TownHandler $th, GameFactory $gf) {
         $this->translator = $ti;
         $this->router = $r;
         $this->userHandler = $uh;
         $this->entityManager = $em;
         $this->citizenHandler = $ch;
         $this->townHandler = $th;
+        $this->gameFactory = $gf;
     }
 
     public function getFilters(): array
@@ -54,6 +57,7 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
             new TwigFilter('restricted',  [$this, 'user_is_restricted']),
             new TwigFilter('restricted_until',  [$this, 'user_restricted_until']),
             new TwigFilter('whitelisted',  [$this, 'town_whitelisted']),
+            new TwigFilter('openFor',  [$this, 'town_openFor']),
             new TwigFilter('items',  [$this, 'item_prototypes_with']),
             new TwigFilter('group_titles',  [$this, 'group_titles']),
             new TwigFilter('watchpoint',  [$this, 'fetch_watch_points']),
@@ -141,6 +145,10 @@ class Extensions extends AbstractExtension  implements GlobalsInterface
         return $user
             ? ($this->entityManager->getRepository(TownSlotReservation::class)->count(['town' => $town, 'user' => $user]) === 1)
             : ($this->entityManager->getRepository(TownSlotReservation::class)->count(['town' => $town]) > 0);
+    }
+
+    public function town_openFor(Town $town, User $user = null): bool {
+        return $this->gameFactory->userCanEnterTown($town,$user,$this->entityManager->getRepository(TownSlotReservation::class)->count(['town' => $town]) > 0);
     }
 
     public function user_restricted_until(User $user, ?int $mask = null): ?DateTime {
