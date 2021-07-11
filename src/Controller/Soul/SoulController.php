@@ -860,6 +860,24 @@ class SoulController extends CustomAbstractController
     }
 
     /**
+     * @Route("api/soul/settings/mod_tools_window", name="api_soul_mod_tools_window")
+     * @param JSONRequestParser $parser
+     * @param AdminActionHandler $admh
+     * @return Response
+     */
+    public function soul_mod_tools_window(JSONRequestParser $parser, AdminActionHandler $admh): Response {
+        $user = $this->getUser();
+
+        $new_window = $parser->get('same_window', false);
+        $user->setOpenModToolsSameWindow($new_window);
+
+        $this->entity_manager->persist($user);
+        $this->entity_manager->flush();
+
+        return AjaxResponse::success();
+    }
+
+    /**
      * @Route("api/soul/settings/avatar", name="api_soul_avatar")
      * @param JSONRequestParser $parser
      * @param ConfMaster $conf

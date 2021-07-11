@@ -970,7 +970,7 @@
       </notes>
       <segment>
         <source>Anzeigen können zu deiner Verbannung oder sogar Hinrichtung führen. Vielleicht solltest du das Verhältnis zwischen dir und dem Rest der Stadt verbessern ...</source>
-        <target>Les plaintes peuvent entraîner votre bannissement ou même votre exécution. Vous devriez peut-être améliorer votre relation avec le reste de la ville ...</target>
+        <target>Les plaintes peuvent entraîner votre bannissement ou même votre exécution. Vous devriez peut-être améliorer votre relation avec le reste de la ville...</target>
       </segment>
     </unit>
     <unit id="mvdJ1gZ" name="Meine Spezialaktionen">
@@ -1524,8 +1524,7 @@
       </notes>
       <segment>
         <source>Einmal pro Tag können bestimmte Konstruktionen umsonst verbessert werden (ohne Einsatz von AP oder Ressourcen). Das nennt sich die Verbesserung des Tages. Jede Verbesserung bringt verschiedene Vorteile mit sich (Verteidigung, Wasser, spezielle Fähigkeiten...). Es ist eure Aufgabe die Verbesserung des Tages zu wählen, die euch am geeignetsten scheint.</source>
-        <target>Une fois par jour, certains chantiers peuvent être améliorés gratuitement (sans PA, ni ressource) : c'est ce qu'on appelle l'évolution du jour.
-                  Chaque amélioration apporte des avantages divers (défense, eau, capacités spéciales...). À vous de choisir l'évolution du jour en votant pour celle qui vous semble la plus adaptée.</target>
+        <target><![CDATA[Une fois par jour, certains chantiers peuvent être améliorés gratuitement (sans PA, ni ressource) : c'est ce qu'on appelle l'<strong>évolution du jour</strong>.<br />Chaque amélioration apporte des avantages divers (défense, eau, capacités spéciales...). <strong>À vous de choisir l'évolution du jour en votant pour celle qui vous semble la plus adaptée.</strong>]]></target>
       </segment>
     </unit>
     <unit id="PhutSSq">
@@ -1575,7 +1574,7 @@
       </notes>
       <segment>
         <source>Max. Level</source>
-        <target>Niveau Max.</target>
+        <target>Niveau max.</target>
       </segment>
     </unit>
     <unit id="oda4Ktu" name="Level {lv}">
@@ -2158,7 +2157,7 @@
       </notes>
       <segment>
         <source>{ruin} durchsuchen</source>
-        <target>Fouiller {ruin}</target>
+        <target>Fouiller : {ruin}</target>
       </segment>
     </unit>
     <unit id="ZaxaGah" name="Zone freiräumen">
@@ -3401,7 +3400,7 @@
       </notes>
       <segment>
         <source>Hat jemand in letzter Zeit von {citizen} gehört? Er scheint verschwunden zu sein ...</source>
-        <target>Quelqu'un a-t-il entendu parler de {citizen} récemment ? Il semble avoir disparu ...</target>
+        <target>Quelqu'un a-t-il entendu parler de {citizen} récemment ? Il semble avoir disparu...</target>
       </segment>
     </unit>
     <unit id="Z05vQEU">
@@ -4431,7 +4430,7 @@
       </notes>
       <segment>
         <source>Anmerkung: Verteidigungsgegenstände (Holzplatten etc...) müssen in der Bank abgelegt werden.</source>
-        <target>Note : les objets de défense (plaques de bois, ...etc.) sont à poser dans la Banque.</target>
+        <target>Note : les objets de défense (plaques de bois, etc.) sont à poser dans la Banque.</target>
       </segment>
     </unit>
     <unit id="fTFJ5hh" name="Nachtwächter">
@@ -8203,7 +8202,7 @@
       </notes>
       <segment>
         <source>Dieser Bürger hat keine letzten Worte hinterlassen ...</source>
-        <target>Ce citoyen n'a pas laissé de dernier mot ...</target>
+        <target>Ce citoyen n'a pas laissé de dernier message...</target>
       </segment>
     </unit>
     <unit id="O9RB2q8" name="Letzte Worte:">
@@ -8579,7 +8578,7 @@
       </notes>
       <segment>
         <source>Du hast {count} Aktionspunkt(e) benutzt.</source>
-        <target>{raw_count, plural, =0 {Vous avez utilisé {count} point d'action} one {Vous avez utilisé {count} point d'action} other {Vous avez utilisé {count} points d'action}}</target>
+        <target>{raw_count, plural,  one {Vous avez utilisé {count} point d'action} other {Vous avez utilisé {count} points d'action}}</target>
       </segment>
     </unit>
     <unit id="KYKuCCa">
@@ -17464,7 +17463,7 @@
       </notes>
       <segment>
         <source>Du hast dafür {count} Aktionspunkt(e) verbraucht.</source>
-        <target>{raw_count, plural, =0 {Vous avez utilisé {count} point d'action} one {Vous avez utilisé {count} point d'action} other {Vous avez utilisé {count} points d'action}}</target>
+        <target>{raw_count, plural, one {Vous avez utilisé {count} point d'action} other {Vous avez utilisé {count} points d'action}}</target>
       </segment>
     </unit>
     <unit id="tTMCru5">
@@ -19352,7 +19351,7 @@
       </notes>
       <segment>
         <source>{zombies} Zombies wurden von unseren Nachtwächtern gemetzelt!</source>
-        <target>{zombies} zombies ont été pulvérisés grâce à nos valereux veilleurs !</target>
+        <target>{zombies} zombies ont été pulvérisés grâce à nos valeureux veilleurs !</target>
       </segment>
     </unit>
     <unit id="VWlZ7Eh">
@@ -19593,7 +19592,7 @@
       </notes>
       <segment>
         <source>Die Nachtwächter der letzten nacht zeigten unglaublichen Mut, es ist nur schade, dass die Zombies offensichtlich mit etwas anderem beschäftigt waren!</source>
-        <target>Les veilleurs de la dernière nuit ont fait preuve d'un courage incroyable, c'est juste dommage que les zombies étaient occupés à autre chose!</target>
+        <target>Les veilleurs de la dernière nuit ont fait preuve d'un courage incroyable, c'est juste dommage que les zombies étaient occupés à autre chose !</target>
       </segment>
     </unit>
     <unit id="T9nn1le">
@@ -20471,7 +20470,7 @@
       </notes>
       <segment>
         <source>&lt;strong&gt;Achtung&lt;/strong&gt;: Befinden sich nicht genügend Rationen Wasser im Brunnen, arbeiten manche Konstruktionen (wie z.B. der Wasserturm) beim Angriff nicht mit voller Stärke!</source>
-        <target><![CDATA[<strong>Attention</strong> : sans eau, certaines évolutions (comme les Aqua-tourelles) ne fonctionneront pas lors de l'attaque !]]></target>
+        <target><![CDATA[<strong>Attention :</strong> sans eau, certaines évolutions (comme les aqua-tourelles) ne fonctionneront pas lors de l'attaque !]]></target>
       </segment>
     </unit>
     <unit id="5sc0Prt" name="Diese Leiche wurde bereits außerhalb der Stadt entsorgt!">
@@ -20491,7 +20490,7 @@
       </notes>
       <segment>
         <source>Diese Information gibt dir einen Hinweis darauf, ob Aufklärer gewöhnlicherweise hier vorbeikommen.&lt;br /&gt;&lt;em&gt;Je mehr eine Zone erforscht wurde, desto geringer ist die Chance bei &lt;strong&gt;Betreten&lt;/strong&gt; entdeckt zu werden (du kennst dann ein paar Schleichwege etc...).&lt;/em&gt;</source>
-        <target><![CDATA[Cette information vous indique si des éclaireurs ont l'habitude de passer par ici.<br /><em>Plus le secteur est connu, moins vous avez de chances de vous y faire repérer <strong>lorsque vous y entrez</strong> (vous connaissez quelques petits chemins cachés..etc.)</em>]]></target>
+        <target><![CDATA[Cette information vous indique si des éclaireurs ont l'habitude de passer par ici.<br /><em>Plus le secteur est connu, moins vous avez de chances de vous y faire repérer <strong>lorsque vous y entrez</strong> (vous connaissez quelques petits chemins cachés...)</em>]]></target>
       </segment>
     </unit>
     <unit id="7N1Upza">
@@ -21237,7 +21236,7 @@
       </notes>
       <segment>
         <source>Verteidigungsgegenstände (Blechplatten etc...) müssen in der Truhe abgelegt werden.</source>
-        <target>Les objets de défense (plaques de tôle, ...etc) sont à poser dans le Coffre.</target>
+        <target>Les objets de défense (plaques de tôle, etc.) sont à poser dans le Coffre.</target>
       </segment>
     </unit>
     <unit id="A9mtMsb" name="Wächterbonus">
@@ -22085,7 +22084,7 @@
       </notes>
       <segment>
         <source>{deads} Tot</source>
-        <target>{deads, plural, =0 {# mort} one {1 mort} other {# morts}}</target>
+        <target>{deads, plural, one {1 mort} other {# morts}}</target>
       </segment>
     </unit>
     <unit id="6ntsFNr">
@@ -22205,7 +22204,7 @@
       </notes>
       <segment>
         <source>Verteidigungsgegenstände (Blechplatten usw...) müssen in der Truhe abgelegt werden.</source>
-        <target>Les objets de défense (plaques de tôle, ...etc.) sont à poser dans le Coffre.</target>
+        <target>Les objets de défense (plaques de tôle, etc.) sont à poser dans le Coffre.</target>
       </segment>
     </unit>
     <unit id="HUYhE2a" name="kein Verteidigungsbonus">
@@ -22496,7 +22495,17 @@
       </notes>
       <segment>
         <source>In der Horde der Zombies wurden {num} ehemalige Bürger gesichtet, die in der Aussenwelt gestorben sind und sich der Stadt nun zähnefletschend und mit düsterem Blick nähern...</source>
-        <target>En plus de cette horde, {num} anciens citoyens morts dans l'Outre-Monde sont revenus, les dents en avant et le regard morne...</target>
+        <target><![CDATA[
+            {ref__icu, select,
+                on {
+                    {num, plural,
+                    one {En plus de cette horde, <span>#</span> ancien citoyen mort dans l'Outre-Monde est revenu, les dents en avant et le regard morne...}
+                    other {En plus de cette horde, <span>#</span> anciens citoyens morts dans l'Outre-Monde sont revenus, les dents en avant et le regard morne...}
+                    }
+                }
+                other {En plus de cette horde, <span>{num__copy}</span> anciens citoyens morts dans l'Outre-Monde sont revenus, les dents en avant et le regard morne...}
+            }]]>
+        </target>
       </segment>
     </unit>
     <unit id="DLc6Njb">
@@ -22536,7 +22545,7 @@
       </notes>
       <segment>
         <source>{points} Punkt(e)</source>
-        <target>{points, plural, =0 {# point} one {1 point} other {# points}}</target>
+        <target>{points, plural, one {1 point} other {# points}}</target>
       </segment>
     </unit>
     <unit id="uAj26XB" name="Schließen">
@@ -22568,7 +22577,7 @@
       </notes>
       <segment>
         <source>Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!</source>
-        <target>Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!</target>
+        <target>Plusieurs incendies se sont déclarés au coeur de notre Réacteur avant que ce dernier ne s'embrase totalement. Puis un grand flash vert a balayé et empoisonné toute la région. Il n'a fallu que quelques secondes aux rares survivants pour périr irradiés. Un beau final !</target>
       </segment>
     </unit>
     <unit id="W8upWpv">
@@ -22755,11 +22764,30 @@
       <notes>
         <note category="german">Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</source>
         <target>Agresser un citoyen revient à s'en prendre physiquement à lui... Vous avez une chance de lui infliger une blessure et toute la ville sera mise au courant...</target>
+      </segment>
+    </unit>
+    <unit id="ownttVn" name="Das Gesamtregister ansehen">
+      <notes>
+        <note category="german">Das Gesamtregister ansehen</note>
+        <note category="from">twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/catapult.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Das Gesamtregister ansehen</source>
+        <target>Voir le registre complet de la ville</target>
+      </segment>
+    </unit>
+    <unit id="JJjZLmq">
+      <notes>
+        <note category="german">Dieser Link bringt dich zum &lt;strong&gt;Großen Register&lt;/strong&gt;. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...</note>
+        <note category="from">twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/catapult.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Link bringt dich zum &lt;strong&gt;Großen Register&lt;/strong&gt;. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...</source>
+        <target><![CDATA[Ce lien permet d'accéder au <strong>Grand Registre</strong> qui consigne toutes les actions importantes effectuées par les Citoyens...]]></target>
       </segment>
     </unit>
   </file>

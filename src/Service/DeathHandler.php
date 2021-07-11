@@ -222,9 +222,7 @@ class DeathHandler
 
             // Decoration picto
             // Calculate decoration
-	        $deco = 0;
-	        foreach ($citizen->getHome()->getChest()->getItems() as $item)
-	            $deco += $item->getPrototype()->getDeco();
+	        $deco = $this->citizen_handler->getDecoPoints($citizen);
 
             if($deco > 0)
 	           $this->picto_handler->give_validated_picto($citizen, "r_deco_#00", $deco);

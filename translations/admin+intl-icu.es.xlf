@@ -3937,7 +3937,6 @@
     <unit id="k_02uKb" name="Ändern des Spielernamens verbieten">
       <notes>
         <note category="german">Ändern des Spielernamens verbieten</note>
-        <note category="state">new</note>
         <note category="from">twig:///templates/ajax/admin/users/ban.html.twig</note>
       </notes>
       <segment>
@@ -3975,6 +3974,17 @@
       <segment>
         <source>Stadt reparieren</source>
         <target>Reparar el pueblo</target>
+      </segment>
+    </unit>
+    <unit id="qiwbmCe" name="Versteckte Statuseffekte">
+      <notes>
+        <note category="german">Versteckte Statuseffekte</note>
+        <note category="from">twig:///templates/ajax/game/game.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Versteckte Statuseffekte</source>
+        <target>Versteckte Statuseffekte</target>
       </segment>
     </unit>
   </file>

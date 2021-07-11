@@ -4,12 +4,7 @@
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/PHP.gitlab-ci.yml
 
 # Select image from https://hub.docker.com/_/php/
-image: php:7.4-zts
-
-before_script:
-  - apt-get update -yqq
-  # Installing some dependancies
-  - apt-get install -yqq sudo git imagemagick curl unzip
+image: php:7.4-cli
 
 # Bring in any services we need http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
 # See http://docs.gitlab.com/ee/ci/services/README.html for examples.
@@ -32,6 +27,9 @@ stages:
 build:
   stage: build
   script:
+    - apt-get update -yqq
+    # Installing some dependancies
+    - apt-get install -yqq sudo git imagemagick curl unzip
     # Changing php's maximum memory to 256M
     - mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
     - sed -Ei 's/memory_limit = (.*)/memory_limit = 256M/' "$PHP_INI_DIR/php.ini"
@@ -42,7 +40,7 @@ build:
     # Install PHP extensions
     - curl -L https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions -o /usr/local/bin/install-php-extensions
     - chmod +x /usr/local/bin/install-php-extensions
-    - install-php-extensions mysqli intl gd zip bz2 imap opcache pdo_mysql
+    - install-php-extensions intl gd zip opcache pdo_mysql
     # Install & enable Xdebug for code coverage reports
     - pecl install xdebug
     - docker-php-ext-enable xdebug

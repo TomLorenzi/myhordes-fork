@@ -96,8 +96,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'role_ghoul'             => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'role' => 'ghoul', 'enabled' => true ] ]],
             'not_role_ghoul'         => [ 'type' => Requirement::HideOnFail,  'collection' => [ 'status' => [ 'role' => 'ghoul', 'enabled' => false ] ]],
 
-            'no_bonus_ap'    => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'ap' => [ 'min' => 0, 'max' => 0,  'relative' => true ] ]],
-            'no_full_ap'     => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'ap' => [ 'min' => 0, 'max' => -1, 'relative' => true ] ]],
+            'no_bonus_ap'    => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'ap' => [ 'min' => 0, 'max' => 0,  'relative' => true ] ], 'text_key' => 'already_full_ap'],
+            'no_full_ap'     => [ 'type' => Requirement::CrossOnFail, 'collection' => [ 'ap' => [ 'min' => 0, 'max' => -1, 'relative' => true ] ], 'text_key' => 'already_full_ap'],
             'no_full_ap_msg' => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'ap' => [ 'min' => 0, 'max' => -1, 'relative' => true ] ], 'text' => 'Das brauchst du gerade nicht ...'],
             'min_6_ap'       => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'ap' => [ 'min' => 6, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 6 AP.'],
             'min_5_ap'       => [ 'type' => Requirement::MessageOnFail, 'collection' => [ 'ap' => [ 'min' => 5, 'max' => 999999, 'relative' => true ] ], 'text' => 'Hierfür brauchst du mindestens 5 AP.'],
@@ -709,11 +709,11 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
             'fill_watercan1' => [ 'label' => 'Befüllen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerTransgress, 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', 'produce_watercan2' ], 'message_key' => 'item_fill' ],
             'fill_watercan2' => [ 'label' => 'Befüllen', 'at00' => true, 'poison' => ItemAction::PoisonHandlerTransgress, 'meta' => [ 'have_water' ], 'result' => [ 'consume_water', 'produce_watercan3' ], 'message_key' => 'item_fill' ],
 
-            'fire_pilegun'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'spawn' => 'empty_battery', 'item' => ['morph' => 'pilegun_empty_#00',    'consume' => false], 'group' => 'g_kill_1z_95' ] ] ],
+            'fire_pilegun'   => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'spawn' => 'empty_battery', 'item' => ['morph' => 'pilegun_empty_#00',    'consume' => false], 'group' => 'g_kill_1z_95', 'message' => [ 'text_key' => 'battery_use', 'ordering' => 1000]  ] ] ],
             'fire_pilegun2'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [[ ['spawn' => 'battery',       'item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false]] ], 8],  [[ ['spawn' => 'empty_battery', 'item' => ['morph' => 'pilegun_up_empty_#00', 'consume' => false]] ], 2 ] ] ], 'kill_1_zombie' ] ],
             'fire_pilegun3'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [[ ['spawn' => 'empty_battery', 'item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false]] ], 51], [[ ['spawn' => 'battery',       'item' => ['morph' => 'big_pgun_empty_#00',   'consume' => false]] ], 49] ] ], 'kill_2_zombie' ] ],
-            'fire_mixergun'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  6], [[ [ 'item' => ['morph' => 'mixergun_empty_#00', 'consume' => false]] ], 4] ] ], 'kill_1_zombie' ] ],
-            'fire_chainsaw'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  7], [[ [ 'item' => ['morph' => 'chainsaw_empty_#00', 'consume' => false]] ], 3] ] ], 'kill_3_zombie' ] ],
+            'fire_mixergun'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  6], [[ [ 'item' => ['morph' => 'mixergun_empty_#00', 'consume' => false], 'message' => [ 'text_key' => 'battery_use', 'ordering' => 1000] ] ], 4] ] ], 'kill_1_zombie' ] ],
+            'fire_chainsaw'  => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => [ [['do_nothing'],  7], [[ [ 'item' => ['morph' => 'chainsaw_empty_#00', 'consume' => false], 'message' => [ 'text_key' => 'battery_use', 'ordering' => 1000] ] ], 3] ] ], 'kill_3_zombie' ] ],
             'fire_taser'     => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'group' => 'g_kill_1z_50_taser' ], [ 'group' => [ [['do_nothing'],  2], [[ [ 'item' => ['morph' => 'taser_empty_#00', 'consume' => false], 'message' => [ 'text_key' => 'battery_use'] ]], 8] ] ] ] ],
             'fire_lpointer4' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'lpoint3_#00', 'consume' => false] ], 'kill_2_zombie' ] ],
             'fire_lpointer3' => [ 'label' => 'Waffe einsetzen', 'meta' => [ 'must_be_outside_or_exploring', 'must_have_zombies' ], 'result' => [ [ 'item' => ['morph' => 'lpoint2_#00', 'consume' => false] ], 'kill_2_zombie' ] ],
@@ -802,9 +802,9 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
                 [ [ ['spawn' => [ ['water_#00', 3] ] ] ], 1 ]
             ]] ], 'message_key' => 'item_clean' ],
 
-            'home_def_plus'    => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['home' => ['def' => 1]] ] ],
-            'home_store_plus'  => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['home' => ['store' => 1]] ] ],
-            'home_store_plus2' => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['home' => ['store' => 2]], ['picto' => ['r_homeup_#00']] ] ],
+            'home_def_plus'    => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['home' => ['def' => 1]], ['picto' => ['r_hbuild_#00']], ['message' => ['text' => 'Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament <strong>{home_defense} zusätzliche Verteidigungspunkt(e).</strong>']] ] ],
+            'home_store_plus'  => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['home' => ['store' => 1]], ['picto' => ['r_hbuild_#00']], ['message' => ['text' => 'Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.']] ] ],
+            'home_store_plus2' => [ 'label' => 'Aufstellen', 'meta' => [ 'must_be_inside' ], 'result' => [ 'consume_item', ['home' => ['store' => 2]], ['picto' => ['r_hbuild_#00']], ['message' => ['text' => 'Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.']] ] ],
 
             'repair_1' => [ 'label' => 'Reparieren mit', 'target' => ['broken' => true], 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'minus_1ap', 'consume_item', 'repair_target', ['picto' => ['r_repair_#00'] ] ], 'message' => 'Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.' ],
             'repair_2' => [ 'label' => 'Reparieren mit', 'target' => ['broken' => true], 'meta' => [ 'min_1_ap', 'not_tired', 'is_not_wounded_hands' ], 'result' => [ 'minus_1ap', ['item' => ['consume' => false, 'morph' => 'repair_kit_part_#00'], 'picto' => ['r_repair_#00'] ], 'repair_target' ], 'message' => 'Du hast das {item} verbraucht, um damit {target} zu reparieren. Dabei hast du {minus_ap} AP eingesetzt.' ],
@@ -1401,7 +1401,8 @@ class ActionFixtures extends Fixture implements DependentFixtureInterface
 
         'item_needed_generic'           => 'Du benötigst {items_required}.',
         'water_purification_impossible' => 'Um dieses Wasser trinkbar zu machen, brauchst du <strong>irgendein Reinigungsmittel</strong> oder deine Stadt muss über einen <strong>Wasserreiniger</strong> verfügen. Die zweite Variante ist nicht verfügbar, wenn Du verbannt bist.',
-        'once_a_day'                => 'Du kannst diesen Gegenstand nur <strong>einmal am Tag</strong> verwenden...',
+        'once_a_day'                    => 'Du kannst diesen Gegenstand nur <strong>einmal am Tag</strong> verwenden...',
+        'already_full_ap'               => 'Du hast bereits volle AP.',
 
         'eat_human_meat' => '<nt-stat-up-infection><nt-role-up-ghoul>Nach ein paar Sekunden spürst du den furchtbaren Nachgeschmack...</nt-role-up-ghoul></nt-stat-up-infection>',
     ];

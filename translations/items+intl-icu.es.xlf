@@ -9385,7 +9385,7 @@
     </unit>
     <unit id="nnxBJDq" name="Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.">
       <notes>
-        <note category="german">Die Waffe hat &lt;strong&gt;keine Batterie mehr&lt;/strong&gt;.</note>
+        <note category="german">Die Waffe &lt;strong&gt;hat keine Batterie&lt;/strong&gt; mehr.</note>
         <note category="from">db://AffectMessage</note>
       </notes>
       <segment>
@@ -9466,6 +9466,39 @@
       <segment>
         <source>&lt;nt-morphed&gt;Gute Nachrichten: Es ist noch Wasser im Kanister!&lt;/nt-morphed&gt;&lt;t-morphed&gt;&lt;strong&gt;Der Kanister ist LEER&lt;/strong&gt;!&lt;/t-morphed&gt;</source>
         <target><![CDATA[<nt-morphed>Buena noticia, ¡el bidón aún contiene agua!</nt-morphed><t-morphed><strong>El bidón está VACÍO</strong> !</t-morphed>]]></target>
+      </segment>
+    </unit>
+    <unit id="x2hIMFw">
+      <notes>
+        <note category="german">Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: &lt;strong&gt;{home_storage}&lt;/strong&gt;.</note>
+        <note category="from">db://AffectMessage</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: &lt;strong&gt;{home_storage}&lt;/strong&gt;.</source>
+        <target><![CDATA[Du stellst den(die) {item} bei dir daheim auf. Zugegeben, es sieht nicht gerade ästhetisch aus, aber mal ganz ehrlich: Wen kümmert das?{hr}Dieser Gegenstand erweitert deine Truhe dauerhaft um soviele freie Plätze: <strong>{home_storage}</strong>.]]></target>
+      </segment>
+    </unit>
+    <unit id="Oww.AzB">
+      <notes>
+        <note category="german">Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament &lt;strong&gt;{home_defense} zusätzliche Verteidigungspunkt(e).&lt;/strong&gt;</note>
+        <note category="from">db://AffectMessage</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament &lt;strong&gt;{home_defense} zusätzliche Verteidigungspunkt(e).&lt;/strong&gt;</source>
+        <target><![CDATA[Sorgfältig befestigst du bei dir daheim ein(e) {item}. So und das hält jetzt, so viel steht schon mal fest.{hr}Dieser Gegenstand gibt deinem Haus permament <strong>{home_defense} zusätzliche Verteidigungspunkt(e).</strong>]]></target>
+      </segment>
+    </unit>
+    <unit id="H.4hGj8" name="Du hast bereits volle AP.">
+      <notes>
+        <note category="german">Du hast bereits volle AP.</note>
+        <note category="from">db://Requirement</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du hast bereits volle AP.</source>
+        <target>Du hast bereits volle AP.</target>
       </segment>
     </unit>
   </file>

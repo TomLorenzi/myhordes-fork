@@ -9698,7 +9698,7 @@
       </notes>
       <segment>
         <source>Deine Verletzung am Auge macht dir die Suche nicht gerade leichter.</source>
-        <target>Tu herida en los ojos no facilita las cosas...</target>
+        <target><![CDATA[Tu <strong>herida en el ojo</strong> te molesta muchísimo durante tus búsquedas.]]></target>
       </segment>
     </unit>
     <unit id="UhCUwjo" name="Du kannst heute keine weiteren Beschwerden vorbringen.">
@@ -12679,7 +12679,7 @@
       </notes>
       <segment>
         <source>Du stürzt dich auf eine dieser Kreaturen und &lt;strong&gt;umklammerst sie mit beiden Armen&lt;/strong&gt;, um sie zu Fall zu bringen. Der Kontakt mit seiner &lt;strong&gt;verrotteten Haut&lt;/strong&gt; bringt dich fast zum Kotzen... Du kämpfst und versuchst ihn irgendwie umzustoßen, doch ohne Erfolg. &lt;strong&gt;Das Biest hat dich mehrere Male um ein Haar gebissen!&lt;/strong&gt; Erschöpft und demoralisiert lässt du von ihm ab, um dich zurückzuziehen...</source>
-        <target>Coges con ambas manos uno de esos horribles muertos vivientes, el contacto con la textura fibrosa y pegajosa de su carne putrefacta es insoportable... Luchas, intentas empujarlo, pero nada... ¡Casi te muerde más de una vez! Decides abandonar tu intento, agotado y desmoralizado...</target>
+        <target><![CDATA[Coges con <strong>ambas manos</strong> uno de esos horribles muertos vivientes, el contacto con la textura fibrosa y pegajosa de su <strong>carne putrefacta</strong> es insoportable... Luchas, intentas empujarlo, pero nada... <strong>¡Casi te muerde más de una vez!</strong> Decides abandonar tu intento, agotado y desmoralizado...]]></target>
       </segment>
     </unit>
     <unit id="rJtk9d5" name="Die Abschätzung wird durch den Scanner verbessert.">
@@ -20394,7 +20394,7 @@
       </notes>
       <segment>
         <source>{citizen} hat versucht einen Zombie niederzustrecken und ist dabei fast draufgegangen...</source>
-        <target>{citizen} hat versucht einen Zombie niederzustrecken und ist dabei fast draufgegangen...</target>
+        <target>{citizen} casi se hace devorar al atacar a puño limpio a un zombie...</target>
       </segment>
     </unit>
     <unit id="L4sBLhc" name="&lt;span&gt;Wir kontrollieren die Zone ab sofort.&lt;/span&gt;">
@@ -23005,11 +23005,30 @@
       <notes>
         <note category="german">Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</source>
         <target>Atacar a un habitante representa un acto de violencia física... Podrías herirle y todo el pueblo lo sabrá...</target>
+      </segment>
+    </unit>
+    <unit id="ownttVn" name="Das Gesamtregister ansehen">
+      <notes>
+        <note category="german">Das Gesamtregister ansehen</note>
+        <note category="from">twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/catapult.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Das Gesamtregister ansehen</source>
+        <target>Ver el Registro completo del pueblo</target>
+      </segment>
+    </unit>
+    <unit id="JJjZLmq">
+      <notes>
+        <note category="german">Dieser Link bringt dich zum &lt;strong&gt;Großen Register&lt;/strong&gt;. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...</note>
+        <note category="from">twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/catapult.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Link bringt dich zum &lt;strong&gt;Großen Register&lt;/strong&gt;. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...</source>
+        <target><![CDATA[Échale un vistazo al <strong>Gran Registro</strong>, que contiene todas las acciones realizadas por  los habitantes del pueblo...]]></target>
       </segment>
     </unit>
   </file>

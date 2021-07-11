@@ -22531,7 +22531,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="nbgyiEG">
       <notes>
         <note category="german">Du hast eine Beschwerde gegen &lt;strong&gt;{citizen}&lt;/strong&gt; eingereicht. Wenn sich genug Beschwerden ansammeln, &lt;strong&gt;wird {citizen} aus der Gemeinschaft verbannt oder gehängt&lt;/strong&gt;, falls ein Galgen vorhanden ist.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
@@ -22542,7 +22541,6 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
     <unit id="CgXv4BN">
       <notes>
         <note category="german">Deine Beschwerde wurde zurückgezogen... Denke das nächste Mal besser nach...</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Town/TownController.php</note>
       </notes>
       <segment>
@@ -22680,7 +22678,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!</source>
-        <target>Mehrere Brandherde wurden im Reaktorkern gesichtet, bevor er komplett in Flammen aufging. Kurz danach wurde das gesamte Gebiet von einem grünen Blitz vollkommen verwüstet. Die wenigen Überlebenden sind innerhalb nur weniger Sekunden an Strahlenkrankheit gestorben. Was für ein Ende!</target>
+        <target>Multiple fires were reported in our Reactor core before it burst into flames. Then a huge green flash wiped out and contaminated the whole area. It only took a few seconds for the few remaining survivors to perish through radiation poisoning. What a climax!</target>
       </segment>
     </unit>
     <unit id="mw_CjlK" name="Wenn die Stadt eine Pumpe baut, ist sie im Stande mehr Wasser zu fördern!">
@@ -22899,11 +22897,30 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       <notes>
         <note category="german">Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</note>
         <note category="from">twig:///templates/ajax/game/town/home_foreign.html.twig</note>
-        <note category="state">new</note>
       </notes>
       <segment>
         <source>Einen anderen Bürger angreifen, bedeutet ihn körperlich zu verletzen... Die Chance ihn zu verletzen ist gering, aber die ganze Stadt wird davon erfahren...</source>
         <target>Attacking a citizen means you gotta get physical... You have a minimal chance of wounding them and the whole town will be told about it...</target>
+      </segment>
+    </unit>
+    <unit id="ownttVn" name="Das Gesamtregister ansehen">
+      <notes>
+        <note category="german">Das Gesamtregister ansehen</note>
+        <note category="from">twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/catapult.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Das Gesamtregister ansehen</source>
+        <target>See the detailed town register.</target>
+      </segment>
+    </unit>
+    <unit id="JJjZLmq">
+      <notes>
+        <note category="german">Dieser Link bringt dich zum &lt;strong&gt;Großen Register&lt;/strong&gt;. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...</note>
+        <note category="from">twig:///templates/ajax/game/town/bank.html.twig;twig:///templates/ajax/game/town/catapult.html.twig;twig:///templates/ajax/game/town/construction.html.twig;twig:///templates/ajax/game/town/door.html.twig;twig:///templates/ajax/game/town/dump.html.twig;twig:///templates/ajax/game/town/home.html.twig;twig:///templates/ajax/game/town/home_foreign.html.twig;twig:///templates/ajax/game/town/well.html.twig;twig:///templates/ajax/game/town/workshop.html.twig</note>
+      </notes>
+      <segment>
+        <source>Dieser Link bringt dich zum &lt;strong&gt;Großen Register&lt;/strong&gt;. Darin werden alle wichtigen Handlungen und Aktionen der Stadtbürger gespeichert...</source>
+        <target><![CDATA[This link lets you read the <strong>Great Register</strong> which records all actions carried out by citizens...]]></target>
       </segment>
     </unit>
   </file>

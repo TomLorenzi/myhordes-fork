@@ -2238,5 +2238,17 @@
         ]]></target>
       </segment>
     </unit>
+    <unit id="rDqFWB2" name="Moderationseinstellungen">
+      <segment>
+        <source>Moderationseinstellungen</source>
+        <target>Moderationseinstellungen</target>
+      </segment>
+    </unit>
+    <unit id="J979vsp" name="Moderationslinks in neuem Fenster öffnen">
+      <segment>
+        <source>Moderationslinks in neuem Fenster öffnen</source>
+        <target>Moderationslinks in neuem Fenster öffnen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

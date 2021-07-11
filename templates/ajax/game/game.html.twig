@@ -46,6 +46,20 @@
                     </li>
                 {% endif %}
             {% endfor %}
+            {% if is_granted('ROLE_CROW') and app.environment == 'dev'  %}
+                <li class="status">
+                    <img src="{{ asset('build/images/status/status_unknown.gif') }}" alt="[ ]">
+                    <div class="tooltip normal">
+                        <h1>{{ 'Versteckte Statuseffekte'|trans({}, 'admin') }}</h1>
+                    {% for stat in status %}
+                        {# @var stat \App\Entity\CitizenStatus #}
+                        {% if stat.hidden %}
+                            {{ stat.name }}<br />
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                </li>
+            {% endif %}
         </ul>
     {% endif %}
 

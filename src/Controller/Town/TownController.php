@@ -294,9 +294,7 @@ class TownController extends InventoryAwareController
         $home = $c->getHome();
 
         $this->town_handler->calculate_home_def($home, $summary);
-        $deco = 0;
-        foreach ($home->getChest()->getItems() as $item)
-            $deco += $item->getPrototype()->getDeco();
+        $deco = $this->citizen_handler->getDecoPoints($c);
 
         $town = $this->getActiveCitizen()->getTown();
         $lastActionTimestamp = $c->getLastActionTimestamp();
@@ -355,21 +353,7 @@ class TownController extends InventoryAwareController
 
         if ($this->user_handler->hasSkill($this->getActiveCitizen()->getUser(), 'clairvoyance') && $this->getActiveCitizen()->getProfession()->getHeroic()) {
             $hasClairvoyance = true;
-            if($this->citizen_handler->hasStatusEffect($c, 'tg_chk_forum')){
-                $clairvoyanceLevel++;
-            }
-            if($this->citizen_handler->hasStatusEffect($c, 'tg_chk_active')){
-                $clairvoyanceLevel++;
-            }
-            if($this->citizen_handler->hasStatusEffect($c, 'tg_chk_workshop')){
-                $clairvoyanceLevel++;
-            }
-            if($this->citizen_handler->hasStatusEffect($c, 'tg_chk_build')){
-                $clairvoyanceLevel++;
-            }
-            if($this->citizen_handler->hasStatusEffect($c, 'tg_chk_movewb')){
-                $clairvoyanceLevel++;
-            }
+            $clairvoyanceLevel = $this->citizen_handler->getActivityLevel($c);
         }
 
         $criteria = new Criteria();
@@ -1112,25 +1096,9 @@ class TownController extends InventoryAwareController
             $hidden[$citizen->getId()] = (bool)($this->entity_manager->getRepository(CitizenHomeUpgrade::class)->findOneByPrototype($citizen->getHome(),
                 $this->entity_manager->getRepository(CitizenHomeUpgradePrototype::class)->findOneByName('curtain')
             ));
-            $clairvoyanceLevel = 0;
-            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_forum')){
-                $clairvoyanceLevel++;
-            }
-            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_active')){
-                $clairvoyanceLevel++;
-            }
-            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_workshop')){
-                $clairvoyanceLevel++;
-            }
-            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_build')){
-                $clairvoyanceLevel++;
-            }
-            if($this->citizen_handler->hasStatusEffect($citizen, 'tg_chk_movewb')){
-                $clairvoyanceLevel++;
-            }
             $citizens[] = [
                 'infos' => $citizen,
-                'omniscienceLevel' => $clairvoyanceLevel,
+                'omniscienceLevel' => $this->citizen_handler->getActivityLevel($citizen),
                 'soulPoint' => $citizen->getUser()->getAllSoulPoints()
             ];
         }
@@ -1288,7 +1256,6 @@ class TownController extends InventoryAwareController
         $messages[] = $this->translator->trans("Du hast dafür {count} Aktionspunkt(e) verbraucht.", ['{count}' => "<strong>$ap</strong>", 'raw_count' => $ap], "game");
 
         // Set the activity status
-        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
         $this->citizen_handler->inflictStatus($citizen, 'tg_chk_build');
 
         // Give picto to the citizen
@@ -1498,9 +1465,6 @@ class TownController extends InventoryAwareController
 
         if (!$zone)
             return AjaxResponse::error( ErrorHelper::ErrorInternalError );
-
-        // Set the activity status
-        $this->citizen_handler->inflictStatus($citizen, 'tg_chk_active');
 
         if ($special !== 'sneak')
             $this->entity_manager->persist( $this->log->doorPass( $citizen, false ) );

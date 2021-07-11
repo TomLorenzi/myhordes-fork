@@ -2389,5 +2389,11 @@
         <target>Stadt reparieren</target>
       </segment>
     </unit>
+    <unit id="qiwbmCe" name="Versteckte Statuseffekte">
+      <segment>
+        <source>Versteckte Statuseffekte</source>
+        <target>Versteckte Statuseffekte</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
