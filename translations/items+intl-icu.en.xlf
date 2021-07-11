@@ -8608,7 +8608,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="ClZU0Ua">
       <notes>
         <note category="german">Du versuchst dich einem Zombie zu nähern, aber &lt;strong&gt;der Zombie reißt dir fast das Gesicht mit seinen Zähnen ab&lt;/strong&gt;! Unmöglich zu bestehen...</note>
-        <note category="state">new</note>
         <note category="from">db://AffectMessage</note>
       </notes>
       <segment>
@@ -8619,7 +8618,6 @@ You put every effort into it. Then, after some time passes, you retrieve a {item
     <unit id="eKYdtdt">
       <notes>
         <note category="german">Du rennst schreiend in den ersten Zombie in Reichweite! Mit einem kraftvollen, gut angepassten Schulterschlag &lt;strong&gt;schickst du ihn ein paar Meter weiter in den Staub&lt;/strong&gt;...{hr}Du kannst diese Gelegenheit zur Flucht nutzen!</note>
-        <note category="state">new</note>
         <note category="from">db://AffectMessage</note>
       </notes>
       <segment>

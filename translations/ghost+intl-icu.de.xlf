@@ -1045,5 +1045,17 @@
         <target>Nachtphase</target>
       </segment>
     </unit>
+    <unit id="W907qRt">
+      <segment>
+        <source>Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?</source>
+        <target>Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?</target>
+      </segment>
+    </unit>
+    <unit id="T4fjCif">
+      <segment>
+        <source>Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?</source>
+        <target>Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

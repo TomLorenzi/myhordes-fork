@@ -20389,7 +20389,6 @@
     <unit id="CIxCi9h">
       <notes>
         <note category="german">{citizen} hat versucht einen Zombie niederzustrecken und ist dabei fast draufgegangen...</note>
-        <note category="state">new</note>
         <note category="from">db://LogEntryTemplate</note>
       </notes>
       <segment>
