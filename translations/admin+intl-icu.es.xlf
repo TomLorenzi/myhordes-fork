@@ -3963,7 +3963,7 @@
       </notes>
       <segment>
         <source>Chaos-Modus deaktivieren</source>
-        <target>Chaos-Modus deaktivieren</target>
+        <target>Desactivar el modo caos</target>
       </segment>
     </unit>
     <unit id="LqAEYTA" name="Stadt reparieren">
@@ -3974,7 +3974,7 @@
       </notes>
       <segment>
         <source>Stadt reparieren</source>
-        <target>Stadt reparieren</target>
+        <target>Reparar el pueblo</target>
       </segment>
     </unit>
   </file>

@@ -763,7 +763,7 @@
       </notes>
       <segment>
         <source>Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</source>
-        <target>Bevor du mit deinem EternalTwin-Account spielen kannst, brauchen wir noch ein paar zusätzliche Informationen von dir.</target>
+        <target>Antes de que puedas jugar con tu cuenta EternalTwin, necesitamos información adicional tuya.</target>
       </segment>
     </unit>
     <unit id="wmjJuDK">
@@ -776,8 +776,8 @@
       <segment>
         <source>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
                                             Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</source>
-        <target>Um die Registrierung abzuschließen und deinen Account zu aktivieren, musst du auf einen
-                                            Aktivierungslink klicken, der dir an die angegebene E-Mail Adresse geschickt wird.</target>
+        <target>Para completar el registro y activar su cuenta, debe ir a un
+                                            Haga clic en el enlace de activación que se enviará a la dirección de correo electrónico especificada.</target>
       </segment>
     </unit>
     <unit id="Nm0UxBL">
@@ -788,7 +788,7 @@
       </notes>
       <segment>
         <source>Um dich einzuloggen, musst du nach wie vor deinen &lt;b&gt;ursprünglichen Namen&lt;/b&gt; verwenden: &lt;i&gt;{name}&lt;/i&gt;.</source>
-        <target><![CDATA[Um dich einzuloggen, musst du nach wie vor deinen <b>ursprünglichen Namen</b> verwenden: <i>{name}</i>.]]></target>
+        <target><![CDATA[Para iniciar sesión, aún debe usar su <b>nombre original</b>: <i>{name}</i>.]]></target>
       </segment>
     </unit>
   </file>
