@@ -264,7 +264,7 @@ class UserFactory
 
         if ($message === null || $headline === null) return false;
         return mail(
-            $token->getUser()->getEmail(),
+            $token->getUser()->getPendingEmail() ?? $token->getUser()->getEmail(),
             "MyHordes - {$headline}", $message,
             [
                 'MIME-Version' => '1.0',
