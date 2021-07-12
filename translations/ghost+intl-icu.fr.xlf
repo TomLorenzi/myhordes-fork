@@ -1731,7 +1731,7 @@
       </notes>
       <segment>
         <source>Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?</source>
-        <target>Diese Stadt verfügt über eine Zugangsbeschränkung. Die Mitglieder deiner Koalition können dir nicht automatisch folgen, wenn du diese Stadt betrittst. Fortfahren?</target>
+        <target>Cette ville a une restriction d’accès. Les membres de votre coalition ne peuvent pas vous suivre automatiquement si vous entrez dans cette ville. Continuer ?</target>
       </segment>
     </unit>
     <unit id="T4fjCif">
@@ -1742,7 +1742,7 @@
       </notes>
       <segment>
         <source>Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?</source>
-        <target>Die folgenden Koalitionsmitglieder können dir nicht in die ausgewählte Stadt folgen. Fortfahren?</target>
+        <target>Les membres suivants de votre coalition ne sont pas en mesure de vous suivre dans cette ville. Continuer ?</target>
       </segment>
     </unit>
   </file>
