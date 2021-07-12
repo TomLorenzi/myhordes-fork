@@ -821,11 +821,18 @@ class NightlyHandler
 		}
 		
 		$sum = array_sum($repartition);
-		
+
+		$attacking_cache = $attacking;
 		for ($i = 0; $i < count($repartition); $i++) {
 			$repartition[$i] /= $sum;
-			$repartition[$i] = round($repartition[$i]*$attacking);
+			$repartition[$i] = max(0,min($attacking_cache, round($repartition[$i]*$attacking)));
+            $attacking_cache -= $repartition[$i];
 		}
+
+		while ($attacking_cache > 0) {
+            $repartition[mt_rand(0, count($repartition)-1)] += 1;
+            $attacking_cache--;
+        }
 
 		//remove citizen receiving 0 zombie
 		foreach (array_keys($repartition, 0) as $key) {
