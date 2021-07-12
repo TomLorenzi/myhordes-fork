@@ -101,6 +101,7 @@ class PublicController extends CustomAbstractController
     /**
      * @Route("jx/public/register", name="public_register")
      * @param EternalTwinHandler $etwin
+     * @param SessionInterface $s
      * @return Response
      */
     public function register(EternalTwinHandler $etwin, SessionInterface $s): Response

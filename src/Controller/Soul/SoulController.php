@@ -30,6 +30,7 @@ use App\Entity\RolePlayTextPage;
 use App\Entity\Season;
 use App\Entity\UserDescription;
 use App\Entity\UserGroupAssociation;
+use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
 use App\Response\AjaxResponse;
@@ -562,7 +563,7 @@ class SoulController extends CustomAbstractController
      * @param null $type Type of ranking to display
      * @return Response
      */
-    public function soul_season_solo($type = null, $page = 1, JSONRequestParser $parser): Response
+    public function soul_season_solo(JSONRequestParser $parser, $type = null, $page = 1): Response
     {
         $resultsPerPage = 30;
         $offset = $resultsPerPage * ($page - 1);
@@ -952,40 +953,68 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/settings/change_password", name="api_soul_change_password")
+     * @Route("api/soul/settings/change_account_details", name="api_soul_change_account_details")
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @param JSONRequestParser $parser
      * @param TokenStorageInterface $token
      * @return Response
      */
-    public function soul_settings_change_pass(UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, TokenStorageInterface $token): Response
+    public function soul_settings_change_account_details(UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, TokenStorageInterface $token): Response
     {
         $user = $this->getUser();
+        $new_pw = $parser->trimmed('pw_new', '');
+        $new_email = $parser->trimmed('email_new', '');
 
         if ($this->isGranted('ROLE_DUMMY') && !$this->isGranted( 'ROLE_CROW' ))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
-        if ($this->isGranted('ROLE_ETERNAL'))
+        if ($this->isGranted('ROLE_ETERNAL') && !empty($new_pw))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
-        $new_pw = $parser->trimmed('pw_new', '');
-        if (mb_strlen($new_pw) < 6) return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect);
+        $change = false;
 
-        if (!$passwordEncoder->isPasswordValid( $user, $parser->trimmed('pw') ))
-            return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );
+        if(!empty($new_pw)) {
+            if (mb_strlen($new_pw) < 6) return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect);
 
-        $user
-            ->setPassword( $passwordEncoder->encodePassword($user, $parser->trimmed('pw_new')) )
-            ->setCheckInt($user->getCheckInt() + 1);
+            if (!$passwordEncoder->isPasswordValid( $user, $parser->trimmed('pw') ))
+                return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );
 
-        if ($rm_token = $this->entity_manager->getRepository(RememberMeTokens::class)->findOneBy(['user' => $user]))
-            $this->entity_manager->remove($rm_token);
+            $user
+                ->setPassword( $passwordEncoder->encodePassword($user, $parser->trimmed('pw_new')) )
+                ->setCheckInt($user->getCheckInt() + 1);
 
-        $this->entity_manager->persist($user);
-        $this->entity_manager->flush();
+            if ($rm_token = $this->entity_manager->getRepository(RememberMeTokens::class)->findOneBy(['user' => $user]))
+                $this->entity_manager->remove($rm_token);
+            $change = true;
 
-        $this->addFlash( 'notice', $this->translator->trans('Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.', [], 'login') );
-        $token->setToken(null);
+        }
+
+        if (!empty($new_email)) {
+            $user->setPendingEmail($new_email);
+            /*$validation = new UserPendingValidation();
+            $validation->setTime(new \DateTime())->setType(UserPendingValidation::EMailValidation)->generatePKey();
+            $user->setPendingValidation($validation);
+            $this->entity_manager->persist($validation);*/
+            $change = true;
+        }
+
+        if ($change){
+            $message = [];
+            $this->entity_manager->persist($user);
+            $this->entity_manager->flush();
+
+            if (!empty($new_pw)) {
+                $message[] = $this->translator->trans('Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.', [], 'login');
+                $token->setToken(null);
+            }
+
+            if (!empty($new_email)) {
+                $message[] = $this->translator->trans('Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.', [], 'login');
+            }
+
+            $this->addFlash('notice', implode('<hr />', $message));
+        }
+
         return AjaxResponse::success();
     }
 

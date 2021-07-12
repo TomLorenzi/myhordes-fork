@@ -346,7 +346,23 @@
                         <div class="note note-lightest"><label for="app_mail">{% trans from 'soul' %}E-Mail-Adresse{% endtrans %}</label></div>
                     </div>
                     <div class="cell padded rw-8 rw-sm-12">
-                        <input id="app_mail" type="text" disabled value="{{ app.user.email }}" />
+                        <input id="app_mail" type="text" disabled value="{{ app.user.email }}{% if app.user.pendingEmail is not null %} ({{ app.user.pendingEmail }}){% endif %}" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell padded rw-4 rw-sm-12">
+                        <div class="note note-lightest">{% trans from 'soul' %}E-Mail-Adresse ändern{% endtrans %}</div>
+                    </div>
+                    <div class="cell rw-8 rw-sm-12">
+                        <div class="row">
+                            <div class="cell padded rw-6"><label><input id="app_email_change_new1" placeholder="{{ 'Neue E-Mail-Adresse'|trans({},'soul') }}" type="email" value="" /></label></div>
+                            <div class="cell padded rw-6"><label><input id="app_email_change_new2" placeholder="{{ 'E-Mail-Adresse wiederholen'|trans({},'soul') }}" type="email" value="" /></label></div>
+                            <div class="cell padded rw-12">
+                                <div class="note warning-box">
+                                    Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -358,7 +374,7 @@
                             <div class="cell padded rw-6"><label><input id="app_pw_change_new1" placeholder="{{ 'Neues Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
                             <div class="cell padded rw-6"><label><input id="app_pw_change_new2" placeholder="{{ 'Neues Passwort wiederholen'|trans({},'soul') }}" type="password" value="" /></label></div>
                             <div class="cell padded rw-6"><label><input id="app_pw_change_old" placeholder="{{ 'Aktuelles Passwort'|trans({},'soul') }}" type="password" value="" /></label></div>
-                            <div class="cell padded rw-6"><button id="acc_ch_pw">{{ 'Passwort aktualisieren'|trans({},'soul') }}</button></div>
+                            <div class="cell padded rw-6"><button id="acc_ch_details">{{ 'Account-Infos aktualisieren'|trans({},'soul') }}</button></div>
                         </div>
                     </div>
                 </div>
@@ -438,25 +454,37 @@
         });
 
 
-        $.html.addEventListenerAll('#acc_ch_pw', 'click', function(e) {
+        $.html.addEventListenerAll('#acc_ch_details', 'click', function(e) {
             e.preventDefault();
-            const pw_old = document.getElementById('app_pw_change_old').value;
-            const pw_new1 = document.getElementById('app_pw_change_new1').value;
-            const pw_new2 = document.getElementById('app_pw_change_new2').value;
+            let pw_old = document.getElementById('app_pw_change_old').value;
+            let pw_new1 = document.getElementById('app_pw_change_new1').value;
+            let pw_new2 = document.getElementById('app_pw_change_new2').value;
+            let email_new1 = document.getElementById('app_email_change_new1').value;
+            let email_new2 = document.getElementById('app_email_change_new2').value;
 
-            if (pw_new1 !== pw_new2) {
+            if (pw_new1 !== '' && pw_new1 !== pw_new2) {
                 $.html.error('{{ 'Die eingegebenen Passwörter stimmen nicht überein.'|trans({},'login')|e('js') }}');
                 return;
             }
 
-            if (pw_new1.length < 6) {
+            if (pw_new1 !== '' && pw_new1.length < 6) {
                 $.html.error('{{ 'Dein Passwort muss mindestens { limit } Zeichen umfassen.'|trans({'{{ limit }}': 6},'login')|e('js') }}');
                 return;
             }
 
-            $.ajax.easySend( '{{ path('api_soul_change_password') }}', {'pw': pw_old, 'pw_new': pw_new1},
+            if (email_new1 !== '' && email_new1 !== email_new2) {
+                $.html.error('{{ 'Die eingegebenen E-Mail Adressen stimmen nicht überein.'|trans({},'login')|e('js') }}');
+                return;
+            }
+
+            if (email_new1 !== '' && !$.html.validateEmail(email_new1)) {
+                $.html.error('{{ 'Die eingegebene E-Mail Adresse ist nicht korrekt.'|trans({},'login')|e('js') }}');
+                return;
+            }
+
+            $.ajax.easySend( '{{ path('api_soul_change_account_details') }}', {'pw': pw_old, 'pw_new': pw_new1, 'email_new': email_new1},
                 function () {
-                    $.ajax.load(null, '{{ path('public_login') }}', true);
+                    $.ajax.load(null, pw_new1 !== '' ? '{{ path('public_login') }}' : '{{ path('soul_settings') }}', true);
                 } )
         });
 
