@@ -274,6 +274,11 @@ class User implements UserInterface, EquatableInterface
      */
     private $open_mod_tools_same_window = false;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $pendingEmail;
+
     public function __construct()
     {
         $this->citizens = new ArrayCollection();
@@ -1117,6 +1122,18 @@ class User implements UserInterface, EquatableInterface
     public function setOpenModToolsSameWindow(bool $open_mod_tools_same_window): self
     {
         $this->open_mod_tools_same_window = $open_mod_tools_same_window;
+
+        return $this;
+    }
+
+    public function getPendingEmail(): ?string
+    {
+        return $this->pendingEmail;
+    }
+
+    public function setPendingEmail(?string $pendingEmail): self
+    {
+        $this->pendingEmail = $pendingEmail;
 
         return $this;
     }
