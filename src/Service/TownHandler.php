@@ -536,8 +536,9 @@ class TownHandler
         $offsetMax = $est->getOffsetMax();
 
         mt_srand($town->getDay() + $town->getId());
+        $cc_offset = $this->conf->getTownConfiguration($town)->get(TownConf::CONF_MODIFIER_WT_OFFSET, 0);
 
-        for ($i = 0; $i < $est->getCitizens()->count() * $ratio; $i++) {
+        for ($i = 0; $i < $est->getCitizens()->count() * $ratio + $cc_offset; $i++) {
             if ($offsetMin + $offsetMax > 10) {
                 $increase_min = $this->random->chance( $offsetMin / ($offsetMin + $offsetMax) );
                 if ($increase_min) $offsetMin -= 1;
@@ -553,7 +554,7 @@ class TownHandler
         $min = round($min * $soulFactor);
         $max = round($max * $soulFactor);
 
-        $quality = min($est->getCitizens()->count() / (24 / $ratio), 1);
+        $quality = min(($cc_offset + $est->getCitizens()->count()*$ratio) / 24, 1);
         foreach ($this->conf->getCurrentEvents($town) as $e)
             $e->hook_watchtower_estimations($min,$max, $town);
 
@@ -569,9 +570,9 @@ class TownHandler
             return $result;
         }
 
-        if ($est->getCitizens()->count() * $ratio >= 24 && !empty($this->getBuilding($town, 'item_tagger_#02'))) {
+        if (($est->getCitizens()->count() * $ratio + $cc_offset) >= 24 && !empty($this->getBuilding($town, 'item_tagger_#02'))) {
             $estim->setEstimation(1);
-            $calculateUntil = $est->getCitizens()->count() * $ratio - 24;
+            $calculateUntil = ($est->getCitizens()->count() * $ratio + $cc_offset) - 24;
             $est = $this->entity_manager->getRepository(ZombieEstimation::class)->findOneByTown($town, $town->getDay() + 1);
 
             /** @var ZombieEstimation $est */
