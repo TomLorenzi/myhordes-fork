@@ -1044,9 +1044,7 @@ class SoulController extends CustomAbstractController
     {
         $user = $this->getUser();
 
-        $token = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByUserAndType($user,UserPendingValidation::ChangeEmailValidation);
-
-        if ($token && $this->user_factory->announceValidationToken($token)) {
+        if ($this->user_factory->announceValidationToken($this->user_factory->ensureValidation($user, UserPendingValidation::ChangeEmailValidation, true))) {
             return AjaxResponse::success();
         }
 
