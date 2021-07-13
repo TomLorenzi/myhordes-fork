@@ -855,7 +855,7 @@ class ExternalController extends InventoryAwareController {
                 }
                 break;
             case "estimationsNext":
-                if (!isset($estim[1])) {
+                if (!isset($estimTown[1])) {
                     return $data;
                 } else {
                     $estim = $estimTown[1];
