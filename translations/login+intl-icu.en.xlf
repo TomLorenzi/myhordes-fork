@@ -506,12 +506,12 @@
     </unit>
     <unit id="LiGRhEI">
       <notes>
-        <note category="german">Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.</note>
+        <note category="german">Wenn du noch einen alten MyHordes-Account hast, kannst du dich auch damit weiter einloggen.</note>
         <note category="from">twig:///templates/ajax/public/login.html.twig</note>
       </notes>
       <segment>
         <source>Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.</source>
-        <target>If you still use an old MyHordes account, you can log in with it for now.</target>
+        <target>If you still use an old MyHordes account, you can still log in with it.</target>
       </segment>
     </unit>
     <unit id="ho.WxzI">

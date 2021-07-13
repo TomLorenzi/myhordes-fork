@@ -506,7 +506,7 @@
     </unit>
     <unit id="LiGRhEI">
       <notes>
-        <note category="german">Wenn du noch einen alten MyHordes-Account hast, kannst du dich vorerst auch damit einloggen.</note>
+        <note category="german">Wenn du noch einen alten MyHordes-Account hast, kannst du dich auch damit weiter einloggen.</note>
         <note category="from">twig:///templates/ajax/public/login.html.twig</note>
       </notes>
       <segment>
