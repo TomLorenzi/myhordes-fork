@@ -3839,13 +3839,35 @@
     </unit>
     <unit id="aYTkIgC" name="Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.">
       <notes>
-        <note category="german">You must validate your new email address before you can use it.</note>
+        <note category="german">Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.</note>
         <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
         <note category="state">new</note>
       </notes>
       <segment>
         <source>Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.</source>
         <target>Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.</target>
+      </segment>
+    </unit>
+    <unit id="_9dPwLd" name="Validierung erneut senden">
+      <notes>
+        <note category="german">Validierung erneut senden</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Validierung erneut senden</source>
+        <target>Validierung erneut senden</target>
+      </segment>
+    </unit>
+    <unit id="7OcuS8s" name="Änderung der E-Mail Adresse abbrechen">
+      <notes>
+        <note category="german">Änderung der E-Mail Adresse abbrechen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Änderung der E-Mail Adresse abbrechen</source>
+        <target>Änderung der E-Mail Adresse abbrechen</target>
       </segment>
     </unit>
   </file>

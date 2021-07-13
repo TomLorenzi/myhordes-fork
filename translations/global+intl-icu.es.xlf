@@ -3314,5 +3314,16 @@
         <target>Sin preferencia</target>
       </segment>
     </unit>
+    <unit id="rJ6n7d_" name="E-Mail konnte nicht gesendet werden.">
+      <notes>
+        <note category="german">The E-Mail cannot be sent.</note>
+        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>E-Mail konnte nicht gesendet werden.</source>
+        <target>E-Mail konnte nicht gesendet werden.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

@@ -2292,5 +2292,17 @@
         <target>Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.</target>
       </segment>
     </unit>
+    <unit id="_9dPwLd" name="Validierung erneut senden">
+      <segment>
+        <source>Validierung erneut senden</source>
+        <target>Validierung erneut senden</target>
+      </segment>
+    </unit>
+    <unit id="7OcuS8s" name="Änderung der E-Mail Adresse abbrechen">
+      <segment>
+        <source>Änderung der E-Mail Adresse abbrechen</source>
+        <target>Änderung der E-Mail Adresse abbrechen</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

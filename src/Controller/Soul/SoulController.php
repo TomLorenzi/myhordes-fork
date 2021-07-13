@@ -994,7 +994,7 @@ class SoulController extends CustomAbstractController
         if (!empty($new_email)) {
             $user->setPendingEmail($new_email);
             if (!$this->user_factory->announceValidationToken($this->user_factory->ensureValidation($user, UserPendingValidation::ChangeEmailValidation, true)))
-                return AjaxResponse::error();
+                return AjaxResponse::error(ErrorHelper::ErrorSendingEmail);
             $change = true;
         } else if (!empty($confirm_token)) {
             if (($pending = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByTokenAndUserandType(
