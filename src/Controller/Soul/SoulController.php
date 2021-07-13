@@ -1062,14 +1062,13 @@ class SoulController extends CustomAbstractController
         $token = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByUserAndType($user,UserPendingValidation::ChangeEmailValidation);
 
         if ($token) {
-            $user->setPendingEmail(null);
             $this->entity_manager->remove( $token );
-            $this->entity_manager->persist($user);
-            $this->entity_manager->flush();
-            return AjaxResponse::success();
         }
+        $user->setPendingEmail(null);
+        $this->entity_manager->persist($user);
+        $this->entity_manager->flush();
 
-        return AjaxResponse::error();
+        return AjaxResponse::success();
     }
 
     /**
