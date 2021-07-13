@@ -1011,7 +1011,7 @@ class SoulController extends CustomAbstractController
             }
 
             $user->setEmail($user->getPendingEmail());
-            $user->setPendingValidation(null);
+            $user->setPendingEmail(null);
             $this->entity_manager->remove( $pending );
             $change = true;
         }
@@ -1034,6 +1034,44 @@ class SoulController extends CustomAbstractController
         }
 
         return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/settings/resend_token_email", name="api_soul_resend_token_email")
+     * @return Response
+     */
+    public function soul_settings_resend_token_email(): Response
+    {
+        $user = $this->getUser();
+
+        $token = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByUserAndType($user,UserPendingValidation::ChangeEmailValidation);
+
+        if ($token && $this->user_factory->announceValidationToken($token)) {
+            return AjaxResponse::success();
+        }
+
+        return AjaxResponse::error();
+    }
+
+    /**
+     * @Route("api/soul/settings/cancel_token_email", name="api_soul_cancel_email_token")
+     * @return Response
+     */
+    public function soul_settings_cancel_token_email(): Response
+    {
+        $user = $this->getUser();
+
+        $token = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByUserAndType($user,UserPendingValidation::ChangeEmailValidation);
+
+        if ($token) {
+            $user->setPendingEmail(null);
+            $this->entity_manager->remove( $token );
+            $this->entity_manager->persist($user);
+            $this->entity_manager->flush();
+            return AjaxResponse::success();
+        }
+
+        return AjaxResponse::error();
     }
 
     /**

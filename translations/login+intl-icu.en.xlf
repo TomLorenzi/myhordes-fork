@@ -801,7 +801,7 @@
       </notes>
       <segment>
         <source>Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</source>
-        <target>Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</target>
+        <target>Your email address has been changed. Please validate it before using it.</target>
       </segment>
     </unit>
   </file>

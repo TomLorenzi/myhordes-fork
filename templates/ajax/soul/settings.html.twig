@@ -349,10 +349,12 @@
                         <input id="app_mail" type="text" disabled value="{{ app.user.email }}{% if app.user.pendingEmail is not null %} ({{ app.user.pendingEmail }}){% endif %}" />
                     </div>
                 </div>
-                <div class="row">
+                {% if app.user.pendingEmail is null %}
+                    <div class="row">
                     <div class="cell padded rw-4 rw-sm-12">
                         <div class="note note-lightest">{% trans from 'soul' %}E-Mail-Adresse ändern{% endtrans %}</div>
                     </div>
+
                     <div class="cell rw-8 rw-sm-12">
                         <div class="row">
                             <div class="cell padded rw-6"><label><input id="app_email_change_new1" placeholder="{{ 'Neue E-Mail-Adresse'|trans({},'soul') }}" type="email" value="" /></label></div>
@@ -365,13 +367,23 @@
                         </div>
                     </div>
                 </div>
-                {% if app.user.pendingEmail is not null %}
+                {% else %}
                 <div class="row">
                     <div class="cell padded rw-4 rw-sm-12">
                         <div class="note note-lightest">{% trans from 'soul' %}Validierungs-Token{% endtrans %}</div>
                     </div>
-                    <div class="cell padded rw-8 rw-sm-12">
-                        <label><input id="email_validation_token" type="text" placeholder="abcdef123456" /></label>
+                    <div class="cell rw-8 rw-sm-12">
+                        <div class="row">
+                            <div class="cell padded rw-12">
+                                <label><input id="email_validation_token" type="text" placeholder="abcdef123456" /></label>
+                            </div>
+                            <div class="cell padded rw-6">
+                                <button id="resend_token">{{ 'Resend email'|trans({},'soul') }}</button>
+                            </div>
+                            <div class="cell padded rw-6">
+                                <button id="cancel_token">{{ 'Cancel email change'|trans({},'soul') }}</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {% endif %}
@@ -463,7 +475,6 @@
                 } )
         });
 
-
         $.html.addEventListenerAll('#acc_ch_details', 'click', function(e) {
             e.preventDefault();
             let pw_old = document.getElementById('app_pw_change_old').value;
@@ -471,7 +482,11 @@
             let pw_new2 = document.getElementById('app_pw_change_new2').value;
             let email_new1 = document.getElementById('app_email_change_new1').value;
             let email_new2 = document.getElementById('app_email_change_new2').value;
-            let email_token = document.getElementById('email_validation_token').value;
+
+            let email_token = '';
+            {% if app.user.pendingEmail is not null %}
+            email_token = document.getElementById('email_validation_token').value;
+            {% endif %}
 
             if (pw_new1 !== '' && pw_new1 !== pw_new2) {
                 $.html.error('{{ 'Die eingegebenen Passwörter stimmen nicht überein.'|trans({},'login')|e('js') }}');
@@ -498,6 +513,25 @@
                     $.ajax.load(null, pw_new1 !== '' ? '{{ path('public_login') }}' : '{{ path('soul_settings') }}', true);
                 } )
         });
+        {% if app.user.pendingEmail is not null %}
+        $.html.addEventListenerAll('#resend_token', 'click', function(e) {
+            e.preventDefault();
+
+            $.ajax.easySend( '{{ path('api_soul_resend_token_email') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                } )
+        });
+
+        $.html.addEventListenerAll('#cancel_token', 'click', function(e) {
+            e.preventDefault();
+
+            $.ajax.easySend( '{{ path('api_soul_cancel_email_token') }}', {},
+                function () {
+                    $.ajax.load(null, '{{ path('soul_settings') }}', true);
+                } )
+        });
+        {% endif %}
 
         $.html.addEventListenerAll('#acc_unremember_me', 'click', function(e) {
             $.ajax.easySend( '{{ path('api_soul_unremember_me') }}', {},

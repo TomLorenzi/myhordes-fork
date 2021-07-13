@@ -797,7 +797,7 @@
       </notes>
       <segment>
         <source>Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</source>
-        <target>Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</target>
+        <target>Votre adresse email a été changée. Veuillez la valider avant de pouvoir l'utiliser.</target>
       </segment>
     </unit>
   </file>
