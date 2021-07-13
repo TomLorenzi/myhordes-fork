@@ -19201,7 +19201,6 @@
     <unit id="kPJRUv1">
       <notes>
         <note category="german">Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Zum Glück hast du dir nichts gebrochen.</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>
@@ -19222,7 +19221,6 @@
     <unit id="WGi7LUy">
       <notes>
         <note category="german">Als du es dir gerade gemütlich machen wolltest, wurdest du von {username} übel angegangen. Du hast einiges abbekommen, aber auch ordentlich ausgeteilt! Leider wurdest du bei dem Angriff verletzt!</note>
-        <note category="state">new</note>
         <note category="from">php:///src/Controller/Messages/MessageTownMessageController.php</note>
       </notes>
       <segment>

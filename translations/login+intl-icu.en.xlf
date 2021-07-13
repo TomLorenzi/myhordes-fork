@@ -34,7 +34,7 @@
     <unit id="6UV8ek7" name="Die eingegebenen E-Mail Adressen stimmen nicht überein.">
       <notes>
         <note category="german">Die eingegebenen E-Mail Adressen stimmen nicht überein.</note>
-        <note category="from">php:///src/Controller/PublicController.php</note>
+        <note category="from">php:///src/Controller/PublicController.php;twig:///templates/ajax/soul/settings.html.twig</note>
       </notes>
       <segment>
         <source>Die eingegebenen E-Mail Adressen stimmen nicht überein.</source>
@@ -781,6 +781,27 @@
       <segment>
         <source>Um dich einzuloggen, musst du nach wie vor deinen &lt;b&gt;ursprünglichen Namen&lt;/b&gt; verwenden: &lt;i&gt;{name}&lt;/i&gt;.</source>
         <target><![CDATA[To log in, you still need to use your <b>original name</b>: <i>{name}</i>.]]></target>
+      </segment>
+    </unit>
+    <unit id="tW3qs0M" name="Die eingegebene E-Mail Adresse ist nicht korrekt.">
+      <notes>
+        <note category="german">Die eingegebene E-Mail Adresse ist nicht korrekt.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+      </notes>
+      <segment>
+        <source>Die eingegebene E-Mail Adresse ist nicht korrekt.</source>
+        <target>The email address is not correct.</target>
+      </segment>
+    </unit>
+    <unit id="y2_Gamb">
+      <notes>
+        <note category="german">Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</note>
+        <note category="from">php:///src/Controller/Soul/SoulController.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</source>
+        <target>Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</target>
       </segment>
     </unit>
   </file>

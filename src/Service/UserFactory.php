@@ -241,11 +241,17 @@ class UserFactory
         $headline = null;
         $message = null;
         switch ($token->getType()) {
-
             case UserPendingValidation::EMailValidation:
-            case UserPendingValidation::ChangeEmailValidation:
                 $headline = $this->trans->trans('Account validieren', [], 'mail');
                 $message = $this->twig->render( 'mail/validation.html.twig', [
+                    'title' => $headline,
+                    'user' => $token->getUser(),
+                    'token' => $token
+                ] );
+                break;
+            case UserPendingValidation::ChangeEmailValidation:
+                $headline = $this->trans->trans('E-Mail Validierung', [], 'mail');
+                $message = $this->twig->render( 'mail/email_change_validation.html.twig', [
                     'title' => $headline,
                     'user' => $token->getUser(),
                     'token' => $token

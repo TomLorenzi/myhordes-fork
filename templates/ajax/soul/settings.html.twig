@@ -359,12 +359,22 @@
                             <div class="cell padded rw-6"><label><input id="app_email_change_new2" placeholder="{{ 'E-Mail-Adresse wiederholen'|trans({},'soul') }}" type="email" value="" /></label></div>
                             <div class="cell padded rw-12">
                                 <div class="note warning-box">
-                                    Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.
+                                    {{ 'Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.'|trans({}, 'soul') }}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                {% if app.user.pendingEmail is not null %}
+                <div class="row">
+                    <div class="cell padded rw-4 rw-sm-12">
+                        <div class="note note-lightest">{% trans from 'soul' %}Validierungs-Token{% endtrans %}</div>
+                    </div>
+                    <div class="cell padded rw-8 rw-sm-12">
+                        <label><input id="email_validation_token" type="text" placeholder="abcdef123456" /></label>
+                    </div>
+                </div>
+                {% endif %}
                 <div class="row">
                     <div class="cell padded rw-4 rw-sm-12">
                         <div class="note note-lightest">{% trans from 'soul' %}Passwort ändern{% endtrans %}</div>
@@ -461,6 +471,7 @@
             let pw_new2 = document.getElementById('app_pw_change_new2').value;
             let email_new1 = document.getElementById('app_email_change_new1').value;
             let email_new2 = document.getElementById('app_email_change_new2').value;
+            let email_token = document.getElementById('email_validation_token').value;
 
             if (pw_new1 !== '' && pw_new1 !== pw_new2) {
                 $.html.error('{{ 'Die eingegebenen Passwörter stimmen nicht überein.'|trans({},'login')|e('js') }}');
@@ -482,7 +493,7 @@
                 return;
             }
 
-            $.ajax.easySend( '{{ path('api_soul_change_account_details') }}', {'pw': pw_old, 'pw_new': pw_new1, 'email_new': email_new1},
+            $.ajax.easySend( '{{ path('api_soul_change_account_details') }}', {'pw': pw_old, 'pw_new': pw_new1, 'email_new': email_new1, 'email_token': email_token},
                 function () {
                     $.ajax.load(null, pw_new1 !== '' ? '{{ path('public_login') }}' : '{{ path('soul_settings') }}', true);
                 } )

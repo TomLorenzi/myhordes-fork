@@ -82,6 +82,7 @@ class SoulController extends CustomAbstractController
     const ErrorUserEditUserName              = ErrorHelper::BaseSoulErrors + 8;
     const ErrorUserEditTooSoon               = ErrorHelper::BaseSoulErrors + 9;
     const ErrorUserUseEternalTwin            = ErrorHelper::BaseSoulErrors + 10;
+    const ErrorUserConfirmToken              = ErrorHelper::BaseSoulErrors + 11;
 
     const ErrorCoalitionAlreadyMember        = ErrorHelper::BaseSoulErrors + 20;
     const ErrorCoalitionNotSet               = ErrorHelper::BaseSoulErrors + 21;
@@ -964,6 +965,7 @@ class SoulController extends CustomAbstractController
         $user = $this->getUser();
         $new_pw = $parser->trimmed('pw_new', '');
         $new_email = $parser->trimmed('email_new', '');
+        $confirm_token = $parser->trimmed('email_token', '');
 
         if ($this->isGranted('ROLE_DUMMY') && !$this->isGranted( 'ROLE_CROW' ))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
@@ -991,8 +993,26 @@ class SoulController extends CustomAbstractController
 
         if (!empty($new_email)) {
             $user->setPendingEmail($new_email);
-            if (!$this->user_factory->announceValidationToken( $this->user_factory->ensureValidation( $user, UserPendingValidation::ChangeEmailValidation ) ))
+            if (!$this->user_factory->announceValidationToken($this->user_factory->ensureValidation($user, UserPendingValidation::ChangeEmailValidation, true)))
                 return AjaxResponse::error();
+            $change = true;
+        } else if (!empty($confirm_token)) {
+            if (($pending = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByTokenAndUserandType(
+                    $confirm_token, $user, UserPendingValidation::ChangeEmailValidation)) === null) {
+                return AjaxResponse::error(self::ErrorUserConfirmToken);
+            }
+
+            if ($pending->getUser() === null || ($user !== null && !$user->isEqualTo( $pending->getUser() ))) {
+                return AjaxResponse::error(self::ErrorUserConfirmToken);
+            }
+
+            if ($pending->getPkey() !== $confirm_token) {
+                return AjaxResponse::error(self::ErrorUserConfirmToken);
+            }
+
+            $user->setEmail($user->getPendingEmail());
+            $user->setPendingValidation(null);
+            $this->entity_manager->remove( $pending );
             $change = true;
         }
 

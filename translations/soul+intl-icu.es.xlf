@@ -3771,5 +3771,82 @@
         <target>Moderationslinks in neuem Fenster öffnen</target>
       </segment>
     </unit>
+    <unit id="DDDHPI7" name="E-Mail-Adresse ändern">
+      <notes>
+        <note category="german">E-Mail-Adresse ändern</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>E-Mail-Adresse ändern</source>
+        <target>E-Mail-Adresse ändern</target>
+      </segment>
+    </unit>
+    <unit id="939TZNJ" name="Neue E-Mail-Adresse">
+      <notes>
+        <note category="german">Neue E-Mail-Adresse</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Neue E-Mail-Adresse</source>
+        <target>Neue E-Mail-Adresse</target>
+      </segment>
+    </unit>
+    <unit id="GI_Pk7k" name="E-Mail-Adresse wiederholen">
+      <notes>
+        <note category="german">E-Mail-Adresse wiederholen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>E-Mail-Adresse wiederholen</source>
+        <target>E-Mail-Adresse wiederholen</target>
+      </segment>
+    </unit>
+    <unit id="AZomVy8" name="Validierungs-Token">
+      <notes>
+        <note category="german">Validierungs-Token</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Validierungs-Token</source>
+        <target>Validierungs-Token</target>
+      </segment>
+    </unit>
+    <unit id="_yPAzh1" name="Account-Infos aktualisieren">
+      <notes>
+        <note category="german">Account-Infos aktualisieren</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Account-Infos aktualisieren</source>
+        <target>Account-Infos aktualisieren</target>
+      </segment>
+    </unit>
+    <unit id="bx1XUpr" name="Der Validierungs-Token ist ungültig.">
+      <notes>
+        <note category="german">Der Validierungs-Token ist ungültig.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der Validierungs-Token ist ungültig.</source>
+        <target>Der Validierungs-Token ist ungültig.</target>
+      </segment>
+    </unit>
+    <unit id="aYTkIgC" name="Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.">
+      <notes>
+        <note category="german">You must validate your new email address before you can use it.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.</source>
+        <target>Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

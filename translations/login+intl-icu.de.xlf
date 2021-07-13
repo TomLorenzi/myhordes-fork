@@ -471,5 +471,17 @@
         <target><![CDATA[Um dich einzuloggen, musst du nach wie vor deinen <b>ursprünglichen Namen</b> verwenden: <i>{name}</i>.]]></target>
       </segment>
     </unit>
+    <unit id="tW3qs0M" name="Die eingegebene E-Mail Adresse ist nicht korrekt.">
+      <segment>
+        <source>Die eingegebene E-Mail Adresse ist nicht korrekt.</source>
+        <target>Die eingegebene E-Mail Adresse ist nicht korrekt.</target>
+      </segment>
+    </unit>
+    <unit id="y2_Gamb">
+      <segment>
+        <source>Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</source>
+        <target>Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
