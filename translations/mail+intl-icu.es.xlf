@@ -95,7 +95,7 @@
       </notes>
       <segment>
         <source>E-Mail Validierung</source>
-        <target>E-Mail Validierung</target>
+        <target>Validación de correo electrónico</target>
       </segment>
     </unit>
     <unit id="DNnXYW1">
@@ -106,7 +106,7 @@
       </notes>
       <segment>
         <source>Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:</source>
-        <target>Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:</target>
+        <target>Alguien (¡con suerte usted!) Intentó cambiar la dirección de correo electrónico asociada a su cuenta. Para realizar el cambio, utilice el siguiente codigo en la configuración de su alma:</target>
       </segment>
     </unit>
   </file>
