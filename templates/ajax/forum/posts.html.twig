@@ -268,6 +268,7 @@
                             {% endif %}
                             [ <a class="action-button" id="link_post" x-forum-action="link-post" x-post-id={{ post.id }}>{{ 'Link'|trans({},'global') }}</a> ]
                             {% if not locked %}
+                                [ <a class="action-button" id="copy_post" x-forum-action="copy-post" x-post-id={{ post.id }} >{{ 'Kopieren'|trans({},'global') }}</a> ]
                                 [ <a class="action-button" id="quote_post" x-forum-action="quote-post" x-post-id={{ post.id }} >{{ 'Zitieren'|trans({},'global') }}</a> ]
                             {% endif %}
                             {% if not post.translate and app.user != post.owner and not permission.only_mod_access %}
@@ -314,17 +315,18 @@
                 $.ajax.easySend( '{{ url('forum_report_post_controller', { 'fid': fid, 'tid': tid}) }}', {postId: parseInt( elem.getAttribute('x-post-id')), page: parseInt( elem.getAttribute('x-to-page')) }, reloadPage );
         });
 
-        $.html.addEventListenerAll('[x-forum-action="quote-post"]', 'click', function(e,elem) {
+        $.html.addEventListenerAll('[x-forum-action="quote-post"],[x-forum-action="copy-post"]', 'click', function(e,elem) {
             let editor = document.getElementById('forum-forum-editor');
 
             let fun_quote = function() {
                 let content = document.querySelector('[x-post-content-id="' + elem.getAttribute('x-post-id') + '"]');
                 let author = content.getAttribute('x-post-content-author');
                 let textEditor = document.getElementById("forum-forum-editor-text");
+                const quote = elem.getAttribute('x-forum-action') === 'quote-post';
 
-                if(textEditor.value != '' && !textEditor.value.endsWith("\n")) textEditor.value += "\n";
+                if(textEditor.value !== '' && !textEditor.value.endsWith("\n")) textEditor.value += "\n";
 
-                textEditor.value += (author ? ('[quote=' + author + ']') : '[quote]') + $.html.twinoParser.parseFrom( content.innerHTML, $.html.twinoParser.OpModeQuote ) + '[/quote]' + "\n";
+                textEditor.value += (quote ? (author ? ('[quote=' + author + ']') : '[quote]') : '') + $.html.twinoParser.parseFrom( content.innerHTML, $.html.twinoParser.OpModeQuote ) + (quote ? '[/quote]' : '') + "\n";
                 textEditor.dispatchEvent(new Event('input', {bubbles: true,cancelable: true}));
                 textEditor.focus();
             };

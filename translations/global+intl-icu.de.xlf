@@ -1965,5 +1965,11 @@
         <target>Keine Präferenz</target>
       </segment>
     </unit>
+    <unit id="RyBQtzC" name="Kopieren">
+      <segment>
+        <source>Kopieren</source>
+        <target>Kopieren</target>
+      </segment>
+    </unit>
   </file>
 </xliff>

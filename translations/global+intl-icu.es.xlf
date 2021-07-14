@@ -3314,5 +3314,16 @@
         <target>Sin preferencia</target>
       </segment>
     </unit>
+    <unit id="RyBQtzC" name="Kopieren">
+      <notes>
+        <note category="german">Kopieren</note>
+        <note category="from">twig:///templates/ajax/forum/posts.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Kopieren</source>
+        <target>Copiar</target>
+      </segment>
+    </unit>
   </file>
 </xliff>
