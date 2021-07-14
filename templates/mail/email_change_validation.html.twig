@@ -1,0 +1,12 @@
+{% extends "mail/framework.html.twig" %}
+{% block body %}
+    {# @var user \App\Entity\User #}
+    <p><b>{{ 'Hallo {user}!'|trans({ '{user}': user.name },'mail') }}</b></p>
+    <p>{{ 'Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:'|trans({},'mail') }}</p>
+    {# @var token \App\Entity\UserPendingValidation #}
+    <p><b>{{ token.pkey }}</b></p>
+    <p><i>{% trans from 'mail' %}
+        Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.
+        Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.
+    {% endtrans %}</i></p>
+{% endblock %}

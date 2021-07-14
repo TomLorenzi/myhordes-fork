@@ -706,8 +706,10 @@ class InventoryAwareController extends CustomAbstractController
                             if($steal_up) {
                                 if ($hasExplodingDoormat && $victim_home->getCitizen()->getAlive()) {
 
-                                    if ($this->citizen_handler->isWounded($citizen))
+                                    if ($this->citizen_handler->isWounded($citizen)) {
                                         $this->death_handler->kill($citizen, CauseOfDeath::ExplosiveDoormat);
+                                        $this->entity_manager->persist($this->log->citizenDeath( $citizen ) );
+                                    }
                                     else {
                                         $this->citizen_handler->inflictWound( $citizen );
                                         $dm = $this->inventory_handler->fetchSpecificItems($victim_home->getChest(), [new ItemRequest('trapma_#00')]);

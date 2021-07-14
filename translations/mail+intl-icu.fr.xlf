@@ -45,7 +45,7 @@
       <notes>
         <note category="german">Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.
         Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.</note>
-        <note category="from">twig:///templates/mail/validation.html.twig</note>
+        <note category="from">twig:///templates/mail/email_change_validation.html.twig;twig:///templates/mail/validation.html.twig</note>
       </notes>
       <segment>
         <source>Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.
@@ -57,7 +57,7 @@
     <unit id="Y9f6YEq" name="Hallo {user}!">
       <notes>
         <note category="german">Hallo {user}!</note>
-        <note category="from">twig:///templates/mail/passreset.html.twig</note>
+        <note category="from">twig:///templates/mail/email_change_validation.html.twig;twig:///templates/mail/passreset.html.twig</note>
       </notes>
       <segment>
         <source>Hallo {user}!</source>
@@ -88,6 +88,26 @@
         <target>Vous avez reçu cet e-mail parce que vous (ou quelqu'un d'autre) avez entré votre adresse e-mail dans la fonction de réinitialisation du mot de passe.
         Si vous ne souhaitez pas réinitialiser votre mot de passe, ignorez cet e-mail. Votre ancien mot de passe reste valide si vous ne le faites pas
         en cliquant sur le lien ci-dessus.</target>
+      </segment>
+    </unit>
+    <unit id="8PZ98mx" name="E-Mail Validierung">
+      <notes>
+        <note category="german">E-Mail Validierung</note>
+        <note category="from">php:///src/Service/UserFactory.php</note>
+      </notes>
+      <segment>
+        <source>E-Mail Validierung</source>
+        <target>Validation E-Mail</target>
+      </segment>
+    </unit>
+    <unit id="DNnXYW1">
+      <notes>
+        <note category="german">Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:</note>
+        <note category="from">twig:///templates/mail/email_change_validation.html.twig</note>
+      </notes>
+      <segment>
+        <source>Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:</source>
+        <target>Quelqu'un (probablement vous !) a demandé à changer l'adresse email liée à votre compte. Pour valider la requête, utilisez ce jeton dans les paramètres de votre âme :</target>
       </segment>
     </unit>
   </file>

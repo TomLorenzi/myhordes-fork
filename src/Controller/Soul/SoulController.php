@@ -30,6 +30,7 @@ use App\Entity\RolePlayTextPage;
 use App\Entity\Season;
 use App\Entity\UserDescription;
 use App\Entity\UserGroupAssociation;
+use App\Entity\UserPendingValidation;
 use App\Entity\UserReferLink;
 use App\Entity\UserSponsorship;
 use App\Response\AjaxResponse;
@@ -81,6 +82,7 @@ class SoulController extends CustomAbstractController
     const ErrorUserEditUserName              = ErrorHelper::BaseSoulErrors + 8;
     const ErrorUserEditTooSoon               = ErrorHelper::BaseSoulErrors + 9;
     const ErrorUserUseEternalTwin            = ErrorHelper::BaseSoulErrors + 10;
+    const ErrorUserConfirmToken              = ErrorHelper::BaseSoulErrors + 11;
 
     const ErrorCoalitionAlreadyMember        = ErrorHelper::BaseSoulErrors + 20;
     const ErrorCoalitionNotSet               = ErrorHelper::BaseSoulErrors + 21;
@@ -562,7 +564,7 @@ class SoulController extends CustomAbstractController
      * @param null $type Type of ranking to display
      * @return Response
      */
-    public function soul_season_solo($type = null, $page = 1, JSONRequestParser $parser): Response
+    public function soul_season_solo(JSONRequestParser $parser, $type = null, $page = 1): Response
     {
         $resultsPerPage = 30;
         $offset = $resultsPerPage * ($page - 1);
@@ -952,40 +954,120 @@ class SoulController extends CustomAbstractController
     }
 
     /**
-     * @Route("api/soul/settings/change_password", name="api_soul_change_password")
+     * @Route("api/soul/settings/change_account_details", name="api_soul_change_account_details")
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @param JSONRequestParser $parser
      * @param TokenStorageInterface $token
      * @return Response
      */
-    public function soul_settings_change_pass(UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, TokenStorageInterface $token): Response
+    public function soul_settings_change_account_details(UserPasswordEncoderInterface $passwordEncoder, JSONRequestParser $parser, TokenStorageInterface $token): Response
     {
         $user = $this->getUser();
+        $new_pw = $parser->trimmed('pw_new', '');
+        $new_email = $parser->trimmed('email_new', '');
+        $confirm_token = $parser->trimmed('email_token', '');
 
         if ($this->isGranted('ROLE_DUMMY') && !$this->isGranted( 'ROLE_CROW' ))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
-        if ($this->isGranted('ROLE_ETERNAL'))
+        if ($this->isGranted('ROLE_ETERNAL') && !empty($new_pw))
             return AjaxResponse::error(ErrorHelper::ErrorPermissionError);
 
-        $new_pw = $parser->trimmed('pw_new', '');
-        if (mb_strlen($new_pw) < 6) return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect);
+        $change = false;
 
-        if (!$passwordEncoder->isPasswordValid( $user, $parser->trimmed('pw') ))
-            return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );
+        if(!empty($new_pw)) {
+            if (mb_strlen($new_pw) < 6) return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect);
 
-        $user
-            ->setPassword( $passwordEncoder->encodePassword($user, $parser->trimmed('pw_new')) )
-            ->setCheckInt($user->getCheckInt() + 1);
+            if (!$passwordEncoder->isPasswordValid( $user, $parser->trimmed('pw') ))
+                return AjaxResponse::error(self::ErrorUserEditPasswordIncorrect );
 
-        if ($rm_token = $this->entity_manager->getRepository(RememberMeTokens::class)->findOneBy(['user' => $user]))
-            $this->entity_manager->remove($rm_token);
+            $user
+                ->setPassword( $passwordEncoder->encodePassword($user, $parser->trimmed('pw_new')) )
+                ->setCheckInt($user->getCheckInt() + 1);
 
+            if ($rm_token = $this->entity_manager->getRepository(RememberMeTokens::class)->findOneBy(['user' => $user]))
+                $this->entity_manager->remove($rm_token);
+            $change = true;
+
+        }
+
+        if (!empty($new_email)) {
+            $user->setPendingEmail($new_email);
+            if (!$this->user_factory->announceValidationToken($this->user_factory->ensureValidation($user, UserPendingValidation::ChangeEmailValidation, true)))
+                return AjaxResponse::error(ErrorHelper::ErrorSendingEmail);
+            $change = true;
+        } else if (!empty($confirm_token)) {
+            if (($pending = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByTokenAndUserandType(
+                    $confirm_token, $user, UserPendingValidation::ChangeEmailValidation)) === null) {
+                return AjaxResponse::error(self::ErrorUserConfirmToken);
+            }
+
+            if ($pending->getUser() === null || ($user !== null && !$user->isEqualTo( $pending->getUser() ))) {
+                return AjaxResponse::error(self::ErrorUserConfirmToken);
+            }
+
+            if ($pending->getPkey() !== $confirm_token) {
+                return AjaxResponse::error(self::ErrorUserConfirmToken);
+            }
+
+            $user->setEmail($user->getPendingEmail());
+            $user->setPendingEmail(null);
+            $this->entity_manager->remove( $pending );
+            $change = true;
+        }
+
+        if ($change){
+            $message = [];
+            $this->entity_manager->persist($user);
+            $this->entity_manager->flush();
+
+            if (!empty($new_pw)) {
+                $message[] = $this->translator->trans('Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.', [], 'login');
+                $token->setToken(null);
+            }
+
+            if (!empty($new_email)) {
+                $message[] = $this->translator->trans('Deine E-Mail Adresse wurde geändert. Bitte validiere die neue Adresse, damit du sie verwenden kannst.', [], 'login');
+            }
+
+            $this->addFlash('notice', implode('<hr />', $message));
+        }
+
+        return AjaxResponse::success();
+    }
+
+    /**
+     * @Route("api/soul/settings/resend_token_email", name="api_soul_resend_token_email")
+     * @return Response
+     */
+    public function soul_settings_resend_token_email(): Response
+    {
+        $user = $this->getUser();
+
+        if ($this->user_factory->announceValidationToken($this->user_factory->ensureValidation($user, UserPendingValidation::ChangeEmailValidation, true))) {
+            return AjaxResponse::success();
+        }
+
+        return AjaxResponse::error();
+    }
+
+    /**
+     * @Route("api/soul/settings/cancel_token_email", name="api_soul_cancel_email_token")
+     * @return Response
+     */
+    public function soul_settings_cancel_token_email(): Response
+    {
+        $user = $this->getUser();
+
+        $token = $this->entity_manager->getRepository(UserPendingValidation::class)->findOneByUserAndType($user,UserPendingValidation::ChangeEmailValidation);
+
+        if ($token) {
+            $this->entity_manager->remove( $token );
+        }
+        $user->setPendingEmail(null);
         $this->entity_manager->persist($user);
         $this->entity_manager->flush();
 
-        $this->addFlash( 'notice', $this->translator->trans('Dein Passwort wurde erfolgreich geändert. Bitte logge dich mit deinem neuen Passwort ein.', [], 'login') );
-        $token->setToken(null);
         return AjaxResponse::success();
     }
 

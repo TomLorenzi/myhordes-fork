@@ -469,4 +469,9 @@ export default class HTML {
         this.title_segments[2] = add;
         this.updateTitle(this.title_alt);
     }
+
+    validateEmail(email: string): boolean {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
 }

@@ -45,7 +45,7 @@
       <notes>
         <note category="german">Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.
         Wenn du dich nicht bei MyHordes registriert hast, ignoriere diese Nachricht.</note>
-        <note category="from">twig:///templates/mail/validation.html.twig</note>
+        <note category="from">twig:///templates/mail/email_change_validation.html.twig;twig:///templates/mail/validation.html.twig</note>
       </notes>
       <segment>
         <source>Du erhälst diese Mail, da du (oder jemand anderes) deine E-Mail Adresse bei der Registrierung angegeben hat.
@@ -56,7 +56,7 @@
     <unit id="Y9f6YEq" name="Hallo {user}!">
       <notes>
         <note category="german">Hallo {user}!</note>
-        <note category="from">twig:///templates/mail/passreset.html.twig</note>
+        <note category="from">twig:///templates/mail/email_change_validation.html.twig;twig:///templates/mail/passreset.html.twig</note>
       </notes>
       <segment>
         <source>Hallo {user}!</source>
@@ -85,6 +85,28 @@
         Wenn du dein Passwort nicht zurücksetzen willst, ignoriere diese E-Mail. Dein altes Passwort bleibt weiterhin gültig, wenn du es nicht
         durch das Anklicken des oben genannten Links änderst.</source>
         <target>Recibió este correo electrónico porque usted (u otra persona) ingresó su dirección de correo electrónico en la función de restablecimiento de contraseña. Si no desea restablecer su contraseña, ignore este correo electrónico. Su contraseña anterior sigue siendo válida a menos que la cambie haciendo clic en el enlace de arriba.</target>
+      </segment>
+    </unit>
+    <unit id="8PZ98mx" name="E-Mail Validierung">
+      <notes>
+        <note category="german">E-Mail Validierung</note>
+        <note category="from">php:///src/Service/UserFactory.php</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>E-Mail Validierung</source>
+        <target>Validación de correo electrónico</target>
+      </segment>
+    </unit>
+    <unit id="DNnXYW1">
+      <notes>
+        <note category="german">Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:</note>
+        <note category="from">twig:///templates/mail/email_change_validation.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Jemand (hoffentlich du!) hat versucht, die mit deinem Account verknüpfte E-Mail Adresse zu ändern. Um die Änderung durchzuführen, verwende bitte folgenden Token in deinen Seelen-Einstellungen:</source>
+        <target>Alguien (¡con suerte usted!) Intentó cambiar la dirección de correo electrónico asociada a su cuenta. Para realizar el cambio, utilice el siguiente codigo en la configuración de su alma:</target>
       </segment>
     </unit>
   </file>

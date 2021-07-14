@@ -1965,6 +1965,12 @@
         <target>Keine Präferenz</target>
       </segment>
     </unit>
+    <unit id="rJ6n7d_" name="E-Mail konnte nicht gesendet werden.">
+      <segment>
+        <source>E-Mail konnte nicht gesendet werden.</source>
+        <target>E-Mail konnte nicht gesendet werden.</target>
+      </segment>
+    </unit>
     <unit id="RyBQtzC" name="Kopieren">
       <segment>
         <source>Kopieren</source>

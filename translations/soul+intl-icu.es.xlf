@@ -3757,7 +3757,7 @@
       </notes>
       <segment>
         <source>Moderationseinstellungen</source>
-        <target>Moderationseinstellungen</target>
+        <target>Configuración de moderación</target>
       </segment>
     </unit>
     <unit id="J979vsp" name="Moderationslinks in neuem Fenster öffnen">
@@ -3768,7 +3768,106 @@
       </notes>
       <segment>
         <source>Moderationslinks in neuem Fenster öffnen</source>
-        <target>Moderationslinks in neuem Fenster öffnen</target>
+        <target>Abrir enlaces de moderación en una nueva ventana</target>
+      </segment>
+    </unit>
+    <unit id="DDDHPI7" name="E-Mail-Adresse ändern">
+      <notes>
+        <note category="german">E-Mail-Adresse ändern</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>E-Mail-Adresse ändern</source>
+        <target>Cambiar la dirección de correo electrónico</target>
+      </segment>
+    </unit>
+    <unit id="939TZNJ" name="Neue E-Mail-Adresse">
+      <notes>
+        <note category="german">Neue E-Mail-Adresse</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Neue E-Mail-Adresse</source>
+        <target>Nueva dirección de correo electrónico</target>
+      </segment>
+    </unit>
+    <unit id="GI_Pk7k" name="E-Mail-Adresse wiederholen">
+      <notes>
+        <note category="german">E-Mail-Adresse wiederholen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>E-Mail-Adresse wiederholen</source>
+        <target>Repita la dirección de correo electrónico</target>
+      </segment>
+    </unit>
+    <unit id="AZomVy8" name="Validierungs-Token">
+      <notes>
+        <note category="german">Validierungs-Token</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Validierungs-Token</source>
+        <target>Validación</target>
+      </segment>
+    </unit>
+    <unit id="_yPAzh1" name="Account-Infos aktualisieren">
+      <notes>
+        <note category="german">Account-Infos aktualisieren</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Account-Infos aktualisieren</source>
+        <target>Actualizar la información de la cuenta</target>
+      </segment>
+    </unit>
+    <unit id="bx1XUpr" name="Der Validierungs-Token ist ungültig.">
+      <notes>
+        <note category="german">Der Validierungs-Token ist ungültig.</note>
+        <note category="from">twig:///templates/scripts/errors/profile.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Der Validierungs-Token ist ungültig.</source>
+        <target>La validación no es válida.</target>
+      </segment>
+    </unit>
+    <unit id="aYTkIgC" name="Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.">
+      <notes>
+        <note category="german">Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.</source>
+        <target>Deberá validar su nueva dirección de correo electrónico antes de poder usarla.</target>
+      </segment>
+    </unit>
+    <unit id="_9dPwLd" name="Validierung erneut senden">
+      <notes>
+        <note category="german">Validierung erneut senden</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Validierung erneut senden</source>
+        <target>Reenviar validación</target>
+      </segment>
+    </unit>
+    <unit id="7OcuS8s" name="Änderung der E-Mail Adresse abbrechen">
+      <notes>
+        <note category="german">Änderung der E-Mail Adresse abbrechen</note>
+        <note category="from">twig:///templates/ajax/soul/settings.html.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>Änderung der E-Mail Adresse abbrechen</source>
+        <target>Cancelar el cambio de la dirección de correo electrónico</target>
       </segment>
     </unit>
   </file>

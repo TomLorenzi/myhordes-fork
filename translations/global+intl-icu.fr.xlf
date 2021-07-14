@@ -2938,8 +2938,7 @@
       <segment>
         <source>Die große Anzahl an Erdhaufen und an herumliegenden Müll sind ein Indiz dafür, dass hier wahrscheinlich nichts mehr zu finden ist.
                                     &lt;p&gt;&lt;em&gt;Wenn du möchtest, kannst du allerdings weitergraben und ein paar minderwertige Materialien für die verschiedenen Baustellen der Stadt zu Tage fördern..&lt;/em&gt;&lt;/p&gt;</source>
-        <target><![CDATA[Le grand nombre de tas de terre et de détritus qui traînent indique qu'il n'y a probablement plus rien à trouver ici.
-                                    <p><em>Cependant, si vous le souhaitez, vous pouvez continuer à creuser et à déterrer des matériaux de qualité inférieure pour les différents chantiers de construction autour de la ville.</em></p>]]></target>
+        <target><![CDATA[Le nombre de monticules de terre et de déchets vous indique qu'il n'y a sans doute plus grand chose à trouver ici. <p><em>Vous pouvez toutefois continuer à creuser pour trouver des ressources de mauvaise qualité pour les chantiers en ville.</em></p>]]></target>
       </segment>
     </unit>
     <unit id="qplNLmy" name="Bitte wähle die Art der Beschränkung.">
@@ -3332,6 +3331,17 @@
       <segment>
         <source>Keine Präferenz</source>
         <target>Pas de préférence</target>
+      </segment>
+    </unit>
+    <unit id="rJ6n7d_" name="E-Mail konnte nicht gesendet werden.">
+      <notes>
+        <note category="german">E-Mail konnte nicht gesendet werden.</note>
+        <note category="from">twig:///templates/scripts/errors/generic.txt.twig</note>
+        <note category="state">new</note>
+      </notes>
+      <segment>
+        <source>E-Mail konnte nicht gesendet werden.</source>
+        <target>Impossible d'envoyer l'email.</target>
       </segment>
     </unit>
     <unit id="RyBQtzC" name="Kopieren">
