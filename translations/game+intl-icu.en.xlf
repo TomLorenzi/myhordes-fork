@@ -8877,7 +8877,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{citizen} hat einen Bauplan für {plan} gefunden. Dafür ist das Bauprojekt {parent} nötig.</source>
-        <target>{citizen} has discovered the blueprints for the {plan}! This required the construction of the {parent}.</target>
+        <target>{citizen} has discovered the blueprints for the {plan}! It requires the construction of the {parent}.</target>
       </segment>
     </unit>
     <unit id="33aXJuK" name="{num} Zombies haben vergeblich versucht, in das Haus von {citizen} einzudringen.">
