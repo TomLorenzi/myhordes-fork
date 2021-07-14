@@ -3812,7 +3812,7 @@
       </notes>
       <segment>
         <source>Validierungs-Token</source>
-        <target>Validación</target>
+        <target>Token de validación</target>
       </segment>
     </unit>
     <unit id="_yPAzh1" name="Account-Infos aktualisieren">
@@ -3834,7 +3834,7 @@
       </notes>
       <segment>
         <source>Der Validierungs-Token ist ungültig.</source>
-        <target>La validación no es válida.</target>
+        <target>El token de validación no es válido.</target>
       </segment>
     </unit>
     <unit id="aYTkIgC" name="Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.">
