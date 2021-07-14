@@ -3757,7 +3757,7 @@
       </notes>
       <segment>
         <source>Moderationseinstellungen</source>
-        <target>Moderationseinstellungen</target>
+        <target>Configuración de moderación</target>
       </segment>
     </unit>
     <unit id="J979vsp" name="Moderationslinks in neuem Fenster öffnen">
@@ -3768,7 +3768,7 @@
       </notes>
       <segment>
         <source>Moderationslinks in neuem Fenster öffnen</source>
-        <target>Moderationslinks in neuem Fenster öffnen</target>
+        <target>Abrir enlaces de moderación en una nueva ventana</target>
       </segment>
     </unit>
     <unit id="DDDHPI7" name="E-Mail-Adresse ändern">
@@ -3779,7 +3779,7 @@
       </notes>
       <segment>
         <source>E-Mail-Adresse ändern</source>
-        <target>E-Mail-Adresse ändern</target>
+        <target>Cambiar la dirección de correo electrónico</target>
       </segment>
     </unit>
     <unit id="939TZNJ" name="Neue E-Mail-Adresse">
@@ -3790,7 +3790,7 @@
       </notes>
       <segment>
         <source>Neue E-Mail-Adresse</source>
-        <target>Neue E-Mail-Adresse</target>
+        <target>Nueva dirección de correo electrónico</target>
       </segment>
     </unit>
     <unit id="GI_Pk7k" name="E-Mail-Adresse wiederholen">
@@ -3801,7 +3801,7 @@
       </notes>
       <segment>
         <source>E-Mail-Adresse wiederholen</source>
-        <target>E-Mail-Adresse wiederholen</target>
+        <target>Repita la dirección de correo electrónico</target>
       </segment>
     </unit>
     <unit id="AZomVy8" name="Validierungs-Token">
@@ -3812,7 +3812,7 @@
       </notes>
       <segment>
         <source>Validierungs-Token</source>
-        <target>Validierungs-Token</target>
+        <target>Validación</target>
       </segment>
     </unit>
     <unit id="_yPAzh1" name="Account-Infos aktualisieren">
@@ -3823,7 +3823,7 @@
       </notes>
       <segment>
         <source>Account-Infos aktualisieren</source>
-        <target>Account-Infos aktualisieren</target>
+        <target>Actualizar la información de la cuenta</target>
       </segment>
     </unit>
     <unit id="bx1XUpr" name="Der Validierungs-Token ist ungültig.">
@@ -3834,7 +3834,7 @@
       </notes>
       <segment>
         <source>Der Validierungs-Token ist ungültig.</source>
-        <target>Der Validierungs-Token ist ungültig.</target>
+        <target>La validación no es válida.</target>
       </segment>
     </unit>
     <unit id="aYTkIgC" name="Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.">
@@ -3845,7 +3845,7 @@
       </notes>
       <segment>
         <source>Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.</source>
-        <target>Du musst deine neue E-Mail Adresse validieren, bevor du sie verwenden kannst.</target>
+        <target>Deberá validar su nueva dirección de correo electrónico antes de poder usarla.</target>
       </segment>
     </unit>
     <unit id="_9dPwLd" name="Validierung erneut senden">
@@ -3856,7 +3856,7 @@
       </notes>
       <segment>
         <source>Validierung erneut senden</source>
-        <target>Validierung erneut senden</target>
+        <target>Reenviar validación</target>
       </segment>
     </unit>
     <unit id="7OcuS8s" name="Änderung der E-Mail Adresse abbrechen">
@@ -3867,7 +3867,7 @@
       </notes>
       <segment>
         <source>Änderung der E-Mail Adresse abbrechen</source>
-        <target>Änderung der E-Mail Adresse abbrechen</target>
+        <target>Cancelar el cambio de la dirección de correo electrónico</target>
       </segment>
     </unit>
   </file>
