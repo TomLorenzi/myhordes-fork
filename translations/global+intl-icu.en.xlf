@@ -2870,7 +2870,7 @@
       </notes>
       <segment>
         <source>Diese Aktion kostet dich 1 AP!</source>
-        <target>Diese Aktion kostet dich 1 AP!</target>
+        <target>This will cost you 1 AP.</target>
       </segment>
     </unit>
     <unit id="sXEtGH4" name="Diese Diskussion ist beendet.">
