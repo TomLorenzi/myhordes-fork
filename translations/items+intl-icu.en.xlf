@@ -7078,7 +7078,7 @@
       </notes>
       <segment>
         <source>&lt;t-bp_ok&gt;Du liest den {item} und stellst fest, dass es sich um einen Plan für {bp_spawn} handelt.&lt;/t-bp_ok&gt;&lt;t-bp_parent&gt;{hr}Dafür ist das Bauprojekt {bp_parent} nötig.&lt;/t-bp_parent&gt;&lt;t-bp_fail&gt;Du versuchst den {item} zu lesen, kannst seinen Inhalt aber nicht verstehen ...&lt;/t-bp_fail&gt;</source>
-        <target><![CDATA[<t-bp_ok>After examining the {item}, you realise that it shows precisely how to build the {bp_spawn}!{hr}You record this new information in the construction site section.</t-bp_ok><t-bp_parent>{hr}This project requires the {bp_parent} to be build first.</t-bp_parent><t-bp_fail>You read the {item} but you do not understand a word of what is written...</t-bp_fail>]]></target>
+        <target><![CDATA[<t-bp_ok>After examining the {item}, you realise that it shows precisely how to build the {bp_spawn}!{hr}You record this new information in the construction site section.</t-bp_ok><t-bp_parent>{hr}This project requires the {bp_parent} to be built first.</t-bp_parent><t-bp_fail>You read the {item} but you do not understand a word of what is written...</t-bp_fail>]]></target>
       </segment>
     </unit>
     <unit id="V2fAVB5" name="Aufbauen">
