@@ -55,7 +55,7 @@
             <div class="padded cell rw-2">
                 <span class="hide-md hide-sm">{% trans from 'game' %}Vorrat{% endtrans %}</span>
             </div>
-            <div class="padded cell rw-6 hide-desktop hide-lg center">
+            <div class="padded cell rw-6 hide-desktop hide-lg">
                 {% trans from 'game' %}Umwandlung{% endtrans %}
             </div>
             <div class="padded cell rw-3 hide-sm hide-md left">
@@ -64,10 +64,10 @@
             <div class="padded cell rw-3 hide-sm hide-md left">
                 {% trans from 'game' %}Hergestellter Gegenstand{% endtrans %}
             </div>
-            <div class="padded cell rw-2">
+            <div class="padded cell rw-1">
                 <span class="hide-md hide-sm">{% trans from 'game' %}Anzahl{% endtrans %}</span>
             </div>
-            <div class="padded cell rw-2 right">
+            <div class="padded cell rw-3 right">
                 <div class="ap">{{ need_ap }}</div>
             </div>
         </div>
@@ -109,7 +109,10 @@
                             <span class="small">{{ result[recipe.id] }}</span>
                         {% endif %}
                     </div>
-                    <div class="padded cell rw-3 grow-0 shrink-0">
+                    <div class="padded cell rw-3 hide-desktop right">
+                        <button {% if banished%}disabled{% endif %} x-recipe-id="{{ recipe.id }}" class="inline small"><img src="{% if recipe.action == "Zerlegen" %}{{ asset('build/images/item/item_classicKey.gif') }}{% elseif recipe.action == "Öffnen" %}{{ asset('build/images/item/item_can_opener.gif') }}{% else %}{{ asset('build/images/icons/small_refine.gif') }}{% endif %}" alt="" /><span class="hide-lg hide-md hide-sm">{{ recipe.action|trans({},'items') }}</span></button>
+                    </div>
+                    <div class="padded cell rw-3 hide-mobile">
                         <button {% if banished%}disabled{% endif %} x-recipe-id="{{ recipe.id }}"><img src="{% if recipe.action == "Zerlegen" %}{{ asset('build/images/item/item_classicKey.gif') }}{% elseif recipe.action == "Öffnen" %}{{ asset('build/images/item/item_can_opener.gif') }}{% else %}{{ asset('build/images/icons/small_refine.gif') }}{% endif %}" alt="" /><span class="hide-lg hide-md hide-sm">{{ recipe.action|trans({},'items') }}</span></button>
                     </div>
                 </div>
