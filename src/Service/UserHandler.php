@@ -718,6 +718,6 @@ class UserHandler
             }
         }
 
-        return !preg_match('/[^\w]/', $name) && strlen($name) >= 4 && strlen($name) <= 16 && $closestDistance > 2;
+        return !preg_match('/[^\w]/', $name) && strlen($name) >= 3 && strlen($name) <= 16 && $closestDistance > 2;
     }
 }

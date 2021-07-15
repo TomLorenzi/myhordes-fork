@@ -427,10 +427,10 @@ class SoulController extends CustomAbstractController
         if ($title < 0 && $icon >= 0)
             return AjaxResponse::error( ErrorHelper::ErrorInvalidRequest );
 
-        if (!$this->user_handler->isNameValid($displayName))
-            return AjaxResponse::error(self::ErrorUserEditUserName);
-
         $name_change = ($displayName !== $user->getDisplayName() && $user->getDisplayName() !== null) || ($displayName !== $user->getUsername() && $user->getDisplayName() === null);
+
+        if ($name_change && !$this->user_handler->isNameValid($displayName))
+            return AjaxResponse::error(self::ErrorUserEditUserName);
 
         if ($name_change && $user->getLastNameChange() !== null && $user->getLastNameChange()->diff(new DateTime())->days < (30 * 6)) { // 6 months
             return  AjaxResponse::error(self::ErrorUserEditTooSoon);
