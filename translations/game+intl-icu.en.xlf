@@ -21609,7 +21609,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Stadt hat nichts Nützliches aus dem Haus herausbekommen, da war wirklich nichts zu holen...</source>
-        <target>The town didn't recover anything useful from their house, there was really nothing of interest to take...</target>
+        <target><![CDATA[The town didn't recover anything useful from their house, there was really <strong>nothing of interest to take</strong>...]]></target>
       </segment>
     </unit>
     <unit id="cmDQRlA">
@@ -22815,7 +22815,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.</source>
-        <target>Du kannst das Haus, in dem {citizen} lebte, recyceln. Alle darin gelagerten Gegenstände (in seinem Inventar) werden in der Bank abgelegt. Außerdem hast du die Möglichkeit, einen Teil der beim Bau verwendeten Ressourcen zurückzugewinnen.</target>
+        <target>You can recycle the house where {citizen} lived. Everything found inside (i.e. in the inventory) will be placed in the bank. There is also a chance you could recover some of the materials used to build it.</target>
       </segment>
     </unit>
     <unit id=".CFiQni">
@@ -22826,7 +22826,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.</source>
-        <target>Nichts mehr da! Die Bürger haben beschlossen, das Haus zu zerstören... Welch eine dankbare Gemeinschaft.</target>
+        <target>There's nothing left! The citizens decided to destroy it... That's gratitude for you.</target>
       </segment>
     </unit>
     <unit id="SlAwtjZ" name="Wiederverwertung:">
@@ -22837,7 +22837,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wiederverwertung:</source>
-        <target>Wiederverwertung:</target>
+        <target>Recycling:</target>
       </segment>
     </unit>
     <unit id="sQTLfdC" name="Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP">
@@ -22848,7 +22848,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP</source>
-        <target>Fortschritt bei der Wiederverwertung dieses Hauses: {progress} / {total} AP</target>
+        <target>Progress made in the recycling of their house: {progress} / {total} AP</target>
       </segment>
     </unit>
     <unit id="1XGWhmm">
@@ -22859,7 +22859,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.</source>
-        <target>Die Truhe von {citizen} ist komplett leer, das ganze Haus wurde bereits abgerissen.</target>
+        <target>There is nothing left in {citizen}'s chest, the house has been totally recycled!</target>
       </segment>
     </unit>
     <unit id="LrUZw5u">
