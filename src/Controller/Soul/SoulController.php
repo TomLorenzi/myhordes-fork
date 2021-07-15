@@ -212,7 +212,7 @@ class SoulController extends CustomAbstractController
         $refer = $this->entity_manager->getRepository(UserReferLink::class)->findOneBy(['user' => $this->getUser()]);
         if ($refer === null && !$this->user_handler->hasRole($this->getUser(), 'ROLE_DUMMY')) {
 
-            $name_base = strtolower($this->getUser()->getName());
+            $name_base = strtolower($this->getUser()->getUsername());
 
             $refer = (new UserReferLink)->setUser($this->getUser())->setActive(true)->setName($name_base);
             $n = 2;
