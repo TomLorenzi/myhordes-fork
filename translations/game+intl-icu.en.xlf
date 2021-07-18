@@ -9029,7 +9029,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden {citizen1} und {citizen2} dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.</source>
-        <target>Gestern war ein unbedeutender Tag. Einem Gerücht zufolge wurden {citizen1} und {citizen2} dabei beobachtet, wie sie zusammen im Brunnen badeten. Wenn morgen alle mit einer Pilzinfektion flach liegen, ist ja wohl klar, an wem das lag.</target>
+        <target>It is rumored that {citizen1} and {citizen2} were seen bathing together in the Well. I strongly advise against water this morning, it's a blow to nab an infection...</target>
       </segment>
     </unit>
     <unit id="1RIoi6Z">
@@ -9040,7 +9040,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem {citizen1} zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von {citizen2} dazu: "Der Anblick war nicht von schlechten Eltern."</source>
-        <target>Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem {citizen1} zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von {citizen2} dazu: "Der Anblick war nicht von schlechten Eltern."</target>
+        <target>This morning, {citizen1} wanted to celebrate with dignity the night passed without a dead <strong>by running naked like a worm</strong> in our alleys. "The view was not bad." {citizen2} would have explained.</target>
       </segment>
     </unit>
     <unit id="HHrNFas">
@@ -9091,7 +9091,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Abgesehen davon, gut, dass letzte Nacht niemand starb. Eine Horde von fast {attack} Zombies heulte die ganze Nacht draußen, aber keiner von ihnen schaffte es, unsere Verteidigung zu durchbrechen.</source>
-        <target>Abgesehen davon, gut, dass letzte Nacht niemand starb. Eine Horde von fast {attack} Zombies heulte die ganze Nacht draußen, aber keiner von ihnen schaffte es, unsere Verteidigung zu durchbrechen.</target>
+        <target>It's good that no one died last night. A horde of almost {attack} zombies howled outside all night, but none of them managed to break through our defenses.</target>
       </segment>
     </unit>
     <unit id="iPILTOC">
@@ -9162,7 +9162,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Unsere Verteidigung an der Ostmauer scheint zufriedenstellend zu sein. Die furchterregenden Kreaturen der Horde wurden in Schach gehalten... dieses Mal!</source>
-        <target>Unsere Verteidigung an der Ostmauer scheint zufriedenstellend zu sein. Die furchterregenden Kreaturen der Horde wurden in Schach gehalten... dieses Mal!</target>
+        <target><![CDATA[The terrifying creatures of the horde were able to be kept <strong>afar</strong> near the wall this time. The defenses seem satisfactory.]]></target>
       </segment>
     </unit>
     <unit id="V.H.RZw">
@@ -9172,7 +9172,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Einige Bürger kamen letzte Nacht ins Schwitzen. Eine Welle von etwa {attack} Monstern versuchte, unsere Stadt zu zerstören, wenn auch ohne Erfolg.</source>
-        <target>Some citizens were sweating last night. A wave of around {attack} monsters tried to destroy our town, albeit unsuccessfully.</target>
+        <target><![CDATA[Some citizens were sweating last night. A wave of around {attack} monsters tried to <strong>destroy</strong> our town, albeit unsuccessfully.]]></target>
       </segment>
     </unit>
     <unit id="_KcsEZD">
@@ -9183,7 +9183,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Zombies von gestern Abend hatten nichts außer unseren Fetzen, in die sie ihre Zähne bekommen konnten, und einige Tierkadaver... Unsere Verteidigung hat sich gut gehalten.</source>
-        <target>Die Zombies von gestern Abend hatten nichts außer unseren Fetzen, in die sie ihre Zähne bekommen konnten, und einige Tierkadaver... Unsere Verteidigung hat sich gut gehalten.</target>
+        <target>The zombies last night only had our garbage to eat and a few dead animals... The defenses seem to have worked well.</target>
       </segment>
     </unit>
     <unit id="33A2X4_">
@@ -9193,7 +9193,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Zombies griffen uns eine Zeit lang hart an, aber keiner kam durch... Aber zweifelt nicht eine Sekunde daran, dass sie heute Abend zurückkommen werden, noch hungriger und sicherlich zahlenmäßig größer...</source>
-        <target>The zombies came at us hard for some time, but none got through... However, don't doubt for a second that they'll be back tonight, even hungrier and certainly greater in number...</target>
+        <target><![CDATA[The zombies came at us <strong>hard</strong> for some time, but none got through... However, don't doubt for a second that they'll be back tonight, even hungrier and certainly greater in number...]]></target>
       </segment>
     </unit>
     <unit id="9OEwJJM">
@@ -9203,7 +9203,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Heute Morgen feierte {citizen1} das Vereiteln der Zombiehorden von gestern Abend, indem er splitternackt durch die Straßen rannte. "Ich wollte den Anbruch dieses neuen Tages auf angemessene Weise feiern", erklärte der Bürger.</source>
-        <target>This morning, {citizen1} celebrated last night's thwarting of the zombie hordes by running buck naked through the streets. "I wanted to celebrate the dawning of this new day in an appropriate fashion", the citizen explained.</target>
+        <target><![CDATA[This morning, {citizen1} celebrated last night's thwarting of the zombie hordes <strong>by running buck naked</strong> through the streets. "I wanted to celebrate the dawning of this new day in an appropriate fashion", the citizen explained.]]></target>
       </segment>
     </unit>
     <unit id=".ArUqcq">
@@ -9233,7 +9233,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ihr hast sie letzte Nacht gehört... die Schreie, das Stöhnen. Um die {attack} Zombies herum griffen an. Diesmal konnten wir uns durchsetzen, aber morgen... morgen wird es noch schlimmer...</source>
-        <target>You heard them last night... the cries, the groans. Around {attack} zombies. We managed to prevail this time, but tomorrow... tomorrow will be even worse...</target>
+        <target><![CDATA[You <strong>heard</strong> them last night... the cries, the groans. Around {attack} zombies. We managed to prevail this time, but tomorrow... tomorrow will be even worse...]]></target>
       </segment>
     </unit>
     <unit id="6eLsL9d">
@@ -9254,7 +9254,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{cadaver1} hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</source>
-        <target>{cadaver1} hatte gestern Abend kein Glück. Abgesehen davon war es eine ruhige Nacht in der Stadt...</target>
+        <target>{cadaver1} was unlucky last night. Other than that, it was a quiet night in town...</target>
       </segment>
     </unit>
     <unit id="X7mffuU">
@@ -9265,7 +9265,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Alle scheinen sich still und leise über den Tod von {cadaver1} gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. {citizen1} kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</source>
-        <target>Alle scheinen sich still und leise über den Tod von {cadaver1} gestern Abend zu freuen... Allerdings hat niemand erklärt, warum. {citizen1} kommentierte: "Seine Mutter war ein Hamster, und sein Vater roch nach Holunderbeeren".</target>
+        <target><![CDATA[Everyone seems to be <strong>delighted</strong> in silence at the death of {cadaver1} that night... However, no one explains why. {citizen1} would still have commented: "yeah, he got what he deserved!".]]></target>
       </segment>
     </unit>
     <unit id="WWLQc3o">
@@ -9276,7 +9276,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Jeder hörte {cadaver1} schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</source>
-        <target>Jeder hörte {cadaver1} schreien, als er von den Zombies auseinander gerissen wurde. Offensichtlich versuchte niemand zu helfen. Überlebensinstinkt. Wirst du jetzt nachts schlafen können?</target>
+        <target>Everyone heard {cadaver1} scream as the zombies dismember his body. Nobody did anything, of course. Survival instinct. Will you still be able to sleep with this?</target>
       </segment>
     </unit>
     <unit id="IEPC99r">
@@ -9287,7 +9287,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit {cadaver1} zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</source>
-        <target>Ich bin sicher, dass nicht nur ich der Meinung bin, dass wir eine Rechnung mit {cadaver1} zu begleichen hatten. Letztendlich scheint es also Karma gewesen zu sein, dass ausgerechnet er heute Nacht ums Leben kam.</target>
+        <target>I'm sure I'm not the only one who thinks we had a score to settle with {cadaver1}. So in the end it seems like it was karma that he died tonight.</target>
       </segment>
     </unit>
     <unit id="EvcUHEC">
@@ -9298,7 +9298,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für {cadaver1} gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</source>
-        <target>Einige Bürger wurden Zeugen eines seltsamen Vorfalls... Man könnte sagen, dass die Zombies gestern Abend ausschließlich für {cadaver1} gekommen sind. Sie trugen die Leiche den ganzen Weg zur Baustelle, bevor die Zerstückelung begann!</target>
+        <target><![CDATA[We saw something strange... It looked like the zombies were only coming to {cadaver1} last night. They took his body to the construction sites before dismembering it <strong>entirely</strong>!]]></target>
       </segment>
     </unit>
     <unit id="ZuQMNC6">
@@ -9309,7 +9309,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Einige sagen, daß der Tod von {cadaver1} nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</source>
-        <target>Einige sagen, daß der Tod von {cadaver1} nicht dem Glück zu verdanken ist... das einzige Opfer gestern Abend... Könnte jemand unter uns seinen Tod provoziert haben?</target>
+        <target><![CDATA[Some say that the death of {cadaver1} would not be the result of chance... She is the <strong>only</strong> victim last night. Did anyone among us <strong>cause</strong> this death?]]></target>
       </segment>
     </unit>
     <unit id="MHTYtp1">
@@ -9320,7 +9320,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ausgangssperre gilt für alle. Auch für {cadaver1} und {cadaver2} – das haben sie nun davon.</source>
-        <target>Ausgangssperre gilt für alle. Auch für {cadaver1} und {cadaver2} – das haben sie nun davon.</target>
+        <target>The curfew applies to everyone. Also for {cadaver1} and {cadaver2} - this is what you get.</target>
       </segment>
     </unit>
     <unit id="Phxyt4a">
@@ -9331,7 +9331,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>So richtig scheint keiner über den Tod von {cadaver1} und {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</source>
-        <target>So richtig scheint keiner über den Tod von {cadaver1} und {cadaver2} zu trauern. Sie waren wohl nicht die beliebtesten in der Stadt.</target>
+        <target>No one really seems to mourn the death of {cadaver1} and {cadaver2}. They probably weren't the most popular in town.</target>
       </segment>
     </unit>
     <unit id="HjXCgon">
@@ -9342,7 +9342,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Eine schreckliche Nacht für die Stadt. Die lebenden Toten massakrierten {deaths} unserer Gemeinde während des Angriffs. Vielleicht möchtet ihr vor heute Abend noch einmal einen Blick auf unsere Verteidigung werfen...</source>
-        <target>Eine schreckliche Nacht für die Stadt. Die lebenden Toten massakrierten {deaths} unserer Gemeinde während des Angriffs. Vielleicht möchtet ihr vor heute Abend noch einmal einen Blick auf unsere Verteidigung werfen...</target>
+        <target>A terrible night for the city. The living dead slaughtered {deaths} members of our community in the attack. Maybe you want to take another look at our defenses before tonight...</target>
       </segment>
     </unit>
     <unit id="tWF6qem">
@@ -9353,7 +9353,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Zombies fanden gestern Abend an der Nordwand eine Schwäche in unserer Verteidigung... Einige Häuser hielten dem Angriff stand. Andere nicht... ... {deaths} tot. Ende der Geschichte.</source>
-        <target>Die Zombies fanden gestern Abend an der Nordwand eine Schwäche in unserer Verteidigung... Einige Häuser hielten dem Angriff stand. Andere nicht... ... {deaths} tot. Ende der Geschichte.</target>
+        <target>The zombies broke through our walls this evening taking advantage of a loophole in the north wall... Some houses held up. Others not... {deaths} dead. Without appeal.</target>
       </segment>
     </unit>
     <unit id="xVDXz8v">
@@ -9364,7 +9364,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Einige Bewohner brachen heute Morgen ob der Opfer in Tränen aus. Tränen der Freude mit Sicherheit, nicht eines der {deaths} Opfer des letzten Angriffs zu sein.</source>
-        <target>Einige Bewohner brachen heute Morgen ob der Opfer in Tränen aus. Tränen der Freude mit Sicherheit, nicht eines der {deaths} Opfer des letzten Angriffs zu sein.</target>
+        <target>Some residents are in tears this morning because of the victims (the nerves without doubt). Too happy not to be one of the {deaths} victims of that night.</target>
       </segment>
     </unit>
     <unit id="FgoMd0R">
@@ -9375,7 +9375,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Eine Handvoll Zombies durchbrach unsere Verteidigungsanlagen in der Nähe des nördlichen Viertels, wir haben keine Ahnung, wie... Wie es das "Glück" wollte, sind {deaths} Bürger tot, aber ihr habt seltsamerweise überlebt. ... Klingt das nicht ein wenig verdächtig?</source>
-        <target>Eine Handvoll Zombies durchbrach unsere Verteidigungsanlagen in der Nähe des nördlichen Viertels, wir haben keine Ahnung, wie... Wie es das "Glück" wollte, sind {deaths} Bürger tot, aber ihr habt seltsamerweise überlebt. ... Klingt das nicht ein wenig verdächtig?</target>
+        <target>A handful of zombies broke through our defenses on the north wall, without anyone knowing how... According to one of your neighbors, it would be a breach in the wall near his house. As luck would have it, {deaths} citizens died, but he didn't. Obviously, after the attack, this conscientious citizen carefully filled in this breach... Suspect eh?</target>
       </segment>
     </unit>
     <unit id="MwOt2NN">
@@ -9386,7 +9386,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Eine Flutwelle von Zombies stürzte letzte Nacht gegen unsere Stadt! Bürger wurden in ihren eigenen Häusern verschlungen oder in die Wüste geschleift... Noch so eine Nacht, und wir werden nicht mehr hier sein, um darüber zu reden.</source>
-        <target>Eine Flutwelle von Zombies stürzte letzte Nacht gegen unsere Stadt! Bürger wurden in ihren eigenen Häusern verschlungen oder in die Wüste geschleift... Noch so eine Nacht, und wir werden nicht mehr hier sein, um darüber zu reden.</target>
+        <target>A tidal wave of zombies crashed into our city last night! The citizens were devoured at their homes or dragged into the desert... Another night and we will not be here to talk about it.</target>
       </segment>
     </unit>
     <unit id="aHDkQ88">
@@ -9397,7 +9397,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Wir müssen uns beeilen; unsere Unfähigkeit, zufriedenstellende Verteidigungsanlagen zu errichten, kostete letzte Nacht {deaths} Bürgern das Leben. Zu eurer Information: Gestern Abend wurde die Stadt von {attack} Zombies angegriffen.</source>
-        <target>Wir müssen uns beeilen; unsere Unfähigkeit, zufriedenstellende Verteidigungsanlagen zu errichten, kostete letzte Nacht {deaths} Bürgern das Leben. Zu eurer Information: Gestern Abend wurde die Stadt von {attack} Zombies angegriffen.</target>
+        <target>Also, we should move a little; our inability to build sufficient defenses claimed the lives of {deaths} citizens last night. As a reminder, the zombies were near {attack} during this assault.</target>
       </segment>
     </unit>
     <unit id="TI38FCg">
@@ -9408,7 +9408,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Verteidigungsanlagen waren gestern Abend unzureichend. {deaths} Bürger bezahlten für eure mangelnde Organisation mit ihrem Leben.</source>
-        <target>Die Verteidigungsanlagen waren gestern Abend unzureichend. {deaths} Bürger bezahlten für eure mangelnde Organisation mit ihrem Leben.</target>
+        <target>The defenses were insufficient last night. {deaths} citizens have paid for their lack of organization with their lives.</target>
       </segment>
     </unit>
     <unit id="j6M_Tqs">
@@ -9419,7 +9419,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Letzte Nacht haben es {deaths} Bürger nicht rechtzeitig nach Hause geschafft. Einige Teile von ihnen wurden in der Nähe des westlichen Viertels gefunden. Augenzeugen berichten, dass die Anwohner riefen: "Lauf, Forrest, lauf!", bevor sie vor Lachen ausbrachen und in ihr Haus rannten.</source>
-        <target>Letzte Nacht haben es {deaths} Bürger nicht rechtzeitig nach Hause geschafft. Einige Teile von ihnen wurden in der Nähe des westlichen Viertels gefunden. Augenzeugen berichten, dass die Anwohner riefen: "Lauf, Forrest, lauf!", bevor sie vor Lachen ausbrachen und in ihr Haus rannten.</target>
+        <target>Yesterday evening, {deaths} citizens did not reach their house in time. Caught up by the zombies during the attack, they had no chance. Some pieces were even found on the north wall. Some testimonies say that residents would have shouted "Run, Forrest, run!" before bursting into laughter and locking themselves in their house.</target>
       </segment>
     </unit>
     <unit id="FRBVY_U">
@@ -9430,7 +9430,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Was für ein Riesenschlamassel: {deaths} starben letzte Nacht in der Stadt! Ein Massaker, zu dem noch der zertrümmerter Schädel eines Haustiers zu zählen ist, der in den Toren verkeilt gefunden wurde. Vermisst jemand einen Hund?</source>
-        <target>Was für ein Riesenschlamassel: {deaths} starben letzte Nacht in der Stadt! Ein Massaker, zu dem noch der zertrümmerter Schädel eines Haustiers zu zählen ist, der in den Toren verkeilt gefunden wurde. Vermisst jemand einen Hund?</target>
+        <target><![CDATA[a big fiasco : <strong>{deaths} dead</strong> at our place last night! A massacre to which must be added the broken skull of a pet found stuck in the Gate.]]></target>
       </segment>
     </unit>
     <unit id="bkMZ85E" name="Horizont">
@@ -10115,7 +10115,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>"Auf wiedersehen, du schnöde Welt...", dachte sich wohl &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1}. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.</source>
-        <target><![CDATA["Auf wiedersehen, du schnöde Welt...", dachte sich wohl <i class="dagger">†</i> {cadaver1}. Jedenfalls hat er den Zombies Arbeit abgenommen und sich selbst umgebracht.]]></target>
+        <target><![CDATA["Goodbye, boring world...", <i class="dagger">†</i> {cadaver1} was probably thinking. Anyway, he did the zombie job and committed suicide.]]></target>
       </segment>
     </unit>
     <unit id="Hb1CJc.">
@@ -10126,7 +10126,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ohne großes Bedauern starb &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte {citizen1}.</source>
-        <target><![CDATA[Ohne großes Bedauern starb <i class="dagger">†</i> {cadaver1} heute Nacht in Folge seiner Abhängigkeit. "Ganz ehrlich, das ist kein großer Verlust", kommentierte {citizen1}.]]></target>
+        <target><![CDATA[With few regret, <i class="dagger">†</i> {cadaver1} passed away tonight from his addiction. "Honestly, it's not a big loss" commented {citizen1}.]]></target>
       </segment>
     </unit>
     <unit id="dmfUc6J">
@@ -10147,7 +10147,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Eindeutig! &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber {citizen1} verhielt sich sehr verdächtig.</source>
-        <target><![CDATA[Eindeutig! <i class="dagger">†</i> {cadaver1} starb an einer Vergiftung. Wie genau das passieren konnte, weiß niemand so recht, aber {citizen1} verhielt sich sehr verdächtig.]]></target>
+        <target><![CDATA[I'll be you, double-check before swallowing anything. Indeed, <i class="dagger">†</i> {cadaver1} will have lacked caution yesterday. Victim of cyanide poisoning. Criminal act ? Accident ? Blame it on {citizen1} ? Who knows ? ... Oh yes... <strong>I know</strong>.]]></target>
       </segment>
     </unit>
     <unit id="jC0g8aF">
@@ -10158,7 +10158,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr &lt;i class="dagger"&gt;†&lt;/i&gt; {cadaver1} gesehen.</source>
-        <target><![CDATA[Nichts genaues weiß man nicht, auf jeden Fall hat seit geraumer Zeit niemand mehr <i class="dagger">†</i> {cadaver1} gesehen.]]></target>
+        <target><![CDATA[We don't know anything specific, in any case no one has seen <i class="dagger">†</i> {cadaver1} for some time.]]></target>
       </segment>
     </unit>
     <unit id="DZRfvZb" name="Aufgrund deiner Verletzung bist du gestolpert. So ein Ärger...">
@@ -16178,7 +16178,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Letzte Nacht wurde der {sector} von starken Winden heimgesucht.</source>
-        <target>Letzte Nacht wurde der {sector} von starken Winden heimgesucht.</target>
+        <target>This night {sector} was swept by strong winds.</target>
       </segment>
     </unit>
     <unit id="vMWPnXd" name="Gestern Abend gab es starke Windböen im {sector}.">
@@ -16189,7 +16189,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Gestern Abend gab es starke Windböen im {sector}.</source>
-        <target>Gestern Abend gab es starke Windböen im {sector}.</target>
+        <target>Heavy squalls swept through the entire {sector} overnight.</target>
       </segment>
     </unit>
     <unit id="b1WS2ti" name="{sector2} haben gestern ein paar heftige Sandstrürme gewütet.">
@@ -16200,7 +16200,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{sector2} haben gestern ein paar heftige Sandstrürme gewütet.</source>
-        <target>{sector2} haben gestern ein paar heftige Sandstrürme gewütet.</target>
+        <target>Major sandstorms hit {sector2}.</target>
       </segment>
     </unit>
     <unit id="8SlXCl0" name="{sector2} wurden gestern ein paar meteorologische Anomalien gesichtet.">
@@ -16211,7 +16211,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{sector2} wurden gestern ein paar meteorologische Anomalien gesichtet.</source>
-        <target>{sector2} wurden gestern ein paar meteorologische Anomalien gesichtet.</target>
+        <target>Meteorological anomalies were seen {sector2}.</target>
       </segment>
     </unit>
     <unit id="IQK3nfT" name="Ein paar Sandstürme wurden im {sector} beobachtet.">
@@ -16222,7 +16222,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ein paar Sandstürme wurden im {sector} beobachtet.</source>
-        <target>Ein paar Sandstürme wurden im {sector} beobachtet.</target>
+        <target>Sandstorms have been recorded near {sector}.</target>
       </segment>
     </unit>
     <unit id=".HHbbOe" name="Ungewöhnlich starke Winde haben gestern den Sand {sector} aufgewirbelt.">
@@ -16233,7 +16233,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Ungewöhnlich starke Winde haben gestern den Sand {sector} aufgewirbelt.</source>
-        <target>Ungewöhnlich starke Winde haben gestern den Sand {sector} aufgewirbelt.</target>
+        <target>Abnormal winds swept across the desert in {sector}.</target>
       </segment>
     </unit>
     <unit id="ceJmauc" name="Verschiedene Aufzeichnungen zeigen Wetteranomalien {sector2}.">
@@ -16244,7 +16244,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Verschiedene Aufzeichnungen zeigen Wetteranomalien {sector2}.</source>
-        <target>Verschiedene Aufzeichnungen zeigen Wetteranomalien {sector2}.</target>
+        <target>Yesterday evening, the whole {sector} was the scene of several weather anomalies.</target>
       </segment>
     </unit>
     <unit id="BJcjHpt" name="Gestern Abend war der gesamte {sector} Schauplatz mehrerer Wetteranomalien.">
@@ -16255,7 +16255,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Gestern Abend war der gesamte {sector} Schauplatz mehrerer Wetteranomalien.</source>
-        <target>Gestern Abend war der gesamte {sector} Schauplatz mehrerer Wetteranomalien.</target>
+        <target>Our readings point to weather anomalies towards {sector}.</target>
       </segment>
     </unit>
     <unit id="BwUnqIG">
@@ -16266,7 +16266,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Unsere Messungen deuten darauf hin, dass im {sector} Wetteranomalien aufgetreten sind.</source>
-        <target>Unsere Messungen deuten darauf hin, dass im {sector} Wetteranomalien aufgetreten sind.</target>
+        <target>A few isolated phenomena were detected {sector2}.</target>
       </segment>
     </unit>
     <unit id="MxiRuQv" name="Einige vereinzelte Phänomene wurden {sector2} entdeckt.">
@@ -16277,7 +16277,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Einige vereinzelte Phänomene wurden {sector2} entdeckt.</source>
-        <target>Einige vereinzelte Phänomene wurden {sector2} entdeckt.</target>
+        <target>Our readings point to weather anomalies towards {sector}.</target>
       </segment>
     </unit>
     <unit id="u1QojJk" name="In der vergangenen Nacht brach im {sector2} ein heftiger Sturm aus...">
@@ -16288,7 +16288,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>In der vergangenen Nacht brach im {sector2} ein heftiger Sturm aus...</source>
-        <target>In der vergangenen Nacht brach im {sector2} ein heftiger Sturm aus...</target>
+        <target>A severe storm erupted last night {sector2}.</target>
       </segment>
     </unit>
     <unit id="0AnA3pq" name="{sector2} wurden gestern heftige Sturmwinde beobachtet.">
@@ -16299,7 +16299,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>{sector2} wurden gestern heftige Sturmwinde beobachtet.</source>
-        <target>{sector2} wurden gestern heftige Sturmwinde beobachtet.</target>
+        <target>Yesterday strong winds were observed {sector2}.</target>
       </segment>
     </unit>
     <unit id="uoXdth9" name="Gestern Natch wurden im {sector} mehrere Sandstürme beobachtet.">
@@ -16310,7 +16310,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Gestern Natch wurden im {sector} mehrere Sandstürme beobachtet.</source>
-        <target>Gestern Natch wurden im {sector} mehrere Sandstürme beobachtet.</target>
+        <target>Yesterday evening several sandstorms were observed in {sector}.</target>
       </segment>
     </unit>
     <unit id="OhpvQec" name="im Nordwesten">
@@ -17157,7 +17157,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Die Stadt ist nichts weiter als ein widerwärtiger Friedhof. Es war niemand hier, der den letzten Angriff der Zombies hätte aufhalten können: &lt;strong&gt;das Stadttor wurde aufgebrochen&lt;/strong&gt; und &lt;strong&gt;liegt nun in Trümmern&lt;/strong&gt;. {town} existiert nicht mehr...</source>
-        <target>The town is no more than a vast, sickening cemetery. There was nobody here last night to resist the last attack : the town gates were forced open and reduced to splinters. {town} is no more.</target>
+        <target><![CDATA[The town is no more than a vast, sickening cemetery. There was nobody here last night to resist the last attack : <strong>the town gates were forced open</strong> and <strong>reduced to splinters</strong>. {town} is no more.]]></target>
       </segment>
     </unit>
     <unit id="dPIl.ph">
