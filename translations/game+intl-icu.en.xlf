@@ -9040,7 +9040,7 @@ Each upgrade brings various advantages (defence, water, special skills...).It's 
       </notes>
       <segment>
         <source>Was für ein denkwürdiger Tag! Die Zombies spielten keine Rolle mehr, nachdem {citizen1} zur Mittagszeit nackt auf der Mauer einmal um die Stadt rannte. Kommentar von {citizen2} dazu: "Der Anblick war nicht von schlechten Eltern."</source>
-        <target>This morning, {citizen1} wanted to celebrate with dignity the night passed without a dead <strong>by running naked like a worm</strong> in our alleys. "The view was not bad." {citizen2} would have explained.</target>
+        <target><![CDATA[This morning, {citizen1} wanted to celebrate with dignity the night passed without a dead <strong>by running naked like a worm</strong> in our alleys. "The view was not bad." {citizen2} would have explained.]]></target>
       </segment>
     </unit>
     <unit id="HHrNFas">
